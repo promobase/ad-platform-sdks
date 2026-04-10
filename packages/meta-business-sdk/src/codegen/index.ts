@@ -180,6 +180,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";`);
   barrelLines.push(`export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";`);
   barrelLines.push(`export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";`);
+  barrelLines.push(`export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";`);
+  barrelLines.push(`export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

@@ -1005,3 +1005,5 @@ export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts
 export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";
 export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";
 export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";
+export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";
+export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";
