@@ -28,12 +28,12 @@ export function parseDoc(doc: DocContent): EndpointSpec | null {
 
   // Extract endpoint URL
   const urlMatch = content.match(/\*\*Endpoint\*\*\s+(https?:\/\/\S+)/);
-  if (!urlMatch) return null;
+  if (!urlMatch?.[1]) return null;
   const url = urlMatch[1].trim();
 
   // Extract HTTP method
   const methodMatch = content.match(/\*\*Method\*\*\s+(GET|POST|DELETE|PUT)/);
-  if (!methodMatch) return null;
+  if (!methodMatch?.[1]) return null;
   const method = methodMatch[1] as EndpointSpec["method"];
 
   // Extract all xtable blocks
@@ -73,7 +73,7 @@ function extractXtableBlocks(content: string): { start: number; end: number; tex
   const regex = /```xtable\n([\s\S]*?)```/g;
   let match: RegExpExecArray | null;
   while ((match = regex.exec(content)) !== null) {
-    blocks.push({ start: match.index, end: match.index + match[0].length, text: match[1] });
+    blocks.push({ start: match.index, end: match.index + match[0].length, text: match[1]! });
   }
   return blocks;
 }
@@ -121,7 +121,7 @@ function parseXtable(tableText: string): ParamSpec[] {
   if (lines.length < 2) return [];
 
   // Parse header to determine column layout
-  const headerLine = lines[0];
+  const headerLine = lines[0]!;
   const headers = parseTableRow(headerLine).map(h => h.toLowerCase().replace(/\{.*?\}/g, "").trim());
 
   // Determine column indices
@@ -135,15 +135,16 @@ function parseXtable(tableText: string): ParamSpec[] {
   const params: ParamSpec[] = [];
 
   for (let i = 1; i < lines.length; i++) {
-    const line = lines[i];
-    if (line.startsWith("|---") || line.startsWith("| ---")) continue;
+    const line = lines[i]!;
+    // Skip separator rows like |---|---|---| or variations
+    if (/^\|?\s*-+\s*\|/.test(line) || /^#*\|?\s*-+\s*\|/.test(line)) continue;
 
-    // Detect nest level from # prefix
-    const nestMatch = line.match(/^(#{0,4})\|/);
+    // Detect nest level from # prefix (any depth)
+    const nestMatch = line.match(/^(#{1,10})\|/);
     const nestLevel = nestMatch ? nestMatch[1].length : 0;
-    const cleanLine = line.replace(/^#{1,4}\|/, "|");
+    const cleanLine = line.replace(/^#{1,10}\|/, "|");
 
-    const cells = parseTableRow(cleanLine);
+    const cells: string[] = parseTableRow(cleanLine);
     if (cells.length <= Math.max(fieldIdx, typeIdx)) continue;
 
     const rawField = cells[fieldIdx]?.trim() ?? "";
@@ -151,7 +152,7 @@ function parseXtable(tableText: string): ParamSpec[] {
 
     // Parse field name and required flag
     const { name, required } = parseFieldName(rawField);
-    if (!name) continue;
+    if (!name || name === "-" || name === "---" || /^[-#]+$/.test(name) || name.includes("{") || name.includes("}") || name.startsWith("#")) continue;
 
     const type = normalizeType(cells[typeIdx]?.trim() ?? "string");
     const description = (descIdx >= 0 ? cells[descIdx]?.trim() : "") ?? "";
@@ -209,20 +210,28 @@ function parseFieldName(raw: string): { name: string; required: boolean } {
 function normalizeType(raw: string): string {
   const lower = raw.toLowerCase().replace(/<[^>]*>/g, "").trim();
 
-  if (lower === "string" || lower === "enum") return "string";
-  if (lower === "number" || lower === "int" || lower === "integer" || lower === "int64" || lower === "float" || lower === "double") return "number";
+  if (lower === "string" || lower === "enum" || lower === "url" || lower === "datetime" || lower === "date" || lower === "json" || lower === "json string" || lower === "timestamp") return "string";
+  if (lower === "number" || lower === "int" || lower === "integer" || lower === "int64" || lower === "float" || lower === "double" || lower === "decimal" || lower === "bigint") return "number";
   if (lower === "boolean" || lower === "bool") return "boolean";
-  if (lower === "object") return "Record<string, unknown>";
-  if (lower === "string[]" || lower === "list" || lower === "array") return "string[]";
-  if (lower === "object[]") return "Record<string, unknown>[]";
-  if (lower === "number[]" || lower === "int[]" || lower === "integer[]") return "number[]";
-  if (lower === "json string") return "string";
-  if (lower === "file") return "File | Blob";
+  if (lower === "object" || lower === "map" || lower === "dict" || lower === "struct") return "Record<string, unknown>";
+  if (lower === "string[]" || lower === "list" || lower === "array" || lower === "list of strings") return "string[]";
+  if (lower === "object[]" || lower === "list of objects") return "Record<string, unknown>[]";
+  if (lower === "number[]" || lower === "int[]" || lower === "integer[]" || lower === "list of numbers") return "number[]";
+  if (lower === "file" || lower === "binary") return "File | Blob";
 
   // Handle "list of X" patterns
   if (lower.startsWith("list of")) return "unknown[]";
 
-  return raw; // Keep as-is for custom types
+  // Handle "X/Y" union types like "string/string[]"
+  if (raw.includes("/")) {
+    const parts = raw.split("/").map(p => normalizeType(p.trim()));
+    return parts.join(" | ");
+  }
+
+  // Fallback: anything with non-TS-safe chars becomes string
+  if (/[^a-zA-Z0-9_\[\]<>,\s]/.test(raw)) return "string";
+
+  return raw;
 }
 
 function parseLocation(raw: string): "body" | "query" | "header" | undefined {
@@ -254,11 +263,11 @@ function buildNestTree(flatParams: ParamSpec[]): ParamSpec[] {
 
   for (const param of flatParams) {
     // Pop stack until we find the parent level
-    while (stack.length > 1 && stack[stack.length - 1].level >= param.nestLevel) {
+    while (stack.length > 1 && stack[stack.length - 1]!.level >= param.nestLevel) {
       stack.pop();
     }
 
-    const parent = stack[stack.length - 1];
+    const parent = stack[stack.length - 1]!;
     parent.children.push(param);
 
     // If this could be a parent (object-like type), push onto stack

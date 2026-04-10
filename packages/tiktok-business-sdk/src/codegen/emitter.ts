@@ -52,7 +52,15 @@ function paramToTsType(param: ParamSpec): string {
 function emitInterface(name: string, params: ParamSpec[]): string {
   if (params.length === 0) return `export interface ${name} {}\n`;
 
-  const lines = params.map(p => {
+  // Deduplicate properties by name (keep first occurrence)
+  const seen = new Set<string>();
+  const deduped = params.filter(p => {
+    if (seen.has(p.name)) return false;
+    seen.add(p.name);
+    return true;
+  });
+
+  const lines = deduped.map(p => {
     const opt = p.required ? "" : "?";
     const type = paramToTsType(p);
     return `  ${safeProp(p.name)}${opt}: ${type};`;
@@ -63,20 +71,19 @@ function emitInterface(name: string, params: ParamSpec[]): string {
 
 // ─── Client Method Emitter ───────────────────────────────────────────
 
-function emitMethod(spec: EndpointSpec, paramsType: string, responseType: string): string {
-  const methodName = deriveMethodName(spec);
+function emitMethodWithName(spec: EndpointSpec, methodName: string, paramsType: string, responseType: string): string {
   const urlPath = spec.url.replace(/^https?:\/\/[^/]+/, "");
 
   if (spec.method === "GET") {
     return `    /** ${spec.title} */
     async ${methodName}(params: ${paramsType}): Promise<${responseType}> {
-      return get<${responseType}>("${urlPath}", params as Record<string, unknown>);
+      return get<${responseType}>("${urlPath}", params as unknown as Record<string, unknown>);
     }`;
   }
 
   return `    /** ${spec.title} */
     async ${methodName}(params: ${paramsType}): Promise<${responseType}> {
-      return post<${responseType}>("${urlPath}", params as Record<string, unknown>);
+      return post<${responseType}>("${urlPath}", params as unknown as Record<string, unknown>);
     }`;
 }
 
@@ -87,10 +94,10 @@ function deriveMethodName(spec: EndpointSpec): string {
 
   // Common pattern: resource/action → actionResource
   if (segments.length >= 2) {
-    const resource = segments[segments.length - 2];
-    const action = segments[segments.length - 1];
-    const camelAction = action.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
-    const camelResource = resource.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+    const resource = segments[segments.length - 2]!;
+    const action = segments[segments.length - 1]!;
+    const camelAction = action.replace(/_([a-z])/g, (_, c: string) => c.toUpperCase());
+    const camelResource = resource.replace(/_([a-z])/g, (_, c: string) => c.toUpperCase());
 
     // Special handling for common verbs
     if (["get", "list", "create", "update", "delete"].includes(action)) {
@@ -122,6 +129,7 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
   const methodLines: string[] = [];
   const typeImports: string[] = [];
 
+  const usedMethodNames = new Set<string>();
   for (const spec of specs) {
     const baseName = urlToPascalName(spec.url);
     const paramsName = `${baseName}Params`;
@@ -136,7 +144,18 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
     typesLines.push("");
 
     typeImports.push(paramsName, responseName);
-    methodLines.push(emitMethod(spec, paramsName, responseName));
+
+    // Deduplicate method names
+    let methodName = deriveMethodName(spec);
+    let suffix = 2;
+    const baseMethodName = methodName;
+    while (usedMethodNames.has(methodName)) {
+      methodName = `${baseMethodName}${suffix}`;
+      suffix++;
+    }
+    usedMethodNames.add(methodName);
+
+    methodLines.push(emitMethodWithName(spec, methodName, paramsName, responseName));
   }
 
   const typesContent = typesLines.join("\n");
@@ -205,7 +224,10 @@ ${methodLines.join(",\n\n")},
 
 function pascalCategory(category: string): string {
   return category
+    .replace(/[^a-zA-Z0-9\s-]/g, "") // Strip parens, dots, etc.
+    .trim()
     .split(/[\s-]+/)
+    .filter(w => w.length > 0)
     .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join("");
 }
@@ -215,12 +237,14 @@ function pascalCategory(category: string): string {
 export function emitBarrel(categories: CategoryOutput[]): string {
   const lines = [
     "// Auto-generated barrel — do not edit",
+    "// Re-export endpoint factory functions (types can be imported from individual files)",
     "",
   ];
 
   for (const cat of categories) {
-    lines.push(`export * from "./types/${cat.fileName}.ts";`);
-    lines.push(`export * from "./endpoints/${cat.fileName}.ts";`);
+    const fnName = `create${pascalCategory(cat.fileName.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(""))}`;
+    // Only re-export the factory function to avoid type name collisions across categories
+    lines.push(`export { create${pascalCategory(cat.fileName.replace(/-/g, " "))} } from "./endpoints/${cat.fileName}.ts";`);
   }
 
   lines.push("");
