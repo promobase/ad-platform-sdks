@@ -33,6 +33,10 @@ export type {
   CommentContent, MentionContent, DMContent,
 } from "./webhooks.ts";
 
+// --- AI Tools ---
+export { createTikTokTools, createTikTokContentTools, createTikTokCommentTools, createTikTokAccountTools, createTikTokMessagingTools } from "./ai/index.ts";
+export type { CreateTikTokToolsOptions } from "./ai/index.ts";
+
 // --- Client types ---
 export type {
   TikTokClientOptions,

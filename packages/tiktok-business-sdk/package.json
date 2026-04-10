@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@promobase/sdk-runtime": "workspace:*",
+    "ai": "^6.0.158",
     "zod": "^4.3.6"
   },
   "devDependencies": {

@@ -23,6 +23,8 @@ import {
   createTikTokWebhooks,
   createTikTokDiscovery,
 } from "./clients/index.ts";
+import { createTikTokTools } from "./ai/index.ts";
+import type { CreateTikTokToolsOptions } from "./ai/index.ts";
 import type {
   TikTokClientOptions,
   OAuthConfig,
@@ -85,6 +87,17 @@ export const TikTok = {
 
   /** Create a Discovery API client for advertiser-scoped trending hashtags. */
   createDiscovery: createTikTokDiscovery,
+
+  /**
+   * Create AI tool definitions for TikTok operations.
+   * Compatible with Vercel AI SDK — works with any LLM provider.
+   *
+   * ```ts
+   * const tools = TikTok.createTools({ accessToken, businessId });
+   * const result = await generateText({ model, tools, prompt: "Post a video" });
+   * ```
+   */
+  createTools: createTikTokTools,
 
   /** TikTok API error class with code, requestId, and error classification helpers. */
   ApiError: TikTokApiError,
@@ -169,4 +182,5 @@ export type {
   TikTokCursorOptions,
   WebhookParseOptions,
   WebhookParseResult,
+  CreateTikTokToolsOptions,
 };
