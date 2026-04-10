@@ -92,7 +92,7 @@ function parseApiFilter(filterExpr: string): { method: string; endpoint: string 
   const methodMatch = filterExpr.match(/@\.method=='([^']+)'/);
   const endpointMatch = filterExpr.match(/@\.endpoint=='([^']+)'/);
   if (!methodMatch || !endpointMatch) return null;
-  return { method: methodMatch[1], endpoint: endpointMatch[1] };
+  return { method: methodMatch[1]!, endpoint: endpointMatch[1]! };
 }
 
 /**
@@ -102,7 +102,7 @@ function parseApiFilter(filterExpr: string): { method: string; endpoint: string 
  */
 function parseParamFilter(filterExpr: string): string | null {
   const nameMatch = filterExpr.match(/@\.name=='([^']+)'/);
-  return nameMatch ? nameMatch[1] : null;
+  return nameMatch ? nameMatch[1]! : null;
 }
 
 /**
@@ -112,7 +112,7 @@ function parseParamFilter(filterExpr: string): string | null {
  */
 function parseFieldFilter(filterExpr: string): string | null {
   const nameMatch = filterExpr.match(/@\.name=='([^']+)'/);
-  return nameMatch ? nameMatch[1] : null;
+  return nameMatch ? nameMatch[1]! : null;
 }
 
 /**
@@ -131,7 +131,7 @@ function applyPatch(spec: Spec, path: string, patch: Record<string, any>): void 
   // $.fields[?(@.name=='X')]
   const fieldMatch = path.match(/^\$\.fields\[\?\((.+?)\)\]$/);
   if (fieldMatch) {
-    const fieldName = parseFieldFilter(fieldMatch[1]);
+    const fieldName = parseFieldFilter(fieldMatch[1]!);
     if (fieldName) {
       const field = spec.fields.find((f) => f.name === fieldName);
       if (field) {
@@ -147,8 +147,8 @@ function applyPatch(spec: Spec, path: string, patch: Record<string, any>): void 
     /^\$\.apis\[\?\((.+?)\)\](?:\.|\[')params(?:'\])?\[\?\((.+?)\)\]$/
   );
   if (apiParamMatch) {
-    const apiFilter = parseApiFilter(apiParamMatch[1]);
-    const paramName = parseParamFilter(apiParamMatch[2]);
+    const apiFilter = parseApiFilter(apiParamMatch[1]!);
+    const paramName = parseParamFilter(apiParamMatch[2]!);
     if (apiFilter && paramName) {
       for (const api of spec.apis) {
         if (api.method === apiFilter.method && api.endpoint === apiFilter.endpoint) {
@@ -165,7 +165,7 @@ function applyPatch(spec: Spec, path: string, patch: Record<string, any>): void 
   // $.apis[?(@.method=='X' && @.endpoint=='Y')]
   const apiMatch = path.match(/^\$\.apis\[\?\((.+?)\)\]$/);
   if (apiMatch) {
-    const apiFilter = parseApiFilter(apiMatch[1]);
+    const apiFilter = parseApiFilter(apiMatch[1]!);
     if (apiFilter) {
       for (const api of spec.apis) {
         if (api.method === apiFilter.method && api.endpoint === apiFilter.endpoint) {

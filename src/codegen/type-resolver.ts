@@ -75,7 +75,7 @@ export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
 
   // 1. Primitive / bare container lookup
   if (trimmed in PRIMITIVES) {
-    return PRIMITIVES[trimmed];
+    return PRIMITIVES[trimmed]!;
   }
 
   // 2. Generic types: list<...> or map<...>
@@ -84,14 +84,16 @@ export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
     const { outer, inner } = parsed;
 
     if (outer === "list") {
-      const resolvedInner = resolveType(inner[0], ctx);
+      const resolvedInner = resolveType(inner[0]!, ctx);
       return `${resolvedInner}[]`;
     }
 
     if (outer === "map") {
-      const keyType = resolveType(inner[0], ctx);
-      const valType = resolveType(inner[1], ctx);
-      return `Record<${keyType}, ${valType}>`;
+      const keyType = resolveType(inner[0]!, ctx);
+      const valType = resolveType(inner[1]!, ctx);
+      // Record keys must be string | number | symbol; fall back to string for complex key types
+      const safeKeyType = (keyType === "string" || keyType === "number") ? keyType : "string";
+      return `Record<${safeKeyType}, ${valType}>`;
     }
 
     // Unknown generic — fall through to unknown
@@ -108,6 +110,12 @@ export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
     return `${trimmed}Fields`;
   }
 
-  // 5. Fallback: unknown type — return as-is with a comment marker
+  // 5. Enum-like patterns without values — fall back to string
+  // Field enums: "Campaign_bid_strategy", Param enums: "adcampaigngroup_objective"
+  if (/^[A-Z]\w+_\w+$/.test(trimmed) || /^[a-z]\w+_\w+$/.test(trimmed)) {
+    return "string";
+  }
+
+  // 6. Fallback
   return "unknown";
 }

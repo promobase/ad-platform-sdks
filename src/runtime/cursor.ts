@@ -3,7 +3,7 @@ import type { ApiClient, PaginatedResponse } from "./client.ts";
 export class Cursor<T> implements AsyncIterable<T> {
   private readonly client: ApiClient;
   private readonly path: string;
-  private readonly fields: string[];
+  private readonly fields: readonly string[];
   private readonly params: Record<string, unknown>;
   private readonly deserialize: ((raw: unknown) => T) | undefined;
   private afterCursor: string | undefined = undefined;
@@ -13,7 +13,7 @@ export class Cursor<T> implements AsyncIterable<T> {
   constructor(
     client: ApiClient,
     path: string,
-    opts: { fields: string[]; params?: Record<string, unknown> },
+    opts: { fields: readonly string[]; params?: Record<string, unknown> },
     deserialize?: (raw: unknown) => T,
   ) {
     this.client = client;

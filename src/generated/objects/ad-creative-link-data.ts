@@ -1,0 +1,52 @@
+import type { AdCreativeCollectionThumbnailInfoFields } from "./ad-creative-collection-thumbnail-info.ts";
+import type { AdCreativeLinkDataAppLinkSpecFields } from "./ad-creative-link-data-app-link-spec.ts";
+import type { AdCreativeLinkDataCallToActionFields } from "./ad-creative-link-data-call-to-action.ts";
+import type { AdCreativeLinkDataChildAttachmentFields } from "./ad-creative-link-data-child-attachment.ts";
+import type { AdCreativeLinkDataImageLayerSpecFields } from "./ad-creative-link-data-image-layer-spec.ts";
+import type { AdCreativeLinkDataImageOverlaySpecFields } from "./ad-creative-link-data-image-overlay-spec.ts";
+import type { AdCreativePostClickConfigurationFields } from "./ad-creative-post-click-configuration.ts";
+import type { AdCreativeStaticFallbackSpecFields } from "./ad-creative-static-fallback-spec.ts";
+import type { AdCustomizationRuleSpecFields } from "./ad-customization-rule-spec.ts";
+import type { AdsImageCropsFields } from "./ads-image-crops.ts";
+
+export interface AdCreativeLinkDataFields {
+  ad_context: string;
+  additional_image_index: number;
+  app_link_spec: AdCreativeLinkDataAppLinkSpecFields;
+  attachment_style: string;
+  automated_product_tags: boolean;
+  boosted_product_set_id: string;
+  branded_content_shared_to_sponsor_status: string;
+  branded_content_sponsor_page_id: string;
+  call_to_action: AdCreativeLinkDataCallToActionFields;
+  caption: string;
+  child_attachments: AdCreativeLinkDataChildAttachmentFields[];
+  collection_thumbnails: AdCreativeCollectionThumbnailInfoFields[];
+  customization_rules_spec: AdCustomizationRuleSpecFields[];
+  description: string;
+  event_id: string;
+  force_single_link: boolean;
+  format_option: string;
+  image_crops: AdsImageCropsFields;
+  image_hash: string;
+  image_layer_specs: AdCreativeLinkDataImageLayerSpecFields[];
+  image_overlay_spec: AdCreativeLinkDataImageOverlaySpecFields;
+  is_local_expansion: boolean;
+  link: string;
+  message: string;
+  multi_share_end_card: boolean;
+  multi_share_optimized: boolean;
+  name: string;
+  offer_id: string;
+  page_welcome_message: string;
+  picture: string;
+  post_click_configuration: AdCreativePostClickConfigurationFields;
+  preferred_image_tags: string[];
+  preferred_video_tags: string[];
+  retailer_item_ids: string[];
+  show_multiple_images: boolean;
+  smart_pse_enabled: boolean;
+  static_fallback_spec: AdCreativeStaticFallbackSpecFields;
+  use_flexible_image_aspect_ratio: boolean;
+}
+

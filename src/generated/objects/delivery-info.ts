@@ -1,0 +1,45 @@
+export interface DeliveryInfoFields {
+  active_accelerated_campaign_count: number;
+  active_day_parted_campaign_count: number;
+  ad_penalty_map: Record<string, boolean>[];
+  are_all_daily_budgets_spent: boolean;
+  credit_needed_ads_count: number;
+  eligible_for_delivery_insights: boolean;
+  end_time: string;
+  has_account_hit_spend_limit: boolean;
+  has_campaign_group_hit_spend_limit: boolean;
+  has_no_active_ads: boolean;
+  has_no_ads: boolean;
+  inactive_ads_count: number;
+  inactive_campaign_count: number;
+  is_account_closed: boolean;
+  is_account_disabled: boolean;
+  is_ad_uneconomical: boolean;
+  is_adfarm_penalized: boolean;
+  is_adgroup_partially_rejected: boolean;
+  is_campaign_accelerated: boolean;
+  is_campaign_completed: boolean;
+  is_campaign_day_parted: boolean;
+  is_campaign_disabled: boolean;
+  is_campaign_group_disabled: boolean;
+  is_clickbait_penalized: boolean;
+  is_daily_budget_spent: boolean;
+  is_engagement_bait_penalized: boolean;
+  is_lqwe_penalized: boolean;
+  is_reach_and_frequency_misconfigured: boolean;
+  is_sensationalism_penalized: boolean;
+  is_split_test_active: boolean;
+  is_split_test_valid: boolean;
+  lift_study_time_period: string;
+  needs_credit: boolean;
+  needs_tax_number: boolean;
+  non_deleted_ads_count: number;
+  not_delivering_campaign_count: number;
+  pending_ads_count: number;
+  reach_frequency_campaign_underdelivery_reason: string;
+  rejected_ads_count: number;
+  start_time: string;
+  status: string;
+  text_penalty_level: string;
+}
+

@@ -11,7 +11,7 @@ function mockFetch(response: { status: number; body: unknown }) {
       status: response.status,
       headers: { "Content-Type": "application/json" },
     }))
-  ) as typeof fetch;
+  ) as unknown as typeof fetch;
 }
 
 afterEach(() => { globalThis.fetch = originalFetch; });
@@ -21,7 +21,7 @@ test("ApiClient.get sends GET with access token and fields", async () => {
   const client = new ApiClient({ accessToken: "tok_123" });
   const result = await client.get<{ id: string; name: string }>("123", { fields: ["id", "name"] });
   expect(result).toEqual({ id: "123", name: "Test" });
-  const [url] = (globalThis.fetch as ReturnType<typeof mock>).mock.calls[0] as [string];
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
   expect(url).toContain("https://graph.facebook.com/v25.0/123");
   expect(url).toContain("access_token=tok_123");
   expect(url).toContain("fields=id%2Cname");
@@ -32,7 +32,7 @@ test("ApiClient.post sends POST with params", async () => {
   const client = new ApiClient({ accessToken: "tok_123" });
   const result = await client.post<{ id: string }>("act_123/campaigns", { name: "My Campaign", objective: "OUTCOME_SALES" });
   expect(result).toEqual({ id: "456" });
-  const [url, init] = (globalThis.fetch as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
   expect(url).toContain("act_123/campaigns");
   expect(init.method).toBe("POST");
 });
@@ -55,6 +55,6 @@ test("ApiClient respects custom apiVersion and baseUrl", async () => {
   mockFetch({ status: 200, body: {} });
   const client = new ApiClient({ accessToken: "tok", apiVersion: "v24.0", baseUrl: "https://custom.graph.com" });
   await client.get("123", { fields: [] });
-  const [url] = (globalThis.fetch as ReturnType<typeof mock>).mock.calls[0] as [string];
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
   expect(url).toContain("https://custom.graph.com/v24.0/123");
 });

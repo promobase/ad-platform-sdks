@@ -1,0 +1,51 @@
+import type { AdPlacePageSetFields } from "./ad-place-page-set.ts";
+import type { ProductSetFields } from "./product-set.ts";
+
+export interface AdPromotedObjectFields {
+  application_id: string;
+  boosted_product_set_id: string;
+  conversion_goal_id: string;
+  custom_conversion_id: string;
+  custom_event_str: string;
+  custom_event_type: string;
+  dataset_split_id: string;
+  dataset_split_ids: string[];
+  event_id: string;
+  full_funnel_objective: string;
+  fundraiser_campaign_id: string;
+  lead_ads_custom_event_str: string;
+  lead_ads_custom_event_type: string;
+  lead_ads_form_event_source_type: string;
+  lead_ads_offsite_conversion_type: string;
+  lead_ads_selected_pixel_id: string;
+  live_video_destination: string;
+  mcme_conversion_id: string;
+  multi_event_product: string;
+  object_store_url: string;
+  object_store_urls: string[];
+  offer_id: string;
+  offline_conversion_data_set_id: string;
+  offsite_conversion_event_id: string;
+  omnichannel_object: Record<string, unknown>;
+  page_id: string;
+  passback_application_id: string;
+  passback_pixel_id: string;
+  pixel_aggregation_rule: string;
+  pixel_id: string;
+  pixel_rule: string;
+  place_page_set: AdPlacePageSetFields;
+  place_page_set_id: string;
+  product_catalog_id: string;
+  product_item_id: string;
+  product_set: ProductSetFields;
+  product_set_id: string;
+  product_set_optimization: string;
+  retention_days: string;
+  smart_pse_enabled: boolean;
+  smart_pse_setting: string;
+  value_semantic_type: string;
+  variation: string;
+  whats_app_business_phone_number_id: string;
+  whatsapp_phone_number: string;
+}
+

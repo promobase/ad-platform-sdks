@@ -39,25 +39,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const knownObjects = new Set(specs.keys());
   const knownEnums = new Set(extractedEnums.keys());
 
-  // Scan all spec fields and params for enum-like type patterns
-  for (const [, spec] of specs) {
-    for (const field of spec.fields) {
-      const t = field.type.trim();
-      // Field enums: match /^[A-Z]\w+_\w+$/ and not in knownObjects
-      if (/^[A-Z]\w+_\w+$/.test(t) && !knownObjects.has(t)) {
-        knownEnums.add(t);
-      }
-    }
-    for (const api of spec.apis) {
-      for (const param of api.params) {
-        const t = param.type.trim();
-        // Param enums: match /_enum_param$/ or /^[a-z]\w+_\w+$/
-        if (/_enum_param$/.test(t) || /^[a-z]\w+_\w+$/.test(t)) {
-          knownEnums.add(t);
-        }
-      }
-    }
-  }
+  // Only enums with actual values (from Node SDK scraping) are "known".
+  // Without values, enum-like type names resolve to `string` via the fallback.
 
   console.log(`[codegen] Known objects: ${knownObjects.size}, known enums: ${knownEnums.size}`);
 

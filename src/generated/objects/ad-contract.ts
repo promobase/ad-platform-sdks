@@ -1,0 +1,44 @@
+export interface AdContractFields {
+  account_id: string;
+  account_mgr_fbid: string;
+  account_mgr_name: string;
+  adops_person_name: string;
+  advertiser_address_fbid: string;
+  advertiser_fbid: string;
+  advertiser_name: string;
+  agency_discount: number;
+  agency_name: string;
+  bill_to_address_fbid: string;
+  bill_to_fbid: string;
+  campaign_name: string;
+  created_by: string;
+  created_date: number;
+  customer_io: string;
+  io_number: number;
+  io_terms: string;
+  io_type: string;
+  last_updated_by: string;
+  last_updated_date: number;
+  max_end_date: number;
+  mdc_fbid: string;
+  media_plan_number: string;
+  min_start_date: number;
+  msa_contract: string;
+  payment_terms: string;
+  rev_hold_flag: boolean;
+  rev_hold_released_by: number;
+  rev_hold_released_on: number;
+  salesrep_fbid: string;
+  salesrep_name: string;
+  sold_to_address_fbid: string;
+  sold_to_fbid: string;
+  status: string;
+  subvertical: string;
+  thirdparty_billed: number;
+  thirdparty_uid: string;
+  thirdparty_url: string;
+  vat_country: string;
+  version: number;
+  vertical: string;
+}
+

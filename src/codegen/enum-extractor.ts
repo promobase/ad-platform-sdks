@@ -9,7 +9,7 @@ export function parseEnumBlock(source: string): Record<string, string> {
   const kvPattern = /(\w+)\s*:\s*'([^']+)'/g;
   let match: RegExpExecArray | null;
   while ((match = kvPattern.exec(source)) !== null) {
-    result[match[1]] = match[2];
+    result[match[1]!] = match[2]!;
   }
   return result;
 }
@@ -26,8 +26,8 @@ export function extractEnumsFromSource(className: string, source: string): EnumM
 
   let match: RegExpExecArray | null;
   while ((match = blockPattern.exec(source)) !== null) {
-    const enumName = match[1];
-    const blockContent = match[2];
+    const enumName = match[1]!;
+    const blockContent = match[2]!;
 
     if (enumName === "Fields") {
       continue;
@@ -59,7 +59,7 @@ export async function extractAllEnums(nodeSdkObjectsDir: string): Promise<EnumMa
       continue;
     }
 
-    const className = classMatch[1];
+    const className = classMatch[1]!;
     const fileEnums = extractEnumsFromSource(className, source);
 
     for (const [key, values] of fileEnums) {

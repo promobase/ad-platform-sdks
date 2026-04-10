@@ -12,7 +12,7 @@ function mockFetchPages(pages: { data: unknown[]; after?: string }[]) {
       data: page.data,
       paging: { cursors: { after: page.after }, ...(page.after ? { next: "https://graph.facebook.com/next" } : {}) },
     }), { status: 200, headers: { "Content-Type": "application/json" } }));
-  }) as typeof fetch;
+  }) as unknown as typeof fetch;
 }
 
 afterEach(() => { globalThis.fetch = originalFetch; });

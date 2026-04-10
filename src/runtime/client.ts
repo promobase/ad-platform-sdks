@@ -58,7 +58,7 @@ export class ApiClient {
     return responseBody as T;
   }
 
-  async get<T>(path: string, opts: { fields: string[]; params?: Record<string, unknown> }): Promise<T> {
+  async get<T>(path: string, opts: { fields: readonly string[]; params?: Record<string, unknown> }): Promise<T> {
     const params = { ...opts.params, fields: opts.fields.join(",") };
     return this.request<T>("GET", this.buildUrl(path, params));
   }
@@ -71,7 +71,7 @@ export class ApiClient {
     await this.request<unknown>("DELETE", this.buildUrl(path, params));
   }
 
-  async getEdge<T = Record<string, unknown>>(path: string, opts: { fields: string[]; params?: Record<string, unknown> }): Promise<PaginatedResponse<T>> {
+  async getEdge<T = Record<string, unknown>>(path: string, opts: { fields: readonly string[]; params?: Record<string, unknown> }): Promise<PaginatedResponse<T>> {
     const params = { ...opts.params, fields: opts.fields.join(",") };
     return this.request<PaginatedResponse<T>>("GET", this.buildUrl(path, params));
   }

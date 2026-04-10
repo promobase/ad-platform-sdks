@@ -1,0 +1,19 @@
+import type { ApiClient } from "../../runtime/client.ts";
+import type { BusinessFields } from "./business.ts";
+
+export interface CollaborativeAdsShareSettingsFields {
+  agency_business: BusinessFields;
+  id: string;
+  product_catalog_proxy_id: string;
+  utm_campaign: string;
+  utm_medium: string;
+  utm_source: string;
+}
+
+export function collaborativeAdsShareSettingsNode(client: ApiClient, id: string) {
+  return {
+    get: <F extends (keyof CollaborativeAdsShareSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+      client.get<Pick<CollaborativeAdsShareSettingsFields, F[number]>>(`${id}`, opts),
+  };
+}
+
