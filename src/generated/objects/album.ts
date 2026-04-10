@@ -141,7 +141,7 @@ export function albumNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AlbumCreateLikesParams) =>
-        client.post<ProfileFields>(`${id}/likes`, params as Record<string, unknown>),
+        client.post<AlbumFields>(`${id}/likes`, params as Record<string, unknown>),
     },
     photos: {
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

@@ -392,7 +392,7 @@ export function groupNode(client: ApiClient, id: string) {
       client.post<GroupFields>(`${id}`, params as Record<string, unknown>),
     admins: {
       create: (params: GroupCreateAdminsParams) =>
-        client.post<Record<string, unknown>>(`${id}/admins`, params as Record<string, unknown>),
+        client.post<GroupFields>(`${id}/admins`, params as Record<string, unknown>),
       delete: (params: GroupDeleteAdminsParams) =>
         client.delete(`${id}/admins`, params as Record<string, unknown> ?? {}),
     },
@@ -424,7 +424,7 @@ export function groupNode(client: ApiClient, id: string) {
     },
     members: {
       create: (params: GroupCreateMembersParams) =>
-        client.post<Record<string, unknown>>(`${id}/members`, params as Record<string, unknown>),
+        client.post<GroupFields>(`${id}/members`, params as Record<string, unknown>),
       delete: (params: GroupDeleteMembersParams) =>
         client.delete(`${id}/members`, params as Record<string, unknown> ?? {}),
     },

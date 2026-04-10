@@ -5,6 +5,7 @@ import type { AdCreativeAssetGroupsSpecFields } from "./ad-creative-asset-groups
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPreviewFields } from "./ad-preview.ts";
 import type { AdRecommendationFields } from "./ad-recommendation.ts";
+import type { AdReportRunFields } from "./ad-report-run.ts";
 import type { AdRuleFields } from "./ad-rule.ts";
 import type { AdSetFields } from "./ad-set.ts";
 import type { AdgroupIssuesInfoFields } from "./adgroup-issues-info.ts";
@@ -208,7 +209,7 @@ export function adNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdCreateInsightsParams) =>
-        client.post<AdsInsightsFields>(`${id}/insights`, params as Record<string, unknown>),
+        client.post<AdReportRunFields>(`${id}/insights`, params as Record<string, unknown>),
     },
     leads: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

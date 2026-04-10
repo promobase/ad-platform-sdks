@@ -6,9 +6,11 @@ import type { AdsEligibilityFields } from "./ads-eligibility.ts";
 import type { AlbumFields } from "./album.ts";
 import type { ApplicationFields } from "./application.ts";
 import type { ArAdsDataContainerFields } from "./ar-ads-data-container.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
 import type { BusinessFields } from "./business.ts";
 import type { BusinessProjectFields } from "./business-project.ts";
 import type { CTXOptimizationEligibilityFields } from "./ctx-optimization-eligibility.ts";
+import type { CTXPartnerAppWelcomeMessageFlowFields } from "./ctx-partner-app-welcome-message-flow.ts";
 import type { CanvasFields } from "./canvas.ts";
 import type { CanvasBodyElementFields } from "./canvas-body-element.ts";
 import type { ChatPluginFields } from "./chat-plugin.ts";
@@ -19,6 +21,7 @@ import type { CommerceOrderTransactionDetailFields } from "./commerce-order-tran
 import type { CommercePayoutFields } from "./commerce-payout.ts";
 import type { CopyrightAttributionInsightsFields } from "./copyright-attribution-insights.ts";
 import type { CoverPhotoFields } from "./cover-photo.ts";
+import type { CustomUserSettingsFields } from "./custom-user-settings.ts";
 import type { DatasetFields } from "./dataset.ts";
 import type { EngagementFields } from "./engagement.ts";
 import type { EventFields } from "./event.ts";
@@ -35,8 +38,10 @@ import type { MediaFingerprintFields } from "./media-fingerprint.ts";
 import type { MessagingFeatureReviewFields } from "./messaging-feature-review.ts";
 import type { MessagingFeatureStatusFields } from "./messaging-feature-status.ts";
 import type { MessengerAdsPartialAutomatedStepListFields } from "./messenger-ads-partial-automated-step-list.ts";
+import type { MessengerBusinessTemplateFields } from "./messenger-business-template.ts";
 import type { MessengerCallPermissionsFields } from "./messenger-call-permissions.ts";
 import type { MessengerCallSettingsFields } from "./messenger-call-settings.ts";
+import type { MessengerProfileFields } from "./messenger-profile.ts";
 import type { PageCallToActionFields } from "./page-call-to-action.ts";
 import type { PageCategoryFields } from "./page-category.ts";
 import type { PageParkingFields } from "./page-parking.ts";
@@ -52,6 +57,7 @@ import type { PageUserMessageThreadLabelFields } from "./page-user-message-threa
 import type { PersonaFields } from "./persona.ts";
 import type { PhotoFields } from "./photo.ts";
 import type { ProductCatalogFields } from "./product-catalog.ts";
+import type { ProfileFields } from "./profile.ts";
 import type { ProfilePictureSourceFields } from "./profile-picture-source.ts";
 import type { RTBDynamicPostFields } from "./rtb-dynamic-post.ts";
 import type { RecommendationFields } from "./recommendation.ts";
@@ -1319,10 +1325,10 @@ export function pageNode(client: ApiClient, id: string) {
     adsPosts: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListAdsPostsParams }) =>
       new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/ads_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     agencies: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateAgenciesParams) =>
-        client.post<Record<string, unknown>>(`${id}/agencies`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: PageDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
@@ -1331,16 +1337,16 @@ export function pageNode(client: ApiClient, id: string) {
     arExperience: <F extends (keyof ArAdsDataContainerFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ArAdsDataContainerFields, F[number]>>(client, `${id}/ar_experience`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: PageListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: PageDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     blocked: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListBlockedParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/blocked`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: PageListBlockedParams }) =>
+        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/blocked`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateBlockedParams) =>
         client.post<Record<string, unknown>>(`${id}/blocked`, params as Record<string, unknown>),
       delete: (params: PageDeleteBlockedParams) =>
@@ -1393,10 +1399,10 @@ export function pageNode(client: ApiClient, id: string) {
         client.post<PageUserMessageThreadLabelFields>(`${id}/custom_labels`, params as Record<string, unknown>),
     },
     customUserSettings: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListCustomUserSettingsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/custom_user_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CustomUserSettingsFields)[]>(opts: { fields: F; params?: PageListCustomUserSettingsParams }) =>
+        new Cursor<Pick<CustomUserSettingsFields, F[number]>>(client, `${id}/custom_user_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateCustomUserSettingsParams) =>
-        client.post<Record<string, unknown>>(`${id}/custom_user_settings`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/custom_user_settings`, params as Record<string, unknown>),
       delete: (params: PageDeleteCustomUserSettingsParams) =>
         client.delete(`${id}/custom_user_settings`, params as Record<string, unknown> ?? {}),
     },
@@ -1416,7 +1422,7 @@ export function pageNode(client: ApiClient, id: string) {
       list: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListFeedParams }) =>
         new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateFeedParams) =>
-        client.post<PagePostFields>(`${id}/feed`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/feed`, params as Record<string, unknown>),
     },
     globalBrandChildren: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/global_brand_children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -1447,10 +1453,10 @@ export function pageNode(client: ApiClient, id: string) {
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
     locations: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/locations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/locations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateLocationsParams) =>
-        client.post<Record<string, unknown>>(`${id}/locations`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/locations`, params as Record<string, unknown>),
       delete: (params: PageDeleteLocationsParams) =>
         client.delete(`${id}/locations`, params as Record<string, unknown> ?? {}),
     },
@@ -1463,10 +1469,10 @@ export function pageNode(client: ApiClient, id: string) {
     createMessageAttachment: (params: PageCreateMessageAttachmentsParams) =>
       client.post<Record<string, unknown>>(`${id}/message_attachments`, params as Record<string, unknown>),
     messageTemplates: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListMessageTemplatesParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof MessengerBusinessTemplateFields)[]>(opts: { fields: F; params?: PageListMessageTemplatesParams }) =>
+        new Cursor<Pick<MessengerBusinessTemplateFields, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateMessageTemplatesParams) =>
-        client.post<Record<string, unknown>>(`${id}/message_templates`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/message_templates`, params as Record<string, unknown>),
       delete: (params: PageDeleteMessageTemplatesParams) =>
         client.delete(`${id}/message_templates`, params as Record<string, unknown> ?? {}),
     },
@@ -1480,19 +1486,19 @@ export function pageNode(client: ApiClient, id: string) {
       list: <F extends (keyof MessengerCallSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<MessengerCallSettingsFields, F[number]>>(client, `${id}/messenger_call_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateMessengerCallSettingsParams) =>
-        client.post<MessengerCallSettingsFields>(`${id}/messenger_call_settings`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/messenger_call_settings`, params as Record<string, unknown>),
     },
     messengerLeadForms: {
       list: <F extends (keyof MessengerAdsPartialAutomatedStepListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<MessengerAdsPartialAutomatedStepListFields, F[number]>>(client, `${id}/messenger_lead_forms`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateMessengerLeadFormsParams) =>
-        client.post<MessengerAdsPartialAutomatedStepListFields>(`${id}/messenger_lead_forms`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/messenger_lead_forms`, params as Record<string, unknown>),
     },
     messengerProfile: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListMessengerProfileParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof MessengerProfileFields)[]>(opts: { fields: F; params?: PageListMessengerProfileParams }) =>
+        new Cursor<Pick<MessengerProfileFields, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateMessengerProfileParams) =>
-        client.post<Record<string, unknown>>(`${id}/messenger_profile`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/messenger_profile`, params as Record<string, unknown>),
       delete: (params: PageDeleteMessengerProfileParams) =>
         client.delete(`${id}/messenger_profile`, params as Record<string, unknown> ?? {}),
     },
@@ -1558,7 +1564,7 @@ export function pageNode(client: ApiClient, id: string) {
       list: <F extends (keyof PageSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageSettingsFields, F[number]>>(client, `${id}/settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateSettingsParams) =>
-        client.post<PageSettingsFields>(`${id}/settings`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/settings`, params as Record<string, unknown>),
     },
     shopSetupStatus: <F extends (keyof CommerceMerchantSettingsSetupStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CommerceMerchantSettingsSetupStatusFields, F[number]>>(client, `${id}/shop_setup_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -1573,10 +1579,10 @@ export function pageNode(client: ApiClient, id: string) {
     stories: <F extends (keyof StoriesFields)[]>(opts: { fields: F; params?: PageListStoriesParams }) =>
       new Cursor<Pick<StoriesFields, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     subscribedApps: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateSubscribedAppsParams) =>
-        client.post<Record<string, unknown>>(`${id}/subscribed_apps`, params as Record<string, unknown>),
+        client.post<PageFields>(`${id}/subscribed_apps`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
@@ -1619,8 +1625,8 @@ export function pageNode(client: ApiClient, id: string) {
     visitorPosts: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListVisitorPostsParams }) =>
       new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/visitor_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     welcomeMessageFlows: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: PageListWelcomeMessageFlowsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: PageListWelcomeMessageFlowsParams }) =>
+        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PageCreateWelcomeMessageFlowsParams) =>
         client.post<Record<string, unknown>>(`${id}/welcome_message_flows`, params as Record<string, unknown>),
       delete: (params: PageDeleteWelcomeMessageFlowsParams) =>

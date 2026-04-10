@@ -8,6 +8,7 @@ import type { AlbumFields } from "./album.ts";
 import type { AppRequestFields } from "./app-request.ts";
 import type { AppRequestFormerRecipientFields } from "./app-request-former-recipient.ts";
 import type { ApplicationFields } from "./application.ts";
+import type { BusinessFields } from "./business.ts";
 import type { BusinessAssetGroupFields } from "./business-asset-group.ts";
 import type { BusinessUserFields } from "./business-user.ts";
 import type { CanvasFields } from "./canvas.ts";
@@ -23,6 +24,7 @@ import type { PageFields } from "./page.ts";
 import type { PageUserMessageThreadLabelFields } from "./page-user-message-thread-label.ts";
 import type { PaymentEnginePaymentFields } from "./payment-engine-payment.ts";
 import type { PaymentPricepointsFields } from "./payment-pricepoints.ts";
+import type { PermissionFields } from "./permission.ts";
 import type { PhotoFields } from "./photo.ts";
 import type { PostFields } from "./post.ts";
 import type { ProductCatalogFields } from "./product-catalog.ts";
@@ -613,7 +615,7 @@ export function userNode(client: ApiClient, id: string) {
       client.delete(`${id}`, {}),
     accessTokens: {
       create: (params: UserCreateAccessTokensParams) =>
-        client.post<Record<string, unknown>>(`${id}/access_tokens`, params as Record<string, unknown>),
+        client.post<UserFields>(`${id}/access_tokens`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/access_tokens`, params as Record<string, unknown> ?? {}),
     },
@@ -621,7 +623,7 @@ export function userNode(client: ApiClient, id: string) {
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListAccountsParams }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: UserCreateAccountsParams) =>
-        client.post<PageFields>(`${id}/accounts`, params as Record<string, unknown>),
+        client.post<Record<string, unknown>>(`${id}/accounts`, params as Record<string, unknown>),
     },
     adStudies: {
       list: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
@@ -654,10 +656,10 @@ export function userNode(client: ApiClient, id: string) {
     businessUsers: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     businesses: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: UserCreateBusinessesParams) =>
-        client.post<Record<string, unknown>>(`${id}/businesses`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/businesses`, params as Record<string, unknown>),
       delete: (params: UserDeleteBusinessesParams) =>
         client.delete(`${id}/businesses`, params as Record<string, unknown> ?? {}),
     },
@@ -708,8 +710,8 @@ export function userNode(client: ApiClient, id: string) {
     paymentTransactions: <F extends (keyof PaymentEnginePaymentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PaymentEnginePaymentFields, F[number]>>(client, `${id}/payment_transactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     permissions: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: UserListPermissionsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof PermissionFields)[]>(opts: { fields: F; params?: UserListPermissionsParams }) =>
+        new Cursor<Pick<PermissionFields, F[number]>>(client, `${id}/permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       delete: (params: UserDeletePermissionsParams) =>
         client.delete(`${id}/permissions`, params as Record<string, unknown> ?? {}),
     },

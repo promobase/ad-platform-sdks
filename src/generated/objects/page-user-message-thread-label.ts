@@ -23,7 +23,7 @@ export function pageUserMessageThreadLabelNode(client: ApiClient, id: string) {
       client.delete(`${id}`, {}),
     label: {
       create: (params: PageUserMessageThreadLabelCreateLabelParams) =>
-        client.post<Record<string, unknown>>(`${id}/label`, params as Record<string, unknown>),
+        client.post<PageUserMessageThreadLabelFields>(`${id}/label`, params as Record<string, unknown>),
       delete: (params: PageUserMessageThreadLabelDeleteLabelParams) =>
         client.delete(`${id}/label`, params as Record<string, unknown> ?? {}),
     },

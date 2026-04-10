@@ -33,7 +33,7 @@ export function eventSourceGroupNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: EventSourceGroupCreateSharedAccountsParams) =>
-        client.post<AdAccountFields>(`${id}/shared_accounts`, params as Record<string, unknown>),
+        client.post<EventSourceGroupFields>(`${id}/shared_accounts`, params as Record<string, unknown>),
     },
   };
 }

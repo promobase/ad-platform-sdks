@@ -182,7 +182,13 @@ export function emitObjectFile(ctx: EmitContext): string {
     if (!edgeGroups.has(ep)) {
       edgeGroups.set(ep, { endpoint: ep, apis: [], returnType: api.return });
     }
-    edgeGroups.get(ep)!.apis.push(api);
+    const group = edgeGroups.get(ep)!;
+    group.apis.push(api);
+    // Prefer the most specific return type: GET > POST > DELETE
+    // DELETE often returns "Object" which is unhelpful
+    if (api.return !== "Object" && group.returnType === "Object") {
+      group.returnType = api.return;
+    }
   }
 
   const hasApis = nodeOps.length > 0 || edgeGroups.size > 0;
@@ -198,10 +204,10 @@ export function emitObjectFile(ctx: EmitContext): string {
 
   // From edge return types and params
   for (const [, group] of edgeGroups) {
-    if (typeCtx.knownObjects.has(group.returnType)) {
-      referencedObjects.add(group.returnType);
-    }
     for (const api of group.apis) {
+      if (typeCtx.knownObjects.has(api.return)) {
+        referencedObjects.add(api.return);
+      }
       for (const param of api.params) {
         const resolvedParamType = resolveType(param.type, typeCtx);
         collectObjectReferences(resolvedParamType, typeCtx, referencedObjects);
@@ -309,35 +315,39 @@ export function emitObjectFile(ctx: EmitContext): string {
     for (const [, group] of edgeGroups) {
       const ep = group.endpoint;
       const camelName = snakeToCamel(ep);
-      const returnObj = group.returnType;
-      const returnFieldsType = typeCtx.knownObjects.has(returnObj)
-        ? `${returnObj}Fields`
-        : "Record<string, unknown>";
 
       const getApi = group.apis.find((a) => a.method === "GET");
       const postApi = group.apis.find((a) => a.method === "POST");
       const deleteApi = group.apis.find((a) => a.method === "DELETE");
 
+      // Resolve return type per method
+      function returnType(api: SpecApi): string {
+        return typeCtx.knownObjects.has(api.return)
+          ? `${api.return}Fields`
+          : "Record<string, unknown>";
+      }
+
       // If there's only one API for this endpoint, emit a flat method
       if (group.apis.length === 1) {
         const api = group.apis[0]!;
+        const rt = returnType(api);
         if (api.method === "GET") {
           const paramsType = paramsInterfaces.get(`GET:${ep}`);
           const optsParam = paramsType
             ? `opts: { fields: F; params?: ${paramsType} }`
             : `opts: { fields: F; params?: Record<string, unknown> }`;
           out.push(
-            `    ${camelName}: <F extends (keyof ${returnFieldsType})[]>(${optsParam}) =>`,
+            `    ${camelName}: <F extends (keyof ${rt})[]>(${optsParam}) =>`,
           );
           out.push(
-            `      new Cursor<Pick<${returnFieldsType}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),`,
+            `      new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),`,
           );
         } else if (api.method === "POST") {
           const methodName = endpointToMethodName("POST", ep);
           const paramsType = paramsInterfaces.get(`POST:${ep}`);
           const paramArg = paramsType ? `params: ${paramsType}` : `params: Record<string, unknown>`;
           out.push(`    ${methodName}: (${paramArg}) =>`);
-          out.push(`      client.post<${returnFieldsType}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
+          out.push(`      client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
         } else if (api.method === "DELETE") {
           const methodName = endpointToMethodName("DELETE", ep);
           const paramsType = paramsInterfaces.get(`DELETE:${ep}`);
@@ -350,25 +360,27 @@ export function emitObjectFile(ctx: EmitContext): string {
         out.push(`    ${camelName}: {`);
 
         if (getApi) {
+          const rt = returnType(getApi);
           const paramsType = paramsInterfaces.get(`GET:${ep}`);
           const optsParam = paramsType
             ? `opts: { fields: F; params?: ${paramsType} }`
             : `opts: { fields: F; params?: Record<string, unknown> }`;
           out.push(
-            `      list: <F extends (keyof ${returnFieldsType})[]>(${optsParam}) =>`,
+            `      list: <F extends (keyof ${rt})[]>(${optsParam}) =>`,
           );
           out.push(
-            `        new Cursor<Pick<${returnFieldsType}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),`,
+            `        new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),`,
           );
         }
 
         if (postApi) {
+          const rt = returnType(postApi);
           const paramsType = paramsInterfaces.get(`POST:${ep}`);
           const paramArg = paramsType
             ? `params: ${paramsType}`
             : `params: Record<string, unknown>`;
           out.push(`      create: (${paramArg}) =>`);
-          out.push(`        client.post<${returnFieldsType}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
+          out.push(`        client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
         }
 
         if (deleteApi) {

@@ -1,5 +1,6 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { CTXPartnerAppWelcomeMessageFlowFields } from "./ctx-partner-app-welcome-message-flow.ts";
 import type { ContentPublishingLimitResponseFields } from "./content-publishing-limit-response.ts";
 import type { InsightsResultFields } from "./insights-result.ts";
 import type { UnifiedThreadFields } from "./unified-thread.ts";
@@ -188,8 +189,8 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     tags: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     welcomeMessageFlows: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListWelcomeMessageFlowsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListWelcomeMessageFlowsParams }) =>
+        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: IGUserForIGOnlyAPICreateWelcomeMessageFlowsParams) =>
         client.post<Record<string, unknown>>(`${id}/welcome_message_flows`, params as Record<string, unknown>),
       delete: (params: IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams) =>

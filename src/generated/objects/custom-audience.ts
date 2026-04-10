@@ -1,6 +1,7 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
 import type { AdFields } from "./ad.ts";
+import type { AdAccountFields } from "./ad-account.ts";
 import type { AdsPixelFields } from "./ads-pixel.ts";
 import type { AudiencePermissionForActionsFields } from "./audience-permission-for-actions.ts";
 import type { BusinessFields } from "./business.ts";
@@ -169,10 +170,10 @@ export function customAudienceNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     adaccounts: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: CustomAudienceListAdaccountsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: CustomAudienceListAdaccountsParams }) =>
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: CustomAudienceCreateAdaccountsParams) =>
-        client.post<Record<string, unknown>>(`${id}/adaccounts`, params as Record<string, unknown>),
+        client.post<CustomAudienceFields>(`${id}/adaccounts`, params as Record<string, unknown>),
       delete: (params: CustomAudienceDeleteAdaccountsParams) =>
         client.delete(`${id}/adaccounts`, params as Record<string, unknown> ?? {}),
     },
@@ -184,7 +185,7 @@ export function customAudienceNode(client: ApiClient, id: string) {
       list: <F extends (keyof CustomAudienceSaltsFields)[]>(opts: { fields: F; params?: CustomAudienceListSaltsParams }) =>
         new Cursor<Pick<CustomAudienceSaltsFields, F[number]>>(client, `${id}/salts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: CustomAudienceCreateSaltsParams) =>
-        client.post<CustomAudienceSaltsFields>(`${id}/salts`, params as Record<string, unknown>),
+        client.post<CustomAudienceFields>(`${id}/salts`, params as Record<string, unknown>),
     },
     sessions: <F extends (keyof CustomAudienceSessionFields)[]>(opts: { fields: F; params?: CustomAudienceListSessionsParams }) =>
       new Cursor<Pick<CustomAudienceSessionFields, F[number]>>(client, `${id}/sessions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -192,7 +193,7 @@ export function customAudienceNode(client: ApiClient, id: string) {
       new Cursor<Pick<CustomAudiencesharedAccountInfoFields, F[number]>>(client, `${id}/shared_account_info`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     users: {
       create: (params: CustomAudienceCreateUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/users`, params as Record<string, unknown>),
+        client.post<CustomAudienceFields>(`${id}/users`, params as Record<string, unknown>),
       delete: (params: CustomAudienceDeleteUsersParams) =>
         client.delete(`${id}/users`, params as Record<string, unknown> ?? {}),
     },

@@ -183,7 +183,7 @@ export function postNode(client: ApiClient, id: string) {
       new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     likes: {
       create: (params: PostCreateLikesParams) =>
-        client.post<Record<string, unknown>>(`${id}/likes`, params as Record<string, unknown>),
+        client.post<PostFields>(`${id}/likes`, params as Record<string, unknown>),
       delete: (params: PostDeleteLikesParams) =>
         client.delete(`${id}/likes`, params as Record<string, unknown> ?? {}),
     },

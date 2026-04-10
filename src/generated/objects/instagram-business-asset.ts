@@ -1,5 +1,7 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
+import type { BusinessFields } from "./business.ts";
 
 export interface InstagramBusinessAssetFields {
   id: string;
@@ -39,18 +41,18 @@ export function instagramBusinessAssetNode(client: ApiClient, id: string) {
     get: <F extends (keyof InstagramBusinessAssetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<InstagramBusinessAssetFields, F[number]>>(`${id}`, opts),
     agencies: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: InstagramBusinessAssetCreateAgenciesParams) =>
-        client.post<Record<string, unknown>>(`${id}/agencies`, params as Record<string, unknown>),
+        client.post<InstagramBusinessAssetFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: InstagramBusinessAssetDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: InstagramBusinessAssetListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: InstagramBusinessAssetListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: InstagramBusinessAssetCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<InstagramBusinessAssetFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: InstagramBusinessAssetDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },

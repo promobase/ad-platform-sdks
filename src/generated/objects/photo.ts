@@ -100,7 +100,7 @@ export function photoNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: PhotoCreateLikesParams) =>
-        client.post<ProfileFields>(`${id}/likes`, params as Record<string, unknown>),
+        client.post<PhotoFields>(`${id}/likes`, params as Record<string, unknown>),
     },
     sponsorTags: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/sponsor_tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

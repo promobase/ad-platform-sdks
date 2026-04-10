@@ -1,5 +1,6 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
 import type { AutomotiveModelFields } from "./automotive-model.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CPASLsbImageBankFields } from "./cpas-lsb-image-bank.ts";
@@ -9,6 +10,7 @@ import type { CollaborativeAdsShareSettingsFields } from "./collaborative-ads-sh
 import type { CommerceMerchantSettingsFields } from "./commerce-merchant-settings.ts";
 import type { CreatorAssetCreativeFields } from "./creator-asset-creative.ts";
 import type { DestinationFields } from "./destination.ts";
+import type { ExternalEventSourceFields } from "./external-event-source.ts";
 import type { FlightFields } from "./flight.ts";
 import type { HomeListingFields } from "./home-listing.ts";
 import type { HotelFields } from "./hotel.ts";
@@ -574,18 +576,18 @@ export function productCatalogNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     agencies: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductCatalogCreateAgenciesParams) =>
-        client.post<Record<string, unknown>>(`${id}/agencies`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: ProductCatalogListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: ProductCatalogListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductCatalogCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
@@ -624,10 +626,10 @@ export function productCatalogNode(client: ApiClient, id: string) {
     eventStats: <F extends (keyof ProductEventStatFields)[]>(opts: { fields: F; params?: ProductCatalogListEventStatsParams }) =>
       new Cursor<Pick<ProductEventStatFields, F[number]>>(client, `${id}/event_stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     externalEventSources: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/external_event_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ExternalEventSourceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ExternalEventSourceFields, F[number]>>(client, `${id}/external_event_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductCatalogCreateExternalEventSourcesParams) =>
-        client.post<Record<string, unknown>>(`${id}/external_event_sources`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/external_event_sources`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteExternalEventSourcesParams) =>
         client.delete(`${id}/external_event_sources`, params as Record<string, unknown> ?? {}),
     },
@@ -645,7 +647,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProductCatalogHotelRoomsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelRoomsBatchParams }) =>
         new Cursor<Pick<ProductCatalogHotelRoomsBatchFields, F[number]>>(client, `${id}/hotel_rooms_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductCatalogCreateHotelRoomsBatchParams) =>
-        client.post<ProductCatalogHotelRoomsBatchFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
     },
     hotels: {
       list: <F extends (keyof HotelFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelsParams }) =>
@@ -669,7 +671,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProductCatalogPricingVariablesBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListPricingVariablesBatchParams }) =>
         new Cursor<Pick<ProductCatalogPricingVariablesBatchFields, F[number]>>(client, `${id}/pricing_variables_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductCatalogCreatePricingVariablesBatchParams) =>
-        client.post<ProductCatalogPricingVariablesBatchFields>(`${id}/pricing_variables_batch`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/pricing_variables_batch`, params as Record<string, unknown>),
     },
     productFeeds: {
       list: <F extends (keyof ProductFeedFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

@@ -157,7 +157,7 @@ export function productFeedNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProductFeedScheduleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductFeedScheduleFields, F[number]>>(client, `${id}/upload_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ProductFeedCreateUploadSchedulesParams) =>
-        client.post<ProductFeedScheduleFields>(`${id}/upload_schedules`, params as Record<string, unknown>),
+        client.post<ProductFeedFields>(`${id}/upload_schedules`, params as Record<string, unknown>),
     },
     uploads: {
       list: <F extends (keyof ProductFeedUploadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

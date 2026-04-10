@@ -99,10 +99,10 @@ export function commentNode(client: ApiClient, id: string) {
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
     likes: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: CommentCreateLikesParams) =>
-        client.post<Record<string, unknown>>(`${id}/likes`, params as Record<string, unknown>),
+        client.post<CommentFields>(`${id}/likes`, params as Record<string, unknown>),
       delete: (params: CommentDeleteLikesParams) =>
         client.delete(`${id}/likes`, params as Record<string, unknown> ?? {}),
     },

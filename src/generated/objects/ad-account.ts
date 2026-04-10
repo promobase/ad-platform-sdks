@@ -13,6 +13,7 @@ import type { AdAccountMaxBidFields } from "./ad-account-max-bid.ts";
 import type { AdAccountPromotableObjectsFields } from "./ad-account-promotable-objects.ts";
 import type { AdAccountReachEstimateFields } from "./ad-account-reach-estimate.ts";
 import type { AdAccountRecommendationsFields } from "./ad-account-recommendations.ts";
+import type { AdAccountSubscribedAppsFields } from "./ad-account-subscribed-apps.ts";
 import type { AdAccountTargetingUnifiedFields } from "./ad-account-targeting-unified.ts";
 import type { AdAccountTrackingDataFields } from "./ad-account-tracking-data.ts";
 import type { AdAccountUserFields } from "./ad-account-user.ts";
@@ -20,9 +21,11 @@ import type { AdActivityFields } from "./ad-activity.ts";
 import type { AdAsyncRequestSetFields } from "./ad-async-request-set.ts";
 import type { AdCreativeFields } from "./ad-creative.ts";
 import type { AdCreativeObjectStorySpecFields } from "./ad-creative-object-story-spec.ts";
+import type { AdImageFields } from "./ad-image.ts";
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPlacePageSetFields } from "./ad-place-page-set.ts";
 import type { AdPreviewFields } from "./ad-preview.ts";
+import type { AdReportRunFields } from "./ad-report-run.ts";
 import type { AdRuleFields } from "./ad-rule.ts";
 import type { AdSavedKeywordsFields } from "./ad-saved-keywords.ts";
 import type { AdSetFields } from "./ad-set.ts";
@@ -37,6 +40,7 @@ import type { AdsReportBuilderMMMReportSchedulerFields } from "./ads-report-buil
 import type { AdsValueAdjustmentRuleCollectionFields } from "./ads-value-adjustment-rule-collection.ts";
 import type { AgencyClientDeclarationFields } from "./agency-client-declaration.ts";
 import type { ApplicationFields } from "./application.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
 import type { AsyncRequestFields } from "./async-request.ts";
 import type { AttributionSpecFields } from "./attribution-spec.ts";
 import type { AudienceFunnelFields } from "./audience-funnel.ts";
@@ -1196,10 +1200,10 @@ export function adAccountNode(client: ApiClient, id: string) {
     adcreativesbylabels: <F extends (keyof AdCreativeFields)[]>(opts: { fields: F; params?: AdAccountListAdcreativesbylabelsParams }) =>
       new Cursor<Pick<AdCreativeFields, F[number]>>(client, `${id}/adcreativesbylabels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     adimages: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: AdAccountListAdimagesParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/adimages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdImageFields)[]>(opts: { fields: F; params?: AdAccountListAdimagesParams }) =>
+        new Cursor<Pick<AdImageFields, F[number]>>(client, `${id}/adimages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateAdimagesParams) =>
-        client.post<Record<string, unknown>>(`${id}/adimages`, params as Record<string, unknown>),
+        client.post<AdImageFields>(`${id}/adimages`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteAdimagesParams) =>
         client.delete(`${id}/adimages`, params as Record<string, unknown> ?? {}),
     },
@@ -1254,30 +1258,30 @@ export function adAccountNode(client: ApiClient, id: string) {
     advertisableApplications: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: AdAccountListAdvertisableApplicationsParams }) =>
       new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/advertisable_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     advideos: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: AdAccountListAdvideosParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/advideos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: AdAccountListAdvideosParams }) =>
+        new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/advideos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateAdvideosParams) =>
-        client.post<Record<string, unknown>>(`${id}/advideos`, params as Record<string, unknown>),
+        client.post<AdVideoFields>(`${id}/advideos`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteAdvideosParams) =>
         client.delete(`${id}/advideos`, params as Record<string, unknown> ?? {}),
     },
     affectedadsets: <F extends (keyof AdSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdSetFields, F[number]>>(client, `${id}/affectedadsets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     agencies: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateAgenciesParams) =>
-        client.post<Record<string, unknown>>(`${id}/agencies`, params as Record<string, unknown>),
+        client.post<AdAccountFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     applications: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: AdAccountListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: AdAccountListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<AdAccountFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
@@ -1308,10 +1312,10 @@ export function adAccountNode(client: ApiClient, id: string) {
     businessprojects: <F extends (keyof BusinessProjectFields)[]>(opts: { fields: F; params?: AdAccountListBusinessprojectsParams }) =>
       new Cursor<Pick<BusinessProjectFields, F[number]>>(client, `${id}/businessprojects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     campaigns: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: AdAccountListCampaignsParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CampaignFields)[]>(opts: { fields: F; params?: AdAccountListCampaignsParams }) =>
+        new Cursor<Pick<CampaignFields, F[number]>>(client, `${id}/campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateCampaignsParams) =>
-        client.post<Record<string, unknown>>(`${id}/campaigns`, params as Record<string, unknown>),
+        client.post<CampaignFields>(`${id}/campaigns`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteCampaignsParams) =>
         client.delete(`${id}/campaigns`, params as Record<string, unknown> ?? {}),
     },
@@ -1333,7 +1337,7 @@ export function adAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof CustomAudiencesTOSFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CustomAudiencesTOSFields, F[number]>>(client, `${id}/customaudiencestos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateCustomaudiencestosParams) =>
-        client.post<CustomAudiencesTOSFields>(`${id}/customaudiencestos`, params as Record<string, unknown>),
+        client.post<AdAccountFields>(`${id}/customaudiencestos`, params as Record<string, unknown>),
     },
     customconversions: {
       list: <F extends (keyof CustomConversionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
@@ -1355,7 +1359,7 @@ export function adAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdAccountListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateInsightsParams) =>
-        client.post<AdsInsightsFields>(`${id}/insights`, params as Record<string, unknown>),
+        client.post<AdReportRunFields>(`${id}/insights`, params as Record<string, unknown>),
     },
     instagramAccounts: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -1404,10 +1408,10 @@ export function adAccountNode(client: ApiClient, id: string) {
     savedAudiences: <F extends (keyof SavedAudienceFields)[]>(opts: { fields: F; params?: AdAccountListSavedAudiencesParams }) =>
       new Cursor<Pick<SavedAudienceFields, F[number]>>(client, `${id}/saved_audiences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     subscribedApps: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdAccountSubscribedAppsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<AdAccountSubscribedAppsFields, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateSubscribedAppsParams) =>
-        client.post<Record<string, unknown>>(`${id}/subscribed_apps`, params as Record<string, unknown>),
+        client.post<AdAccountSubscribedAppsFields>(`${id}/subscribed_apps`, params as Record<string, unknown>),
       delete: (params: AdAccountDeleteSubscribedAppsParams) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
@@ -1425,7 +1429,7 @@ export function adAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdAccountTrackingDataFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdAccountTrackingDataFields, F[number]>>(client, `${id}/tracking`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdAccountCreateTrackingParams) =>
-        client.post<AdAccountTrackingDataFields>(`${id}/tracking`, params as Record<string, unknown>),
+        client.post<AdAccountFields>(`${id}/tracking`, params as Record<string, unknown>),
     },
     users: <F extends (keyof AdAccountUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdAccountUserFields, F[number]>>(client, `${id}/users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

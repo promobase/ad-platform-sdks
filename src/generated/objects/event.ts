@@ -6,6 +6,7 @@ import type { EventRegistrationSettingFields } from "./event-registration-settin
 import type { EventTicketSettingFields } from "./event-ticket-setting.ts";
 import type { EventTicketTierFields } from "./event-ticket-tier.ts";
 import type { GroupFields } from "./group.ts";
+import type { LiveVideoFields } from "./live-video.ts";
 import type { NullNodeFields } from "./null-node.ts";
 import type { PhotoFields } from "./photo.ts";
 import type { PlaceFields } from "./place.ts";
@@ -86,7 +87,7 @@ export function eventNode(client: ApiClient, id: string) {
       list: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: EventCreateLiveVideosParams) =>
-        client.post<NullNodeFields>(`${id}/live_videos`, params as Record<string, unknown>),
+        client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
     photos: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

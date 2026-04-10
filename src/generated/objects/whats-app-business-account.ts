@@ -1,8 +1,11 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
 import type { BusinessFields } from "./business.ts";
+import type { CTXPartnerAppWelcomeMessageFlowFields } from "./ctx-partner-app-welcome-message-flow.ts";
 import type { CommerceMerchantSettingsFields } from "./commerce-merchant-settings.ts";
 import type { DatasetFields } from "./dataset.ts";
+import type { ProductCatalogFields } from "./product-catalog.ts";
 import type { WhatsAppBusinessHealthStatusForMessageSendFields } from "./whats-app-business-health-status-for-message-send.ts";
 
 export interface WhatsAppBusinessAccountFields {
@@ -336,10 +339,10 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
     activities: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/activities`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<WhatsAppBusinessAccountFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
@@ -379,7 +382,7 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListMessageTemplatesParams }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreateMessageTemplatesParams) =>
-        client.post<Record<string, unknown>>(`${id}/message_templates`, params as Record<string, unknown>),
+        client.post<WhatsAppBusinessAccountFields>(`${id}/message_templates`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteMessageTemplatesParams) =>
         client.delete(`${id}/message_templates`, params as Record<string, unknown> ?? {}),
     },
@@ -391,7 +394,7 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListPaymentConfigurationParams }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/payment_configuration`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreatePaymentConfigurationParams) =>
-        client.post<Record<string, unknown>>(`${id}/payment_configuration`, params as Record<string, unknown>),
+        client.post<WhatsAppBusinessAccountFields>(`${id}/payment_configuration`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeletePaymentConfigurationParams) =>
         client.delete(`${id}/payment_configuration`, params as Record<string, unknown> ?? {}),
     },
@@ -406,10 +409,10 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
     pricingAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListPricingAnalyticsParams }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/pricing_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     productCatalogs: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreateProductCatalogsParams) =>
-        client.post<Record<string, unknown>>(`${id}/product_catalogs`, params as Record<string, unknown>),
+        client.post<ProductCatalogFields>(`${id}/product_catalogs`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteProductCatalogsParams) =>
         client.delete(`${id}/product_catalogs`, params as Record<string, unknown> ?? {}),
     },
@@ -425,7 +428,7 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreateSubscribedAppsParams) =>
-        client.post<Record<string, unknown>>(`${id}/subscribed_apps`, params as Record<string, unknown>),
+        client.post<WhatsAppBusinessAccountFields>(`${id}/subscribed_apps`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
@@ -444,8 +447,8 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
     createUpsertMessageTemplate: (params: WhatsAppBusinessAccountCreateUpsertMessageTemplatesParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}/upsert_message_templates`, params as Record<string, unknown>),
     welcomeMessageSequences: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListWelcomeMessageSequencesParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/welcome_message_sequences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListWelcomeMessageSequencesParams }) =>
+        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_sequences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: WhatsAppBusinessAccountCreateWelcomeMessageSequencesParams) =>
         client.post<Record<string, unknown>>(`${id}/welcome_message_sequences`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteWelcomeMessageSequencesParams) =>

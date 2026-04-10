@@ -721,7 +721,7 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateAdnetworkanalyticsParams) =>
-        client.post<AdNetworkAnalyticsSyncQueryResultFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
     },
     adnetworkanalyticsResults: <F extends (keyof AdNetworkAnalyticsAsyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsResultsParams }) =>
       new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -729,7 +729,7 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdsDatasetFields)[]>(opts: { fields: F; params?: BusinessListAdsDatasetParams }) =>
         new Cursor<Pick<AdsDatasetFields, F[number]>>(client, `${id}/ads_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateAdsDatasetParams) =>
-        client.post<AdsDatasetFields>(`${id}/ads_dataset`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/ads_dataset`, params as Record<string, unknown>),
     },
     adsReportingMmmReports: <F extends (keyof AdsReportBuilderMMMReportFields)[]>(opts: { fields: F; params?: BusinessListAdsReportingMmmReportsParams }) =>
       new Cursor<Pick<AdsReportBuilderMMMReportFields, F[number]>>(client, `${id}/ads_reporting_mmm_reports`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -742,8 +742,8 @@ export function businessNode(client: ApiClient, id: string) {
         client.post<AdsPixelFields>(`${id}/adspixels`, params as Record<string, unknown>),
     },
     agencies: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       delete: (params: BusinessDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
@@ -773,7 +773,7 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateClientAppsParams) =>
-        client.post<ApplicationFields>(`${id}/client_apps`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/client_apps`, params as Record<string, unknown>),
     },
     clientInstagramAssets: <F extends (keyof InstagramBusinessAssetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<InstagramBusinessAssetFields, F[number]>>(client, `${id}/client_instagram_assets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -783,7 +783,7 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateClientPagesParams) =>
-        client.post<PageFields>(`${id}/client_pages`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/client_pages`, params as Record<string, unknown>),
     },
     clientPixels: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/client_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -792,8 +792,8 @@ export function businessNode(client: ApiClient, id: string) {
     clientWhatsappBusinessAccounts: <F extends (keyof WhatsAppBusinessAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/client_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     clients: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/clients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/clients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       delete: (params: BusinessDeleteClientsParams) =>
         client.delete(`${id}/clients`, params as Record<string, unknown> ?? {}),
     },
@@ -832,8 +832,8 @@ export function businessNode(client: ApiClient, id: string) {
     initiatedAudienceSharingRequests: <F extends (keyof BusinessAssetSharingAgreementFields)[]>(opts: { fields: F; params?: BusinessListInitiatedAudienceSharingRequestsParams }) =>
       new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/initiated_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     instagramAccounts: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       delete: (params: BusinessDeleteInstagramAccountsParams) =>
         client.delete(`${id}/instagram_accounts`, params as Record<string, unknown> ?? {}),
     },
@@ -841,7 +841,7 @@ export function businessNode(client: ApiClient, id: string) {
       new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     managedBusinesses: {
       create: (params: BusinessCreateManagedBusinessesParams) =>
-        client.post<Record<string, unknown>>(`${id}/managed_businesses`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/managed_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteManagedBusinessesParams) =>
         client.delete(`${id}/managed_businesses`, params as Record<string, unknown> ?? {}),
     },
@@ -851,7 +851,7 @@ export function businessNode(client: ApiClient, id: string) {
       client.post<BusinessFields>(`${id}/managed_partner_business_setup`, params as Record<string, unknown>),
     managedPartnerBusinesses: {
       create: (params: BusinessCreateManagedPartnerBusinessesParams) =>
-        client.post<Record<string, unknown>>(`${id}/managed_partner_businesses`, params as Record<string, unknown>),
+        client.post<ManagedPartnerBusinessFields>(`${id}/managed_partner_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteManagedPartnerBusinessesParams) =>
         client.delete(`${id}/managed_partner_businesses`, params as Record<string, unknown> ?? {}),
     },
@@ -867,19 +867,19 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: BusinessListOwnedAdAccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateOwnedAdAccountsParams) =>
-        client.post<AdAccountFields>(`${id}/owned_ad_accounts`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/owned_ad_accounts`, params as Record<string, unknown>),
     },
     ownedApps: {
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/owned_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateOwnedAppsParams) =>
-        client.post<ApplicationFields>(`${id}/owned_apps`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/owned_apps`, params as Record<string, unknown>),
     },
     ownedBusinesses: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: BusinessListOwnedBusinessesParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/owned_businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: BusinessListOwnedBusinessesParams }) =>
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/owned_businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateOwnedBusinessesParams) =>
-        client.post<Record<string, unknown>>(`${id}/owned_businesses`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/owned_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteOwnedBusinessesParams) =>
         client.delete(`${id}/owned_businesses`, params as Record<string, unknown> ?? {}),
     },
@@ -893,7 +893,7 @@ export function businessNode(client: ApiClient, id: string) {
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessCreateOwnedPagesParams) =>
-        client.post<PageFields>(`${id}/owned_pages`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/owned_pages`, params as Record<string, unknown>),
     },
     ownedPixels: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/owned_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -945,7 +945,7 @@ export function businessNode(client: ApiClient, id: string) {
       client.post<BusinessFields>(`${id}/setup_managed_partner_adaccounts`, params as Record<string, unknown>),
     sharePreverifiedNumbers: {
       create: (params: BusinessCreateSharePreverifiedNumbersParams) =>
-        client.post<Record<string, unknown>>(`${id}/share_preverified_numbers`, params as Record<string, unknown>),
+        client.post<BusinessFields>(`${id}/share_preverified_numbers`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteSharePreverifiedNumbersParams) =>
         client.delete(`${id}/share_preverified_numbers`, params as Record<string, unknown> ?? {}),
     },

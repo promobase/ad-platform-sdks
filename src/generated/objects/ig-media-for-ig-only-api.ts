@@ -53,7 +53,7 @@ export function iGMediaForIGOnlyAPINode(client: ApiClient, id: string) {
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: IGMediaForIGOnlyAPICreateCommentsParams) =>
-        client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
+        client.post<Record<string, unknown>>(`${id}/comments`, params as Record<string, unknown>),
     },
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: IGMediaForIGOnlyAPIListInsightsParams }) =>
       new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

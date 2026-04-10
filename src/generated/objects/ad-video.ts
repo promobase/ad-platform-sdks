@@ -188,13 +188,13 @@ export function adVideoNode(client: ApiClient, id: string) {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/captions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdVideoCreateCaptionsParams) =>
-        client.post<Record<string, unknown>>(`${id}/captions`, params as Record<string, unknown>),
+        client.post<AdVideoFields>(`${id}/captions`, params as Record<string, unknown>),
     },
     collaborators: {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/collaborators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdVideoCreateCollaboratorsParams) =>
-        client.post<Record<string, unknown>>(`${id}/collaborators`, params as Record<string, unknown>),
+        client.post<AdVideoFields>(`${id}/collaborators`, params as Record<string, unknown>),
     },
     comments: {
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: AdVideoListCommentsParams }) =>
@@ -210,7 +210,7 @@ export function adVideoNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdVideoCreateLikesParams) =>
-        client.post<ProfileFields>(`${id}/likes`, params as Record<string, unknown>),
+        client.post<AdVideoFields>(`${id}/likes`, params as Record<string, unknown>),
     },
     pollSettings: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/poll_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -228,7 +228,7 @@ export function adVideoNode(client: ApiClient, id: string) {
       list: <F extends (keyof VideoThumbnailFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<VideoThumbnailFields, F[number]>>(client, `${id}/thumbnails`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdVideoCreateThumbnailsParams) =>
-        client.post<VideoThumbnailFields>(`${id}/thumbnails`, params as Record<string, unknown>),
+        client.post<AdVideoFields>(`${id}/thumbnails`, params as Record<string, unknown>),
     },
     videoInsights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: AdVideoListVideoInsightsParams }) =>
       new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/video_insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

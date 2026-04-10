@@ -1,6 +1,14 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { AdAccountFields } from "./ad-account.ts";
+import type { AdsPixelFields } from "./ads-pixel.ts";
+import type { ApplicationFields } from "./application.ts";
+import type { AssignedUserFields } from "./assigned-user.ts";
 import type { BusinessFields } from "./business.ts";
+import type { CustomConversionFields } from "./custom-conversion.ts";
+import type { IGUserFields } from "./ig-user.ts";
+import type { PageFields } from "./page.ts";
+import type { ProductCatalogFields } from "./product-catalog.ts";
 
 export interface BusinessAssetGroupFields {
   id: string;
@@ -109,66 +117,66 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
     update: (params: BusinessAssetGroupUpdateParams) =>
       client.post<BusinessAssetGroupFields>(`${id}`, params as Record<string, unknown>),
     assignedUsers: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: BusinessAssetGroupListAssignedUsersParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: BusinessAssetGroupListAssignedUsersParams }) =>
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateAssignedUsersParams) =>
-        client.post<Record<string, unknown>>(`${id}/assigned_users`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     containedAdaccounts: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/contained_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedAdaccountsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_adaccounts`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_adaccounts`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedAdaccountsParams) =>
         client.delete(`${id}/contained_adaccounts`, params as Record<string, unknown> ?? {}),
     },
     containedApplications: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/contained_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedApplicationsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_applications`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_applications`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedApplicationsParams) =>
         client.delete(`${id}/contained_applications`, params as Record<string, unknown> ?? {}),
     },
     containedCustomConversions: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_custom_conversions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof CustomConversionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<CustomConversionFields, F[number]>>(client, `${id}/contained_custom_conversions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedCustomConversionsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_custom_conversions`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_custom_conversions`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedCustomConversionsParams) =>
         client.delete(`${id}/contained_custom_conversions`, params as Record<string, unknown> ?? {}),
     },
     containedInstagramAccounts: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/contained_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedInstagramAccountsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_instagram_accounts`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_instagram_accounts`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedInstagramAccountsParams) =>
         client.delete(`${id}/contained_instagram_accounts`, params as Record<string, unknown> ?? {}),
     },
     containedPages: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/contained_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedPagesParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_pages`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_pages`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedPagesParams) =>
         client.delete(`${id}/contained_pages`, params as Record<string, unknown> ?? {}),
     },
     containedPixels: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/contained_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedPixelsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_pixels`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_pixels`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedPixelsParams) =>
         client.delete(`${id}/contained_pixels`, params as Record<string, unknown> ?? {}),
     },
     containedProductCatalogs: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/contained_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/contained_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: BusinessAssetGroupCreateContainedProductCatalogsParams) =>
-        client.post<Record<string, unknown>>(`${id}/contained_product_catalogs`, params as Record<string, unknown>),
+        client.post<BusinessAssetGroupFields>(`${id}/contained_product_catalogs`, params as Record<string, unknown>),
       delete: (params: BusinessAssetGroupDeleteContainedProductCatalogsParams) =>
         client.delete(`${id}/contained_product_catalogs`, params as Record<string, unknown> ?? {}),
     },

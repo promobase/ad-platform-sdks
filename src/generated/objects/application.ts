@@ -522,7 +522,7 @@ export function applicationNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: ApplicationListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ApplicationCreateAdnetworkanalyticsParams) =>
-        client.post<AdNetworkAnalyticsSyncQueryResultFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
+        client.post<ApplicationFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
     },
     adnetworkanalyticsResults: <F extends (keyof AdNetworkAnalyticsAsyncQueryResultFields)[]>(opts: { fields: F; params?: ApplicationListAdnetworkanalyticsResultsParams }) =>
       new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

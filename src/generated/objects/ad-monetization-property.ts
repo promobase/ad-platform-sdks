@@ -48,7 +48,7 @@ export function adMonetizationPropertyNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: AdMonetizationPropertyListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdMonetizationPropertyCreateAdnetworkanalyticsParams) =>
-        client.post<AdNetworkAnalyticsSyncQueryResultFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
+        client.post<AdMonetizationPropertyFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
     },
     adnetworkanalyticsResults: <F extends (keyof AdNetworkAnalyticsAsyncQueryResultFields)[]>(opts: { fields: F; params?: AdMonetizationPropertyListAdnetworkanalyticsResultsParams }) =>
       new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

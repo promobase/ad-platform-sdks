@@ -13,6 +13,7 @@ import type { AdCreativeFields } from "./ad-creative.ts";
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPromotedObjectFields } from "./ad-promoted-object.ts";
 import type { AdRecommendationFields } from "./ad-recommendation.ts";
+import type { AdReportRunFields } from "./ad-report-run.ts";
 import type { AdRuleFields } from "./ad-rule.ts";
 import type { AdStudyFields } from "./ad-study.ts";
 import type { AdsInsightsFields } from "./ads-insights.ts";
@@ -341,7 +342,7 @@ export function adSetNode(client: ApiClient, id: string) {
       new Cursor<Pick<AdCreativeFields, F[number]>>(client, `${id}/adcreatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     adlabels: {
       create: (params: AdSetCreateAdlabelsParams) =>
-        client.post<Record<string, unknown>>(`${id}/adlabels`, params as Record<string, unknown>),
+        client.post<AdSetFields>(`${id}/adlabels`, params as Record<string, unknown>),
       delete: (params: AdSetDeleteAdlabelsParams) =>
         client.delete(`${id}/adlabels`, params as Record<string, unknown> ?? {}),
     },
@@ -369,7 +370,7 @@ export function adSetNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdSetListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: AdSetCreateInsightsParams) =>
-        client.post<AdsInsightsFields>(`${id}/insights`, params as Record<string, unknown>),
+        client.post<AdReportRunFields>(`${id}/insights`, params as Record<string, unknown>),
     },
     messageDeliveryEstimate: <F extends (keyof MessageDeliveryEstimateFields)[]>(opts: { fields: F; params?: AdSetListMessageDeliveryEstimateParams }) =>
       new Cursor<Pick<MessageDeliveryEstimateFields, F[number]>>(client, `${id}/message_delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

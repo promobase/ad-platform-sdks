@@ -61,7 +61,7 @@ export function commerceOrderNode(client: ApiClient, id: string) {
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/shipments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: CommerceOrderCreateShipmentsParams) =>
-        client.post<Record<string, unknown>>(`${id}/shipments`, params as Record<string, unknown>),
+        client.post<CommerceOrderFields>(`${id}/shipments`, params as Record<string, unknown>),
     },
   };
 }

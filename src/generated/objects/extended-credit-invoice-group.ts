@@ -1,5 +1,6 @@
 import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
+import type { AdAccountFields } from "./ad-account.ts";
 import type { CRMAddressFields } from "./crm-address.ts";
 import type { ExtendedCreditEmailFields } from "./extended-credit-email.ts";
 
@@ -40,10 +41,10 @@ export function extendedCreditInvoiceGroupNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     adAccounts: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: ExtendedCreditInvoiceGroupCreateAdAccountsParams) =>
-        client.post<Record<string, unknown>>(`${id}/ad_accounts`, params as Record<string, unknown>),
+        client.post<AdAccountFields>(`${id}/ad_accounts`, params as Record<string, unknown>),
       delete: (params: ExtendedCreditInvoiceGroupDeleteAdAccountsParams) =>
         client.delete(`${id}/ad_accounts`, params as Record<string, unknown> ?? {}),
     },

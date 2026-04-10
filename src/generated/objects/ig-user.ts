@@ -2,6 +2,7 @@ import type { ApiClient } from "../../runtime/client.ts";
 import { Cursor } from "../../runtime/cursor.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BrandedContentShadowIGMediaIDFields } from "./branded-content-shadow-ig-media-id.ts";
+import type { BrandedContentShadowIGUserIDFields } from "./branded-content-shadow-ig-user-id.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CommentFields } from "./comment.ts";
 import type { ContentPublishingLimitResponseFields } from "./content-publishing-limit-response.ts";
@@ -243,7 +244,7 @@ export function iGUserNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: IGUserListAuthorizedAdaccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/authorized_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: IGUserCreateAuthorizedAdaccountsParams) =>
-        client.post<AdAccountFields>(`${id}/authorized_adaccounts`, params as Record<string, unknown>),
+        client.post<IGUserFields>(`${id}/authorized_adaccounts`, params as Record<string, unknown>),
     },
     availableCatalogs: <F extends (keyof UserAvailableCatalogsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<UserAvailableCatalogsFields, F[number]>>(client, `${id}/available_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
@@ -256,10 +257,10 @@ export function iGUserNode(client: ApiClient, id: string) {
     brandedContentAdvertisableMedias: <F extends (keyof BrandedContentShadowIGMediaIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentAdvertisableMediasParams }) =>
       new Cursor<Pick<BrandedContentShadowIGMediaIDFields, F[number]>>(client, `${id}/branded_content_advertisable_medias`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
     brandedContentTagApproval: {
-      list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserListBrandedContentTagApprovalParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/branded_content_tag_approval`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
+      list: <F extends (keyof BrandedContentShadowIGUserIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentTagApprovalParams }) =>
+        new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_tag_approval`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: IGUserCreateBrandedContentTagApprovalParams) =>
-        client.post<Record<string, unknown>>(`${id}/branded_content_tag_approval`, params as Record<string, unknown>),
+        client.post<BrandedContentShadowIGUserIDFields>(`${id}/branded_content_tag_approval`, params as Record<string, unknown>),
       delete: (params: IGUserDeleteBrandedContentTagApprovalParams) =>
         client.delete(`${id}/branded_content_tag_approval`, params as Record<string, unknown> ?? {}),
     },
@@ -329,7 +330,7 @@ export function iGUserNode(client: ApiClient, id: string) {
       list: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: IGUserCreateUpcomingEventsParams) =>
-        client.post<IGUpcomingEventFields>(`${id}/upcoming_events`, params as Record<string, unknown>),
+        client.post<Record<string, unknown>>(`${id}/upcoming_events`, params as Record<string, unknown>),
     },
     welcomeMessageFlows: <F extends (keyof ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: IGUserListWelcomeMessageFlowsParams }) =>
       new Cursor<Pick<ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),

@@ -6,6 +6,7 @@ import type { AdCampaignIssuesInfoFields } from "./ad-campaign-issues-info.ts";
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPromotedObjectFields } from "./ad-promoted-object.ts";
 import type { AdRecommendationFields } from "./ad-recommendation.ts";
+import type { AdReportRunFields } from "./ad-report-run.ts";
 import type { AdRuleFields } from "./ad-rule.ts";
 import type { AdSetFields } from "./ad-set.ts";
 import type { AdStudyFields } from "./ad-study.ts";
@@ -241,7 +242,7 @@ export function campaignNode(client: ApiClient, id: string) {
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: CampaignListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }),
       create: (params: CampaignCreateInsightsParams) =>
-        client.post<AdsInsightsFields>(`${id}/insights`, params as Record<string, unknown>),
+        client.post<AdReportRunFields>(`${id}/insights`, params as Record<string, unknown>),
     },
   };
 }
