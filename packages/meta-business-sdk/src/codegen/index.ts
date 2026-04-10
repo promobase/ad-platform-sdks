@@ -185,6 +185,9 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export { verifyWebhookChallenge, verifyWebhookSignature, parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook } from "../clients/index.ts";`);
   barrelLines.push(`export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebhookPayload, FBWebhookMessagingEvent, FBWebhookChange, ThreadsWebhookPayload } from "../clients/index.ts";`);
   barrelLines.push(`export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";`);
+  barrelLines.push(`export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";`);
+  barrelLines.push(`export type { WebhookParseResult } from "../clients/index.ts";`);
+  barrelLines.push(`export { Meta } from "../namespace.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

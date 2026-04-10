@@ -25,9 +25,9 @@ export async function fetchDocTree(): Promise<DocTreeNode[]> {
   const url = `${BASE}/platform/tree/get/?language=ENGLISH&identify_key=${IDENTIFY_KEY}&is_need_content=false`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Doc tree fetch failed: ${response.status}`);
-  const json = await response.json() as { code: number; data: { children: DocTreeNode[] } };
+  const json = await response.json() as { code: number; data: { primary_doc_list: DocTreeNode[] } };
   if (json.code !== 0) throw new Error(`Doc tree API error: code ${json.code}`);
-  return json.data.children ?? [];
+  return json.data.primary_doc_list ?? [];
 }
 
 /** Fetch a single doc page by doc_id. */
@@ -40,41 +40,49 @@ export async function fetchDoc(docId: string): Promise<{ title: string; content:
   return { title: json.data.title, content: json.data.content };
 }
 
-/** Categories under "API Reference" that contain Marketing/Ads endpoints. */
-const MARKETING_CATEGORIES = new Set([
-  "Ads", "Ad Accounts", "Ad Comments", "Ad Comments - Blocked Words",
-  "Campaign Management", "Audience Management", "Reporting",
-  "Business Center", "Creatives", "Catalog Management", "Ad Measurement",
-  "TikTok Store", "TikTok One API", "Tools",
-]);
-
 /**
- * "API Reference" category titles that are just section headers, not endpoints.
- * These map to the top-level groupings in the doc tree.
+ * Categories under "API Reference" to skip — these are covered by hand-written clients.
+ * Everything else under "API Reference" gets scraped for codegen.
  */
-const SECTION_TITLES = new Set([
-  "API Reference", "API reference", "Accounts", "Insights", "Comments", "Posts",
-  "Ad authorization", "URL properties", "Webhooks",
-  "Access token inspector", "Guides", "Overview", "FAQs",
+const SKIP_CATEGORIES = new Set([
+  "Accounts", // Hand-written: oauth, comments, videos, photos, account, properties, webhooks
 ]);
 
-/** Recursively collect all leaf doc_ids from the tree under marketing categories. */
-export function collectMarketingDocIds(tree: DocTreeNode[], parentCategory = ""): { docId: string; title: string; category: string }[] {
+/** Recursively collect all leaf doc_ids from the "API Reference" tree node. */
+export function collectMarketingDocIds(tree: DocTreeNode[]): { docId: string; title: string; category: string }[] {
+  // Find the "API Reference" top-level node
+  const apiRef = tree.find(n => n.title === "API Reference");
+  if (!apiRef) {
+    console.warn("[scraper] Could not find 'API Reference' node in doc tree");
+    return [];
+  }
+
   const results: { docId: string; title: string; category: string }[] = [];
+  const topCategories = apiRef.child_docs ?? apiRef.children ?? [];
 
-  for (const node of tree) {
-    const title = node.title?.trim() ?? "";
-    const category = MARKETING_CATEGORIES.has(title) ? title : parentCategory;
+  for (const category of topCategories) {
+    const categoryTitle = category.title?.trim() ?? "";
+    if (SKIP_CATEGORIES.has(categoryTitle)) continue;
 
-    if (node.children && node.children.length > 0) {
-      results.push(...collectMarketingDocIds(node.children, category));
-    } else if (category && node.doc_id && !SECTION_TITLES.has(title)) {
-      // Leaf node under a marketing category
-      results.push({ docId: node.doc_id, title, category });
-    }
+    collectLeaves(category.child_docs ?? category.children ?? [], categoryTitle, results);
   }
 
   return results;
+}
+
+function collectLeaves(
+  nodes: DocTreeNode[],
+  category: string,
+  results: { docId: string; title: string; category: string }[],
+): void {
+  for (const node of nodes) {
+    const children = node.child_docs ?? node.children ?? [];
+    if (children.length > 0) {
+      collectLeaves(children, category, results);
+    } else if (node.doc_id) {
+      results.push({ docId: String(node.doc_id), title: node.title?.trim() ?? "", category });
+    }
+  }
 }
 
 /** Scrape all marketing API docs, using cache when available. */
