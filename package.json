@@ -1,49 +1,8 @@
 {
-  "name": "@promobase/meta-business-sdk-ts",
-  "version": "0.1.0",
-  "description": "Type-safe TypeScript SDK for the Meta Marketing API, auto-generated from official API specs",
-  "module": "src/generated/index.ts",
-  "main": "src/generated/index.ts",
-  "types": "src/generated/index.ts",
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
-  "files": [
-    "src/runtime/**/*.ts",
-    "src/generated/**/*.ts",
-    "README.md",
-    "LICENSE"
-  ],
-  "scripts": {
-    "codegen": "bun src/codegen/index.ts",
-    "typecheck": "tsc --noEmit",
-    "test": "bun test tests/",
-    "build": "bun build src/generated/index.ts --outdir dist --target node"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "meta",
-    "facebook",
-    "marketing-api",
-    "graph-api",
-    "typescript",
-    "codegen",
-    "type-safe",
-    "ads",
-    "sdk"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/promobase/meta-business-sdk-ts"
-  },
-  "license": "MIT",
+  "name": "ad-platform-sdks",
+  "private": true,
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.9.3"
   }
 }
