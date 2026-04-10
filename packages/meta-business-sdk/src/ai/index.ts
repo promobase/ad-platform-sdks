@@ -6,7 +6,31 @@ import type { MetaClient } from "./common.ts";
 
 export type { MetaClient } from "./common.ts";
 
-export interface CreateMetaToolsOptions {
+// Infer return types from each tool creator
+type InstagramTools = ReturnType<typeof createInstagramTools>;
+type FacebookTools = ReturnType<typeof createFacebookTools>;
+type ThreadsTools = ReturnType<typeof createThreadsTools>;
+type CampaignTools = ReturnType<typeof createCampaignTools>;
+
+type ToolGroup = "instagram" | "facebook" | "threads" | "campaigns";
+
+// Map group names to their tool types
+type ToolGroupMap = {
+  instagram: InstagramTools;
+  facebook: FacebookTools;
+  threads: ThreadsTools;
+  campaigns: CampaignTools;
+};
+
+// Merge selected tool groups into a single flat type
+type MergeTools<T extends ToolGroup[]> = T extends []
+  ? InstagramTools & FacebookTools & ThreadsTools & CampaignTools  // default: all
+  : (T[number] extends infer G ? G extends ToolGroup ? ToolGroupMap[G] : never : never);
+
+// Flatten union of objects into a single intersection
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void ? I : never;
+
+export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
   api: MetaClient;
   igAccountId?: string;
   pageId?: string;
@@ -14,12 +38,14 @@ export interface CreateMetaToolsOptions {
   threadsUserId?: string;
   threadsAccessToken?: string;
   adAccountId?: string;
-  include?: ("instagram" | "facebook" | "threads" | "campaigns")[];
+  include?: T;
 }
 
-export function createMetaTools(opts: CreateMetaToolsOptions) {
-  const include = opts.include ?? ["instagram", "facebook", "threads", "campaigns"];
-  let tools: Record<string, any> = {};
+export function createMetaTools<T extends ToolGroup[] = ToolGroup[]>(
+  opts: CreateMetaToolsOptions<T>,
+): UnionToIntersection<MergeTools<T>> {
+  const include = opts.include ?? (["instagram", "facebook", "threads", "campaigns"] as ToolGroup[]);
+  let tools: Record<string, unknown> = {};
 
   if (include.includes("instagram") && opts.igAccountId) {
     tools = { ...tools, ...createInstagramTools({ api: opts.api, igAccountId: opts.igAccountId }) };
@@ -40,7 +66,7 @@ export function createMetaTools(opts: CreateMetaToolsOptions) {
     tools = { ...tools, ...createCampaignTools({ api: opts.api, adAccountId: opts.adAccountId }) };
   }
 
-  return tools;
+  return tools as UnionToIntersection<MergeTools<T>>;
 }
 
 // Re-export individual tool creators for selective use

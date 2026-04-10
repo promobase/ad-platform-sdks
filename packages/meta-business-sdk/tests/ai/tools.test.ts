@@ -85,18 +85,18 @@ test("createMetaTools combines selected tool groups", () => {
   expect(tools.fb_publish_post).toBeDefined();
   // Campaign tools present
   expect(tools.campaign_list).toBeDefined();
-  // Threads tools NOT present (not in include)
-  expect(tools.threads_publish_text).toBeUndefined();
+  // Threads tools NOT present (not in include) — verified at type level
+  expect((tools as Record<string, unknown>).threads_publish_text).toBeUndefined();
 });
 
 test("createMetaTools skips groups without required config", () => {
   const api = createClient({ accessToken: "tok" });
   const tools = createMetaTools({ api });
 
-  // No igAccountId provided, no IG tools
-  expect(tools.ig_publish_photo).toBeUndefined();
+  // No igAccountId provided, no IG tools (runtime check — types still include them since include defaults to all)
+  expect((tools as Record<string, unknown>).ig_publish_photo).toBeUndefined();
   // No pageId, no FB tools
-  expect(tools.fb_publish_post).toBeUndefined();
+  expect((tools as Record<string, unknown>).fb_publish_post).toBeUndefined();
 });
 
 test("ig_get_account tool executes correctly", async () => {
