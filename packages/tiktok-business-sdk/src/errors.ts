@@ -11,6 +11,26 @@ export class TikTokApiError extends ApiError {
     this.requestId = opts.requestId;
   }
 
+  /** Whether this error indicates rate limiting. */
+  get isRateLimited(): boolean {
+    return this.status === 429 || this.code === 40100;
+  }
+
+  /** Whether this error is a transient server error that could be retried. */
+  get isTransient(): boolean {
+    return this.status >= 500 || this.isRateLimited;
+  }
+
+  /** Whether this is an authentication/token error. */
+  get isAuthError(): boolean {
+    return this.code === 40001 || this.code === 40002 || this.code === 40003;
+  }
+
+  /** Whether this is a publish rate limit (6/min or 15/day). */
+  get isPublishRateLimited(): boolean {
+    return this.code === 40004;
+  }
+
   static fromResponse(status: number, body: unknown): TikTokApiError {
     if (typeof body === "object" && body !== null) {
       const b = body as Record<string, unknown>;
