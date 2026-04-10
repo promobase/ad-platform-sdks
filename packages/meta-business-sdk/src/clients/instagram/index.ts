@@ -22,6 +22,15 @@ export function createInstagramClient(opts: InstagramClientOptions) {
     comments: createComments(api),
     account: createAccount(api, igAccountId),
     containers,
+    webhooks: {
+      /** Subscribe to Instagram webhook events. Call after OAuth. */
+      async subscribe(fields?: string[]): Promise<{ success: boolean }> {
+        return api.client.post<{ success: boolean }>(
+          `${igAccountId}/subscribed_apps`,
+          { subscribed_fields: (fields ?? ["comments", "messages", "message_edit"]).join(",") },
+        );
+      },
+    },
   };
 }
 

@@ -208,6 +208,14 @@ test("OAuth refreshToken calls correct endpoint", async () => {
   expect(url).toContain("graph.instagram.com/refresh_access_token");
 });
 
+test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+  const result = await ig.webhooks.subscribe();
+  expect(result.success).toBe(true);
+});
+
 test("low-level containers API works directly", async () => {
   mockFetchSequence([
     { body: { id: "c1" } },

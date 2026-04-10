@@ -1007,3 +1007,4 @@ export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.
 export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";
 export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";
 export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";
+export { verifyWebhookChallenge, verifyWebhookSignature } from "../clients/index.ts";

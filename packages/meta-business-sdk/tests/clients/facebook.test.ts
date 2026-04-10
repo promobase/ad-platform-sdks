@@ -378,6 +378,16 @@ test("account get returns Page info", async () => {
   expect(info.name).toBe("My Page");
 });
 
+// --- Webhooks ---
+
+test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const result = await fb.webhooks.subscribe();
+  expect(result.success).toBe(true);
+});
+
 // --- OAuth ---
 
 test("Facebook OAuth generates correct authorization URL", () => {

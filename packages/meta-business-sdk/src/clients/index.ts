@@ -9,3 +9,5 @@ export type { OAuthConfig as FacebookOAuthConfig } from "./facebook/types.ts";
 export { createThreadsClient, createThreadsOAuth } from "./threads/index.ts";
 export type { ThreadsClientOptions } from "./threads/index.ts";
 export type { OAuthConfig as ThreadsOAuthConfig } from "./threads/types.ts";
+
+export { verifyWebhookChallenge, verifyWebhookSignature } from "./webhooks.ts";

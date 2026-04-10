@@ -90,3 +90,35 @@ export interface PostAttachment {
   media?: { image?: { src: string } };
   subattachments?: { data: PostAttachment[] };
 }
+
+// Webhook event types
+export interface FBWebhookPayload {
+  object: "page";
+  entry: {
+    id: string;
+    time: number;
+    messaging?: FBWebhookMessagingEvent[];
+    changes?: FBWebhookChangeEvent[];
+  }[];
+}
+
+export interface FBWebhookMessagingEvent {
+  sender: { id: string };
+  recipient: { id: string };
+  timestamp: number;
+  message?: { mid: string; text: string };
+}
+
+export interface FBWebhookChangeEvent {
+  field: "feed";
+  value: {
+    item: string;
+    verb: "add" | "edited" | "remove";
+    post_id?: string;
+    comment_id?: string;
+    parent_id?: string;
+    message?: string;
+    from?: { id: string; name: string };
+    created_time?: number;
+  };
+}

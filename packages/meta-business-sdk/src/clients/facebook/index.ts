@@ -18,6 +18,14 @@ export function createFacebookPageClient(opts: FacebookPageClientOptions) {
     stories: createStories(pageId, accessToken),
     comments: createComments(api),
     account: createAccount(api, pageId),
+    webhooks: {
+      async subscribe(fields?: string[]): Promise<{ success: boolean }> {
+        return api.client.post<{ success: boolean }>(
+          `${pageId}/subscribed_apps`,
+          { subscribed_fields: (fields ?? ["feed", "messages", "message_edits", "message_echoes", "message_reactions"]).join(",") },
+        );
+      },
+    },
   };
 }
 

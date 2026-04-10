@@ -77,3 +77,34 @@ export interface LongLivedToken {
   token_type: string;
   expires_in: number;
 }
+
+// Webhook event types
+export interface IGWebhookPayload {
+  object: "instagram";
+  entry: {
+    id: string;
+    time: number;
+    messaging?: IGWebhookMessagingEvent[];
+    changes?: IGWebhookChangeEvent[];
+  }[];
+}
+
+export interface IGWebhookMessagingEvent {
+  sender: { id: string };
+  recipient: { id: string };
+  timestamp: number;
+  message?: { mid: string; text: string };
+}
+
+export interface IGWebhookChangeEvent {
+  field: "comments" | "message_edit" | "message_reactions";
+  value: {
+    id?: string;
+    comment_id?: string;
+    parent_id?: string;
+    text?: string;
+    from?: { id: string; username: string };
+    media?: { id: string; media_product_type?: string };
+    created_time?: number;
+  };
+}
