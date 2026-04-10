@@ -10,7 +10,7 @@
     },
     "packages/meta-business-sdk": {
       "name": "@promobase/meta-business-sdk-ts",
-      "version": "0.1.0",
+      "version": "0.0.1",
       "dependencies": {
         "@promobase/sdk-runtime": "workspace:*",
       },
@@ -31,11 +31,26 @@
         "typescript": "^5.9.3",
       },
     },
+    "packages/tiktok-business-sdk": {
+      "name": "@promobase/tiktok-business-sdk",
+      "version": "0.0.1",
+      "dependencies": {
+        "@promobase/sdk-runtime": "workspace:*",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5.9.3",
+      },
+    },
   },
   "packages": {
     "@promobase/meta-business-sdk-ts": ["@promobase/meta-business-sdk-ts@workspace:packages/meta-business-sdk"],
 
     "@promobase/sdk-runtime": ["@promobase/sdk-runtime@workspace:packages/sdk-runtime"],
+
+    "@promobase/tiktok-business-sdk": ["@promobase/tiktok-business-sdk@workspace:packages/tiktok-business-sdk"],
 
     "@types/bun": ["@types/bun@1.3.11", "", { "dependencies": { "bun-types": "1.3.11" } }, "sha512-5vPne5QvtpjGpsGYXiFyycfpDF2ECyPcTSsFBMa0fraoxiQyMJ3SmuQIGhzPg2WJuWxVBoxWJ2kClYTcw/4fAg=="],
 

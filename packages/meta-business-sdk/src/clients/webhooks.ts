@@ -42,3 +42,56 @@ export async function verifyWebhookSignature(
     .join("");
   return hex === expectedSig;
 }
+
+// --- Platform-specific webhook parsers ---
+
+import type { IGWebhookPayload } from "./instagram/types.ts";
+import type { FBWebhookPayload } from "./facebook/types.ts";
+import type { ThreadsWebhookPayload } from "./threads/types.ts";
+
+export interface WebhookParseOptions {
+  body: string;
+  signature: string;
+  appSecret: string;
+}
+
+/**
+ * Verify signature and parse an Instagram webhook payload.
+ * Throws if signature is invalid or payload shape doesn't match.
+ */
+export async function parseInstagramWebhook(opts: WebhookParseOptions): Promise<IGWebhookPayload> {
+  const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
+  if (!valid) throw new Error("Invalid webhook signature");
+
+  const payload = JSON.parse(opts.body) as IGWebhookPayload;
+  if (payload.object !== "instagram") {
+    throw new Error(`Expected Instagram webhook (object: "instagram"), got "${payload.object}"`);
+  }
+  return payload;
+}
+
+/**
+ * Verify signature and parse a Facebook Page webhook payload.
+ * Throws if signature is invalid or payload shape doesn't match.
+ */
+export async function parseFacebookWebhook(opts: WebhookParseOptions): Promise<FBWebhookPayload> {
+  const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
+  if (!valid) throw new Error("Invalid webhook signature");
+
+  const payload = JSON.parse(opts.body) as FBWebhookPayload;
+  if (payload.object !== "page") {
+    throw new Error(`Expected Facebook Page webhook (object: "page"), got "${payload.object}"`);
+  }
+  return payload;
+}
+
+/**
+ * Verify signature and parse a Threads webhook payload.
+ * Throws if signature is invalid.
+ */
+export async function parseThreadsWebhook(opts: WebhookParseOptions): Promise<ThreadsWebhookPayload> {
+  const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
+  if (!valid) throw new Error("Invalid webhook signature");
+
+  return JSON.parse(opts.body) as ThreadsWebhookPayload;
+}
