@@ -20,7 +20,7 @@ ad-platform-sdks/
 │   │   │   ├── client.test.ts
 │   │   │   ├── cursor.test.ts
 │   │   │   └── errors.test.ts
-│   │   ├── package.json               # @promobase/sdk-runtime
+│   │   ├── package.json               # @promobase/sdk-runtime (private: true — NOT published)
 │   │   └── tsconfig.json
 │   │
 │   ├── meta-business-sdk/              # @promobase/meta-business-sdk-ts
