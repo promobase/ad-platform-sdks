@@ -48,9 +48,7 @@ export interface BcOaCreateParams {
   handle?: string;
   profile_image?: File | Blob;
   operating_region_code: string;
-  qualification_info?: {
-  qualification_id?: string;
-};
+  qualification_info?: "AGENCY" | "SELF_SERVICE_AGENCY" | "DIRECT" | "SELF_SERVICE";
 }
 
 
@@ -59,7 +57,7 @@ export interface BcOaCreateResponse {
   message?: string;
   request_id?: string;
   data?: {
-  asset_id?: string;
+  asset_id?: "MANAGED_BUSINESS_ACCOUNT" | "TT_ACCOUNT";
   asset_name?: string;
 };
 }
@@ -79,7 +77,7 @@ export interface BcAssetAdminGetResponse {}
 
 export interface BcAssetAccountAuthorizationParams {
   bc_id: string;
-  is_ads_only_mode?: boolean;
+  is_ads_only_mode?: "true" | "false";
 }
 
 
@@ -95,8 +93,8 @@ export interface BcAssetAccountAuthorizationResponse {
 
 export interface BcAssetAdvertiserAssignParams {
   bc_id: string;
-  asset_type?: string;
-  asset_id: string;
+  asset_type?: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
+  asset_id: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
   advertiser_id: string;
 }
 
@@ -111,8 +109,8 @@ export interface BcAssetAdvertiserAssignResponse {
 
 export interface BcAssetAdvertiserUnassignParams {
   bc_id: string;
-  asset_id: string;
-  asset_type: string;
+  asset_id: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
+  asset_type: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
   advertiser_id: string;
 }
 
@@ -127,8 +125,8 @@ export interface BcAssetAdvertiserUnassignResponse {
 
 export interface BcAssetAdvertiserAssignedParams {
   bc_id: string;
-  asset_id: string;
-  asset_type: string;
+  asset_id: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
+  asset_type: "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
   page?: number;
   page_size?: number;
 }

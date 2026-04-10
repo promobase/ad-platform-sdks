@@ -3,7 +3,7 @@
 export interface FileImageAdUploadParams {
   advertiser_id: string;
   file_name?: string;
-  upload_type: string;
+  upload_type: "UPLOAD_BY_FILE" | "UPLOAD_BY_URL" | "UPLOAD_BY_FILE_ID";
   image_file?: File | Blob;
   image_signature?: string;
   image_url?: string;
@@ -84,7 +84,7 @@ export interface FileImageAdSearchParams {
   height?: number;
   image_ids?: string[];
   material_ids?: string[];
-  ratio?: float[];
+  ratio?: string;
   width?: number;
   displayable?: boolean;
 };

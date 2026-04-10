@@ -2,7 +2,7 @@
 
 export interface AppTrackParams {
   tiktok_app_id: string;
-  event?: string;
+  event?: "INSTALLAPP" | "PURCHASE";
   timestamp?: string;
   context: Record<string, unknown>;
   properties?: Record<string, unknown>;
@@ -21,7 +21,7 @@ export interface AppBatchParams {
   tiktok_app_id: string;
   batch: {
   type: string;
-  event?: string;
+  event?: "INSTALLAPP" | "PURCHASE";
   timestamp?: string;
   context: Record<string, unknown>;
   properties?: Record<string, unknown>;
@@ -58,14 +58,14 @@ export interface AppCreateResponse {}
 export interface AppUpdateParams {
   advertiser_id: string;
   download_url?: string;
-  platform?: string;
+  platform?: "ANDROID" | "IOS";
   app_id: string;
   partner?: string;
   tracking_url?: {
   click_url?: string;
   impression_url?: string;
 };
-  enable_retargeting?: string;
+  enable_retargeting?: "RETARGETING" | "NON_RETARGETING";
 }
 
 
@@ -81,11 +81,11 @@ export interface AppListResponse {}
 export interface AppOptimizationEventParams {
   advertiser_id: string;
   app_id: string;
-  placement_type?: string;
-  placement?: string[];
+  placement_type?: "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL";
+  placement?: ("PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE" | "PLACEMENT_TOPBUZZ" | "PLACEMENT_HELO" | "PRODUCT_SALES")[];
   optimization_goal: string;
   objective: string;
-  app_promotion_type?: string;
+  app_promotion_type?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING";
   available_only?: boolean;
   is_skan?: boolean;
 }
@@ -97,10 +97,10 @@ export interface AppOptimizationEventResponse {
   data?: {
   optimization_events?: {
   optimization_event?: string;
-  statistic_type?: string;
-  availability_status?: string;
+  statistic_type?: "EVERYTIME" | "NONE";
+  availability_status?: "INACTIVE" | "INSUFFICIENT_POSTBACK" | "READY";
   conversions?: number;
-  unlock_threshold?: number;
+  unlock_threshold?: "INSUFFICIENT_POSTBACK" | "READY";
   is_beta?: boolean;
   bid_type_availability?: {
   no_bid_enabled?: boolean;
@@ -109,10 +109,10 @@ export interface AppOptimizationEventResponse {
 };
   deep_optimization_events?: {
   optimization_event?: string;
-  statistic_type?: string;
-  availability_status?: string;
+  statistic_type?: "EVERYTIME" | "NONE";
+  availability_status?: "INACTIVE" | "INSUFFICIENT_POSTBACK" | "READY";
   conversions?: number;
-  unlock_threshold?: number;
+  unlock_threshold?: "INSUFFICIENT_POSTBACK" | "READY";
 };
 }[];
 };
@@ -186,7 +186,7 @@ export interface PixelListParams {
   code?: string;
   pixel_id?: string;
   name?: string;
-  order_by?: string;
+  order_by?: "EARLIEST_CREATE" | "LATEST_CREATE";
   filtering?: {
   available_for_catalog_only?: boolean;
 };
@@ -203,33 +203,33 @@ export interface PixelListResponse {
   pixel_id?: string;
   pixel_code?: string;
   pixel_name?: string;
-  pixel_category?: string;
+  pixel_category?: "ONLINE_STORE" | "FILLING_FORM" | "CONTACTS" | "LANDING_PAGE" | "CUSTOMIZE_EVENTS";
   pixel_script?: string;
   create_time?: string;
-  pixel_setup_mode?: string;
+  pixel_setup_mode?: "STANDARD" | "DEVELOPER";
   partner_name?: string;
   advanced_matching_fields?: {
-  phone_number?: boolean;
-  email?: boolean;
+  phone_number?: "true" | "false";
+  email?: "true" | "false";
 };
   automatic_advanced_matching_fields?: {
-  phone_number?: boolean;
-  email?: boolean;
-  name?: boolean;
-  address?: boolean;
-  external_id?: boolean;
+  phone_number?: "true" | "false";
+  email?: "true" | "false";
+  name?: "true" | "false";
+  address?: "true" | "false";
+  external_id?: "true" | "false";
 };
-  enable_first_party_cookies?: boolean;
-  enable_expanded_data_sharing?: boolean;
+  enable_first_party_cookies?: "true" | "false";
+  enable_expanded_data_sharing?: "true" | "false";
   asset_ownership?: {
-  asset_relation_status?: string;
-  ownership_status?: boolean;
+  asset_relation_status?: "TRANSFERRED" | "SHARED" | "UNBOUND";
+  ownership_status?: "TRANSFERRED" | "SHARED" | "UNBOUND" | "true" | "false";
   owner_bc_id?: string;
   updated_at?: number;
 };
   events?: {
   currency_value?: string;
-  currency?: string;
+  currency?: "INR" | "JPY" | "USD";
   name?: string;
   deprecated?: boolean;
   event_type?: string;
@@ -237,12 +237,12 @@ export interface PixelListResponse {
   custom_event_type?: string;
   event_code?: string;
   event_id?: string;
-  statistic_type?: string;
+  statistic_type?: "EVERY_TIME" | "ONCE";
   rules?: {
-  operator?: string;
-  trigger?: string;
+  operator?: "OPERATORTYPE_CONTAINS" | "OPERATORTYPE_DOES_NOT_EQUAL" | "OPERATORTYPE_EQUALS";
+  trigger?: "TRIGGERTYPE_CLICK" | "TRIGGERTYPE_PAGEVIEW";
   value?: string;
-  variable?: string;
+  variable?: "ELEMENT" | "PAGE_HOSTNAME" | "PAGE_PATH" | "PAGE_URL";
 }[];
 }[];
 }[];
@@ -272,7 +272,7 @@ export interface PixelCreateResponse {
   pixel_code?: string;
   pixel_id?: string;
   pixel_name?: string;
-  pixel_category?: string;
+  pixel_category?: "ONLINE_STORE" | "FILLING_FORM" | "CONTACTS" | "LANDING_PAGE" | "CUSTOMIZE_EVENTS";
   partner_name?: string;
   advanced_matching_fields?: {
   phone_number?: boolean;
@@ -300,14 +300,14 @@ export interface PixelUpdateParams {
   email?: boolean;
 };
   automatic_advanced_matching_fields?: {
-  phone_number?: boolean;
-  email?: boolean;
-  name?: boolean;
-  address?: boolean;
-  external_id?: boolean;
+  phone_number?: "true" | "false";
+  email?: "true" | "false";
+  name?: "true" | "false";
+  address?: "true" | "false";
+  external_id?: "true" | "false";
 };
-  enable_first_party_cookies?: boolean;
-  enable_expanded_data_sharing?: boolean;
+  enable_first_party_cookies?: "true" | "false";
+  enable_expanded_data_sharing?: "true" | "false";
 }
 
 
@@ -323,17 +323,17 @@ export interface PixelEventCreateParams {
   advertiser_id: string;
   pixel_events: {
   currency_value?: string;
-  currency?: string;
+  currency?: "INR" | "USD";
   event_name?: string;
   event_type: string;
   event_code?: string;
   event_id?: string;
   statistic_type?: string;
   rules?: {
-  trigger: string;
-  operator: string;
+  trigger: "TRIGGERTYPE_CLICK" | "TRIGGERTYPE_PAGEVIEW";
+  operator: "OPERATORTYPE_CONTAINS" | "OPERATORTYPE_DOES_NOT_EQUAL" | "OPERATORTYPE_EQUALS";
   value: string;
-  variable: string;
+  variable: "ELEMENT" | "PAGE_HOSTNAME" | "PAGE_PATH" | "PAGE_URL";
 }[];
 }[];
   pixel_id: string;
@@ -351,7 +351,7 @@ export interface PixelEventCreateResponse {
 export interface PixelEventUpdateParams {
   advertiser_id: string;
   currency_value?: string;
-  currency?: string;
+  currency?: "INR" | "USD";
   event_id: string;
   event_name: string;
 }
@@ -381,7 +381,7 @@ export interface PixelEventDeleteResponse {
 
 export interface PixelInstantPageEventParams {
   advertiser_id: string;
-  objective_type: string;
+  objective_type: "CONVERSIONS" | "APP_PROMOTION";
   optimization_goal: string;
   is_retargeting?: boolean;
 }
@@ -395,7 +395,7 @@ export interface PixelInstantPageEventResponse {
   business_type?: string;
   instant_page_events?: {
   objective_types?: {
-  objective_type?: string;
+  objective_type?: "CONVERSIONS" | "APP_PROMOTION";
   optimization_goals?: {
   optimization_goal?: string;
   optimization_events?: string[];
@@ -443,7 +443,7 @@ export interface OfflineCreateParams {
   advertiser_id: string;
   name: string;
   description?: string;
-  auto_tracking?: boolean;
+  auto_tracking?: "true" | "false";
 }
 
 

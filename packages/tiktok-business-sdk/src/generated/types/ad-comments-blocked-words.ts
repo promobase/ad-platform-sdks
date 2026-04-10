@@ -91,7 +91,7 @@ export interface BlockedwordDeleteResponse {
 export interface BlockedwordTaskCreateParams {
   advertiser_id: string;
   blocked_words?: string[];
-  language?: string;
+  language?: "EN" | "JA" | "ZH";
 }
 
 
@@ -116,7 +116,7 @@ export interface BlockedwordTaskCheckResponse {
   code?: number;
   data?: {
   task_id?: string;
-  status?: string;
+  status?: "RUNNING" | "SUCCEED" | "FAILED";
 };
   request_id?: string;
 }

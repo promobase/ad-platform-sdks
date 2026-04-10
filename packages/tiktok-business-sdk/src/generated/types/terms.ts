@@ -2,7 +2,7 @@
 
 export interface TermGetParams {
   advertiser_id: string;
-  lang?: string;
+  lang?: "EN" | "JA" | "ZH";
   term_type: string;
 }
 

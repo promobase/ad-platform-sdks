@@ -32,8 +32,8 @@ export interface AdvertiserInfoResponse {
   data?: {
   list?: {
   advertiser_id?: string;
-  can_use_custom_identity?: boolean;
-  ads_only_mode?: boolean;
+  can_use_custom_identity?: "true" | "false";
+  ads_only_mode?: "ON" | "true" | "false";
   owner_bc_id?: string;
   status?: string;
   role?: string;
@@ -42,11 +42,11 @@ export interface AdvertiserInfoResponse {
   timezone?: string;
   display_timezone?: string;
   company?: string;
-  company_name_editable?: boolean;
+  company_name_editable?: "true" | "false";
   industry?: string;
   address?: string;
   country?: string;
-  advertiser_account_type?: string;
+  advertiser_account_type?: "RESERVATION" | "AUCTION";
   currency?: string;
   contacter?: string;
   email?: string;

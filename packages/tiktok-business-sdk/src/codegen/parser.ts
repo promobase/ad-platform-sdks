@@ -6,6 +6,7 @@ export interface ParamSpec {
   required: boolean;
   location?: "body" | "query" | "header";
   description: string;
+  enumValues?: string[];
   nestLevel: number;
   children: ParamSpec[];
 }
@@ -141,7 +142,7 @@ function parseXtable(tableText: string): ParamSpec[] {
 
     // Detect nest level from # prefix (any depth)
     const nestMatch = line.match(/^(#{1,10})\|/);
-    const nestLevel = nestMatch ? nestMatch[1].length : 0;
+    const nestLevel = nestMatch?.[1] ? nestMatch[1].length : 0;
     const cleanLine = line.replace(/^#{1,10}\|/, "|");
 
     const cells: string[] = parseTableRow(cleanLine);
@@ -155,15 +156,17 @@ function parseXtable(tableText: string): ParamSpec[] {
     if (!name || name === "-" || name === "---" || /^[-#]+$/.test(name) || name.includes("{") || name.includes("}") || name.startsWith("#")) continue;
 
     const type = normalizeType(cells[typeIdx]?.trim() ?? "string");
-    const description = (descIdx >= 0 ? cells[descIdx]?.trim() : "") ?? "";
+    const rawDescription = (descIdx >= 0 ? cells[descIdx]?.trim() : "") ?? "";
     const location = locationIdx >= 0 ? parseLocation(cells[locationIdx]?.trim() ?? "") : undefined;
+    const enumValues = extractEnumValues(rawDescription);
 
     params.push({
       name,
       type,
       required,
       location,
-      description: stripHtml(description),
+      description: stripHtml(rawDescription),
+      ...(enumValues.length > 0 ? { enumValues } : {}),
       nestLevel,
       children: [],
     });
@@ -228,10 +231,8 @@ function normalizeType(raw: string): string {
     return parts.join(" | ");
   }
 
-  // Fallback: anything with non-TS-safe chars becomes string
-  if (/[^a-zA-Z0-9_\[\]<>,\s]/.test(raw)) return "string";
-
-  return raw;
+  // Fallback: anything unrecognized becomes string (safe default)
+  return "string";
 }
 
 function parseLocation(raw: string): "body" | "query" | "header" | undefined {
@@ -240,6 +241,36 @@ function parseLocation(raw: string): "body" | "query" | "header" | undefined {
   if (lower.includes("query")) return "query";
   if (lower.includes("header")) return "header";
   return undefined;
+}
+
+/**
+ * Extract enum values from a description string.
+ * Patterns detected:
+ * - `VALUE_1`, `VALUE_2` (backtick-quoted UPPER_CASE values, minimum 2)
+ * - Enum values: `VALUE`: description
+ * - Supported values: `VALUE1`, `VALUE2`
+ * - Allowed values: `VALUE1`, `VALUE2`
+ * - `true`, `false` for boolean-like enums
+ */
+function extractEnumValues(description: string): string[] {
+  // Strip HTML for easier matching but keep backticks
+  const clean = description.replace(/<br\s*\/?>/gi, " ").replace(/<\/?[^>]+(>|$)/g, " ");
+
+  // Find all backtick-quoted values that look like enum constants
+  // Match UPPER_CASE_VALUES, lowercase_values, camelCase, numbers, and true/false
+  const allBacktickValues = [...clean.matchAll(/`([A-Z][A-Z0-9_]*(?:\s*[A-Z][A-Z0-9_]*)*)`/g)].map(m => m[1]!);
+
+  // Also catch lowercase enum-like values: `true`, `false`, specific known patterns
+  const lowerBacktickValues = [...clean.matchAll(/`(true|false)`/g)].map(m => m[1]!);
+
+  const combined = [...new Set([...allBacktickValues, ...lowerBacktickValues])];
+
+  // Only return as enum if we have at least 2 distinct values
+  if (combined.length >= 2) {
+    return combined;
+  }
+
+  return [];
 }
 
 /** Strip HTML tags from a string. */

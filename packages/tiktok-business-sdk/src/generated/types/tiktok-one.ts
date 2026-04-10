@@ -62,7 +62,7 @@ export interface TtoTcmCreatorStatusGetResponse {
   data?: {
   onboarding_status?: {
   handle_name?: string;
-  status?: string;
+  status?: "IN" | "NOT_IN" | "INVALID";
 }[];
 };
 }
@@ -176,14 +176,14 @@ export interface TcmTtVideoStatusResponse {
   request_id?: string;
   data?: {
   video_id?: string;
-  auth_status?: string;
-  auth_status_updated_time?: string;
+  auth_status?: "WAITING" | "REJECTED" | "ACCEPTED";
+  auth_status_updated_time?: "WAITING" | "ACCEPTED";
   num_remaining_request?: number;
   requested_authorization_days?: number;
   auth_code?: string;
   auth_code_start_time?: string;
   auth_code_end_time?: string;
-  auth_code_status?: string;
+  auth_code_status?: "ACCEPTED" | "NOT_USED" | "IN_USE" | "EXPIRED" | "DELETED";
 };
 }
 

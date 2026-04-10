@@ -4,7 +4,7 @@ export interface CatalogSetGetParams {
   bc_id: string;
   catalog_id: string;
   product_set_id?: string;
-  return_product_count?: boolean;
+  return_product_count?: "true" | "false";
 }
 
 
@@ -46,7 +46,7 @@ export interface CatalogSetProductGetResponse {
   data?: {
   product_set_id?: string;
   catalog_id?: string;
-  product_count?: name;
+  product_count?: string;
   products?: {
   product_id?: number;
   product_name?: string;

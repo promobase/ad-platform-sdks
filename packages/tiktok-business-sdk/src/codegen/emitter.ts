@@ -32,10 +32,27 @@ function safeProp(name: string): string {
 
 // ─── Type Emitter ────────────────────────────────────────────────────
 
-/** Emit a TypeScript type for a param, handling children as inline objects. */
+/** Emit a TypeScript type for a param, handling children as inline objects and enums. */
 function paramToTsType(param: ParamSpec): string {
+  // If enum values exist, emit a union type
+  if (param.enumValues && param.enumValues.length > 0) {
+    const union = param.enumValues.map(v => `"${v}"`).join(" | ");
+    // If the base type is an array, make it an array of the union
+    if (param.type.endsWith("[]")) {
+      return `(${union})[]`;
+    }
+    return union;
+  }
+
   if (param.children.length > 0) {
-    const inner = param.children.map(c => {
+    // Deduplicate children by name
+    const seen = new Set<string>();
+    const deduped = param.children.filter(c => {
+      if (seen.has(c.name)) return false;
+      seen.add(c.name);
+      return true;
+    });
+    const inner = deduped.map(c => {
       const opt = c.required ? "" : "?";
       return `  ${safeProp(c.name)}${opt}: ${paramToTsType(c)};`;
     }).join("\n");

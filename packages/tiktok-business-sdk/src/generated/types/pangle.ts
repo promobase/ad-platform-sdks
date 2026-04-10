@@ -45,7 +45,7 @@ export interface PangleAudiencePackageGetResponse {
   message?: string;
   data?: {
   packages?: {
-  bind_type?: string;
+  bind_type?: "EXCLUDE" | "INCLUDE";
   package_id?: string;
   package_name?: string;
 }[];

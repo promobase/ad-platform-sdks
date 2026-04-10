@@ -39,7 +39,7 @@ export interface BusinessMessageCapabilitiesGetResponse {}
 export interface BusinessMessageDirectReplyUpdateParams {
   business_id: string;
   direct_reply_type: string;
-  operation_status: string;
+  operation_status: "ENABLE" | "DISABLE";
 }
 
 
@@ -64,7 +64,7 @@ export interface BusinessMessageDirectReplyGetResponse {
   data?: {
   business_id?: string;
   direct_reply_type?: string;
-  operation_status?: string;
+  operation_status?: "ENABLE" | "DISABLE";
 };
 }
 

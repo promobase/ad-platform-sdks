@@ -24,52 +24,26 @@ export interface CampaignGmvMaxUpdateParams {
   roas_bid?: number;
   budget?: number;
   promotion_days?: {
-  is_enabled?: boolean;
-  auto_schedule_enabled?: boolean;
-  custom_schedule_list?: {
-  start_date?: string;
-  end_date?: string;
-}[];
+  is_enabled?: "true" | "false";
+  auto_schedule_enabled?: "true" | "false";
+  custom_schedule_list?: ("false" | "true")[];
   roas_bid_multiplier?: number;
   budget_increase_percentage?: number;
   increase_limit?: number;
 };
   auto_budget?: {
-  auto_budget_enabled?: boolean;
+  auto_budget_enabled?: "true" | "false";
   budget_increase_percentage?: number;
   increase_limit?: number;
 };
-  auto_budget_enabled?: boolean;
-  item_group_ids?: string[];
-  schedule_type?: string;
-  schedule_end_time?: string;
-  accelerate_testing_for_new_videos?: string;
-  affiliate_posts_enabled?: boolean;
-  item_list?: {
-  item_id?: string;
-  spu_id_list?: string[];
-  identity_info?: {
-  identity_id?: string;
-  identity_type?: string;
-  identity_authorized_bc_id?: string;
-  identity_authorized_shop_id?: string;
-  store_id?: string;
-};
-  video_info?: {
-  video_id?: string;
-};
-}[];
-  custom_anchor_video_list?: {
-  item_id?: string;
-  spu_id_list?: string[];
-  identity_info?: {
-  identity_id?: string;
-  identity_type?: string;
-  identity_authorized_bc_id?: string;
-  identity_authorized_shop_id?: string;
-  store_id?: string;
-};
-}[];
+  auto_budget_enabled?: "true" | "false";
+  item_group_ids?: ("PRODUCT" | "CUSTOMIZED_PRODUCTS" | "GMV_MAX" | "AVAILABLE" | "UNOCCUPIED")[];
+  schedule_type?: "SCHEDULE_FROM_NOW" | "SCHEDULE_START_END";
+  schedule_end_time?: "SCHEDULE_START_END" | "SCHEDULE_FROM_NOW";
+  accelerate_testing_for_new_videos?: "AUTO_SELECTION" | "ON" | "OFF";
+  affiliate_posts_enabled?: "PRODUCT" | "AUTO_SELECTION" | "true" | "false";
+  item_list?: ("PRODUCT" | "CUSTOM_SELECTION")[];
+  custom_anchor_video_list?: ("PRODUCT" | "CUSTOM_SELECTION" | "AUTO_SELECTION")[];
   campaign_name?: string;
 }
 
@@ -80,22 +54,22 @@ export interface CampaignGmvMaxUpdateResponse {
   request_id?: string;
   data?: {
   advertiser_id?: string;
-  operation_status?: string;
+  operation_status?: "DISABLE" | "ENABLE";
   campaign_id?: string;
   campaign_name?: string;
   store_id?: string;
   store_authorized_bc_id?: string;
-  shopping_ads_type?: string;
-  product_specific_type?: string;
-  item_group_ids?: string[];
+  shopping_ads_type?: "PRODUCT" | "LIVE";
+  product_specific_type?: "ALL" | "CUSTOMIZED_PRODUCTS" | "UNSET";
+  item_group_ids?: ("PRODUCT" | "CUSTOMIZED_PRODUCTS")[];
   optimization_goal?: string;
-  roi_protection_enabled?: boolean;
+  roi_protection_enabled?: "true" | "false";
   deep_bid_type?: string;
   roas_bid?: number;
   budget?: number;
   promotion_days?: {
-  is_enabled?: boolean;
-  auto_schedule_enabled?: boolean;
+  is_enabled?: "true" | "false";
+  auto_schedule_enabled?: "true" | "false";
   custom_schedule_list?: {
   start_time?: string;
   end_time?: string;
@@ -111,7 +85,7 @@ export interface CampaignGmvMaxUpdateResponse {
   estimated_gross_revenue_increase?: string;
 };
   auto_budget?: {
-  auto_budget_enabled?: boolean;
+  auto_budget_enabled?: "true" | "false";
   budget_increase_percentage?: number;
   increase_limit?: number;
   current_budget?: number;
@@ -119,30 +93,30 @@ export interface CampaignGmvMaxUpdateResponse {
   remained_times?: number;
   maximum_budget?: number;
 };
-  auto_budget_enabled?: boolean;
-  schedule_type?: string;
+  auto_budget_enabled?: "true" | "false";
+  schedule_type?: "SCHEDULE_FROM_NOW" | "SCHEDULE_START_END";
   schedule_start_time?: string;
   schedule_end_time?: string;
-  placements?: string[];
+  placements?: ("PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE")[];
   location_ids?: string[];
   age_groups?: string[];
-  product_video_specific_type?: string;
-  accelerate_testing_for_new_videos?: string;
+  product_video_specific_type?: "AUTO_SELECTION" | "CUSTOM_SELECTION" | "UNSET";
+  accelerate_testing_for_new_videos?: "ON" | "OFF";
   identity_list?: {
   identity_id?: string;
-  identity_type?: string;
+  identity_type?: "AUTH_CODE" | "TT_USER" | "BC_AUTH_TT" | "TTS_TT";
   identity_authorized_bc_id?: string;
   identity_authorized_shop_id?: string;
   store_id?: string;
 }[];
-  affiliate_posts_enabled?: boolean;
+  affiliate_posts_enabled?: "true" | "false";
   item_list?: {
   item_id?: string;
   text?: string;
   spu_id_list?: string[];
   identity_info?: {
   identity_id?: string;
-  identity_type?: string;
+  identity_type?: "AUTH_CODE" | "TT_USER" | "BC_AUTH_TT" | "TTS_TT";
   identity_authorized_bc_id?: string;
   identity_authorized_shop_id?: string;
   store_id?: string;
@@ -170,7 +144,7 @@ export interface CampaignGmvMaxUpdateResponse {
   spu_id_list?: string[];
   identity_info?: {
   identity_id?: string;
-  identity_type?: string;
+  identity_type?: "AUTH_CODE" | "TT_USER" | "BC_AUTH_TT" | "TTS_TT";
   identity_authorized_bc_id?: string;
   identity_authorized_shop_id?: string;
   store_id?: string;
@@ -255,9 +229,9 @@ export interface GmvMaxCustomAnchorVideoListGetResponse {}
 export interface CampaignGmvMaxCreativeUpdateParams {
   advertiser_id: string;
   campaign_id: string;
-  action: string;
+  action: "REMOVE" | "ADD" | "EXCLUDED";
   item_list: {
-  item_id: string;
+  item_id: "REMOVE" | "ADD";
   spu_id_list?: string[];
 }[];
 }

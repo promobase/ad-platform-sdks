@@ -4,7 +4,7 @@ export interface Oauth2AccessTokenParams {
   app_id: string;
   secret: string;
   auth_code: string;
-  return_advertiser_ids?: boolean;
+  return_advertiser_ids?: "true" | "false";
 }
 
 

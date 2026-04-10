@@ -4,7 +4,7 @@ export interface ToolDiagnosisGetParams {
   advertiser_id: string;
   filtering?: {
   adgroup_ids?: string[];
-  issue_category?: string[];
+  issue_category?: ("CREATIVE" | "BID_AND_BUDGET" | "EVENT_TRACK")[];
 };
 }
 
@@ -25,17 +25,17 @@ export interface ToolDiagnosisGetResponse {
   vid?: string;
   name?: string;
   ad_id?: string;
-  issue_suggestion?: string;
+  issue_suggestion?: "NOBGM" | "VIDEO_LENGTH" | "VIDEO_RESOLUTION";
   suggestion_id?: string;
 }[];
   bid_and_budget?: {
   suggestion_time?: string;
   suggestion_id?: string;
-  issue_suggestion?: string;
+  issue_suggestion?: "SUGGEST_BID" | "SUGGEST_BUDGET" | "NOBID_SWITCH" | "BUDGET_EDR" | "BID_EDR";
   bid?: number;
-  budget?: number;
+  budget?: "SUGGEST_BID" | "SUGGEST_BUDGET" | "NOBID_SWITCH";
   suggest_bid?: number;
-  suggest_budget?: number;
+  suggest_budget?: "SUGGEST_BUDGET" | "NOBID_SWITCH";
   cost_floor?: number;
   bid_edr_info?: {
   recommended_bid?: number;

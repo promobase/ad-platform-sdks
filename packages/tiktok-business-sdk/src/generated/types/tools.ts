@@ -47,7 +47,7 @@ export interface ToolInterestCategoryParams {
   version?: number;
   language?: string;
   placements?: string[];
-  special_industries?: string[];
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
 }
 
 
@@ -60,7 +60,7 @@ export interface ToolInterestCategoryResponse {
   interest_category_name?: string;
   level?: number;
   sub_category_ids?: string[];
-  special_industries?: string[];
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
   placements?: string[];
 }[];
 };
@@ -72,10 +72,10 @@ export interface ToolInterestKeywordRecommendParams {
   advertiser_id: string;
   keywords?: string[];
   keyword?: string;
-  mode?: string;
+  mode?: "FUZZ_MATCH" | "SEMANTIC_RECOMMEND";
   language?: string;
   limit?: number;
-  audience_type?: string;
+  audience_type?: "GENERAL_INTEREST" | "PURCHASE_INTENTION";
 }
 
 
@@ -89,7 +89,7 @@ export interface ToolInterestKeywordRecommendResponse {
   keyword?: string;
   keyword_id?: string;
   language?: string;
-  status?: string;
+  status?: "EFFECTIVE" | "INEFFECTIVE";
 }[];
 };
 }
@@ -102,7 +102,7 @@ export interface ToolInterestKeywordGetParams {
   language?: string;
 }[];
   filtering?: {
-  audience_type?: string;
+  audience_type?: "GENERAL_INTEREST" | "PURCHASE_INTENTION";
 };
 }
 
@@ -115,7 +115,7 @@ export interface ToolInterestKeywordGetResponse {
   keywords?: {
   keyword?: string;
   keyword_id?: string;
-  status?: string;
+  status?: "EFFECTIVE" | "INEFFECTIVE";
 }[];
 };
 }
@@ -123,7 +123,7 @@ export interface ToolInterestKeywordGetResponse {
 
 export interface ToolActionCategoryParams {
   advertiser_id: string;
-  special_industries?: string[];
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
   language?: string;
 }
 
@@ -138,8 +138,8 @@ export interface ToolActionCategoryResponse {
   level?: number;
   sub_category_ids?: string[];
   name?: string;
-  special_industries?: string[];
-  action_scene?: string;
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  action_scene?: "CREATOR_RELATED" | "VIDEO_RELATED";
 }[];
 };
   request_id?: string;
@@ -149,7 +149,7 @@ export interface ToolActionCategoryResponse {
 export interface ToolHashtagRecommendParams {
   advertiser_id: string;
   keywords: string[];
-  operator?: string;
+  operator?: "AND" | "OR";
 }
 
 
@@ -162,7 +162,7 @@ export interface ToolHashtagRecommendResponse {
   input_keyword?: string;
   keyword?: string;
   keyword_id?: string;
-  keyword_status?: string;
+  keyword_status?: "ONLINE" | "OFFLINE";
 }[];
 };
 }
@@ -182,7 +182,7 @@ export interface ToolHashtagGetResponse {
   keywords_status?: {
   keyword?: string;
   keyword_id?: string;
-  keyword_status?: string;
+  keyword_status?: "ONLINE" | "OFFLINE";
 }[];
 };
 }
@@ -204,14 +204,14 @@ export interface ToolTargetingCategoryRecommendResponse {
   interest_category_id?: string;
   interest_category_name?: string;
   placements?: string[];
-  special_industries?: string[];
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
 }[];
   action_categories?: {
   action_category_id?: string;
   action_category_name?: string;
   description?: string;
-  scene?: string;
-  special_industries?: string[];
+  scene?: "CREATOR_RELATED" | "VIDEO_RELATED";
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
 }[];
 };
 }
@@ -235,9 +235,9 @@ export interface ToolDiagnosisSearchHealthResponse {
   message?: string;
   request_id?: string;
   data?: {
-  search_health_status?: string;
+  search_health_status?: "GOOD" | "NEED_IMPROVEMENT" | "NO_DATA";
   search_volume?: {
-  diagnosis_result?: string;
+  diagnosis_result?: "HIGH" | "MEDIUM" | "LOW" | "INVALID";
   total_monthly_searches?: number;
 };
   total_keyword_count?: number;
@@ -245,15 +245,15 @@ export interface ToolDiagnosisSearchHealthResponse {
   keyword_relevance?: {
   adgroup_id?: string;
   ad_id?: string;
-  keyword_relevance_status?: string;
+  keyword_relevance_status?: "TO_BE_CALCULATED" | "PARTIALLY_RELEVANT" | "RELEVANT" | "IRRELEVANT";
   relevant_keyword_count?: number;
   relevant_keywords?: string[];
   irrelevant_keyword_count?: number;
   irrelevant_keywords?: string[];
 }[];
   bid_budget?: {
-  bid_budget_status?: string;
-  bid_suggestion_status?: string;
+  bid_budget_status?: "GOOD" | "LOW_BID_AND_BUDGET" | "LOW_BUDGET" | "LOW_BID" | "NO_DATA";
+  bid_suggestion_status?: "GOOD" | "LOW" | "NO_DATA";
   suggested_value?: string;
 };
 };
@@ -263,9 +263,9 @@ export interface ToolDiagnosisSearchHealthResponse {
 export interface ToolSearchKeywordKeywordIdeaParams {
   advertiser_id: string;
   keywords: string[];
-  order_field?: string;
-  order_type?: string;
-  brand_type?: string;
+  order_field?: "AVG_MONTHLY_SEARCHES" | "THREE_MONTH_CHANGE" | "YEAR_OVER_YEAR_CHANGE" | "COMPETITION";
+  order_type?: "ASC" | "DESC";
+  brand_type?: "BRAND" | "NON_BRAND" | "ALL";
   country_codes?: string[];
 }
 
@@ -283,7 +283,7 @@ export interface ToolSearchKeywordKeywordIdeaResponse {
   avg_monthly_searches_upper?: number;
   three_month_change?: number;
   year_over_year_change?: number;
-  competition?: string;
+  competition?: "HIGH" | "MEDIUM" | "LOW";
   estimated_cpc_lower?: number;
   estimated_cpc_upper?: number;
 }[];
@@ -293,7 +293,7 @@ export interface ToolSearchKeywordKeywordIdeaResponse {
 
 export interface ToolOsVersionParams {
   advertiser_id: string;
-  os_type: string;
+  os_type: "ANDROID" | "IOS";
 }
 
 
@@ -326,8 +326,8 @@ export interface ToolDeviceModelResponse {
   device_model_name?: string;
   child_device_ids?: string[];
   is_active?: boolean;
-  level?: string;
-  os_type?: string;
+  level?: "BRAND" | "SERIES" | "MODEL";
+  os_type?: "ANDROID" | "IOS";
 }[];
   request_id?: string;
 }
@@ -379,8 +379,8 @@ export interface ToolContextualTagInfoResponse {}
 
 export interface ToolContentExclusionGetParams {
   advertiser_id: string;
-  objective_type: string;
-  brand_safety_type?: string;
+  objective_type: "REACH" | "VIDEO_VIEWS" | "ENGAGEMENT";
+  brand_safety_type?: "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY";
 }
 
 
@@ -423,7 +423,7 @@ export interface ToolContentExclusionInfoResponse {
   category_name?: string;
   supported_regions?: string[];
   description?: string;
-  category_type?: string;
+  category_type?: "CATEGORY_TYPE_EXCLUSION" | "CATEGORY_TYPE_VERTICAL";
 }[];
 };
 }
@@ -476,7 +476,7 @@ export interface ToolBrandSafetyPartnerAuthorizeStatusResponse {
   code?: number;
   message?: string;
   data?: {
-  status?: string;
+  status?: "OK" | "NOT_FOUND";
 };
   request_id?: string;
 }
@@ -515,7 +515,7 @@ export interface ToolTimezoneResponse {
 export interface ToolOpenUrlParams {
   advertiser_id: string;
   url: string;
-  url_type: string;
+  url_type: "USER_PROFILE" | "VIDEO" | "HASHTAG_CHALLENGE" | "MUSIC" | "STICKER" | "STICKER_SHOOTER";
 }
 
 
@@ -525,7 +525,7 @@ export interface ToolOpenUrlResponse {
   request_id?: string;
   data?: {
   open_url?: string;
-  supported_regions?: string[];
+  supported_regions?: ("STICKER" | "STICKER_SHOOTER")[];
 };
 }
 
@@ -534,7 +534,7 @@ export interface CampaignLabelGetParams {
   advertiser_id: string;
   campaign_label_ids?: string[];
   campaign_label_names?: string[];
-  campaign_label_types?: string[];
+  campaign_label_types?: ("GENERAL" | "MARKETING_EVENT")[];
   page?: number;
   page_size?: number;
 }
@@ -548,7 +548,7 @@ export interface CampaignLabelGetResponse {
   list?: {
   campaign_label_id?: string;
   campaign_label_name?: string;
-  campaign_label_type?: string;
+  campaign_label_type?: "GENERAL" | "MARKETING_EVENT";
   campaign_label_color?: string;
   create_time?: string;
 }[];

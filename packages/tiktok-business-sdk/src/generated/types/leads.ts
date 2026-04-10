@@ -1,10 +1,10 @@
 // Auto-generated types for Leads — do not edit
 
 export interface PageLeadMockCreateParams {
-  lead_source?: string;
-  advertiser_id?: string;
+  lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
+  advertiser_id?: "ADVERTISER" | "ADMIN";
   library_id?: string;
-  page_id?: string;
+  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
 }
 
 
@@ -15,7 +15,7 @@ export interface PageLeadMockCreateResponse {
   data?: {
   lead_data?: Record<string, unknown>;
   meta_data?: {
-  lead_source?: string;
+  lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
   lead_id?: string;
   page_id?: string;
   campaign_id?: string;
@@ -31,10 +31,10 @@ export interface PageLeadMockCreateResponse {
 
 
 export interface PageLeadMockGetParams {
-  lead_source?: string;
-  advertiser_id?: string;
+  lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
+  advertiser_id?: "ADVERTISER" | "ADMIN";
   library_id?: string;
-  page_id?: string;
+  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
 }
 
 
@@ -45,7 +45,7 @@ export interface PageLeadMockGetResponse {
   data?: {
   lead_data?: Record<string, unknown>;
   meta_data?: {
-  lead_source?: string;
+  lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
   lead_id?: string;
   page_id?: string;
   campaign_id?: string;
@@ -116,10 +116,10 @@ export interface LeadFieldGetResponse {}
 
 
 export interface LeadGetParams {
-  lead_source: string;
+  lead_source: "INSTANT_FORM" | "DIRECT_MESSAGE";
   advertiser_id?: string;
   library_id?: string;
-  page_id?: string;
+  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
 }
 
 

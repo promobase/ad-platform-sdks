@@ -3,7 +3,7 @@
 export interface CatalogInsightFilterGetParams {
   bc_id: string;
   catalog_id: string;
-  filter_type: string;
+  filter_type: "CATEGORY_ID" | "BRAND" | "AVAILABILITY";
   page?: number;
   page_size?: number;
 }

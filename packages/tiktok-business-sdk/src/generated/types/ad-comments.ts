@@ -13,9 +13,9 @@ export interface CommentListResponse {
   content?: string;
   likes?: number;
   replies?: number;
-  comment_type?: string;
+  comment_type?: "COMMENT" | "REPLY";
   original_comment_id?: string;
-  comment_status?: string;
+  comment_status?: "HIDDEN" | "PUBLIC";
   hit_blockedword?: boolean;
   ad_text?: string;
   create_time?: string;
@@ -27,7 +27,7 @@ export interface CommentListResponse {
   ad_name?: string;
   tiktok_item_id?: string;
   identity_id?: string;
-  identity_type?: string;
+  identity_type?: "CUSTOMIZED_USER" | "TT_USER";
   is_pinned?: boolean;
   can_delete?: boolean;
   is_auth_ttba?: boolean;
@@ -59,8 +59,8 @@ export interface CommentReferenceResponse {
   comments?: {
   comment_id?: string;
   content?: string;
-  comment_type?: string;
-  comment_status?: string;
+  comment_type?: "COMMENT" | "REPLY";
+  comment_status?: "HIDDEN" | "PUBLIC";
   hit_blockedword?: boolean;
   create_time?: string;
   user_name?: string;
@@ -68,7 +68,7 @@ export interface CommentReferenceResponse {
   user_avatar_url?: string;
   tiktok_item_id?: string;
   identity_id?: string;
-  identity_type?: string;
+  identity_type?: "CUSTOMIZED_USER" | "TT_USER";
   is_pinned?: boolean;
   can_delete?: boolean;
   is_auth_ttba?: boolean;
@@ -89,7 +89,7 @@ export interface CommentReferenceResponse {
 export interface CommentStatusUpdateParams {
   advertiser_id: string;
   comment_ids: string[];
-  operation: string;
+  operation: "HIDDEN" | "PUBLIC";
 }
 
 
@@ -114,16 +114,16 @@ export interface CommentDeleteResponse {}
 
 export interface CommentTaskCreateParams {
   advertiser_id: string;
-  comment_status?: string[];
-  comment_type?: string[];
+  comment_status?: ("ALL" | "PUBLIC" | "HIDDEN")[];
+  comment_type?: ("ALL" | "COMMENT" | "REPLY")[];
   search_field?: string;
   search_value?: string;
   comment_ids?: string[];
-  sort_field?: string;
-  sort_type?: string;
+  sort_field?: "CREATE_TIME" | "LIKES" | "REPLIES";
+  sort_type?: "ASC" | "DESC";
   start_time?: string;
   end_time?: string;
-  lang?: string;
+  lang?: "EN" | "JA" | "ZH";
 }
 
 
@@ -148,7 +148,7 @@ export interface CommentTaskCheckResponse {
   code?: number;
   data?: {
   task_id?: string;
-  status?: string;
+  status?: "RUNNING" | "SUCCEED" | "FAILED";
 };
   request_id?: string;
 }

@@ -5,14 +5,14 @@ export interface PageGetParams {
   library_id?: string;
   page?: number;
   page_size?: number;
-  status?: string;
+  status?: "EDITED" | "PUBLISHED";
   title?: string;
   update_time_range?: {
   start?: string;
   end?: string;
 };
-  business_type?: string;
-  business_types?: string[];
+  business_type?: "LEAD_GEN" | "STORE_FRONT" | "APP_PROFILE_PAGE" | "TIKTOK_INSTANT_PAGE" | "SHOP_ADS_PLP" | "SHOP_ADS_PDP" | "POP_UP_FORM";
+  business_types?: ("LEAD_GEN" | "STORE_FRONT" | "APP_PROFILE_PAGE" | "TIKTOK_INSTANT_PAGE" | "SHOP_ADS_PLP" | "SHOP_ADS_PDP" | "POP_UP_FORM")[];
 }
 
 
@@ -22,7 +22,7 @@ export interface PageGetResponse {
   data?: {
   list?: {
   page_id?: string;
-  status?: string;
+  status?: "EDITED" | "PUBLISHED";
   create_time?: string;
   update_time?: string;
   publish_time?: string;
@@ -30,11 +30,11 @@ export interface PageGetResponse {
   preview_url?: string;
   thumbnail?: string;
   app_id?: string;
-  has_cpp?: boolean;
-  destination_urls?: string[];
-  messaging_app_type?: string;
-  messaging_app_account_id?: string;
-  transfer_status?: string;
+  has_cpp?: "TIKTOK_INSTANT_PAGE" | "true" | "false";
+  destination_urls?: ("LEAD_GEN" | "APP_PROFILE_PAGE" | "TIKTOK_INSTANT_PAGE")[];
+  messaging_app_type?: "MESSENGER" | "WHATSAPP" | "IM_URL";
+  messaging_app_account_id?: "MESSENGER" | "WHATSAPP" | "IM_URL";
+  transfer_status?: "UNSET" | "TRANSFERRED";
   template_id?: string;
   user_id?: string;
   is_associated?: boolean;

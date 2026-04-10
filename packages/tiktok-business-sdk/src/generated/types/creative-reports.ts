@@ -3,7 +3,7 @@
 export interface ReportAdBenchmarkGetParams {
   advertiser_id: string;
   compare_time_window?: string;
-  dimensions: string[];
+  dimensions: ("LOCATION" | "AD_CATEGORY" | "EXTERNAL_ACTION" | "PLACEMENT")[];
   metrics_fields?: string[];
   filtering: {
   ad_ids?: string[];
@@ -11,7 +11,7 @@ export interface ReportAdBenchmarkGetParams {
   campaign_ids?: string[];
 };
   sort_field?: string;
-  sort_type?: string;
+  sort_type?: "ASC" | "DES";
   page?: number;
   page_size?: number;
 }
@@ -47,20 +47,11 @@ export interface ReportAdBenchmarkGetResponse {
 
 export interface ReportVideoPerformanceGetParams {
   advertiser_id: string;
-  report_type?: string;
+  report_type?: "AD" | "VIDEO";
   metrics_fields?: string[];
-  filtering: {
-  ad_ids?: string[];
-  adgroup_ids?: string[];
-  campaign_ids?: string[];
-  material_ids?: string[];
-  video_ids?: string[];
-  start_time?: string;
-  end_time?: string;
-  lifetime?: boolean;
-};
+  filtering: "AD" | "VIDEO";
   sort_field?: string;
-  sort_type?: string;
+  sort_type?: "ASC" | "DES";
   page?: number;
   page_size?: number;
 }

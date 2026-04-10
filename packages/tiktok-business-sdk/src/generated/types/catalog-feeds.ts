@@ -15,13 +15,13 @@ export interface CatalogFeedGetResponse {
   feed_list?: {
   feed_id?: string;
   feed_name?: string;
-  status?: string;
+  status?: "ON" | "OFF";
   last_update_param?: {
   uri?: string;
-  update_mode?: string;
+  update_mode?: "OVERWRITE" | "INCREMENTAL";
   timezone?: string;
-  interval_type?: string;
-  interval_count?: number;
+  interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
   day_of_month?: number;
   hour?: number;
   minute?: number;
@@ -67,7 +67,7 @@ export interface CatalogFeedLogResponse {
   add_count?: number;
   error_count?: number;
   remove_count?: number;
-  process_status?: string;
+  process_status?: "PROCESSING" | "SUCCESS" | "FAILED" | "WAITING";
   update_count?: number;
   warn_count?: number;
 };

@@ -12,9 +12,9 @@ export interface AdgroupReviewInfoResponse {
   message?: string;
   data?: {
   ad_review_map?: {
-  ad_id?: string;
+  ad_id?: "PART_AVAILABLE" | "UNAVAILABLE";
   is_approved?: boolean;
-  review_status?: string;
+  review_status?: "ALL_AVAILABLE" | "PART_AVAILABLE" | "UNAVAILABLE";
   appeal_status?: string;
   forbidden_placements?: string[];
   forbidden_ages?: string[];
@@ -35,7 +35,7 @@ export interface AdgroupReviewInfoResponse {
   video_id?: string;
 };
   text_content?: string;
-  content_type?: string;
+  content_type?: "MODE_STRING" | "MODE_IMAGE" | "MODE_VIDEO" | "MODE_CAROUSEL_MUSIC";
   carousel_music_content?: {
   music_id?: string;
 };
@@ -45,7 +45,7 @@ export interface AdgroupReviewInfoResponse {
   ad_group_review_map?: {
   adgroup_id?: string;
   is_approved?: boolean;
-  review_status?: string;
+  review_status?: "ALL_AVAILABLE" | "PART_AVAILABLE" | "UNAVAILABLE";
   appeal_status?: string;
   forbidden_placements?: string[];
   forbidden_ages?: string[];
@@ -67,7 +67,7 @@ export interface AdgroupReviewInfoResponse {
   video_id?: string;
 };
   text_content?: string;
-  content_type?: string;
+  content_type?: "MODE_STRING" | "MODE_IMAGE" | "MODE_VIDEO" | "MODE_CAROUSEL_MUSIC";
   carousel_music_content?: {
   music_id?: string;
 };
@@ -92,7 +92,7 @@ export interface AdReviewInfoResponse {
   ad_review_map?: {
   ad_id?: string;
   is_approved?: boolean;
-  review_status?: string;
+  review_status?: "ALL_AVAILABLE" | "PART_AVAILABLE" | "UNAVAILABLE";
   appeal_status?: string;
   forbidden_placements?: string[];
   forbidden_ages?: string[];
@@ -113,7 +113,7 @@ export interface AdReviewInfoResponse {
   video_id?: string;
 };
   text_content?: string;
-  content_type?: string;
+  content_type?: "MODE_STRING" | "MODE_IMAGE" | "MODE_VIDEO" | "MODE_CAROUSEL_MUSIC";
   carousel_music_content?: {
   music_id?: string;
 };

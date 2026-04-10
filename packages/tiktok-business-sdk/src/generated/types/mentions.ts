@@ -28,8 +28,8 @@ export interface BusinessMentionHashtagVideoListParams {
   business_id: string;
   hashtag?: string;
   fields?: string[];
-  sort_field?: string;
-  sort_order?: string;
+  sort_field?: "CREATE_TIME" | "LIKES" | "COMMENTS" | "SHARES";
+  sort_order?: "ASC" | "DESC";
   number_of_days?: number;
   regions?: string[];
   cursor?: number;

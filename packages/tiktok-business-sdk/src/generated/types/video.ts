@@ -2,8 +2,8 @@
 
 export interface FileVideoAdUploadParams {
   advertiser_id: string;
-  file_name?: string;
-  upload_type?: string;
+  file_name?: "false" | "true";
+  upload_type?: "UPLOAD_BY_FILE" | "UPLOAD_BY_URL" | "UPLOAD_BY_FILE_ID" | "UPLOAD_BY_VIDEO_ID";
   video_file?: File | Blob;
   video_signature?: string;
   video_url?: string;
@@ -11,8 +11,8 @@ export interface FileVideoAdUploadParams {
   video_id?: string;
   is_third_party?: boolean;
   flaw_detect?: boolean;
-  auto_fix_enabled?: boolean;
-  auto_bind_enabled?: boolean;
+  auto_fix_enabled?: "LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "false" | "true";
+  auto_bind_enabled?: "true" | "false";
 }
 
 
@@ -34,13 +34,13 @@ export interface FileVideoAdUploadResponse {
   modify_time?: string;
   signature?: string;
   duration?: number;
-  video_id?: string;
+  video_id?: "UPLOAD_BY_VIDEO_ID" | "UPLOAD_BY_FILE" | "UPLOAD_BY_URL" | "UPLOAD_BY_FILE_ID";
   size?: number;
   material_id?: string;
-  allowed_placements?: string[];
+  allowed_placements?: ("PLACEMENT_TOPBUZZ" | "PLACEMENT_HELO")[];
   allow_download?: boolean;
   fix_task_id?: string;
-  flaw_types?: string[];
+  flaw_types?: ("LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "NO_BGM" | "BLACK_EDGE" | "ILLEGAL_DURATION" | "true")[];
 }[];
 }
 
@@ -100,7 +100,7 @@ export interface FileVideoAdSearchParams {
   video_ids?: string[];
   material_ids?: string[];
   video_name?: string;
-  video_material_sources?: string[];
+  video_material_sources?: ("UPLOADED_TO_TIKTOK_ADS_MANAGER" | "UPLOADED_TO_CATALOG" | "CREATIVE_TOOL_SMART_VIDEO" | "CREATIVE_TOOL_QUICK_OPTIMIZATION" | "CREATIVE_TOOL_VIDEO_TEMPLATE" | "CREATIVE_TOOL_SMART_VIDEO_SOUNDTRACK" | "CREATIVE_TOOL_TIKTOK_VIDEO_EDITOR" | "TIKTOK_CREATIVE_EXCHANGE" | "CATALOG_VIDEO_TEMPLATE" | "DYNAMIC_VIDEO_EDITOR" | "CREATIVE_CHALLENGE" | "AUTOMATED_CREATIVE_OPTIMIZATION" | "OTHER" | "QUICK_GENERATION" | "CREATIVE_CENTER_VIDEO_UPLOAD" | "CREATIVE_CENTER_TIKTOK_VIDEO_EDITOR" | "CREATIVE_CENTER_VIDEO_TEMPLATE" | "DYNAMIC_SCENE" | "SMART_OPTIMIZATION_TOOL")[];
 };
   page?: number;
   page_size?: number;

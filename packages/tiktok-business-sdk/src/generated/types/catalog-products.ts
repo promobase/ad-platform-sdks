@@ -4,8 +4,8 @@ export interface CatalogProductFileParams {
   bc_id: string;
   catalog_id: string;
   feed_id?: string;
-  file_url: string;
-  update_mode?: string;
+  file_url: "US" | "VN";
+  update_mode?: "OVERWRITE" | "INCREMENTAL";
 }
 
 
@@ -17,7 +17,7 @@ export interface CatalogProductUploadParams {
   sku_id: string;
   title: string;
   description: string;
-  availability: string;
+  availability: "IN_STOCK" | "AVAILABLE_FOR_ORDER" | "PREORDER" | "OUT_OF_STOCK" | "DISCONTINUED";
   brand: string;
   image_url: string;
   additional_image_urls?: string[];
@@ -27,10 +27,10 @@ export interface CatalogProductUploadParams {
   global_trade_item_number?: string;
   manufacturer_part_number?: string;
   product_detail: {
-  condition: string;
-  age_group?: string;
+  condition: "NEW" | "REFURBISHED" | "USED";
+  age_group?: "NEW_BORN" | "INFANT" | "TODDLER" | "KIDS" | "ADULT";
   color?: string;
-  gender?: string;
+  gender?: "MALE" | "FEMALE" | "UNISEX";
   material?: string;
   pattern?: string;
   product_category?: string;
@@ -77,7 +77,7 @@ export interface CatalogProductUpdateParams {
   sku_id: string;
   title?: string;
   description?: string;
-  availability?: string;
+  availability?: "IN_STOCK" | "AVAILABLE_FOR_ORDER" | "PREORDER" | "OUT_OF_STOCK" | "DISCONTINUED";
   image_url?: string;
   video_url?: string;
   brand?: string;
@@ -87,10 +87,10 @@ export interface CatalogProductUpdateParams {
   global_trade_item_number?: string;
   manufacturer_part_number?: string;
   product_detail?: {
-  condition?: string;
-  age_group?: string;
+  condition?: "NEW" | "REFURBISHED" | "USED";
+  age_group?: "NEW_BORN" | "INFANT" | "TODDLER" | "KIDS" | "ADULT";
   color?: string;
-  gender?: string;
+  gender?: "MALE" | "FEMALE" | "UNISEX";
   material?: string;
   pattern?: string;
   product_category?: string;
