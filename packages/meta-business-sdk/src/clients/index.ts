@@ -16,7 +16,12 @@ export {
   parseInstagramWebhook,
   parseFacebookWebhook,
   parseThreadsWebhook,
+  safeParseInstagramWebhook,
+  safeParseFacebookWebhook,
+  safeParseThreadsWebhook,
+  WebhookParseError,
 } from "./webhooks.ts";
+export type { WebhookParseResult } from "./webhooks.ts";
 
 export type {
   IGWebhookPayload,

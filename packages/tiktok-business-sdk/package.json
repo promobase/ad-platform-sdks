@@ -23,6 +23,7 @@
     "README.md"
   ],
   "scripts": {
+    "codegen": "bun src/codegen/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/"
   },

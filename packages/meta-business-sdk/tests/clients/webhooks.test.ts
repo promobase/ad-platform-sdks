@@ -2,6 +2,8 @@ import { test, expect } from "bun:test";
 import {
   verifyWebhookChallenge, verifyWebhookSignature,
   parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook,
+  safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook,
+  WebhookParseError,
 } from "../../src/clients/webhooks.ts";
 import {
   igWebhookPayloadSchema,
@@ -276,4 +278,84 @@ test("parseThreadsWebhook throws on invalid signature", async () => {
   expect(
     parseThreadsWebhook({ body, signature: "sha256=wrong", appSecret: "secret" }),
   ).rejects.toThrow("Invalid webhook signature");
+});
+
+// --- safeParse variants (never throw) ---
+
+test("safeParseInstagramWebhook returns success with valid payload", async () => {
+  const payload = { object: "instagram", entry: [{ id: "ig_1", time: 1, changes: [{ field: "comments", value: { text: "hi" } }] }] };
+  const body = JSON.stringify(payload);
+  const signature = await signBody(body, "secret");
+
+  const result = await safeParseInstagramWebhook({ body, signature, appSecret: "secret" });
+  expect(result.success).toBe(true);
+  if (result.success) {
+    expect(result.data.object).toBe("instagram");
+    expect(result.data.entry[0]!.changes![0]!.field).toBe("comments");
+  }
+});
+
+test("safeParseInstagramWebhook returns error on invalid signature", async () => {
+  const body = JSON.stringify({ object: "instagram", entry: [] });
+  const result = await safeParseInstagramWebhook({ body, signature: "sha256=bad", appSecret: "secret" });
+  expect(result.success).toBe(false);
+  if (!result.success) {
+    expect(result.error).toBeInstanceOf(WebhookParseError);
+    expect(result.error.code).toBe("INVALID_SIGNATURE");
+  }
+});
+
+test("safeParseInstagramWebhook returns error on invalid payload shape", async () => {
+  const body = JSON.stringify({ object: "instagram" }); // missing entry
+  const signature = await signBody(body, "secret");
+  const result = await safeParseInstagramWebhook({ body, signature, appSecret: "secret" });
+  expect(result.success).toBe(false);
+  if (!result.success) {
+    expect(result.error.code).toBe("INVALID_PAYLOAD");
+    expect(result.error.details).toBeDefined(); // Zod error details
+  }
+});
+
+test("safeParseInstagramWebhook returns error on invalid JSON", async () => {
+  const body = "not json at all{{{";
+  const signature = await signBody(body, "secret");
+  const result = await safeParseInstagramWebhook({ body, signature, appSecret: "secret" });
+  expect(result.success).toBe(false);
+  if (!result.success) {
+    expect(result.error.code).toBe("INVALID_JSON");
+  }
+});
+
+test("safeParseFacebookWebhook returns success with valid payload", async () => {
+  const payload = { object: "page", entry: [{ id: "p1", time: 1 }] };
+  const body = JSON.stringify(payload);
+  const signature = await signBody(body, "secret");
+
+  const result = await safeParseFacebookWebhook({ body, signature, appSecret: "secret" });
+  expect(result.success).toBe(true);
+  if (result.success) expect(result.data.object).toBe("page");
+});
+
+test("safeParseFacebookWebhook returns error on wrong object type", async () => {
+  const body = JSON.stringify({ object: "instagram", entry: [] });
+  const signature = await signBody(body, "secret");
+  const result = await safeParseFacebookWebhook({ body, signature, appSecret: "secret" });
+  expect(result.success).toBe(false);
+  if (!result.success) expect(result.error.code).toBe("INVALID_PAYLOAD");
+});
+
+test("safeParseThreadsWebhook returns error on invalid signature", async () => {
+  const body = JSON.stringify({ app_id: "x" });
+  const result = await safeParseThreadsWebhook({ body, signature: "sha256=wrong", appSecret: "secret" });
+  expect(result.success).toBe(false);
+  if (!result.success) expect(result.error.code).toBe("INVALID_SIGNATURE");
+});
+
+test("WebhookParseError has proper structure", () => {
+  const err = new WebhookParseError("INVALID_PAYLOAD", "bad payload", { field: "entry" });
+  expect(err).toBeInstanceOf(Error);
+  expect(err.name).toBe("WebhookParseError");
+  expect(err.code).toBe("INVALID_PAYLOAD");
+  expect(err.message).toBe("bad payload");
+  expect(err.details).toEqual({ field: "entry" });
 });

@@ -232,7 +232,7 @@ export interface AddPropertyOptions {
 
 // -- Webhooks --
 
-export type WebhookEventType = "VIDEO" | "COMMENT";
+export type WebhookEventType = "VIDEO" | "COMMENT" | "BRAND_MENTION" | "DIRECT_MESSAGE";
 
 export interface WebhookConfig {
   appId: string;
@@ -287,4 +287,228 @@ export interface BenchmarkData {
   average_follower_growth: number;
   average_engagement_rate: number;
   average_video_views: number;
+}
+
+// -- Spark Ads (Ad Authorization) --
+
+export type AuthorizationDays = 7 | 30 | 60 | 180 | 365;
+
+export interface SparkAdsAuthResult {
+  item_id: string;
+  auth_code: string;
+  auth_code_start_time: string;
+  auth_code_end_time: string;
+  authorization_days: number;
+}
+
+export interface SparkAdsAuthStatus extends SparkAdsAuthResult {
+  auth_code_status: "NOT_USED" | "IN_USE" | "EXPIRED";
+}
+
+// -- Discovery API --
+
+export interface DiscoveryOptions {
+  accessToken: string;
+  advertiserId: string;
+}
+
+export type DiscoveryDateRange = "1DAY" | "7DAY" | "30DAY" | "120DAY";
+
+export interface TrendingHashtag {
+  hashtag_id: string;
+  hashtag_name: string;
+  rank_position: string;
+  rank_change: string;
+  views: number;
+  views_global_lifetime: number;
+  posts: number;
+  posts_global_lifetime: number;
+  top_country_list: string[];
+  trending_history: { date: string; rank_position_daily: string; views_daily: number | null }[];
+}
+
+export interface HashtagDetail extends TrendingHashtag {
+  hashtag_status: "ONLINE" | "OFFLINE";
+  audience_insights?: { audience_ages: { age: string; percentage: number }[] };
+}
+
+export interface HashtagVideo {
+  video_id: string;
+  embed_url: string;
+  share_url: string;
+}
+
+export interface TrendingMusicTrack {
+  commercial_music_id: string;
+  commercial_music_name: string;
+  artist: string;
+  duration: number;
+  thumbnail_url: string;
+  preview_url: string;
+  genres: string[];
+  rank_position: string;
+  trending_history: { date: string; rank_position_daily: string | null }[];
+  full_duration_song_clip?: { preview_url: string; duration: number; song_clip_id: string };
+  trending_song_clip?: { preview_url: string; duration: number; song_clip_id: string };
+}
+
+export type MusicDateRange = "1DAY" | "7DAY" | "30DAY" | "90DAY";
+
+// -- Mentions API --
+
+export type MentionVideoField =
+  | "item_id" | "create_time" | "video_link" | "caption"
+  | "likes" | "comments" | "shares" | "thumbnail_url"
+  | "views" | "reach" | "creator_handle_name";
+
+export interface MentionVideo {
+  item_id: string;
+  create_time?: string;
+  video_link?: string;
+  caption?: string;
+  likes?: number;
+  comments?: number;
+  shares?: number;
+  thumbnail_url?: string;
+  views?: number | null;
+  reach?: number | null;
+  creator_handle_name?: string;
+}
+
+export interface ListMentionedVideosOptions {
+  fields?: MentionVideoField[];
+  sortField?: "CREATE_TIME" | "LIKES" | "COMMENTS" | "SHARES";
+  sortType?: "ASC" | "DESC";
+  numberOfDays?: number;
+  regions?: string[];
+  cursor?: number;
+  maxCount?: number;
+}
+
+export type MentionCommentField =
+  | "item_id" | "video_link" | "caption" | "video_likes" | "thumbnail_url"
+  | "commenter_display_name" | "comment_id" | "comment_type"
+  | "comment_text" | "comment_create_time" | "comment_likes";
+
+export interface MentionComment {
+  item_id?: string;
+  video_link?: string;
+  caption?: string;
+  video_likes?: number;
+  thumbnail_url?: string;
+  commenter_display_name?: string;
+  comment_id: string;
+  comment_type?: "COMMENT" | "REPLY";
+  comment_text?: string;
+  comment_create_time?: string;
+  comment_likes?: number;
+}
+
+export interface ListMentionedCommentsOptions {
+  fields?: MentionCommentField[];
+  sortField?: "VIDEO_LIKES" | "COMMENT_CREATE_TIME" | "COMMENT_LIKES";
+  sortType?: "ASC" | "DESC";
+  numberOfDays?: number;
+  regions?: string[];
+  cursor?: number;
+  maxCount?: number;
+}
+
+export interface BrandHashtagInfo {
+  hashtag: string;
+  create_date: string;
+  post_count?: number;
+  like_count?: number;
+  mention_post_rank?: number;
+}
+
+export interface ListBrandHashtagVideosOptions {
+  hashtag?: string;
+  fields?: (MentionVideoField | "matched_hashtags")[];
+  sortField?: "CREATE_TIME" | "LIKES" | "COMMENTS" | "SHARES";
+  sortOrder?: "ASC" | "DESC";
+  numberOfDays?: number;
+  regions?: string[];
+  cursor?: number;
+  maxCount?: number;
+}
+
+// -- Business Messaging --
+
+export type MessageType = "TEXT" | "IMAGE" | "SHARE_POST" | "TEMPLATE" | "SENDER_ACTION";
+export type SenderAction = "TYPING" | "MARK_READ";
+export type TemplateType = "QA_BUTTON_CARD" | "QA_LINK_CARD";
+export type ConversationType = "STRANGER" | "SINGLE";
+export type AutoMessageType = "WELCOME_MESSAGE" | "SUGGESTED_QUESTION" | "CHAT_PROMPT";
+
+export interface TemplateButton {
+  type: "REPLY";
+  title: string;
+  id?: string;
+}
+
+export interface SendMessageOptions {
+  conversationId?: string;
+  messageType: MessageType;
+  text?: { body: string };
+  image?: { media_id: string };
+  sharePost?: { item_id: string };
+  template?: { type: TemplateType; title: string; buttons: TemplateButton[] };
+  senderAction?: SenderAction;
+  referencedMessageId?: string;
+  directReply?: { replyType: "COMMENT_REPLY"; commentId: string };
+}
+
+export interface Conversation {
+  conversation_id: string;
+  update_time: number;
+  referral?: {
+    ad?: { advertiser_id: string; ad_id: string; timestamp: number; ad_name: string; embed_url: string }[];
+    short_link?: { ref: string; prefilled_message: string; prefilled_message_audit_status: string }[];
+  };
+}
+
+export interface MessageItem {
+  sender: string;
+  recipient: string;
+  conversation_id: string;
+  message_id: string;
+  timestamp: number;
+  message_type: string;
+  text?: { body: string };
+  image?: { media_id: string };
+  share_post?: { embed_url: string };
+  video?: { media_id: string };
+  sticker?: { url: string };
+  emoji?: { url: string };
+  template?: { type: string; title: string; buttons: TemplateButton[] };
+  reactions?: { type: string; emoji?: string; unique_identifier: string; timestamp: number }[];
+  from_user?: { role: string; id: string };
+  to_user?: { role: string; id: string };
+  referenced_message_info?: { referenced_message_id: string };
+  [key: string]: unknown;
+}
+
+export interface MessageParticipant {
+  role: "BUSINESS_ACCOUNT" | "PERSONAL_ACCOUNT";
+  id: string;
+  display_name: string;
+  profile_image: string;
+  is_follower?: boolean;
+}
+
+export interface CreateAutoMessageOptions {
+  autoMessageType: AutoMessageType;
+  welcomeMessage?: { content: string };
+  suggestedQuestion?: { question: string; answer: string };
+  chatPrompt?: { title: string; content: string };
+}
+
+export interface AutoMessage {
+  auto_message_id: string;
+  auto_message_type: AutoMessageType;
+  audit_status: "REVIEWING" | "APPROVED" | "REJECTED";
+  welcome_message?: { content: string };
+  suggested_question?: { question: string; answer: string };
+  chat_prompt?: { title: string; content: string };
 }
