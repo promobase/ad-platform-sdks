@@ -39,6 +39,7 @@
   "type": "module",
   "files": [
     "src/generated/**/*.ts",
+    "src/ai/**/*.ts",
     "src/errors.ts",
     "src/pagination.ts",
     "README.md"
@@ -62,6 +63,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
+    "ai": "^6.0.158",
     "typescript": "^5.9.3"
   }
 }

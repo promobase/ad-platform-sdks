@@ -30,6 +30,9 @@ import { createThreadsClient, createThreadsOAuth } from "./clients/threads/index
 import type { ThreadsClientOptions } from "./clients/threads/types.ts";
 import type { OAuthConfig as ThreadsOAuthConfig } from "./clients/threads/types.ts";
 
+// AI SDK tools
+import { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "./ai/index.ts";
+
 // Webhooks
 import {
   verifyWebhookChallenge,
@@ -88,6 +91,20 @@ export const Meta = {
     createClient: createThreadsClient,
     /** Create a Threads OAuth handler for token exchange and refresh. */
     OAuth: createThreadsOAuth,
+  },
+
+  /** AI SDK tools for LLM agents. */
+  AI: {
+    /** Create all Meta tools (Instagram, Facebook, Threads, Campaigns) for AI SDK. */
+    createTools: createMetaTools,
+    /** Create Instagram-specific AI SDK tools. */
+    Instagram: createInstagramTools,
+    /** Create Facebook-specific AI SDK tools. */
+    Facebook: createFacebookTools,
+    /** Create Threads-specific AI SDK tools. */
+    Threads: createThreadsTools,
+    /** Create campaign management AI SDK tools. */
+    Campaigns: createCampaignTools,
   },
 
   /** Webhook verification, parsing, and Zod schemas. */

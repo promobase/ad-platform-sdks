@@ -1017,3 +1017,5 @@ export type { WebhookParseResult } from "../clients/index.ts";
 export { MetaRateLimiter } from "../rate-limiter.ts";
 export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";
 export { Meta } from "../namespace.ts";
+export { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "../ai/index.ts";
+export type { CreateMetaToolsOptions } from "../ai/index.ts";
