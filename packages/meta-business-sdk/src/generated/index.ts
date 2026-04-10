@@ -1008,3 +1008,5 @@ export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/
 export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";
 export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";
 export { verifyWebhookChallenge, verifyWebhookSignature, parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook } from "../clients/index.ts";
+export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebhookPayload, FBWebhookMessagingEvent, FBWebhookChange, ThreadsWebhookPayload } from "../clients/index.ts";
+export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";

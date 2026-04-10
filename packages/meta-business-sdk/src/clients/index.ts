@@ -17,3 +17,31 @@ export {
   parseFacebookWebhook,
   parseThreadsWebhook,
 } from "./webhooks.ts";
+
+export type {
+  IGWebhookPayload,
+  IGWebhookMessagingEvent,
+  IGWebhookChange,
+  FBWebhookPayload,
+  FBWebhookMessagingEvent,
+  FBWebhookChange,
+  ThreadsWebhookPayload,
+} from "./webhooks.ts";
+
+export {
+  igWebhookPayloadSchema,
+  igWebhookMessagingEventSchema,
+  igWebhookChangeSchema,
+  igWebhookCommentChangeSchema,
+  igWebhookMessageEditChangeSchema,
+  igWebhookMessageReactionChangeSchema,
+  igWebhookMessageSchema,
+  igWebhookAttachmentSchema,
+  igWebhookReadSchema,
+  igWebhookReactionSchema,
+  fbWebhookPayloadSchema,
+  fbWebhookMessagingEventSchema,
+  fbWebhookMessageSchema,
+  fbWebhookCommentChangeSchema,
+  threadsWebhookPayloadSchema,
+} from "./webhooks-schemas.ts";

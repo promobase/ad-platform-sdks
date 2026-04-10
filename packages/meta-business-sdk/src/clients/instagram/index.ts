@@ -4,6 +4,7 @@ import { createContainers } from "./containers.ts";
 import { createMedia } from "./media.ts";
 import { createStories } from "./stories.ts";
 import { createComments } from "./comments.ts";
+import { createMessaging } from "./messaging.ts";
 import { createAccount } from "./account.ts";
 import { createOAuth } from "./oauth.ts";
 
@@ -20,6 +21,7 @@ export function createInstagramClient(opts: InstagramClientOptions) {
     media: createMedia(api, containers, igUser, polling),
     stories: createStories(containers, polling),
     comments: createComments(api),
+    messaging: createMessaging(api, igAccountId),
     account: createAccount(api, igAccountId),
     containers,
     webhooks: {

@@ -24,5 +24,10 @@ export function createReplies(client: ApiClient) {
         params,
       });
     },
+
+    /** Hide or unhide a reply. */
+    async hide(replyId: string, hidden: boolean = true): Promise<void> {
+      await client.post(replyId + "/manage_reply", { hide: hidden });
+    },
   };
 }

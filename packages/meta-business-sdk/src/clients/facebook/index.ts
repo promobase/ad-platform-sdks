@@ -2,6 +2,7 @@ import type { FacebookPageClientOptions, OAuthConfig } from "./types.ts";
 import { createFeed } from "./feed.ts";
 import { createStories } from "./stories.ts";
 import { createComments } from "./comments.ts";
+import { createMessaging } from "./messaging.ts";
 import { createAccount } from "./account.ts";
 import { createOAuth } from "./oauth.ts";
 
@@ -17,6 +18,7 @@ export function createFacebookPageClient(opts: FacebookPageClientOptions) {
     feed: createFeed(api, page, pageId, accessToken),
     stories: createStories(pageId, accessToken),
     comments: createComments(api),
+    messaging: createMessaging(page),
     account: createAccount(api, pageId),
     webhooks: {
       async subscribe(fields?: string[]): Promise<{ success: boolean }> {

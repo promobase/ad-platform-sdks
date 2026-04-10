@@ -43,11 +43,23 @@ export async function verifyWebhookSignature(
   return hex === expectedSig;
 }
 
-// --- Platform-specific webhook parsers ---
+// --- Platform-specific webhook parsers (now using Zod) ---
 
-import type { IGWebhookPayload } from "./instagram/types.ts";
-import type { FBWebhookPayload } from "./facebook/types.ts";
-import type { ThreadsWebhookPayload } from "./threads/types.ts";
+import {
+  igWebhookPayloadSchema,
+  fbWebhookPayloadSchema,
+  threadsWebhookPayloadSchema,
+} from "./webhooks-schemas.ts";
+
+export type {
+  IGWebhookPayload,
+  IGWebhookMessagingEvent,
+  IGWebhookChange,
+  FBWebhookPayload,
+  FBWebhookMessagingEvent,
+  FBWebhookChange,
+  ThreadsWebhookPayload,
+} from "./webhooks-schemas.ts";
 
 export interface WebhookParseOptions {
   body: string;
@@ -56,42 +68,31 @@ export interface WebhookParseOptions {
 }
 
 /**
- * Verify signature and parse an Instagram webhook payload.
- * Throws if signature is invalid or payload shape doesn't match.
+ * Verify signature and parse an Instagram webhook payload with Zod validation.
+ * Throws if signature is invalid or payload doesn't match the schema.
  */
-export async function parseInstagramWebhook(opts: WebhookParseOptions): Promise<IGWebhookPayload> {
+export async function parseInstagramWebhook(opts: WebhookParseOptions) {
   const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
   if (!valid) throw new Error("Invalid webhook signature");
-
-  const payload = JSON.parse(opts.body) as IGWebhookPayload;
-  if (payload.object !== "instagram") {
-    throw new Error(`Expected Instagram webhook (object: "instagram"), got "${payload.object}"`);
-  }
-  return payload;
+  return igWebhookPayloadSchema.parse(JSON.parse(opts.body));
 }
 
 /**
- * Verify signature and parse a Facebook Page webhook payload.
- * Throws if signature is invalid or payload shape doesn't match.
+ * Verify signature and parse a Facebook Page webhook payload with Zod validation.
+ * Throws if signature is invalid or payload doesn't match the schema.
  */
-export async function parseFacebookWebhook(opts: WebhookParseOptions): Promise<FBWebhookPayload> {
+export async function parseFacebookWebhook(opts: WebhookParseOptions) {
   const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
   if (!valid) throw new Error("Invalid webhook signature");
-
-  const payload = JSON.parse(opts.body) as FBWebhookPayload;
-  if (payload.object !== "page") {
-    throw new Error(`Expected Facebook Page webhook (object: "page"), got "${payload.object}"`);
-  }
-  return payload;
+  return fbWebhookPayloadSchema.parse(JSON.parse(opts.body));
 }
 
 /**
- * Verify signature and parse a Threads webhook payload.
- * Throws if signature is invalid.
+ * Verify signature and parse a Threads webhook payload with Zod validation.
+ * Throws if signature is invalid or payload doesn't match the schema.
  */
-export async function parseThreadsWebhook(opts: WebhookParseOptions): Promise<ThreadsWebhookPayload> {
+export async function parseThreadsWebhook(opts: WebhookParseOptions) {
   const valid = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
   if (!valid) throw new Error("Invalid webhook signature");
-
-  return JSON.parse(opts.body) as ThreadsWebhookPayload;
+  return threadsWebhookPayloadSchema.parse(JSON.parse(opts.body));
 }

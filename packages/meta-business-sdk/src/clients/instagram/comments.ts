@@ -18,5 +18,21 @@ export function createComments(api: CreateClientReturn) {
       });
       return cursor.toArray();
     },
+
+    /** Reply to an existing comment. */
+    async reply(commentId: string, message: string): Promise<{ id: string }> {
+      const result = await api.iGComment(commentId).replies.create({ message });
+      return { id: (result as { id: string }).id };
+    },
+
+    /** Hide or unhide a comment. */
+    async hide(commentId: string, hidden: boolean = true): Promise<void> {
+      await api.iGComment(commentId).update({ hide: hidden });
+    },
+
+    /** Delete a comment. */
+    async delete(commentId: string): Promise<void> {
+      await api.iGComment(commentId).delete();
+    },
   };
 }

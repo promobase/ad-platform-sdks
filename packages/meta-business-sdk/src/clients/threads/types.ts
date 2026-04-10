@@ -87,26 +87,4 @@ export interface LongLivedToken {
   expires_in: number;
 }
 
-// Webhook event types
-export interface ThreadsWebhookPayload {
-  app_id: string;
-  topic: "moderate" | "interaction";
-  target_id: string;
-  time: number;
-  subscription_id: string;
-  values: {
-    field: "replies" | "mentions" | "delete" | "publish";
-    value: {
-      id?: string;
-      username?: string;
-      text?: string;
-      media_type?: string;
-      permalink?: string;
-      timestamp?: string;
-      replied_to?: { id: string };
-      root_post?: { id: string; owner_id: string; username: string };
-      owner?: { owner_id: string };
-      deleted_at?: string;
-    };
-  };
-}
+// Webhook event types are now defined via Zod schemas in ../webhooks-schemas.ts
