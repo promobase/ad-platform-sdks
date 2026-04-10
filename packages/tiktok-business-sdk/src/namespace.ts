@@ -23,8 +23,8 @@ import {
   createTikTokWebhooks,
   createTikTokDiscovery,
 } from "./clients/index.ts";
-import { createTikTokTools } from "./ai/index.ts";
-import type { CreateTikTokToolsOptions } from "./ai/index.ts";
+import { createTikTokTools, createRouter, withMiddleware, filterTools, filterToolsByName, limitTools } from "./ai/index.ts";
+import type { CreateTikTokToolsOptions, RouterOptions, ToolMiddleware } from "./ai/index.ts";
 import type {
   TikTokClientOptions,
   OAuthConfig,
@@ -98,6 +98,15 @@ export const TikTok = {
    * ```
    */
   createTools: createTikTokTools,
+
+  /** Create a two-stage router for managing large tool sets with prepareStep. */
+  createRouter,
+
+  /** Wrap tools with middleware hooks (logging, rate limiting, error handling). */
+  withMiddleware,
+
+  /** Filter tools by category, name pattern, or limit count. */
+  filterTools: { byCategory: filterTools, byName: filterToolsByName, limit: limitTools },
 
   /** TikTok API error class with code, requestId, and error classification helpers. */
   ApiError: TikTokApiError,

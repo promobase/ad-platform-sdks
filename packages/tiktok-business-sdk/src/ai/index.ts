@@ -63,3 +63,11 @@ export { createTikTokContentTools } from "./content.ts";
 export { createTikTokCommentTools } from "./comments.ts";
 export { createTikTokAccountTools } from "./account.ts";
 export { createTikTokMessagingTools } from "./messaging.ts";
+
+// Routing, filtering, and middleware
+export { withMiddleware } from "./middleware.ts";
+export type { ToolMiddleware, ToolCallContext } from "./middleware.ts";
+export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "./filter.ts";
+export type { ToolCategory } from "./filter.ts";
+export { createRouter } from "./router.ts";
+export type { RouterOptions } from "./router.ts";
