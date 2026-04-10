@@ -12,11 +12,12 @@ import type { NullNodeFields } from "./null-node.ts";
 import type { PhotoFields } from "./photo.ts";
 import type { PlaceFields } from "./place.ts";
 import type { ProfileFields } from "./profile.ts";
+import type { EventCategory, EventOnlineEventFormat, EventType } from "../enums.ts";
 
 export interface EventFields {
   attending_count: number;
   can_guests_invite: boolean;
-  category: string;
+  category: EventCategory;
   cover: CoverPhotoFields;
   created_time: string;
   declined_count: number;
@@ -34,7 +35,7 @@ export interface EventFields {
   maybe_count: number;
   name: string;
   noreply_count: number;
-  online_event_format: string;
+  online_event_format: EventOnlineEventFormat;
   online_event_third_party_url: string;
   owner: Record<string, unknown>;
   parent_group: GroupFields;
@@ -48,7 +49,7 @@ export interface EventFields {
   ticketing_privacy_uri: string;
   ticketing_terms_uri: string;
   timezone: string;
-  type: string;
+  type: EventType;
   updated_time: string;
 }
 

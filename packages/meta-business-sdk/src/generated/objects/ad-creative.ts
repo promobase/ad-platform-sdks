@@ -28,6 +28,7 @@ import type { AdCreativeTemplateURLSpecFields } from "./ad-creative-template-url
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPreviewFields } from "./ad-preview.ts";
 import type { AdsImageCropsFields } from "./ads-image-crops.ts";
+import type { AdCreativeCallToActionType, AdCreativeObjectType, AdCreativeStatus } from "../enums.ts";
 
 export interface AdCreativeFields {
   account_id: string;
@@ -43,7 +44,7 @@ export interface AdCreativeFields {
   branded_content_sponsor_page_id: string;
   bundle_folder_id: string;
   call_to_action: AdCreativeLinkDataCallToActionFields;
-  call_to_action_type: string;
+  call_to_action_type: AdCreativeCallToActionType;
   categorization_criteria: string;
   category_media_source: string;
   collaborative_ads_lsb_image_bank_id: string;
@@ -81,7 +82,7 @@ export interface AdCreativeFields {
   object_store_url: string;
   object_story_id: string;
   object_story_spec: AdCreativeObjectStorySpecFields;
-  object_type: string;
+  object_type: AdCreativeObjectType;
   object_url: string;
   omnichannel_link_spec: AdCreativeOmnichannelLinkSpecFields;
   page_welcome_message: string;
@@ -97,7 +98,7 @@ export interface AdCreativeFields {
   regional_regulation_disclaimer_spec: AdCreativeRegionalRegulationDisclaimerFields;
   source_facebook_post_id: string;
   source_instagram_media_id: string;
-  status: string;
+  status: AdCreativeStatus;
   template_url: string;
   template_url_spec: AdCreativeTemplateURLSpecFields;
   thumbnail_id: string;

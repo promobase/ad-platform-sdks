@@ -7,6 +7,7 @@ import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
 import type { PageFields } from "./page.ts";
+import type { VehicleAvailability, VehicleBodyStyle, VehicleCondition, VehicleDrivetrain, VehicleFuelType, VehicleImageFetchStatus, VehicleStateOfVehicle, VehicleTransmission, VehicleVehicleType, VehicleVisibility } from "../enums.ts";
 
 export interface VehicleFields {
   address: Record<string, unknown>;
@@ -41,7 +42,7 @@ export interface VehicleFields {
   features: Record<string, unknown>[];
   fuel_type: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: VehicleImageFetchStatus;
   images: string[];
   interior_color: string;
   legal_disclosure_impressum_url: string;
@@ -71,7 +72,7 @@ export interface VehicleFields {
   vehicle_specifications: Record<string, unknown>[];
   vehicle_type: string;
   vin: string;
-  visibility: string;
+  visibility: VehicleVisibility;
   year: number;
 }
 
@@ -84,31 +85,31 @@ export interface VehicleListOverrideDetailsParams {
 export interface VehicleUpdateParams {
   address?: Record<string, unknown>;
   applinks?: Record<string, unknown>;
-  availability?: string;
-  body_style?: string;
-  condition?: string;
+  availability?: VehicleAvailability;
+  body_style?: VehicleBodyStyle;
+  condition?: VehicleCondition;
   currency?: string;
   date_first_on_lot?: string;
   dealer_id?: string;
   dealer_name?: string;
   dealer_phone?: string;
   description?: string;
-  drivetrain?: string;
+  drivetrain?: VehicleDrivetrain;
   exterior_color?: string;
   fb_page_id?: string;
-  fuel_type?: string;
+  fuel_type?: VehicleFuelType;
   images?: Record<string, unknown>[];
   interior_color?: string;
   make?: string;
   mileage?: Record<string, unknown>;
   model?: string;
   price?: number;
-  state_of_vehicle?: string;
+  state_of_vehicle?: VehicleStateOfVehicle;
   title?: string;
-  transmission?: string;
+  transmission?: VehicleTransmission;
   trim?: string;
   url?: string;
-  vehicle_type?: string;
+  vehicle_type?: VehicleVehicleType;
   vin?: string;
   year?: number;
   [key: string]: unknown;

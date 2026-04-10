@@ -6,13 +6,14 @@ import type { BusinessFields } from "./business.ts";
 import type { CustomConversionStatsResultFields } from "./custom-conversion-stats-result.ts";
 import type { ExternalEventSourceFields } from "./external-event-source.ts";
 import type { OfflineConversionDataSetFields } from "./offline-conversion-data-set.ts";
+import type { CustomConversionCustomEventType, EventType } from "../enums.ts";
 
 export interface CustomConversionFields {
   account_id: string;
   aggregation_rule: string;
   business: BusinessFields;
   creation_time: string;
-  custom_event_type: string;
+  custom_event_type: CustomConversionCustomEventType;
   data_sources: ExternalEventSourceFields[];
   default_conversion_value: number;
   description: string;

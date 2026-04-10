@@ -2,7 +2,7 @@ import { test, expect } from "bun:test";
 import { resolveType, parseGenericType, enumTypeToTsName } from "../../src/codegen/type-resolver.ts";
 
 const knownObjects = new Set(["Campaign", "AdSet", "Ad", "AdLabel", "AdsActionStats", "AdCreative"]);
-const knownEnums = new Set(["Campaign_bid_strategy", "Campaign_effective_status", "adcampaigngroup_objective"]);
+const knownEnums = new Set(["CampaignBidStrategy", "CampaignEffectiveStatus", "AdcampaigngroupObjective"]);
 const ctx = { knownObjects, knownEnums };
 
 test("resolves primitive types", () => {

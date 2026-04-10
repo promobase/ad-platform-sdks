@@ -100,9 +100,10 @@ export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
     return "unknown";
   }
 
-  // 3. Known enum types
-  if (ctx.knownEnums.has(trimmed)) {
-    return enumTypeToTsName(trimmed);
+  // 3. Known enum types (knownEnums stores PascalCase TsNames)
+  const tsName = enumTypeToTsName(trimmed);
+  if (ctx.knownEnums.has(tsName)) {
+    return tsName;
   }
 
   // 4. Known object references

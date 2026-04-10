@@ -3,6 +3,7 @@ import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdAsyncRequestFields } from "./ad-async-request.ts";
 import type { AdAsyncRequestSetNotificationResultFields } from "./ad-async-request-set-notification-result.ts";
+import type { AdAsyncRequestSetNotificationMode } from "../enums.ts";
 
 export interface AdAsyncRequestSetFields {
   canceled_count: number;
@@ -13,7 +14,7 @@ export interface AdAsyncRequestSetFields {
   initial_count: number;
   is_completed: boolean;
   name: string;
-  notification_mode: string;
+  notification_mode: AdAsyncRequestSetNotificationMode;
   notification_result: AdAsyncRequestSetNotificationResultFields;
   notification_status: string;
   notification_uri: string;

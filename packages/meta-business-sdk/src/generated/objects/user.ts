@@ -36,6 +36,7 @@ import type { UserIDForAppFields } from "./user-id-for-app.ts";
 import type { UserIDForPageFields } from "./user-id-for-page.ts";
 import type { VideoUploadLimitsFields } from "./video-upload-limits.ts";
 import type { WhatsAppBusinessAccountFields } from "./whats-app-business-account.ts";
+import type { UserLocalNewsMegaphoneDismissStatus, UserLocalNewsSubscriptionStatus } from "../enums.ts";
 
 export interface UserFields {
   about: string;
@@ -599,8 +600,8 @@ export interface UserUpdateParams {
   emoji_color_pref?: number;
   firstname?: string;
   lastname?: string;
-  local_news_megaphone_dismiss_status?: string;
-  local_news_subscription_status?: string;
+  local_news_megaphone_dismiss_status?: UserLocalNewsMegaphoneDismissStatus;
+  local_news_subscription_status?: UserLocalNewsSubscriptionStatus;
   name?: string;
   password?: string;
   [key: string]: unknown;

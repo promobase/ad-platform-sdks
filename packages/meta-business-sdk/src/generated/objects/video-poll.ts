@@ -1,6 +1,7 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
+import type { VideoPollStatus } from "../enums.ts";
 
 export interface VideoPollFields {
   close_after_voting: boolean;
@@ -9,7 +10,7 @@ export interface VideoPollFields {
   question: string;
   show_gradient: boolean;
   show_results: boolean;
-  status: string;
+  status: VideoPollStatus;
 }
 
 export interface VideoPollUpdateParams {

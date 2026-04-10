@@ -80,6 +80,106 @@ test("rate limiter is called before and after requests", async () => {
   expect(receivedStatus).toBe(200);
 });
 
+// ─── Retry Tests ─────────────────────────────────────────────────────
+
+test("retries on 500 with exponential backoff", async () => {
+  let callCount = 0;
+  const delayCalledWith: number[] = [];
+
+  globalThis.fetch = mock(() => {
+    callCount++;
+    if (callCount < 3) {
+      return Promise.resolve(new Response(JSON.stringify({ error: "server error" }), { status: 500 }));
+    }
+    return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+  }) as unknown as typeof fetch;
+
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    retry: { maxRetries: 3, initialBackoffMs: 100 },
+    delay: async (ms) => { delayCalledWith.push(ms); },
+  });
+
+  const result = await client.get("test", { fields: ["id"] });
+  expect(result).toEqual({ ok: true });
+  expect(callCount).toBe(3);
+  expect(delayCalledWith).toEqual([100, 200]); // exponential backoff
+});
+
+test("does not retry on 400 (non-retryable)", async () => {
+  let callCount = 0;
+  globalThis.fetch = mock(() => {
+    callCount++;
+    return Promise.resolve(new Response(JSON.stringify({ error: "bad request" }), { status: 400 }));
+  }) as unknown as typeof fetch;
+
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    retry: { maxRetries: 3 },
+  });
+
+  await expect(client.get("test", { fields: ["id"] })).rejects.toThrow();
+  expect(callCount).toBe(1);
+});
+
+test("retries on network error (TypeError from fetch)", async () => {
+  let callCount = 0;
+  globalThis.fetch = mock(() => {
+    callCount++;
+    if (callCount < 2) throw new TypeError("Failed to fetch");
+    return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+  }) as unknown as typeof fetch;
+
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    retry: { maxRetries: 2, initialBackoffMs: 10 },
+    delay: async () => {},
+  });
+
+  const result = await client.get("test", { fields: ["id"] });
+  expect(result).toEqual({ ok: true });
+  expect(callCount).toBe(2);
+});
+
+test("no retry when retry not configured", async () => {
+  let callCount = 0;
+  globalThis.fetch = mock(() => {
+    callCount++;
+    return Promise.resolve(new Response(JSON.stringify({ error: "err" }), { status: 500 }));
+  }) as unknown as typeof fetch;
+
+  const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com" });
+  await expect(client.get("test", { fields: ["id"] })).rejects.toThrow();
+  expect(callCount).toBe(1);
+});
+
+test("retries on 429 rate limit", async () => {
+  let callCount = 0;
+  globalThis.fetch = mock(() => {
+    callCount++;
+    if (callCount < 2) {
+      return Promise.resolve(new Response(JSON.stringify({ error: "rate limited" }), { status: 429 }));
+    }
+    return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+  }) as unknown as typeof fetch;
+
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    retry: { maxRetries: 2, initialBackoffMs: 10 },
+    delay: async () => {},
+  });
+
+  const result = await client.get("test", { fields: ["id"] });
+  expect(result).toEqual({ ok: true });
+  expect(callCount).toBe(2);
+});
+
+// ─── Rate Limiter Tests ──────────────────────────────────────────────
+
 test("rate limiter delay is awaited when shouldWait", async () => {
   mockFetch({ status: 200, body: { ok: true } });
 

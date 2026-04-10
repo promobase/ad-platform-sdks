@@ -6,6 +6,7 @@ import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { VehicleOfferImageFetchStatus, VehicleOfferVisibility } from "../enums.ts";
 
 export interface VehicleOfferFields {
   amount_currency: string;
@@ -40,7 +41,7 @@ export interface VehicleOfferFields {
   fuel_type: string;
   generation: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: VehicleOfferImageFetchStatus;
   images: string[];
   interior_color: string;
   interior_upholstery: string;
@@ -67,7 +68,7 @@ export interface VehicleOfferFields {
   unit_price: Record<string, unknown>;
   url: string;
   vehicle_offer_id: string;
-  visibility: string;
+  visibility: VehicleOfferVisibility;
   year: number;
 }
 

@@ -1,9 +1,10 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import type { AdRuleFiltersFields } from "./ad-rule-filters.ts";
 import type { AdRuleTriggerFields } from "./ad-rule-trigger.ts";
+import type { AdRuleEvaluationSpecEvaluationType } from "../enums.ts";
 
 export interface AdRuleEvaluationSpecFields {
-  evaluation_type: string;
+  evaluation_type: AdRuleEvaluationSpecEvaluationType;
   filters: AdRuleFiltersFields[];
   trigger: AdRuleTriggerFields;
 }

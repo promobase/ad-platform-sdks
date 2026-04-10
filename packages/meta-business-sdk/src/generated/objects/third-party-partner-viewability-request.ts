@@ -1,4 +1,5 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ThirdPartyPartnerViewabilityRequestMetric, ThirdPartyPartnerViewabilityRequestPlatform, ThirdPartyPartnerViewabilityRequestStatus } from "../enums.ts";
 
 export interface ThirdPartyPartnerViewabilityRequestFields {
   created_time: string;
@@ -6,11 +7,11 @@ export interface ThirdPartyPartnerViewabilityRequestFields {
   ds: string;
   hour: string;
   id: string;
-  metric: string;
+  metric: ThirdPartyPartnerViewabilityRequestMetric;
   modified_time: string;
   owner_instance_id: string;
-  platform: string;
-  status: string;
+  platform: ThirdPartyPartnerViewabilityRequestPlatform;
+  status: ThirdPartyPartnerViewabilityRequestStatus;
   total_file_count: number;
 }
 

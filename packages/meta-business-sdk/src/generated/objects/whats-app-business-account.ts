@@ -8,12 +8,13 @@ import type { CommerceMerchantSettingsFields } from "./commerce-merchant-setting
 import type { DatasetFields } from "./dataset.ts";
 import type { ProductCatalogFields } from "./product-catalog.ts";
 import type { WhatsAppBusinessHealthStatusForMessageSendFields } from "./whats-app-business-health-status-for-message-send.ts";
+import type { BusinessVerificationStatus, WhatsAppBusinessAccountBusinessVerificationStatus, WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimit } from "../enums.ts";
 
 export interface WhatsAppBusinessAccountFields {
   account_review_status: string;
   analytics: Record<string, unknown>;
   auth_international_rate_eligibility: Record<string, unknown>;
-  business_verification_status: string;
+  business_verification_status: WhatsAppBusinessAccountBusinessVerificationStatus;
   country: string;
   creation_time: number;
   currency: string;
@@ -37,7 +38,7 @@ export interface WhatsAppBusinessAccountFields {
   status: string;
   template_auto_archival_enabled: boolean;
   timezone_id: string;
-  whatsapp_business_manager_messaging_limit: string;
+  whatsapp_business_manager_messaging_limit: WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimit;
 }
 
 export interface WhatsAppBusinessAccountDeleteAssignedUsersParams {

@@ -1,4 +1,5 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ThirdPartyPartnerLiftRequestStatus } from "../enums.ts";
 
 export interface ThirdPartyPartnerLiftRequestFields {
   ad_entities: string[];
@@ -13,7 +14,7 @@ export interface ThirdPartyPartnerLiftRequestFields {
   owner_instance_id: string;
   partner_household_graph_dataset_id: string;
   region: string;
-  status: string;
+  status: ThirdPartyPartnerLiftRequestStatus;
   study_cells: string[];
   study_end_time: string;
   study_start_time: string;

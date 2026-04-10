@@ -324,6 +324,7 @@ export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onErro
   apiVersion?: string;
   rateLimiter?: import('@promobase/sdk-runtime').RateLimiter;
   delay?: import('@promobase/sdk-runtime').DelayFn;
+  retry?: Partial<import('@promobase/sdk-runtime').RetryConfig>;
 }
 
 export function createTypedClient(opts: MetaClientOptions) {

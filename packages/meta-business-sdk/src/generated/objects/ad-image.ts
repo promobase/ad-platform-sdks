@@ -1,5 +1,6 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import type { BusinessFields } from "./business.ts";
+import type { AdImageStatus } from "../enums.ts";
 
 export interface AdImageFields {
   account_id: string;
@@ -14,7 +15,7 @@ export interface AdImageFields {
   original_width: number;
   owner_business: BusinessFields;
   permalink_url: string;
-  status: string;
+  status: AdImageStatus;
   updated_time: string;
   url: string;
   url_128: string;

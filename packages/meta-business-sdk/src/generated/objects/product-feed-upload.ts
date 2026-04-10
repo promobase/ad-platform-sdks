@@ -3,6 +3,7 @@ import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { ProductFeedUploadErrorFields } from "./product-feed-upload-error.ts";
 import type { ProductFeedUploadErrorReportFields } from "./product-feed-upload-error-report.ts";
+import type { ProductFeedUploadInputMethod } from "../enums.ts";
 
 export interface ProductFeedUploadFields {
   end_time: string;
@@ -10,7 +11,7 @@ export interface ProductFeedUploadFields {
   error_report: ProductFeedUploadErrorReportFields;
   filename: string;
   id: string;
-  input_method: string;
+  input_method: ProductFeedUploadInputMethod;
   num_deleted_items: number;
   num_detected_items: number;
   num_invalid_items: number;

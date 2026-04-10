@@ -14,12 +14,13 @@ import type { AdStudyFields } from "./ad-study.ts";
 import type { AdsInsightsFields } from "./ads-insights.ts";
 import type { HighDemandPeriodFields } from "./high-demand-period.ts";
 import type { RecommendationFields } from "./recommendation.ts";
+import type { CampaignBidStrategy, CampaignConfiguredStatus, CampaignEffectiveStatus, CampaignStatus } from "../enums.ts";
 
 export interface CampaignFields {
   account_id: string;
   adlabels: AdLabelFields[];
   advantage_state_info: AdCampaignGroupAdvantageStateFields;
-  bid_strategy: string;
+  bid_strategy: CampaignBidStrategy;
   boosted_object_id: string;
   brand_lift_studies: AdStudyFields[];
   budget_rebalance_flag: boolean;
@@ -28,10 +29,10 @@ export interface CampaignFields {
   campaign_group_active_time: string;
   can_create_brand_lift_study: boolean;
   can_use_spend_cap: boolean;
-  configured_status: string;
+  configured_status: CampaignConfiguredStatus;
   created_time: string;
   daily_budget: string;
-  effective_status: string;
+  effective_status: CampaignEffectiveStatus;
   has_secondary_skadnetwork_reporting: boolean;
   id: string;
   is_adset_budget_sharing_enabled: boolean;
@@ -57,7 +58,7 @@ export interface CampaignFields {
   special_ad_category_country: string[];
   spend_cap: string;
   start_time: string;
-  status: string;
+  status: CampaignStatus;
   stop_time: string;
   topline_id: string;
   updated_time: string;

@@ -10,6 +10,7 @@ import type { PlaceFields } from "./place.ts";
 import type { PrivacyFields } from "./privacy.ts";
 import type { ProfileFields } from "./profile.ts";
 import type { RTBDynamicPostFields } from "./rtb-dynamic-post.ts";
+import type { PostBackdatedTimeGranularity, PostFeedStoryVisibility, PostTimelineVisibility } from "../enums.ts";
 
 export interface PostFields {
   actions: unknown[];
@@ -130,11 +131,11 @@ export interface PostListReactionsParams {
 export interface PostUpdateParams {
   attached_media?: Record<string, unknown>[];
   backdated_time?: string;
-  backdated_time_granularity?: string;
+  backdated_time_granularity?: PostBackdatedTimeGranularity;
   composer_session_id?: string;
   direct_share_status?: number;
   explicitly_added_mentionee_ids?: number[];
-  feed_story_visibility?: string;
+  feed_story_visibility?: PostFeedStoryVisibility;
   is_explicit_location?: boolean;
   is_hidden?: boolean;
   is_pinned?: boolean;
@@ -157,7 +158,7 @@ export interface PostUpdateParams {
   sponsor_relationship?: number;
   tags?: number[];
   text_format_preset_id?: string;
-  timeline_visibility?: string;
+  timeline_visibility?: PostTimelineVisibility;
   tracking?: string;
   [key: string]: unknown;
 }

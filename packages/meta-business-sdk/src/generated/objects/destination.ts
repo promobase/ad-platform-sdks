@@ -6,6 +6,7 @@ import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { DestinationImageFetchStatus, DestinationVisibility } from "../enums.ts";
 
 export interface DestinationFields {
   address: string;
@@ -24,7 +25,7 @@ export interface DestinationFields {
   description: string;
   destination_id: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: DestinationImageFetchStatus;
   images: string[];
   name: string;
   price: string;
@@ -34,7 +35,7 @@ export interface DestinationFields {
   types: string[];
   unit_price: Record<string, unknown>;
   url: string;
-  visibility: string;
+  visibility: DestinationVisibility;
 }
 
 export interface DestinationListOverrideDetailsParams {

@@ -6,14 +6,15 @@ import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
 import type { ProductItemLocalInfoFields } from "./product-item-local-info.ts";
+import type { LocalServiceBusinessAvailability, LocalServiceBusinessCondition, LocalServiceBusinessImageFetchStatus, LocalServiceBusinessVisibility } from "../enums.ts";
 
 export interface LocalServiceBusinessFields {
   address: Record<string, unknown>;
   applinks: CatalogItemAppLinksFields;
-  availability: string;
+  availability: LocalServiceBusinessAvailability;
   brand: string;
   category: string;
-  condition: string;
+  condition: LocalServiceBusinessCondition;
   cuisine_type: string;
   currency: string;
   custom_label_0: string;
@@ -30,7 +31,7 @@ export interface LocalServiceBusinessFields {
   expiration_date: string;
   gtin: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: LocalServiceBusinessImageFetchStatus;
   images: string[];
   local_info: ProductItemLocalInfoFields;
   local_service_business_id: string;
@@ -46,7 +47,7 @@ export interface LocalServiceBusinessFields {
   unit_price: Record<string, unknown>;
   url: string;
   vendor_id: string;
-  visibility: string;
+  visibility: LocalServiceBusinessVisibility;
 }
 
 export interface LocalServiceBusinessListOverrideDetailsParams {

@@ -1,5 +1,7 @@
+import type { CustomConversionStatsResultAggregation } from "../enums.ts";
+
 export interface CustomConversionStatsResultFields {
-  aggregation: string;
+  aggregation: CustomConversionStatsResultAggregation;
   data: Record<string, unknown>[];
   timestamp: string;
 }

@@ -2,9 +2,10 @@ import type { ApiClient } from "@promobase/sdk-runtime";
 import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { BusinessFields } from "./business.ts";
+import type { WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus } from "../enums.ts";
 
 export interface WhatsAppBusinessPreVerifiedPhoneNumberFields {
-  code_verification_status: string;
+  code_verification_status: WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus;
   code_verification_time: string;
   id: string;
   owner_business: BusinessFields;

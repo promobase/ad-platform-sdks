@@ -2,6 +2,7 @@ import type { ApiClient } from "@promobase/sdk-runtime";
 import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { ProfilePictureSourceFields } from "./profile-picture-source.ts";
+import type { ProfileProfileType, ProfileType } from "../enums.ts";
 
 export interface ProfileFields {
   can_post: boolean;
@@ -13,7 +14,7 @@ export interface ProfileFields {
   pic_large: string;
   pic_small: string;
   pic_square: string;
-  profile_type: string;
+  profile_type: ProfileProfileType;
   username: string;
 }
 

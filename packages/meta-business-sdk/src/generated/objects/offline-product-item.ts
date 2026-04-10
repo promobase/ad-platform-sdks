@@ -5,6 +5,7 @@ import type { AppLinksFields } from "./app-links.ts";
 import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { OfflineProductItemImageFetchStatus, OfflineProductItemVisibility, ProductItemImageFetchStatus, ProductItemVisibility } from "../enums.ts";
 
 export interface OfflineProductItemFields {
   applinks: CatalogItemAppLinksFields;
@@ -13,7 +14,7 @@ export interface OfflineProductItemFields {
   currency: string;
   description: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: OfflineProductItemImageFetchStatus;
   image_url: string;
   images: string[];
   name: string;
@@ -21,7 +22,7 @@ export interface OfflineProductItemFields {
   price: string;
   sanitized_images: string[];
   url: string;
-  visibility: string;
+  visibility: OfflineProductItemVisibility;
 }
 
 export interface OfflineProductItemListOverrideDetailsParams {

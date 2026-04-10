@@ -1,5 +1,6 @@
 import type { AdPlacePageSetFields } from "./ad-place-page-set.ts";
 import type { ProductSetFields } from "./product-set.ts";
+import type { AdPromotedObjectCustomEventType, AdPromotedObjectFullFunnelObjective, AdPromotedObjectLeadAdsCustomEventType, EventType } from "../enums.ts";
 
 export interface AdPromotedObjectFields {
   application_id: string;
@@ -7,14 +8,14 @@ export interface AdPromotedObjectFields {
   conversion_goal_id: string;
   custom_conversion_id: string;
   custom_event_str: string;
-  custom_event_type: string;
+  custom_event_type: AdPromotedObjectCustomEventType;
   dataset_split_id: string;
   dataset_split_ids: string[];
   event_id: string;
-  full_funnel_objective: string;
+  full_funnel_objective: AdPromotedObjectFullFunnelObjective;
   fundraiser_campaign_id: string;
   lead_ads_custom_event_str: string;
-  lead_ads_custom_event_type: string;
+  lead_ads_custom_event_type: AdPromotedObjectLeadAdsCustomEventType;
   lead_ads_form_event_source_type: string;
   lead_ads_offsite_conversion_type: string;
   lead_ads_selected_pixel_id: string;

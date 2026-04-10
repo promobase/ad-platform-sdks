@@ -7,6 +7,7 @@ import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { HotelRoomFields } from "./hotel-room.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { HotelImageFetchStatus, HotelVisibility } from "../enums.ts";
 
 export interface HotelFields {
   address: string;
@@ -28,7 +29,7 @@ export interface HotelFields {
   guest_ratings: string;
   hotel_id: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: HotelImageFetchStatus;
   images: string[];
   lowest_base_price: string;
   loyalty_program: string;
@@ -46,7 +47,7 @@ export interface HotelFields {
   tags: string[];
   unit_price: Record<string, unknown>;
   url: string;
-  visibility: string;
+  visibility: HotelVisibility;
 }
 
 export interface HotelListOverrideDetailsParams {

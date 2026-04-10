@@ -21,6 +21,7 @@ import type { RecommendationFields } from "./recommendation.ts";
 import type { TargetingFields } from "./targeting.ts";
 import type { TargetingSentenceLineFields } from "./targeting-sentence-line.ts";
 import type { TrackingAndConversionWithDefaultsFields } from "./tracking-and-conversion-with-defaults.ts";
+import type { AdBidType, AdConfiguredStatus, AdEffectiveStatus, AdStatus } from "../enums.ts";
 
 export interface AdFields {
   account_id: string;
@@ -33,10 +34,10 @@ export interface AdFields {
   adset_id: string;
   bid_amount: number;
   bid_info: Record<string, number>;
-  bid_type: string;
+  bid_type: AdBidType;
   campaign: CampaignFields;
   campaign_id: string;
-  configured_status: string;
+  configured_status: AdConfiguredStatus;
   conversion_domain: string;
   conversion_specs: ConversionActionQueryFields[];
   created_time: string;
@@ -44,7 +45,7 @@ export interface AdFields {
   creative_asset_groups_spec: AdCreativeAssetGroupsSpecFields;
   demolink_hash: string;
   display_sequence: number;
-  effective_status: string;
+  effective_status: AdEffectiveStatus;
   engagement_audience: boolean;
   failed_delivery_checks: DeliveryCheckFields[];
   id: string;
@@ -58,7 +59,7 @@ export interface AdFields {
   source_ad: AdFields;
   source_ad_id: string;
   special_ad_categories: string[];
-  status: string;
+  status: AdStatus;
   targeting: TargetingFields;
   tracking_and_conversion_with_defaults: TrackingAndConversionWithDefaultsFields;
   tracking_specs: ConversionActionQueryFields[];

@@ -11,6 +11,7 @@ import type { TargetingGeoLocationFields } from "./targeting-geo-location.ts";
 import type { TargetingProductAudienceSpecFields } from "./targeting-product-audience-spec.ts";
 import type { TargetingProspectingAudienceFields } from "./targeting-prospecting-audience.ts";
 import type { TargetingRelaxationFields } from "./targeting-relaxation.ts";
+import type { TargetingDevicePlatforms, TargetingEffectiveDevicePlatforms } from "../enums.ts";
 
 export interface TargetingFields {
   adgroup_id: string;
@@ -30,14 +31,14 @@ export interface TargetingFields {
   country: string[];
   country_groups: string[];
   custom_audiences: RawCustomAudienceFields[];
-  device_platforms: string[];
+  device_platforms: TargetingDevicePlatforms[];
   direct_install_devices: boolean;
   dynamic_audience_ids: string[];
   education_majors: IDNameFields[];
   education_schools: IDNameFields[];
   education_statuses: number[];
   effective_audience_network_positions: string[];
-  effective_device_platforms: string[];
+  effective_device_platforms: TargetingEffectiveDevicePlatforms[];
   effective_facebook_positions: string[];
   effective_instagram_positions: string[];
   effective_messenger_positions: string[];

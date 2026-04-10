@@ -1,6 +1,7 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { UserFields } from "./user.ts";
+import type { AdAccountUserSettingsSydCampaignTrendsObjective } from "../enums.ts";
 
 export interface AdAccountUserSettingsFields {
   acf_should_opt_out_video_adjustments: boolean;
@@ -63,7 +64,7 @@ export interface AdAccountUserSettingsFields {
   syd_campaign_trends_activemetric: string;
   syd_campaign_trends_attribution: string;
   syd_campaign_trends_metrics: string[];
-  syd_campaign_trends_objective: string;
+  syd_campaign_trends_objective: AdAccountUserSettingsSydCampaignTrendsObjective;
   syd_campaign_trends_time_range: string;
   syd_landing_page_opt_in_status: string;
   text_gen_persona_opt_in_type: string;

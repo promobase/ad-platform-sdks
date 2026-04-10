@@ -1,4 +1,5 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ThirdPartyPartnerPanelRequestStatus, ThirdPartyPartnerPanelRequestStudyType } from "../enums.ts";
 
 export interface ThirdPartyPartnerPanelRequestFields {
   adentities_ids: string[];
@@ -10,10 +11,10 @@ export interface ThirdPartyPartnerPanelRequestFields {
   owner_instance_id: string;
   owner_panel_id: string;
   owner_panel_name: string;
-  status: string;
+  status: ThirdPartyPartnerPanelRequestStatus;
   study_end_time: string;
   study_start_time: string;
-  study_type: string;
+  study_type: ThirdPartyPartnerPanelRequestStudyType;
 }
 
 export function thirdPartyPartnerPanelRequestNode(client: ApiClient, id: string) {

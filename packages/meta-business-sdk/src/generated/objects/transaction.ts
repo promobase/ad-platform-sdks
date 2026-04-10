@@ -1,3 +1,5 @@
+import type { TransactionProductType } from "../enums.ts";
+
 export interface TransactionFields {
   account_id: string;
   app_amount: Record<string, unknown>;
@@ -13,7 +15,7 @@ export interface TransactionFields {
   is_business_ec_charge: boolean;
   is_funding_event: boolean;
   payment_option: string;
-  product_type: string;
+  product_type: TransactionProductType;
   provider_amount: Record<string, unknown>;
   status: string;
   time: number;

@@ -1,11 +1,12 @@
 import type { LocationFields } from "./location.ts";
 import type { TargetingGeoLocationFields } from "./targeting-geo-location.ts";
+import type { AdAssetCustomizationRuleCustomizationSpecDevicePlatforms } from "../enums.ts";
 
 export interface AdAssetCustomizationRuleCustomizationSpecFields {
   age_max: number;
   age_min: number;
   audience_network_positions: string[];
-  device_platforms: string[];
+  device_platforms: AdAssetCustomizationRuleCustomizationSpecDevicePlatforms[];
   facebook_positions: string[];
   geo_locations: TargetingGeoLocationFields;
   instagram_positions: string[];

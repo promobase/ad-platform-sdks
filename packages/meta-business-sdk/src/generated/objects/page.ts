@@ -44,7 +44,6 @@ import type { MessengerCallPermissionsFields } from "./messenger-call-permission
 import type { MessengerCallSettingsFields } from "./messenger-call-settings.ts";
 import type { MessengerProfileFields } from "./messenger-profile.ts";
 import type { PageCallToActionFields } from "./page-call-to-action.ts";
-import type { PageCategoryFields } from "./page-category.ts";
 import type { PageParkingFields } from "./page-parking.ts";
 import type { PagePaymentOptionsFields } from "./page-payment-options.ts";
 import type { PagePostFields } from "./page-post.ts";
@@ -76,6 +75,7 @@ import type { VideoCopyrightMatchFields } from "./video-copyright-match.ts";
 import type { VideoCopyrightRuleFields } from "./video-copyright-rule.ts";
 import type { VideoListFields } from "./video-list.ts";
 import type { VoipInfoFields } from "./voip-info.ts";
+import type { PageAttire, PageCategory, PageFoodStyles, PageGenAiProvenanceType, PagePickupOptions, PageTemporaryStatus } from "../enums.ts";
 
 export interface PageFields {
   about: string;
@@ -99,7 +99,7 @@ export interface PageFields {
   can_checkin: boolean;
   can_post: boolean;
   category: string;
-  category_list: PageCategoryFields[];
+  category_list: PageCategory[];
   checkins: number;
   company_overview: string;
   connected_instagram_account: IGUserFields;
@@ -1252,7 +1252,7 @@ export interface PageUpdateParams {
   about?: string;
   accept_crossposting_handshake?: Record<string, unknown>[];
   allow_spherical_photo?: boolean;
-  attire?: string;
+  attire?: PageAttire;
   begin_crossposting_handshake?: Record<string, unknown>[];
   bio?: string;
   category_list?: string[];
@@ -1268,8 +1268,8 @@ export interface PageUpdateParams {
   emails?: string[];
   focus_x?: number;
   focus_y?: number;
-  food_styles?: string[];
-  gen_ai_provenance_type?: string;
+  food_styles?: PageFoodStyles[];
+  gen_ai_provenance_type?: PageGenAiProvenanceType;
   general_info?: string;
   general_manager?: string;
   genre?: string;
@@ -1290,7 +1290,7 @@ export interface PageUpdateParams {
   parking?: Record<string, unknown>;
   payment_options?: Record<string, unknown>;
   phone?: string;
-  pickup_options?: string[];
+  pickup_options?: PagePickupOptions[];
   plot_outline?: string;
   price_range?: string;
   priority_hours?: Record<string, unknown>;
@@ -1302,7 +1302,7 @@ export interface PageUpdateParams {
   spherical_metadata?: Record<string, unknown>;
   start_info?: Record<string, unknown>;
   store_location_descriptor?: string;
-  temporary_status?: string;
+  temporary_status?: PageTemporaryStatus;
   website?: string;
   zoom_scale_x?: number;
   zoom_scale_y?: number;

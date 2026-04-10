@@ -30,6 +30,7 @@ import type { RegionalRegulationIdentitiesFields } from "./regional-regulation-i
 import type { TargetingFields } from "./targeting.ts";
 import type { TargetingSentenceLineFields } from "./targeting-sentence-line.ts";
 import type { TrendingTopicsSpecFields } from "./trending-topics-spec.ts";
+import type { AdSetBidStrategy, AdSetBillingEvent, AdSetConfiguredStatus, AdSetEffectiveStatus, AdSetOptimizationGoal, AdSetStatus } from "../enums.ts";
 
 export interface AdSetFields {
   account_id: string;
@@ -44,15 +45,15 @@ export interface AdSetFields {
   bid_amount: number;
   bid_constraints: AdCampaignBidConstraintFields;
   bid_info: Record<string, number>;
-  bid_strategy: string;
-  billing_event: string;
+  bid_strategy: AdSetBidStrategy;
+  billing_event: AdSetBillingEvent;
   brand_safety_config: BrandSafetyCampaignConfigFields;
   budget_remaining: string;
   campaign: CampaignFields;
   campaign_active_time: string;
   campaign_attribution: string;
   campaign_id: string;
-  configured_status: string;
+  configured_status: AdSetConfiguredStatus;
   created_time: string;
   creative_diversity_label: string[];
   creative_diversity_score: string[];
@@ -64,7 +65,7 @@ export interface AdSetFields {
   destination_type: string;
   dsa_beneficiary: string;
   dsa_payor: string;
-  effective_status: string;
+  effective_status: AdSetEffectiveStatus;
   end_time: string;
   existing_customer_budget_percentage: number;
   frequency_control_specs: AdCampaignFrequencyControlSpecsFields[];
@@ -87,7 +88,7 @@ export interface AdSetFields {
   multi_event_conversion_attribution_window_seconds: number;
   multi_optimization_goal_weight: string;
   name: string;
-  optimization_goal: string;
+  optimization_goal: AdSetOptimizationGoal;
   optimization_sub_event: string;
   pacing_type: string[];
   placement_soft_opt_out: PlacementSoftOptOutFields;
@@ -102,7 +103,7 @@ export interface AdSetFields {
   source_adset_id: string;
   special_ad_categories: string[];
   start_time: string;
-  status: string;
+  status: AdSetStatus;
   targeting: TargetingFields;
   targeting_optimization_types: Record<string, number>[];
   time_based_ad_rotation_id_blocks: number[][];

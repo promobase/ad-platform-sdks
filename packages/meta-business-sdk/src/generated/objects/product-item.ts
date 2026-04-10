@@ -20,6 +20,7 @@ import type { ProductItemInvalidationErrorFields } from "./product-item-invalida
 import type { ProductItemLocalInfoFields } from "./product-item-local-info.ts";
 import type { ProductItemVideoDataFields } from "./product-item-video-data.ts";
 import type { ProductSetFields } from "./product-set.ts";
+import type { ProductItemAgeGroup, ProductItemAvailability, ProductItemCapabilityToReviewStatus, ProductItemCondition, ProductItemGender, ProductItemImageFetchStatus, ProductItemReviewStatus, ProductItemShippingWeightUnit, ProductItemStatus, ProductItemVideoFetchStatus, ProductItemVisibility } from "../enums.ts";
 
 export interface ProductItemFields {
   additional_image_cdn_urls: Record<string, string>[][];
@@ -27,21 +28,21 @@ export interface ProductItemFields {
   additional_variant_attributes: Record<string, string>[];
   affiliate_seller_rating: number;
   affiliate_seller_rating_count: number;
-  age_group: string;
+  age_group: ProductItemAgeGroup;
   applinks: CatalogItemAppLinksFields;
-  availability: string;
+  availability: ProductItemAvailability;
   base_commission_rate: number;
   brand: string;
   bundle_items: string[];
   bundle_retailer_ids: string[];
   capabilities_disabled_by_user: string[];
-  capability_to_review_status: Record<string, string>[];
+  capability_to_review_status: Record<string, ProductItemCapabilityToReviewStatus>[];
   category: string;
   category_ranking: number;
   category_specific_fields: CatalogSubVerticalListFields;
   color: string;
   commerce_insights: ProductItemCommerceInsightsFields;
-  condition: string;
+  condition: ProductItemCondition;
   currency: string;
   custom_data: Record<string, string>[];
   custom_label_0: string;
@@ -58,13 +59,13 @@ export interface ProductItemFields {
   errors: ProductItemErrorFields[];
   expiration_date: string;
   fb_product_category: string;
-  gender: string;
+  gender: ProductItemGender;
   generated_background_images: AIGeneratedProductImageFields[];
   generated_background_images_ad_usage: boolean;
   gtin: string;
   id: string;
   image_cdn_urls: Record<string, string>[];
-  image_fetch_status: string;
+  image_fetch_status: ProductItemImageFetchStatus;
   image_url: string;
   images: string[];
   importer_address: ProductItemImporterAddressFields;
@@ -96,23 +97,23 @@ export interface ProductItemFields {
   retailer_id: string;
   retailer_product_group_id: string;
   review_rejection_reasons: string[];
-  review_status: string;
+  review_status: ProductItemReviewStatus;
   rich_text_description: string;
   sale_price: string;
   sale_price_end_date: string;
   sale_price_start_date: string;
-  shipping_weight_unit: string;
+  shipping_weight_unit: ProductItemShippingWeightUnit;
   shipping_weight_value: number;
   short_description: string;
   size: string;
   start_date: string;
-  status: string;
+  status: ProductItemStatus;
   tags: string[];
   url: string;
   vendor_id: string;
-  video_fetch_status: string;
+  video_fetch_status: ProductItemVideoFetchStatus;
   videos: ProductItemVideoDataFields[];
-  visibility: string;
+  visibility: ProductItemVisibility;
   wa_compliance_category: string;
 }
 

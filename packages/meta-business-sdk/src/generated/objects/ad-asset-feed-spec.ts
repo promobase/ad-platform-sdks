@@ -14,6 +14,7 @@ import type { AdAssetFeedSpecVideoFields } from "./ad-asset-feed-spec-video.ts";
 import type { AdAssetMessageExtensionsFields } from "./ad-asset-message-extensions.ts";
 import type { AdAssetOnsiteDestinationsFields } from "./ad-asset-onsite-destinations.ts";
 import type { URLFields } from "./url.ts";
+import type { AdAssetFeedSpecCallToActionTypes } from "../enums.ts";
 
 export interface AdAssetFeedSpecFields {
   ad_formats: string[];
@@ -24,7 +25,7 @@ export interface AdAssetFeedSpecFields {
   autotranslate: string[];
   bodies: AdAssetFeedSpecBodyFields[];
   call_ads_configuration: Record<string, unknown>;
-  call_to_action_types: string[];
+  call_to_action_types: AdAssetFeedSpecCallToActionTypes[];
   call_to_actions: AdAssetFeedSpecCallToActionFields[];
   captions: AdAssetFeedSpecCaptionFields[];
   carousels: AdAssetFeedSpecCarouselFields[];

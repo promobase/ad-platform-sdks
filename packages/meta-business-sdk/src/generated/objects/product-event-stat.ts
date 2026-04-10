@@ -1,10 +1,11 @@
 import type { ExternalEventSourceFields } from "./external-event-source.ts";
+import type { ProductEventStatDeviceType, ProductEventStatEvent } from "../enums.ts";
 
 export interface ProductEventStatFields {
   date_start: string;
   date_stop: string;
-  device_type: string;
-  event: string;
+  device_type: ProductEventStatDeviceType;
+  event: ProductEventStatEvent;
   event_source: ExternalEventSourceFields;
   total_content_ids_matched_other_catalogs: number;
   total_matched_content_ids: number;

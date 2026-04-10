@@ -12,17 +12,18 @@ import type { ProductFeedUploadFields } from "./product-feed-upload.ts";
 import type { ProductItemFields } from "./product-item.ts";
 import type { VehicleFields } from "./vehicle.ts";
 import type { VehicleOfferFields } from "./vehicle-offer.ts";
+import type { ProductFeedDelimiter, ProductFeedIngestionSourceType, ProductFeedQuotedFieldsMode } from "../enums.ts";
 
 export interface ProductFeedFields {
   country: string;
   created_time: string;
   default_currency: string;
   deletion_enabled: boolean;
-  delimiter: string;
+  delimiter: ProductFeedDelimiter;
   encoding: string;
   file_name: string;
   id: string;
-  ingestion_source_type: string;
+  ingestion_source_type: ProductFeedIngestionSourceType;
   item_sub_type: string;
   latest_upload: ProductFeedUploadFields;
   migrated_from_feed_id: string;
@@ -30,7 +31,7 @@ export interface ProductFeedFields {
   override_type: string;
   primary_feeds: string[];
   product_count: number;
-  quoted_fields_mode: string;
+  quoted_fields_mode: ProductFeedQuotedFieldsMode;
   schedule: ProductFeedScheduleFields;
   supplementary_feeds: string[];
   update_schedule: ProductFeedScheduleFields;

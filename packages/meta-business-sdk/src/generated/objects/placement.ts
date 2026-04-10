@@ -1,8 +1,10 @@
+import type { PlacementDevicePlatforms, PlacementEffectiveDevicePlatforms } from "../enums.ts";
+
 export interface PlacementFields {
   audience_network_positions: string[];
-  device_platforms: string[];
+  device_platforms: PlacementDevicePlatforms[];
   effective_audience_network_positions: string[];
-  effective_device_platforms: string[];
+  effective_device_platforms: PlacementEffectiveDevicePlatforms[];
   effective_facebook_positions: string[];
   effective_instagram_positions: string[];
   effective_messenger_positions: string[];

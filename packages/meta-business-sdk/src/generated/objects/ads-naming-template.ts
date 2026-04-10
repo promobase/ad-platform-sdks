@@ -1,11 +1,12 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
+import type { AdsNamingTemplateLevel } from "../enums.ts";
 
 export interface AdsNamingTemplateFields {
   api_fields: Record<string, Record<string, string>[]>[][];
   api_version: string;
   field_order: string[];
   id: string;
-  level: string;
+  level: AdsNamingTemplateLevel;
   separator: string;
   template_version: string;
   user_defined_fields: Record<string, string[]>[][];

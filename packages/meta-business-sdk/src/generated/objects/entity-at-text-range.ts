@@ -1,4 +1,5 @@
 import type { ProfileFields } from "./profile.ts";
+import type { EntityAtTextRangeType } from "../enums.ts";
 
 export interface EntityAtTextRangeFields {
   id: string;
@@ -6,6 +7,6 @@ export interface EntityAtTextRangeFields {
   name: string;
   object: ProfileFields;
   offset: number;
-  type: string;
+  type: EntityAtTextRangeType;
 }
 

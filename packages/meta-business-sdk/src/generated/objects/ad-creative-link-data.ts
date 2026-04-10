@@ -8,6 +8,7 @@ import type { AdCreativePostClickConfigurationFields } from "./ad-creative-post-
 import type { AdCreativeStaticFallbackSpecFields } from "./ad-creative-static-fallback-spec.ts";
 import type { AdCustomizationRuleSpecFields } from "./ad-customization-rule-spec.ts";
 import type { AdsImageCropsFields } from "./ads-image-crops.ts";
+import type { AdCreativeLinkDataFormatOption } from "../enums.ts";
 
 export interface AdCreativeLinkDataFields {
   ad_context: string;
@@ -26,7 +27,7 @@ export interface AdCreativeLinkDataFields {
   description: string;
   event_id: string;
   force_single_link: boolean;
-  format_option: string;
+  format_option: AdCreativeLinkDataFormatOption;
   image_crops: AdsImageCropsFields;
   image_hash: string;
   image_layer_specs: AdCreativeLinkDataImageLayerSpecFields[];

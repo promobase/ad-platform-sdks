@@ -995,6 +995,8 @@ export type { ProductCatalogDataSourcesFields } from "./objects/product-catalog-
 export type { ExternalEventSourceCPASEventsDebuggingInfoFields } from "./objects/external-event-source-cpas-events-debugging-info.ts";
 export type { ProductCatalogPricingVariablesBatchFields } from "./objects/product-catalog-pricing-variables-batch.ts";
 
+export type * from "./enums.ts";
+
 export { createTypedClient as createClient } from "./client-factory.ts";
 export type { MetaClientOptions } from "./client-factory.ts";
 export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";

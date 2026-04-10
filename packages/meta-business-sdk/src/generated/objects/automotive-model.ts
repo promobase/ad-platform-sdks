@@ -6,6 +6,7 @@ import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { AutomotiveModelImageFetchStatus, AutomotiveModelVisibility } from "../enums.ts";
 
 export interface AutomotiveModelFields {
   applinks: CatalogItemAppLinksFields;
@@ -31,7 +32,7 @@ export interface AutomotiveModelFields {
   fuel_type: string;
   generation: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: AutomotiveModelImageFetchStatus;
   images: string[];
   interior_color: string;
   interior_upholstery: string;
@@ -44,7 +45,7 @@ export interface AutomotiveModelFields {
   trim: string;
   unit_price: Record<string, unknown>;
   url: string;
-  visibility: string;
+  visibility: AutomotiveModelVisibility;
   year: number;
 }
 

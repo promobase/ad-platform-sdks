@@ -6,6 +6,7 @@ import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { FlightImageFetchStatus, FlightVisibility } from "../enums.ts";
 
 export interface FlightFields {
   applinks: CatalogItemAppLinksFields;
@@ -25,7 +26,7 @@ export interface FlightFields {
   destination_city: string;
   flight_id: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: FlightImageFetchStatus;
   images: string[];
   oneway_currency: string;
   oneway_price: string;
@@ -41,7 +42,7 @@ export interface FlightFields {
   tags: string[];
   unit_price: Record<string, unknown>;
   url: string;
-  visibility: string;
+  visibility: FlightVisibility;
 }
 
 export interface FlightListOverrideDetailsParams {

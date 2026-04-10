@@ -11,6 +11,7 @@ import type { DACheckFields } from "./da-check.ts";
 import type { GroupFields } from "./group.ts";
 import type { NullNodeFields } from "./null-node.ts";
 import type { PermissionFields } from "./permission.ts";
+import type { ApplicationAnPlatforms, ApplicationSupportedPlatforms } from "../enums.ts";
 
 export interface ApplicationFields {
   aam_rules: string;
@@ -109,7 +110,7 @@ export interface ApplicationFields {
   social_discovery: number;
   subcategory: string;
   suggested_events_setting: string;
-  supported_platforms: string[];
+  supported_platforms: ApplicationSupportedPlatforms[];
   supports_apprequests_fast_app_switch: Record<string, unknown>;
   supports_attribution: boolean;
   supports_implicit_sdk_logging: boolean;
@@ -467,7 +468,7 @@ export interface ApplicationListWhatsappBusinessSolutionsParams {
 
 export interface ApplicationUpdateParams {
   allow_cycle_app_secret?: boolean;
-  an_platforms?: string[];
+  an_platforms?: ApplicationAnPlatforms[];
   app_domains?: string[];
   app_name?: string;
   app_type?: boolean;

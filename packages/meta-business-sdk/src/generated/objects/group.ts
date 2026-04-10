@@ -11,6 +11,7 @@ import type { PhotoFields } from "./photo.ts";
 import type { PostFields } from "./post.ts";
 import type { ProfilePictureSourceFields } from "./profile-picture-source.ts";
 import type { UserFields } from "./user.ts";
+import type { GroupJoinSetting, GroupPostPermissions, GroupPurpose } from "../enums.ts";
 
 export interface GroupFields {
   archived: boolean;
@@ -373,14 +374,14 @@ export interface GroupUpdateParams {
   focus_y?: number;
   group_icon?: string;
   is_official_group?: boolean;
-  join_setting?: string;
+  join_setting?: GroupJoinSetting;
   name?: string;
   no_feed_story?: boolean;
   offset_y?: number;
-  post_permissions?: string;
+  post_permissions?: GroupPostPermissions;
   post_requires_admin_approval?: boolean;
   privacy?: string;
-  purpose?: string;
+  purpose?: GroupPurpose;
   update_view_time?: boolean;
   [key: string]: unknown;
 }

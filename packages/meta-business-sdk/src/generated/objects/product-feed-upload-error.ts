@@ -3,13 +3,14 @@ import { Cursor } from "@promobase/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { ProductFeedRuleSuggestionFields } from "./product-feed-rule-suggestion.ts";
 import type { ProductFeedUploadErrorSampleFields } from "./product-feed-upload-error-sample.ts";
+import type { ProductFeedUploadErrorAffectedSurfaces, ProductFeedUploadErrorSeverity } from "../enums.ts";
 
 export interface ProductFeedUploadErrorFields {
-  affected_surfaces: string[];
+  affected_surfaces: ProductFeedUploadErrorAffectedSurfaces[];
   description: string;
   error_type: string;
   id: string;
-  severity: string;
+  severity: ProductFeedUploadErrorSeverity;
   summary: string;
   total_count: number;
 }

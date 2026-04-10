@@ -5,6 +5,7 @@ import type { AppLinksFields } from "./app-links.ts";
 import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
+import type { TransactableItemImageFetchStatus, TransactableItemVisibility } from "../enums.ts";
 
 export interface TransactableItemFields {
   action_title: string;
@@ -14,7 +15,7 @@ export interface TransactableItemFields {
   duration_time: number;
   duration_type: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: TransactableItemImageFetchStatus;
   images: string[];
   order_index: number;
   price: string;
@@ -25,7 +26,7 @@ export interface TransactableItemFields {
   title: string;
   transactable_item_id: string;
   url: string;
-  visibility: string;
+  visibility: TransactableItemVisibility;
 }
 
 export interface TransactableItemListOverrideDetailsParams {

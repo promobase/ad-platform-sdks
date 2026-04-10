@@ -1,9 +1,10 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import type { AdRuleExecutionOptionsFields } from "./ad-rule-execution-options.ts";
+import type { AdRuleExecutionSpecExecutionType } from "../enums.ts";
 
 export interface AdRuleExecutionSpecFields {
   execution_options: AdRuleExecutionOptionsFields[];
-  execution_type: string;
+  execution_type: AdRuleExecutionSpecExecutionType;
   is_once_off: boolean;
 }
 

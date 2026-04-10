@@ -7,6 +7,7 @@ import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-
 import type { DynamicVideoMetadataFields } from "./dynamic-video-metadata.ts";
 import type { OverrideDetailsFields } from "./override-details.ts";
 import type { PageFields } from "./page.ts";
+import type { HomeListingImageFetchStatus, HomeListingVisibility } from "../enums.ts";
 
 export interface HomeListingFields {
   ac_type: string;
@@ -41,7 +42,7 @@ export interface HomeListingFields {
   heating_type: string;
   home_listing_id: string;
   id: string;
-  image_fetch_status: string;
+  image_fetch_status: HomeListingImageFetchStatus;
   images: string[];
   laundry_type: string;
   listing_type: string;
@@ -65,7 +66,7 @@ export interface HomeListingFields {
   tags: string[];
   unit_price: Record<string, unknown>;
   url: string;
-  visibility: string;
+  visibility: HomeListingVisibility;
   year_built: number;
 }
 

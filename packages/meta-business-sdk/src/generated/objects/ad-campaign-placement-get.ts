@@ -1,11 +1,13 @@
+import type { AdCampaignPlacementGetEffectiveAudienceNetworkPositions, AdCampaignPlacementGetEffectiveDevicePlatforms, AdCampaignPlacementGetEffectiveFacebookPositions, AdCampaignPlacementGetEffectiveInstagramPositions, AdCampaignPlacementGetEffectiveMessengerPositions, AdCampaignPlacementGetEffectiveOculusPositions, AdCampaignPlacementGetEffectivePublisherPlatforms } from "../enums.ts";
+
 export interface AdCampaignPlacementGetFields {
-  effective_audience_network_positions: string[];
-  effective_device_platforms: string[];
-  effective_facebook_positions: string[];
-  effective_instagram_positions: string[];
-  effective_messenger_positions: string[];
-  effective_oculus_positions: string[];
-  effective_publisher_platforms: string[];
+  effective_audience_network_positions: AdCampaignPlacementGetEffectiveAudienceNetworkPositions[];
+  effective_device_platforms: AdCampaignPlacementGetEffectiveDevicePlatforms[];
+  effective_facebook_positions: AdCampaignPlacementGetEffectiveFacebookPositions[];
+  effective_instagram_positions: AdCampaignPlacementGetEffectiveInstagramPositions[];
+  effective_messenger_positions: AdCampaignPlacementGetEffectiveMessengerPositions[];
+  effective_oculus_positions: AdCampaignPlacementGetEffectiveOculusPositions[];
+  effective_publisher_platforms: AdCampaignPlacementGetEffectivePublisherPlatforms[];
   metadata: unknown;
   recommendations: unknown[];
 }

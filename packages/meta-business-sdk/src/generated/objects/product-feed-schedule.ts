@@ -1,11 +1,12 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ProductFeedScheduleInterval } from "../enums.ts";
 
 export interface ProductFeedScheduleFields {
   day_of_month: number;
   day_of_week: string;
   hour: number;
   id: string;
-  interval: string;
+  interval: ProductFeedScheduleInterval;
   interval_count: number;
   minute: number;
   timezone: string;

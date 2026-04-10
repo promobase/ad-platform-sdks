@@ -1,5 +1,5 @@
 import type { Spec, SpecApi, SpecParam } from "./parser.ts";
-import { resolveType, type TypeResolverContext } from "./type-resolver.ts";
+import { resolveType, enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
 
 // ─── Naming Helpers ──────────────────────────────────────────────────
 
@@ -134,6 +134,8 @@ export interface EmitContext {
   typeCtx: TypeResolverContext;
   cycleNodes: Set<string>;
   allSpecs: Map<string, Spec>;
+  /** Set of PascalCase enum type names (e.g. "CampaignBidStrategy") available from enums.ts */
+  enumTsNames?: Set<string>;
 }
 
 interface ResolvedField {
@@ -194,12 +196,15 @@ export function emitObjectFile(ctx: EmitContext): string {
   const hasApis = nodeOps.length > 0 || edgeGroups.size > 0;
   const hasGetEdges = edgeApis.some((a) => a.method === "GET");
 
-  // 3. Collect referenced object types for imports
+  // 3. Collect referenced object types and enum types for imports
   const referencedObjects = new Set<string>();
+  const referencedEnums = new Set<string>();
+  const enumTsNames = ctx.enumTsNames ?? new Set<string>();
 
   // From fields
   for (const f of fields) {
     collectObjectReferences(f.resolvedType, typeCtx, referencedObjects);
+    collectEnumReferences(f.resolvedType, enumTsNames, referencedEnums);
   }
 
   // From edge return types and params
@@ -211,6 +216,7 @@ export function emitObjectFile(ctx: EmitContext): string {
       for (const param of api.params) {
         const resolvedParamType = resolveType(param.type, typeCtx);
         collectObjectReferences(resolvedParamType, typeCtx, referencedObjects);
+        collectEnumReferences(resolvedParamType, enumTsNames, referencedEnums);
       }
     }
   }
@@ -220,6 +226,7 @@ export function emitObjectFile(ctx: EmitContext): string {
     for (const param of op.params) {
       const resolvedParamType = resolveType(param.type, typeCtx);
       collectObjectReferences(resolvedParamType, typeCtx, referencedObjects);
+      collectEnumReferences(resolvedParamType, enumTsNames, referencedEnums);
     }
   }
 
@@ -238,6 +245,11 @@ export function emitObjectFile(ctx: EmitContext): string {
   for (const ref of [...referencedObjects].sort()) {
     const fileName = specNameToFileName(ref);
     out.push(`import type { ${ref}Fields } from "./${fileName}.ts";`);
+  }
+
+  if (referencedEnums.size > 0) {
+    const sorted = [...referencedEnums].sort();
+    out.push(`import type { ${sorted.join(", ")} } from "../enums.ts";`);
   }
 
   if (out.length > 0) {
@@ -437,6 +449,23 @@ function collectObjectReferences(
   for (const objName of typeCtx.knownObjects) {
     if (resolvedType.includes(`${objName}Fields`)) {
       refs.add(objName);
+    }
+  }
+}
+
+/**
+ * Collect enum type references from a resolved type string.
+ * Checks if any known enum TsName appears in the type.
+ */
+function collectEnumReferences(
+  resolvedType: string,
+  enumTsNames: Set<string>,
+  refs: Set<string>,
+): void {
+  for (const tsName of enumTsNames) {
+    // Match the enum name as a standalone word (not part of "XFields")
+    if (resolvedType.includes(tsName) && !resolvedType.includes(`${tsName}Fields`)) {
+      refs.add(tsName);
     }
   }
 }

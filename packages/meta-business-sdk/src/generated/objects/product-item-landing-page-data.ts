@@ -1,4 +1,6 @@
+import type { ProductItemLandingPageDataAvailability } from "../enums.ts";
+
 export interface ProductItemLandingPageDataFields {
-  availability: string;
+  availability: ProductItemLandingPageDataAvailability;
 }
 

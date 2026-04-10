@@ -56,6 +56,7 @@ import type { ThirdPartyMeasurementReportDatasetFields } from "./third-party-mea
 import type { WhatsAppBusinessAccountFields } from "./whats-app-business-account.ts";
 import type { WhatsAppBusinessPartnerClientVerificationSubmissionFields } from "./whats-app-business-partner-client-verification-submission.ts";
 import type { WhatsAppBusinessPreVerifiedPhoneNumberFields } from "./whats-app-business-pre-verified-phone-number.ts";
+import type { BusinessTwoFactorType, BusinessVerificationStatus, BusinessVertical, BusinessWhatsappBusinessManagerMessagingLimit } from "../enums.ts";
 
 export interface BusinessFields {
   block_offline_analytics: boolean;
@@ -77,10 +78,10 @@ export interface BusinessFields {
   updated_by: Record<string, unknown>;
   updated_time: string;
   user_access_expire_time: string;
-  verification_status: string;
+  verification_status: BusinessVerificationStatus;
   vertical: string;
   vertical_id: number;
-  whatsapp_business_manager_messaging_limit: string;
+  whatsapp_business_manager_messaging_limit: BusinessWhatsappBusinessManagerMessagingLimit;
 }
 
 export interface BusinessCreateAccessTokenParams {
@@ -685,8 +686,8 @@ export interface BusinessUpdateParams {
   name?: string;
   primary_page?: string;
   timezone_id?: number;
-  two_factor_type?: string;
-  vertical?: string;
+  two_factor_type?: BusinessTwoFactorType;
+  vertical?: BusinessVertical;
   [key: string]: unknown;
 }
 
