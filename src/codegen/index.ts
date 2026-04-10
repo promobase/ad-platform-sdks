@@ -8,6 +8,10 @@ import { extractAllEnums, type EnumMap } from "./enum-extractor.ts";
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
 import { emitObjectFile, emitEnumType, specNameToFileName, type EmitContext } from "./emitter.ts";
 
+function uncapitalize(s: string): string {
+  return s.charAt(0).toLowerCase() + s.slice(1);
+}
+
 export interface CodegenOptions {
   specsDir: string;
   sdkCodegenPath: string;
@@ -89,7 +93,51 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   }
   console.log(`[codegen] Emitted ${enumCount} enum files`);
 
-  // 10. Emit barrel index.ts
+  // 10. Emit client-factory.ts
+  console.log("[codegen] Emitting client-factory.ts...");
+  const specsWithApis: { specName: string; fileName: string; fnName: string; methodName: string }[] = [];
+  for (const [name, spec] of specs) {
+    // Mirror the emitter's hasApis logic: only include specs where the emitter
+    // actually generates a node factory function (nodeOps or edgeGroups exist)
+    const nodeOps = spec.apis.filter((a) => a.name && a.name.startsWith("#"));
+    const edgeApis = spec.apis.filter((a) => !a.name?.startsWith("#") && a.endpoint);
+    const edgeEndpoints = new Set(edgeApis.map((a) => a.endpoint));
+    if (nodeOps.length > 0 || edgeEndpoints.size > 0) {
+      const fileName = specNameToFileName(name);
+      const fnName = `${uncapitalize(name)}Node`;
+      const methodName = uncapitalize(name);
+      specsWithApis.push({ specName: name, fileName, fnName, methodName });
+    }
+  }
+
+  const factoryLines: string[] = [];
+  factoryLines.push("// Auto-generated client factory — do not edit");
+  factoryLines.push("");
+  factoryLines.push(`import { ApiClient, type ApiClientOptions } from "../runtime/client.ts";`);
+
+  for (const { fnName, fileName } of specsWithApis) {
+    factoryLines.push(`import { ${fnName} } from "./objects/${fileName}.ts";`);
+  }
+
+  factoryLines.push("");
+  factoryLines.push("export function createTypedClient(opts: ApiClientOptions) {");
+  factoryLines.push("  const client = new ApiClient(opts);");
+  factoryLines.push("  return {");
+
+  for (const { fnName, methodName } of specsWithApis) {
+    factoryLines.push(`    ${methodName}: (id: string) => ${fnName}(client, id),`);
+  }
+
+  factoryLines.push("    client,");
+  factoryLines.push("  };");
+  factoryLines.push("}");
+  factoryLines.push("");
+
+  const factoryPath = join(outputDir, "client-factory.ts");
+  await writeFile(factoryPath, factoryLines.join("\n"), "utf-8");
+  console.log(`[codegen] Emitted client-factory.ts with ${specsWithApis.length} node accessors`);
+
+  // 11. Emit barrel index.ts
   console.log("[codegen] Emitting barrel index.ts...");
   const barrelLines: string[] = [];
   barrelLines.push("// Auto-generated barrel file — do not edit");
@@ -104,8 +152,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
 
   barrelLines.push("");
 
-  // Re-export runtime exports
-  barrelLines.push(`export { createClient } from "../runtime/index.ts";`);
+  // Re-export createTypedClient as createClient
+  barrelLines.push(`export { createTypedClient as createClient } from "./client-factory.ts";`);
   barrelLines.push(`export type { ApiClient, ApiClientOptions } from "../runtime/client.ts";`);
   barrelLines.push(`export { Cursor } from "../runtime/cursor.ts";`);
   barrelLines.push(`export { FacebookApiError } from "../runtime/errors.ts";`);

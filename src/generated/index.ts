@@ -995,7 +995,7 @@ export type { ProductCatalogDataSourcesFields } from "./objects/product-catalog-
 export type { ExternalEventSourceCPASEventsDebuggingInfoFields } from "./objects/external-event-source-cpas-events-debugging-info.ts";
 export type { ProductCatalogPricingVariablesBatchFields } from "./objects/product-catalog-pricing-variables-batch.ts";
 
-export { createClient } from "../runtime/index.ts";
+export { createTypedClient as createClient } from "./client-factory.ts";
 export type { ApiClient, ApiClientOptions } from "../runtime/client.ts";
 export { Cursor } from "../runtime/cursor.ts";
 export { FacebookApiError } from "../runtime/errors.ts";
