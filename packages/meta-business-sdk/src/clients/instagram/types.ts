@@ -4,27 +4,29 @@ export type { IGCommentFields } from "../../generated/objects/ig-comment.ts";
 export type { IGUserFields } from "../../generated/objects/ig-user.ts";
 export type { InstagramInsightsResultFields } from "../../generated/objects/instagram-insights-result.ts";
 
-// Workflow-specific types (not in generated code)
-export type MediaType = "IMAGE" | "VIDEO" | "REELS" | "STORIES" | "CAROUSEL";
-
-// Container statuses (not in generated code — these are workflow-specific)
-export type ContainerStatus = "EXPIRED" | "ERROR" | "FINISHED" | "IN_PROGRESS" | "PUBLISHED";
+// Re-export generated container type
+export type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
+export type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
 
 export interface PublishResult {
   id: string;
 }
 
+/** Publish a single image post to the feed. */
 export interface PublishPhotoOptions {
   imageUrl: string;
   caption?: string;
   collaborators?: string[];
+  locationId?: string;
 }
 
-export interface PublishReelOptions {
+/** Publish a video post to the feed (all feed videos are reels). */
+export interface PublishVideoOptions {
   videoUrl: string;
   caption?: string;
   collaborators?: string[];
-  shareToFeed?: boolean;
+  coverUrl?: string;
+  locationId?: string;
 }
 
 export interface CarouselItem {
@@ -32,10 +34,12 @@ export interface CarouselItem {
   url: string;
 }
 
+/** Publish a carousel (2-10 items) to the feed. */
 export interface PublishCarouselOptions {
   items: CarouselItem[];
   caption?: string;
   collaborators?: string[];
+  locationId?: string;
 }
 
 export interface PublishStoryOptions {

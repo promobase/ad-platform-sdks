@@ -1,4 +1,4 @@
-import type { ContainerStatus, PollingConfig } from "./types.ts";
+import type { PollingConfig } from "./types.ts";
 
 const DEFAULT_DELAY = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -17,7 +17,7 @@ export interface WaitOptions {
   containerId: string;
   isVideo: boolean;
   polling: PollingConfig;
-  getStatus: (containerId: string) => Promise<ContainerStatus>;
+  getStatus: (containerId: string) => Promise<string>;
   label?: string;  // for error messages
 }
 

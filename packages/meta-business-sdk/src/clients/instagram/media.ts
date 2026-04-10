@@ -1,20 +1,23 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
 import type {
-  PublishPhotoOptions, PublishReelOptions, PublishCarouselOptions,
+  PublishPhotoOptions, PublishVideoOptions, PublishCarouselOptions,
   PublishResult, PollingConfig, IGMediaFields, InstagramInsightsResultFields,
 } from "./types.ts";
-import { createContainers } from "./containers.ts";
+import type { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
 
-export function createMedia(client: ApiClient, igAccountId: string, pollingConfig: PollingConfig) {
-  const containers = createContainers(client, igAccountId);
+type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
+type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
+type Containers = ReturnType<typeof createContainers>;
 
+export function createMedia(api: CreateClientReturn, containers: Containers, igUser: IGUserNode, pollingConfig: PollingConfig) {
   return {
+    /** Publish a single photo to the feed. */
     async publishPhoto(opts: PublishPhotoOptions): Promise<PublishResult> {
       const container = await containers.create({
-        imageUrl: opts.imageUrl,
+        image_url: opts.imageUrl,
         caption: opts.caption,
         collaborators: opts.collaborators,
+        location_id: opts.locationId,
       });
 
       await waitForContainer({
@@ -28,13 +31,18 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
       return containers.publish(container.id);
     },
 
-    async publishReel(opts: PublishReelOptions): Promise<PublishResult> {
+    /**
+     * Publish a video to the feed. All feed videos are reels on Instagram.
+     * Handles video transcoding polling automatically.
+     */
+    async publishVideo(opts: PublishVideoOptions): Promise<PublishResult> {
       const container = await containers.create({
-        videoUrl: opts.videoUrl,
+        video_url: opts.videoUrl,
         caption: opts.caption,
-        mediaType: "REELS",
+        media_type: "REELS",
         collaborators: opts.collaborators,
-        shareToFeed: opts.shareToFeed,
+        cover_url: opts.coverUrl,
+        location_id: opts.locationId,
       });
 
       await waitForContainer({
@@ -42,12 +50,16 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
         isVideo: true,
         polling: pollingConfig,
         getStatus: containers.getStatus,
-        label: "reel",
+        label: "video",
       });
 
       return containers.publish(container.id);
     },
 
+    /**
+     * Publish a carousel (2-10 photos and/or videos) to the feed.
+     * Each item is uploaded and polled individually, then combined.
+     */
     async publishCarousel(opts: PublishCarouselOptions): Promise<PublishResult> {
       if (opts.items.length > 10) {
         throw new Error(`Carousel supports max 10 items, got ${opts.items.length}`);
@@ -56,19 +68,17 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
         throw new Error(`Carousel requires at least 2 items, got ${opts.items.length}`);
       }
 
-      // 1. Create child containers
       const childIds: string[] = [];
       for (let i = 0; i < opts.items.length; i++) {
         const item = opts.items[i]!;
         const isVideo = item.type === "video";
         const child = await containers.create({
-          imageUrl: isVideo ? undefined : item.url,
-          videoUrl: isVideo ? item.url : undefined,
-          mediaType: isVideo ? "VIDEO" : undefined,
-          isCarouselItem: true,
+          image_url: isVideo ? undefined : item.url,
+          video_url: isVideo ? item.url : undefined,
+          media_type: isVideo ? "VIDEO" : undefined,
+          is_carousel_item: true,
         });
 
-        // 2. Poll each child
         await waitForContainer({
           containerId: child.id,
           isVideo,
@@ -80,15 +90,14 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
         childIds.push(child.id);
       }
 
-      // 3. Create parent carousel container
       const parent = await containers.create({
-        mediaType: "CAROUSEL",
+        media_type: "CAROUSEL",
         children: childIds,
         caption: opts.caption,
         collaborators: opts.collaborators,
+        location_id: opts.locationId,
       });
 
-      // 4. Poll parent (treated as photo timing)
       await waitForContainer({
         containerId: parent.id,
         isVideo: false,
@@ -97,36 +106,37 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
         label: "carousel parent",
       });
 
-      // 5. Publish
       return containers.publish(parent.id);
     },
 
-    async list(opts?: { fields?: string[]; limit?: number }): Promise<Partial<IGMediaFields>[]> {
-      const fields = opts?.fields ?? ["id", "caption", "media_type", "timestamp", "permalink"];
-      const params: Record<string, unknown> = {};
-      if (opts?.limit) params.limit = opts.limit;
-      const response = await client.getEdge<Partial<IGMediaFields>>(`${igAccountId}/media`, { fields, params });
-      return response.data;
-    },
-
-    async getInsights(mediaId: string, metrics: string[]): Promise<InstagramInsightsResultFields[]> {
-      const response = await client.get<{ data: InstagramInsightsResultFields[] }>(
-        `${mediaId}/insights`,
-        { fields: [], params: { metric: metrics.join(",") } },
-      );
-      return response.data;
-    },
-
-    async getPermalink(mediaId: string): Promise<string | undefined> {
-      const result = await client.get<{ permalink?: string }>(mediaId, {
-        fields: ["permalink"],
+    /** List media using the generated IGUser media edge. */
+    async list(opts?: { fields?: (keyof IGMediaFields)[]; limit?: number }) {
+      const cursor = igUser.media.list({
+        fields: opts?.fields ?? ["id", "caption", "media_type", "timestamp", "permalink"] as (keyof IGMediaFields)[],
+        params: opts?.limit ? { limit: opts.limit } : undefined,
       });
+      return cursor.toArray();
+    },
+
+    /** Get insights for a media item using the generated IGMedia.insights edge. */
+    async getInsights(mediaId: string, metrics: string[]) {
+      const cursor = api.iGMedia(mediaId).insights({
+        fields: ["name", "period", "values", "total_value"] as (keyof InstagramInsightsResultFields)[],
+        params: { metric: metrics },
+      });
+      return cursor.toArray();
+    },
+
+    /** Get permalink for a media item using the generated IGMedia node. */
+    async getPermalink(mediaId: string): Promise<string | undefined> {
+      const result = await api.iGMedia(mediaId).get({ fields: ["permalink"] });
       return result.permalink;
     },
 
-    async fetchMedia(mediaId: string, fields?: string[]): Promise<Partial<IGMediaFields>> {
-      return client.get<Partial<IGMediaFields>>(mediaId, {
-        fields: fields ?? ["id", "media_type", "media_url", "thumbnail_url", "permalink", "caption", "timestamp"],
+    /** Fetch full media details using the generated IGMedia node. */
+    async fetchMedia(mediaId: string, fields?: (keyof IGMediaFields)[]) {
+      return api.iGMedia(mediaId).get({
+        fields: fields ?? ["id", "media_type", "media_url", "thumbnail_url", "permalink", "caption", "timestamp"] as (keyof IGMediaFields)[],
       });
     },
   };

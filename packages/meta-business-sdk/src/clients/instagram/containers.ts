@@ -1,43 +1,35 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
-import type { MediaType, ContainerStatus, PublishResult } from "./types.ts";
+import type { PublishResult } from "./types.ts";
+import type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
+import type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
 
-export interface CreateContainerParams {
-  caption?: string;
-  imageUrl?: string;
-  videoUrl?: string;
-  mediaType?: MediaType;
-  isCarouselItem?: boolean;
-  children?: string[];  // container IDs for carousel parent
-  collaborators?: string[];
-  shareToFeed?: boolean;
-}
+type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
+type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
 
-export function createContainers(client: ApiClient, igAccountId: string) {
+/** Container status as returned by the API. */
+export type ContainerStatus = ShadowIGMediaBuilderFields["status_code"];
+
+export type CreateContainerParams = IGUserCreateMediaParams;
+
+export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
   return {
+    /** Create a media container using the generated IGUser.media.create() endpoint. */
     async create(params: CreateContainerParams): Promise<{ id: string }> {
-      const body: Record<string, unknown> = {};
-      if (params.caption) body.caption = params.caption;
-      if (params.imageUrl) body.image_url = params.imageUrl;
-      if (params.videoUrl) body.video_url = params.videoUrl;
-      if (params.mediaType) body.media_type = params.mediaType;
-      if (params.isCarouselItem) body.is_carousel_item = "true";
-      if (params.children) body.children = params.children.join(",");
-      if (params.collaborators?.length) body.collaborators = params.collaborators.map(c => c.replace(/^@/, "")).join(",");
-      if (params.shareToFeed !== undefined) body.share_to_feed = String(params.shareToFeed);
-      return client.post<{ id: string }>(`${igAccountId}/media`, body);
+      const result = await igUser.media.create(params);
+      return { id: (result as { id: string }).id };
     },
 
-    async getStatus(containerId: string): Promise<ContainerStatus> {
-      const result = await client.get<{ status_code: ContainerStatus }>(containerId, {
+    /** Check container processing status using the generated ShadowIGMediaBuilder node. */
+    async getStatus(containerId: string): Promise<string> {
+      const result = await api.shadowIGMediaBuilder(containerId).get({
         fields: ["status_code"],
       });
       return result.status_code;
     },
 
+    /** Publish a finished container using the generated IGUser.createMediaPublish() endpoint. */
     async publish(containerId: string): Promise<PublishResult> {
-      return client.post<PublishResult>(`${igAccountId}/media_publish`, {
-        creation_id: containerId,
-      });
+      const result = await igUser.createMediaPublish({ creation_id: Number(containerId) });
+      return { id: (result as { id: string }).id };
     },
   };
 }

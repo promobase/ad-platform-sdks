@@ -48,7 +48,7 @@ test("publishReel polls with IN_PROGRESS then FINISHED", async () => {
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  const result = await ig.media.publishReel({ videoUrl: "https://example.com/reel.mp4" });
+  const result = await ig.media.publishVideo({ videoUrl: "https://example.com/reel.mp4" });
   expect(result.id).toBe("reel_789");
 });
 

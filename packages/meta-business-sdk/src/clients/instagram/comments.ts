@@ -1,20 +1,22 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
 import type { IGCommentFields } from "./types.ts";
 
-export function createComments(client: ApiClient) {
+type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
+
+export function createComments(api: CreateClientReturn) {
   return {
+    /** Create a comment on a media item using the generated typed endpoint. */
     async create(mediaId: string, message: string): Promise<{ id: string }> {
-      return client.post<{ id: string }>(`${mediaId}/comments`, { message });
+      const result = await api.iGMedia(mediaId).comments.create({ message });
+      return { id: (result as { id: string }).id };
     },
 
-    async list(mediaId: string, opts?: { limit?: number }): Promise<Partial<IGCommentFields>[]> {
-      const params: Record<string, unknown> = {};
-      if (opts?.limit) params.limit = opts.limit;
-      const response = await client.getEdge<Partial<IGCommentFields>>(`${mediaId}/comments`, {
-        fields: ["id", "text", "username", "timestamp"],
-        params,
+    /** List comments on a media item using the generated typed cursor. */
+    async list(mediaId: string, opts?: { fields?: (keyof IGCommentFields)[]; limit?: number }) {
+      const cursor = api.iGMedia(mediaId).comments.list({
+        fields: opts?.fields ?? ["id", "text", "username", "timestamp"] as (keyof IGCommentFields)[],
+        params: opts?.limit ? { limit: opts.limit } : undefined,
       });
-      return response.data;
+      return cursor.toArray();
     },
   };
 }

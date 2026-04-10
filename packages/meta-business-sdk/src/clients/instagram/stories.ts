@@ -1,12 +1,12 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
 import type { PublishStoryOptions, PublishResult, PollingConfig } from "./types.ts";
-import { createContainers } from "./containers.ts";
+import type { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
 
-export function createStories(client: ApiClient, igAccountId: string, pollingConfig: PollingConfig) {
-  const containers = createContainers(client, igAccountId);
+type Containers = ReturnType<typeof createContainers>;
 
+export function createStories(containers: Containers, pollingConfig: PollingConfig) {
   return {
+    /** Publish a story (photo or video). Stories expire after 24 hours. */
     async publish(opts: PublishStoryOptions): Promise<PublishResult> {
       if (!opts.imageUrl && !opts.videoUrl) {
         throw new Error("Story requires either imageUrl or videoUrl");
@@ -14,9 +14,9 @@ export function createStories(client: ApiClient, igAccountId: string, pollingCon
 
       const isVideo = !!opts.videoUrl;
       const container = await containers.create({
-        imageUrl: opts.imageUrl,
-        videoUrl: opts.videoUrl,
-        mediaType: "STORIES",
+        image_url: opts.imageUrl,
+        video_url: opts.videoUrl,
+        media_type: "STORIES",
       });
 
       await waitForContainer({

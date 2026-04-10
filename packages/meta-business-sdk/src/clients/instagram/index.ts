@@ -10,16 +10,18 @@ import { createOAuth } from "./oauth.ts";
 export type * from "./types.ts";
 
 export function createInstagramClient(opts: InstagramClientOptions) {
-  const client = opts.api.client;
+  const api = opts.api;
   const igAccountId = opts.igAccountId;
+  const igUser = api.iGUser(igAccountId);
   const polling = resolvePolling(opts.polling);
+  const containers = createContainers(api, igUser);
 
   return {
-    media: createMedia(client, igAccountId, polling),
-    stories: createStories(client, igAccountId, polling),
-    comments: createComments(client),
-    account: createAccount(client, igAccountId),
-    containers: createContainers(client, igAccountId),
+    media: createMedia(api, containers, igUser, polling),
+    stories: createStories(containers, polling),
+    comments: createComments(api),
+    account: createAccount(api, igAccountId),
+    containers,
   };
 }
 
