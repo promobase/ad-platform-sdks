@@ -12,6 +12,8 @@ import type { MetaClientOptions } from "./generated/client-factory.ts";
 import { FacebookApiError } from "./errors.ts";
 import { BatchBuilder } from "./batch.ts";
 import type { BatchHandle, ResolveBatchHandles } from "./batch.ts";
+import { MetaRateLimiter } from "./rate-limiter.ts";
+import type { MetaRateLimiterOptions } from "./rate-limiter.ts";
 
 // Instagram
 import { createInstagramClient, createInstagramOAuth } from "./clients/instagram/index.ts";
@@ -58,6 +60,11 @@ export const Meta = {
 
   /** Batch request builder for combining multiple API calls. */
   BatchBuilder,
+
+  /** Rate limiter that parses Meta's x-app-usage and x-business-use-case-usage headers. */
+  RateLimiter: {
+    create: (opts?: MetaRateLimiterOptions) => new MetaRateLimiter(opts),
+  },
 
   /** Instagram client and OAuth. */
   Instagram: {
@@ -120,6 +127,7 @@ export const Meta = {
 // Also export types that consumers may need
 export type {
   MetaClientOptions,
+  MetaRateLimiterOptions,
   InstagramClientOptions,
   InstagramOAuthConfig,
   FacebookPageClientOptions,

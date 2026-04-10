@@ -1012,4 +1012,6 @@ export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebh
 export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";
 export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";
 export type { WebhookParseResult } from "../clients/index.ts";
+export { MetaRateLimiter } from "../rate-limiter.ts";
+export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";
 export { Meta } from "../namespace.ts";

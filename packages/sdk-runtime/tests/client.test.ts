@@ -1,5 +1,6 @@
 import { test, expect, mock, afterEach } from "bun:test";
 import { ApiClient } from "../src/client.ts";
+import type { RateLimiter } from "../src/client.ts";
 import { ApiError } from "../src/errors.ts";
 
 const originalFetch = globalThis.fetch;
@@ -57,4 +58,44 @@ test("respects apiVersion in URL path", async () => {
   await client.get("123", { fields: [] });
   const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
   expect(url).toContain("https://api.example.com/v2/123");
+});
+
+test("rate limiter is called before and after requests", async () => {
+  mockFetch({ status: 200, body: { ok: true } });
+
+  let checkCalled = false;
+  let afterCalled = false;
+  let receivedStatus = 0;
+
+  const limiter: RateLimiter = {
+    check: () => { checkCalled = true; return { shouldWait: false, waitMs: 0 }; },
+    afterResponse: (status, _headers) => { afterCalled = true; receivedStatus = status; },
+  };
+
+  const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com", rateLimiter: limiter });
+  await client.get("test", { fields: ["id"] });
+
+  expect(checkCalled).toBe(true);
+  expect(afterCalled).toBe(true);
+  expect(receivedStatus).toBe(200);
+});
+
+test("rate limiter delay is awaited when shouldWait", async () => {
+  mockFetch({ status: 200, body: { ok: true } });
+
+  let delayCalledWith = 0;
+  const limiter: RateLimiter = {
+    check: () => ({ shouldWait: true, waitMs: 100 }),
+    afterResponse: () => {},
+  };
+
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    rateLimiter: limiter,
+    delay: async (ms) => { delayCalledWith = ms; },
+  });
+  await client.get("test", { fields: ["id"] });
+
+  expect(delayCalledWith).toBe(100);
 });

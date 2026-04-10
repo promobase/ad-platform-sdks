@@ -126,6 +126,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push("export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {");
   factoryLines.push("  baseUrl?: string;");
   factoryLines.push("  apiVersion?: string;");
+  factoryLines.push("  rateLimiter?: import('@promobase/sdk-runtime').RateLimiter;");
+  factoryLines.push("  delay?: import('@promobase/sdk-runtime').DelayFn;");
   factoryLines.push("}");
   factoryLines.push("");
   factoryLines.push("export function createTypedClient(opts: MetaClientOptions) {");
@@ -187,6 +189,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";`);
   barrelLines.push(`export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";`);
   barrelLines.push(`export type { WebhookParseResult } from "../clients/index.ts";`);
+  barrelLines.push(`export { MetaRateLimiter } from "../rate-limiter.ts";`);
+  barrelLines.push(`export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";`);
   barrelLines.push(`export { Meta } from "../namespace.ts";`);
   barrelLines.push("");
 
