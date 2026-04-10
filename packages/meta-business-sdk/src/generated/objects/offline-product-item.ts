@@ -32,6 +32,8 @@ export interface OfflineProductItemListOverrideDetailsParams {
 
 export function offlineProductItemNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OfflineProductItemFields,
     get: <F extends (keyof OfflineProductItemFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineProductItemFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

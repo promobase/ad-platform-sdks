@@ -22,6 +22,8 @@ export interface AnalyticsSegmentFields {
 
 export function analyticsSegmentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AnalyticsSegmentFields,
     get: <F extends (keyof AnalyticsSegmentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AnalyticsSegmentFields, F[number]>>(`${id}`, opts),
   };

@@ -501,11 +501,15 @@ export interface ApplicationUpdateParams {
 
 export function applicationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ApplicationFields,
     get: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ApplicationFields, F[number]>>(`${id}`, opts),
     update: (params: ApplicationUpdateParams) =>
       client.post<ApplicationFields>(`${id}`, params as Record<string, unknown>),
     accounts: {
+      __path: `${id}/accounts`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: ApplicationListAccountsParams }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ApplicationCreateAccountsParams) =>
@@ -520,6 +524,8 @@ export function applicationNode(client: ApiClient, id: string) {
     adnetworkPlacements: <F extends (keyof AdPlacementFields)[]>(opts: { fields: F; params?: ApplicationListAdnetworkPlacementsParams }) =>
       new Cursor<Pick<AdPlacementFields, F[number]>>(client, `${id}/adnetwork_placements`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     adnetworkanalytics: {
+      __path: `${id}/adnetworkanalytics`,
+      __brand: undefined as unknown as AdNetworkAnalyticsSyncQueryResultFields,
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: ApplicationListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ApplicationCreateAdnetworkanalyticsParams) =>
@@ -584,6 +590,8 @@ export function applicationNode(client: ApiClient, id: string) {
     mobileSdkGk: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: ApplicationListMobileSdkGkParams }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/mobile_sdk_gk`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     monetizedDigitalStoreObjects: {
+      __path: `${id}/monetized_digital_store_objects`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/monetized_digital_store_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ApplicationCreateMonetizedDigitalStoreObjectsParams) =>
@@ -610,6 +618,8 @@ export function applicationNode(client: ApiClient, id: string) {
     sgwInstallDeferralLink: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: ApplicationListSgwInstallDeferralLinkParams }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/sgw_install_deferral_link`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     subscriptions: {
+      __path: `${id}/subscriptions`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscriptions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ApplicationCreateSubscriptionsParams) =>

@@ -21,6 +21,8 @@ export interface AdSavedLocationFields {
 
 export function adSavedLocationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdSavedLocationFields,
     get: <F extends (keyof AdSavedLocationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdSavedLocationFields, F[number]>>(`${id}`, opts),
   };

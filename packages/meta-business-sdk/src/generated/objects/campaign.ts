@@ -211,6 +211,8 @@ export interface CampaignUpdateParams {
 
 export function campaignNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CampaignFields,
     get: <F extends (keyof CampaignFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CampaignFields, F[number]>>(`${id}`, opts),
     update: (params: CampaignUpdateParams) =>
@@ -228,18 +230,24 @@ export function campaignNode(client: ApiClient, id: string) {
     adsets: <F extends (keyof AdSetFields)[]>(opts: { fields: F; params?: CampaignListAdsetsParams }) =>
       new Cursor<Pick<AdSetFields, F[number]>>(client, `${id}/adsets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     budgetSchedules: {
+      __path: `${id}/budget_schedules`,
+      __brand: undefined as unknown as HighDemandPeriodFields,
       list: <F extends (keyof HighDemandPeriodFields)[]>(opts: { fields: F; params?: CampaignListBudgetSchedulesParams }) =>
         new Cursor<Pick<HighDemandPeriodFields, F[number]>>(client, `${id}/budget_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CampaignCreateBudgetSchedulesParams) =>
         client.post<HighDemandPeriodFields>(`${id}/budget_schedules`, params as Record<string, unknown>),
     },
     copies: {
+      __path: `${id}/copies`,
+      __brand: undefined as unknown as CampaignFields,
       list: <F extends (keyof CampaignFields)[]>(opts: { fields: F; params?: CampaignListCopiesParams }) =>
         new Cursor<Pick<CampaignFields, F[number]>>(client, `${id}/copies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CampaignCreateCopiesParams) =>
         client.post<CampaignFields>(`${id}/copies`, params as Record<string, unknown>),
     },
     insights: {
+      __path: `${id}/insights`,
+      __brand: undefined as unknown as AdsInsightsFields,
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: CampaignListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CampaignCreateInsightsParams) =>

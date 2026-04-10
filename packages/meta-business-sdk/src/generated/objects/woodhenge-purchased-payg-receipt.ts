@@ -10,6 +10,8 @@ export interface WoodhengePurchasedPAYGReceiptFields {
 
 export function woodhengePurchasedPAYGReceiptNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WoodhengePurchasedPAYGReceiptFields,
     get: <F extends (keyof WoodhengePurchasedPAYGReceiptFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WoodhengePurchasedPAYGReceiptFields, F[number]>>(`${id}`, opts),
   };

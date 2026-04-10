@@ -40,6 +40,8 @@ export interface AdToplineFields {
 
 export function adToplineNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdToplineFields,
     get: <F extends (keyof AdToplineFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdToplineFields, F[number]>>(`${id}`, opts),
   };

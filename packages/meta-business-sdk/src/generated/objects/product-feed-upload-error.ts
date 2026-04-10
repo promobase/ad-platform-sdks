@@ -16,6 +16,8 @@ export interface ProductFeedUploadErrorFields {
 
 export function productFeedUploadErrorNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductFeedUploadErrorFields,
     get: <F extends (keyof ProductFeedUploadErrorFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductFeedUploadErrorFields, F[number]>>(`${id}`, opts),
     samples: <F extends (keyof ProductFeedUploadErrorSampleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

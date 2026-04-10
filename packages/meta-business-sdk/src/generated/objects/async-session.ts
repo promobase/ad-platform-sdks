@@ -23,6 +23,8 @@ export interface AsyncSessionFields {
 
 export function asyncSessionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AsyncSessionFields,
     get: <F extends (keyof AsyncSessionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AsyncSessionFields, F[number]>>(`${id}`, opts),
   };

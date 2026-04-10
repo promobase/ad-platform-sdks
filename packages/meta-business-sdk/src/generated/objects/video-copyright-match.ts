@@ -15,6 +15,8 @@ export interface VideoCopyrightMatchFields {
 
 export function videoCopyrightMatchNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VideoCopyrightMatchFields,
     get: <F extends (keyof VideoCopyrightMatchFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VideoCopyrightMatchFields, F[number]>>(`${id}`, opts),
   };

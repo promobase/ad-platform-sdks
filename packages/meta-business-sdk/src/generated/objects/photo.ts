@@ -85,11 +85,15 @@ export interface PhotoCreateLikesParams {
 
 export function photoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PhotoFields,
     get: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PhotoFields, F[number]>>(`${id}`, opts),
     delete: () =>
       client.delete(`${id}`, {}),
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: PhotoListCommentsParams }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PhotoCreateCommentsParams) =>
@@ -98,6 +102,8 @@ export function photoNode(client: ApiClient, id: string) {
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: PhotoListInsightsParams }) =>
       new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     likes: {
+      __path: `${id}/likes`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PhotoCreateLikesParams) =>

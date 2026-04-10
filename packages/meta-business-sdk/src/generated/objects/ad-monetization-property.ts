@@ -43,9 +43,13 @@ export interface AdMonetizationPropertyListAdnetworkanalyticsResultsParams {
 
 export function adMonetizationPropertyNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdMonetizationPropertyFields,
     get: <F extends (keyof AdMonetizationPropertyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdMonetizationPropertyFields, F[number]>>(`${id}`, opts),
     adnetworkanalytics: {
+      __path: `${id}/adnetworkanalytics`,
+      __brand: undefined as unknown as AdNetworkAnalyticsSyncQueryResultFields,
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: AdMonetizationPropertyListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdMonetizationPropertyCreateAdnetworkanalyticsParams) =>

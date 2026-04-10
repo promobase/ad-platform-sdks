@@ -45,6 +45,8 @@ export interface AdAccountCreationRequestFields {
 
 export function adAccountCreationRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdAccountCreationRequestFields,
     get: <F extends (keyof AdAccountCreationRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdAccountCreationRequestFields, F[number]>>(`${id}`, opts),
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

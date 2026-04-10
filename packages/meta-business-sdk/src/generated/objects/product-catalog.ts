@@ -570,6 +570,8 @@ export interface ProductCatalogUpdateParams {
 
 export function productCatalogNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductCatalogFields,
     get: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductCatalogFields, F[number]>>(`${id}`, opts),
     update: (params: ProductCatalogUpdateParams) =>
@@ -577,6 +579,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     agencies: {
+      __path: `${id}/agencies`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateAgenciesParams) =>
@@ -585,6 +589,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     assignedUsers: {
+      __path: `${id}/assigned_users`,
+      __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: ProductCatalogListAssignedUsersParams }) =>
         new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateAssignedUsersParams) =>
@@ -599,6 +605,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
     createCatalogStore: (params: ProductCatalogCreateCatalogStoreParams) =>
       client.post<StoreCatalogSettingsFields>(`${id}/catalog_store`, params as Record<string, unknown>),
     categories: {
+      __path: `${id}/categories`,
+      __brand: undefined as unknown as ProductCatalogCategoryFields,
       list: <F extends (keyof ProductCatalogCategoryFields)[]>(opts: { fields: F; params?: ProductCatalogListCategoriesParams }) =>
         new Cursor<Pick<ProductCatalogCategoryFields, F[number]>>(client, `${id}/categories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateCategoriesParams) =>
@@ -627,6 +635,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
     eventStats: <F extends (keyof ProductEventStatFields)[]>(opts: { fields: F; params?: ProductCatalogListEventStatsParams }) =>
       new Cursor<Pick<ProductEventStatFields, F[number]>>(client, `${id}/event_stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     externalEventSources: {
+      __path: `${id}/external_event_sources`,
+      __brand: undefined as unknown as ExternalEventSourceFields,
       list: <F extends (keyof ExternalEventSourceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ExternalEventSourceFields, F[number]>>(client, `${id}/external_event_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateExternalEventSourcesParams) =>
@@ -639,18 +649,24 @@ export function productCatalogNode(client: ApiClient, id: string) {
     createGeolocatedItemsBatch: (params: ProductCatalogCreateGeolocatedItemsBatchParams) =>
       client.post<ProductCatalogFields>(`${id}/geolocated_items_batch`, params as Record<string, unknown>),
     homeListings: {
+      __path: `${id}/home_listings`,
+      __brand: undefined as unknown as HomeListingFields,
       list: <F extends (keyof HomeListingFields)[]>(opts: { fields: F; params?: ProductCatalogListHomeListingsParams }) =>
         new Cursor<Pick<HomeListingFields, F[number]>>(client, `${id}/home_listings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateHomeListingsParams) =>
         client.post<HomeListingFields>(`${id}/home_listings`, params as Record<string, unknown>),
     },
     hotelRoomsBatch: {
+      __path: `${id}/hotel_rooms_batch`,
+      __brand: undefined as unknown as ProductCatalogHotelRoomsBatchFields,
       list: <F extends (keyof ProductCatalogHotelRoomsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelRoomsBatchParams }) =>
         new Cursor<Pick<ProductCatalogHotelRoomsBatchFields, F[number]>>(client, `${id}/hotel_rooms_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateHotelRoomsBatchParams) =>
         client.post<ProductCatalogFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
     },
     hotels: {
+      __path: `${id}/hotels`,
+      __brand: undefined as unknown as HotelFields,
       list: <F extends (keyof HotelFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelsParams }) =>
         new Cursor<Pick<HotelFields, F[number]>>(client, `${id}/hotels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateHotelsParams) =>
@@ -669,24 +685,32 @@ export function productCatalogNode(client: ApiClient, id: string) {
     createMediaTitle: (params: ProductCatalogCreateMediaTitlesParams) =>
       client.post<Record<string, unknown>>(`${id}/media_titles`, params as Record<string, unknown>),
     pricingVariablesBatch: {
+      __path: `${id}/pricing_variables_batch`,
+      __brand: undefined as unknown as ProductCatalogPricingVariablesBatchFields,
       list: <F extends (keyof ProductCatalogPricingVariablesBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListPricingVariablesBatchParams }) =>
         new Cursor<Pick<ProductCatalogPricingVariablesBatchFields, F[number]>>(client, `${id}/pricing_variables_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreatePricingVariablesBatchParams) =>
         client.post<ProductCatalogFields>(`${id}/pricing_variables_batch`, params as Record<string, unknown>),
     },
     productFeeds: {
+      __path: `${id}/product_feeds`,
+      __brand: undefined as unknown as ProductFeedFields,
       list: <F extends (keyof ProductFeedFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductFeedFields, F[number]>>(client, `${id}/product_feeds`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateProductFeedsParams) =>
         client.post<ProductFeedFields>(`${id}/product_feeds`, params as Record<string, unknown>),
     },
     productGroups: {
+      __path: `${id}/product_groups`,
+      __brand: undefined as unknown as ProductGroupFields,
       list: <F extends (keyof ProductGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductGroupFields, F[number]>>(client, `${id}/product_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateProductGroupsParams) =>
         client.post<ProductGroupFields>(`${id}/product_groups`, params as Record<string, unknown>),
     },
     productSets: {
+      __path: `${id}/product_sets`,
+      __brand: undefined as unknown as ProductSetFields,
       list: <F extends (keyof ProductSetFields)[]>(opts: { fields: F; params?: ProductCatalogListProductSetsParams }) =>
         new Cursor<Pick<ProductSetFields, F[number]>>(client, `${id}/product_sets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateProductSetsParams) =>
@@ -695,6 +719,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
     productSetsBatch: <F extends (keyof ProductCatalogProductSetsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListProductSetsBatchParams }) =>
       new Cursor<Pick<ProductCatalogProductSetsBatchFields, F[number]>>(client, `${id}/product_sets_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     products: {
+      __path: `${id}/products`,
+      __brand: undefined as unknown as ProductItemFields,
       list: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: ProductCatalogListProductsParams }) =>
         new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateProductsParams) =>
@@ -705,6 +731,8 @@ export function productCatalogNode(client: ApiClient, id: string) {
     vehicleOffers: <F extends (keyof VehicleOfferFields)[]>(opts: { fields: F; params?: ProductCatalogListVehicleOffersParams }) =>
       new Cursor<Pick<VehicleOfferFields, F[number]>>(client, `${id}/vehicle_offers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     vehicles: {
+      __path: `${id}/vehicles`,
+      __brand: undefined as unknown as VehicleFields,
       list: <F extends (keyof VehicleFields)[]>(opts: { fields: F; params?: ProductCatalogListVehiclesParams }) =>
         new Cursor<Pick<VehicleFields, F[number]>>(client, `${id}/vehicles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductCatalogCreateVehiclesParams) =>

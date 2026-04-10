@@ -87,6 +87,8 @@ export interface ProductSetUpdateParams {
 
 export function productSetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductSetFields,
     get: <F extends (keyof ProductSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductSetFields, F[number]>>(`${id}`, opts),
     update: (params: ProductSetUpdateParams) =>

@@ -45,6 +45,8 @@ export interface CustomConversionUpdateParams {
 
 export function customConversionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CustomConversionFields,
     get: <F extends (keyof CustomConversionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CustomConversionFields, F[number]>>(`${id}`, opts),
     update: (params: CustomConversionUpdateParams) =>

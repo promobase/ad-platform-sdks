@@ -113,11 +113,15 @@ export interface BusinessAssetGroupUpdateParams {
 
 export function businessAssetGroupNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessAssetGroupFields,
     get: <F extends (keyof BusinessAssetGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessAssetGroupFields, F[number]>>(`${id}`, opts),
     update: (params: BusinessAssetGroupUpdateParams) =>
       client.post<BusinessAssetGroupFields>(`${id}`, params as Record<string, unknown>),
     assignedUsers: {
+      __path: `${id}/assigned_users`,
+      __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: BusinessAssetGroupListAssignedUsersParams }) =>
         new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateAssignedUsersParams) =>
@@ -126,6 +130,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     containedAdaccounts: {
+      __path: `${id}/contained_adaccounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/contained_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedAdaccountsParams) =>
@@ -134,6 +140,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_adaccounts`, params as Record<string, unknown> ?? {}),
     },
     containedApplications: {
+      __path: `${id}/contained_applications`,
+      __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/contained_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedApplicationsParams) =>
@@ -142,6 +150,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_applications`, params as Record<string, unknown> ?? {}),
     },
     containedCustomConversions: {
+      __path: `${id}/contained_custom_conversions`,
+      __brand: undefined as unknown as CustomConversionFields,
       list: <F extends (keyof CustomConversionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CustomConversionFields, F[number]>>(client, `${id}/contained_custom_conversions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedCustomConversionsParams) =>
@@ -150,6 +160,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_custom_conversions`, params as Record<string, unknown> ?? {}),
     },
     containedInstagramAccounts: {
+      __path: `${id}/contained_instagram_accounts`,
+      __brand: undefined as unknown as IGUserFields,
       list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/contained_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedInstagramAccountsParams) =>
@@ -158,6 +170,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_instagram_accounts`, params as Record<string, unknown> ?? {}),
     },
     containedPages: {
+      __path: `${id}/contained_pages`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/contained_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedPagesParams) =>
@@ -166,6 +180,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_pages`, params as Record<string, unknown> ?? {}),
     },
     containedPixels: {
+      __path: `${id}/contained_pixels`,
+      __brand: undefined as unknown as AdsPixelFields,
       list: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/contained_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedPixelsParams) =>
@@ -174,6 +190,8 @@ export function businessAssetGroupNode(client: ApiClient, id: string) {
         client.delete(`${id}/contained_pixels`, params as Record<string, unknown> ?? {}),
     },
     containedProductCatalogs: {
+      __path: `${id}/contained_product_catalogs`,
+      __brand: undefined as unknown as ProductCatalogFields,
       list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/contained_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessAssetGroupCreateContainedProductCatalogsParams) =>

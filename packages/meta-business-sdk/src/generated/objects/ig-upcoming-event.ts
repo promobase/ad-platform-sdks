@@ -20,6 +20,8 @@ export interface IGUpcomingEventUpdateParams {
 
 export function iGUpcomingEventNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGUpcomingEventFields,
     get: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGUpcomingEventFields, F[number]>>(`${id}`, opts),
     update: (params: IGUpcomingEventUpdateParams) =>

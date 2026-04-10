@@ -21,6 +21,8 @@ export interface OfflineConversionDataSetUploadFields {
 
 export function offlineConversionDataSetUploadNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OfflineConversionDataSetUploadFields,
     get: <F extends (keyof OfflineConversionDataSetUploadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineConversionDataSetUploadFields, F[number]>>(`${id}`, opts),
     progress: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

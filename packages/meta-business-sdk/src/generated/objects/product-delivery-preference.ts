@@ -9,6 +9,8 @@ export interface ProductDeliveryPreferenceFields {
 
 export function productDeliveryPreferenceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductDeliveryPreferenceFields,
     get: <F extends (keyof ProductDeliveryPreferenceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductDeliveryPreferenceFields, F[number]>>(`${id}`, opts),
   };

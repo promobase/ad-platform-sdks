@@ -13,6 +13,8 @@ export interface StoreLocationFields {
 
 export function storeLocationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as StoreLocationFields,
     get: <F extends (keyof StoreLocationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<StoreLocationFields, F[number]>>(`${id}`, opts),
   };

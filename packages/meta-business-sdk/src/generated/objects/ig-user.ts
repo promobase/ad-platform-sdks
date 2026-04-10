@@ -237,11 +237,15 @@ export interface IGUserListWelcomeMessageFlowsParams {
 
 export function iGUserNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGUserFields,
     get: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGUserFields, F[number]>>(`${id}`, opts),
     agencies: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     authorizedAdaccounts: {
+      __path: `${id}/authorized_adaccounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: IGUserListAuthorizedAdaccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/authorized_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateAuthorizedAdaccountsParams) =>
@@ -250,6 +254,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     availableCatalogs: <F extends (keyof UserAvailableCatalogsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<UserAvailableCatalogsFields, F[number]>>(client, `${id}/available_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     brandedContentAdPermissions: {
+      __path: `${id}/branded_content_ad_permissions`,
+      __brand: undefined as unknown as IGBCAdsPermissionFields,
       list: <F extends (keyof IGBCAdsPermissionFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentAdPermissionsParams }) =>
         new Cursor<Pick<IGBCAdsPermissionFields, F[number]>>(client, `${id}/branded_content_ad_permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateBrandedContentAdPermissionsParams) =>
@@ -258,6 +264,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     brandedContentAdvertisableMedias: <F extends (keyof BrandedContentShadowIGMediaIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentAdvertisableMediasParams }) =>
       new Cursor<Pick<BrandedContentShadowIGMediaIDFields, F[number]>>(client, `${id}/branded_content_advertisable_medias`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     brandedContentTagApproval: {
+      __path: `${id}/branded_content_tag_approval`,
+      __brand: undefined as unknown as BrandedContentShadowIGUserIDFields,
       list: <F extends (keyof BrandedContentShadowIGUserIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentTagApprovalParams }) =>
         new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_tag_approval`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateBrandedContentTagApprovalParams) =>
@@ -270,6 +278,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     catalogProductSearch: <F extends (keyof ShadowIGUserCatalogProductSearchFields)[]>(opts: { fields: F; params?: IGUserListCatalogProductSearchParams }) =>
       new Cursor<Pick<ShadowIGUserCatalogProductSearchFields, F[number]>>(client, `${id}/catalog_product_search`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     collaborationInvites: {
+      __path: `${id}/collaboration_invites`,
+      __brand: undefined as unknown as ShadowIGUserCollaborationInvitesFields,
       list: <F extends (keyof ShadowIGUserCollaborationInvitesFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ShadowIGUserCollaborationInvitesFields, F[number]>>(client, `${id}/collaboration_invites`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateCollaborationInvitesParams) =>
@@ -284,6 +294,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     creatorMarketplaceCreators: <F extends (keyof IGUserExportForCAMFields)[]>(opts: { fields: F; params?: IGUserListCreatorMarketplaceCreatorsParams }) =>
       new Cursor<Pick<IGUserExportForCAMFields, F[number]>>(client, `${id}/creator_marketplace_creators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     dataset: {
+      __path: `${id}/dataset`,
+      __brand: undefined as unknown as DatasetFields,
       list: <F extends (keyof DatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateDatasetParams) =>
@@ -292,6 +304,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     insights: <F extends (keyof InstagramInsightsResultFields)[]>(opts: { fields: F; params?: IGUserListInsightsParams }) =>
       new Cursor<Pick<InstagramInsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     instagramBackedThreadsUser: {
+      __path: `${id}/instagram_backed_threads_user`,
+      __brand: undefined as unknown as ThreadsUserFields,
       list: <F extends (keyof ThreadsUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ThreadsUserFields, F[number]>>(client, `${id}/instagram_backed_threads_user`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: Record<string, unknown>) =>
@@ -300,6 +314,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     liveMedia: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListLiveMediaParams }) =>
       new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     media: {
+      __path: `${id}/media`,
+      __brand: undefined as unknown as IGMediaFields,
       list: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListMediaParams }) =>
         new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateMediaParams) =>
@@ -314,6 +330,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     notificationMessageTokens: <F extends (keyof UserPageOneTimeOptInTokenSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<UserPageOneTimeOptInTokenSettingsFields, F[number]>>(client, `${id}/notification_message_tokens`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     productAppeal: {
+      __path: `${id}/product_appeal`,
+      __brand: undefined as unknown as IGShoppingProductAppealFields,
       list: <F extends (keyof IGShoppingProductAppealFields)[]>(opts: { fields: F; params?: IGUserListProductAppealParams }) =>
         new Cursor<Pick<IGShoppingProductAppealFields, F[number]>>(client, `${id}/product_appeal`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateProductAppealParams) =>
@@ -328,6 +346,8 @@ export function iGUserNode(client: ApiClient, id: string) {
     tags: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     upcomingEvents: {
+      __path: `${id}/upcoming_events`,
+      __brand: undefined as unknown as IGUpcomingEventFields,
       list: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserCreateUpcomingEventsParams) =>

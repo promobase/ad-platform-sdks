@@ -16,6 +16,8 @@ export interface CPASCollaborationRequestFields {
 
 export function cPASCollaborationRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CPASCollaborationRequestFields,
     get: <F extends (keyof CPASCollaborationRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CPASCollaborationRequestFields, F[number]>>(`${id}`, opts),
   };

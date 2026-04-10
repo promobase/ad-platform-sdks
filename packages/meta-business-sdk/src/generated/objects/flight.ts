@@ -65,6 +65,8 @@ export interface FlightUpdateParams {
 
 export function flightNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as FlightFields,
     get: <F extends (keyof FlightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<FlightFields, F[number]>>(`${id}`, opts),
     update: (params: FlightUpdateParams) =>

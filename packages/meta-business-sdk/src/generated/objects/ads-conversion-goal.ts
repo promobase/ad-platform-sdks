@@ -15,6 +15,8 @@ export interface AdsConversionGoalFields {
 
 export function adsConversionGoalNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsConversionGoalFields,
     get: <F extends (keyof AdsConversionGoalFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsConversionGoalFields, F[number]>>(`${id}`, opts),
     conversionEvents: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

@@ -11,6 +11,8 @@ export interface OwnedDomainFields {
 
 export function ownedDomainNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OwnedDomainFields,
     get: <F extends (keyof OwnedDomainFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OwnedDomainFields, F[number]>>(`${id}`, opts),
   };

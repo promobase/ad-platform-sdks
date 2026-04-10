@@ -128,6 +128,8 @@ export interface ProductFeedUpdateParams {
 
 export function productFeedNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductFeedFields,
     get: <F extends (keyof ProductFeedFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductFeedFields, F[number]>>(`${id}`, opts),
     update: (params: ProductFeedUpdateParams) =>
@@ -147,6 +149,8 @@ export function productFeedNode(client: ApiClient, id: string) {
     products: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: ProductFeedListProductsParams }) =>
       new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     rules: {
+      __path: `${id}/rules`,
+      __brand: undefined as unknown as ProductFeedRuleFields,
       list: <F extends (keyof ProductFeedRuleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductFeedRuleFields, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductFeedCreateRulesParams) =>
@@ -155,12 +159,16 @@ export function productFeedNode(client: ApiClient, id: string) {
     createSupplementaryFeedAssoc: (params: ProductFeedCreateSupplementaryFeedAssocsParams) =>
       client.post<Record<string, unknown>>(`${id}/supplementary_feed_assocs`, params as Record<string, unknown>),
     uploadSchedules: {
+      __path: `${id}/upload_schedules`,
+      __brand: undefined as unknown as ProductFeedScheduleFields,
       list: <F extends (keyof ProductFeedScheduleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductFeedScheduleFields, F[number]>>(client, `${id}/upload_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductFeedCreateUploadSchedulesParams) =>
         client.post<ProductFeedFields>(`${id}/upload_schedules`, params as Record<string, unknown>),
     },
     uploads: {
+      __path: `${id}/uploads`,
+      __brand: undefined as unknown as ProductFeedUploadFields,
       list: <F extends (keyof ProductFeedUploadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductFeedUploadFields, F[number]>>(client, `${id}/uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductFeedCreateUploadsParams) =>

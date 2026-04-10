@@ -30,6 +30,8 @@ export interface UnifiedThreadListMessagesParams {
 
 export function unifiedThreadNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as UnifiedThreadFields,
     get: <F extends (keyof UnifiedThreadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<UnifiedThreadFields, F[number]>>(`${id}`, opts),
     messages: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: UnifiedThreadListMessagesParams }) =>

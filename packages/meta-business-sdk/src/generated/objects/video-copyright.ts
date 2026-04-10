@@ -46,6 +46,8 @@ export interface VideoCopyrightUpdateParams {
 
 export function videoCopyrightNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VideoCopyrightFields,
     get: <F extends (keyof VideoCopyrightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VideoCopyrightFields, F[number]>>(`${id}`, opts),
     update: (params: VideoCopyrightUpdateParams) =>

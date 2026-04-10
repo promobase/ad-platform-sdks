@@ -78,6 +78,8 @@ export interface EventCreateLiveVideosParams {
 
 export function eventNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as EventFields,
     get: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EventFields, F[number]>>(`${id}`, opts),
     comments: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
@@ -85,6 +87,8 @@ export function eventNode(client: ApiClient, id: string) {
     feed: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     liveVideos: {
+      __path: `${id}/live_videos`,
+      __brand: undefined as unknown as NullNodeFields,
       list: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: EventCreateLiveVideosParams) =>

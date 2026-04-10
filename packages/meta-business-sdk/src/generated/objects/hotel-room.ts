@@ -21,6 +21,8 @@ export interface HotelRoomFields {
 
 export function hotelRoomNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as HotelRoomFields,
     get: <F extends (keyof HotelRoomFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<HotelRoomFields, F[number]>>(`${id}`, opts),
     pricingVariables: <F extends (keyof DynamicPriceConfigByDateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

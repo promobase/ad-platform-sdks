@@ -16,6 +16,8 @@ export interface AdsPivotRulesFields {
 
 export function adsPivotRulesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsPivotRulesFields,
     get: <F extends (keyof AdsPivotRulesFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsPivotRulesFields, F[number]>>(`${id}`, opts),
   };

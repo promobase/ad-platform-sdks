@@ -26,6 +26,8 @@ export interface AdProposalFields {
 
 export function adProposalNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdProposalFields,
     get: <F extends (keyof AdProposalFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdProposalFields, F[number]>>(`${id}`, opts),
   };

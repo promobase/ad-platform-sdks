@@ -14,6 +14,8 @@ export interface MailingAddressFields {
 
 export function mailingAddressNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MailingAddressFields,
     get: <F extends (keyof MailingAddressFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MailingAddressFields, F[number]>>(`${id}`, opts),
   };

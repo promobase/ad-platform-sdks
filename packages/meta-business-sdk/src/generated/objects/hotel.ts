@@ -73,6 +73,8 @@ export interface HotelUpdateParams {
 
 export function hotelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as HotelFields,
     get: <F extends (keyof HotelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<HotelFields, F[number]>>(`${id}`, opts),
     update: (params: HotelUpdateParams) =>

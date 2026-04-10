@@ -15,6 +15,8 @@ export interface CopyrightOwnershipTransferFields {
 
 export function copyrightOwnershipTransferNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CopyrightOwnershipTransferFields,
     get: <F extends (keyof CopyrightOwnershipTransferFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CopyrightOwnershipTransferFields, F[number]>>(`${id}`, opts),
   };

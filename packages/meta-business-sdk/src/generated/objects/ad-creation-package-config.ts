@@ -11,6 +11,8 @@ export interface AdCreationPackageConfigFields {
 
 export function adCreationPackageConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdCreationPackageConfigFields,
     get: <F extends (keyof AdCreationPackageConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdCreationPackageConfigFields, F[number]>>(`${id}`, opts),
   };

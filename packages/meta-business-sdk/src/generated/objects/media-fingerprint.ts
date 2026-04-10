@@ -20,6 +20,8 @@ export interface MediaFingerprintUpdateParams {
 
 export function mediaFingerprintNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MediaFingerprintFields,
     get: <F extends (keyof MediaFingerprintFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MediaFingerprintFields, F[number]>>(`${id}`, opts),
     update: (params: MediaFingerprintUpdateParams) =>

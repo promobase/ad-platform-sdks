@@ -16,6 +16,8 @@ export interface MessengerAdsPartialAutomatedStepListFields {
 
 export function messengerAdsPartialAutomatedStepListNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MessengerAdsPartialAutomatedStepListFields,
     get: <F extends (keyof MessengerAdsPartialAutomatedStepListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MessengerAdsPartialAutomatedStepListFields, F[number]>>(`${id}`, opts),
     steps: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

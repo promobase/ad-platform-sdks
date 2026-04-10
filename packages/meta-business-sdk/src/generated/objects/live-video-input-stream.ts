@@ -13,6 +13,8 @@ export interface LiveVideoInputStreamFields {
 
 export function liveVideoInputStreamNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LiveVideoInputStreamFields,
     get: <F extends (keyof LiveVideoInputStreamFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LiveVideoInputStreamFields, F[number]>>(`${id}`, opts),
   };

@@ -8,6 +8,8 @@ export interface StoreCatalogSettingsFields {
 
 export function storeCatalogSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as StoreCatalogSettingsFields,
     get: <F extends (keyof StoreCatalogSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<StoreCatalogSettingsFields, F[number]>>(`${id}`, opts),
     delete: () =>

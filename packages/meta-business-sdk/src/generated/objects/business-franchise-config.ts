@@ -21,6 +21,8 @@ export interface BusinessFranchiseConfigFields {
 
 export function businessFranchiseConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessFranchiseConfigFields,
     get: <F extends (keyof BusinessFranchiseConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessFranchiseConfigFields, F[number]>>(`${id}`, opts),
   };

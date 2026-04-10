@@ -27,6 +27,8 @@ export interface SavedAudienceFields {
 
 export function savedAudienceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as SavedAudienceFields,
     get: <F extends (keyof SavedAudienceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<SavedAudienceFields, F[number]>>(`${id}`, opts),
   };

@@ -15,6 +15,8 @@ export interface ProductItemLocalInfoFields {
 
 export function productItemLocalInfoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductItemLocalInfoFields,
     get: <F extends (keyof ProductItemLocalInfoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductItemLocalInfoFields, F[number]>>(`${id}`, opts),
   };

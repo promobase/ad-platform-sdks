@@ -13,6 +13,8 @@ export interface PageUpcomingChangeFields {
 
 export function pageUpcomingChangeNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PageUpcomingChangeFields,
     get: <F extends (keyof PageUpcomingChangeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PageUpcomingChangeFields, F[number]>>(`${id}`, opts),
   };

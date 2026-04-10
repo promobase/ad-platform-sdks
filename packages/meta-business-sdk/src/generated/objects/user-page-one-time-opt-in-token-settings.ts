@@ -17,6 +17,8 @@ export interface UserPageOneTimeOptInTokenSettingsFields {
 
 export function userPageOneTimeOptInTokenSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as UserPageOneTimeOptInTokenSettingsFields,
     get: <F extends (keyof UserPageOneTimeOptInTokenSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<UserPageOneTimeOptInTokenSettingsFields, F[number]>>(`${id}`, opts),
   };

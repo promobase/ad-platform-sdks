@@ -54,6 +54,8 @@ export interface OpenBridgeConfigurationUpdateParams {
 
 export function openBridgeConfigurationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OpenBridgeConfigurationFields,
     get: <F extends (keyof OpenBridgeConfigurationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OpenBridgeConfigurationFields, F[number]>>(`${id}`, opts),
     update: (params: OpenBridgeConfigurationUpdateParams) =>

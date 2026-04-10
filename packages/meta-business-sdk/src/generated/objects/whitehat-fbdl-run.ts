@@ -13,6 +13,8 @@ export interface WhitehatFBDLRunFields {
 
 export function whitehatFBDLRunNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WhitehatFBDLRunFields,
     get: <F extends (keyof WhitehatFBDLRunFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WhitehatFBDLRunFields, F[number]>>(`${id}`, opts),
   };

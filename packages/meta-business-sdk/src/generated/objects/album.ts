@@ -130,21 +130,29 @@ export interface AlbumListPictureParams {
 
 export function albumNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AlbumFields,
     get: <F extends (keyof AlbumFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AlbumFields, F[number]>>(`${id}`, opts),
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: AlbumListCommentsParams }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AlbumCreateCommentsParams) =>
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
     likes: {
+      __path: `${id}/likes`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AlbumCreateLikesParams) =>
         client.post<AlbumFields>(`${id}/likes`, params as Record<string, unknown>),
     },
     photos: {
+      __path: `${id}/photos`,
+      __brand: undefined as unknown as PhotoFields,
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AlbumCreatePhotosParams) =>

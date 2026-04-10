@@ -35,6 +35,8 @@ export interface ExtendedCreditInvoiceGroupUpdateParams {
 
 export function extendedCreditInvoiceGroupNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ExtendedCreditInvoiceGroupFields,
     get: <F extends (keyof ExtendedCreditInvoiceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ExtendedCreditInvoiceGroupFields, F[number]>>(`${id}`, opts),
     update: (params: ExtendedCreditInvoiceGroupUpdateParams) =>
@@ -42,6 +44,8 @@ export function extendedCreditInvoiceGroupNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     adAccounts: {
+      __path: `${id}/ad_accounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ExtendedCreditInvoiceGroupCreateAdAccountsParams) =>

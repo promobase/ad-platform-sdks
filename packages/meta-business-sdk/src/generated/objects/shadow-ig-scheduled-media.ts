@@ -11,6 +11,8 @@ export interface ShadowIGScheduledMediaFields {
 
 export function shadowIGScheduledMediaNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ShadowIGScheduledMediaFields,
     get: <F extends (keyof ShadowIGScheduledMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ShadowIGScheduledMediaFields, F[number]>>(`${id}`, opts),
   };

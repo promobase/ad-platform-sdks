@@ -21,6 +21,8 @@ export interface StatusCreateLikesParams {
 
 export function statusNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as StatusFields,
     get: <F extends (keyof StatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<StatusFields, F[number]>>(`${id}`, opts),
     createLike: (params: StatusCreateLikesParams) =>

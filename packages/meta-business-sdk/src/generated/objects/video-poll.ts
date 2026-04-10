@@ -23,6 +23,8 @@ export interface VideoPollUpdateParams {
 
 export function videoPollNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VideoPollFields,
     get: <F extends (keyof VideoPollFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VideoPollFields, F[number]>>(`${id}`, opts),
     update: (params: VideoPollUpdateParams) =>

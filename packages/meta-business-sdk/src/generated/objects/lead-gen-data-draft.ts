@@ -23,6 +23,8 @@ export interface LeadGenDataDraftFields {
 
 export function leadGenDataDraftNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LeadGenDataDraftFields,
     get: <F extends (keyof LeadGenDataDraftFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LeadGenDataDraftFields, F[number]>>(`${id}`, opts),
   };

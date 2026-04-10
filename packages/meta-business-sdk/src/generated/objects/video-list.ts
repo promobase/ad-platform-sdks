@@ -17,6 +17,8 @@ export interface VideoListFields {
 
 export function videoListNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VideoListFields,
     get: <F extends (keyof VideoListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VideoListFields, F[number]>>(`${id}`, opts),
     videos: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

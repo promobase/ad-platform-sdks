@@ -40,6 +40,8 @@ export interface PaymentEnginePaymentCreateRefundsParams {
 
 export function paymentEnginePaymentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PaymentEnginePaymentFields,
     get: <F extends (keyof PaymentEnginePaymentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PaymentEnginePaymentFields, F[number]>>(`${id}`, opts),
     createDispute: (params: PaymentEnginePaymentCreateDisputeParams) =>

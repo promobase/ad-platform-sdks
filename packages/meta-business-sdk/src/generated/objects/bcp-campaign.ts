@@ -22,6 +22,8 @@ export interface BCPCampaignFields {
 
 export function bCPCampaignNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BCPCampaignFields,
     get: <F extends (keyof BCPCampaignFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BCPCampaignFields, F[number]>>(`${id}`, opts),
   };

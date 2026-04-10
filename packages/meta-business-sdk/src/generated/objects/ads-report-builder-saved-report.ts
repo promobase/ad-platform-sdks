@@ -45,6 +45,8 @@ export interface AdsReportBuilderSavedReportFields {
 
 export function adsReportBuilderSavedReportNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsReportBuilderSavedReportFields,
     get: <F extends (keyof AdsReportBuilderSavedReportFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsReportBuilderSavedReportFields, F[number]>>(`${id}`, opts),
   };

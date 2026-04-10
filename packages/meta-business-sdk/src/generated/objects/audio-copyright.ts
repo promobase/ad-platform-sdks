@@ -23,6 +23,8 @@ export interface AudioCopyrightFields {
 
 export function audioCopyrightNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AudioCopyrightFields,
     get: <F extends (keyof AudioCopyrightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AudioCopyrightFields, F[number]>>(`${id}`, opts),
     updateRecords: <F extends (keyof MediaCopyrightUpdateRecordFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

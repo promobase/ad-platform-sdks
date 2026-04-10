@@ -188,6 +188,8 @@ export interface AdUpdateParams {
 
 export function adNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdFields,
     get: <F extends (keyof AdFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdFields, F[number]>>(`${id}`, opts),
     update: (params: AdUpdateParams) =>
@@ -201,12 +203,16 @@ export function adNode(client: ApiClient, id: string) {
     adrulesGoverned: <F extends (keyof AdRuleFields)[]>(opts: { fields: F; params?: AdListAdrulesGovernedParams }) =>
       new Cursor<Pick<AdRuleFields, F[number]>>(client, `${id}/adrules_governed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     copies: {
+      __path: `${id}/copies`,
+      __brand: undefined as unknown as AdFields,
       list: <F extends (keyof AdFields)[]>(opts: { fields: F; params?: AdListCopiesParams }) =>
         new Cursor<Pick<AdFields, F[number]>>(client, `${id}/copies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdCreateCopiesParams) =>
         client.post<AdFields>(`${id}/copies`, params as Record<string, unknown>),
     },
     insights: {
+      __path: `${id}/insights`,
+      __brand: undefined as unknown as AdsInsightsFields,
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdCreateInsightsParams) =>

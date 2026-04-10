@@ -18,6 +18,8 @@ export interface ALMEventFields {
 
 export function aLMEventNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ALMEventFields,
     get: <F extends (keyof ALMEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ALMEventFields, F[number]>>(`${id}`, opts),
   };

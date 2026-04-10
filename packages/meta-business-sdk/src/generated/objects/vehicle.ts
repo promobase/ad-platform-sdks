@@ -116,6 +116,8 @@ export interface VehicleUpdateParams {
 
 export function vehicleNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VehicleFields,
     get: <F extends (keyof VehicleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VehicleFields, F[number]>>(`${id}`, opts),
     update: (params: VehicleUpdateParams) =>

@@ -16,6 +16,8 @@ export interface AdColumnSizesFields {
 
 export function adColumnSizesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdColumnSizesFields,
     get: <F extends (keyof AdColumnSizesFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdColumnSizesFields, F[number]>>(`${id}`, opts),
   };

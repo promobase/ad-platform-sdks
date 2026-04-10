@@ -27,6 +27,8 @@ export interface OmegaCustomerTrxFields {
 
 export function omegaCustomerTrxNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OmegaCustomerTrxFields,
     get: <F extends (keyof OmegaCustomerTrxFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OmegaCustomerTrxFields, F[number]>>(`${id}`, opts),
     campaigns: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

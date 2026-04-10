@@ -12,6 +12,8 @@ export interface AdsMcmeConversionFields {
 
 export function adsMcmeConversionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsMcmeConversionFields,
     get: <F extends (keyof AdsMcmeConversionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsMcmeConversionFields, F[number]>>(`${id}`, opts),
   };

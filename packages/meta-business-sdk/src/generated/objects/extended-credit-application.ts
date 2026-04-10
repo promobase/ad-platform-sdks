@@ -32,6 +32,8 @@ export interface ExtendedCreditApplicationFields {
 
 export function extendedCreditApplicationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ExtendedCreditApplicationFields,
     get: <F extends (keyof ExtendedCreditApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ExtendedCreditApplicationFields, F[number]>>(`${id}`, opts),
   };

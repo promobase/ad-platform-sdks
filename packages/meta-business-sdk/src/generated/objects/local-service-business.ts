@@ -57,6 +57,8 @@ export interface LocalServiceBusinessListOverrideDetailsParams {
 
 export function localServiceBusinessNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LocalServiceBusinessFields,
     get: <F extends (keyof LocalServiceBusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LocalServiceBusinessFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

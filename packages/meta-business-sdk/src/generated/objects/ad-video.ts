@@ -177,6 +177,8 @@ export interface AdVideoUpdateParams {
 
 export function adVideoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdVideoFields,
     get: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdVideoFields, F[number]>>(`${id}`, opts),
     update: (params: AdVideoUpdateParams) =>
@@ -186,18 +188,24 @@ export function adVideoNode(client: ApiClient, id: string) {
     boostAdsList: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/boost_ads_list`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     captions: {
+      __path: `${id}/captions`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/captions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreateCaptionsParams) =>
         client.post<AdVideoFields>(`${id}/captions`, params as Record<string, unknown>),
     },
     collaborators: {
+      __path: `${id}/collaborators`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/collaborators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreateCollaboratorsParams) =>
         client.post<AdVideoFields>(`${id}/collaborators`, params as Record<string, unknown>),
     },
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: AdVideoListCommentsParams }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreateCommentsParams) =>
@@ -208,6 +216,8 @@ export function adVideoNode(client: ApiClient, id: string) {
     createGamingClipCreate: (params: AdVideoCreateGamingClipCreateParams) =>
       client.post<AdVideoFields>(`${id}/gaming_clip_create`, params as Record<string, unknown>),
     likes: {
+      __path: `${id}/likes`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreateLikesParams) =>
@@ -216,6 +226,8 @@ export function adVideoNode(client: ApiClient, id: string) {
     pollSettings: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/poll_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     polls: {
+      __path: `${id}/polls`,
+      __brand: undefined as unknown as VideoPollFields,
       list: <F extends (keyof VideoPollFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<VideoPollFields, F[number]>>(client, `${id}/polls`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreatePollsParams) =>
@@ -226,6 +238,8 @@ export function adVideoNode(client: ApiClient, id: string) {
     tags: <F extends (keyof TaggableSubjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<TaggableSubjectFields, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     thumbnails: {
+      __path: `${id}/thumbnails`,
+      __brand: undefined as unknown as VideoThumbnailFields,
       list: <F extends (keyof VideoThumbnailFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<VideoThumbnailFields, F[number]>>(client, `${id}/thumbnails`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdVideoCreateThumbnailsParams) =>

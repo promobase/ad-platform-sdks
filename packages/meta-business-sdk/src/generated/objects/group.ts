@@ -387,11 +387,15 @@ export interface GroupUpdateParams {
 
 export function groupNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as GroupFields,
     get: <F extends (keyof GroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<GroupFields, F[number]>>(`${id}`, opts),
     update: (params: GroupUpdateParams) =>
       client.post<GroupFields>(`${id}`, params as Record<string, unknown>),
     admins: {
+      __path: `${id}/admins`,
+      __brand: undefined as unknown as GroupFields,
       create: (params: GroupCreateAdminsParams) =>
         client.post<GroupFields>(`${id}/admins`, params as Record<string, unknown>),
       delete: (params: GroupDeleteAdminsParams) =>
@@ -404,6 +408,8 @@ export function groupNode(client: ApiClient, id: string) {
     events: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     feed: {
+      __path: `${id}/feed`,
+      __brand: undefined as unknown as PostFields,
       list: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: GroupListFeedParams }) =>
         new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: GroupCreateFeedParams) =>
@@ -412,18 +418,24 @@ export function groupNode(client: ApiClient, id: string) {
     files: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/files`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     groups: {
+      __path: `${id}/groups`,
+      __brand: undefined as unknown as GroupFields,
       list: <F extends (keyof GroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<GroupFields, F[number]>>(client, `${id}/groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: GroupCreateGroupsParams) =>
         client.post<GroupFields>(`${id}/groups`, params as Record<string, unknown>),
     },
     liveVideos: {
+      __path: `${id}/live_videos`,
+      __brand: undefined as unknown as LiveVideoFields,
       list: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: GroupListLiveVideosParams }) =>
         new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: GroupCreateLiveVideosParams) =>
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
     members: {
+      __path: `${id}/members`,
+      __brand: undefined as unknown as GroupFields,
       create: (params: GroupCreateMembersParams) =>
         client.post<GroupFields>(`${id}/members`, params as Record<string, unknown>),
       delete: (params: GroupDeleteMembersParams) =>
@@ -436,6 +448,8 @@ export function groupNode(client: ApiClient, id: string) {
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: GroupListPictureParams }) =>
       new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     videos: {
+      __path: `${id}/videos`,
+      __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: GroupListVideosParams }) =>
         new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: GroupCreateVideosParams) =>

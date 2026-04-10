@@ -19,6 +19,8 @@ export interface StoriesListInsightsParams {
 
 export function storiesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as StoriesFields,
     get: <F extends (keyof StoriesFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<StoriesFields, F[number]>>(`${id}`, opts),
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: StoriesListInsightsParams }) =>

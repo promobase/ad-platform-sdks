@@ -14,6 +14,8 @@ export interface AdSavedKeywordsFields {
 
 export function adSavedKeywordsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdSavedKeywordsFields,
     get: <F extends (keyof AdSavedKeywordsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdSavedKeywordsFields, F[number]>>(`${id}`, opts),
   };

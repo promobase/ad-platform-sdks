@@ -19,6 +19,8 @@ export interface CRMAddressFields {
 
 export function cRMAddressNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CRMAddressFields,
     get: <F extends (keyof CRMAddressFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CRMAddressFields, F[number]>>(`${id}`, opts),
   };

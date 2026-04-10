@@ -30,6 +30,8 @@ export interface IGUserExportForCAMListInsightsParams {
 
 export function iGUserExportForCAMNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGUserExportForCAMFields,
     brandedContentMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/branded_content_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     insights: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserExportForCAMListInsightsParams }) =>

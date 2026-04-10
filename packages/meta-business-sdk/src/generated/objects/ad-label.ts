@@ -22,6 +22,8 @@ export interface AdLabelUpdateParams {
 
 export function adLabelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdLabelFields,
     get: <F extends (keyof AdLabelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdLabelFields, F[number]>>(`${id}`, opts),
     update: (params: AdLabelUpdateParams) =>

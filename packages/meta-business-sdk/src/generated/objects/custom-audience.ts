@@ -164,6 +164,8 @@ export interface CustomAudienceUpdateParams {
 
 export function customAudienceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CustomAudienceFields,
     get: <F extends (keyof CustomAudienceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CustomAudienceFields, F[number]>>(`${id}`, opts),
     update: (params: CustomAudienceUpdateParams) =>
@@ -171,6 +173,8 @@ export function customAudienceNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     adaccounts: {
+      __path: `${id}/adaccounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: CustomAudienceListAdaccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CustomAudienceCreateAdaccountsParams) =>
@@ -183,6 +187,8 @@ export function customAudienceNode(client: ApiClient, id: string) {
     health: <F extends (keyof CustomAudienceHealthFields)[]>(opts: { fields: F; params?: CustomAudienceListHealthParams }) =>
       new Cursor<Pick<CustomAudienceHealthFields, F[number]>>(client, `${id}/health`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     salts: {
+      __path: `${id}/salts`,
+      __brand: undefined as unknown as CustomAudienceSaltsFields,
       list: <F extends (keyof CustomAudienceSaltsFields)[]>(opts: { fields: F; params?: CustomAudienceListSaltsParams }) =>
         new Cursor<Pick<CustomAudienceSaltsFields, F[number]>>(client, `${id}/salts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CustomAudienceCreateSaltsParams) =>
@@ -193,6 +199,8 @@ export function customAudienceNode(client: ApiClient, id: string) {
     sharedAccountInfo: <F extends (keyof CustomAudiencesharedAccountInfoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CustomAudiencesharedAccountInfoFields, F[number]>>(client, `${id}/shared_account_info`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     users: {
+      __path: `${id}/users`,
+      __brand: undefined as unknown as CustomAudienceFields,
       create: (params: CustomAudienceCreateUsersParams) =>
         client.post<CustomAudienceFields>(`${id}/users`, params as Record<string, unknown>),
       delete: (params: CustomAudienceDeleteUsersParams) =>

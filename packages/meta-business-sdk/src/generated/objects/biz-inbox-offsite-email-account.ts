@@ -10,6 +10,8 @@ export interface BizInboxOffsiteEmailAccountFields {
 
 export function bizInboxOffsiteEmailAccountNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BizInboxOffsiteEmailAccountFields,
     get: <F extends (keyof BizInboxOffsiteEmailAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BizInboxOffsiteEmailAccountFields, F[number]>>(`${id}`, opts),
     assignedUsers: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

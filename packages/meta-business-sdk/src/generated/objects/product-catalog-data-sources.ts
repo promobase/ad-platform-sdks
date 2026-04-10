@@ -17,6 +17,8 @@ export interface ProductCatalogDataSourcesListDataSourcesParams {
 
 export function productCatalogDataSourcesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductCatalogDataSourcesFields,
     dataSources: <F extends (keyof ProductCatalogDataSourcesGetFields)[]>(opts: { fields: F; params?: ProductCatalogDataSourcesListDataSourcesParams }) =>
       new Cursor<Pick<ProductCatalogDataSourcesGetFields, F[number]>>(client, `${id}/data_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

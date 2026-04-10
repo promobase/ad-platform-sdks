@@ -11,6 +11,8 @@ export interface SlicedEventSourceGroupFields {
 
 export function slicedEventSourceGroupNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as SlicedEventSourceGroupFields,
     get: <F extends (keyof SlicedEventSourceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<SlicedEventSourceGroupFields, F[number]>>(`${id}`, opts),
   };

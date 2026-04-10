@@ -15,6 +15,8 @@ export interface AdgroupFacebookFeedbackListCommentsParams {
 
 export function adgroupFacebookFeedbackNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdgroupFacebookFeedbackFields,
     comments: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: AdgroupFacebookFeedbackListCommentsParams }) =>
       new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

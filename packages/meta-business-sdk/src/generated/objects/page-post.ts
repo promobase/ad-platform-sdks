@@ -158,6 +158,8 @@ export interface PagePostUpdateParams {
 
 export function pagePostNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PagePostFields,
     get: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PagePostFields, F[number]>>(`${id}`, opts),
     update: (params: PagePostUpdateParams) =>
@@ -167,6 +169,8 @@ export function pagePostNode(client: ApiClient, id: string) {
     attachments: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/attachments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: PagePostListCommentsParams }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PagePostCreateCommentsParams) =>
@@ -177,6 +181,8 @@ export function pagePostNode(client: ApiClient, id: string) {
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: PagePostListInsightsParams }) =>
       new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     likes: {
+      __path: `${id}/likes`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PagePostCreateLikesParams) =>

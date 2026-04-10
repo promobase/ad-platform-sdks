@@ -25,6 +25,8 @@ export interface MessengerBusinessTemplateUpdateParams {
 
 export function messengerBusinessTemplateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MessengerBusinessTemplateFields,
     get: <F extends (keyof MessengerBusinessTemplateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MessengerBusinessTemplateFields, F[number]>>(`${id}`, opts),
     update: (params: MessengerBusinessTemplateUpdateParams) =>

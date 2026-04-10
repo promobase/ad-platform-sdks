@@ -23,6 +23,8 @@ export interface ExtendedCreditAllocationConfigUpdateParams {
 
 export function extendedCreditAllocationConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ExtendedCreditAllocationConfigFields,
     get: <F extends (keyof ExtendedCreditAllocationConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ExtendedCreditAllocationConfigFields, F[number]>>(`${id}`, opts),
     update: (params: ExtendedCreditAllocationConfigUpdateParams) =>

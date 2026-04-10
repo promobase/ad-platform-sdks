@@ -9,6 +9,8 @@ export interface WebsiteCreativeAssetSuggestionsFields {
 
 export function websiteCreativeAssetSuggestionsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WebsiteCreativeAssetSuggestionsFields,
     get: <F extends (keyof WebsiteCreativeAssetSuggestionsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WebsiteCreativeAssetSuggestionsFields, F[number]>>(`${id}`, opts),
   };

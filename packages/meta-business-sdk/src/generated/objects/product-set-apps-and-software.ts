@@ -17,6 +17,8 @@ export interface ProductSetAppsAndSoftwareListAppsAndSoftwareParams {
 
 export function productSetAppsAndSoftwareNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductSetAppsAndSoftwareFields,
     appsAndSoftware: <F extends (keyof ProductSetAppsAndSoftwareGetFields)[]>(opts: { fields: F; params?: ProductSetAppsAndSoftwareListAppsAndSoftwareParams }) =>
       new Cursor<Pick<ProductSetAppsAndSoftwareGetFields, F[number]>>(client, `${id}/apps_and_software`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

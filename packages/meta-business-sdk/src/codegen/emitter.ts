@@ -285,6 +285,8 @@ export function emitObjectFile(ctx: EmitContext): string {
 
     out.push(`export function ${fnName}(client: ApiClient, id: string) {`);
     out.push("  return {");
+    out.push(`    __path: id,`);
+    out.push(`    __brand: undefined as unknown as ${selfFieldsType},`);
 
     // Self ops
     const getOp = nodeOps.find((a) => a.name === "#get");
@@ -359,6 +361,11 @@ export function emitObjectFile(ctx: EmitContext): string {
       } else {
         // Multiple methods on the same endpoint — group them
         out.push(`    ${camelName}: {`);
+        // Add __path and __brand for batch API support
+        out.push(`      __path: \`\${id}/${ep}\`,`);
+        const brandApi = getApi ?? postApi ?? deleteApi;
+        const brandType = brandApi ? returnType(brandApi) : "Record<string, unknown>";
+        out.push(`      __brand: undefined as unknown as ${brandType},`);
 
         if (getApi) {
           const rt = returnType(getApi);

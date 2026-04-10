@@ -56,6 +56,8 @@ export interface AutomotiveModelListOverrideDetailsParams {
 
 export function automotiveModelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AutomotiveModelFields,
     get: <F extends (keyof AutomotiveModelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AutomotiveModelFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

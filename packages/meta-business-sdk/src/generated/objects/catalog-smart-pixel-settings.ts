@@ -23,6 +23,8 @@ export interface CatalogSmartPixelSettingsFields {
 
 export function catalogSmartPixelSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CatalogSmartPixelSettingsFields,
     get: <F extends (keyof CatalogSmartPixelSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CatalogSmartPixelSettingsFields, F[number]>>(`${id}`, opts),
   };

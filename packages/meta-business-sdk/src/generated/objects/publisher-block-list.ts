@@ -34,6 +34,8 @@ export interface PublisherBlockListUpdateParams {
 
 export function publisherBlockListNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PublisherBlockListFields,
     get: <F extends (keyof PublisherBlockListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PublisherBlockListFields, F[number]>>(`${id}`, opts),
     update: (params: PublisherBlockListUpdateParams) =>

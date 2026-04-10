@@ -23,6 +23,8 @@ export interface EventTicketTierFields {
 
 export function eventTicketTierNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as EventTicketTierFields,
     get: <F extends (keyof EventTicketTierFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EventTicketTierFields, F[number]>>(`${id}`, opts),
   };

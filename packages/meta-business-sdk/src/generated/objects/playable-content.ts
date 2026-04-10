@@ -9,6 +9,8 @@ export interface PlayableContentFields {
 
 export function playableContentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PlayableContentFields,
     get: <F extends (keyof PlayableContentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PlayableContentFields, F[number]>>(`${id}`, opts),
   };

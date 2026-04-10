@@ -26,6 +26,8 @@ export interface BrandRequestFields {
 
 export function brandRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BrandRequestFields,
     get: <F extends (keyof BrandRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BrandRequestFields, F[number]>>(`${id}`, opts),
   };

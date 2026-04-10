@@ -92,6 +92,8 @@ export interface OfflineConversionDataSetListUploadsParams {
 
 export function offlineConversionDataSetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OfflineConversionDataSetFields,
     get: <F extends (keyof OfflineConversionDataSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineConversionDataSetFields, F[number]>>(`${id}`, opts),
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListAdaccountsParams }) =>

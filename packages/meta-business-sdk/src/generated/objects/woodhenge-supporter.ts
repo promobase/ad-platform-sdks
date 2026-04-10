@@ -12,6 +12,8 @@ export interface WoodhengeSupporterFields {
 
 export function woodhengeSupporterNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WoodhengeSupporterFields,
     get: <F extends (keyof WoodhengeSupporterFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WoodhengeSupporterFields, F[number]>>(`${id}`, opts),
   };

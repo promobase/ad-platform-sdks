@@ -13,6 +13,8 @@ export interface CatalogGenericIngestionSessionErrorsListErrorsParams {
 
 export function catalogGenericIngestionSessionErrorsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CatalogGenericIngestionSessionErrorsFields,
     errors: <F extends (keyof CatalogGenericIngestionSessionErrorsGetFields)[]>(opts: { fields: F; params?: CatalogGenericIngestionSessionErrorsListErrorsParams }) =>
       new Cursor<Pick<CatalogGenericIngestionSessionErrorsGetFields, F[number]>>(client, `${id}/errors`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

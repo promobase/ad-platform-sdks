@@ -608,6 +608,8 @@ export interface UserUpdateParams {
 
 export function userNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as UserFields,
     get: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<UserFields, F[number]>>(`${id}`, opts),
     update: (params: UserUpdateParams) =>
@@ -615,18 +617,24 @@ export function userNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     accessTokens: {
+      __path: `${id}/access_tokens`,
+      __brand: undefined as unknown as UserFields,
       create: (params: UserCreateAccessTokensParams) =>
         client.post<UserFields>(`${id}/access_tokens`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/access_tokens`, params as Record<string, unknown> ?? {}),
     },
     accounts: {
+      __path: `${id}/accounts`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListAccountsParams }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateAccountsParams) =>
         client.post<Record<string, unknown>>(`${id}/accounts`, params as Record<string, unknown>),
     },
     adStudies: {
+      __path: `${id}/ad_studies`,
+      __brand: undefined as unknown as AdStudyFields,
       list: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateAdStudiesParams) =>
@@ -657,6 +665,8 @@ export function userNode(client: ApiClient, id: string) {
     businessUsers: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     businesses: {
+      __path: `${id}/businesses`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateBusinessesParams) =>
@@ -671,6 +681,8 @@ export function userNode(client: ApiClient, id: string) {
     events: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: UserListEventsParams }) =>
       new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     feed: {
+      __path: `${id}/feed`,
+      __brand: undefined as unknown as PostFields,
       list: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: UserListFeedParams }) =>
         new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateFeedParams) =>
@@ -679,6 +691,8 @@ export function userNode(client: ApiClient, id: string) {
     friends: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: UserListFriendsParams }) =>
       new Cursor<Pick<UserFields, F[number]>>(client, `${id}/friends`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     fundraisers: {
+      __path: `${id}/fundraisers`,
+      __brand: undefined as unknown as FundraiserPersonToCharityFields,
       list: <F extends (keyof FundraiserPersonToCharityFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<FundraiserPersonToCharityFields, F[number]>>(client, `${id}/fundraisers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateFundraisersParams) =>
@@ -695,6 +709,8 @@ export function userNode(client: ApiClient, id: string) {
     likes: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListLikesParams }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     liveVideos: {
+      __path: `${id}/live_videos`,
+      __brand: undefined as unknown as LiveVideoFields,
       list: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: UserListLiveVideosParams }) =>
         new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateLiveVideosParams) =>
@@ -711,6 +727,8 @@ export function userNode(client: ApiClient, id: string) {
     paymentTransactions: <F extends (keyof PaymentEnginePaymentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PaymentEnginePaymentFields, F[number]>>(client, `${id}/payment_transactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     permissions: {
+      __path: `${id}/permissions`,
+      __brand: undefined as unknown as PermissionFields,
       list: <F extends (keyof PermissionFields)[]>(opts: { fields: F; params?: UserListPermissionsParams }) =>
         new Cursor<Pick<PermissionFields, F[number]>>(client, `${id}/permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       delete: (params: UserDeletePermissionsParams) =>
@@ -719,6 +737,8 @@ export function userNode(client: ApiClient, id: string) {
     personalAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/personal_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     photos: {
+      __path: `${id}/photos`,
+      __brand: undefined as unknown as PhotoFields,
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: UserListPhotosParams }) =>
         new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreatePhotosParams) =>
@@ -733,6 +753,8 @@ export function userNode(client: ApiClient, id: string) {
     createStagingResource: (params: UserCreateStagingResourcesParams) =>
       client.post<UserFields>(`${id}/staging_resources`, params as Record<string, unknown>),
     videos: {
+      __path: `${id}/videos`,
+      __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: UserListVideosParams }) =>
         new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: UserCreateVideosParams) =>

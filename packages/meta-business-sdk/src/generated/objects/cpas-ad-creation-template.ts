@@ -12,6 +12,8 @@ export interface CPASAdCreationTemplateFields {
 
 export function cPASAdCreationTemplateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CPASAdCreationTemplateFields,
     get: <F extends (keyof CPASAdCreationTemplateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CPASAdCreationTemplateFields, F[number]>>(`${id}`, opts),
   };

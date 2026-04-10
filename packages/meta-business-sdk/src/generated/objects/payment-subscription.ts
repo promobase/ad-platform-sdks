@@ -32,6 +32,8 @@ export interface PaymentSubscriptionFields {
 
 export function paymentSubscriptionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PaymentSubscriptionFields,
     get: <F extends (keyof PaymentSubscriptionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PaymentSubscriptionFields, F[number]>>(`${id}`, opts),
   };

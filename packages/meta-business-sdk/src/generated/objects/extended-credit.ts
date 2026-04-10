@@ -68,15 +68,21 @@ export interface ExtendedCreditCreateWhatsappCreditSharingAndAttachParams {
 
 export function extendedCreditNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ExtendedCreditFields,
     get: <F extends (keyof ExtendedCreditFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ExtendedCreditFields, F[number]>>(`${id}`, opts),
     extendedCreditInvoiceGroups: {
+      __path: `${id}/extended_credit_invoice_groups`,
+      __brand: undefined as unknown as ExtendedCreditInvoiceGroupFields,
       list: <F extends (keyof ExtendedCreditInvoiceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ExtendedCreditInvoiceGroupFields, F[number]>>(client, `${id}/extended_credit_invoice_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ExtendedCreditCreateExtendedCreditInvoiceGroupsParams) =>
         client.post<ExtendedCreditInvoiceGroupFields>(`${id}/extended_credit_invoice_groups`, params as Record<string, unknown>),
     },
     owningCreditAllocationConfigs: {
+      __path: `${id}/owning_credit_allocation_configs`,
+      __brand: undefined as unknown as ExtendedCreditAllocationConfigFields,
       list: <F extends (keyof ExtendedCreditAllocationConfigFields)[]>(opts: { fields: F; params?: ExtendedCreditListOwningCreditAllocationConfigsParams }) =>
         new Cursor<Pick<ExtendedCreditAllocationConfigFields, F[number]>>(client, `${id}/owning_credit_allocation_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ExtendedCreditCreateOwningCreditAllocationConfigsParams) =>

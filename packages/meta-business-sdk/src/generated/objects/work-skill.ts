@@ -10,6 +10,8 @@ export interface WorkSkillFields {
 
 export function workSkillNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WorkSkillFields,
     get: <F extends (keyof WorkSkillFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WorkSkillFields, F[number]>>(`${id}`, opts),
     users: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

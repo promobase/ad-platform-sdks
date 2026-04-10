@@ -30,6 +30,8 @@ export interface LeadFields {
 
 export function leadNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LeadFields,
     get: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LeadFields, F[number]>>(`${id}`, opts),
     delete: () =>

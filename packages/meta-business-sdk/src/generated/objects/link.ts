@@ -39,6 +39,8 @@ export interface LinkCreateCommentsParams {
 
 export function linkNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LinkFields,
     get: <F extends (keyof LinkFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LinkFields, F[number]>>(`${id}`, opts),
     createComment: (params: LinkCreateCommentsParams) =>

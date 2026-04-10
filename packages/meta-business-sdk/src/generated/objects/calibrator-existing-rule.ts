@@ -16,6 +16,8 @@ export interface CalibratorExistingRuleFields {
 
 export function calibratorExistingRuleNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CalibratorExistingRuleFields,
     get: <F extends (keyof CalibratorExistingRuleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CalibratorExistingRuleFields, F[number]>>(`${id}`, opts),
   };

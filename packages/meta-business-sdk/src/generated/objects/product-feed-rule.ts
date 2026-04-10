@@ -14,6 +14,8 @@ export interface ProductFeedRuleUpdateParams {
 
 export function productFeedRuleNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductFeedRuleFields,
     get: <F extends (keyof ProductFeedRuleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductFeedRuleFields, F[number]>>(`${id}`, opts),
     update: (params: ProductFeedRuleUpdateParams) =>

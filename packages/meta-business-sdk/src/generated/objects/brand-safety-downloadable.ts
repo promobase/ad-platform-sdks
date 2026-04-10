@@ -12,6 +12,8 @@ export interface BrandSafetyDownloadableFields {
 
 export function brandSafetyDownloadableNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BrandSafetyDownloadableFields,
     get: <F extends (keyof BrandSafetyDownloadableFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BrandSafetyDownloadableFields, F[number]>>(`${id}`, opts),
   };

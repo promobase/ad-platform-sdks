@@ -37,6 +37,8 @@ export interface AdAsyncRequestSetUpdateParams {
 
 export function adAsyncRequestSetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdAsyncRequestSetFields,
     get: <F extends (keyof AdAsyncRequestSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdAsyncRequestSetFields, F[number]>>(`${id}`, opts),
     update: (params: AdAsyncRequestSetUpdateParams) =>

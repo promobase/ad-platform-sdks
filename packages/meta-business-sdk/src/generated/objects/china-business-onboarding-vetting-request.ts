@@ -50,6 +50,8 @@ export interface ChinaBusinessOnboardingVettingRequestFields {
 
 export function chinaBusinessOnboardingVettingRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ChinaBusinessOnboardingVettingRequestFields,
     get: <F extends (keyof ChinaBusinessOnboardingVettingRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ChinaBusinessOnboardingVettingRequestFields, F[number]>>(`${id}`, opts),
   };

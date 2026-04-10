@@ -21,6 +21,8 @@ export interface AdsQuickViewsFields {
 
 export function adsQuickViewsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsQuickViewsFields,
     get: <F extends (keyof AdsQuickViewsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsQuickViewsFields, F[number]>>(`${id}`, opts),
   };

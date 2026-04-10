@@ -1311,11 +1311,15 @@ export interface PageUpdateParams {
 
 export function pageNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PageFields,
     get: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PageFields, F[number]>>(`${id}`, opts),
     update: (params: PageUpdateParams) =>
       client.post<PageFields>(`${id}`, params as Record<string, unknown>),
     abTests: {
+      __path: `${id}/ab_tests`,
+      __brand: undefined as unknown as PagePostExperimentFields,
       list: <F extends (keyof PagePostExperimentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PagePostExperimentFields, F[number]>>(client, `${id}/ab_tests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateAbTestsParams) =>
@@ -1326,6 +1330,8 @@ export function pageNode(client: ApiClient, id: string) {
     adsPosts: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListAdsPostsParams }) =>
       new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/ads_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     agencies: {
+      __path: `${id}/agencies`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateAgenciesParams) =>
@@ -1338,6 +1344,8 @@ export function pageNode(client: ApiClient, id: string) {
     arExperience: <F extends (keyof ArAdsDataContainerFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ArAdsDataContainerFields, F[number]>>(client, `${id}/ar_experience`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     assignedUsers: {
+      __path: `${id}/assigned_users`,
+      __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: PageListAssignedUsersParams }) =>
         new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateAssignedUsersParams) =>
@@ -1346,6 +1354,8 @@ export function pageNode(client: ApiClient, id: string) {
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     blocked: {
+      __path: `${id}/blocked`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: PageListBlockedParams }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/blocked`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateBlockedParams) =>
@@ -1364,12 +1374,16 @@ export function pageNode(client: ApiClient, id: string) {
     createCall: (params: PageCreateCallsParams) =>
       client.post<Record<string, unknown>>(`${id}/calls`, params as Record<string, unknown>),
     canvasElements: {
+      __path: `${id}/canvas_elements`,
+      __brand: undefined as unknown as CanvasBodyElementFields,
       list: <F extends (keyof CanvasBodyElementFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CanvasBodyElementFields, F[number]>>(client, `${id}/canvas_elements`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateCanvasElementsParams) =>
         client.post<CanvasBodyElementFields>(`${id}/canvas_elements`, params as Record<string, unknown>),
     },
     canvases: {
+      __path: `${id}/canvases`,
+      __brand: undefined as unknown as CanvasFields,
       list: <F extends (keyof CanvasFields)[]>(opts: { fields: F; params?: PageListCanvasesParams }) =>
         new Cursor<Pick<CanvasFields, F[number]>>(client, `${id}/canvases`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateCanvasesParams) =>
@@ -1394,12 +1408,16 @@ export function pageNode(client: ApiClient, id: string) {
     ctxOptimizationEligibility: <F extends (keyof CTXOptimizationEligibilityFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CTXOptimizationEligibilityFields, F[number]>>(client, `${id}/ctx_optimization_eligibility`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     customLabels: {
+      __path: `${id}/custom_labels`,
+      __brand: undefined as unknown as PageUserMessageThreadLabelFields,
       list: <F extends (keyof PageUserMessageThreadLabelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageUserMessageThreadLabelFields, F[number]>>(client, `${id}/custom_labels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateCustomLabelsParams) =>
         client.post<PageUserMessageThreadLabelFields>(`${id}/custom_labels`, params as Record<string, unknown>),
     },
     customUserSettings: {
+      __path: `${id}/custom_user_settings`,
+      __brand: undefined as unknown as CustomUserSettingsFields,
       list: <F extends (keyof CustomUserSettingsFields)[]>(opts: { fields: F; params?: PageListCustomUserSettingsParams }) =>
         new Cursor<Pick<CustomUserSettingsFields, F[number]>>(client, `${id}/custom_user_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateCustomUserSettingsParams) =>
@@ -1408,6 +1426,8 @@ export function pageNode(client: ApiClient, id: string) {
         client.delete(`${id}/custom_user_settings`, params as Record<string, unknown> ?? {}),
     },
     dataset: {
+      __path: `${id}/dataset`,
+      __brand: undefined as unknown as DatasetFields,
       list: <F extends (keyof DatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateDatasetParams) =>
@@ -1420,6 +1440,8 @@ export function pageNode(client: ApiClient, id: string) {
     fantasyGames: <F extends (keyof FantasyGameFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<FantasyGameFields, F[number]>>(client, `${id}/fantasy_games`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     feed: {
+      __path: `${id}/feed`,
+      __brand: undefined as unknown as PagePostFields,
       list: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListFeedParams }) =>
         new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateFeedParams) =>
@@ -1428,6 +1450,8 @@ export function pageNode(client: ApiClient, id: string) {
     globalBrandChildren: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/global_brand_children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     imageCopyrights: {
+      __path: `${id}/image_copyrights`,
+      __brand: undefined as unknown as ImageCopyrightFields,
       list: <F extends (keyof ImageCopyrightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ImageCopyrightFields, F[number]>>(client, `${id}/image_copyrights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateImageCopyrightsParams) =>
@@ -1440,6 +1464,8 @@ export function pageNode(client: ApiClient, id: string) {
     instagramAccounts: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     leadgenForms: {
+      __path: `${id}/leadgen_forms`,
+      __brand: undefined as unknown as LeadgenFormFields,
       list: <F extends (keyof LeadgenFormFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<LeadgenFormFields, F[number]>>(client, `${id}/leadgen_forms`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateLeadgenFormsParams) =>
@@ -1448,12 +1474,16 @@ export function pageNode(client: ApiClient, id: string) {
     likes: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: PageListLikesParams }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     liveVideos: {
+      __path: `${id}/live_videos`,
+      __brand: undefined as unknown as LiveVideoFields,
       list: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: PageListLiveVideosParams }) =>
         new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateLiveVideosParams) =>
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
     locations: {
+      __path: `${id}/locations`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/locations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateLocationsParams) =>
@@ -1462,6 +1492,8 @@ export function pageNode(client: ApiClient, id: string) {
         client.delete(`${id}/locations`, params as Record<string, unknown> ?? {}),
     },
     mediaFingerprints: {
+      __path: `${id}/media_fingerprints`,
+      __brand: undefined as unknown as MediaFingerprintFields,
       list: <F extends (keyof MediaFingerprintFields)[]>(opts: { fields: F; params?: PageListMediaFingerprintsParams }) =>
         new Cursor<Pick<MediaFingerprintFields, F[number]>>(client, `${id}/media_fingerprints`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateMediaFingerprintsParams) =>
@@ -1470,6 +1502,8 @@ export function pageNode(client: ApiClient, id: string) {
     createMessageAttachment: (params: PageCreateMessageAttachmentsParams) =>
       client.post<Record<string, unknown>>(`${id}/message_attachments`, params as Record<string, unknown>),
     messageTemplates: {
+      __path: `${id}/message_templates`,
+      __brand: undefined as unknown as MessengerBusinessTemplateFields,
       list: <F extends (keyof MessengerBusinessTemplateFields)[]>(opts: { fields: F; params?: PageListMessageTemplatesParams }) =>
         new Cursor<Pick<MessengerBusinessTemplateFields, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateMessageTemplatesParams) =>
@@ -1484,18 +1518,24 @@ export function pageNode(client: ApiClient, id: string) {
     messengerCallPermissions: <F extends (keyof MessengerCallPermissionsFields)[]>(opts: { fields: F; params?: PageListMessengerCallPermissionsParams }) =>
       new Cursor<Pick<MessengerCallPermissionsFields, F[number]>>(client, `${id}/messenger_call_permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     messengerCallSettings: {
+      __path: `${id}/messenger_call_settings`,
+      __brand: undefined as unknown as MessengerCallSettingsFields,
       list: <F extends (keyof MessengerCallSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<MessengerCallSettingsFields, F[number]>>(client, `${id}/messenger_call_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateMessengerCallSettingsParams) =>
         client.post<PageFields>(`${id}/messenger_call_settings`, params as Record<string, unknown>),
     },
     messengerLeadForms: {
+      __path: `${id}/messenger_lead_forms`,
+      __brand: undefined as unknown as MessengerAdsPartialAutomatedStepListFields,
       list: <F extends (keyof MessengerAdsPartialAutomatedStepListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<MessengerAdsPartialAutomatedStepListFields, F[number]>>(client, `${id}/messenger_lead_forms`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateMessengerLeadFormsParams) =>
         client.post<PageFields>(`${id}/messenger_lead_forms`, params as Record<string, unknown>),
     },
     messengerProfile: {
+      __path: `${id}/messenger_profile`,
+      __brand: undefined as unknown as MessengerProfileFields,
       list: <F extends (keyof MessengerProfileFields)[]>(opts: { fields: F; params?: PageListMessengerProfileParams }) =>
         new Cursor<Pick<MessengerProfileFields, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateMessengerProfileParams) =>
@@ -1512,6 +1552,8 @@ export function pageNode(client: ApiClient, id: string) {
     createNotificationMessagesDevSupport: (params: PageCreateNotificationMessagesDevSupportParams) =>
       client.post<PageFields>(`${id}/notification_messages_dev_support`, params as Record<string, unknown>),
     pageBackedInstagramAccounts: {
+      __path: `${id}/page_backed_instagram_accounts`,
+      __brand: undefined as unknown as IGUserFields,
       list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/page_backed_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: Record<string, unknown>) =>
@@ -1522,6 +1564,8 @@ export function pageNode(client: ApiClient, id: string) {
     createPassThreadControl: (params: PageCreatePassThreadControlParams) =>
       client.post<PageFields>(`${id}/pass_thread_control`, params as Record<string, unknown>),
     personas: {
+      __path: `${id}/personas`,
+      __brand: undefined as unknown as PersonaFields,
       list: <F extends (keyof PersonaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PersonaFields, F[number]>>(client, `${id}/personas`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreatePersonasParams) =>
@@ -1530,12 +1574,16 @@ export function pageNode(client: ApiClient, id: string) {
     createPhotoStory: (params: PageCreatePhotoStoriesParams) =>
       client.post<PageFields>(`${id}/photo_stories`, params as Record<string, unknown>),
     photos: {
+      __path: `${id}/photos`,
+      __brand: undefined as unknown as PhotoFields,
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: PageListPhotosParams }) =>
         new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreatePhotosParams) =>
         client.post<PhotoFields>(`${id}/photos`, params as Record<string, unknown>),
     },
     picture: {
+      __path: `${id}/picture`,
+      __brand: undefined as unknown as ProfilePictureSourceFields,
       list: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: PageListPictureParams }) =>
         new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreatePictureParams) =>
@@ -1562,6 +1610,8 @@ export function pageNode(client: ApiClient, id: string) {
     secondaryReceivers: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: PageListSecondaryReceiversParams }) =>
       new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/secondary_receivers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     settings: {
+      __path: `${id}/settings`,
+      __brand: undefined as unknown as PageSettingsFields,
       list: <F extends (keyof PageSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageSettingsFields, F[number]>>(client, `${id}/settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateSettingsParams) =>
@@ -1570,6 +1620,8 @@ export function pageNode(client: ApiClient, id: string) {
     shopSetupStatus: <F extends (keyof CommerceMerchantSettingsSetupStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CommerceMerchantSettingsSetupStatusFields, F[number]>>(client, `${id}/shop_setup_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     spaceParticipants: {
+      __path: `${id}/space_participants`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/space_participants`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateSpaceParticipantsParams) =>
@@ -1580,6 +1632,8 @@ export function pageNode(client: ApiClient, id: string) {
     stories: <F extends (keyof StoriesFields)[]>(opts: { fields: F; params?: PageListStoriesParams }) =>
       new Cursor<Pick<StoriesFields, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     subscribedApps: {
+      __path: `${id}/subscribed_apps`,
+      __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateSubscribedAppsParams) =>
@@ -1600,6 +1654,8 @@ export function pageNode(client: ApiClient, id: string) {
     createUnlinkAccount: (params: PageCreateUnlinkAccountsParams) =>
       client.post<PageFields>(`${id}/unlink_accounts`, params as Record<string, unknown>),
     videoCopyrightRules: {
+      __path: `${id}/video_copyright_rules`,
+      __brand: undefined as unknown as VideoCopyrightRuleFields,
       list: <F extends (keyof VideoCopyrightRuleFields)[]>(opts: { fields: F; params?: PageListVideoCopyrightRulesParams }) =>
         new Cursor<Pick<VideoCopyrightRuleFields, F[number]>>(client, `${id}/video_copyright_rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateVideoCopyrightRulesParams) =>
@@ -1610,6 +1666,8 @@ export function pageNode(client: ApiClient, id: string) {
     videoLists: <F extends (keyof VideoListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<VideoListFields, F[number]>>(client, `${id}/video_lists`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     videoReels: {
+      __path: `${id}/video_reels`,
+      __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: PageListVideoReelsParams }) =>
         new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/video_reels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateVideoReelsParams) =>
@@ -1618,6 +1676,8 @@ export function pageNode(client: ApiClient, id: string) {
     createVideoStory: (params: PageCreateVideoStoriesParams) =>
       client.post<Record<string, unknown>>(`${id}/video_stories`, params as Record<string, unknown>),
     videos: {
+      __path: `${id}/videos`,
+      __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: PageListVideosParams }) =>
         new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateVideosParams) =>
@@ -1626,6 +1686,8 @@ export function pageNode(client: ApiClient, id: string) {
     visitorPosts: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: PageListVisitorPostsParams }) =>
       new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/visitor_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     welcomeMessageFlows: {
+      __path: `${id}/welcome_message_flows`,
+      __brand: undefined as unknown as CTXPartnerAppWelcomeMessageFlowFields,
       list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: PageListWelcomeMessageFlowsParams }) =>
         new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: PageCreateWelcomeMessageFlowsParams) =>

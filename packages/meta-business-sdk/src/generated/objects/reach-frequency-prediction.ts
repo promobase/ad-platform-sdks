@@ -104,6 +104,8 @@ export interface ReachFrequencyPredictionFields {
 
 export function reachFrequencyPredictionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ReachFrequencyPredictionFields,
     get: <F extends (keyof ReachFrequencyPredictionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ReachFrequencyPredictionFields, F[number]>>(`${id}`, opts),
   };

@@ -21,6 +21,8 @@ export interface MediaCopyrightAttributionFields {
 
 export function mediaCopyrightAttributionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MediaCopyrightAttributionFields,
     get: <F extends (keyof MediaCopyrightAttributionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MediaCopyrightAttributionFields, F[number]>>(`${id}`, opts),
   };

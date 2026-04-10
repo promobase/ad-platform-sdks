@@ -329,6 +329,8 @@ export interface AdSetUpdateParams {
 
 export function adSetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdSetFields,
     get: <F extends (keyof AdSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdSetFields, F[number]>>(`${id}`, opts),
     update: (params: AdSetUpdateParams) =>
@@ -342,6 +344,8 @@ export function adSetNode(client: ApiClient, id: string) {
     adcreatives: <F extends (keyof AdCreativeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdCreativeFields, F[number]>>(client, `${id}/adcreatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     adlabels: {
+      __path: `${id}/adlabels`,
+      __brand: undefined as unknown as AdSetFields,
       create: (params: AdSetCreateAdlabelsParams) =>
         client.post<AdSetFields>(`${id}/adlabels`, params as Record<string, unknown>),
       delete: (params: AdSetDeleteAdlabelsParams) =>
@@ -354,12 +358,16 @@ export function adSetNode(client: ApiClient, id: string) {
     asyncadrequests: <F extends (keyof AdAsyncRequestFields)[]>(opts: { fields: F; params?: AdSetListAsyncadrequestsParams }) =>
       new Cursor<Pick<AdAsyncRequestFields, F[number]>>(client, `${id}/asyncadrequests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     budgetSchedules: {
+      __path: `${id}/budget_schedules`,
+      __brand: undefined as unknown as HighDemandPeriodFields,
       list: <F extends (keyof HighDemandPeriodFields)[]>(opts: { fields: F; params?: AdSetListBudgetSchedulesParams }) =>
         new Cursor<Pick<HighDemandPeriodFields, F[number]>>(client, `${id}/budget_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdSetCreateBudgetSchedulesParams) =>
         client.post<HighDemandPeriodFields>(`${id}/budget_schedules`, params as Record<string, unknown>),
     },
     copies: {
+      __path: `${id}/copies`,
+      __brand: undefined as unknown as AdSetFields,
       list: <F extends (keyof AdSetFields)[]>(opts: { fields: F; params?: AdSetListCopiesParams }) =>
         new Cursor<Pick<AdSetFields, F[number]>>(client, `${id}/copies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdSetCreateCopiesParams) =>
@@ -368,6 +376,8 @@ export function adSetNode(client: ApiClient, id: string) {
     deliveryEstimate: <F extends (keyof AdCampaignDeliveryEstimateFields)[]>(opts: { fields: F; params?: AdSetListDeliveryEstimateParams }) =>
       new Cursor<Pick<AdCampaignDeliveryEstimateFields, F[number]>>(client, `${id}/delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     insights: {
+      __path: `${id}/insights`,
+      __brand: undefined as unknown as AdsInsightsFields,
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdSetListInsightsParams }) =>
         new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdSetCreateInsightsParams) =>

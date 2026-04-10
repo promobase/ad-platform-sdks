@@ -27,6 +27,8 @@ export interface AdStudyCellUpdateParams {
 
 export function adStudyCellNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdStudyCellFields,
     get: <F extends (keyof AdStudyCellFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdStudyCellFields, F[number]>>(`${id}`, opts),
     update: (params: AdStudyCellUpdateParams) =>

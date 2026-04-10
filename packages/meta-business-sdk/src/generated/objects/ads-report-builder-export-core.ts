@@ -21,6 +21,8 @@ export interface AdsReportBuilderExportCoreFields {
 
 export function adsReportBuilderExportCoreNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsReportBuilderExportCoreFields,
     get: <F extends (keyof AdsReportBuilderExportCoreFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsReportBuilderExportCoreFields, F[number]>>(`${id}`, opts),
   };

@@ -8,6 +8,8 @@ export interface ProductCatalogLocalizationSettingsFields {
 
 export function productCatalogLocalizationSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductCatalogLocalizationSettingsFields,
     get: <F extends (keyof ProductCatalogLocalizationSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductCatalogLocalizationSettingsFields, F[number]>>(`${id}`, opts),
   };

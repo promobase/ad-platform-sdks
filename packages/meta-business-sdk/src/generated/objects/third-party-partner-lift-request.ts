@@ -21,6 +21,8 @@ export interface ThirdPartyPartnerLiftRequestFields {
 
 export function thirdPartyPartnerLiftRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ThirdPartyPartnerLiftRequestFields,
     get: <F extends (keyof ThirdPartyPartnerLiftRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ThirdPartyPartnerLiftRequestFields, F[number]>>(`${id}`, opts),
   };

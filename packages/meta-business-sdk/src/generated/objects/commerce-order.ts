@@ -42,6 +42,8 @@ export interface CommerceOrderCreateShipmentsParams {
 
 export function commerceOrderNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CommerceOrderFields,
     get: <F extends (keyof CommerceOrderFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CommerceOrderFields, F[number]>>(`${id}`, opts),
     cancellations: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
@@ -59,6 +61,8 @@ export function commerceOrderNode(client: ApiClient, id: string) {
     returns: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: CommerceOrderListReturnsParams }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/returns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     shipments: {
+      __path: `${id}/shipments`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/shipments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CommerceOrderCreateShipmentsParams) =>

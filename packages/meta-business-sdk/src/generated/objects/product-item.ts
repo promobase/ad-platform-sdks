@@ -207,6 +207,8 @@ export interface ProductItemUpdateParams {
 
 export function productItemNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductItemFields,
     get: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductItemFields, F[number]>>(`${id}`, opts),
     update: (params: ProductItemUpdateParams) =>

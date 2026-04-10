@@ -6,6 +6,8 @@ export interface WithAsset3DFields {
 
 export function withAsset3DNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WithAsset3DFields,
     get: <F extends (keyof WithAsset3DFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WithAsset3DFields, F[number]>>(`${id}`, opts),
   };

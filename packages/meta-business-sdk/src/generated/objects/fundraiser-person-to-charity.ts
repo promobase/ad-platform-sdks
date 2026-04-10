@@ -51,6 +51,8 @@ export interface FundraiserPersonToCharityUpdateParams {
 
 export function fundraiserPersonToCharityNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as FundraiserPersonToCharityFields,
     get: <F extends (keyof FundraiserPersonToCharityFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<FundraiserPersonToCharityFields, F[number]>>(`${id}`, opts),
     update: (params: FundraiserPersonToCharityUpdateParams) =>
@@ -60,6 +62,8 @@ export function fundraiserPersonToCharityNode(client: ApiClient, id: string) {
     createEndFundraiser: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/end_fundraiser`, params as Record<string, unknown>),
     externalDonations: {
+      __path: `${id}/external_donations`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/external_donations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: FundraiserPersonToCharityCreateExternalDonationsParams) =>

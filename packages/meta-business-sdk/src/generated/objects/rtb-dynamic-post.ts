@@ -29,6 +29,8 @@ export interface RTBDynamicPostListCommentsParams {
 
 export function rTBDynamicPostNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as RTBDynamicPostFields,
     get: <F extends (keyof RTBDynamicPostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<RTBDynamicPostFields, F[number]>>(`${id}`, opts),
     comments: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: RTBDynamicPostListCommentsParams }) =>

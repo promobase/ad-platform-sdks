@@ -8,6 +8,8 @@ export interface WifiInformationFields {
 
 export function wifiInformationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WifiInformationFields,
     get: <F extends (keyof WifiInformationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WifiInformationFields, F[number]>>(`${id}`, opts),
   };

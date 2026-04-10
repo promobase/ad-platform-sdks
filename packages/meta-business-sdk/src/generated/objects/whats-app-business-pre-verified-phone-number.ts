@@ -25,6 +25,8 @@ export interface WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams {
 
 export function whatsAppBusinessPreVerifiedPhoneNumberNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WhatsAppBusinessPreVerifiedPhoneNumberFields,
     get: <F extends (keyof WhatsAppBusinessPreVerifiedPhoneNumberFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WhatsAppBusinessPreVerifiedPhoneNumberFields, F[number]>>(`${id}`, opts),
     delete: () =>

@@ -692,6 +692,8 @@ export interface BusinessUpdateParams {
 
 export function businessNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessFields,
     get: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessFields, F[number]>>(`${id}`, opts),
     update: (params: BusinessUpdateParams) =>
@@ -707,6 +709,8 @@ export function businessNode(client: ApiClient, id: string) {
     createAdReviewRequest: (params: BusinessCreateAdReviewRequestsParams) =>
       client.post<Record<string, unknown>>(`${id}/ad_review_requests`, params as Record<string, unknown>),
     adStudies: {
+      __path: `${id}/ad_studies`,
+      __brand: undefined as unknown as AdStudyFields,
       list: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateAdStudiesParams) =>
@@ -719,6 +723,8 @@ export function businessNode(client: ApiClient, id: string) {
     createAdnetworkApplication: (params: BusinessCreateAdnetworkApplicationsParams) =>
       client.post<ApplicationFields>(`${id}/adnetwork_applications`, params as Record<string, unknown>),
     adnetworkanalytics: {
+      __path: `${id}/adnetworkanalytics`,
+      __brand: undefined as unknown as AdNetworkAnalyticsSyncQueryResultFields,
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsParams }) =>
         new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateAdnetworkanalyticsParams) =>
@@ -727,6 +733,8 @@ export function businessNode(client: ApiClient, id: string) {
     adnetworkanalyticsResults: <F extends (keyof AdNetworkAnalyticsAsyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsResultsParams }) =>
       new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     adsDataset: {
+      __path: `${id}/ads_dataset`,
+      __brand: undefined as unknown as AdsDatasetFields,
       list: <F extends (keyof AdsDatasetFields)[]>(opts: { fields: F; params?: BusinessListAdsDatasetParams }) =>
         new Cursor<Pick<AdsDatasetFields, F[number]>>(client, `${id}/ads_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateAdsDatasetParams) =>
@@ -737,12 +745,16 @@ export function businessNode(client: ApiClient, id: string) {
     adsReportingMmmSchedulers: <F extends (keyof AdsReportBuilderMMMReportSchedulerFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdsReportBuilderMMMReportSchedulerFields, F[number]>>(client, `${id}/ads_reporting_mmm_schedulers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     adspixels: {
+      __path: `${id}/adspixels`,
+      __brand: undefined as unknown as AdsPixelFields,
       list: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: BusinessListAdspixelsParams }) =>
         new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/adspixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateAdspixelsParams) =>
         client.post<AdsPixelFields>(`${id}/adspixels`, params as Record<string, unknown>),
     },
     agencies: {
+      __path: `${id}/agencies`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       delete: (params: BusinessDeleteAgenciesParams) =>
@@ -759,6 +771,8 @@ export function businessNode(client: ApiClient, id: string) {
     businessInvoices: <F extends (keyof OmegaCustomerTrxFields)[]>(opts: { fields: F; params?: BusinessListBusinessInvoicesParams }) =>
       new Cursor<Pick<OmegaCustomerTrxFields, F[number]>>(client, `${id}/business_invoices`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     businessUsers: {
+      __path: `${id}/business_users`,
+      __brand: undefined as unknown as BusinessUserFields,
       list: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateBusinessUsersParams) =>
@@ -771,6 +785,8 @@ export function businessNode(client: ApiClient, id: string) {
     clientAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: BusinessListClientAdAccountsParams }) =>
       new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/client_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     clientApps: {
+      __path: `${id}/client_apps`,
+      __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateClientAppsParams) =>
@@ -781,6 +797,8 @@ export function businessNode(client: ApiClient, id: string) {
     clientOffsiteSignalContainerBusinessObjects: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/client_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     clientPages: {
+      __path: `${id}/client_pages`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateClientPagesParams) =>
@@ -793,6 +811,8 @@ export function businessNode(client: ApiClient, id: string) {
     clientWhatsappBusinessAccounts: <F extends (keyof WhatsAppBusinessAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/client_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     clients: {
+      __path: `${id}/clients`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/clients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       delete: (params: BusinessDeleteClientsParams) =>
@@ -805,6 +825,8 @@ export function businessNode(client: ApiClient, id: string) {
     commerceMerchantSettings: <F extends (keyof CommerceMerchantSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CommerceMerchantSettingsFields, F[number]>>(client, `${id}/commerce_merchant_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     cpasBusinessSetupConfig: {
+      __path: `${id}/cpas_business_setup_config`,
+      __brand: undefined as unknown as CPASBusinessSetupConfigFields,
       list: <F extends (keyof CPASBusinessSetupConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CPASBusinessSetupConfigFields, F[number]>>(client, `${id}/cpas_business_setup_config`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateCpasBusinessSetupConfigParams) =>
@@ -819,6 +841,8 @@ export function businessNode(client: ApiClient, id: string) {
     createCustomconversion: (params: BusinessCreateCustomconversionsParams) =>
       client.post<CustomConversionFields>(`${id}/customconversions`, params as Record<string, unknown>),
     eventSourceGroups: {
+      __path: `${id}/event_source_groups`,
+      __brand: undefined as unknown as EventSourceGroupFields,
       list: <F extends (keyof EventSourceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<EventSourceGroupFields, F[number]>>(client, `${id}/event_source_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateEventSourceGroupsParams) =>
@@ -833,6 +857,8 @@ export function businessNode(client: ApiClient, id: string) {
     initiatedAudienceSharingRequests: <F extends (keyof BusinessAssetSharingAgreementFields)[]>(opts: { fields: F; params?: BusinessListInitiatedAudienceSharingRequestsParams }) =>
       new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/initiated_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     instagramAccounts: {
+      __path: `${id}/instagram_accounts`,
+      __brand: undefined as unknown as IGUserFields,
       list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       delete: (params: BusinessDeleteInstagramAccountsParams) =>
@@ -841,6 +867,8 @@ export function businessNode(client: ApiClient, id: string) {
     instagramBusinessAccounts: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     managedBusinesses: {
+      __path: `${id}/managed_businesses`,
+      __brand: undefined as unknown as BusinessFields,
       create: (params: BusinessCreateManagedBusinessesParams) =>
         client.post<BusinessFields>(`${id}/managed_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteManagedBusinessesParams) =>
@@ -851,6 +879,8 @@ export function businessNode(client: ApiClient, id: string) {
     createManagedPartnerBusinessSetup: (params: BusinessCreateManagedPartnerBusinessSetupParams) =>
       client.post<BusinessFields>(`${id}/managed_partner_business_setup`, params as Record<string, unknown>),
     managedPartnerBusinesses: {
+      __path: `${id}/managed_partner_businesses`,
+      __brand: undefined as unknown as ManagedPartnerBusinessFields,
       create: (params: BusinessCreateManagedPartnerBusinessesParams) =>
         client.post<ManagedPartnerBusinessFields>(`${id}/managed_partner_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteManagedPartnerBusinessesParams) =>
@@ -859,24 +889,32 @@ export function businessNode(client: ApiClient, id: string) {
     createOnboardPartnersToMmLite: (params: BusinessCreateOnboardPartnersToMmLiteParams) =>
       client.post<Record<string, unknown>>(`${id}/onboard_partners_to_mm_lite`, params as Record<string, unknown>),
     openbridgeConfigurations: {
+      __path: `${id}/openbridge_configurations`,
+      __brand: undefined as unknown as OpenBridgeConfigurationFields,
       list: <F extends (keyof OpenBridgeConfigurationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<OpenBridgeConfigurationFields, F[number]>>(client, `${id}/openbridge_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOpenbridgeConfigurationsParams) =>
         client.post<OpenBridgeConfigurationFields>(`${id}/openbridge_configurations`, params as Record<string, unknown>),
     },
     ownedAdAccounts: {
+      __path: `${id}/owned_ad_accounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: BusinessListOwnedAdAccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOwnedAdAccountsParams) =>
         client.post<BusinessFields>(`${id}/owned_ad_accounts`, params as Record<string, unknown>),
     },
     ownedApps: {
+      __path: `${id}/owned_apps`,
+      __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/owned_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOwnedAppsParams) =>
         client.post<BusinessFields>(`${id}/owned_apps`, params as Record<string, unknown>),
     },
     ownedBusinesses: {
+      __path: `${id}/owned_businesses`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: BusinessListOwnedBusinessesParams }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/owned_businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOwnedBusinessesParams) =>
@@ -891,6 +929,8 @@ export function businessNode(client: ApiClient, id: string) {
     ownedOffsiteSignalContainerBusinessObjects: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/owned_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     ownedPages: {
+      __path: `${id}/owned_pages`,
+      __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PageFields, F[number]>>(client, `${id}/owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOwnedPagesParams) =>
@@ -899,6 +939,8 @@ export function businessNode(client: ApiClient, id: string) {
     ownedPixels: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/owned_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     ownedProductCatalogs: {
+      __path: `${id}/owned_product_catalogs`,
+      __brand: undefined as unknown as ProductCatalogFields,
       list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/owned_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateOwnedProductCatalogsParams) =>
@@ -945,6 +987,8 @@ export function businessNode(client: ApiClient, id: string) {
     createSetupManagedPartnerAdaccount: (params: BusinessCreateSetupManagedPartnerAdaccountsParams) =>
       client.post<BusinessFields>(`${id}/setup_managed_partner_adaccounts`, params as Record<string, unknown>),
     sharePreverifiedNumbers: {
+      __path: `${id}/share_preverified_numbers`,
+      __brand: undefined as unknown as BusinessFields,
       create: (params: BusinessCreateSharePreverifiedNumbersParams) =>
         client.post<BusinessFields>(`${id}/share_preverified_numbers`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteSharePreverifiedNumbersParams) =>
@@ -953,6 +997,8 @@ export function businessNode(client: ApiClient, id: string) {
     createSystemUserAccessToken: (params: BusinessCreateSystemUserAccessTokensParams) =>
       client.post<BusinessFields>(`${id}/system_user_access_tokens`, params as Record<string, unknown>),
     systemUsers: {
+      __path: `${id}/system_users`,
+      __brand: undefined as unknown as SystemUserFields,
       list: <F extends (keyof SystemUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<SystemUserFields, F[number]>>(client, `${id}/system_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: BusinessCreateSystemUsersParams) =>

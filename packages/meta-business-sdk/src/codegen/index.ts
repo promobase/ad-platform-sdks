@@ -116,6 +116,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push(`import { ApiClient } from "@promobase/sdk-runtime";`);
   factoryLines.push(`import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";`);
   factoryLines.push(`import { FacebookApiError } from "../errors.ts";`);
+  factoryLines.push(`import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`);
 
   for (const { fnName, fileName } of specsWithApis) {
     factoryLines.push(`import { ${fnName} } from "./objects/${fileName}.ts";`);
@@ -124,6 +125,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push("");
   factoryLines.push("export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {");
   factoryLines.push("  baseUrl?: string;");
+  factoryLines.push("  apiVersion?: string;");
   factoryLines.push("}");
   factoryLines.push("");
   factoryLines.push("export function createTypedClient(opts: MetaClientOptions) {");
@@ -138,6 +140,11 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     factoryLines.push(`    ${methodName}: (id: string) => ${fnName}(client, id),`);
   }
 
+  factoryLines.push(`    batch: async <T extends Record<string, BatchHandle<unknown>>>(fn: (b: BatchBuilder) => T): Promise<ResolveBatchHandles<T>> => {`);
+  factoryLines.push(`      const builder = new BatchBuilder();`);
+  factoryLines.push(`      const handles = fn(builder);`);
+  factoryLines.push(`      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);`);
+  factoryLines.push(`    },`);
   factoryLines.push("    client,");
   factoryLines.push("  };");
   factoryLines.push("}");
@@ -168,6 +175,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";`);
   barrelLines.push(`export { Cursor } from "@promobase/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
+  barrelLines.push(`export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

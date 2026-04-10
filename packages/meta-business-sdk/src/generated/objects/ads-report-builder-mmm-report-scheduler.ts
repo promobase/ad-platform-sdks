@@ -10,6 +10,8 @@ export interface AdsReportBuilderMMMReportSchedulerFields {
 
 export function adsReportBuilderMMMReportSchedulerNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsReportBuilderMMMReportSchedulerFields,
     get: <F extends (keyof AdsReportBuilderMMMReportSchedulerFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsReportBuilderMMMReportSchedulerFields, F[number]>>(`${id}`, opts),
   };

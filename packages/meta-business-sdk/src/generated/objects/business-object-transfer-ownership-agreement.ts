@@ -10,6 +10,8 @@ export interface BusinessObjectTransferOwnershipAgreementFields {
 
 export function businessObjectTransferOwnershipAgreementNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessObjectTransferOwnershipAgreementFields,
     get: <F extends (keyof BusinessObjectTransferOwnershipAgreementFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessObjectTransferOwnershipAgreementFields, F[number]>>(`${id}`, opts),
   };

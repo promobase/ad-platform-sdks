@@ -12,6 +12,8 @@ export interface CreatorAssetCreativeFields {
 
 export function creatorAssetCreativeNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CreatorAssetCreativeFields,
     get: <F extends (keyof CreatorAssetCreativeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CreatorAssetCreativeFields, F[number]>>(`${id}`, opts),
   };

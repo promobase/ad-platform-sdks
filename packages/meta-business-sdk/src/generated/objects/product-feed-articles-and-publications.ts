@@ -16,6 +16,8 @@ export interface ProductFeedArticlesAndPublicationsListPublicationsParams {
 
 export function productFeedArticlesAndPublicationsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductFeedArticlesAndPublicationsFields,
     publications: <F extends (keyof ProductFeedArticlesAndPublicationsGetFields)[]>(opts: { fields: F; params?: ProductFeedArticlesAndPublicationsListPublicationsParams }) =>
       new Cursor<Pick<ProductFeedArticlesAndPublicationsGetFields, F[number]>>(client, `${id}/publications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

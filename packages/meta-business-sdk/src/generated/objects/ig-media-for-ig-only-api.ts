@@ -44,6 +44,8 @@ export interface IGMediaForIGOnlyAPIUpdateParams {
 
 export function iGMediaForIGOnlyAPINode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGMediaForIGOnlyAPIFields,
     get: <F extends (keyof IGMediaForIGOnlyAPIFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGMediaForIGOnlyAPIFields, F[number]>>(`${id}`, opts),
     update: (params: IGMediaForIGOnlyAPIUpdateParams) =>
@@ -51,6 +53,8 @@ export function iGMediaForIGOnlyAPINode(client: ApiClient, id: string) {
     children: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGMediaForIGOnlyAPICreateCommentsParams) =>

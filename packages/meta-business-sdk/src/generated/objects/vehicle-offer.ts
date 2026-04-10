@@ -79,6 +79,8 @@ export interface VehicleOfferListOverrideDetailsParams {
 
 export function vehicleOfferNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as VehicleOfferFields,
     get: <F extends (keyof VehicleOfferFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VehicleOfferFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

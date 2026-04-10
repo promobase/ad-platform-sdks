@@ -20,6 +20,8 @@ export interface AdsValueAdjustmentRuleCollectionUpdateParams {
 
 export function adsValueAdjustmentRuleCollectionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsValueAdjustmentRuleCollectionFields,
     get: <F extends (keyof AdsValueAdjustmentRuleCollectionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsValueAdjustmentRuleCollectionFields, F[number]>>(`${id}`, opts),
     update: (params: AdsValueAdjustmentRuleCollectionUpdateParams) =>

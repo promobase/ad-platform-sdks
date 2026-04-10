@@ -13,6 +13,8 @@ export interface WearableDevicePublicKeyFields {
 
 export function wearableDevicePublicKeyNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WearableDevicePublicKeyFields,
     get: <F extends (keyof WearableDevicePublicKeyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WearableDevicePublicKeyFields, F[number]>>(`${id}`, opts),
   };

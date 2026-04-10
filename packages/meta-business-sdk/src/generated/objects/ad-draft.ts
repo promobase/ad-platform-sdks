@@ -21,6 +21,8 @@ export interface AdDraftFields {
 
 export function adDraftNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdDraftFields,
     get: <F extends (keyof AdDraftFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdDraftFields, F[number]>>(`${id}`, opts),
   };

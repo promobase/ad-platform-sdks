@@ -95,6 +95,8 @@ export interface HomeListingUpdateParams {
 
 export function homeListingNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as HomeListingFields,
     get: <F extends (keyof HomeListingFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<HomeListingFields, F[number]>>(`${id}`, opts),
     update: (params: HomeListingUpdateParams) =>

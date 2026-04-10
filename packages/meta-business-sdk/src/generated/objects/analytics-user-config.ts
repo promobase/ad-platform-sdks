@@ -8,6 +8,8 @@ export interface AnalyticsUserConfigFields {
 
 export function analyticsUserConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AnalyticsUserConfigFields,
     get: <F extends (keyof AnalyticsUserConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AnalyticsUserConfigFields, F[number]>>(`${id}`, opts),
   };

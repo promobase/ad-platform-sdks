@@ -17,6 +17,8 @@ export interface WorkExperienceFields {
 
 export function workExperienceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WorkExperienceFields,
     get: <F extends (keyof WorkExperienceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WorkExperienceFields, F[number]>>(`${id}`, opts),
   };

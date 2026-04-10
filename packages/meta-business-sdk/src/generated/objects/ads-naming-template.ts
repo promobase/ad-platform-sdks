@@ -14,6 +14,8 @@ export interface AdsNamingTemplateFields {
 
 export function adsNamingTemplateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsNamingTemplateFields,
     get: <F extends (keyof AdsNamingTemplateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsNamingTemplateFields, F[number]>>(`${id}`, opts),
   };

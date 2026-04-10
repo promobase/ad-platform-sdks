@@ -14,6 +14,8 @@ export interface ManagementSiteLinkFields {
 
 export function managementSiteLinkNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ManagementSiteLinkFields,
     get: <F extends (keyof ManagementSiteLinkFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ManagementSiteLinkFields, F[number]>>(`${id}`, opts),
   };

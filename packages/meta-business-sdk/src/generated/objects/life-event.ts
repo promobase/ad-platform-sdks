@@ -17,6 +17,8 @@ export interface LifeEventFields {
 
 export function lifeEventNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LifeEventFields,
     get: <F extends (keyof LifeEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LifeEventFields, F[number]>>(`${id}`, opts),
     likes: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

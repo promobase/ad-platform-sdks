@@ -22,6 +22,8 @@ export interface CanvasTemplateFields {
 
 export function canvasTemplateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CanvasTemplateFields,
     get: <F extends (keyof CanvasTemplateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CanvasTemplateFields, F[number]>>(`${id}`, opts),
   };

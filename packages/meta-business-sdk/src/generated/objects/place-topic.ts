@@ -12,6 +12,8 @@ export interface PlaceTopicFields {
 
 export function placeTopicNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PlaceTopicFields,
     get: <F extends (keyof PlaceTopicFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PlaceTopicFields, F[number]>>(`${id}`, opts),
   };

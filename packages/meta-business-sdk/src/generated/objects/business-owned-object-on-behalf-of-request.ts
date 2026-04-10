@@ -11,6 +11,8 @@ export interface BusinessOwnedObjectOnBehalfOfRequestFields {
 
 export function businessOwnedObjectOnBehalfOfRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessOwnedObjectOnBehalfOfRequestFields,
     get: <F extends (keyof BusinessOwnedObjectOnBehalfOfRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessOwnedObjectOnBehalfOfRequestFields, F[number]>>(`${id}`, opts),
   };

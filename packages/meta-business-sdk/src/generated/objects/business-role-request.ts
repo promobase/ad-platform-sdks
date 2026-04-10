@@ -28,6 +28,8 @@ export interface BusinessRoleRequestUpdateParams {
 
 export function businessRoleRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessRoleRequestFields,
     get: <F extends (keyof BusinessRoleRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessRoleRequestFields, F[number]>>(`${id}`, opts),
     update: (params: BusinessRoleRequestUpdateParams) =>

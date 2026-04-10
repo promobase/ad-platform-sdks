@@ -10,6 +10,8 @@ export interface EventExternalTicketInfoFields {
 
 export function eventExternalTicketInfoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as EventExternalTicketInfoFields,
     get: <F extends (keyof EventExternalTicketInfoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EventExternalTicketInfoFields, F[number]>>(`${id}`, opts),
   };

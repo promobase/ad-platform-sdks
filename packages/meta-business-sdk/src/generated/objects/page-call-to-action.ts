@@ -42,6 +42,8 @@ export interface PageCallToActionUpdateParams {
 
 export function pageCallToActionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PageCallToActionFields,
     get: <F extends (keyof PageCallToActionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PageCallToActionFields, F[number]>>(`${id}`, opts),
     update: (params: PageCallToActionUpdateParams) =>

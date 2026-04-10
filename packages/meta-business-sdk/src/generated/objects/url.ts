@@ -20,6 +20,8 @@ export interface URLUpdateParams {
 
 export function uRLNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as URLFields,
     get: <F extends (keyof URLFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<URLFields, F[number]>>(`${id}`, opts),
     update: (params: URLUpdateParams) =>

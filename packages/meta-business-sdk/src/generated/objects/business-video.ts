@@ -12,6 +12,8 @@ export interface BusinessVideoFields {
 
 export function businessVideoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessVideoFields,
     get: <F extends (keyof BusinessVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessVideoFields, F[number]>>(`${id}`, opts),
   };

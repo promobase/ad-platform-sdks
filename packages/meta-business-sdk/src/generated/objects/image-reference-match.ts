@@ -25,6 +25,8 @@ export interface ImageReferenceMatchFields {
 
 export function imageReferenceMatchNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ImageReferenceMatchFields,
     get: <F extends (keyof ImageReferenceMatchFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ImageReferenceMatchFields, F[number]>>(`${id}`, opts),
   };

@@ -14,6 +14,8 @@ export interface ALMAdAccountInfoFields {
 
 export function aLMAdAccountInfoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ALMAdAccountInfoFields,
     get: <F extends (keyof ALMAdAccountInfoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ALMAdAccountInfoFields, F[number]>>(`${id}`, opts),
   };

@@ -21,6 +21,8 @@ export interface FBImageCopyrightMatchFields {
 
 export function fBImageCopyrightMatchNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as FBImageCopyrightMatchFields,
     get: <F extends (keyof FBImageCopyrightMatchFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<FBImageCopyrightMatchFields, F[number]>>(`${id}`, opts),
   };

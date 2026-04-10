@@ -12,6 +12,8 @@ export interface CallAdsPhoneDataFields {
 
 export function callAdsPhoneDataNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CallAdsPhoneDataFields,
     get: <F extends (keyof CallAdsPhoneDataFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CallAdsPhoneDataFields, F[number]>>(`${id}`, opts),
   };

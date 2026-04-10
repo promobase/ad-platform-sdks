@@ -12,6 +12,8 @@ export interface AudioSubLabelFields {
 
 export function audioSubLabelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AudioSubLabelFields,
     get: <F extends (keyof AudioSubLabelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AudioSubLabelFields, F[number]>>(`${id}`, opts),
   };

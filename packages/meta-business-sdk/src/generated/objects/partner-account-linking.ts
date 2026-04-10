@@ -16,6 +16,8 @@ export interface PartnerAccountLinkingFields {
 
 export function partnerAccountLinkingNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PartnerAccountLinkingFields,
     get: <F extends (keyof PartnerAccountLinkingFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PartnerAccountLinkingFields, F[number]>>(`${id}`, opts),
   };

@@ -23,6 +23,8 @@ export interface AdImageFields {
 
 export function adImageNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdImageFields,
     get: <F extends (keyof AdImageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdImageFields, F[number]>>(`${id}`, opts),
   };

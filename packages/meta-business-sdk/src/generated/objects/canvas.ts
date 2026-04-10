@@ -64,6 +64,8 @@ export interface CanvasUpdateParams {
 
 export function canvasNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CanvasFields,
     get: <F extends (keyof CanvasFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CanvasFields, F[number]>>(`${id}`, opts),
     update: (params: CanvasUpdateParams) =>

@@ -29,6 +29,8 @@ export interface SystemUserListAssignedPagesParams {
 
 export function systemUserNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as SystemUserFields,
     get: <F extends (keyof SystemUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<SystemUserFields, F[number]>>(`${id}`, opts),
     assignedAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

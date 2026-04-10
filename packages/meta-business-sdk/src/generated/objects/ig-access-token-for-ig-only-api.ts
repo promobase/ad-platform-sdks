@@ -8,6 +8,8 @@ export interface IGAccessTokenForIGOnlyAPIFields {
 
 export function iGAccessTokenForIGOnlyAPINode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGAccessTokenForIGOnlyAPIFields,
     get: <F extends (keyof IGAccessTokenForIGOnlyAPIFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGAccessTokenForIGOnlyAPIFields, F[number]>>(`${id}`, opts),
   };

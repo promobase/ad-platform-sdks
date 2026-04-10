@@ -34,6 +34,8 @@ export interface AdStudyObjectiveUpdateParams {
 
 export function adStudyObjectiveNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdStudyObjectiveFields,
     get: <F extends (keyof AdStudyObjectiveFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdStudyObjectiveFields, F[number]>>(`${id}`, opts),
     update: (params: AdStudyObjectiveUpdateParams) =>

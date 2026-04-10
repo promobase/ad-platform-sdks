@@ -16,6 +16,8 @@ export interface CPASLsbImageBankUpdateParams {
 
 export function cPASLsbImageBankNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CPASLsbImageBankFields,
     get: <F extends (keyof CPASLsbImageBankFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CPASLsbImageBankFields, F[number]>>(`${id}`, opts),
     update: (params: CPASLsbImageBankUpdateParams) =>

@@ -1000,3 +1000,4 @@ export type { MetaClientOptions } from "./client-factory.ts";
 export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";
 export { Cursor } from "@promobase/sdk-runtime";
 export { FacebookApiError } from "../errors.ts";
+export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";

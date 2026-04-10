@@ -22,6 +22,8 @@ export interface InstagramUserFields {
 
 export function instagramUserNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as InstagramUserFields,
     get: <F extends (keyof InstagramUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<InstagramUserFields, F[number]>>(`${id}`, opts),
     upcomingEvents: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

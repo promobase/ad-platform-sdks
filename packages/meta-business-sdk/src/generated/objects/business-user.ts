@@ -52,6 +52,8 @@ export interface BusinessUserUpdateParams {
 
 export function businessUserNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessUserFields,
     get: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessUserFields, F[number]>>(`${id}`, opts),
     update: (params: BusinessUserUpdateParams) =>

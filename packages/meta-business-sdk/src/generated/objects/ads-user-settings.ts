@@ -113,6 +113,8 @@ export interface AdsUserSettingsFields {
 
 export function adsUserSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsUserSettingsFields,
     get: <F extends (keyof AdsUserSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsUserSettingsFields, F[number]>>(`${id}`, opts),
   };

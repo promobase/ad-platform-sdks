@@ -13,6 +13,8 @@ export interface AdsReportBuilderMMMReportFields {
 
 export function adsReportBuilderMMMReportNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsReportBuilderMMMReportFields,
     get: <F extends (keyof AdsReportBuilderMMMReportFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsReportBuilderMMMReportFields, F[number]>>(`${id}`, opts),
   };

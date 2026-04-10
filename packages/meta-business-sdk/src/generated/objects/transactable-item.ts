@@ -36,6 +36,8 @@ export interface TransactableItemListOverrideDetailsParams {
 
 export function transactableItemNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as TransactableItemFields,
     get: <F extends (keyof TransactableItemFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<TransactableItemFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

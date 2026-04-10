@@ -31,6 +31,8 @@ export interface JobOpeningFields {
 
 export function jobOpeningNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as JobOpeningFields,
     get: <F extends (keyof JobOpeningFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<JobOpeningFields, F[number]>>(`${id}`, opts),
   };

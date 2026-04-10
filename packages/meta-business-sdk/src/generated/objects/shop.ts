@@ -12,6 +12,8 @@ export interface ShopFields {
 
 export function shopNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ShopFields,
     get: <F extends (keyof ShopFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ShopFields, F[number]>>(`${id}`, opts),
   };

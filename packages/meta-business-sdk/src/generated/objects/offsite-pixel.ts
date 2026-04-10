@@ -11,6 +11,8 @@ export interface OffsitePixelFields {
 
 export function offsitePixelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OffsitePixelFields,
     get: <F extends (keyof OffsitePixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OffsitePixelFields, F[number]>>(`${id}`, opts),
   };

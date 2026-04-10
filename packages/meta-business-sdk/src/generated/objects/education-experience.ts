@@ -16,6 +16,8 @@ export interface EducationExperienceFields {
 
 export function educationExperienceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as EducationExperienceFields,
     get: <F extends (keyof EducationExperienceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EducationExperienceFields, F[number]>>(`${id}`, opts),
   };

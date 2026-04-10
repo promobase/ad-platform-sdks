@@ -12,6 +12,8 @@ export interface AdExportPresetFields {
 
 export function adExportPresetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdExportPresetFields,
     get: <F extends (keyof AdExportPresetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdExportPresetFields, F[number]>>(`${id}`, opts),
   };

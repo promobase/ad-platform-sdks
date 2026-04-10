@@ -8,6 +8,8 @@ export interface WhatsAppBusinessProfileFields {
 
 export function whatsAppBusinessProfileNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as WhatsAppBusinessProfileFields,
     get: <F extends (keyof WhatsAppBusinessProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<WhatsAppBusinessProfileFields, F[number]>>(`${id}`, opts),
     update: (params?: Record<string, unknown>) =>

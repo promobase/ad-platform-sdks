@@ -13,6 +13,8 @@ export interface MediaCopyrightUpdateRecordFields {
 
 export function mediaCopyrightUpdateRecordNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MediaCopyrightUpdateRecordFields,
     get: <F extends (keyof MediaCopyrightUpdateRecordFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MediaCopyrightUpdateRecordFields, F[number]>>(`${id}`, opts),
   };

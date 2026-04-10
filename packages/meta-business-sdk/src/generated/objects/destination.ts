@@ -45,6 +45,8 @@ export interface DestinationListOverrideDetailsParams {
 
 export function destinationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as DestinationFields,
     get: <F extends (keyof DestinationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<DestinationFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

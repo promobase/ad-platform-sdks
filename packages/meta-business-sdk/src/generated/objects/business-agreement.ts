@@ -13,6 +13,8 @@ export interface BusinessAgreementUpdateParams {
 
 export function businessAgreementNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessAgreementFields,
     get: <F extends (keyof BusinessAgreementFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessAgreementFields, F[number]>>(`${id}`, opts),
     update: (params: BusinessAgreementUpdateParams) =>

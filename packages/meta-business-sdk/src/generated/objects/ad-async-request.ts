@@ -15,6 +15,8 @@ export interface AdAsyncRequestFields {
 
 export function adAsyncRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdAsyncRequestFields,
     get: <F extends (keyof AdAsyncRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdAsyncRequestFields, F[number]>>(`${id}`, opts),
     delete: () =>

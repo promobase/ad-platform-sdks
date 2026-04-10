@@ -9,6 +9,8 @@ export interface AdsPixelCapabilityOverrideFields {
 
 export function adsPixelCapabilityOverrideNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsPixelCapabilityOverrideFields,
     get: <F extends (keyof AdsPixelCapabilityOverrideFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsPixelCapabilityOverrideFields, F[number]>>(`${id}`, opts),
   };

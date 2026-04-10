@@ -39,6 +39,8 @@ export interface AdRuleUpdateParams {
 
 export function adRuleNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdRuleFields,
     get: <F extends (keyof AdRuleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdRuleFields, F[number]>>(`${id}`, opts),
     update: (params: AdRuleUpdateParams) =>

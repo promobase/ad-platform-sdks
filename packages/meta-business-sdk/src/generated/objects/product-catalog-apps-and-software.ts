@@ -6,6 +6,8 @@ export interface ProductCatalogAppsAndSoftwareFields {
 
 export function productCatalogAppsAndSoftwareNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductCatalogAppsAndSoftwareFields,
     createAppsAndSoftware: (params: Record<string, unknown>) =>
       client.post<ProductCatalogAppsAndSoftwarePostFields>(`${id}/apps_and_software`, params as Record<string, unknown>),
   };

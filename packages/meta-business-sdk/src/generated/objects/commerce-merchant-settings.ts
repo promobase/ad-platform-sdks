@@ -77,6 +77,8 @@ export interface CommerceMerchantSettingsUpdateParams {
 
 export function commerceMerchantSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CommerceMerchantSettingsFields,
     get: <F extends (keyof CommerceMerchantSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CommerceMerchantSettingsFields, F[number]>>(`${id}`, opts),
     update: (params: CommerceMerchantSettingsUpdateParams) =>

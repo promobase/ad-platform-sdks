@@ -22,6 +22,8 @@ export interface PrivateLiftStudyInstanceUpdateParams {
 
 export function privateLiftStudyInstanceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PrivateLiftStudyInstanceFields,
     get: <F extends (keyof PrivateLiftStudyInstanceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PrivateLiftStudyInstanceFields, F[number]>>(`${id}`, opts),
     update: (params: PrivateLiftStudyInstanceUpdateParams) =>

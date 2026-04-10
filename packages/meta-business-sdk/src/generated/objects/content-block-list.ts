@@ -13,6 +13,8 @@ export interface ContentBlockListFields {
 
 export function contentBlockListNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ContentBlockListFields,
     get: <F extends (keyof ContentBlockListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ContentBlockListFields, F[number]>>(`${id}`, opts),
     appliedAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

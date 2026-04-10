@@ -11,6 +11,8 @@ export interface BusinessProjectFields {
 
 export function businessProjectNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessProjectFields,
     get: <F extends (keyof BusinessProjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessProjectFields, F[number]>>(`${id}`, opts),
   };

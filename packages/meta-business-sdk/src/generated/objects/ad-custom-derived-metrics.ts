@@ -24,6 +24,8 @@ export interface AdCustomDerivedMetricsFields {
 
 export function adCustomDerivedMetricsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdCustomDerivedMetricsFields,
     get: <F extends (keyof AdCustomDerivedMetricsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdCustomDerivedMetricsFields, F[number]>>(`${id}`, opts),
   };

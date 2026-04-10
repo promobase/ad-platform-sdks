@@ -17,6 +17,8 @@ export interface OffsiteSignalContainerBusinessObjectFields {
 
 export function offsiteSignalContainerBusinessObjectNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OffsiteSignalContainerBusinessObjectFields,
     get: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(`${id}`, opts),
     linkedApplication: <F extends (keyof AdsDatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

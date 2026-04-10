@@ -15,6 +15,8 @@ export interface ProductFeedRulesListRulesParams {
 
 export function productFeedRulesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductFeedRulesFields,
     rules: <F extends (keyof ProductFeedRulesGetFields)[]>(opts: { fields: F; params?: ProductFeedRulesListRulesParams }) =>
       new Cursor<Pick<ProductFeedRulesGetFields, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

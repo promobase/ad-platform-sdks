@@ -15,6 +15,8 @@ export interface CloudGameFields {
 
 export function cloudGameNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CloudGameFields,
     get: <F extends (keyof CloudGameFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CloudGameFields, F[number]>>(`${id}`, opts),
   };

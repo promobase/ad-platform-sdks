@@ -27,6 +27,8 @@ export interface ProfileListPictureParams {
 
 export function profileNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProfileFields,
     get: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProfileFields, F[number]>>(`${id}`, opts),
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: ProfileListPictureParams }) =>

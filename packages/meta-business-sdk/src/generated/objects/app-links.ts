@@ -20,6 +20,8 @@ export interface AppLinksFields {
 
 export function appLinksNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AppLinksFields,
     get: <F extends (keyof AppLinksFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AppLinksFields, F[number]>>(`${id}`, opts),
   };

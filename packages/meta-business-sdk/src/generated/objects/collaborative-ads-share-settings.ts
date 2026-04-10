@@ -12,6 +12,8 @@ export interface CollaborativeAdsShareSettingsFields {
 
 export function collaborativeAdsShareSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CollaborativeAdsShareSettingsFields,
     get: <F extends (keyof CollaborativeAdsShareSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CollaborativeAdsShareSettingsFields, F[number]>>(`${id}`, opts),
   };

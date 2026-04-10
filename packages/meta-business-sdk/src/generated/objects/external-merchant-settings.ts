@@ -8,6 +8,8 @@ export interface ExternalMerchantSettingsFields {
 
 export function externalMerchantSettingsNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ExternalMerchantSettingsFields,
     get: <F extends (keyof ExternalMerchantSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ExternalMerchantSettingsFields, F[number]>>(`${id}`, opts),
   };

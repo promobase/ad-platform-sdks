@@ -19,6 +19,8 @@ export interface ThirdPartyPartnerPanelScheduledFields {
 
 export function thirdPartyPartnerPanelScheduledNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ThirdPartyPartnerPanelScheduledFields,
     get: <F extends (keyof ThirdPartyPartnerPanelScheduledFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ThirdPartyPartnerPanelScheduledFields, F[number]>>(`${id}`, opts),
   };

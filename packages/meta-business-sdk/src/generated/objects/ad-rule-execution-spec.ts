@@ -9,6 +9,8 @@ export interface AdRuleExecutionSpecFields {
 
 export function adRuleExecutionSpecNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdRuleExecutionSpecFields,
     get: <F extends (keyof AdRuleExecutionSpecFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdRuleExecutionSpecFields, F[number]>>(`${id}`, opts),
   };

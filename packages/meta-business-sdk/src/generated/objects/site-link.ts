@@ -10,6 +10,8 @@ export interface SiteLinkFields {
 
 export function siteLinkNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as SiteLinkFields,
     get: <F extends (keyof SiteLinkFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<SiteLinkFields, F[number]>>(`${id}`, opts),
   };

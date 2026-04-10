@@ -26,6 +26,8 @@ export interface PartnerIntegrationLinkedFields {
 
 export function partnerIntegrationLinkedNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PartnerIntegrationLinkedFields,
     get: <F extends (keyof PartnerIntegrationLinkedFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PartnerIntegrationLinkedFields, F[number]>>(`${id}`, opts),
   };

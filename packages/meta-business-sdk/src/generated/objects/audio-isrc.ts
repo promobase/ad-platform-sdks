@@ -14,6 +14,8 @@ export interface AudioIsrcFields {
 
 export function audioIsrcNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AudioIsrcFields,
     get: <F extends (keyof AudioIsrcFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AudioIsrcFields, F[number]>>(`${id}`, opts),
   };

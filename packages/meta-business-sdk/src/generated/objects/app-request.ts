@@ -15,6 +15,8 @@ export interface AppRequestFields {
 
 export function appRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AppRequestFields,
     get: <F extends (keyof AppRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AppRequestFields, F[number]>>(`${id}`, opts),
     delete: () =>

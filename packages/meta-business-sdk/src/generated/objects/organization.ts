@@ -9,6 +9,8 @@ export interface OrganizationFields {
 
 export function organizationNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OrganizationFields,
     get: <F extends (keyof OrganizationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OrganizationFields, F[number]>>(`${id}`, opts),
   };

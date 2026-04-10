@@ -13,6 +13,8 @@ export interface DynamicItemDisplayBundleFolderFields {
 
 export function dynamicItemDisplayBundleFolderNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as DynamicItemDisplayBundleFolderFields,
     get: <F extends (keyof DynamicItemDisplayBundleFolderFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<DynamicItemDisplayBundleFolderFields, F[number]>>(`${id}`, opts),
   };

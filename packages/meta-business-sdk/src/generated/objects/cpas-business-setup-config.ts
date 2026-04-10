@@ -14,6 +14,8 @@ export interface CPASBusinessSetupConfigFields {
 
 export function cPASBusinessSetupConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CPASBusinessSetupConfigFields,
     get: <F extends (keyof CPASBusinessSetupConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CPASBusinessSetupConfigFields, F[number]>>(`${id}`, opts),
     adAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

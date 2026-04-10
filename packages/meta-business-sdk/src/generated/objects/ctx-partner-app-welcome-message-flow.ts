@@ -14,6 +14,8 @@ export interface CTXPartnerAppWelcomeMessageFlowFields {
 
 export function cTXPartnerAppWelcomeMessageFlowNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CTXPartnerAppWelcomeMessageFlowFields,
     get: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(`${id}`, opts),
   };

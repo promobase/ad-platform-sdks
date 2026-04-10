@@ -8,6 +8,8 @@ export interface IGBCAdsPermissionFields {
 
 export function iGBCAdsPermissionNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGBCAdsPermissionFields,
     get: <F extends (keyof IGBCAdsPermissionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGBCAdsPermissionFields, F[number]>>(`${id}`, opts),
   };

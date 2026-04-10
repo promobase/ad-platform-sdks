@@ -48,6 +48,8 @@ export interface LeadgenFormUpdateParams {
 
 export function leadgenFormNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LeadgenFormFields,
     get: <F extends (keyof LeadgenFormFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LeadgenFormFields, F[number]>>(`${id}`, opts),
     update: (params: LeadgenFormUpdateParams) =>
@@ -55,6 +57,8 @@ export function leadgenFormNode(client: ApiClient, id: string) {
     leads: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     testLeads: {
+      __path: `${id}/test_leads`,
+      __brand: undefined as unknown as LeadFields,
       list: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/test_leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: LeadgenFormCreateTestLeadsParams) =>

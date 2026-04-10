@@ -10,6 +10,8 @@ export interface MeasurementReportFields {
 
 export function measurementReportNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MeasurementReportFields,
     get: <F extends (keyof MeasurementReportFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MeasurementReportFields, F[number]>>(`${id}`, opts),
   };

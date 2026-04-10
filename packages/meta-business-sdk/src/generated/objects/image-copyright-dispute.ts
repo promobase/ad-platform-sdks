@@ -14,6 +14,8 @@ export interface ImageCopyrightDisputeFields {
 
 export function imageCopyrightDisputeNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ImageCopyrightDisputeFields,
     get: <F extends (keyof ImageCopyrightDisputeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ImageCopyrightDisputeFields, F[number]>>(`${id}`, opts),
   };

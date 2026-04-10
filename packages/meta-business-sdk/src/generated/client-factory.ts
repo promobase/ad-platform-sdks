@@ -3,6 +3,7 @@
 import { ApiClient } from "@promobase/sdk-runtime";
 import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";
 import { FacebookApiError } from "../errors.ts";
+import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";
 import { offlineProductItemNode } from "./objects/offline-product-item.ts";
 import { businessFranchiseConfigNode } from "./objects/business-franchise-config.ts";
 import { iGMediaNode } from "./objects/ig-media.ts";
@@ -320,6 +321,7 @@ import { productCatalogDataSourcesNode } from "./objects/product-catalog-data-so
 
 export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {
   baseUrl?: string;
+  apiVersion?: string;
 }
 
 export function createTypedClient(opts: MetaClientOptions) {
@@ -643,6 +645,11 @@ export function createTypedClient(opts: MetaClientOptions) {
     workSkill: (id: string) => workSkillNode(client, id),
     aREffect: (id: string) => aREffectNode(client, id),
     productCatalogDataSources: (id: string) => productCatalogDataSourcesNode(client, id),
+    batch: async <T extends Record<string, BatchHandle<unknown>>>(fn: (b: BatchBuilder) => T): Promise<ResolveBatchHandles<T>> => {
+      const builder = new BatchBuilder();
+      const handles = fn(builder);
+      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);
+    },
     client,
   };
 }

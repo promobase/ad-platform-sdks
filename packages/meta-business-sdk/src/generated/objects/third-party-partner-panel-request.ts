@@ -18,6 +18,8 @@ export interface ThirdPartyPartnerPanelRequestFields {
 
 export function thirdPartyPartnerPanelRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ThirdPartyPartnerPanelRequestFields,
     get: <F extends (keyof ThirdPartyPartnerPanelRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ThirdPartyPartnerPanelRequestFields, F[number]>>(`${id}`, opts),
   };

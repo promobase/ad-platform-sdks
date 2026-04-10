@@ -14,6 +14,8 @@ export interface PageInsightsAsyncExportRunFields {
 
 export function pageInsightsAsyncExportRunNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PageInsightsAsyncExportRunFields,
     get: <F extends (keyof PageInsightsAsyncExportRunFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PageInsightsAsyncExportRunFields, F[number]>>(`${id}`, opts),
   };

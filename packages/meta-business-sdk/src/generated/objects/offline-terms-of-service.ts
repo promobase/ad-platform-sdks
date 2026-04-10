@@ -9,6 +9,8 @@ export interface OfflineTermsOfServiceFields {
 
 export function offlineTermsOfServiceNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as OfflineTermsOfServiceFields,
     get: <F extends (keyof OfflineTermsOfServiceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineTermsOfServiceFields, F[number]>>(`${id}`, opts),
   };

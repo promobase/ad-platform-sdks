@@ -97,6 +97,8 @@ export interface ProductGroupUpdateParams {
 
 export function productGroupNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductGroupFields,
     get: <F extends (keyof ProductGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ProductGroupFields, F[number]>>(`${id}`, opts),
     update: (params: ProductGroupUpdateParams) =>
@@ -104,6 +106,8 @@ export function productGroupNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     products: {
+      __path: `${id}/products`,
+      __brand: undefined as unknown as ProductItemFields,
       list: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: ProductGroupCreateProductsParams) =>

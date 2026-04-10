@@ -12,6 +12,8 @@ export interface CPASMerchantConfigFields {
 
 export function cPASMerchantConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CPASMerchantConfigFields,
     get: <F extends (keyof CPASMerchantConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CPASMerchantConfigFields, F[number]>>(`${id}`, opts),
   };

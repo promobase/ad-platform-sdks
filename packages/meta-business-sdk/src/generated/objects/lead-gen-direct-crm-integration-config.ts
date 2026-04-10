@@ -15,6 +15,8 @@ export interface LeadGenDirectCRMIntegrationConfigFields {
 
 export function leadGenDirectCRMIntegrationConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LeadGenDirectCRMIntegrationConfigFields,
     get: <F extends (keyof LeadGenDirectCRMIntegrationConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LeadGenDirectCRMIntegrationConfigFields, F[number]>>(`${id}`, opts),
   };

@@ -148,6 +148,8 @@ export interface AdsPixelUpdateParams {
 
 export function adsPixelNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsPixelFields,
     get: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsPixelFields, F[number]>>(`${id}`, opts),
     update: (params: AdsPixelUpdateParams) =>
@@ -155,6 +157,8 @@ export function adsPixelNode(client: ApiClient, id: string) {
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: AdsPixelListAdaccountsParams }) =>
       new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     agencies: {
+      __path: `${id}/agencies`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdsPixelCreateAgenciesParams) =>
@@ -165,6 +169,8 @@ export function adsPixelNode(client: ApiClient, id: string) {
     createAhpConfig: (params: AdsPixelCreateAhpConfigsParams) =>
       client.post<Record<string, unknown>>(`${id}/ahp_configs`, params as Record<string, unknown>),
     assignedUsers: {
+      __path: `${id}/assigned_users`,
+      __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: AdsPixelListAssignedUsersParams }) =>
         new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdsPixelCreateAssignedUsersParams) =>
@@ -181,6 +187,8 @@ export function adsPixelNode(client: ApiClient, id: string) {
     createShadowtraffichelper: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/shadowtraffichelper`, params as Record<string, unknown>),
     sharedAccounts: {
+      __path: `${id}/shared_accounts`,
+      __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: AdsPixelListSharedAccountsParams }) =>
         new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdsPixelCreateSharedAccountsParams) =>

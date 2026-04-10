@@ -16,6 +16,8 @@ export interface ThirdPartyPartnerViewabilityRequestFields {
 
 export function thirdPartyPartnerViewabilityRequestNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ThirdPartyPartnerViewabilityRequestFields,
     get: <F extends (keyof ThirdPartyPartnerViewabilityRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ThirdPartyPartnerViewabilityRequestFields, F[number]>>(`${id}`, opts),
   };

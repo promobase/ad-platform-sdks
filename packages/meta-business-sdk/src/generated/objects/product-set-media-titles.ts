@@ -17,6 +17,8 @@ export interface ProductSetMediaTitlesListMediaTitlesParams {
 
 export function productSetMediaTitlesNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ProductSetMediaTitlesFields,
     mediaTitles: <F extends (keyof ProductSetMediaTitlesGetFields)[]>(opts: { fields: F; params?: ProductSetMediaTitlesListMediaTitlesParams }) =>
       new Cursor<Pick<ProductSetMediaTitlesGetFields, F[number]>>(client, `${id}/media_titles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };

@@ -33,6 +33,8 @@ export interface ImageCopyrightUpdateParams {
 
 export function imageCopyrightNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ImageCopyrightFields,
     get: <F extends (keyof ImageCopyrightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ImageCopyrightFields, F[number]>>(`${id}`, opts),
     update: (params: ImageCopyrightUpdateParams) =>

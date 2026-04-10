@@ -21,6 +21,8 @@ export interface MusicVideoCopyrightFields {
 
 export function musicVideoCopyrightNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as MusicVideoCopyrightFields,
     get: <F extends (keyof MusicVideoCopyrightFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MusicVideoCopyrightFields, F[number]>>(`${id}`, opts),
   };

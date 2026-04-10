@@ -11,6 +11,8 @@ export interface AdsCreationSavedStateFields {
 
 export function adsCreationSavedStateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdsCreationSavedStateFields,
     get: <F extends (keyof AdsCreationSavedStateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdsCreationSavedStateFields, F[number]>>(`${id}`, opts),
   };

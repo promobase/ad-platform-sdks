@@ -11,6 +11,8 @@ export interface ThirdPartyMeasurementReportDatasetFields {
 
 export function thirdPartyMeasurementReportDatasetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ThirdPartyMeasurementReportDatasetFields,
     get: <F extends (keyof ThirdPartyMeasurementReportDatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ThirdPartyMeasurementReportDatasetFields, F[number]>>(`${id}`, opts),
   };

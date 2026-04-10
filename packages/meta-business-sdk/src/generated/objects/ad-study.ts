@@ -61,6 +61,8 @@ export interface AdStudyUpdateParams {
 
 export function adStudyNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdStudyFields,
     get: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdStudyFields, F[number]>>(`${id}`, opts),
     update: (params: AdStudyUpdateParams) =>
@@ -72,6 +74,8 @@ export function adStudyNode(client: ApiClient, id: string) {
     createCheckpoint: (params: AdStudyCreateCheckpointParams) =>
       client.post<AdStudyFields>(`${id}/checkpoint`, params as Record<string, unknown>),
     instances: {
+      __path: `${id}/instances`,
+      __brand: undefined as unknown as PrivateLiftStudyInstanceFields,
       list: <F extends (keyof PrivateLiftStudyInstanceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<PrivateLiftStudyInstanceFields, F[number]>>(client, `${id}/instances`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: AdStudyCreateInstancesParams) =>

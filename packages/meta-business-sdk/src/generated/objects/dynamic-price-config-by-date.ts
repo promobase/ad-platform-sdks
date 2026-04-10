@@ -8,6 +8,8 @@ export interface DynamicPriceConfigByDateFields {
 
 export function dynamicPriceConfigByDateNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as DynamicPriceConfigByDateFields,
     get: <F extends (keyof DynamicPriceConfigByDateFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<DynamicPriceConfigByDateFields, F[number]>>(`${id}`, opts),
   };

@@ -14,6 +14,8 @@ export interface BusinessCreativeFolderFields {
 
 export function businessCreativeFolderNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as BusinessCreativeFolderFields,
     get: <F extends (keyof BusinessCreativeFolderFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<BusinessCreativeFolderFields, F[number]>>(`${id}`, opts),
   };

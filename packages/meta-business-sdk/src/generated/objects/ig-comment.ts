@@ -33,6 +33,8 @@ export interface IGCommentUpdateParams {
 
 export function iGCommentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGCommentFields,
     get: <F extends (keyof IGCommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGCommentFields, F[number]>>(`${id}`, opts),
     update: (params: IGCommentUpdateParams) =>
@@ -40,6 +42,8 @@ export function iGCommentNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     replies: {
+      __path: `${id}/replies`,
+      __brand: undefined as unknown as IGCommentFields,
       list: <F extends (keyof IGCommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<IGCommentFields, F[number]>>(client, `${id}/replies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGCommentCreateRepliesParams) =>

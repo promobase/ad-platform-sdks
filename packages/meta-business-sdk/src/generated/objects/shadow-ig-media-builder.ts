@@ -14,6 +14,8 @@ export interface ShadowIGMediaBuilderFields {
 
 export function shadowIGMediaBuilderNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ShadowIGMediaBuilderFields,
     get: <F extends (keyof ShadowIGMediaBuilderFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ShadowIGMediaBuilderFields, F[number]>>(`${id}`, opts),
   };

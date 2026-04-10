@@ -9,6 +9,8 @@ export interface SignalsIWLExtractorFields {
 
 export function signalsIWLExtractorNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as SignalsIWLExtractorFields,
     get: <F extends (keyof SignalsIWLExtractorFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<SignalsIWLExtractorFields, F[number]>>(`${id}`, opts),
   };

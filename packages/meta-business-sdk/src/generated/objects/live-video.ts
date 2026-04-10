@@ -109,6 +109,8 @@ export interface LiveVideoUpdateParams {
 
 export function liveVideoNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as LiveVideoFields,
     get: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LiveVideoFields, F[number]>>(`${id}`, opts),
     update: (params: LiveVideoUpdateParams) =>
@@ -128,6 +130,8 @@ export function liveVideoNode(client: ApiClient, id: string) {
     createInputStream: (params: Record<string, unknown>) =>
       client.post<LiveVideoInputStreamFields>(`${id}/input_streams`, params as Record<string, unknown>),
     polls: {
+      __path: `${id}/polls`,
+      __brand: undefined as unknown as VideoPollFields,
       list: <F extends (keyof VideoPollFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<VideoPollFields, F[number]>>(client, `${id}/polls`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: LiveVideoCreatePollsParams) =>

@@ -9,6 +9,8 @@ export interface EventRegistrationSettingFields {
 
 export function eventRegistrationSettingNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as EventRegistrationSettingFields,
     get: <F extends (keyof EventRegistrationSettingFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EventRegistrationSettingFields, F[number]>>(`${id}`, opts),
   };

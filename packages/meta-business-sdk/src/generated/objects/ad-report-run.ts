@@ -28,6 +28,8 @@ export interface AdReportRunFields {
 
 export function adReportRunNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdReportRunFields,
     get: <F extends (keyof AdReportRunFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdReportRunFields, F[number]>>(`${id}`, opts),
     insights: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

@@ -10,6 +10,8 @@ export interface AdAccountAgencyFeeConfigFields {
 
 export function adAccountAgencyFeeConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdAccountAgencyFeeConfigFields,
     get: <F extends (keyof AdAccountAgencyFeeConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdAccountAgencyFeeConfigFields, F[number]>>(`${id}`, opts),
   };

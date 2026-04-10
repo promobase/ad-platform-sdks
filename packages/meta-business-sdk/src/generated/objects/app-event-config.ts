@@ -32,6 +32,8 @@ export interface AppEventConfigFields {
 
 export function appEventConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AppEventConfigFields,
     get: <F extends (keyof AppEventConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AppEventConfigFields, F[number]>>(`${id}`, opts),
   };

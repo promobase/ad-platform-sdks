@@ -23,6 +23,8 @@ export interface CopyrightMediaMisuseFields {
 
 export function copyrightMediaMisuseNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CopyrightMediaMisuseFields,
     get: <F extends (keyof CopyrightMediaMisuseFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CopyrightMediaMisuseFields, F[number]>>(`${id}`, opts),
   };

@@ -24,6 +24,8 @@ export interface PagePostExperimentFields {
 
 export function pagePostExperimentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PagePostExperimentFields,
     get: <F extends (keyof PagePostExperimentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PagePostExperimentFields, F[number]>>(`${id}`, opts),
     delete: () =>

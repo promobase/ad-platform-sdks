@@ -24,6 +24,8 @@ export interface PartnerStudyFields {
 
 export function partnerStudyNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PartnerStudyFields,
     get: <F extends (keyof PartnerStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PartnerStudyFields, F[number]>>(`${id}`, opts),
   };

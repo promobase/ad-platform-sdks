@@ -20,6 +20,8 @@ export interface ShadowIGHashtagListTopMediaParams {
 
 export function shadowIGHashtagNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as ShadowIGHashtagFields,
     get: <F extends (keyof ShadowIGHashtagFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<ShadowIGHashtagFields, F[number]>>(`${id}`, opts),
     recentMedia: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: ShadowIGHashtagListRecentMediaParams }) =>

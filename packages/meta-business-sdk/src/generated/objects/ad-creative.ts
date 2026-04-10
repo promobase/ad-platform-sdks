@@ -141,6 +141,8 @@ export interface AdCreativeUpdateParams {
 
 export function adCreativeNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as AdCreativeFields,
     get: <F extends (keyof AdCreativeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdCreativeFields, F[number]>>(`${id}`, opts),
     update: (params: AdCreativeUpdateParams) =>

@@ -8,6 +8,8 @@ export interface PageLeadsAccessConfigFields {
 
 export function pageLeadsAccessConfigNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as PageLeadsAccessConfigFields,
     get: <F extends (keyof PageLeadsAccessConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<PageLeadsAccessConfigFields, F[number]>>(`${id}`, opts),
   };

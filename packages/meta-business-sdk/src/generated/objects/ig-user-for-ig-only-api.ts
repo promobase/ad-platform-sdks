@@ -143,6 +143,8 @@ export interface IGUserForIGOnlyAPICreateWelcomeMessageFlowsParams {
 
 export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as IGUserForIGOnlyAPIFields,
     get: <F extends (keyof IGUserForIGOnlyAPIFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGUserForIGOnlyAPIFields, F[number]>>(`${id}`, opts),
     businessMessagingFeatureStatus: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListBusinessMessagingFeatureStatusParams }) =>
@@ -156,6 +158,8 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     liveMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     media: {
+      __path: `${id}/media`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListMediaParams }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserForIGOnlyAPICreateMediaParams) =>
@@ -170,6 +174,8 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     createMessage: (params: IGUserForIGOnlyAPICreateMessagesParams) =>
       client.post<Record<string, unknown>>(`${id}/messages`, params as Record<string, unknown>),
     messengerProfile: {
+      __path: `${id}/messenger_profile`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserForIGOnlyAPICreateMessengerProfileParams) =>
@@ -180,6 +186,8 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     stories: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     subscribedApps: {
+      __path: `${id}/subscribed_apps`,
+      __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserForIGOnlyAPICreateSubscribedAppsParams) =>
@@ -190,6 +198,8 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     tags: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     welcomeMessageFlows: {
+      __path: `${id}/welcome_message_flows`,
+      __brand: undefined as unknown as CTXPartnerAppWelcomeMessageFlowFields,
       list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListWelcomeMessageFlowsParams }) =>
         new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: IGUserForIGOnlyAPICreateWelcomeMessageFlowsParams) =>

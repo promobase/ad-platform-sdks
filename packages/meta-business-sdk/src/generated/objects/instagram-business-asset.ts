@@ -39,9 +39,13 @@ export interface InstagramBusinessAssetCreateAssignedUsersParams {
 
 export function instagramBusinessAssetNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as InstagramBusinessAssetFields,
     get: <F extends (keyof InstagramBusinessAssetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<InstagramBusinessAssetFields, F[number]>>(`${id}`, opts),
     agencies: {
+      __path: `${id}/agencies`,
+      __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: InstagramBusinessAssetCreateAgenciesParams) =>
@@ -50,6 +54,8 @@ export function instagramBusinessAssetNode(client: ApiClient, id: string) {
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     assignedUsers: {
+      __path: `${id}/assigned_users`,
+      __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: InstagramBusinessAssetListAssignedUsersParams }) =>
         new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: InstagramBusinessAssetCreateAssignedUsersParams) =>

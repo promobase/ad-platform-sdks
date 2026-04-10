@@ -87,6 +87,8 @@ export interface CommentUpdateParams {
 
 export function commentNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as CommentFields,
     get: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<CommentFields, F[number]>>(`${id}`, opts),
     update: (params: CommentUpdateParams) =>
@@ -94,12 +96,16 @@ export function commentNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     comments: {
+      __path: `${id}/comments`,
+      __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: CommentListCommentsParams }) =>
         new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CommentCreateCommentsParams) =>
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
     likes: {
+      __path: `${id}/likes`,
+      __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
         new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
       create: (params: CommentCreateLikesParams) =>

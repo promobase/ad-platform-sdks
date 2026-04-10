@@ -17,6 +17,8 @@ export interface DynamicARMetadataFields {
 
 export function dynamicARMetadataNode(client: ApiClient, id: string) {
   return {
+    __path: id,
+    __brand: undefined as unknown as DynamicARMetadataFields,
     get: <F extends (keyof DynamicARMetadataFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<DynamicARMetadataFields, F[number]>>(`${id}`, opts),
   };
