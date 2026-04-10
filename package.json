@@ -6,7 +6,7 @@
   "scripts": {
     "codegen": "bun src/codegen/index.ts",
     "typecheck": "tsc --noEmit",
-    "test": "bun test",
+    "test": "bun test tests/",
     "build": "bun build src/generated/index.ts --outdir dist --target node"
   },
   "devDependencies": {
