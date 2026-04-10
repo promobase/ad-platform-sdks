@@ -1,0 +1,111 @@
+import type { ApiClient } from "@promobase/sdk-runtime";
+import type { DayPartFields } from "./day-part.ts";
+import type { ReachFrequencyActivityFields } from "./reach-frequency-activity.ts";
+import type { ReachFrequencyAdFormatFields } from "./reach-frequency-ad-format.ts";
+import type { ReachFrequencyDayPartFields } from "./reach-frequency-day-part.ts";
+import type { ReachFrequencyEstimatesCurveFields } from "./reach-frequency-estimates-curve.ts";
+import type { ReachFrequencyEstimatesPlacementBreakdownFields } from "./reach-frequency-estimates-placement-breakdown.ts";
+import type { TargetingFields } from "./targeting.ts";
+import type { TrendingTopicsSpecFields } from "./trending-topics-spec.ts";
+
+export interface ReachFrequencyPredictionFields {
+  account_id: number;
+  activity_status: ReachFrequencyActivityFields;
+  ad_formats: ReachFrequencyAdFormatFields[];
+  auction_entry_option_index: number;
+  audience_size_lower_bound: number;
+  audience_size_upper_bound: number;
+  business_id: number;
+  buying_type: string;
+  campaign_group_id: number;
+  campaign_id: string;
+  campaign_time_start: string;
+  campaign_time_stop: string;
+  currency: string;
+  curve_budget_reach: ReachFrequencyEstimatesCurveFields;
+  curve_reach: number[];
+  daily_grp_curve: number[];
+  daily_impression_curve: number[];
+  daily_impression_curve_map: Record<number, number[]>[];
+  day_parting_schedule: ReachFrequencyDayPartFields[];
+  destination_id: string;
+  end_time: string;
+  expiration_time: string;
+  external_budget: number;
+  external_impression: number;
+  external_maximum_budget: number;
+  external_maximum_impression: string;
+  external_maximum_reach: number;
+  external_minimum_budget: number;
+  external_minimum_impression: number;
+  external_minimum_reach: number;
+  external_reach: number;
+  feed_ratio_0000: number;
+  frequency_cap: number;
+  frequency_distribution_map: Record<number, number[]>[];
+  frequency_distribution_map_agg: Record<number, number[]>[];
+  grp_audience_size: number;
+  grp_avg_probability_map: string;
+  grp_country_audience_size: number;
+  grp_curve: number[];
+  grp_dmas_audience_size: number;
+  grp_filtering_threshold_00: number;
+  grp_points: number;
+  grp_ratio: number;
+  grp_reach_ratio: number;
+  grp_status: string;
+  holdout_percentage: number;
+  id: string;
+  impression_curve: number[];
+  instagram_destination_id: string;
+  instream_packages: string[];
+  interval_frequency_cap: number;
+  interval_frequency_cap_reset_period: number;
+  is_balanced_frequency: boolean;
+  is_bonus_media: number;
+  is_conversion_goal: number;
+  is_higher_average_frequency: boolean;
+  is_io: boolean;
+  is_reserved_buying: number;
+  is_trp: boolean;
+  name: string;
+  objective: number;
+  objective_name: string;
+  odax_objective: number;
+  odax_objective_name: string;
+  optimization_goal: number;
+  optimization_goal_name: string;
+  pause_periods: Record<string, unknown>[];
+  percent_reach_at_target_frequency: number;
+  placement_breakdown: ReachFrequencyEstimatesPlacementBreakdownFields;
+  placement_breakdown_map: Record<number, ReachFrequencyEstimatesPlacementBreakdownFields>[];
+  plan_name: string;
+  plan_type: string;
+  prediction_mode: number;
+  prediction_progress: number;
+  reference_id: string;
+  reservation_status: number;
+  start_time: string;
+  status: number;
+  story_event_type: number;
+  target_cpm: number;
+  target_frequency: number;
+  target_frequency_reset_period: number;
+  target_spec: TargetingFields;
+  time_created: string;
+  time_updated: string;
+  timezone_id: number;
+  timezone_name: string;
+  topline_id: number;
+  trending_topics_spec: TrendingTopicsSpecFields;
+  video_view_length_constraint: number;
+  viewtag: string;
+}
+
+export function reachFrequencyPredictionNode(client: ApiClient, id: string) {
+  return {
+    get: <F extends (keyof ReachFrequencyPredictionFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+      client.get<Pick<ReachFrequencyPredictionFields, F[number]>>(`${id}`, opts),
+  };
+}
+

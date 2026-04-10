@@ -1,3 +1,3 @@
 [submodule "api_specs"]
-	path = api_specs
+	path = packages/meta-business-sdk/api_specs
 	url = https://github.com/facebook/facebook-business-sdk-codegen.git

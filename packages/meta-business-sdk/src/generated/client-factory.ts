@@ -1,0 +1,648 @@
+// Auto-generated client factory — do not edit
+
+import { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";
+import { FacebookApiError } from "../errors.ts";
+import { offlineProductItemNode } from "./objects/offline-product-item.ts";
+import { businessFranchiseConfigNode } from "./objects/business-franchise-config.ts";
+import { iGMediaNode } from "./objects/ig-media.ts";
+import { iGBCAdsPermissionNode } from "./objects/igbc-ads-permission.ts";
+import { adPlacePageSetNode } from "./objects/ad-place-page-set.ts";
+import { productCatalogMediaTitlesNode } from "./objects/product-catalog-media-titles.ts";
+import { canvasTemplateNode } from "./objects/canvas-template.ts";
+import { campaignNode } from "./objects/campaign.ts";
+import { eventTicketTierNode } from "./objects/event-ticket-tier.ts";
+import { musicVideoCopyrightNode } from "./objects/music-video-copyright.ts";
+import { productCatalogAppsAndSoftwareNode } from "./objects/product-catalog-apps-and-software.ts";
+import { advAInstanceNode } from "./objects/adv-a-instance.ts";
+import { pageUpcomingChangeNode } from "./objects/page-upcoming-change.ts";
+import { analyticsSegmentNode } from "./objects/analytics-segment.ts";
+import { adExportPresetNode } from "./objects/ad-export-preset.ts";
+import { imageReferenceMatchNode } from "./objects/image-reference-match.ts";
+import { collaborativeAdsShareSettingsNode } from "./objects/collaborative-ads-share-settings.ts";
+import { iGMediaForIGOnlyAPINode } from "./objects/ig-media-for-ig-only-api.ts";
+import { blindPigNode } from "./objects/blind-pig.ts";
+import { adAccountNode } from "./objects/ad-account.ts";
+import { leadGenDirectCRMIntegrationConfigNode } from "./objects/lead-gen-direct-crm-integration-config.ts";
+import { signalsIWLExtractorNode } from "./objects/signals-iwl-extractor.ts";
+import { dynamicARMetadataNode } from "./objects/dynamic-ar-metadata.ts";
+import { flightNode } from "./objects/flight.ts";
+import { adNode } from "./objects/ad.ts";
+import { hotelRoomNode } from "./objects/hotel-room.ts";
+import { businessCreativeFolderNode } from "./objects/business-creative-folder.ts";
+import { productSetArticlesAndPublicationsNode } from "./objects/product-set-articles-and-publications.ts";
+import { businessObjectTransferOwnershipAgreementNode } from "./objects/business-object-transfer-ownership-agreement.ts";
+import { pageCallToActionNode } from "./objects/page-call-to-action.ts";
+import { businessRoleRequestNode } from "./objects/business-role-request.ts";
+import { offlineTermsOfServiceNode } from "./objects/offline-terms-of-service.ts";
+import { extendedCreditApplicationNode } from "./objects/extended-credit-application.ts";
+import { adsCreationSavedStateNode } from "./objects/ads-creation-saved-state.ts";
+import { educationExperienceNode } from "./objects/education-experience.ts";
+import { messengerAdsPartialAutomatedStepListNode } from "./objects/messenger-ads-partial-automated-step-list.ts";
+import { audioCopyrightNode } from "./objects/audio-copyright.ts";
+import { withAsset3DNode } from "./objects/with-asset3-d.ts";
+import { woodhengePurchasedPAYGReceiptNode } from "./objects/woodhenge-purchased-payg-receipt.ts";
+import { canvasNode } from "./objects/canvas.ts";
+import { catalogContentVersionConfigNode } from "./objects/catalog-content-version-config.ts";
+import { eventSourceGroupNode } from "./objects/event-source-group.ts";
+import { personalAdsPersonaNode } from "./objects/personal-ads-persona.ts";
+import { slicedEventSourceGroupNode } from "./objects/sliced-event-source-group.ts";
+import { partnerCenterExportFileNode } from "./objects/partner-center-export-file.ts";
+import { eventExternalTicketInfoNode } from "./objects/event-external-ticket-info.ts";
+import { researchPollStudyNode } from "./objects/research-poll-study.ts";
+import { userContextNode } from "./objects/user-context.ts";
+import { aLMEndAdvertiserInfoNode } from "./objects/alm-end-advertiser-info.ts";
+import { personaNode } from "./objects/persona.ts";
+import { fantasyGameNode } from "./objects/fantasy-game.ts";
+import { customAudienceNode } from "./objects/custom-audience.ts";
+import { franchiseProgramNode } from "./objects/franchise-program.ts";
+import { adsReportBuilderSavedReportNode } from "./objects/ads-report-builder-saved-report.ts";
+import { iGUserExportForCAMNode } from "./objects/ig-user-export-for-cam.ts";
+import { audioAssetNode } from "./objects/audio-asset.ts";
+import { whatsAppBusinessAccountNode } from "./objects/whats-app-business-account.ts";
+import { adMonetizationPropertyNode } from "./objects/ad-monetization-property.ts";
+import { vehicleNode } from "./objects/vehicle.ts";
+import { paymentEnginePaymentNode } from "./objects/payment-engine-payment.ts";
+import { adRuleExecutionSpecNode } from "./objects/ad-rule-execution-spec.ts";
+import { iGAccessTokenForIGOnlyAPINode } from "./objects/ig-access-token-for-ig-only-api.ts";
+import { businessOwnedObjectOnBehalfOfRequestNode } from "./objects/business-owned-object-on-behalf-of-request.ts";
+import { productCatalogNode } from "./objects/product-catalog.ts";
+import { videoPollNode } from "./objects/video-poll.ts";
+import { playableContentNode } from "./objects/playable-content.ts";
+import { productSetMediaTitlesNode } from "./objects/product-set-media-titles.ts";
+import { businessAssetGroupNode } from "./objects/business-asset-group.ts";
+import { iGCommentNode } from "./objects/ig-comment.ts";
+import { userPageOneTimeOptInTokenSettingsNode } from "./objects/user-page-one-time-opt-in-token-settings.ts";
+import { businessNode } from "./objects/business.ts";
+import { adAsyncRequestSetNode } from "./objects/ad-async-request-set.ts";
+import { businessUserNode } from "./objects/business-user.ts";
+import { businessVideoNode } from "./objects/business-video.ts";
+import { arAdsDataContainerNode } from "./objects/ar-ads-data-container.ts";
+import { productSetNode } from "./objects/product-set.ts";
+import { adSavedReportNode } from "./objects/ad-saved-report.ts";
+import { productFeedMediaTitlesNode } from "./objects/product-feed-media-titles.ts";
+import { asyncSessionNode } from "./objects/async-session.ts";
+import { adAccountCreationRequestNode } from "./objects/ad-account-creation-request.ts";
+import { managementSiteLinkNode } from "./objects/management-site-link.ts";
+import { bidScheduleNode } from "./objects/bid-schedule.ts";
+import { chinaBusinessOnboardingVettingRequestNode } from "./objects/china-business-onboarding-vetting-request.ts";
+import { adReportRunNode } from "./objects/ad-report-run.ts";
+import { adStudyObjectiveNode } from "./objects/ad-study-objective.ts";
+import { cPASAdvertiserPartnershipRecommendationNode } from "./objects/cpas-advertiser-partnership-recommendation.ts";
+import { productFeedNode } from "./objects/product-feed.ts";
+import { reachFrequencyPredictionNode } from "./objects/reach-frequency-prediction.ts";
+import { adsReportBuilderExportCoreNode } from "./objects/ads-report-builder-export-core.ts";
+import { lifeEventNode } from "./objects/life-event.ts";
+import { businessRequestNode } from "./objects/business-request.ts";
+import { extendedCreditNode } from "./objects/extended-credit.ts";
+import { iGUpcomingEventNode } from "./objects/ig-upcoming-event.ts";
+import { adLightCampaignNode } from "./objects/ad-light-campaign.ts";
+import { productItemOfferNode } from "./objects/product-item-offer.ts";
+import { websiteCreativeAssetSuggestionsNode } from "./objects/website-creative-asset-suggestions.ts";
+import { whatsAppBusinessProfileNode } from "./objects/whats-app-business-profile.ts";
+import { brandRequestNode } from "./objects/brand-request.ts";
+import { wearableDevicePublicKeyNode } from "./objects/wearable-device-public-key.ts";
+import { unifiedThreadNode } from "./objects/unified-thread.ts";
+import { productCatalogLocalizationSettingsNode } from "./objects/product-catalog-localization-settings.ts";
+import { adAsyncRequestNode } from "./objects/ad-async-request.ts";
+import { commentNode } from "./objects/comment.ts";
+import { pagePostExperimentNode } from "./objects/page-post-experiment.ts";
+import { automotiveModelNode } from "./objects/automotive-model.ts";
+import { analyticsUserConfigNode } from "./objects/analytics-user-config.ts";
+import { adToplineDetailNode } from "./objects/ad-topline-detail.ts";
+import { videoListNode } from "./objects/video-list.ts";
+import { adsConversionGoalNode } from "./objects/ads-conversion-goal.ts";
+import { brandSafetyDownloadableNode } from "./objects/brand-safety-downloadable.ts";
+import { bizInboxOffsiteEmailAccountNode } from "./objects/biz-inbox-offsite-email-account.ts";
+import { adLightCampaignGroupNode } from "./objects/ad-light-campaign-group.ts";
+import { adDraftNode } from "./objects/ad-draft.ts";
+import { businessImageNode } from "./objects/business-image.ts";
+import { websiteCreativeInfoNode } from "./objects/website-creative-info.ts";
+import { extendedCreditInvoiceGroupNode } from "./objects/extended-credit-invoice-group.ts";
+import { dynamicItemDisplayBundleFolderNode } from "./objects/dynamic-item-display-bundle-folder.ts";
+import { rTBDynamicPostNode } from "./objects/rtb-dynamic-post.ts";
+import { eventRegistrationSettingNode } from "./objects/event-registration-setting.ts";
+import { liveVideoNode } from "./objects/live-video.ts";
+import { businessAssetSharingAgreementNode } from "./objects/business-asset-sharing-agreement.ts";
+import { adCreationPackageConfigNode } from "./objects/ad-creation-package-config.ts";
+import { copyrightMediaMisuseNode } from "./objects/copyright-media-misuse.ts";
+import { storiesNode } from "./objects/stories.ts";
+import { mediaCopyrightAttributionNode } from "./objects/media-copyright-attribution.ts";
+import { businessProjectNode } from "./objects/business-project.ts";
+import { adStudyNode } from "./objects/ad-study.ts";
+import { cTXPartnerAppWelcomeMessageFlowNode } from "./objects/ctx-partner-app-welcome-message-flow.ts";
+import { transactableItemNode } from "./objects/transactable-item.ts";
+import { adToplineNode } from "./objects/ad-topline.ts";
+import { offlineConversionDataSetNode } from "./objects/offline-conversion-data-set.ts";
+import { productFeedUploadErrorSampleNode } from "./objects/product-feed-upload-error-sample.ts";
+import { commerceOrderNode } from "./objects/commerce-order.ts";
+import { eventNode } from "./objects/event.ts";
+import { videoTextQuestionNode } from "./objects/video-text-question.ts";
+import { audioSubLabelNode } from "./objects/audio-sub-label.ts";
+import { adColumnSizesNode } from "./objects/ad-column-sizes.ts";
+import { videoCopyrightNode } from "./objects/video-copyright.ts";
+import { imageCopyrightDisputeNode } from "./objects/image-copyright-dispute.ts";
+import { productFeedUploadNode } from "./objects/product-feed-upload.ts";
+import { cPASAdCreationTemplateNode } from "./objects/cpas-ad-creation-template.ts";
+import { adsValueAdjustmentRuleCollectionNode } from "./objects/ads-value-adjustment-rule-collection.ts";
+import { iGUserNode } from "./objects/ig-user.ts";
+import { cPASParentCatalogSettingsNode } from "./objects/cpas-parent-catalog-settings.ts";
+import { appLinksNode } from "./objects/app-links.ts";
+import { adSavedLocationNode } from "./objects/ad-saved-location.ts";
+import { thirdPartyMeasurementReportDatasetNode } from "./objects/third-party-measurement-report-dataset.ts";
+import { homeListingNode } from "./objects/home-listing.ts";
+import { geoGatingPolicyNode } from "./objects/geo-gating-policy.ts";
+import { commerceMerchantSettingsNode } from "./objects/commerce-merchant-settings.ts";
+import { placeTagNode } from "./objects/place-tag.ts";
+import { adsMcmeConversionNode } from "./objects/ads-mcme-conversion.ts";
+import { shopNode } from "./objects/shop.ts";
+import { adsReportBuilderMMMReportSchedulerNode } from "./objects/ads-report-builder-mmm-report-scheduler.ts";
+import { contentBlockListNode } from "./objects/content-block-list.ts";
+import { adStudyCellNode } from "./objects/ad-study-cell.ts";
+import { adPlacementNode } from "./objects/ad-placement.ts";
+import { creatorAssetCreativeNode } from "./objects/creator-asset-creative.ts";
+import { mediaCopyrightUpdateRecordNode } from "./objects/media-copyright-update-record.ts";
+import { leadNode } from "./objects/lead.ts";
+import { destinationNode } from "./objects/destination.ts";
+import { adSetNode } from "./objects/ad-set.ts";
+import { canvasDynamicSettingNode } from "./objects/canvas-dynamic-setting.ts";
+import { adsQuickViewsNode } from "./objects/ads-quick-views.ts";
+import { placeTopicNode } from "./objects/place-topic.ts";
+import { adImageNode } from "./objects/ad-image.ts";
+import { shadowIGHashtagNode } from "./objects/shadow-ig-hashtag.ts";
+import { hoursNode } from "./objects/hours.ts";
+import { storeLocationNode } from "./objects/store-location.ts";
+import { shadowIGScheduledMediaNode } from "./objects/shadow-ig-scheduled-media.ts";
+import { publisherBlockListNode } from "./objects/publisher-block-list.ts";
+import { appRequestNode } from "./objects/app-request.ts";
+import { fBImageCopyrightMatchNode } from "./objects/fb-image-copyright-match.ts";
+import { robotNode } from "./objects/robot.ts";
+import { productGroupNode } from "./objects/product-group.ts";
+import { offsitePixelNode } from "./objects/offsite-pixel.ts";
+import { highDemandPeriodNode } from "./objects/high-demand-period.ts";
+import { userNode } from "./objects/user.ts";
+import { productFeedScheduleNode } from "./objects/product-feed-schedule.ts";
+import { imageCopyrightNode } from "./objects/image-copyright.ts";
+import { uRLNode } from "./objects/url.ts";
+import { adAccountUserSettingsNode } from "./objects/ad-account-user-settings.ts";
+import { localServiceBusinessNode } from "./objects/local-service-business.ts";
+import { audioIsrcNode } from "./objects/audio-isrc.ts";
+import { whitehatFBDLRunNode } from "./objects/whitehat-fbdl-run.ts";
+import { adProposalNode } from "./objects/ad-proposal.ts";
+import { pageInsightsAsyncExportRunNode } from "./objects/page-insights-async-export-run.ts";
+import { adRuleEvaluationSpecNode } from "./objects/ad-rule-evaluation-spec.ts";
+import { instagramUserNode } from "./objects/instagram-user.ts";
+import { adCustomDerivedMetricsNode } from "./objects/ad-custom-derived-metrics.ts";
+import { iGMediaBoostEligibilityInfoNode } from "./objects/ig-media-boost-eligibility-info.ts";
+import { eventTicketSettingNode } from "./objects/event-ticket-setting.ts";
+import { thirdPartyPartnerPanelRequestNode } from "./objects/third-party-partner-panel-request.ts";
+import { creditCardNode } from "./objects/credit-card.ts";
+import { liveVideoInputStreamNode } from "./objects/live-video-input-stream.ts";
+import { adAccountAgencyFeeConfigNode } from "./objects/ad-account-agency-fee-config.ts";
+import { savedMessageResponseNode } from "./objects/saved-message-response.ts";
+import { messengerBusinessTemplateNode } from "./objects/messenger-business-template.ts";
+import { mailingAddressNode } from "./objects/mailing-address.ts";
+import { offsiteSignalContainerBusinessObjectNode } from "./objects/offsite-signal-container-business-object.ts";
+import { businessTagNode } from "./objects/business-tag.ts";
+import { dynamicItemDisplayBundleNode } from "./objects/dynamic-item-display-bundle.ts";
+import { franchiseProgramMemberNode } from "./objects/franchise-program-member.ts";
+import { savedAudienceNode } from "./objects/saved-audience.ts";
+import { adRuleNode } from "./objects/ad-rule.ts";
+import { leadgenFormNode } from "./objects/leadgen-form.ts";
+import { productFeedUploadErrorNode } from "./objects/product-feed-upload-error.ts";
+import { adLabelNode } from "./objects/ad-label.ts";
+import { calibratorExistingRuleNode } from "./objects/calibrator-existing-rule.ts";
+import { videoCopyrightMatchNode } from "./objects/video-copyright-match.ts";
+import { storeCatalogSettingsNode } from "./objects/store-catalog-settings.ts";
+import { partnerAccountLinkingNode } from "./objects/partner-account-linking.ts";
+import { commerceOrderTransactionDetailNode } from "./objects/commerce-order-transaction-detail.ts";
+import { websiteCreativeAssetSourceNode } from "./objects/website-creative-asset-source.ts";
+import { placeNode } from "./objects/place.ts";
+import { woodhengeSupporterNode } from "./objects/woodhenge-supporter.ts";
+import { fundraiserPersonToCharityNode } from "./objects/fundraiser-person-to-charity.ts";
+import { iGBoostMediaAdNode } from "./objects/ig-boost-media-ad.ts";
+import { organizationNode } from "./objects/organization.ts";
+import { cPASCollaborationRequestNode } from "./objects/cpas-collaboration-request.ts";
+import { pagePostNode } from "./objects/page-post.ts";
+import { jobOpeningNode } from "./objects/job-opening.ts";
+import { extendedCreditAllocationConfigNode } from "./objects/extended-credit-allocation-config.ts";
+import { adsUserSettingsNode } from "./objects/ads-user-settings.ts";
+import { hotelNode } from "./objects/hotel.ts";
+import { whatsAppBusinessPreVerifiedPhoneNumberNode } from "./objects/whats-app-business-pre-verified-phone-number.ts";
+import { wifiInformationNode } from "./objects/wifi-information.ts";
+import { avatarNode } from "./objects/avatar.ts";
+import { productImageNode } from "./objects/product-image.ts";
+import { productItemNode } from "./objects/product-item.ts";
+import { pageLeadsAccessConfigNode } from "./objects/page-leads-access-config.ts";
+import { productDeliveryPreferenceNode } from "./objects/product-delivery-preference.ts";
+import { productItemLocalInfoNode } from "./objects/product-item-local-info.ts";
+import { catalogWebsiteOnboardingSettingsNode } from "./objects/catalog-website-onboarding-settings.ts";
+import { mediaFingerprintNode } from "./objects/media-fingerprint.ts";
+import { instagramBusinessAssetNode } from "./objects/instagram-business-asset.ts";
+import { openGraphContextNode } from "./objects/open-graph-context.ts";
+import { catalogItemOverrideNode } from "./objects/catalog-item-override.ts";
+import { catalogSubscribedAppsNode } from "./objects/catalog-subscribed-apps.ts";
+import { cPASBusinessSetupConfigNode } from "./objects/cpas-business-setup-config.ts";
+import { adsNamingTemplateNode } from "./objects/ads-naming-template.ts";
+import { thirdPartyPartnerLiftRequestNode } from "./objects/third-party-partner-lift-request.ts";
+import { albumNode } from "./objects/album.ts";
+import { liveVideoErrorNode } from "./objects/live-video-error.ts";
+import { dynamicPriceConfigByDateNode } from "./objects/dynamic-price-config-by-date.ts";
+import { adgroupFacebookFeedbackNode } from "./objects/adgroup-facebook-feedback.ts";
+import { adVideoNode } from "./objects/ad-video.ts";
+import { measurementReportNode } from "./objects/measurement-report.ts";
+import { adCreativeNode } from "./objects/ad-creative.ts";
+import { businessAgreementNode } from "./objects/business-agreement.ts";
+import { adSavedKeywordsNode } from "./objects/ad-saved-keywords.ts";
+import { catalogSmartPixelSettingsNode } from "./objects/catalog-smart-pixel-settings.ts";
+import { adsPixelNode } from "./objects/ads-pixel.ts";
+import { openBridgeConfigurationNode } from "./objects/open-bridge-configuration.ts";
+import { groupNode } from "./objects/group.ts";
+import { partnerIntegrationLinkedNode } from "./objects/partner-integration-linked.ts";
+import { rightsManagerDataExportNode } from "./objects/rights-manager-data-export.ts";
+import { pageUserMessageThreadLabelNode } from "./objects/page-user-message-thread-label.ts";
+import { workExperienceNode } from "./objects/work-experience.ts";
+import { bCPCampaignNode } from "./objects/bcp-campaign.ts";
+import { callAdsPhoneDataNode } from "./objects/call-ads-phone-data.ts";
+import { productFeedRulesNode } from "./objects/product-feed-rules.ts";
+import { adsReportBuilderMMMReportNode } from "./objects/ads-report-builder-mmm-report.ts";
+import { adsPivotRulesNode } from "./objects/ads-pivot-rules.ts";
+import { dynamicVideoMetadataNode } from "./objects/dynamic-video-metadata.ts";
+import { aLMAdAccountInfoNode } from "./objects/alm-ad-account-info.ts";
+import { thirdPartyPartnerViewabilityRequestNode } from "./objects/third-party-partner-viewability-request.ts";
+import { productSetAppsAndSoftwareNode } from "./objects/product-set-apps-and-software.ts";
+import { applicationNode } from "./objects/application.ts";
+import { privateLiftStudyInstanceNode } from "./objects/private-lift-study-instance.ts";
+import { iGUserForIGOnlyAPINode } from "./objects/ig-user-for-ig-only-api.ts";
+import { iGRefreshAccessTokenForIGOnlyAPINode } from "./objects/ig-refresh-access-token-for-ig-only-api.ts";
+import { fAMEKumoNode } from "./objects/fame-kumo.ts";
+import { linkNode } from "./objects/link.ts";
+import { catalogGenericFeedsNode } from "./objects/catalog-generic-feeds.ts";
+import { cPASMerchantConfigNode } from "./objects/cpas-merchant-config.ts";
+import { liveVideoAdCampaignConfigNode } from "./objects/live-video-ad-campaign-config.ts";
+import { cRMAddressNode } from "./objects/crm-address.ts";
+import { aLMEventNode } from "./objects/alm-event.ts";
+import { adsPixelCapabilityOverrideNode } from "./objects/ads-pixel-capability-override.ts";
+import { statusNode } from "./objects/status.ts";
+import { omegaCustomerTrxNode } from "./objects/omega-customer-trx.ts";
+import { adLightAdgroupNode } from "./objects/ad-light-adgroup.ts";
+import { paymentSubscriptionNode } from "./objects/payment-subscription.ts";
+import { partnerStudyNode } from "./objects/partner-study.ts";
+import { adsStartYourDayWidgetNode } from "./objects/ads-start-your-day-widget.ts";
+import { shadowIGMediaBuilderNode } from "./objects/shadow-ig-media-builder.ts";
+import { productFeedAppsAndSoftwareNode } from "./objects/product-feed-apps-and-software.ts";
+import { siteLinkNode } from "./objects/site-link.ts";
+import { catalogWebsiteSettingsNode } from "./objects/catalog-website-settings.ts";
+import { cloudGameNode } from "./objects/cloud-game.ts";
+import { systemUserNode } from "./objects/system-user.ts";
+import { videoCopyrightRuleNode } from "./objects/video-copyright-rule.ts";
+import { customConversionNode } from "./objects/custom-conversion.ts";
+import { pageNode } from "./objects/page.ts";
+import { productFeedArticlesAndPublicationsNode } from "./objects/product-feed-articles-and-publications.ts";
+import { offlineConversionDataSetUploadNode } from "./objects/offline-conversion-data-set-upload.ts";
+import { copyrightOwnershipTransferNode } from "./objects/copyright-ownership-transfer.ts";
+import { profileNode } from "./objects/profile.ts";
+import { catalogGenericIngestionSessionErrorsNode } from "./objects/catalog-generic-ingestion-session-errors.ts";
+import { appEventConfigNode } from "./objects/app-event-config.ts";
+import { cPASLsbImageBankNode } from "./objects/cpas-lsb-image-bank.ts";
+import { productFeedRuleNode } from "./objects/product-feed-rule.ts";
+import { thirdPartyPartnerPanelScheduledNode } from "./objects/third-party-partner-panel-scheduled.ts";
+import { photoNode } from "./objects/photo.ts";
+import { postNode } from "./objects/post.ts";
+import { externalMerchantSettingsNode } from "./objects/external-merchant-settings.ts";
+import { leadGenDataDraftNode } from "./objects/lead-gen-data-draft.ts";
+import { vehicleOfferNode } from "./objects/vehicle-offer.ts";
+import { musicWorkCopyrightNode } from "./objects/music-work-copyright.ts";
+import { ownedDomainNode } from "./objects/owned-domain.ts";
+import { workSkillNode } from "./objects/work-skill.ts";
+import { aREffectNode } from "./objects/ar-effect.ts";
+import { productCatalogDataSourcesNode } from "./objects/product-catalog-data-sources.ts";
+
+export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {
+  baseUrl?: string;
+}
+
+export function createTypedClient(opts: MetaClientOptions) {
+  const client = new ApiClient({
+    ...opts,
+    baseUrl: opts.baseUrl ?? "https://graph.facebook.com",
+    onError: FacebookApiError.fromResponse,
+  });
+  return {
+    offlineProductItem: (id: string) => offlineProductItemNode(client, id),
+    businessFranchiseConfig: (id: string) => businessFranchiseConfigNode(client, id),
+    iGMedia: (id: string) => iGMediaNode(client, id),
+    iGBCAdsPermission: (id: string) => iGBCAdsPermissionNode(client, id),
+    adPlacePageSet: (id: string) => adPlacePageSetNode(client, id),
+    productCatalogMediaTitles: (id: string) => productCatalogMediaTitlesNode(client, id),
+    canvasTemplate: (id: string) => canvasTemplateNode(client, id),
+    campaign: (id: string) => campaignNode(client, id),
+    eventTicketTier: (id: string) => eventTicketTierNode(client, id),
+    musicVideoCopyright: (id: string) => musicVideoCopyrightNode(client, id),
+    productCatalogAppsAndSoftware: (id: string) => productCatalogAppsAndSoftwareNode(client, id),
+    advAInstance: (id: string) => advAInstanceNode(client, id),
+    pageUpcomingChange: (id: string) => pageUpcomingChangeNode(client, id),
+    analyticsSegment: (id: string) => analyticsSegmentNode(client, id),
+    adExportPreset: (id: string) => adExportPresetNode(client, id),
+    imageReferenceMatch: (id: string) => imageReferenceMatchNode(client, id),
+    collaborativeAdsShareSettings: (id: string) => collaborativeAdsShareSettingsNode(client, id),
+    iGMediaForIGOnlyAPI: (id: string) => iGMediaForIGOnlyAPINode(client, id),
+    blindPig: (id: string) => blindPigNode(client, id),
+    adAccount: (id: string) => adAccountNode(client, id),
+    leadGenDirectCRMIntegrationConfig: (id: string) => leadGenDirectCRMIntegrationConfigNode(client, id),
+    signalsIWLExtractor: (id: string) => signalsIWLExtractorNode(client, id),
+    dynamicARMetadata: (id: string) => dynamicARMetadataNode(client, id),
+    flight: (id: string) => flightNode(client, id),
+    ad: (id: string) => adNode(client, id),
+    hotelRoom: (id: string) => hotelRoomNode(client, id),
+    businessCreativeFolder: (id: string) => businessCreativeFolderNode(client, id),
+    productSetArticlesAndPublications: (id: string) => productSetArticlesAndPublicationsNode(client, id),
+    businessObjectTransferOwnershipAgreement: (id: string) => businessObjectTransferOwnershipAgreementNode(client, id),
+    pageCallToAction: (id: string) => pageCallToActionNode(client, id),
+    businessRoleRequest: (id: string) => businessRoleRequestNode(client, id),
+    offlineTermsOfService: (id: string) => offlineTermsOfServiceNode(client, id),
+    extendedCreditApplication: (id: string) => extendedCreditApplicationNode(client, id),
+    adsCreationSavedState: (id: string) => adsCreationSavedStateNode(client, id),
+    educationExperience: (id: string) => educationExperienceNode(client, id),
+    messengerAdsPartialAutomatedStepList: (id: string) => messengerAdsPartialAutomatedStepListNode(client, id),
+    audioCopyright: (id: string) => audioCopyrightNode(client, id),
+    withAsset3D: (id: string) => withAsset3DNode(client, id),
+    woodhengePurchasedPAYGReceipt: (id: string) => woodhengePurchasedPAYGReceiptNode(client, id),
+    canvas: (id: string) => canvasNode(client, id),
+    catalogContentVersionConfig: (id: string) => catalogContentVersionConfigNode(client, id),
+    eventSourceGroup: (id: string) => eventSourceGroupNode(client, id),
+    personalAdsPersona: (id: string) => personalAdsPersonaNode(client, id),
+    slicedEventSourceGroup: (id: string) => slicedEventSourceGroupNode(client, id),
+    partnerCenterExportFile: (id: string) => partnerCenterExportFileNode(client, id),
+    eventExternalTicketInfo: (id: string) => eventExternalTicketInfoNode(client, id),
+    researchPollStudy: (id: string) => researchPollStudyNode(client, id),
+    userContext: (id: string) => userContextNode(client, id),
+    aLMEndAdvertiserInfo: (id: string) => aLMEndAdvertiserInfoNode(client, id),
+    persona: (id: string) => personaNode(client, id),
+    fantasyGame: (id: string) => fantasyGameNode(client, id),
+    customAudience: (id: string) => customAudienceNode(client, id),
+    franchiseProgram: (id: string) => franchiseProgramNode(client, id),
+    adsReportBuilderSavedReport: (id: string) => adsReportBuilderSavedReportNode(client, id),
+    iGUserExportForCAM: (id: string) => iGUserExportForCAMNode(client, id),
+    audioAsset: (id: string) => audioAssetNode(client, id),
+    whatsAppBusinessAccount: (id: string) => whatsAppBusinessAccountNode(client, id),
+    adMonetizationProperty: (id: string) => adMonetizationPropertyNode(client, id),
+    vehicle: (id: string) => vehicleNode(client, id),
+    paymentEnginePayment: (id: string) => paymentEnginePaymentNode(client, id),
+    adRuleExecutionSpec: (id: string) => adRuleExecutionSpecNode(client, id),
+    iGAccessTokenForIGOnlyAPI: (id: string) => iGAccessTokenForIGOnlyAPINode(client, id),
+    businessOwnedObjectOnBehalfOfRequest: (id: string) => businessOwnedObjectOnBehalfOfRequestNode(client, id),
+    productCatalog: (id: string) => productCatalogNode(client, id),
+    videoPoll: (id: string) => videoPollNode(client, id),
+    playableContent: (id: string) => playableContentNode(client, id),
+    productSetMediaTitles: (id: string) => productSetMediaTitlesNode(client, id),
+    businessAssetGroup: (id: string) => businessAssetGroupNode(client, id),
+    iGComment: (id: string) => iGCommentNode(client, id),
+    userPageOneTimeOptInTokenSettings: (id: string) => userPageOneTimeOptInTokenSettingsNode(client, id),
+    business: (id: string) => businessNode(client, id),
+    adAsyncRequestSet: (id: string) => adAsyncRequestSetNode(client, id),
+    businessUser: (id: string) => businessUserNode(client, id),
+    businessVideo: (id: string) => businessVideoNode(client, id),
+    arAdsDataContainer: (id: string) => arAdsDataContainerNode(client, id),
+    productSet: (id: string) => productSetNode(client, id),
+    adSavedReport: (id: string) => adSavedReportNode(client, id),
+    productFeedMediaTitles: (id: string) => productFeedMediaTitlesNode(client, id),
+    asyncSession: (id: string) => asyncSessionNode(client, id),
+    adAccountCreationRequest: (id: string) => adAccountCreationRequestNode(client, id),
+    managementSiteLink: (id: string) => managementSiteLinkNode(client, id),
+    bidSchedule: (id: string) => bidScheduleNode(client, id),
+    chinaBusinessOnboardingVettingRequest: (id: string) => chinaBusinessOnboardingVettingRequestNode(client, id),
+    adReportRun: (id: string) => adReportRunNode(client, id),
+    adStudyObjective: (id: string) => adStudyObjectiveNode(client, id),
+    cPASAdvertiserPartnershipRecommendation: (id: string) => cPASAdvertiserPartnershipRecommendationNode(client, id),
+    productFeed: (id: string) => productFeedNode(client, id),
+    reachFrequencyPrediction: (id: string) => reachFrequencyPredictionNode(client, id),
+    adsReportBuilderExportCore: (id: string) => adsReportBuilderExportCoreNode(client, id),
+    lifeEvent: (id: string) => lifeEventNode(client, id),
+    businessRequest: (id: string) => businessRequestNode(client, id),
+    extendedCredit: (id: string) => extendedCreditNode(client, id),
+    iGUpcomingEvent: (id: string) => iGUpcomingEventNode(client, id),
+    adLightCampaign: (id: string) => adLightCampaignNode(client, id),
+    productItemOffer: (id: string) => productItemOfferNode(client, id),
+    websiteCreativeAssetSuggestions: (id: string) => websiteCreativeAssetSuggestionsNode(client, id),
+    whatsAppBusinessProfile: (id: string) => whatsAppBusinessProfileNode(client, id),
+    brandRequest: (id: string) => brandRequestNode(client, id),
+    wearableDevicePublicKey: (id: string) => wearableDevicePublicKeyNode(client, id),
+    unifiedThread: (id: string) => unifiedThreadNode(client, id),
+    productCatalogLocalizationSettings: (id: string) => productCatalogLocalizationSettingsNode(client, id),
+    adAsyncRequest: (id: string) => adAsyncRequestNode(client, id),
+    comment: (id: string) => commentNode(client, id),
+    pagePostExperiment: (id: string) => pagePostExperimentNode(client, id),
+    automotiveModel: (id: string) => automotiveModelNode(client, id),
+    analyticsUserConfig: (id: string) => analyticsUserConfigNode(client, id),
+    adToplineDetail: (id: string) => adToplineDetailNode(client, id),
+    videoList: (id: string) => videoListNode(client, id),
+    adsConversionGoal: (id: string) => adsConversionGoalNode(client, id),
+    brandSafetyDownloadable: (id: string) => brandSafetyDownloadableNode(client, id),
+    bizInboxOffsiteEmailAccount: (id: string) => bizInboxOffsiteEmailAccountNode(client, id),
+    adLightCampaignGroup: (id: string) => adLightCampaignGroupNode(client, id),
+    adDraft: (id: string) => adDraftNode(client, id),
+    businessImage: (id: string) => businessImageNode(client, id),
+    websiteCreativeInfo: (id: string) => websiteCreativeInfoNode(client, id),
+    extendedCreditInvoiceGroup: (id: string) => extendedCreditInvoiceGroupNode(client, id),
+    dynamicItemDisplayBundleFolder: (id: string) => dynamicItemDisplayBundleFolderNode(client, id),
+    rTBDynamicPost: (id: string) => rTBDynamicPostNode(client, id),
+    eventRegistrationSetting: (id: string) => eventRegistrationSettingNode(client, id),
+    liveVideo: (id: string) => liveVideoNode(client, id),
+    businessAssetSharingAgreement: (id: string) => businessAssetSharingAgreementNode(client, id),
+    adCreationPackageConfig: (id: string) => adCreationPackageConfigNode(client, id),
+    copyrightMediaMisuse: (id: string) => copyrightMediaMisuseNode(client, id),
+    stories: (id: string) => storiesNode(client, id),
+    mediaCopyrightAttribution: (id: string) => mediaCopyrightAttributionNode(client, id),
+    businessProject: (id: string) => businessProjectNode(client, id),
+    adStudy: (id: string) => adStudyNode(client, id),
+    cTXPartnerAppWelcomeMessageFlow: (id: string) => cTXPartnerAppWelcomeMessageFlowNode(client, id),
+    transactableItem: (id: string) => transactableItemNode(client, id),
+    adTopline: (id: string) => adToplineNode(client, id),
+    offlineConversionDataSet: (id: string) => offlineConversionDataSetNode(client, id),
+    productFeedUploadErrorSample: (id: string) => productFeedUploadErrorSampleNode(client, id),
+    commerceOrder: (id: string) => commerceOrderNode(client, id),
+    event: (id: string) => eventNode(client, id),
+    videoTextQuestion: (id: string) => videoTextQuestionNode(client, id),
+    audioSubLabel: (id: string) => audioSubLabelNode(client, id),
+    adColumnSizes: (id: string) => adColumnSizesNode(client, id),
+    videoCopyright: (id: string) => videoCopyrightNode(client, id),
+    imageCopyrightDispute: (id: string) => imageCopyrightDisputeNode(client, id),
+    productFeedUpload: (id: string) => productFeedUploadNode(client, id),
+    cPASAdCreationTemplate: (id: string) => cPASAdCreationTemplateNode(client, id),
+    adsValueAdjustmentRuleCollection: (id: string) => adsValueAdjustmentRuleCollectionNode(client, id),
+    iGUser: (id: string) => iGUserNode(client, id),
+    cPASParentCatalogSettings: (id: string) => cPASParentCatalogSettingsNode(client, id),
+    appLinks: (id: string) => appLinksNode(client, id),
+    adSavedLocation: (id: string) => adSavedLocationNode(client, id),
+    thirdPartyMeasurementReportDataset: (id: string) => thirdPartyMeasurementReportDatasetNode(client, id),
+    homeListing: (id: string) => homeListingNode(client, id),
+    geoGatingPolicy: (id: string) => geoGatingPolicyNode(client, id),
+    commerceMerchantSettings: (id: string) => commerceMerchantSettingsNode(client, id),
+    placeTag: (id: string) => placeTagNode(client, id),
+    adsMcmeConversion: (id: string) => adsMcmeConversionNode(client, id),
+    shop: (id: string) => shopNode(client, id),
+    adsReportBuilderMMMReportScheduler: (id: string) => adsReportBuilderMMMReportSchedulerNode(client, id),
+    contentBlockList: (id: string) => contentBlockListNode(client, id),
+    adStudyCell: (id: string) => adStudyCellNode(client, id),
+    adPlacement: (id: string) => adPlacementNode(client, id),
+    creatorAssetCreative: (id: string) => creatorAssetCreativeNode(client, id),
+    mediaCopyrightUpdateRecord: (id: string) => mediaCopyrightUpdateRecordNode(client, id),
+    lead: (id: string) => leadNode(client, id),
+    destination: (id: string) => destinationNode(client, id),
+    adSet: (id: string) => adSetNode(client, id),
+    canvasDynamicSetting: (id: string) => canvasDynamicSettingNode(client, id),
+    adsQuickViews: (id: string) => adsQuickViewsNode(client, id),
+    placeTopic: (id: string) => placeTopicNode(client, id),
+    adImage: (id: string) => adImageNode(client, id),
+    shadowIGHashtag: (id: string) => shadowIGHashtagNode(client, id),
+    hours: (id: string) => hoursNode(client, id),
+    storeLocation: (id: string) => storeLocationNode(client, id),
+    shadowIGScheduledMedia: (id: string) => shadowIGScheduledMediaNode(client, id),
+    publisherBlockList: (id: string) => publisherBlockListNode(client, id),
+    appRequest: (id: string) => appRequestNode(client, id),
+    fBImageCopyrightMatch: (id: string) => fBImageCopyrightMatchNode(client, id),
+    robot: (id: string) => robotNode(client, id),
+    productGroup: (id: string) => productGroupNode(client, id),
+    offsitePixel: (id: string) => offsitePixelNode(client, id),
+    highDemandPeriod: (id: string) => highDemandPeriodNode(client, id),
+    user: (id: string) => userNode(client, id),
+    productFeedSchedule: (id: string) => productFeedScheduleNode(client, id),
+    imageCopyright: (id: string) => imageCopyrightNode(client, id),
+    uRL: (id: string) => uRLNode(client, id),
+    adAccountUserSettings: (id: string) => adAccountUserSettingsNode(client, id),
+    localServiceBusiness: (id: string) => localServiceBusinessNode(client, id),
+    audioIsrc: (id: string) => audioIsrcNode(client, id),
+    whitehatFBDLRun: (id: string) => whitehatFBDLRunNode(client, id),
+    adProposal: (id: string) => adProposalNode(client, id),
+    pageInsightsAsyncExportRun: (id: string) => pageInsightsAsyncExportRunNode(client, id),
+    adRuleEvaluationSpec: (id: string) => adRuleEvaluationSpecNode(client, id),
+    instagramUser: (id: string) => instagramUserNode(client, id),
+    adCustomDerivedMetrics: (id: string) => adCustomDerivedMetricsNode(client, id),
+    iGMediaBoostEligibilityInfo: (id: string) => iGMediaBoostEligibilityInfoNode(client, id),
+    eventTicketSetting: (id: string) => eventTicketSettingNode(client, id),
+    thirdPartyPartnerPanelRequest: (id: string) => thirdPartyPartnerPanelRequestNode(client, id),
+    creditCard: (id: string) => creditCardNode(client, id),
+    liveVideoInputStream: (id: string) => liveVideoInputStreamNode(client, id),
+    adAccountAgencyFeeConfig: (id: string) => adAccountAgencyFeeConfigNode(client, id),
+    savedMessageResponse: (id: string) => savedMessageResponseNode(client, id),
+    messengerBusinessTemplate: (id: string) => messengerBusinessTemplateNode(client, id),
+    mailingAddress: (id: string) => mailingAddressNode(client, id),
+    offsiteSignalContainerBusinessObject: (id: string) => offsiteSignalContainerBusinessObjectNode(client, id),
+    businessTag: (id: string) => businessTagNode(client, id),
+    dynamicItemDisplayBundle: (id: string) => dynamicItemDisplayBundleNode(client, id),
+    franchiseProgramMember: (id: string) => franchiseProgramMemberNode(client, id),
+    savedAudience: (id: string) => savedAudienceNode(client, id),
+    adRule: (id: string) => adRuleNode(client, id),
+    leadgenForm: (id: string) => leadgenFormNode(client, id),
+    productFeedUploadError: (id: string) => productFeedUploadErrorNode(client, id),
+    adLabel: (id: string) => adLabelNode(client, id),
+    calibratorExistingRule: (id: string) => calibratorExistingRuleNode(client, id),
+    videoCopyrightMatch: (id: string) => videoCopyrightMatchNode(client, id),
+    storeCatalogSettings: (id: string) => storeCatalogSettingsNode(client, id),
+    partnerAccountLinking: (id: string) => partnerAccountLinkingNode(client, id),
+    commerceOrderTransactionDetail: (id: string) => commerceOrderTransactionDetailNode(client, id),
+    websiteCreativeAssetSource: (id: string) => websiteCreativeAssetSourceNode(client, id),
+    place: (id: string) => placeNode(client, id),
+    woodhengeSupporter: (id: string) => woodhengeSupporterNode(client, id),
+    fundraiserPersonToCharity: (id: string) => fundraiserPersonToCharityNode(client, id),
+    iGBoostMediaAd: (id: string) => iGBoostMediaAdNode(client, id),
+    organization: (id: string) => organizationNode(client, id),
+    cPASCollaborationRequest: (id: string) => cPASCollaborationRequestNode(client, id),
+    pagePost: (id: string) => pagePostNode(client, id),
+    jobOpening: (id: string) => jobOpeningNode(client, id),
+    extendedCreditAllocationConfig: (id: string) => extendedCreditAllocationConfigNode(client, id),
+    adsUserSettings: (id: string) => adsUserSettingsNode(client, id),
+    hotel: (id: string) => hotelNode(client, id),
+    whatsAppBusinessPreVerifiedPhoneNumber: (id: string) => whatsAppBusinessPreVerifiedPhoneNumberNode(client, id),
+    wifiInformation: (id: string) => wifiInformationNode(client, id),
+    avatar: (id: string) => avatarNode(client, id),
+    productImage: (id: string) => productImageNode(client, id),
+    productItem: (id: string) => productItemNode(client, id),
+    pageLeadsAccessConfig: (id: string) => pageLeadsAccessConfigNode(client, id),
+    productDeliveryPreference: (id: string) => productDeliveryPreferenceNode(client, id),
+    productItemLocalInfo: (id: string) => productItemLocalInfoNode(client, id),
+    catalogWebsiteOnboardingSettings: (id: string) => catalogWebsiteOnboardingSettingsNode(client, id),
+    mediaFingerprint: (id: string) => mediaFingerprintNode(client, id),
+    instagramBusinessAsset: (id: string) => instagramBusinessAssetNode(client, id),
+    openGraphContext: (id: string) => openGraphContextNode(client, id),
+    catalogItemOverride: (id: string) => catalogItemOverrideNode(client, id),
+    catalogSubscribedApps: (id: string) => catalogSubscribedAppsNode(client, id),
+    cPASBusinessSetupConfig: (id: string) => cPASBusinessSetupConfigNode(client, id),
+    adsNamingTemplate: (id: string) => adsNamingTemplateNode(client, id),
+    thirdPartyPartnerLiftRequest: (id: string) => thirdPartyPartnerLiftRequestNode(client, id),
+    album: (id: string) => albumNode(client, id),
+    liveVideoError: (id: string) => liveVideoErrorNode(client, id),
+    dynamicPriceConfigByDate: (id: string) => dynamicPriceConfigByDateNode(client, id),
+    adgroupFacebookFeedback: (id: string) => adgroupFacebookFeedbackNode(client, id),
+    adVideo: (id: string) => adVideoNode(client, id),
+    measurementReport: (id: string) => measurementReportNode(client, id),
+    adCreative: (id: string) => adCreativeNode(client, id),
+    businessAgreement: (id: string) => businessAgreementNode(client, id),
+    adSavedKeywords: (id: string) => adSavedKeywordsNode(client, id),
+    catalogSmartPixelSettings: (id: string) => catalogSmartPixelSettingsNode(client, id),
+    adsPixel: (id: string) => adsPixelNode(client, id),
+    openBridgeConfiguration: (id: string) => openBridgeConfigurationNode(client, id),
+    group: (id: string) => groupNode(client, id),
+    partnerIntegrationLinked: (id: string) => partnerIntegrationLinkedNode(client, id),
+    rightsManagerDataExport: (id: string) => rightsManagerDataExportNode(client, id),
+    pageUserMessageThreadLabel: (id: string) => pageUserMessageThreadLabelNode(client, id),
+    workExperience: (id: string) => workExperienceNode(client, id),
+    bCPCampaign: (id: string) => bCPCampaignNode(client, id),
+    callAdsPhoneData: (id: string) => callAdsPhoneDataNode(client, id),
+    productFeedRules: (id: string) => productFeedRulesNode(client, id),
+    adsReportBuilderMMMReport: (id: string) => adsReportBuilderMMMReportNode(client, id),
+    adsPivotRules: (id: string) => adsPivotRulesNode(client, id),
+    dynamicVideoMetadata: (id: string) => dynamicVideoMetadataNode(client, id),
+    aLMAdAccountInfo: (id: string) => aLMAdAccountInfoNode(client, id),
+    thirdPartyPartnerViewabilityRequest: (id: string) => thirdPartyPartnerViewabilityRequestNode(client, id),
+    productSetAppsAndSoftware: (id: string) => productSetAppsAndSoftwareNode(client, id),
+    application: (id: string) => applicationNode(client, id),
+    privateLiftStudyInstance: (id: string) => privateLiftStudyInstanceNode(client, id),
+    iGUserForIGOnlyAPI: (id: string) => iGUserForIGOnlyAPINode(client, id),
+    iGRefreshAccessTokenForIGOnlyAPI: (id: string) => iGRefreshAccessTokenForIGOnlyAPINode(client, id),
+    fAMEKumo: (id: string) => fAMEKumoNode(client, id),
+    link: (id: string) => linkNode(client, id),
+    catalogGenericFeeds: (id: string) => catalogGenericFeedsNode(client, id),
+    cPASMerchantConfig: (id: string) => cPASMerchantConfigNode(client, id),
+    liveVideoAdCampaignConfig: (id: string) => liveVideoAdCampaignConfigNode(client, id),
+    cRMAddress: (id: string) => cRMAddressNode(client, id),
+    aLMEvent: (id: string) => aLMEventNode(client, id),
+    adsPixelCapabilityOverride: (id: string) => adsPixelCapabilityOverrideNode(client, id),
+    status: (id: string) => statusNode(client, id),
+    omegaCustomerTrx: (id: string) => omegaCustomerTrxNode(client, id),
+    adLightAdgroup: (id: string) => adLightAdgroupNode(client, id),
+    paymentSubscription: (id: string) => paymentSubscriptionNode(client, id),
+    partnerStudy: (id: string) => partnerStudyNode(client, id),
+    adsStartYourDayWidget: (id: string) => adsStartYourDayWidgetNode(client, id),
+    shadowIGMediaBuilder: (id: string) => shadowIGMediaBuilderNode(client, id),
+    productFeedAppsAndSoftware: (id: string) => productFeedAppsAndSoftwareNode(client, id),
+    siteLink: (id: string) => siteLinkNode(client, id),
+    catalogWebsiteSettings: (id: string) => catalogWebsiteSettingsNode(client, id),
+    cloudGame: (id: string) => cloudGameNode(client, id),
+    systemUser: (id: string) => systemUserNode(client, id),
+    videoCopyrightRule: (id: string) => videoCopyrightRuleNode(client, id),
+    customConversion: (id: string) => customConversionNode(client, id),
+    page: (id: string) => pageNode(client, id),
+    productFeedArticlesAndPublications: (id: string) => productFeedArticlesAndPublicationsNode(client, id),
+    offlineConversionDataSetUpload: (id: string) => offlineConversionDataSetUploadNode(client, id),
+    copyrightOwnershipTransfer: (id: string) => copyrightOwnershipTransferNode(client, id),
+    profile: (id: string) => profileNode(client, id),
+    catalogGenericIngestionSessionErrors: (id: string) => catalogGenericIngestionSessionErrorsNode(client, id),
+    appEventConfig: (id: string) => appEventConfigNode(client, id),
+    cPASLsbImageBank: (id: string) => cPASLsbImageBankNode(client, id),
+    productFeedRule: (id: string) => productFeedRuleNode(client, id),
+    thirdPartyPartnerPanelScheduled: (id: string) => thirdPartyPartnerPanelScheduledNode(client, id),
+    photo: (id: string) => photoNode(client, id),
+    post: (id: string) => postNode(client, id),
+    externalMerchantSettings: (id: string) => externalMerchantSettingsNode(client, id),
+    leadGenDataDraft: (id: string) => leadGenDataDraftNode(client, id),
+    vehicleOffer: (id: string) => vehicleOfferNode(client, id),
+    musicWorkCopyright: (id: string) => musicWorkCopyrightNode(client, id),
+    ownedDomain: (id: string) => ownedDomainNode(client, id),
+    workSkill: (id: string) => workSkillNode(client, id),
+    aREffect: (id: string) => aREffectNode(client, id),
+    productCatalogDataSources: (id: string) => productCatalogDataSourcesNode(client, id),
+    client,
+  };
+}
