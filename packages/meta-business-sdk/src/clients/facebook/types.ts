@@ -12,6 +12,7 @@ export type { PageCreateVideosParams } from "../../generated/objects/page.ts";
 export interface FacebookPageClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;
   pageId: string;
+  accessToken: string; // needed for video upload flows (reels, stories)
 }
 
 export interface PublishTextPostOptions {
@@ -50,4 +51,42 @@ export interface PageToken {
   id: string;
   name: string;
   access_token: string;
+}
+
+export interface PublishMultiPhotoOptions {
+  photos: { url: string }[];
+  message?: string;
+  published?: boolean;
+  scheduledPublishTime?: number | string;
+}
+
+export interface PublishVideoReelOptions {
+  videoUrl: string;
+  description?: string;
+  videoState?: "PUBLISHED" | "DRAFT";
+}
+
+export interface PublishPhotoStoryOptions {
+  photoUrl: string;
+}
+
+export interface PublishVideoStoryOptions {
+  videoUrl: string;
+  description?: string;
+}
+
+export interface VideoUploadSession {
+  videoId: string;
+  uploadUrl: string;
+}
+
+export interface VideoStatus {
+  uploadingPhase?: { status: string };
+  processingPhase?: { status: string };
+  publishingPhase?: { status: string; errors?: unknown[] };
+}
+
+export interface PostAttachment {
+  media?: { image?: { src: string } };
+  subattachments?: { data: PostAttachment[] };
 }
