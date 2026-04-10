@@ -1,7 +1,21 @@
 {
   "name": "@promobase/meta-business-sdk-ts",
   "version": "0.1.0",
-  "description": "Type-safe TypeScript SDK for the Meta Marketing API",
+  "description": "Type-safe TypeScript SDK for the Meta (Facebook) Marketing API — fully typed Graph API client with auto-generated types for 994 API objects",
+  "keywords": [
+    "meta", "facebook", "meta-business-sdk", "facebook-business-sdk",
+    "facebook-ads", "meta-ads", "facebook-marketing-api", "meta-marketing-api",
+    "graph-api", "facebook-graph-api",
+    "typescript", "type-safe", "typed", "codegen",
+    "ads", "advertising", "ad-account", "campaign", "adset",
+    "sdk", "api-client", "business-sdk",
+    "facebook-nodejs-business-sdk", "facebook-business-sdk-codegen"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/meta-business-sdk"
+  },
   "module": "src/generated/index.ts",
   "main": "src/generated/index.ts",
   "types": "src/generated/index.ts",
@@ -16,7 +30,8 @@
     "codegen": "bun src/codegen/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/",
-    "build": "bun build src/generated/index.ts --outdir dist --target node"
+    "build": "bun build src/generated/index.ts --outdir dist --target node",
+    "publish": "bun publish --access public"
   },
   "publishConfig": {
     "access": "public"
