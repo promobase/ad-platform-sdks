@@ -41,7 +41,7 @@ export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
   include?: T;
 }
 
-export function createMetaTools<T extends ToolGroup[] = ToolGroup[]>(
+export function createMetaTools<const T extends ToolGroup[] = ToolGroup[]>(
   opts: CreateMetaToolsOptions<T>,
 ): UnionToIntersection<MergeTools<T>> {
   const include = opts.include ?? (["instagram", "facebook", "threads", "campaigns"] as ToolGroup[]);
