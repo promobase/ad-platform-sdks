@@ -6,6 +6,9 @@
   "main": "src/generated/index.ts",
   "types": "src/generated/index.ts",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "src/runtime/**/*.ts",
     "src/generated/**/*.ts",
