@@ -16,57 +16,21 @@ export type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
 export { TikTokCursor } from "./pagination.ts";
 export type { TikTokCursorOptions, TikTokPaginatedResponse } from "./pagination.ts";
 
-// --- Webhook verification + parsing ---
+// --- Webhooks (verification + parsing + schemas) ---
 export {
-  verifyWebhookSignature,
-  WebhookParseError,
-  // Throwing parsers
-  parseTikTokWebhook,
-  parseVideoWebhook,
-  parseCommentWebhook,
-  parseMentionWebhook,
-  parseDMWebhook,
-  // Safe parsers (never throw)
-  safeParseTikTokWebhook,
-  safeParseVideoWebhook,
-  safeParseCommentWebhook,
-  safeParseMentionWebhook,
-  safeParseDMWebhook,
-} from "./webhooks.ts";
-export type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
-
-// --- Webhook Zod schemas ---
-export {
-  tiktokWebhookEventSchema,
-  videoWebhookEventSchema,
-  commentWebhookEventSchema,
-  mentionWebhookEventSchema,
-  dmWebhookEventSchema,
-  publishEventTypes,
-  commentEventTypes,
-  mentionEventTypes,
-  dmEventTypes,
-  publishFailedContentSchema,
-  publishCompleteContentSchema,
-  publishPubliclyAvailableContentSchema,
-  publishNoLongerAvailableContentSchema,
-  commentContentSchema,
-  mentionContentSchema,
-  dmContentSchema,
+  verifyWebhookSignature, WebhookParseError,
+  parseTikTokWebhook, parseVideoWebhook, parseCommentWebhook, parseMentionWebhook, parseDMWebhook,
+  safeParseTikTokWebhook, safeParseVideoWebhook, safeParseCommentWebhook, safeParseMentionWebhook, safeParseDMWebhook,
+  tiktokWebhookEventSchema, videoWebhookEventSchema, commentWebhookEventSchema, mentionWebhookEventSchema, dmWebhookEventSchema,
+  publishEventTypes, commentEventTypes, mentionEventTypes, dmEventTypes,
+  publishFailedContentSchema, publishCompleteContentSchema, publishPubliclyAvailableContentSchema, publishNoLongerAvailableContentSchema,
+  commentContentSchema, mentionContentSchema, dmContentSchema,
 } from "./webhooks.ts";
 export type {
-  TikTokWebhookEvent,
-  VideoWebhookEvent,
-  CommentWebhookEvent,
-  MentionWebhookEvent,
-  DMWebhookEvent,
-  PublishFailedContent,
-  PublishCompleteContent,
-  PublishPubliclyAvailableContent,
-  PublishNoLongerAvailableContent,
-  CommentContent,
-  MentionContent,
-  DMContent,
+  WebhookParseOptions, WebhookParseResult,
+  TikTokWebhookEvent, VideoWebhookEvent, CommentWebhookEvent, MentionWebhookEvent, DMWebhookEvent,
+  PublishFailedContent, PublishCompleteContent, PublishPubliclyAvailableContent, PublishNoLongerAvailableContent,
+  CommentContent, MentionContent, DMContent,
 } from "./webhooks.ts";
 
 // --- Client types ---

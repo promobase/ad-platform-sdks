@@ -11,47 +11,13 @@ import {
   type DMWebhookEvent,
 } from "./webhook-schemas.ts";
 
-// --- Re-export schemas and types ---
-
-export {
-  tiktokWebhookEventSchema,
-  videoWebhookEventSchema,
-  commentWebhookEventSchema,
-  mentionWebhookEventSchema,
-  dmWebhookEventSchema,
-  publishEventTypes,
-  commentEventTypes,
-  mentionEventTypes,
-  dmEventTypes,
-  publishFailedContentSchema,
-  publishCompleteContentSchema,
-  publishPubliclyAvailableContentSchema,
-  publishNoLongerAvailableContentSchema,
-  commentContentSchema,
-  mentionContentSchema,
-  dmContentSchema,
-} from "./webhook-schemas.ts";
-
-export type {
-  TikTokWebhookEvent,
-  VideoWebhookEvent,
-  CommentWebhookEvent,
-  MentionWebhookEvent,
-  DMWebhookEvent,
-  PublishFailedContent,
-  PublishCompleteContent,
-  PublishPubliclyAvailableContent,
-  PublishNoLongerAvailableContent,
-  CommentContent,
-  MentionContent,
-  DMContent,
-} from "./webhook-schemas.ts";
+// Re-export everything from schemas
+export * from "./webhook-schemas.ts";
 
 // --- Webhook Signature Verification ---
 
 /**
  * Verify the HMAC-SHA256 signature on a TikTok webhook payload.
- * TikTok sends the signature in a custom header (typically X-Tiktok-Signature).
  * Uses Web Crypto API (works in Bun, Deno, Node 19+, browsers).
  */
 export async function verifyWebhookSignature(
@@ -89,7 +55,7 @@ export class WebhookParseError extends Error {
   }
 }
 
-// --- Parse Options ---
+// --- Types ---
 
 export interface WebhookParseOptions {
   body: string;
@@ -101,101 +67,95 @@ export type WebhookParseResult<T> =
   | { success: true; data: T }
   | { success: false; error: WebhookParseError };
 
-// --- Internal verify + parse helper ---
+// --- Core verify + parse ---
 
 async function verifyAndParse<T>(
   opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
-  safe: false,
-): Promise<T>;
-async function verifyAndParse<T>(
-  opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
-  safe: true,
-): Promise<WebhookParseResult<T>>;
-async function verifyAndParse<T>(
-  opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
-  safe: boolean,
-): Promise<T | WebhookParseResult<T>> {
+  schema: { safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
+): Promise<WebhookParseResult<T>> {
   const validSig = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
-
   if (!validSig) {
-    const err = new WebhookParseError("INVALID_SIGNATURE", "Invalid TikTok webhook signature");
-    if (safe) return { success: false, error: err };
-    throw err;
+    return { success: false, error: new WebhookParseError("INVALID_SIGNATURE", "Invalid TikTok webhook signature") };
   }
 
   let json: unknown;
   try {
     json = JSON.parse(opts.body);
   } catch (e) {
-    const err = new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", e);
-    if (safe) return { success: false, error: err };
-    throw err;
+    return { success: false, error: new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", e) };
   }
 
-  if (safe) {
-    const result = schema.safeParse(json);
-    if (result.success) {
-      return { success: true, data: result.data as T };
-    }
-    return { success: false, error: new WebhookParseError("INVALID_PAYLOAD", "Webhook payload validation failed", result.error) };
+  const result = schema.safeParse(json);
+  if (result.success) {
+    return { success: true, data: result.data as T };
   }
-
-  return schema.parse(json);
+  return { success: false, error: new WebhookParseError("INVALID_PAYLOAD", "Webhook payload validation failed", result.error) };
 }
 
-// --- Throwing Parsers ---
+// --- Primary API: safeParse (recommended) ---
 
-/** Verify signature and parse any TikTok webhook event. Throws on failure. */
-export async function parseTikTokWebhook(opts: WebhookParseOptions): Promise<TikTokWebhookEvent> {
-  return verifyAndParse(opts, tiktokWebhookEventSchema, false);
-}
-
-/** Verify and parse a VIDEO webhook event. Throws on failure. */
-export async function parseVideoWebhook(opts: WebhookParseOptions): Promise<VideoWebhookEvent> {
-  return verifyAndParse(opts, videoWebhookEventSchema, false);
-}
-
-/** Verify and parse a COMMENT webhook event. Throws on failure. */
-export async function parseCommentWebhook(opts: WebhookParseOptions): Promise<CommentWebhookEvent> {
-  return verifyAndParse(opts, commentWebhookEventSchema, false);
-}
-
-/** Verify and parse a BRAND_MENTION webhook event. Throws on failure. */
-export async function parseMentionWebhook(opts: WebhookParseOptions): Promise<MentionWebhookEvent> {
-  return verifyAndParse(opts, mentionWebhookEventSchema, false);
-}
-
-/** Verify and parse a DIRECT_MESSAGE webhook event. Throws on failure. */
-export async function parseDMWebhook(opts: WebhookParseOptions): Promise<DMWebhookEvent> {
-  return verifyAndParse(opts, dmWebhookEventSchema, false);
-}
-
-// --- Safe Parsers (never throw) ---
-
-/** Verify and parse any TikTok webhook. Returns Result — never throws. */
+/**
+ * Verify signature, parse event, and auto-parse the content JSON — all in one call.
+ * Returns a discriminated union. Switch on `data.event` to narrow the content type.
+ *
+ * ```ts
+ * const result = await safeParseTikTokWebhook({ body, signature, appSecret });
+ * if (!result.success) return;
+ * switch (result.data.event) {
+ *   case "post.publish.publicly_available":
+ *     console.log(result.data.content.post_id);  // typed!
+ *     break;
+ * }
+ * ```
+ */
 export async function safeParseTikTokWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<TikTokWebhookEvent>> {
-  return verifyAndParse(opts, tiktokWebhookEventSchema, true);
+  return verifyAndParse(opts, tiktokWebhookEventSchema);
 }
 
-/** Verify and parse a VIDEO webhook. Returns Result — never throws. */
+/** Safe-parse, narrowed to VIDEO (publish lifecycle) events only. */
 export async function safeParseVideoWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<VideoWebhookEvent>> {
-  return verifyAndParse(opts, videoWebhookEventSchema, true);
+  return verifyAndParse(opts, videoWebhookEventSchema);
 }
 
-/** Verify and parse a COMMENT webhook. Returns Result — never throws. */
+/** Safe-parse, narrowed to COMMENT events only. */
 export async function safeParseCommentWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<CommentWebhookEvent>> {
-  return verifyAndParse(opts, commentWebhookEventSchema, true);
+  return verifyAndParse(opts, commentWebhookEventSchema);
 }
 
-/** Verify and parse a BRAND_MENTION webhook. Returns Result — never throws. */
+/** Safe-parse, narrowed to BRAND_MENTION events only. */
 export async function safeParseMentionWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<MentionWebhookEvent>> {
-  return verifyAndParse(opts, mentionWebhookEventSchema, true);
+  return verifyAndParse(opts, mentionWebhookEventSchema);
 }
 
-/** Verify and parse a DIRECT_MESSAGE webhook. Returns Result — never throws. */
+/** Safe-parse, narrowed to DIRECT_MESSAGE events only. */
 export async function safeParseDMWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<DMWebhookEvent>> {
-  return verifyAndParse(opts, dmWebhookEventSchema, true);
+  return verifyAndParse(opts, dmWebhookEventSchema);
+}
+
+// --- Throwing API (for consumers who prefer try/catch) ---
+
+function unwrap<T>(result: WebhookParseResult<T>): T {
+  if (!result.success) throw result.error;
+  return result.data;
+}
+
+/** Verify + parse any TikTok webhook. Throws WebhookParseError on failure. */
+export async function parseTikTokWebhook(opts: WebhookParseOptions): Promise<TikTokWebhookEvent> {
+  return unwrap(await safeParseTikTokWebhook(opts));
+}
+
+export async function parseVideoWebhook(opts: WebhookParseOptions): Promise<VideoWebhookEvent> {
+  return unwrap(await safeParseVideoWebhook(opts));
+}
+
+export async function parseCommentWebhook(opts: WebhookParseOptions): Promise<CommentWebhookEvent> {
+  return unwrap(await safeParseCommentWebhook(opts));
+}
+
+export async function parseMentionWebhook(opts: WebhookParseOptions): Promise<MentionWebhookEvent> {
+  return unwrap(await safeParseMentionWebhook(opts));
+}
+
+export async function parseDMWebhook(opts: WebhookParseOptions): Promise<DMWebhookEvent> {
+  return unwrap(await safeParseDMWebhook(opts));
 }

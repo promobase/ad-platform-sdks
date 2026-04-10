@@ -51,10 +51,6 @@ import {
   safeParseCommentWebhook,
   safeParseMentionWebhook,
   safeParseDMWebhook,
-} from "./webhooks.ts";
-import type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
-
-import {
   tiktokWebhookEventSchema,
   videoWebhookEventSchema,
   commentWebhookEventSchema,
@@ -71,7 +67,8 @@ import {
   commentEventTypes,
   mentionEventTypes,
   dmEventTypes,
-} from "./webhook-schemas.ts";
+} from "./webhooks.ts";
+import type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
 
 export const TikTok = {
   /** Create a TikTok Business API client with all organic endpoints. */
@@ -103,43 +100,38 @@ export const TikTok = {
     create: (opts?: TikTokRateLimiterOptions) => new TikTokRateLimiter(opts),
   },
 
-  /** Webhook verification, parsing, and Zod schemas. */
+  /**
+   * Webhook verification, parsing, and schemas.
+   *
+   * Primary usage — one call, fully parsed, discriminated union:
+   * ```ts
+   * const result = await TikTok.Webhooks.safeParse({ body, signature, appSecret });
+   * if (!result.success) return;
+   * switch (result.data.event) {
+   *   case "post.publish.publicly_available":
+   *     console.log(result.data.content.post_id);  // typed!
+   * }
+   * ```
+   */
   Webhooks: {
-    /** Verify HMAC-SHA256 signature on a TikTok webhook payload. */
+    /** Verify + parse any TikTok webhook. Throws on failure. Content is auto-parsed. */
+    parse: parseTikTokWebhook,
+    /** Verify + parse any TikTok webhook. Returns Result — never throws. Content is auto-parsed. */
+    safeParse: safeParseTikTokWebhook,
+
+    /** Verify HMAC-SHA256 signature only (without parsing). */
     verifySignature: verifyWebhookSignature,
 
-    /** Parse and validate webhooks (throws on failure). */
-    parse: {
-      /** Parse any TikTok webhook event. */
-      any: parseTikTokWebhook,
-      /** Parse a VIDEO (post publishing) webhook event. */
-      video: parseVideoWebhook,
-      /** Parse a COMMENT webhook event. */
-      comment: parseCommentWebhook,
-      /** Parse a BRAND_MENTION webhook event. */
-      mention: parseMentionWebhook,
-      /** Parse a DIRECT_MESSAGE webhook event. */
-      dm: parseDMWebhook,
-    },
+    /** Narrowed parsers for specific event categories. */
+    video: { parse: parseVideoWebhook, safeParse: safeParseVideoWebhook },
+    comment: { parse: parseCommentWebhook, safeParse: safeParseCommentWebhook },
+    mention: { parse: parseMentionWebhook, safeParse: safeParseMentionWebhook },
+    dm: { parse: parseDMWebhook, safeParse: safeParseDMWebhook },
 
-    /** Parse and validate webhooks (returns Result, never throws). */
-    safeParse: {
-      /** Safe-parse any TikTok webhook event. */
-      any: safeParseTikTokWebhook,
-      /** Safe-parse a VIDEO webhook event. */
-      video: safeParseVideoWebhook,
-      /** Safe-parse a COMMENT webhook event. */
-      comment: safeParseCommentWebhook,
-      /** Safe-parse a BRAND_MENTION webhook event. */
-      mention: safeParseMentionWebhook,
-      /** Safe-parse a DIRECT_MESSAGE webhook event. */
-      dm: safeParseDMWebhook,
-    },
-
-    /** WebhookParseError class for typed error handling. */
+    /** Error class for typed error handling. */
     ParseError: WebhookParseError,
 
-    /** Event type constants. */
+    /** Event type constants for switch statements. */
     events: {
       publish: publishEventTypes,
       comment: commentEventTypes,
@@ -147,19 +139,13 @@ export const TikTok = {
       dm: dmEventTypes,
     },
 
-    /** Zod schemas for webhook events and their content payloads. */
+    /** Zod schemas for advanced composition. */
     schemas: {
-      /** Union of all TikTok webhook events. */
       any: tiktokWebhookEventSchema,
-      /** VIDEO webhook events (publish lifecycle). */
       video: videoWebhookEventSchema,
-      /** COMMENT webhook events. */
       comment: commentWebhookEventSchema,
-      /** BRAND_MENTION webhook events. */
       mention: mentionWebhookEventSchema,
-      /** DIRECT_MESSAGE webhook events. */
       dm: dmWebhookEventSchema,
-      /** Content schemas for parsing the JSON `content` field inside webhook events. */
       content: {
         publishFailed: publishFailedContentSchema,
         publishComplete: publishCompleteContentSchema,
