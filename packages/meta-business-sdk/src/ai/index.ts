@@ -48,3 +48,11 @@ export { createInstagramTools } from "./instagram.ts";
 export { createFacebookTools } from "./facebook.ts";
 export { createThreadsTools } from "./threads.ts";
 export { createCampaignTools } from "./campaigns.ts";
+
+// Middleware, filtering, and routing
+export { withMiddleware } from "./middleware.ts";
+export type { ToolMiddleware, ToolCallContext } from "./middleware.ts";
+export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "./filter.ts";
+export type { ToolCategory } from "./filter.ts";
+export { createRouter } from "./router.ts";
+export type { RouterOptions } from "./router.ts";

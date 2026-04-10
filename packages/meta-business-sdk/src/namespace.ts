@@ -32,6 +32,9 @@ import type { OAuthConfig as ThreadsOAuthConfig } from "./clients/threads/types.
 
 // AI SDK tools
 import { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "./ai/index.ts";
+import { withMiddleware } from "./ai/middleware.ts";
+import { filterTools, filterToolsByName, limitTools } from "./ai/filter.ts";
+import { createRouter } from "./ai/router.ts";
 
 // Webhooks
 import {
@@ -105,6 +108,16 @@ export const Meta = {
     Threads: createThreadsTools,
     /** Create campaign management AI SDK tools. */
     Campaigns: createCampaignTools,
+    /** Wrap tools with before/after/error middleware hooks. */
+    withMiddleware,
+    /** Filter tools by category (instagram, publish, comments, etc.). */
+    filterTools,
+    /** Filter tools by name pattern (glob-like with * wildcard). */
+    filterToolsByName,
+    /** Limit the number of tools returned. */
+    limitTools,
+    /** Create a two-stage router for scalable tool selection. */
+    createRouter,
   },
 
   /** Webhook verification, parsing, and Zod schemas. */
