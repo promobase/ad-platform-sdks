@@ -1,0 +1,26 @@
+#!/bin/sh
+# Pre-commit hook: typecheck all packages that have changes staged
+
+set -e
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+# Get list of staged files
+STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
+
+check_package() {
+  local pkg_dir="$1"
+  local pkg_name="$2"
+
+  if echo "$STAGED" | grep -q "^${pkg_dir}/"; then
+    echo "[pre-commit] Typechecking ${pkg_name}..."
+    cd "$ROOT/$pkg_dir" && bun run typecheck
+    echo "[pre-commit] ${pkg_name} OK"
+  fi
+}
+
+check_package "packages/sdk-runtime" "@promobase/sdk-runtime"
+check_package "packages/meta-business-sdk" "@promobase/meta-business-sdk-ts"
+check_package "packages/tiktok-business-sdk" "@promobase/tiktok-business-sdk"
+
+echo "[pre-commit] All checks passed"
