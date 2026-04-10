@@ -1,0 +1,18 @@
+{
+  "name": "meta-business-sdk-ts",
+  "version": "0.1.0",
+  "module": "src/generated/index.ts",
+  "type": "module",
+  "scripts": {
+    "codegen": "bun src/codegen/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "build": "bun build src/generated/index.ts --outdir dist --target node"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
