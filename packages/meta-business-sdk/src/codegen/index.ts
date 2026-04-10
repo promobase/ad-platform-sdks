@@ -176,8 +176,10 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export { Cursor } from "@promobase/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
   barrelLines.push(`export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`);
-  barrelLines.push(`export { createInstagramClient } from "../clients/index.ts";`);
-  barrelLines.push(`export type { InstagramClientOptions } from "../clients/index.ts";`);
+  barrelLines.push(`export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";`);
+  barrelLines.push(`export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";`);
+  barrelLines.push(`export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";`);
+  barrelLines.push(`export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");
