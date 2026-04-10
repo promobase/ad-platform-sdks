@@ -1,6 +1,6 @@
 import { test, expect, mock, afterEach } from "bun:test";
 import { createClient } from "../../src/generated/index.ts";
-import { createInstagramClient } from "../../src/clients/instagram/index.ts";
+import { createInstagramClient, createInstagramOAuth } from "../../src/clients/instagram/index.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -139,6 +139,73 @@ test("polling throws after max attempts", async () => {
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
   expect(ig.media.publishPhoto({ imageUrl: "https://x.com/p.jpg" })).rejects.toThrow("did not finish");
+});
+
+test("OAuth generates correct authorization URL", () => {
+  const oauth = createInstagramOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  const url = oauth.getAuthorizationUrl({ state: "xyz" });
+  expect(url).toContain("https://www.instagram.com/oauth/authorize");
+  expect(url).toContain("client_id=app_123");
+  expect(url).toContain("redirect_uri=https%3A%2F%2Fexample.com%2Fcallback");
+  expect(url).toContain("state=xyz");
+  expect(url).toContain("instagram_business_basic");
+});
+
+test("OAuth exchangeCode calls correct endpoint", async () => {
+  mockFetchSequence([{ body: { access_token: "short_tok", user_id: "123" } }]);
+
+  const oauth = createInstagramOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  const result = await oauth.exchangeCode("auth_code_xyz");
+  expect(result.access_token).toBe("short_tok");
+  expect(result.user_id).toBe("123");
+
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
+  expect(url).toContain("api.instagram.com/oauth/access_token");
+});
+
+test("OAuth completeOAuth does full exchange flow", async () => {
+  mockFetchSequence([
+    { body: { access_token: "short_tok", user_id: "123" } },
+    { body: { access_token: "long_tok", token_type: "bearer", expires_in: 5184000 } },
+  ]);
+
+  const oauth = createInstagramOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  const result = await oauth.completeOAuth("auth_code_xyz");
+  expect(result.token.access_token).toBe("long_tok");
+  expect(result.userId).toBe("123");
+});
+
+test("OAuth refreshToken calls correct endpoint", async () => {
+  mockFetchSequence([
+    { body: { access_token: "refreshed_tok", token_type: "bearer", expires_in: 5184000 } },
+  ]);
+
+  const oauth = createInstagramOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  const result = await oauth.refreshToken("old_long_tok");
+  expect(result.access_token).toBe("refreshed_tok");
+
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
+  expect(url).toContain("graph.instagram.com/refresh_access_token");
 });
 
 test("low-level containers API works directly", async () => {

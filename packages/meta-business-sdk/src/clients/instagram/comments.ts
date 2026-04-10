@@ -1,5 +1,5 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
-import type { CommentData } from "./types.ts";
+import type { IGCommentFields } from "./types.ts";
 
 export function createComments(client: ApiClient) {
   return {
@@ -7,10 +7,10 @@ export function createComments(client: ApiClient) {
       return client.post<{ id: string }>(`${mediaId}/comments`, { message });
     },
 
-    async list(mediaId: string, opts?: { limit?: number }): Promise<CommentData[]> {
+    async list(mediaId: string, opts?: { limit?: number }): Promise<Partial<IGCommentFields>[]> {
       const params: Record<string, unknown> = {};
       if (opts?.limit) params.limit = opts.limit;
-      const response = await client.getEdge<CommentData>(`${mediaId}/comments`, {
+      const response = await client.getEdge<Partial<IGCommentFields>>(`${mediaId}/comments`, {
         fields: ["id", "text", "username", "timestamp"],
         params,
       });

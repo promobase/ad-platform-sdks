@@ -1,12 +1,12 @@
-import type { InstagramClientOptions } from "./types.ts";
+import type { InstagramClientOptions, OAuthConfig } from "./types.ts";
 import { resolvePolling } from "./polling.ts";
 import { createContainers } from "./containers.ts";
 import { createMedia } from "./media.ts";
 import { createStories } from "./stories.ts";
 import { createComments } from "./comments.ts";
 import { createAccount } from "./account.ts";
+import { createOAuth } from "./oauth.ts";
 
-export { type InstagramClientOptions } from "./types.ts";
 export type * from "./types.ts";
 
 export function createInstagramClient(opts: InstagramClientOptions) {
@@ -21,4 +21,8 @@ export function createInstagramClient(opts: InstagramClientOptions) {
     account: createAccount(client, igAccountId),
     containers: createContainers(client, igAccountId),
   };
+}
+
+export function createInstagramOAuth(config: OAuthConfig) {
+  return createOAuth(config);
 }

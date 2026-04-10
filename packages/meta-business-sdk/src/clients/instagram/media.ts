@@ -1,7 +1,7 @@
 import type { ApiClient } from "@promobase/sdk-runtime";
 import type {
   PublishPhotoOptions, PublishReelOptions, PublishCarouselOptions,
-  PublishResult, PollingConfig, MediaInsight,
+  PublishResult, PollingConfig, IGMediaFields, InstagramInsightsResultFields,
 } from "./types.ts";
 import { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
@@ -101,16 +101,16 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
       return containers.publish(parent.id);
     },
 
-    async list(opts?: { fields?: string[]; limit?: number }): Promise<unknown[]> {
+    async list(opts?: { fields?: string[]; limit?: number }): Promise<Partial<IGMediaFields>[]> {
       const fields = opts?.fields ?? ["id", "caption", "media_type", "timestamp", "permalink"];
       const params: Record<string, unknown> = {};
       if (opts?.limit) params.limit = opts.limit;
-      const response = await client.getEdge(`${igAccountId}/media`, { fields, params });
+      const response = await client.getEdge<Partial<IGMediaFields>>(`${igAccountId}/media`, { fields, params });
       return response.data;
     },
 
-    async getInsights(mediaId: string, metrics: string[]): Promise<MediaInsight[]> {
-      const response = await client.get<{ data: MediaInsight[] }>(
+    async getInsights(mediaId: string, metrics: string[]): Promise<InstagramInsightsResultFields[]> {
+      const response = await client.get<{ data: InstagramInsightsResultFields[] }>(
         `${mediaId}/insights`,
         { fields: [], params: { metric: metrics.join(",") } },
       );
@@ -124,8 +124,8 @@ export function createMedia(client: ApiClient, igAccountId: string, pollingConfi
       return result.permalink;
     },
 
-    async fetchMedia(mediaId: string, fields?: string[]) {
-      return client.get(mediaId, {
+    async fetchMedia(mediaId: string, fields?: string[]): Promise<Partial<IGMediaFields>> {
+      return client.get<Partial<IGMediaFields>>(mediaId, {
         fields: fields ?? ["id", "media_type", "media_url", "thumbnail_url", "permalink", "caption", "timestamp"],
       });
     },
