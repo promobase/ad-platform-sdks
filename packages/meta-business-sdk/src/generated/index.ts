@@ -1001,3 +1001,5 @@ export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";
 export { Cursor } from "@promobase/sdk-runtime";
 export { FacebookApiError } from "../errors.ts";
 export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";
+export { createInstagramClient } from "../clients/index.ts";
+export type { InstagramClientOptions } from "../clients/index.ts";
