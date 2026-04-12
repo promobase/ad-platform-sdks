@@ -1,219 +1,84 @@
+<div align="center">
+
 # ad-platform-sdks
 
-**Type-safe TypeScript SDKs for every major ad platform. Fully typed, auto-generated, AI-agent ready.**
+**Type-safe TypeScript SDKs for every ad platform. AI-agent ready.**
 
-One install for all platforms. Wrong field names, missing params, and bad enum values fail at compile time.
+Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-## Packages
+[![npm](https://img.shields.io/npm/v/@promobase/ad-platforms.svg?label=%40promobase%2Fad-platforms)](https://www.npmjs.com/package/@promobase/ad-platforms)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-| Package | Platforms | npm |
-|---------|-----------|-----|
-| [`@promobase/ad-platforms`](./packages/ad-platforms/) | **All platforms — single install** | [![npm](https://img.shields.io/npm/v/@promobase/ad-platforms.svg)](https://www.npmjs.com/package/@promobase/ad-platforms) |
-| [`@promobase/meta-business-sdk-ts`](./packages/meta-business-sdk/) | Meta (Facebook, Instagram, Threads) | [![npm](https://img.shields.io/npm/v/@promobase/meta-business-sdk-ts.svg)](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) |
-| [`@promobase/tiktok-business-sdk`](./packages/tiktok-business-sdk/) | TikTok Business API | [![npm](https://img.shields.io/npm/v/@promobase/tiktok-business-sdk.svg)](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) |
+</div>
 
-## Why This Exists
+---
 
-The official SDKs for Meta, TikTok, and Google ad platforms are either untyped JavaScript, incomplete, or poorly maintained. If you've used `facebook-nodejs-business-sdk`, you know the pain — `params: Object` everywhere, no autocomplete, no compile-time safety.
+## What
 
-This project generates fully typed TypeScript clients directly from each platform's official API specs and wraps them in ergonomic client libraries:
+One SDK for **Meta** (Facebook, Instagram, Threads), **TikTok**, and soon Google Ads. Fully typed, auto-generated from official specs, with high-level clients for publishing, messaging, and ad management — plus 58+ AI SDK tools ready to drop into any agent.
 
-- **994 typed Meta Graph API objects** — every node, edge, param, and enum
-- **Field-level type narrowing** — request `["id", "name"]`, get `Pick<CampaignFields, "id" | "name">`
-- **483 real enum values** — `status: "ACTIVE" | "PAUSED" | "DELETED"`, not `string`
-- **High-level publishing clients** — `ig.media.publishPhoto()`, `fb.feed.publishVideoReel()`, `threads.posts.publishCarousel()`
-- **Full messaging/inbox** — DMs, comments, replies, private replies with Zod-validated webhook payloads
-- **OAuth + token refresh** — full flows for Instagram, Facebook, Threads
-- **Batch API** — typed multi-request batches
-- **Rate limiting** — auto-parses Meta's `x-app-usage` headers, configurable throttling
-- **Retry with backoff** — exponential retry on 5xx and network errors
-- **58 AI SDK tools** — expose everything as typed tools for LLM agents
-- **Zero runtime dependencies** — native `fetch`, no axios
-
-## Quick Start
+## Install
 
 ```bash
 bun add @promobase/ad-platforms
 ```
 
-```typescript
-import { Meta, TikTok } from "@promobase/ad-platforms";
+## Use
 
-// Meta (Facebook, Instagram, Threads)
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-
-const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
-await ig.media.publishPhoto({ imageUrl: "...", caption: "Hello!" });
-
-const fb = Meta.Facebook.createClient({
-  api: meta,
-  pageId: "page_456",
-  accessToken: process.env.META_TOKEN!,
-});
-await fb.feed.publishPost({ message: "Hello Facebook!" });
-
-const threads = Meta.Threads.createClient({
-  accessToken: process.env.THREADS_TOKEN!,
-  threadsUserId: "t_789",
-});
-await threads.posts.publishText({ text: "Hello Threads!" });
-
-// TikTok
-const tiktok = TikTok.createClient({
-  accessToken: process.env.TIKTOK_TOKEN!,
-  businessId: "biz_123",
-});
-```
-
-## Typed Field Narrowing
-
-```typescript
-// Ask for specific fields → get only those fields (typed)
-for await (const campaign of meta.adAccount("act_123").campaigns.list({
-  fields: ["id", "name", "status", "daily_budget"],
-})) {
-  campaign.name;         // string
-  campaign.status;       // "ACTIVE" | "PAUSED" | "DELETED" | ...
-  campaign.foo;          // ❌ TS error — not in requested fields
-}
-
-// Create with typed required/optional params
-await meta.adAccount("act_123").campaigns.create({
-  name: "Summer Sale 2025",     // required
-  objective: "OUTCOME_SALES",   // required (enum, autocomplete)
-  special_ad_categories: [],    // required
-  status: "PAUSED",             // optional
-  // missing 'name'?            // ❌ TS error
-});
-```
-
-## AI Agent Integration
-
-Expose all platforms as AI SDK tools with a single call:
-
-```typescript
-import { createAllTools, Meta, TikTok } from "@promobase/ad-platforms";
+```ts
+import { Meta, TikTok, createAllTools } from "@promobase/ad-platforms";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
 
-const tools = createAllTools({
-  meta: {
-    api: meta,
-    igAccountId: "ig_123",
-    pageId: "page_456",
-    pageAccessToken: process.env.META_TOKEN!,
-    adAccountId: "act_789",
-    // Type-safe filter — agent only gets these tool groups
-    include: ["instagram", "facebook", "campaigns"],
-  },
-  tiktok: {
-    accessToken: process.env.TIKTOK_TOKEN!,
-    businessId: "biz_123",
-  },
+// Publish a reel — handles container creation, transcoding, and polling
+await ig.media.publishVideo({
+  videoUrl: "https://cdn.example.com/reel.mp4",
+  caption: "New drop 🔥",
 });
 
-// Agent now has 58+ typed tools
+// Give an AI agent access to every platform
+const tools = createAllTools({
+  meta: { api: meta, igAccountId: "ig_123", pageId: "p_456", pageAccessToken: "..." },
+  tiktok: { accessToken: "...", businessId: "biz_789" },
+});
+
 await generateText({
   model: anthropic("claude-sonnet-4-20250514"),
   tools,
   maxSteps: 10,
-  prompt: "Post this photo to Instagram and TikTok, then check ad performance for last 7 days",
+  prompt: "Post this photo to Instagram and TikTok, then reply to recent comments",
 });
 ```
 
-For larger tool sets, use middleware and routing:
+## Features
 
-```typescript
-import { Meta } from "@promobase/ad-platforms";
+- **994 typed Meta Graph API objects** with 483 real enum values (not `string`)
+- **Field-level type narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
+- **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
+- **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
+- **OAuth** — token exchange, long-lived tokens, refresh for all platforms
+- **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
+- **Retry with exponential backoff** — automatic recovery from 5xx and network errors
+- **Batch API** — typed multi-request batches for Meta
+- **58 AI SDK tools** — type-safe, filterable, with middleware and two-stage routing
+- **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
 
-// Middleware for logging, approval gates, analytics
-const tools = Meta.AI.withMiddleware(
-  Meta.AI.createTools({ api, igAccountId, pageId, pageAccessToken }),
-  {
-    beforeExecute: (ctx) => logger.info(`Calling ${ctx.toolName}`, ctx.params),
-    afterExecute: (ctx) => metrics.track("tool_call", { durationMs: ctx.durationMs }),
-    onError: (ctx) => alerting.notify(ctx.error),
-  },
-);
+## Packages
 
-// Two-stage router — agent picks domain first, then gets specific tools
-const router = Meta.AI.createRouter({
-  tools: allTools,
-  categories: ["instagram", "facebook", "campaigns"],
-});
-```
+| Package | Description |
+|---------|-------------|
+| [`@promobase/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, single install |
+| [`@promobase/meta-business-sdk-ts`](./packages/meta-business-sdk/) | Meta only (Facebook, Instagram, Threads) |
+| [`@promobase/tiktok-business-sdk`](./packages/tiktok-business-sdk/) | TikTok only |
 
-## Webhooks with Zod Validation
+## Why
 
-```typescript
-import { Meta } from "@promobase/ad-platforms";
+The official ad platform SDKs are either untyped JavaScript, incomplete, or abandoned. If you've used `facebook-nodejs-business-sdk`, you know — `params: Object` everywhere, no autocomplete, no compile-time safety.
 
-// GET handler — challenge verification
-app.get("/webhooks/instagram", (req) => {
-  const { valid, challenge } = Meta.Webhooks.verifyChallenge(req.query, VERIFY_TOKEN);
-  return valid ? new Response(challenge) : new Response("Forbidden", { status: 403 });
-});
-
-// POST handler — never throws, validates signature + payload shape
-app.post("/webhooks/instagram", async (req) => {
-  const result = await Meta.Webhooks.safeParse.instagram({
-    body: await req.text(),
-    signature: req.headers.get("X-Hub-Signature-256")!,
-    appSecret: INSTAGRAM_APP_SECRET,
-  });
-
-  if (!result.success) {
-    switch (result.error.code) {
-      case "INVALID_SIGNATURE": return new Response("Forbidden", { status: 403 });
-      case "INVALID_PAYLOAD": return new Response("Bad Request", { status: 400 });
-    }
-  }
-
-  // result.data is fully typed IGWebhookPayload
-  for (const entry of result.data.entry) {
-    for (const change of entry.changes ?? []) {
-      if (change.field === "comments") {
-        console.log(change.value.text); // string | undefined
-      }
-    }
-  }
-});
-```
-
-## Rate Limiting
-
-```typescript
-const api = Meta.createClient({
-  accessToken: "...",
-  rateLimiter: Meta.RateLimiter.create({
-    highWaterMark: 0.9,  // pause at 90% usage
-    onThrottle: ({ waitMs, usage }) => console.log(`Throttled, ${usage.callCount}%`),
-  }),
-  delay: (ms) => new Promise(r => setTimeout(r, ms)),
-  retry: { maxRetries: 3, initialBackoffMs: 1000 },
-});
-
-// Every request: rate limit check → fetch → retry on 5xx → update usage from headers
-```
-
-## Who Is This For
-
-- Teams running **Facebook/Instagram/TikTok ads** who want type safety and autocomplete
-- Teams running **multi-platform ad campaigns** who want a consistent SDK experience
-- Teams building **AI agents** for content publishing, campaign management, or ad ops
-- Anyone tired of the official `facebook-nodejs-business-sdk` and its `Object` params
-- TypeScript-first teams building **ad tech**, **marketing automation**, or **campaign management** tools
-
-## Architecture
-
-Each SDK follows the same pattern:
-
-1. **Codegen** reads platform-specific API specs → generates fully typed TypeScript (994 objects for Meta, 150+ endpoints for TikTok)
-2. **Shared runtime** (`@promobase/sdk-runtime`) provides the generic fetch client, async-iterable cursor, retry, rate limiting, and base error types
-3. Each SDK provides its own **error class**, **pagination strategy**, **OAuth handlers**, and **high-level clients**
-4. **AI tools layer** wraps everything as AI SDK tools with Zod schemas
+We built this because [openpromo.app](https://openpromo.app) needs production-grade typed access to every major ad platform, and the AI agents powering it need structured tools they can reason about. Everything here is battle-tested in production.
 
 ## Development
 
@@ -222,20 +87,11 @@ git clone --recurse-submodules https://github.com/promobase/ad-platform-sdks.git
 cd ad-platform-sdks
 bun install
 
-# Run tests (per package)
+# Per package
 cd packages/meta-business-sdk && bun test tests/
-cd packages/tiktok-business-sdk && bun test tests/
-
-# Regenerate Meta SDK from API specs
-cd packages/meta-business-sdk && bun run codegen
+cd packages/meta-business-sdk && bun run codegen   # regenerate from specs
 ```
-
-## Related
-
-- [`facebook-nodejs-business-sdk`](https://github.com/facebook/facebook-nodejs-business-sdk) — the official (untyped) Node.js SDK this replaces
-- [`facebook-business-sdk-codegen`](https://github.com/facebook/facebook-business-sdk-codegen) — the official API spec source
-- [AI SDK](https://ai-sdk.dev/) — the framework our AI tools integrate with
 
 ## License
 
-MIT
+MIT © [Promobase](https://openpromo.app)
