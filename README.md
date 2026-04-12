@@ -1,5 +1,9 @@
 <div align="center">
 
+<a href="https://openpromo.app">
+  <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
+</a>
+
 # ad-platform-sdks
 
 **Type-safe TypeScript SDKs for every ad platform. AI-agent ready.**
