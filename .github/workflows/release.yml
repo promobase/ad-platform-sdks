@@ -31,6 +31,8 @@ jobs:
         run: bun run typecheck
 
       - name: Create Release PR or Publish
+        id: changesets
+        continue-on-error: true
         uses: changesets/action@v1
         with:
           version: bun run version
@@ -41,3 +43,35 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify published versions match local
+        # bun publish sometimes exits 1 after a successful publish (seen as
+        # "cannot publish over 0.0.x" on a retry). This step is the real
+        # source of truth: it checks npm for each package and fails only if
+        # a local version is actually missing on the registry.
+        run: |
+          set -e
+          fail=0
+          for dir in packages/sdk-runtime packages/meta-business-sdk packages/tiktok-business-sdk packages/google-ads-sdk packages/ad-platforms; do
+            name=$(node -p "require('./$dir/package.json').name")
+            local_version=$(node -p "require('./$dir/package.json').version")
+            # Skip packages marked private
+            is_private=$(node -p "require('./$dir/package.json').private || false")
+            if [ "$is_private" = "true" ]; then
+              echo "$name@$local_version (private, skipped)"
+              continue
+            fi
+            if npm view "$name@$local_version" version >/dev/null 2>&1; then
+              echo "$name@$local_version ✓ published"
+            else
+              echo "$name@$local_version ✗ NOT on npm"
+              fail=1
+            fi
+          done
+          exit $fail
+
+      - name: Enable auto-merge on release PR
+        if: steps.changesets.outputs.pullRequestNumber != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash --repo "$GITHUB_REPOSITORY"
