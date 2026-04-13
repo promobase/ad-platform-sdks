@@ -46,10 +46,14 @@ jobs:
           publish: bun run release
           commit: "chore: release packages"
           title: "chore: release packages"
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # npm provenance: signs the published tarball via GH Actions OIDC
+          # so npm shows a "verified publisher" badge.
+          NPM_CONFIG_PROVENANCE: "true"
 
       - name: Verify published versions match local
         # Only run when changesets claimed it published. This step compensates

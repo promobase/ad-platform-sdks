@@ -1,0 +1,37 @@
+version: 2
+updates:
+  # npm workspace — bumps dependencies across all packages
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      # Bundle minor/patch updates into one PR per group to reduce noise
+      typescript-tooling:
+        patterns: ["typescript", "@types/*", "@biomejs/*"]
+      changesets:
+        patterns: ["@changesets/*"]
+      bun-types:
+        patterns: ["@types/bun"]
+    ignore:
+      # Don't auto-bump major versions (review manually)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions — keeps checkout, setup-bun, changesets/action fresh
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      actions:
+        patterns: ["*"]
+
+  # Git submodules — tracks googleapis + Meta codegen spec updates
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 2
