@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { TikTok } from "../src/index.ts";
 
 test("TikTok namespace is accessible", () => {
