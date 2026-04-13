@@ -15,10 +15,14 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0
+          # Use PAT so that pushes to the release branch trigger downstream
+          # CI workflows. GITHUB_TOKEN pushes do not, which otherwise forces
+          # a manual empty-commit to kick CI on the changesets release PR.
+          token: ${{ secrets.CHANGESETS_GH_TOKEN }}
 
       - uses: oven-sh/setup-bun@v2
         with:
@@ -43,7 +47,7 @@ jobs:
           commit: "chore: release packages"
           title: "chore: release packages"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -79,5 +83,5 @@ jobs:
       - name: Enable auto-merge on release PR
         if: always() && steps.changesets.outputs.pullRequestNumber != ''
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.CHANGESETS_GH_TOKEN }}
         run: gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash --repo "$GITHUB_REPOSITORY"
