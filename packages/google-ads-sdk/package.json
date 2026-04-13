@@ -1,6 +1,6 @@
 {
   "name": "@promobase/google-ads-sdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Type-safe Google Ads API v23 SDK, runtime-agnostic, generated from protobuf. Customer-bound factory and typed GAQL query builder.",
   "keywords": [
     "google-ads",
