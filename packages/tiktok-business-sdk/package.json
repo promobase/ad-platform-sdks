@@ -37,7 +37,7 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
-    "test": "[ -d tests ] && bun test tests/ || echo 'no tests'",
+    "test": "bun test tests/",
     "prepublishOnly": "bun run clean && bun run build"
   },
   "publishConfig": {

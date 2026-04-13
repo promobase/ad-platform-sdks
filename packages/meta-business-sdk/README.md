@@ -11,6 +11,7 @@
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
 [![npm](https://img.shields.io/npm/v/@promobase/meta-business-sdk-ts.svg?label=%40promobase%2Fmeta-business-sdk-ts)](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts)
+[![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 </div>
