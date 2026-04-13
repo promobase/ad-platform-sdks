@@ -21,6 +21,10 @@ const SCALAR_MAP: Record<string, string> = {
   sfixed64: "string",
 };
 
+// Well-known proto types that we flatten to plain TS types rather than emit
+// a full interface for. Covers google.protobuf wrappers plus a couple of
+// commonly-referenced types from google.rpc and google.longrunning that show
+// up in Google Ads service definitions.
 const WELL_KNOWN_SCALAR: Record<string, string> = {
   "google.protobuf.StringValue": "string",
   "google.protobuf.BytesValue": "string",
@@ -39,16 +43,23 @@ const WELL_KNOWN_SCALAR: Record<string, string> = {
   "google.protobuf.Struct": "Record<string, unknown>",
   "google.protobuf.Value": "unknown",
   "google.protobuf.ListValue": "unknown[]",
+  // Non-protobuf well-knowns that Google Ads references but which we do not
+  // want to emit full interfaces for — they live outside the v23 namespace
+  // and pulling them in would balloon the generated tree with transitive
+  // dependencies we do not actually use.
+  "google.rpc.Status": "unknown",
+  "google.longrunning.Operation": "unknown",
 };
 
 export function resolveType(
   protoType: string,
   repeated: boolean,
   mapInfo: { keyType: string; valueType: string } | null,
+  shortNameMap?: Map<string, string>,
 ): ResolvedType {
   if (mapInfo) {
-    const key = resolveType(mapInfo.keyType, false, null);
-    const value = resolveType(mapInfo.valueType, false, null);
+    const key = resolveType(mapInfo.keyType, false, null, shortNameMap);
+    const value = resolveType(mapInfo.valueType, false, null, shortNameMap);
     const keyTs = key.tsType === "number" ? "number" : "string";
     return {
       tsType: `Record<${keyTs}, ${value.tsType}>`,
@@ -56,14 +67,17 @@ export function resolveType(
     };
   }
 
-  const base = resolveBase(protoType);
+  const base = resolveBase(protoType, shortNameMap);
   return {
     tsType: repeated ? `${base.tsType}[]` : base.tsType,
     imports: base.imports,
   };
 }
 
-function resolveBase(protoType: string): ResolvedType {
+function resolveBase(
+  protoType: string,
+  shortNameMap?: Map<string, string>,
+): ResolvedType {
   if (SCALAR_MAP[protoType]) return { tsType: SCALAR_MAP[protoType]!, imports: [] };
 
   const normalized = protoType.replace(/^\./, "");
@@ -71,6 +85,13 @@ function resolveBase(protoType: string): ResolvedType {
     return { tsType: WELL_KNOWN_SCALAR[normalized]!, imports: [] };
   }
 
+  // Look up the mangled/canonical short name for this proto fullName in the
+  // orchestrator-supplied map. Falls back to the last `.` segment so unit
+  // tests and small fixtures continue to work without a map.
+  const mapped = shortNameMap?.get(normalized);
+  if (mapped) {
+    return { tsType: mapped, imports: [{ name: mapped, fullName: normalized }] };
+  }
   const parts = normalized.split(".");
   const short = parts[parts.length - 1]!;
   return { tsType: short, imports: [{ name: short, fullName: normalized }] };

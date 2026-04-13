@@ -1,6 +1,6 @@
 import path from "node:path";
 import fs from "node:fs/promises";
-import { loadProtos, type MessageAst } from "./parser.ts";
+import { loadProtos, type EnumAst, type MessageAst } from "./parser.ts";
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
 
 const PKG_ROOT = path.resolve(import.meta.dir, "../..");
@@ -24,6 +24,58 @@ async function writeFile(target: string, content: string) {
   await fs.writeFile(target, content);
 }
 
+// Assign a unique short TS name to every emitted fullName. For top-level
+// names this is just the last `.` segment. On collision we fall back to a
+// mangled `${parent}_${short}` form, walking up further if still ambiguous.
+// The resulting map is shared between the orchestrator (which uses it to
+// decide filenames / barrel exports) and the emitter / type-resolver (which
+// uses it so references line up).
+function assignShortNames(fullNames: Iterable<string>): Map<string, string> {
+  const byShort = new Map<string, string[]>();
+  for (const fn of fullNames) {
+    const parts = fn.split(".");
+    const short = parts[parts.length - 1]!;
+    const bucket = byShort.get(short) ?? [];
+    bucket.push(fn);
+    byShort.set(short, bucket);
+  }
+
+  const result = new Map<string, string>();
+  const used = new Set<string>();
+
+  // First pass: unique short names win outright.
+  for (const [short, fns] of byShort) {
+    if (fns.length === 1) {
+      result.set(fns[0]!, short);
+      used.add(short);
+    }
+  }
+
+  // Second pass: mangle collisions by walking back up the dotted path.
+  for (const [short, fns] of byShort) {
+    if (fns.length === 1) continue;
+    for (const fn of fns) {
+      const parts = fn.split(".");
+      let depth = 2;
+      let candidate = short;
+      while (used.has(candidate) && depth <= parts.length) {
+        candidate = parts.slice(-depth).join("_");
+        depth++;
+      }
+      // Final fallback: append a numeric suffix.
+      if (used.has(candidate)) {
+        let i = 2;
+        while (used.has(`${short}_${i}`)) i++;
+        candidate = `${short}_${i}`;
+      }
+      result.set(fn, candidate);
+      used.add(candidate);
+    }
+  }
+
+  return result;
+}
+
 async function main() {
   console.log(`[codegen] scanning ${V23_DIR}`);
   const protoFiles = await walkProtos(V23_DIR);
@@ -38,44 +90,67 @@ async function main() {
   await fs.rm(OUT, { recursive: true, force: true });
   await fs.mkdir(OUT, { recursive: true });
 
-  const messageIndex = new Map<string, MessageAst>();
-  for (const m of root.messages) messageIndex.set(m.fullName, m);
-
   const isV23 = (fullName: string) => fullName.startsWith("google.ads.googleads.v23.");
 
-  // Enums — only top-level v23 enums, deduplicated by name
-  const enumNames = new Set<string>();
-  for (const e of root.enums) {
-    if (!isV23(e.fullName)) continue;
-    if (enumNames.has(e.name)) continue;
-    enumNames.add(e.name);
-    const file = path.join(OUT, "enums", `${e.name}.ts`);
-    await writeFile(file, emitEnum(e));
-  }
-
-  // Messages — only top-level v23 messages, deduplicated by name
-  const messageNames = new Set<string>();
+  // Collect v23 types, deduplicating by fullName (the parser walks nested
+  // types, which can appear multiple times if referenced from several files).
+  const v23Messages = new Map<string, MessageAst>();
   for (const m of root.messages) {
     if (!isV23(m.fullName)) continue;
-    if (messageNames.has(m.name)) continue;
-    messageNames.add(m.name);
-    const file = path.join(OUT, "resources", `${m.name}.ts`);
-    await writeFile(file, emitMessage(m));
+    if (!v23Messages.has(m.fullName)) v23Messages.set(m.fullName, m);
+  }
+  const v23Enums = new Map<string, EnumAst>();
+  for (const e of root.enums) {
+    if (!isV23(e.fullName)) continue;
+    if (!v23Enums.has(e.fullName)) v23Enums.set(e.fullName, e);
   }
 
-  // Services
+  // Short-name assignment across messages AND enums so we never emit two
+  // top-level exports with the same TS name.
+  const shortNames = assignShortNames([
+    ...v23Messages.keys(),
+    ...v23Enums.keys(),
+  ]);
+
+  // A messageIndex keyed by fullName is still handy for emitService so it
+  // can look at request bodies.
+  const messageIndex = new Map<string, MessageAst>();
+  for (const m of v23Messages.values()) messageIndex.set(m.fullName, m);
+
+  // Emit enums
+  const emittedEnumNames: string[] = [];
+  for (const e of v23Enums.values()) {
+    const name = shortNames.get(e.fullName)!;
+    const file = path.join(OUT, "enums", `${name}.ts`);
+    await writeFile(file, emitEnum(e, name));
+    emittedEnumNames.push(name);
+  }
+
+  // Emit messages (resources + any message types living in v23 — including
+  // request/response wrappers under the services package).
+  const emittedMessageNames: string[] = [];
+  for (const m of v23Messages.values()) {
+    const name = shortNames.get(m.fullName)!;
+    const file = path.join(OUT, "resources", `${name}.ts`);
+    await writeFile(file, emitMessage(m, shortNames, name));
+    emittedMessageNames.push(name);
+  }
+
+  // Services — emit one file per service. Service type names are
+  // guaranteed unique within a proto package already, but we still run them
+  // through the shortName map so request/response refs line up.
   const serviceInstances: { name: string; instance: string }[] = [];
   for (const s of root.services) {
     if (!isV23(s.fullName)) continue;
     const instance = s.name.charAt(0).toLowerCase() + s.name.slice(1);
     const file = path.join(OUT, "services", `${s.name}.ts`);
-    await writeFile(file, emitService(s, messageIndex));
+    await writeFile(file, emitService(s, messageIndex, shortNames));
     serviceInstances.push({ name: s.name, instance });
   }
 
   // Barrels
-  const sortedEnums = [...enumNames].sort();
-  const sortedMessages = [...messageNames].sort();
+  const sortedEnums = [...emittedEnumNames].sort();
+  const sortedMessages = [...emittedMessageNames].sort();
   const sortedServices = serviceInstances.sort((a, b) => a.name.localeCompare(b.name));
 
   await writeFile(

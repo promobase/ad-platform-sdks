@@ -2,18 +2,24 @@ import type { EnumAst, MessageAst, ServiceAst, MethodAst, FieldAst } from "./par
 import { resolveType } from "./type-resolver.ts";
 import { parseHttpPath, snakeToCamel } from "./http-binding.ts";
 
-export function emitEnum(e: EnumAst): string {
+export function emitEnum(e: EnumAst, emittedName?: string): string {
+  const name = emittedName ?? e.name;
   const values = e.values.map((v) => `  | "${v.name}"`).join("\n");
-  return `// Generated from ${e.fullName}. Do not edit by hand.\nexport type ${e.name} =\n${values};\n`;
+  return `// Generated from ${e.fullName}. Do not edit by hand.\nexport type ${name} =\n${values};\n`;
 }
 
-export function emitMessage(m: MessageAst): string {
+export function emitMessage(
+  m: MessageAst,
+  shortNameMap?: Map<string, string>,
+  emittedName?: string,
+): string {
+  const selfName = emittedName ?? m.name;
   const imports = new Set<string>();
   const lines: string[] = [];
   for (const f of m.fields) {
-    const resolved = resolveType(f.type, f.repeated, f.map ?? null);
+    const resolved = resolveType(f.type, f.repeated, f.map ?? null, shortNameMap);
     for (const imp of resolved.imports) {
-      if (imp.name !== m.name) imports.add(imp.name);
+      if (imp.name !== selfName) imports.add(imp.name);
     }
     const jsName = snakeToCamel(f.name);
     lines.push(`  ${jsName}?: ${resolved.tsType};`);
@@ -22,15 +28,19 @@ export function emitMessage(m: MessageAst): string {
     imports.size > 0
       ? `import type { ${[...imports].sort().join(", ")} } from "../index.ts";\n\n`
       : "";
-  return `${importLine}// Generated from ${m.fullName}. Do not edit by hand.\nexport interface ${m.name} {\n${lines.join("\n")}\n}\n`;
+  return `${importLine}// Generated from ${m.fullName}. Do not edit by hand.\nexport interface ${selfName} {\n${lines.join("\n")}\n}\n`;
 }
 
-export function emitService(s: ServiceAst, messageIndex: Map<string, MessageAst>): string {
+export function emitService(
+  s: ServiceAst,
+  messageIndex: Map<string, MessageAst>,
+  shortNameMap?: Map<string, string>,
+): string {
   const methodBlocks: string[] = [];
   const usedTypes = new Set<string>();
 
   for (const m of s.methods) {
-    const block = emitMethod(m, messageIndex, usedTypes);
+    const block = emitMethod(m, messageIndex, usedTypes, shortNameMap);
     if (block) methodBlocks.push(block);
   }
 
@@ -50,16 +60,24 @@ function emitMethod(
   m: MethodAst,
   messageIndex: Map<string, MessageAst>,
   usedTypes: Set<string>,
+  shortNameMap: Map<string, string> | undefined,
 ): string | null {
   if (!m.httpOption) return null;
 
   const parsed = parseHttpPath(m.httpOption.path);
   const methodName = m.name.charAt(0).toLowerCase() + m.name.slice(1);
-  const reqShort = shortName(m.requestType);
-  const resShort = shortName(m.responseType);
 
-  usedTypes.add(reqShort);
-  usedTypes.add(resShort);
+  // Use the type resolver to figure out what the request / response types
+  // should look like in TS. Well-known types (google.protobuf.Empty,
+  // google.longrunning.Operation, google.rpc.Status, …) resolve to scalar/
+  // `unknown` TS shapes with no import, which avoids dangling references
+  // to types that were never emitted.
+  const reqResolved = resolveType(m.requestType, false, null, shortNameMap);
+  const resResolved = resolveType(m.responseType, false, null, shortNameMap);
+  for (const imp of reqResolved.imports) usedTypes.add(imp.name);
+  for (const imp of resResolved.imports) usedTypes.add(imp.name);
+  const reqTs = reqResolved.tsType;
+  const resTs = resResolved.tsType;
 
   const req = messageIndex.get(m.requestType);
   const pathParamSet = new Set(parsed.pathParams);
@@ -70,11 +88,15 @@ function emitMethod(
   const verb = m.httpOption.verb;
   const needsBody = verb === "post" || verb === "put" || verb === "patch";
 
+  // Only try to `Omit<ReqShape, pathKeys>` when the resolved request type is
+  // a real generated interface we can index into. For well-known scalars we
+  // just use the resolved type directly.
+  const reqIsInterface = reqResolved.imports.length > 0;
   const omitKeys =
-    parsed.pathParams.length > 0
+    reqIsInterface && parsed.pathParams.length > 0
       ? parsed.pathParams.map((p) => `"${snakeToCamel(p)}"`).join(" | ")
       : null;
-  const bodyFieldsTs = omitKeys ? `Omit<${reqShort}, ${omitKeys}>` : reqShort;
+  const bodyFieldsTs = omitKeys ? `Omit<${reqTs}, ${omitKeys}>` : reqTs;
 
   const nonPathFields: FieldAst[] = req
     ? req.fields.filter((f) => !pathParamSet.has(f.name))
@@ -86,23 +108,18 @@ function emitMethod(
   let call: string;
   if (needsBody) {
     args.push(`body: ${bodyFieldsTs}`);
-    call = `client.post<${resShort}>(\`${parsed.template}\`, body)`;
+    call = `client.post<${resTs}>(\`${parsed.template}\`, body)`;
   } else if (verb === "delete") {
-    call = `client.delete<${resShort}>(\`${parsed.template}\`)`;
+    call = `client.delete<${resTs}>(\`${parsed.template}\`)`;
   } else {
     // GET
     if (nonPathFields.length > 0) {
       args.push(`query: ${bodyFieldsTs} = {} as ${bodyFieldsTs}`);
-      call = `client.get<${resShort}>(\`${parsed.template}\`, { query: query as Record<string, string | number | boolean | undefined> })`;
+      call = `client.get<${resTs}>(\`${parsed.template}\`, { query: query as Record<string, string | number | boolean | undefined> })`;
     } else {
-      call = `client.get<${resShort}>(\`${parsed.template}\`)`;
+      call = `client.get<${resTs}>(\`${parsed.template}\`)`;
     }
   }
 
-  return `  ${methodName}(${args.join(", ")}): Promise<${resShort}> {\n    return ${call};\n  }`;
-}
-
-function shortName(fullName: string): string {
-  const parts = fullName.split(".");
-  return parts[parts.length - 1]!;
+  return `  ${methodName}(${args.join(", ")}): Promise<${resTs}> {\n    return ${call};\n  }`;
 }
