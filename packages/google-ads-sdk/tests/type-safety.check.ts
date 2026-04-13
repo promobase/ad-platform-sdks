@@ -99,5 +99,58 @@ async function specPaginateExample() {
   }
 }
 
+// 8. Ergonomic wrapper type safety.
+async function wrapperChecks() {
+  const customer = Google.Ads.customer(client, "123");
+
+  // Good: minimal create
+  const budget = await customer.campaignBudgets.create({ name: "Q1", amountMicros: "5000000" });
+
+  // Good: rich-object Ref feeds directly into next call
+  const campaign = await customer.campaigns.create({
+    name: "A",
+    status: "PAUSED",
+    advertisingChannelType: "SEARCH",
+    campaignBudget: budget,
+  });
+
+  // Good: string Ref also works
+  await customer.campaigns.create({
+    name: "B",
+    status: "PAUSED",
+    advertisingChannelType: "SEARCH",
+    campaignBudget: "customers/123/campaignBudgets/789",
+  });
+
+  // @ts-expect-error — campaignBudget required
+  await customer.campaigns.create({ name: "C", status: "PAUSED", advertisingChannelType: "SEARCH" });
+
+  await customer.campaigns.create({
+    name: "E",
+    // @ts-expect-error — status "BOGUS" not assignable to CampaignStatus
+    status: "BOGUS",
+    advertisingChannelType: "SEARCH",
+    campaignBudget: budget,
+  });
+
+  // Chain: campaign return value is usable as Ref<Campaign>
+  await customer.adGroups.create({
+    name: "G1",
+    status: "ENABLED",
+    type: "SEARCH_STANDARD",
+    campaign,
+  });
+
+  // Note: structural typing cannot distinguish Ref<Campaign> from Ref<CampaignBudget>
+  // because both resource interfaces are structurally equivalent (all-optional fields).
+  // A caller passing `campaign: budget` compiles but fails at runtime on the API call.
+  // The wrapper returns the full resource shape so happy-path chaining works; protecting
+  // against cross-type misuse would require nominal brands we don't currently emit.
+
+  // ads wrapper: no create method on the type surface
+  // @ts-expect-error — ads.create does not exist; use adGroupAds.create
+  await customer.ads.create({});
+}
+
 // Silence unused-var warnings under tsc --noUnusedLocals if enabled.
-void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample];
+void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample, wrapperChecks];
