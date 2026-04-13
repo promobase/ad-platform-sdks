@@ -1,0 +1,8 @@
+// Generated from google.ads.googleads.v23.errors.GoalErrorEnum.GoalError. Do not edit by hand.
+export type GoalError =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "RETENTION_GOAL_ALREADY_EXISTS"
+  | "HIGH_LIFETIME_VALUE_PRESENT_BUT_VALUE_ABSENT"
+  | "HIGH_LIFETIME_VALUE_LESS_THAN_OR_EQUAL_TO_VALUE"
+  | "CUSTOMER_LIFECYCLE_OPTIMIZATION_ACCOUNT_TYPE_NOT_ALLOWED";

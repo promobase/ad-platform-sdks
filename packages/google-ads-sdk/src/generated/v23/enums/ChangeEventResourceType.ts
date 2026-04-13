@@ -1,0 +1,23 @@
+// Generated from google.ads.googleads.v23.enums.ChangeEventResourceTypeEnum.ChangeEventResourceType. Do not edit by hand.
+export type ChangeEventResourceType =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "AD"
+  | "AD_GROUP"
+  | "AD_GROUP_CRITERION"
+  | "CAMPAIGN"
+  | "CAMPAIGN_BUDGET"
+  | "AD_GROUP_BID_MODIFIER"
+  | "CAMPAIGN_CRITERION"
+  | "FEED"
+  | "FEED_ITEM"
+  | "CAMPAIGN_FEED"
+  | "AD_GROUP_FEED"
+  | "AD_GROUP_AD"
+  | "ASSET"
+  | "CUSTOMER_ASSET"
+  | "CAMPAIGN_ASSET"
+  | "AD_GROUP_ASSET"
+  | "ASSET_SET"
+  | "ASSET_SET_ASSET"
+  | "CAMPAIGN_ASSET_SET";

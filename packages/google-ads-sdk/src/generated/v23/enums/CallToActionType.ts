@@ -1,0 +1,21 @@
+// Generated from google.ads.googleads.v23.enums.CallToActionTypeEnum.CallToActionType. Do not edit by hand.
+export type CallToActionType =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "LEARN_MORE"
+  | "GET_QUOTE"
+  | "APPLY_NOW"
+  | "SIGN_UP"
+  | "CONTACT_US"
+  | "SUBSCRIBE"
+  | "DOWNLOAD"
+  | "BOOK_NOW"
+  | "SHOP_NOW"
+  | "BUY_NOW"
+  | "DONATE_NOW"
+  | "ORDER_NOW"
+  | "PLAY_NOW"
+  | "SEE_MORE"
+  | "START_NOW"
+  | "VISIT_SITE"
+  | "WATCH_NOW";

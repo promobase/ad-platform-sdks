@@ -1,0 +1,10 @@
+// Generated from google.ads.googleads.v23.errors.ConversionGoalCampaignConfigErrorEnum.ConversionGoalCampaignConfigError. Do not edit by hand.
+export type ConversionGoalCampaignConfigError =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "CANNOT_USE_CAMPAIGN_GOAL_FOR_SEARCH_ADS_360_MANAGED_CAMPAIGN"
+  | "CUSTOM_GOAL_DOES_NOT_BELONG_TO_GOOGLE_ADS_CONVERSION_CUSTOMER"
+  | "CAMPAIGN_CANNOT_USE_UNIFIED_GOALS"
+  | "EMPTY_CONVERSION_GOALS"
+  | "STORE_SALE_STORE_VISIT_CANNOT_BE_BOTH_INCLUDED"
+  | "PERFORMANCE_MAX_CAMPAIGN_CANNOT_USE_CUSTOM_GOAL_WITH_STORE_SALES";

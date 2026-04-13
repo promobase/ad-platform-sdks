@@ -1,0 +1,14 @@
+// Generated from google.ads.googleads.v23.errors.AudienceErrorEnum.AudienceError. Do not edit by hand.
+export type AudienceError =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "NAME_ALREADY_IN_USE"
+  | "DIMENSION_INVALID"
+  | "AUDIENCE_SEGMENT_NOT_FOUND"
+  | "AUDIENCE_SEGMENT_TYPE_NOT_SUPPORTED"
+  | "DUPLICATE_AUDIENCE_SEGMENT"
+  | "TOO_MANY_SEGMENTS"
+  | "TOO_MANY_DIMENSIONS_OF_SAME_TYPE"
+  | "IN_USE"
+  | "MISSING_ASSET_GROUP_ID"
+  | "CANNOT_CHANGE_FROM_CUSTOMER_TO_ASSET_GROUP_SCOPE";

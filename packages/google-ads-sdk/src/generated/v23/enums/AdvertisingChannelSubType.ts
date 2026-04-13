@@ -1,0 +1,23 @@
+// Generated from google.ads.googleads.v23.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType. Do not edit by hand.
+export type AdvertisingChannelSubType =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "SEARCH_MOBILE_APP"
+  | "DISPLAY_MOBILE_APP"
+  | "SEARCH_EXPRESS"
+  | "DISPLAY_EXPRESS"
+  | "SHOPPING_SMART_ADS"
+  | "DISPLAY_GMAIL_AD"
+  | "DISPLAY_SMART_CAMPAIGN"
+  | "VIDEO_ACTION"
+  | "VIDEO_NON_SKIPPABLE"
+  | "APP_CAMPAIGN"
+  | "APP_CAMPAIGN_FOR_ENGAGEMENT"
+  | "LOCAL_CAMPAIGN"
+  | "SHOPPING_COMPARISON_LISTING_ADS"
+  | "SMART_CAMPAIGN"
+  | "VIDEO_SEQUENCE"
+  | "APP_CAMPAIGN_FOR_PRE_REGISTRATION"
+  | "VIDEO_REACH_TARGET_FREQUENCY"
+  | "TRAVEL_ACTIVITIES"
+  | "YOUTUBE_AUDIO";
