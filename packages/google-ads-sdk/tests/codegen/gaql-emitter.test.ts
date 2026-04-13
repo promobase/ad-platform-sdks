@@ -6,7 +6,10 @@ import { emitGaqlCatalog } from "../../src/codegen/gaql-emitter.ts";
 const FIXTURES = path.resolve(import.meta.dir, "fixtures");
 
 test("emitGaqlCatalog walks scalar leaves and nested messages", async () => {
-  const root = await loadProtos([path.join(FIXTURES, "gaql_sample.proto")], [FIXTURES]);
+  const root = await loadProtos(
+    [path.join(FIXTURES, "campaign.proto"), path.join(FIXTURES, "helpers.proto")],
+    [FIXTURES],
+  );
   const catalog = emitGaqlCatalog(root, {
     resourcesPackagePrefix: "test.gaql",
     metricsMessageFullName: null,
@@ -50,7 +53,10 @@ test("emitGaqlCatalog walks scalar leaves and nested messages", async () => {
 });
 
 test("emitGaqlCatalog renders resource union file", async () => {
-  const root = await loadProtos([path.join(FIXTURES, "gaql_sample.proto")], [FIXTURES]);
+  const root = await loadProtos(
+    [path.join(FIXTURES, "campaign.proto"), path.join(FIXTURES, "helpers.proto")],
+    [FIXTURES],
+  );
   const catalog = emitGaqlCatalog(root, {
     resourcesPackagePrefix: "test.gaql",
     metricsMessageFullName: null,
@@ -63,7 +69,10 @@ test("emitGaqlCatalog renders resource union file", async () => {
 });
 
 test("emitGaqlCatalog renders field-map file with imports", async () => {
-  const root = await loadProtos([path.join(FIXTURES, "gaql_sample.proto")], [FIXTURES]);
+  const root = await loadProtos(
+    [path.join(FIXTURES, "campaign.proto"), path.join(FIXTURES, "helpers.proto")],
+    [FIXTURES],
+  );
   const catalog = emitGaqlCatalog(root, {
     resourcesPackagePrefix: "test.gaql",
     metricsMessageFullName: null,

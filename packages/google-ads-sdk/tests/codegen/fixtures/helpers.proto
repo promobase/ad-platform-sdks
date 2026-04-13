@@ -1,0 +1,12 @@
+syntax = "proto3";
+package test.gaql;
+
+message NetworkSettings {
+  bool target_google_search = 1;
+  bool target_search_network = 2;
+}
+
+message CustomParam {
+  string key = 1;
+  string value = 2;
+}

@@ -34,6 +34,7 @@ export interface MessageAst {
   nestedMessages: MessageAst[];
   nestedEnums: EnumAst[];
   oneofs: { name: string; fieldNames: string[] }[];
+  sourceFile?: string;
 }
 
 export interface EnumValueAst {
@@ -136,6 +137,8 @@ function toMessage(t: protobuf.Type): MessageAst {
     else if (n instanceof protobuf.Enum) nestedEnums.push(toEnum(n));
   }
 
+  const sourceFile = (t as unknown as { filename?: string }).filename;
+
   return {
     fullName: t.fullName.replace(/^\./, ""),
     name: t.name,
@@ -143,6 +146,7 @@ function toMessage(t: protobuf.Type): MessageAst {
     nestedMessages,
     nestedEnums,
     oneofs: t.oneofsArray.map((o) => ({ name: o.name, fieldNames: o.oneof })),
+    sourceFile: sourceFile ?? undefined,
   };
 }
 

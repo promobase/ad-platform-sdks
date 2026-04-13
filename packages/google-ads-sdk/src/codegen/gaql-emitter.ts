@@ -50,6 +50,13 @@ export interface EmitterOptions {
   resourcesPackagePrefix: string;
   metricsMessageFullName: string | null;
   segmentsMessageFullName: string | null;
+  /**
+   * Map of proto fullName -> canonical TS short name, matching the one used
+   * when emitting enums/messages to disk. Without this map the resolver
+   * falls back to the trailing `.` segment which is typically wrong when
+   * mangling collisions (e.g. `ProductChannel` vs `ProductChannelEnum`).
+   */
+  shortNameMap?: Map<string, string>;
 }
 
 const MAX_DEPTH = 6;
@@ -68,18 +75,34 @@ export function emitGaqlCatalog(root: ProtoRoot, opts: EmitterOptions): GaqlCata
     if (!enumByShortName.has(e.name)) enumByShortName.set(e.name, e);
   }
 
+  // Set of TS names (as they appear on disk in ../enums/) that are actually
+  // enums. Uses the orchestrator's shortNameMap when provided so mangled
+  // names (ProductChannelEnum_ProductChannel) resolve correctly; otherwise
+  // falls back to each enum's proto short name.
+  const enumTsNames = new Set<string>();
+  for (const e of root.enums) {
+    const tsName = opts.shortNameMap?.get(e.fullName) ?? e.name;
+    enumTsNames.add(tsName);
+  }
+
   const ctx: WalkContext = {
     messageIndex,
     messageByShortName,
     enumByShortName,
     enumByFullName,
+    enumTsNames,
+    shortNameMap: opts.shortNameMap,
   };
 
   const prefixSegments = opts.resourcesPackagePrefix.split(".").length;
 
-  // A message is treated as a resource only if no other message in the same
-  // package references it as a field type (so helper/nested types like
-  // NetworkSettings don't become top-level resources).
+  // A top-level message under the resources package is treated as a GAQL
+  // resource iff it's the "primary" message for its source .proto file, i.e.
+  // its snake_case form matches the basename of the file it's defined in.
+  // This cleanly separates resources (e.g. `AdGroupAd` in `ad_group_ad.proto`)
+  // from sibling helper types defined in the same file (e.g.
+  // `AdGroupAdPolicySummary`). Falls back to the legacy "not referenced"
+  // heuristic when no sourceFile info is available (fixtures / in-memory).
   const referencedTypes = new Set<string>();
   for (const m of root.messages) {
     for (const f of m.fields) {
@@ -91,8 +114,18 @@ export function emitGaqlCatalog(root: ProtoRoot, opts: EmitterOptions): GaqlCata
   for (const m of root.messages) {
     if (!m.fullName.startsWith(`${opts.resourcesPackagePrefix}.`)) continue;
     if (m.fullName.split(".").length !== prefixSegments + 1) continue;
-    if (referencedTypes.has(m.name) || referencedTypes.has(m.fullName)) continue;
-    const resourceName = toSnakeCase(m.name);
+    const snake = toSnakeCase(m.name);
+    if (m.sourceFile) {
+      const stem = m.sourceFile
+        .replace(/\\/g, "/")
+        .split("/")
+        .pop()!
+        .replace(/\.proto$/, "");
+      if (stem !== snake) continue;
+    } else {
+      if (referencedTypes.has(m.name) || referencedTypes.has(m.fullName)) continue;
+    }
+    const resourceName = snake;
     const typeAlias = `${m.name}SelectableField`;
     const fields: GaqlFieldEntry[] = [];
     walkMessage(m, [resourceName], [], fields, ctx, 0);
@@ -141,11 +174,24 @@ export function emitGaqlCatalog(root: ProtoRoot, opts: EmitterOptions): GaqlCata
         .sort()
         .map((name) => `import type { ${name} } from "../enums/${name}.ts";`)
         .join("\n");
+      // Any non-enum message type referenced from field-map.ts isn't imported
+      // (we only import enums). Downgrade those to `unknown` so the file
+      // remains self-contained and typecheck-clean. Scalar primitives and
+      // Record<> types pass through, as do known enum types.
+      const SAFE = new Set(["string", "number", "boolean", "unknown"]);
+      const sanitize = (tsType: string, enumImport?: string): string => {
+        const isArray = tsType.endsWith("[]");
+        const base = tsType.replace(/\[\]$/, "");
+        if (enumImport && base === enumImport) return tsType;
+        if (SAFE.has(base)) return tsType;
+        if (base.startsWith("Record<")) return tsType;
+        return isArray ? "unknown[]" : "unknown";
+      };
       const entries = all
-        .map(
-          (f) =>
-            `  "${f.gaqlKey}": FieldInfo<"${f.namespace}", "${f.camelPath}", ${f.tsType}>;`,
-        )
+        .map((f) => {
+          const ts = sanitize(f.tsType, f.enumImport);
+          return `  "${f.gaqlKey}": FieldInfo<"${f.namespace}", "${f.camelPath}", ${ts}>;`;
+        })
         .join("\n");
       return `${importLines}\n\n// Generated. Do not edit by hand.\nexport interface FieldInfo<NS extends string, P extends string, T> {\n  namespace: NS;\n  path: P;\n  tsType: T;\n}\n\nexport type FieldMap = {\n${entries}\n};\n`;
     },
@@ -178,6 +224,8 @@ interface WalkContext {
   messageByShortName: Map<string, MessageAst>;
   enumByShortName: Map<string, EnumAst>;
   enumByFullName: Map<string, EnumAst>;
+  enumTsNames: Set<string>;
+  shortNameMap?: Map<string, string>;
 }
 
 function lookupMessage(protoType: string, ctx: WalkContext): MessageAst | undefined {
@@ -208,7 +256,7 @@ function walkMessage(
     const namespace = namespacePath[0]!;
     const fullCamelPath = [...camelPath, camelLeaf].join(".");
 
-    const resolved = resolveType(field.type, field.repeated, null);
+    const resolved = resolveType(field.type, field.repeated, null, ctx.shortNameMap);
     const isScalar = SCALAR_TYPES.has(field.type);
     const wellKnown = isWellKnown(field.type);
     const enumRef = !isScalar && !wellKnown ? lookupEnum(field.type, ctx) : undefined;
@@ -219,7 +267,7 @@ function walkMessage(
         namespace,
         camelPath: fullCamelPath,
         tsType: resolved.tsType,
-        enumImport: pickEnumImport(resolved),
+        enumImport: pickEnumImport(resolved, ctx),
       });
     };
 
@@ -263,14 +311,23 @@ function isWellKnown(protoType: string): boolean {
   );
 }
 
-function pickEnumImport(resolved: {
-  tsType: string;
-  imports: { name: string }[];
-}): string | undefined {
+function pickEnumImport(
+  resolved: {
+    tsType: string;
+    imports: { name: string }[];
+  },
+  ctx: WalkContext,
+): string | undefined {
   const base = resolved.tsType.replace(/\[\]$/, "");
   if (["string", "number", "boolean", "unknown"].includes(base)) return undefined;
   if (base.startsWith("Record<")) return undefined;
-  return resolved.imports.find((i) => i.name === base)?.name;
+  const found = resolved.imports.find((i) => i.name === base)?.name;
+  if (!found) return undefined;
+  // Only include as an enum import if we actually know it to be an enum — the
+  // emitter only writes enum files to `../enums/` so message imports here
+  // would dangle.
+  if (!ctx.enumTsNames.has(found)) return undefined;
+  return found;
 }
 
 function toSnakeCase(s: string): string {
