@@ -89,5 +89,15 @@ function handle(err: unknown) {
   }
 }
 
+// 7. Verify the doc examples from the spec actually typecheck.
+async function specPaginateExample() {
+  for await (const row of Google.Ads.paginate(
+    (req) => googleAdsService.search(client.http, "9999999999", req),
+    { query: "SELECT ad_group.id FROM ad_group" },
+  )) {
+    void row;
+  }
+}
+
 // Silence unused-var warnings under tsc --noUnusedLocals if enabled.
-void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle];
+void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample];

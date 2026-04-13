@@ -202,13 +202,12 @@ class GoogleAdsError extends Error {
 
 ```ts
 // Low-level: single page
-await Google.Ads.googleAdsService.search(client, customerId, { query, pageSize, pageToken });
+await Google.Ads.googleAdsService.search(client.http, customerId, { query, pageSize, pageToken });
 
-// High-level: async iterable over all pages
+// High-level: async iterable over all pages. The caller binds client + customerId
+// into a one-arg fetcher so paginate stays agnostic to path params.
 for await (const row of Google.Ads.paginate(
-  Google.Ads.googleAdsService.search,
-  client,
-  customerId,
+  (req) => Google.Ads.googleAdsService.search(client.http, customerId, req),
   { query },
 )) {
   // row: GoogleAdsRow
@@ -244,18 +243,16 @@ const client = Google.createClient({
   loginCustomerId: "1234567890",
 });
 
-const { results } = await Google.Ads.googleAdsService.search(client, "9999999999", {
+const { results } = await Google.Ads.googleAdsService.search(client.http, "9999999999", {
   query: "SELECT campaign.id, campaign.name FROM campaign WHERE campaign.status = 'ENABLED'",
 });
 
-await Google.Ads.campaignService.mutate(client, "9999999999", {
+await Google.Ads.campaignService.mutateCampaigns(client.http, "9999999999", {
   operations: [{ create: { name: "Holiday", status: "PAUSED" } }],
 });
 
 for await (const row of Google.Ads.paginate(
-  Google.Ads.googleAdsService.search,
-  client,
-  "9999999999",
+  (req) => Google.Ads.googleAdsService.search(client.http, "9999999999", req),
   { query: "SELECT ad_group.id FROM ad_group" },
 )) {
   console.log(row.adGroup?.id);
