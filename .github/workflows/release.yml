@@ -48,10 +48,13 @@ jobs:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Verify published versions match local
-        # bun publish sometimes exits 1 after a successful publish (seen as
-        # "cannot publish over 0.0.x" on a retry). This step is the real
-        # source of truth: it checks npm for each package and fails only if
-        # a local version is actually missing on the registry.
+        # Only run when changesets claimed it published. This step compensates
+        # for bun publish's "success then 403 retry" flake: it checks npm for
+        # each package and fails only if a local version is actually missing
+        # on the registry. Skipped when the action opened a Version PR instead
+        # of publishing (otherwise it'd check bumped-but-not-yet-published
+        # versions against npm and always fail).
+        if: steps.changesets.outputs.published == 'true'
         run: |
           set -e
           fail=0
@@ -74,7 +77,7 @@ jobs:
           exit $fail
 
       - name: Enable auto-merge on release PR
-        if: steps.changesets.outputs.pullRequestNumber != ''
+        if: always() && steps.changesets.outputs.pullRequestNumber != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash --repo "$GITHUB_REPOSITORY"
