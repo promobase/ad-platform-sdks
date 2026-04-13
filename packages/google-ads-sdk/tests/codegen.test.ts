@@ -2,6 +2,8 @@ import { test, expect } from "bun:test";
 import { loadProtos } from "../src/codegen/parser.ts";
 import { resolveType } from "../src/codegen/type-resolver.ts";
 import { parseHttpPath } from "../src/codegen/http-binding.ts";
+import { emitEnum, emitMessage, emitService } from "../src/codegen/emitter.ts";
+import type { MessageAst } from "../src/codegen/parser.ts";
 import path from "node:path";
 
 const FIXTURES = path.resolve(import.meta.dir, "fixtures");
@@ -107,4 +109,170 @@ test("parseHttpPath handles no params", () => {
   const r = parseHttpPath("/v23/customers:listAccessibleCustomers");
   expect(r.pathParams).toEqual([]);
   expect(r.template).toBe("/v23/customers:listAccessibleCustomers");
+});
+
+test("emitEnum produces string union", () => {
+  const out = emitEnum({
+    fullName: "test.Color",
+    name: "Color",
+    values: [
+      { name: "COLOR_UNSPECIFIED", number: 0 },
+      { name: "RED", number: 1 },
+      { name: "BLUE", number: 2 },
+    ],
+  });
+  expect(out).toContain("export type Color =");
+  expect(out).toContain('"COLOR_UNSPECIFIED"');
+  expect(out).toContain('"RED"');
+  expect(out).toContain('"BLUE"');
+});
+
+test("emitMessage produces interface with optional camelCase fields", () => {
+  const out = emitMessage({
+    fullName: "test.Shape",
+    name: "Shape",
+    fields: [
+      { name: "id", type: "string", id: 1, repeated: false, optional: false },
+      { name: "display_name", type: "string", id: 2, repeated: false, optional: false },
+      { name: "tags", type: "string", id: 3, repeated: true, optional: false },
+    ],
+    nestedMessages: [],
+    nestedEnums: [],
+    oneofs: [],
+  });
+  expect(out).toContain("export interface Shape");
+  expect(out).toContain("id?: string");
+  expect(out).toContain("displayName?: string");
+  expect(out).toContain("tags?: string[]");
+});
+
+test("emitMessage imports referenced types", () => {
+  const out = emitMessage({
+    fullName: "test.Wrapper",
+    name: "Wrapper",
+    fields: [
+      {
+        name: "inner",
+        type: "google.ads.googleads.v23.resources.Campaign",
+        id: 1,
+        repeated: false,
+        optional: false,
+      },
+    ],
+    nestedMessages: [],
+    nestedEnums: [],
+    oneofs: [],
+  });
+  expect(out).toContain('import type { Campaign } from "../index.ts"');
+  expect(out).toContain("inner?: Campaign");
+});
+
+test("emitService produces callable method for POST with body", () => {
+  const messageIndex = new Map<string, MessageAst>([
+    [
+      "test.svc.MutateCampaignsRequest",
+      {
+        fullName: "test.svc.MutateCampaignsRequest",
+        name: "MutateCampaignsRequest",
+        fields: [
+          { name: "customer_id", type: "string", id: 1, repeated: false, optional: false },
+          {
+            name: "operations",
+            type: "test.svc.CampaignOperation",
+            id: 2,
+            repeated: true,
+            optional: false,
+          },
+        ],
+        nestedMessages: [],
+        nestedEnums: [],
+        oneofs: [],
+      },
+    ],
+  ]);
+  const out = emitService(
+    {
+      fullName: "test.svc.CampaignService",
+      name: "CampaignService",
+      methods: [
+        {
+          name: "Mutate",
+          requestType: "test.svc.MutateCampaignsRequest",
+          responseType: "test.svc.MutateCampaignsResponse",
+          httpOption: {
+            verb: "post",
+            path: "/v23/customers/{customer_id}/campaigns:mutate",
+            body: "*",
+          },
+        },
+      ],
+    },
+    messageIndex,
+  );
+  expect(out).toContain('import type { HttpClient } from "@promobase/sdk-runtime"');
+  expect(out).toContain("export const campaignService");
+  expect(out).toContain("mutate(");
+  expect(out).toContain("client: HttpClient");
+  expect(out).toContain("customerId: string");
+  expect(out).toContain('client.post<MutateCampaignsResponse>(`/v23/customers/${customerId}/campaigns:mutate`');
+});
+
+test("emitService produces GET method without body", () => {
+  const messageIndex = new Map<string, MessageAst>([
+    [
+      "test.svc.GetCampaignRequest",
+      {
+        fullName: "test.svc.GetCampaignRequest",
+        name: "GetCampaignRequest",
+        fields: [
+          { name: "resource_name", type: "string", id: 1, repeated: false, optional: false },
+        ],
+        nestedMessages: [],
+        nestedEnums: [],
+        oneofs: [],
+      },
+    ],
+  ]);
+  const out = emitService(
+    {
+      fullName: "test.svc.CampaignService",
+      name: "CampaignService",
+      methods: [
+        {
+          name: "GetCampaign",
+          requestType: "test.svc.GetCampaignRequest",
+          responseType: "test.svc.Campaign",
+          httpOption: {
+            verb: "get",
+            path: "/v23/{resource_name=customers/*/campaigns/*}",
+          },
+        },
+      ],
+    },
+    messageIndex,
+  );
+  expect(out).toContain("getCampaign(");
+  expect(out).toContain("resourceName: string");
+  expect(out).toContain("client.get<Campaign>");
+  expect(out).toContain("`/v23/${resourceName}`");
+});
+
+test("emitService skips methods without HTTP option", () => {
+  const out = emitService(
+    {
+      fullName: "test.svc.NoHttpService",
+      name: "NoHttpService",
+      methods: [
+        {
+          name: "NotRest",
+          requestType: "test.svc.Req",
+          responseType: "test.svc.Res",
+        },
+      ],
+    },
+    new Map(),
+  );
+  // Should emit an empty service object, not throw
+  expect(out).toContain("export const noHttpService");
+  expect(out).not.toContain("notRest(");
 });
