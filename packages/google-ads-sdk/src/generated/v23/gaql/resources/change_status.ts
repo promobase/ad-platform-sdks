@@ -1,0 +1,23 @@
+// Generated. Do not edit by hand.
+export type ChangeStatusSelectableField =
+  | "change_status.resource_name"
+  | "change_status.last_change_date_time"
+  | "change_status.resource_type"
+  | "change_status.campaign"
+  | "change_status.ad_group"
+  | "change_status.resource_status"
+  | "change_status.ad_group_ad"
+  | "change_status.ad_group_criterion"
+  | "change_status.campaign_criterion"
+  | "change_status.ad_group_bid_modifier"
+  | "change_status.shared_set"
+  | "change_status.campaign_shared_set"
+  | "change_status.asset"
+  | "change_status.customer_asset"
+  | "change_status.campaign_asset"
+  | "change_status.ad_group_asset"
+  | "change_status.combined_audience"
+  | "change_status.asset_group"
+  | "change_status.asset_set"
+  | "change_status.campaign_budget"
+  | "change_status.campaign_asset_set";

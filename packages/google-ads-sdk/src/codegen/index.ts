@@ -2,6 +2,7 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import { loadProtos, type EnumAst, type MessageAst } from "./parser.ts";
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
+import { emitGaqlCatalog } from "./gaql-emitter.ts";
 
 const PKG_ROOT = path.resolve(import.meta.dir, "../..");
 const GOOGLEAPIS = path.join(PKG_ROOT, "vendor/googleapis");
@@ -173,6 +174,35 @@ async function main() {
 
   console.log(
     `[codegen] done: ${sortedEnums.length} enums, ${sortedMessages.length} resources, ${sortedServices.length} services`,
+  );
+
+  // GAQL catalog
+  console.log("[codegen] emitting GAQL catalog");
+  const gaqlCatalog = emitGaqlCatalog(root, {
+    resourcesPackagePrefix: "google.ads.googleads.v23.resources",
+    metricsMessageFullName: "google.ads.googleads.v23.common.Metrics",
+    segmentsMessageFullName: "google.ads.googleads.v23.common.Segments",
+    shortNameMap: shortNames,
+  });
+
+  const GAQL_OUT = path.join(OUT, "gaql");
+  await fs.mkdir(GAQL_OUT, { recursive: true });
+  await fs.mkdir(path.join(GAQL_OUT, "resources"), { recursive: true });
+
+  for (const [name] of gaqlCatalog.resources) {
+    await writeFile(
+      path.join(GAQL_OUT, "resources", `${name}.ts`),
+      gaqlCatalog.renderResourceFile(name),
+    );
+  }
+  await writeFile(path.join(GAQL_OUT, "metrics.ts"), gaqlCatalog.renderMetricsFile());
+  await writeFile(path.join(GAQL_OUT, "segments.ts"), gaqlCatalog.renderSegmentsFile());
+  await writeFile(path.join(GAQL_OUT, "field-map.ts"), gaqlCatalog.renderFieldMapFile());
+  await writeFile(path.join(GAQL_OUT, "resource-map.ts"), gaqlCatalog.renderResourceMapFile());
+  await writeFile(path.join(GAQL_OUT, "index.ts"), gaqlCatalog.renderIndexFile());
+
+  console.log(
+    `[codegen] gaql: ${gaqlCatalog.resources.size} resources, ${gaqlCatalog.metrics.length} metrics, ${gaqlCatalog.segments.length} segments`,
   );
 }
 

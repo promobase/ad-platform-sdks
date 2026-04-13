@@ -1,0 +1,21 @@
+// Generated. Do not edit by hand.
+export type ClickViewSelectableField =
+  | "click_view.resource_name"
+  | "click_view.gclid"
+  | "click_view.area_of_interest.city"
+  | "click_view.area_of_interest.country"
+  | "click_view.area_of_interest.metro"
+  | "click_view.area_of_interest.most_specific"
+  | "click_view.area_of_interest.region"
+  | "click_view.location_of_presence.city"
+  | "click_view.location_of_presence.country"
+  | "click_view.location_of_presence.metro"
+  | "click_view.location_of_presence.most_specific"
+  | "click_view.location_of_presence.region"
+  | "click_view.page_number"
+  | "click_view.ad_group_ad"
+  | "click_view.campaign_location_target"
+  | "click_view.user_list"
+  | "click_view.keyword"
+  | "click_view.keyword_info.text"
+  | "click_view.keyword_info.match_type";

@@ -1,0 +1,21 @@
+// Generated. Do not edit by hand.
+export type OfflineUserDataJobSelectableField =
+  | "offline_user_data_job.resource_name"
+  | "offline_user_data_job.id"
+  | "offline_user_data_job.external_id"
+  | "offline_user_data_job.type"
+  | "offline_user_data_job.status"
+  | "offline_user_data_job.failure_reason"
+  | "offline_user_data_job.operation_metadata.match_rate_range"
+  | "offline_user_data_job.customer_match_user_list_metadata.user_list"
+  | "offline_user_data_job.customer_match_user_list_metadata.consent.ad_user_data"
+  | "offline_user_data_job.customer_match_user_list_metadata.consent.ad_personalization"
+  | "offline_user_data_job.store_sales_metadata.loyalty_fraction"
+  | "offline_user_data_job.store_sales_metadata.transaction_upload_fraction"
+  | "offline_user_data_job.store_sales_metadata.custom_key"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.advertiser_upload_date_time"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.valid_transaction_fraction"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.partner_match_fraction"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.partner_upload_fraction"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.bridge_map_version_id"
+  | "offline_user_data_job.store_sales_metadata.third_party_metadata.partner_id";
