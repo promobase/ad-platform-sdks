@@ -15,27 +15,29 @@ function assertSafeResourceName(name: string) {
   if (name.includes("'")) throw new Error(`unsafe resource name: ${name}`);
 }
 
-function toCreateOp(input: CreateAdGroupInput) {
+function normalize(input: CreateAdGroupInput): AdGroup {
   const { campaign, ...rest } = input;
-  return { create: { ...rest, campaign: resolveRef(campaign) } };
+  return { ...rest, campaign: resolveRef(campaign) };
 }
 
 export function adGroups(client: HttpClient, customerId: string) {
   return {
-    async create(input: CreateAdGroupInput): Promise<CreateAdGroupInput & { resourceName: string }> {
+    async create(input: CreateAdGroupInput): Promise<AdGroup & { resourceName: string }> {
+      const normalized = normalize(input);
       const res = await adGroupService.mutateAdGroups(client, customerId, {
-        operations: [toCreateOp(input)],
+        operations: [{ create: normalized }],
       });
       const resourceName = res.results?.[0]?.resourceName;
       if (!resourceName) throw new Error("adGroups.create returned no resourceName");
-      return { ...input, resourceName };
+      return { ...normalized, resourceName };
     },
 
     async createMany(
       inputs: CreateAdGroupInput[],
-    ): Promise<Array<CreateAdGroupInput & { resourceName: string }>> {
+    ): Promise<Array<AdGroup & { resourceName: string }>> {
+      const normalized = inputs.map(normalize);
       const res = await adGroupService.mutateAdGroups(client, customerId, {
-        operations: inputs.map(toCreateOp),
+        operations: normalized.map((create) => ({ create })),
       });
       const results = res.results ?? [];
       if (results.length !== inputs.length) {
@@ -43,10 +45,10 @@ export function adGroups(client: HttpClient, customerId: string) {
           `adGroups.createMany: expected ${inputs.length} results, got ${results.length}`,
         );
       }
-      return inputs.map((input, i) => {
+      return normalized.map((n, i) => {
         const rn = results[i]!.resourceName;
         if (!rn) throw new Error("adGroups.createMany: missing resourceName");
-        return { ...input, resourceName: rn };
+        return { ...n, resourceName: rn };
       });
     },
 

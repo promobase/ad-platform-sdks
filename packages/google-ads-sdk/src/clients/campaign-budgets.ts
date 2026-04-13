@@ -22,7 +22,7 @@ export function campaignBudgets(client: HttpClient, customerId: string) {
   return {
     async create(
       input: CreateCampaignBudgetInput,
-    ): Promise<CreateCampaignBudgetInput & { resourceName: string }> {
+    ): Promise<CampaignBudget & { resourceName: string }> {
       const res = await campaignBudgetService.mutateCampaignBudgets(client, customerId, {
         operations: [{ create: input }],
       });
@@ -33,7 +33,7 @@ export function campaignBudgets(client: HttpClient, customerId: string) {
 
     async createMany(
       inputs: CreateCampaignBudgetInput[],
-    ): Promise<Array<CreateCampaignBudgetInput & { resourceName: string }>> {
+    ): Promise<Array<CampaignBudget & { resourceName: string }>> {
       const res = await campaignBudgetService.mutateCampaignBudgets(client, customerId, {
         operations: inputs.map((input) => ({ create: input })),
       });

@@ -18,29 +18,31 @@ function assertSafeResourceName(name: string) {
   if (name.includes("'")) throw new Error(`unsafe resource name: ${name}`);
 }
 
-function toCreateOp(input: CreateCampaignInput) {
+function normalize(input: CreateCampaignInput): Campaign {
   const { campaignBudget, ...rest } = input;
-  return { create: { ...rest, campaignBudget: resolveRef(campaignBudget) } };
+  return { ...rest, campaignBudget: resolveRef(campaignBudget) };
 }
 
 export function campaigns(client: HttpClient, customerId: string) {
   return {
     async create(
       input: CreateCampaignInput,
-    ): Promise<CreateCampaignInput & { resourceName: string }> {
+    ): Promise<Campaign & { resourceName: string }> {
+      const normalized = normalize(input);
       const res = await campaignService.mutateCampaigns(client, customerId, {
-        operations: [toCreateOp(input)],
+        operations: [{ create: normalized }],
       });
       const resourceName = res.results?.[0]?.resourceName;
       if (!resourceName) throw new Error("campaigns.create returned no resourceName");
-      return { ...input, resourceName };
+      return { ...normalized, resourceName };
     },
 
     async createMany(
       inputs: CreateCampaignInput[],
-    ): Promise<Array<CreateCampaignInput & { resourceName: string }>> {
+    ): Promise<Array<Campaign & { resourceName: string }>> {
+      const normalized = inputs.map(normalize);
       const res = await campaignService.mutateCampaigns(client, customerId, {
-        operations: inputs.map(toCreateOp),
+        operations: normalized.map((create) => ({ create })),
       });
       const results = res.results ?? [];
       if (results.length !== inputs.length) {
@@ -48,10 +50,10 @@ export function campaigns(client: HttpClient, customerId: string) {
           `campaigns.createMany: expected ${inputs.length} results, got ${results.length}`,
         );
       }
-      return inputs.map((input, i) => {
+      return normalized.map((n, i) => {
         const rn = results[i]!.resourceName;
         if (!rn) throw new Error("campaigns.createMany: missing resourceName");
-        return { ...input, resourceName: rn };
+        return { ...n, resourceName: rn };
       });
     },
 
