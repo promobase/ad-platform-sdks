@@ -10,6 +10,7 @@ Bun workspaces monorepo for type-safe ad platform SDKs.
 | `@promobase/sdk-runtime` | `packages/sdk-runtime/` | No (private) |
 | `@promobase/meta-business-sdk-ts` | `packages/meta-business-sdk/` | Yes |
 | `@promobase/tiktok-business-sdk` | `packages/tiktok-business-sdk/` | Yes |
+| `@promobase/google-ads-sdk` | `packages/google-ads-sdk/` | Yes |
 
 ## Commands
 
