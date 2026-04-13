@@ -1,0 +1,15 @@
+syntax = "proto3";
+package test.svc;
+
+import "google/api/annotations.proto";
+
+message GetThingRequest { string name = 1; }
+message Thing { string id = 1; string name = 2; }
+
+service ThingService {
+  rpc GetThing(GetThingRequest) returns (Thing) {
+    option (google.api.http) = {
+      get: "/v1/{name=things/*}"
+    };
+  }
+}

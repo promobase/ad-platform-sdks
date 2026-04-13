@@ -1,0 +1,15 @@
+syntax = "proto3";
+package test.simple;
+
+enum Color {
+  COLOR_UNSPECIFIED = 0;
+  RED = 1;
+  BLUE = 2;
+}
+
+message Shape {
+  string id = 1;
+  Color color = 2;
+  repeated string tags = 3;
+  map<string, int32> counts = 4;
+}
