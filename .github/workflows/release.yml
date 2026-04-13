@@ -49,7 +49,13 @@ jobs:
         run: cd "${{ steps.resolve.outputs.dir }}" && bun run typecheck
 
       - name: Test
-        run: cd "${{ steps.resolve.outputs.dir }}" && bun test tests/
+        run: |
+          dir="${{ steps.resolve.outputs.dir }}"
+          if [ -d "$dir/tests" ]; then
+            cd "$dir" && bun test tests/
+          else
+            echo "::notice::skipping tests ($dir has no tests/ dir)"
+          fi
 
       - name: Publish
         env:

@@ -32,6 +32,10 @@ jobs:
       - name: Run tests
         run: |
           for pkg in packages/sdk-runtime packages/meta-business-sdk packages/tiktok-business-sdk packages/google-ads-sdk packages/ad-platforms; do
+            if [ ! -d "$pkg/tests" ]; then
+              echo "::notice::skipping $pkg (no tests/ dir)"
+              continue
+            fi
             echo "::group::test $pkg"
             (cd "$pkg" && bun test tests/) || exit 1
             echo "::endgroup::"
