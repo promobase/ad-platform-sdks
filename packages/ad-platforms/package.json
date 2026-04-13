@@ -36,7 +36,8 @@
   "license": "MIT",
   "dependencies": {
     "@promobase/meta-business-sdk-ts": "workspace:*",
-    "@promobase/tiktok-business-sdk": "workspace:*"
+    "@promobase/tiktok-business-sdk": "workspace:*",
+    "@promobase/google-ads-sdk": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.9.3",

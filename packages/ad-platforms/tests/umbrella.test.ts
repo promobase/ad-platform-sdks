@@ -42,3 +42,10 @@ test("createAllTools works with empty config", () => {
   const tools = createAllTools({});
   expect(Object.keys(tools)).toHaveLength(0);
 });
+
+test("Google namespace is accessible", async () => {
+  const { Google } = await import("../src/index.ts");
+  expect(Google.createClient).toBeDefined();
+  expect(Google.Ads.paginate).toBeDefined();
+  expect(Google.Errors.GoogleAdsError).toBeDefined();
+});

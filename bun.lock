@@ -12,6 +12,7 @@
       "name": "@promobase/ad-platforms",
       "version": "0.0.1",
       "dependencies": {
+        "@promobase/google-ads-sdk": "workspace:*",
         "@promobase/meta-business-sdk-ts": "workspace:*",
         "@promobase/tiktok-business-sdk": "workspace:*",
       },

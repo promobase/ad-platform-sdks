@@ -74,3 +74,18 @@ export type {
 // --- Unified AI tools ---
 export { createAllTools } from "./unified-tools.ts";
 export type { CreateAllToolsOptions } from "./unified-tools.ts";
+
+// --- Google Ads ---
+export { Google } from "@promobase/google-ads-sdk";
+export {
+  createClient as createGoogleAdsClient,
+  GoogleAdsError,
+  paginate as googleAdsPaginate,
+} from "@promobase/google-ads-sdk";
+export type {
+  GoogleAdsClient,
+  GoogleAdsClientOptions,
+  GoogleAdsErrorDetail,
+  SearchRequest as GoogleAdsSearchRequest,
+  SearchResponse as GoogleAdsSearchResponse,
+} from "@promobase/google-ads-sdk";
