@@ -2,7 +2,16 @@
   "name": "ad-platform-sdks",
   "private": true,
   "workspaces": ["packages/*"],
+  "scripts": {
+    "typecheck": "bun --filter='./packages/*' run typecheck",
+    "test": "bun --filter='./packages/*' run test",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
+  },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
     "@types/bun": "latest"
   }
 }
