@@ -1,10 +1,27 @@
+<div align="center">
+
+<a href="https://openpromo.app">
+  <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
+</a>
+
 # @promobase/ad-platforms
 
-**One install. All ad platforms. Fully typed.**
+**Type-safe TypeScript SDKs for every ad platform. One install. AI-agent ready.**
 
-Unified TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, and (soon) Google Ads. Single install, single namespace, fully type-safe, and ready for AI agents.
+Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-## Installation
+[![npm](https://img.shields.io/npm/v/@promobase/ad-platforms.svg?label=%40promobase%2Fad-platforms)](https://www.npmjs.com/package/@promobase/ad-platforms)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+</div>
+
+---
+
+## What
+
+One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, and **Google Ads**. Fully typed, generated from official specs, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
+
+## Install
 
 ```bash
 bun add @promobase/ad-platforms
@@ -12,81 +29,71 @@ bun add @promobase/ad-platforms
 npm install @promobase/ad-platforms
 ```
 
-## Quick Start
+## Use
 
-```typescript
-import { Meta, TikTok } from "@promobase/ad-platforms";
-
-// Meta (Facebook, Instagram, Threads)
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-
-const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
-await ig.media.publishPhoto({ imageUrl: "...", caption: "Hello!" });
-
-const fb = Meta.Facebook.createClient({
-  api: meta,
-  pageId: "page_456",
-  accessToken: process.env.META_TOKEN!,
-});
-await fb.feed.publishPost({ message: "Hello Facebook!" });
-
-const threads = Meta.Threads.createClient({
-  accessToken: process.env.THREADS_TOKEN!,
-  threadsUserId: "t_789",
-});
-await threads.posts.publishText({ text: "Hello Threads!" });
-
-// TikTok
-const tiktok = TikTok.createClient({ accessToken: process.env.TIKTOK_TOKEN! });
-// ... use tiktok client
-```
-
-## AI Agent Integration
-
-Expose all platforms as AI SDK tools:
-
-```typescript
-import { createAllTools } from "@promobase/ad-platforms";
+```ts
+import { Meta, TikTok, Google, createAllTools } from "@promobase/ad-platforms";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
+// Meta (Facebook, Instagram, Threads)
+const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+await ig.media.publishVideo({
+  videoUrl: "https://cdn.example.com/reel.mp4",
+  caption: "New drop 🔥",
+});
+
+// TikTok
+const tiktok = TikTok.createClient({
+  accessToken: process.env.TIKTOK_TOKEN!,
+  businessId: "biz_456",
+});
+
+// Google Ads — customer-bound ergonomic flows + typed GAQL
+const google = Google.createClient({
+  getAccessToken: async () => process.env.GOOGLE_ADS_TOKEN!,
+  developerToken: process.env.GOOGLE_ADS_DEV_TOKEN!,
+});
+const customer = Google.Ads.customer(google, "9999999999");
+const { rows } = await customer.gaql
+  .from("campaign")
+  .select("campaign.id", "campaign.name", "metrics.clicks")
+  .where("campaign.status = 'ENABLED'")
+  .limit(100)
+  .execute();
+
+// Give an AI agent access to every platform
 const tools = createAllTools({
-  meta: {
-    api: meta,
-    igAccountId: "ig_123",
-    pageId: "page_456",
-    pageAccessToken: process.env.META_TOKEN!,
-    adAccountId: "act_789",
-  },
-  tiktok: {
-    client: tiktok.client,
-    advertiserId: "adv_123",
-  },
+  meta: { api: meta, igAccountId: "ig_123", pageId: "p_456", pageAccessToken: "..." },
+  tiktok: { accessToken: "...", businessId: "biz_456" },
 });
 
 await generateText({
   model: anthropic("claude-sonnet-4-20250514"),
   tools,
   maxSteps: 10,
-  prompt: "Post this photo to Instagram and TikTok, then check ad account performance",
+  prompt: "Post this photo to Instagram and TikTok, then reply to recent comments",
 });
 ```
 
-## Platforms
+## Features
 
-| Platform | Status | Features |
-|---|---|---|
-| Meta (Facebook, Instagram, Threads) | Available | Publishing, comments, DMs, stories, webhooks, OAuth, ad management, insights, batch API, rate limiting |
-| TikTok Business | Available | Video/photo publishing, comments, account insights, OAuth, webhooks |
-| Google Ads | Planned | — |
+- **Meta** — 994 typed Graph API objects, field-level narrowing via `Pick<>`, IG/FB/Threads publishing, inbox, OAuth, rate limiting, batch API
+- **TikTok** — OAuth, content publishing, comments, webhooks
+- **Google Ads** — 184 resource types, 111 services, customer-bound factory, typed GAQL builder with row-level narrowing
+- **AI SDK tools** — filterable, middleware-ready, two-stage routing
+- **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
+- **Retry + rate limiting** — automatic recovery, pluggable throttling
 
-## Individual Packages
+## Individual packages
 
-Prefer smaller bundles? Install platform-specific packages:
-
-- [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) — Meta only
-- [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) — TikTok only
+| Package | Description |
+|---------|-------------|
+| [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) | Meta only (Facebook, Instagram, Threads) |
+| [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) | TikTok only |
+| [`@promobase/google-ads-sdk`](https://www.npmjs.com/package/@promobase/google-ads-sdk) | Google Ads only |
 
 ## License
 
-MIT
+MIT © [Promobase](https://openpromo.app)

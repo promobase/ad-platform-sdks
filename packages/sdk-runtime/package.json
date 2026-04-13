@@ -1,14 +1,28 @@
 {
   "name": "@promobase/sdk-runtime",
   "version": "0.1.0",
-  "private": true,
+  "description": "Shared runtime primitives for @promobase ad platform SDKs — fetch-based HttpClient, cursor pagination, rate limiter, retry.",
+  "keywords": ["sdk-runtime", "fetch", "http-client", "pagination", "rate-limit"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/sdk-runtime"
+  },
   "module": "src/index.ts",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "type": "module",
+  "files": [
+    "src/**/*.ts",
+    "README.md"
+  ],
   "scripts": {
     "test": "bun test tests/",
     "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@types/bun": "latest"

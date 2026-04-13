@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to publish"
+        required: true
+        type: choice
+        options:
+          - "@promobase/sdk-runtime"
+          - "@promobase/meta-business-sdk-ts"
+          - "@promobase/tiktok-business-sdk"
+          - "@promobase/google-ads-sdk"
+          - "@promobase/ad-platforms"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Resolve package directory
+        id: resolve
+        run: |
+          case "${{ inputs.package }}" in
+            "@promobase/sdk-runtime") dir="packages/sdk-runtime" ;;
+            "@promobase/meta-business-sdk-ts") dir="packages/meta-business-sdk" ;;
+            "@promobase/tiktok-business-sdk") dir="packages/tiktok-business-sdk" ;;
+            "@promobase/google-ads-sdk") dir="packages/google-ads-sdk" ;;
+            "@promobase/ad-platforms") dir="packages/ad-platforms" ;;
+            *) echo "unknown package"; exit 1 ;;
+          esac
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+
+      - name: Typecheck
+        run: cd "${{ steps.resolve.outputs.dir }}" && bun run typecheck
+
+      - name: Test
+        run: cd "${{ steps.resolve.outputs.dir }}" && bun test tests/
+
+      - name: Publish
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: cd "${{ steps.resolve.outputs.dir }}" && bun publish --access public

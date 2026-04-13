@@ -1,168 +1,87 @@
+<div align="center">
+
+<a href="https://openpromo.app">
+  <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
+</a>
+
 # @promobase/meta-business-sdk-ts
 
-> Type-safe TypeScript replacement for [`facebook-nodejs-business-sdk`](https://github.com/facebook/facebook-nodejs-business-sdk)
+**Type-safe TypeScript SDK for the Meta (Facebook) Marketing API.**
 
-Fully typed SDK for the **Meta (Facebook) Marketing API**, auto-generated from the official [API specs](https://github.com/facebook/facebook-business-sdk-codegen). Every Graph API object, edge, field, and parameter is typed — wrong field names, missing required params, and bad enum values fail at **compile time**, not runtime.
+Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-## Features
+[![npm](https://img.shields.io/npm/v/@promobase/meta-business-sdk-ts.svg?label=%40promobase%2Fmeta-business-sdk-ts)](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-- **994 typed API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and 988 more
-- **Field-level type narrowing** — request `["id", "name"]` and get `Pick<CampaignFields, "id" | "name">`, not the full object
-- **314 typed node accessors** — `api.adAccount(id)`, `api.campaign(id)`, `api.adSet(id)`, etc.
-- **Async-iterable cursors** — `for await` over paginated results with `.toArray()` and `.take(n)`
-- **Typed create/update params** — required vs optional params enforced at compile time
-- **Zero runtime dependencies** — native `fetch`, no axios/node-fetch/got
-- **Drop-in replacement** for `facebook-nodejs-business-sdk` with actual type safety
+</div>
 
-## Installation
+---
+
+## What
+
+A drop-in typed replacement for [`facebook-nodejs-business-sdk`](https://github.com/facebook/facebook-nodejs-business-sdk). Auto-generated from the official [API specs](https://github.com/facebook/facebook-business-sdk-codegen) — every Graph API object, edge, field, and parameter is typed. Wrong field names, missing required params, and bad enum values fail at compile time, not runtime.
+
+## Install
 
 ```bash
 bun add @promobase/meta-business-sdk-ts
 # or
 npm install @promobase/meta-business-sdk-ts
-# or
-pnpm add @promobase/meta-business-sdk-ts
-# or
-yarn add @promobase/meta-business-sdk-ts
 ```
 
-## Quick Start
+## Use
 
-```typescript
-import { createClient } from "@promobase/meta-business-sdk-ts";
+```ts
+import { Meta } from "@promobase/meta-business-sdk-ts";
 
-const api = createClient({
-  accessToken: process.env.META_ACCESS_TOKEN!,
+const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+
+// Instagram publishing
+const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+await ig.media.publishVideo({
+  videoUrl: "https://cdn.example.com/reel.mp4",
+  caption: "New drop 🔥",
 });
 
-// List campaigns — fully typed, auto-paginated
-for await (const campaign of api.adAccount("act_123").campaigns.list({
-  fields: ["id", "name", "status", "daily_budget"],
-})) {
-  console.log(campaign.name);        // string
-  console.log(campaign.daily_budget); // string
-}
-```
-
-## Usage
-
-### Read an Ad Account
-
-```typescript
-const account = await api.adAccount("act_123").get({
-  fields: ["id", "name", "currency", "timezone_name", "amount_spent"],
+// Facebook Page publishing
+const fb = Meta.Facebook.createClient({
+  api: meta,
+  pageId: "page_456",
+  accessToken: process.env.META_TOKEN!,
 });
+await fb.feed.publishPost({ message: "Hello Facebook!" });
 
-console.log(account.name);         // string
-console.log(account.currency);     // string
-console.log(account.amount_spent); // string
-// account.balance                  // TS error — not in requested fields
-```
+// Threads
+const threads = Meta.Threads.createClient({
+  accessToken: process.env.THREADS_TOKEN!,
+  threadsUserId: "t_789",
+});
+await threads.posts.publishText({ text: "Hello Threads!" });
 
-### Create a Campaign
-
-```typescript
-await api.adAccount("act_123").campaigns.create({
-  name: "Summer Sale 2025",       // required
-  objective: "OUTCOME_SALES",     // required
-  special_ad_categories: [],      // required
-  status: "PAUSED",               // optional
-  daily_budget: 5000,             // optional
+// Graph API with field-level narrowing
+const campaign = await meta.adAccount("act_123").campaigns.list({
+  fields: ["id", "name", "status"],  // narrows return type
 });
 ```
 
-### Update and Delete
+## Features
 
-```typescript
-await api.campaign("123456").update({
-  name: "Summer Sale 2025 — Updated",
-  status: "ACTIVE",
-});
+- **994 typed Graph API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and more
+- **483 real enum values** — not `string`, actual narrowed unions
+- **Field-level narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
+- **Publishing clients** — Instagram, Facebook, Threads (photo, video/reel, carousel, story)
+- **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
+- **OAuth** — token exchange, long-lived tokens, refresh
+- **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
+- **Retry with exponential backoff** — automatic recovery from 5xx and network errors
+- **Batch API** — typed multi-request batches
+- **AI SDK tools** — 58 filterable tools with middleware and two-stage routing
+- **Runtime agnostic** — native `fetch`, no axios
 
-await api.campaign("123456").delete();
-```
+## Umbrella package
 
-### Pagination
-
-```typescript
-// Auto-pagination with for-await
-for await (const ad of api.adAccount("act_123").ads.list({
-  fields: ["id", "name", "status"],
-})) {
-  console.log(ad.name);
-}
-
-// Manual page-by-page
-const cursor = api.adAccount("act_123").campaigns.list({ fields: ["id", "name"] });
-const page1 = await cursor.next(); // { data: [...], hasNext: true }
-const page2 = await cursor.next(); // { data: [...], hasNext: false }
-
-// Collect all
-const all = await api.adAccount("act_123").campaigns.list({ fields: ["id"] }).toArray();
-
-// Take first N
-const first10 = await api.adAccount("act_123").campaigns.list({ fields: ["id"] }).take(10);
-```
-
-### Error Handling
-
-```typescript
-import { createClient, FacebookApiError } from "@promobase/meta-business-sdk-ts";
-
-try {
-  await api.campaign("invalid").get({ fields: ["id"] });
-} catch (err) {
-  if (err instanceof FacebookApiError) {
-    console.log(err.message);    // "Invalid OAuth access token."
-    console.log(err.code);       // 190
-    console.log(err.subcode);    // 463
-    console.log(err.type);       // "OAuthException"
-    console.log(err.fbtrace_id); // "AbC123xYz"
-  }
-}
-```
-
-### All Node Accessors
-
-```typescript
-api.adAccount(id)        // AdAccount — campaigns, ads, adsets, adcreatives, ...
-api.campaign(id)         // Campaign — ads, adsets, insights, copies, ...
-api.adSet(id)            // AdSet — ads, insights, ...
-api.ad(id)               // Ad — adcreatives, insights, ...
-api.adCreative(id)       // AdCreative
-api.page(id)             // Page — posts, photos, videos, ...
-api.business(id)         // Business — ad accounts, pages, ...
-api.customAudience(id)   // CustomAudience
-api.productCatalog(id)   // ProductCatalog — products, feeds, ...
-// ... 314 typed accessors total
-api.client               // Raw ApiClient for advanced use
-```
-
-## Migrating from facebook-nodejs-business-sdk
-
-| Before (untyped) | After (typed) |
-|---|---|
-| `new AdAccount(id).getCampaigns(fields, params)` | `api.adAccount(id).campaigns.list({ fields, params })` |
-| `new AdAccount(id).createCampaign(fields, params)` | `api.adAccount(id).campaigns.create(params)` |
-| `new Campaign(id).update(fields, params)` | `api.campaign(id).update(params)` |
-| `new Campaign(id).delete(fields, params)` | `api.campaign(id).delete()` |
-| `params: Object` | `params: CampaignCreateParams` (typed) |
-| `fields: Array<string>` | `fields: (keyof CampaignFields)[]` (autocomplete) |
-
-## How It Works
-
-Auto-generated from Meta's official [API spec files](https://github.com/facebook/facebook-business-sdk-codegen). A custom TypeScript codegen pipeline:
-
-1. Parses 994 JSON spec files describing every Graph API object
-2. Applies SDKCodegen.json patches (return type overrides, hidden fields, etc.)
-3. Resolves spec types to TypeScript (`list<map<string, string>>` → `Record<string, string>[]`)
-4. Detects circular imports via Tarjan's SCC algorithm
-5. Emits typed `.ts` files with interfaces, params, and node factory functions
-
-## Related
-
-Part of [`ad-platform-sdks`](https://github.com/promobase/ad-platform-sdks) — type-safe SDKs for Meta, TikTok, and Google ad platforms.
+For a single install covering Meta + TikTok + Google Ads, use [`@promobase/ad-platforms`](https://www.npmjs.com/package/@promobase/ad-platforms).
 
 ## License
 
-MIT
+MIT © [Promobase](https://openpromo.app)

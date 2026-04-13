@@ -1,7 +1,31 @@
 {
   "name": "@promobase/google-ads-sdk",
-  "version": "0.0.1",
-  "description": "Type-safe Google Ads API v23 SDK, runtime-agnostic, generated from protobuf.",
+  "version": "0.0.3",
+  "description": "Type-safe Google Ads API v23 SDK, runtime-agnostic, generated from protobuf. Customer-bound factory and typed GAQL query builder.",
+  "keywords": [
+    "google-ads",
+    "google-ads-api",
+    "google-ads-sdk",
+    "google",
+    "ads",
+    "advertising",
+    "marketing-api",
+    "sdk",
+    "typescript",
+    "type-safe",
+    "typed",
+    "protobuf",
+    "gaql",
+    "campaign",
+    "ad-group",
+    "business-sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/google-ads-sdk"
+  },
+  "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -9,13 +33,24 @@
     ".": "./src/index.ts",
     "./v23": "./src/generated/v23/index.ts"
   },
+  "files": [
+    "src/index.ts",
+    "src/namespace.ts",
+    "src/client.ts",
+    "src/errors.ts",
+    "src/pagination.ts",
+    "src/clients/**/*.ts",
+    "src/generated/**/*.ts",
+    "README.md"
+  ],
   "scripts": {
     "codegen": "bun run src/codegen/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/"
   },
-  "keywords": ["google-ads", "google", "ads", "sdk", "typescript", "protobuf"],
-  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@promobase/sdk-runtime": "workspace:*"
   },

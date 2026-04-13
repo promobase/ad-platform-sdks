@@ -1,6 +1,6 @@
 {
   "name": "@promobase/ad-platforms",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, and future ad platforms — single install, single namespace",
   "keywords": [
     "meta", "facebook", "instagram", "threads",
@@ -27,8 +27,7 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "bun test tests/",
-    "publish": "bun publish --access public"
+    "test": "bun test tests/"
   },
   "publishConfig": {
     "access": "public"
