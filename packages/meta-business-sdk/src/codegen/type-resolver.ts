@@ -92,7 +92,7 @@ export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
       const keyType = resolveType(inner[0]!, ctx);
       const valType = resolveType(inner[1]!, ctx);
       // Record keys must be string | number | symbol; fall back to string for complex key types
-      const safeKeyType = (keyType === "string" || keyType === "number") ? keyType : "string";
+      const safeKeyType = keyType === "string" || keyType === "number" ? keyType : "string";
       return `Record<${safeKeyType}, ${valType}>`;
     }
 

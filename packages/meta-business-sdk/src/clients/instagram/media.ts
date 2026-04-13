@@ -1,15 +1,25 @@
-import type {
-  PublishPhotoOptions, PublishVideoOptions, PublishCarouselOptions,
-  PublishResult, PollingConfig, IGMediaFields, InstagramInsightsResultFields,
-} from "./types.ts";
 import type { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
+import type {
+  IGMediaFields,
+  InstagramInsightsResultFields,
+  PollingConfig,
+  PublishCarouselOptions,
+  PublishPhotoOptions,
+  PublishResult,
+  PublishVideoOptions,
+} from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
 type Containers = ReturnType<typeof createContainers>;
 
-export function createMedia(api: CreateClientReturn, containers: Containers, igUser: IGUserNode, pollingConfig: PollingConfig) {
+export function createMedia(
+  api: CreateClientReturn,
+  containers: Containers,
+  igUser: IGUserNode,
+  pollingConfig: PollingConfig,
+) {
   return {
     /** Publish a single photo to the feed. */
     async publishPhoto(opts: PublishPhotoOptions): Promise<PublishResult> {
@@ -112,7 +122,9 @@ export function createMedia(api: CreateClientReturn, containers: Containers, igU
     /** List media using the generated IGUser media edge. */
     async list(opts?: { fields?: (keyof IGMediaFields)[]; limit?: number }) {
       const cursor = igUser.media.list({
-        fields: opts?.fields ?? ["id", "caption", "media_type", "timestamp", "permalink"] as (keyof IGMediaFields)[],
+        fields:
+          opts?.fields ??
+          (["id", "caption", "media_type", "timestamp", "permalink"] as (keyof IGMediaFields)[]),
         params: opts?.limit ? { limit: opts.limit } : undefined,
       });
       return cursor.toArray();
@@ -121,7 +133,12 @@ export function createMedia(api: CreateClientReturn, containers: Containers, igU
     /** Get insights for a media item using the generated IGMedia.insights edge. */
     async getInsights(mediaId: string, metrics: string[]) {
       const cursor = api.iGMedia(mediaId).insights({
-        fields: ["name", "period", "values", "total_value"] as (keyof InstagramInsightsResultFields)[],
+        fields: [
+          "name",
+          "period",
+          "values",
+          "total_value",
+        ] as (keyof InstagramInsightsResultFields)[],
         params: { metric: metrics },
       });
       return cursor.toArray();
@@ -136,7 +153,17 @@ export function createMedia(api: CreateClientReturn, containers: Containers, igU
     /** Fetch full media details using the generated IGMedia node. */
     async fetchMedia(mediaId: string, fields?: (keyof IGMediaFields)[]) {
       return api.iGMedia(mediaId).get({
-        fields: fields ?? ["id", "media_type", "media_url", "thumbnail_url", "permalink", "caption", "timestamp"] as (keyof IGMediaFields)[],
+        fields:
+          fields ??
+          ([
+            "id",
+            "media_type",
+            "media_url",
+            "thumbnail_url",
+            "permalink",
+            "caption",
+            "timestamp",
+          ] as (keyof IGMediaFields)[]),
       });
     },
   };

@@ -43,7 +43,7 @@ export class TikTokRateLimiter implements RateLimiter {
       const retryAfter = headers.get("retry-after");
       if (retryAfter) {
         const seconds = parseInt(retryAfter, 10);
-        if (!isNaN(seconds)) {
+        if (!Number.isNaN(seconds)) {
           this.pausedUntil = Date.now() + seconds * 1000;
           this.onThrottle?.({ waitMs: seconds * 1000, reason: "429 with Retry-After" });
           return;

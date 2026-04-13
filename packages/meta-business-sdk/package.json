@@ -33,23 +33,22 @@
     "url": "https://github.com/promobase/ad-platform-sdks",
     "directory": "packages/meta-business-sdk"
   },
-  "module": "src/generated/index.ts",
-  "main": "src/generated/index.ts",
-  "types": "src/generated/index.ts",
+  "module": "./dist/generated/index.js",
+  "main": "./dist/generated/index.js",
+  "types": "./dist/generated/index.d.ts",
   "type": "module",
   "files": [
-    "src/generated/**/*.ts",
-    "src/ai/**/*.ts",
-    "src/errors.ts",
-    "src/pagination.ts",
-    "README.md"
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "codegen": "bun src/codegen/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/",
-    "build": "bun build src/generated/index.ts --outdir dist --target node",
-    "publish": "bun publish --access public"
+    "prepublishOnly": "bun run clean && bun run build"
   },
   "publishConfig": {
     "access": "public"
@@ -65,5 +64,16 @@
   "peerDependencies": {
     "ai": "^6.0.158",
     "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/generated/index.ts",
+      "types": "./dist/generated/index.d.ts",
+      "import": "./dist/generated/index.js",
+      "default": "./dist/generated/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

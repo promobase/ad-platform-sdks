@@ -15,17 +15,21 @@
     "url": "https://github.com/promobase/ad-platform-sdks",
     "directory": "packages/sdk-runtime"
   },
-  "module": "src/index.ts",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "files": [
-    "src/**/*.ts",
-    "README.md"
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
     "test": "bun test tests/",
-    "typecheck": "tsc --noEmit"
+    "prepublishOnly": "bun run clean && bun run build"
   },
   "publishConfig": {
     "access": "public"
@@ -35,5 +39,16 @@
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

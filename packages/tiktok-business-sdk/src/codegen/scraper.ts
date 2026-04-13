@@ -1,4 +1,4 @@
-import { mkdir, writeFile, readFile, readdir } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const IDENTIFY_KEY = "c0138ffadd90a955c1f0670a56fe348d1d40680b3c89461e09f78ed26785164b";
@@ -25,7 +25,10 @@ export async function fetchDocTree(): Promise<DocTreeNode[]> {
   const url = `${BASE}/platform/tree/get/?language=ENGLISH&identify_key=${IDENTIFY_KEY}&is_need_content=false`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Doc tree fetch failed: ${response.status}`);
-  const json = await response.json() as { code: number; data: { primary_doc_list: DocTreeNode[] } };
+  const json = (await response.json()) as {
+    code: number;
+    data: { primary_doc_list: DocTreeNode[] };
+  };
   if (json.code !== 0) throw new Error(`Doc tree API error: code ${json.code}`);
   return json.data.primary_doc_list ?? [];
 }
@@ -35,7 +38,10 @@ export async function fetchDoc(docId: string): Promise<{ title: string; content:
   const url = `${BASE}/node/get/?language=ENGLISH&identify_key=${IDENTIFY_KEY}&doc_id=${docId}`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Doc fetch failed for ${docId}: ${response.status}`);
-  const json = await response.json() as { code: number; data: { title: string; content: string; type: string } };
+  const json = (await response.json()) as {
+    code: number;
+    data: { title: string; content: string; type: string };
+  };
   if (json.code !== 0) throw new Error(`Doc API error for ${docId}: code ${json.code}`);
   return { title: json.data.title, content: json.data.content };
 }
@@ -49,9 +55,11 @@ const SKIP_CATEGORIES = new Set([
 ]);
 
 /** Recursively collect all leaf doc_ids from the "API Reference" tree node. */
-export function collectMarketingDocIds(tree: DocTreeNode[]): { docId: string; title: string; category: string }[] {
+export function collectMarketingDocIds(
+  tree: DocTreeNode[],
+): { docId: string; title: string; category: string }[] {
   // Find the "API Reference" top-level node
-  const apiRef = tree.find(n => n.title === "API Reference");
+  const apiRef = tree.find((n) => n.title === "API Reference");
   if (!apiRef) {
     console.warn("[scraper] Could not find 'API Reference' node in doc tree");
     return [];
@@ -86,7 +94,10 @@ function collectLeaves(
 }
 
 /** Scrape all marketing API docs, using cache when available. */
-export async function scrapeAllDocs(cacheDir: string, opts?: { forceRefresh?: boolean }): Promise<DocContent[]> {
+export async function scrapeAllDocs(
+  cacheDir: string,
+  opts?: { forceRefresh?: boolean },
+): Promise<DocContent[]> {
   await mkdir(cacheDir, { recursive: true });
 
   // 1. Fetch tree
@@ -118,13 +129,13 @@ export async function scrapeAllDocs(cacheDir: string, opts?: { forceRefresh?: bo
         await writeFile(cachePath, JSON.stringify(doc, null, 2), "utf-8");
         fetched++;
         // Rate limiting: 100ms between requests
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise((r) => setTimeout(r, 100));
       }
     } else {
       doc = await fetchDoc(target.docId);
       await writeFile(cachePath, JSON.stringify(doc, null, 2), "utf-8");
       fetched++;
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise((r) => setTimeout(r, 100));
     }
 
     docs.push({

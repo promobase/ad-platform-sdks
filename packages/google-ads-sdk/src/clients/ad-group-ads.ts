@@ -1,8 +1,8 @@
 import type { HttpClient } from "@promobase/sdk-runtime";
-import type { AdGroupAd } from "../generated/v23/resources/AdGroupAd.ts";
 import type { AdGroup } from "../generated/v23/resources/AdGroup.ts";
+import type { AdGroupAd } from "../generated/v23/resources/AdGroupAd.ts";
 import { adGroupAdService, googleAdsService } from "../generated/v23/services/index.ts";
-import { resolveRef, type Ref } from "./types.ts";
+import { type Ref, resolveRef } from "./types.ts";
 
 const GAQL_FIELDS =
   "ad_group_ad.resource_name, ad_group_ad.status, ad_group_ad.ad.id, ad_group_ad.ad.resource_name, ad_group_ad.ad.type, ad_group_ad.ad.final_urls";
@@ -22,9 +22,7 @@ function normalize(input: CreateAdGroupAdInput): AdGroupAd {
 
 export function adGroupAds(client: HttpClient, customerId: string) {
   return {
-    async create(
-      input: CreateAdGroupAdInput,
-    ): Promise<AdGroupAd & { resourceName: string }> {
+    async create(input: CreateAdGroupAdInput): Promise<AdGroupAd & { resourceName: string }> {
       const normalized = normalize(input);
       const res = await adGroupAdService.mutateAdGroupAds(client, customerId, {
         operations: [{ create: normalized }],

@@ -1,24 +1,37 @@
-import { createTikTokContentTools } from "./content.ts";
-import { createTikTokCommentTools } from "./comments.ts";
-import { createTikTokAccountTools } from "./account.ts";
-import { createTikTokMessagingTools } from "./messaging.ts";
 import type { TikTokClientOptions } from "../clients/types.ts";
+import { createTikTokAccountTools } from "./account.ts";
+import { createTikTokCommentTools } from "./comments.ts";
+import { createTikTokContentTools } from "./content.ts";
+import { createTikTokMessagingTools } from "./messaging.ts";
 
 type ToolCategory = "content" | "comments" | "account" | "messaging";
 
-type ToolsForCategory<C extends ToolCategory, Opts extends TikTokClientOptions> =
-  C extends "content" ? ReturnType<typeof createTikTokContentTools>
-  : C extends "comments" ? ReturnType<typeof createTikTokCommentTools>
-  : C extends "account" ? ReturnType<typeof createTikTokAccountTools>
-  : C extends "messaging" ? ReturnType<typeof createTikTokMessagingTools>
-  : never;
+type ToolsForCategory<
+  C extends ToolCategory,
+  Opts extends TikTokClientOptions,
+> = C extends "content"
+  ? ReturnType<typeof createTikTokContentTools>
+  : C extends "comments"
+    ? ReturnType<typeof createTikTokCommentTools>
+    : C extends "account"
+      ? ReturnType<typeof createTikTokAccountTools>
+      : C extends "messaging"
+        ? ReturnType<typeof createTikTokMessagingTools>
+        : never;
 
-type MergeTools<Categories extends readonly ToolCategory[], Opts extends TikTokClientOptions> =
-  Categories extends readonly [infer Head extends ToolCategory, ...infer Tail extends readonly ToolCategory[]]
-    ? ToolsForCategory<Head, Opts> & MergeTools<Tail, Opts>
-    : {};
+type MergeTools<
+  Categories extends readonly ToolCategory[],
+  Opts extends TikTokClientOptions,
+> = Categories extends readonly [
+  infer Head extends ToolCategory,
+  ...infer Tail extends readonly ToolCategory[],
+]
+  ? ToolsForCategory<Head, Opts> & MergeTools<Tail, Opts>
+  : {};
 
-export interface CreateTikTokToolsOptions<C extends readonly ToolCategory[] = readonly ToolCategory[]> extends TikTokClientOptions {
+export interface CreateTikTokToolsOptions<
+  C extends readonly ToolCategory[] = readonly ToolCategory[],
+> extends TikTokClientOptions {
   include?: C;
 }
 
@@ -35,7 +48,9 @@ export interface CreateTikTokToolsOptions<C extends readonly ToolCategory[] = re
  */
 export function createTikTokTools<const C extends readonly ToolCategory[]>(
   opts: CreateTikTokToolsOptions<C>,
-): C extends readonly ToolCategory[] ? MergeTools<C, typeof opts> : MergeTools<readonly ["content", "comments", "account", "messaging"], typeof opts>;
+): C extends readonly ToolCategory[]
+  ? MergeTools<C, typeof opts>
+  : MergeTools<readonly ["content", "comments", "account", "messaging"], typeof opts>;
 export function createTikTokTools(opts: CreateTikTokToolsOptions): Record<string, unknown> {
   const include = opts.include ?? (["content", "comments", "account", "messaging"] as const);
   let tools: Record<string, unknown> = {};
@@ -59,15 +74,20 @@ export function createTikTokTools(opts: CreateTikTokToolsOptions): Record<string
   return tools;
 }
 
-export { createTikTokContentTools } from "./content.ts";
-export { createTikTokCommentTools } from "./comments.ts";
 export { createTikTokAccountTools } from "./account.ts";
+export { createTikTokCommentTools } from "./comments.ts";
+export { createTikTokContentTools } from "./content.ts";
+export type { ToolCategory } from "./filter.ts";
+export {
+  filterTools,
+  filterToolsByName,
+  getAvailableCategories,
+  getToolCategories,
+  limitTools,
+} from "./filter.ts";
 export { createTikTokMessagingTools } from "./messaging.ts";
-
+export type { ToolCallContext, ToolMiddleware } from "./middleware.ts";
 // Routing, filtering, and middleware
 export { withMiddleware } from "./middleware.ts";
-export type { ToolMiddleware, ToolCallContext } from "./middleware.ts";
-export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "./filter.ts";
-export type { ToolCategory } from "./filter.ts";
-export { createRouter } from "./router.ts";
 export type { RouterOptions } from "./router.ts";
+export { createRouter } from "./router.ts";

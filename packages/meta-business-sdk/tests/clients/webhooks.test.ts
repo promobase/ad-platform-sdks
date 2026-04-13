@@ -1,13 +1,18 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import {
-  verifyWebhookChallenge, verifyWebhookSignature,
-  parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook,
-  safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook,
+  parseFacebookWebhook,
+  parseInstagramWebhook,
+  parseThreadsWebhook,
+  safeParseFacebookWebhook,
+  safeParseInstagramWebhook,
+  safeParseThreadsWebhook,
+  verifyWebhookChallenge,
+  verifyWebhookSignature,
   WebhookParseError,
 } from "../../src/clients/webhooks.ts";
 import {
-  igWebhookPayloadSchema,
   fbWebhookPayloadSchema,
+  igWebhookPayloadSchema,
   threadsWebhookPayloadSchema,
 } from "../../src/clients/webhooks-schemas.ts";
 
@@ -15,11 +20,16 @@ import {
 async function signBody(body: string, secret: string): Promise<string> {
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
-    "raw", encoder.encode(secret),
-    { name: "HMAC", hash: "SHA-256" }, false, ["sign"],
+    "raw",
+    encoder.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
   );
   const signed = await crypto.subtle.sign("HMAC", key, encoder.encode(body));
-  const hex = Array.from(new Uint8Array(signed)).map(b => b.toString(16).padStart(2, "0")).join("");
+  const hex = Array.from(new Uint8Array(signed))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
   return `sha256=${hex}`;
 }
 
@@ -27,7 +37,11 @@ async function signBody(body: string, secret: string): Promise<string> {
 
 test("verifyWebhookChallenge returns challenge on valid request", () => {
   const result = verifyWebhookChallenge(
-    { "hub.mode": "subscribe", "hub.challenge": "test_challenge_123", "hub.verify_token": "my_token" },
+    {
+      "hub.mode": "subscribe",
+      "hub.challenge": "test_challenge_123",
+      "hub.verify_token": "my_token",
+    },
     "my_token",
   );
   expect(result.valid).toBe(true);
@@ -70,11 +84,18 @@ test("verifyWebhookSignature rejects wrong signature", async () => {
 test("parseInstagramWebhook verifies signature and returns typed payload", async () => {
   const payload = {
     object: "instagram",
-    entry: [{
-      id: "ig_123",
-      time: 1700000000,
-      changes: [{ field: "comments", value: { id: "c1", text: "Hello", from: { id: "u1", username: "user1" } } }],
-    }],
+    entry: [
+      {
+        id: "ig_123",
+        time: 1700000000,
+        changes: [
+          {
+            field: "comments",
+            value: { id: "c1", text: "Hello", from: { id: "u1", username: "user1" } },
+          },
+        ],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -98,24 +119,26 @@ test("parseInstagramWebhook throws on invalid signature", async () => {
 test("parseInstagramWebhook throws on wrong object type (Zod validation)", async () => {
   const body = JSON.stringify({ object: "page", entry: [] });
   const signature = await signBody(body, "secret");
-  expect(
-    parseInstagramWebhook({ body, signature, appSecret: "secret" }),
-  ).rejects.toThrow();
+  expect(parseInstagramWebhook({ body, signature, appSecret: "secret" })).rejects.toThrow();
 });
 
 test("parseInstagramWebhook parses DM messaging events", async () => {
   const payload = {
     object: "instagram",
-    entry: [{
-      id: "ig_123",
-      time: 1700000000,
-      messaging: [{
-        sender: { id: "sender_1" },
-        recipient: { id: "recipient_1" },
-        timestamp: 1700000001,
-        message: { mid: "mid_1", text: "Hey there!" },
-      }],
-    }],
+    entry: [
+      {
+        id: "ig_123",
+        time: 1700000000,
+        messaging: [
+          {
+            sender: { id: "sender_1" },
+            recipient: { id: "recipient_1" },
+            timestamp: 1700000001,
+            message: { mid: "mid_1", text: "Hey there!" },
+          },
+        ],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -130,16 +153,20 @@ test("parseInstagramWebhook parses DM messaging events", async () => {
 test("parseInstagramWebhook parses read receipt events", async () => {
   const payload = {
     object: "instagram",
-    entry: [{
-      id: "ig_123",
-      time: 1700000000,
-      messaging: [{
-        sender: { id: "s1" },
-        recipient: { id: "r1" },
-        timestamp: 1700000001,
-        read: { watermark: 1700000000 },
-      }],
-    }],
+    entry: [
+      {
+        id: "ig_123",
+        time: 1700000000,
+        messaging: [
+          {
+            sender: { id: "s1" },
+            recipient: { id: "r1" },
+            timestamp: 1700000001,
+            read: { watermark: 1700000000 },
+          },
+        ],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -151,16 +178,20 @@ test("parseInstagramWebhook parses read receipt events", async () => {
 test("parseInstagramWebhook parses reaction events", async () => {
   const payload = {
     object: "instagram",
-    entry: [{
-      id: "ig_123",
-      time: 1700000000,
-      messaging: [{
-        sender: { id: "s1" },
-        recipient: { id: "r1" },
-        timestamp: 1700000001,
-        reaction: { mid: "mid_1", action: "react", emoji: "\u2764\ufe0f" },
-      }],
-    }],
+    entry: [
+      {
+        id: "ig_123",
+        time: 1700000000,
+        messaging: [
+          {
+            sender: { id: "s1" },
+            recipient: { id: "r1" },
+            timestamp: 1700000001,
+            reaction: { mid: "mid_1", action: "react", emoji: "\u2764\ufe0f" },
+          },
+        ],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -183,14 +214,18 @@ test("igWebhookPayloadSchema rejects missing required fields", () => {
 });
 
 test("igWebhookPayloadSchema rejects invalid messaging event", () => {
-  expect(() => igWebhookPayloadSchema.parse({
-    object: "instagram",
-    entry: [{
-      id: "x",
-      time: 1,
-      messaging: [{ sender: { id: "s" } }], // missing recipient and timestamp
-    }],
-  })).toThrow();
+  expect(() =>
+    igWebhookPayloadSchema.parse({
+      object: "instagram",
+      entry: [
+        {
+          id: "x",
+          time: 1,
+          messaging: [{ sender: { id: "s" } }], // missing recipient and timestamp
+        },
+      ],
+    }),
+  ).toThrow();
 });
 
 test("fbWebhookPayloadSchema rejects missing required fields", () => {
@@ -208,11 +243,13 @@ test("threadsWebhookPayloadSchema rejects missing required fields", () => {
 test("parseFacebookWebhook verifies and returns typed payload", async () => {
   const payload = {
     object: "page",
-    entry: [{
-      id: "page_123",
-      time: 1700000000,
-      changes: [{ field: "feed", value: { item: "comment", verb: "add", message: "Nice!" } }],
-    }],
+    entry: [
+      {
+        id: "page_123",
+        time: 1700000000,
+        changes: [{ field: "feed", value: { item: "comment", verb: "add", message: "Nice!" } }],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -225,24 +262,26 @@ test("parseFacebookWebhook verifies and returns typed payload", async () => {
 test("parseFacebookWebhook throws on wrong object type", async () => {
   const body = JSON.stringify({ object: "instagram", entry: [] });
   const signature = await signBody(body, "secret");
-  expect(
-    parseFacebookWebhook({ body, signature, appSecret: "secret" }),
-  ).rejects.toThrow();
+  expect(parseFacebookWebhook({ body, signature, appSecret: "secret" })).rejects.toThrow();
 });
 
 test("parseFacebookWebhook parses DM messaging events", async () => {
   const payload = {
     object: "page",
-    entry: [{
-      id: "page_1",
-      time: 1700000000,
-      messaging: [{
-        sender: { id: "psid_1" },
-        recipient: { id: "page_1" },
-        timestamp: 1700000001,
-        message: { mid: "mid_fb_1", text: "Hi from Messenger" },
-      }],
-    }],
+    entry: [
+      {
+        id: "page_1",
+        time: 1700000000,
+        messaging: [
+          {
+            sender: { id: "psid_1" },
+            recipient: { id: "page_1" },
+            timestamp: 1700000001,
+            message: { mid: "mid_fb_1", text: "Hi from Messenger" },
+          },
+        ],
+      },
+    ],
   };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
@@ -283,7 +322,10 @@ test("parseThreadsWebhook throws on invalid signature", async () => {
 // --- safeParse variants (never throw) ---
 
 test("safeParseInstagramWebhook returns success with valid payload", async () => {
-  const payload = { object: "instagram", entry: [{ id: "ig_1", time: 1, changes: [{ field: "comments", value: { text: "hi" } }] }] };
+  const payload = {
+    object: "instagram",
+    entry: [{ id: "ig_1", time: 1, changes: [{ field: "comments", value: { text: "hi" } }] }],
+  };
   const body = JSON.stringify(payload);
   const signature = await signBody(body, "secret");
 
@@ -297,7 +339,11 @@ test("safeParseInstagramWebhook returns success with valid payload", async () =>
 
 test("safeParseInstagramWebhook returns error on invalid signature", async () => {
   const body = JSON.stringify({ object: "instagram", entry: [] });
-  const result = await safeParseInstagramWebhook({ body, signature: "sha256=bad", appSecret: "secret" });
+  const result = await safeParseInstagramWebhook({
+    body,
+    signature: "sha256=bad",
+    appSecret: "secret",
+  });
   expect(result.success).toBe(false);
   if (!result.success) {
     expect(result.error).toBeInstanceOf(WebhookParseError);
@@ -346,7 +392,11 @@ test("safeParseFacebookWebhook returns error on wrong object type", async () => 
 
 test("safeParseThreadsWebhook returns error on invalid signature", async () => {
   const body = JSON.stringify({ app_id: "x" });
-  const result = await safeParseThreadsWebhook({ body, signature: "sha256=wrong", appSecret: "secret" });
+  const result = await safeParseThreadsWebhook({
+    body,
+    signature: "sha256=wrong",
+    appSecret: "secret",
+  });
   expect(result.success).toBe(false);
   if (!result.success) expect(result.error.code).toBe("INVALID_SIGNATURE");
 });

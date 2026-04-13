@@ -7,8 +7,12 @@ export class FacebookApiError extends ApiError {
   readonly fbtrace_id: string;
 
   constructor(opts: {
-    message: string; status: number; code: number;
-    subcode?: number; type: string; fbtrace_id: string;
+    message: string;
+    status: number;
+    code: number;
+    subcode?: number;
+    type: string;
+    fbtrace_id: string;
   }) {
     super(opts.message, opts.status);
     this.name = "FacebookApiError";
@@ -19,8 +23,12 @@ export class FacebookApiError extends ApiError {
   }
 
   static fromResponse(status: number, body: unknown): FacebookApiError {
-    if (typeof body === "object" && body !== null && "error" in body &&
-        typeof (body as Record<string, unknown>).error === "object") {
+    if (
+      typeof body === "object" &&
+      body !== null &&
+      "error" in body &&
+      typeof (body as Record<string, unknown>).error === "object"
+    ) {
       const err = (body as { error: Record<string, unknown> }).error;
       return new FacebookApiError({
         message: typeof err.message === "string" ? err.message : "Unknown Facebook API error",
@@ -31,6 +39,12 @@ export class FacebookApiError extends ApiError {
         fbtrace_id: typeof err.fbtrace_id === "string" ? err.fbtrace_id : "",
       });
     }
-    return new FacebookApiError({ message: "Unknown Facebook API error", status, code: 0, type: "Unknown", fbtrace_id: "" });
+    return new FacebookApiError({
+      message: "Unknown Facebook API error",
+      status,
+      code: 0,
+      type: "Unknown",
+      fbtrace_id: "",
+    });
   }
 }

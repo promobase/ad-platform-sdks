@@ -1,12 +1,12 @@
-import type { InstagramClientOptions, OAuthConfig } from "./types.ts";
-import { resolvePolling } from "./polling.ts";
+import { createAccount } from "./account.ts";
+import { createComments } from "./comments.ts";
 import { createContainers } from "./containers.ts";
 import { createMedia } from "./media.ts";
-import { createStories } from "./stories.ts";
-import { createComments } from "./comments.ts";
 import { createMessaging } from "./messaging.ts";
-import { createAccount } from "./account.ts";
 import { createOAuth } from "./oauth.ts";
+import { resolvePolling } from "./polling.ts";
+import { createStories } from "./stories.ts";
+import type { InstagramClientOptions, OAuthConfig } from "./types.ts";
 
 export type * from "./types.ts";
 
@@ -27,10 +27,9 @@ export function createInstagramClient(opts: InstagramClientOptions) {
     webhooks: {
       /** Subscribe to Instagram webhook events. Call after OAuth. */
       async subscribe(fields?: string[]): Promise<{ success: boolean }> {
-        return api.client.post<{ success: boolean }>(
-          `${igAccountId}/subscribed_apps`,
-          { subscribed_fields: (fields ?? ["comments", "messages", "message_edit"]).join(",") },
-        );
+        return api.client.post<{ success: boolean }>(`${igAccountId}/subscribed_apps`, {
+          subscribed_fields: (fields ?? ["comments", "messages", "message_edit"]).join(","),
+        });
       },
     },
   };

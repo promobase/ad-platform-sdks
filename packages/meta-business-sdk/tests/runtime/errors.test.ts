@@ -1,6 +1,6 @@
-import { test, expect } from "bun:test";
-import { FacebookApiError } from "../../src/errors.ts";
+import { expect, test } from "bun:test";
 import { ApiError } from "@promobase/sdk-runtime";
+import { FacebookApiError } from "../../src/errors.ts";
 
 test("FacebookApiError extends ApiError", () => {
   const err = FacebookApiError.fromResponse(400, {

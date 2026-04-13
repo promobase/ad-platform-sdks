@@ -96,14 +96,23 @@ function classifyXtableBlocks(
       headerBlock = block.text;
     } else if (before.includes("**parameter") && !paramBlock) {
       paramBlock = block.text;
-    } else if ((before.includes("## response") || before.includes("**body**") || before.includes("**response")) && !responseBlock) {
+    } else if (
+      (before.includes("## response") ||
+        before.includes("**body**") ||
+        before.includes("**response")) &&
+      !responseBlock
+    ) {
       responseBlock = block.text;
     } else if (!paramBlock && !before.includes("comparing") && !before.includes("changes")) {
       // First non-classified block after parameters section
       // Check if it's between Request and Response sections
       const requestIdx = content.toLowerCase().indexOf("## request");
       const responseIdx = content.toLowerCase().indexOf("## response");
-      if (requestIdx >= 0 && block.start > requestIdx && (responseIdx < 0 || block.start < responseIdx)) {
+      if (
+        requestIdx >= 0 &&
+        block.start > requestIdx &&
+        (responseIdx < 0 || block.start < responseIdx)
+      ) {
         if (!headerBlock || block.text !== headerBlock) {
           paramBlock = block.text;
         }
@@ -118,18 +127,27 @@ function classifyXtableBlocks(
 
 /** Parse an xtable block into flat ParamSpec entries. */
 function parseXtable(tableText: string): ParamSpec[] {
-  const lines = tableText.split("\n").filter(l => l.trim().length > 0);
+  const lines = tableText.split("\n").filter((l) => l.trim().length > 0);
   if (lines.length < 2) return [];
 
   // Parse header to determine column layout
   const headerLine = lines[0]!;
-  const headers = parseTableRow(headerLine).map(h => h.toLowerCase().replace(/\{.*?\}/g, "").trim());
+  const headers = parseTableRow(headerLine).map((h) =>
+    h
+      .toLowerCase()
+      .replace(/\{.*?\}/g, "")
+      .trim(),
+  );
 
   // Determine column indices
-  const fieldIdx = headers.findIndex(h => h === "field" || h === "field name" || h === "parameter");
-  const typeIdx = headers.findIndex(h => h.includes("type") || h.includes("data type"));
-  const descIdx = headers.findIndex(h => h.includes("description"));
-  const locationIdx = headers.findIndex(h => h.includes("location") || h.includes("param location"));
+  const fieldIdx = headers.findIndex(
+    (h) => h === "field" || h === "field name" || h === "parameter",
+  );
+  const typeIdx = headers.findIndex((h) => h.includes("type") || h.includes("data type"));
+  const descIdx = headers.findIndex((h) => h.includes("description"));
+  const locationIdx = headers.findIndex(
+    (h) => h.includes("location") || h.includes("param location"),
+  );
 
   if (fieldIdx < 0 || typeIdx < 0) return [];
 
@@ -153,7 +171,16 @@ function parseXtable(tableText: string): ParamSpec[] {
 
     // Parse field name and required flag
     const { name, required } = parseFieldName(rawField);
-    if (!name || name === "-" || name === "---" || /^[-#]+$/.test(name) || name.includes("{") || name.includes("}") || name.startsWith("#")) continue;
+    if (
+      !name ||
+      name === "-" ||
+      name === "---" ||
+      /^[-#]+$/.test(name) ||
+      name.includes("{") ||
+      name.includes("}") ||
+      name.startsWith("#")
+    )
+      continue;
 
     const type = normalizeType(cells[typeIdx]?.trim() ?? "string");
     const rawDescription = (descIdx >= 0 ? cells[descIdx]?.trim() : "") ?? "";
@@ -179,7 +206,7 @@ function parseXtable(tableText: string): ParamSpec[] {
 function parseTableRow(line: string): string[] {
   // Remove leading/trailing pipes and split
   const trimmed = line.replace(/^\|/, "").replace(/\|$/, "");
-  return trimmed.split("|").map(c => c.trim());
+  return trimmed.split("|").map((c) => c.trim());
 }
 
 /** Parse a field name, extracting the name and required flag. */
@@ -211,15 +238,46 @@ function parseFieldName(raw: string): { name: string; required: boolean } {
 
 /** Map TikTok doc types to TypeScript types. */
 function normalizeType(raw: string): string {
-  const lower = raw.toLowerCase().replace(/<[^>]*>/g, "").trim();
+  const lower = raw
+    .toLowerCase()
+    .replace(/<[^>]*>/g, "")
+    .trim();
 
-  if (lower === "string" || lower === "enum" || lower === "url" || lower === "datetime" || lower === "date" || lower === "json" || lower === "json string" || lower === "timestamp") return "string";
-  if (lower === "number" || lower === "int" || lower === "integer" || lower === "int64" || lower === "float" || lower === "double" || lower === "decimal" || lower === "bigint") return "number";
+  if (
+    lower === "string" ||
+    lower === "enum" ||
+    lower === "url" ||
+    lower === "datetime" ||
+    lower === "date" ||
+    lower === "json" ||
+    lower === "json string" ||
+    lower === "timestamp"
+  )
+    return "string";
+  if (
+    lower === "number" ||
+    lower === "int" ||
+    lower === "integer" ||
+    lower === "int64" ||
+    lower === "float" ||
+    lower === "double" ||
+    lower === "decimal" ||
+    lower === "bigint"
+  )
+    return "number";
   if (lower === "boolean" || lower === "bool") return "boolean";
-  if (lower === "object" || lower === "map" || lower === "dict" || lower === "struct") return "Record<string, unknown>";
-  if (lower === "string[]" || lower === "list" || lower === "array" || lower === "list of strings") return "string[]";
+  if (lower === "object" || lower === "map" || lower === "dict" || lower === "struct")
+    return "Record<string, unknown>";
+  if (lower === "string[]" || lower === "list" || lower === "array" || lower === "list of strings")
+    return "string[]";
   if (lower === "object[]" || lower === "list of objects") return "Record<string, unknown>[]";
-  if (lower === "number[]" || lower === "int[]" || lower === "integer[]" || lower === "list of numbers") return "number[]";
+  if (
+    lower === "number[]" ||
+    lower === "int[]" ||
+    lower === "integer[]" ||
+    lower === "list of numbers"
+  )
+    return "number[]";
   if (lower === "file" || lower === "binary") return "File | Blob";
 
   // Handle "list of X" patterns
@@ -227,7 +285,7 @@ function normalizeType(raw: string): string {
 
   // Handle "X/Y" union types like "string/string[]"
   if (raw.includes("/")) {
-    const parts = raw.split("/").map(p => normalizeType(p.trim()));
+    const parts = raw.split("/").map((p) => normalizeType(p.trim()));
     return parts.join(" | ");
   }
 
@@ -258,10 +316,12 @@ function extractEnumValues(description: string): string[] {
 
   // Find all backtick-quoted values that look like enum constants
   // Match UPPER_CASE_VALUES, lowercase_values, camelCase, numbers, and true/false
-  const allBacktickValues = [...clean.matchAll(/`([A-Z][A-Z0-9_]*(?:\s*[A-Z][A-Z0-9_]*)*)`/g)].map(m => m[1]!);
+  const allBacktickValues = [...clean.matchAll(/`([A-Z][A-Z0-9_]*(?:\s*[A-Z][A-Z0-9_]*)*)`/g)].map(
+    (m) => m[1]!,
+  );
 
   // Also catch lowercase enum-like values: `true`, `false`, specific known patterns
-  const lowerBacktickValues = [...clean.matchAll(/`(true|false)`/g)].map(m => m[1]!);
+  const lowerBacktickValues = [...clean.matchAll(/`(true|false)`/g)].map((m) => m[1]!);
 
   const combined = [...new Set([...allBacktickValues, ...lowerBacktickValues])];
 
@@ -311,7 +371,10 @@ function buildNestTree(flatParams: ParamSpec[]): ParamSpec[] {
 }
 
 /** Detect whether this endpoint uses Access-Token header or app_id/secret credentials. */
-function detectAuthPattern(headerBlock?: string, paramBlock?: string): "access_token" | "app_credentials" {
+function detectAuthPattern(
+  headerBlock?: string,
+  paramBlock?: string,
+): "access_token" | "app_credentials" {
   const combined = `${headerBlock ?? ""} ${paramBlock ?? ""}`.toLowerCase();
   if (combined.includes("access-token") || combined.includes("access_token")) return "access_token";
   if (combined.includes("app_id") && combined.includes("secret")) return "app_credentials";

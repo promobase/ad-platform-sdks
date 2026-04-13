@@ -74,10 +74,7 @@ export function resolveType(
   };
 }
 
-function resolveBase(
-  protoType: string,
-  shortNameMap?: Map<string, string>,
-): ResolvedType {
+function resolveBase(protoType: string, shortNameMap?: Map<string, string>): ResolvedType {
   if (SCALAR_MAP[protoType]) return { tsType: SCALAR_MAP[protoType]!, imports: [] };
 
   const normalized = protoType.replace(/^\./, "");

@@ -1,6 +1,15 @@
 import type { Tool } from "ai";
 
-export type ToolCategory = "instagram" | "facebook" | "threads" | "campaigns" | "publish" | "comments" | "messaging" | "insights" | "management";
+export type ToolCategory =
+  | "instagram"
+  | "facebook"
+  | "threads"
+  | "campaigns"
+  | "publish"
+  | "comments"
+  | "messaging"
+  | "insights"
+  | "management";
 
 // Map each tool name to its categories
 const TOOL_CATEGORIES: Record<string, ToolCategory[]> = {
@@ -75,7 +84,7 @@ export function filterTools<T extends Record<string, Tool>>(
   const result: Record<string, Tool> = {};
   for (const [name, t] of Object.entries(tools)) {
     const cats = TOOL_CATEGORIES[name] ?? [];
-    if (categories.some(c => cats.includes(c))) {
+    if (categories.some((c) => cats.includes(c))) {
       result[name] = t;
     }
   }
@@ -91,7 +100,7 @@ export function filterToolsByName<T extends Record<string, Tool>>(
 ): Partial<T> {
   const result: Record<string, Tool> = {};
   for (const [name, t] of Object.entries(tools)) {
-    if (patterns.some(p => matchPattern(p, name))) {
+    if (patterns.some((p) => matchPattern(p, name))) {
       result[name] = t;
     }
   }
@@ -108,10 +117,7 @@ function matchPattern(pattern: string, name: string): boolean {
 /**
  * Limit the number of tools (picks first N).
  */
-export function limitTools<T extends Record<string, Tool>>(
-  tools: T,
-  maxTools: number,
-): Partial<T> {
+export function limitTools<T extends Record<string, Tool>>(tools: T, maxTools: number): Partial<T> {
   const result: Record<string, Tool> = {};
   let count = 0;
   for (const [name, t] of Object.entries(tools)) {
@@ -133,5 +139,15 @@ export function getToolCategories(toolName: string): ToolCategory[] {
  * Get all available category names.
  */
 export function getAvailableCategories(): ToolCategory[] {
-  return ["instagram", "facebook", "threads", "campaigns", "publish", "comments", "messaging", "insights", "management"];
+  return [
+    "instagram",
+    "facebook",
+    "threads",
+    "campaigns",
+    "publish",
+    "comments",
+    "messaging",
+    "insights",
+    "management",
+  ];
 }

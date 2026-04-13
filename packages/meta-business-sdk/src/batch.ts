@@ -67,10 +67,7 @@ export class BatchBuilder {
     return { __handleId: id } as unknown as BatchHandle<Pick<T, F[number]>[]>;
   }
 
-  post<T>(
-    target: BatchTarget<T>,
-    params: Record<string, unknown>,
-  ): BatchHandle<T> {
+  post<T>(target: BatchTarget<T>, params: Record<string, unknown>): BatchHandle<T> {
     const body = new URLSearchParams();
     for (const [k, v] of Object.entries(params)) {
       if (v !== undefined && v !== null) {
@@ -119,7 +116,9 @@ export async function executeBatch<T extends Record<string, BatchHandle<unknown>
   }
 
   if (requests.length > MAX_BATCH_SIZE) {
-    throw new Error(`Batch request exceeds maximum of ${MAX_BATCH_SIZE} requests (got ${requests.length})`);
+    throw new Error(
+      `Batch request exceeds maximum of ${MAX_BATCH_SIZE} requests (got ${requests.length})`,
+    );
   }
 
   // Prepend API version to each relative_url

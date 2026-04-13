@@ -1,4 +1,4 @@
-import type { RateLimiter, DelayFn, RetryConfig } from "./client.ts";
+import type { DelayFn, RateLimiter, RetryConfig } from "./client.ts";
 
 export class HttpError extends Error {
   constructor(
@@ -51,7 +51,8 @@ export class HttpClient {
     this.baseUrl = opts.baseUrl.replace(/\/$/, "");
     this.getHeaders = opts.getHeaders;
     this.fetchImpl = opts.fetch ?? fetch;
-    this.onError = opts.onError ?? ((status, body) => new HttpError(`HTTP ${status}`, status, body));
+    this.onError =
+      opts.onError ?? ((status, body) => new HttpError(`HTTP ${status}`, status, body));
     this.rateLimiter = opts.rateLimiter;
     this.delay = opts.delay;
     this.retryConfig = opts.retry ? { ...DEFAULT_RETRY, ...opts.retry } : DEFAULT_RETRY;
@@ -59,7 +60,7 @@ export class HttpClient {
   }
 
   private buildUrl(path: string, query?: RequestOptions["query"]): string {
-    const url = new URL(path, this.baseUrl + "/");
+    const url = new URL(path, `${this.baseUrl}/`);
     if (query) {
       for (const [k, v] of Object.entries(query)) {
         if (v !== undefined) url.searchParams.set(k, String(v));
@@ -112,7 +113,10 @@ export class HttpClient {
         if (this.rateLimiter) this.rateLimiter.afterResponse(response.status, response.headers);
 
         if (!response.ok) {
-          if (attempt < maxAttempts - 1 && this.retryConfig.retryableStatuses.includes(response.status)) {
+          if (
+            attempt < maxAttempts - 1 &&
+            this.retryConfig.retryableStatuses.includes(response.status)
+          ) {
             if (this.delay) await this.delay(this.retryConfig.initialBackoffMs * 2 ** attempt);
             continue;
           }
@@ -120,7 +124,11 @@ export class HttpClient {
         }
         return parsed as T;
       } catch (err) {
-        if (err instanceof TypeError && this.retryConfig.retryOnNetworkError && attempt < maxAttempts - 1) {
+        if (
+          err instanceof TypeError &&
+          this.retryConfig.retryOnNetworkError &&
+          attempt < maxAttempts - 1
+        ) {
           lastErr = err;
           if (this.delay) await this.delay(this.retryConfig.initialBackoffMs * 2 ** attempt);
           continue;

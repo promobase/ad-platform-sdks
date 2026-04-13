@@ -1,8 +1,23 @@
-import { test, expect } from "bun:test";
-import { resolveType, parseGenericType, enumTypeToTsName } from "../../src/codegen/type-resolver.ts";
+import { expect, test } from "bun:test";
+import {
+  enumTypeToTsName,
+  parseGenericType,
+  resolveType,
+} from "../../src/codegen/type-resolver.ts";
 
-const knownObjects = new Set(["Campaign", "AdSet", "Ad", "AdLabel", "AdsActionStats", "AdCreative"]);
-const knownEnums = new Set(["CampaignBidStrategy", "CampaignEffectiveStatus", "AdcampaigngroupObjective"]);
+const knownObjects = new Set([
+  "Campaign",
+  "AdSet",
+  "Ad",
+  "AdLabel",
+  "AdsActionStats",
+  "AdCreative",
+]);
+const knownEnums = new Set([
+  "CampaignBidStrategy",
+  "CampaignEffectiveStatus",
+  "AdcampaigngroupObjective",
+]);
 const ctx = { knownObjects, knownEnums };
 
 test("resolves primitive types", () => {
@@ -37,7 +52,9 @@ test("resolves map<K, V>", () => {
 test("resolves nested generics", () => {
   expect(resolveType("list<map<string, string>>", ctx)).toBe("Record<string, string>[]");
   expect(resolveType("list<list<int>>", ctx)).toBe("number[][]");
-  expect(resolveType("list<map<string, list<map<string, string>>>>", ctx)).toBe("Record<string, Record<string, string>[]>[]");
+  expect(resolveType("list<map<string, list<map<string, string>>>>", ctx)).toBe(
+    "Record<string, Record<string, string>[]>[]",
+  );
 });
 
 test("resolves object references", () => {
@@ -59,7 +76,10 @@ test("resolves param enum types (lowercased convention)", () => {
 test("parseGenericType parses nested angle brackets", () => {
   expect(parseGenericType("list<string>")).toEqual({ outer: "list", inner: ["string"] });
   expect(parseGenericType("map<string, int>")).toEqual({ outer: "map", inner: ["string", "int"] });
-  expect(parseGenericType("list<map<string, string>>")).toEqual({ outer: "list", inner: ["map<string, string>"] });
+  expect(parseGenericType("list<map<string, string>>")).toEqual({
+    outer: "list",
+    inner: ["map<string, string>"],
+  });
   expect(parseGenericType("Campaign")).toBeNull();
 });
 

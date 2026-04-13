@@ -2,11 +2,14 @@
  * Verify a Meta webhook challenge request.
  * Used in GET handler to respond to Meta's subscription verification.
  */
-export function verifyWebhookChallenge(params: {
-  "hub.mode"?: string;
-  "hub.challenge"?: string;
-  "hub.verify_token"?: string;
-}, expectedVerifyToken: string): { valid: boolean; challenge?: string } {
+export function verifyWebhookChallenge(
+  params: {
+    "hub.mode"?: string;
+    "hub.challenge"?: string;
+    "hub.verify_token"?: string;
+  },
+  expectedVerifyToken: string,
+): { valid: boolean; challenge?: string } {
   if (
     params["hub.mode"] === "subscribe" &&
     params["hub.verify_token"] === expectedVerifyToken &&
@@ -46,21 +49,21 @@ export async function verifyWebhookSignature(
 // --- Platform-specific webhook parsers (now using Zod) ---
 
 import {
-  igWebhookPayloadSchema,
-  fbWebhookPayloadSchema,
-  threadsWebhookPayloadSchema,
-  type IGWebhookPayload,
   type FBWebhookPayload,
+  fbWebhookPayloadSchema,
+  type IGWebhookPayload,
+  igWebhookPayloadSchema,
   type ThreadsWebhookPayload,
+  threadsWebhookPayloadSchema,
 } from "./webhooks-schemas.ts";
 
 export type {
-  IGWebhookPayload,
-  IGWebhookMessagingEvent,
-  IGWebhookChange,
-  FBWebhookPayload,
-  FBWebhookMessagingEvent,
   FBWebhookChange,
+  FBWebhookMessagingEvent,
+  FBWebhookPayload,
+  IGWebhookChange,
+  IGWebhookMessagingEvent,
+  IGWebhookPayload,
   ThreadsWebhookPayload,
 } from "./webhooks-schemas.ts";
 
@@ -90,17 +93,26 @@ export class WebhookParseError extends Error {
 
 async function verifyAndParse<T>(
   opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
+  schema: {
+    parse: (data: unknown) => T;
+    safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown };
+  },
   safe: false,
 ): Promise<T>;
 async function verifyAndParse<T>(
   opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
+  schema: {
+    parse: (data: unknown) => T;
+    safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown };
+  },
   safe: true,
 ): Promise<WebhookParseResult<T>>;
 async function verifyAndParse<T>(
   opts: WebhookParseOptions,
-  schema: { parse: (data: unknown) => T; safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
+  schema: {
+    parse: (data: unknown) => T;
+    safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown };
+  },
   safe: boolean,
 ): Promise<T | WebhookParseResult<T>> {
   const validSig = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
@@ -125,7 +137,14 @@ async function verifyAndParse<T>(
     if (result.success) {
       return { success: true, data: result.data as T };
     }
-    return { success: false, error: new WebhookParseError("INVALID_PAYLOAD", "Webhook payload validation failed", result.error) };
+    return {
+      success: false,
+      error: new WebhookParseError(
+        "INVALID_PAYLOAD",
+        "Webhook payload validation failed",
+        result.error,
+      ),
+    };
   }
 
   return schema.parse(json);
@@ -153,7 +172,9 @@ export async function parseFacebookWebhook(opts: WebhookParseOptions): Promise<F
  * Verify signature and parse a Threads webhook payload.
  * Throws WebhookParseError on invalid signature, JSON, or payload shape.
  */
-export async function parseThreadsWebhook(opts: WebhookParseOptions): Promise<ThreadsWebhookPayload> {
+export async function parseThreadsWebhook(
+  opts: WebhookParseOptions,
+): Promise<ThreadsWebhookPayload> {
   return verifyAndParse(opts, threadsWebhookPayloadSchema, false);
 }
 
@@ -163,7 +184,9 @@ export async function parseThreadsWebhook(opts: WebhookParseOptions): Promise<Th
  * Verify signature and parse an Instagram webhook payload.
  * Returns { success, data } or { success, error } — never throws.
  */
-export async function safeParseInstagramWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<IGWebhookPayload>> {
+export async function safeParseInstagramWebhook(
+  opts: WebhookParseOptions,
+): Promise<WebhookParseResult<IGWebhookPayload>> {
   return verifyAndParse(opts, igWebhookPayloadSchema, true);
 }
 
@@ -171,7 +194,9 @@ export async function safeParseInstagramWebhook(opts: WebhookParseOptions): Prom
  * Verify signature and parse a Facebook Page webhook payload.
  * Returns { success, data } or { success, error } — never throws.
  */
-export async function safeParseFacebookWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<FBWebhookPayload>> {
+export async function safeParseFacebookWebhook(
+  opts: WebhookParseOptions,
+): Promise<WebhookParseResult<FBWebhookPayload>> {
   return verifyAndParse(opts, fbWebhookPayloadSchema, true);
 }
 
@@ -179,6 +204,8 @@ export async function safeParseFacebookWebhook(opts: WebhookParseOptions): Promi
  * Verify signature and parse a Threads webhook payload.
  * Returns { success, data } or { success, error } — never throws.
  */
-export async function safeParseThreadsWebhook(opts: WebhookParseOptions): Promise<WebhookParseResult<ThreadsWebhookPayload>> {
+export async function safeParseThreadsWebhook(
+  opts: WebhookParseOptions,
+): Promise<WebhookParseResult<ThreadsWebhookPayload>> {
   return verifyAndParse(opts, threadsWebhookPayloadSchema, true);
 }

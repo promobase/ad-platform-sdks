@@ -1,4 +1,4 @@
-import type { OAuthConfig, ShortLivedToken, LongLivedToken } from "./types.ts";
+import type { LongLivedToken, OAuthConfig, ShortLivedToken } from "./types.ts";
 
 const THREADS_OAUTH_BASE = "https://threads.net/oauth";
 const THREADS_GRAPH_BASE = "https://graph.threads.net";
@@ -32,7 +32,8 @@ export function createOAuth(config: OAuthConfig) {
         code,
       });
       const response = await fetch(`${THREADS_GRAPH_BASE}/oauth/access_token`, {
-        method: "POST", body,
+        method: "POST",
+        body,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
       if (!response.ok) {
@@ -61,7 +62,9 @@ export function createOAuth(config: OAuthConfig) {
         grant_type: "th_refresh_token",
         access_token: longLivedToken,
       });
-      const response = await fetch(`${THREADS_GRAPH_BASE}/refresh_access_token?${params.toString()}`);
+      const response = await fetch(
+        `${THREADS_GRAPH_BASE}/refresh_access_token?${params.toString()}`,
+      );
       if (!response.ok) {
         const error = await response.json();
         throw new Error(`Threads token refresh failed: ${JSON.stringify(error)}`);

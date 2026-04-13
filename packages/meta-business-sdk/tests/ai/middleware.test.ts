@@ -1,20 +1,26 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { withMiddleware, type ToolCallContext } from "../../src/ai/middleware.ts";
-import { filterTools, filterToolsByName, limitTools } from "../../src/ai/filter.ts";
-import { createRouter } from "../../src/ai/router.ts";
-import { createInstagramTools } from "../../src/ai/instagram.ts";
-import { createMetaTools } from "../../src/ai/index.ts";
-import { createClient } from "../../src/generated/index.ts";
+import { afterEach, expect, mock, test } from "bun:test";
 import { tool } from "ai";
 import { z } from "zod";
+import { filterTools, filterToolsByName, limitTools } from "../../src/ai/filter.ts";
+import { createMetaTools } from "../../src/ai/index.ts";
+import { withMiddleware } from "../../src/ai/middleware.ts";
+import { createRouter } from "../../src/ai/router.ts";
+import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
 function mockFetchJson(body: unknown) {
   globalThis.fetch = mock(() =>
-    Promise.resolve(new Response(JSON.stringify(body), { status: 200, headers: { "Content-Type": "application/json" } }))
+    Promise.resolve(
+      new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    ),
   ) as unknown as typeof fetch;
 }
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 // --- Middleware tests ---
 
@@ -30,8 +36,12 @@ test("withMiddleware calls beforeExecute and afterExecute", async () => {
   };
 
   const wrapped = withMiddleware(tools, {
-    beforeExecute: (ctx) => { events.push(`before:${ctx.toolName}`); },
-    afterExecute: (ctx) => { events.push(`after:${ctx.toolName}:${ctx.durationMs >= 0}`); },
+    beforeExecute: (ctx) => {
+      events.push(`before:${ctx.toolName}`);
+    },
+    afterExecute: (ctx) => {
+      events.push(`after:${ctx.toolName}:${ctx.durationMs >= 0}`);
+    },
   });
 
   const result = await (wrapped.test_tool as any).execute({ input: "hello" });
@@ -46,16 +56,20 @@ test("withMiddleware calls onError on failure", async () => {
     fail_tool: tool({
       description: "fails",
       inputSchema: z.object({}),
-      execute: async (): Promise<string> => { throw new Error("boom"); },
+      execute: async (): Promise<string> => {
+        throw new Error("boom");
+      },
     }),
   };
 
   const wrapped = withMiddleware(tools, {
-    onError: (ctx) => { errorCaught = ctx.error; },
+    onError: (ctx) => {
+      errorCaught = ctx.error;
+    },
   });
 
   expect((wrapped.fail_tool as any).execute({})).rejects.toThrow("boom");
-  await new Promise(r => setTimeout(r, 10));
+  await new Promise((r) => setTimeout(r, 10));
   expect((errorCaught as Error).message).toBe("boom");
 });
 
@@ -64,7 +78,9 @@ test("withMiddleware onError can return fallback value", async () => {
     fail_tool: tool({
       description: "fails",
       inputSchema: z.object({}),
-      execute: async (): Promise<string> => { throw new Error("boom"); },
+      execute: async (): Promise<string> => {
+        throw new Error("boom");
+      },
     }),
   };
 
@@ -102,7 +118,7 @@ test("filterTools by platform category", () => {
   });
 
   const igTools = filterTools(allTools, ["instagram"]);
-  expect(Object.keys(igTools).every(k => k.startsWith("ig_"))).toBe(true);
+  expect(Object.keys(igTools).every((k) => k.startsWith("ig_"))).toBe(true);
   expect(Object.keys(igTools).length).toBeGreaterThan(0);
 
   const publishTools = filterTools(allTools, ["publish"]);
@@ -121,7 +137,7 @@ test("filterToolsByName with wildcard", () => {
   });
 
   const igOnly = filterToolsByName(allTools, ["ig_*"]);
-  expect(Object.keys(igOnly).every(k => k.startsWith("ig_"))).toBe(true);
+  expect(Object.keys(igOnly).every((k) => k.startsWith("ig_"))).toBe(true);
 
   const commentTools = filterToolsByName(allTools, ["*_comment_*"]);
   for (const key of Object.keys(commentTools)) {
@@ -158,7 +174,10 @@ test("createRouter returns routerTools and getSelectedTools", async () => {
 
   // Initial: only router tools
   expect(Object.keys(router.routerTools)).toEqual(["select_tool_category", "list_categories"]);
-  expect(Object.keys(router.getSelectedTools())).toEqual(["select_tool_category", "list_categories"]);
+  expect(Object.keys(router.getSelectedTools())).toEqual([
+    "select_tool_category",
+    "list_categories",
+  ]);
 
   // List categories
   const listResult = await (router.routerTools.list_categories as any).execute({});
@@ -166,7 +185,9 @@ test("createRouter returns routerTools and getSelectedTools", async () => {
   expect(listResult.categories.facebook).toBeGreaterThan(0);
 
   // Select instagram
-  const selectResult = await (router.routerTools.select_tool_category as any).execute({ categories: ["instagram"] });
+  const selectResult = await (router.routerTools.select_tool_category as any).execute({
+    categories: ["instagram"],
+  });
   expect(selectResult.activated).toEqual(["instagram"]);
   expect(selectResult.count).toBeGreaterThan(0);
 
@@ -178,5 +199,8 @@ test("createRouter returns routerTools and getSelectedTools", async () => {
 
   // Reset
   router.reset();
-  expect(Object.keys(router.getSelectedTools())).toEqual(["select_tool_category", "list_categories"]);
+  expect(Object.keys(router.getSelectedTools())).toEqual([
+    "select_tool_category",
+    "list_categories",
+  ]);
 });

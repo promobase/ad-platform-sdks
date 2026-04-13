@@ -1,9 +1,12 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  ListCommentsOptions, ListCommentsResponse,
-  ListRepliesOptions,
-  CreateCommentOptions, ReplyCommentOptions,
   CommentItem,
+  CreateCommentOptions,
+  ListCommentsOptions,
+  ListCommentsResponse,
+  ListRepliesOptions,
+  ReplyCommentOptions,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -11,7 +14,12 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 export function createComments(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
 
-  async function request<T>(method: string, path: string, body?: Record<string, unknown>, query?: Record<string, unknown>): Promise<T> {
+  async function request<T>(
+    method: string,
+    path: string,
+    body?: Record<string, unknown>,
+    query?: Record<string, unknown>,
+  ): Promise<T> {
     let url = `${TT_API_BASE}${path}`;
     if (query) {
       const params = new URLSearchParams();
@@ -38,7 +46,9 @@ export function createComments(opts: TikTokClientOptions) {
     const responseBody = (await response.json()) as TikTokResponse<T>;
 
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
 
     return responseBody.data;
@@ -105,7 +115,12 @@ export function createComments(opts: TikTokClientOptions) {
       if (opts.cursor !== undefined) query.cursor = opts.cursor;
       if (opts.maxCount !== undefined) query.max_count = opts.maxCount;
 
-      return request<ListCommentsResponse>("GET", "/business/comment/reply/list/", undefined, query);
+      return request<ListCommentsResponse>(
+        "GET",
+        "/business/comment/reply/list/",
+        undefined,
+        query,
+      );
     },
 
     /** Like or unlike a comment. */
@@ -118,7 +133,11 @@ export function createComments(opts: TikTokClientOptions) {
     },
 
     /** Hide or unhide a comment. */
-    async hide(opts: { videoId: string; commentId: string; action: "HIDE" | "UNHIDE" }): Promise<void> {
+    async hide(opts: {
+      videoId: string;
+      commentId: string;
+      action: "HIDE" | "UNHIDE";
+    }): Promise<void> {
       await request<Record<string, never>>("POST", "/business/comment/hide/", {
         business_id: businessId,
         video_id: opts.videoId,
@@ -140,7 +159,9 @@ export function createComments(opts: TikTokClientOptions) {
      * Returns an image_uri to pass to create() or reply() as imageUri.
      * Max 5MB, 360x360–1920x1080, JPG/JPEG/WebP/PNG.
      */
-    async uploadImage(imageFile: Blob): Promise<{ imageUri: string; width: number; height: number }> {
+    async uploadImage(
+      imageFile: Blob,
+    ): Promise<{ imageUri: string; width: number; height: number }> {
       const formData = new FormData();
       formData.append("business_id", businessId);
       formData.append("image_file", imageFile);
@@ -151,9 +172,15 @@ export function createComments(opts: TikTokClientOptions) {
         headers: { "Access-Token": accessToken },
         body: formData,
       });
-      const responseBody = (await response.json()) as TikTokResponse<{ image_uri: string; width: number; height: number }>;
+      const responseBody = (await response.json()) as TikTokResponse<{
+        image_uri: string;
+        width: number;
+        height: number;
+      }>;
       if (!response.ok || responseBody.code !== 0) {
-        throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+        throw new Error(
+          `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+        );
       }
       return {
         imageUri: responseBody.data.image_uri,

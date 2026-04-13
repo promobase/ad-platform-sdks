@@ -1,4 +1,4 @@
-import type { ThreadsPollingConfig, ThreadsContainerStatus } from "./types.ts";
+import type { ThreadsContainerStatus, ThreadsPollingConfig } from "./types.ts";
 
 const DEFAULT_DELAY = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -33,7 +33,9 @@ export async function waitForContainer(opts: WaitOptions): Promise<void> {
       case "FINISHED":
         return;
       case "ERROR":
-        throw new Error(`Threads container ${containerId}${label ? ` (${label})` : ""} failed: ${errorMessage ?? "unknown error"}`);
+        throw new Error(
+          `Threads container ${containerId}${label ? ` (${label})` : ""} failed: ${errorMessage ?? "unknown error"}`,
+        );
       case "EXPIRED":
         throw new Error(`Threads container ${containerId}${label ? ` (${label})` : ""} expired`);
       case "IN_PROGRESS":
@@ -45,5 +47,7 @@ export async function waitForContainer(opts: WaitOptions): Promise<void> {
     }
   }
 
-  throw new Error(`Threads container ${containerId}${label ? ` (${label})` : ""} did not finish after ${maxAttempts} attempts`);
+  throw new Error(
+    `Threads container ${containerId}${label ? ` (${label})` : ""} did not finish after ${maxAttempts} attempts`,
+  );
 }

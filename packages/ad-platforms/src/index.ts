@@ -14,74 +14,6 @@
  *   const tools = createAllTools({ meta: { api, igAccountId, ... }, tiktok: { ... } });
  */
 
-// --- Platform namespaces ---
-export { Meta } from "@promobase/meta-business-sdk-ts";
-export { TikTok } from "@promobase/tiktok-business-sdk";
-
-// --- Meta: direct re-exports for tree-shaking ---
-export {
-  createClient as createMetaClient,
-  createInstagramClient,
-  createInstagramOAuth,
-  createFacebookPageClient,
-  createFacebookOAuth,
-  createThreadsClient,
-  createThreadsOAuth,
-  FacebookApiError,
-  MetaRateLimiter,
-  BatchBuilder,
-  // Webhooks
-  verifyWebhookChallenge,
-  verifyWebhookSignature,
-  parseInstagramWebhook,
-  parseFacebookWebhook,
-  parseThreadsWebhook,
-  safeParseInstagramWebhook,
-  safeParseFacebookWebhook,
-  safeParseThreadsWebhook,
-  WebhookParseError,
-} from "@promobase/meta-business-sdk-ts";
-
-export type {
-  ApiClient,
-  ApiClientOptions,
-  MetaClientOptions,
-  InstagramClientOptions,
-  FacebookPageClientOptions,
-  ThreadsClientOptions,
-  MetaRateLimiterOptions,
-  WebhookParseResult,
-  IGWebhookPayload,
-  FBWebhookPayload,
-  ThreadsWebhookPayload,
-} from "@promobase/meta-business-sdk-ts";
-
-// --- TikTok: direct re-exports ---
-export {
-  createTikTokClient,
-  createTikTokOAuth,
-  createTikTokWebhooks,
-  TikTokApiClient,
-  TikTokApiError,
-  TikTokRateLimiter,
-} from "@promobase/tiktok-business-sdk";
-
-export type {
-  TikTokApiClientOptions,
-  TikTokRateLimiterOptions,
-} from "@promobase/tiktok-business-sdk";
-
-// --- Unified AI tools ---
-export { createAllTools } from "./unified-tools.ts";
-export type { CreateAllToolsOptions } from "./unified-tools.ts";
-
-// --- Google Ads ---
-export { Google } from "@promobase/google-ads-sdk";
-export {
-  createClient as createGoogleAdsClient,
-  GoogleAdsError,
-  paginate as googleAdsPaginate,
-} from "@promobase/google-ads-sdk";
 export type {
   GoogleAdsClient,
   GoogleAdsClientOptions,
@@ -89,3 +21,66 @@ export type {
   SearchRequest as GoogleAdsSearchRequest,
   SearchResponse as GoogleAdsSearchResponse,
 } from "@promobase/google-ads-sdk";
+// --- Google Ads ---
+export {
+  createClient as createGoogleAdsClient,
+  Google,
+  GoogleAdsError,
+  paginate as googleAdsPaginate,
+} from "@promobase/google-ads-sdk";
+
+export type {
+  ApiClient,
+  ApiClientOptions,
+  FacebookPageClientOptions,
+  FBWebhookPayload,
+  IGWebhookPayload,
+  InstagramClientOptions,
+  MetaClientOptions,
+  MetaRateLimiterOptions,
+  ThreadsClientOptions,
+  ThreadsWebhookPayload,
+  WebhookParseResult,
+} from "@promobase/meta-business-sdk-ts";
+// --- Platform namespaces ---
+// --- Meta: direct re-exports for tree-shaking ---
+export {
+  BatchBuilder,
+  createClient as createMetaClient,
+  createFacebookOAuth,
+  createFacebookPageClient,
+  createInstagramClient,
+  createInstagramOAuth,
+  createThreadsClient,
+  createThreadsOAuth,
+  FacebookApiError,
+  Meta,
+  MetaRateLimiter,
+  parseFacebookWebhook,
+  parseInstagramWebhook,
+  parseThreadsWebhook,
+  safeParseFacebookWebhook,
+  safeParseInstagramWebhook,
+  safeParseThreadsWebhook,
+  // Webhooks
+  verifyWebhookChallenge,
+  verifyWebhookSignature,
+  WebhookParseError,
+} from "@promobase/meta-business-sdk-ts";
+export type {
+  TikTokApiClientOptions,
+  TikTokRateLimiterOptions,
+} from "@promobase/tiktok-business-sdk";
+// --- TikTok: direct re-exports ---
+export {
+  createTikTokClient,
+  createTikTokOAuth,
+  createTikTokWebhooks,
+  TikTok,
+  TikTokApiClient,
+  TikTokApiError,
+  TikTokRateLimiter,
+} from "@promobase/tiktok-business-sdk";
+export type { CreateAllToolsOptions } from "./unified-tools.ts";
+// --- Unified AI tools ---
+export { createAllTools } from "./unified-tools.ts";

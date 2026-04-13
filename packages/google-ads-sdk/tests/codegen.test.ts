@@ -1,10 +1,10 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
+import path from "node:path";
+import { emitEnum, emitMessage, emitService } from "../src/codegen/emitter.ts";
+import { parseHttpPath } from "../src/codegen/http-binding.ts";
+import type { MessageAst } from "../src/codegen/parser.ts";
 import { loadProtos } from "../src/codegen/parser.ts";
 import { resolveType } from "../src/codegen/type-resolver.ts";
-import { parseHttpPath } from "../src/codegen/http-binding.ts";
-import { emitEnum, emitMessage, emitService } from "../src/codegen/emitter.ts";
-import type { MessageAst } from "../src/codegen/parser.ts";
-import path from "node:path";
 
 const FIXTURES = path.resolve(import.meta.dir, "fixtures");
 const GOOGLEAPIS = path.resolve(import.meta.dir, "../vendor/googleapis");
@@ -214,7 +214,9 @@ test("emitService produces callable method for POST with body", () => {
   expect(out).toContain("mutate(");
   expect(out).toContain("client: HttpClient");
   expect(out).toContain("customerId: string");
-  expect(out).toContain('client.post<MutateCampaignsResponse>(`/v23/customers/${customerId}/campaigns:mutate`');
+  expect(out).toContain(
+    "client.post<MutateCampaignsResponse>(`/v23/customers/${customerId}/campaigns:mutate`",
+  );
 });
 
 test("emitService produces GET method without body", () => {

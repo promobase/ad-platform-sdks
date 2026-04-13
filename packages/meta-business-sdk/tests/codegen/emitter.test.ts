@@ -1,15 +1,15 @@
-import { test, expect } from "bun:test";
-import {
-  emitFieldsInterface,
-  emitEnumType,
-  emitParamsInterface,
-  specNameToFileName,
-  specNameToFieldsType,
-  endpointToMethodName,
-} from "../../src/codegen/emitter.ts";
-import { parseSpecs, applyPatches } from "../../src/codegen/parser.ts";
+import { expect, test } from "bun:test";
 import { buildDepGraph, findCycles } from "../../src/codegen/dep-graph.ts";
-import { emitObjectFile } from "../../src/codegen/emitter.ts";
+import {
+  emitEnumType,
+  emitFieldsInterface,
+  emitObjectFile,
+  emitParamsInterface,
+  endpointToMethodName,
+  specNameToFieldsType,
+  specNameToFileName,
+} from "../../src/codegen/emitter.ts";
+import { applyPatches, parseSpecs } from "../../src/codegen/parser.ts";
 
 test("specNameToFileName converts PascalCase to kebab-case", () => {
   expect(specNameToFileName("Campaign")).toBe("campaign");
@@ -35,7 +35,9 @@ test("endpointToMethodName", () => {
 
 test("emitEnumType", () => {
   const result = emitEnumType("CampaignBidStrategy", ["COST_CAP", "LOWEST_COST_WITHOUT_CAP"]);
-  expect(result).toContain('export type CampaignBidStrategy = "COST_CAP" | "LOWEST_COST_WITHOUT_CAP"');
+  expect(result).toContain(
+    'export type CampaignBidStrategy = "COST_CAP" | "LOWEST_COST_WITHOUT_CAP"',
+  );
 });
 
 test("emitFieldsInterface handles normal and quoted keys", () => {
@@ -84,7 +86,12 @@ test("emitObjectFile handles pure data objects (no node factory)", async () => {
   const typeCtx = { knownObjects, knownEnums: new Set<string>() };
 
   const insights = specs.get("AdsInsights")!;
-  const result = emitObjectFile({ spec: insights, typeCtx, cycleNodes: new Set(), allSpecs: specs });
+  const result = emitObjectFile({
+    spec: insights,
+    typeCtx,
+    cycleNodes: new Set(),
+    allSpecs: specs,
+  });
 
   expect(result).toContain("export interface AdsInsightsFields");
   expect(result).not.toContain("adsInsightsNode");

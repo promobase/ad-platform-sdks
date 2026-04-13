@@ -30,16 +30,22 @@ if (page1.hasNext) {
 
 // --- Collect all into array ---
 console.log("\n=== toArray ===");
-const allCampaigns = await api.adAccount(adAccountId).campaigns.list({
-  fields: ["id", "name"],
-}).toArray();
+const allCampaigns = await api
+  .adAccount(adAccountId)
+  .campaigns.list({
+    fields: ["id", "name"],
+  })
+  .toArray();
 console.log(`Total campaigns: ${allCampaigns.length}`);
 
 // --- Take first N ---
 console.log("\n=== take(5) ===");
-const first5 = await api.adAccount(adAccountId).campaigns.list({
-  fields: ["id", "name", "status"],
-}).take(5);
+const first5 = await api
+  .adAccount(adAccountId)
+  .campaigns.list({
+    fields: ["id", "name", "status"],
+  })
+  .take(5);
 for (const c of first5) {
   console.log(`  ${c.name} [${c.status}]`);
 }

@@ -16,61 +16,66 @@
  *   const result = await TikTok.Webhooks.safeParse.video({ body, signature, appSecret });
  */
 
+import type { CreateTikTokToolsOptions } from "./ai/index.ts";
+import {
+  createRouter,
+  createTikTokTools,
+  filterTools,
+  filterToolsByName,
+  limitTools,
+  withMiddleware,
+} from "./ai/index.ts";
+import type { TikTokApiClientOptions } from "./api-client.ts";
+import { TikTokApiClient } from "./api-client.ts";
 import {
   createTikTokClient,
   createTikTokClientWithProperties,
+  createTikTokDiscovery,
   createTikTokOAuth,
   createTikTokWebhooks,
-  createTikTokDiscovery,
 } from "./clients/index.ts";
-import { createTikTokTools, createRouter, withMiddleware, filterTools, filterToolsByName, limitTools } from "./ai/index.ts";
-import type { CreateTikTokToolsOptions, RouterOptions, ToolMiddleware } from "./ai/index.ts";
 import type {
-  TikTokClientOptions,
-  OAuthConfig,
-  WebhookConfig,
   DiscoveryOptions,
+  OAuthConfig,
+  TikTokClientOptions,
+  WebhookConfig,
 } from "./clients/types.ts";
-
-import { TikTokApiClient } from "./api-client.ts";
-import type { TikTokApiClientOptions } from "./api-client.ts";
 import { TikTokApiError } from "./errors.ts";
-import { TikTokRateLimiter } from "./rate-limiter.ts";
-import type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
-import { TikTokCursor } from "./pagination.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
-
+import { TikTokCursor } from "./pagination.ts";
+import type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
+import { TikTokRateLimiter } from "./rate-limiter.ts";
+import type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
 import {
-  verifyWebhookSignature,
-  WebhookParseError,
+  commentContentSchema,
+  commentEventTypes,
+  commentWebhookEventSchema,
+  dmContentSchema,
+  dmEventTypes,
+  dmWebhookEventSchema,
+  mentionContentSchema,
+  mentionEventTypes,
+  mentionWebhookEventSchema,
+  parseCommentWebhook,
+  parseDMWebhook,
+  parseMentionWebhook,
   parseTikTokWebhook,
   parseVideoWebhook,
-  parseCommentWebhook,
-  parseMentionWebhook,
-  parseDMWebhook,
+  publishCompleteContentSchema,
+  publishEventTypes,
+  publishFailedContentSchema,
+  publishNoLongerAvailableContentSchema,
+  publishPubliclyAvailableContentSchema,
+  safeParseCommentWebhook,
+  safeParseDMWebhook,
+  safeParseMentionWebhook,
   safeParseTikTokWebhook,
   safeParseVideoWebhook,
-  safeParseCommentWebhook,
-  safeParseMentionWebhook,
-  safeParseDMWebhook,
   tiktokWebhookEventSchema,
+  verifyWebhookSignature,
   videoWebhookEventSchema,
-  commentWebhookEventSchema,
-  mentionWebhookEventSchema,
-  dmWebhookEventSchema,
-  publishFailedContentSchema,
-  publishCompleteContentSchema,
-  publishPubliclyAvailableContentSchema,
-  publishNoLongerAvailableContentSchema,
-  commentContentSchema,
-  mentionContentSchema,
-  dmContentSchema,
-  publishEventTypes,
-  commentEventTypes,
-  mentionEventTypes,
-  dmEventTypes,
+  WebhookParseError,
 } from "./webhooks.ts";
-import type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
 
 export const TikTok = {
   /** Create a TikTok Business API client with all organic endpoints. */
@@ -182,14 +187,14 @@ export const TikTok = {
 } as const;
 
 export type {
-  TikTokClientOptions,
-  OAuthConfig,
-  WebhookConfig,
+  CreateTikTokToolsOptions,
   DiscoveryOptions,
+  OAuthConfig,
   TikTokApiClientOptions,
-  TikTokRateLimiterOptions,
+  TikTokClientOptions,
   TikTokCursorOptions,
+  TikTokRateLimiterOptions,
+  WebhookConfig,
   WebhookParseOptions,
   WebhookParseResult,
-  CreateTikTokToolsOptions,
 };

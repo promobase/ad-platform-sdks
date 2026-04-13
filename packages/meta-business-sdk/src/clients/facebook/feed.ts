@@ -1,17 +1,26 @@
-import type {
-  PublishTextPostOptions, PublishPhotoPostOptions, PublishVideoPostOptions,
-  PublishMultiPhotoOptions, PublishVideoReelOptions,
-  VideoStatus, PostAttachment,
-  PagePostFields, PhotoFields, AdVideoFields,
-} from "./types.ts";
-import type { PageCreateFeedParams } from "../../generated/objects/page.ts";
 import { ApiClient } from "@promobase/sdk-runtime";
 import { FacebookApiError } from "../../errors.ts";
+import type { PageCreateFeedParams } from "../../generated/objects/page.ts";
+import type {
+  PagePostFields,
+  PostAttachment,
+  PublishMultiPhotoOptions,
+  PublishPhotoPostOptions,
+  PublishTextPostOptions,
+  PublishVideoPostOptions,
+  PublishVideoReelOptions,
+  VideoStatus,
+} from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type PageNode = ReturnType<CreateClientReturn["page"]>;
 
-export function createFeed(api: CreateClientReturn, page: PageNode, pageId: string, accessToken: string) {
+export function createFeed(
+  api: CreateClientReturn,
+  page: PageNode,
+  pageId: string,
+  accessToken: string,
+) {
   const client = new ApiClient({
     accessToken,
     baseUrl: "https://graph.facebook.com",
@@ -86,7 +95,9 @@ export function createFeed(api: CreateClientReturn, page: PageNode, pageId: stri
     },
 
     /** Publish a video reel using the 3-phase upload flow. */
-    async publishVideoReel(opts: PublishVideoReelOptions): Promise<{ id: string; videoId: string }> {
+    async publishVideoReel(
+      opts: PublishVideoReelOptions,
+    ): Promise<{ id: string; videoId: string }> {
       // Phase 1: Start upload
       const startResult = await client.post<{ video_id: string; upload_url: string }>(
         `${pageId}/video_reels`,
@@ -102,7 +113,9 @@ export function createFeed(api: CreateClientReturn, page: PageNode, pageId: stri
         },
       });
       if (!uploadResponse.ok) {
-        const error = await uploadResponse.json().catch(() => ({ message: uploadResponse.statusText }));
+        const error = await uploadResponse
+          .json()
+          .catch(() => ({ message: uploadResponse.statusText }));
         throw new Error(`Video upload failed: ${JSON.stringify(error)}`);
       }
 
@@ -161,7 +174,15 @@ export function createFeed(api: CreateClientReturn, page: PageNode, pageId: stri
     /** List Page feed posts using the generated Page.feed edge. */
     async list(opts?: { fields?: (keyof PagePostFields)[]; limit?: number }) {
       const cursor = page.feed.list({
-        fields: opts?.fields ?? ["id", "message", "created_time", "permalink_url", "full_picture"] as (keyof PagePostFields)[],
+        fields:
+          opts?.fields ??
+          ([
+            "id",
+            "message",
+            "created_time",
+            "permalink_url",
+            "full_picture",
+          ] as (keyof PagePostFields)[]),
         params: opts?.limit ? { limit: opts.limit } : undefined,
       });
       return cursor.toArray();

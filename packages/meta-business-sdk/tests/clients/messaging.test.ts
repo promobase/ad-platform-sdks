@@ -1,8 +1,8 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { createClient } from "../../src/generated/index.ts";
-import { createInstagramClient } from "../../src/clients/instagram/index.ts";
+import { afterEach, expect, mock, test } from "bun:test";
 import { createFacebookPageClient } from "../../src/clients/facebook/index.ts";
+import { createInstagramClient } from "../../src/clients/instagram/index.ts";
 import { createThreadsClient } from "../../src/clients/threads/index.ts";
+import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -33,9 +33,16 @@ function parseFormBody(init: RequestInit): Record<string, unknown> {
   return result;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
-const testPolling = { delay: async () => {}, photoIntervalMs: 0, videoIntervalMs: 0, maxAttempts: 3 };
+const testPolling = {
+  delay: async () => {},
+  photoIntervalMs: 0,
+  videoIntervalMs: 0,
+  maxAttempts: 3,
+};
 
 // --- Instagram Messaging ---
 
@@ -60,7 +67,9 @@ test("IG messaging.send sends an attachment DM", async () => {
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  const result = await ig.messaging.send("user_2", { attachmentUrl: "https://example.com/pic.jpg" });
+  const result = await ig.messaging.send("user_2", {
+    attachmentUrl: "https://example.com/pic.jpg",
+  });
   expect(result.messageId).toBe("mid_2");
 
   const [, init] = (globalThis.fetch as any).mock.calls[0] as [string, RequestInit];

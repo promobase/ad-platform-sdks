@@ -1,7 +1,11 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  AccountInfoOptions, VideoSettings,
-  HashtagSuggestion, BenchmarkData, BusinessCategory,
+  AccountInfoOptions,
+  BenchmarkData,
+  BusinessCategory,
+  HashtagSuggestion,
+  TikTokClientOptions,
+  TikTokResponse,
+  VideoSettings,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -23,7 +27,9 @@ export function createAccount(opts: TikTokClientOptions) {
 
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
+      throw new Error(
+        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
+      );
     }
     return body.data;
   }
@@ -52,7 +58,10 @@ export function createAccount(opts: TikTokClientOptions) {
       };
       if (language) query.language = language;
 
-      const data = await get<{ suggestions: HashtagSuggestion[] }>("/business/hashtag/suggestion/", query);
+      const data = await get<{ suggestions: HashtagSuggestion[] }>(
+        "/business/hashtag/suggestion/",
+        query,
+      );
       return data.suggestions ?? [];
     },
 

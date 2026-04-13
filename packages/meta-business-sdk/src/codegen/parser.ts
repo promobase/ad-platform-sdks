@@ -144,7 +144,7 @@ function applyPatch(spec: Spec, path: string, patch: Record<string, any>): void 
   // $.apis[?(@.method=='X' && @.endpoint=='Y')].params[?(@.name=='Z')]
   // also handles ['params'] bracket notation
   const apiParamMatch = path.match(
-    /^\$\.apis\[\?\((.+?)\)\](?:\.|\[')params(?:'\])?\[\?\((.+?)\)\]$/
+    /^\$\.apis\[\?\((.+?)\)\](?:\.|\[')params(?:'\])?\[\?\((.+?)\)\]$/,
   );
   if (apiParamMatch) {
     const apiFilter = parseApiFilter(apiParamMatch[1]!);
@@ -183,7 +183,7 @@ function applyPatch(spec: Spec, path: string, patch: Record<string, any>): void 
  */
 export async function applyPatches(
   specs: Map<string, Spec>,
-  sdkCodegenPath: string
+  sdkCodegenPath: string,
 ): Promise<Map<string, Spec>> {
   const absPath = sdkCodegenPath.startsWith("/")
     ? sdkCodegenPath

@@ -1,14 +1,8 @@
 import type { HttpClient } from "@promobase/sdk-runtime";
-import type {
-  GaqlResource,
-  ResourceFieldMap,
-} from "../../generated/v23/gaql/resource-map.ts";
+import type { GaqlResource, ResourceFieldMap } from "../../generated/v23/gaql/resource-map.ts";
 import { QueryBuilder, type RowOf } from "./builder.ts";
 
-export class BoundQueryBuilder<
-  FromR extends GaqlResource,
-  Sel extends string = never,
-> {
+export class BoundQueryBuilder<FromR extends GaqlResource, Sel extends string = never> {
   constructor(
     private readonly inner: QueryBuilder<FromR, Sel>,
     private readonly client: HttpClient,
@@ -18,11 +12,7 @@ export class BoundQueryBuilder<
   select<F extends Extract<ResourceFieldMap[FromR], string>>(
     ...fields: readonly F[]
   ): BoundQueryBuilder<FromR, Sel | F> {
-    return new BoundQueryBuilder(
-      this.inner.select(...fields),
-      this.client,
-      this.customerId,
-    );
+    return new BoundQueryBuilder(this.inner.select(...fields), this.client, this.customerId);
   }
 
   where(clause: string): BoundQueryBuilder<FromR, Sel> {

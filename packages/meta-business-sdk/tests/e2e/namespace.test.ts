@@ -1,17 +1,22 @@
-import { test, expect, mock, afterEach } from "bun:test";
+import { afterEach, expect, mock, test } from "bun:test";
 import { Meta } from "../../src/namespace.ts";
 
 const originalFetch = globalThis.fetch;
 
 function mockFetchJson(body: unknown) {
   globalThis.fetch = mock(() =>
-    Promise.resolve(new Response(JSON.stringify(body), {
-      status: 200, headers: { "Content-Type": "application/json" },
-    }))
+    Promise.resolve(
+      new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    ),
   ) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 test("Meta.createClient returns typed client", () => {
   mockFetchJson({});
@@ -49,20 +54,32 @@ test("Meta.Threads.createClient returns Threads client", () => {
 });
 
 test("Meta.Instagram.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Instagram.OAuth({ appId: "app", appSecret: "secret", redirectUri: "https://x.com/cb" });
+  const oauth = Meta.Instagram.OAuth({
+    appId: "app",
+    appSecret: "secret",
+    redirectUri: "https://x.com/cb",
+  });
   const url = oauth.getAuthorizationUrl();
   expect(url).toContain("instagram.com/oauth/authorize");
   expect(url).toContain("app");
 });
 
 test("Meta.Facebook.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Facebook.OAuth({ appId: "app", appSecret: "secret", redirectUri: "https://x.com/cb" });
+  const oauth = Meta.Facebook.OAuth({
+    appId: "app",
+    appSecret: "secret",
+    redirectUri: "https://x.com/cb",
+  });
   const url = oauth.getAuthorizationUrl();
   expect(url).toContain("facebook.com");
 });
 
 test("Meta.Threads.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Threads.OAuth({ appId: "app", appSecret: "secret", redirectUri: "https://x.com/cb" });
+  const oauth = Meta.Threads.OAuth({
+    appId: "app",
+    appSecret: "secret",
+    redirectUri: "https://x.com/cb",
+  });
   const url = oauth.getAuthorizationUrl();
   expect(url).toContain("threads.net/oauth/authorize");
 });

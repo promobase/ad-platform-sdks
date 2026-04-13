@@ -14,7 +14,10 @@ export function createReplies(client: ApiClient) {
       });
     },
 
-    async getConversation(postId: string, opts?: { limit?: number; after?: string; reverse?: boolean }) {
+    async getConversation(
+      postId: string,
+      opts?: { limit?: number; after?: string; reverse?: boolean },
+    ) {
       const params: Record<string, unknown> = {};
       if (opts?.limit) params.limit = opts.limit;
       if (opts?.after) params.after = opts.after;
@@ -27,7 +30,7 @@ export function createReplies(client: ApiClient) {
 
     /** Hide or unhide a reply. */
     async hide(replyId: string, hidden: boolean = true): Promise<void> {
-      await client.post(replyId + "/manage_reply", { hide: hidden });
+      await client.post(`${replyId}/manage_reply`, { hide: hidden });
     },
   };
 }

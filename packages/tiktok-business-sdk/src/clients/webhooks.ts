@@ -1,4 +1,4 @@
-import type { TikTokResponse, WebhookEventType, WebhookConfig } from "./types.ts";
+import type { TikTokResponse, WebhookConfig, WebhookEventType } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
@@ -17,30 +17,50 @@ export function createWebhooks(config: WebhookConfig) {
     });
     const responseBody = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
     return responseBody.data;
   }
 
   return {
     /** Get current webhook configuration for an event type. */
-    async get(eventType: WebhookEventType): Promise<{ appId: string; eventType: string; callbackUrl?: string; itemList?: string[] }> {
+    async get(
+      eventType: WebhookEventType,
+    ): Promise<{ appId: string; eventType: string; callbackUrl?: string; itemList?: string[] }> {
       const params = new URLSearchParams({
         app_id: appId,
         secret: appSecret,
         event_type: eventType,
       });
       const response = await fetch(`${TT_API_BASE}/business/webhook/list/?${params.toString()}`);
-      const responseBody = (await response.json()) as TikTokResponse<{ app_id: string; event_type: string; callback_url?: string; item_list?: string[] }>;
+      const responseBody = (await response.json()) as TikTokResponse<{
+        app_id: string;
+        event_type: string;
+        callback_url?: string;
+        item_list?: string[];
+      }>;
       if (!response.ok || responseBody.code !== 0) {
-        throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+        throw new Error(
+          `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+        );
       }
       const d = responseBody.data;
-      return { appId: d.app_id, eventType: d.event_type, callbackUrl: d.callback_url, itemList: d.item_list };
+      return {
+        appId: d.app_id,
+        eventType: d.event_type,
+        callbackUrl: d.callback_url,
+        itemList: d.item_list,
+      };
     },
 
     /** Register or update a webhook callback URL for an event type. */
-    async update(eventType: WebhookEventType, callbackUrl: string, itemList?: string[]): Promise<void> {
+    async update(
+      eventType: WebhookEventType,
+      callbackUrl: string,
+      itemList?: string[],
+    ): Promise<void> {
       await post("/business/webhook/update/", {
         app_id: appId,
         secret: appSecret,

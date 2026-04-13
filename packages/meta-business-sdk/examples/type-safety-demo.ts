@@ -18,8 +18,8 @@ const api = createClient({ accessToken: "demo" });
 const narrow = await api.adAccount("act_123").get({
   fields: ["id", "name", "currency"],
 });
-narrow.id;       // string ✅
-narrow.name;     // string ✅
+narrow.id; // string ✅
+narrow.name; // string ✅
 narrow.currency; // string ✅
 // narrow.timezone_name  // ← uncomment to see TS error — not in requested fields
 
@@ -31,8 +31,8 @@ narrow.currency; // string ✅
 for await (const campaign of api.adAccount("act_123").campaigns.list({
   fields: ["id", "name", "status"],
 })) {
-  campaign.id;     // string ✅
-  campaign.name;   // string ✅
+  campaign.id; // string ✅
+  campaign.name; // string ✅
   campaign.status; // string ✅ (would be CampaignStatus enum with enum scraping)
 }
 
@@ -43,11 +43,11 @@ for await (const campaign of api.adAccount("act_123").campaigns.list({
 // Hover over `create` — the params have typed fields
 // Try removing `name` or `objective` to see the TS error for missing required params
 api.adAccount("act_123").campaigns.create({
-  name: "My Campaign",        // required
-  objective: "OUTCOME_SALES",  // required
-  special_ad_categories: [],   // required
-  status: "PAUSED",            // optional
-  daily_budget: 1000,          // optional
+  name: "My Campaign", // required
+  objective: "OUTCOME_SALES", // required
+  special_ad_categories: [], // required
+  status: "PAUSED", // optional
+  daily_budget: 1000, // optional
 });
 
 // ┌─────────────────────────────────────────────┐
@@ -55,7 +55,7 @@ api.adAccount("act_123").campaigns.create({
 // └─────────────────────────────────────────────┘
 
 api.campaign("123").update({
-  name: "New Name",  // only change what you need
+  name: "New Name", // only change what you need
 });
 
 // ┌─────────────────────────────────────────────┐
@@ -65,10 +65,10 @@ api.campaign("123").update({
 const acct = api.adAccount("act_123");
 
 // Hover over each — IDE shows the available edges
-acct.campaigns;    // has .list(), .create()
-acct.ads;          // has .list(), .create()
-acct.adsets;       // has .list(), .create()
-acct.adcreatives;  // has .list(), .create()
-acct.adimages;     // has .list(), .create(), .delete()
+acct.campaigns; // has .list(), .create()
+acct.ads; // has .list(), .create()
+acct.adsets; // has .list(), .create()
+acct.adcreatives; // has .list(), .create()
+acct.adimages; // has .list(), .create(), .delete()
 
 console.log("Type safety demo complete — check your IDE hover types!");

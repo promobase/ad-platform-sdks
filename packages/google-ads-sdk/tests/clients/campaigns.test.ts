@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { campaigns } from "../../src/clients/campaigns.ts";
 
@@ -50,11 +50,11 @@ test("create accepts string ref and rich-object ref for campaignBudget", async (
 });
 
 test("create returns input merged with resourceName", async () => {
-  const client = makeClient(() =>
-    new Response(
-      JSON.stringify({ results: [{ resourceName: "customers/123/campaigns/555" }] }),
-      { status: 200 },
-    ),
+  const client = makeClient(
+    () =>
+      new Response(JSON.stringify({ results: [{ resourceName: "customers/123/campaigns/555" }] }), {
+        status: 200,
+      }),
   );
   const result = await campaigns(client, "123").create({
     name: "A",
@@ -95,10 +95,9 @@ test("get issues GAQL with resource_name filter", async () => {
   let body: any;
   const client = makeClient((_url, init) => {
     body = JSON.parse(init?.body as string);
-    return new Response(
-      JSON.stringify({ results: [{ campaign: { id: "555", name: "A" } }] }),
-      { status: 200 },
-    );
+    return new Response(JSON.stringify({ results: [{ campaign: { id: "555", name: "A" } }] }), {
+      status: 200,
+    });
   });
   const got = await campaigns(client, "123").get("customers/123/campaigns/555");
   expect(body.query).toContain("FROM campaign");
@@ -107,13 +106,14 @@ test("get issues GAQL with resource_name filter", async () => {
 });
 
 test("list returns array", async () => {
-  const client = makeClient(() =>
-    new Response(
-      JSON.stringify({
-        results: [{ campaign: { id: "1", name: "A" } }, { campaign: { id: "2", name: "B" } }],
-      }),
-      { status: 200 },
-    ),
+  const client = makeClient(
+    () =>
+      new Response(
+        JSON.stringify({
+          results: [{ campaign: { id: "1", name: "A" } }, { campaign: { id: "2", name: "B" } }],
+        }),
+        { status: 200 },
+      ),
   );
   const all = await campaigns(client, "123").list();
   expect(all.map((c) => c.name)).toEqual(["A", "B"]);

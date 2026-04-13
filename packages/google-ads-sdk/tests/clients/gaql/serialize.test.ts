@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { serialize } from "../../../src/clients/gaql/serialize.ts";
 
 test("serialize minimum query", () => {

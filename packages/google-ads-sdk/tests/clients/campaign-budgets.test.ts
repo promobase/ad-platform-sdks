@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { campaignBudgets } from "../../src/clients/campaign-budgets.ts";
 
@@ -35,16 +35,17 @@ test("create wraps input in operations array, returns resourceName", async () =>
 });
 
 test("createMany preserves input to result order", async () => {
-  const client = makeClient(() =>
-    new Response(
-      JSON.stringify({
-        results: [
-          { resourceName: "customers/123/campaignBudgets/1" },
-          { resourceName: "customers/123/campaignBudgets/2" },
-        ],
-      }),
-      { status: 200 },
-    ),
+  const client = makeClient(
+    () =>
+      new Response(
+        JSON.stringify({
+          results: [
+            { resourceName: "customers/123/campaignBudgets/1" },
+            { resourceName: "customers/123/campaignBudgets/2" },
+          ],
+        }),
+        { status: 200 },
+      ),
   );
   const api = campaignBudgets(client, "123");
   const [a, b] = await api.createMany([
@@ -98,7 +99,9 @@ test("get returns single budget or null", async () => {
   const client = makeClient((url, init) => {
     expect(url).toContain("/v23/customers/123/googleAds:search");
     const body = JSON.parse(init?.body as string);
-    expect(body.query).toContain("campaign_budget.resource_name = 'customers/123/campaignBudgets/789'");
+    expect(body.query).toContain(
+      "campaign_budget.resource_name = 'customers/123/campaignBudgets/789'",
+    );
     return new Response(
       JSON.stringify({
         results: [{ campaignBudget: { id: "789", name: "Q1", amountMicros: "5000000" } }],
@@ -119,16 +122,17 @@ test("get returns null on empty results", async () => {
 });
 
 test("list returns array of budgets", async () => {
-  const client = makeClient(() =>
-    new Response(
-      JSON.stringify({
-        results: [
-          { campaignBudget: { id: "1", name: "A" } },
-          { campaignBudget: { id: "2", name: "B" } },
-        ],
-      }),
-      { status: 200 },
-    ),
+  const client = makeClient(
+    () =>
+      new Response(
+        JSON.stringify({
+          results: [
+            { campaignBudget: { id: "1", name: "A" } },
+            { campaignBudget: { id: "2", name: "B" } },
+          ],
+        }),
+        { status: 200 },
+      ),
   );
   const api = campaignBudgets(client, "123");
   const all = await api.list();

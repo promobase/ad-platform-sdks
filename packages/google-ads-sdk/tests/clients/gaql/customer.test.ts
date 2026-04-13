@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { Google } from "../../../src/index.ts";
 
 test("customer.gaql binds client and customerId", async () => {
@@ -29,15 +29,13 @@ test("customer.gaql binds client and customerId", async () => {
 
   expect(calls).toHaveLength(1);
   expect(calls[0]!.url).toContain("/v23/customers/123/googleAds:search");
-  expect(calls[0]!.body.query).toBe(
-    "SELECT campaign.id, campaign.name FROM campaign LIMIT 1",
-  );
+  expect(calls[0]!.body.query).toBe("SELECT campaign.id, campaign.name FROM campaign LIMIT 1");
   expect(row?.campaign.id).toBe("1");
 });
 
 test("Google.Ads.gaql unbound requires explicit client and customerId", async () => {
-  const fetchMock = mock(async () =>
-    new Response(JSON.stringify({ results: [] }), { status: 200 }),
+  const fetchMock = mock(
+    async () => new Response(JSON.stringify({ results: [] }), { status: 200 }),
   );
   const client = Google.createClient({
     getAccessToken: async () => "tok",

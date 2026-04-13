@@ -1,16 +1,29 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "../../src/ai/index.ts";
+import { afterEach, expect, mock, test } from "bun:test";
+import {
+  createCampaignTools,
+  createFacebookTools,
+  createInstagramTools,
+  createMetaTools,
+  createThreadsTools,
+} from "../../src/ai/index.ts";
 import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
 
 function mockFetchJson(body: unknown) {
   globalThis.fetch = mock(() =>
-    Promise.resolve(new Response(JSON.stringify(body), { status: 200, headers: { "Content-Type": "application/json" } }))
+    Promise.resolve(
+      new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    ),
   ) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 test("createInstagramTools returns all IG tool definitions", () => {
   const api = createClient({ accessToken: "tok" });
@@ -105,7 +118,10 @@ test("ig_get_account tool executes correctly", async () => {
   const api = createClient({ accessToken: "tok" });
   const tools = createInstagramTools({ api, igAccountId: "ig_123" });
 
-  const result: any = await tools.ig_get_account.execute!({}, { toolCallId: "test", messages: [], abortSignal: new AbortController().signal });
+  const result: any = await tools.ig_get_account.execute!(
+    {},
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+  );
   expect(result.id).toBe("ig_123");
   expect(result.username).toBe("testuser");
 });
@@ -116,7 +132,10 @@ test("fb_get_account tool executes correctly", async () => {
   const api = createClient({ accessToken: "tok" });
   const tools = createFacebookTools({ api, pageId: "page_123", accessToken: "tok" });
 
-  const result: any = await tools.fb_get_account.execute!({}, { toolCallId: "test", messages: [], abortSignal: new AbortController().signal });
+  const result: any = await tools.fb_get_account.execute!(
+    {},
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+  );
   expect(result.id).toBe("page_123");
   expect(result.name).toBe("Test Page");
 });
@@ -126,7 +145,10 @@ test("threads_get_account tool executes correctly", async () => {
 
   const tools = createThreadsTools({ accessToken: "tok", threadsUserId: "t_123" });
 
-  const result: any = await tools.threads_get_account.execute!({}, { toolCallId: "test", messages: [], abortSignal: new AbortController().signal });
+  const result: any = await tools.threads_get_account.execute!(
+    {},
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+  );
   expect(result.id).toBe("t_123");
   expect(result.username).toBe("threaduser");
 });

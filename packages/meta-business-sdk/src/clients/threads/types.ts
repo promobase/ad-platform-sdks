@@ -1,19 +1,24 @@
 export type ThreadsMediaType = "TEXT" | "IMAGE" | "VIDEO" | "CAROUSEL";
-export type ThreadsContainerStatus = "FINISHED" | "IN_PROGRESS" | "PUBLISHING" | "ERROR" | "EXPIRED";
+export type ThreadsContainerStatus =
+  | "FINISHED"
+  | "IN_PROGRESS"
+  | "PUBLISHING"
+  | "ERROR"
+  | "EXPIRED";
 export type ThreadsReplyControl = "everyone" | "accounts_you_follow" | "mentioned_only";
 
 export interface ThreadsClientOptions {
   accessToken: string;
   threadsUserId: string;
-  apiVersion?: string;  // default "v1.0"
+  apiVersion?: string; // default "v1.0"
   polling?: Partial<ThreadsPollingConfig>;
 }
 
 export interface ThreadsPollingConfig {
   delay: (ms: number) => Promise<void>;
-  textIntervalMs: number;    // 1000ms
-  videoIntervalMs: number;   // 2000ms
-  maxAttempts: number;        // 15 for text/image, 30 for video
+  textIntervalMs: number; // 1000ms
+  videoIntervalMs: number; // 2000ms
+  maxAttempts: number; // 15 for text/image, 30 for video
 }
 
 export interface PublishResult {
@@ -44,7 +49,7 @@ export interface ThreadsCarouselItem {
 }
 
 export interface PublishCarouselOptions {
-  items: ThreadsCarouselItem[];  // max 10
+  items: ThreadsCarouselItem[]; // max 10
   text?: string;
   replyControl?: ThreadsReplyControl;
 }

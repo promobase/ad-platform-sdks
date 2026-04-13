@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { MetaRateLimiter } from "../../src/rate-limiter.ts";
 
 test("check returns shouldWait=false when under high water mark", () => {
@@ -19,9 +19,12 @@ test("afterResponse parses x-app-usage header", () => {
 
 test("check returns shouldWait=true when over high water mark", () => {
   const limiter = new MetaRateLimiter({ highWaterMark: 0.9, fallbackWaitMs: 5000 });
-  limiter.afterResponse(200, new Headers({
-    "x-app-usage": JSON.stringify({ call_count: 95, total_cputime: 10, total_time: 10 }),
-  }));
+  limiter.afterResponse(
+    200,
+    new Headers({
+      "x-app-usage": JSON.stringify({ call_count: 95, total_cputime: 10, total_time: 10 }),
+    }),
+  );
   const check = limiter.check();
   expect(check.shouldWait).toBe(true);
   expect(check.waitMs).toBe(5000);
@@ -50,12 +53,14 @@ test("429 without retry-after uses long fallback", () => {
 test("x-business-use-case-usage with estimated_time_to_regain_access sets pause", () => {
   const limiter = new MetaRateLimiter();
   const bizHeader = JSON.stringify({
-    "123456": [{
-      call_count: 80,
-      total_cputime: 50,
-      total_time: 60,
-      estimated_time_to_regain_access: 5,  // 5 minutes
-    }],
+    "123456": [
+      {
+        call_count: 80,
+        total_cputime: 50,
+        total_time: 60,
+        estimated_time_to_regain_access: 5, // 5 minutes
+      },
+    ],
   });
   limiter.afterResponse(200, new Headers({ "x-business-use-case-usage": bizHeader }));
   expect(limiter.isPaused).toBe(true);
@@ -70,11 +75,17 @@ test("onThrottle callback fires when over high water mark", () => {
   let throttleInfo: { waitMs: number; usage: { callCount: number } } | null = null;
   const limiter = new MetaRateLimiter({
     highWaterMark: 0.5,
-    onThrottle: (info) => { throttled = true; throttleInfo = info; },
+    onThrottle: (info) => {
+      throttled = true;
+      throttleInfo = info;
+    },
   });
-  limiter.afterResponse(200, new Headers({
-    "x-app-usage": JSON.stringify({ call_count: 60, total_cputime: 10, total_time: 10 }),
-  }));
+  limiter.afterResponse(
+    200,
+    new Headers({
+      "x-app-usage": JSON.stringify({ call_count: 60, total_cputime: 10, total_time: 10 }),
+    }),
+  );
   limiter.check();
   expect(throttled).toBe(true);
   expect(throttleInfo!.usage.callCount).toBe(60);

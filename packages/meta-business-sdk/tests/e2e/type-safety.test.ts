@@ -1,4 +1,4 @@
-import { test, expect, mock, afterEach } from "bun:test";
+import { afterEach, expect, mock, test } from "bun:test";
 import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
@@ -64,8 +64,10 @@ test("create edge sends POST with params", async () => {
     special_ad_categories: [],
   });
 
-  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>)
-    .mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(url).toContain("act_123/campaigns");
   expect(init.method).toBe("POST");
 });
@@ -79,8 +81,10 @@ test("update sends POST to node", async () => {
     status: "ACTIVE",
   });
 
-  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>)
-    .mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(url).toContain("123456");
   expect(init.method).toBe("POST");
 });
@@ -91,8 +95,10 @@ test("delete sends DELETE to node", async () => {
   const api = createClient({ accessToken: "tok" });
   await api.campaign("123456").delete();
 
-  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>)
-    .mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(url).toContain("123456");
   expect(init.method).toBe("DELETE");
 });
@@ -114,9 +120,12 @@ test("cursor.take() limits results across pages", async () => {
   }) as unknown as typeof fetch;
 
   const api = createClient({ accessToken: "tok" });
-  const first3 = await api.adAccount("act_123").campaigns.list({
-    fields: ["id"],
-  }).take(3);
+  const first3 = await api
+    .adAccount("act_123")
+    .campaigns.list({
+      fields: ["id"],
+    })
+    .take(3);
 
   expect(first3).toHaveLength(3);
   expect(first3.map((c) => c.id)).toEqual(["1", "2", "3"]);

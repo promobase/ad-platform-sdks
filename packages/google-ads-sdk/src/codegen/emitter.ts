@@ -1,6 +1,6 @@
-import type { EnumAst, MessageAst, ServiceAst, MethodAst, FieldAst } from "./parser.ts";
-import { resolveType } from "./type-resolver.ts";
 import { parseHttpPath, snakeToCamel } from "./http-binding.ts";
+import type { EnumAst, FieldAst, MessageAst, MethodAst, ServiceAst } from "./parser.ts";
+import { resolveType } from "./type-resolver.ts";
 
 export function emitEnum(e: EnumAst, emittedName?: string): string {
   const name = emittedName ?? e.name;
@@ -47,9 +47,7 @@ export function emitService(
   const instance = s.name.charAt(0).toLowerCase() + s.name.slice(1);
   const typeImports = [...usedTypes].sort();
   const typeImportBlock =
-    typeImports.length > 0
-      ? `import type { ${typeImports.join(", ")} } from "../index.ts";\n`
-      : "";
+    typeImports.length > 0 ? `import type { ${typeImports.join(", ")} } from "../index.ts";\n` : "";
 
   const body = methodBlocks.length > 0 ? `\n${methodBlocks.join(",\n\n")}\n` : "";
 
@@ -81,9 +79,7 @@ function emitMethod(
 
   const req = messageIndex.get(m.requestType);
   const pathParamSet = new Set(parsed.pathParams);
-  const pathParamSignature = parsed.pathParams
-    .map((p) => `${snakeToCamel(p)}: string`)
-    .join(", ");
+  const pathParamSignature = parsed.pathParams.map((p) => `${snakeToCamel(p)}: string`).join(", ");
 
   const verb = m.httpOption.verb;
   const needsBody = verb === "post" || verb === "put" || verb === "patch";
@@ -98,9 +94,7 @@ function emitMethod(
       : null;
   const bodyFieldsTs = omitKeys ? `Omit<${reqTs}, ${omitKeys}>` : reqTs;
 
-  const nonPathFields: FieldAst[] = req
-    ? req.fields.filter((f) => !pathParamSet.has(f.name))
-    : [];
+  const nonPathFields: FieldAst[] = req ? req.fields.filter((f) => !pathParamSet.has(f.name)) : [];
 
   const args: string[] = [`client: HttpClient`];
   if (pathParamSignature) args.push(pathParamSignature);

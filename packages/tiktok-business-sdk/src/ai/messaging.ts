@@ -8,16 +8,18 @@ export function createTikTokMessagingTools(opts: TikTokClientOptions) {
 
   return {
     tt_send_message: tool({
-      description: "Send a text message in a TikTok DM conversation. Rate limit: 10 messages within 48h after receiving a user message.",
+      description:
+        "Send a text message in a TikTok DM conversation. Rate limit: 10 messages within 48h after receiving a user message.",
       inputSchema: z.object({
         conversationId: z.string().describe("Conversation ID"),
         text: z.string().max(6000).describe("Message text (max 6000 chars)"),
       }),
-      execute: async ({ conversationId, text }) => tt.messaging.sendMessage({
-        conversationId,
-        messageType: "TEXT",
-        text: { body: text },
-      }),
+      execute: async ({ conversationId, text }) =>
+        tt.messaging.sendMessage({
+          conversationId,
+          messageType: "TEXT",
+          text: { body: text },
+        }),
     }),
 
     tt_list_conversations: tool({
@@ -27,10 +29,11 @@ export function createTikTokMessagingTools(opts: TikTokClientOptions) {
         limit: z.number().min(1).max(100).optional().describe("Max results (default 100)"),
         cursor: z.number().optional().describe("Pagination cursor"),
       }),
-      execute: async (params) => tt.messaging.listConversations(params.conversationType, {
-        limit: params.limit,
-        cursor: params.cursor,
-      }),
+      execute: async (params) =>
+        tt.messaging.listConversations(params.conversationType, {
+          limit: params.limit,
+          cursor: params.cursor,
+        }),
     }),
 
     tt_list_messages: tool({
@@ -44,7 +47,12 @@ export function createTikTokMessagingTools(opts: TikTokClientOptions) {
     tt_list_mentioned_videos: tool({
       description: "List the top 1000 videos that mention the brand.",
       inputSchema: z.object({
-        numberOfDays: z.number().min(1).max(90).optional().describe("Lookback period in days (default: 90)"),
+        numberOfDays: z
+          .number()
+          .min(1)
+          .max(90)
+          .optional()
+          .describe("Lookback period in days (default: 90)"),
         sortField: z.enum(["CREATE_TIME", "LIKES", "COMMENTS", "SHARES"]).optional(),
         maxCount: z.number().min(1).max(100).optional(),
         cursor: z.number().optional(),

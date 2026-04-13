@@ -1,6 +1,6 @@
-import type { PublishStoryOptions, PublishResult, PollingConfig } from "./types.ts";
 import type { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
+import type { PollingConfig, PublishResult, PublishStoryOptions } from "./types.ts";
 
 type Containers = ReturnType<typeof createContainers>;
 

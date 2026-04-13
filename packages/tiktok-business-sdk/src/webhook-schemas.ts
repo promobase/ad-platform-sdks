@@ -85,7 +85,10 @@ function jsonContent<T extends z.ZodType>(schema: T) {
     }
     const result = schema.safeParse(parsed);
     if (!result.success) {
-      ctx.addIssue({ code: "custom", message: `Content validation failed: ${result.error.message}` });
+      ctx.addIssue({
+        code: "custom",
+        message: `Content validation failed: ${result.error.message}`,
+      });
       return z.NEVER;
     }
     return result.data as z.infer<T>;
@@ -135,7 +138,11 @@ export const videoWebhookEventSchema = z.union([
 
 export const commentWebhookEventSchema = z.object({
   ...baseFields,
-  event: z.enum([commentEventTypes.CREATE, commentEventTypes.DELETE, commentEventTypes.REPLY_CREATE]),
+  event: z.enum([
+    commentEventTypes.CREATE,
+    commentEventTypes.DELETE,
+    commentEventTypes.REPLY_CREATE,
+  ]),
   content: jsonContent(commentContentSchema),
 });
 

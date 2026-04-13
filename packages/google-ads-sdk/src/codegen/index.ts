@@ -1,8 +1,8 @@
-import path from "node:path";
 import fs from "node:fs/promises";
-import { loadProtos, type EnumAst, type MessageAst } from "./parser.ts";
+import path from "node:path";
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
 import { emitGaqlCatalog } from "./gaql-emitter.ts";
+import { type EnumAst, loadProtos, type MessageAst } from "./parser.ts";
 
 const PKG_ROOT = path.resolve(import.meta.dir, "../..");
 const GOOGLEAPIS = path.join(PKG_ROOT, "vendor/googleapis");
@@ -108,10 +108,7 @@ async function main() {
 
   // Short-name assignment across messages AND enums so we never emit two
   // top-level exports with the same TS name.
-  const shortNames = assignShortNames([
-    ...v23Messages.keys(),
-    ...v23Enums.keys(),
-  ]);
+  const shortNames = assignShortNames([...v23Messages.keys(), ...v23Enums.keys()]);
 
   // A messageIndex keyed by fullName is still handy for emitService so it
   // can look at request bodies.
@@ -156,15 +153,15 @@ async function main() {
 
   await writeFile(
     path.join(OUT, "enums/index.ts"),
-    sortedEnums.map((n) => `export type { ${n} } from "./${n}.ts";`).join("\n") + "\n",
+    `${sortedEnums.map((n) => `export type { ${n} } from "./${n}.ts";`).join("\n")}\n`,
   );
   await writeFile(
     path.join(OUT, "resources/index.ts"),
-    sortedMessages.map((n) => `export type { ${n} } from "./${n}.ts";`).join("\n") + "\n",
+    `${sortedMessages.map((n) => `export type { ${n} } from "./${n}.ts";`).join("\n")}\n`,
   );
   await writeFile(
     path.join(OUT, "services/index.ts"),
-    sortedServices.map((s) => `export { ${s.instance} } from "./${s.name}.ts";`).join("\n") + "\n",
+    `${sortedServices.map((s) => `export { ${s.instance} } from "./${s.name}.ts";`).join("\n")}\n`,
   );
 
   await writeFile(

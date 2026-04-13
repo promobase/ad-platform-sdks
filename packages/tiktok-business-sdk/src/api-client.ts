@@ -1,4 +1,4 @@
-import type { RateLimiter, RateLimiterCheck, DelayFn, RetryConfig } from "@promobase/sdk-runtime";
+import type { DelayFn, RateLimiter, RetryConfig } from "@promobase/sdk-runtime";
 import { TikTokApiError } from "./errors.ts";
 
 const DEFAULT_RETRY: RetryConfig = {
@@ -34,7 +34,7 @@ export class TikTokApiClient {
     this.baseUrl = opts.baseUrl ?? "https://business-api.tiktok.com";
     this.debug = opts.debug ?? false;
     this.rateLimiter = opts.rateLimiter;
-    this.delay = opts.delay ?? ((ms) => new Promise(r => setTimeout(r, ms)));
+    this.delay = opts.delay ?? ((ms) => new Promise((r) => setTimeout(r, ms)));
     this.retryConfig = opts.retry
       ? { ...DEFAULT_RETRY, ...opts.retry }
       : { ...DEFAULT_RETRY, maxRetries: 0 };
@@ -62,7 +62,12 @@ export class TikTokApiClient {
     return this.request<T>("POST", `${this.baseUrl}${path}`, undefined, formData);
   }
 
-  private async request<T>(method: string, url: string, body?: Record<string, unknown>, formData?: FormData): Promise<T> {
+  private async request<T>(
+    method: string,
+    url: string,
+    body?: Record<string, unknown>,
+    formData?: FormData,
+  ): Promise<T> {
     // Pre-request rate limit check
     if (this.rateLimiter) {
       const check = this.rateLimiter.check();
@@ -90,7 +95,12 @@ export class TikTokApiClient {
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       try {
         const response = await fetch(url, { method, headers, body: requestBody });
-        const responseBody = await response.json() as { code: number; message: string; request_id: string; data: T };
+        const responseBody = (await response.json()) as {
+          code: number;
+          message: string;
+          request_id: string;
+          data: T;
+        };
 
         // Post-response rate limit update
         if (this.rateLimiter) {
@@ -101,9 +111,15 @@ export class TikTokApiClient {
 
         if (!response.ok || responseBody.code !== 0) {
           // Check if retryable
-          if (attempt < maxAttempts - 1 && this.retryConfig.retryableStatuses.includes(response.status)) {
-            const backoff = this.retryConfig.initialBackoffMs * Math.pow(2, attempt);
-            if (this.debug) console.log(`[TikTok SDK] Retrying (${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`);
+          if (
+            attempt < maxAttempts - 1 &&
+            this.retryConfig.retryableStatuses.includes(response.status)
+          ) {
+            const backoff = this.retryConfig.initialBackoffMs * 2 ** attempt;
+            if (this.debug)
+              console.log(
+                `[TikTok SDK] Retrying (${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`,
+              );
             await this.delay(backoff);
             continue;
           }
@@ -116,8 +132,11 @@ export class TikTokApiClient {
         // Network error
         if (attempt < maxAttempts - 1 && this.retryConfig.retryOnNetworkError) {
           lastError = err;
-          const backoff = this.retryConfig.initialBackoffMs * Math.pow(2, attempt);
-          if (this.debug) console.log(`[TikTok SDK] Network error, retrying (${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`);
+          const backoff = this.retryConfig.initialBackoffMs * 2 ** attempt;
+          if (this.debug)
+            console.log(
+              `[TikTok SDK] Network error, retrying (${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`,
+            );
           await this.delay(backoff);
           continue;
         }

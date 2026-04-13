@@ -1,20 +1,24 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { ApiClient } from "../src/client.ts";
+import { afterEach, expect, mock, test } from "bun:test";
 import type { RateLimiter } from "../src/client.ts";
+import { ApiClient } from "../src/client.ts";
 import { ApiError } from "../src/errors.ts";
 
 const originalFetch = globalThis.fetch;
 
 function mockFetch(response: { status: number; body: unknown }) {
   globalThis.fetch = mock(() =>
-    Promise.resolve(new Response(JSON.stringify(response.body), {
-      status: response.status,
-      headers: { "Content-Type": "application/json" },
-    }))
+    Promise.resolve(
+      new Response(JSON.stringify(response.body), {
+        status: response.status,
+        headers: { "Content-Type": "application/json" },
+      }),
+    ),
   ) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 test("get sends GET with access token and fields", async () => {
   mockFetch({ status: 200, body: { id: "123", name: "Test" } });
@@ -31,7 +35,10 @@ test("post sends POST with params", async () => {
   const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com" });
   const result = await client.post<{ id: string }>("items", { name: "Test" });
   expect(result).toEqual({ id: "456" });
-  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(init.method).toBe("POST");
 });
 
@@ -43,7 +50,13 @@ test("throws ApiError on error response by default", async () => {
 
 test("uses custom onError handler", async () => {
   mockFetch({ status: 401, body: { error: { message: "Unauthorized" } } });
-  class CustomError extends Error { status: number; constructor(m: string, s: number) { super(m); this.status = s; } }
+  class CustomError extends Error {
+    status: number;
+    constructor(m: string, s: number) {
+      super(m);
+      this.status = s;
+    }
+  }
   const client = new ApiClient({
     accessToken: "tok",
     baseUrl: "https://api.example.com",
@@ -54,7 +67,11 @@ test("uses custom onError handler", async () => {
 
 test("respects apiVersion in URL path", async () => {
   mockFetch({ status: 200, body: {} });
-  const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com", apiVersion: "v2" });
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    apiVersion: "v2",
+  });
   await client.get("123", { fields: [] });
   const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
   expect(url).toContain("https://api.example.com/v2/123");
@@ -68,11 +85,21 @@ test("rate limiter is called before and after requests", async () => {
   let receivedStatus = 0;
 
   const limiter: RateLimiter = {
-    check: () => { checkCalled = true; return { shouldWait: false, waitMs: 0 }; },
-    afterResponse: (status, _headers) => { afterCalled = true; receivedStatus = status; },
+    check: () => {
+      checkCalled = true;
+      return { shouldWait: false, waitMs: 0 };
+    },
+    afterResponse: (status, _headers) => {
+      afterCalled = true;
+      receivedStatus = status;
+    },
   };
 
-  const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com", rateLimiter: limiter });
+  const client = new ApiClient({
+    accessToken: "tok",
+    baseUrl: "https://api.example.com",
+    rateLimiter: limiter,
+  });
   await client.get("test", { fields: ["id"] });
 
   expect(checkCalled).toBe(true);
@@ -89,7 +116,9 @@ test("retries on 500 with exponential backoff", async () => {
   globalThis.fetch = mock(() => {
     callCount++;
     if (callCount < 3) {
-      return Promise.resolve(new Response(JSON.stringify({ error: "server error" }), { status: 500 }));
+      return Promise.resolve(
+        new Response(JSON.stringify({ error: "server error" }), { status: 500 }),
+      );
     }
     return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
   }) as unknown as typeof fetch;
@@ -98,7 +127,9 @@ test("retries on 500 with exponential backoff", async () => {
     accessToken: "tok",
     baseUrl: "https://api.example.com",
     retry: { maxRetries: 3, initialBackoffMs: 100 },
-    delay: async (ms) => { delayCalledWith.push(ms); },
+    delay: async (ms) => {
+      delayCalledWith.push(ms);
+    },
   });
 
   const result = await client.get("test", { fields: ["id"] });
@@ -161,7 +192,9 @@ test("retries on 429 rate limit", async () => {
   globalThis.fetch = mock(() => {
     callCount++;
     if (callCount < 2) {
-      return Promise.resolve(new Response(JSON.stringify({ error: "rate limited" }), { status: 429 }));
+      return Promise.resolve(
+        new Response(JSON.stringify({ error: "rate limited" }), { status: 429 }),
+      );
     }
     return Promise.resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
   }) as unknown as typeof fetch;
@@ -193,7 +226,9 @@ test("rate limiter delay is awaited when shouldWait", async () => {
     accessToken: "tok",
     baseUrl: "https://api.example.com",
     rateLimiter: limiter,
-    delay: async (ms) => { delayCalledWith = ms; },
+    delay: async (ms) => {
+      delayCalledWith = ms;
+    },
   });
   await client.get("test", { fields: ["id"] });
 

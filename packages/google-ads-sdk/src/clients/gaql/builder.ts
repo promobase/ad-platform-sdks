@@ -1,16 +1,11 @@
 import type { HttpClient } from "@promobase/sdk-runtime";
 import type { FieldInfo, FieldMap } from "../../generated/v23/gaql/field-map.ts";
-import type {
-  GaqlResource,
-  ResourceFieldMap,
-} from "../../generated/v23/gaql/resource-map.ts";
+import type { GaqlResource, ResourceFieldMap } from "../../generated/v23/gaql/resource-map.ts";
 import { googleAdsService } from "../../generated/v23/services/index.ts";
 import { paginate } from "../../pagination.ts";
-import { serialize, type QueryState } from "./serialize.ts";
+import { type QueryState, serialize } from "./serialize.ts";
 
-type SplitDots<S extends string> = S extends `${infer H}.${infer T}`
-  ? [H, ...SplitDots<T>]
-  : [S];
+type SplitDots<S extends string> = S extends `${infer H}.${infer T}` ? [H, ...SplitDots<T>] : [S];
 
 type SetPath<Root, Path extends readonly string[], V> = Path extends readonly [
   infer Head extends string,
@@ -33,18 +28,15 @@ type ContributionOf<K extends string> = K extends keyof FieldMap
     : never
   : never;
 
-type UnionToIntersection<U> = (
-  U extends unknown ? (_: U) => void : never
-) extends (_: infer I) => void
+type UnionToIntersection<U> = (U extends unknown ? (_: U) => void : never) extends (
+  _: infer I,
+) => void
   ? I
   : never;
 
 export type RowOf<Sel extends string> = UnionToIntersection<ContributionOf<Sel>>;
 
-export class QueryBuilder<
-  FromR extends GaqlResource,
-  Sel extends string = never,
-> {
+export class QueryBuilder<FromR extends GaqlResource, Sel extends string = never> {
   constructor(readonly state: QueryState<FromR, Sel>) {}
 
   select<F extends Extract<ResourceFieldMap[FromR], string>>(
@@ -92,10 +84,9 @@ export class QueryBuilder<
   stream(client: HttpClient, customerId: string): AsyncIterable<RowOf<Sel>> {
     const query = this.toQuery();
     return (async function* () {
-      for await (const row of paginate(
-        (req) => googleAdsService.search(client, customerId, req),
-        { query },
-      )) {
+      for await (const row of paginate((req) => googleAdsService.search(client, customerId, req), {
+        query,
+      })) {
         yield row as unknown as RowOf<Sel>;
       }
     })();
@@ -107,11 +98,7 @@ export class QueryBuilder<
     return out;
   }
 
-  async take(
-    n: number,
-    client: HttpClient,
-    customerId: string,
-  ): Promise<RowOf<Sel>[]> {
+  async take(n: number, client: HttpClient, customerId: string): Promise<RowOf<Sel>[]> {
     const out: RowOf<Sel>[] = [];
     for await (const row of this.stream(client, customerId)) {
       out.push(row);
@@ -120,10 +107,7 @@ export class QueryBuilder<
     return out;
   }
 
-  async first(
-    client: HttpClient,
-    customerId: string,
-  ): Promise<RowOf<Sel> | null> {
+  async first(client: HttpClient, customerId: string): Promise<RowOf<Sel> | null> {
     for await (const row of this.stream(client, customerId)) return row;
     return null;
   }

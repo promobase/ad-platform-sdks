@@ -1,12 +1,10 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-
-import { parseSpecs, applyPatches } from "./parser.ts";
-import type { Spec } from "./parser.ts";
-import { resolveType, enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
-import { extractAllEnums, type EnumMap } from "./enum-extractor.ts";
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
-import { emitObjectFile, emitEnumType, specNameToFileName, type EmitContext } from "./emitter.ts";
+import { type EmitContext, emitEnumType, emitObjectFile, specNameToFileName } from "./emitter.ts";
+import { type EnumMap, extractAllEnums } from "./enum-extractor.ts";
+import { applyPatches, parseSpecs } from "./parser.ts";
+import { enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
 
 function uncapitalize(s: string): string {
   return s.charAt(0).toLowerCase() + s.slice(1);
@@ -116,11 +114,16 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
 
   // 10. Emit client-factory.ts
   console.log("[codegen] Emitting client-factory.ts...");
-  const specsWithApis: { specName: string; fileName: string; fnName: string; methodName: string }[] = [];
+  const specsWithApis: {
+    specName: string;
+    fileName: string;
+    fnName: string;
+    methodName: string;
+  }[] = [];
   for (const [name, spec] of specs) {
     // Mirror the emitter's hasApis logic: only include specs where the emitter
     // actually generates a node factory function (nodeOps or edgeGroups exist)
-    const nodeOps = spec.apis.filter((a) => a.name && a.name.startsWith("#"));
+    const nodeOps = spec.apis.filter((a) => a.name?.startsWith("#"));
     const edgeApis = spec.apis.filter((a) => !a.name?.startsWith("#") && a.endpoint);
     const edgeEndpoints = new Set(edgeApis.map((a) => a.endpoint));
     if (nodeOps.length > 0 || edgeEndpoints.size > 0) {
@@ -135,16 +138,22 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push("// Auto-generated client factory — do not edit");
   factoryLines.push("");
   factoryLines.push(`import { ApiClient } from "@promobase/sdk-runtime";`);
-  factoryLines.push(`import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";`);
+  factoryLines.push(
+    `import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";`,
+  );
   factoryLines.push(`import { FacebookApiError } from "../errors.ts";`);
-  factoryLines.push(`import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`);
+  factoryLines.push(
+    `import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,
+  );
 
   for (const { fnName, fileName } of specsWithApis) {
     factoryLines.push(`import { ${fnName} } from "./objects/${fileName}.ts";`);
   }
 
   factoryLines.push("");
-  factoryLines.push("export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {");
+  factoryLines.push(
+    "export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {",
+  );
   factoryLines.push("  baseUrl?: string;");
   factoryLines.push("  apiVersion?: string;");
   factoryLines.push("  rateLimiter?: import('@promobase/sdk-runtime').RateLimiter;");
@@ -164,10 +173,14 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     factoryLines.push(`    ${methodName}: (id: string) => ${fnName}(client, id),`);
   }
 
-  factoryLines.push(`    batch: async <T extends Record<string, BatchHandle<unknown>>>(fn: (b: BatchBuilder) => T): Promise<ResolveBatchHandles<T>> => {`);
+  factoryLines.push(
+    `    batch: async <T extends Record<string, BatchHandle<unknown>>>(fn: (b: BatchBuilder) => T): Promise<ResolveBatchHandles<T>> => {`,
+  );
   factoryLines.push(`      const builder = new BatchBuilder();`);
   factoryLines.push(`      const handles = fn(builder);`);
-  factoryLines.push(`      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);`);
+  factoryLines.push(
+    `      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);`,
+  );
   factoryLines.push(`    },`);
   factoryLines.push("    client,");
   factoryLines.push("  };");
@@ -205,26 +218,52 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";`);
   barrelLines.push(`export { Cursor } from "@promobase/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
-  barrelLines.push(`export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`);
-  barrelLines.push(`export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";`);
-  barrelLines.push(`export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";`);
-  barrelLines.push(`export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";`);
-  barrelLines.push(`export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";`);
-  barrelLines.push(`export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";`);
-  barrelLines.push(`export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";`);
-  barrelLines.push(`export { verifyWebhookChallenge, verifyWebhookSignature, parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook } from "../clients/index.ts";`);
-  barrelLines.push(`export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebhookPayload, FBWebhookMessagingEvent, FBWebhookChange, ThreadsWebhookPayload } from "../clients/index.ts";`);
-  barrelLines.push(`export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";`);
-  barrelLines.push(`export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";`);
+  barrelLines.push(
+    `export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,
+  );
+  barrelLines.push(
+    `export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export type { ThreadsClientOptions, ThreadsOAuthConfig } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export { verifyWebhookChallenge, verifyWebhookSignature, parseInstagramWebhook, parseFacebookWebhook, parseThreadsWebhook } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebhookPayload, FBWebhookMessagingEvent, FBWebhookChange, ThreadsWebhookPayload } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";`,
+  );
+  barrelLines.push(
+    `export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";`,
+  );
   barrelLines.push(`export type { WebhookParseResult } from "../clients/index.ts";`);
   barrelLines.push(`export { MetaRateLimiter } from "../rate-limiter.ts";`);
   barrelLines.push(`export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";`);
   barrelLines.push(`export { Meta } from "../namespace.ts";`);
-  barrelLines.push(`export { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "../ai/index.ts";`);
+  barrelLines.push(
+    `export { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "../ai/index.ts";`,
+  );
   barrelLines.push(`export type { CreateMetaToolsOptions } from "../ai/index.ts";`);
   barrelLines.push(`export { withMiddleware } from "../ai/middleware.ts";`);
   barrelLines.push(`export type { ToolMiddleware, ToolCallContext } from "../ai/middleware.ts";`);
-  barrelLines.push(`export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "../ai/filter.ts";`);
+  barrelLines.push(
+    `export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "../ai/filter.ts";`,
+  );
   barrelLines.push(`export type { ToolCategory } from "../ai/filter.ts";`);
   barrelLines.push(`export { createRouter } from "../ai/router.ts";`);
   barrelLines.push(`export type { RouterOptions } from "../ai/router.ts";`);

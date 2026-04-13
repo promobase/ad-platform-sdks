@@ -1,6 +1,6 @@
-import { test, expect, mock, afterEach } from "bun:test";
+import { afterEach, expect, mock, test } from "bun:test";
+import { createFacebookOAuth, createFacebookPageClient } from "../../src/clients/facebook/index.ts";
 import { createClient } from "../../src/generated/index.ts";
-import { createFacebookPageClient, createFacebookOAuth } from "../../src/clients/facebook/index.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -32,7 +32,10 @@ test("publishPost sends POST to /page_id/feed", async () => {
   const result = await fb.feed.publishPost({ message: "Hello Facebook!" });
   expect(result.id).toBe("123_456");
 
-  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(url).toContain("page_123/feed");
   expect(init.method).toBe("POST");
 });
@@ -48,7 +51,10 @@ test("publishPost with scheduled time sets published=false", async () => {
     scheduledPublishTime: 1730000000,
   });
 
-  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   const body = init.body?.toString() ?? "";
   expect(body).toContain("published=false");
 });
@@ -69,20 +75,25 @@ test("publishVideo sends POST to /page_id/videos", async () => {
   const api = createClient({ accessToken: "tok" });
   const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
 
-  const result = await fb.feed.publishVideo({ url: "https://example.com/video.mp4", title: "My Video" });
+  const result = await fb.feed.publishVideo({
+    url: "https://example.com/video.mp4",
+    title: "My Video",
+  });
   expect(result.id).toBe("video_1");
 });
 
 test("list feeds returns Page posts", async () => {
-  mockFetchSequence([{
-    body: {
-      data: [
-        { id: "1", message: "Post 1", created_time: "2025-01-01" },
-        { id: "2", message: "Post 2", created_time: "2025-01-02" },
-      ],
-      paging: { cursors: {} },
+  mockFetchSequence([
+    {
+      body: {
+        data: [
+          { id: "1", message: "Post 1", created_time: "2025-01-01" },
+          { id: "2", message: "Post 2", created_time: "2025-01-02" },
+        ],
+        paging: { cursors: {} },
+      },
     },
-  }]);
+  ]);
 
   const api = createClient({ accessToken: "tok" });
   const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
@@ -99,7 +110,10 @@ test("deletePost sends DELETE", async () => {
 
   await fb.feed.deletePost("123_456");
 
-  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(init.method).toBe("DELETE");
 });
 
@@ -107,9 +121,9 @@ test("deletePost sends DELETE", async () => {
 
 test("publishMultiPhoto uploads each photo then creates feed with attached_media", async () => {
   mockFetchSequence([
-    { body: { id: "photo_1" } },       // upload photo 1
-    { body: { id: "photo_2" } },       // upload photo 2
-    { body: { id: "page_123_789" } },  // create feed post
+    { body: { id: "photo_1" } }, // upload photo 1
+    { body: { id: "photo_2" } }, // upload photo 2
+    { body: { id: "page_123_789" } }, // create feed post
   ]);
 
   const api = createClient({ accessToken: "tok" });
@@ -144,9 +158,9 @@ test("publishMultiPhoto uploads each photo then creates feed with attached_media
 
 test("publishVideoReel performs 3-phase upload", async () => {
   mockFetchSequence([
-    { body: { video_id: "vid_123", upload_url: "https://rupload.facebook.com/upload" } },  // Phase 1: start
-    { body: { success: true } },                                                            // Phase 2: upload
-    { body: { success: true, post_id: "page_123_post_456", id: "reel_789" } },             // Phase 3: finish
+    { body: { video_id: "vid_123", upload_url: "https://rupload.facebook.com/upload" } }, // Phase 1: start
+    { body: { success: true } }, // Phase 2: upload
+    { body: { success: true, post_id: "page_123_post_456", id: "reel_789" } }, // Phase 3: finish
   ]);
 
   const api = createClient({ accessToken: "tok" });
@@ -172,7 +186,7 @@ test("publishVideoReel performs 3-phase upload", async () => {
   const [url2, init2] = calls[1] as [string, RequestInit];
   expect(url2).toBe("https://rupload.facebook.com/upload");
   expect(init2.method).toBe("POST");
-  expect((init2.headers as Record<string, string>)["Authorization"]).toBe("OAuth tok");
+  expect((init2.headers as Record<string, string>).Authorization).toBe("OAuth tok");
 
   // Phase 3: finish
   const [url3, init3] = calls[2] as [string, RequestInit];
@@ -198,15 +212,17 @@ test("publishVideoReel throws on upload failure", async () => {
 // --- Video status ---
 
 test("getVideoStatus returns parsed status phases", async () => {
-  mockFetchSequence([{
-    body: {
-      status: {
-        uploading_phase: { status: "complete" },
-        processing_phase: { status: "in_progress" },
-        publishing_phase: { status: "not_started" },
+  mockFetchSequence([
+    {
+      body: {
+        status: {
+          uploading_phase: { status: "complete" },
+          processing_phase: { status: "in_progress" },
+          publishing_phase: { status: "not_started" },
+        },
       },
     },
-  }]);
+  ]);
 
   const api = createClient({ accessToken: "tok" });
   const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
@@ -220,23 +236,25 @@ test("getVideoStatus returns parsed status phases", async () => {
 // --- Attachments ---
 
 test("fetchAttachments returns post attachment data", async () => {
-  mockFetchSequence([{
-    body: {
-      attachments: {
-        data: [
-          {
-            media: { image: { src: "https://example.com/img.jpg" } },
-            subattachments: {
-              data: [
-                { media: { image: { src: "https://example.com/sub1.jpg" } } },
-                { media: { image: { src: "https://example.com/sub2.jpg" } } },
-              ],
+  mockFetchSequence([
+    {
+      body: {
+        attachments: {
+          data: [
+            {
+              media: { image: { src: "https://example.com/img.jpg" } },
+              subattachments: {
+                data: [
+                  { media: { image: { src: "https://example.com/sub1.jpg" } } },
+                  { media: { image: { src: "https://example.com/sub2.jpg" } } },
+                ],
+              },
             },
-          },
-        ],
+          ],
+        },
       },
     },
-  }]);
+  ]);
 
   const api = createClient({ accessToken: "tok" });
   const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
@@ -291,7 +309,10 @@ test("stories.publishPhoto sends POST to /page_id/photo_stories", async () => {
   expect(result.id).toBe("story_123");
   expect(result.postId).toBe("page_123_456");
 
-  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string, RequestInit];
+  const [url, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
   expect(url).toContain("page_123/photo_stories");
   expect(init.method).toBe("POST");
   expect(init.body?.toString()).toContain("photo_url");

@@ -1,4 +1,4 @@
-import type { OAuthConfig, LongLivedToken, PageToken } from "./types.ts";
+import type { LongLivedToken, OAuthConfig, PageToken } from "./types.ts";
 
 const FB_OAUTH_BASE = "https://www.facebook.com";
 const FB_GRAPH_BASE = "https://graph.facebook.com";
@@ -34,7 +34,9 @@ export function createOAuth(config: OAuthConfig) {
         code,
       });
 
-      const response = await fetch(`${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`);
+      const response = await fetch(
+        `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -53,7 +55,9 @@ export function createOAuth(config: OAuthConfig) {
         fb_exchange_token: shortLivedToken,
       });
 
-      const response = await fetch(`${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`);
+      const response = await fetch(
+        `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -81,7 +85,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Failed to get Page tokens: ${JSON.stringify(error)}`);
       }
 
-      const body = await response.json() as { data: PageToken[] };
+      const body = (await response.json()) as { data: PageToken[] };
       return body.data;
     },
 

@@ -1,12 +1,11 @@
 // Re-export generated types consumers will use
-export type { IGMediaFields } from "../../generated/objects/ig-media.ts";
-export type { IGCommentFields } from "../../generated/objects/ig-comment.ts";
-export type { IGUserFields } from "../../generated/objects/ig-user.ts";
-export type { InstagramInsightsResultFields } from "../../generated/objects/instagram-insights-result.ts";
 
+export type { IGCommentFields } from "../../generated/objects/ig-comment.ts";
+export type { IGMediaFields } from "../../generated/objects/ig-media.ts";
+export type { IGUserCreateMediaParams, IGUserFields } from "../../generated/objects/ig-user.ts";
+export type { InstagramInsightsResultFields } from "../../generated/objects/instagram-insights-result.ts";
 // Re-export generated container type
 export type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
-export type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
 
 export interface PublishResult {
   id: string;

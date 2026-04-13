@@ -41,10 +41,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "VehicleOffer_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "VehicleOffer_Visibility": ["PUBLISHED", "STAGING"],
   "ThirdPartyPartnerLiftRequest_Status": [
     "CREATED",
     "FAILURE",
@@ -52,10 +49,7 @@
     "SCHEDULED",
     "SUCCESS"
   ],
-  "AdCreativeVideoDataCustomOverlaySpec_BackgroundOpacity": [
-    "half",
-    "solid"
-  ],
+  "AdCreativeVideoDataCustomOverlaySpec_BackgroundOpacity": ["half", "solid"],
   "AdCreativeVideoDataCustomOverlaySpec_Option": [
     "bank_transfer",
     "boleto",
@@ -76,9 +70,7 @@
     "top_left",
     "top_right"
   ],
-  "AdCreativeVideoDataCustomOverlaySpec_Template": [
-    "rectangle_with_text"
-  ],
+  "AdCreativeVideoDataCustomOverlaySpec_Template": ["rectangle_with_text"],
   "CustomAudienceDataSource_SubType": [
     "AD_CAMPAIGN",
     "ANYTHING",
@@ -154,26 +146,14 @@
     "THIRD_PARTY_IMPORTED",
     "UNKNOWN"
   ],
-  "OpenBridgeConfiguration_CapiPublishingState": [
-    "DISABLED",
-    "ENABLED",
-    "NOT_INITIALIZED"
-  ],
+  "OpenBridgeConfiguration_CapiPublishingState": ["DISABLED", "ENABLED", "NOT_INITIALIZED"],
   "OpenBridgeConfiguration_EventEnrichmentAdvertiserState": [
     "DISABLED",
     "ENABLED",
     "NOT_INITIALIZED"
   ],
-  "OpenBridgeConfiguration_EventEnrichmentMetaState": [
-    "ALLOWED",
-    "BLOCKED",
-    "NOT_INITIALIZED"
-  ],
-  "OpenBridgeConfiguration_EventEnrichmentState": [
-    "NO",
-    "NOT_INITIALIZED",
-    "YES"
-  ],
+  "OpenBridgeConfiguration_EventEnrichmentMetaState": ["ALLOWED", "BLOCKED", "NOT_INITIALIZED"],
+  "OpenBridgeConfiguration_EventEnrichmentState": ["NO", "NOT_INITIALIZED", "YES"],
   "PageCallToAction_AndroidDestinationType": [
     "APP_DEEPLINK",
     "BECOME_A_VOLUNTEER",
@@ -270,31 +250,11 @@
     "EVENT_START",
     "RESCHEDULED"
   ],
-  "IGUpcomingEvent_NotificationTargetTime": [
-    "EVENT_END",
-    "EVENT_START"
-  ],
-  "ExtendedCreditAllocationConfig_LiabilityType": [
-    "MSA",
-    "Normal",
-    "Sequential"
-  ],
-  "ExtendedCreditAllocationConfig_PartitionType": [
-    "AUTH",
-    "FIXED",
-    "FIXED_WITHOUT_PARTITION"
-  ],
-  "ExtendedCreditAllocationConfig_SendBillTo": [
-    "Advertiser",
-    "Agency"
-  ],
-  "Profile_ProfileType": [
-    "application",
-    "event",
-    "group",
-    "page",
-    "user"
-  ],
+  "IGUpcomingEvent_NotificationTargetTime": ["EVENT_END", "EVENT_START"],
+  "ExtendedCreditAllocationConfig_LiabilityType": ["MSA", "Normal", "Sequential"],
+  "ExtendedCreditAllocationConfig_PartitionType": ["AUTH", "FIXED", "FIXED_WITHOUT_PARTITION"],
+  "ExtendedCreditAllocationConfig_SendBillTo": ["Advertiser", "Agency"],
+  "Profile_ProfileType": ["application", "event", "group", "page", "user"],
   "Profile_Type": [
     "ANGRY",
     "CARE",
@@ -309,22 +269,9 @@
     "THANKFUL",
     "WOW"
   ],
-  "HighDemandPeriod_BudgetValueType": [
-    "ABSOLUTE",
-    "MULTIPLIER"
-  ],
-  "ProductFeedAppsAndSoftwareGet_DisplayFormat": [
-    "CAROUSEL_AD",
-    "SHOPS_PDP",
-    "SINGLE_AD"
-  ],
-  "Transaction_ProductType": [
-    "cp_return_label",
-    "facebook_ad",
-    "ig_ad",
-    "whatsapp",
-    "workplace"
-  ],
+  "HighDemandPeriod_BudgetValueType": ["ABSOLUTE", "MULTIPLIER"],
+  "ProductFeedAppsAndSoftwareGet_DisplayFormat": ["CAROUSEL_AD", "SHOPS_PDP", "SINGLE_AD"],
+  "Transaction_ProductType": ["cp_return_label", "facebook_ad", "ig_ad", "whatsapp", "workplace"],
   "CustomConversion_CustomEventType": [
     "ADD_PAYMENT_INFO",
     "ADD_TO_CART",
@@ -404,12 +351,7 @@
     "VIDEO_VIEWS",
     "WEBSITE_CONVERSIONS"
   ],
-  "DACheck_ConnectionMethod": [
-    "ALL",
-    "APP",
-    "BROWSER",
-    "SERVER"
-  ],
+  "DACheck_ConnectionMethod": ["ALL", "APP", "BROWSER", "SERVER"],
   "BusinessRoleRequest_Role": [
     "ADMIN",
     "ADS_RIGHTS_REVIEWER",
@@ -444,10 +386,7 @@
     "PARTNER_CENTER_MARKETING",
     "PARTNER_CENTER_OPERATIONS"
   ],
-  "AdRuleEvaluationSpec_EvaluationType": [
-    "SCHEDULE",
-    "TRIGGER"
-  ],
+  "AdRuleEvaluationSpec_EvaluationType": ["SCHEDULE", "TRIGGER"],
   "Flight_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -456,10 +395,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "Flight_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "Flight_Visibility": ["PUBLISHED", "STAGING"],
   "AdSet_BidStrategy": [
     "COST_CAP",
     "LOWEST_COST_WITHOUT_CAP",
@@ -479,12 +415,7 @@
     "PURCHASE",
     "THRUPLAY"
   ],
-  "AdSet_ConfiguredStatus": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
+  "AdSet_ConfiguredStatus": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
   "AdSet_EffectiveStatus": [
     "ACTIVE",
     "ARCHIVED",
@@ -528,25 +459,10 @@
     "VALUE",
     "VISIT_INSTAGRAM_PROFILE"
   ],
-  "AdSet_Status": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
-  "AdSet_AutomaticManualState": [
-    "AUTOMATIC",
-    "MANUAL",
-    "UNSET"
-  ],
-  "AdSet_BudgetSource": [
-    "NONE",
-    "RMN"
-  ],
-  "AdSet_CreativeSequenceRepetitionPattern": [
-    "FULL_SEQUENCE",
-    "LAST_AD"
-  ],
+  "AdSet_Status": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
+  "AdSet_AutomaticManualState": ["AUTOMATIC", "MANUAL", "UNSET"],
+  "AdSet_BudgetSource": ["NONE", "RMN"],
+  "AdSet_CreativeSequenceRepetitionPattern": ["FULL_SEQUENCE", "LAST_AD"],
   "AdSet_DatePreset": [
     "DATA_MAXIMUM",
     "LAST_14D",
@@ -594,21 +510,13 @@
     "WEBSITE",
     "WHATSAPP"
   ],
-  "AdSet_ExecutionOptions": [
-    "include_recommendations",
-    "validate_only"
-  ],
+  "AdSet_ExecutionOptions": ["include_recommendations", "validate_only"],
   "AdSet_FullFunnelExplorationMode": [
     "EXTENDED_EXPLORATION",
     "LIMITED_EXPLORATION",
     "NONE_EXPLORATION"
   ],
-  "AdSet_MultiOptimizationGoalWeight": [
-    "BALANCED",
-    "PREFER_EVENT",
-    "PREFER_INSTALL",
-    "UNDEFINED"
-  ],
+  "AdSet_MultiOptimizationGoalWeight": ["BALANCED", "PREFER_EVENT", "PREFER_INSTALL", "UNDEFINED"],
   "AdSet_OptimizationSubEvent": [
     "NONE",
     "POST_INTERACTION",
@@ -648,19 +556,9 @@
     "NONE",
     "ONLINE_GAMBLING_AND_GAMING"
   ],
-  "AdSet_Operator": [
-    "ALL",
-    "ANY"
-  ],
-  "AdSet_StatusOption": [
-    "ACTIVE",
-    "INHERITED_FROM_SOURCE",
-    "PAUSED"
-  ],
-  "AdNetworkAnalyticsSyncQueryResult_AggregationPeriod": [
-    "DAY",
-    "TOTAL"
-  ],
+  "AdSet_Operator": ["ALL", "ANY"],
+  "AdSet_StatusOption": ["ACTIVE", "INHERITED_FROM_SOURCE", "PAUSED"],
+  "AdNetworkAnalyticsSyncQueryResult_AggregationPeriod": ["DAY", "TOTAL"],
   "AdNetworkAnalyticsSyncQueryResult_Breakdowns": [
     "AD_SERVER_CAMPAIGN_ID",
     "AD_SPACE",
@@ -706,15 +604,8 @@
     "FB_AD_NETWORK_VIDEO_VIEW",
     "FB_AD_NETWORK_VIDEO_VIEW_RATE"
   ],
-  "AdNetworkAnalyticsSyncQueryResult_OrderingColumn": [
-    "METRIC",
-    "TIME",
-    "VALUE"
-  ],
-  "AdNetworkAnalyticsSyncQueryResult_OrderingType": [
-    "ASCENDING",
-    "DESCENDING"
-  ],
+  "AdNetworkAnalyticsSyncQueryResult_OrderingColumn": ["METRIC", "TIME", "VALUE"],
+  "AdNetworkAnalyticsSyncQueryResult_OrderingType": ["ASCENDING", "DESCENDING"],
   "AdCampaignDeliveryEstimate_OptimizationGoal": [
     "ADVERTISER_SILOED_VALUE",
     "AD_RECALL_LIFT",
@@ -1149,16 +1040,8 @@
     "ZERO_OUTCOME_BUDGET",
     "ZIJI_SGP_UGP_TEST"
   ],
-  "ThirdPartyPartnerViewabilityRequest_Metric": [
-    "DISPLAY_EVENT",
-    "IMPRESSION",
-    "VIDEO_EVENT"
-  ],
-  "ThirdPartyPartnerViewabilityRequest_Platform": [
-    "AUDIENCE_NETWORK",
-    "FACEBOOK",
-    "INSTAGRAM"
-  ],
+  "ThirdPartyPartnerViewabilityRequest_Metric": ["DISPLAY_EVENT", "IMPRESSION", "VIDEO_EVENT"],
+  "ThirdPartyPartnerViewabilityRequest_Platform": ["AUDIENCE_NETWORK", "FACEBOOK", "INSTAGRAM"],
   "ThirdPartyPartnerViewabilityRequest_Status": [
     "CREATED",
     "FAILURE",
@@ -1166,11 +1049,7 @@
     "SCHEDULED",
     "SUCCESS"
   ],
-  "Page_Attire": [
-    "Casual",
-    "Dressy",
-    "Unspecified"
-  ],
+  "Page_Attire": ["Casual", "Dressy", "Unspecified"],
   "Page_FoodStyles": [
     "Afghani",
     "American (New)",
@@ -1242,11 +1121,7 @@
     "IPTC",
     "IPTC_METADATA_EDITED"
   ],
-  "Page_PickupOptions": [
-    "CURBSIDE",
-    "IN_STORE",
-    "OTHER"
-  ],
+  "Page_PickupOptions": ["CURBSIDE", "IN_STORE", "OTHER"],
   "Page_TemporaryStatus": [
     "DIFFERENTLY_OPEN",
     "NO_DATA",
@@ -1311,37 +1186,12 @@
     "READ_PAGE_MAILBOXES",
     "VIEW_MONETIZATION_INSIGHTS"
   ],
-  "Page_BackdatedTimeGranularity": [
-    "day",
-    "hour",
-    "min",
-    "month",
-    "none",
-    "year"
-  ],
-  "Page_Formatting": [
-    "MARKDOWN",
-    "PLAINTEXT"
-  ],
-  "Page_PlaceAttachmentSetting": [
-    "1",
-    "2"
-  ],
-  "Page_PostSurfacesBlacklist": [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5"
-  ],
-  "Page_PostingToRedspace": [
-    "disabled",
-    "enabled"
-  ],
-  "Page_TargetSurface": [
-    "STORY",
-    "TIMELINE"
-  ],
+  "Page_BackdatedTimeGranularity": ["day", "hour", "min", "month", "none", "year"],
+  "Page_Formatting": ["MARKDOWN", "PLAINTEXT"],
+  "Page_PlaceAttachmentSetting": ["1", "2"],
+  "Page_PostSurfacesBlacklist": ["1", "2", "3", "4", "5"],
+  "Page_PostingToRedspace": ["disabled", "enabled"],
+  "Page_TargetSurface": ["STORY", "TIMELINE"],
   "Page_UnpublishedContentType": [
     "ADS_POST",
     "DRAFT",
@@ -1352,56 +1202,16 @@
     "SCHEDULED",
     "SCHEDULED_RECURRING"
   ],
-  "Page_RecommendationAction": [
-    "ACCEPT_CLOSED",
-    "ACCEPT_NEW",
-    "REJECT_CLOSED",
-    "REJECT_NEW"
-  ],
-  "Page_Category": [
-    "UTILITY"
-  ],
-  "Page_ParameterFormat": [
-    "NAMED",
-    "POSITIONAL"
-  ],
-  "Page_Folder": [
-    "PARTNERSHIP"
-  ],
-  "Page_MessagingType": [
-    "MESSAGE_TAG",
-    "RESPONSE",
-    "UPDATE",
-    "UTILITY"
-  ],
-  "Page_NotificationType": [
-    "NO_PUSH",
-    "REGULAR",
-    "SILENT_PUSH"
-  ],
-  "Page_SenderAction": [
-    "MARK_SEEN",
-    "REACT",
-    "TYPING_OFF",
-    "TYPING_ON",
-    "UNREACT"
-  ],
-  "Page_SuggestionAction": [
-    "ACCEPT",
-    "DISMISS",
-    "IMPRESSION"
-  ],
-  "Page_Platform": [
-    "INSTAGRAM",
-    "MESSENGER"
-  ],
-  "Page_Actions": [
-    "BAN_USER",
-    "BLOCK_USER",
-    "MOVE_TO_SPAM",
-    "UNBAN_USER",
-    "UNBLOCK_USER"
-  ],
+  "Page_RecommendationAction": ["ACCEPT_CLOSED", "ACCEPT_NEW", "REJECT_CLOSED", "REJECT_NEW"],
+  "Page_Category": ["UTILITY"],
+  "Page_ParameterFormat": ["NAMED", "POSITIONAL"],
+  "Page_Folder": ["PARTNERSHIP"],
+  "Page_MessagingType": ["MESSAGE_TAG", "RESPONSE", "UPDATE", "UTILITY"],
+  "Page_NotificationType": ["NO_PUSH", "REGULAR", "SILENT_PUSH"],
+  "Page_SenderAction": ["MARK_SEEN", "REACT", "TYPING_OFF", "TYPING_ON", "UNREACT"],
+  "Page_SuggestionAction": ["ACCEPT", "DISMISS", "IMPRESSION"],
+  "Page_Platform": ["INSTAGRAM", "MESSENGER"],
+  "Page_Actions": ["BAN_USER", "BLOCK_USER", "MOVE_TO_SPAM", "UNBAN_USER", "UNBLOCK_USER"],
   "Page_Model": [
     "ARABIC",
     "CHINESE",
@@ -1427,9 +1237,7 @@
     "SWEDISH",
     "VIETNAMESE"
   ],
-  "Page_DeveloperAction": [
-    "ENABLE_FOLLOWUP_MESSAGE"
-  ],
+  "Page_DeveloperAction": ["ENABLE_FOLLOWUP_MESSAGE"],
   "Page_SubscribedFields": [
     "affiliation",
     "attire",
@@ -1544,16 +1352,8 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "Vehicle_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
-  "Vehicle_Availability": [
-    "AVAILABLE",
-    "NOT_AVAILABLE",
-    "PENDING",
-    "UNKNOWN"
-  ],
+  "Vehicle_Visibility": ["PUBLISHED", "STAGING"],
+  "Vehicle_Availability": ["AVAILABLE", "NOT_AVAILABLE", "PENDING", "UNKNOWN"],
   "Vehicle_BodyStyle": [
     "CONVERTIBLE",
     "COUPE",
@@ -1579,24 +1379,8 @@
     "VAN",
     "WAGON"
   ],
-  "Vehicle_Condition": [
-    "EXCELLENT",
-    "FAIR",
-    "GOOD",
-    "NONE",
-    "OTHER",
-    "POOR",
-    "VERY_GOOD"
-  ],
-  "Vehicle_Drivetrain": [
-    "AWD",
-    "FOUR_WD",
-    "FWD",
-    "NONE",
-    "OTHER",
-    "RWD",
-    "TWO_WD"
-  ],
+  "Vehicle_Condition": ["EXCELLENT", "FAIR", "GOOD", "NONE", "OTHER", "POOR", "VERY_GOOD"],
+  "Vehicle_Drivetrain": ["AWD", "FOUR_WD", "FWD", "NONE", "OTHER", "RWD", "TWO_WD"],
   "Vehicle_FuelType": [
     "DIESEL",
     "ELECTRIC",
@@ -1608,17 +1392,8 @@
     "PETROL",
     "PLUGIN_HYBRID"
   ],
-  "Vehicle_StateOfVehicle": [
-    "CPO",
-    "NEW",
-    "USED"
-  ],
-  "Vehicle_Transmission": [
-    "AUTOMATIC",
-    "MANUAL",
-    "NONE",
-    "OTHER"
-  ],
+  "Vehicle_StateOfVehicle": ["CPO", "NEW", "USED"],
+  "Vehicle_Transmission": ["AUTOMATIC", "MANUAL", "NONE", "OTHER"],
   "Vehicle_VehicleType": [
     "BOAT",
     "CAR_TRUCK",
@@ -1643,34 +1418,12 @@
     "PENDING_EMAIL_VERIFICATION",
     "PENDING_INTEGRITY_REVIEW"
   ],
-  "AdsValueAdjustmentRuleCollection_ProductType": [
-    "AUDIENCE",
-    "LEADGEN_ADS",
-    "OMNI_CHANNEL"
-  ],
-  "AdsValueAdjustmentRuleCollection_Status": [
-    "ACTIVE",
-    "DELETED",
-    "DRAFT"
-  ],
-  "ProductFeedUploadError_AffectedSurfaces": [
-    "Dynamic Ads",
-    "Marketplace",
-    "US Marketplace"
-  ],
-  "ProductFeedUploadError_Severity": [
-    "fatal",
-    "warning"
-  ],
-  "ProductFeedUploadError_ErrorPriority": [
-    "HIGH",
-    "LOW",
-    "MEDIUM"
-  ],
-  "Stories_Status": [
-    "ARCHIVED",
-    "PUBLISHED"
-  ],
+  "AdsValueAdjustmentRuleCollection_ProductType": ["AUDIENCE", "LEADGEN_ADS", "OMNI_CHANNEL"],
+  "AdsValueAdjustmentRuleCollection_Status": ["ACTIVE", "DELETED", "DRAFT"],
+  "ProductFeedUploadError_AffectedSurfaces": ["Dynamic Ads", "Marketplace", "US Marketplace"],
+  "ProductFeedUploadError_Severity": ["fatal", "warning"],
+  "ProductFeedUploadError_ErrorPriority": ["HIGH", "LOW", "MEDIUM"],
+  "Stories_Status": ["ARCHIVED", "PUBLISHED"],
   "WhatsAppBusinessPreVerifiedPhoneNumber_CodeVerificationStatus": [
     "EXPIRED",
     "NOT_VERIFIED",
@@ -1717,45 +1470,14 @@
     "public",
     "work_company"
   ],
-  "Event_EventStateFilter": [
-    "canceled",
-    "draft",
-    "published",
-    "scheduled_draft_for_publication"
-  ],
-  "Event_TimeFilter": [
-    "past",
-    "upcoming"
-  ],
-  "CheckBatchRequestStatus_ErrorPriority": [
-    "HIGH",
-    "LOW",
-    "MEDIUM"
-  ],
-  "User_LocalNewsMegaphoneDismissStatus": [
-    "NO",
-    "YES"
-  ],
-  "User_LocalNewsSubscriptionStatus": [
-    "STATUS_OFF",
-    "STATUS_ON"
-  ],
-  "User_Filtering": [
-    "ema",
-    "groups",
-    "groups_social"
-  ],
-  "User_Type": [
-    "content_update",
-    "generic"
-  ],
-  "BusinessAssetGroup_AdaccountTasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "ANALYZE",
-    "DRAFT",
-    "MANAGE"
-  ],
+  "Event_EventStateFilter": ["canceled", "draft", "published", "scheduled_draft_for_publication"],
+  "Event_TimeFilter": ["past", "upcoming"],
+  "CheckBatchRequestStatus_ErrorPriority": ["HIGH", "LOW", "MEDIUM"],
+  "User_LocalNewsMegaphoneDismissStatus": ["NO", "YES"],
+  "User_LocalNewsSubscriptionStatus": ["STATUS_OFF", "STATUS_ON"],
+  "User_Filtering": ["ema", "groups", "groups_social"],
+  "User_Type": ["content_update", "generic"],
+  "BusinessAssetGroup_AdaccountTasks": ["AA_ANALYZE", "ADVERTISE", "ANALYZE", "DRAFT", "MANAGE"],
   "BusinessAssetGroup_OfflineConversionDataSetTasks": [
     "AA_ANALYZE",
     "ADVERTISE",
@@ -1792,13 +1514,7 @@
     "READ_PAGE_MAILBOXES",
     "VIEW_MONETIZATION_INSIGHTS"
   ],
-  "BusinessAssetGroup_PixelTasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "ANALYZE",
-    "EDIT",
-    "UPLOAD"
-  ],
+  "BusinessAssetGroup_PixelTasks": ["AA_ANALYZE", "ADVERTISE", "ANALYZE", "EDIT", "UPLOAD"],
   "AdAccountAdRulesHistory_Action": [
     "BUDGET_NOT_REDISTRIBUTED",
     "CHANGED_BID",
@@ -1830,10 +1546,7 @@
     "PAUSED",
     "UNPAUSED"
   ],
-  "AdAccountAdRulesHistory_EvaluationType": [
-    "SCHEDULE",
-    "TRIGGER"
-  ],
+  "AdAccountAdRulesHistory_EvaluationType": ["SCHEDULE", "TRIGGER"],
   "ProductEventStat_DeviceType": [
     "desktop",
     "mobile_android_phone",
@@ -1856,40 +1569,13 @@
     "Subscribe",
     "ViewContent"
   ],
-  "ProductEventStat_Breakdowns": [
-    "DEVICE_TYPE"
-  ],
-  "Post_BackdatedTimeGranularity": [
-    "day",
-    "hour",
-    "min",
-    "month",
-    "none",
-    "year"
-  ],
-  "Post_Formatting": [
-    "MARKDOWN",
-    "PLAINTEXT"
-  ],
-  "Post_PlaceAttachmentSetting": [
-    "1",
-    "2"
-  ],
-  "Post_PostSurfacesBlacklist": [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5"
-  ],
-  "Post_PostingToRedspace": [
-    "disabled",
-    "enabled"
-  ],
-  "Post_TargetSurface": [
-    "STORY",
-    "TIMELINE"
-  ],
+  "ProductEventStat_Breakdowns": ["DEVICE_TYPE"],
+  "Post_BackdatedTimeGranularity": ["day", "hour", "min", "month", "none", "year"],
+  "Post_Formatting": ["MARKDOWN", "PLAINTEXT"],
+  "Post_PlaceAttachmentSetting": ["1", "2"],
+  "Post_PostSurfacesBlacklist": ["1", "2", "3", "4", "5"],
+  "Post_PostingToRedspace": ["disabled", "enabled"],
+  "Post_TargetSurface": ["STORY", "TIMELINE"],
   "Post_UnpublishedContentType": [
     "ADS_POST",
     "DRAFT",
@@ -1900,15 +1586,8 @@
     "SCHEDULED",
     "SCHEDULED_RECURRING"
   ],
-  "Post_FeedStoryVisibility": [
-    "hidden",
-    "visible"
-  ],
-  "Post_TimelineVisibility": [
-    "forced_allow",
-    "hidden",
-    "normal"
-  ],
+  "Post_FeedStoryVisibility": ["hidden", "visible"],
+  "Post_TimelineVisibility": ["forced_allow", "hidden", "normal"],
   "InstagramBusinessAsset_PermittedTasks": [
     "ADVERTISE",
     "ANALYZE",
@@ -2008,9 +1687,7 @@
     "standard_enhancements_catalog",
     "text_overlay_translation"
   ],
-  "AdPreview_RenderType": [
-    "FALLBACK"
-  ],
+  "AdPreview_RenderType": ["FALLBACK"],
   "MediaFingerprint_FingerprintContentType": [
     "AM_SONGTRACK",
     "EPISODE",
@@ -2121,17 +1798,8 @@
     "WHATSAPP_MESSAGE",
     "WOODHENGE_SUPPORT"
   ],
-  "ThirdPartyPartnerPanelScheduled_Status": [
-    "CANCELLED",
-    "CREATED",
-    "FINISHED",
-    "ONGOING"
-  ],
-  "ThirdPartyPartnerPanelScheduled_StudyType": [
-    "BRAND_LIFT",
-    "PANEL_SALES_ATTRIBUTION",
-    "REACH"
-  ],
+  "ThirdPartyPartnerPanelScheduled_Status": ["CANCELLED", "CREATED", "FINISHED", "ONGOING"],
+  "ThirdPartyPartnerPanelScheduled_StudyType": ["BRAND_LIFT", "PANEL_SALES_ATTRIBUTION", "REACH"],
   "PagePostExperiment_OptimizationGoal": [
     "AUTO_RESOLVE_TO_CONTROL",
     "AVG_TIME_WATCHED",
@@ -2147,11 +1815,7 @@
     "VIEWERS",
     "VIEWS"
   ],
-  "Permission_Status": [
-    "declined",
-    "expired",
-    "granted"
-  ],
+  "Permission_Status": ["declined", "expired", "granted"],
   "AdActivity_EventType": [
     "accept_custom_audience_appeal",
     "account_spending_limit_reached",
@@ -2264,21 +1928,9 @@
     "STATUS",
     "TARGETING"
   ],
-  "AdActivity_DataSource": [
-    "CALYPSO",
-    "TAO",
-    "TAO_AD_ACCOUNT",
-    "TAO_AD_STATUS"
-  ],
-  "AdCustomDerivedMetrics_Scope": [
-    "ACCOUNT",
-    "BUSINESS",
-    "BUSINESS_ASSET_GROUP"
-  ],
-  "AdAssetTargetRuleTargeting_DevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
+  "AdActivity_DataSource": ["CALYPSO", "TAO", "TAO_AD_ACCOUNT", "TAO_AD_STATUS"],
+  "AdCustomDerivedMetrics_Scope": ["ACCOUNT", "BUSINESS", "BUSINESS_ASSET_GROUP"],
+  "AdAssetTargetRuleTargeting_DevicePlatforms": ["desktop", "mobile"],
   "TransactableItem_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -2287,25 +1939,10 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "TransactableItem_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
-  "CommerceMerchantSettings_MerchantStatus": [
-    "ENABLED",
-    "EXTERNALLY_DISABLED"
-  ],
-  "OmegaCustomerTrx_Type": [
-    "CM",
-    "DM",
-    "INV",
-    "PRO_FORMA"
-  ],
-  "AdCreativeLinkDataImageOverlaySpec_CustomTextType": [
-    "free_shipping",
-    "popular",
-    "sale"
-  ],
+  "TransactableItem_Visibility": ["PUBLISHED", "STAGING"],
+  "CommerceMerchantSettings_MerchantStatus": ["ENABLED", "EXTERNALLY_DISABLED"],
+  "OmegaCustomerTrx_Type": ["CM", "DM", "INV", "PRO_FORMA"],
+  "AdCreativeLinkDataImageOverlaySpec_CustomTextType": ["free_shipping", "popular", "sale"],
   "AdCreativeLinkDataImageOverlaySpec_OverlayTemplate": [
     "circle_with_text",
     "pill_with_text",
@@ -2402,11 +2039,7 @@
     "total_over_range",
     "week"
   ],
-  "InstagramInsightsResult_MetricType": [
-    "default",
-    "time_series",
-    "total_value"
-  ],
+  "InstagramInsightsResult_MetricType": ["default", "time_series", "total_value"],
   "InstagramInsightsResult_Timeframe": [
     "last_14_days",
     "last_30_days",
@@ -2457,15 +2090,8 @@
     "PROBABILISTIC_PACING_V2",
     "STANDARD"
   ],
-  "AdPlacePageSet_LocationTypes": [
-    "home",
-    "recent"
-  ],
-  "AdPlacePageSet_TargetedAreaType": [
-    "CUSTOM_RADIUS",
-    "MARKETING_AREA",
-    "NONE"
-  ],
+  "AdPlacePageSet_LocationTypes": ["home", "recent"],
+  "AdPlacePageSet_TargetedAreaType": ["CUSTOM_RADIUS", "MARKETING_AREA", "NONE"],
   "ProductFeedRule_RuleType": [
     "fallback_rule",
     "letter_case_rule",
@@ -2488,9 +2114,7 @@
     "USER_CANCELED",
     "USER_CANCELED_DEPENDENCY"
   ],
-  "FundraiserPersonToCharity_FundraiserType": [
-    "person_for_charity"
-  ],
+  "FundraiserPersonToCharity_FundraiserType": ["person_for_charity"],
   "ProductFeedRuleGet_RuleType": [
     "FALLBACK_RULE",
     "LETTER_CASE_RULE",
@@ -2498,15 +2122,7 @@
     "REGEX_REPLACE_RULE",
     "VALUE_MAPPING_RULE"
   ],
-  "ProductItem_AgeGroup": [
-    "adult",
-    "all ages",
-    "infant",
-    "kids",
-    "newborn",
-    "teen",
-    "toddler"
-  ],
+  "ProductItem_AgeGroup": ["adult", "all ages", "infant", "kids", "newborn", "teen", "toddler"],
   "ProductItem_Availability": [
     "available for order",
     "discontinued",
@@ -2533,11 +2149,7 @@
     "used_good",
     "used_like_new"
   ],
-  "ProductItem_Gender": [
-    "female",
-    "male",
-    "unisex"
-  ],
+  "ProductItem_Gender": ["female", "male", "unisex"],
   "ProductItem_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -2546,22 +2158,9 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "ProductItem_ReviewStatus": [
-    "approved",
-    "outdated",
-    "pending",
-    "rejected"
-  ],
-  "ProductItem_ShippingWeightUnit": [
-    "g",
-    "kg",
-    "lb",
-    "oz"
-  ],
-  "ProductItem_Status": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "ProductItem_ReviewStatus": ["approved", "outdated", "pending", "rejected"],
+  "ProductItem_ShippingWeightUnit": ["g", "kg", "lb", "oz"],
+  "ProductItem_Status": ["PUBLISHED", "STAGING"],
   "ProductItem_VideoFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -2570,10 +2169,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "ProductItem_Visibility": [
-    "published",
-    "staging"
-  ],
+  "ProductItem_Visibility": ["published", "staging"],
   "ProductItem_CommerceTaxCategory": [
     "FB_ANIMAL",
     "FB_ANIMAL_SUPP",
@@ -2781,11 +2377,7 @@
     "FB_VEHI",
     "FB_VEHI_PART"
   ],
-  "ProductItem_ErrorPriority": [
-    "HIGH",
-    "LOW",
-    "MEDIUM"
-  ],
+  "ProductItem_ErrorPriority": ["HIGH", "LOW", "MEDIUM"],
   "ProductItem_ErrorType": [
     "ADDRESS_BLOCKLISTED_IN_MARKET",
     "AGGREGATED_LOCALIZATION_ISSUES",
@@ -2956,11 +2548,7 @@
     "WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION",
     "WHATSAPP_POLICY_VIOLATION"
   ],
-  "ProductItem_MarkedForProductLaunch": [
-    "default",
-    "marked",
-    "not_marked"
-  ],
+  "ProductItem_MarkedForProductLaunch": ["default", "marked", "not_marked"],
   "ProductItem_OriginCountry": [
     "AC",
     "AD",
@@ -3215,10 +2803,7 @@
     "ZM",
     "ZW"
   ],
-  "ProductItem_WaComplianceCategory": [
-    "COUNTRY_ORIGIN_EXEMPT",
-    "DEFAULT"
-  ],
+  "ProductItem_WaComplianceCategory": ["COUNTRY_ORIGIN_EXEMPT", "DEFAULT"],
   "Destination_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -3227,10 +2812,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "Destination_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "Destination_Visibility": ["PUBLISHED", "STAGING"],
   "ProductFeedUpload_InputMethod": [
     "Google Sheets Fetch",
     "Manual Upload",
@@ -3238,14 +2820,8 @@
     "Server Fetch",
     "User initiated server fetch"
   ],
-  "BrandedContentShadowIGMediaID_MediaRelationship": [
-    "IS_TAGGED",
-    "OWNED"
-  ],
-  "Comment_Order": [
-    "chronological",
-    "reverse_chronological"
-  ],
+  "BrandedContentShadowIGMediaID_MediaRelationship": ["IS_TAGGED", "OWNED"],
+  "Comment_Order": ["chronological", "reverse_chronological"],
   "Comment_CommentPrivacyValue": [
     "DECLINED_BY_ADMIN_ASSISTANT",
     "DEFAULT_PRIVACY",
@@ -3259,19 +2835,9 @@
     "SIDE_CONVERSATION_AND_POST_OWNER",
     "SPOTLIGHT_TAB"
   ],
-  "Comment_Filter": [
-    "stream",
-    "toplevel"
-  ],
-  "Comment_LiveFilter": [
-    "filter_low_quality",
-    "no_filter"
-  ],
-  "ProductSetMediaTitlesGet_DisplayFormat": [
-    "CAROUSEL_AD",
-    "SHOPS_PDP",
-    "SINGLE_AD"
-  ],
+  "Comment_Filter": ["stream", "toplevel"],
+  "Comment_LiveFilter": ["filter_low_quality", "no_filter"],
+  "ProductSetMediaTitlesGet_DisplayFormat": ["CAROUSEL_AD", "SHOPS_PDP", "SINGLE_AD"],
   "Hotel_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -3280,10 +2846,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "Hotel_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "Hotel_Visibility": ["PUBLISHED", "STAGING"],
   "AdStudyCell_CreationTemplate": [
     "AUTOMATIC_PLACEMENTS",
     "BRAND_AWARENESS",
@@ -3304,10 +2867,7 @@
     "TV_FACEBOOK",
     "VIDEO_VIEW_OPTIMIZATION"
   ],
-  "UnifiedThread_Platform": [
-    "INSTAGRAM",
-    "MESSENGER"
-  ],
+  "UnifiedThread_Platform": ["INSTAGRAM", "MESSENGER"],
   "CustomAudience_ClaimObjective": [
     "AUTOMOTIVE_MODEL",
     "COLLABORATIVE_ADS",
@@ -3337,10 +2897,7 @@
     "PARTNER_PROVIDED_ONLY",
     "USER_PROVIDED_ONLY"
   ],
-  "CustomAudience_SubscriptionInfo": [
-    "MESSENGER",
-    "WHATSAPP"
-  ],
+  "CustomAudience_SubscriptionInfo": ["MESSENGER", "WHATSAPP"],
   "CustomAudience_Subtype": [
     "APP",
     "BAG_OF_ACCOUNTS",
@@ -3362,18 +2919,9 @@
     "VIDEO",
     "WEBSITE"
   ],
-  "CustomAudience_UsageRestriction": [
-    "EXCLUSION_ONLY",
-    "NONE"
-  ],
-  "CustomAudience_UseForProducts": [
-    "ADS",
-    "MARKETING_MESSAGES"
-  ],
-  "CustomAudience_ActionSource": [
-    "PHYSICAL_STORE",
-    "WEBSITE"
-  ],
+  "CustomAudience_UsageRestriction": ["EXCLUSION_ONLY", "NONE"],
+  "CustomAudience_UseForProducts": ["ADS", "MARKETING_MESSAGES"],
+  "CustomAudience_ActionSource": ["PHYSICAL_STORE", "WEBSITE"],
   "CommerceOrder_Filters": [
     "HAS_CANCELLATIONS",
     "HAS_FULFILLMENTS",
@@ -3382,30 +2930,15 @@
     "NO_REFUNDS",
     "NO_SHIPMENTS"
   ],
-  "CommerceOrder_State": [
-    "COMPLETED",
-    "CREATED",
-    "FB_PROCESSING",
-    "IN_PROGRESS"
-  ],
-  "AdCreativeLinkDataMoment_Type": [
-    "FB_LIVE_SHOPPING",
-    "IG_LIVE_SHOPPING"
-  ],
-  "PaymentEnginePayment_Reason": [
-    "BANNED_USER",
-    "DENIED_REFUND",
-    "GRANTED_REPLACEMENT_ITEM"
-  ],
+  "CommerceOrder_State": ["COMPLETED", "CREATED", "FB_PROCESSING", "IN_PROGRESS"],
+  "AdCreativeLinkDataMoment_Type": ["FB_LIVE_SHOPPING", "IG_LIVE_SHOPPING"],
+  "PaymentEnginePayment_Reason": ["BANNED_USER", "DENIED_REFUND", "GRANTED_REPLACEMENT_ITEM"],
   "AdCampaignPlacementGet_EffectiveAudienceNetworkPositions": [
     "CLASSIC",
     "INSTREAM_VIDEO",
     "REWARDED_VIDEO"
   ],
-  "AdCampaignPlacementGet_EffectiveDevicePlatforms": [
-    "DESKTOP",
-    "MOBILE"
-  ],
+  "AdCampaignPlacementGet_EffectiveDevicePlatforms": ["DESKTOP", "MOBILE"],
   "AdCampaignPlacementGet_EffectiveFacebookPositions": [
     "BIZ_DISCO_FEED",
     "FACEBOOK_CONTEXTUAL_BUNDLE",
@@ -3483,25 +3016,15 @@
     "SALES",
     "TELCO"
   ],
-  "ProductFeedMediaTitlesGet_DisplayFormat": [
-    "CAROUSEL_AD",
-    "SHOPS_PDP",
-    "SINGLE_AD"
-  ],
+  "ProductFeedMediaTitlesGet_DisplayFormat": ["CAROUSEL_AD", "SHOPS_PDP", "SINGLE_AD"],
   "ProductCatalogDiagnosticGroup_AffectedEntity": [
     "product_catalog",
     "product_event",
     "product_item",
     "product_set"
   ],
-  "ProductCatalogDiagnosticGroup_AffectedFeatures": [
-    "augmented_reality",
-    "checkout"
-  ],
-  "ProductCatalogDiagnosticGroup_Severity": [
-    "MUST_FIX",
-    "OPPORTUNITY"
-  ],
+  "ProductCatalogDiagnosticGroup_AffectedFeatures": ["augmented_reality", "checkout"],
+  "ProductCatalogDiagnosticGroup_Severity": ["MUST_FIX", "OPPORTUNITY"],
   "ProductCatalogDiagnosticGroup_Type": [
     "AR_VISIBILITY_ISSUES",
     "ATTRIBUTES_INVALID",
@@ -3537,10 +3060,7 @@
     "product_item",
     "product_set"
   ],
-  "ProductCatalogDiagnosticGroup_Severities": [
-    "MUST_FIX",
-    "OPPORTUNITY"
-  ],
+  "ProductCatalogDiagnosticGroup_Severities": ["MUST_FIX", "OPPORTUNITY"],
   "ProductCatalogDiagnosticGroup_Types": [
     "AR_VISIBILITY_ISSUES",
     "ATTRIBUTES_INVALID",
@@ -3554,10 +3074,7 @@
     "POLICY_VIOLATION",
     "SHOPS_VISIBILITY_ISSUES"
   ],
-  "OfflineConversionDataSetUpload_Order": [
-    "ASCENDING",
-    "DESCENDING"
-  ],
+  "OfflineConversionDataSetUpload_Order": ["ASCENDING", "DESCENDING"],
   "OfflineConversionDataSetUpload_SortBy": [
     "API_CALLS",
     "CREATION_TIME",
@@ -3567,16 +3084,8 @@
     "IS_EXCLUDED_FOR_LIFT",
     "LAST_UPLOAD_TIME"
   ],
-  "AdRecommendation_Confidence": [
-    "HIGH",
-    "LOW",
-    "MEDIUM"
-  ],
-  "AdRecommendation_Importance": [
-    "HIGH",
-    "LOW",
-    "MEDIUM"
-  ],
+  "AdRecommendation_Confidence": ["HIGH", "LOW", "MEDIUM"],
+  "AdRecommendation_Importance": ["HIGH", "LOW", "MEDIUM"],
   "PrivateLiftStudyInstance_Operation": [
     "AGGREGATE",
     "CANCEL",
@@ -3624,9 +3133,7 @@
     "top_left",
     "top_right"
   ],
-  "AdCreativeLinkDataCustomOverlaySpec_Template": [
-    "pill_with_text"
-  ],
+  "AdCreativeLinkDataCustomOverlaySpec_Template": ["pill_with_text"],
   "AdCreativeLinkDataCustomOverlaySpec_TextColor": [
     "text_000000",
     "text_007ad0",
@@ -3654,17 +3161,8 @@
     "PENDING",
     "REVOKED"
   ],
-  "JobOpening_JobStatus": [
-    "CLOSED",
-    "DRAFT",
-    "OPEN",
-    "PROVISIONAL"
-  ],
-  "JobOpening_PlatformReviewStatus": [
-    "APPROVED",
-    "PENDING",
-    "REJECTED"
-  ],
+  "JobOpening_JobStatus": ["CLOSED", "DRAFT", "OPEN", "PROVISIONAL"],
+  "JobOpening_PlatformReviewStatus": ["APPROVED", "PENDING", "REJECTED"],
   "JobOpening_ReviewRejectionReasons": [
     "ADULT_CONTENT",
     "DISCRIMINATION",
@@ -3677,13 +3175,7 @@
     "PERSONAL_INFO",
     "SEXUAL"
   ],
-  "JobOpening_Type": [
-    "CONTRACT",
-    "FULL_TIME",
-    "INTERNSHIP",
-    "PART_TIME",
-    "VOLUNTEER"
-  ],
+  "JobOpening_Type": ["CONTRACT", "FULL_TIME", "INTERNSHIP", "PART_TIME", "VOLUNTEER"],
   "SystemUser_Role": [
     "ADMIN",
     "ADS_RIGHTS_REVIEWER",
@@ -3701,27 +3193,10 @@
     "PARTNER_CENTER_MARKETING",
     "PARTNER_CENTER_OPERATIONS"
   ],
-  "VideoPoll_Status": [
-    "closed",
-    "results_open",
-    "voting_open"
-  ],
-  "VideoPoll_Action": [
-    "ATTACH_TO_VIDEO",
-    "CLOSE",
-    "DELETE_POLL",
-    "SHOW_RESULTS",
-    "SHOW_VOTING"
-  ],
-  "ProductCatalogDataSource_IngestionSourceType": [
-    "ALL",
-    "PRIMARY",
-    "SUPPLEMENTARY"
-  ],
-  "ProductCatalog_AdditionalVerticalOption": [
-    "LOCAL_DA_CATALOG",
-    "LOCAL_PRODUCTS"
-  ],
+  "VideoPoll_Status": ["closed", "results_open", "voting_open"],
+  "VideoPoll_Action": ["ATTACH_TO_VIDEO", "CLOSE", "DELETE_POLL", "SHOW_RESULTS", "SHOW_VOTING"],
+  "ProductCatalogDataSource_IngestionSourceType": ["ALL", "PRIMARY", "SUPPLEMENTARY"],
+  "ProductCatalog_AdditionalVerticalOption": ["LOCAL_DA_CATALOG", "LOCAL_PRODUCTS"],
   "ProductCatalog_Vertical": [
     "adoptable_pets",
     "apps_and_software",
@@ -3744,25 +3219,10 @@
     "ENFORCE_CREATE_NEW_AD_ACCOUNT",
     "ENFORCE_SHARE_AD_PERFORMANCE_ACCESS"
   ],
-  "ProductCatalog_PermittedRoles": [
-    "ADMIN",
-    "ADVERTISER"
-  ],
-  "ProductCatalog_PermittedTasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "MANAGE",
-    "MANAGE_AR"
-  ],
-  "ProductCatalog_Tasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "MANAGE",
-    "MANAGE_AR"
-  ],
-  "ProductCatalog_Standard": [
-    "google"
-  ],
+  "ProductCatalog_PermittedRoles": ["ADMIN", "ADVERTISER"],
+  "ProductCatalog_PermittedTasks": ["AA_ANALYZE", "ADVERTISE", "MANAGE", "MANAGE_AR"],
+  "ProductCatalog_Tasks": ["AA_ANALYZE", "ADVERTISE", "MANAGE", "MANAGE_AR"],
+  "ProductCatalog_Standard": ["google"],
   "ProductCatalog_ItemSubType": [
     "APPLIANCES",
     "BABY_FEEDING",
@@ -3791,10 +3251,7 @@
     "VIDEO_GAME_CONSOLES_AND_VIDEO_GAMES",
     "WATCHES"
   ],
-  "ProductCatalog_ConversionType": [
-    "ATTRIBUTED",
-    "IN_SESSION"
-  ],
+  "ProductCatalog_ConversionType": ["ATTRIBUTED", "IN_SESSION"],
   "ProductCatalog_EventName": [
     "ADD_TO_CART",
     "OFFER_SUBMITTED",
@@ -3803,12 +3260,7 @@
     "TEST",
     "VIEW_ITEM"
   ],
-  "LeadgenForm_Status": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "DRAFT"
-  ],
+  "LeadgenForm_Status": ["ACTIVE", "ARCHIVED", "DELETED", "DRAFT"],
   "LeadgenForm_Locale": [
     "AR_AR",
     "CS_CZ",
@@ -3843,16 +3295,8 @@
     "ZH_HK",
     "ZH_TW"
   ],
-  "VideoCopyright_ContentCategory": [
-    "episode",
-    "movie",
-    "web"
-  ],
-  "VideoCopyright_MonitoringType": [
-    "AUDIO_ONLY",
-    "VIDEO_AND_AUDIO",
-    "VIDEO_ONLY"
-  ],
+  "VideoCopyright_ContentCategory": ["episode", "movie", "web"],
+  "VideoCopyright_MonitoringType": ["AUDIO_ONLY", "VIDEO_AND_AUDIO", "VIDEO_ONLY"],
   "AdPromotedObject_CustomEventType": [
     "ACHIEVEMENT_UNLOCKED",
     "ADD_PAYMENT_INFO",
@@ -3938,14 +3382,8 @@
     "SUBSCRIBE",
     "TUTORIAL_COMPLETION"
   ],
-  "Placement_DevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
-  "Placement_EffectiveDevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
+  "Placement_DevicePlatforms": ["desktop", "mobile"],
+  "Placement_EffectiveDevicePlatforms": ["desktop", "mobile"],
   "AdsNamingTemplate_Level": [
     "ADGROUP",
     "AD_ACCOUNT",
@@ -3957,14 +3395,8 @@
     "TOPLINE",
     "UNIQUE_ADCREATIVE"
   ],
-  "AdsDataset_SortBy": [
-    "LAST_FIRED_TIME",
-    "NAME"
-  ],
-  "MessengerBusinessTemplate_ParameterFormat": [
-    "NAMED",
-    "POSITIONAL"
-  ],
+  "AdsDataset_SortBy": ["LAST_FIRED_TIME", "NAME"],
+  "MessengerBusinessTemplate_ParameterFormat": ["NAMED", "POSITIONAL"],
   "MessengerBusinessTemplate_Status": [
     "APPROVED",
     "ARCHIVED",
@@ -3977,11 +3409,7 @@
     "PENDING_DELETION",
     "REJECTED"
   ],
-  "ManagedPartnerBusiness_PartitionType": [
-    "AUTH",
-    "FIXED",
-    "FIXED_WITHOUT_PARTITION"
-  ],
+  "ManagedPartnerBusiness_PartitionType": ["AUTH", "FIXED", "FIXED_WITHOUT_PARTITION"],
   "ManagedPartnerBusiness_SurveyBusinessType": [
     "ADVERTISER",
     "AGENCY",
@@ -4608,13 +4036,7 @@
     "TELECOM",
     "TRAVEL"
   ],
-  "EntityAtTextRange_Type": [
-    "application",
-    "event",
-    "group",
-    "page",
-    "user"
-  ],
+  "EntityAtTextRange_Type": ["application", "event", "group", "page", "user"],
   "AdAccount_Currency": [
     "AED",
     "ARS",
@@ -4672,20 +4094,8 @@
     "VND",
     "ZAR"
   ],
-  "AdAccount_PermittedTasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "ANALYZE",
-    "DRAFT",
-    "MANAGE"
-  ],
-  "AdAccount_Tasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "ANALYZE",
-    "DRAFT",
-    "MANAGE"
-  ],
+  "AdAccount_PermittedTasks": ["AA_ANALYZE", "ADVERTISE", "ANALYZE", "DRAFT", "MANAGE"],
+  "AdAccount_Tasks": ["AA_ANALYZE", "ADVERTISE", "ANALYZE", "DRAFT", "MANAGE"],
   "AdAccount_BrandSafetyContentFilterLevels": [
     "AN_RELAXED",
     "AN_STANDARD",
@@ -4746,10 +4156,7 @@
     "VIDEO",
     "WEBSITE"
   ],
-  "AdAccount_ActionSource": [
-    "PHYSICAL_STORE",
-    "WEBSITE"
-  ],
+  "AdAccount_ActionSource": ["PHYSICAL_STORE", "WEBSITE"],
   "ProductItemLandingPageData_Availability": [
     "available for order",
     "discontinued",
@@ -4776,11 +4183,7 @@
     "RESTRICTED_CONTENT",
     "UNAUTHORIZED_COMMERCIAL_USE"
   ],
-  "VideoCopyrightMatch_MatchContentType": [
-    "AUDIO_ONLY",
-    "VIDEO_AND_AUDIO",
-    "VIDEO_ONLY"
-  ],
+  "VideoCopyrightMatch_MatchContentType": ["AUDIO_ONLY", "VIDEO_AND_AUDIO", "VIDEO_ONLY"],
   "LocalServiceBusiness_Availability": [
     "AVAILABLE_FOR_ORDER",
     "DISCONTINUED",
@@ -4808,10 +4211,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "LocalServiceBusiness_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "LocalServiceBusiness_Visibility": ["PUBLISHED", "STAGING"],
   "BusinessAgreement_RequestStatus": [
     "APPROVE",
     "CANCELED",
@@ -4944,12 +4344,7 @@
     "STORE_ITEM",
     "VIDEO"
   ],
-  "AdCreative_Status": [
-    "ACTIVE",
-    "DELETED",
-    "IN_PROCESS",
-    "WITH_ISSUES"
-  ],
+  "AdCreative_Status": ["ACTIVE", "DELETED", "IN_PROCESS", "WITH_ISSUES"],
   "AdCreative_ApplinkTreatment": [
     "automatic",
     "deeplink_with_appstore_fallback",
@@ -4961,28 +4356,11 @@
     "POLITICAL",
     "POLITICAL_WITH_DIGITALLY_CREATED_MEDIA"
   ],
-  "AdCreative_CategorizationCriteria": [
-    "brand",
-    "category",
-    "product_type"
-  ],
-  "AdCreative_CategoryMediaSource": [
-    "CATEGORY",
-    "MIXED",
-    "PRODUCTS_COLLAGE",
-    "PRODUCTS_SLIDESHOW"
-  ],
-  "AdCreative_DynamicAdVoice": [
-    "DYNAMIC",
-    "STORY_OWNER"
-  ],
-  "AdCreative_ExecutionOptions": [
-    "validate_only"
-  ],
-  "AdCreative_Operator": [
-    "ALL",
-    "ANY"
-  ],
+  "AdCreative_CategorizationCriteria": ["brand", "category", "product_type"],
+  "AdCreative_CategoryMediaSource": ["CATEGORY", "MIXED", "PRODUCTS_COLLAGE", "PRODUCTS_SLIDESHOW"],
+  "AdCreative_DynamicAdVoice": ["DYNAMIC", "STORY_OWNER"],
+  "AdCreative_ExecutionOptions": ["validate_only"],
+  "AdCreative_Operator": ["ALL", "ANY"],
   "AdsPixelStatsResult_Aggregation": [
     "browser_type",
     "custom_data_field",
@@ -5001,11 +4379,7 @@
     "url",
     "url_by_rule"
   ],
-  "ProductCatalogCategory_CategorizationCriteria": [
-    "BRAND",
-    "CATEGORY",
-    "PRODUCT_TYPE"
-  ],
+  "ProductCatalogCategory_CategorizationCriteria": ["BRAND", "CATEGORY", "PRODUCT_TYPE"],
   "AdRuleExecutionSpec_ExecutionType": [
     "ADD_INTEREST_RELAXATION",
     "ADD_QUESTIONNAIRE_INTERESTS",
@@ -5027,22 +4401,10 @@
     "UPDATE_LAX_BUDGET",
     "UPDATE_LAX_DURATION"
   ],
-  "AdCreativeLinkDataImageLayerSpec_BlendingMode": [
-    "lighten",
-    "multiply",
-    "normal"
-  ],
-  "AdCreativeLinkDataImageLayerSpec_FrameSource": [
-    "custom"
-  ],
-  "AdCreativeLinkDataImageLayerSpec_ImageSource": [
-    "catalog"
-  ],
-  "AdCreativeLinkDataImageLayerSpec_LayerType": [
-    "frame_overlay",
-    "image",
-    "text_overlay"
-  ],
+  "AdCreativeLinkDataImageLayerSpec_BlendingMode": ["lighten", "multiply", "normal"],
+  "AdCreativeLinkDataImageLayerSpec_FrameSource": ["custom"],
+  "AdCreativeLinkDataImageLayerSpec_ImageSource": ["catalog"],
+  "AdCreativeLinkDataImageLayerSpec_LayerType": ["frame_overlay", "image", "text_overlay"],
   "AdCreativeLinkDataImageLayerSpec_OverlayPosition": [
     "bottom",
     "bottom_left",
@@ -5072,19 +4434,8 @@
     "roboto_condensed_regular",
     "roboto_medium"
   ],
-  "Ad_BidType": [
-    "ABSOLUTE_OCPM",
-    "CPA",
-    "CPC",
-    "CPM",
-    "MULTI_PREMIUM"
-  ],
-  "Ad_ConfiguredStatus": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
+  "Ad_BidType": ["ABSOLUTE_OCPM", "CPA", "CPC", "CPM", "MULTI_PREMIUM"],
+  "Ad_ConfiguredStatus": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
   "Ad_EffectiveStatus": [
     "ACTIVE",
     "ADSET_PAUSED",
@@ -5099,12 +4450,7 @@
     "PREAPPROVED",
     "WITH_ISSUES"
   ],
-  "Ad_Status": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
+  "Ad_Status": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
   "Ad_DatePreset": [
     "data_maximum",
     "last_14d",
@@ -5127,25 +4473,10 @@
     "today",
     "yesterday"
   ],
-  "Ad_ExecutionOptions": [
-    "include_recommendations",
-    "synchronous_ad_review",
-    "validate_only"
-  ],
-  "Ad_Operator": [
-    "ALL",
-    "ANY"
-  ],
-  "Ad_StatusOption": [
-    "ACTIVE",
-    "INHERITED_FROM_SOURCE",
-    "PAUSED"
-  ],
-  "OverrideDetails_Type": [
-    "COUNTRY",
-    "LANGUAGE",
-    "LANGUAGE_AND_COUNTRY"
-  ],
+  "Ad_ExecutionOptions": ["include_recommendations", "synchronous_ad_review", "validate_only"],
+  "Ad_Operator": ["ALL", "ANY"],
+  "Ad_StatusOption": ["ACTIVE", "INHERITED_FROM_SOURCE", "PAUSED"],
+  "OverrideDetails_Type": ["COUNTRY", "LANGUAGE", "LANGUAGE_AND_COUNTRY"],
   "ProductFeedUploadGet_InputMethod": [
     "GOOGLE_SHEETS_FETCH",
     "MANUAL_UPLOAD",
@@ -5194,14 +4525,7 @@
     "total_views",
     "views"
   ],
-  "InsightsResult_Period": [
-    "day",
-    "days_28",
-    "lifetime",
-    "month",
-    "total_over_range",
-    "week"
-  ],
+  "InsightsResult_Period": ["day", "days_28", "lifetime", "month", "total_over_range", "week"],
   "InsightsResult_DatePreset": [
     "data_maximum",
     "last_14d",
@@ -5224,11 +4548,7 @@
     "today",
     "yesterday"
   ],
-  "InsightsResult_MetricType": [
-    "default",
-    "time_series",
-    "total_value"
-  ],
+  "InsightsResult_MetricType": ["default", "time_series", "total_value"],
   "InsightsResult_Timeframe": [
     "last_14_days",
     "last_30_days",
@@ -5257,11 +4577,7 @@
     "TIER_UNLIMITED",
     "UNTIERED"
   ],
-  "Business_TwoFactorType": [
-    "admin_required",
-    "all_required",
-    "none"
-  ],
+  "Business_TwoFactorType": ["admin_required", "all_required", "none"],
   "Business_Vertical": [
     "ADVERTISING",
     "AUTOMOTIVE",
@@ -5316,12 +4632,7 @@
     "READ_PAGE_MAILBOXES",
     "VIEW_MONETIZATION_INSIGHTS"
   ],
-  "Business_SurveyBusinessType": [
-    "ADVERTISER",
-    "AGENCY",
-    "APP_DEVELOPER",
-    "PUBLISHER"
-  ],
+  "Business_SurveyBusinessType": ["ADVERTISER", "AGENCY", "APP_DEVELOPER", "PUBLISHER"],
   "Business_TimezoneId": [
     "0",
     "1",
@@ -6175,10 +5486,7 @@
     "TELECOM",
     "TRAVEL"
   ],
-  "Business_ActionSource": [
-    "PHYSICAL_STORE",
-    "WEBSITE"
-  ],
+  "Business_ActionSource": ["PHYSICAL_STORE", "WEBSITE"],
   "WhatsAppBusinessAccount_BusinessVerificationStatus": [
     "expired",
     "failed",
@@ -6211,44 +5519,14 @@
     "VIEW_PHONE_ASSETS",
     "VIEW_TEMPLATES"
   ],
-  "WhatsAppBusinessAccount_Type": [
-    "INTERACTIVE",
-    "TEXT"
-  ],
-  "WhatsAppBusinessAccount_Category": [
-    "AUTHENTICATION",
-    "MARKETING",
-    "UTILITY"
-  ],
-  "WhatsAppBusinessAccount_DisplayFormat": [
-    "ORDER_DETAILS"
-  ],
-  "WhatsAppBusinessAccount_ParameterFormat": [
-    "NAMED",
-    "POSITIONAL"
-  ],
-  "WhatsAppBusinessAccount_SendType": [
-    "CAMPAIGN",
-    "DIRECT"
-  ],
-  "WhatsAppBusinessAccount_SubCategory": [
-    "ORDER_DETAILS",
-    "ORDER_STATUS",
-    "RICH_ORDER_STATUS"
-  ],
-  "WhatsAppBusinessAccount_ProviderName": [
-    "BILLDESK",
-    "PAYU",
-    "RAZORPAY",
-    "UPI_VPA",
-    "ZAAKPAY"
-  ],
-  "ProductFeedSchedule_Interval": [
-    "DAILY",
-    "HOURLY",
-    "MONTHLY",
-    "WEEKLY"
-  ],
+  "WhatsAppBusinessAccount_Type": ["INTERACTIVE", "TEXT"],
+  "WhatsAppBusinessAccount_Category": ["AUTHENTICATION", "MARKETING", "UTILITY"],
+  "WhatsAppBusinessAccount_DisplayFormat": ["ORDER_DETAILS"],
+  "WhatsAppBusinessAccount_ParameterFormat": ["NAMED", "POSITIONAL"],
+  "WhatsAppBusinessAccount_SendType": ["CAMPAIGN", "DIRECT"],
+  "WhatsAppBusinessAccount_SubCategory": ["ORDER_DETAILS", "ORDER_STATUS", "RICH_ORDER_STATUS"],
+  "WhatsAppBusinessAccount_ProviderName": ["BILLDESK", "PAYU", "RAZORPAY", "UPI_VPA", "ZAAKPAY"],
+  "ProductFeedSchedule_Interval": ["DAILY", "HOURLY", "MONTHLY", "WEEKLY"],
   "AdCreativeLinkData_FormatOption": [
     "carousel_ar_effects",
     "carousel_images_multi_items",
@@ -6257,11 +5535,7 @@
     "collection_video",
     "single_image"
   ],
-  "VideoCopyrightRule_Source": [
-    "MATCH_SETTINGS_DIALOG",
-    "RULES_SELECTOR",
-    "RULES_TAB"
-  ],
+  "VideoCopyrightRule_Source": ["MATCH_SETTINGS_DIALOG", "RULES_SELECTOR", "RULES_TAB"],
   "IGUserExportForCAM_CreatorCountries": [
     "AC",
     "AD",
@@ -6516,12 +5790,7 @@
     "ZM",
     "ZW"
   ],
-  "IGUserExportForCAM_CreatorGender": [
-    "custom",
-    "female",
-    "male",
-    "unknown"
-  ],
+  "IGUserExportForCAM_CreatorGender": ["custom", "female", "male", "unknown"],
   "IGUserExportForCAM_MajorAudienceCountries": [
     "AC",
     "AD",
@@ -6776,21 +6045,9 @@
     "ZM",
     "ZW"
   ],
-  "IGUserExportForCAM_MajorAudienceGender": [
-    "custom",
-    "female",
-    "male",
-    "unknown"
-  ],
-  "AdAsyncRequestSet_NotificationMode": [
-    "OFF",
-    "ON_COMPLETE"
-  ],
-  "ProfilePictureSource_Type": [
-    "album",
-    "small",
-    "thumbnail"
-  ],
+  "IGUserExportForCAM_MajorAudienceGender": ["custom", "female", "male", "unknown"],
+  "AdAsyncRequestSet_NotificationMode": ["OFF", "ON_COMPLETE"],
+  "ProfilePictureSource_Type": ["album", "small", "thumbnail"],
   "HomeListing_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -6799,33 +6056,16 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "HomeListing_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
-  "AsyncRequest_Status": [
-    "ERROR",
-    "EXECUTING",
-    "FINISHED",
-    "INITIALIZED"
-  ],
-  "AsyncRequest_Type": [
-    "ASYNC_ADGROUP_CREATION",
-    "BATCH_API",
-    "DRAFTS"
-  ],
+  "HomeListing_Visibility": ["PUBLISHED", "STAGING"],
+  "AsyncRequest_Status": ["ERROR", "EXECUTING", "FINISHED", "INITIALIZED"],
+  "AsyncRequest_Type": ["ASYNC_ADGROUP_CREATION", "BATCH_API", "DRAFTS"],
   "Campaign_BidStrategy": [
     "COST_CAP",
     "LOWEST_COST_WITHOUT_CAP",
     "LOWEST_COST_WITH_BID_CAP",
     "LOWEST_COST_WITH_MIN_ROAS"
   ],
-  "Campaign_ConfiguredStatus": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
+  "Campaign_ConfiguredStatus": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
   "Campaign_EffectiveStatus": [
     "ACTIVE",
     "ARCHIVED",
@@ -6834,12 +6074,7 @@
     "PAUSED",
     "WITH_ISSUES"
   ],
-  "Campaign_Status": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DELETED",
-    "PAUSED"
-  ],
+  "Campaign_Status": ["ACTIVE", "ARCHIVED", "DELETED", "PAUSED"],
   "Campaign_DatePreset": [
     "data_maximum",
     "last_14d",
@@ -6862,10 +6097,7 @@
     "today",
     "yesterday"
   ],
-  "Campaign_ExecutionOptions": [
-    "include_recommendations",
-    "validate_only"
-  ],
+  "Campaign_ExecutionOptions": ["include_recommendations", "validate_only"],
   "Campaign_Objective": [
     "APP_INSTALLS",
     "BRAND_AWARENESS",
@@ -6889,10 +6121,7 @@
     "STORE_VISITS",
     "VIDEO_VIEWS"
   ],
-  "Campaign_SmartPromotionType": [
-    "GUIDED_CREATION",
-    "SMART_APP_PROMOTION"
-  ],
+  "Campaign_SmartPromotionType": ["GUIDED_CREATION", "SMART_APP_PROMOTION"],
   "Campaign_SpecialAdCategories": [
     "CREDIT",
     "EMPLOYMENT",
@@ -7156,10 +6385,7 @@
     "ZM",
     "ZW"
   ],
-  "Campaign_Operator": [
-    "ALL",
-    "ANY"
-  ],
+  "Campaign_Operator": ["ALL", "ANY"],
   "Campaign_SpecialAdCategory": [
     "CREDIT",
     "EMPLOYMENT",
@@ -7169,37 +6395,12 @@
     "NONE",
     "ONLINE_GAMBLING_AND_GAMING"
   ],
-  "Campaign_StatusOption": [
-    "ACTIVE",
-    "INHERITED_FROM_SOURCE",
-    "PAUSED"
-  ],
-  "PagePost_With": [
-    "LOCATION"
-  ],
-  "PagePost_BackdatedTimeGranularity": [
-    "day",
-    "hour",
-    "min",
-    "month",
-    "none",
-    "year"
-  ],
-  "PagePost_FeedStoryVisibility": [
-    "hidden",
-    "visible"
-  ],
-  "PagePost_TimelineVisibility": [
-    "forced_allow",
-    "hidden",
-    "normal"
-  ],
-  "AdRule_Status": [
-    "DELETED",
-    "DISABLED",
-    "ENABLED",
-    "HAS_ISSUES"
-  ],
+  "Campaign_StatusOption": ["ACTIVE", "INHERITED_FROM_SOURCE", "PAUSED"],
+  "PagePost_With": ["LOCATION"],
+  "PagePost_BackdatedTimeGranularity": ["day", "hour", "min", "month", "none", "year"],
+  "PagePost_FeedStoryVisibility": ["hidden", "visible"],
+  "PagePost_TimelineVisibility": ["forced_allow", "hidden", "normal"],
+  "AdRule_Status": ["DELETED", "DISABLED", "ENABLED", "HAS_ISSUES"],
   "AdRule_UiCreationSource": [
     "AM_ACCOUNT_OVERVIEW_RECOMMENDATIONS",
     "AM_ACTIVITY_HISTORY_TABLE",
@@ -7232,10 +6433,7 @@
     "RULE_SYD_REDIRECT",
     "RULE_TEMPLATES_DIALOG"
   ],
-  "AdRuleExecutionOptions_Operator": [
-    "EQUAL",
-    "IN"
-  ],
+  "AdRuleExecutionOptions_Operator": ["EQUAL", "IN"],
   "AdCreativeLinkDataCallToAction_Type": [
     "ADD_TO_CART",
     "APPLY_NOW",
@@ -7621,24 +6819,10 @@
     "UNKNOWN",
     "XIAOMI"
   ],
-  "Application_Platform": [
-    "ANDROID",
-    "IOS"
-  ],
-  "Application_RequestType": [
-    "APP_INDEXING",
-    "BUTTON_SAMPLING",
-    "PLUGIN"
-  ],
-  "Application_MutationMethod": [
-    "ADD",
-    "DELETE",
-    "REPLACE"
-  ],
-  "Application_PostMethod": [
-    "CODELESS",
-    "EYMT"
-  ],
+  "Application_Platform": ["ANDROID", "IOS"],
+  "Application_RequestType": ["APP_INDEXING", "BUTTON_SAMPLING", "PLUGIN"],
+  "Application_MutationMethod": ["ADD", "DELETE", "REPLACE"],
+  "Application_PostMethod": ["CODELESS", "EYMT"],
   "Application_OwnerPermissions": [
     "DEVELOP",
     "MANAGE",
@@ -7663,10 +6847,7 @@
     "VIEW_PHONE_ASSETS",
     "VIEW_TEMPLATES"
   ],
-  "BusinessUser_InvitedUserType": [
-    "FB",
-    "MWA"
-  ],
+  "BusinessUser_InvitedUserType": ["FB", "MWA"],
   "BusinessUser_Role": [
     "ADMIN",
     "ADS_RIGHTS_REVIEWER",
@@ -7701,15 +6882,8 @@
     "PARTNER_CENTER_MARKETING",
     "PARTNER_CENTER_OPERATIONS"
   ],
-  "URL_Scopes": [
-    "NEWS_TAB",
-    "NEWS_TAB_DEV_ENV"
-  ],
-  "ReachFrequencyPrediction_Action": [
-    "cancel",
-    "quote",
-    "reserve"
-  ],
+  "URL_Scopes": ["NEWS_TAB", "NEWS_TAB_DEV_ENV"],
+  "ReachFrequencyPrediction_Action": ["cancel", "quote", "reserve"],
   "ReachFrequencyPrediction_BuyingType": [
     "AUCTION",
     "DEPRECATED_REACH_BLOCK",
@@ -7735,12 +6909,7 @@
     "SPANISH",
     "SPORTS"
   ],
-  "AdAccountAgencyFeeConfig_Status": [
-    "ACTIVE",
-    "ARCHIVED",
-    "DRAFT",
-    "UNKNOWN"
-  ],
+  "AdAccountAgencyFeeConfig_Status": ["ACTIVE", "ARCHIVED", "DRAFT", "UNKNOWN"],
   "AdRuleTrigger_Operator": [
     "ALL",
     "ANY",
@@ -7900,23 +7069,9 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "AutomotiveModel_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
-  "AdImage_Status": [
-    "ACTIVE",
-    "DELETED",
-    "INTERNAL"
-  ],
-  "Photo_BackdatedTimeGranularity": [
-    "day",
-    "hour",
-    "min",
-    "month",
-    "none",
-    "year"
-  ],
+  "AutomotiveModel_Visibility": ["PUBLISHED", "STAGING"],
+  "AdImage_Status": ["ACTIVE", "DELETED", "INTERNAL"],
+  "Photo_BackdatedTimeGranularity": ["day", "hour", "min", "month", "none", "year"],
   "Photo_UnpublishedContentType": [
     "ADS_POST",
     "DRAFT",
@@ -7927,11 +7082,7 @@
     "SCHEDULED",
     "SCHEDULED_RECURRING"
   ],
-  "Photo_Type": [
-    "profile",
-    "tagged",
-    "uploaded"
-  ],
+  "Photo_Type": ["profile", "tagged", "uploaded"],
   "CreatorAssetCreative_ModerationStatus": [
     "ARCHIVED",
     "ELIGIBLE",
@@ -8448,30 +7599,11 @@
     "STORE_VISITS",
     "VIDEO_VIEWS"
   ],
-  "AdAccountTargetingUnified_Mode": [
-    "best_performing",
-    "recently_used",
-    "related",
-    "suggestions"
-  ],
-  "Targeting_DevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
-  "Targeting_EffectiveDevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
-  "Group_JoinSetting": [
-    "ADMIN_ONLY",
-    "ANYONE",
-    "NONE"
-  ],
-  "Group_PostPermissions": [
-    "ADMIN_ONLY",
-    "ANYONE",
-    "NONE"
-  ],
+  "AdAccountTargetingUnified_Mode": ["best_performing", "recently_used", "related", "suggestions"],
+  "Targeting_DevicePlatforms": ["desktop", "mobile"],
+  "Targeting_EffectiveDevicePlatforms": ["desktop", "mobile"],
+  "Group_JoinSetting": ["ADMIN_ONLY", "ANYONE", "NONE"],
+  "Group_PostPermissions": ["ADMIN_ONLY", "ANYONE", "NONE"],
   "Group_Purpose": [
     "CASUAL",
     "COWORKERS",
@@ -8551,23 +7683,9 @@
     "PENDING_EMAIL_VERIFICATION",
     "PENDING_INTEGRITY_REVIEW"
   ],
-  "ProductFeed_Delimiter": [
-    "AUTODETECT",
-    "BAR",
-    "COMMA",
-    "SEMICOLON",
-    "TAB",
-    "TILDE"
-  ],
-  "ProductFeed_IngestionSourceType": [
-    "primary_feed",
-    "supplementary_feed"
-  ],
-  "ProductFeed_QuotedFieldsMode": [
-    "AUTODETECT",
-    "OFF",
-    "ON"
-  ],
+  "ProductFeed_Delimiter": ["AUTODETECT", "BAR", "COMMA", "SEMICOLON", "TAB", "TILDE"],
+  "ProductFeed_IngestionSourceType": ["primary_feed", "supplementary_feed"],
+  "ProductFeed_QuotedFieldsMode": ["AUTODETECT", "OFF", "ON"],
   "ProductFeed_Encoding": [
     "AUTODETECT",
     "LATIN1",
@@ -8636,9 +7754,7 @@
     "SMART_PIXEL_LANGUAGE_OR_COUNTRY",
     "VERSION"
   ],
-  "ProductFeed_UseCase": [
-    "CREATOR_ASSET"
-  ],
+  "ProductFeed_UseCase": ["CREATOR_ASSET"],
   "OfflineProductItem_ImageFetchStatus": [
     "DIRECT_UPLOAD",
     "FETCHED",
@@ -8647,10 +7763,7 @@
     "OUTDATED",
     "PARTIAL_FETCH"
   ],
-  "OfflineProductItem_Visibility": [
-    "PUBLISHED",
-    "STAGING"
-  ],
+  "OfflineProductItem_Visibility": ["PUBLISHED", "STAGING"],
   "AdStudy_Type": [
     "BACKEND_AB_TESTING",
     "CONTINUOUS_LIFT_CONFIG",
@@ -8661,14 +7774,8 @@
     "SPLIT_TEST",
     "VERSION_CONTROL"
   ],
-  "AdAssetCustomizationRuleCustomizationSpec_DevicePlatforms": [
-    "desktop",
-    "mobile"
-  ],
-  "AdsPixel_SortBy": [
-    "LAST_FIRED_TIME",
-    "NAME"
-  ],
+  "AdAssetCustomizationRuleCustomizationSpec_DevicePlatforms": ["desktop", "mobile"],
+  "AdsPixel_SortBy": ["LAST_FIRED_TIME", "NAME"],
   "AdsPixel_AutomaticMatchingFields": [
     "country",
     "ct",
@@ -8682,42 +7789,17 @@
     "st",
     "zp"
   ],
-  "AdsPixel_DataUseSetting": [
-    "ADVERTISING_AND_ANALYTICS",
-    "ANALYTICS_ONLY",
-    "EMPTY"
-  ],
+  "AdsPixel_DataUseSetting": ["ADVERTISING_AND_ANALYTICS", "ANALYTICS_ONLY", "EMPTY"],
   "AdsPixel_FirstPartyCookieStatus": [
     "EMPTY",
     "FIRST_PARTY_COOKIE_DISABLED",
     "FIRST_PARTY_COOKIE_ENABLED"
   ],
-  "AdsPixel_PermittedTasks": [
-    "ADVERTISE",
-    "ANALYZE",
-    "EDIT",
-    "UPLOAD"
-  ],
-  "AdsPixel_Tasks": [
-    "AA_ANALYZE",
-    "ADVERTISE",
-    "ANALYZE",
-    "EDIT",
-    "UPLOAD"
-  ],
-  "AdRuleHistoryResult_ObjectType": [
-    "AD",
-    "ADSET",
-    "CAMPAIGN"
-  ],
-  "LiveVideo_Projection": [
-    "CUBEMAP",
-    "EQUIRECTANGULAR",
-    "HALF_EQUIRECTANGULAR"
-  ],
-  "LiveVideo_SpatialAudioFormat": [
-    "ambiX_4"
-  ],
+  "AdsPixel_PermittedTasks": ["ADVERTISE", "ANALYZE", "EDIT", "UPLOAD"],
+  "AdsPixel_Tasks": ["AA_ANALYZE", "ADVERTISE", "ANALYZE", "EDIT", "UPLOAD"],
+  "AdRuleHistoryResult_ObjectType": ["AD", "ADSET", "CAMPAIGN"],
+  "LiveVideo_Projection": ["CUBEMAP", "EQUIRECTANGULAR", "HALF_EQUIRECTANGULAR"],
+  "LiveVideo_SpatialAudioFormat": ["ambiX_4"],
   "LiveVideo_Status": [
     "LIVE_NOW",
     "SCHEDULED_CANCELED",
@@ -8725,15 +7807,8 @@
     "SCHEDULED_UNPUBLISHED",
     "UNPUBLISHED"
   ],
-  "LiveVideo_StereoscopicMode": [
-    "LEFT_RIGHT",
-    "MONO",
-    "TOP_BOTTOM"
-  ],
-  "LiveVideo_StreamType": [
-    "AMBIENT",
-    "REGULAR"
-  ],
+  "LiveVideo_StereoscopicMode": ["LEFT_RIGHT", "MONO", "TOP_BOTTOM"],
+  "LiveVideo_StreamType": ["AMBIENT", "REGULAR"],
   "LiveVideo_BroadcastStatus": [
     "LIVE",
     "LIVE_STOPPED",
@@ -8745,10 +7820,7 @@
     "UNPUBLISHED",
     "VOD"
   ],
-  "LiveVideo_Source": [
-    "owner",
-    "target"
-  ],
+  "LiveVideo_Source": ["owner", "target"],
   "LiveVideo_LiveCommentModerationSetting": [
     "DEFAULT",
     "DISCUSSION",
@@ -8761,11 +7833,7 @@
     "SUPPORTER",
     "TAGGED"
   ],
-  "LiveVideo_PersistentStreamKeyStatus": [
-    "DISABLE",
-    "ENABLE",
-    "REGENERATE"
-  ],
+  "LiveVideo_PersistentStreamKeyStatus": ["DISABLE", "ENABLE", "REGENERATE"],
   "CustomConversionStatsResult_Aggregation": [
     "count",
     "device_type",
@@ -8817,16 +7885,8 @@
     "SCHEDULED",
     "SUCCESS"
   ],
-  "ThirdPartyPartnerPanelRequest_StudyType": [
-    "BRAND_LIFT",
-    "PANEL_SALES_ATTRIBUTION",
-    "REACH"
-  ],
-  "ProductSetAppsAndSoftwareGet_DisplayFormat": [
-    "CAROUSEL_AD",
-    "SHOPS_PDP",
-    "SINGLE_AD"
-  ],
+  "ThirdPartyPartnerPanelRequest_StudyType": ["BRAND_LIFT", "PANEL_SALES_ATTRIBUTION", "REACH"],
+  "ProductSetAppsAndSoftwareGet_DisplayFormat": ["CAROUSEL_AD", "SHOPS_PDP", "SINGLE_AD"],
   "AdsInsights_ActionAttributionWindows": [
     "1d_click",
     "1d_ev",
@@ -8866,12 +7926,7 @@
     "signal_source_bucket",
     "standard_event_content_type"
   ],
-  "AdsInsights_ActionReportTime": [
-    "conversion",
-    "impression",
-    "lifetime",
-    "mixed"
-  ],
+  "AdsInsights_ActionReportTime": ["conversion", "impression", "lifetime", "mixed"],
   "AdsInsights_Breakdowns": [
     "ad_extension_domain",
     "ad_extension_url",
@@ -8977,12 +8032,7 @@
     "today",
     "yesterday"
   ],
-  "AdsInsights_Level": [
-    "account",
-    "ad",
-    "adset",
-    "campaign"
-  ],
+  "AdsInsights_Level": ["account", "ad", "adset", "campaign"],
   "AdsInsights_SummaryActionBreakdowns": [
     "action_canvas_component_name",
     "action_carousel_card_id",

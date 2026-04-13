@@ -1,7 +1,7 @@
-import type { PublishResult } from "./types.ts";
+import type { ContentPublishingLimitResponseFields } from "../../generated/objects/content-publishing-limit-response.ts";
 import type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
 import type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
-import type { ContentPublishingLimitResponseFields } from "../../generated/objects/content-publishing-limit-response.ts";
+import type { PublishResult } from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
@@ -38,7 +38,9 @@ export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
      * Create a resumable upload container for large videos.
      * After creating, call uploadResumable() to upload the video, then poll and publish.
      */
-    async createResumable(params: Omit<CreateContainerParams, "upload_type">): Promise<{ id: string }> {
+    async createResumable(
+      params: Omit<CreateContainerParams, "upload_type">,
+    ): Promise<{ id: string }> {
       const result = await igUser.media.create({ ...params, upload_type: "resumable" });
       return { id: (result as { id: string }).id };
     },
@@ -63,7 +65,10 @@ export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
       } else if (opts.fileData) {
         // Upload from local file data
         headers.offset = "0";
-        headers.file_size = String(opts.fileSize ?? (opts.fileData instanceof Blob ? opts.fileData.size : opts.fileData.byteLength));
+        headers.file_size = String(
+          opts.fileSize ??
+            (opts.fileData instanceof Blob ? opts.fileData.size : opts.fileData.byteLength),
+        );
         body = opts.fileData;
       } else {
         throw new Error("Either fileUrl or fileData must be provided for resumable upload");
@@ -96,7 +101,9 @@ export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
       // creation_id is typed as number in the spec but container IDs are large integers
       // that would lose precision with Number(). Pass as-is since the HTTP layer
       // serializes to string in URL-encoded form anyway.
-      const result = await igUser.createMediaPublish({ creation_id: containerId as unknown as number });
+      const result = await igUser.createMediaPublish({
+        creation_id: containerId as unknown as number,
+      });
       return { id: (result as { id: string }).id };
     },
 
@@ -105,9 +112,11 @@ export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
      * Instagram accounts are limited to 100 API-published posts per 24-hour period.
      */
     async getPublishingLimit() {
-      return igUser.contentPublishingLimit({
-        fields: ["config", "quota_usage"] as (keyof ContentPublishingLimitResponseFields)[],
-      }).toArray();
+      return igUser
+        .contentPublishingLimit({
+          fields: ["config", "quota_usage"] as (keyof ContentPublishingLimitResponseFields)[],
+        })
+        .toArray();
     },
   };
 }

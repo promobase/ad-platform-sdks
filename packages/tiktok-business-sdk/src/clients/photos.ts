@@ -1,6 +1,8 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  PublishPhotoOptions, PublishStatusResponse,
+  PublishPhotoOptions,
+  PublishStatusResponse,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -8,7 +10,12 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 export function createPhotos(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
 
-  async function request<T>(method: string, path: string, body?: Record<string, unknown>, query?: Record<string, unknown>): Promise<T> {
+  async function request<T>(
+    method: string,
+    path: string,
+    body?: Record<string, unknown>,
+    query?: Record<string, unknown>,
+  ): Promise<T> {
     let url = `${TT_API_BASE}${path}`;
     if (query) {
       const params = new URLSearchParams();
@@ -35,7 +42,9 @@ export function createPhotos(opts: TikTokClientOptions) {
     const responseBody = (await response.json()) as TikTokResponse<T>;
 
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
 
     return responseBody.data;

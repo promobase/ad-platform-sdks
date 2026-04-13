@@ -13,7 +13,8 @@ export function createComments(api: CreateClientReturn) {
     /** List comments on a media item using the generated typed cursor. */
     async list(mediaId: string, opts?: { fields?: (keyof IGCommentFields)[]; limit?: number }) {
       const cursor = api.iGMedia(mediaId).comments.list({
-        fields: opts?.fields ?? ["id", "text", "username", "timestamp"] as (keyof IGCommentFields)[],
+        fields:
+          opts?.fields ?? (["id", "text", "username", "timestamp"] as (keyof IGCommentFields)[]),
         params: opts?.limit ? { limit: opts.limit } : undefined,
       });
       return cursor.toArray();

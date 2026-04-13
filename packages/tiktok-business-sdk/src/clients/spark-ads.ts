@@ -1,6 +1,9 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  AuthorizationDays, SparkAdsAuthResult, SparkAdsAuthStatus,
+  AuthorizationDays,
+  SparkAdsAuthResult,
+  SparkAdsAuthStatus,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -12,7 +15,12 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 export function createSparkAds(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
 
-  async function request<T>(method: string, path: string, body?: Record<string, unknown>, query?: Record<string, unknown>): Promise<T> {
+  async function request<T>(
+    method: string,
+    path: string,
+    body?: Record<string, unknown>,
+    query?: Record<string, unknown>,
+  ): Promise<T> {
     let url = `${TT_API_BASE}${path}`;
     if (query) {
       const params = new URLSearchParams();
@@ -31,14 +39,19 @@ export function createSparkAds(opts: TikTokClientOptions) {
     const response = await fetch(url, init);
     const responseBody = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
     return responseBody.data;
   }
 
   return {
     /** Enable ad authorization on a post. Returns an auth code for advertisers. */
-    async enable(itemId: string, authorizationDays?: AuthorizationDays): Promise<SparkAdsAuthResult> {
+    async enable(
+      itemId: string,
+      authorizationDays?: AuthorizationDays,
+    ): Promise<SparkAdsAuthResult> {
       return request<SparkAdsAuthResult>("POST", "/business/post/authorize/setting/", {
         business_id: businessId,
         item_id: itemId,
@@ -57,7 +70,10 @@ export function createSparkAds(opts: TikTokClientOptions) {
     },
 
     /** Extend the authorization validity period for a post. */
-    async extend(itemId: string, authorizationDays?: AuthorizationDays): Promise<SparkAdsAuthResult> {
+    async extend(
+      itemId: string,
+      authorizationDays?: AuthorizationDays,
+    ): Promise<SparkAdsAuthResult> {
       return request<SparkAdsAuthResult>("POST", "/business/post/authorize/", {
         business_id: businessId,
         item_id: itemId,
@@ -75,10 +91,14 @@ export function createSparkAds(opts: TikTokClientOptions) {
 
     /** Delete the authorization code for a post. */
     async deleteAuthCode(itemId: string): Promise<void> {
-      await request<{ item_id: string; auth_code_status: string }>("POST", "/business/post/authorize/delete/", {
-        business_id: businessId,
-        item_id: itemId,
-      });
+      await request<{ item_id: string; auth_code_status: string }>(
+        "POST",
+        "/business/post/authorize/delete/",
+        {
+          business_id: businessId,
+          item_id: itemId,
+        },
+      );
     },
   };
 }

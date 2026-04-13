@@ -80,14 +80,21 @@ export class ApiClient {
     if (params) {
       for (const [key, value] of Object.entries(params)) {
         if (value !== undefined && value !== null) {
-          url.searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
+          url.searchParams.set(
+            key,
+            typeof value === "object" ? JSON.stringify(value) : String(value),
+          );
         }
       }
     }
     return url.toString();
   }
 
-  private async request<T>(method: string, url: string, body?: Record<string, unknown>): Promise<T> {
+  private async request<T>(
+    method: string,
+    url: string,
+    body?: Record<string, unknown>,
+  ): Promise<T> {
     // Pre-request rate limit check
     if (this.rateLimiter) {
       const check = this.rateLimiter.check();
@@ -126,9 +133,15 @@ export class ApiClient {
 
         if (!response.ok) {
           // Check if retryable
-          if (attempt < maxAttempts - 1 && this.retryConfig.retryableStatuses.includes(response.status)) {
-            const backoff = this.retryConfig.initialBackoffMs * Math.pow(2, attempt);
-            if (this.debug) console.log(`[SDK] Retrying (attempt ${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`);
+          if (
+            attempt < maxAttempts - 1 &&
+            this.retryConfig.retryableStatuses.includes(response.status)
+          ) {
+            const backoff = this.retryConfig.initialBackoffMs * 2 ** attempt;
+            if (this.debug)
+              console.log(
+                `[SDK] Retrying (attempt ${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`,
+              );
             if (this.delay) await this.delay(backoff);
             continue;
           }
@@ -144,8 +157,11 @@ export class ApiClient {
         // Network error (fetch threw TypeError)
         if (attempt < maxAttempts - 1 && this.retryConfig.retryOnNetworkError) {
           lastError = err;
-          const backoff = this.retryConfig.initialBackoffMs * Math.pow(2, attempt);
-          if (this.debug) console.log(`[SDK] Network error, retrying (attempt ${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`);
+          const backoff = this.retryConfig.initialBackoffMs * 2 ** attempt;
+          if (this.debug)
+            console.log(
+              `[SDK] Network error, retrying (attempt ${attempt + 1}/${this.retryConfig.maxRetries}) after ${backoff}ms`,
+            );
           if (this.delay) await this.delay(backoff);
           continue;
         }
@@ -156,7 +172,10 @@ export class ApiClient {
     throw lastError;
   }
 
-  async get<T>(path: string, opts: { fields: readonly string[]; params?: Record<string, unknown> }): Promise<T> {
+  async get<T>(
+    path: string,
+    opts: { fields: readonly string[]; params?: Record<string, unknown> },
+  ): Promise<T> {
     const params = { ...opts.params, fields: opts.fields.join(",") };
     return this.request<T>("GET", this.buildUrl(path, params));
   }
@@ -169,7 +188,10 @@ export class ApiClient {
     await this.request<unknown>("DELETE", this.buildUrl(path, params));
   }
 
-  async getEdge<T = Record<string, unknown>>(path: string, opts: { fields: readonly string[]; params?: Record<string, unknown> }): Promise<PaginatedResponse<T>> {
+  async getEdge<T = Record<string, unknown>>(
+    path: string,
+    opts: { fields: readonly string[]; params?: Record<string, unknown> },
+  ): Promise<PaginatedResponse<T>> {
     const params = { ...opts.params, fields: opts.fields.join(",") };
     return this.request<PaginatedResponse<T>>("GET", this.buildUrl(path, params));
   }

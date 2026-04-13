@@ -1,6 +1,8 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  PropertyInfo, AddPropertyOptions,
+  AddPropertyOptions,
+  PropertyInfo,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -29,7 +31,9 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
     });
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
+      throw new Error(
+        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
+      );
     }
     return body.data;
   }
@@ -45,12 +49,21 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
     });
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
+      throw new Error(
+        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
+      );
     }
     return body.data;
   }
 
-  function normalize(raw: { property_type: PropertyTypeApi; property_url?: string; url?: string; property_status: number; signature?: string; file_name?: string }): PropertyInfo {
+  function normalize(raw: {
+    property_type: PropertyTypeApi;
+    property_url?: string;
+    url?: string;
+    property_status: number;
+    signature?: string;
+    file_name?: string;
+  }): PropertyInfo {
     return {
       propertyType: propertyTypeFromApi(raw.property_type),
       propertyUrl: raw.property_url ?? raw.url ?? "",
@@ -63,60 +76,72 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
   return {
     /** List all URL properties (domains + URL prefixes) for the account. */
     async list(): Promise<PropertyInfo[]> {
-      const data = await get<{ property_list?: Array<{ property_type: PropertyTypeApi; property_url: string; property_status: number; signature?: string; file_name?: string }> }>(
-        "/business/property/list/",
-        { business_id: businessId, app_id: appId, secret: appSecret },
-      );
+      const data = await get<{
+        property_list?: Array<{
+          property_type: PropertyTypeApi;
+          property_url: string;
+          property_status: number;
+          signature?: string;
+          file_name?: string;
+        }>;
+      }>("/business/property/list/", { business_id: businessId, app_id: appId, secret: appSecret });
       return data.property_list?.map(normalize) ?? [];
     },
 
     /** Add a URL property (domain or URL prefix) for domain verification. */
     async add(params: AddPropertyOptions): Promise<PropertyInfo> {
-      const data = await post<{ url_property_info: { property_type: PropertyTypeApi; url: string; property_status: number; signature: string; file_name: string } }>(
-        "/business/property/add/",
-        {
-          business_id: businessId,
-          app_id: appId,
-          secret: appSecret,
-          url_property_meta: {
-            url: params.propertyUrl,
-            property_type: propertyTypeToApi(params.propertyType),
-          },
+      const data = await post<{
+        url_property_info: {
+          property_type: PropertyTypeApi;
+          url: string;
+          property_status: number;
+          signature: string;
+          file_name: string;
+        };
+      }>("/business/property/add/", {
+        business_id: businessId,
+        app_id: appId,
+        secret: appSecret,
+        url_property_meta: {
+          url: params.propertyUrl,
+          property_type: propertyTypeToApi(params.propertyType),
         },
-      );
+      });
       return normalize(data.url_property_info);
     },
 
     /** Verify (check) a URL property's verification status. */
     async verify(params: AddPropertyOptions): Promise<PropertyInfo> {
-      const data = await post<{ url_property_info: { property_type: PropertyTypeApi; url: string; property_status: number; signature: string; file_name: string } }>(
-        "/business/property/verify/",
-        {
-          business_id: businessId,
-          app_id: appId,
-          secret: appSecret,
-          url_property_meta: {
-            url: params.propertyUrl,
-            property_type: propertyTypeToApi(params.propertyType),
-          },
+      const data = await post<{
+        url_property_info: {
+          property_type: PropertyTypeApi;
+          url: string;
+          property_status: number;
+          signature: string;
+          file_name: string;
+        };
+      }>("/business/property/verify/", {
+        business_id: businessId,
+        app_id: appId,
+        secret: appSecret,
+        url_property_meta: {
+          url: params.propertyUrl,
+          property_type: propertyTypeToApi(params.propertyType),
         },
-      );
+      });
       return normalize(data.url_property_info);
     },
 
     /** Delete verified ownership of a URL property. Uses app credentials, not Access-Token. */
     async delete(params: AddPropertyOptions): Promise<void> {
-      await post<Record<string, never>>(
-        "/business/property/delete/",
-        {
-          app_id: appId,
-          secret: appSecret,
-          url_property_meta: {
-            url: params.propertyUrl,
-            property_type: propertyTypeToApi(params.propertyType),
-          },
+      await post<Record<string, never>>("/business/property/delete/", {
+        app_id: appId,
+        secret: appSecret,
+        url_property_meta: {
+          url: params.propertyUrl,
+          property_type: propertyTypeToApi(params.propertyType),
         },
-      );
+      });
     },
   };
 }

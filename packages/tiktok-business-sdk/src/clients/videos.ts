@@ -1,7 +1,10 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  PublishVideoOptions, PublishStatusResponse,
-  ListVideosOptions, ListVideosResponse,
+  ListVideosOptions,
+  ListVideosResponse,
+  PublishStatusResponse,
+  PublishVideoOptions,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -9,7 +12,12 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 export function createVideos(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
 
-  async function request<T>(method: string, path: string, body?: Record<string, unknown>, query?: Record<string, unknown>): Promise<T> {
+  async function request<T>(
+    method: string,
+    path: string,
+    body?: Record<string, unknown>,
+    query?: Record<string, unknown>,
+  ): Promise<T> {
     let url = `${TT_API_BASE}${path}`;
     if (query) {
       const params = new URLSearchParams();
@@ -36,7 +44,9 @@ export function createVideos(opts: TikTokClientOptions) {
     const responseBody = (await response.json()) as TikTokResponse<T>;
 
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
 
     return responseBody.data;
@@ -66,9 +76,15 @@ export function createVideos(opts: TikTokClientOptions) {
         postInfo.music_sound_info = {
           music_sound_id: opts.musicSoundInfo.music_sound_id,
           music_sound_volume: opts.musicSoundInfo.music_sound_volume,
-          ...(opts.musicSoundInfo.music_sound_start !== undefined ? { music_sound_start: opts.musicSoundInfo.music_sound_start } : {}),
-          ...(opts.musicSoundInfo.music_sound_end !== undefined ? { music_sound_end: opts.musicSoundInfo.music_sound_end } : {}),
-          ...(opts.musicSoundInfo.video_original_sound_volume !== undefined ? { video_original_sound_volume: opts.musicSoundInfo.video_original_sound_volume } : {}),
+          ...(opts.musicSoundInfo.music_sound_start !== undefined
+            ? { music_sound_start: opts.musicSoundInfo.music_sound_start }
+            : {}),
+          ...(opts.musicSoundInfo.music_sound_end !== undefined
+            ? { music_sound_end: opts.musicSoundInfo.music_sound_end }
+            : {}),
+          ...(opts.musicSoundInfo.video_original_sound_volume !== undefined
+            ? { video_original_sound_volume: opts.musicSoundInfo.video_original_sound_volume }
+            : {}),
         };
       }
 
@@ -95,7 +111,10 @@ export function createVideos(opts: TikTokClientOptions) {
      * Wait for a video publish task to complete.
      * Polls the status endpoint until PUBLISH_COMPLETE or FAILED.
      */
-    async waitForPublish(publishId: string, opts?: { intervalMs?: number; maxAttempts?: number }): Promise<PublishStatusResponse> {
+    async waitForPublish(
+      publishId: string,
+      opts?: { intervalMs?: number; maxAttempts?: number },
+    ): Promise<PublishStatusResponse> {
       const intervalMs = opts?.intervalMs ?? 5_000;
       const maxAttempts = opts?.maxAttempts ?? 60;
 

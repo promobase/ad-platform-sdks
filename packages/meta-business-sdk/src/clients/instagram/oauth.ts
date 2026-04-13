@@ -1,4 +1,4 @@
-import type { OAuthConfig, ShortLivedToken, LongLivedToken } from "./types.ts";
+import type { LongLivedToken, OAuthConfig, ShortLivedToken } from "./types.ts";
 
 const IG_OAUTH_BASE = "https://api.instagram.com/oauth";
 const IG_GRAPH_BASE = "https://graph.instagram.com";

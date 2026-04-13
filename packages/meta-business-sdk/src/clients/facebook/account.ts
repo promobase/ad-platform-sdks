@@ -7,18 +7,31 @@ export function createAccount(api: CreateClientReturn, pageId: string) {
     /** Get Page profile info using the generated Page node. */
     async get(fields?: (keyof PageFields)[]) {
       return api.page(pageId).get({
-        fields: fields ?? [
-          "id", "name", "username", "about", "category", "fan_count",
-          "followers_count", "link", "picture", "verification_status",
-        ] as (keyof PageFields)[],
+        fields:
+          fields ??
+          ([
+            "id",
+            "name",
+            "username",
+            "about",
+            "category",
+            "fan_count",
+            "followers_count",
+            "link",
+            "picture",
+            "verification_status",
+          ] as (keyof PageFields)[]),
       });
     },
 
     /** Get connected Instagram accounts for this Page. */
     async getInstagramAccounts() {
-      return api.page(pageId).instagramAccounts({
-        fields: ["id", "username", "profile_picture_url", "followers_count"] as any,
-      }).toArray();
+      return api
+        .page(pageId)
+        .instagramAccounts({
+          fields: ["id", "username", "profile_picture_url", "followers_count"] as any,
+        })
+        .toArray();
     },
   };
 }

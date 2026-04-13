@@ -1,5 +1,5 @@
+import type { DelayFn, RateLimiter, RetryConfig } from "@promobase/sdk-runtime";
 import { HttpClient } from "@promobase/sdk-runtime";
-import type { RateLimiter, DelayFn, RetryConfig } from "@promobase/sdk-runtime";
 import { parseGoogleAdsError } from "./errors.ts";
 
 export interface GoogleAdsClientOptions {

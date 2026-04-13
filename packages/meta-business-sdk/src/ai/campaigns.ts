@@ -13,7 +13,15 @@ export function createCampaignTools(opts: { api: MetaClient; adAccountId: string
       }),
       execute: async ({ limit }) => {
         const cursor = api.adAccount(adAccountId).campaigns.list({
-          fields: ["id", "name", "status", "objective", "daily_budget", "lifetime_budget", "created_time"],
+          fields: [
+            "id",
+            "name",
+            "status",
+            "objective",
+            "daily_budget",
+            "lifetime_budget",
+            "created_time",
+          ],
           params: limit ? { limit } : undefined,
         });
         return cursor.toArray();
@@ -27,7 +35,18 @@ export function createCampaignTools(opts: { api: MetaClient; adAccountId: string
       }),
       execute: async ({ campaignId }) => {
         return api.campaign(campaignId).get({
-          fields: ["id", "name", "status", "objective", "daily_budget", "lifetime_budget", "bid_strategy", "created_time", "start_time", "stop_time"],
+          fields: [
+            "id",
+            "name",
+            "status",
+            "objective",
+            "daily_budget",
+            "lifetime_budget",
+            "bid_strategy",
+            "created_time",
+            "start_time",
+            "stop_time",
+          ],
         });
       },
     }),
@@ -36,10 +55,20 @@ export function createCampaignTools(opts: { api: MetaClient; adAccountId: string
       description: "Create a new ad campaign.",
       inputSchema: z.object({
         name: z.string().describe("Campaign name"),
-        objective: z.string().describe("Campaign objective (e.g., OUTCOME_AWARENESS, OUTCOME_ENGAGEMENT, OUTCOME_SALES, OUTCOME_TRAFFIC)"),
-        status: z.enum(["ACTIVE", "PAUSED"]).optional().describe("Initial status (default: PAUSED)"),
+        objective: z
+          .string()
+          .describe(
+            "Campaign objective (e.g., OUTCOME_AWARENESS, OUTCOME_ENGAGEMENT, OUTCOME_SALES, OUTCOME_TRAFFIC)",
+          ),
+        status: z
+          .enum(["ACTIVE", "PAUSED"])
+          .optional()
+          .describe("Initial status (default: PAUSED)"),
         dailyBudget: z.number().optional().describe("Daily budget in cents"),
-        specialAdCategories: z.array(z.string()).optional().describe("Special ad categories (e.g., CREDIT, EMPLOYMENT, HOUSING)"),
+        specialAdCategories: z
+          .array(z.string())
+          .optional()
+          .describe("Special ad categories (e.g., CREDIT, EMPLOYMENT, HOUSING)"),
       }),
       execute: async ({ name, objective, status, dailyBudget, specialAdCategories }) => {
         return api.adAccount(adAccountId).campaigns.create({
@@ -57,7 +86,10 @@ export function createCampaignTools(opts: { api: MetaClient; adAccountId: string
       inputSchema: z.object({
         campaignId: z.string().describe("Campaign ID"),
         name: z.string().optional().describe("New campaign name"),
-        status: z.enum(["ACTIVE", "PAUSED", "ARCHIVED", "DELETED"]).optional().describe("New status"),
+        status: z
+          .enum(["ACTIVE", "PAUSED", "ARCHIVED", "DELETED"])
+          .optional()
+          .describe("New status"),
         dailyBudget: z.number().optional().describe("New daily budget in cents"),
       }),
       execute: async ({ campaignId, name, status, dailyBudget }) => {
@@ -108,7 +140,10 @@ export function createCampaignTools(opts: { api: MetaClient; adAccountId: string
     ad_account_insights: tool({
       description: "Get performance insights for the ad account.",
       inputSchema: z.object({
-        datePreset: z.string().optional().describe("Date preset (e.g., today, yesterday, last_7d, last_30d, this_month)"),
+        datePreset: z
+          .string()
+          .optional()
+          .describe("Date preset (e.g., today, yesterday, last_7d, last_30d, this_month)"),
       }),
       execute: async ({ datePreset }) => {
         const cursor = api.adAccount(adAccountId).insights.list({

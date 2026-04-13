@@ -1,13 +1,16 @@
 // Re-export generated types
-export type { PageFields } from "../../generated/objects/page.ts";
-export type { PagePostFields } from "../../generated/objects/page-post.ts";
-export type { PhotoFields } from "../../generated/objects/photo.ts";
+
 export type { AdVideoFields } from "../../generated/objects/ad-video.ts";
 export type { CommentFields } from "../../generated/objects/comment.ts";
 export type { InsightsResultFields } from "../../generated/objects/insights-result.ts";
-export type { PageCreateFeedParams } from "../../generated/objects/page.ts";
-export type { PageCreatePhotosParams } from "../../generated/objects/page.ts";
-export type { PageCreateVideosParams } from "../../generated/objects/page.ts";
+export type {
+  PageCreateFeedParams,
+  PageCreatePhotosParams,
+  PageCreateVideosParams,
+  PageFields,
+} from "../../generated/objects/page.ts";
+export type { PagePostFields } from "../../generated/objects/page-post.ts";
+export type { PhotoFields } from "../../generated/objects/photo.ts";
 
 export interface FacebookPageClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;

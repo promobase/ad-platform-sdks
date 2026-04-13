@@ -62,7 +62,11 @@ export interface PublishVideoOptions {
 
 // -- Photo publish --
 
-export type PrivacyLevel = "PUBLIC_TO_EVERYONE" | "MUTUAL_FOLLOW_FRIENDS" | "FOLLOWER_OF_CREATOR" | "SELF_ONLY";
+export type PrivacyLevel =
+  | "PUBLIC_TO_EVERYONE"
+  | "MUTUAL_FOLLOW_FRIENDS"
+  | "FOLLOWER_OF_CREATOR"
+  | "SELF_ONLY";
 
 export interface PublishPhotoOptions {
   photoUrls: string[];
@@ -80,7 +84,11 @@ export interface PublishPhotoOptions {
 
 // -- Publish status --
 
-export type PublishStatus = "PROCESSING_DOWNLOAD" | "PUBLISH_COMPLETE" | "FAILED" | "SEND_TO_USER_INBOX";
+export type PublishStatus =
+  | "PROCESSING_DOWNLOAD"
+  | "PUBLISH_COMPLETE"
+  | "FAILED"
+  | "SEND_TO_USER_INBOX";
 
 export interface PublishStatusResponse {
   status: PublishStatus;
@@ -91,14 +99,38 @@ export interface PublishStatusResponse {
 // -- Video list --
 
 export type VideoField =
-  | "item_id" | "media_type" | "thumbnail_url" | "share_url" | "embed_url"
-  | "caption" | "video_duration" | "likes" | "comments" | "shares" | "favorites"
-  | "create_time" | "reach" | "video_views"
-  | "total_time_watched" | "average_time_watched" | "full_video_watched_rate"
-  | "new_followers" | "profile_views" | "website_clicks" | "phone_number_clicks"
-  | "lead_submissions" | "app_download_clicks" | "email_clicks" | "address_clicks"
-  | "video_view_retention" | "impression_sources" | "audience_genders"
-  | "audience_countries" | "audience_cities" | "audience_types" | "engagement_likes";
+  | "item_id"
+  | "media_type"
+  | "thumbnail_url"
+  | "share_url"
+  | "embed_url"
+  | "caption"
+  | "video_duration"
+  | "likes"
+  | "comments"
+  | "shares"
+  | "favorites"
+  | "create_time"
+  | "reach"
+  | "video_views"
+  | "total_time_watched"
+  | "average_time_watched"
+  | "full_video_watched_rate"
+  | "new_followers"
+  | "profile_views"
+  | "website_clicks"
+  | "phone_number_clicks"
+  | "lead_submissions"
+  | "app_download_clicks"
+  | "email_clicks"
+  | "address_clicks"
+  | "video_view_retention"
+  | "impression_sources"
+  | "audience_genders"
+  | "audience_countries"
+  | "audience_cities"
+  | "audience_types"
+  | "engagement_likes";
 
 export interface ListVideosOptions {
   fields?: VideoField[];
@@ -135,15 +167,39 @@ export interface ListVideosResponse {
 // -- Account --
 
 export type AccountField =
-  | "is_business_account" | "profile_image" | "username" | "profile_deep_link"
-  | "display_name" | "bio_description" | "is_verified"
-  | "following_count" | "followers_count" | "total_likes" | "videos_count"
-  | "audience_ages" | "audience_genders" | "audience_countries" | "audience_cities"
-  | "video_views" | "unique_video_views" | "profile_views" | "likes" | "comments"
-  | "shares" | "followers_count" | "phone_number_clicks" | "lead_submissions"
-  | "app_download_clicks" | "bio_link_clicks" | "email_clicks" | "address_clicks"
-  | "daily_total_followers" | "daily_new_followers" | "daily_lost_followers"
-  | "audience_activity" | "engaged_audience";
+  | "is_business_account"
+  | "profile_image"
+  | "username"
+  | "profile_deep_link"
+  | "display_name"
+  | "bio_description"
+  | "is_verified"
+  | "following_count"
+  | "followers_count"
+  | "total_likes"
+  | "videos_count"
+  | "audience_ages"
+  | "audience_genders"
+  | "audience_countries"
+  | "audience_cities"
+  | "video_views"
+  | "unique_video_views"
+  | "profile_views"
+  | "likes"
+  | "comments"
+  | "shares"
+  | "followers_count"
+  | "phone_number_clicks"
+  | "lead_submissions"
+  | "app_download_clicks"
+  | "bio_link_clicks"
+  | "email_clicks"
+  | "address_clicks"
+  | "daily_total_followers"
+  | "daily_new_followers"
+  | "daily_lost_followers"
+  | "audience_activity"
+  | "engaged_audience";
 
 export interface AccountInfoOptions {
   fields?: AccountField[];
@@ -267,14 +323,30 @@ export interface TokenInfo {
 // -- Benchmarks --
 
 export type BusinessCategory =
-  | "ART_AND_CRAFTS" | "AUTOMOTIVE_AND_TRANSPORTATION" | "BABY"
-  | "BEAUTY" | "CLOTHING_AND_ACCESSORIES" | "EDUCATION_AND_TRAINING"
-  | "ELECTRONICS" | "FINANCE_AND_INVESTING" | "FOOD_AND_BEVERAGE"
-  | "GAMING" | "HEALTH_AND_WELLNESS" | "HOME_FURNITURE_AND_APPLIANCES"
-  | "MACHINERY_AND_EQUIPMENT" | "MEDIA_AND_ENTERTAINMENT" | "PERSONAL_BLOG"
-  | "PETS" | "PROFESSIONAL_SERVICES" | "PUBLIC_ADMINISTRATION"
-  | "REAL_ESTATE" | "RESTAURANTS_AND_BARS" | "SHOPPING_AND_RETAIL"
-  | "SOFTWARE_AND_APPS" | "SPORTS_FITNESS_AND_OUTDOORS" | "TRAVEL_AND_TOURISM"
+  | "ART_AND_CRAFTS"
+  | "AUTOMOTIVE_AND_TRANSPORTATION"
+  | "BABY"
+  | "BEAUTY"
+  | "CLOTHING_AND_ACCESSORIES"
+  | "EDUCATION_AND_TRAINING"
+  | "ELECTRONICS"
+  | "FINANCE_AND_INVESTING"
+  | "FOOD_AND_BEVERAGE"
+  | "GAMING"
+  | "HEALTH_AND_WELLNESS"
+  | "HOME_FURNITURE_AND_APPLIANCES"
+  | "MACHINERY_AND_EQUIPMENT"
+  | "MEDIA_AND_ENTERTAINMENT"
+  | "PERSONAL_BLOG"
+  | "PETS"
+  | "PROFESSIONAL_SERVICES"
+  | "PUBLIC_ADMINISTRATION"
+  | "REAL_ESTATE"
+  | "RESTAURANTS_AND_BARS"
+  | "SHOPPING_AND_RETAIL"
+  | "SOFTWARE_AND_APPS"
+  | "SPORTS_FITNESS_AND_OUTDOORS"
+  | "TRAVEL_AND_TOURISM"
   | "OTHERS";
 
 export interface BenchmarkData {
@@ -357,9 +429,17 @@ export type MusicDateRange = "1DAY" | "7DAY" | "30DAY" | "90DAY";
 // -- Mentions API --
 
 export type MentionVideoField =
-  | "item_id" | "create_time" | "video_link" | "caption"
-  | "likes" | "comments" | "shares" | "thumbnail_url"
-  | "views" | "reach" | "creator_handle_name";
+  | "item_id"
+  | "create_time"
+  | "video_link"
+  | "caption"
+  | "likes"
+  | "comments"
+  | "shares"
+  | "thumbnail_url"
+  | "views"
+  | "reach"
+  | "creator_handle_name";
 
 export interface MentionVideo {
   item_id: string;
@@ -386,9 +466,17 @@ export interface ListMentionedVideosOptions {
 }
 
 export type MentionCommentField =
-  | "item_id" | "video_link" | "caption" | "video_likes" | "thumbnail_url"
-  | "commenter_display_name" | "comment_id" | "comment_type"
-  | "comment_text" | "comment_create_time" | "comment_likes";
+  | "item_id"
+  | "video_link"
+  | "caption"
+  | "video_likes"
+  | "thumbnail_url"
+  | "commenter_display_name"
+  | "comment_id"
+  | "comment_type"
+  | "comment_text"
+  | "comment_create_time"
+  | "comment_likes";
 
 export interface MentionComment {
   item_id?: string;
@@ -463,8 +551,18 @@ export interface Conversation {
   conversation_id: string;
   update_time: number;
   referral?: {
-    ad?: { advertiser_id: string; ad_id: string; timestamp: number; ad_name: string; embed_url: string }[];
-    short_link?: { ref: string; prefilled_message: string; prefilled_message_audit_status: string }[];
+    ad?: {
+      advertiser_id: string;
+      ad_id: string;
+      timestamp: number;
+      ad_name: string;
+      embed_url: string;
+    }[];
+    short_link?: {
+      ref: string;
+      prefilled_message: string;
+      prefilled_message_audit_status: string;
+    }[];
   };
 }
 

@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { adGroupAds } from "../../src/clients/ad-group-ads.ts";
 
@@ -61,7 +61,9 @@ test("get returns first row's adGroupAd or null", async () => {
     expect(body.query).toContain("FROM ad_group_ad");
     return new Response(
       JSON.stringify({
-        results: [{ adGroupAd: { resourceName: "customers/123/adGroupAds/777~888", status: "ENABLED" } }],
+        results: [
+          { adGroupAd: { resourceName: "customers/123/adGroupAds/777~888", status: "ENABLED" } },
+        ],
       }),
       { status: 200 },
     );

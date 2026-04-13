@@ -18,7 +18,7 @@ export interface WaitOptions {
   isVideo: boolean;
   polling: PollingConfig;
   getStatus: (containerId: string) => Promise<string>;
-  label?: string;  // for error messages
+  label?: string; // for error messages
 }
 
 export async function waitForContainer(opts: WaitOptions): Promise<void> {
@@ -34,7 +34,9 @@ export async function waitForContainer(opts: WaitOptions): Promise<void> {
       case "PUBLISHED":
         return;
       case "ERROR":
-        throw new Error(`Container ${containerId}${label ? ` (${label})` : ""} failed with status ERROR`);
+        throw new Error(
+          `Container ${containerId}${label ? ` (${label})` : ""} failed with status ERROR`,
+        );
       case "EXPIRED":
         throw new Error(`Container ${containerId}${label ? ` (${label})` : ""} expired`);
       case "IN_PROGRESS":
@@ -46,6 +48,6 @@ export async function waitForContainer(opts: WaitOptions): Promise<void> {
   }
 
   throw new Error(
-    `Container ${containerId}${label ? ` (${label})` : ""} did not finish after ${polling.maxAttempts} attempts`
+    `Container ${containerId}${label ? ` (${label})` : ""} did not finish after ${polling.maxAttempts} attempts`,
   );
 }

@@ -1,6 +1,6 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { Cursor, type PaginationStrategy } from "../src/cursor.ts";
+import { afterEach, expect, mock, test } from "bun:test";
 import { ApiClient } from "../src/client.ts";
+import { Cursor, type PaginationStrategy } from "../src/cursor.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -16,14 +16,24 @@ function mockFetchPages(pages: { data: unknown[]; after?: string }[]) {
   let callIndex = 0;
   globalThis.fetch = mock(() => {
     const page = pages[callIndex++]!;
-    return Promise.resolve(new Response(JSON.stringify({
-      data: page.data,
-      paging: { cursors: { after: page.after }, ...(page.after ? { next: "https://next" } : {}) },
-    }), { status: 200, headers: { "Content-Type": "application/json" } }));
+    return Promise.resolve(
+      new Response(
+        JSON.stringify({
+          data: page.data,
+          paging: {
+            cursors: { after: page.after },
+            ...(page.after ? { next: "https://next" } : {}),
+          },
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
+    );
   }) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 test("next() returns first page", async () => {
   mockFetchPages([{ data: [{ id: "1" }, { id: "2" }], after: "c1" }]);
@@ -54,14 +64,24 @@ test("async iteration across pages", async () => {
 test("toArray()", async () => {
   mockFetchPages([{ data: [{ id: "1" }], after: "c1" }, { data: [{ id: "2" }] }]);
   const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com" });
-  const all = await new Cursor<{ id: string }>(client, "items", { fields: ["id"] }, testPagination).toArray();
+  const all = await new Cursor<{ id: string }>(
+    client,
+    "items",
+    { fields: ["id"] },
+    testPagination,
+  ).toArray();
   expect(all).toHaveLength(2);
 });
 
 test("take(n)", async () => {
   mockFetchPages([{ data: [{ id: "1" }, { id: "2" }], after: "c1" }, { data: [{ id: "3" }] }]);
   const client = new ApiClient({ accessToken: "tok", baseUrl: "https://api.example.com" });
-  const first2 = await new Cursor<{ id: string }>(client, "items", { fields: ["id"] }, testPagination).take(2);
+  const first2 = await new Cursor<{ id: string }>(
+    client,
+    "items",
+    { fields: ["id"] },
+    testPagination,
+  ).take(2);
   expect(first2).toHaveLength(2);
 });
 

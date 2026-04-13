@@ -41,6 +41,11 @@ export class TikTokApiError extends ApiError {
         requestId: typeof b.request_id === "string" ? b.request_id : "",
       });
     }
-    return new TikTokApiError({ message: "Unknown TikTok API error", status, code: 0, requestId: "" });
+    return new TikTokApiError({
+      message: "Unknown TikTok API error",
+      status,
+      code: 0,
+      requestId: "",
+    });
   }
 }

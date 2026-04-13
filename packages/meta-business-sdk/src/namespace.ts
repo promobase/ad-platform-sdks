@@ -7,55 +7,61 @@
  *   const ig = Meta.Instagram.createClient({ api, igAccountId: "..." });
  */
 
-import { createTypedClient } from "./generated/client-factory.ts";
-import type { MetaClientOptions } from "./generated/client-factory.ts";
-import { FacebookApiError } from "./errors.ts";
-import { BatchBuilder } from "./batch.ts";
+import { filterTools, filterToolsByName, limitTools } from "./ai/filter.ts";
+// AI SDK tools
+import {
+  createCampaignTools,
+  createFacebookTools,
+  createInstagramTools,
+  createMetaTools,
+  createThreadsTools,
+} from "./ai/index.ts";
+import { withMiddleware } from "./ai/middleware.ts";
+import { createRouter } from "./ai/router.ts";
 import type { BatchHandle, ResolveBatchHandles } from "./batch.ts";
-import { MetaRateLimiter } from "./rate-limiter.ts";
-import type { MetaRateLimiterOptions } from "./rate-limiter.ts";
-
+import { BatchBuilder } from "./batch.ts";
+// Facebook
+import { createFacebookOAuth, createFacebookPageClient } from "./clients/facebook/index.ts";
+import type {
+  OAuthConfig as FacebookOAuthConfig,
+  FacebookPageClientOptions,
+} from "./clients/facebook/types.ts";
 // Instagram
 import { createInstagramClient, createInstagramOAuth } from "./clients/instagram/index.ts";
-import type { InstagramClientOptions } from "./clients/instagram/types.ts";
-import type { OAuthConfig as InstagramOAuthConfig } from "./clients/instagram/types.ts";
-
-// Facebook
-import { createFacebookPageClient, createFacebookOAuth } from "./clients/facebook/index.ts";
-import type { FacebookPageClientOptions } from "./clients/facebook/types.ts";
-import type { OAuthConfig as FacebookOAuthConfig } from "./clients/facebook/types.ts";
-
+import type {
+  InstagramClientOptions,
+  OAuthConfig as InstagramOAuthConfig,
+} from "./clients/instagram/types.ts";
 // Threads
 import { createThreadsClient, createThreadsOAuth } from "./clients/threads/index.ts";
-import type { ThreadsClientOptions } from "./clients/threads/types.ts";
-import type { OAuthConfig as ThreadsOAuthConfig } from "./clients/threads/types.ts";
-
-// AI SDK tools
-import { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "./ai/index.ts";
-import { withMiddleware } from "./ai/middleware.ts";
-import { filterTools, filterToolsByName, limitTools } from "./ai/filter.ts";
-import { createRouter } from "./ai/router.ts";
-
+import type {
+  ThreadsClientOptions,
+  OAuthConfig as ThreadsOAuthConfig,
+} from "./clients/threads/types.ts";
+import type { WebhookParseOptions, WebhookParseResult } from "./clients/webhooks.ts";
 // Webhooks
 import {
+  parseFacebookWebhook,
+  parseInstagramWebhook,
+  parseThreadsWebhook,
+  safeParseFacebookWebhook,
+  safeParseInstagramWebhook,
+  safeParseThreadsWebhook,
   verifyWebhookChallenge,
   verifyWebhookSignature,
-  parseInstagramWebhook,
-  parseFacebookWebhook,
-  parseThreadsWebhook,
-  safeParseInstagramWebhook,
-  safeParseFacebookWebhook,
-  safeParseThreadsWebhook,
   WebhookParseError,
 } from "./clients/webhooks.ts";
-import type { WebhookParseOptions, WebhookParseResult } from "./clients/webhooks.ts";
-
 // Zod schemas
 import {
-  igWebhookPayloadSchema,
   fbWebhookPayloadSchema,
+  igWebhookPayloadSchema,
   threadsWebhookPayloadSchema,
 } from "./clients/webhooks-schemas.ts";
+import { FacebookApiError } from "./errors.ts";
+import type { MetaClientOptions } from "./generated/client-factory.ts";
+import { createTypedClient } from "./generated/client-factory.ts";
+import type { MetaRateLimiterOptions } from "./rate-limiter.ts";
+import { MetaRateLimiter } from "./rate-limiter.ts";
 
 export const Meta = {
   /** Create a typed Meta Graph API client with 314 node accessors. */
@@ -156,16 +162,16 @@ export const Meta = {
 
 // Also export types that consumers may need
 export type {
-  MetaClientOptions,
-  MetaRateLimiterOptions,
+  BatchHandle,
+  FacebookOAuthConfig,
+  FacebookPageClientOptions,
   InstagramClientOptions,
   InstagramOAuthConfig,
-  FacebookPageClientOptions,
-  FacebookOAuthConfig,
+  MetaClientOptions,
+  MetaRateLimiterOptions,
+  ResolveBatchHandles,
   ThreadsClientOptions,
   ThreadsOAuthConfig,
   WebhookParseOptions,
   WebhookParseResult,
-  BatchHandle,
-  ResolveBatchHandles,
 };

@@ -1,18 +1,28 @@
-import { test, expect } from "bun:test";
-import { buildDepGraph, findCycles, type DepGraph } from "../../src/codegen/dep-graph.ts";
+import { expect, test } from "bun:test";
+import { buildDepGraph, type DepGraph, findCycles } from "../../src/codegen/dep-graph.ts";
 
 // Minimal Spec type for testing
 interface Spec {
   name: string;
   fields: { name: string; type: string }[];
-  apis: { method: string; endpoint?: string; return: string; params: { name: string; type: string; required: boolean }[] }[];
+  apis: {
+    method: string;
+    endpoint?: string;
+    return: string;
+    params: { name: string; type: string; required: boolean }[];
+  }[];
 }
 
 function makeSpec(name: string, fieldTypes: string[], apiReturnTypes: string[]): Spec {
   return {
     name,
     fields: fieldTypes.map((t, i) => ({ name: `field_${i}`, type: t })),
-    apis: apiReturnTypes.map((r, i) => ({ method: "GET", endpoint: `edge_${i}`, return: r, params: [] })),
+    apis: apiReturnTypes.map((r, i) => ({
+      method: "GET",
+      endpoint: `edge_${i}`,
+      return: r,
+      params: [],
+    })),
   };
 }
 

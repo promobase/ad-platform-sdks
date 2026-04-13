@@ -4,7 +4,10 @@ type PageNode = ReturnType<CreateClientReturn["page"]>;
 export function createMessaging(page: PageNode) {
   return {
     /** Send a Messenger DM. */
-    async send(recipientPsid: string, message: { text?: string; attachmentUrl?: string; attachmentType?: string }): Promise<{ messageId: string; recipientId: string }> {
+    async send(
+      recipientPsid: string,
+      message: { text?: string; attachmentUrl?: string; attachmentType?: string },
+    ): Promise<{ messageId: string; recipientId: string }> {
       const msgBody: Record<string, unknown> = {};
       if (message.text) {
         msgBody.text = message.text;
@@ -23,7 +26,11 @@ export function createMessaging(page: PageNode) {
     },
 
     /** Reply to a specific message in a conversation. */
-    async reply(recipientPsid: string, replyToMid: string, text: string): Promise<{ messageId: string; recipientId: string }> {
+    async reply(
+      recipientPsid: string,
+      replyToMid: string,
+      text: string,
+    ): Promise<{ messageId: string; recipientId: string }> {
       const result = await page.createMessage({
         recipient: { id: recipientPsid },
         messaging_type: "RESPONSE",

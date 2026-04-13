@@ -1,6 +1,6 @@
+import type { Tool } from "ai";
 import { tool } from "ai";
 import { z } from "zod";
-import type { Tool } from "ai";
 import { filterTools, type ToolCategory } from "./filter.ts";
 
 export interface RouterOptions {
@@ -39,7 +39,9 @@ export function createRouter(opts: RouterOptions) {
     select_tool_category: tool({
       description: `Select which TikTok tool categories to activate. Available: ${categories.join(", ")}. You can select multiple. After selecting, the specific tools become available.`,
       inputSchema: z.object({
-        categories: z.array(z.enum(categories as [string, ...string[]])).describe("Categories to activate"),
+        categories: z
+          .array(z.enum(categories as [string, ...string[]]))
+          .describe("Categories to activate"),
       }),
       execute: async ({ categories: selected }: { categories: string[] }) => {
         selectedCategories = selected as ToolCategory[];

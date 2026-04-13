@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { ads } from "../../src/clients/ads.ts";
 
@@ -38,16 +38,14 @@ test("get queries FROM ad_group_ad and extracts ad", async () => {
 });
 
 test("list returns ads from ad_group_ad rows", async () => {
-  const client = makeClient(() =>
-    new Response(
-      JSON.stringify({
-        results: [
-          { adGroupAd: { ad: { id: "1" } } },
-          { adGroupAd: { ad: { id: "2" } } },
-        ],
-      }),
-      { status: 200 },
-    ),
+  const client = makeClient(
+    () =>
+      new Response(
+        JSON.stringify({
+          results: [{ adGroupAd: { ad: { id: "1" } } }, { adGroupAd: { ad: { id: "2" } } }],
+        }),
+        { status: 200 },
+      ),
   );
   const all = await ads(client, "123").list();
   expect(all.map((a) => a.id)).toEqual(["1", "2"]);

@@ -1,13 +1,9 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { gaql } from "../../../src/clients/gaql/builder.ts";
 
-function makeClient(
-  respond: (url: string, init?: RequestInit) => Response,
-): HttpClient {
-  const fetchMock = mock(async (url: string, init?: RequestInit) =>
-    respond(url, init),
-  );
+function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
+  const fetchMock = mock(async (url: string, init?: RequestInit) => respond(url, init));
   return new HttpClient({
     baseUrl: "https://googleads.googleapis.com",
     getHeaders: async () => ({ authorization: "Bearer tok" }),
@@ -23,10 +19,7 @@ test("execute posts serialized GAQL and returns rows", async () => {
     expect(url).toContain("/v23/customers/123/googleAds:search");
     return new Response(
       JSON.stringify({
-        results: [
-          { campaign: { id: "1", name: "A" } },
-          { campaign: { id: "2", name: "B" } },
-        ],
+        results: [{ campaign: { id: "1", name: "A" } }, { campaign: { id: "2", name: "B" } }],
       }),
       { status: 200 },
     );
@@ -54,17 +47,11 @@ test("stream paginates through nextPageToken", async () => {
         { status: 200 },
       );
     }
-    return new Response(
-      JSON.stringify({ results: [{ campaign: { id: "3" } }] }),
-      { status: 200 },
-    );
+    return new Response(JSON.stringify({ results: [{ campaign: { id: "3" } }] }), { status: 200 });
   });
 
   const out: string[] = [];
-  for await (const row of gaql
-    .from("campaign")
-    .select("campaign.id")
-    .stream(client, "123")) {
+  for await (const row of gaql.from("campaign").select("campaign.id").stream(client, "123")) {
     out.push(row.campaign.id);
   }
   expect(out).toEqual(["1", "2", "3"]);
@@ -85,21 +72,12 @@ test("toArray/take/first work", async () => {
       ),
   );
 
-  const all = await gaql
-    .from("campaign")
-    .select("campaign.id")
-    .toArray(client, "123");
+  const all = await gaql.from("campaign").select("campaign.id").toArray(client, "123");
   expect(all.map((r) => r.campaign.id)).toEqual(["1", "2", "3"]);
 
-  const two = await gaql
-    .from("campaign")
-    .select("campaign.id")
-    .take(2, client, "123");
+  const two = await gaql.from("campaign").select("campaign.id").take(2, client, "123");
   expect(two).toHaveLength(2);
 
-  const firstRow = await gaql
-    .from("campaign")
-    .select("campaign.id")
-    .first(client, "123");
+  const firstRow = await gaql.from("campaign").select("campaign.id").first(client, "123");
   expect(firstRow?.campaign.id).toBe("1");
 });

@@ -1,6 +1,6 @@
-import type { ProtoRoot, MessageAst, EnumAst } from "./parser.ts";
-import { resolveType } from "./type-resolver.ts";
 import { snakeToCamel } from "./http-binding.ts";
+import type { EnumAst, MessageAst, ProtoRoot } from "./parser.ts";
+import { resolveType } from "./type-resolver.ts";
 
 const SCALAR_TYPES = new Set([
   "string",
@@ -163,11 +163,7 @@ export function emitGaqlCatalog(root: ProtoRoot, opts: EmitterOptions): GaqlCata
       return `// Generated. Do not edit by hand.\nexport type SegmentField =\n${lines.join("\n") || "  never"};\n`;
     },
     renderFieldMapFile() {
-      const all = [
-        ...[...resources.values()].flatMap((r) => r.fields),
-        ...metrics,
-        ...segments,
-      ];
+      const all = [...[...resources.values()].flatMap((r) => r.fields), ...metrics, ...segments];
       const enumImports = new Set<string>();
       for (const f of all) if (f.enumImport) enumImports.add(f.enumImport);
       const importLines = [...enumImports]
@@ -214,7 +210,7 @@ export function emitGaqlCatalog(root: ProtoRoot, opts: EmitterOptions): GaqlCata
       for (const r of resources.values()) {
         lines.push(`export * from "./resources/${r.resourceName}.ts";`);
       }
-      return lines.join("\n") + "\n";
+      return `${lines.join("\n")}\n`;
     },
   };
 }

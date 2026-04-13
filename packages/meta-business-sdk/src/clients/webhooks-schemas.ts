@@ -4,19 +4,23 @@ import { z } from "zod";
 
 export const igWebhookAttachmentSchema = z.object({
   type: z.string(),
-  payload: z.object({
-    url: z.string().optional(),
-  }).optional(),
+  payload: z
+    .object({
+      url: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const igWebhookMessageSchema = z.object({
   mid: z.string(),
   text: z.string().optional(),
   attachments: z.array(igWebhookAttachmentSchema).optional(),
-  reply_to: z.object({
-    mid: z.string().optional(),
-    story: z.object({ id: z.string(), url: z.string() }).optional(),
-  }).optional(),
+  reply_to: z
+    .object({
+      mid: z.string().optional(),
+      story: z.object({ id: z.string(), url: z.string() }).optional(),
+    })
+    .optional(),
   is_echo: z.boolean().optional(),
 });
 
@@ -49,10 +53,12 @@ export const igWebhookCommentChangeSchema = z.object({
     text: z.string().optional(),
     verb: z.string().optional(),
     from: z.object({ id: z.string(), username: z.string() }).optional(),
-    media: z.object({
-      id: z.string(),
-      media_product_type: z.string().optional(),
-    }).optional(),
+    media: z
+      .object({
+        id: z.string(),
+        media_product_type: z.string().optional(),
+      })
+      .optional(),
     created_time: z.number().optional(),
   }),
 });
@@ -88,12 +94,14 @@ export const igWebhookChangeSchema = z.discriminatedUnion("field", [
 
 export const igWebhookPayloadSchema = z.object({
   object: z.literal("instagram"),
-  entry: z.array(z.object({
-    id: z.string(),
-    time: z.number(),
-    messaging: z.array(igWebhookMessagingEventSchema).optional(),
-    changes: z.array(igWebhookChangeSchema).optional(),
-  })),
+  entry: z.array(
+    z.object({
+      id: z.string(),
+      time: z.number(),
+      messaging: z.array(igWebhookMessagingEventSchema).optional(),
+      changes: z.array(igWebhookChangeSchema).optional(),
+    }),
+  ),
 });
 
 // --- Facebook Webhook Schemas ---
@@ -101,10 +109,14 @@ export const igWebhookPayloadSchema = z.object({
 export const fbWebhookMessageSchema = z.object({
   mid: z.string(),
   text: z.string().optional(),
-  attachments: z.array(z.object({
-    type: z.string(),
-    payload: z.object({ url: z.string().optional() }).optional(),
-  })).optional(),
+  attachments: z
+    .array(
+      z.object({
+        type: z.string(),
+        payload: z.object({ url: z.string().optional() }).optional(),
+      }),
+    )
+    .optional(),
   reply_to: z.object({ mid: z.string() }).optional(),
   is_echo: z.boolean().optional(),
 });
@@ -115,11 +127,13 @@ export const fbWebhookMessagingEventSchema = z.object({
   timestamp: z.number(),
   message: fbWebhookMessageSchema.optional(),
   read: z.object({ watermark: z.number() }).optional(),
-  reaction: z.object({
-    mid: z.string(),
-    action: z.enum(["react", "unreact"]),
-    emoji: z.string().optional(),
-  }).optional(),
+  reaction: z
+    .object({
+      mid: z.string(),
+      action: z.enum(["react", "unreact"]),
+      emoji: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const fbWebhookCommentChangeSchema = z.object({
@@ -139,12 +153,14 @@ export const fbWebhookCommentChangeSchema = z.object({
 
 export const fbWebhookPayloadSchema = z.object({
   object: z.literal("page"),
-  entry: z.array(z.object({
-    id: z.string(),
-    time: z.number(),
-    messaging: z.array(fbWebhookMessagingEventSchema).optional(),
-    changes: z.array(fbWebhookCommentChangeSchema).optional(),
-  })),
+  entry: z.array(
+    z.object({
+      id: z.string(),
+      time: z.number(),
+      messaging: z.array(fbWebhookMessagingEventSchema).optional(),
+      changes: z.array(fbWebhookCommentChangeSchema).optional(),
+    }),
+  ),
 });
 
 // --- Threads Webhook Schemas ---
@@ -165,7 +181,9 @@ export const threadsWebhookPayloadSchema = z.object({
       permalink: z.string().optional(),
       timestamp: z.string().optional(),
       replied_to: z.object({ id: z.string() }).optional(),
-      root_post: z.object({ id: z.string(), owner_id: z.string(), username: z.string() }).optional(),
+      root_post: z
+        .object({ id: z.string(), owner_id: z.string(), username: z.string() })
+        .optional(),
       owner: z.object({ owner_id: z.string() }).optional(),
       deleted_at: z.string().optional(),
     }),

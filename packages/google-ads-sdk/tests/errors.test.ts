@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { GoogleAdsError, parseGoogleAdsError } from "../src/errors.ts";
 
 test("parseGoogleAdsError extracts nested GoogleAdsFailure details", () => {

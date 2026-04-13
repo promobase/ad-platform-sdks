@@ -21,8 +21,14 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Lint (biome)
+        run: bun run lint
+
       - name: Typecheck workspace
         run: bun run typecheck
+
+      - name: Build workspace
+        run: bun run build
 
       - name: Test workspace
         run: bun run test

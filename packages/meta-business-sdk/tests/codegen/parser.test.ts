@@ -1,5 +1,5 @@
-import { test, expect } from "bun:test";
-import { parseSpecs, applyPatches } from "../../src/codegen/parser.ts";
+import { expect, test } from "bun:test";
+import { applyPatches, parseSpecs } from "../../src/codegen/parser.ts";
 
 test("parseSpecs loads spec files into a map", async () => {
   const specs = await parseSpecs("api_specs/api_specs/specs");

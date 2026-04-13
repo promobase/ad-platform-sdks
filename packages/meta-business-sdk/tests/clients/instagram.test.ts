@@ -1,6 +1,6 @@
-import { test, expect, mock, afterEach } from "bun:test";
-import { createClient } from "../../src/generated/index.ts";
+import { afterEach, expect, mock, test } from "bun:test";
 import { createInstagramClient, createInstagramOAuth } from "../../src/clients/instagram/index.ts";
+import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -18,31 +18,41 @@ function mockFetchSequence(responses: { status?: number; body: unknown }[]) {
   }) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 // Use instant delay for tests
-const testPolling = { delay: async () => {}, photoIntervalMs: 0, videoIntervalMs: 0, maxAttempts: 3 };
+const testPolling = {
+  delay: async () => {},
+  photoIntervalMs: 0,
+  videoIntervalMs: 0,
+  maxAttempts: 3,
+};
 
 test("publishPhoto creates container, polls, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },           // create container
-    { body: { status_code: "FINISHED" } },      // poll status
-    { body: { id: "post_123" } },               // publish
+    { body: { id: "container_1" } }, // create container
+    { body: { status_code: "FINISHED" } }, // poll status
+    { body: { id: "post_123" } }, // publish
   ]);
 
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  const result = await ig.media.publishPhoto({ imageUrl: "https://example.com/photo.jpg", caption: "Hello" });
+  const result = await ig.media.publishPhoto({
+    imageUrl: "https://example.com/photo.jpg",
+    caption: "Hello",
+  });
   expect(result.id).toBe("post_123");
 });
 
 test("publishReel polls with IN_PROGRESS then FINISHED", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },           // create
-    { body: { status_code: "IN_PROGRESS" } },  // poll 1
-    { body: { status_code: "FINISHED" } },     // poll 2
-    { body: { id: "reel_789" } },              // publish
+    { body: { id: "container_1" } }, // create
+    { body: { status_code: "IN_PROGRESS" } }, // poll 1
+    { body: { status_code: "FINISHED" } }, // poll 2
+    { body: { id: "reel_789" } }, // publish
   ]);
 
   const api = createClient({ accessToken: "tok" });
@@ -54,13 +64,13 @@ test("publishReel polls with IN_PROGRESS then FINISHED", async () => {
 
 test("publishCarousel creates children, polls each, creates parent, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "child_1" } },               // create child 1
-    { body: { status_code: "FINISHED" } },     // poll child 1
-    { body: { id: "child_2" } },               // create child 2
-    { body: { status_code: "FINISHED" } },     // poll child 2
-    { body: { id: "parent_1" } },              // create parent
-    { body: { status_code: "FINISHED" } },     // poll parent
-    { body: { id: "carousel_123" } },          // publish
+    { body: { id: "child_1" } }, // create child 1
+    { body: { status_code: "FINISHED" } }, // poll child 1
+    { body: { id: "child_2" } }, // create child 2
+    { body: { status_code: "FINISHED" } }, // poll child 2
+    { body: { id: "parent_1" } }, // create parent
+    { body: { status_code: "FINISHED" } }, // poll parent
+    { body: { id: "carousel_123" } }, // publish
   ]);
 
   const api = createClient({ accessToken: "tok" });
@@ -80,8 +90,12 @@ test("publishCarousel rejects < 2 or > 10 items", async () => {
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  expect(ig.media.publishCarousel({ items: [{ type: "photo", url: "x" }] })).rejects.toThrow("at least 2");
-  expect(ig.media.publishCarousel({ items: Array(11).fill({ type: "photo", url: "x" }) })).rejects.toThrow("max 10");
+  expect(ig.media.publishCarousel({ items: [{ type: "photo", url: "x" }] })).rejects.toThrow(
+    "at least 2",
+  );
+  expect(
+    ig.media.publishCarousel({ items: Array(11).fill({ type: "photo", url: "x" }) }),
+  ).rejects.toThrow("max 10");
 });
 
 test("story publish works", async () => {
@@ -116,15 +130,14 @@ test("comments create and list", async () => {
 });
 
 test("polling throws on ERROR status", async () => {
-  mockFetchSequence([
-    { body: { id: "container_1" } },
-    { body: { status_code: "ERROR" } },
-  ]);
+  mockFetchSequence([{ body: { id: "container_1" } }, { body: { status_code: "ERROR" } }]);
 
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  expect(ig.media.publishPhoto({ imageUrl: "https://example.com/photo.jpg" })).rejects.toThrow("ERROR");
+  expect(ig.media.publishPhoto({ imageUrl: "https://example.com/photo.jpg" })).rejects.toThrow(
+    "ERROR",
+  );
 });
 
 test("polling throws after max attempts", async () => {
@@ -138,7 +151,9 @@ test("polling throws after max attempts", async () => {
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
 
-  expect(ig.media.publishPhoto({ imageUrl: "https://x.com/p.jpg" })).rejects.toThrow("did not finish");
+  expect(ig.media.publishPhoto({ imageUrl: "https://x.com/p.jpg" })).rejects.toThrow(
+    "did not finish",
+  );
 });
 
 test("OAuth generates correct authorization URL", () => {

@@ -1,8 +1,14 @@
 import type {
-  TikTokClientOptions, TikTokResponse,
-  MentionVideo, MentionVideoField, ListMentionedVideosOptions,
-  MentionComment, MentionCommentField, ListMentionedCommentsOptions,
-  BrandHashtagInfo, ListBrandHashtagVideosOptions,
+  BrandHashtagInfo,
+  ListBrandHashtagVideosOptions,
+  ListMentionedCommentsOptions,
+  ListMentionedVideosOptions,
+  MentionComment,
+  MentionCommentField,
+  MentionVideo,
+  MentionVideoField,
+  TikTokClientOptions,
+  TikTokResponse,
 } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -26,7 +32,9 @@ export function createMentions(opts: TikTokClientOptions) {
     });
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
+      throw new Error(
+        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
+      );
     }
     return body.data;
   }
@@ -39,7 +47,9 @@ export function createMentions(opts: TikTokClientOptions) {
     });
     const responseBody = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
+      throw new Error(
+        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
+      );
     }
     return responseBody.data;
   }
@@ -48,7 +58,9 @@ export function createMentions(opts: TikTokClientOptions) {
     // -- Video Mentions --
 
     /** List top 1000 videos that mention the brand. Cursor-based pagination. */
-    async listMentionedVideos(opts?: ListMentionedVideosOptions): Promise<{ videos: MentionVideo[]; cursor: number; has_more: boolean }> {
+    async listMentionedVideos(
+      opts?: ListMentionedVideosOptions,
+    ): Promise<{ videos: MentionVideo[]; cursor: number; has_more: boolean }> {
       const query: Record<string, unknown> = { business_id: businessId };
       if (opts?.fields) query.fields = JSON.stringify(opts.fields);
       if (opts?.sortField) query.sort_field = opts.sortField;
@@ -57,7 +69,10 @@ export function createMentions(opts: TikTokClientOptions) {
       if (opts?.regions) query.regions = JSON.stringify(opts.regions);
       if (opts?.cursor !== undefined) query.cursor = opts.cursor;
       if (opts?.maxCount !== undefined) query.max_count = opts.maxCount;
-      return get<{ videos: MentionVideo[]; cursor: number; has_more: boolean }>("/business/mention/video/list/", query);
+      return get<{ videos: MentionVideo[]; cursor: number; has_more: boolean }>(
+        "/business/mention/video/list/",
+        query,
+      );
     },
 
     /** Get details of a specific mentioned video (from webhook). Must retrieve within 48h. */
@@ -71,7 +86,9 @@ export function createMentions(opts: TikTokClientOptions) {
     // -- Comment Mentions --
 
     /** List top 1000 comment mentions on posts. Cursor-based pagination. */
-    async listMentionedComments(opts?: ListMentionedCommentsOptions): Promise<{ comments: MentionComment[]; cursor: number; has_more: boolean }> {
+    async listMentionedComments(
+      opts?: ListMentionedCommentsOptions,
+    ): Promise<{ comments: MentionComment[]; cursor: number; has_more: boolean }> {
       const query: Record<string, unknown> = { business_id: businessId };
       if (opts?.fields) query.fields = JSON.stringify(opts.fields);
       if (opts?.sortField) query.sort_field = opts.sortField;
@@ -80,12 +97,23 @@ export function createMentions(opts: TikTokClientOptions) {
       if (opts?.regions) query.regions = JSON.stringify(opts.regions);
       if (opts?.cursor !== undefined) query.cursor = opts.cursor;
       if (opts?.maxCount !== undefined) query.max_count = opts.maxCount;
-      return get<{ comments: MentionComment[]; cursor: number; has_more: boolean }>("/business/mention/comment/list/", query);
+      return get<{ comments: MentionComment[]; cursor: number; has_more: boolean }>(
+        "/business/mention/comment/list/",
+        query,
+      );
     },
 
     /** Get details of a specific comment mention (from webhook). */
-    async getMentionedComment(commentId: string, itemId: string, fields?: MentionCommentField[]): Promise<MentionComment> {
-      const query: Record<string, unknown> = { business_id: businessId, comment_id: commentId, item_id: itemId };
+    async getMentionedComment(
+      commentId: string,
+      itemId: string,
+      fields?: MentionCommentField[],
+    ): Promise<MentionComment> {
+      const query: Record<string, unknown> = {
+        business_id: businessId,
+        comment_id: commentId,
+        item_id: itemId,
+      };
       if (fields) query.fields = JSON.stringify(fields);
       const data = await get<{ comment: MentionComment }>("/business/mention/comment/get/", query);
       return data.comment;
@@ -97,7 +125,10 @@ export function createMentions(opts: TikTokClientOptions) {
     async getTopHashtags(regions?: string[]): Promise<{ hashtag: string; count: number }[]> {
       const query: Record<string, unknown> = { business_id: businessId };
       if (regions) query.regions = JSON.stringify(regions);
-      const data = await get<{ results: { hashtag: string; count: number }[] }>("/business/mention/top_hashtag/list/", query);
+      const data = await get<{ results: { hashtag: string; count: number }[] }>(
+        "/business/mention/top_hashtag/list/",
+        query,
+      );
       return data.results ?? [];
     },
 
@@ -105,7 +136,10 @@ export function createMentions(opts: TikTokClientOptions) {
     async getTopKeywords(regions?: string[]): Promise<{ word: string; count: number }[]> {
       const query: Record<string, unknown> = { business_id: businessId };
       if (regions) query.regions = JSON.stringify(regions);
-      const data = await get<{ results: { word: string; count: number }[] }>("/business/mention/top_word/list/", query);
+      const data = await get<{ results: { word: string; count: number }[] }>(
+        "/business/mention/top_word/list/",
+        query,
+      );
       return data.results ?? [];
     },
 
@@ -113,30 +147,50 @@ export function createMentions(opts: TikTokClientOptions) {
 
     /** Get valid brand mention hashtags that can be enabled. */
     async verifyBrandHashtags(username: string): Promise<BrandHashtagInfo[]> {
-      const data = await get<{ hashtag_list: BrandHashtagInfo[] }>("/business/mention/hashtag/verify/list/", {
-        business_id: businessId, username,
-      });
+      const data = await get<{ hashtag_list: BrandHashtagInfo[] }>(
+        "/business/mention/hashtag/verify/list/",
+        {
+          business_id: businessId,
+          username,
+        },
+      );
       return data.hashtag_list ?? [];
     },
 
     /** Enable brand hashtags for mention tracking. Max 10 per request, 50 total. */
-    async enableBrandHashtags(username: string, hashtags: string[]): Promise<{ hashtag: string; create_date: string }[]> {
-      const data = await post<{ hashtag_list: { hashtag: string; create_date: string }[] }>("/business/mention/hashtag/add/", {
-        business_id: businessId, username, hashtags,
-      });
+    async enableBrandHashtags(
+      username: string,
+      hashtags: string[],
+    ): Promise<{ hashtag: string; create_date: string }[]> {
+      const data = await post<{ hashtag_list: { hashtag: string; create_date: string }[] }>(
+        "/business/mention/hashtag/add/",
+        {
+          business_id: businessId,
+          username,
+          hashtags,
+        },
+      );
       return data.hashtag_list ?? [];
     },
 
     /** List all currently enabled brand hashtags. */
     async listBrandHashtags(username: string): Promise<{ hashtag: string; create_date: string }[]> {
-      const data = await get<{ hashtag_list: { hashtag: string; create_date: string }[] }>("/business/mention/hashtag/manage/list/", {
-        business_id: businessId, username,
-      });
+      const data = await get<{ hashtag_list: { hashtag: string; create_date: string }[] }>(
+        "/business/mention/hashtag/manage/list/",
+        {
+          business_id: businessId,
+          username,
+        },
+      );
       return data.hashtag_list ?? [];
     },
 
     /** Get top 1000 videos matching enabled brand hashtags. */
-    async getBrandHashtagVideos(opts?: ListBrandHashtagVideosOptions): Promise<{ videos: (MentionVideo & { matched_hashtags?: string[] })[]; cursor: number; has_more: boolean }> {
+    async getBrandHashtagVideos(opts?: ListBrandHashtagVideosOptions): Promise<{
+      videos: (MentionVideo & { matched_hashtags?: string[] })[];
+      cursor: number;
+      has_more: boolean;
+    }> {
       const query: Record<string, unknown> = { business_id: businessId };
       if (opts?.hashtag) query.hashtag = opts.hashtag;
       if (opts?.fields) query.fields = JSON.stringify(opts.fields);
@@ -146,13 +200,19 @@ export function createMentions(opts: TikTokClientOptions) {
       if (opts?.regions) query.regions = JSON.stringify(opts.regions);
       if (opts?.cursor !== undefined) query.cursor = opts.cursor;
       if (opts?.maxCount !== undefined) query.max_count = opts.maxCount;
-      return get<{ videos: (MentionVideo & { matched_hashtags?: string[] })[]; cursor: number; has_more: boolean }>("/business/mention/hashtag/video/list/", query);
+      return get<{
+        videos: (MentionVideo & { matched_hashtags?: string[] })[];
+        cursor: number;
+        has_more: boolean;
+      }>("/business/mention/hashtag/video/list/", query);
     },
 
     /** Remove an enabled brand hashtag. Must have been enabled for at least 7 days. */
     async removeBrandHashtag(username: string, hashtag: string): Promise<void> {
       await post<Record<string, never>>("/business/mention/hashtag/remove/", {
-        business_id: businessId, username, hashtag,
+        business_id: businessId,
+        username,
+        hashtag,
       });
     },
   };

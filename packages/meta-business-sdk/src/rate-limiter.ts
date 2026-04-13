@@ -10,9 +10,9 @@ export interface MetaRateLimiterOptions {
 }
 
 export interface MetaUsage {
-  callCount: number;    // 0-100 percentage
-  cpuTime: number;      // 0-100 percentage
-  totalTime: number;    // 0-100 percentage
+  callCount: number; // 0-100 percentage
+  cpuTime: number; // 0-100 percentage
+  totalTime: number; // 0-100 percentage
 }
 
 export class MetaRateLimiter implements RateLimiter {
@@ -23,7 +23,7 @@ export class MetaRateLimiter implements RateLimiter {
   private readonly onThrottle?: MetaRateLimiterOptions["onThrottle"];
 
   constructor(opts?: MetaRateLimiterOptions) {
-    this.highWaterMark = (opts?.highWaterMark ?? 0.9) * 100;  // convert to percentage
+    this.highWaterMark = (opts?.highWaterMark ?? 0.9) * 100; // convert to percentage
     this.fallbackWaitMs = opts?.fallbackWaitMs ?? 60_000;
     this.onThrottle = opts?.onThrottle;
   }
@@ -75,7 +75,8 @@ export class MetaRateLimiter implements RateLimiter {
           if (Array.isArray(entries)) {
             for (const entry of entries) {
               if (entry.call_count > this.usage.callCount) this.usage.callCount = entry.call_count;
-              if (entry.total_cputime > this.usage.cpuTime) this.usage.cpuTime = entry.total_cputime;
+              if (entry.total_cputime > this.usage.cpuTime)
+                this.usage.cpuTime = entry.total_cputime;
               if (entry.total_time > this.usage.totalTime) this.usage.totalTime = entry.total_time;
               // If Meta gives us an explicit wait time
               if (entry.estimated_time_to_regain_access) {
@@ -93,7 +94,7 @@ export class MetaRateLimiter implements RateLimiter {
       const retryAfter = headers.get("retry-after");
       if (retryAfter) {
         const seconds = parseInt(retryAfter, 10);
-        if (!isNaN(seconds)) {
+        if (!Number.isNaN(seconds)) {
           this.pausedUntil = Date.now() + seconds * 1000;
         }
       } else if (this.pausedUntil <= Date.now()) {

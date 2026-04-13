@@ -1,4 +1,4 @@
-import { test, expect, mock, afterEach } from "bun:test";
+import { afterEach, expect, mock, test } from "bun:test";
 import { createThreadsClient, createThreadsOAuth } from "../../src/clients/threads/index.ts";
 
 const originalFetch = globalThis.fetch;
@@ -17,10 +17,17 @@ function mockFetchSequence(responses: { status?: number; body: unknown }[]) {
   }) as unknown as typeof fetch;
 }
 
-afterEach(() => { globalThis.fetch = originalFetch; });
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 // Use instant delay for tests
-const testPolling = { delay: async () => {}, textIntervalMs: 0, videoIntervalMs: 0, maxAttempts: 3 };
+const testPolling = {
+  delay: async () => {},
+  textIntervalMs: 0,
+  videoIntervalMs: 0,
+  maxAttempts: 3,
+};
 
 function makeClient() {
   return createThreadsClient({
@@ -32,9 +39,9 @@ function makeClient() {
 
 test("publishText creates container, polls, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },        // create container
-    { body: { status: "FINISHED" } },        // poll status
-    { body: { id: "post_123" } },            // publish
+    { body: { id: "container_1" } }, // create container
+    { body: { status: "FINISHED" } }, // poll status
+    { body: { id: "post_123" } }, // publish
   ]);
 
   const threads = makeClient();
@@ -44,22 +51,25 @@ test("publishText creates container, polls, publishes", async () => {
 
 test("publishImage creates container, polls, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },        // create container
-    { body: { status: "FINISHED" } },        // poll status
-    { body: { id: "img_123" } },             // publish
+    { body: { id: "container_1" } }, // create container
+    { body: { status: "FINISHED" } }, // poll status
+    { body: { id: "img_123" } }, // publish
   ]);
 
   const threads = makeClient();
-  const result = await threads.posts.publishImage({ imageUrl: "https://example.com/photo.jpg", text: "Nice pic" });
+  const result = await threads.posts.publishImage({
+    imageUrl: "https://example.com/photo.jpg",
+    text: "Nice pic",
+  });
   expect(result.id).toBe("img_123");
 });
 
 test("publishVideo polls with IN_PROGRESS then FINISHED", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },         // create
-    { body: { status: "IN_PROGRESS" } },     // poll 1
-    { body: { status: "FINISHED" } },        // poll 2
-    { body: { id: "vid_789" } },             // publish
+    { body: { id: "container_1" } }, // create
+    { body: { status: "IN_PROGRESS" } }, // poll 1
+    { body: { status: "FINISHED" } }, // poll 2
+    { body: { id: "vid_789" } }, // publish
   ]);
 
   const threads = makeClient();
@@ -69,13 +79,13 @@ test("publishVideo polls with IN_PROGRESS then FINISHED", async () => {
 
 test("publishCarousel creates children, polls each, creates parent, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "child_1" } },             // create child 1
-    { body: { status: "FINISHED" } },        // poll child 1
-    { body: { id: "child_2" } },             // create child 2
-    { body: { status: "FINISHED" } },        // poll child 2
-    { body: { id: "parent_1" } },            // create parent
-    { body: { status: "FINISHED" } },        // poll parent
-    { body: { id: "carousel_123" } },        // publish
+    { body: { id: "child_1" } }, // create child 1
+    { body: { status: "FINISHED" } }, // poll child 1
+    { body: { id: "child_2" } }, // create child 2
+    { body: { status: "FINISHED" } }, // poll child 2
+    { body: { id: "parent_1" } }, // create parent
+    { body: { status: "FINISHED" } }, // poll parent
+    { body: { id: "carousel_123" } }, // publish
   ]);
 
   const threads = makeClient();
@@ -91,9 +101,9 @@ test("publishCarousel creates children, polls each, creates parent, publishes", 
 
 test("reply creates container with reply_to_id, polls, publishes", async () => {
   mockFetchSequence([
-    { body: { id: "container_1" } },        // create container
-    { body: { status: "FINISHED" } },        // poll status
-    { body: { id: "reply_123" } },           // publish
+    { body: { id: "container_1" } }, // create container
+    { body: { status: "FINISHED" } }, // poll status
+    { body: { id: "reply_123" } }, // publish
   ]);
 
   const threads = makeClient();
@@ -102,9 +112,7 @@ test("reply creates container with reply_to_id, polls, publishes", async () => {
 });
 
 test("delete calls delete on the post", async () => {
-  mockFetchSequence([
-    { body: { success: true } },
-  ]);
+  mockFetchSequence([{ body: { success: true } }]);
 
   const threads = makeClient();
   await threads.posts.delete("post_123");
@@ -112,9 +120,7 @@ test("delete calls delete on the post", async () => {
 });
 
 test("getPermalink returns permalink", async () => {
-  mockFetchSequence([
-    { body: { permalink: "https://threads.net/@user/post/abc" } },
-  ]);
+  mockFetchSequence([{ body: { permalink: "https://threads.net/@user/post/abc" } }]);
 
   const threads = makeClient();
   const permalink = await threads.posts.getPermalink("post_123");
@@ -123,7 +129,14 @@ test("getPermalink returns permalink", async () => {
 
 test("getInsights returns insight data", async () => {
   mockFetchSequence([
-    { body: { data: [{ name: "views", values: [{ value: 100 }] }, { name: "likes", values: [{ value: 42 }] }] } },
+    {
+      body: {
+        data: [
+          { name: "views", values: [{ value: 100 }] },
+          { name: "likes", values: [{ value: 42 }] },
+        ],
+      },
+    },
   ]);
 
   const threads = makeClient();
@@ -145,9 +158,7 @@ test("list posts returns paginated response", async () => {
 });
 
 test("replies.list returns paginated replies", async () => {
-  mockFetchSequence([
-    { body: { data: [{ id: "r1", text: "Reply!" }], paging: { cursors: {} } } },
-  ]);
+  mockFetchSequence([{ body: { data: [{ id: "r1", text: "Reply!" }], paging: { cursors: {} } } }]);
 
   const threads = makeClient();
   const result = await threads.replies.list("post_123", { limit: 5 });

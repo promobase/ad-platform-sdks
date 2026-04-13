@@ -1,7 +1,7 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import path from "node:path";
-import { loadProtos } from "../../src/codegen/parser.ts";
 import { emitGaqlCatalog } from "../../src/codegen/gaql-emitter.ts";
+import { loadProtos } from "../../src/codegen/parser.ts";
 
 const FIXTURES = path.resolve(import.meta.dir, "fixtures");
 
@@ -81,6 +81,8 @@ test("emitGaqlCatalog renders field-map file with imports", async () => {
   const rendered = catalog.renderFieldMapFile();
   expect(rendered).toContain("export type FieldMap =");
   expect(rendered).toContain('"campaign.status": FieldInfo<"campaign", "status", SampleStatus>');
-  expect(rendered).toContain('"campaign.network_settings.target_google_search": FieldInfo<"campaign", "networkSettings.targetGoogleSearch", boolean>');
+  expect(rendered).toContain(
+    '"campaign.network_settings.target_google_search": FieldInfo<"campaign", "networkSettings.targetGoogleSearch", boolean>',
+  );
   expect(rendered).toMatch(/import type \{ SampleStatus \}/);
 });

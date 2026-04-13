@@ -1,9 +1,9 @@
 import type { HttpClient } from "@promobase/sdk-runtime";
+import { adGroupAds } from "./ad-group-ads.ts";
+import { adGroups } from "./ad-groups.ts";
+import { ads } from "./ads.ts";
 import { campaignBudgets } from "./campaign-budgets.ts";
 import { campaigns } from "./campaigns.ts";
-import { adGroups } from "./ad-groups.ts";
-import { adGroupAds } from "./ad-group-ads.ts";
-import { ads } from "./ads.ts";
 import { gaqlFactory } from "./gaql/bound.ts";
 
 export interface Customer {

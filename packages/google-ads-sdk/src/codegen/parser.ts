@@ -1,7 +1,7 @@
-import protobuf from "protobufjs";
 import fs from "node:fs";
-import path from "node:path";
 import { createRequire } from "node:module";
+import path from "node:path";
+import protobuf from "protobufjs";
 
 // Directory inside the installed protobufjs package that ships the
 // google/protobuf/*.proto common types (descriptor.proto, etc.). Used as a
@@ -73,10 +73,7 @@ export interface ProtoRoot {
   services: ServiceAst[];
 }
 
-export async function loadProtos(
-  entryFiles: string[],
-  includePaths: string[],
-): Promise<ProtoRoot> {
+export async function loadProtos(entryFiles: string[], includePaths: string[]): Promise<ProtoRoot> {
   const root = new protobuf.Root();
   const searchDirs = [...includePaths];
   if (PROTOBUFJS_COMMON_DIR) searchDirs.push(PROTOBUFJS_COMMON_DIR);
@@ -163,9 +160,7 @@ function toEnum(e: protobuf.Enum): EnumAst {
 
 const HTTP_VERBS = ["get", "post", "put", "patch", "delete"] as const;
 
-function extractHttpOption(
-  container: Record<string, unknown> | undefined,
-): HttpOption | undefined {
+function extractHttpOption(container: Record<string, unknown> | undefined): HttpOption | undefined {
   if (!container) return undefined;
   for (const verb of HTTP_VERBS) {
     const pathVal = container[verb];
@@ -173,10 +168,7 @@ function extractHttpOption(
       return {
         verb,
         path: pathVal,
-        body:
-          typeof container.body === "string"
-            ? (container.body as string)
-            : undefined,
+        body: typeof container.body === "string" ? (container.body as string) : undefined,
       };
     }
   }
@@ -193,9 +185,7 @@ function toService(s: protobuf.Service): ServiceAst {
     const parsed = (m as unknown as { parsedOptions?: unknown }).parsedOptions;
     if (Array.isArray(parsed)) {
       for (const entry of parsed as Array<Record<string, unknown>>) {
-        const httpOpt = entry["(google.api.http)"] as
-          | Record<string, unknown>
-          | undefined;
+        const httpOpt = entry["(google.api.http)"] as Record<string, unknown> | undefined;
         const extracted = extractHttpOption(httpOpt);
         if (extracted) {
           httpOption = extracted;
@@ -222,19 +212,15 @@ function toService(s: protobuf.Service): ServiceAst {
       }
       // Nested form: "(google.api.http)" -> { get: "..." }
       if (!httpOption) {
-        const nested = opts["(google.api.http)"] as
-          | Record<string, unknown>
-          | undefined;
+        const nested = opts["(google.api.http)"] as Record<string, unknown> | undefined;
         httpOption = extractHttpOption(nested);
       }
     }
 
     return {
       name: m.name,
-      requestType:
-        m.resolvedRequestType?.fullName.replace(/^\./, "") ?? m.requestType,
-      responseType:
-        m.resolvedResponseType?.fullName.replace(/^\./, "") ?? m.responseType,
+      requestType: m.resolvedRequestType?.fullName.replace(/^\./, "") ?? m.requestType,
+      responseType: m.resolvedResponseType?.fullName.replace(/^\./, "") ?? m.responseType,
       httpOption,
     };
   });

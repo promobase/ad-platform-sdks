@@ -1,13 +1,23 @@
-import type {
-  PublishTextOptions, PublishImageOptions, PublishVideoOptions,
-  PublishCarouselOptions, ReplyOptions, PublishResult,
-  ThreadsPollingConfig, ThreadsPost, ThreadsInsight,
-} from "./types.ts";
 import type { ApiClient } from "@promobase/sdk-runtime";
 import { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
+import type {
+  PublishCarouselOptions,
+  PublishImageOptions,
+  PublishResult,
+  PublishTextOptions,
+  PublishVideoOptions,
+  ReplyOptions,
+  ThreadsInsight,
+  ThreadsPollingConfig,
+  ThreadsPost,
+} from "./types.ts";
 
-export function createPosts(client: ApiClient, threadsUserId: string, pollingConfig: ThreadsPollingConfig) {
+export function createPosts(
+  client: ApiClient,
+  threadsUserId: string,
+  pollingConfig: ThreadsPollingConfig,
+) {
   const containers = createContainers(client, threadsUserId);
 
   return {
@@ -19,8 +29,11 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
         allowlistedCountryCodes: opts.allowlistedCountryCodes,
       });
       await waitForContainer({
-        containerId: container.id, isVideo: false, polling: pollingConfig,
-        getStatus: containers.getStatus, label: "text",
+        containerId: container.id,
+        isVideo: false,
+        polling: pollingConfig,
+        getStatus: containers.getStatus,
+        label: "text",
       });
       return containers.publish(container.id);
     },
@@ -33,8 +46,11 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
         replyControl: opts.replyControl,
       });
       await waitForContainer({
-        containerId: container.id, isVideo: false, polling: pollingConfig,
-        getStatus: containers.getStatus, label: "image",
+        containerId: container.id,
+        isVideo: false,
+        polling: pollingConfig,
+        getStatus: containers.getStatus,
+        label: "image",
       });
       return containers.publish(container.id);
     },
@@ -47,15 +63,20 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
         replyControl: opts.replyControl,
       });
       await waitForContainer({
-        containerId: container.id, isVideo: true, polling: pollingConfig,
-        getStatus: containers.getStatus, label: "video",
+        containerId: container.id,
+        isVideo: true,
+        polling: pollingConfig,
+        getStatus: containers.getStatus,
+        label: "video",
       });
       return containers.publish(container.id);
     },
 
     async publishCarousel(opts: PublishCarouselOptions): Promise<PublishResult> {
-      if (opts.items.length > 10) throw new Error(`Carousel max 10 items, got ${opts.items.length}`);
-      if (opts.items.length < 2) throw new Error(`Carousel requires at least 2 items, got ${opts.items.length}`);
+      if (opts.items.length > 10)
+        throw new Error(`Carousel max 10 items, got ${opts.items.length}`);
+      if (opts.items.length < 2)
+        throw new Error(`Carousel requires at least 2 items, got ${opts.items.length}`);
 
       const childIds: string[] = [];
       for (let i = 0; i < opts.items.length; i++) {
@@ -68,8 +89,11 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
           isCarouselItem: true,
         });
         await waitForContainer({
-          containerId: child.id, isVideo, polling: pollingConfig,
-          getStatus: containers.getStatus, label: `carousel item ${i + 1}/${opts.items.length}`,
+          containerId: child.id,
+          isVideo,
+          polling: pollingConfig,
+          getStatus: containers.getStatus,
+          label: `carousel item ${i + 1}/${opts.items.length}`,
         });
         childIds.push(child.id);
       }
@@ -81,8 +105,11 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
         replyControl: opts.replyControl,
       });
       await waitForContainer({
-        containerId: parent.id, isVideo: false, polling: pollingConfig,
-        getStatus: containers.getStatus, label: "carousel parent",
+        containerId: parent.id,
+        isVideo: false,
+        polling: pollingConfig,
+        getStatus: containers.getStatus,
+        label: "carousel parent",
       });
       return containers.publish(parent.id);
     },
@@ -94,8 +121,11 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
         replyToId: opts.replyToId,
       });
       await waitForContainer({
-        containerId: container.id, isVideo: false, polling: pollingConfig,
-        getStatus: containers.getStatus, label: "reply",
+        containerId: container.id,
+        isVideo: false,
+        polling: pollingConfig,
+        getStatus: containers.getStatus,
+        label: "reply",
       });
       return containers.publish(container.id);
     },
@@ -114,16 +144,26 @@ export function createPosts(client: ApiClient, threadsUserId: string, pollingCon
       if (opts?.limit) params.limit = opts.limit;
       if (opts?.after) params.after = opts.after;
       return client.getEdge<ThreadsPost>(`${threadsUserId}/threads`, {
-        fields: ["id", "text", "media_type", "media_url", "thumbnail_url", "timestamp", "permalink"],
+        fields: [
+          "id",
+          "text",
+          "media_type",
+          "media_url",
+          "thumbnail_url",
+          "timestamp",
+          "permalink",
+        ],
         params,
       });
     },
 
     async getInsights(postId: string, metrics?: string[]): Promise<ThreadsInsight[]> {
-      const result = await client.get<{ data: ThreadsInsight[] }>(
-        `${postId}/insights`,
-        { fields: [], params: { metric: (metrics ?? ["views", "likes", "replies", "reposts", "quotes"]).join(",") } },
-      );
+      const result = await client.get<{ data: ThreadsInsight[] }>(`${postId}/insights`, {
+        fields: [],
+        params: {
+          metric: (metrics ?? ["views", "likes", "replies", "reposts", "quotes"]).join(","),
+        },
+      });
       return result.data;
     },
   };

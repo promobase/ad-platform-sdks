@@ -2,7 +2,7 @@ import type { HttpClient } from "@promobase/sdk-runtime";
 import type { Campaign } from "../generated/v23/resources/Campaign.ts";
 import type { CampaignBudget } from "../generated/v23/resources/CampaignBudget.ts";
 import { campaignService, googleAdsService } from "../generated/v23/services/index.ts";
-import { resolveRef, type Ref } from "./types.ts";
+import { type Ref, resolveRef } from "./types.ts";
 
 const GAQL_FIELDS =
   "campaign.id, campaign.name, campaign.status, campaign.advertising_channel_type, campaign.campaign_budget, campaign.start_date, campaign.end_date, campaign.resource_name";
@@ -25,9 +25,7 @@ function normalize(input: CreateCampaignInput): Campaign {
 
 export function campaigns(client: HttpClient, customerId: string) {
   return {
-    async create(
-      input: CreateCampaignInput,
-    ): Promise<Campaign & { resourceName: string }> {
+    async create(input: CreateCampaignInput): Promise<Campaign & { resourceName: string }> {
       const normalized = normalize(input);
       const res = await campaignService.mutateCampaigns(client, customerId, {
         operations: [{ create: normalized }],

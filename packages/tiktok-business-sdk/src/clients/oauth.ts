@@ -1,4 +1,4 @@
-import type { OAuthConfig, TokenResponse, TokenInfo, TikTokResponse } from "./types.ts";
+import type { OAuthConfig, TikTokResponse, TokenInfo, TokenResponse } from "./types.ts";
 
 const TT_AUTH_BASE = "https://www.tiktok.com/v2/auth/authorize";
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
@@ -6,7 +6,11 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 export function createOAuth(config: OAuthConfig) {
   return {
     /** Generate the authorization URL to redirect users to. */
-    getAuthorizationUrl(opts?: { scopes?: string[]; state?: string; disableAutoAuth?: boolean }): string {
+    getAuthorizationUrl(opts?: {
+      scopes?: string[];
+      state?: string;
+      disableAutoAuth?: boolean;
+    }): string {
       const scopes = opts?.scopes ?? [
         "user.info.basic",
         "user.info.username",
@@ -137,11 +141,22 @@ export function createOAuth(config: OAuthConfig) {
      * Fetch user profile info using the Business API.
      * Returns display_name, username, profile_image, follower counts, etc.
      */
-    async getUserProfile(accessToken: string, businessId: string): Promise<Record<string, unknown>> {
+    async getUserProfile(
+      accessToken: string,
+      businessId: string,
+    ): Promise<Record<string, unknown>> {
       const fields = [
-        "display_name", "username", "profile_image", "profile_deep_link",
-        "bio_description", "is_verified", "is_business_account",
-        "followers_count", "following_count", "total_likes", "videos_count",
+        "display_name",
+        "username",
+        "profile_image",
+        "profile_deep_link",
+        "bio_description",
+        "is_verified",
+        "is_business_account",
+        "followers_count",
+        "following_count",
+        "total_likes",
+        "videos_count",
       ];
       const params = new URLSearchParams({
         business_id: businessId,
@@ -168,7 +183,9 @@ export function createOAuth(config: OAuthConfig) {
      * Full OAuth flow: exchange code -> get tokens + profile in one call.
      * Access token expires in 24 hours, refresh token in 1 year.
      */
-    async completeOAuth(code: string): Promise<{ token: TokenResponse; businessId: string; profile: Record<string, unknown> }> {
+    async completeOAuth(
+      code: string,
+    ): Promise<{ token: TokenResponse; businessId: string; profile: Record<string, unknown> }> {
       const token = await this.exchangeCode(code);
       const profile = await this.getUserProfile(token.access_token, token.open_id);
       return { token, businessId: token.open_id, profile };

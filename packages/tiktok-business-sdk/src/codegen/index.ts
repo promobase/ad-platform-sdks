@@ -1,9 +1,8 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-
-import { scrapeAllDocs } from "./scraper.ts";
+import { emitBarrel, emitCategory, groupByCategory } from "./emitter.ts";
 import { parseAllDocs } from "./parser.ts";
-import { emitCategory, emitBarrel, groupByCategory } from "./emitter.ts";
+import { scrapeAllDocs } from "./scraper.ts";
 
 const CACHE_DIR = join(import.meta.dir, "docs-cache");
 const OUTPUT_DIR = join(import.meta.dir, "..", "generated");
@@ -42,7 +41,9 @@ async function main() {
 
     await writeFile(join(typesDir, `${output.fileName}.ts`), output.typesContent, "utf-8");
     await writeFile(join(endpointsDir, `${output.fileName}.ts`), output.clientContent, "utf-8");
-    console.log(`  [emit] ${category} → types/${output.fileName}.ts + endpoints/${output.fileName}.ts (${specs.length} endpoints)`);
+    console.log(
+      `  [emit] ${category} → types/${output.fileName}.ts + endpoints/${output.fileName}.ts (${specs.length} endpoints)`,
+    );
   }
 
   // 6. Emit barrel index
@@ -51,7 +52,9 @@ async function main() {
 
   // Summary
   const totalEndpoints = [...grouped.values()].reduce((sum, specs) => sum + specs.length, 0);
-  console.log(`\n[codegen] Done! Generated ${totalEndpoints} endpoints across ${grouped.size} categories`);
+  console.log(
+    `\n[codegen] Done! Generated ${totalEndpoints} endpoints across ${grouped.size} categories`,
+  );
   console.log(`[codegen] Output: ${OUTPUT_DIR}`);
 }
 

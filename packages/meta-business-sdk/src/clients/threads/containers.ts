@@ -1,5 +1,10 @@
-import { ApiClient } from "@promobase/sdk-runtime";
-import type { ThreadsMediaType, ThreadsContainerStatus, ThreadsReplyControl, PublishResult } from "./types.ts";
+import type { ApiClient } from "@promobase/sdk-runtime";
+import type {
+  PublishResult,
+  ThreadsContainerStatus,
+  ThreadsMediaType,
+  ThreadsReplyControl,
+} from "./types.ts";
 
 export interface CreateContainerParams {
   mediaType: ThreadsMediaType;
@@ -24,11 +29,14 @@ export function createContainers(client: ApiClient, threadsUserId: string) {
       if (params.children) body.children = params.children.join(",");
       if (params.replyToId) body.reply_to_id = params.replyToId;
       if (params.replyControl) body.reply_control = params.replyControl;
-      if (params.allowlistedCountryCodes) body.allowlisted_country_codes = JSON.stringify(params.allowlistedCountryCodes);
+      if (params.allowlistedCountryCodes)
+        body.allowlisted_country_codes = JSON.stringify(params.allowlistedCountryCodes);
       return client.post<{ id: string }>(`${threadsUserId}/threads`, body);
     },
 
-    async getStatus(containerId: string): Promise<{ status: ThreadsContainerStatus; errorMessage?: string }> {
+    async getStatus(
+      containerId: string,
+    ): Promise<{ status: ThreadsContainerStatus; errorMessage?: string }> {
       const result = await client.get<{ status: ThreadsContainerStatus; error_message?: string }>(
         containerId,
         { fields: ["status", "error_message"] },

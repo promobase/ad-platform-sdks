@@ -10,7 +10,10 @@ export function createThreadsTools(opts: { accessToken: string; threadsUserId: s
       description: "Publish a text post on Threads.",
       inputSchema: z.object({
         text: z.string().describe("Post text"),
-        replyControl: z.enum(["everyone", "accounts_you_follow", "mentioned_only"]).optional().describe("Who can reply"),
+        replyControl: z
+          .enum(["everyone", "accounts_you_follow", "mentioned_only"])
+          .optional()
+          .describe("Who can reply"),
       }),
       execute: async (params) => threads.posts.publishText(params),
     }),
@@ -36,10 +39,15 @@ export function createThreadsTools(opts: { accessToken: string; threadsUserId: s
     threads_publish_carousel: tool({
       description: "Publish a carousel (2-10 items) on Threads.",
       inputSchema: z.object({
-        items: z.array(z.object({
-          type: z.enum(["image", "video"]),
-          url: z.string(),
-        })).min(2).max(10),
+        items: z
+          .array(
+            z.object({
+              type: z.enum(["image", "video"]),
+              url: z.string(),
+            }),
+          )
+          .min(2)
+          .max(10),
         text: z.string().optional(),
       }),
       execute: async (params) => threads.posts.publishCarousel(params),
@@ -74,7 +82,10 @@ export function createThreadsTools(opts: { accessToken: string; threadsUserId: s
       description: "Get performance insights for a Threads post.",
       inputSchema: z.object({
         postId: z.string().describe("Post ID"),
-        metrics: z.array(z.string()).optional().describe("Metrics (default: views, likes, replies, reposts, quotes)"),
+        metrics: z
+          .array(z.string())
+          .optional()
+          .describe("Metrics (default: views, likes, replies, reposts, quotes)"),
       }),
       execute: async ({ postId, metrics }) => threads.posts.getInsights(postId, metrics),
     }),

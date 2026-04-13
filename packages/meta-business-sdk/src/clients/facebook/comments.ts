@@ -13,7 +13,8 @@ export function createComments(api: CreateClientReturn) {
     /** List comments on a Page post. */
     async list(postId: string, opts?: { fields?: (keyof CommentFields)[]; limit?: number }) {
       const cursor = api.pagePost(postId).comments.list({
-        fields: opts?.fields ?? ["id", "message", "from", "created_time"] as (keyof CommentFields)[],
+        fields:
+          opts?.fields ?? (["id", "message", "from", "created_time"] as (keyof CommentFields)[]),
         params: opts?.limit ? { limit: opts.limit } : undefined,
       });
       return cursor.toArray();

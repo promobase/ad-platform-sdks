@@ -4,7 +4,9 @@ export interface ToolMiddleware {
   /** Called before tool execution. Can modify params or throw to block. */
   beforeExecute?: (context: ToolCallContext) => Promise<void> | void;
   /** Called after successful execution. */
-  afterExecute?: (context: ToolCallContext & { result: unknown; durationMs: number }) => Promise<void> | void;
+  afterExecute?: (
+    context: ToolCallContext & { result: unknown; durationMs: number },
+  ) => Promise<void> | void;
   /** Called on execution error. Return a value to use as fallback result, or rethrow. */
   onError?: (context: ToolCallContext & { error: unknown }) => Promise<unknown> | unknown;
 }
@@ -27,7 +29,10 @@ export interface ToolCallContext {
  * });
  * ```
  */
-export function withMiddleware<T extends Record<string, Tool>>(tools: T, middleware: ToolMiddleware): T {
+export function withMiddleware<T extends Record<string, Tool>>(
+  tools: T,
+  middleware: ToolMiddleware,
+): T {
   const wrapped: Record<string, Tool> = {};
 
   for (const [name, originalTool] of Object.entries(tools)) {
@@ -48,7 +53,8 @@ export function withMiddleware<T extends Record<string, Tool>>(tools: T, middlew
         try {
           const result = await origExecute(params, execOpts);
           const durationMs = Date.now() - startTime;
-          if (middleware.afterExecute) await middleware.afterExecute({ ...ctx, result, durationMs });
+          if (middleware.afterExecute)
+            await middleware.afterExecute({ ...ctx, result, durationMs });
           return result;
         } catch (error) {
           if (middleware.onError) {

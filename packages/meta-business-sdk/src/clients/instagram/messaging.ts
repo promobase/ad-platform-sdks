@@ -3,7 +3,10 @@ type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").c
 export function createMessaging(api: CreateClientReturn, igAccountId: string) {
   return {
     /** Send a DM to an Instagram user. */
-    async send(recipientId: string, message: { text?: string; attachmentUrl?: string }): Promise<{ messageId: string; recipientId: string }> {
+    async send(
+      recipientId: string,
+      message: { text?: string; attachmentUrl?: string },
+    ): Promise<{ messageId: string; recipientId: string }> {
       const body: Record<string, unknown> = {
         recipient: { id: recipientId },
       };
@@ -20,7 +23,11 @@ export function createMessaging(api: CreateClientReturn, igAccountId: string) {
     },
 
     /** Reply to a specific DM message. */
-    async reply(recipientId: string, replyToMid: string, text: string): Promise<{ messageId: string; recipientId: string }> {
+    async reply(
+      recipientId: string,
+      replyToMid: string,
+      text: string,
+    ): Promise<{ messageId: string; recipientId: string }> {
       const result = await api.client.post<{ message_id: string; recipient_id: string }>(
         `${igAccountId}/messages`,
         {
@@ -33,7 +40,10 @@ export function createMessaging(api: CreateClientReturn, igAccountId: string) {
     },
 
     /** Send a private reply to a public comment (7-day window, max 1 per comment, 1000 chars). */
-    async privateReply(commentId: string, text: string): Promise<{ messageId: string; recipientId: string }> {
+    async privateReply(
+      commentId: string,
+      text: string,
+    ): Promise<{ messageId: string; recipientId: string }> {
       if (text.length > 1000) throw new Error("Private reply text cannot exceed 1000 characters");
       const result = await api.client.post<{ message_id: string; recipient_id: string }>(
         `${igAccountId}/messages`,

@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { createClient } from "../src/client.ts";
 
 test("createClient builds headers with Bearer, developer-token, login-customer-id", async () => {
@@ -42,23 +42,24 @@ test("createClient omits login-customer-id when not provided", async () => {
 
 test("createClient routes errors through GoogleAdsError parser", async () => {
   const { GoogleAdsError } = await import("../src/errors.ts");
-  const fetchMock = mock(async () =>
-    new Response(
-      JSON.stringify({
-        error: {
-          code: 400,
-          message: "bad",
-          details: [
-            {
-              "@type": "type.googleapis.com/google.ads.googleads.v23.errors.GoogleAdsFailure",
-              errors: [{ errorCode: { queryError: "BAD" }, message: "nope" }],
-              requestId: "r1",
-            },
-          ],
-        },
-      }),
-      { status: 400 },
-    ),
+  const fetchMock = mock(
+    async () =>
+      new Response(
+        JSON.stringify({
+          error: {
+            code: 400,
+            message: "bad",
+            details: [
+              {
+                "@type": "type.googleapis.com/google.ads.googleads.v23.errors.GoogleAdsFailure",
+                errors: [{ errorCode: { queryError: "BAD" }, message: "nope" }],
+                requestId: "r1",
+              },
+            ],
+          },
+        }),
+        { status: 400 },
+      ),
   );
   const client = createClient({
     getAccessToken: async () => "tok",

@@ -4,7 +4,9 @@ export interface ToolMiddleware {
   /** Called before tool execution. Can modify params or throw to block. */
   beforeExecute?: (context: ToolCallContext) => Promise<void> | void;
   /** Called after successful execution. */
-  afterExecute?: (context: ToolCallContext & { result: unknown; durationMs: number }) => Promise<void> | void;
+  afterExecute?: (
+    context: ToolCallContext & { result: unknown; durationMs: number },
+  ) => Promise<void> | void;
   /** Called on execution error. Return a value to use as fallback result, or rethrow. */
   onError?: (context: ToolCallContext & { error: unknown }) => Promise<unknown> | unknown;
 }

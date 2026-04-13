@@ -1,4 +1,4 @@
-import { test, expect, mock, afterEach } from "bun:test";
+import { afterEach, expect, mock, test } from "bun:test";
 
 const originalFetch = globalThis.fetch;
 
@@ -8,8 +8,8 @@ function mockFetchJson(body: unknown) {
       new Response(JSON.stringify(body), {
         status: 200,
         headers: { "Content-Type": "application/json" },
-      })
-    )
+      }),
+    ),
   ) as unknown as typeof fetch;
 }
 

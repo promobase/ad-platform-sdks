@@ -1,5 +1,5 @@
 import type { Spec, SpecApi, SpecParam } from "./parser.ts";
-import { resolveType, enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
+import { resolveType, type TypeResolverContext } from "./type-resolver.ts";
 
 // ─── Naming Helpers ──────────────────────────────────────────────────
 
@@ -24,7 +24,7 @@ export function specNameToFieldsType(name: string): string {
  * Singularize a word (very basic heuristic).
  */
 function singularize(word: string): string {
-  if (word.endsWith("ies")) return word.slice(0, -3) + "y";
+  if (word.endsWith("ies")) return `${word.slice(0, -3)}y`;
   if (word.endsWith("ses")) return word.slice(0, -2);
   if (word.endsWith("s") && !word.endsWith("ss")) return word.slice(0, -1);
   return word;
@@ -104,7 +104,7 @@ export function emitFieldsInterface(
     lines.push(`  ${key}: ${f.resolvedType};`);
   }
   lines.push("}");
-  return lines.join("\n") + "\n";
+  return `${lines.join("\n")}\n`;
 }
 
 /**
@@ -124,7 +124,7 @@ export function emitParamsInterface(
   }
   lines.push("  [key: string]: unknown;");
   lines.push("}");
-  return lines.join("\n") + "\n";
+  return `${lines.join("\n")}\n`;
 }
 
 // ─── Full Object File Emitter ────────────────────────────────────────
@@ -170,7 +170,7 @@ export function emitObjectFile(ctx: EmitContext): string {
   const nodeOps: SpecApi[] = [];
   const edgeApis: SpecApi[] = [];
   for (const api of spec.apis) {
-    if (api.name && api.name.startsWith("#")) {
+    if (api.name?.startsWith("#")) {
       nodeOps.push(api);
     } else if (api.endpoint) {
       edgeApis.push(api);
@@ -313,7 +313,9 @@ export function emitObjectFile(ctx: EmitContext): string {
       const updateParamsType = paramsInterfaces.get("UPDATE");
       if (updateParamsType) {
         out.push(`    update: (params: ${updateParamsType}) =>`);
-        out.push(`      client.post<${selfFieldsType}>(\`\${id}\`, params as Record<string, unknown>),`);
+        out.push(
+          `      client.post<${selfFieldsType}>(\`\${id}\`, params as Record<string, unknown>),`,
+        );
       } else {
         out.push(`    update: (params?: Record<string, unknown>) =>`);
         out.push(`      client.post<${selfFieldsType}>(\`\${id}\`, params ?? {}),`);
@@ -351,9 +353,7 @@ export function emitObjectFile(ctx: EmitContext): string {
           const optsParam = paramsType
             ? `opts: { fields: F; params?: ${paramsType} }`
             : `opts: { fields: F; params?: Record<string, unknown> }`;
-          out.push(
-            `    ${camelName}: <F extends (keyof ${rt})[]>(${optsParam}) =>`,
-          );
+          out.push(`    ${camelName}: <F extends (keyof ${rt})[]>(${optsParam}) =>`);
           out.push(
             `      new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),`,
           );
@@ -362,13 +362,19 @@ export function emitObjectFile(ctx: EmitContext): string {
           const paramsType = paramsInterfaces.get(`POST:${ep}`);
           const paramArg = paramsType ? `params: ${paramsType}` : `params: Record<string, unknown>`;
           out.push(`    ${methodName}: (${paramArg}) =>`);
-          out.push(`      client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
+          out.push(
+            `      client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`,
+          );
         } else if (api.method === "DELETE") {
           const methodName = endpointToMethodName("DELETE", ep);
           const paramsType = paramsInterfaces.get(`DELETE:${ep}`);
-          const paramArg = paramsType ? `params: ${paramsType}` : `params?: Record<string, unknown>`;
+          const paramArg = paramsType
+            ? `params: ${paramsType}`
+            : `params?: Record<string, unknown>`;
           out.push(`    ${methodName}: (${paramArg}) =>`);
-          out.push(`      client.delete(\`\${id}/${ep}\`, params as Record<string, unknown> ?? {}),`);
+          out.push(
+            `      client.delete(\`\${id}/${ep}\`, params as Record<string, unknown> ?? {}),`,
+          );
         }
       } else {
         // Multiple methods on the same endpoint — group them
@@ -385,9 +391,7 @@ export function emitObjectFile(ctx: EmitContext): string {
           const optsParam = paramsType
             ? `opts: { fields: F; params?: ${paramsType} }`
             : `opts: { fields: F; params?: Record<string, unknown> }`;
-          out.push(
-            `      list: <F extends (keyof ${rt})[]>(${optsParam}) =>`,
-          );
+          out.push(`      list: <F extends (keyof ${rt})[]>(${optsParam}) =>`);
           out.push(
             `        new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),`,
           );
@@ -396,11 +400,11 @@ export function emitObjectFile(ctx: EmitContext): string {
         if (postApi) {
           const rt = returnType(postApi);
           const paramsType = paramsInterfaces.get(`POST:${ep}`);
-          const paramArg = paramsType
-            ? `params: ${paramsType}`
-            : `params: Record<string, unknown>`;
+          const paramArg = paramsType ? `params: ${paramsType}` : `params: Record<string, unknown>`;
           out.push(`      create: (${paramArg}) =>`);
-          out.push(`        client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`);
+          out.push(
+            `        client.post<${rt}>(\`\${id}/${ep}\`, params as Record<string, unknown>),`,
+          );
         }
 
         if (deleteApi) {
@@ -409,7 +413,9 @@ export function emitObjectFile(ctx: EmitContext): string {
             ? `params: ${paramsType}`
             : `params?: Record<string, unknown>`;
           out.push(`      delete: (${paramArg}) =>`);
-          out.push(`        client.delete(\`\${id}/${ep}\`, params as Record<string, unknown> ?? {}),`);
+          out.push(
+            `        client.delete(\`\${id}/${ep}\`, params as Record<string, unknown> ?? {}),`,
+          );
         }
 
         out.push("    },");
@@ -421,15 +427,12 @@ export function emitObjectFile(ctx: EmitContext): string {
     out.push("");
   }
 
-  return out.join("\n") + "\n";
+  return `${out.join("\n")}\n`;
 }
 
 // ─── Internal Utilities ──────────────────────────────────────────────
 
-function resolveParams(
-  params: SpecParam[],
-  typeCtx: TypeResolverContext,
-): ResolvedParam[] {
+function resolveParams(params: SpecParam[], typeCtx: TypeResolverContext): ResolvedParam[] {
   return params.map((p) => ({
     name: p.name,
     resolvedType: resolveType(p.type, typeCtx),

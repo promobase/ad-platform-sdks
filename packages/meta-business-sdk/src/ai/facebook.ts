@@ -3,7 +3,11 @@ import { z } from "zod";
 import { createFacebookPageClient } from "../clients/facebook/index.ts";
 import type { MetaClient } from "./common.ts";
 
-export function createFacebookTools(opts: { api: MetaClient; pageId: string; accessToken: string }) {
+export function createFacebookTools(opts: {
+  api: MetaClient;
+  pageId: string;
+  accessToken: string;
+}) {
   const fb = createFacebookPageClient(opts);
 
   return {
@@ -12,8 +16,14 @@ export function createFacebookTools(opts: { api: MetaClient; pageId: string; acc
       inputSchema: z.object({
         message: z.string().describe("Post text"),
         link: z.string().optional().describe("URL to include in the post"),
-        published: z.boolean().optional().describe("Publish immediately (default true) or schedule"),
-        scheduledPublishTime: z.number().optional().describe("Unix timestamp for scheduled publish"),
+        published: z
+          .boolean()
+          .optional()
+          .describe("Publish immediately (default true) or schedule"),
+        scheduledPublishTime: z
+          .number()
+          .optional()
+          .describe("Unix timestamp for scheduled publish"),
       }),
       execute: async (params) => fb.feed.publishPost(params),
     }),
@@ -137,7 +147,10 @@ export function createFacebookTools(opts: { api: MetaClient; pageId: string; acc
         recipientPsid: z.string().describe("Page-scoped user ID (PSID)"),
         text: z.string().optional().describe("Message text"),
         attachmentUrl: z.string().optional().describe("Attachment URL"),
-        attachmentType: z.string().optional().describe("Attachment type: image, video, audio, file"),
+        attachmentType: z
+          .string()
+          .optional()
+          .describe("Attachment type: image, video, audio, file"),
       }),
       execute: async ({ recipientPsid, ...message }) => fb.messaging.send(recipientPsid, message),
     }),
@@ -149,7 +162,8 @@ export function createFacebookTools(opts: { api: MetaClient; pageId: string; acc
         replyToMid: z.string().describe("Message ID to reply to"),
         text: z.string().describe("Reply text"),
       }),
-      execute: async ({ recipientPsid, replyToMid, text }) => fb.messaging.reply(recipientPsid, replyToMid, text),
+      execute: async ({ recipientPsid, replyToMid, text }) =>
+        fb.messaging.reply(recipientPsid, replyToMid, text),
     }),
 
     fb_get_account: tool({
@@ -161,7 +175,10 @@ export function createFacebookTools(opts: { api: MetaClient; pageId: string; acc
     fb_webhook_subscribe: tool({
       description: "Subscribe to Facebook Page webhook events.",
       inputSchema: z.object({
-        fields: z.array(z.string()).optional().describe("Event fields (default: feed, messages, etc.)"),
+        fields: z
+          .array(z.string())
+          .optional()
+          .describe("Event fields (default: feed, messages, etc.)"),
       }),
       execute: async ({ fields }) => fb.webhooks.subscribe(fields),
     }),

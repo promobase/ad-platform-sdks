@@ -2,12 +2,15 @@ import type { HttpClient } from "@promobase/sdk-runtime";
 import type { AdGroup } from "../generated/v23/resources/AdGroup.ts";
 import type { Campaign } from "../generated/v23/resources/Campaign.ts";
 import { adGroupService, googleAdsService } from "../generated/v23/services/index.ts";
-import { resolveRef, type Ref } from "./types.ts";
+import { type Ref, resolveRef } from "./types.ts";
 
 const GAQL_FIELDS =
   "ad_group.id, ad_group.name, ad_group.status, ad_group.campaign, ad_group.type, ad_group.cpc_bid_micros, ad_group.resource_name";
 
-export type CreateAdGroupInput = Omit<AdGroup, "resourceName" | "id" | "baseAdGroup" | "campaign"> & {
+export type CreateAdGroupInput = Omit<
+  AdGroup,
+  "resourceName" | "id" | "baseAdGroup" | "campaign"
+> & {
   campaign: Ref<Campaign>;
 };
 
@@ -83,9 +86,7 @@ export function adGroups(client: HttpClient, customerId: string) {
       const res = await googleAdsService.search(client, customerId, {
         query: `SELECT ${GAQL_FIELDS} FROM ad_group`,
       });
-      return (res.results ?? [])
-        .map((r) => r.adGroup)
-        .filter((g): g is AdGroup => g !== undefined);
+      return (res.results ?? []).map((r) => r.adGroup).filter((g): g is AdGroup => g !== undefined);
     },
   };
 }

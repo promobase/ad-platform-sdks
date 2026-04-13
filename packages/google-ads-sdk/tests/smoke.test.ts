@@ -1,6 +1,6 @@
-import { test, expect, mock } from "bun:test";
-import { Google } from "../src/index.ts";
+import { expect, mock, test } from "bun:test";
 import { googleAdsService } from "../src/generated/v23/services/index.ts";
+import { Google } from "../src/index.ts";
 
 test("googleAdsService.search hits the right URL with correct body", async () => {
   const calls: { url: string; init?: RequestInit }[] = [];
@@ -41,25 +41,24 @@ test("googleAdsService.search hits the right URL with correct body", async () =>
 });
 
 test("GoogleAdsError surfaces when API returns failure", async () => {
-  const fetchMock = mock(async () =>
-    new Response(
-      JSON.stringify({
-        error: {
-          code: 400,
-          message: "invalid",
-          details: [
-            {
-              "@type": "type.googleapis.com/google.ads.googleads.v23.errors.GoogleAdsFailure",
-              errors: [
-                { errorCode: { queryError: "BAD_FIELD_NAME" }, message: "bad field" },
-              ],
-              requestId: "req-1",
-            },
-          ],
-        },
-      }),
-      { status: 400 },
-    ),
+  const fetchMock = mock(
+    async () =>
+      new Response(
+        JSON.stringify({
+          error: {
+            code: 400,
+            message: "invalid",
+            details: [
+              {
+                "@type": "type.googleapis.com/google.ads.googleads.v23.errors.GoogleAdsFailure",
+                errors: [{ errorCode: { queryError: "BAD_FIELD_NAME" }, message: "bad field" }],
+                requestId: "req-1",
+              },
+            ],
+          },
+        }),
+        { status: 400 },
+      ),
   );
 
   const client = Google.createClient({

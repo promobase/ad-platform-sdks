@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { Google } from "../../src/index.ts";
 
 test("customer factory chains budget → campaign → ad group → ad group ad via rich refs", async () => {

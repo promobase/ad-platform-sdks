@@ -4,10 +4,18 @@ import type { EndpointSpec, ParamSpec } from "./parser.ts";
 
 /** "/open_api/v1.3/ad/get/" → "AdGet" */
 function urlToPascalName(url: string): string {
-  const path = url.replace(/^https?:\/\/[^/]+/, "").replace(/^\/open_api\/v[\d.]+\//, "").replace(/\/$/, "");
+  const path = url
+    .replace(/^https?:\/\/[^/]+/, "")
+    .replace(/^\/open_api\/v[\d.]+\//, "")
+    .replace(/\/$/, "");
   return path
     .split("/")
-    .map(segment => segment.split("_").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(""))
+    .map((segment) =>
+      segment
+        .split("_")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(""),
+    )
     .join("");
 }
 
@@ -21,7 +29,10 @@ function pascalToKebab(name: string): string {
 
 /** "Campaign Management" → "campaign-management" */
 function categoryToFileName(category: string): string {
-  return category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return category
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 /** Sanitize a field name for use as a TS property. */
@@ -36,7 +47,7 @@ function safeProp(name: string): string {
 function paramToTsType(param: ParamSpec): string {
   // If enum values exist, emit a union type
   if (param.enumValues && param.enumValues.length > 0) {
-    const union = param.enumValues.map(v => `"${v}"`).join(" | ");
+    const union = param.enumValues.map((v) => `"${v}"`).join(" | ");
     // If the base type is an array, make it an array of the union
     if (param.type.endsWith("[]")) {
       return `(${union})[]`;
@@ -47,15 +58,17 @@ function paramToTsType(param: ParamSpec): string {
   if (param.children.length > 0) {
     // Deduplicate children by name
     const seen = new Set<string>();
-    const deduped = param.children.filter(c => {
+    const deduped = param.children.filter((c) => {
       if (seen.has(c.name)) return false;
       seen.add(c.name);
       return true;
     });
-    const inner = deduped.map(c => {
-      const opt = c.required ? "" : "?";
-      return `  ${safeProp(c.name)}${opt}: ${paramToTsType(c)};`;
-    }).join("\n");
+    const inner = deduped
+      .map((c) => {
+        const opt = c.required ? "" : "?";
+        return `  ${safeProp(c.name)}${opt}: ${paramToTsType(c)};`;
+      })
+      .join("\n");
     const obj = `{\n${inner}\n}`;
     if (param.type.endsWith("[]") || param.type === "Record<string, unknown>[]") {
       return `${obj}[]`;
@@ -71,13 +84,13 @@ function emitInterface(name: string, params: ParamSpec[]): string {
 
   // Deduplicate properties by name (keep first occurrence)
   const seen = new Set<string>();
-  const deduped = params.filter(p => {
+  const deduped = params.filter((p) => {
     if (seen.has(p.name)) return false;
     seen.add(p.name);
     return true;
   });
 
-  const lines = deduped.map(p => {
+  const lines = deduped.map((p) => {
     const opt = p.required ? "" : "?";
     const type = paramToTsType(p);
     return `  ${safeProp(p.name)}${opt}: ${type};`;
@@ -88,7 +101,12 @@ function emitInterface(name: string, params: ParamSpec[]): string {
 
 // ─── Client Method Emitter ───────────────────────────────────────────
 
-function emitMethodWithName(spec: EndpointSpec, methodName: string, paramsType: string, responseType: string): string {
+function emitMethodWithName(
+  spec: EndpointSpec,
+  methodName: string,
+  paramsType: string,
+  responseType: string,
+): string {
   const urlPath = spec.url.replace(/^https?:\/\/[^/]+/, "");
 
   if (spec.method === "GET") {
@@ -106,7 +124,10 @@ function emitMethodWithName(spec: EndpointSpec, methodName: string, paramsType: 
 
 function deriveMethodName(spec: EndpointSpec): string {
   // Extract the last meaningful segment(s) from the URL
-  const path = spec.url.replace(/^https?:\/\/[^/]+/, "").replace(/^\/open_api\/v[\d.]+\//, "").replace(/\/$/, "");
+  const path = spec.url
+    .replace(/^https?:\/\/[^/]+/, "")
+    .replace(/^\/open_api\/v[\d.]+\//, "")
+    .replace(/\/$/, "");
   const segments = path.split("/").filter(Boolean);
 
   // Common pattern: resource/action → actionResource
@@ -139,10 +160,7 @@ export interface CategoryOutput {
 /** Emit types + client for a category of endpoints. */
 export function emitCategory(category: string, specs: EndpointSpec[]): CategoryOutput {
   const fileName = categoryToFileName(category);
-  const typesLines: string[] = [
-    `// Auto-generated types for ${category} — do not edit`,
-    "",
-  ];
+  const typesLines: string[] = [`// Auto-generated types for ${category} — do not edit`, ""];
   const methodLines: string[] = [];
   const typeImports: string[] = [];
 
@@ -178,7 +196,7 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
   const typesContent = typesLines.join("\n");
 
   // Determine auth pattern (most endpoints in a category share the same pattern)
-  const usesAccessToken = specs.some(s => s.auth === "access_token");
+  const usesAccessToken = specs.some((s) => s.auth === "access_token");
   const optsType = usesAccessToken
     ? "{ accessToken: string; advertiserId: string }"
     : "{ appId: string; appSecret: string }";
@@ -244,8 +262,8 @@ function pascalCategory(category: string): string {
     .replace(/[^a-zA-Z0-9\s-]/g, "") // Strip parens, dots, etc.
     .trim()
     .split(/[\s-]+/)
-    .filter(w => w.length > 0)
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .filter((w) => w.length > 0)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join("");
 }
 
@@ -259,9 +277,16 @@ export function emitBarrel(categories: CategoryOutput[]): string {
   ];
 
   for (const cat of categories) {
-    const fnName = `create${pascalCategory(cat.fileName.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(""))}`;
+    const fnName = `create${pascalCategory(
+      cat.fileName
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(""),
+    )}`;
     // Only re-export the factory function to avoid type name collisions across categories
-    lines.push(`export { create${pascalCategory(cat.fileName.replace(/-/g, " "))} } from "./endpoints/${cat.fileName}.ts";`);
+    lines.push(
+      `export { create${pascalCategory(cat.fileName.replace(/-/g, " "))} } from "./endpoints/${cat.fileName}.ts";`,
+    );
   }
 
   lines.push("");

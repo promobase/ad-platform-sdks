@@ -1,8 +1,8 @@
-import { createInstagramTools } from "./instagram.ts";
-import { createFacebookTools } from "./facebook.ts";
-import { createThreadsTools } from "./threads.ts";
 import { createCampaignTools } from "./campaigns.ts";
 import type { MetaClient } from "./common.ts";
+import { createFacebookTools } from "./facebook.ts";
+import { createInstagramTools } from "./instagram.ts";
+import { createThreadsTools } from "./threads.ts";
 
 export type { MetaClient } from "./common.ts";
 
@@ -24,11 +24,17 @@ type ToolGroupMap = {
 
 // Merge selected tool groups into a single flat type
 type MergeTools<T extends ToolGroup[]> = T extends []
-  ? InstagramTools & FacebookTools & ThreadsTools & CampaignTools  // default: all
-  : (T[number] extends infer G ? G extends ToolGroup ? ToolGroupMap[G] : never : never);
+  ? InstagramTools & FacebookTools & ThreadsTools & CampaignTools // default: all
+  : T[number] extends infer G
+    ? G extends ToolGroup
+      ? ToolGroupMap[G]
+      : never
+    : never;
 
 // Flatten union of objects into a single intersection
-type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void ? I : never;
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void
+  ? I
+  : never;
 
 export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
   api: MetaClient;
@@ -44,7 +50,8 @@ export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
 export function createMetaTools<const T extends ToolGroup[] = ToolGroup[]>(
   opts: CreateMetaToolsOptions<T>,
 ): UnionToIntersection<MergeTools<T>> {
-  const include = opts.include ?? (["instagram", "facebook", "threads", "campaigns"] as ToolGroup[]);
+  const include =
+    opts.include ?? (["instagram", "facebook", "threads", "campaigns"] as ToolGroup[]);
   let tools: Record<string, unknown> = {};
 
   if (include.includes("instagram") && opts.igAccountId) {
@@ -52,14 +59,24 @@ export function createMetaTools<const T extends ToolGroup[] = ToolGroup[]>(
   }
 
   if (include.includes("facebook") && opts.pageId && opts.pageAccessToken) {
-    tools = { ...tools, ...createFacebookTools({ api: opts.api, pageId: opts.pageId, accessToken: opts.pageAccessToken }) };
+    tools = {
+      ...tools,
+      ...createFacebookTools({
+        api: opts.api,
+        pageId: opts.pageId,
+        accessToken: opts.pageAccessToken,
+      }),
+    };
   }
 
   if (include.includes("threads") && opts.threadsUserId) {
-    tools = { ...tools, ...createThreadsTools({
-      accessToken: opts.threadsAccessToken ?? "",
-      threadsUserId: opts.threadsUserId,
-    })};
+    tools = {
+      ...tools,
+      ...createThreadsTools({
+        accessToken: opts.threadsAccessToken ?? "",
+        threadsUserId: opts.threadsUserId,
+      }),
+    };
   }
 
   if (include.includes("campaigns") && opts.adAccountId) {
@@ -69,16 +86,21 @@ export function createMetaTools<const T extends ToolGroup[] = ToolGroup[]>(
   return tools as UnionToIntersection<MergeTools<T>>;
 }
 
+export { createCampaignTools } from "./campaigns.ts";
+export { createFacebookTools } from "./facebook.ts";
+export type { ToolCategory } from "./filter.ts";
+export {
+  filterTools,
+  filterToolsByName,
+  getAvailableCategories,
+  getToolCategories,
+  limitTools,
+} from "./filter.ts";
 // Re-export individual tool creators for selective use
 export { createInstagramTools } from "./instagram.ts";
-export { createFacebookTools } from "./facebook.ts";
-export { createThreadsTools } from "./threads.ts";
-export { createCampaignTools } from "./campaigns.ts";
-
+export type { ToolCallContext, ToolMiddleware } from "./middleware.ts";
 // Middleware, filtering, and routing
 export { withMiddleware } from "./middleware.ts";
-export type { ToolMiddleware, ToolCallContext } from "./middleware.ts";
-export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "./filter.ts";
-export type { ToolCategory } from "./filter.ts";
-export { createRouter } from "./router.ts";
 export type { RouterOptions } from "./router.ts";
+export { createRouter } from "./router.ts";
+export { createThreadsTools } from "./threads.ts";

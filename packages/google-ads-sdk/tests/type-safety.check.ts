@@ -2,12 +2,11 @@
 // with @ts-expect-error MUST produce an error, and non-error lines must compile.
 // If any @ts-expect-error line stops erroring (or vice versa), type safety has regressed.
 
-import type { Campaign } from "../src/generated/v23/resources/Campaign.ts";
-import type { CampaignStatus } from "../src/generated/v23/enums/CampaignStatus.ts";
-import { Google } from "../src/index.ts";
-import { googleAdsService } from "../src/generated/v23/services/index.ts";
-import { campaignService } from "../src/generated/v23/services/index.ts";
 import type { RowOf } from "../src/clients/gaql/builder.ts";
+import type { CampaignStatus } from "../src/generated/v23/enums/CampaignStatus.ts";
+import type { Campaign } from "../src/generated/v23/resources/Campaign.ts";
+import { campaignService, googleAdsService } from "../src/generated/v23/services/index.ts";
+import { Google } from "../src/index.ts";
 
 // 1. Enum is a literal union, not `string`.
 const good1: CampaignStatus = "ENABLED";
@@ -124,7 +123,11 @@ async function wrapperChecks() {
   });
 
   // @ts-expect-error — campaignBudget required
-  await customer.campaigns.create({ name: "C", status: "PAUSED", advertisingChannelType: "SEARCH" });
+  await customer.campaigns.create({
+    name: "C",
+    status: "PAUSED",
+    advertisingChannelType: "SEARCH",
+  });
 
   await customer.campaigns.create({
     name: "E",
@@ -193,4 +196,20 @@ const row2Check: Row2 = {
 void row2Check;
 
 // Silence unused-var warnings under tsc --noUnusedLocals if enabled.
-void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample, wrapperChecks, gaqlChecks];
+void [
+  good1,
+  bad1,
+  goodCampaign,
+  badCampaign1,
+  badCampaign2,
+  badCampaign3,
+  badClient,
+  searchOk,
+  searchBad,
+  mutateOk,
+  mutateBad,
+  handle,
+  specPaginateExample,
+  wrapperChecks,
+  gaqlChecks,
+];

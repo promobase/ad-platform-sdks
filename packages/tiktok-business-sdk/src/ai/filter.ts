@@ -1,6 +1,14 @@
 import type { Tool } from "ai";
 
-export type ToolCategory = "content" | "comments" | "account" | "messaging" | "publish" | "insights" | "management" | "moderation";
+export type ToolCategory =
+  | "content"
+  | "comments"
+  | "account"
+  | "messaging"
+  | "publish"
+  | "insights"
+  | "management"
+  | "moderation";
 
 const TOOL_CATEGORIES: Record<string, ToolCategory[]> = {
   // Content
@@ -31,11 +39,14 @@ const TOOL_CATEGORIES: Record<string, ToolCategory[]> = {
 };
 
 /** Filter tools by categories. Returns only tools matching ANY of the specified categories. */
-export function filterTools<T extends Record<string, Tool>>(tools: T, categories: ToolCategory[]): Partial<T> {
+export function filterTools<T extends Record<string, Tool>>(
+  tools: T,
+  categories: ToolCategory[],
+): Partial<T> {
   const result: Record<string, Tool> = {};
   for (const [name, t] of Object.entries(tools)) {
     const cats = TOOL_CATEGORIES[name] ?? [];
-    if (categories.some(c => cats.includes(c))) {
+    if (categories.some((c) => cats.includes(c))) {
       result[name] = t;
     }
   }
@@ -43,10 +54,13 @@ export function filterTools<T extends Record<string, Tool>>(tools: T, categories
 }
 
 /** Filter tools by name pattern (glob-like with * wildcard). */
-export function filterToolsByName<T extends Record<string, Tool>>(tools: T, patterns: string[]): Partial<T> {
+export function filterToolsByName<T extends Record<string, Tool>>(
+  tools: T,
+  patterns: string[],
+): Partial<T> {
   const result: Record<string, Tool> = {};
   for (const [name, t] of Object.entries(tools)) {
-    if (patterns.some(p => matchPattern(p, name))) {
+    if (patterns.some((p) => matchPattern(p, name))) {
       result[name] = t;
     }
   }
@@ -79,5 +93,14 @@ export function getToolCategories(toolName: string): ToolCategory[] {
 
 /** Get all available category names. */
 export function getAvailableCategories(): ToolCategory[] {
-  return ["content", "comments", "account", "messaging", "publish", "insights", "management", "moderation"];
+  return [
+    "content",
+    "comments",
+    "account",
+    "messaging",
+    "publish",
+    "insights",
+    "management",
+    "moderation",
+  ];
 }

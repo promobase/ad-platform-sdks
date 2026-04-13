@@ -1,5 +1,5 @@
-import { test, expect } from "bun:test";
-import { Meta, TikTok, createAllTools } from "../src/index.ts";
+import { expect, test } from "bun:test";
+import { createAllTools, Meta, TikTok } from "../src/index.ts";
 
 test("Meta namespace is accessible", () => {
   expect(Meta.createClient).toBeDefined();

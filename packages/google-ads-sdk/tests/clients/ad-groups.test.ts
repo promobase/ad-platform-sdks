@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient } from "@promobase/sdk-runtime";
 import { adGroups } from "../../src/clients/ad-groups.ts";
 
@@ -58,10 +58,9 @@ test("update/remove/get/list basic shapes", async () => {
   const bodies: any[] = [];
   const client = makeClient((_u, init) => {
     bodies.push(init?.body ? JSON.parse(init.body as string) : null);
-    return new Response(
-      JSON.stringify({ results: [{ adGroup: { id: "777", name: "Shoes" } }] }),
-      { status: 200 },
-    );
+    return new Response(JSON.stringify({ results: [{ adGroup: { id: "777", name: "Shoes" } }] }), {
+      status: 200,
+    });
   });
   const api = adGroups(client, "123");
   await api.update("customers/123/adGroups/777", { status: "PAUSED" });

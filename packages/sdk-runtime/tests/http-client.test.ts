@@ -1,4 +1,4 @@
-import { test, expect, mock } from "bun:test";
+import { expect, mock, test } from "bun:test";
 import { HttpClient, HttpError } from "../src/http-client.ts";
 
 test("HttpClient sends JSON POST with custom headers", async () => {
@@ -24,8 +24,9 @@ test("HttpClient sends JSON POST with custom headers", async () => {
 });
 
 test("HttpClient throws HttpError on non-2xx", async () => {
-  const fetchMock = mock(async () =>
-    new Response(JSON.stringify({ error: { code: 400, message: "bad" } }), { status: 400 }),
+  const fetchMock = mock(
+    async () =>
+      new Response(JSON.stringify({ error: { code: 400, message: "bad" } }), { status: 400 }),
   );
   const client = new HttpClient({
     baseUrl: "https://api.example.com",
@@ -71,7 +72,12 @@ test("HttpClient retries retryable statuses", async () => {
 
 test("HttpClient uses custom onError", async () => {
   class MyError extends Error {
-    constructor(public status: number, public body: unknown) { super("my"); }
+    constructor(
+      public status: number,
+      public body: unknown,
+    ) {
+      super("my");
+    }
   }
   const fetchMock = mock(async () => new Response('{"msg":"nope"}', { status: 403 }));
   const client = new HttpClient({

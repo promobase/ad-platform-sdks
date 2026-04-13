@@ -1,4 +1,4 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import { extractEnumsFromSource, parseEnumBlock } from "../../src/codegen/enum-extractor.ts";
 
 test("parseEnumBlock extracts key-value pairs from frozen object", () => {
