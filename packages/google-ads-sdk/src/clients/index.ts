@@ -11,3 +11,5 @@ export type { CreateAdGroupAdInput } from "./ad-group-ads.ts";
 export { ads } from "./ads.ts";
 export { resolveRef } from "./types.ts";
 export type { Ref } from "./types.ts";
+export { QueryBuilder, BoundQueryBuilder, gaql, gaqlFactory } from "./gaql/index.ts";
+export type { RowOf, QueryState } from "./gaql/index.ts";

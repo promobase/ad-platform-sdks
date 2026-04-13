@@ -14,3 +14,6 @@ export type {
   CreateAdGroupAdInput,
   Ref,
 } from "./clients/index.ts";
+export { QueryBuilder, gaql } from "./clients/gaql/builder.ts";
+export { BoundQueryBuilder, gaqlFactory } from "./clients/gaql/bound.ts";
+export type { RowOf } from "./clients/gaql/builder.ts";
