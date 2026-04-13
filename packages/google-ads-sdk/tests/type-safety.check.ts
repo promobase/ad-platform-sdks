@@ -7,6 +7,7 @@ import type { CampaignStatus } from "../src/generated/v23/enums/CampaignStatus.t
 import { Google } from "../src/index.ts";
 import { googleAdsService } from "../src/generated/v23/services/index.ts";
 import { campaignService } from "../src/generated/v23/services/index.ts";
+import type { RowOf } from "../src/clients/gaql/builder.ts";
 
 // 1. Enum is a literal union, not `string`.
 const good1: CampaignStatus = "ENABLED";
@@ -152,5 +153,44 @@ async function wrapperChecks() {
   await customer.ads.create({});
 }
 
+// 9. GAQL builder type safety.
+async function gaqlChecks() {
+  const customer = Google.Ads.customer(client, "123");
+
+  // Good: field literals accepted, row narrowed
+  const result = await customer.gaql
+    .from("campaign")
+    .select("campaign.id", "campaign.name", "metrics.clicks")
+    .limit(10)
+    .execute();
+
+  const row = result.rows[0]!;
+  const id: string = row.campaign.id;
+  const name: string = row.campaign.name;
+  const clicks: string = row.metrics.clicks;
+  void [id, name, clicks];
+
+  // @ts-expect-error — "bogus.field" is not in the catalog
+  await customer.gaql.from("campaign").select("bogus.field").execute();
+
+  // @ts-expect-error — "not_a_resource" is not a GaqlResource
+  await customer.gaql.from("not_a_resource").select("campaign.id").execute();
+
+  // @ts-expect-error — ad_group.id is not a valid field for FROM campaign
+  await customer.gaql.from("campaign").select("ad_group.id").execute();
+}
+
+// 10. RowOf<> narrowing assertions via explicit type assignment.
+type Row1 = RowOf<"campaign.id">;
+const row1Check: Row1 = { campaign: { id: "abc" } };
+void row1Check;
+
+type Row2 = RowOf<"campaign.id" | "metrics.clicks">;
+const row2Check: Row2 = {
+  campaign: { id: "1" },
+  metrics: { clicks: "42" },
+};
+void row2Check;
+
 // Silence unused-var warnings under tsc --noUnusedLocals if enabled.
-void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample, wrapperChecks];
+void [good1, bad1, goodCampaign, badCampaign1, badCampaign2, badCampaign3, badClient, searchOk, searchBad, mutateOk, mutateBad, handle, specPaginateExample, wrapperChecks, gaqlChecks];
