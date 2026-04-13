@@ -1,6 +1,7 @@
 import { test, expect } from "bun:test";
 import { loadProtos } from "../src/codegen/parser.ts";
 import { resolveType } from "../src/codegen/type-resolver.ts";
+import { parseHttpPath } from "../src/codegen/http-binding.ts";
 import path from "node:path";
 
 const FIXTURES = path.resolve(import.meta.dir, "fixtures");
@@ -82,4 +83,28 @@ test("resolveType repeated message refs produce array type", () => {
   const r = resolveType("google.ads.googleads.v23.resources.Campaign", true, null);
   expect(r.tsType).toBe("Campaign[]");
   expect(r.imports).toHaveLength(1);
+});
+
+test("parseHttpPath extracts simple param", () => {
+  const r = parseHttpPath("/v23/customers/{customer_id}/campaigns:mutate");
+  expect(r.pathParams).toEqual(["customer_id"]);
+  expect(r.template).toBe("/v23/customers/${customerId}/campaigns:mutate");
+});
+
+test("parseHttpPath extracts resource-template param", () => {
+  const r = parseHttpPath("/v23/{resource_name=customers/*/campaigns/*}");
+  expect(r.pathParams).toEqual(["resource_name"]);
+  expect(r.template).toBe("/v23/${resourceName}");
+});
+
+test("parseHttpPath extracts multiple params", () => {
+  const r = parseHttpPath("/v23/customers/{customer_id}/adGroups/{ad_group_id}");
+  expect(r.pathParams).toEqual(["customer_id", "ad_group_id"]);
+  expect(r.template).toBe("/v23/customers/${customerId}/adGroups/${adGroupId}");
+});
+
+test("parseHttpPath handles no params", () => {
+  const r = parseHttpPath("/v23/customers:listAccessibleCustomers");
+  expect(r.pathParams).toEqual([]);
+  expect(r.template).toBe("/v23/customers:listAccessibleCustomers");
 });
