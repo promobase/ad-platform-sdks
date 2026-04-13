@@ -1,13 +1,22 @@
 {
   "name": "@promobase/tiktok-business-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Type-safe TypeScript SDK for the TikTok Business API — OAuth, video/photo publishing, comments, and account insights",
   "keywords": [
-    "tiktok", "tiktok-business-api", "tiktok-ads", "tiktok-marketing-api",
-    "tiktok-sdk", "tiktok-api",
-    "typescript", "type-safe", "typed",
-    "sdk", "api-client", "business-sdk",
-    "video-publish", "content-api"
+    "tiktok",
+    "tiktok-business-api",
+    "tiktok-ads",
+    "tiktok-marketing-api",
+    "tiktok-sdk",
+    "tiktok-api",
+    "typescript",
+    "type-safe",
+    "typed",
+    "sdk",
+    "api-client",
+    "business-sdk",
+    "video-publish",
+    "content-api"
   ],
   "repository": {
     "type": "git",

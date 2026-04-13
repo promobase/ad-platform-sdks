@@ -1,15 +1,25 @@
 {
   "name": "@promobase/ad-platforms",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, and future ad platforms — single install, single namespace",
   "keywords": [
-    "meta", "facebook", "instagram", "threads",
-    "tiktok", "tiktok-business",
+    "meta",
+    "facebook",
+    "instagram",
+    "threads",
+    "tiktok",
+    "tiktok-business",
     "google-ads",
-    "ads", "advertising", "marketing-api",
-    "typescript", "type-safe", "sdk",
-    "ad-platforms", "business-sdk",
-    "ai-sdk", "llm-tools"
+    "ads",
+    "advertising",
+    "marketing-api",
+    "typescript",
+    "type-safe",
+    "sdk",
+    "ad-platforms",
+    "business-sdk",
+    "ai-sdk",
+    "llm-tools"
   ],
   "repository": {
     "type": "git",
@@ -44,7 +54,9 @@
     "zod": "^4.0.0"
   },
   "peerDependenciesMeta": {
-    "ai": { "optional": true }
+    "ai": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/bun": "latest"
