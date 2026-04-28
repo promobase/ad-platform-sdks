@@ -1,6 +1,6 @@
 {
   "name": "@promobase/youtube-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Type-safe TypeScript SDK for YouTube Data API v3 publishing, uploads, and channel workflows",
   "keywords": [
     "youtube",
