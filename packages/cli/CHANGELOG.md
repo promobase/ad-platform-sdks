@@ -1,5 +1,11 @@
 # @openpromo/ad-platforms-cli
 
+## 0.3.0
+
+### Minor Changes
+
+- [`531f75f`](https://github.com/promobase/ad-platform-sdks/commit/531f75f9b3800fbc20af7a2f0b4ff1f0cb1f0c5c) Thanks [@rayli09](https://github.com/rayli09)! - Add CLI and MCP command coverage for LinkedIn, TikTok, X, YouTube, and Google Ads alongside the existing Meta commands.
+
 ## 0.2.0
 
 ### Minor Changes
