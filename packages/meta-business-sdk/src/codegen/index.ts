@@ -137,9 +137,9 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const factoryLines: string[] = [];
   factoryLines.push("// Auto-generated client factory — do not edit");
   factoryLines.push("");
-  factoryLines.push(`import { ApiClient } from "@promobase/sdk-runtime";`);
+  factoryLines.push(`import { ApiClient } from "@openpromo/sdk-runtime";`);
   factoryLines.push(
-    `import type { ApiClientOptions as BaseOptions } from "@promobase/sdk-runtime";`,
+    `import type { ApiClientOptions as BaseOptions } from "@openpromo/sdk-runtime";`,
   );
   factoryLines.push(`import { FacebookApiError } from "../errors.ts";`);
   factoryLines.push(
@@ -156,9 +156,9 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   );
   factoryLines.push("  baseUrl?: string;");
   factoryLines.push("  apiVersion?: string;");
-  factoryLines.push("  rateLimiter?: import('@promobase/sdk-runtime').RateLimiter;");
-  factoryLines.push("  delay?: import('@promobase/sdk-runtime').DelayFn;");
-  factoryLines.push("  retry?: Partial<import('@promobase/sdk-runtime').RetryConfig>;");
+  factoryLines.push("  rateLimiter?: import('@openpromo/sdk-runtime').RateLimiter;");
+  factoryLines.push("  delay?: import('@openpromo/sdk-runtime').DelayFn;");
+  factoryLines.push("  retry?: Partial<import('@openpromo/sdk-runtime').RetryConfig>;");
   factoryLines.push("}");
   factoryLines.push("");
   factoryLines.push("export function createTypedClient(opts: MetaClientOptions) {");
@@ -215,8 +215,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   // Re-export createTypedClient as createClient
   barrelLines.push(`export { createTypedClient as createClient } from "./client-factory.ts";`);
   barrelLines.push(`export type { MetaClientOptions } from "./client-factory.ts";`);
-  barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";`);
-  barrelLines.push(`export { Cursor } from "@promobase/sdk-runtime";`);
+  barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";`);
+  barrelLines.push(`export { Cursor } from "@openpromo/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
   barrelLines.push(
     `export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,

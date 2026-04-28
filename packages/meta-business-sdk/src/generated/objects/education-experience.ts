@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ExperienceFields } from "./experience.ts";
 import type { PageFields } from "./page.ts";
 import type { UserFields } from "./user.ts";

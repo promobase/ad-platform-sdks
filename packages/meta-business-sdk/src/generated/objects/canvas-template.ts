@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { CanvasFields } from "./canvas.ts";
 import type { PhotoFields } from "./photo.ts";
 import type { UserFields } from "./user.ts";

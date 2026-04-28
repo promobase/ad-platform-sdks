@@ -1,5 +1,5 @@
 import type { GenerateAudienceCompositionInsightsRequest, GenerateAudienceCompositionInsightsResponse, GenerateAudienceDefinitionRequest, GenerateAudienceDefinitionResponse, GenerateAudienceOverlapInsightsRequest, GenerateAudienceOverlapInsightsResponse, GenerateInsightsFinderReportRequest, GenerateInsightsFinderReportResponse, GenerateSuggestedTargetingInsightsRequest, GenerateSuggestedTargetingInsightsResponse, GenerateTargetingSuggestionMetricsRequest, GenerateTargetingSuggestionMetricsResponse, ListAudienceInsightsAttributesRequest, ListAudienceInsightsAttributesResponse, ListInsightsEligibleDatesRequest, ListInsightsEligibleDatesResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.AudienceInsightsService. Do not edit by hand.
 export const audienceInsightsService = {

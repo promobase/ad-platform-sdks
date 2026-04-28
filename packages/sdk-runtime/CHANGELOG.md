@@ -1,4 +1,4 @@
-# @promobase/sdk-runtime
+# @openpromo/sdk-runtime
 
 ## 0.2.2
 
@@ -18,8 +18,8 @@
 
 ### Minor Changes
 
-- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@promobase/google-ads-sdk` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
+- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@openpromo/google-ads` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
 
-  Added a generic `HttpClient` to `@promobase/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
+  Added a generic `HttpClient` to `@openpromo/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
 
-  `@promobase/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.
+  `@openpromo/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.

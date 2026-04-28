@@ -1,5 +1,5 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
-import { Cursor } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdNetworkAnalyticsAsyncQueryResultFields } from "./ad-network-analytics-async-query-result.ts";
 import type { AdNetworkAnalyticsSyncQueryResultFields } from "./ad-network-analytics-sync-query-result.ts";

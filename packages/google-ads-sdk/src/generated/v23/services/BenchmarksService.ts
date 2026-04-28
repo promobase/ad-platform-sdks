@@ -1,5 +1,5 @@
 import type { GenerateBenchmarksMetricsRequest, GenerateBenchmarksMetricsResponse, ListBenchmarksAvailableDatesRequest, ListBenchmarksAvailableDatesResponse, ListBenchmarksLocationsRequest, ListBenchmarksLocationsResponse, ListBenchmarksProductsRequest, ListBenchmarksProductsResponse, ListBenchmarksSourcesRequest, ListBenchmarksSourcesResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.BenchmarksService. Do not edit by hand.
 export const benchmarksService = {

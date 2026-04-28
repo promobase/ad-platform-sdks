@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface URLFields {
   engagement: Record<string, unknown>;

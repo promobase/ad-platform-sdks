@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ChinaBusinessOnboardingVettingRequestFields {
   ad_account_creation_request_status: string;

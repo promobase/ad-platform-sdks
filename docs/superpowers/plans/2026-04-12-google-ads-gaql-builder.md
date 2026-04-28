@@ -6,7 +6,7 @@
 
 **Architecture:** Codegen extension emits a field catalog (`FieldMap`, per-resource field unions) from the pinned v23 protos. A phantom-typed `QueryBuilder` accumulates selections into a `Sel extends string` union; `RowOf<Sel>` converts that into a deep nested response shape via `SetPath` + `UnionToIntersection`. Raw WHERE/ORDER BY. Integrated into the existing `customer` factory.
 
-**Tech Stack:** TypeScript, Bun, existing proto walker in `src/codegen/parser.ts`, existing `@promobase/sdk-runtime` `HttpClient`.
+**Tech Stack:** TypeScript, Bun, existing proto walker in `src/codegen/parser.ts`, existing `@openpromo/sdk-runtime` `HttpClient`.
 
 **Spec:** `docs/superpowers/specs/2026-04-12-google-ads-gaql-builder-design.md`
 
@@ -641,7 +641,7 @@ export function serialize<R extends string, S extends string>(
 - [ ] **Step 5: Implement `src/clients/gaql/builder.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { FieldInfo, FieldMap } from "../../generated/v23/gaql/field-map.ts";
 import type { GaqlResource, ResourceFieldMap } from "../../generated/v23/gaql/resource-map.ts";
 import { googleAdsService } from "../../generated/v23/services/index.ts";
@@ -765,7 +765,7 @@ export const gaql = {
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { gaql } from "../../../src/clients/gaql/builder.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -890,7 +890,7 @@ git commit -m "feat(google-ads-sdk): add typed GAQL query builder"
 - [ ] **Step 1: Implement `src/clients/gaql/bound.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { GaqlResource, ResourceFieldMap } from "../../generated/v23/gaql/resource-map.ts";
 import { QueryBuilder, type RowOf } from "./builder.ts";
 
@@ -974,7 +974,7 @@ export type { QueryState } from "./serialize.ts";
 Read the existing file. Add `gaql` field to `Customer` and wire it in `createCustomer`:
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import { campaignBudgets } from "./campaign-budgets.ts";
 import { campaigns } from "./campaigns.ts";
 import { adGroups } from "./ad-groups.ts";

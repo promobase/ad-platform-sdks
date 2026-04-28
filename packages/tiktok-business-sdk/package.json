@@ -1,5 +1,5 @@
 {
-  "name": "@promobase/tiktok-business-sdk",
+  "name": "@openpromo/tiktok",
   "version": "0.0.4",
   "description": "Type-safe TypeScript SDK for the TikTok Business API — OAuth, video/photo publishing, comments, and account insights",
   "keywords": [
@@ -48,7 +48,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@promobase/sdk-runtime": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
     "zod": "^4.3.6"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@promobase/ad-platforms",
+  "name": "@openpromo/ad-platforms",
   "version": "0.2.0",
   "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
   "keywords": [
@@ -54,12 +54,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@promobase/meta-business-sdk-ts": "workspace:*",
-    "@promobase/tiktok-business-sdk": "workspace:*",
-    "@promobase/google-ads-sdk": "workspace:*",
-    "@promobase/linkedin-sdk": "workspace:*",
-    "@promobase/x-sdk": "workspace:*",
-    "@promobase/youtube-sdk": "workspace:*"
+    "@openpromo/meta": "workspace:*",
+    "@openpromo/tiktok": "workspace:*",
+    "@openpromo/google-ads": "workspace:*",
+    "@openpromo/linkedin": "workspace:*",
+    "@openpromo/x": "workspace:*",
+    "@openpromo/youtube": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.9.3",

@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductCatalogFields } from "./product-catalog.ts";
 import type { ProductSetFields } from "./product-set.ts";
 

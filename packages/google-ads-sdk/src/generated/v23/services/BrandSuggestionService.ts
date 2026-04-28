@@ -1,5 +1,5 @@
 import type { SuggestBrandsRequest, SuggestBrandsResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.BrandSuggestionService. Do not edit by hand.
 export const brandSuggestionService = {

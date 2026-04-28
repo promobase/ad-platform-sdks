@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ExternalMerchantSettingsFields {
   connect_woo: string;

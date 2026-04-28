@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { LocationFields } from "./location.ts";
 import type { TargetingGeoLocationCityFields } from "./targeting-geo-location-city.ts";
 import type { TargetingGeoLocationCustomLocationFields } from "./targeting-geo-location-custom-location.ts";

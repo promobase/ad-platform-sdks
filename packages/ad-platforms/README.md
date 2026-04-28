@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @promobase/ad-platforms
+# @openpromo/ad-platforms
 
 **Type-safe TypeScript SDKs for every ad platform. One install. AI-agent ready.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/ad-platforms.svg?label=%40promobase%2Fad-platforms)](https://www.npmjs.com/package/@promobase/ad-platforms)
+[![npm](https://img.shields.io/npm/v/@openpromo/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@openpromo/ad-platforms)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -25,18 +25,18 @@ One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **
 ## Install
 
 ```bash
-bun add @promobase/ad-platforms
+bun add @openpromo/ad-platforms
 # or
-npm install @promobase/ad-platforms
+npm install @openpromo/ad-platforms
 ```
 
 ## Use
 
 ```ts
-import { Meta, TikTok, LinkedIn, Google } from "@promobase/ad-platforms";
-import { X } from "@promobase/ad-platforms/x";
-import { YouTube } from "@promobase/ad-platforms/youtube";
-import { createAllTools } from "@promobase/ad-platforms/ai";
+import { Meta, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
+import { X } from "@openpromo/ad-platforms/x";
+import { YouTube } from "@openpromo/ad-platforms/youtube";
+import { createAllTools } from "@openpromo/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
@@ -123,13 +123,13 @@ await generateText({
 
 | Package | Description |
 |---------|-------------|
-| [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) | Meta only (Facebook, Instagram, Threads) |
-| [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) | TikTok only |
-| [`@promobase/linkedin-sdk`](https://www.npmjs.com/package/@promobase/linkedin-sdk) | LinkedIn only |
-| [`@promobase/x-sdk`](https://www.npmjs.com/package/@promobase/x-sdk) | X only |
-| [`@promobase/youtube-sdk`](https://www.npmjs.com/package/@promobase/youtube-sdk) | YouTube only |
-| [`@promobase/google-ads-sdk`](https://www.npmjs.com/package/@promobase/google-ads-sdk) | Google Ads only |
+| [`@openpromo/meta`](https://www.npmjs.com/package/@openpromo/meta) | Meta only (Facebook, Instagram, Threads) |
+| [`@openpromo/tiktok`](https://www.npmjs.com/package/@openpromo/tiktok) | TikTok only |
+| [`@openpromo/linkedin`](https://www.npmjs.com/package/@openpromo/linkedin) | LinkedIn only |
+| [`@openpromo/x`](https://www.npmjs.com/package/@openpromo/x) | X only |
+| [`@openpromo/youtube`](https://www.npmjs.com/package/@openpromo/youtube) | YouTube only |
+| [`@openpromo/google-ads`](https://www.npmjs.com/package/@openpromo/google-ads) | Google Ads only |
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

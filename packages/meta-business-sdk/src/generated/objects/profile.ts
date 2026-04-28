@@ -1,5 +1,5 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
-import { Cursor } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { ProfilePictureSourceFields } from "./profile-picture-source.ts";
 import type { ProfileProfileType, ProfileType } from "../enums.ts";

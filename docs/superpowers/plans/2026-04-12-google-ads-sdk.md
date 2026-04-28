@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Scaffold `@promobase/google-ads-sdk` — a type-safe, fetch-based Google Ads API v23 SDK generated from protobuf definitions via REST transcoding.
+**Goal:** Scaffold `@openpromo/google-ads` — a type-safe, fetch-based Google Ads API v23 SDK generated from protobuf definitions via REST transcoding.
 
-**Architecture:** Three layers — (1) shared `HttpClient` in `@promobase/sdk-runtime` for JSON/fetch/retry/rate-limit primitives, (2) codegen pipeline that loads v23 protos via `protobufjs`, extracts `google.api.http` REST bindings, and emits typed services, and (3) a thin runtime wrapper exposing the `Google` namespace. All ergonomic resource wrappers and AI tools are deferred.
+**Architecture:** Three layers — (1) shared `HttpClient` in `@openpromo/sdk-runtime` for JSON/fetch/retry/rate-limit primitives, (2) codegen pipeline that loads v23 protos via `protobufjs`, extracts `google.api.http` REST bindings, and emits typed services, and (3) a thin runtime wrapper exposing the `Google` namespace. All ergonomic resource wrappers and AI tools are deferred.
 
-**Tech Stack:** TypeScript, Bun, `protobufjs` (codegen only), `@promobase/sdk-runtime`, Google Ads API v23 REST.
+**Tech Stack:** TypeScript, Bun, `protobufjs` (codegen only), `@openpromo/sdk-runtime`, Google Ads API v23 REST.
 
 **Spec:** `docs/superpowers/specs/2026-04-12-google-ads-sdk-design.md`
 
@@ -39,7 +39,7 @@
 - `tests/fixtures/*.proto` — small proto fixtures for parser/resolver/binding tests
 
 **`packages/ad-platforms/`** (modified)
-- `package.json` — add `@promobase/google-ads-sdk` workspace dep
+- `package.json` — add `@openpromo/google-ads` workspace dep
 - `src/index.ts` — re-export `Google`
 
 **`CLAUDE.md`** (modified) — new row in packages table.
@@ -320,7 +320,7 @@ git commit -m "feat(sdk-runtime): add generic HttpClient for JSON/Bearer APIs"
 
 ---
 
-## Task 2: Scaffold `@promobase/google-ads-sdk` package
+## Task 2: Scaffold `@openpromo/google-ads` package
 
 **Files:**
 - Create: `packages/google-ads-sdk/package.json`
@@ -333,7 +333,7 @@ git commit -m "feat(sdk-runtime): add generic HttpClient for JSON/Bearer APIs"
 
 ```json
 {
-  "name": "@promobase/google-ads-sdk",
+  "name": "@openpromo/google-ads",
   "version": "0.0.1",
   "description": "Type-safe Google Ads API v23 SDK, runtime-agnostic, generated from protobuf.",
   "type": "module",
@@ -351,7 +351,7 @@ git commit -m "feat(sdk-runtime): add generic HttpClient for JSON/Bearer APIs"
   "keywords": ["google-ads", "google", "ads", "sdk", "typescript", "protobuf"],
   "license": "MIT",
   "dependencies": {
-    "@promobase/sdk-runtime": "workspace:*"
+    "@openpromo/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -377,7 +377,7 @@ git commit -m "feat(sdk-runtime): add generic HttpClient for JSON/Bearer APIs"
 - [ ] **Step 3: Create package `CLAUDE.md`**
 
 ```md
-# @promobase/google-ads-sdk
+# @openpromo/google-ads
 
 Type-safe Google Ads API v23 SDK. Generated from protobuf definitions via REST transcoding.
 
@@ -414,13 +414,13 @@ export {};
 Open `CLAUDE.md` (root) and add to the Packages table after the TikTok row:
 
 ```md
-| `@promobase/google-ads-sdk` | `packages/google-ads-sdk/` | Yes |
+| `@openpromo/google-ads` | `packages/google-ads-sdk/` | Yes |
 ```
 
 - [ ] **Step 6: Install deps at workspace root**
 
 Run: `bun install`
-Expected: adds `protobufjs`, links `@promobase/google-ads-sdk` into the workspace.
+Expected: adds `protobufjs`, links `@openpromo/google-ads` into the workspace.
 
 - [ ] **Step 7: Typecheck the empty package**
 
@@ -1129,7 +1129,7 @@ export function emitService(s: ServiceAst, messageIndex: Map<string, MessageAst>
     usedTypes.size > 0
       ? `import type { ${[...usedTypes].sort().join(", ")} } from "../index.ts";\n`
       : "";
-  return `${importBlock}import type { HttpClient } from "@promobase/sdk-runtime";\n\n// Generated from ${s.fullName}. Do not edit by hand.\nexport const ${instance} = {\n${methodNames.join(",\n\n")}\n};\n`;
+  return `${importBlock}import type { HttpClient } from "@openpromo/sdk-runtime";\n\n// Generated from ${s.fullName}. Do not edit by hand.\nexport const ${instance} = {\n${methodNames.join(",\n\n")}\n};\n`;
 }
 
 function emitMethod(m: MethodAst, messageIndex: Map<string, MessageAst>): string | null {
@@ -1431,7 +1431,7 @@ Expected: FAIL on missing module.
 
 ```ts
 // packages/google-ads-sdk/src/client.ts
-import { HttpClient, type RateLimiter, type DelayFn } from "@promobase/sdk-runtime";
+import { HttpClient, type RateLimiter, type DelayFn } from "@openpromo/sdk-runtime";
 import { parseGoogleAdsError } from "./errors.ts";
 
 export interface GoogleAdsClientOptions {
@@ -1770,7 +1770,7 @@ git commit -m "feat(google-ads-sdk): expose Google namespace"
 Edit `packages/ad-platforms/package.json` — in `"dependencies"`, add:
 
 ```json
-"@promobase/google-ads-sdk": "workspace:*"
+"@openpromo/google-ads": "workspace:*"
 ```
 
 Run: `bun install` (from repo root) to re-link.
@@ -1781,19 +1781,19 @@ Edit `packages/ad-platforms/src/index.ts` — after the `TikTok` export, add:
 
 ```ts
 // --- Google Ads ---
-export { Google } from "@promobase/google-ads-sdk";
+export { Google } from "@openpromo/google-ads";
 export {
   createClient as createGoogleAdsClient,
   GoogleAdsError,
   paginate as googleAdsPaginate,
-} from "@promobase/google-ads-sdk";
+} from "@openpromo/google-ads";
 export type {
   GoogleAdsClient,
   GoogleAdsClientOptions,
   GoogleAdsErrorDetail,
   SearchRequest as GoogleAdsSearchRequest,
   SearchResponse as GoogleAdsSearchResponse,
-} from "@promobase/google-ads-sdk";
+} from "@openpromo/google-ads";
 ```
 
 - [ ] **Step 3: Add smoke test to umbrella**
@@ -1947,9 +1947,9 @@ git commit -m "test(google-ads-sdk): end-to-end smoke via generated service"
 
 ## Done criteria
 
-- [ ] `@promobase/google-ads-sdk` exists and is installed in the workspace.
+- [ ] `@openpromo/google-ads` exists and is installed in the workspace.
 - [ ] `bun run codegen` produces a committed `src/generated/v23/` tree that typechecks.
-- [ ] `Google.createClient`, `Google.Ads.googleAdsService.search`, `Google.Ads.paginate`, and `Google.Errors.GoogleAdsError` are reachable from `@promobase/google-ads-sdk` and `@promobase/ad-platforms`.
+- [ ] `Google.createClient`, `Google.Ads.googleAdsService.search`, `Google.Ads.paginate`, and `Google.Errors.GoogleAdsError` are reachable from `@openpromo/google-ads` and `@openpromo/ad-platforms`.
 - [ ] All unit tests (`sdk-runtime/http-client`, `google-ads-sdk/*`, `ad-platforms/umbrella`) pass.
 - [ ] A smoke test invokes at least one generated service via a mocked fetch and parses a Google Ads error body into `GoogleAdsError`.
 

@@ -1,4 +1,4 @@
-import { ApiError } from "@promobase/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 export class TikTokApiError extends ApiError {
   readonly code: number;

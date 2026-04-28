@@ -51,7 +51,7 @@ export function emitService(
 
   const body = methodBlocks.length > 0 ? `\n${methodBlocks.join(",\n\n")}\n` : "";
 
-  return `${typeImportBlock}import type { HttpClient } from "@promobase/sdk-runtime";\n\n// Generated from ${s.fullName}. Do not edit by hand.\nexport const ${instance} = {${body}};\n`;
+  return `${typeImportBlock}import type { HttpClient } from "@openpromo/sdk-runtime";\n\n// Generated from ${s.fullName}. Do not edit by hand.\nexport const ${instance} = {${body}};\n`;
 }
 
 function emitMethod(

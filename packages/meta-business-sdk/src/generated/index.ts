@@ -999,8 +999,8 @@ export type * from "./enums.ts";
 
 export { createTypedClient as createClient } from "./client-factory.ts";
 export type { MetaClientOptions } from "./client-factory.ts";
-export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";
-export { Cursor } from "@promobase/sdk-runtime";
+export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";
+export { Cursor } from "@openpromo/sdk-runtime";
 export { FacebookApiError } from "../errors.ts";
 export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";
 export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";

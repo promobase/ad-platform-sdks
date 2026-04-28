@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductCatalogMediaTitlesPostFields } from "./product-catalog-media-titles-post.ts";
 
 export interface ProductCatalogMediaTitlesFields {

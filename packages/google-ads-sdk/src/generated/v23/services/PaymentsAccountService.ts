@@ -1,5 +1,5 @@
 import type { ListPaymentsAccountsRequest, ListPaymentsAccountsResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.PaymentsAccountService. Do not edit by hand.
 export const paymentsAccountService = {

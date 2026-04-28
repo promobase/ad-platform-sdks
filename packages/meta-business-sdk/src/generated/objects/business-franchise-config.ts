@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { BusinessFields } from "./business.ts";
 import type { BusinessAssetGroupFields } from "./business-asset-group.ts";
 import type { GroupFields } from "./group.ts";

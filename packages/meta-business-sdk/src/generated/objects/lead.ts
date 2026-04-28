@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { HomeListingFields } from "./home-listing.ts";
 import type { LeadGenPostSubmissionCheckResultFields } from "./lead-gen-post-submission-check-result.ts";
 import type { LinkFields } from "./link.ts";

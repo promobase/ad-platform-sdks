@@ -1,7 +1,7 @@
 # Google Ads Ergonomic Wrappers — Design Spec
 
 **Date:** 2026-04-12
-**Package:** `@promobase/google-ads-sdk` (additive)
+**Package:** `@openpromo/google-ads` (additive)
 **Status:** Approved, ready for implementation plan
 
 ## Goal
@@ -64,7 +64,7 @@ packages/google-ads-sdk/src/
 ## Customer factory
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import { campaignBudgets } from "./campaign-budgets.ts";
 import { campaigns } from "./campaigns.ts";
 import { adGroups } from "./ad-groups.ts";

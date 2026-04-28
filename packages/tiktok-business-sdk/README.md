@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @promobase/tiktok-business-sdk
+# @openpromo/tiktok
 
 **Type-safe TypeScript SDK for the TikTok Business API.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/tiktok-business-sdk.svg?label=%40promobase%2Ftiktok-business-sdk)](https://www.npmjs.com/package/@promobase/tiktok-business-sdk)
+[![npm](https://img.shields.io/npm/v/@openpromo/tiktok.svg?label=%40openpromo%2Ftiktok)](https://www.npmjs.com/package/@openpromo/tiktok)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -25,15 +25,15 @@ Fully typed TikTok Business API client generated from the official docs. OAuth, 
 ## Install
 
 ```bash
-bun add @promobase/tiktok-business-sdk
+bun add @openpromo/tiktok
 # or
-npm install @promobase/tiktok-business-sdk
+npm install @openpromo/tiktok
 ```
 
 ## Use
 
 ```ts
-import { TikTok } from "@promobase/tiktok-business-sdk";
+import { TikTok } from "@openpromo/tiktok";
 
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
@@ -47,7 +47,7 @@ await tiktok.content.publishVideo({
 });
 
 // AI SDK tools
-import { createTikTokTools } from "@promobase/tiktok-business-sdk/ai";
+import { createTikTokTools } from "@openpromo/tiktok/ai";
 const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
 ```
 
@@ -62,8 +62,8 @@ const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@promobase/ad-platforms`](https://www.npmjs.com/package/@promobase/ad-platforms).
+For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

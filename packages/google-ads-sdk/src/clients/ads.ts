@@ -1,4 +1,4 @@
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { Ad } from "../generated/v23/resources/Ad.ts";
 import { adGroupAdService, googleAdsService } from "../generated/v23/services/index.ts";
 

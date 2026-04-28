@@ -1,4 +1,4 @@
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import { adGroupAds } from "./ad-group-ads.ts";
 import { adGroups } from "./ad-groups.ts";
 import { ads } from "./ads.ts";

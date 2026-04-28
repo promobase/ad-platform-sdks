@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ship hand-written ergonomic wrappers for the campaign-lifecycle resources in `@promobase/google-ads-sdk`, exposed via a `Google.Ads.customer(client, customerId)` factory.
+**Goal:** Ship hand-written ergonomic wrappers for the campaign-lifecycle resources in `@openpromo/google-ads`, exposed via a `Google.Ads.customer(client, customerId)` factory.
 
 **Architecture:** Six per-resource wrapper files under `src/clients/` plus a `types.ts` (`Ref<T>` + `resolveRef`) and a `customer.ts` factory. Wrappers compose the generated services from `src/generated/v23/services/`. No runtime magic — just closures binding `(client, customerId)` and thin `operations: [{...}]` unwrapping.
 
-**Tech Stack:** TypeScript, Bun, `@promobase/sdk-runtime` `HttpClient`, generated v23 services.
+**Tech Stack:** TypeScript, Bun, `@openpromo/sdk-runtime` `HttpClient`, generated v23 services.
 
 **Spec:** `docs/superpowers/specs/2026-04-12-google-ads-ergonomic-wrappers-design.md`
 
@@ -102,7 +102,7 @@ Expected: 2 tests PASS.
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { campaignBudgets } from "../../src/clients/campaign-budgets.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -247,7 +247,7 @@ Expected: FAIL — module not found.
 - [ ] **Step 7: Implement `src/clients/campaign-budgets.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { CampaignBudget } from "../generated/v23/resources/CampaignBudget.ts";
 import { campaignBudgetService } from "../generated/v23/services/index.ts";
 import { googleAdsService } from "../generated/v23/services/index.ts";
@@ -375,7 +375,7 @@ git commit -m "feat(google-ads-sdk): add campaign-budgets wrapper + Ref type"
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { campaigns } from "../../src/clients/campaigns.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -504,7 +504,7 @@ Expected: FAIL.
 - [ ] **Step 3: Implement `src/clients/campaigns.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { Campaign } from "../generated/v23/resources/Campaign.ts";
 import type { CampaignBudget } from "../generated/v23/resources/CampaignBudget.ts";
 import { campaignService } from "../generated/v23/services/index.ts";
@@ -628,7 +628,7 @@ git commit -m "feat(google-ads-sdk): add campaigns wrapper with Ref<CampaignBudg
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { adGroups } from "../../src/clients/ad-groups.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -712,7 +712,7 @@ test("update/remove/get/list basic shapes", async () => {
 - [ ] **Step 3: Implement `src/clients/ad-groups.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { AdGroup } from "../generated/v23/resources/AdGroup.ts";
 import type { Campaign } from "../generated/v23/resources/Campaign.ts";
 import { adGroupService } from "../generated/v23/services/index.ts";
@@ -829,7 +829,7 @@ git commit -m "feat(google-ads-sdk): add ad-groups wrapper with Ref<Campaign>"
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { adGroupAds } from "../../src/clients/ad-group-ads.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -905,7 +905,7 @@ test("get returns first row's adGroupAd or null", async () => {
 
 ```ts
 import { test, expect, mock } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { ads } from "../../src/clients/ads.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -974,7 +974,7 @@ test("remove delegates to adGroupAdService.mutateAdGroupAds", async () => {
 - [ ] **Step 3: Implement `src/clients/ad-group-ads.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { AdGroupAd } from "../generated/v23/resources/AdGroupAd.ts";
 import type { AdGroup } from "../generated/v23/resources/AdGroup.ts";
 import { adGroupAdService } from "../generated/v23/services/index.ts";
@@ -1071,7 +1071,7 @@ export function adGroupAds(client: HttpClient, customerId: string) {
 - [ ] **Step 4: Implement `src/clients/ads.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { Ad } from "../generated/v23/resources/Ad.ts";
 import { adGroupAdService } from "../generated/v23/services/index.ts";
 import { googleAdsService } from "../generated/v23/services/index.ts";
@@ -1151,7 +1151,7 @@ git commit -m "feat(google-ads-sdk): add ad-group-ads + read-only ads wrappers"
 - [ ] **Step 1: Implement `src/clients/customer.ts`**
 
 ```ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import { campaignBudgets } from "./campaign-budgets.ts";
 import { campaigns } from "./campaigns.ts";
 import { adGroups } from "./ad-groups.ts";

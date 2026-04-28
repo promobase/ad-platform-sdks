@@ -1,4 +1,4 @@
-import type { DelayFn, RateLimiter, RetryConfig } from "@promobase/sdk-runtime";
+import type { DelayFn, RateLimiter, RetryConfig } from "@openpromo/sdk-runtime";
 import { TikTokApiError } from "./errors.ts";
 
 const DEFAULT_RETRY: RetryConfig = {

@@ -1,4 +1,4 @@
-import type { RateLimiter, RateLimiterCheck } from "@promobase/sdk-runtime";
+import type { RateLimiter, RateLimiterCheck } from "@openpromo/sdk-runtime";
 
 export interface TikTokRateLimiterOptions {
   /** Fallback wait time in ms on 429 when no Retry-After header. Default: 60000 */

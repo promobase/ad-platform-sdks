@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { ApiError } from "@promobase/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 import { FacebookApiError } from "../../src/errors.ts";
 
 test("FacebookApiError extends ApiError", () => {

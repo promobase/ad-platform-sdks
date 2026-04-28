@@ -209,7 +209,7 @@ test("emitService produces callable method for POST with body", () => {
     },
     messageIndex,
   );
-  expect(out).toContain('import type { HttpClient } from "@promobase/sdk-runtime"');
+  expect(out).toContain('import type { HttpClient } from "@openpromo/sdk-runtime"');
   expect(out).toContain("export const campaignService");
   expect(out).toContain("mutate(");
   expect(out).toContain("client: HttpClient");

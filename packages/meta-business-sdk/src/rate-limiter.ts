@@ -1,4 +1,4 @@
-import type { RateLimiter, RateLimiterCheck } from "@promobase/sdk-runtime";
+import type { RateLimiter, RateLimiterCheck } from "@openpromo/sdk-runtime";
 
 export interface MetaRateLimiterOptions {
   /** Pause requests when usage exceeds this threshold (0-1). Default: 0.9 */

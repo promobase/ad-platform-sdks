@@ -1,5 +1,5 @@
 {
-  "name": "@promobase/x-sdk",
+  "name": "@openpromo/x",
   "version": "0.2.0",
   "description": "Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup",
   "keywords": [

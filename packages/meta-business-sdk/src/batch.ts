@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import { FacebookApiError } from "./errors.ts";
 
 const MAX_BATCH_SIZE = 50;

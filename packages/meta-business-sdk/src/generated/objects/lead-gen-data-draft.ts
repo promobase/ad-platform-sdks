@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { LeadGenDraftQuestionFields } from "./lead-gen-draft-question.ts";
 import type { PageFields } from "./page.ts";
 

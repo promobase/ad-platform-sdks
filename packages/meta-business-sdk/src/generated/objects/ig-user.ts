@@ -1,5 +1,5 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
-import { Cursor } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BrandedContentShadowIGMediaIDFields } from "./branded-content-shadow-ig-media-id.ts";

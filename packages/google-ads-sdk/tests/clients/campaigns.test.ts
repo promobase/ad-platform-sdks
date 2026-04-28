@@ -1,5 +1,5 @@
 import { expect, mock, test } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { campaigns } from "../../src/clients/campaigns.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {

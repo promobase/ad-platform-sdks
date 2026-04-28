@@ -4,7 +4,7 @@
 
 **Goal:** Restructure the single-package `meta-business-sdk-ts` repo into a Bun workspaces monorepo (`ad-platform-sdks`) with a shared private `sdk-runtime` package and the Meta SDK as the first workspace package.
 
-**Architecture:** Root workspace with `packages/sdk-runtime/` (private, generic fetch client + pluggable cursor + base error) and `packages/meta-business-sdk/` (published, Meta-specific codegen + generated objects + FacebookApiError). The codegen emitter is updated to import from `@promobase/sdk-runtime` instead of relative `../../runtime/` paths.
+**Architecture:** Root workspace with `packages/sdk-runtime/` (private, generic fetch client + pluggable cursor + base error) and `packages/meta-business-sdk/` (published, Meta-specific codegen + generated objects + FacebookApiError). The codegen emitter is updated to import from `@openpromo/sdk-runtime` instead of relative `../../runtime/` paths.
 
 **Tech Stack:** Bun workspaces, TypeScript strict mode, native fetch
 
@@ -101,7 +101,7 @@ git commit -m "chore: convert to Bun workspaces monorepo root"
 
 ```json
 {
-  "name": "@promobase/sdk-runtime",
+  "name": "@openpromo/sdk-runtime",
   "version": "0.1.0",
   "private": true,
   "module": "src/index.ts",
@@ -370,7 +370,7 @@ Expected: Clean.
 
 ```bash
 git add packages/sdk-runtime/
-git commit -m "feat: add @promobase/sdk-runtime with generic client, cursor, and errors"
+git commit -m "feat: add @openpromo/sdk-runtime with generic client, cursor, and errors"
 ```
 
 ---
@@ -397,7 +397,7 @@ git commit -m "feat: add @promobase/sdk-runtime with generic client, cursor, and
 
 ```json
 {
-  "name": "@promobase/meta-business-sdk-ts",
+  "name": "@openpromo/meta",
   "version": "0.1.0",
   "description": "Type-safe TypeScript SDK for the Meta Marketing API",
   "module": "src/generated/index.ts",
@@ -423,7 +423,7 @@ git commit -m "feat: add @promobase/sdk-runtime with generic client, cursor, and
   "keywords": ["meta", "facebook", "marketing-api", "graph-api", "typescript", "sdk"],
   "license": "MIT",
   "dependencies": {
-    "@promobase/sdk-runtime": "workspace:*"
+    "@openpromo/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -466,7 +466,7 @@ git mv api_specs packages/meta-business-sdk/api_specs
 - [ ] **Step 4: Create src/errors.ts — FacebookApiError extending ApiError**
 
 ```ts
-import { ApiError } from "@promobase/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 export class FacebookApiError extends ApiError {
   readonly code: number;
@@ -507,7 +507,7 @@ export class FacebookApiError extends ApiError {
 - [ ] **Step 5: Create src/pagination.ts — Meta pagination strategy**
 
 ```ts
-import type { PaginationStrategy } from "@promobase/sdk-runtime";
+import type { PaginationStrategy } from "@openpromo/sdk-runtime";
 
 export function metaPagination<T>(): PaginationStrategy<T> {
   return {
@@ -529,7 +529,7 @@ export function metaPagination<T>(): PaginationStrategy<T> {
 // packages/meta-business-sdk/tests/runtime/errors.test.ts
 import { test, expect } from "bun:test";
 import { FacebookApiError } from "../../src/errors.ts";
-import { ApiError } from "@promobase/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 test("FacebookApiError extends ApiError", () => {
   const err = FacebookApiError.fromResponse(400, {
@@ -567,8 +567,8 @@ import { Cursor } from "../../runtime/cursor.ts";
 
 These must change to:
 ```ts
-import type { ApiClient } from "@promobase/sdk-runtime";
-import { Cursor } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 ```
 
 And the barrel/client-factory must import `FacebookApiError` from the local `src/errors.ts` and pass `metaPagination` to Cursor.
@@ -583,7 +583,7 @@ out.push(`import type { ApiClient } from "../../runtime/client.ts";`);
 ```
 With:
 ```ts
-out.push(`import type { ApiClient } from "@promobase/sdk-runtime";`);
+out.push(`import type { ApiClient } from "@openpromo/sdk-runtime";`);
 ```
 
 Replace:
@@ -592,7 +592,7 @@ out.push(`import { Cursor } from "../../runtime/cursor.ts";`);
 ```
 With:
 ```ts
-out.push(`import { Cursor } from "@promobase/sdk-runtime";`);
+out.push(`import { Cursor } from "@openpromo/sdk-runtime";`);
 out.push(`import { metaPagination } from "../../pagination.ts";`);
 ```
 
@@ -611,8 +611,8 @@ barrelLines.push(`export { FacebookApiError } from "../runtime/errors.ts";`);
 ```
 To:
 ```ts
-barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@promobase/sdk-runtime";`);
-barrelLines.push(`export { Cursor } from "@promobase/sdk-runtime";`);
+barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";`);
+barrelLines.push(`export { Cursor } from "@openpromo/sdk-runtime";`);
 barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
 ```
 
@@ -622,7 +622,7 @@ factoryLines.push(`import { ApiClient, type ApiClientOptions } from "../runtime/
 ```
 To:
 ```ts
-factoryLines.push(`import { ApiClient, type ApiClientOptions } from "@promobase/sdk-runtime";`);
+factoryLines.push(`import { ApiClient, type ApiClientOptions } from "@openpromo/sdk-runtime";`);
 factoryLines.push(`import { FacebookApiError } from "../errors.ts";`);
 ```
 
@@ -645,7 +645,7 @@ Parser tests reference `api_specs/api_specs/specs` — update to `packages/meta-
 
 ```bash
 git add -A
-git commit -m "refactor: update codegen emitter for @promobase/sdk-runtime imports"
+git commit -m "refactor: update codegen emitter for @openpromo/sdk-runtime imports"
 ```
 
 ---
@@ -670,7 +670,7 @@ cd packages/meta-business-sdk && bun run codegen
 
 - [ ] **Step 3: Update test import paths**
 
-All tests that import from `../../src/runtime/` need updating to either `@promobase/sdk-runtime` or the new local paths. All tests that import from `../../src/codegen/` or `../../src/generated/` stay as relative paths (they're within the same package now).
+All tests that import from `../../src/runtime/` need updating to either `@openpromo/sdk-runtime` or the new local paths. All tests that import from `../../src/codegen/` or `../../src/generated/` stay as relative paths (they're within the same package now).
 
 Update `tests/runtime/client-factory.test.ts`:
 ```ts
@@ -706,7 +706,7 @@ Expected: All pass.
 
 ```bash
 git add -A
-git commit -m "feat: regenerate Meta SDK with @promobase/sdk-runtime imports"
+git commit -m "feat: regenerate Meta SDK with @openpromo/sdk-runtime imports"
 ```
 
 ---
@@ -739,8 +739,8 @@ Bun workspaces monorepo for type-safe ad platform SDKs.
 
 | Package | Path | Published |
 |---------|------|-----------|
-| `@promobase/sdk-runtime` | `packages/sdk-runtime/` | No (private) |
-| `@promobase/meta-business-sdk-ts` | `packages/meta-business-sdk/` | Yes |
+| `@openpromo/sdk-runtime` | `packages/sdk-runtime/` | No (private) |
+| `@openpromo/meta` | `packages/meta-business-sdk/` | Yes |
 
 ## Commands
 
@@ -757,7 +757,7 @@ Per package:
 ## Conventions
 
 - Bun for everything
-- Each SDK depends on `@promobase/sdk-runtime` via `workspace:*`
+- Each SDK depends on `@openpromo/sdk-runtime` via `workspace:*`
 - Only client SDK packages are published; sdk-runtime is private
 - Each SDK has its own codegen, errors, pagination strategy
 ```

@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { GroupFields } from "./group.ts";
 import type { UserFields } from "./user.ts";
 import type { VideoCopyrightConditionGroupFields } from "./video-copyright-condition-group.ts";

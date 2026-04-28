@@ -1,17 +1,17 @@
 /**
- * @promobase/ad-platforms
+ * @openpromo/ad-platforms
  *
  * Unified SDK for all ad platforms. Single install, single namespace.
  *
  * Usage:
- *   import { Meta, TikTok } from "@promobase/ad-platforms";
+ *   import { Meta, TikTok } from "@openpromo/ad-platforms";
  *
  *   const meta = Meta.createClient({ accessToken: "..." });
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
  *   const linkedin = LinkedIn.createClient({ accessToken: "..." });
  *
  *   // Unified AI tools across all platforms
- *   import { createAllTools } from "@promobase/ad-platforms/ai";
+ *   import { createAllTools } from "@openpromo/ad-platforms/ai";
  *   const tools = createAllTools({ meta: { api, igAccountId, ... }, tiktok: { ... } });
  */
 
@@ -21,14 +21,14 @@ export type {
   GoogleAdsErrorDetail,
   SearchRequest as GoogleAdsSearchRequest,
   SearchResponse as GoogleAdsSearchResponse,
-} from "@promobase/google-ads-sdk";
+} from "@openpromo/google-ads";
 // --- Google Ads ---
 export {
   createClient as createGoogleAdsClient,
   Google,
   GoogleAdsError,
   paginate as googleAdsPaginate,
-} from "@promobase/google-ads-sdk";
+} from "@openpromo/google-ads";
 
 export type {
   LinkedInCallToAction,
@@ -50,7 +50,7 @@ export type {
   LinkedInVideoUploadInstruction,
   LinkedInVideoUploadSession,
   LinkedInVisibility,
-} from "@promobase/linkedin-sdk";
+} from "@openpromo/linkedin";
 // --- LinkedIn ---
 export {
   createClient as createLinkedInClient,
@@ -59,7 +59,7 @@ export {
   LinkedInApiError,
   LinkedInClient,
   LinkedInUploadError,
-} from "@promobase/linkedin-sdk";
+} from "@openpromo/linkedin";
 
 export type {
   ApiClient,
@@ -73,7 +73,7 @@ export type {
   ThreadsClientOptions,
   ThreadsWebhookPayload,
   WebhookParseResult,
-} from "@promobase/meta-business-sdk-ts";
+} from "@openpromo/meta";
 // --- Platform namespaces ---
 // --- Meta: direct re-exports for tree-shaking ---
 export {
@@ -98,11 +98,11 @@ export {
   verifyWebhookChallenge,
   verifyWebhookSignature,
   WebhookParseError,
-} from "@promobase/meta-business-sdk-ts";
+} from "@openpromo/meta";
 export type {
   TikTokApiClientOptions,
   TikTokRateLimiterOptions,
-} from "@promobase/tiktok-business-sdk";
+} from "@openpromo/tiktok";
 // --- TikTok: direct re-exports ---
 export {
   createTikTokClient,
@@ -112,4 +112,4 @@ export {
   TikTokApiClient,
   TikTokApiError,
   TikTokRateLimiter,
-} from "@promobase/tiktok-business-sdk";
+} from "@openpromo/tiktok";

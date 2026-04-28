@@ -1,4 +1,4 @@
-# @promobase/google-ads-sdk
+# @openpromo/google-ads
 
 ## 0.1.2
 
@@ -9,7 +9,7 @@
   Move AI tool helpers behind `/ai` subpath exports so the plain SDK entry points do not require resolving the optional `ai` peer dependency.
 
 - Updated dependencies [[`bacac64`](https://github.com/promobase/ad-platform-sdks/commit/bacac648a15e055d39675df9c35585e90ee5af2d)]:
-  - @promobase/sdk-runtime@0.2.2
+  - @openpromo/sdk-runtime@0.2.2
 
 ## 0.1.1
 
@@ -18,19 +18,19 @@
 - [`da4a79a`](https://github.com/promobase/ad-platform-sdks/commit/da4a79ad8ddf8cc7b65eebd5cf3c24320a12b584) Thanks [@rayli09](https://github.com/rayli09)! - Ship compiled `dist/` output instead of raw `.ts` source so non-bun consumers (Node, older bundlers, `tsc` from a consumer project) can install without choking on `.ts` imports or re-parsing generated trees. Package entry points switch to `dist/{index,...}.{js,d.ts}`; the `exports` map keeps a `"bun"` condition pointing at `src/` so the monorepo's own workspace loop stays build-free. Every package gains `engines: { node: ">=18" }` and bundles `LICENSE`.
 
 - Updated dependencies [[`da4a79a`](https://github.com/promobase/ad-platform-sdks/commit/da4a79ad8ddf8cc7b65eebd5cf3c24320a12b584)]:
-  - @promobase/sdk-runtime@0.2.1
+  - @openpromo/sdk-runtime@0.2.1
 
 ## 0.1.0
 
 ### Minor Changes
 
-- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@promobase/google-ads-sdk` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
+- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@openpromo/google-ads` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
 
-  Added a generic `HttpClient` to `@promobase/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
+  Added a generic `HttpClient` to `@openpromo/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
 
-  `@promobase/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.
+  `@openpromo/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.
 
 ### Patch Changes
 
 - Updated dependencies [[`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257)]:
-  - @promobase/sdk-runtime@0.2.0
+  - @openpromo/sdk-runtime@0.2.0

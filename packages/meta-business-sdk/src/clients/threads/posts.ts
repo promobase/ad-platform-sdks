@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import { createContainers } from "./containers.ts";
 import { waitForContainer } from "./polling.ts";
 import type {

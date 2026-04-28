@@ -6,11 +6,11 @@ Bun workspaces monorepo for type-safe ad platform SDKs.
 
 | Package | Path | Published |
 |---------|------|-----------|
-| `@promobase/ad-platforms` | `packages/ad-platforms/` | Yes (umbrella) |
-| `@promobase/sdk-runtime` | `packages/sdk-runtime/` | No (private) |
-| `@promobase/meta-business-sdk-ts` | `packages/meta-business-sdk/` | Yes |
-| `@promobase/tiktok-business-sdk` | `packages/tiktok-business-sdk/` | Yes |
-| `@promobase/google-ads-sdk` | `packages/google-ads-sdk/` | Yes |
+| `@openpromo/ad-platforms` | `packages/ad-platforms/` | Yes (umbrella) |
+| `@openpromo/sdk-runtime` | `packages/sdk-runtime/` | No (private) |
+| `@openpromo/meta` | `packages/meta-business-sdk/` | Yes |
+| `@openpromo/tiktok` | `packages/tiktok-business-sdk/` | Yes |
+| `@openpromo/google-ads` | `packages/google-ads-sdk/` | Yes |
 
 ## Commands
 
@@ -69,7 +69,7 @@ The markdown content uses `xtable` blocks for structured parameter/response tabl
 ## Conventions
 
 - Bun for everything (runtime, test, build, install)
-- Each SDK depends on `@promobase/sdk-runtime` via `workspace:*`
+- Each SDK depends on `@openpromo/sdk-runtime` via `workspace:*`
 - Only client SDK packages are published; sdk-runtime is private
 - Each SDK has its own codegen, errors, pagination strategy
 - Tests must be run from the package directory (not root)

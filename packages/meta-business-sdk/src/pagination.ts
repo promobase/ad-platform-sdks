@@ -1,4 +1,4 @@
-import type { PaginationStrategy } from "@promobase/sdk-runtime";
+import type { PaginationStrategy } from "@openpromo/sdk-runtime";
 
 export function metaPagination<T>(): PaginationStrategy<T> {
   return {

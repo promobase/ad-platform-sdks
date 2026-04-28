@@ -9,7 +9,7 @@ Restructure the current `meta-business-sdk-ts` single-package repo into a Bun wo
 ```
 ad-platform-sdks/
 ├── packages/
-│   ├── sdk-runtime/                    # @promobase/sdk-runtime
+│   ├── sdk-runtime/                    # @openpromo/sdk-runtime
 │   │   ├── src/
 │   │   │   ├── client.ts              # Generic fetch wrapper (auth, URL building, debug)
 │   │   │   ├── cursor.ts             # Async-iterable cursor with pluggable pagination
@@ -20,10 +20,10 @@ ad-platform-sdks/
 │   │   │   ├── client.test.ts
 │   │   │   ├── cursor.test.ts
 │   │   │   └── errors.test.ts
-│   │   ├── package.json               # @promobase/sdk-runtime (private: true — NOT published)
+│   │   ├── package.json               # @openpromo/sdk-runtime (private: true — NOT published)
 │   │   └── tsconfig.json
 │   │
-│   ├── meta-business-sdk/              # @promobase/meta-business-sdk-ts
+│   ├── meta-business-sdk/              # @openpromo/meta
 │   │   ├── api_specs/                  # git submodule (unchanged)
 │   │   ├── src/
 │   │   │   ├── codegen/               # Meta-specific codegen (unchanged)
@@ -35,12 +35,12 @@ ad-platform-sdks/
 │   │   │   ├── runtime/               # Meta-specific runtime tests
 │   │   │   └── e2e/                   # E2E tests (unchanged)
 │   │   ├── examples/                   # Usage examples (unchanged)
-│   │   ├── package.json               # depends on @promobase/sdk-runtime
+│   │   ├── package.json               # depends on @openpromo/sdk-runtime
 │   │   ├── tsconfig.json
 │   │   ├── CLAUDE.md                  # Meta SDK-specific instructions
 │   │   └── README.md                  # Meta SDK README
 │   │
-│   ├── tiktok-business-sdk/           # future — @promobase/tiktok-business-sdk-ts
+│   ├── tiktok-business-sdk/           # future — @openpromo/tiktok-ts
 │   └── google-business-sdk/           # future — @promobase/google-business-sdk-ts
 │
 ├── package.json                        # Bun workspace root
@@ -53,7 +53,7 @@ ad-platform-sdks/
 
 ## Package Details
 
-### @promobase/sdk-runtime
+### @openpromo/sdk-runtime
 
 Extracted from current `src/runtime/`. Generalized to work across different API platforms.
 
@@ -126,14 +126,14 @@ export class ApiError extends Error {
 }
 ```
 
-### @promobase/meta-business-sdk-ts
+### @openpromo/meta
 
-Keeps all Meta-specific code. Depends on `@promobase/sdk-runtime`.
+Keeps all Meta-specific code. Depends on `@openpromo/sdk-runtime`.
 
 **Changes from current:**
-- `src/runtime/` removed — now imports from `@promobase/sdk-runtime`
+- `src/runtime/` removed — now imports from `@openpromo/sdk-runtime`
 - `src/errors.ts` — `FacebookApiError extends ApiError` with `code`, `subcode`, `type`, `fbtrace_id`
-- `src/codegen/` — emitter updated to import from `@promobase/sdk-runtime` instead of `../../runtime/`
+- `src/codegen/` — emitter updated to import from `@openpromo/sdk-runtime` instead of `../../runtime/`
 - `src/generated/` — regenerated with new import paths
 - Tests that were in `tests/runtime/` for generic client/cursor move to `sdk-runtime`. Meta-specific tests (FacebookApiError, client-factory) stay.
 
@@ -193,7 +193,7 @@ Each package's tsconfig:
 7. Move everything else → `packages/meta-business-sdk/`
 8. Create `FacebookApiError extends ApiError` in meta-business-sdk
 9. Create Meta pagination strategy
-10. Update codegen emitter to use new import paths (`@promobase/sdk-runtime` instead of `../../runtime/`)
+10. Update codegen emitter to use new import paths (`@openpromo/sdk-runtime` instead of `../../runtime/`)
 11. Regenerate all 994 files
 12. Update all test imports
 13. Verify: `bun install` → `bun run typecheck` → `bun test` in both packages

@@ -1,7 +1,7 @@
 # Google Ads Typed GAQL Builder — Design Spec
 
 **Date:** 2026-04-12
-**Package:** `@promobase/google-ads-sdk` (additive)
+**Package:** `@openpromo/google-ads` (additive)
 **Status:** Approved, ready for implementation plan
 
 ## Goal
@@ -153,7 +153,7 @@ export type GaqlResource = keyof ResourceFieldMap;
 
 ```ts
 // clients/gaql/builder.ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { FieldMap } from "../../generated/v23/gaql/field-map.ts";
 import type { ResourceFieldMap, GaqlResource } from "../../generated/v23/gaql/resource-map.ts";
 
@@ -320,7 +320,7 @@ No escaping because we don't interpolate user data into the WHERE/ORDER BY strin
 
 ```ts
 // clients/gaql/bound.ts
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 import type { GaqlResource } from "../../generated/v23/gaql/resource-map.ts";
 import { QueryBuilder } from "./builder.ts";
 

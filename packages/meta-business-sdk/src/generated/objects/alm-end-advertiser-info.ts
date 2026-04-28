@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ALMEndAdvertiserInfoFields {
   estimated_ad_budget: number;

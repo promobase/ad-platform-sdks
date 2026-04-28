@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductCatalogAppsAndSoftwarePostFields } from "./product-catalog-apps-and-software-post.ts";
 
 export interface ProductCatalogAppsAndSoftwareFields {

@@ -1,4 +1,4 @@
-# @promobase/x-sdk
+# @openpromo/x
 
 Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup.
 
@@ -26,7 +26,7 @@ Local generation uses Fern's Docker-backed generator and does not require a `FER
 ## Use
 
 ```ts
-import { X } from "@promobase/x-sdk";
+import { X } from "@openpromo/x";
 
 const client = X.createClient({ token: process.env.X_ACCESS_TOKEN! });
 

@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdVideoFields } from "./ad-video.ts";
 import type { BusinessFields } from "./business.ts";
 

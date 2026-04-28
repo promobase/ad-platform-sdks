@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @promobase/meta-business-sdk-ts
+# @openpromo/meta
 
 **Type-safe TypeScript SDK for the Meta (Facebook) Marketing API.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/meta-business-sdk-ts.svg?label=%40promobase%2Fmeta-business-sdk-ts)](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts)
+[![npm](https://img.shields.io/npm/v/@openpromo/meta.svg?label=%40openpromo%2Fmeta)](https://www.npmjs.com/package/@openpromo/meta)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -25,15 +25,15 @@ A drop-in typed replacement for [`facebook-nodejs-business-sdk`](https://github.
 ## Install
 
 ```bash
-bun add @promobase/meta-business-sdk-ts
+bun add @openpromo/meta
 # or
-npm install @promobase/meta-business-sdk-ts
+npm install @openpromo/meta
 ```
 
 ## Use
 
 ```ts
-import { Meta } from "@promobase/meta-business-sdk-ts";
+import { Meta } from "@openpromo/meta";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
 
@@ -81,8 +81,8 @@ const campaign = await meta.adAccount("act_123").campaigns.list({
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@promobase/ad-platforms`](https://www.npmjs.com/package/@promobase/ad-platforms).
+For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

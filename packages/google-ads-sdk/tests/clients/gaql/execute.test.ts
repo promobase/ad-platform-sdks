@@ -1,5 +1,5 @@
 import { expect, mock, test } from "bun:test";
-import { HttpClient } from "@promobase/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 import { gaql } from "../../../src/clients/gaql/builder.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {

@@ -1,0 +1,85 @@
+{
+  "name": "@openpromo/ad-platforms-cli",
+  "version": "0.1.0",
+  "description": "Command-line interface for OpenPromo ad platform SDK operations",
+  "keywords": [
+    "ad-platforms",
+    "cli",
+    "meta",
+    "facebook",
+    "instagram",
+    "threads",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/cli"
+  },
+  "bin": {
+    "openpromo-ads": "./dist/index.js",
+    "openpromo-ads-mcp": "./dist/mcp.js",
+    "op-ads": "./dist/index.js",
+    "ad-platforms-cli": "./dist/index.js",
+    "ad-platforms": "./dist/index.js"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "mcp:serve": "bun run src/mcp.ts",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@openpromo/ad-platforms": "workspace:*",
+    "@openpromo/meta": "workspace:*",
+    "ai": "^6.0.158",
+    "commander": "^14.0.2",
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./command": {
+      "bun": "./src/command.ts",
+      "types": "./dist/command.d.ts",
+      "import": "./dist/command.js",
+      "default": "./dist/command.js"
+    },
+    "./mcp": {
+      "bun": "./src/mcp.ts",
+      "types": "./dist/mcp.d.ts",
+      "import": "./dist/mcp.js",
+      "default": "./dist/mcp.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

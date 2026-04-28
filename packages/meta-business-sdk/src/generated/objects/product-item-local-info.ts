@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductItemLocalInfoLatLongShapeFields } from "./product-item-local-info-lat-long-shape.ts";
 
 export interface ProductItemLocalInfoFields {

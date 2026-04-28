@@ -1,5 +1,5 @@
 import type { MutateAdParametersRequest, MutateAdParametersResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.AdParameterService. Do not edit by hand.
 export const adParameterService = {

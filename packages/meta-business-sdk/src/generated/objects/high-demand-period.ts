@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { HighDemandPeriodTimeSuggestionWeeklySegmentFields } from "./high-demand-period-time-suggestion-weekly-segment.ts";
 
 export interface HighDemandPeriodFields {

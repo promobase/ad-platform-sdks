@@ -1,5 +1,5 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
-import { Cursor } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdRuleEvaluationSpecFields } from "./ad-rule-evaluation-spec.ts";
 import type { AdRuleExecutionSpecFields } from "./ad-rule-execution-spec.ts";

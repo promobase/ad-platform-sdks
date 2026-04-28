@@ -1,5 +1,5 @@
 import type { MutateBiddingDataExclusionsRequest, MutateBiddingDataExclusionsResponse } from "../index.ts";
-import type { HttpClient } from "@promobase/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.BiddingDataExclusionService. Do not edit by hand.
 export const biddingDataExclusionService = {

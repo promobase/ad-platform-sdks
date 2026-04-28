@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { DayPartFields } from "./day-part.ts";
 import type { ReachFrequencyActivityFields } from "./reach-frequency-activity.ts";
 import type { ReachFrequencyAdFormatFields } from "./reach-frequency-ad-format.ts";

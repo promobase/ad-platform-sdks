@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @promobase/sdk-runtime
+# @openpromo/sdk-runtime
 
-**Shared runtime primitives for @promobase ad platform SDKs.**
+**Shared runtime primitives for @openpromo ad platform SDKs.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/sdk-runtime.svg?label=%40promobase%2Fsdk-runtime)](https://www.npmjs.com/package/@promobase/sdk-runtime)
+[![npm](https://img.shields.io/npm/v/@openpromo/sdk-runtime.svg?label=%40openpromo%2Fsdk-runtime)](https://www.npmjs.com/package/@openpromo/sdk-runtime)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -20,7 +20,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-The low-level building blocks shared by every `@promobase/*-sdk` package: a fetch-based `HttpClient` for JSON/Bearer APIs, cursor pagination, retry with exponential backoff, and pluggable rate limiting. Runtime-agnostic — works in Bun, Node, Deno, and edge.
+The low-level building blocks shared by every `@openpromo/*` package: a fetch-based `HttpClient` for JSON/Bearer APIs, cursor pagination, retry with exponential backoff, and pluggable rate limiting. Runtime-agnostic — works in Bun, Node, Deno, and edge.
 
 You don't install this directly. It's a transitive dependency of the platform SDKs.
 
@@ -34,11 +34,11 @@ You don't install this directly. It's a transitive dependency of the platform SD
 
 ## Used by
 
-- [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts)
-- [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk)
-- [`@promobase/google-ads-sdk`](https://www.npmjs.com/package/@promobase/google-ads-sdk)
-- [`@promobase/ad-platforms`](https://www.npmjs.com/package/@promobase/ad-platforms)
+- [`@openpromo/meta`](https://www.npmjs.com/package/@openpromo/meta)
+- [`@openpromo/tiktok`](https://www.npmjs.com/package/@openpromo/tiktok)
+- [`@openpromo/google-ads`](https://www.npmjs.com/package/@openpromo/google-ads)
+- [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms)
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

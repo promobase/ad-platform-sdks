@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductItemLocalInfoFields } from "./product-item-local-info.ts";
 
 export interface CatalogItemOverrideFields {

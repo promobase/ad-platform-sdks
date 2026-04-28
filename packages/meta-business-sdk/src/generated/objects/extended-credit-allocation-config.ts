@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { BusinessFields } from "./business.ts";
 import type { CurrencyAmountFields } from "./currency-amount.ts";
 import type { ExtendedCreditFields } from "./extended-credit.ts";

@@ -1,5 +1,5 @@
 {
-  "name": "@promobase/linkedin-sdk",
+  "name": "@openpromo/linkedin",
   "version": "0.2.0",
   "description": "Type-safe TypeScript SDK for LinkedIn organic publishing and OAuth",
   "keywords": [

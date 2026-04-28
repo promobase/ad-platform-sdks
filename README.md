@@ -1,16 +1,16 @@
 <div align="center">
 
 <a href="https://openpromo.app">
-  <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
+  <img src="https://openpromo.app/logo.svg" width="80" alt="OpenPromo" />
 </a>
 
-# ad-platform-sdks
+# OpenPromo Ad Platform SDKs
 
 **Type-safe TypeScript SDKs for every ad platform. AI-agent ready.**
 
-Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
+Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/ad-platforms.svg?label=%40promobase%2Fad-platforms)](https://www.npmjs.com/package/@promobase/ad-platforms)
+[![npm](https://img.shields.io/npm/v/@openpromo/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@openpromo/ad-platforms)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -20,19 +20,19 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-One SDK for **Meta** (Facebook, Instagram, Threads), **TikTok**, and soon Google Ads. Fully typed, auto-generated from official specs, with high-level clients for publishing, messaging, and ad management — plus 58+ AI SDK tools ready to drop into any agent.
+One SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, and ad management, plus AI tools and a discoverable CLI for agents.
 
 ## Install
 
 ```bash
-bun add @promobase/ad-platforms
+bun add @openpromo/ad-platforms
 ```
 
 ## Use
 
 ```ts
-import { Meta, TikTok } from "@promobase/ad-platforms";
-import { createAllTools } from "@promobase/ad-platforms/ai";
+import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { createAllTools } from "@openpromo/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
@@ -76,9 +76,9 @@ await generateText({
 
 | Package | Description |
 |---------|-------------|
-| [`@promobase/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, single install |
-| [`@promobase/meta-business-sdk-ts`](./packages/meta-business-sdk/) | Meta only (Facebook, Instagram, Threads) |
-| [`@promobase/tiktok-business-sdk`](./packages/tiktok-business-sdk/) | TikTok only |
+| [`@openpromo/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, single install |
+| [`@openpromo/meta`](./packages/meta-business-sdk/) | Meta only (Facebook, Instagram, Threads) |
+| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/) | TikTok only |
 
 ## Why
 
@@ -100,4 +100,4 @@ cd packages/meta-business-sdk && bun run codegen   # regenerate from specs
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

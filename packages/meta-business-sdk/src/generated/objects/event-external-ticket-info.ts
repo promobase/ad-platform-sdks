@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { CurrencyAmountFields } from "./currency-amount.ts";
 
 export interface EventExternalTicketInfoFields {

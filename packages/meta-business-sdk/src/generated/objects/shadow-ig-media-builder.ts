@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { IGResumableVideoUploadStatusFields } from "./ig-resumable-video-upload-status.ts";
 import type { IGVideoCopyrightCheckStatusFields } from "./ig-video-copyright-check-status.ts";
 import type { StatusFields } from "./status.ts";

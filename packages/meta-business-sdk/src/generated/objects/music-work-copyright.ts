@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { VideoCopyrightRuleFields } from "./video-copyright-rule.ts";
 
 export interface MusicWorkCopyrightFields {

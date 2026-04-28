@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @promobase/google-ads-sdk
+# @openpromo/google-ads
 
 **Type-safe TypeScript SDK for the Google Ads API v23 — generated from protobuf, with a typed GAQL query builder.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@promobase/google-ads-sdk.svg?label=%40promobase%2Fgoogle-ads-sdk)](https://www.npmjs.com/package/@promobase/google-ads-sdk)
+[![npm](https://img.shields.io/npm/v/@openpromo/google-ads.svg?label=%40openpromo%2Fgoogle-ads)](https://www.npmjs.com/package/@openpromo/google-ads)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -25,15 +25,15 @@ A fetch-based, runtime-agnostic Google Ads v23 client generated from the officia
 ## Install
 
 ```bash
-bun add @promobase/google-ads-sdk
+bun add @openpromo/google-ads
 # or
-npm install @promobase/google-ads-sdk
+npm install @openpromo/google-ads
 ```
 
 ## Use
 
 ```ts
-import { Google } from "@promobase/google-ads-sdk";
+import { Google } from "@openpromo/google-ads";
 
 const client = Google.createClient({
   getAccessToken: async () => db.getGoogleToken(userId),
@@ -84,8 +84,8 @@ const { rows } = await customer.gaql
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@promobase/ad-platforms`](https://www.npmjs.com/package/@promobase/ad-platforms).
+For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 
-MIT © [Promobase](https://openpromo.app)
+MIT © [OpenPromo](https://openpromo.app)

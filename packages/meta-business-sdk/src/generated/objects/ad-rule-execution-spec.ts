@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdRuleExecutionOptionsFields } from "./ad-rule-execution-options.ts";
 import type { AdRuleExecutionSpecExecutionType } from "../enums.ts";
 

@@ -1,7 +1,7 @@
 export type {
   BaseClientOptions as XClientOptions,
   BaseRequestOptions as XRequestOptions,
-} from "@promobase/x-sdk";
+} from "@openpromo/x";
 export {
   X,
   XApi,
@@ -9,4 +9,4 @@ export {
   XApiEnvironment,
   XApiError,
   XApiTimeoutError,
-} from "@promobase/x-sdk";
+} from "@openpromo/x";

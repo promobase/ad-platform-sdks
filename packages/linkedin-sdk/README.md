@@ -1,4 +1,4 @@
-# @promobase/linkedin-sdk
+# @openpromo/linkedin
 
 Type-safe TypeScript SDK for LinkedIn organic publishing and OAuth.
 
@@ -7,15 +7,15 @@ LinkedIn does not currently publish a public OpenAPI/Swagger spec or public per-
 ## Install
 
 ```bash
-bun add @promobase/linkedin-sdk
+bun add @openpromo/linkedin
 # or
-npm install @promobase/linkedin-sdk
+npm install @openpromo/linkedin
 ```
 
 ## Use
 
 ```ts
-import { LinkedIn } from "@promobase/linkedin-sdk";
+import { LinkedIn } from "@openpromo/linkedin";
 
 const linkedin = LinkedIn.createClient({
   accessToken: process.env.LINKEDIN_ACCESS_TOKEN!,

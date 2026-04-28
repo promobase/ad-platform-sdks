@@ -3,11 +3,11 @@ export type {
   YouTubeResumableUploadOptions,
   YouTubeUploadBody,
   YouTubeUploadSession,
-} from "@promobase/youtube-sdk";
+} from "@openpromo/youtube";
 export {
   createYouTubeClient,
   YouTube,
   YouTubeApiError,
   YouTubeClient,
   YouTubeUploadError,
-} from "@promobase/youtube-sdk";
+} from "@openpromo/youtube";

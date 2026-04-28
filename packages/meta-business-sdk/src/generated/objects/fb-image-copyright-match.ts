@@ -1,4 +1,4 @@
-import type { ApiClient } from "@promobase/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProfileFields } from "./profile.ts";
 import type { VideoCopyrightGeoGateFields } from "./video-copyright-geo-gate.ts";
 

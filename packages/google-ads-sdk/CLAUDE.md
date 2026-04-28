@@ -1,4 +1,4 @@
-# @promobase/google-ads-sdk
+# @openpromo/google-ads
 
 Type-safe Google Ads API v23 SDK. Generated from protobuf definitions via REST transcoding.
 
