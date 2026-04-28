@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/x",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup",
   "keywords": [
     "x",

@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/sdk-runtime",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Shared runtime primitives for @openpromo ad platform SDKs — fetch-based HttpClient, cursor pagination, rate limiter, retry.",
   "keywords": [
     "sdk-runtime",

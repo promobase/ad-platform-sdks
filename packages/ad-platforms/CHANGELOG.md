@@ -1,5 +1,19 @@
 # @openpromo/ad-platforms
 
+## 0.2.1
+
+### Patch Changes
+
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
+
+- Updated dependencies [[`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8)]:
+  - @openpromo/meta@0.0.5
+  - @openpromo/tiktok@0.0.5
+  - @openpromo/google-ads@0.1.3
+  - @openpromo/linkedin@0.2.1
+  - @openpromo/x@0.2.1
+  - @openpromo/youtube@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
