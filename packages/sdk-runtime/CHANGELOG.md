@@ -1,5 +1,11 @@
 # @openpromo/sdk-runtime
 
+## 0.2.3
+
+### Patch Changes
+
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
+
 ## 0.2.2
 
 ### Patch Changes
