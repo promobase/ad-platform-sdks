@@ -9,7 +9,7 @@ import {
   type RegisteredCliCommand,
   serializeCliError,
 } from "./command.ts";
-import { registerMetaCommands } from "./meta/index.ts";
+import { registerPlatformCommands } from "./register.ts";
 
 export function createMcpServer(): McpServer {
   const server = new McpServer({
@@ -72,7 +72,7 @@ async function runMcpCommand(command: RegisteredCliCommand, input: unknown): Pro
 function createRegistryProgram(): Command {
   const program = new Command();
   program.name("openpromo-ads");
-  registerMetaCommands(program);
+  registerPlatformCommands(program);
   return program;
 }
 

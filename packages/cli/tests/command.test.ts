@@ -80,14 +80,20 @@ describe("CLI command helpers", () => {
     expect(help).toContain("--input-file <path>");
   });
 
-  test("program exposes CLI leaf commands for MCP registration", () => {
+  test("program exposes platform CLI leaf commands for MCP registration", () => {
     const commands = getRegisteredCommands(createProgram());
     const publishPhoto = commands.find(
       (command) => command.toolName === "meta_instagram_media_publish_photo",
     );
+    const linkedInText = commands.find(
+      (command) => command.toolName === "linkedin_posts_create_text",
+    );
+    const youtubeRaw = commands.find((command) => command.toolName === "youtube_resources_call");
 
     expect(publishPhoto?.path).toEqual(["meta", "instagram", "media", "publish-photo"]);
     expect(publishPhoto?.description).toContain("Publish a photo");
+    expect(linkedInText?.path).toEqual(["linkedin", "posts", "create-text"]);
+    expect(youtubeRaw?.path).toEqual(["youtube", "resources", "call"]);
   });
 
   test("MCP server can be constructed from the CLI command registry", () => {

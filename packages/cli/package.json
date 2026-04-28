@@ -50,7 +50,12 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@openpromo/ad-platforms": "workspace:*",
+    "@openpromo/google-ads": "workspace:*",
+    "@openpromo/linkedin": "workspace:*",
     "@openpromo/meta": "workspace:*",
+    "@openpromo/tiktok": "workspace:*",
+    "@openpromo/x": "workspace:*",
+    "@openpromo/youtube": "workspace:*",
     "ai": "^6.0.158",
     "commander": "^14.0.2",
     "typescript": "^5.9.3",

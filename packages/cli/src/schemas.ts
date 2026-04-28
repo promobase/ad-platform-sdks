@@ -42,6 +42,10 @@ export function jsonFromCli<TSchema extends z.ZodTypeAny>(schema: TSchema) {
   }, schema);
 }
 
+export const jsonObjectFromCli = jsonFromCli(z.record(z.string(), z.unknown()));
+export const optionalJsonObjectFromCli = jsonObjectFromCli.optional();
+export const jsonArrayFromCli = jsonFromCli(z.array(z.unknown()));
+
 export const graphAuth = z.object({
   accessToken: z.string().optional(),
   apiVersion: z.string().optional(),

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import { serveMcpStdio } from "./mcp.ts";
-import { registerMetaCommands } from "./meta/index.ts";
+import { registerPlatformCommands } from "./register.ts";
 
 export function createProgram(): Command {
   const program = new Command();
@@ -12,7 +12,7 @@ export function createProgram(): Command {
     .showHelpAfterError()
     .showSuggestionAfterError();
 
-  registerMetaCommands(program);
+  registerPlatformCommands(program);
   registerMcpCommands(program);
 
   return program;
