@@ -1,6 +1,6 @@
 {
   "name": "@promobase/tiktok-business-sdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Type-safe TypeScript SDK for the TikTok Business API — OAuth, video/photo publishing, comments, and account insights",
   "keywords": [
     "tiktok",

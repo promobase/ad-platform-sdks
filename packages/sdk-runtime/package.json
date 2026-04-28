@@ -1,6 +1,6 @@
 {
   "name": "@promobase/sdk-runtime",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Shared runtime primitives for @promobase ad platform SDKs — fetch-based HttpClient, cursor pagination, rate limiter, retry.",
   "keywords": [
     "sdk-runtime",

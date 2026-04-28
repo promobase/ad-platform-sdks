@@ -1,6 +1,6 @@
 {
   "name": "@promobase/meta-business-sdk-ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Type-safe TypeScript SDK for the Meta (Facebook) Marketing API — fully typed Graph API client with auto-generated types for 994 API objects",
   "keywords": [
     "meta",
