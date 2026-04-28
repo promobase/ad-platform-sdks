@@ -57,32 +57,56 @@ jobs:
 
       - name: Verify published versions match local
         # Only run when changesets claimed it published. This step compensates
-        # for bun publish's "success then 403 retry" flake: it checks npm for
-        # each package and fails only if a local version is actually missing
-        # on the registry. Skipped when the action opened a Version PR instead
-        # of publishing (otherwise it'd check bumped-but-not-yet-published
-        # versions against npm and always fail).
+        # for publish/registry flakiness: npm can accept a publish and still
+        # take a short window before `npm view` sees the new version. Skipped
+        # when the action opened a Version PR instead of publishing.
         if: steps.changesets.outputs.published == 'true'
         run: |
           set -e
-          fail=0
-          for dir in packages/sdk-runtime packages/meta-business-sdk packages/tiktok-business-sdk packages/google-ads-sdk packages/ad-platforms; do
-            name=$(node -p "require('./$dir/package.json').name")
-            local_version=$(node -p "require('./$dir/package.json').version")
-            # Skip packages marked private
-            is_private=$(node -p "require('./$dir/package.json').private || false")
+
+          expected=()
+          while IFS= read -r package_json; do
+            name=$(node -p "require('./$package_json').name")
+            local_version=$(node -p "require('./$package_json').version")
+            is_private=$(node -p "require('./$package_json').private || false")
             if [ "$is_private" = "true" ]; then
               echo "$name@$local_version (private, skipped)"
               continue
             fi
-            if npm view "$name@$local_version" version >/dev/null 2>&1; then
-              echo "$name@$local_version ✓ published"
+            expected+=("$name@$local_version")
+          done < <(find packages -mindepth 2 -maxdepth 2 -name package.json | sort)
+
+          if [ "${#expected[@]}" -eq 0 ]; then
+            echo "No public packages found to verify"
+            exit 0
+          fi
+
+          missing=()
+          for attempt in {1..12}; do
+            missing=()
+            echo "npm visibility check attempt $attempt/12"
+
+            for package in "${expected[@]}"; do
+              if npm view "$package" version --registry=https://registry.npmjs.org >/dev/null 2>&1; then
+                echo "$package published"
+              else
+                echo "$package not visible on npm yet"
+                missing+=("$package")
+              fi
+            done
+
+            if [ "${#missing[@]}" -eq 0 ]; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 12 ]; then
+              echo "Waiting for npm registry propagation: ${missing[*]}"
+              sleep 10
             else
-              echo "$name@$local_version ✗ NOT on npm"
-              fail=1
+              echo "Packages still missing on npm after retries: ${missing[*]}"
+              exit 1
             fi
           done
-          exit $fail
 
       - name: Enable auto-merge on release PR
         if: always() && steps.changesets.outputs.pullRequestNumber != ''
