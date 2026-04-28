@@ -20,7 +20,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, and **Google Ads**. Fully typed, generated from official specs, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
+One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
 
 ## Install
 
@@ -33,7 +33,7 @@ npm install @promobase/ad-platforms
 ## Use
 
 ```ts
-import { Meta, TikTok, Google } from "@promobase/ad-platforms";
+import { Meta, TikTok, LinkedIn, Google } from "@promobase/ad-platforms";
 import { createAllTools } from "@promobase/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
@@ -50,6 +50,15 @@ await ig.media.publishVideo({
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
   businessId: "biz_456",
+});
+
+// LinkedIn organic publishing
+const linkedin = LinkedIn.createClient({
+  accessToken: process.env.LINKEDIN_TOKEN!,
+});
+await linkedin.posts.createText({
+  authorUrn: "urn:li:organization:123456",
+  commentary: "New launch is live.",
 });
 
 // Google Ads — customer-bound ergonomic flows + typed GAQL
@@ -83,6 +92,7 @@ await generateText({
 
 - **Meta** — 994 typed Graph API objects, field-level narrowing via `Pick<>`, IG/FB/Threads publishing, inbox, OAuth, rate limiting, batch API
 - **TikTok** — OAuth, content publishing, comments, webhooks
+- **LinkedIn** — OAuth, organization lookup, organic text/image/multi-image/video posts, comments, media upload helpers
 - **Google Ads** — 184 resource types, 111 services, customer-bound factory, typed GAQL builder with row-level narrowing
 - **AI SDK tools** — filterable, middleware-ready, two-stage routing
 - **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
@@ -94,6 +104,7 @@ await generateText({
 |---------|-------------|
 | [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) | Meta only (Facebook, Instagram, Threads) |
 | [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) | TikTok only |
+| [`@promobase/linkedin-sdk`](https://www.npmjs.com/package/@promobase/linkedin-sdk) | LinkedIn only |
 | [`@promobase/google-ads-sdk`](https://www.npmjs.com/package/@promobase/google-ads-sdk) | Google Ads only |
 
 ## License

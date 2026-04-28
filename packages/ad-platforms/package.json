@@ -1,7 +1,7 @@
 {
   "name": "@promobase/ad-platforms",
   "version": "0.1.2",
-  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, and future ad platforms — single install, single namespace",
+  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, and future ad platforms — single install, single namespace",
   "keywords": [
     "meta",
     "facebook",
@@ -9,6 +9,7 @@
     "threads",
     "tiktok",
     "tiktok-business",
+    "linkedin",
     "google-ads",
     "ads",
     "advertising",
@@ -52,7 +53,8 @@
   "dependencies": {
     "@promobase/meta-business-sdk-ts": "workspace:*",
     "@promobase/tiktok-business-sdk": "workspace:*",
-    "@promobase/google-ads-sdk": "workspace:*"
+    "@promobase/google-ads-sdk": "workspace:*",
+    "@promobase/linkedin-sdk": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.9.3",

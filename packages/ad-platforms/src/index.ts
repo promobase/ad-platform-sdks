@@ -8,6 +8,7 @@
  *
  *   const meta = Meta.createClient({ accessToken: "..." });
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
+ *   const linkedin = LinkedIn.createClient({ accessToken: "..." });
  *
  *   // Unified AI tools across all platforms
  *   import { createAllTools } from "@promobase/ad-platforms/ai";
@@ -28,6 +29,37 @@ export {
   GoogleAdsError,
   paginate as googleAdsPaginate,
 } from "@promobase/google-ads-sdk";
+
+export type {
+  LinkedInCallToAction,
+  LinkedInCallToActionLabel,
+  LinkedInClientOptions,
+  LinkedInDistribution,
+  LinkedInImagePostParams,
+  LinkedInImageUploadSession,
+  LinkedInMultiImagePostParams,
+  LinkedInOAuthConfig,
+  LinkedInPost,
+  LinkedInPostOptions,
+  LinkedInPostResult,
+  LinkedInTextPostParams,
+  LinkedInTokenResponse,
+  LinkedInUrn,
+  LinkedInUserInfo,
+  LinkedInVideoPostParams,
+  LinkedInVideoUploadInstruction,
+  LinkedInVideoUploadSession,
+  LinkedInVisibility,
+} from "@promobase/linkedin-sdk";
+// --- LinkedIn ---
+export {
+  createClient as createLinkedInClient,
+  createLinkedInOAuth,
+  LinkedIn,
+  LinkedInApiError,
+  LinkedInClient,
+  LinkedInUploadError,
+} from "@promobase/linkedin-sdk";
 
 export type {
   ApiClient,
