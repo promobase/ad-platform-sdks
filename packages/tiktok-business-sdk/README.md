@@ -47,7 +47,7 @@ await tiktok.content.publishVideo({
 });
 
 // AI SDK tools
-import { createTikTokTools } from "@promobase/tiktok-business-sdk";
+import { createTikTokTools } from "@promobase/tiktok-business-sdk/ai";
 const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
 ```
 

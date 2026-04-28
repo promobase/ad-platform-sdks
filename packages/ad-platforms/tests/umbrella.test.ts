@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
-import { createAllTools, Meta, TikTok } from "../src/index.ts";
+import { Meta, TikTok } from "../src/index.ts";
+import { createAllTools } from "../src/unified-tools.ts";
 
 test("Meta namespace is accessible", () => {
   expect(Meta.createClient).toBeDefined();
@@ -7,7 +8,6 @@ test("Meta namespace is accessible", () => {
   expect(Meta.Facebook.createClient).toBeDefined();
   expect(Meta.Threads.createClient).toBeDefined();
   expect(Meta.Webhooks.verifyChallenge).toBeDefined();
-  expect(Meta.AI.createTools).toBeDefined();
 });
 
 test("TikTok namespace is accessible", () => {

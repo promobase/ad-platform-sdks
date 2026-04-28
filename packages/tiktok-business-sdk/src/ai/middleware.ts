@@ -22,7 +22,7 @@ export interface ToolCallContext {
  * Returns a new tools object with the same keys but wrapped execute functions.
  *
  * ```ts
- * const tools = withMiddleware(TikTok.createTools(opts), {
+ * const tools = withMiddleware(createTikTokTools(opts), {
  *   beforeExecute: ({ toolName }) => console.log(`Calling ${toolName}`),
  *   afterExecute: ({ toolName, durationMs }) => console.log(`${toolName} took ${durationMs}ms`),
  *   onError: ({ toolName, error }) => ({ error: `${toolName} failed: ${error}` }),

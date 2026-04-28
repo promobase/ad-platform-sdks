@@ -33,7 +33,7 @@ export function createInstagramTools(opts: {
 
     ig_publish_video: tool({
       description:
-        "Publish a video (reel) to the Instagram feed. All feed videos are reels. Handles transcoding polling automatically.",
+        "Publish a video (reel) to the Instagram feed. All feed videos are reels. Polls Meta processing status automatically.",
       inputSchema: z.object({
         videoUrl: z.string().describe("Public URL of the video to publish"),
         caption: z.string().optional().describe("Post caption text"),

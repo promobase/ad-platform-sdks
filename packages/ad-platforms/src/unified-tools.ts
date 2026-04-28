@@ -3,8 +3,8 @@
  * Combines Meta (Instagram, Facebook, Threads, campaigns) and TikTok tools
  * into a single tool set for agents.
  */
-import { createMetaTools } from "@promobase/meta-business-sdk-ts";
-import { createTikTokTools } from "@promobase/tiktok-business-sdk";
+import { createMetaTools } from "@promobase/meta-business-sdk-ts/ai";
+import { createTikTokTools } from "@promobase/tiktok-business-sdk/ai";
 
 type MetaApi = Parameters<typeof createMetaTools>[0]["api"];
 

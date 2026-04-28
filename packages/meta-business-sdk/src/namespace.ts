@@ -7,17 +7,6 @@
  *   const ig = Meta.Instagram.createClient({ api, igAccountId: "..." });
  */
 
-import { filterTools, filterToolsByName, limitTools } from "./ai/filter.ts";
-// AI SDK tools
-import {
-  createCampaignTools,
-  createFacebookTools,
-  createInstagramTools,
-  createMetaTools,
-  createThreadsTools,
-} from "./ai/index.ts";
-import { withMiddleware } from "./ai/middleware.ts";
-import { createRouter } from "./ai/router.ts";
 import type { BatchHandle, ResolveBatchHandles } from "./batch.ts";
 import { BatchBuilder } from "./batch.ts";
 // Facebook
@@ -100,30 +89,6 @@ export const Meta = {
     createClient: createThreadsClient,
     /** Create a Threads OAuth handler for token exchange and refresh. */
     OAuth: createThreadsOAuth,
-  },
-
-  /** AI SDK tools for LLM agents. */
-  AI: {
-    /** Create all Meta tools (Instagram, Facebook, Threads, Campaigns) for AI SDK. */
-    createTools: createMetaTools,
-    /** Create Instagram-specific AI SDK tools. */
-    Instagram: createInstagramTools,
-    /** Create Facebook-specific AI SDK tools. */
-    Facebook: createFacebookTools,
-    /** Create Threads-specific AI SDK tools. */
-    Threads: createThreadsTools,
-    /** Create campaign management AI SDK tools. */
-    Campaigns: createCampaignTools,
-    /** Wrap tools with before/after/error middleware hooks. */
-    withMiddleware,
-    /** Filter tools by category (instagram, publish, comments, etc.). */
-    filterTools,
-    /** Filter tools by name pattern (glob-like with * wildcard). */
-    filterToolsByName,
-    /** Limit the number of tools returned. */
-    limitTools,
-    /** Create a two-stage router for scalable tool selection. */
-    createRouter,
   },
 
   /** Webhook verification, parsing, and Zod schemas. */

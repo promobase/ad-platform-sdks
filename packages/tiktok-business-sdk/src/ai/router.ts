@@ -18,7 +18,7 @@ export interface RouterOptions {
  *
  * Designed for use with the AI SDK's `prepareStep` callback:
  * ```ts
- * const allTools = TikTok.createTools({ accessToken, businessId });
+ * const allTools = createTikTokTools({ accessToken, businessId });
  * const router = createRouter({ tools: allTools });
  *
  * const result = await generateText({

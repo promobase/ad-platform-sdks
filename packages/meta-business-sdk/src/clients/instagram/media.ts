@@ -43,7 +43,7 @@ export function createMedia(
 
     /**
      * Publish a video to the feed. All feed videos are reels on Instagram.
-     * Handles video transcoding polling automatically.
+     * Polls Meta video processing status automatically.
      */
     async publishVideo(opts: PublishVideoOptions): Promise<PublishResult> {
       const container = await containers.create({

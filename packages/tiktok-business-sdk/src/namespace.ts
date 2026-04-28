@@ -16,15 +16,6 @@
  *   const result = await TikTok.Webhooks.safeParse.video({ body, signature, appSecret });
  */
 
-import type { CreateTikTokToolsOptions } from "./ai/index.ts";
-import {
-  createRouter,
-  createTikTokTools,
-  filterTools,
-  filterToolsByName,
-  limitTools,
-  withMiddleware,
-} from "./ai/index.ts";
 import type { TikTokApiClientOptions } from "./api-client.ts";
 import { TikTokApiClient } from "./api-client.ts";
 import {
@@ -92,26 +83,6 @@ export const TikTok = {
 
   /** Create a Discovery API client for advertiser-scoped trending hashtags. */
   createDiscovery: createTikTokDiscovery,
-
-  /**
-   * Create AI tool definitions for TikTok operations.
-   * Compatible with Vercel AI SDK — works with any LLM provider.
-   *
-   * ```ts
-   * const tools = TikTok.createTools({ accessToken, businessId });
-   * const result = await generateText({ model, tools, prompt: "Post a video" });
-   * ```
-   */
-  createTools: createTikTokTools,
-
-  /** Create a two-stage router for managing large tool sets with prepareStep. */
-  createRouter,
-
-  /** Wrap tools with middleware hooks (logging, rate limiting, error handling). */
-  withMiddleware,
-
-  /** Filter tools by category, name pattern, or limit count. */
-  filterTools: { byCategory: filterTools, byName: filterToolsByName, limit: limitTools },
 
   /** TikTok API error class with code, requestId, and error classification helpers. */
   ApiError: TikTokApiError,
@@ -187,7 +158,6 @@ export const TikTok = {
 } as const;
 
 export type {
-  CreateTikTokToolsOptions,
   DiscoveryOptions,
   OAuthConfig,
   TikTokApiClientOptions,

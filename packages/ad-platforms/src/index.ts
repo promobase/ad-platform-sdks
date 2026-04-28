@@ -10,7 +10,7 @@
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
  *
  *   // Unified AI tools across all platforms
- *   import { createAllTools } from "@promobase/ad-platforms";
+ *   import { createAllTools } from "@promobase/ad-platforms/ai";
  *   const tools = createAllTools({ meta: { api, igAccountId, ... }, tiktok: { ... } });
  */
 
@@ -81,6 +81,3 @@ export {
   TikTokApiError,
   TikTokRateLimiter,
 } from "@promobase/tiktok-business-sdk";
-export type { CreateAllToolsOptions } from "./unified-tools.ts";
-// --- Unified AI tools ---
-export { createAllTools } from "./unified-tools.ts";

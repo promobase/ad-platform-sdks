@@ -31,14 +31,15 @@ bun add @promobase/ad-platforms
 ## Use
 
 ```ts
-import { Meta, TikTok, createAllTools } from "@promobase/ad-platforms";
+import { Meta, TikTok } from "@promobase/ad-platforms";
+import { createAllTools } from "@promobase/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
 const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
 
-// Publish a reel — handles container creation, transcoding, and polling
+// Publish a reel from a public URL — handles container creation and polling
 await ig.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",

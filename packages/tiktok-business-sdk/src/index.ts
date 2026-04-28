@@ -1,14 +1,5 @@
 // --- Namespace (recommended entry point) ---
 
-export type { CreateTikTokToolsOptions } from "./ai/index.ts";
-// --- AI Tools ---
-export {
-  createTikTokAccountTools,
-  createTikTokCommentTools,
-  createTikTokContentTools,
-  createTikTokMessagingTools,
-  createTikTokTools,
-} from "./ai/index.ts";
 export type { TikTokApiClientOptions } from "./api-client.ts";
 // --- Core infrastructure ---
 export { TikTokApiClient } from "./api-client.ts";

@@ -255,18 +255,6 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export { MetaRateLimiter } from "../rate-limiter.ts";`);
   barrelLines.push(`export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";`);
   barrelLines.push(`export { Meta } from "../namespace.ts";`);
-  barrelLines.push(
-    `export { createMetaTools, createInstagramTools, createFacebookTools, createThreadsTools, createCampaignTools } from "../ai/index.ts";`,
-  );
-  barrelLines.push(`export type { CreateMetaToolsOptions } from "../ai/index.ts";`);
-  barrelLines.push(`export { withMiddleware } from "../ai/middleware.ts";`);
-  barrelLines.push(`export type { ToolMiddleware, ToolCallContext } from "../ai/middleware.ts";`);
-  barrelLines.push(
-    `export { filterTools, filterToolsByName, limitTools, getToolCategories, getAvailableCategories } from "../ai/filter.ts";`,
-  );
-  barrelLines.push(`export type { ToolCategory } from "../ai/filter.ts";`);
-  barrelLines.push(`export { createRouter } from "../ai/router.ts";`);
-  barrelLines.push(`export type { RouterOptions } from "../ai/router.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

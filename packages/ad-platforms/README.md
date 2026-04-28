@@ -33,7 +33,8 @@ npm install @promobase/ad-platforms
 ## Use
 
 ```ts
-import { Meta, TikTok, Google, createAllTools } from "@promobase/ad-platforms";
+import { Meta, TikTok, Google } from "@promobase/ad-platforms";
+import { createAllTools } from "@promobase/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 

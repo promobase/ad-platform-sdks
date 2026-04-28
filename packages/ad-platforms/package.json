@@ -47,9 +47,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@promobase/meta-business-sdk-ts": "workspace:*",
-    "@promobase/tiktok-business-sdk": "workspace:*",
-    "@promobase/google-ads-sdk": "workspace:*"
+    "@promobase/meta-business-sdk-ts": "^0.0.3",
+    "@promobase/tiktok-business-sdk": "^0.0.3",
+    "@promobase/google-ads-sdk": "^0.1.1"
   },
   "peerDependencies": {
     "typescript": "^5.9.3",
@@ -66,10 +66,16 @@
   },
   "exports": {
     ".": {
-      "bun": "./src/index.ts",
+      "bun": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./ai": {
+      "bun": "./dist/unified-tools.js",
+      "types": "./dist/unified-tools.d.ts",
+      "import": "./dist/unified-tools.js",
+      "default": "./dist/unified-tools.js"
     }
   },
   "engines": {

@@ -45,22 +45,33 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@promobase/sdk-runtime": "workspace:*",
-    "ai": "^6.0.158",
+    "@promobase/sdk-runtime": "^0.2.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
+    "ai": "^6.0.158",
     "typescript": "^5.9.3"
+  },
+  "peerDependenciesMeta": {
+    "ai": {
+      "optional": true
+    }
   },
   "exports": {
     ".": {
-      "bun": "./src/index.ts",
+      "bun": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./ai": {
+      "bun": "./dist/ai/index.js",
+      "types": "./dist/ai/index.d.ts",
+      "import": "./dist/ai/index.js",
+      "default": "./dist/ai/index.js"
     }
   },
   "engines": {
