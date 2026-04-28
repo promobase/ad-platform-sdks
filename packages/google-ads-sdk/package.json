@@ -54,13 +54,15 @@
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/",
-    "prepublishOnly": "bun run clean && bun run build"
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@promobase/sdk-runtime": "^0.2.1"
+    "@promobase/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest",

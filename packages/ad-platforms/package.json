@@ -40,16 +40,18 @@
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/",
-    "prepublishOnly": "bun run clean && bun run build"
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
   },
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "dependencies": {
-    "@promobase/meta-business-sdk-ts": "^0.0.3",
-    "@promobase/tiktok-business-sdk": "^0.0.3",
-    "@promobase/google-ads-sdk": "^0.1.1"
+    "@promobase/meta-business-sdk-ts": "workspace:*",
+    "@promobase/tiktok-business-sdk": "workspace:*",
+    "@promobase/google-ads-sdk": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.9.3",
