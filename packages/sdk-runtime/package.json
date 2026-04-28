@@ -21,6 +21,7 @@
   "type": "module",
   "files": [
     "dist/**/*",
+    "src/**/*",
     "README.md",
     "LICENSE"
   ],
@@ -44,7 +45,7 @@
   },
   "exports": {
     ".": {
-      "bun": "./dist/index.js",
+      "bun": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"

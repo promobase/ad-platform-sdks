@@ -39,6 +39,7 @@
   "type": "module",
   "files": [
     "dist/**/*",
+    "src/**/*",
     "README.md",
     "LICENSE"
   ],
@@ -74,13 +75,13 @@
   },
   "exports": {
     ".": {
-      "bun": "./dist/generated/index.js",
+      "bun": "./src/generated/index.ts",
       "types": "./dist/generated/index.d.ts",
       "import": "./dist/generated/index.js",
       "default": "./dist/generated/index.js"
     },
     "./ai": {
-      "bun": "./dist/ai/index.js",
+      "bun": "./src/ai/index.ts",
       "types": "./dist/ai/index.d.ts",
       "import": "./dist/ai/index.js",
       "default": "./dist/ai/index.js"

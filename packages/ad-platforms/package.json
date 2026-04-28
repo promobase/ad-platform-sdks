@@ -32,6 +32,7 @@
   "type": "module",
   "files": [
     "dist/**/*",
+    "src/**/*",
     "README.md",
     "LICENSE"
   ],
@@ -68,13 +69,13 @@
   },
   "exports": {
     ".": {
-      "bun": "./dist/index.js",
+      "bun": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./ai": {
-      "bun": "./dist/unified-tools.js",
+      "bun": "./src/unified-tools.ts",
       "types": "./dist/unified-tools.d.ts",
       "import": "./dist/unified-tools.js",
       "default": "./dist/unified-tools.js"
