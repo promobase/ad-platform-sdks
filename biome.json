@@ -18,6 +18,8 @@
       "!**/vendor",
       "!**/generated",
       "!**/api_specs",
+      "!fern/openapi",
+      "!google-discovery",
       "!**/.changeset",
       "!**/*.tsbuildinfo"
     ]

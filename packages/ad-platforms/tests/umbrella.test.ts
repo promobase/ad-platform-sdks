@@ -1,6 +1,8 @@
 import { expect, test } from "bun:test";
 import { LinkedIn, Meta, TikTok } from "../src/index.ts";
 import { createAllTools } from "../src/unified-tools.ts";
+import { X } from "../src/x.ts";
+import { YouTube } from "../src/youtube.ts";
 
 test("Meta namespace is accessible", () => {
   expect(Meta.createClient).toBeDefined();
@@ -17,6 +19,14 @@ test("TikTok namespace is accessible", () => {
 test("LinkedIn namespace is accessible", () => {
   expect(LinkedIn.createClient).toBeDefined();
   expect(LinkedIn.OAuth.create).toBeDefined();
+});
+
+test("X namespace is accessible", () => {
+  expect(X.createClient).toBeDefined();
+});
+
+test("YouTube namespace is accessible", () => {
+  expect(YouTube.createClient).toBeDefined();
 });
 
 test("createAllTools combines Meta and TikTok tools", () => {

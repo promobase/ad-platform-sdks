@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "noImplicitOverride": false,
     "types": ["@types/bun"]
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],

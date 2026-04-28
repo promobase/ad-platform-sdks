@@ -19,6 +19,8 @@
         "@promobase/linkedin-sdk": "workspace:*",
         "@promobase/meta-business-sdk-ts": "workspace:*",
         "@promobase/tiktok-business-sdk": "workspace:*",
+        "@promobase/x-sdk": "workspace:*",
+        "@promobase/youtube-sdk": "workspace:*",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -96,6 +98,20 @@
       "optionalPeers": [
         "ai",
       ],
+    },
+    "packages/x-sdk": {
+      "name": "@promobase/x-sdk",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "typescript": "^5.9.3",
+      },
+    },
+    "packages/youtube-sdk": {
+      "name": "@promobase/youtube-sdk",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "typescript": "^5.9.3",
+      },
     },
   },
   "packages": {
@@ -180,6 +196,10 @@
     "@promobase/sdk-runtime": ["@promobase/sdk-runtime@workspace:packages/sdk-runtime"],
 
     "@promobase/tiktok-business-sdk": ["@promobase/tiktok-business-sdk@workspace:packages/tiktok-business-sdk"],
+
+    "@promobase/x-sdk": ["@promobase/x-sdk@workspace:packages/x-sdk"],
+
+    "@promobase/youtube-sdk": ["@promobase/youtube-sdk@workspace:packages/youtube-sdk"],
 
     "@protobufjs/aspromise": ["@protobufjs/aspromise@1.1.2", "", {}, "sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ=="],
 

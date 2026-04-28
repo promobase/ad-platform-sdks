@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/generators-yml.json
+api:
+  specs:
+    - openapi: ./openapi/x-openapi.json
+      origin: https://api.x.com/2/openapi.json
+      settings:
+        only-include-referenced-schemas: true
+        filter:
+          endpoints:
+            - GET /2/tweets
+            - POST /2/tweets
+            - GET /2/tweets/{id}
+            - DELETE /2/tweets/{id}
+            - GET /2/users/me
+            - GET /2/users/{id}
+            - GET /2/users/by/username/{username}
+            - GET /2/media
+            - GET /2/media/{media_key}
+            - GET /2/media/upload
+            - POST /2/media/upload
+            - POST /2/media/upload/initialize
+            - POST /2/media/upload/{id}/append
+            - POST /2/media/upload/{id}/finalize
+        example-generation:
+          request:
+            max-depth: 0
+          response:
+            max-depth: 0
+default-group: x-local
+groups:
+  x-local:
+    generators:
+      - name: fernapi/fern-typescript-sdk
+        version: 3.66.1
+        output:
+          location: local-file-system
+          path: ../packages/x-sdk/src/generated
+        config:
+          namespaceExport: XApi
+          generateSubpackageExports: true
+          fetchSupport: native
+          formDataSupport: Node18
+          streamType: web

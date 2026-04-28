@@ -91,7 +91,7 @@ export class LinkedInClient {
     };
   }
 
-  fetchRaw(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  fetchRaw(input: Parameters<typeof fetch>[0], init?: RequestInit): Promise<Response> {
     return this.fetchImpl(input, init);
   }
 

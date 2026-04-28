@@ -1,0 +1,65 @@
+{
+  "name": "@promobase/youtube-sdk",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for YouTube Data API v3 publishing, uploads, and channel workflows",
+  "keywords": [
+    "youtube",
+    "youtube-data-api",
+    "google-discovery",
+    "video-upload",
+    "social-media",
+    "publishing",
+    "typescript",
+    "type-safe",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/youtube-sdk"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "codegen": "node ../../scripts/generate-youtube-sdk.mjs",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/youtube-sdk/src/generated",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./generated": {
+      "bun": "./src/generated/index.ts",
+      "types": "./dist/generated/index.d.ts",
+      "import": "./dist/generated/index.js",
+      "default": "./dist/generated/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

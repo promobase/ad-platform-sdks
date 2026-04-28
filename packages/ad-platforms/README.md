@@ -20,7 +20,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
+One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
 
 ## Install
 
@@ -34,6 +34,8 @@ npm install @promobase/ad-platforms
 
 ```ts
 import { Meta, TikTok, LinkedIn, Google } from "@promobase/ad-platforms";
+import { X } from "@promobase/ad-platforms/x";
+import { YouTube } from "@promobase/ad-platforms/youtube";
 import { createAllTools } from "@promobase/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
@@ -59,6 +61,23 @@ const linkedin = LinkedIn.createClient({
 await linkedin.posts.createText({
   authorUrn: "urn:li:organization:123456",
   commentary: "New launch is live.",
+});
+
+// X organic publishing
+const x = X.createClient({
+  token: process.env.X_TOKEN!,
+});
+await x.tweets.createPosts({
+  text: "New launch is live.",
+});
+
+// YouTube publishing
+const youtube = YouTube.createClient({
+  accessToken: process.env.YOUTUBE_TOKEN!,
+});
+await youtube.resources.channels.list({
+  part: ["snippet"],
+  mine: true,
 });
 
 // Google Ads — customer-bound ergonomic flows + typed GAQL
@@ -93,6 +112,8 @@ await generateText({
 - **Meta** — 994 typed Graph API objects, field-level narrowing via `Pick<>`, IG/FB/Threads publishing, inbox, OAuth, rate limiting, batch API
 - **TikTok** — OAuth, content publishing, comments, webhooks
 - **LinkedIn** — OAuth, organization lookup, organic text/image/multi-image/video posts, comments, media upload helpers
+- **X** — Fern-generated X API v2 client for posts, users, and media upload from the official OpenAPI spec
+- **YouTube** — Discovery-generated YouTube Data API v3 client plus resumable video upload helper
 - **Google Ads** — 184 resource types, 111 services, customer-bound factory, typed GAQL builder with row-level narrowing
 - **AI SDK tools** — filterable, middleware-ready, two-stage routing
 - **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
@@ -105,6 +126,8 @@ await generateText({
 | [`@promobase/meta-business-sdk-ts`](https://www.npmjs.com/package/@promobase/meta-business-sdk-ts) | Meta only (Facebook, Instagram, Threads) |
 | [`@promobase/tiktok-business-sdk`](https://www.npmjs.com/package/@promobase/tiktok-business-sdk) | TikTok only |
 | [`@promobase/linkedin-sdk`](https://www.npmjs.com/package/@promobase/linkedin-sdk) | LinkedIn only |
+| [`@promobase/x-sdk`](https://www.npmjs.com/package/@promobase/x-sdk) | X only |
+| [`@promobase/youtube-sdk`](https://www.npmjs.com/package/@promobase/youtube-sdk) | YouTube only |
 | [`@promobase/google-ads-sdk`](https://www.npmjs.com/package/@promobase/google-ads-sdk) | Google Ads only |
 
 ## License

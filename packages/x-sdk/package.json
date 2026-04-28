@@ -1,0 +1,83 @@
+{
+  "name": "@promobase/x-sdk",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup",
+  "keywords": [
+    "x",
+    "twitter",
+    "x-api",
+    "twitter-api",
+    "social-media",
+    "publishing",
+    "typescript",
+    "type-safe",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/x-sdk"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "codegen": "cd ../.. && npx fern-api@4.100.2 generate --local --group x-local --no-prompt --force && node scripts/patch-fern-x-sdk.mjs",
+    "codegen:check": "cd ../.. && npx fern-api@4.100.2 check",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./generated": {
+      "bun": "./src/generated/index.ts",
+      "types": "./dist/generated/index.d.ts",
+      "import": "./dist/generated/index.js",
+      "default": "./dist/generated/index.js"
+    },
+    "./tweets": {
+      "bun": "./src/generated/api/resources/tweets/exports.ts",
+      "types": "./dist/generated/api/resources/tweets/exports.d.ts",
+      "import": "./dist/generated/api/resources/tweets/exports.js",
+      "default": "./dist/generated/api/resources/tweets/exports.js"
+    },
+    "./media": {
+      "bun": "./src/generated/api/resources/media/exports.ts",
+      "types": "./dist/generated/api/resources/media/exports.d.ts",
+      "import": "./dist/generated/api/resources/media/exports.js",
+      "default": "./dist/generated/api/resources/media/exports.js"
+    },
+    "./users": {
+      "bun": "./src/generated/api/resources/users/exports.ts",
+      "types": "./dist/generated/api/resources/users/exports.d.ts",
+      "import": "./dist/generated/api/resources/users/exports.js",
+      "default": "./dist/generated/api/resources/users/exports.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
