@@ -1,58 +1,137 @@
+import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
+import { Data, Effect } from "effect";
+import {
+  TikTokPublishResultSchema,
+  TikTokPublishStatusSchema,
+  type TikTokRequestError,
+  type TikTokResponseDataSchema,
+  TikTokVideoListSchema,
+  tiktokRequest,
+  tiktokRequestEffect,
+  tiktokRequestErrorToError,
+} from "./request.ts";
 import type {
   ListVideosOptions,
   ListVideosResponse,
   PublishStatusResponse,
   PublishVideoOptions,
   TikTokClientOptions,
-  TikTokResponse,
 } from "./types.ts";
 
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
+export class TikTokPublishFailedError extends Data.TaggedError("TikTokPublishFailedError")<{
+  readonly publishId: string;
+  readonly reason?: string;
+  readonly status: PublishStatusResponse;
+}> {}
+
+export class TikTokPublishTimeoutError extends Data.TaggedError("TikTokPublishTimeoutError")<{
+  readonly publishId: string;
+  readonly maxAttempts: number;
+}> {}
+
+type TikTokWaitForPublishError =
+  | TikTokRequestError
+  | TikTokPublishFailedError
+  | TikTokPublishTimeoutError;
+
+function waitForPublishErrorToError(error: TikTokWaitForPublishError): Error {
+  if (error instanceof TikTokPublishFailedError) {
+    return new Error(`Video publish failed: ${error.reason ?? "unknown reason"}`);
+  }
+  if (error instanceof TikTokPublishTimeoutError) {
+    return new Error(`Video publish did not complete after ${error.maxAttempts} attempts`);
+  }
+  return tiktokRequestErrorToError(error);
+}
 
 export function createVideos(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
+  const { businessId } = opts;
 
   async function request<T>(
     method: string,
     path: string,
     body?: Record<string, unknown>,
     query?: Record<string, unknown>,
+    schema?: TikTokResponseDataSchema<T>,
   ): Promise<T> {
-    let url = `${TT_API_BASE}${path}`;
-    if (query) {
-      const params = new URLSearchParams();
-      for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined && value !== null) {
-          params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-        }
-      }
-      url += `?${params.toString()}`;
-    }
-
-    const init: RequestInit = {
-      method,
-      headers: {
-        "Access-Token": accessToken,
-        "Content-Type": "application/json",
-      },
-    };
-    if (body && (method === "POST" || method === "PUT")) {
-      init.body = JSON.stringify(body);
-    }
-
-    const response = await fetch(url, init);
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method, path, body, query }, schema);
   }
 
-  return {
+  function getPublishStatusEffect(publishId: string) {
+    return tiktokRequestEffect<PublishStatusResponse>(
+      opts,
+      {
+        method: "GET",
+        path: "/business/publish/status/",
+        query: {
+          business_id: businessId,
+          publish_id: publishId,
+        },
+      },
+      TikTokPublishStatusSchema,
+    );
+  }
+
+  function waitForPublishEffect(
+    publishId: string,
+    waitOpts?: { intervalMs?: number; maxAttempts?: number },
+  ): Effect.Effect<PublishStatusResponse, TikTokWaitForPublishError> {
+    const intervalMs = waitOpts?.intervalMs ?? 5_000;
+    const maxAttempts = waitOpts?.maxAttempts ?? 60;
+
+    const poll = (
+      attempt: number,
+    ): Effect.Effect<PublishStatusResponse, TikTokWaitForPublishError> =>
+      getPublishStatusEffect(publishId).pipe(
+        Effect.flatMap((status) => {
+          switch (status.status) {
+            case "PUBLISH_COMPLETE":
+            case "SEND_TO_USER_INBOX":
+              return Effect.succeed(status);
+            case "FAILED":
+              return Effect.fail(
+                new TikTokPublishFailedError({
+                  publishId,
+                  reason: status.reason,
+                  status,
+                }),
+              );
+            case "PROCESSING_DOWNLOAD":
+              if (attempt >= maxAttempts - 1) {
+                return Effect.fail(new TikTokPublishTimeoutError({ publishId, maxAttempts }));
+              }
+              return Effect.sleep(`${intervalMs} millis`).pipe(
+                Effect.flatMap(() => poll(attempt + 1)),
+              );
+            default:
+              return Effect.fail(
+                new TikTokPublishFailedError({
+                  publishId,
+                  reason: `unknown status ${String(status.status)}`,
+                  status,
+                }),
+              );
+          }
+        }),
+      );
+
+    return poll(0);
+  }
+
+  function normalizePublishStatus(
+    publishId: string,
+    status: PublishStatusResponse,
+  ): PlatformPublishResult<PublishStatusResponse> {
+    return {
+      platform: "tiktok",
+      state: status.status === "FAILED" ? "failed" : "published",
+      id: publishId,
+      postId: status.post_ids?.[0],
+      raw: status,
+    };
+  }
+
+  const client = {
     /**
      * Publish a video post to the TikTok account.
      * Rate limit: 6 per minute, 15 per day per account.
@@ -95,17 +174,28 @@ export function createVideos(opts: TikTokClientOptions) {
       };
       if (opts.customThumbnailUrl) body.custom_thumbnail_url = opts.customThumbnailUrl;
 
-      const result = await request<{ share_id: string }>("POST", "/business/video/publish/", body);
+      const result = await request(
+        "POST",
+        "/business/video/publish/",
+        body,
+        undefined,
+        TikTokPublishResultSchema,
+      );
       return { shareId: result.share_id };
     },
 
+    /** Effect variant of getPublishStatus for orchestration-heavy callers. */
+    getPublishStatusEffect,
+
     /** Check the publishing status of a video post. */
     async getPublishStatus(publishId: string): Promise<PublishStatusResponse> {
-      return request<PublishStatusResponse>("GET", "/business/publish/status/", undefined, {
-        business_id: businessId,
-        publish_id: publishId,
-      });
+      const result = await Effect.runPromise(Effect.either(getPublishStatusEffect(publishId)));
+      if (result._tag === "Left") throw tiktokRequestErrorToError(result.left);
+      return result.right;
     },
+
+    /** Effect variant of waitForPublish for typed polling and composition. */
+    waitForPublishEffect,
 
     /**
      * Wait for a video publish task to complete.
@@ -115,27 +205,18 @@ export function createVideos(opts: TikTokClientOptions) {
       publishId: string,
       opts?: { intervalMs?: number; maxAttempts?: number },
     ): Promise<PublishStatusResponse> {
-      const intervalMs = opts?.intervalMs ?? 5_000;
-      const maxAttempts = opts?.maxAttempts ?? 60;
+      const result = await Effect.runPromise(Effect.either(waitForPublishEffect(publishId, opts)));
+      if (result._tag === "Left") throw waitForPublishErrorToError(result.left);
+      return result.right;
+    },
 
-      for (let attempt = 0; attempt < maxAttempts; attempt++) {
-        const status = await this.getPublishStatus(publishId);
-
-        switch (status.status) {
-          case "PUBLISH_COMPLETE":
-          case "SEND_TO_USER_INBOX":
-            return status;
-          case "FAILED":
-            throw new Error(`Video publish failed: ${status.reason ?? "unknown reason"}`);
-          case "PROCESSING_DOWNLOAD":
-            await new Promise<void>((r) => setTimeout(r, intervalMs));
-            break;
-          default:
-            throw new Error(`Unknown publish status: ${status.status}`);
-        }
-      }
-
-      throw new Error(`Video publish did not complete after ${maxAttempts} attempts`);
+    /** Wait for publish and return the shared normalized platform result shape. */
+    async waitForPublishResult(
+      publishId: string,
+      opts?: { intervalMs?: number; maxAttempts?: number },
+    ): Promise<PlatformPublishResult<PublishStatusResponse>> {
+      const status = await this.waitForPublish(publishId, opts);
+      return normalizePublishStatus(publishId, status);
     },
 
     /** List videos/posts for the TikTok account. Cursor-based pagination. */
@@ -150,7 +231,15 @@ export function createVideos(opts: TikTokClientOptions) {
       if (opts?.adPostOnly !== undefined) filters.ad_post_only = opts.adPostOnly;
       if (Object.keys(filters).length > 0) query.filters = JSON.stringify(filters);
 
-      return request<ListVideosResponse>("GET", "/business/video/list/", undefined, query);
+      return request(
+        "GET",
+        "/business/video/list/",
+        undefined,
+        query,
+        TikTokVideoListSchema as unknown as TikTokResponseDataSchema<ListVideosResponse>,
+      );
     },
   };
+
+  return client;
 }

@@ -1,5 +1,7 @@
+import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
+import { Effect } from "effect";
 import type { createContainers } from "./containers.ts";
-import { waitForContainer } from "./polling.ts";
+import { instagramContainerWaitErrorToError, waitForContainerEffect } from "./polling.ts";
 import type {
   IGMediaFields,
   InstagramInsightsResultFields,
@@ -14,23 +16,39 @@ type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").c
 type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
 type Containers = ReturnType<typeof createContainers>;
 
+type InstagramMediaPublishError = Error | import("./polling.ts").InstagramContainerWaitError;
+
+function unknownToError(cause: unknown): Error {
+  return cause instanceof Error ? cause : new Error(String(cause));
+}
+
+function publishErrorToError(error: InstagramMediaPublishError): Error {
+  if ("_tag" in error) return instagramContainerWaitErrorToError(error);
+  return error;
+}
+
 export function createMedia(
   api: CreateClientReturn,
   containers: Containers,
   igUser: IGUserNode,
   pollingConfig: PollingConfig,
 ) {
-  return {
-    /** Publish a single photo to the feed. */
-    async publishPhoto(opts: PublishPhotoOptions): Promise<PublishResult> {
-      const container = await containers.create({
-        image_url: opts.imageUrl,
-        caption: opts.caption,
-        collaborators: opts.collaborators,
-        location_id: opts.locationId,
+  function publishPhotoEffect(
+    opts: PublishPhotoOptions,
+  ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
+    return Effect.gen(function* () {
+      const container = yield* Effect.tryPromise({
+        try: () =>
+          containers.create({
+            image_url: opts.imageUrl,
+            caption: opts.caption,
+            collaborators: opts.collaborators,
+            location_id: opts.locationId,
+          }),
+        catch: unknownToError,
       });
 
-      await waitForContainer({
+      yield* waitForContainerEffect({
         containerId: container.id,
         isVideo: false,
         polling: pollingConfig,
@@ -38,24 +56,31 @@ export function createMedia(
         label: "photo",
       });
 
-      return containers.publish(container.id);
-    },
+      return yield* Effect.tryPromise({
+        try: () => containers.publish(container.id),
+        catch: unknownToError,
+      });
+    });
+  }
 
-    /**
-     * Publish a video to the feed. All feed videos are reels on Instagram.
-     * Polls Meta video processing status automatically.
-     */
-    async publishVideo(opts: PublishVideoOptions): Promise<PublishResult> {
-      const container = await containers.create({
-        video_url: opts.videoUrl,
-        caption: opts.caption,
-        media_type: "REELS",
-        collaborators: opts.collaborators,
-        cover_url: opts.coverUrl,
-        location_id: opts.locationId,
+  function publishVideoEffect(
+    opts: PublishVideoOptions,
+  ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
+    return Effect.gen(function* () {
+      const container = yield* Effect.tryPromise({
+        try: () =>
+          containers.create({
+            video_url: opts.videoUrl,
+            caption: opts.caption,
+            media_type: "REELS",
+            collaborators: opts.collaborators,
+            cover_url: opts.coverUrl,
+            location_id: opts.locationId,
+          }),
+        catch: unknownToError,
       });
 
-      await waitForContainer({
+      yield* waitForContainerEffect({
         containerId: container.id,
         isVideo: true,
         polling: pollingConfig,
@@ -63,33 +88,44 @@ export function createMedia(
         label: "video",
       });
 
-      return containers.publish(container.id);
-    },
+      return yield* Effect.tryPromise({
+        try: () => containers.publish(container.id),
+        catch: unknownToError,
+      });
+    });
+  }
 
-    /**
-     * Publish a carousel (2-10 photos and/or videos) to the feed.
-     * Each item is uploaded and polled individually, then combined.
-     */
-    async publishCarousel(opts: PublishCarouselOptions): Promise<PublishResult> {
+  function publishCarouselEffect(
+    opts: PublishCarouselOptions,
+  ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
+    return Effect.gen(function* () {
       if (opts.items.length > 10) {
-        throw new Error(`Carousel supports max 10 items, got ${opts.items.length}`);
+        return yield* Effect.fail(
+          new Error(`Carousel supports max 10 items, got ${opts.items.length}`),
+        );
       }
       if (opts.items.length < 2) {
-        throw new Error(`Carousel requires at least 2 items, got ${opts.items.length}`);
+        return yield* Effect.fail(
+          new Error(`Carousel requires at least 2 items, got ${opts.items.length}`),
+        );
       }
 
       const childIds: string[] = [];
       for (let i = 0; i < opts.items.length; i++) {
         const item = opts.items[i]!;
         const isVideo = item.type === "video";
-        const child = await containers.create({
-          image_url: isVideo ? undefined : item.url,
-          video_url: isVideo ? item.url : undefined,
-          media_type: isVideo ? "VIDEO" : undefined,
-          is_carousel_item: true,
+        const child = yield* Effect.tryPromise({
+          try: () =>
+            containers.create({
+              image_url: isVideo ? undefined : item.url,
+              video_url: isVideo ? item.url : undefined,
+              media_type: isVideo ? "VIDEO" : undefined,
+              is_carousel_item: true,
+            }),
+          catch: unknownToError,
         });
 
-        await waitForContainer({
+        yield* waitForContainerEffect({
           containerId: child.id,
           isVideo,
           polling: pollingConfig,
@@ -100,15 +136,19 @@ export function createMedia(
         childIds.push(child.id);
       }
 
-      const parent = await containers.create({
-        media_type: "CAROUSEL",
-        children: childIds,
-        caption: opts.caption,
-        collaborators: opts.collaborators,
-        location_id: opts.locationId,
+      const parent = yield* Effect.tryPromise({
+        try: () =>
+          containers.create({
+            media_type: "CAROUSEL",
+            children: childIds,
+            caption: opts.caption,
+            collaborators: opts.collaborators,
+            location_id: opts.locationId,
+          }),
+        catch: unknownToError,
       });
 
-      await waitForContainer({
+      yield* waitForContainerEffect({
         containerId: parent.id,
         isVideo: false,
         polling: pollingConfig,
@@ -116,7 +156,76 @@ export function createMedia(
         label: "carousel parent",
       });
 
-      return containers.publish(parent.id);
+      return yield* Effect.tryPromise({
+        try: () => containers.publish(parent.id),
+        catch: unknownToError,
+      });
+    });
+  }
+
+  async function runPublish(effect: Effect.Effect<PublishResult, InstagramMediaPublishError>) {
+    const result = await Effect.runPromise(Effect.either(effect));
+    if (result._tag === "Left") throw publishErrorToError(result.left);
+    return result.right;
+  }
+
+  function normalizePublishResult(result: PublishResult): PlatformPublishResult<PublishResult> {
+    return {
+      platform: "instagram",
+      state: "published",
+      id: result.id,
+      postId: result.id,
+      raw: result,
+    };
+  }
+
+  const client = {
+    /** Effect variant of publishPhoto for orchestration-heavy callers. */
+    publishPhotoEffect,
+
+    /** Publish a single photo to the feed. */
+    async publishPhoto(opts: PublishPhotoOptions): Promise<PublishResult> {
+      return runPublish(publishPhotoEffect(opts));
+    },
+
+    /** Effect variant of publishVideo for orchestration-heavy callers. */
+    publishVideoEffect,
+
+    /**
+     * Publish a video to the feed. All feed videos are reels on Instagram.
+     * Polls Meta video processing status automatically.
+     */
+    async publishVideo(opts: PublishVideoOptions): Promise<PublishResult> {
+      return runPublish(publishVideoEffect(opts));
+    },
+
+    /** Effect variant of publishCarousel for orchestration-heavy callers. */
+    publishCarouselEffect,
+
+    /**
+     * Publish a carousel (2-10 photos and/or videos) to the feed.
+     * Each item is uploaded and polled individually, then combined.
+     */
+    async publishCarousel(opts: PublishCarouselOptions): Promise<PublishResult> {
+      return runPublish(publishCarouselEffect(opts));
+    },
+
+    async publishPhotoResult(
+      opts: PublishPhotoOptions,
+    ): Promise<PlatformPublishResult<PublishResult>> {
+      return normalizePublishResult(await this.publishPhoto(opts));
+    },
+
+    async publishVideoResult(
+      opts: PublishVideoOptions,
+    ): Promise<PlatformPublishResult<PublishResult>> {
+      return normalizePublishResult(await this.publishVideo(opts));
+    },
+
+    async publishCarouselResult(
+      opts: PublishCarouselOptions,
+    ): Promise<PlatformPublishResult<PublishResult>> {
+      return normalizePublishResult(await this.publishCarousel(opts));
     },
 
     /** List media using the generated IGUser media edge. */
@@ -167,4 +276,6 @@ export function createMedia(
       });
     },
   };
+
+  return client;
 }

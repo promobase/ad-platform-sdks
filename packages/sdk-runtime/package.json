@@ -37,6 +37,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "effect": "^3.21.2"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

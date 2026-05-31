@@ -47,6 +47,28 @@ test("publishPhoto creates container, polls, publishes", async () => {
   expect(result.id).toBe("post_123");
 });
 
+test("publishPhotoResult returns normalized publish result", async () => {
+  mockFetchSequence([
+    { body: { id: "container_1" } },
+    { body: { status_code: "FINISHED" } },
+    { body: { id: "post_123" } },
+  ]);
+
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  const result = await ig.media.publishPhotoResult({
+    imageUrl: "https://example.com/photo.jpg",
+  });
+  expect(result).toEqual({
+    platform: "instagram",
+    state: "published",
+    id: "post_123",
+    postId: "post_123",
+    raw: { id: "post_123" },
+  });
+});
+
 test("publishReel polls with IN_PROGRESS then FINISHED", async () => {
   mockFetchSequence([
     { body: { id: "container_1" } }, // create

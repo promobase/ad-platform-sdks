@@ -1,56 +1,134 @@
-import type {
-  PublishPhotoOptions,
-  PublishStatusResponse,
-  TikTokClientOptions,
-  TikTokResponse,
-} from "./types.ts";
+import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
+import { Data, Effect } from "effect";
+import {
+  TikTokPublishResultSchema,
+  TikTokPublishStatusSchema,
+  type TikTokRequestError,
+  type TikTokResponseDataSchema,
+  tiktokRequest,
+  tiktokRequestEffect,
+  tiktokRequestErrorToError,
+} from "./request.ts";
+import type { PublishPhotoOptions, PublishStatusResponse, TikTokClientOptions } from "./types.ts";
 
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
+export class TikTokPhotoPublishFailedError extends Data.TaggedError(
+  "TikTokPhotoPublishFailedError",
+)<{
+  readonly publishId: string;
+  readonly reason?: string;
+  readonly status: PublishStatusResponse;
+}> {}
+
+export class TikTokPhotoPublishTimeoutError extends Data.TaggedError(
+  "TikTokPhotoPublishTimeoutError",
+)<{
+  readonly publishId: string;
+  readonly maxAttempts: number;
+}> {}
+
+type TikTokPhotoWaitForPublishError =
+  | TikTokRequestError
+  | TikTokPhotoPublishFailedError
+  | TikTokPhotoPublishTimeoutError;
+
+function waitForPublishErrorToError(error: TikTokPhotoWaitForPublishError): Error {
+  if (error instanceof TikTokPhotoPublishFailedError) {
+    return new Error(`Photo publish failed: ${error.reason ?? "unknown reason"}`);
+  }
+  if (error instanceof TikTokPhotoPublishTimeoutError) {
+    return new Error(`Photo publish did not complete after ${error.maxAttempts} attempts`);
+  }
+  return tiktokRequestErrorToError(error);
+}
 
 export function createPhotos(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
+  const { businessId } = opts;
 
   async function request<T>(
     method: string,
     path: string,
     body?: Record<string, unknown>,
     query?: Record<string, unknown>,
+    schema?: TikTokResponseDataSchema<T>,
   ): Promise<T> {
-    let url = `${TT_API_BASE}${path}`;
-    if (query) {
-      const params = new URLSearchParams();
-      for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined && value !== null) {
-          params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-        }
-      }
-      url += `?${params.toString()}`;
-    }
-
-    const init: RequestInit = {
-      method,
-      headers: {
-        "Access-Token": accessToken,
-        "Content-Type": "application/json",
-      },
-    };
-    if (body && (method === "POST" || method === "PUT")) {
-      init.body = JSON.stringify(body);
-    }
-
-    const response = await fetch(url, init);
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method, path, body, query }, schema);
   }
 
-  return {
+  function getPublishStatusEffect(publishId: string) {
+    return tiktokRequestEffect<PublishStatusResponse>(
+      opts,
+      {
+        method: "GET",
+        path: "/business/publish/status/",
+        query: {
+          business_id: businessId,
+          publish_id: publishId,
+        },
+      },
+      TikTokPublishStatusSchema,
+    );
+  }
+
+  function waitForPublishEffect(
+    publishId: string,
+    waitOpts?: { intervalMs?: number; maxAttempts?: number },
+  ): Effect.Effect<PublishStatusResponse, TikTokPhotoWaitForPublishError> {
+    const intervalMs = waitOpts?.intervalMs ?? 5_000;
+    const maxAttempts = waitOpts?.maxAttempts ?? 60;
+
+    const poll = (
+      attempt: number,
+    ): Effect.Effect<PublishStatusResponse, TikTokPhotoWaitForPublishError> =>
+      getPublishStatusEffect(publishId).pipe(
+        Effect.flatMap((status) => {
+          switch (status.status) {
+            case "PUBLISH_COMPLETE":
+            case "SEND_TO_USER_INBOX":
+              return Effect.succeed(status);
+            case "FAILED":
+              return Effect.fail(
+                new TikTokPhotoPublishFailedError({
+                  publishId,
+                  reason: status.reason,
+                  status,
+                }),
+              );
+            case "PROCESSING_DOWNLOAD":
+              if (attempt >= maxAttempts - 1) {
+                return Effect.fail(new TikTokPhotoPublishTimeoutError({ publishId, maxAttempts }));
+              }
+              return Effect.sleep(`${intervalMs} millis`).pipe(
+                Effect.flatMap(() => poll(attempt + 1)),
+              );
+            default:
+              return Effect.fail(
+                new TikTokPhotoPublishFailedError({
+                  publishId,
+                  reason: `unknown status ${String(status.status)}`,
+                  status,
+                }),
+              );
+          }
+        }),
+      );
+
+    return poll(0);
+  }
+
+  function normalizePublishStatus(
+    publishId: string,
+    status: PublishStatusResponse,
+  ): PlatformPublishResult<PublishStatusResponse> {
+    return {
+      platform: "tiktok",
+      state: status.status === "FAILED" ? "failed" : "published",
+      id: publishId,
+      postId: status.post_ids?.[0],
+      raw: status,
+    };
+  }
+
+  const client = {
     /**
      * Publish a photo post to the TikTok account.
      * Supports up to 35 images per post.
@@ -81,16 +159,48 @@ export function createPhotos(opts: TikTokClientOptions) {
       };
       if (opts.photoCoverIndex !== undefined) body.photo_cover_index = opts.photoCoverIndex;
 
-      const result = await request<{ share_id: string }>("POST", "/business/photo/publish/", body);
+      const result = await request(
+        "POST",
+        "/business/photo/publish/",
+        body,
+        undefined,
+        TikTokPublishResultSchema,
+      );
       return { shareId: result.share_id };
     },
 
+    /** Effect variant of getPublishStatus for orchestration-heavy callers. */
+    getPublishStatusEffect,
+
     /** Check the publishing status of a photo post. Reuses the shared publish status endpoint. */
     async getPublishStatus(publishId: string): Promise<PublishStatusResponse> {
-      return request<PublishStatusResponse>("GET", "/business/publish/status/", undefined, {
-        business_id: businessId,
-        publish_id: publishId,
-      });
+      const result = await Effect.runPromise(Effect.either(getPublishStatusEffect(publishId)));
+      if (result._tag === "Left") throw tiktokRequestErrorToError(result.left);
+      return result.right;
+    },
+
+    /** Effect variant of waitForPublish for typed polling and composition. */
+    waitForPublishEffect,
+
+    /** Wait for a photo publish task to complete. */
+    async waitForPublish(
+      publishId: string,
+      opts?: { intervalMs?: number; maxAttempts?: number },
+    ): Promise<PublishStatusResponse> {
+      const result = await Effect.runPromise(Effect.either(waitForPublishEffect(publishId, opts)));
+      if (result._tag === "Left") throw waitForPublishErrorToError(result.left);
+      return result.right;
+    },
+
+    /** Wait for publish and return the shared normalized platform result shape. */
+    async waitForPublishResult(
+      publishId: string,
+      opts?: { intervalMs?: number; maxAttempts?: number },
+    ): Promise<PlatformPublishResult<PublishStatusResponse>> {
+      const status = await this.waitForPublish(publishId, opts);
+      return normalizePublishStatus(publishId, status);
     },
   };
+
+  return client;
 }
