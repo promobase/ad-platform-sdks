@@ -1,5 +1,11 @@
 # @openpromo/ad-platforms
 
+## 0.4.0
+
+### Minor Changes
+
+- [#18](https://github.com/promobase/ad-platform-sdks/pull/18) [`09f4d8a`](https://github.com/promobase/ad-platform-sdks/commit/09f4d8aa9470fa5fd081ae1321ed1dcc3fd2edb5) Thanks [@rayli09](https://github.com/rayli09)! - Add a schema-first canonical operation catalog with normalized post metrics across organic platforms and reusable direct, AI SDK, Code Mode, MCP, and CLI adapters.
+
 ## 0.3.1
 
 ### Patch Changes
