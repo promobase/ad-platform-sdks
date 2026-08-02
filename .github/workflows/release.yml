@@ -39,7 +39,6 @@ jobs:
 
       - name: Create Release PR or Publish
         id: changesets
-        continue-on-error: true
         uses: changesets/action@v1
         with:
           version: bun run version
