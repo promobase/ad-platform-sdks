@@ -1,9 +1,7 @@
 import { expect, test } from "bun:test";
 
-import { Google, LinkedIn, Meta, TikTok } from "../src/index.ts";
+import { Google, GoogleBusinessProfile, LinkedIn, Meta, TikTok, X, YouTube } from "../src/index.ts";
 import { createAllTools } from "../src/unified-tools.ts";
-import { X } from "../src/x.ts";
-import { YouTube } from "../src/youtube.ts";
 
 test("Meta namespace is accessible", () => {
   expect(Meta.createClient).toBeDefined();
@@ -70,4 +68,11 @@ test("Google namespace is accessible", () => {
   ).toBe("v25");
   expect(Google.Ads.paginate).toBeDefined();
   expect(Google.Errors.GoogleAdsError).toBeDefined();
+});
+
+test("Google Business Profile namespace is accessible", () => {
+  const client = GoogleBusinessProfile.createClient({ accessToken: "token" });
+  expect(client.resources.accounts.list).toBeDefined();
+  expect(client.resources.localPosts.create).toBeDefined();
+  expect(GoogleBusinessProfile.OAuth).toBeDefined();
 });

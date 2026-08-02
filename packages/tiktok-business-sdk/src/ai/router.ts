@@ -11,6 +11,13 @@ export interface RouterOptions {
   categories?: ToolCategory[];
 }
 
+export interface ToolRouter {
+  routerTools: Record<string, Tool>;
+  getSelectedTools(): Record<string, Tool>;
+  getSelectedCategories(): ToolCategory[];
+  reset(): void;
+}
+
 /**
  * Create a two-stage router for managing large tool sets.
  *
@@ -30,7 +37,7 @@ export interface RouterOptions {
  * });
  * ```
  */
-export function createRouter(opts: RouterOptions) {
+export function createRouter(opts: RouterOptions): ToolRouter {
   const allTools = opts.tools;
   const categories = opts.categories ?? ["content", "comments", "account", "messaging"];
 

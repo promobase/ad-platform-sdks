@@ -1,9 +1,26 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createThreadsClient } from "../clients/threads/index.ts";
 
-export function createThreadsTools(opts: { accessToken: string; threadsUserId: string }) {
+export function createThreadsTools(opts: {
+  accessToken: string;
+  threadsUserId: string;
+}): Record<
+  | "threads_publish_text"
+  | "threads_publish_image"
+  | "threads_publish_video"
+  | "threads_publish_carousel"
+  | "threads_reply"
+  | "threads_delete"
+  | "threads_get_permalink"
+  | "threads_get_insights"
+  | "threads_list_posts"
+  | "threads_list_replies"
+  | "threads_hide_reply"
+  | "threads_get_account",
+  Tool
+> {
   const threads = createThreadsClient(opts);
 
   return {

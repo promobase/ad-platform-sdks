@@ -112,6 +112,7 @@ export function tiktokRequestEffect<T>(
       "Access-Token": opts.accessToken,
       "Content-Type": "application/json",
     },
+    fetch: opts.fetch,
     retry: DEFAULT_RETRY,
   }).pipe(
     Effect.flatMap((responseBody) =>

@@ -1,9 +1,15 @@
-import type { LongLivedToken, OAuthConfig, ShortLivedToken } from "./types.ts";
+import type {
+  InstagramBusinessUserProfile,
+  LongLivedToken,
+  OAuthConfig,
+  ShortLivedToken,
+} from "./types.ts";
 
 const IG_OAUTH_BASE = "https://api.instagram.com/oauth";
 const IG_GRAPH_BASE = "https://graph.instagram.com";
 
 export function createOAuth(config: OAuthConfig) {
+  const fetchImpl = config.fetch ?? fetch;
   return {
     /**
      * Generate the authorization URL to redirect users to.
@@ -37,10 +43,11 @@ export function createOAuth(config: OAuthConfig) {
         code,
       });
 
-      const response = await fetch(`${IG_OAUTH_BASE}/access_token`, {
+      const response = await fetchImpl(`${IG_OAUTH_BASE}/access_token`, {
         method: "POST",
         body,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        signal: config.signal,
       });
 
       if (!response.ok) {
@@ -61,7 +68,9 @@ export function createOAuth(config: OAuthConfig) {
         access_token: shortLivedToken,
       });
 
-      const response = await fetch(`${IG_GRAPH_BASE}/access_token?${params.toString()}`);
+      const response = await fetchImpl(`${IG_GRAPH_BASE}/access_token?${params.toString()}`, {
+        signal: config.signal,
+      });
 
       if (!response.ok) {
         const error = await response.json();
@@ -82,7 +91,10 @@ export function createOAuth(config: OAuthConfig) {
         access_token: longLivedToken,
       });
 
-      const response = await fetch(`${IG_GRAPH_BASE}/refresh_access_token?${params.toString()}`);
+      const response = await fetchImpl(
+        `${IG_GRAPH_BASE}/refresh_access_token?${params.toString()}`,
+        { signal: config.signal },
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -90,6 +102,31 @@ export function createOAuth(config: OAuthConfig) {
       }
 
       return response.json() as Promise<LongLivedToken>;
+    },
+
+    async getBusinessUserProfile(
+      accessToken: string,
+      id = "me",
+    ): Promise<InstagramBusinessUserProfile> {
+      const fields = [
+        "id",
+        "user_id",
+        "name",
+        "username",
+        "profile_picture_url",
+        "media_count",
+        "followers_count",
+        "follows_count",
+        "account_type",
+        "biography",
+        "website",
+      ];
+      const params = new URLSearchParams({ access_token: accessToken, fields: fields.join(",") });
+      const response = await fetchImpl(`${IG_GRAPH_BASE}/v25.0/${id}?${params}`, {
+        signal: config.signal,
+      });
+      if (!response.ok) throw new Error(`Instagram profile fetch failed: ${await response.text()}`);
+      return response.json() as Promise<InstagramBusinessUserProfile>;
     },
 
     /**

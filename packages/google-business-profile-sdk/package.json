@@ -1,0 +1,53 @@
+{
+  "name": "@openpromo/google-business-profile",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for Google Business Profile accounts, locations, posts, and performance",
+  "keywords": [
+    "google-business-profile",
+    "local-posts",
+    "business-profile",
+    "typescript",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/google-business-profile-sdk"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": ">=5.9.3 <8"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

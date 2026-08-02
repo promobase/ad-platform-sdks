@@ -15,7 +15,7 @@ export function createInstagramClient(opts: InstagramClientOptions) {
   const igAccountId = opts.igAccountId;
   const igUser = api.iGUser(igAccountId);
   const polling = resolvePolling(opts.polling);
-  const containers = createContainers(api, igUser);
+  const containers = createContainers(api, igUser, opts.fetch, opts.signal);
 
   return {
     media: createMedia(api, containers, igUser, polling),
@@ -30,6 +30,9 @@ export function createInstagramClient(opts: InstagramClientOptions) {
         return api.client.post<{ success: boolean }>(`${igAccountId}/subscribed_apps`, {
           subscribed_fields: (fields ?? ["comments", "messages", "message_edit"]).join(","),
         });
+      },
+      async unsubscribe(): Promise<void> {
+        return api.client.delete(`${igAccountId}/subscribed_apps`);
       },
     },
   };

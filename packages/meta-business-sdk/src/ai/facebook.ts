@@ -1,4 +1,4 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createFacebookPageClient } from "../clients/facebook/index.ts";
@@ -8,7 +8,27 @@ export function createFacebookTools(opts: {
   api: MetaClient;
   pageId: string;
   accessToken: string;
-}) {
+}): Record<
+  | "fb_publish_post"
+  | "fb_publish_photo"
+  | "fb_publish_multi_photo"
+  | "fb_publish_video_reel"
+  | "fb_publish_photo_story"
+  | "fb_publish_video_story"
+  | "fb_list_feed"
+  | "fb_update_post"
+  | "fb_delete_post"
+  | "fb_get_permalink"
+  | "fb_comment_create"
+  | "fb_comment_reply"
+  | "fb_comment_list"
+  | "fb_comment_hide"
+  | "fb_send_dm"
+  | "fb_reply_dm"
+  | "fb_get_account"
+  | "fb_webhook_subscribe",
+  Tool
+> {
   const fb = createFacebookPageClient(opts);
 
   return {

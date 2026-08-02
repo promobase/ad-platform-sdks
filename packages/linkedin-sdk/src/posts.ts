@@ -18,6 +18,28 @@ const DEFAULT_DISTRIBUTION: LinkedInDistribution = {
 
 export function createPosts(client: LinkedInClient) {
   return {
+    async listByAuthor(
+      authorUrn: string,
+      opts?: { start?: number; count?: number; sortBy?: "LAST_MODIFIED" | "CREATED" },
+    ): Promise<{
+      elements?: LinkedInPost[];
+      paging?: { start?: number; count?: number; total?: number; links?: unknown[] };
+    }> {
+      const response = await client.request<{
+        elements?: LinkedInPost[];
+        paging?: { start?: number; count?: number; total?: number; links?: unknown[] };
+      }>("/posts", {
+        query: {
+          q: "author",
+          author: authorUrn,
+          start: opts?.start ?? 0,
+          count: opts?.count ?? 50,
+          sortBy: opts?.sortBy ?? "LAST_MODIFIED",
+        },
+      });
+      return response.data;
+    },
+
     async createText(params: LinkedInTextPostParams): Promise<LinkedInPostResult> {
       validateCommentary(params.commentary);
       return createPost(client, {

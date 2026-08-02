@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export type OperationPlatform =
   | "facebook"
+  | "google-business-profile"
   | "instagram"
   | "linkedin"
   | "threads"

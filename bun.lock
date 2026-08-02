@@ -8,7 +8,7 @@
         "@changesets/changelog-github": "^0.6.0",
         "@changesets/cli": "^2.31.1",
         "@types/bun": "latest",
-        "ai": "^6.0.240",
+        "ai": "^7.0.0",
         "fern-api": "5.89.3",
         "oxfmt": "^0.61.0",
         "oxlint": "^1.76.0",
@@ -17,9 +17,10 @@
     },
     "packages/ad-platforms": {
       "name": "@openpromo/ad-platforms",
-      "version": "0.2.1",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/google-ads": "workspace:*",
+        "@openpromo/google-business-profile": "workspace:*",
         "@openpromo/linkedin": "workspace:*",
         "@openpromo/meta": "workspace:*",
         "@openpromo/tiktok": "workspace:*",
@@ -30,9 +31,9 @@
         "@types/bun": "latest",
       },
       "peerDependencies": {
-        "ai": "^6.0.0",
+        "ai": "^6.0.0 || ^7.0.0",
         "typescript": ">=5.9.3 <8",
-        "zod": "^4.4.3",
+        "zod": "^4.3.6",
       },
       "optionalPeers": [
         "ai",
@@ -40,7 +41,7 @@
     },
     "packages/cli": {
       "name": "@openpromo/ad-platforms-cli",
-      "version": "0.3.0",
+      "version": "0.4.1",
       "bin": {
         "openpromo-ads": "./dist/index.js",
         "openpromo-ads-mcp": "./dist/mcp.js",
@@ -68,7 +69,7 @@
     },
     "packages/google-ads-sdk": {
       "name": "@openpromo/google-ads",
-      "version": "0.1.3",
+      "version": "0.2.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
       },
@@ -78,16 +79,23 @@
         "typescript": "^7.0.2",
       },
     },
+    "packages/google-business-profile-sdk": {
+      "name": "@openpromo/google-business-profile",
+      "version": "0.1.0",
+      "peerDependencies": {
+        "typescript": ">=5.9.3 <8",
+      },
+    },
     "packages/linkedin-sdk": {
       "name": "@openpromo/linkedin",
-      "version": "0.2.1",
+      "version": "0.4.0",
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/meta-business-sdk": {
       "name": "@openpromo/meta",
-      "version": "0.0.5",
+      "version": "0.1.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -97,7 +105,7 @@
         "@types/bun": "latest",
       },
       "peerDependencies": {
-        "ai": "^6.0.158",
+        "ai": "^6.0.158 || ^7.0.0",
         "typescript": ">=5.9.3 <8",
       },
       "optionalPeers": [
@@ -106,7 +114,7 @@
     },
     "packages/sdk-runtime": {
       "name": "@openpromo/sdk-runtime",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "dependencies": {
         "effect": "^3.22.1",
       },
@@ -119,7 +127,7 @@
     },
     "packages/tiktok-business-sdk": {
       "name": "@openpromo/tiktok",
-      "version": "0.0.5",
+      "version": "0.2.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -129,7 +137,7 @@
         "@types/bun": "latest",
       },
       "peerDependencies": {
-        "ai": "^6.0.158",
+        "ai": "^6.0.158 || ^7.0.0",
         "typescript": ">=5.9.3 <8",
       },
       "optionalPeers": [
@@ -138,25 +146,25 @@
     },
     "packages/x-sdk": {
       "name": "@openpromo/x",
-      "version": "0.2.1",
+      "version": "0.3.0",
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/youtube-sdk": {
       "name": "@openpromo/youtube",
-      "version": "0.2.1",
+      "version": "0.3.0",
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
   },
   "packages": {
-    "@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.162", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-Ful2sKX4/5iRIULrbKAN88VSduJKVxEIqub84uBT4SZkhYnu6pfWaFEzZOrjCwMf+ScWuxiFSAkZeXFphTji2w=="],
+    "@ai-sdk/gateway": ["@ai-sdk/gateway@4.0.37", "", { "dependencies": { "@ai-sdk/provider": "4.0.4", "@ai-sdk/provider-utils": "5.0.18", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-YBCTsSlX0ETVsjo0ihfBOeJ3p3y1wXKXDzF9Ygp9dscUY06dzOGmyWJSGsKg+khKVArzBWUW4UCSAKms20ZDmg=="],
 
-    "@ai-sdk/provider": ["@ai-sdk/provider@3.0.14", "", { "dependencies": { "json-schema": "^0.4.0" } }, "sha512-5X1k57JBJ4H7H1QjX7CnJYAB1I19r/trVZTMcSms7/kLNZ8RaU4Nt2agcwZzv82Hfx6Q7/TOLU7agAKeFfc8cA=="],
+    "@ai-sdk/provider": ["@ai-sdk/provider@4.0.4", "", { "dependencies": { "json-schema": "^0.4.0" } }, "sha512-tbHKNLirllUNF3ZlkCsXnwab2ZV1Sl4b1H/Cp9ruCce15IBmskE8Gwkk0yo9xDWY+jho2of7lVXtwSsyrq7cwQ=="],
 
-    "@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@4.0.41", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@standard-schema/spec": "^1.1.0", "eventsource-parser": "^3.0.8", "undici": "^5.29.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-I7hhjfw01yEI8NkuAsT8Mv6xbWFr/lqLXMdaJQ2zWfXEpxog1eT7skDcv1+RY29/+5btzH8wD+vVvy48bk9oNQ=="],
+    "@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@5.0.18", "", { "dependencies": { "@ai-sdk/provider": "4.0.4", "@standard-schema/spec": "^1.1.0", "@workflow/serde": "4.1.0", "eventsource-parser": "^3.0.8", "undici": "^7.28.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-UBNCrkxS5llgN2/RXLBRkjCFTIuL6YB1Goq5c+yRecnznhtX4XPjTwLHz2hrsTltTVZ0rqVegtnwFXdPBkjDHA=="],
 
     "@babel/runtime": ["@babel/runtime@7.29.2", "", {}, "sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g=="],
 
@@ -239,6 +247,8 @@
     "@openpromo/ad-platforms-cli": ["@openpromo/ad-platforms-cli@workspace:packages/cli"],
 
     "@openpromo/google-ads": ["@openpromo/google-ads@workspace:packages/google-ads-sdk"],
+
+    "@openpromo/google-business-profile": ["@openpromo/google-business-profile@workspace:packages/google-business-profile-sdk"],
 
     "@openpromo/linkedin": ["@openpromo/linkedin@workspace:packages/linkedin-sdk"],
 
@@ -410,9 +420,11 @@
 
     "@vercel/oidc": ["@vercel/oidc@3.2.0", "", {}, "sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug=="],
 
+    "@workflow/serde": ["@workflow/serde@4.1.0", "", {}, "sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ=="],
+
     "accepts": ["accepts@2.0.0", "", { "dependencies": { "mime-types": "^3.0.0", "negotiator": "^1.0.0" } }, "sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng=="],
 
-    "ai": ["ai@6.0.240", "", { "dependencies": { "@ai-sdk/gateway": "3.0.162", "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@opentelemetry/api": "^1.9.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-nVytcmJmHAR+1UU3KlRQJ8Un8gePSAcbTfvShNGfbG9hYnQWKdyFRZWa4QBlKH5yiNLNqSS4Y9u0T0KcbY6FkA=="],
+    "ai": ["ai@7.0.48", "", { "dependencies": { "@ai-sdk/gateway": "4.0.37", "@ai-sdk/provider": "4.0.4", "@ai-sdk/provider-utils": "5.0.18" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-QmqshWFEDdkFFqSgdJ4cogaoDIYaedqbv73q/NXEYNkSIocJCzXnGFVyM9lrtAGTSBfm+5hq3/292ooXJ1jDSw=="],
 
     "ajv": ["ajv@8.20.0", "", { "dependencies": { "fast-deep-equal": "^3.1.3", "fast-uri": "^3.0.1", "json-schema-traverse": "^1.0.0", "require-from-string": "^2.0.2" } }, "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA=="],
 
@@ -738,7 +750,7 @@
 
     "typescript": ["typescript@7.0.2", "", { "optionalDependencies": { "@typescript/typescript-aix-ppc64": "7.0.2", "@typescript/typescript-darwin-arm64": "7.0.2", "@typescript/typescript-darwin-x64": "7.0.2", "@typescript/typescript-freebsd-arm64": "7.0.2", "@typescript/typescript-freebsd-x64": "7.0.2", "@typescript/typescript-linux-arm": "7.0.2", "@typescript/typescript-linux-arm64": "7.0.2", "@typescript/typescript-linux-loong64": "7.0.2", "@typescript/typescript-linux-mips64el": "7.0.2", "@typescript/typescript-linux-ppc64": "7.0.2", "@typescript/typescript-linux-riscv64": "7.0.2", "@typescript/typescript-linux-s390x": "7.0.2", "@typescript/typescript-linux-x64": "7.0.2", "@typescript/typescript-netbsd-arm64": "7.0.2", "@typescript/typescript-netbsd-x64": "7.0.2", "@typescript/typescript-openbsd-arm64": "7.0.2", "@typescript/typescript-openbsd-x64": "7.0.2", "@typescript/typescript-sunos-x64": "7.0.2", "@typescript/typescript-win32-arm64": "7.0.2", "@typescript/typescript-win32-x64": "7.0.2" }, "bin": { "tsc": "bin/tsc" } }, "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA=="],
 
-    "undici": ["undici@5.29.0", "", { "dependencies": { "@fastify/busboy": "^2.0.0" } }, "sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg=="],
+    "undici": ["undici@7.29.0", "", {}, "sha512-IDxfleLmmbSskfWSUATiN1nfn2rDuvnMOqb5CWR92iIfojA0Ud+ulOAAEQ57LPr9rWmsreUyf5lwyao+7GNNVw=="],
 
     "undici-types": ["undici-types@7.19.2", "", {}, "sha512-qYVnV5OEm2AW8cJMCpdV20CDyaN3g0AjDlOGf1OW4iaDEx8MwdtChUp4zu4H0VP3nDRF/8RKWH+IPp9uW0YGZg=="],
 
@@ -768,8 +780,18 @@
 
     "@manypkg/get-packages/fs-extra": ["fs-extra@8.1.0", "", { "dependencies": { "graceful-fs": "^4.2.0", "jsonfile": "^4.0.0", "universalify": "^0.1.0" } }, "sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g=="],
 
+    "@openpromo/ad-platforms-cli/ai": ["ai@6.0.240", "", { "dependencies": { "@ai-sdk/gateway": "3.0.162", "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@opentelemetry/api": "^1.9.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-nVytcmJmHAR+1UU3KlRQJ8Un8gePSAcbTfvShNGfbG9hYnQWKdyFRZWa4QBlKH5yiNLNqSS4Y9u0T0KcbY6FkA=="],
+
     "read-yaml-file/js-yaml": ["js-yaml@3.14.2", "", { "dependencies": { "argparse": "^1.0.7", "esprima": "^4.0.0" }, "bin": { "js-yaml": "bin/js-yaml.js" } }, "sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg=="],
 
+    "@openpromo/ad-platforms-cli/ai/@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.162", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-Ful2sKX4/5iRIULrbKAN88VSduJKVxEIqub84uBT4SZkhYnu6pfWaFEzZOrjCwMf+ScWuxiFSAkZeXFphTji2w=="],
+
+    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider": ["@ai-sdk/provider@3.0.14", "", { "dependencies": { "json-schema": "^0.4.0" } }, "sha512-5X1k57JBJ4H7H1QjX7CnJYAB1I19r/trVZTMcSms7/kLNZ8RaU4Nt2agcwZzv82Hfx6Q7/TOLU7agAKeFfc8cA=="],
+
+    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@4.0.41", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@standard-schema/spec": "^1.1.0", "eventsource-parser": "^3.0.8", "undici": "^5.29.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-I7hhjfw01yEI8NkuAsT8Mv6xbWFr/lqLXMdaJQ2zWfXEpxog1eT7skDcv1+RY29/+5btzH8wD+vVvy48bk9oNQ=="],
+
     "read-yaml-file/js-yaml/argparse": ["argparse@1.0.10", "", { "dependencies": { "sprintf-js": "~1.0.2" } }, "sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg=="],
+
+    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider-utils/undici": ["undici@5.29.0", "", { "dependencies": { "@fastify/busboy": "^2.0.0" } }, "sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg=="],
   }
 }

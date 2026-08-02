@@ -20,7 +20,7 @@ Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media w
 
 ## What
 
-One SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, and ad management, plus AI tools and a discoverable CLI for agents.
+One SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, **Google Business Profile**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, metrics, and ad management, plus AI tools and a discoverable CLI for agents.
 
 ## Install
 
@@ -68,6 +68,8 @@ await generateText({
 - **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
 - **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
 - **OAuth** — token exchange, long-lived tokens, refresh for all platforms
+- **Organic metrics** — normalized single and bounded-concurrency bulk reads with raw provider payloads
+- **Google Business Profile** — locations, local posts, post insights, and location performance
 - **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
 - **Retry with exponential backoff** — automatic recovery from 5xx and network errors
 - **Batch API** — typed multi-request batches for Meta
@@ -78,17 +80,20 @@ await generateText({
 
 ## Packages
 
-| Package | Description |
-|---------|-------------|
-| [`@openpromo/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, single install |
-| [`@openpromo/meta`](./packages/meta-business-sdk/) | Meta only (Facebook, Instagram, Threads) |
-| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/) | TikTok only |
-| [`@openpromo/google-ads`](./packages/google-ads-sdk/) | Google Ads v25, ergonomic clients, and typed GAQL |
-| [`@openpromo/linkedin`](./packages/linkedin-sdk/) | LinkedIn organic publishing, media, organizations, and OAuth |
-| [`@openpromo/x`](./packages/x-sdk/) | X posts, media upload, and user lookup |
-| [`@openpromo/youtube`](./packages/youtube-sdk/) | YouTube Data API v3 and resumable uploads |
-| [`@openpromo/ad-platforms-cli`](./packages/cli/) | Agent-discoverable CLI and MCP server |
-| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/) | Shared HTTP, pagination, retry, and rate-limit runtime |
+| Package                                                                         | Description                                                     |
+| ------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`@openpromo/ad-platforms`](./packages/ad-platforms/)                           | Umbrella package — all platforms, single install                |
+| [`@openpromo/meta`](./packages/meta-business-sdk/)                              | Meta only (Facebook, Instagram, Threads)                        |
+| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/)                          | TikTok only                                                     |
+| [`@openpromo/google-ads`](./packages/google-ads-sdk/)                           | Google Ads v25, ergonomic clients, and typed GAQL               |
+| [`@openpromo/google-business-profile`](./packages/google-business-profile-sdk/) | Google Business Profile locations, local posts, and performance |
+| [`@openpromo/linkedin`](./packages/linkedin-sdk/)                               | LinkedIn organic publishing, media, organizations, and OAuth    |
+| [`@openpromo/x`](./packages/x-sdk/)                                             | X posts, media upload, and user lookup                          |
+| [`@openpromo/youtube`](./packages/youtube-sdk/)                                 | YouTube Data API v3 and resumable uploads                       |
+| [`@openpromo/ad-platforms-cli`](./packages/cli/)                                | Agent-discoverable CLI and MCP server                           |
+| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/)                             | Shared HTTP, pagination, retry, and rate-limit runtime          |
+
+OpenPromo consumers should start with the [first-party migration guide](./docs/openpromo-migration.md).
 
 ## Why
 

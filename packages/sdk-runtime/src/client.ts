@@ -48,6 +48,10 @@ export interface ApiClientOptions {
   rateLimiter?: RateLimiter;
   delay?: DelayFn;
   retry?: Partial<RetryConfig>;
+  /** Injectable transport for Workers, tests, tracing, and custom dispatchers. */
+  fetch?: typeof fetch;
+  /** Default cancellation signal applied to every request. */
+  signal?: AbortSignal;
 }
 
 export class ApiClient {
@@ -59,6 +63,8 @@ export class ApiClient {
   private readonly rateLimiter?: RateLimiter;
   private readonly delay?: DelayFn;
   private readonly retryConfig: RetryConfig;
+  private readonly fetchImpl: typeof fetch;
+  private readonly signal?: AbortSignal;
 
   constructor(opts: ApiClientOptions) {
     this.accessToken = opts.accessToken;
@@ -71,6 +77,8 @@ export class ApiClient {
     this.retryConfig = opts.retry
       ? { ...DEFAULT_RETRY, ...opts.retry }
       : { ...DEFAULT_RETRY, maxRetries: 0 };
+    this.fetchImpl = opts.fetch ?? fetch;
+    this.signal = opts.signal;
   }
 
   private buildUrl(path: string, params?: Record<string, unknown>): string {
@@ -104,7 +112,7 @@ export class ApiClient {
     }
 
     if (this.debug) console.log(`[SDK] ${method} ${url}`);
-    const init: RequestInit = { method };
+    const init: RequestInit = { method, signal: this.signal };
     if (body && (method === "POST" || method === "PUT")) {
       const formData = new URLSearchParams();
       for (const [key, value] of Object.entries(body)) {
@@ -121,7 +129,7 @@ export class ApiClient {
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       try {
-        const response = await fetch(url, init);
+        const response = await this.fetchImpl(url, init);
         const responseBody = await response.json();
 
         // Post-response rate limit update

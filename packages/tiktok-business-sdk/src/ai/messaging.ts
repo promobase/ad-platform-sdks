@@ -1,10 +1,15 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createTikTokClient } from "../clients/index.ts";
 import type { TikTokClientOptions } from "../clients/types.ts";
 
-export function createTikTokMessagingTools(opts: TikTokClientOptions) {
+export function createTikTokMessagingTools(
+  opts: TikTokClientOptions,
+): Record<
+  "tt_send_message" | "tt_list_conversations" | "tt_list_messages" | "tt_list_mentioned_videos",
+  Tool
+> {
   const tt = createTikTokClient(opts);
 
   return {

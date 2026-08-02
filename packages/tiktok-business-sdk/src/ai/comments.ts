@@ -1,10 +1,21 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createTikTokClient } from "../clients/index.ts";
 import type { TikTokClientOptions } from "../clients/types.ts";
 
-export function createTikTokCommentTools(opts: TikTokClientOptions) {
+export function createTikTokCommentTools(
+  opts: TikTokClientOptions,
+): Record<
+  | "tt_comment_list"
+  | "tt_comment_create"
+  | "tt_comment_reply"
+  | "tt_comment_like"
+  | "tt_comment_hide"
+  | "tt_comment_delete"
+  | "tt_comment_list_replies",
+  Tool
+> {
   const tt = createTikTokClient(opts);
 
   return {

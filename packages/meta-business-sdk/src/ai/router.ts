@@ -11,6 +11,13 @@ export interface RouterOptions {
   categories?: ToolCategory[];
 }
 
+export interface ToolRouter {
+  routerTools: Record<string, Tool>;
+  getSelectedTools(): Record<string, Tool>;
+  getSelectedCategories(): ToolCategory[];
+  reset(): void;
+}
+
 /**
  * Create a two-stage router. Returns a small set of routing tools.
  *
@@ -19,7 +26,7 @@ export interface RouterOptions {
  *
  * This is designed for use with the AI SDK's `prepareStep` callback.
  */
-export function createRouter(opts: RouterOptions) {
+export function createRouter(opts: RouterOptions): ToolRouter {
   const allTools = opts.tools;
   const categories = opts.categories ?? ["instagram", "facebook", "threads", "campaigns"];
 

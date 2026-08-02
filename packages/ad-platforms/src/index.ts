@@ -31,6 +31,53 @@ export {
 } from "@openpromo/google-ads";
 
 export type {
+  BusinessAccount,
+  BusinessLocation,
+  DailyMetric,
+  GoogleBusinessProfileClientOptions,
+  GoogleBusinessProfileOAuthConfig,
+  LocalPost,
+  LocalPostMetrics,
+} from "@openpromo/google-business-profile";
+
+export type {
+  XDirectMessageEvent,
+  XDirectMessageEventsResponse,
+  XOAuthConfig,
+  XOAuthTokenResponse,
+} from "@openpromo/x";
+export {
+  createPkcePair as createXPkcePair,
+  createXDirectMessages,
+  createXOAuth,
+  X,
+} from "@openpromo/x";
+
+export type {
+  YouTubeClientOptions,
+  YouTubeOAuthConfig,
+  YouTubeOAuthTokenResponse,
+  YouTubeResumableUploadOptions,
+  YouTubeUploadBody,
+  YouTubeUploadSession,
+} from "@openpromo/youtube";
+export {
+  createYouTubeClient,
+  createYouTubeOAuth,
+  YouTube,
+  YouTubeApiError,
+  YouTubeClient,
+  YouTubeUploadError,
+} from "@openpromo/youtube";
+export {
+  createGoogleBusinessProfileClient,
+  createGoogleBusinessProfileOAuth,
+  GoogleBusinessProfile,
+  GoogleBusinessProfileApiError,
+  GoogleBusinessProfileClient,
+} from "@openpromo/google-business-profile";
+
+export type {
   LinkedInCallToAction,
   LinkedInCallToActionLabel,
   LinkedInClientOptions,
@@ -99,10 +146,21 @@ export {
   verifyWebhookSignature,
   WebhookParseError,
 } from "@openpromo/meta";
-export type { TikTokApiClientOptions, TikTokRateLimiterOptions } from "@openpromo/tiktok";
+export type {
+  TikTokApiClientOptions,
+  TikTokDeveloperClientOptions,
+  TikTokDeveloperOAuthConfig,
+  TikTokDeveloperPublishStatus,
+  TikTokDeveloperTokenResponse,
+  TikTokDeveloperVideo,
+  TikTokRateLimiterOptions,
+} from "@openpromo/tiktok";
 // --- TikTok: direct re-exports ---
 export {
   createTikTokClient,
+  createTikTokDeveloperClient,
+  createTikTokDeveloperOAuth,
+  createTikTokDeveloperPkcePair,
   createTikTokOAuth,
   createTikTokWebhooks,
   TikTok,

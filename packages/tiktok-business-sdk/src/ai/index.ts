@@ -89,5 +89,5 @@ export { createTikTokMessagingTools } from "./messaging.ts";
 export type { ToolCallContext, ToolMiddleware } from "./middleware.ts";
 // Routing, filtering, and middleware
 export { withMiddleware } from "./middleware.ts";
-export type { RouterOptions } from "./router.ts";
+export type { RouterOptions, ToolRouter } from "./router.ts";
 export { createRouter } from "./router.ts";

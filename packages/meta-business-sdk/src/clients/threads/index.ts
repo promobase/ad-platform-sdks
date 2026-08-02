@@ -15,6 +15,8 @@ export function createThreadsClient(opts: ThreadsClientOptions) {
     accessToken: opts.accessToken,
     apiVersion: opts.apiVersion ?? "v1.0",
     baseUrl: "https://graph.threads.net",
+    fetch: opts.fetch,
+    signal: opts.signal,
   });
   const threadsUserId = opts.threadsUserId;
   const polling = resolvePolling(opts.polling);

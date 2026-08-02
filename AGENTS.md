@@ -15,6 +15,8 @@ social platforms.
 - `packages/tiktok-business-sdk`: TikTok Business SDK and documentation-driven code generation.
 - `packages/google-ads-sdk`: Google Ads SDK generated from pinned protobuf definitions; see its
   nested `AGENTS.md`.
+- `packages/google-business-profile-sdk`: Google Business Profile OAuth, locations, local posts,
+  post insights, and location performance.
 - `packages/linkedin-sdk`, `packages/x-sdk`, `packages/youtube-sdk`: platform-specific SDKs.
 - `packages/ad-platforms`: umbrella public package that re-exports platform SDKs.
 - `packages/cli`: CLI and MCP surfaces built on the SDK packages.
@@ -59,12 +61,12 @@ full root checks for cross-package, generated-code, build, or release changes.
 
 Generated files are outputs, not primary edit targets:
 
-| Package | Source of truth | Command |
-| --- | --- | --- |
-| Meta | `packages/meta-business-sdk/api_specs/` submodule | `cd packages/meta-business-sdk && bun run codegen` |
-| Google Ads | `packages/google-ads-sdk/vendor/googleapis/` submodule | `cd packages/google-ads-sdk && bun run codegen` |
-| X | `fern/` configuration and OpenAPI input | `cd packages/x-sdk && bun run codegen` |
-| YouTube | `google-discovery/youtube-v3.json` | `cd packages/youtube-sdk && bun run codegen` |
+| Package    | Source of truth                                        | Command                                            |
+| ---------- | ------------------------------------------------------ | -------------------------------------------------- |
+| Meta       | `packages/meta-business-sdk/api_specs/` submodule      | `cd packages/meta-business-sdk && bun run codegen` |
+| Google Ads | `packages/google-ads-sdk/vendor/googleapis/` submodule | `cd packages/google-ads-sdk && bun run codegen`    |
+| X          | `fern/` configuration and OpenAPI input                | `cd packages/x-sdk && bun run codegen`             |
+| YouTube    | `google-discovery/youtube-v3.json`                     | `cd packages/youtube-sdk && bun run codegen`       |
 
 Do not hand-edit generated trees when the generator or its input owns the change. Do not update
 submodule pins incidentally. Review generated diffs for unrelated churn and run the owning package's

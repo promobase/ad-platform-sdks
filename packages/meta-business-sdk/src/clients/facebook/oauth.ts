@@ -1,9 +1,18 @@
-import type { LongLivedToken, OAuthConfig, PageToken } from "./types.ts";
+import type {
+  FacebookPageInfo,
+  FacebookPermission,
+  FacebookUserProfile,
+  LongLivedToken,
+  OAuthConfig,
+  PageToken,
+} from "./types.ts";
 
 const FB_OAUTH_BASE = "https://www.facebook.com";
 const FB_GRAPH_BASE = "https://graph.facebook.com";
 
 export function createOAuth(config: OAuthConfig) {
+  const fetchImpl = config.fetch ?? fetch;
+  const requestInit: RequestInit = { signal: config.signal };
   return {
     /** Generate the authorization URL to redirect users to. */
     getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
@@ -34,8 +43,9 @@ export function createOAuth(config: OAuthConfig) {
         code,
       });
 
-      const response = await fetch(
+      const response = await fetchImpl(
         `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+        requestInit,
       );
 
       if (!response.ok) {
@@ -55,8 +65,9 @@ export function createOAuth(config: OAuthConfig) {
         fb_exchange_token: shortLivedToken,
       });
 
-      const response = await fetch(
+      const response = await fetchImpl(
         `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+        requestInit,
       );
 
       if (!response.ok) {
@@ -78,7 +89,10 @@ export function createOAuth(config: OAuthConfig) {
         fields: "id,name,access_token,username,picture",
       });
 
-      const response = await fetch(`${FB_GRAPH_BASE}/v25.0/me/accounts?${params.toString()}`);
+      const response = await fetchImpl(
+        `${FB_GRAPH_BASE}/v25.0/me/accounts?${params.toString()}`,
+        requestInit,
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -87,6 +101,52 @@ export function createOAuth(config: OAuthConfig) {
 
       const body = (await response.json()) as { data: PageToken[] };
       return body.data;
+    },
+
+    async getUserProfile(
+      accessToken: string,
+      id = "me",
+      fields = ["id", "name", "picture.width(200).height(200)", "email"],
+    ): Promise<FacebookUserProfile> {
+      const params = new URLSearchParams({ access_token: accessToken, fields: fields.join(",") });
+      const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${id}?${params}`, requestInit);
+      if (!response.ok) throw new Error(`Facebook profile fetch failed: ${await response.text()}`);
+      return response.json() as Promise<FacebookUserProfile>;
+    },
+
+    async getPermissions(accessToken: string): Promise<FacebookPermission[]> {
+      const params = new URLSearchParams({ access_token: accessToken });
+      const response = await fetchImpl(
+        `${FB_GRAPH_BASE}/v25.0/me/permissions?${params}`,
+        requestInit,
+      );
+      if (!response.ok) {
+        throw new Error(`Facebook permission fetch failed: ${await response.text()}`);
+      }
+      const body = (await response.json()) as { data: FacebookPermission[] };
+      return body.data;
+    },
+
+    async verifyPermissions(accessToken: string, required: string[]): Promise<string[]> {
+      const permissions = await this.getPermissions(accessToken);
+      const granted = permissions
+        .filter((permission) => permission.status === "granted")
+        .map((permission) => permission.permission);
+      const missing = required.filter((permission) => !granted.includes(permission));
+      if (missing.length > 0)
+        throw new Error(`Missing Facebook permissions: ${missing.join(", ")}`);
+      return granted;
+    },
+
+    async getPageInformation(accessToken: string, pageId: string): Promise<FacebookPageInfo> {
+      const params = new URLSearchParams({
+        access_token: accessToken,
+        fields:
+          "id,name,username,access_token,picture.width(200).height(200),category,fan_count,followers_count,about",
+      });
+      const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${pageId}?${params}`, requestInit);
+      if (!response.ok) throw new Error(`Facebook Page fetch failed: ${await response.text()}`);
+      return response.json() as Promise<FacebookPageInfo>;
     },
 
     /**

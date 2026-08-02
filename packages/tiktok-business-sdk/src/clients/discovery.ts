@@ -16,6 +16,8 @@ async function get<T>(
   accessToken: string,
   path: string,
   query: Record<string, unknown>,
+  fetchImpl: typeof fetch = fetch,
+  signal?: AbortSignal,
 ): Promise<T> {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(query)) {
@@ -23,8 +25,9 @@ async function get<T>(
       params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
     }
   }
-  const response = await fetch(`${TT_API_BASE}${path}?${params.toString()}`, {
+  const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
     headers: { "Access-Token": accessToken },
+    signal,
   });
   const body = (await response.json()) as TikTokResponse<T>;
   if (!response.ok || body.code !== 0) {
@@ -41,6 +44,8 @@ async function get<T>(
  */
 export function createDiscovery(opts: DiscoveryOptions) {
   const { accessToken, advertiserId } = opts;
+  const fetchImpl = opts.fetch;
+  const signal = opts.signal;
 
   return {
     /** Get popular trending hashtags. */
@@ -59,6 +64,8 @@ export function createDiscovery(opts: DiscoveryOptions) {
           category_name: opts?.categoryName,
           date_range: opts?.dateRange,
         },
+        fetchImpl,
+        signal,
       );
       return { filterInfo: data.filter_info, list: data.list ?? [] };
     },
@@ -68,13 +75,19 @@ export function createDiscovery(opts: DiscoveryOptions) {
       hashtagId: string,
       opts: { countryCode: string; dateRange: DiscoveryDateRange },
     ): Promise<HashtagDetail> {
-      return get<HashtagDetail>(accessToken, "/discovery/detail/", {
-        advertiser_id: advertiserId,
-        discovery_type: "HASHTAG",
-        hashtag_id: hashtagId,
-        country_code: opts.countryCode,
-        date_range: opts.dateRange,
-      });
+      return get<HashtagDetail>(
+        accessToken,
+        "/discovery/detail/",
+        {
+          advertiser_id: advertiserId,
+          discovery_type: "HASHTAG",
+          hashtag_id: hashtagId,
+          country_code: opts.countryCode,
+          date_range: opts.dateRange,
+        },
+        fetchImpl,
+        signal,
+      );
     },
 
     /** Get trending videos related to hashtags. Max 10 hashtag IDs. */
@@ -84,13 +97,19 @@ export function createDiscovery(opts: DiscoveryOptions) {
     ): Promise<{ hashtag_id: string; hashtag_name: string; top_video_list: HashtagVideo[] }[]> {
       const data = await get<{
         list: { hashtag_id: string; hashtag_name: string; top_video_list: HashtagVideo[] }[];
-      }>(accessToken, "/discovery/video_list/", {
-        advertiser_id: advertiserId,
-        discovery_type: "HASHTAG",
-        hashtag_ids: JSON.stringify(hashtagIds),
-        country_code: opts?.countryCode,
-        date_range: opts?.dateRange,
-      });
+      }>(
+        accessToken,
+        "/discovery/video_list/",
+        {
+          advertiser_id: advertiserId,
+          discovery_type: "HASHTAG",
+          hashtag_ids: JSON.stringify(hashtagIds),
+          country_code: opts?.countryCode,
+          date_range: opts?.dateRange,
+        },
+        fetchImpl,
+        signal,
+      );
       return data.list ?? [];
     },
   };
@@ -102,6 +121,8 @@ export function createDiscovery(opts: DiscoveryOptions) {
  */
 export function createDiscoveryMusic(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
+  const fetchImpl = opts.fetch;
+  const signal = opts.signal;
 
   return {
     /** Get popular tracks from the commercial music library. */
@@ -119,6 +140,8 @@ export function createDiscoveryMusic(opts: TikTokClientOptions) {
           country_code: opts?.countryCode,
           date_range: opts?.dateRange,
         },
+        fetchImpl,
+        signal,
       );
       return data.list ?? [];
     },
@@ -136,11 +159,17 @@ export function createDiscoveryMusic(opts: TikTokClientOptions) {
         commercial_music_id: string;
         commercial_music_name: string;
         top_video_list: HashtagVideo[];
-      }>(accessToken, "/discovery/cml/video_list/", {
-        business_id: businessId,
-        commercial_music_id: commercialMusicId,
-        country_code: countryCode,
-      });
+      }>(
+        accessToken,
+        "/discovery/cml/video_list/",
+        {
+          business_id: businessId,
+          commercial_music_id: commercialMusicId,
+          country_code: countryCode,
+        },
+        fetchImpl,
+        signal,
+      );
     },
 
     /** Get trending search keywords (top 20). */
@@ -149,6 +178,8 @@ export function createDiscoveryMusic(opts: TikTokClientOptions) {
         accessToken,
         "/discovery/trending/search/",
         { business_id: businessId, is_personalized: isPersonalized },
+        fetchImpl,
+        signal,
       );
       return data.search_keywords ?? [];
     },
@@ -159,6 +190,8 @@ export function createDiscoveryMusic(opts: TikTokClientOptions) {
         accessToken,
         "/discovery/trending/search/keyword/",
         { business_id: businessId, query, is_personalized: isPersonalized },
+        fetchImpl,
+        signal,
       );
       return data.search_keywords ?? [];
     },

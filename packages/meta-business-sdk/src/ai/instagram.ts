@@ -1,4 +1,4 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createInstagramClient } from "../clients/instagram/index.ts";
@@ -9,7 +9,26 @@ export function createInstagramTools(opts: {
   api: MetaClient;
   igAccountId: string;
   polling?: InstagramClientOptions["polling"];
-}) {
+}): Record<
+  | "ig_publish_photo"
+  | "ig_publish_video"
+  | "ig_publish_carousel"
+  | "ig_publish_story"
+  | "ig_list_media"
+  | "ig_get_media_insights"
+  | "ig_get_permalink"
+  | "ig_comment_create"
+  | "ig_comment_reply"
+  | "ig_comment_list"
+  | "ig_comment_hide"
+  | "ig_comment_delete"
+  | "ig_send_dm"
+  | "ig_reply_dm"
+  | "ig_private_reply"
+  | "ig_get_account"
+  | "ig_webhook_subscribe",
+  Tool
+> {
   const ig = createInstagramClient({
     api: opts.api,
     igAccountId: opts.igAccountId,

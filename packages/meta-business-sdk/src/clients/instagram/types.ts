@@ -57,6 +57,8 @@ export interface InstagramClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;
   igAccountId: string;
   polling?: Partial<PollingConfig>;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 // OAuth types
@@ -64,6 +66,8 @@ export interface OAuthConfig {
   appId: string;
   appSecret: string;
   redirectUri: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface ShortLivedToken {
@@ -75,6 +79,20 @@ export interface LongLivedToken {
   access_token: string;
   token_type: string;
   expires_in: number;
+}
+
+export interface InstagramBusinessUserProfile {
+  id: string;
+  user_id?: string;
+  username: string;
+  name?: string;
+  account_type?: "BUSINESS" | "MEDIA_CREATOR" | "PERSONAL";
+  media_count?: number;
+  followers_count?: number;
+  follows_count?: number;
+  biography?: string;
+  profile_picture_url?: string;
+  website?: string;
 }
 
 // Webhook event types are now defined via Zod schemas in ../webhooks-schemas.ts

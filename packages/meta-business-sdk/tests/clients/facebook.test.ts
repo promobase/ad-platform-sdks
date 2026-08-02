@@ -456,3 +456,36 @@ test("Facebook OAuth completeOAuth does full flow", async () => {
   expect(result.pages).toHaveLength(1);
   expect(result.pages[0]!.access_token).toBe("page_tok");
 });
+
+test("Facebook OAuth exposes profile, permissions, and reconnect Page information", async () => {
+  mockFetchSequence([
+    { body: { id: "user_1", name: "User" } },
+    { body: { data: [{ permission: "pages_manage_posts", status: "granted" }] } },
+    { body: { id: "page_1", name: "Page", username: "page" } },
+  ]);
+  const oauth = createFacebookOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  expect((await oauth.getUserProfile("token")).id).toBe("user_1");
+  expect(await oauth.verifyPermissions("token", ["pages_manage_posts"])).toEqual([
+    "pages_manage_posts",
+  ]);
+  expect((await oauth.getPageInformation("token", "page_1")).username).toBe("page");
+});
+
+test("Facebook Page webhook subscription can be removed", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+
+  await fb.webhooks.unsubscribe();
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  expect(init.method).toBe("DELETE");
+});

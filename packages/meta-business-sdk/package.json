@@ -67,7 +67,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "ai": "^6.0.158",
+    "ai": "^6.0.158 || ^7.0.0",
     "typescript": ">=5.9.3 <8"
   },
   "peerDependenciesMeta": {

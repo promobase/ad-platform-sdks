@@ -1,5 +1,10 @@
 export { createYouTubeClient, YouTubeClient, type YouTubeClientOptions } from "./client.ts";
 export { YouTubeApiError, YouTubeUploadError } from "./errors.ts";
+export {
+  createYouTubeOAuth,
+  type YouTubeOAuthConfig,
+  type YouTubeOAuthTokenResponse,
+} from "./oauth.ts";
 export * from "./generated/index.ts";
 export { YouTube } from "./namespace.ts";
 export type {

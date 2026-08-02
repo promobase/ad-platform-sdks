@@ -4,6 +4,7 @@ const THREADS_OAUTH_BASE = "https://threads.net/oauth";
 const THREADS_GRAPH_BASE = "https://graph.threads.net";
 
 export function createOAuth(config: OAuthConfig) {
+  const fetchImpl = config.fetch ?? fetch;
   return {
     getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
       const scopes = opts?.scopes ?? [
@@ -31,10 +32,11 @@ export function createOAuth(config: OAuthConfig) {
         redirect_uri: config.redirectUri,
         code,
       });
-      const response = await fetch(`${THREADS_GRAPH_BASE}/oauth/access_token`, {
+      const response = await fetchImpl(`${THREADS_GRAPH_BASE}/oauth/access_token`, {
         method: "POST",
         body,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        signal: config.signal,
       });
       if (!response.ok) {
         const error = await response.json();
@@ -49,7 +51,9 @@ export function createOAuth(config: OAuthConfig) {
         client_secret: config.appSecret,
         access_token: shortLivedToken,
       });
-      const response = await fetch(`${THREADS_GRAPH_BASE}/access_token?${params.toString()}`);
+      const response = await fetchImpl(`${THREADS_GRAPH_BASE}/access_token?${params.toString()}`, {
+        signal: config.signal,
+      });
       if (!response.ok) {
         const error = await response.json();
         throw new Error(`Threads long-lived token exchange failed: ${JSON.stringify(error)}`);
@@ -62,8 +66,9 @@ export function createOAuth(config: OAuthConfig) {
         grant_type: "th_refresh_token",
         access_token: longLivedToken,
       });
-      const response = await fetch(
+      const response = await fetchImpl(
         `${THREADS_GRAPH_BASE}/refresh_access_token?${params.toString()}`,
+        { signal: config.signal },
       );
       if (!response.ok) {
         const error = await response.json();

@@ -6,6 +6,8 @@ export type {
   LinkedInMemberPostAnalyticsPoint,
   LinkedInMemberPostAnalyticsResponse,
   LinkedInMemberPostMetric,
+  LinkedInSocialMetadata,
+  LinkedInBatchSocialMetadataResponse,
   LinkedInOrganizationShareStatistic,
   LinkedInOrganizationShareStatisticsParams,
   LinkedInOrganizationShareStatisticsResponse,

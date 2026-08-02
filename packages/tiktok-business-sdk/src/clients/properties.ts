@@ -23,11 +23,13 @@ function propertyTypeFromApi(value: PropertyTypeApi): "DOMAIN" | "URL_PREFIX" {
  */
 export function createProperties(opts: TikTokClientOptions & { appId: string; appSecret: string }) {
   const { accessToken, businessId, appId, appSecret } = opts;
+  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, query: Record<string, string>): Promise<T> {
     const params = new URLSearchParams(query);
-    const response = await fetch(`${TT_API_BASE}${path}?${params.toString()}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
       headers: { "Access-Token": accessToken },
+      signal: opts.signal,
     });
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
@@ -39,8 +41,9 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
   }
 
   async function post<T>(path: string, payload: Record<string, unknown>): Promise<T> {
-    const response = await fetch(`${TT_API_BASE}${path}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
       method: "POST",
+      signal: opts.signal,
       headers: {
         "Access-Token": accessToken,
         "Content-Type": "application/json",

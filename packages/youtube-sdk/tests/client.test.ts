@@ -34,6 +34,28 @@ test("builds YouTube Data API requests from discovery-generated methods", async 
   expect(result.items).toEqual([]);
 });
 
+test("supports offline YouTube OAuth code exchange and refresh", async () => {
+  const bodies: string[] = [];
+  const fetchMock = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+    bodies.push(String(init?.body));
+    return jsonResponse({ access_token: "token", expires_in: 3600, token_type: "Bearer" });
+  }) as unknown as typeof fetch;
+  const oauth = YouTube.OAuth({
+    clientId: "client",
+    clientSecret: "secret",
+    redirectUri: "https://app.example.com/callback",
+    fetch: fetchMock,
+  });
+  const url = new URL(oauth.getAuthorizationUrl({ state: "state" }));
+
+  expect(url.searchParams.get("access_type")).toBe("offline");
+  expect(url.searchParams.get("scope")).toContain("youtube.upload");
+  expect((await oauth.exchangeCode("code")).access_token).toBe("token");
+  expect((await oauth.refreshToken("refresh")).access_token).toBe("token");
+  expect(bodies[0]).toContain("grant_type=authorization_code");
+  expect(bodies[1]).toContain("grant_type=refresh_token");
+});
+
 test("exposes videos.batchGetStats with documented required parameters", async () => {
   const calls: string[] = [];
   const fetchMock = (async (input: RequestInfo | URL) => {

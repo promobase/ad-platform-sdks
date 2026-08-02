@@ -12,6 +12,8 @@ export interface ThreadsClientOptions {
   threadsUserId: string;
   apiVersion?: string; // default "v1.0"
   polling?: Partial<ThreadsPollingConfig>;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface ThreadsPollingConfig {
@@ -79,6 +81,8 @@ export interface OAuthConfig {
   appId: string;
   appSecret: string;
   redirectUri: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface ShortLivedToken {

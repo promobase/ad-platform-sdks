@@ -19,6 +19,7 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
  */
 export function createMentions(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
+  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, query: Record<string, unknown>): Promise<T> {
     const params = new URLSearchParams();
@@ -27,8 +28,9 @@ export function createMentions(opts: TikTokClientOptions) {
         params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
       }
     }
-    const response = await fetch(`${TT_API_BASE}${path}?${params.toString()}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
       headers: { "Access-Token": accessToken },
+      signal: opts.signal,
     });
     const body = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || body.code !== 0) {
@@ -40,8 +42,9 @@ export function createMentions(opts: TikTokClientOptions) {
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetch(`${TT_API_BASE}${path}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
       method: "POST",
+      signal: opts.signal,
       headers: { "Access-Token": accessToken, "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });

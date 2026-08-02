@@ -26,7 +26,12 @@ export interface ResumableUploadOptions {
   fileSize?: number;
 }
 
-export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
+export function createContainers(
+  api: CreateClientReturn,
+  igUser: IGUserNode,
+  fetchImpl: typeof fetch = fetch,
+  signal?: AbortSignal,
+) {
   return {
     /** Create a media container using the generated IGUser.media.create() endpoint. */
     async create(params: CreateContainerParams): Promise<{ id: string }> {
@@ -74,10 +79,11 @@ export function createContainers(api: CreateClientReturn, igUser: IGUserNode) {
         throw new Error("Either fileUrl or fileData must be provided for resumable upload");
       }
 
-      const response = await fetch(url, {
+      const response = await fetchImpl(url, {
         method: "POST",
         headers,
         body,
+        signal,
       });
 
       if (!response.ok) {
