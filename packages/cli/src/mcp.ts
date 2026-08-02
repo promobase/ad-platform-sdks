@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import type {
+  AnyOperation,
+  OperationCatalog,
+  OperationSearchOptions,
+} from "@openpromo/ad-platforms/operations";
 import { Command } from "commander";
 
 import {
@@ -24,6 +29,65 @@ export function createMcpServer(): McpServer {
   }
 
   return server;
+}
+
+export interface RegisterOperationCatalogOptions {
+  prefix?: string;
+  search?: OperationSearchOptions;
+}
+
+/** Register canonical SDK operations as MCP tools without redefining their schemas or handlers. */
+export function registerOperationCatalog<const Operations extends readonly AnyOperation[]>(
+  server: McpServer,
+  catalog: OperationCatalog<Operations>,
+  options: RegisterOperationCatalogOptions = {},
+): void {
+  const selectedIds = new Set(
+    catalog.search("", { ...options.search, limit: Number.MAX_SAFE_INTEGER }).map(({ id }) => id),
+  );
+
+  for (const operation of catalog.operations) {
+    if (!selectedIds.has(operation.id)) continue;
+    const name = `${options.prefix ?? ""}${operation.id.replaceAll(".", "_")}`;
+    server.registerTool(
+      name,
+      {
+        title: operation.summary,
+        description: operation.description ?? operation.summary,
+        inputSchema: operation.inputSchema,
+        outputSchema: operation.outputSchema,
+        annotations: {
+          readOnlyHint: operation.effect === "read",
+          destructiveHint: operation.effect === "delete",
+          idempotentHint: operation.idempotency === "safe",
+          openWorldHint: true,
+        },
+        _meta: {
+          "openpromo/operationId": operation.id,
+          "openpromo/platform": operation.platform,
+          "openpromo/effect": operation.effect,
+          "openpromo/execution": operation.execution,
+          "openpromo/requiresApproval": operation.requiresApproval,
+          "openpromo/requiredScopes": operation.requiredScopes ?? [],
+        },
+      },
+      async (input) => {
+        try {
+          const output = await catalog.invoke(operation.id, input);
+          return {
+            content: [{ type: "text" as const, text: JSON.stringify(output, null, 2) }],
+            ...(isRecord(output) ? { structuredContent: output } : {}),
+          };
+        } catch (error) {
+          const serialized = serializeCliError(error);
+          return {
+            isError: true,
+            content: [{ type: "text" as const, text: JSON.stringify(serialized, null, 2) }],
+          };
+        }
+      },
+    );
+  }
 }
 
 export async function serveMcpStdio(): Promise<void> {
@@ -68,6 +132,10 @@ async function runMcpCommand(command: RegisteredCliCommand, input: unknown): Pro
   } catch (error) {
     return serializeCliError(error);
   }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function createRegistryProgram(): Command {

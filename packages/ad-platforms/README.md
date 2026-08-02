@@ -30,6 +30,87 @@ bun add @openpromo/ad-platforms
 npm install @openpromo/ad-platforms
 ```
 
+## Agent-native operations
+
+The operation catalog is the stable layer for code-writing agents, MCP hosts, and applications that
+want consistent cross-platform semantics. Provider SDKs remain available as the raw layer.
+
+Configure existing platform clients once and use the normalized direct API:
+
+```ts
+import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
+import { YouTube } from "@openpromo/ad-platforms/youtube";
+
+const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+const instagram = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const tiktok = TikTok.createClient({
+  accessToken: process.env.TIKTOK_TOKEN!,
+  businessId: "business_123",
+});
+const youtube = YouTube.createClient({ accessToken: process.env.YOUTUBE_TOKEN! });
+
+const ads = createAdPlatforms({
+  connections: { instagram, tiktok, youtube },
+});
+
+const metrics = await ads.instagram.posts.getMetrics({
+  postId: "media_123",
+  metrics: ["views", "reach", "likes"],
+});
+
+// Common metrics are portable; provider retains the native response.
+console.log(metrics.common.views, metrics.provider);
+```
+
+The same invocation and schemas power discovery and generic execution:
+
+```ts
+const matches = ads.operations.search("YouTube video statistics");
+const docs = ads.operations.describe("youtube.posts.metrics.get");
+const result = await ads.operations.invoke("youtube.posts.metrics.get", {
+  postId: "video_123",
+});
+```
+
+### AI SDK
+
+```ts
+import { toAiSdkTools } from "@openpromo/ad-platforms/operations/ai";
+
+const tools = toAiSdkTools(ads.operations, { platform: ["instagram", "youtube"] });
+```
+
+### Cloudflare Code Mode
+
+The Code Mode adapter has no Cloudflare runtime dependency. It returns a structural connector
+definition whose `tools` can be returned directly from a `CodemodeConnector.tools()` implementation.
+
+```ts
+import { toCodemodeConnector } from "@openpromo/ad-platforms/operations/codemode";
+
+const instagram = toCodemodeConnector(ads.operations, { platform: "instagram" });
+
+// In a CodemodeConnector subclass:
+// name() { return instagram.name }
+// instructions() { return instagram.instructions }
+// tools() { return instagram.tools }
+```
+
+Each definition includes input and output JSON Schema, read/write effect metadata, approval policy,
+replay behavior, and optional rollback support derived from the canonical operation definition.
+
+### MCP and CLI hosts
+
+`@openpromo/ad-platforms-cli/mcp` exports `registerOperationCatalog()`. The companion
+`@openpromo/ad-platforms-cli/operations` entry exports `registerOperationCatalogCommands()` for
+adding `operations list`, `search`, `describe`, and `invoke` commands to a Commander program.
+
+The initial catalog intentionally contains read-only `posts.getMetrics` operations for Instagram,
+Facebook, Threads, TikTok, LinkedIn, X, and YouTube. Generated and provider-native APIs remain
+available through each SDK for capabilities that have not yet been promoted into the canonical
+operation layer.
+
 ## Use
 
 ```ts

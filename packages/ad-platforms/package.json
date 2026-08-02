@@ -87,6 +87,24 @@
       "import": "./dist/unified-tools.js",
       "default": "./dist/unified-tools.js"
     },
+    "./operations": {
+      "bun": "./src/operations/index.ts",
+      "types": "./dist/operations/index.d.ts",
+      "import": "./dist/operations/index.js",
+      "default": "./dist/operations/index.js"
+    },
+    "./operations/ai": {
+      "bun": "./src/operations/ai.ts",
+      "types": "./dist/operations/ai.d.ts",
+      "import": "./dist/operations/ai.js",
+      "default": "./dist/operations/ai.js"
+    },
+    "./operations/codemode": {
+      "bun": "./src/operations/codemode.ts",
+      "types": "./dist/operations/codemode.d.ts",
+      "import": "./dist/operations/codemode.js",
+      "default": "./dist/operations/codemode.js"
+    },
     "./x": {
       "bun": "./src/x.ts",
       "types": "./dist/x.d.ts",
