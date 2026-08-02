@@ -1,38 +1,125 @@
 // Auto-generated types for Tools — do not edit
 
-export interface ToolTargetingSearchParams {}
+export interface ToolTargetingSearchParams {
+  advertiser_id: string;
+  objective_type: "REACH" | "TRAFFIC" | "VIDEO_VIEWS" | "LEAD_GENERATION" | "ENGAGEMENT" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "PRODUCT_SALES";
+  promotion_type?: string;
+  placements: string[];
+  search_type: "FUZZY_SEARCH" | "BATCH_REGION_SEARCH" | "BATCH_ZIPCODE_SEARCH";
+  keywords: string[];
+  geo_types?: ("COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT" | "DMA" | "ZIP_CODE" | "FUZZY_SEARCH" | "BATCH_ZIPCODE_SEARCH" | "BATCH_REGION_SEARCH")[];
+  region_codes?: string[];
+  operating_system?: "ANDROID" | "IOS";
+  brand_safety_type?: "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "THIRD_PARTY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
+  brand_safety_partner?: "IAS" | "OPEN_SLATE";
+}
 
 
-export interface ToolTargetingSearchResponse {}
+export interface ToolTargetingSearchResponse {
+  targeting_tag_list?: {
+  keyword?: string;
+  targeting_type?: string;
+  name?: string;
+  status_info?: {
+  status?: "ENABLED" | "DISABLED";
+  reason?: "OFFLINE" | "NOT_SUPPORTED";
+};
+  geo?: {
+  geo_id?: string;
+  geo_type?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT" | "DMA" | "ZIP_CODE";
+  description?: string;
+  region_code?: string;
+  parent_id?: string;
+};
+}[];
+  parent_tags?: {
+  targeting_type?: string;
+  name?: string;
+  status_info?: {
+  status?: "ENABLED" | "DISABLED";
+  reason?: "OFFLINE" | "NOT_SUPPORTED";
+};
+  geo?: {
+  geo_id?: string;
+  geo_type?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT" | "DMA" | "ZIP_CODE";
+  description?: string;
+  region_code?: string;
+  parent_id?: string;
+};
+}[];
+}
 
 
-export interface ToolTargetingInfoParams {}
+export interface ToolTargetingInfoParams {
+  advertiser_id: string;
+  scene?: "GEO" | "ISP";
+  targeting_ids: string[];
+  objective_type?: "REACH" | "TRAFFIC" | "VIDEO_VIEWS" | "LEAD_GENERATION" | "ENGAGEMENT" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "PRODUCT_SALES";
+  promotion_type?: string;
+  placements?: string[];
+  operating_system?: "ANDROID" | "IOS";
+  brand_safety_type?: "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "THIRD_PARTY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
+  brand_safety_partner?: "IAS" | "OPEN_SLATE";
+}
 
 
-export interface ToolTargetingInfoResponse {}
+export interface ToolTargetingInfoResponse {
+  targeting_tag_list?: {
+  targeting_type?: "GEO" | "ISP";
+  name?: string;
+  status_info?: {
+  status?: "ENABLED" | "DISABLED";
+  reason?: "OFFLINE" | "NOT_SUPPORTED";
+};
+  geo?: {
+  geo_id?: string;
+  geo_type?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT" | "DMA" | "ZIP_CODE";
+  description?: string;
+  region_code?: string;
+  parent_id?: string;
+};
+  isp?: {
+  isp_id?: string;
+  location_id?: string;
+  region_code?: string;
+};
+}[];
+  parent_tags?: {
+  targeting_type?: string;
+  name?: string;
+  status_info?: {
+  status?: "ENABLED" | "DISABLED";
+  reason?: "OFFLINE" | "NOT_SUPPORTED";
+};
+  geo?: {
+  geo_id?: string;
+  geo_type?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT" | "DMA" | "ZIP_CODE";
+  description?: string;
+  region_code?: string;
+  parent_id?: string;
+};
+}[];
+}
 
 
 export interface ToolRegionParams {
   advertiser_id: string;
   placements: string[];
   objective_type: string;
-  app_promotion_type?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING" | "APP_PREREGISTRATION" | "MINIS";
+  app_promotion_type?: "APP_INSTALL" | "APP_RETARGETING" | "APP_PREREGISTRATION" | "MINIS";
   level_range?: "ALL" | "TO_COUNTRY" | "TO_PROVINCE" | "TO_CITY" | "TO_DISTRICT";
   language?: string;
-  shopping_ads_type?: "PRODUCT_SALES" | "VIDEO" | "LIVE" | "PRODUCT_SHOPPING_ADS";
+  shopping_ads_type?: "VIDEO" | "LIVE" | "PRODUCT_SHOPPING_ADS";
   promotion_type?: string;
-  promotion_target_type?: "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE";
+  promotion_target_type?: "INSTANT_PAGE" | "EXTERNAL_WEBSITE";
   operating_system?: "ANDROID" | "IOS";
-  brand_safety_type?: "PLACEMENT_TIKTOK" | "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "THIRD_PARTY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
-  brand_safety_partner?: "THIRD_PARTY" | "PLACEMENT_TIKTOK" | "IAS" | "OPEN_SLATE";
-  rf_campaign_type?: "RF_REACH" | "STANDARD" | "PULSE";
+  brand_safety_type?: "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "THIRD_PARTY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
+  brand_safety_partner?: "IAS" | "OPEN_SLATE";
+  rf_campaign_type?: "STANDARD" | "PULSE";
 }
 
 
 export interface ToolRegionResponse {
-  code?: number;
-  message?: string;
-  data?: {
   region_list?: string[];
   region_info?: {
   location_id?: string;
@@ -44,15 +131,26 @@ export interface ToolRegionResponse {
   level?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT";
   support_below_18?: boolean;
 }[];
-};
-  request_id?: string;
 }
 
 
-export interface SearchRegionParams {}
+export interface SearchRegionParams {
+  advertiser_id: string;
+  language?: string;
+}
 
 
-export interface SearchRegionResponse {}
+export interface SearchRegionResponse {
+  region_list?: {
+  region_id?: string;
+  region_name?: string;
+  region_level?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT";
+  country_code?: string;
+  parent_id?: string;
+  area_type?: "ADMIN" | "METROPOLITAN_OR_DMA";
+  support_below_18?: boolean;
+}[];
+}
 
 
 export interface ToolLanguageParams {
@@ -61,22 +159,90 @@ export interface ToolLanguageParams {
 
 
 export interface ToolLanguageResponse {
-  code?: number;
-  message?: string;
-  data?: {
   languages?: {
   code?: string;
   name?: string;
 }[];
-};
-  request_id?: string;
 }
 
 
-export interface TargetingSearchParams {}
+export interface TargetingSearchParams {
+  advertiser_id: string;
+  targeting_type: string;
+  sub_targeting_types?: ("GENERAL_INTEREST" | "ADDITIONAL_INTEREST" | "PURCHASE_INTENTION" | "VIDEO_INTERACTION" | "CREATOR_INTERACTION" | "HASHTAG_INTERACTION")[];
+  search_keywords?: string[];
+  language?: string;
+  filtering?: {
+  special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+};
+}
 
 
-export interface TargetingSearchResponse {}
+export interface TargetingSearchResponse {
+  general_interest?: {
+  list_result?: {
+  sub_targeting_type?: string;
+  id?: string;
+  name?: string;
+  supported_special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  level?: number;
+  children_ids?: string[];
+  hashtag_type?: string;
+}[];
+  search_result?: string;
+};
+  additional_interest?: {
+  search_result?: string;
+};
+  purchase_intention?: {
+  list_result?: {
+  sub_targeting_type?: string;
+  id?: string;
+  name?: string;
+  supported_special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  level?: number;
+  children_ids?: string[];
+  hashtag_type?: string;
+}[];
+  search_result?: string;
+};
+  video_interaction?: {
+  list_result?: {
+  sub_targeting_type?: string;
+  id?: string;
+  name?: string;
+  supported_special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  level?: number;
+  children_ids?: string[];
+  hashtag_type?: string;
+}[];
+  search_result?: string;
+};
+  creator_interaction?: {
+  list_result?: {
+  sub_targeting_type?: string;
+  id?: string;
+  name?: string;
+  supported_special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  level?: number;
+  children_ids?: string[];
+  hashtag_type?: string;
+}[];
+  search_result?: string;
+};
+  hashtag_interaction?: {
+  list_result?: {
+  sub_targeting_type?: string;
+  id?: string;
+  name?: string;
+  supported_special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
+  level?: number;
+  children_ids?: string[];
+  hashtag_type?: string;
+}[];
+  search_result?: string;
+};
+}
 
 
 export interface ToolInterestCategoryParams {
@@ -89,9 +255,6 @@ export interface ToolInterestCategoryParams {
 
 
 export interface ToolInterestCategoryResponse {
-  code?: number;
-  message?: string;
-  data?: {
   interest_categories?: {
   interest_category_id?: string;
   interest_category_name?: string;
@@ -100,8 +263,6 @@ export interface ToolInterestCategoryResponse {
   special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
   placements?: string[];
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -117,10 +278,6 @@ export interface ToolInterestKeywordRecommendParams {
 
 
 export interface ToolInterestKeywordRecommendResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   recommended_keywords?: {
   input_keyword?: string;
   keyword?: string;
@@ -128,7 +285,6 @@ export interface ToolInterestKeywordRecommendResponse {
   language?: string;
   status?: "EFFECTIVE" | "INEFFECTIVE";
 }[];
-};
 }
 
 
@@ -145,16 +301,11 @@ export interface ToolInterestKeywordGetParams {
 
 
 export interface ToolInterestKeywordGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   keywords?: {
   keyword?: string;
   keyword_id?: string;
   status?: "EFFECTIVE" | "INEFFECTIVE";
 }[];
-};
 }
 
 
@@ -166,9 +317,6 @@ export interface ToolActionCategoryParams {
 
 
 export interface ToolActionCategoryResponse {
-  code?: number;
-  message?: string;
-  data?: {
   action_categories?: {
   description?: string;
   action_category_id?: string;
@@ -178,8 +326,6 @@ export interface ToolActionCategoryResponse {
   special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
   action_scene?: "CREATOR_RELATED" | "VIDEO_RELATED";
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -191,17 +337,12 @@ export interface ToolHashtagRecommendParams {
 
 
 export interface ToolHashtagRecommendResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   recommend_keywords?: {
   input_keyword?: string;
   keyword?: string;
   keyword_id?: string;
   keyword_status?: "ONLINE" | "OFFLINE";
 }[];
-};
 }
 
 
@@ -212,16 +353,11 @@ export interface ToolHashtagGetParams {
 
 
 export interface ToolHashtagGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   keywords_status?: {
   keyword?: string;
   keyword_id?: string;
   keyword_status?: "ONLINE" | "OFFLINE";
 }[];
-};
 }
 
 
@@ -233,10 +369,6 @@ export interface ToolTargetingCategoryRecommendParams {
 
 
 export interface ToolTargetingCategoryRecommendResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   interest_categories?: {
   interest_category_id?: string;
   interest_category_name?: string;
@@ -250,14 +382,35 @@ export interface ToolTargetingCategoryRecommendResponse {
   scene?: "CREATOR_RELATED" | "VIDEO_RELATED";
   special_industries?: ("HOUSING" | "EMPLOYMENT" | "CREDIT")[];
 }[];
-};
 }
 
 
-export interface ToolSearchKeywordRecommendParams {}
+export interface ToolSearchKeywordRecommendParams {
+  advertiser_id: string;
+  search_queries?: string[];
+  ad_ids?: string[];
+  landing_page_urls?: string[];
+  regions: string[];
+  order_field?: "RELEVANCE" | "MONTHLY_SEARCHES";
+  order_type?: "ASC" | "DESC";
+  total_size?: number;
+  page?: number;
+  page_size?: number;
+}
 
 
-export interface ToolSearchKeywordRecommendResponse {}
+export interface ToolSearchKeywordRecommendResponse {
+  recommended_keywords?: {
+  recommended_keyword?: string;
+  monthly_searches?: number;
+}[];
+  page_info?: {
+  page?: number;
+  page_size?: number;
+  total_number?: number;
+  total_page?: number;
+};
+}
 
 
 export interface ToolDiagnosisSearchHealthParams {
@@ -268,10 +421,6 @@ export interface ToolDiagnosisSearchHealthParams {
 
 
 export interface ToolDiagnosisSearchHealthResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   search_health_status?: "GOOD" | "NEED_IMPROVEMENT" | "NO_DATA";
   search_volume?: {
   diagnosis_result?: "HIGH" | "MEDIUM" | "LOW" | "INVALID";
@@ -293,7 +442,6 @@ export interface ToolDiagnosisSearchHealthResponse {
   bid_suggestion_status?: "GOOD" | "LOW" | "NO_DATA";
   suggested_value?: string;
 };
-};
 }
 
 
@@ -308,10 +456,6 @@ export interface ToolSearchKeywordKeywordIdeaParams {
 
 
 export interface ToolSearchKeywordKeywordIdeaResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   total_search_volume_lower?: number;
   total_search_volume_upper?: number;
   keywords?: {
@@ -324,7 +468,6 @@ export interface ToolSearchKeywordKeywordIdeaResponse {
   estimated_cpc_lower?: number;
   estimated_cpc_upper?: number;
 }[];
-};
 }
 
 
@@ -335,17 +478,12 @@ export interface ToolOsVersionParams {
 
 
 export interface ToolOsVersionResponse {
-  code?: number;
-  message?: string;
-  data?: {
   os_versions?: {
   os_id?: string;
   os_type?: string;
   version?: string;
   name?: string;
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -354,20 +492,7 @@ export interface ToolDeviceModelParams {
 }
 
 
-export interface ToolDeviceModelResponse {
-  code?: number;
-  message?: string;
-  data?: string;
-  device_models?: {
-  device_model_id?: string;
-  device_model_name?: string;
-  child_device_ids?: string[];
-  is_active?: boolean;
-  level?: "BRAND" | "SERIES" | "MODEL";
-  os_type?: "ANDROID" | "IOS";
-}[];
-  request_id?: string;
-}
+export interface ToolDeviceModelResponse {}
 
 
 export interface ToolCarrierParams {
@@ -376,9 +501,6 @@ export interface ToolCarrierParams {
 
 
 export interface ToolCarrierResponse {
-  code?: number;
-  message?: string;
-  data?: {
   countries?: {
   country_code?: string;
   carriers?: {
@@ -391,41 +513,86 @@ export interface ToolCarrierResponse {
 }[];
 }[];
 }[];
-};
-  request_id?: string;
 }
 
 
-export interface ToolTargetingListParams {}
+export interface ToolTargetingListParams {
+  advertiser_id: string;
+  location_ids: string[];
+  scene: string;
+}
 
 
-export interface ToolTargetingListResponse {}
+export interface ToolTargetingListResponse {
+  targeting_tag_list?: {
+  targeting_type?: string;
+  name?: string;
+  status_info?: {
+  status?: "ENABLED" | "DISABLED";
+  reason?: "OFFLINE" | "NOT_SUPPORTED";
+};
+  isp?: {
+  isp_id?: string;
+  location_id?: string;
+  region_code?: string;
+};
+  geo?: Record<string, unknown>;
+}[];
+  parent_tags?: Record<string, unknown>[];
+}
 
 
-export interface ToolContextualTagGetParams {}
+export interface ToolContextualTagGetParams {
+  advertiser_id: string;
+  objective_type: string;
+  region_codes?: string[];
+  brand_safety_type?: "EXPANDED_INVENTORY" | "NO_BRAND_SAFETY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
+  rf_campaign_type?: "STANDARD" | "PULSE";
+}
 
 
-export interface ToolContextualTagGetResponse {}
+export interface ToolContextualTagGetResponse {
+  contextual_tag_list?: {
+  contextual_tag_id?: string;
+  name?: string;
+  type?: "GENERAL" | "PREMIUM";
+  content_lineup_type?: "MAX_PULSE" | "CUSTOM" | "CATEGORY" | "SEASONAL" | "AE" | "AU" | "BR" | "CA" | "DE" | "ES" | "FR" | "GB" | "IT" | "MX" | "SA" | "TR" | "US";
+  status?: "ONLINE" | "OFFLINE";
+  description?: string;
+  objective_types?: string[];
+  region_codes?: string[];
+}[];
+}
 
 
-export interface ToolContextualTagInfoParams {}
+export interface ToolContextualTagInfoParams {
+  advertiser_id: string;
+  contextual_tag_ids: string[];
+}
 
 
-export interface ToolContextualTagInfoResponse {}
+export interface ToolContextualTagInfoResponse {
+  contextual_tag_list?: {
+  contextual_tag_id?: string;
+  name?: string;
+  type?: "GENERAL" | "PREMIUM";
+  content_lineup_type?: "MAX_PULSE" | "CUSTOM" | "CATEGORY" | "SEASONAL" | "AE" | "AU" | "BR" | "CA" | "DE" | "ES" | "FR" | "GB" | "IT" | "MX" | "SA" | "TR" | "US";
+  status?: "ONLINE" | "OFFLINE";
+  description?: string;
+  objective_types?: string[];
+  region_codes?: string[];
+}[];
+}
 
 
 export interface ToolContentExclusionGetParams {
   advertiser_id: string;
-  objective_type: "REACH" | "VIDEO_VIEWS" | "ENGAGEMENT";
+  objective_type: string;
   brand_safety_type?: "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY";
 }
 
 
 export interface ToolContentExclusionGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   excluded_category_list?: {
   category_id?: string;
   category_name?: string;
@@ -440,7 +607,6 @@ export interface ToolContentExclusionGetResponse {
   description?: string;
   category_type?: string;
 }[];
-};
 }
 
 
@@ -451,10 +617,6 @@ export interface ToolContentExclusionInfoParams {
 
 
 export interface ToolContentExclusionInfoResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   content_exclusion_list?: {
   category_id?: string;
   category_name?: string;
@@ -462,20 +624,47 @@ export interface ToolContentExclusionInfoResponse {
   description?: string;
   category_type?: "CATEGORY_TYPE_EXCLUSION" | "CATEGORY_TYPE_VERTICAL";
 }[];
-};
 }
 
 
-export interface DeliveryBudgetRecommendParams {}
+export interface DeliveryBudgetRecommendParams {
+  advertiser_id: string;
+  adgroup_ids: string[];
+}
 
 
-export interface DeliveryBudgetRecommendResponse {}
+export interface DeliveryBudgetRecommendResponse {
+  results?: {
+  adgroup_id?: string;
+  recommendations?: {
+  recommended_budget?: number;
+  budget_increase_ratio?: number;
+  estimated_conversion?: number;
+  conversion_uplift?: number;
+  conversion_uplift_ratio?: number;
+}[];
+}[];
+}
 
 
-export interface DeliveryBidRecommendParams {}
+export interface DeliveryBidRecommendParams {
+  advertiser_id: string;
+  adgroup_ids: string[];
+}
 
 
-export interface DeliveryBidRecommendResponse {}
+export interface DeliveryBidRecommendResponse {
+  results?: {
+  adgroup_id?: string;
+  recommendations?: {
+  recommended_bid?: number;
+  bid_increase_ratio?: number;
+  estimated_cost?: number;
+  cost_uplift?: number;
+  cost_uplift_ratio?: number;
+}[];
+}[];
+}
 
 
 export interface ToolBidRecommendParams {
@@ -488,19 +677,46 @@ export interface ToolBidRecommendParams {
 
 
 export interface ToolBidRecommendResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   bid?: number;
-};
 }
 
 
-export interface ToolVboStatusParams {}
+export interface ToolVboStatusParams {
+  advertiser_id: string;
+  objective_type: string;
+  app_promotion_type?: "APP_INSTALL" | "APP_RETARGETING" | "MINIS";
+  campaign_type?: string;
+  is_advanced_dedicated_campaign?: boolean;
+  disable_skan_campaign?: boolean;
+  bid_align_type?: "SAN" | "SKAN";
+  promotion_type: string;
+  placements: string[];
+  ios14_quota_type?: "OCCUPIED" | "UNOCCUPIED";
+  campaign_app_profile_page_state?: "ON" | "OFF";
+  pixel_id?: string;
+  app_id?: string;
+  optimization_event?: string;
+  store_id?: string;
+  is_smart_performance_campaign?: boolean;
+  campaign_automation_type?: "MANUAL" | "SMART_PLUS" | "UPGRADED_SMART_PLUS";
+  budget_optimize_on?: boolean;
+}
 
 
-export interface ToolVboStatusResponse {}
+export interface ToolVboStatusResponse {
+  vo_status?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_min?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_min_roas?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_highest_value?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_iaa_min_roas?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_iaa_highest_value?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_iaa_min_roas_zero_day?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  vo_iaa_highest_value_zero_day?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  roas_status_day7?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  highest_value_status_day7?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  roas_status_day0?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+  highest_value_status_day0?: "QUALIFIED" | "NO_EVENT" | "NO_VALUE" | "INSUFFICIENT_EVENTS" | "NOT_SUPPORT";
+}
 
 
 export interface ToolBrandSafetyPartnerAuthorizeStatusParams {
@@ -510,12 +726,7 @@ export interface ToolBrandSafetyPartnerAuthorizeStatusParams {
 
 
 export interface ToolBrandSafetyPartnerAuthorizeStatusResponse {
-  code?: number;
-  message?: string;
-  data?: {
   status?: "OK" | "NOT_FOUND";
-};
-  request_id?: string;
 }
 
 
@@ -528,10 +739,6 @@ export interface ToolVastOptionParams {
 
 
 export interface ToolVastOptionResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   option_list?: {
   partner?: "MOAT" | "DOUBLE_VERIFY" | "IAS" | "ZEFR";
   partner_name?: string;
@@ -543,20 +750,38 @@ export interface ToolVastOptionResponse {
   reason_type?: "UNSUPPORTED_PARTNER" | "UNSUPPORTED_OBJ_TYPE" | "UNSUPPORTED_COUNTRY" | "UNSUPPORTED_PREBID";
 }[];
 }[];
+}
+
+
+export interface ToolUrlValidateParams {
+  advertiser_id: string;
+  url: string;
+}
+
+
+export interface ToolUrlValidateResponse {
+  landing_page_url_info?: {
+  validate_info?: {
+  is_scheme_link?: boolean;
+  is_valid_url?: boolean;
+  is_valid_scheme?: boolean;
+};
 };
 }
 
 
-export interface ToolUrlValidateParams {}
+export interface ToolPhoneRegionCodeParams {
+  advertiser_id: string;
+}
 
 
-export interface ToolUrlValidateResponse {}
-
-
-export interface ToolPhoneRegionCodeParams {}
-
-
-export interface ToolPhoneRegionCodeResponse {}
+export interface ToolPhoneRegionCodeResponse {
+  phone_region_code_infos?: {
+  phone_region_name?: string;
+  phone_region_code?: string;
+  phone_region_calling_code?: string;
+}[];
+}
 
 
 export interface ToolTimezoneParams {
@@ -565,15 +790,10 @@ export interface ToolTimezoneParams {
 
 
 export interface ToolTimezoneResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   timezones?: {
   timezone?: string;
   gmt_offset?: string;
 }[];
-};
 }
 
 
@@ -585,13 +805,8 @@ export interface ToolOpenUrlParams {
 
 
 export interface ToolOpenUrlResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   open_url?: string;
-  supported_regions?: ("STICKER" | "STICKER_SHOOTER")[];
-};
+  supported_regions?: string[];
 }
 
 
@@ -606,10 +821,6 @@ export interface CampaignLabelGetParams {
 
 
 export interface CampaignLabelGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   campaign_label_id?: string;
   campaign_label_name?: string;
@@ -623,14 +834,32 @@ export interface CampaignLabelGetResponse {
   total_number?: number;
   total_page?: number;
 };
-};
 }
 
 
-export interface MinisGetParams {}
+export interface MinisGetParams {
+  advertiser_id: string;
+  page?: number;
+  page_size?: number;
+}
 
 
-export interface MinisGetResponse {}
+export interface MinisGetResponse {
+  list?: {
+  minis_id?: string;
+  minis_name?: string;
+  minis_icon_url?: string;
+  minis_status?: "ACTIVE" | "INACTIVE";
+  minis_type?: "MINI_SERIES" | "MINI_GAME";
+  region_codes?: string[];
+}[];
+  page_info?: {
+  page?: number;
+  page_size?: number;
+  total_number?: number;
+  total_page?: number;
+};
+}
 
 
 export interface IdentityNativeSeriesGetParams {
@@ -644,10 +873,6 @@ export interface IdentityNativeSeriesGetParams {
 
 
 export interface IdentityNativeSeriesGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   native_series_id?: string;
   native_series_name?: string;
@@ -657,7 +882,6 @@ export interface IdentityNativeSeriesGetResponse {
 }[];
   cursor?: number;
   has_more?: boolean;
-};
 }
 
 
@@ -670,15 +894,9 @@ export interface ToolAvailableAttributionSourceParams {
 
 
 export interface ToolAvailableAttributionSourceResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   connected_data_source?: ("MMP" | "EVENT_SDK" | "EVENT_API")[];
   available_attribution_source_list?: {
   available_attribution_source?: "MMP" | "SAN";
   available_data_source?: ("MMP" | "EVENT_SDK" | "EVENT_API")[];
 }[];
-};
 }
-

@@ -140,3 +140,129 @@ test("captures JSON API errors", async () => {
 
   await expect(client.request("/posts")).rejects.toThrow("bad request");
 });
+
+test("builds organization share statistics queries for specific posts", async () => {
+  const calls: string[] = [];
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    calls.push(String(input));
+    return jsonResponse({
+      elements: [
+        {
+          share: "urn:li:share:123",
+          totalShareStatistics: { impressionCount: 100, clickCount: 7 },
+        },
+      ],
+    });
+  }) as unknown as typeof fetch;
+
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+  const result = await linkedin.analytics.getOrganizationShareStatistics({
+    organizationalEntity: "urn:li:organization:42",
+    shares: ["urn:li:share:123"],
+  });
+
+  const url = new URL(calls[0]!);
+  expect(url.pathname).toBe("/rest/organizationalEntityShareStatistics");
+  expect(url.searchParams.get("q")).toBe("organizationalEntity");
+  expect(url.searchParams.get("organizationalEntity")).toBe("urn:li:organization:42");
+  expect(url.searchParams.get("shares")).toBe("List(urn:li:share:123)");
+  expect(result.elements?.[0]?.totalShareStatistics?.impressionCount).toBe(100);
+});
+
+test("uses LinkedIn's indexed Rest.li syntax for specific UGC posts", async () => {
+  let requestUrl = "";
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    requestUrl = String(input);
+    return jsonResponse({ elements: [] });
+  }) as unknown as typeof fetch;
+
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+  await linkedin.analytics.getOrganizationShareStatistics({
+    organizationalEntity: "urn:li:organization:42",
+    ugcPosts: ["urn:li:ugcPost:1", "urn:li:ugcPost:2"],
+  });
+
+  const url = new URL(requestUrl);
+  expect(url.searchParams.get("ugcPosts[0]")).toBe("urn:li:ugcPost:1");
+  expect(url.searchParams.get("ugcPosts[1]")).toBe("urn:li:ugcPost:2");
+});
+
+test("builds time-bounded organization statistics queries", async () => {
+  let requestUrl = "";
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    requestUrl = String(input);
+    return jsonResponse({ elements: [] });
+  }) as unknown as typeof fetch;
+
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+  await linkedin.analytics.getOrganizationShareStatistics({
+    organizationalEntity: "urn:li:organization:42",
+    timeIntervals: {
+      timeGranularityType: "DAY",
+      timeRange: { start: 1_788_134_400_000, end: 1_788_220_800_000 },
+    },
+  });
+
+  const url = new URL(requestUrl);
+  expect(url.searchParams.get("timeIntervals")).toBe(
+    "(timeRange:(start:1788134400000,end:1788220800000),timeGranularityType:DAY)",
+  );
+});
+
+test("builds member post analytics queries with aggregation and date range", async () => {
+  const calls: string[] = [];
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    calls.push(String(input));
+    return jsonResponse({
+      elements: [
+        {
+          count: 1200,
+          metricType: "IMPRESSION",
+          targetEntity: { ugc: "urn:li:ugcPost:456" },
+        },
+      ],
+    });
+  }) as unknown as typeof fetch;
+
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+  const result = await linkedin.analytics.getMemberPostAnalytics({
+    entity: "urn:li:ugcPost:456",
+    queryType: "IMPRESSION",
+    aggregation: "DAILY",
+    dateRange: {
+      start: { year: 2026, month: 7, day: 1 },
+      end: { year: 2026, month: 7, day: 2 },
+    },
+  });
+
+  const url = new URL(calls[0]!);
+  expect(url.pathname).toBe("/rest/memberCreatorPostAnalytics");
+  expect(url.searchParams.get("q")).toBe("entity");
+  expect(url.searchParams.get("entity")).toBe("(ugc:urn:li:ugcPost:456)");
+  expect(url.searchParams.get("queryType")).toBe("IMPRESSION");
+  expect(url.searchParams.get("aggregation")).toBe("DAILY");
+  expect(url.searchParams.get("dateRange")).toBe(
+    "(start:(day:1,month:7,year:2026),end:(day:2,month:7,year:2026))",
+  );
+  expect(result.elements?.[0]?.count).toBe(1200);
+  expect(result.elements?.[0]?.metricType).toBe("IMPRESSION");
+});
+
+test("builds aggregated current-member post analytics queries", async () => {
+  let requestUrl = "";
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    requestUrl = String(input);
+    return jsonResponse({ elements: [{ count: 9, metricType: "POST_SAVE" }] });
+  }) as unknown as typeof fetch;
+
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+  await linkedin.analytics.getMemberPostAnalytics({
+    finder: "me",
+    queryType: "POST_SAVE",
+  });
+
+  const url = new URL(requestUrl);
+  expect(url.searchParams.get("q")).toBe("me");
+  expect(url.searchParams.has("entity")).toBe(false);
+  expect(url.searchParams.get("queryType")).toBe("POST_SAVE");
+});

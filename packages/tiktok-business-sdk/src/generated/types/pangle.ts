@@ -6,14 +6,9 @@ export interface PangleBlockListGetParams {
 
 
 export interface PangleBlockListGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   app_list?: string[];
   app_package_id?: string;
   modify_time?: string;
-};
-  request_id?: string;
 }
 
 
@@ -26,12 +21,7 @@ export interface PangleBlockListUpdateParams {
 
 
 export interface PangleBlockListUpdateResponse {
-  code?: number;
-  message?: string;
-  data?: {
   success_count?: number;
-};
-  request_id?: string;
 }
 
 
@@ -41,15 +31,9 @@ export interface PangleAudiencePackageGetParams {
 
 
 export interface PangleAudiencePackageGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   packages?: {
   bind_type?: "EXCLUDE" | "INCLUDE";
   package_id?: string;
   package_name?: string;
 }[];
-};
-  request_id?: string;
 }
-

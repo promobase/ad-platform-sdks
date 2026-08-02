@@ -4,16 +4,12 @@ export interface ToolDiagnosisGetParams {
   advertiser_id: string;
   filtering?: {
   adgroup_ids?: string[];
-  issue_category?: ("CREATIVE" | "BID_AND_BUDGET" | "EVENT_TRACK")[];
+  issue_category?: string[];
 };
 }
 
 
 export interface ToolDiagnosisGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   results?: {
   adgroup_id?: string;
   adgroup_name?: string;
@@ -33,9 +29,9 @@ export interface ToolDiagnosisGetResponse {
   suggestion_id?: string;
   issue_suggestion?: "SUGGEST_BID" | "SUGGEST_BUDGET" | "NOBID_SWITCH" | "BUDGET_EDR" | "BID_EDR";
   bid?: number;
-  budget?: "SUGGEST_BID" | "SUGGEST_BUDGET" | "NOBID_SWITCH";
+  budget?: number;
   suggest_bid?: number;
-  suggest_budget?: "SUGGEST_BUDGET" | "NOBID_SWITCH";
+  suggest_budget?: number;
   cost_floor?: number;
   bid_edr_info?: {
   recommended_bid?: number;
@@ -66,6 +62,4 @@ export interface ToolDiagnosisGetResponse {
 }[];
 };
 }[];
-};
 }
-

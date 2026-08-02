@@ -18,10 +18,4 @@ export interface EventTrackParams {
 }
 
 
-export interface EventTrackResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
-
+export interface EventTrackResponse {}

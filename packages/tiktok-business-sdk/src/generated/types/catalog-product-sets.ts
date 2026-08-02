@@ -4,15 +4,11 @@ export interface CatalogSetGetParams {
   bc_id: string;
   catalog_id: string;
   product_set_id?: string;
-  return_product_count?: "true" | "false";
+  return_product_count?: boolean;
 }
 
 
 export interface CatalogSetGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   product_count?: number;
   product_set_id?: string;
@@ -26,7 +22,6 @@ export interface CatalogSetGetResponse {
 }[];
 };
 }[];
-};
 }
 
 
@@ -40,10 +35,6 @@ export interface CatalogSetProductGetParams {
 
 
 export interface CatalogSetProductGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   product_set_id?: string;
   catalog_id?: string;
   product_count?: string;
@@ -61,7 +52,6 @@ export interface CatalogSetProductGetResponse {
   page_size?: number;
   total_number?: number;
   total_page?: number;
-};
 };
 }
 
@@ -81,14 +71,9 @@ export interface CatalogSetCreateParams {
 
 
 export interface CatalogSetCreateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   product_set_id?: string;
   product_set_name?: string;
   product_count?: number;
-};
 }
 
 
@@ -102,13 +87,8 @@ export interface CatalogSetUploadParams {
 
 
 export interface CatalogSetUploadResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   product_set_id?: string;
   product_set_name?: string;
-};
 }
 
 
@@ -128,14 +108,9 @@ export interface CatalogSetUpdateParams {
 
 
 export interface CatalogSetUpdateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   product_set_id?: string;
   product_set_name?: string;
   product_count?: number;
-};
 }
 
 
@@ -147,11 +122,5 @@ export interface CatalogSetDeleteParams {
 
 
 export interface CatalogSetDeleteResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   product_set_ids?: string[];
-};
 }
-

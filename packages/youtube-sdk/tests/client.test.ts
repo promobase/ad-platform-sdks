@@ -21,13 +21,17 @@ test("builds YouTube Data API requests from discovery-generated methods", async 
   }) as unknown as typeof fetch;
 
   const youtube = YouTube.createClient({ accessToken: "token", fetch: fetchMock });
-  await youtube.resources.videos.list({ part: ["snippet", "status"], id: ["abc"] });
+  const result = await youtube.resources.videos.list({
+    part: ["snippet", "statistics", "status"],
+    id: ["abc"],
+  });
 
   expect(calls[0]?.url).toBe(
-    "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatus&id=abc",
+    "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics%2Cstatus&id=abc",
   );
   const listHeaders = calls[0]?.init?.headers as Record<string, string> | undefined;
   expect(listHeaders?.Authorization).toBe("Bearer token");
+  expect(result.items).toEqual([]);
 });
 
 test("exposes videos.batchGetStats with documented required parameters", async () => {

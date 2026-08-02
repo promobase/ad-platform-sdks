@@ -1,4 +1,5 @@
 import { createAccount } from "./account.ts";
+import { createAnalytics } from "./analytics.ts";
 import { createAssets } from "./assets.ts";
 import { createLinkedInClient, type LinkedInClientOptions } from "./client.ts";
 import { createComments } from "./comments.ts";
@@ -14,6 +15,7 @@ export function createClient(opts: LinkedInClientOptions) {
     assets: createAssets(client),
     comments: createComments(client),
     account: createAccount(client),
+    analytics: createAnalytics(client),
   };
 }
 

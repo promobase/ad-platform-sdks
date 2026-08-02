@@ -7,15 +7,10 @@ export interface AccountVerificationFiletypeParams {
 
 
 export interface AccountVerificationFiletypeResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   file_types?: {
-  file_type_name?: "BUSINESS" | "INDIVIDUAL";
-  file_type_code?: "BUSINESS" | "INDIVIDUAL";
+  file_type_name?: string;
+  file_type_code?: string;
 }[];
-};
 }
 
 
@@ -26,17 +21,12 @@ export interface AccountVerificationUploadParams {
 
 
 export interface AccountVerificationUploadResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   qualification_image_ids?: string[];
-};
 }
 
 
 export interface AccountVerificationSubmitParams {
-  advertiser_id?: "ADVERTISER" | "ADMIN" | "OPERATOR";
+  advertiser_id?: string;
   bc_id?: string;
   business_form?: {
   company_name?: string;
@@ -58,12 +48,7 @@ export interface AccountVerificationSubmitParams {
 }
 
 
-export interface AccountVerificationSubmitResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
+export interface AccountVerificationSubmitResponse {}
 
 
 export interface AccountVerificationStatusParams {
@@ -73,13 +58,8 @@ export interface AccountVerificationStatusParams {
 
 
 export interface AccountVerificationStatusResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   qualification_id?: string;
   verification_status?: "NOT_SUBMITTED" | "REVIEWING" | "VERIFIED" | "FAILED" | "EXPIRED";
   rejection_reason?: string;
   audit_time?: string;
-};
 }

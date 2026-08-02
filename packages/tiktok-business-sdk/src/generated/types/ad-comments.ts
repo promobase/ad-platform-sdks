@@ -1,19 +1,27 @@
 // Auto-generated types for Ad Comments — do not edit
 
-export interface CommentListParams {}
+export interface CommentListParams {
+  advertiser_id: string;
+  comment_type?: ("ALL" | "COMMENT" | "REPLY")[];
+  search_field: string;
+  search_value: string;
+  sort_field?: "CREATE_TIME" | "LIKES" | "REPLIES";
+  sort_type?: "ASC" | "DESC";
+  start_time: string;
+  end_time: string;
+  page_size?: number;
+  page?: number;
+}
 
 
 export interface CommentListResponse {
-  message?: string;
-  code?: number;
-  data?: {
   comments?: {
   comment_id?: string;
   app?: string;
   content?: string;
   likes?: number;
   replies?: number;
-  comment_type?: "COMMENT" | "REPLY";
+  comment_type?: string;
   original_comment_id?: string;
   comment_status?: "HIDDEN" | "PUBLIC";
   hit_blockedword?: boolean;
@@ -27,7 +35,7 @@ export interface CommentListResponse {
   ad_name?: string;
   tiktok_item_id?: string;
   identity_id?: string;
-  identity_type?: "CUSTOMIZED_USER" | "TT_USER";
+  identity_type?: string;
   is_pinned?: boolean;
   can_delete?: boolean;
   is_auth_ttba?: boolean;
@@ -44,22 +52,24 @@ export interface CommentListResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
-export interface CommentReferenceParams {}
+export interface CommentReferenceParams {
+  advertiser_id: string;
+  comment_id: string;
+  comment_type: string;
+  original_comment_id?: string;
+  page_size?: number;
+  page?: number;
+}
 
 
 export interface CommentReferenceResponse {
-  message?: string;
-  code?: number;
-  data?: {
   comments?: {
   comment_id?: string;
   content?: string;
-  comment_type?: "COMMENT" | "REPLY";
+  comment_type?: string;
   comment_status?: "HIDDEN" | "PUBLIC";
   hit_blockedword?: boolean;
   create_time?: string;
@@ -68,7 +78,7 @@ export interface CommentReferenceResponse {
   user_avatar_url?: string;
   tiktok_item_id?: string;
   identity_id?: string;
-  identity_type?: "CUSTOMIZED_USER" | "TT_USER";
+  identity_type?: string;
   is_pinned?: boolean;
   can_delete?: boolean;
   is_auth_ttba?: boolean;
@@ -81,8 +91,6 @@ export interface CommentReferenceResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
@@ -100,13 +108,35 @@ export interface CommentStatusUpdateResponse {
 }
 
 
-export interface CommentPostParams {}
+export interface CommentPostParams {
+  advertiser_id: string;
+  ad_id: string;
+  tiktok_item_id: string;
+  comment_id: string;
+  comment_type: string;
+  text: string;
+  identity_type: "CUSTOMIZED_USER" | "TT_USER";
+  identity_id: string;
+}
 
 
-export interface CommentPostResponse {}
+export interface CommentPostResponse {
+  comment_id?: string;
+  tiktok_item_id?: string;
+  text?: string;
+  create_time?: string;
+  reply_to_comment_id?: string;
+}
 
 
-export interface CommentDeleteParams {}
+export interface CommentDeleteParams {
+  advertiser_id: string;
+  ad_id: string;
+  tiktok_item_id: string;
+  comment_id: string;
+  identity_type: "CUSTOMIZED_USER" | "TT_USER";
+  identity_id: string;
+}
 
 
 export interface CommentDeleteResponse {}
@@ -128,12 +158,7 @@ export interface CommentTaskCreateParams {
 
 
 export interface CommentTaskCreateResponse {
-  message?: string;
-  code?: number;
-  data?: {
   task_id?: string;
-};
-  request_id?: string;
 }
 
 
@@ -144,13 +169,8 @@ export interface CommentTaskCheckParams {
 
 
 export interface CommentTaskCheckResponse {
-  message?: string;
-  code?: number;
-  data?: {
   task_id?: string;
   status?: "RUNNING" | "SUCCEED" | "FAILED";
-};
-  request_id?: string;
 }
 
 
@@ -161,11 +181,5 @@ export interface CommentTaskDownloadParams {
 
 
 export interface CommentTaskDownloadResponse {
-  message?: string;
-  code?: number;
-  data?: {
   csv?: string;
-};
-  request_id?: string;
 }
-

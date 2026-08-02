@@ -1,6 +1,7 @@
 // Auto-generated barrel — do not edit
 // Re-export endpoint factory functions (types can be imported from individual files)
 
+export { createAccounts } from "./endpoints/accounts.ts";
 export { createAds } from "./endpoints/ads.ts";
 export { createAdAccounts } from "./endpoints/ad-accounts.ts";
 export { createAdComments } from "./endpoints/ad-comments.ts";

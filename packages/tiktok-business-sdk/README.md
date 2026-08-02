@@ -21,7 +21,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 ## What
 
 Fully typed TikTok Business API client generated from the official docs. The current snapshot includes
-502 Marketing API endpoints across 70 categories, plus hand-authored OAuth and organic publishing
+531 Marketing API endpoints across 71 categories, plus hand-authored OAuth and organic publishing
 clients. It supports photo/video/carousel publishing, comments, insights, webhooks, and AI SDK tool
 integration with runtime-agnostic `fetch` (Bun, Node, Deno, edge).
 
@@ -52,6 +52,23 @@ await tiktok.content.publishVideo({
 // AI SDK tools
 import { createTikTokTools } from "@openpromo/tiktok/ai";
 const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
+```
+
+## Generated low-level API
+
+The full docs-generated surface is available from `@openpromo/tiktok/generated`. Category types are
+published under `@openpromo/tiktok/generated/types/*`.
+
+```ts
+import { createAccounts } from "@openpromo/tiktok/generated";
+import type { BusinessVideoListParams } from "@openpromo/tiktok/generated/types/accounts";
+
+const accounts = createAccounts({ accessToken: process.env.TIKTOK_TOKEN! });
+const params: BusinessVideoListParams = {
+  business_id: "biz_123",
+  fields: ["likes", "comments", "shares", "reach", "video_views"],
+};
+const { videos } = await accounts.listVideo(params);
 ```
 
 ## Features

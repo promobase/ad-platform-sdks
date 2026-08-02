@@ -8,12 +8,7 @@ export interface TermGetParams {
 
 
 export interface TermGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   terms?: string[];
-};
-  request_id?: string;
 }
 
 
@@ -23,12 +18,7 @@ export interface TermConfirmParams {
 }
 
 
-export interface TermConfirmResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface TermConfirmResponse {}
 
 
 export interface TermCheckParams {
@@ -38,11 +28,5 @@ export interface TermCheckParams {
 
 
 export interface TermCheckResponse {
-  code?: number;
-  message?: string;
-  data?: {
   confirmed?: boolean;
-};
-  request_id?: string;
 }
-

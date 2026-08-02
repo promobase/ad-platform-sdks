@@ -1,18 +1,21 @@
 // Auto-generated types for Files — do not edit
 
-export interface FileTemporarilyUploadParams {}
+export interface FileTemporarilyUploadParams {
+  advertiser_id: string;
+  upload_type: "FILE" | "URL";
+  content_type: string;
+  file?: File | Blob;
+  url?: string;
+  signature?: string;
+  name?: string;
+}
 
 
 export interface FileTemporarilyUploadResponse {
-  code?: number;
-  message?: string;
-  data?: {
   file_id?: string;
   signature?: string;
   file_size?: number;
   create_time?: string;
-};
-  request_id?: string;
 }
 
 
@@ -25,15 +28,10 @@ export interface FileStartUploadParams {
 
 
 export interface FileStartUploadResponse {
-  code?: number;
-  message?: string;
-  data?: {
   upload_id?: string;
   file_name?: string;
   start_offset?: number;
   end_offset?: number;
-};
-  request_id?: string;
 }
 
 
@@ -47,13 +45,8 @@ export interface FileTransferUploadParams {
 
 
 export interface FileTransferUploadResponse {
-  code?: number;
-  message?: string;
-  data?: {
   start_offset?: number;
   end_offset?: number;
-};
-  request_id?: string;
 }
 
 
@@ -64,20 +57,30 @@ export interface FileFinishUploadParams {
 
 
 export interface FileFinishUploadResponse {
-  code?: number;
-  message?: string;
-  data?: {
   file_id?: string;
   file_name?: string;
   create_time?: string;
   size?: number;
-};
-  request_id?: string;
 }
 
 
-export interface FileNameCheckParams {}
+export interface FileNameCheckParams {
+  advertiser_id: string;
+  files?: {
+  file_name?: string;
+  file_type?: "VIDEO" | "IMAGE";
+}[];
+  file_name?: string;
+  file_type?: "VIDEO" | "IMAGE";
+}
 
 
-export interface FileNameCheckResponse {}
-
+export interface FileNameCheckResponse {
+  duplicate?: boolean;
+  duplicate_material_id?: string;
+  batch_results?: {
+  file_name?: string;
+  duplicate?: boolean;
+  duplicate_material_id?: string;
+}[];
+}

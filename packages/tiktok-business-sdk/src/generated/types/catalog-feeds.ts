@@ -12,7 +12,7 @@ export interface CatalogFeedCreateParams {
   password?: string;
 };
   interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
-  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: number;
   timezone?: string;
   day_of_month?: number;
   hour?: number;
@@ -22,10 +22,6 @@ export interface CatalogFeedCreateParams {
 
 
 export interface CatalogFeedCreateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_id?: string;
   feed_name?: string;
   status?: "ON" | "OFF";
@@ -34,14 +30,13 @@ export interface CatalogFeedCreateResponse {
   update_mode?: "OVERWRITE" | "INCREMENTAL";
   timezone?: string;
   interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
-  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: number;
   day_of_month?: number;
   hour?: number;
   minute?: number;
 };
   next_update_time?: string;
   number_of_products?: number;
-};
 }
 
 
@@ -53,10 +48,6 @@ export interface CatalogFeedGetParams {
 
 
 export interface CatalogFeedGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_list?: {
   feed_id?: string;
   feed_name?: string;
@@ -66,7 +57,7 @@ export interface CatalogFeedGetResponse {
   update_mode?: "OVERWRITE" | "INCREMENTAL";
   timezone?: string;
   interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
-  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: number;
   day_of_month?: number;
   hour?: number;
   minute?: number;
@@ -74,7 +65,6 @@ export interface CatalogFeedGetResponse {
   next_update_time?: string;
   number_of_products?: number;
 }[];
-};
 }
 
 
@@ -90,7 +80,7 @@ export interface CatalogFeedUpdateParams {
   password?: string;
 };
   interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
-  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: number;
   timezone?: string;
   day_of_month?: number;
   hour?: number;
@@ -100,10 +90,6 @@ export interface CatalogFeedUpdateParams {
 
 
 export interface CatalogFeedUpdateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_id?: string;
   feed_name?: string;
   status?: "ON" | "OFF";
@@ -112,14 +98,13 @@ export interface CatalogFeedUpdateResponse {
   update_mode?: "OVERWRITE" | "INCREMENTAL" | "SUPPLEMENT";
   timezone?: string;
   interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
-  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: number;
   day_of_month?: number;
   hour?: number;
   minute?: number;
 };
   next_update_time?: string;
   number_of_products?: number;
-};
 }
 
 
@@ -131,12 +116,7 @@ export interface CatalogFeedDeleteParams {
 
 
 export interface CatalogFeedDeleteResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_id?: number;
-};
 }
 
 
@@ -148,10 +128,6 @@ export interface CatalogFeedLogParams {
 
 
 export interface CatalogFeedLogResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_logs?: {
   update_status?: {
   add_count?: number;
@@ -166,7 +142,6 @@ export interface CatalogFeedLogResponse {
   start_time?: string;
 };
 }[];
-};
 }
 
 
@@ -178,10 +153,4 @@ export interface CatalogFeedSwitchParams {
 }
 
 
-export interface CatalogFeedSwitchResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
-
+export interface CatalogFeedSwitchResponse {}

@@ -12,9 +12,6 @@ export interface FileImageAdUploadParams {
 
 
 export interface FileImageAdUploadResponse {
-  code?: number;
-  message?: string;
-  data?: {
   image_id?: string;
   material_id?: string;
   is_carousel_usable?: boolean;
@@ -28,8 +25,6 @@ export interface FileImageAdUploadResponse {
   file_name?: string;
   create_time?: string;
   modify_time?: string;
-};
-  request_id?: string;
 }
 
 
@@ -40,12 +35,7 @@ export interface FileImageAdUpdateParams {
 }
 
 
-export interface FileImageAdUpdateResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface FileImageAdUpdateResponse {}
 
 
 export interface FileImageAdInfoParams {
@@ -55,9 +45,6 @@ export interface FileImageAdInfoParams {
 
 
 export interface FileImageAdInfoResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   image_id?: string;
   material_id?: string;
@@ -73,8 +60,6 @@ export interface FileImageAdInfoResponse {
   modify_time?: string;
   displayable?: boolean;
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -94,9 +79,6 @@ export interface FileImageAdSearchParams {
 
 
 export interface FileImageAdSearchResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   image_id?: string;
   material_id?: string;
@@ -118,7 +100,4 @@ export interface FileImageAdSearchResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
-

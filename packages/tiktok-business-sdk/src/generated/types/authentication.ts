@@ -4,19 +4,14 @@ export interface Oauth2AccessTokenParams {
   app_id: string;
   secret: string;
   auth_code: string;
-  return_advertiser_ids?: "true" | "false";
+  return_advertiser_ids?: boolean;
 }
 
 
 export interface Oauth2AccessTokenResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   access_token?: string;
   advertiser_ids?: string[];
   scope?: number[];
-};
 }
 
 
@@ -28,13 +23,8 @@ export interface Oauth2RevokeTokenParams {
 
 
 export interface Oauth2RevokeTokenResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   app_id?: string;
   advertiser_ids?: string[];
-};
 }
 
 
@@ -48,10 +38,6 @@ export interface TtUserOauth2TokenParams {
 
 
 export interface TtUserOauth2TokenResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   access_token?: string;
   token_type?: string;
   scope?: string;
@@ -59,7 +45,6 @@ export interface TtUserOauth2TokenResponse {
   refresh_token?: string;
   refresh_token_expires_in?: number;
   open_id?: string;
-};
 }
 
 
@@ -71,23 +56,14 @@ export interface TtUserOauth2RefreshTokenParams {
 }
 
 
-export interface TtUserOauth2RefreshTokenResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-  access_token?: string;
-  token_type?: string;
-  scope?: string;
-  expires_in?: number;
-  refresh_token?: string;
-  refresh_token_expires_in?: number;
-  open_id?: string;
+export interface TtUserOauth2RefreshTokenResponse {}
+
+
+export interface TtUserOauth2RevokeParams {
+  client_id: string;
+  client_secret: string;
+  access_token: string;
 }
 
 
-export interface TtUserOauth2RevokeParams {}
-
-
 export interface TtUserOauth2RevokeResponse {}
-

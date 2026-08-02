@@ -7,15 +7,10 @@ export interface CreativeStatusGetParams {
 
 
 export interface CreativeStatusGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   status?: string;
   video_ids?: string;
   error_msg?: string;
   extra_info?: Record<string, unknown>;
-};
-  request_id?: string;
 }
 
 
@@ -30,9 +25,6 @@ export interface CreativeImageEditParams {
 
 
 export interface CreativeImageEditResponse {
-  code?: number;
-  message?: string;
-  data?: {
   image_id?: string;
   material_id?: string;
   displayable?: boolean;
@@ -45,72 +37,68 @@ export interface CreativeImageEditResponse {
   file_name?: string;
   create_time?: string;
   modify_time?: string;
-};
-  request_id?: string;
 }
 
 
 export interface CreativeAdsPreviewCreateParams {
-  advertiser_id: "ADMIN" | "OPERATOR";
+  advertiser_id: string;
   preview_type: string;
-  objective_type: "REACH" | "TRAFFIC" | "VIDEO_VIEWS" | "ENGAGEMENT" | "APP_PROMOTION" | "LEAD_GENERATION" | "WEB_CONVERSIONS" | "PRODUCT_SALES" | "RF_REACH";
-  is_smart_performance_campaign?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "PLACEMENT_PANGLE" | "ALL" | "TRAFFIC" | "REACH" | "VIDEO_VIEWS" | "PRODUCT_SALES" | "false";
-  placement?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "PLACEMENT_TIKTOK" | "REACH" | "TRAFFIC" | "VIDEO_VIEWS" | "ENGAGEMENT" | "APP_PROMOTION" | "LEAD_GENERATION" | "WEB_CONVERSIONS" | "PRODUCT_SALES" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE" | "ALL";
-  tiktok_subplacement?: "REACH" | "PLACEMENT_TIKTOK" | "LEMON8" | "UNSET";
-  preview_format?: "PLACEMENT_TIKTOK" | "IN_FEED" | "SEARCH_RESULTS" | "SEARCH_FEED" | "TIKTOK_LITE" | "PRODUCT_SEARCH" | "PRODUCT_SHOP_CENTER" | "LEMON8" | "IN_FEED_TWO_COLUMNS" | "PLACEMENT_GLOBAL_APP_BUNDLE" | "APP_OPEN" | "REACH" | "VIDEO_VIEWS" | "ENGAGEMENT" | "PLACEMENT_PANGLE";
-  shopping_ads_type?: "PRODUCT_SALES" | "VIDEO" | "LIVE" | "PRODUCT_SHOPPING_ADS" | "CATALOG_CAROUSEL";
+  objective_type: string;
+  is_smart_performance_campaign?: boolean;
+  placement?: string;
+  tiktok_subplacement?: "LEMON8" | "UNSET";
+  preview_format?: string;
+  shopping_ads_type?: "VIDEO" | "LIVE" | "PRODUCT_SHOPPING_ADS";
   product_source?: "STORE" | "SHOWCASE";
-  store_id?: "VIDEO" | "STORE" | "PRODUCT_SHOPPING_ADS" | "LIVE" | "TIKTOK_SHOP";
+  store_id?: string;
   store_authorized_bc_id?: string;
-  showcase_products?: ("VIDEO" | "SHOWCASE")[];
+  showcase_products?: {
+  item_group_id?: string;
+  store_id?: string;
+}[];
   promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "LEAD_GENERATION" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
   identity_id: string;
-  identity_type: "CUSTOMIZED_USER" | "AUTH_CODE" | "TT_USER" | "BC_AUTH_TT" | "CATALOG_CAROUSEL" | "LEAD_GENERATION" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "ENGAGEMENT";
+  identity_type: "CUSTOMIZED_USER" | "AUTH_CODE" | "TT_USER" | "BC_AUTH_TT";
   identity_authorized_bc_id?: string;
-  ad_format: "SINGLE_VIDEO" | "SINGLE_IMAGE" | "CAROUSEL_ADS" | "REACH" | "WEB_CONVERSIONS" | "APP_PROMOTION" | "LEAD_GENERATION" | "TRAFFIC" | "CATALOG_CAROUSEL" | "LIVE_CONTENT";
-  video_id?: "SINGLE_VIDEO" | "SINGLE_IMAGE" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
-  image_ids?: ("SINGLE_IMAGE" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "true")[];
-  end_card_cta?: "LEAD_GENERATION" | "CATALOG_CAROUSEL" | "SEARCH_INVENTORY" | "LEARN_MORE" | "SHOP_NOW" | "SIGN_UP" | "CONTACT_US" | "BOOK_NOW" | "READ_MORE" | "VIEW_MORE" | "ORDER_NOW" | "true";
-  music_id?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
-  tiktok_item_id?: "AUTH_CODE" | "BC_AUTH_TT" | "CUSTOMIZED_USER";
+  ad_format: string;
+  video_id?: string;
+  image_ids?: string[];
+  end_card_cta?: "SEARCH_INVENTORY" | "LEARN_MORE" | "SHOP_NOW" | "SIGN_UP" | "CONTACT_US" | "BOOK_NOW" | "READ_MORE" | "VIEW_MORE" | "ORDER_NOW";
+  music_id?: string;
+  tiktok_item_id?: string;
   carousel_image_index?: number;
   ad_text?: string;
-  call_to_action?: "WATCH_LIVE" | "REACH" | "VIDEO_VIEW" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "SEND_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "CALL_NOW" | "LEAD_GEN_CLICK_TO_CALL" | "PRODUCT_SALES";
-  call_to_action_id?: "REACH" | "VIDEO_VIEW" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "LEAD_GENERATION" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
-  card_id?: "REACH" | "WEBSITE" | "PLACEMENT_TIKTOK" | "SINGLE_VIDEO" | "TRAFFIC" | "VIDEO_VIEWS" | "ENGAGEMENT" | "APP_PROMOTION" | "LEAD_GENERATION" | "WEB_CONVERSIONS" | "PRODUCT_SALES";
-  landing_page_url?: "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "WEBSITE" | "APP_ANDROID" | "APP_IOS";
-  page_id?: "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "WEBSITE" | "APP_ANDROID" | "APP_IOS" | "CATALOG_CAROUSEL";
-  catalog_id?: "CATALOG_CAROUSEL" | "ADMIN" | "AD_PROMOTE";
-  product_specific_type?: "CATALOG_CAROUSEL" | "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "PRODUCT_SHOPPING_ADS" | "STORE" | "VIDEO" | "SHOWCASE" | "LIVE";
-  item_group_ids?: ("PRODUCT_SET" | "VIDEO" | "STORE" | "PRODUCT_SHOPPING_ADS" | "CUSTOMIZED_PRODUCTS")[];
+  call_to_action?: string;
+  call_to_action_id?: string;
+  card_id?: string;
+  landing_page_url?: string;
+  page_id?: string;
+  catalog_id?: string;
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS";
+  item_group_ids?: string[];
   product_set_id?: string;
   sku_ids?: string[];
   hotel_ids?: string[];
   flight_ids?: string[];
   destination_ids?: string[];
   vehicle_ids?: string[];
-  auto_disclaimer_types?: ("LEAD_GENERATION" | "CATALOG_CAROUSEL" | "EMISSION" | "DISCOUNT")[];
+  auto_disclaimer_types?: ("EMISSION" | "DISCOUNT")[];
   catalog_authorized_bc_id?: string;
-  dynamic_format?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "UNSET" | "DYNAMIC_CREATIVE";
-  vertical_video_strategy?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "SINGLE_VIDEO" | "CATALOG_VIDEOS" | "LIVE_STREAM" | "UNSET" | "DYNAMIC_CREATIVE";
+  dynamic_format?: "UNSET" | "DYNAMIC_CREATIVE";
+  vertical_video_strategy?: "SINGLE_VIDEO" | "CATALOG_VIDEOS" | "LIVE_STREAM" | "UNSET" | "DYNAMIC_CREATIVE";
   shopping_ads_video_template_id?: string;
-  shopping_ads_fallback_type?: "DEFAULT" | "CUSTOM" | "SHOPPING_ADS" | "VIDEO" | "CATALOG" | "SINGLE_VIDEO" | "CATALOG_CAROUSEL";
-  dynamic_destination?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "DLP" | "UNSET";
-  instant_product_page_used?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "DLP" | "UNSET" | "true";
+  shopping_ads_fallback_type?: "DEFAULT" | "CUSTOM" | "SHOPPING_ADS";
+  dynamic_destination?: "DLP" | "UNSET";
+  instant_product_page_used?: boolean;
 }
 
 
 export interface CreativeAdsPreviewCreateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
-  preview_link?: "ADS_CREATION" | "AD" | "CARD" | "PAGE" | "SINGLE_VIDEO" | "SINGLE_IMAGE";
+  preview_link?: string;
   iframe?: string;
   tips?: string[];
   placement?: string;
   messages?: string[];
-};
 }
 
 
@@ -129,12 +117,7 @@ export interface CreativeVideoSoundtrackCreateParams {
 
 
 export interface CreativeVideoSoundtrackCreateResponse {
-  code?: number;
-  message?: string;
-  data?: {
   task_id?: string;
-};
-  request_id?: string;
 }
 
 
@@ -152,12 +135,7 @@ export interface CreativeQuickOptimizationCreateParams {
 
 
 export interface CreativeQuickOptimizationCreateResponse {
-  code?: number;
-  message?: string;
-  data?: {
   task_id?: string;
-};
-  request_id?: string;
 }
 
 
@@ -197,45 +175,80 @@ export interface CreativeSmartVideoCreateParams {
 }
 
 
-export interface CreativeSmartVideoCreateResponse {
-  code?: number;
-  message?: string;
-  data?: string;
-  task_id?: string;
-  request_id?: string;
+export interface CreativeSmartVideoCreateResponse {}
+
+
+export interface CreativeAssetShareParams {
+  advertiser_id: string;
+  asset_type?: "VIDEO" | "IMAGE" | "MUSIC";
+  material_ids: string[];
+  shared_advertiser_ids: string[];
 }
 
 
-export interface CreativeAssetShareParams {}
+export interface CreativeAssetShareResponse {
+  failed_infos?: {
+  key?: string;
+  value?: string[];
+};
+}
 
 
-export interface CreativeAssetShareResponse {}
+export interface CreativeAssetDeleteParams {
+  advertiser_id: string;
+  video_ids?: string[];
+  image_ids?: string[];
+}
 
 
-export interface CreativeAssetDeleteParams {}
-
-
-export interface CreativeAssetDeleteResponse {}
+export interface CreativeAssetDeleteResponse {
+  failed_video_ids?: string[];
+  failed_image_ids?: string[];
+}
 
 
 export interface CreativeSmartTextGenerateParams {
   advertiser_id: string;
   adgroup_id: string;
   param_type?: "RECOMMENDED" | "CUSTOMIZED";
-  language?: "EN" | "JA" | "RU" | "VI" | "CUSTOMIZED";
+  language?: "EN" | "JA" | "RU" | "VI";
   industry_id?: string;
   keywords?: string[];
   limit?: number;
 }
 
 
-export interface CreativeSmartTextGenerateResponse {}
+export interface CreativeSmartTextGenerateResponse {
+  generate_id?: string;
+  industry_id?: string;
+  language?: "EN" | "JA" | "RU" | "VI";
+  texts?: string[];
+}
 
 
-export interface CreativeCtaRecommendParams {}
+export interface CreativeCtaRecommendParams {
+  advertiser_id: string;
+  new_version?: boolean;
+  asset_type?: string;
+  content_type?: "APP_DOWNLOAD" | "LANDING_PAGE" | "OTHER" | "MESSAGE" | "SOCIAL_MEDIA_APP_MESSAGE" | "PHONE_CALL";
+  objective_type?: string;
+  promotion_type?: string;
+  language?: string;
+  app_id?: string;
+  placements?: ("PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE")[];
+  region_codes?: string[];
+  optimization_goal?: string;
+  ad_texts?: string[];
+  landing_page_url?: string;
+}
 
 
-export interface CreativeCtaRecommendResponse {}
+export interface CreativeCtaRecommendResponse {
+  recommend_assets?: {
+  asset_ids?: string[];
+  asset_content?: string;
+}[];
+}
 
 
 export interface VideoFixTaskCreateParams {
@@ -248,16 +261,11 @@ export interface VideoFixTaskCreateParams {
 
 
 export interface VideoFixTaskCreateResponse {
-  code?: number;
-  message?: string;
-  data?: {
   tasks?: {
   video_id?: string;
   fix_task_id?: string;
   flaw_types?: ("LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "NO_BGM" | "BLACK_EDGE" | "ILLEGAL_DURATION")[];
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -268,22 +276,46 @@ export interface VideoFixTaskGetParams {
 
 
 export interface VideoFixTaskGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   status?: "PROCESSING" | "FAILED" | "SUCCESS";
   error_msg?: string;
   videos?: {
   video_id?: string;
   video_url?: string;
 }[];
-};
-  request_id?: string;
 }
 
 
-export interface CreativeFatigueGetParams {}
+export interface CreativeFatigueGetParams {
+  advertiser_id: string;
+  ad_id: string;
+  filtering: {
+  start_date: string;
+  end_date: string;
+};
+  page?: number;
+  page_size?: number;
+}
 
 
-export interface CreativeFatigueGetResponse {}
-
+export interface CreativeFatigueGetResponse {
+  list?: {
+  adgroup_id?: string;
+  ad_id?: string;
+  date?: string;
+  metrics?: {
+  has_fatigue?: boolean;
+  fatigue_index?: number;
+  dnu?: number;
+  dnu_ratio?: number;
+  spend?: number;
+  cost_per_conversion?: number;
+  skan_cost_per_conversion?: number;
+};
+}[];
+  page_info?: {
+  page?: number;
+  page_size?: number;
+  total_number?: number;
+  total_page?: number;
+};
+}

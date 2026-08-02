@@ -6,12 +6,7 @@ export interface BlockedwordCreateParams {
 }
 
 
-export interface BlockedwordCreateResponse {
-  message?: string;
-  code?: number;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface BlockedwordCreateResponse {}
 
 
 export interface BlockedwordUpdateParams {
@@ -35,15 +30,10 @@ export interface BlockedwordCheckParams {
 
 
 export interface BlockedwordCheckResponse {
-  message?: string;
-  code?: number;
-  data?: {
   results?: {
   word?: string;
   blocked?: boolean;
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -57,9 +47,6 @@ export interface BlockedwordListParams {
 
 
 export interface BlockedwordListResponse {
-  message?: string;
-  code?: number;
-  data?: {
   list?: {
   bw_content?: string;
 }[];
@@ -69,8 +56,6 @@ export interface BlockedwordListResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
@@ -80,12 +65,7 @@ export interface BlockedwordDeleteParams {
 }
 
 
-export interface BlockedwordDeleteResponse {
-  message?: string;
-  code?: number;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface BlockedwordDeleteResponse {}
 
 
 export interface BlockedwordTaskCreateParams {
@@ -96,12 +76,7 @@ export interface BlockedwordTaskCreateParams {
 
 
 export interface BlockedwordTaskCreateResponse {
-  message?: string;
-  code?: number;
-  data?: {
   task_id?: string;
-};
-  request_id?: string;
 }
 
 
@@ -112,13 +87,8 @@ export interface BlockedwordTaskCheckParams {
 
 
 export interface BlockedwordTaskCheckResponse {
-  message?: string;
-  code?: number;
-  data?: {
   task_id?: string;
-  status?: "RUNNING" | "SUCCEED" | "FAILED";
-};
-  request_id?: string;
+  status?: string;
 }
 
 
@@ -129,4 +99,3 @@ export interface BlockedwordTaskDownloadParams {
 
 
 export interface BlockedwordTaskDownloadResponse {}
-
