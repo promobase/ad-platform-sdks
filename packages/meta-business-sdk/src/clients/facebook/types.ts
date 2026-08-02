@@ -16,6 +16,8 @@ export interface FacebookPageClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;
   pageId: string;
   accessToken: string; // needed for video upload flows (reels, stories)
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface PublishTextPostOptions {
@@ -42,6 +44,8 @@ export interface OAuthConfig {
   appId: string;
   appSecret: string;
   redirectUri: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface LongLivedToken {
@@ -54,6 +58,27 @@ export interface PageToken {
   id: string;
   name: string;
   access_token: string;
+}
+
+export interface FacebookUserProfile {
+  id: string;
+  name: string;
+  email?: string;
+  picture?: { data?: { url?: string; width?: number; height?: number } };
+}
+
+export interface FacebookPermission {
+  permission: string;
+  status: string;
+}
+
+export interface FacebookPageInfo extends PageToken {
+  username?: string;
+  category?: string;
+  fan_count?: number;
+  followers_count?: number;
+  about?: string;
+  picture?: { data?: { url?: string; width?: number; height?: number } };
 }
 
 export interface PublishMultiPhotoOptions {

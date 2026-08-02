@@ -246,6 +246,42 @@ test("OAuth refreshToken calls correct endpoint", async () => {
   expect(url).toContain("graph.instagram.com/refresh_access_token");
 });
 
+test("OAuth fetches a reconnect-ready Instagram business profile", async () => {
+  mockFetchSequence([
+    {
+      body: {
+        id: "ig_456",
+        user_id: "user_1",
+        username: "business",
+        followers_count: 100,
+      },
+    },
+  ]);
+  const oauth = createInstagramOAuth({
+    appId: "app_123",
+    appSecret: "secret",
+    redirectUri: "https://example.com/callback",
+  });
+
+  const profile = await oauth.getBusinessUserProfile("token");
+  expect(profile.username).toBe("business");
+  expect(profile.followers_count).toBe(100);
+});
+
+test("Instagram webhook subscription can be removed", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+
+  await ig.webhooks.unsubscribe();
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  expect(init.method).toBe("DELETE");
+});
+
 test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });

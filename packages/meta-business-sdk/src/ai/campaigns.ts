@@ -1,9 +1,22 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import type { MetaClient } from "./common.ts";
 
-export function createCampaignTools(opts: { api: MetaClient; adAccountId: string }) {
+export function createCampaignTools(opts: {
+  api: MetaClient;
+  adAccountId: string;
+}): Record<
+  | "campaign_list"
+  | "campaign_get"
+  | "campaign_create"
+  | "campaign_update"
+  | "campaign_delete"
+  | "adset_list"
+  | "ad_list"
+  | "ad_account_insights",
+  Tool
+> {
   const { api, adAccountId } = opts;
 
   return {

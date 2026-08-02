@@ -84,9 +84,45 @@ export interface LinkedInMemberPostAnalyticsResponse {
   };
 }
 
+export interface LinkedInSocialMetadata {
+  entity?: LinkedInUrn;
+  commentsState?: string;
+  commentSummary?: { count?: number; topLevelCount?: number };
+  commentsSummary?: { totalFirstLevelComments?: number; aggregatedTotalComments?: number };
+  reactionSummaries?:
+    | Record<string, { reactionType?: string; count?: number }>
+    | Array<{ reactionType?: string; count?: number }>;
+  totalShareStatistics?: LinkedInShareStatistics & { reactionCount?: number };
+}
+
+export interface LinkedInBatchSocialMetadataResponse {
+  results?: Record<string, LinkedInSocialMetadata>;
+  statuses?: Record<string, number>;
+  errors?: Record<string, unknown>;
+}
+
 /** Protocol-level wrappers for LinkedIn's documented post analytics resources. */
 export function createAnalytics(client: LinkedInClient) {
   return {
+    async getSocialMetadata(postUrn: LinkedInUrn): Promise<LinkedInSocialMetadata> {
+      const response = await client.request<LinkedInSocialMetadata>(
+        `/socialMetadata/${encodeURIComponent(postUrn)}`,
+      );
+      return response.data;
+    },
+
+    async batchGetSocialMetadata(
+      postUrns: LinkedInUrn[],
+    ): Promise<LinkedInBatchSocialMetadataResponse> {
+      if (postUrns.length === 0)
+        throw new Error("LinkedIn social metadata requires at least one URN");
+      const response = await client.request<LinkedInBatchSocialMetadataResponse>(
+        "/socialMetadata",
+        { query: { ids: restliList(postUrns) } },
+      );
+      return response.data;
+    },
+
     async getOrganizationShareStatistics(
       params: LinkedInOrganizationShareStatisticsParams,
     ): Promise<LinkedInOrganizationShareStatisticsResponse> {

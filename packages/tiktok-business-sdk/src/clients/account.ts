@@ -12,6 +12,7 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 export function createAccount(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
+  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, query: Record<string, unknown>): Promise<T> {
     const params = new URLSearchParams();
@@ -21,8 +22,9 @@ export function createAccount(opts: TikTokClientOptions) {
       }
     }
 
-    const response = await fetch(`${TT_API_BASE}${path}?${params.toString()}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
       headers: { "Access-Token": accessToken },
+      signal: opts.signal,
     });
 
     const body = (await response.json()) as TikTokResponse<T>;

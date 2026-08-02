@@ -21,11 +21,15 @@ export function createFeed(
   page: PageNode,
   pageId: string,
   accessToken: string,
+  fetchImpl: typeof fetch = fetch,
+  signal?: AbortSignal,
 ) {
   const client = new ApiClient({
     accessToken,
     baseUrl: "https://graph.facebook.com",
     onError: FacebookApiError.fromResponse,
+    fetch: fetchImpl,
+    signal,
   });
 
   return {
@@ -106,8 +110,9 @@ export function createFeed(
       );
 
       // Phase 2: Upload video to the returned URL
-      const uploadResponse = await fetch(startResult.upload_url, {
+      const uploadResponse = await fetchImpl(startResult.upload_url, {
         method: "POST",
+        signal,
         headers: {
           Authorization: `OAuth ${accessToken}`,
           file_url: opts.videoUrl,

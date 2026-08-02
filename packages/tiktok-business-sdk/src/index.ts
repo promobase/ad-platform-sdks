@@ -87,6 +87,18 @@ export type {
   WebhookEventType,
 } from "./clients/types.ts";
 export { TikTokApiError } from "./errors.ts";
+export {
+  createTikTokDeveloperClient,
+  createTikTokDeveloperOAuth,
+  createTikTokDeveloperPkcePair,
+  TikTokDeveloperApiError,
+  type TikTokDeveloperClientOptions,
+  type TikTokDeveloperOAuthConfig,
+  type TikTokDeveloperPrivacyLevel,
+  type TikTokDeveloperPublishStatus,
+  type TikTokDeveloperTokenResponse,
+  type TikTokDeveloperVideo,
+} from "./developer.ts";
 export { TikTok } from "./namespace.ts";
 export type { TikTokCursorOptions, TikTokPaginatedResponse } from "./pagination.ts";
 export { TikTokCursor } from "./pagination.ts";

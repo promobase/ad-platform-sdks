@@ -14,6 +14,7 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
  */
 export function createSparkAds(opts: TikTokClientOptions) {
   const { accessToken, businessId } = opts;
+  const fetchImpl = opts.fetch ?? fetch;
 
   async function request<T>(
     method: string,
@@ -33,10 +34,11 @@ export function createSparkAds(opts: TikTokClientOptions) {
     }
     const init: RequestInit = {
       method,
+      signal: opts.signal,
       headers: { "Access-Token": accessToken, "Content-Type": "application/json" },
     };
     if (body && method === "POST") init.body = JSON.stringify(body);
-    const response = await fetch(url, init);
+    const response = await fetchImpl(url, init);
     const responseBody = (await response.json()) as TikTokResponse<T>;
     if (!response.ok || responseBody.code !== 0) {
       throw new Error(

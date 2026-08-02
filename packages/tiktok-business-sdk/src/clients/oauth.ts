@@ -4,6 +4,7 @@ const TT_AUTH_BASE = "https://www.tiktok.com/v2/auth/authorize";
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 export function createOAuth(config: OAuthConfig) {
+  const fetchImpl = config.fetch ?? fetch;
   return {
     /** Generate the authorization URL to redirect users to. */
     getAuthorizationUrl(opts?: {
@@ -39,8 +40,9 @@ export function createOAuth(config: OAuthConfig) {
 
     /** Exchange authorization code for access + refresh tokens. Auth code is valid 10 minutes, single-use. */
     async exchangeCode(code: string): Promise<TokenResponse> {
-      const response = await fetch(`${TT_API_BASE}/tt_user/oauth2/token/`, {
+      const response = await fetchImpl(`${TT_API_BASE}/tt_user/oauth2/token/`, {
         method: "POST",
+        signal: config.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           client_id: config.clientKey,
@@ -65,8 +67,9 @@ export function createOAuth(config: OAuthConfig) {
 
     /** Refresh access token using a refresh token. Refresh tokens are valid for 1 year. */
     async refreshToken(refreshToken: string): Promise<TokenResponse> {
-      const response = await fetch(`${TT_API_BASE}/tt_user/oauth2/refresh_token/`, {
+      const response = await fetchImpl(`${TT_API_BASE}/tt_user/oauth2/refresh_token/`, {
         method: "POST",
+        signal: config.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           client_id: config.clientKey,
@@ -90,8 +93,9 @@ export function createOAuth(config: OAuthConfig) {
 
     /** Revoke an access token. */
     async revokeToken(accessToken: string): Promise<void> {
-      const response = await fetch(`${TT_API_BASE}/tt_user/oauth2/revoke/`, {
+      const response = await fetchImpl(`${TT_API_BASE}/tt_user/oauth2/revoke/`, {
         method: "POST",
+        signal: config.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           client_id: config.clientKey,
@@ -116,8 +120,9 @@ export function createOAuth(config: OAuthConfig) {
      * Uses app credentials (not the access token in the header).
      */
     async getTokenInfo(accessToken: string): Promise<TokenInfo> {
-      const response = await fetch(`${TT_API_BASE}/tt_user/token_info/get/`, {
+      const response = await fetchImpl(`${TT_API_BASE}/tt_user/token_info/get/`, {
         method: "POST",
+        signal: config.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           app_id: config.clientKey,
@@ -163,8 +168,9 @@ export function createOAuth(config: OAuthConfig) {
         fields: JSON.stringify(fields),
       });
 
-      const response = await fetch(`${TT_API_BASE}/business/get/?${params.toString()}`, {
+      const response = await fetchImpl(`${TT_API_BASE}/business/get/?${params.toString()}`, {
         headers: { "Access-Token": accessToken },
+        signal: config.signal,
       });
 
       if (!response.ok) {

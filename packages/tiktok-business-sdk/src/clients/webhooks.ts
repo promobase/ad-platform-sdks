@@ -8,10 +8,12 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
  */
 export function createWebhooks(config: WebhookConfig) {
   const { appId, appSecret } = config;
+  const fetchImpl = config.fetch ?? fetch;
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetch(`${TT_API_BASE}${path}`, {
+    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
       method: "POST",
+      signal: config.signal,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
@@ -34,7 +36,10 @@ export function createWebhooks(config: WebhookConfig) {
         secret: appSecret,
         event_type: eventType,
       });
-      const response = await fetch(`${TT_API_BASE}/business/webhook/list/?${params.toString()}`);
+      const response = await fetchImpl(
+        `${TT_API_BASE}/business/webhook/list/?${params.toString()}`,
+        { signal: config.signal },
+      );
       const responseBody = (await response.json()) as TikTokResponse<{
         app_id: string;
         event_type: string;

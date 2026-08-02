@@ -16,6 +16,8 @@ export interface TikTokApiClientOptions {
   rateLimiter?: RateLimiter;
   delay?: DelayFn;
   retry?: Partial<RetryConfig>;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 /**
@@ -29,6 +31,8 @@ export class TikTokApiClient {
   private readonly rateLimiter?: RateLimiter;
   private readonly delay: DelayFn;
   private readonly retryConfig: RetryConfig;
+  private readonly fetchImpl: typeof fetch;
+  private readonly signal?: AbortSignal;
 
   constructor(opts: TikTokApiClientOptions) {
     this.accessToken = opts.accessToken;
@@ -39,6 +43,8 @@ export class TikTokApiClient {
     this.retryConfig = opts.retry
       ? { ...DEFAULT_RETRY, ...opts.retry }
       : { ...DEFAULT_RETRY, maxRetries: 0 };
+    this.fetchImpl = opts.fetch ?? fetch;
+    this.signal = opts.signal;
   }
 
   async get<T>(path: string, query?: Record<string, unknown>): Promise<T> {
@@ -95,7 +101,12 @@ export class TikTokApiClient {
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       try {
-        const response = await fetch(url, { method, headers, body: requestBody });
+        const response = await this.fetchImpl(url, {
+          method,
+          headers,
+          body: requestBody,
+          signal: this.signal,
+        });
         const responseBody = (await response.json()) as {
           code: number;
           message: string;

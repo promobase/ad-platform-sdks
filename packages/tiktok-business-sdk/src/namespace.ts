@@ -31,6 +31,11 @@ import type {
   TikTokClientOptions,
   WebhookConfig,
 } from "./clients/types.ts";
+import {
+  createTikTokDeveloperClient,
+  createTikTokDeveloperOAuth,
+  createTikTokDeveloperPkcePair,
+} from "./developer.ts";
 import { TikTokApiError } from "./errors.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
 import { TikTokCursor } from "./pagination.ts";
@@ -96,6 +101,13 @@ export const TikTok = {
   /** Rate limiter implementing sdk-runtime's RateLimiter interface. */
   RateLimiter: {
     create: (opts?: TikTokRateLimiterOptions) => new TikTokRateLimiter(opts),
+  },
+
+  /** Legacy Login Kit and Content Posting API support for existing Developer OAuth accounts. */
+  Developer: {
+    createClient: createTikTokDeveloperClient,
+    OAuth: createTikTokDeveloperOAuth,
+    createPkcePair: createTikTokDeveloperPkcePair,
   },
 
   /**

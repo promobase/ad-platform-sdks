@@ -121,7 +121,7 @@ test("ig_get_account tool executes correctly", async () => {
 
   const result: any = await tools.ig_get_account.execute!(
     {},
-    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal, context: {} },
   );
   expect(result.id).toBe("ig_123");
   expect(result.username).toBe("testuser");
@@ -135,7 +135,7 @@ test("fb_get_account tool executes correctly", async () => {
 
   const result: any = await tools.fb_get_account.execute!(
     {},
-    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal, context: {} },
   );
   expect(result.id).toBe("page_123");
   expect(result.name).toBe("Test Page");
@@ -148,7 +148,7 @@ test("threads_get_account tool executes correctly", async () => {
 
   const result: any = await tools.threads_get_account.execute!(
     {},
-    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal },
+    { toolCallId: "test", messages: [], abortSignal: new AbortController().signal, context: {} },
   );
   expect(result.id).toBe("t_123");
   expect(result.username).toBe("threaduser");

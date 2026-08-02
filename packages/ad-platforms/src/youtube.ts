@@ -3,8 +3,11 @@ export type {
   YouTubeResumableUploadOptions,
   YouTubeUploadBody,
   YouTubeUploadSession,
+  YouTubeOAuthConfig,
+  YouTubeOAuthTokenResponse,
 } from "@openpromo/youtube";
 export {
+  createYouTubeOAuth,
   createYouTubeClient,
   YouTube,
   YouTubeApiError,

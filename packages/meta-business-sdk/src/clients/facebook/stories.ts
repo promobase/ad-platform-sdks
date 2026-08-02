@@ -3,11 +3,18 @@ import { ApiClient } from "@openpromo/sdk-runtime";
 import { FacebookApiError } from "../../errors.ts";
 import type { PublishPhotoStoryOptions, PublishVideoStoryOptions } from "./types.ts";
 
-export function createStories(pageId: string, accessToken: string) {
+export function createStories(
+  pageId: string,
+  accessToken: string,
+  fetchImpl: typeof fetch = fetch,
+  signal?: AbortSignal,
+) {
   const client = new ApiClient({
     accessToken,
     baseUrl: "https://graph.facebook.com",
     onError: FacebookApiError.fromResponse,
+    fetch: fetchImpl,
+    signal,
   });
 
   return {
@@ -30,8 +37,9 @@ export function createStories(pageId: string, accessToken: string) {
       );
 
       // Phase 2: Upload
-      const uploadResponse = await fetch(startResult.upload_url, {
+      const uploadResponse = await fetchImpl(startResult.upload_url, {
         method: "POST",
+        signal,
         headers: {
           Authorization: `OAuth ${accessToken}`,
           file_url: opts.videoUrl,

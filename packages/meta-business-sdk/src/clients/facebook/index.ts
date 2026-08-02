@@ -15,8 +15,8 @@ export function createFacebookPageClient(opts: FacebookPageClientOptions) {
   const page = api.page(pageId);
 
   return {
-    feed: createFeed(api, page, pageId, accessToken),
-    stories: createStories(pageId, accessToken),
+    feed: createFeed(api, page, pageId, accessToken, opts.fetch, opts.signal),
+    stories: createStories(pageId, accessToken, opts.fetch, opts.signal),
     comments: createComments(api),
     messaging: createMessaging(page),
     account: createAccount(api, pageId),
@@ -27,6 +27,9 @@ export function createFacebookPageClient(opts: FacebookPageClientOptions) {
             fields ?? ["feed", "messages", "message_edits", "message_echoes", "message_reactions"]
           ).join(","),
         });
+      },
+      async unsubscribe(): Promise<void> {
+        return api.client.delete(`${pageId}/subscribed_apps`);
       },
     },
   };

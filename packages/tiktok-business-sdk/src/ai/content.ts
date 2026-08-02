@@ -1,10 +1,20 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createTikTokClient } from "../clients/index.ts";
 import type { TikTokClientOptions } from "../clients/types.ts";
 
-export function createTikTokContentTools(opts: TikTokClientOptions) {
+export function createTikTokContentTools(
+  opts: TikTokClientOptions,
+): Record<
+  | "tt_publish_video"
+  | "tt_publish_photo"
+  | "tt_get_publish_status"
+  | "tt_list_videos"
+  | "tt_get_video_settings"
+  | "tt_get_hashtag_suggestions",
+  Tool
+> {
   const tt = createTikTokClient(opts);
 
   return {

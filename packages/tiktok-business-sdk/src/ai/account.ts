@@ -1,10 +1,15 @@
-import { tool } from "ai";
+import { tool, type Tool } from "ai";
 import { z } from "zod";
 
 import { createTikTokClient } from "../clients/index.ts";
 import type { TikTokClientOptions } from "../clients/types.ts";
 
-export function createTikTokAccountTools(opts: TikTokClientOptions) {
+export function createTikTokAccountTools(
+  opts: TikTokClientOptions,
+): Record<
+  "tt_get_account" | "tt_get_benchmarks" | "tt_spark_ads_enable" | "tt_spark_ads_status",
+  Tool
+> {
   const tt = createTikTokClient(opts);
 
   return {

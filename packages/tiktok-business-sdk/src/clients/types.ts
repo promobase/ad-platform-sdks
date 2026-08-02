@@ -4,6 +4,8 @@ export interface OAuthConfig {
   clientKey: string;
   clientSecret: string;
   redirectUri: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export interface TokenResponse {
@@ -21,6 +23,8 @@ export interface TokenResponse {
 export interface TikTokClientOptions {
   accessToken: string;
   businessId: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 // -- API response envelope --
@@ -293,6 +297,8 @@ export type WebhookEventType = "VIDEO" | "COMMENT" | "BRAND_MENTION" | "DIRECT_M
 export interface WebhookConfig {
   appId: string;
   appSecret: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 // -- Video Settings --
@@ -382,6 +388,8 @@ export interface SparkAdsAuthStatus extends SparkAdsAuthResult {
 export interface DiscoveryOptions {
   accessToken: string;
   advertiserId: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export type DiscoveryDateRange = "1DAY" | "7DAY" | "30DAY" | "120DAY";

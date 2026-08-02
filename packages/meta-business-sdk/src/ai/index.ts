@@ -101,6 +101,6 @@ export { createInstagramTools } from "./instagram.ts";
 export type { ToolCallContext, ToolMiddleware } from "./middleware.ts";
 // Middleware, filtering, and routing
 export { withMiddleware } from "./middleware.ts";
-export type { RouterOptions } from "./router.ts";
+export type { RouterOptions, ToolRouter } from "./router.ts";
 export { createRouter } from "./router.ts";
 export { createThreadsTools } from "./threads.ts";

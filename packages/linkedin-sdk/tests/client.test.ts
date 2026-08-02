@@ -266,3 +266,40 @@ test("builds aggregated current-member post analytics queries", async () => {
   expect(url.searchParams.has("entity")).toBe(false);
   expect(url.searchParams.get("queryType")).toBe("POST_SAVE");
 });
+
+test("lists posts by personal or organization author for backfill", async () => {
+  let requestUrl = "";
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    requestUrl = String(input);
+    return jsonResponse({ elements: [{ id: "urn:li:share:1" }], paging: { start: 0, count: 50 } });
+  }) as unknown as typeof fetch;
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+
+  const result = await linkedin.posts.listByAuthor("urn:li:organization:42");
+
+  const url = new URL(requestUrl);
+  expect(url.pathname).toBe("/rest/posts");
+  expect(url.searchParams.get("q")).toBe("author");
+  expect(url.searchParams.get("author")).toBe("urn:li:organization:42");
+  expect(url.searchParams.get("sortBy")).toBe("LAST_MODIFIED");
+  expect(result.elements?.[0]?.id).toBe("urn:li:share:1");
+});
+
+test("gets individual and batch social metadata", async () => {
+  const calls: string[] = [];
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    calls.push(String(input));
+    return jsonResponse(
+      calls.length === 1
+        ? { entity: "urn:li:share:1", commentSummary: { count: 3 } }
+        : { results: { "urn:li:share:1": { entity: "urn:li:share:1" } } },
+    );
+  }) as unknown as typeof fetch;
+  const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
+
+  await linkedin.analytics.getSocialMetadata("urn:li:share:1");
+  await linkedin.analytics.batchGetSocialMetadata(["urn:li:share:1", "urn:li:ugcPost:2"]);
+
+  expect(new URL(calls[0]!).pathname).toBe("/rest/socialMetadata/urn%3Ali%3Ashare%3A1");
+  expect(new URL(calls[1]!).searchParams.get("ids")).toBe("List(urn:li:share:1,urn:li:ugcPost:2)");
+});
