@@ -63,7 +63,7 @@ await generateText({
 
 - **985 typed Meta Graph API objects** with 503 real enum values (not `string`)
 - **Google Ads API v25** with typed GAQL, plus a retained raw v23 compatibility export
-- **502 generated TikTok Marketing API endpoints** across 70 current documentation categories
+- **531 generated TikTok Marketing API endpoints** across 71 current documentation categories
 - **Field-level type narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
 - **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
 - **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
@@ -72,6 +72,8 @@ await generateText({
 - **Retry with exponential backoff** — automatic recovery from 5xx and network errors
 - **Batch API** — typed multi-request batches for Meta
 - **58 AI SDK tools** — type-safe, filterable, with middleware and two-stage routing
+- **Agent-native operation catalog** — shared schemas and execution for direct clients, AI SDK,
+  Code Mode, MCP, and CLI hosts
 - **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
 
 ## Packages
