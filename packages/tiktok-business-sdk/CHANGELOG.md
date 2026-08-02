@@ -1,5 +1,11 @@
 # @openpromo/tiktok
 
+## 0.2.0
+
+### Minor Changes
+
+- [#16](https://github.com/promobase/ad-platform-sdks/pull/16) [`6eb12ce`](https://github.com/promobase/ad-platform-sdks/commit/6eb12ce0741bd2412d661e699d9f8c5682d6d13c) Thanks [@rayli09](https://github.com/rayli09)! - Expose LinkedIn member and organization post analytics, and complete TikTok's generated Accounts API surface including profile and post metrics.
+
 ## 0.1.0
 
 ### Minor Changes
