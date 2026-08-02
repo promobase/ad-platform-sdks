@@ -1,0 +1,287 @@
+{
+  "source": "https://business-api.tiktok.com/gateway/api/doc/client",
+  "docPages": 511,
+  "endpoints": 502,
+  "categories": [
+    {
+      "name": "Ads",
+      "endpoints": 4
+    },
+    {
+      "name": "Ad Accounts",
+      "endpoints": 2
+    },
+    {
+      "name": "Ad Comments",
+      "endpoints": 8
+    },
+    {
+      "name": "Ad Comments - Blocked Words",
+      "endpoints": 8
+    },
+    {
+      "name": "Ad Diagnosis",
+      "endpoints": 1
+    },
+    {
+      "name": "Ad Groups",
+      "endpoints": 7
+    },
+    {
+      "name": "Ad Review",
+      "endpoints": 3
+    },
+    {
+      "name": "Audience",
+      "endpoints": 21
+    },
+    {
+      "name": "Authentication",
+      "endpoints": 5
+    },
+    {
+      "name": "Automated Rules",
+      "endpoints": 8
+    },
+    {
+      "name": "BC Management",
+      "endpoints": 2
+    },
+    {
+      "name": "BC Payments",
+      "endpoints": 8
+    },
+    {
+      "name": "BC Payment Portfolios",
+      "endpoints": 6
+    },
+    {
+      "name": "BC Assets",
+      "endpoints": 23
+    },
+    {
+      "name": "BC Asset Groups",
+      "endpoints": 5
+    },
+    {
+      "name": "BC Billing Groups",
+      "endpoints": 4
+    },
+    {
+      "name": "BC Partners",
+      "endpoints": 5
+    },
+    {
+      "name": "BC Members",
+      "endpoints": 4
+    },
+    {
+      "name": "BC Invoices",
+      "endpoints": 6
+    },
+    {
+      "name": "BC Reporting",
+      "endpoints": 1
+    },
+    {
+      "name": "Brand Safety",
+      "endpoints": 2
+    },
+    {
+      "name": "Business Messaging",
+      "endpoints": 17
+    },
+    {
+      "name": "Campaign",
+      "endpoints": 8
+    },
+    {
+      "name": "Catalog Management",
+      "endpoints": 9
+    },
+    {
+      "name": "Catalog Event Sources",
+      "endpoints": 3
+    },
+    {
+      "name": "Catalog Feeds",
+      "endpoints": 6
+    },
+    {
+      "name": "Catalog Products",
+      "endpoints": 6
+    },
+    {
+      "name": "Catalog Product Sets",
+      "endpoints": 6
+    },
+    {
+      "name": "Catalog Videos",
+      "endpoints": 4
+    },
+    {
+      "name": "Catalog Video Templates",
+      "endpoints": 6
+    },
+    {
+      "name": "Catalog Diagnostics",
+      "endpoints": 5
+    },
+    {
+      "name": "Catalog Insights",
+      "endpoints": 3
+    },
+    {
+      "name": "Change Log",
+      "endpoints": 3
+    },
+    {
+      "name": "Creative Portfolios",
+      "endpoints": 4
+    },
+    {
+      "name": "Creative Reports",
+      "endpoints": 2
+    },
+    {
+      "name": "Creative Tools",
+      "endpoints": 13
+    },
+    {
+      "name": "Custom Conversions",
+      "endpoints": 5
+    },
+    {
+      "name": "Discovery",
+      "endpoints": 7
+    },
+    {
+      "name": "(Deprecated) Dynamic Scene",
+      "endpoints": 5
+    },
+    {
+      "name": "Events 2.0",
+      "endpoints": 1
+    },
+    {
+      "name": "Events 1.0",
+      "endpoints": 27
+    },
+    {
+      "name": "Files",
+      "endpoints": 5
+    },
+    {
+      "name": "GMV Max",
+      "endpoints": 23
+    },
+    {
+      "name": "Identity",
+      "endpoints": 8
+    },
+    {
+      "name": "Images",
+      "endpoints": 4
+    },
+    {
+      "name": "Leads",
+      "endpoints": 10
+    },
+    {
+      "name": "Media Mix Modeling",
+      "endpoints": 4
+    },
+    {
+      "name": "Mentions",
+      "endpoints": 15
+    },
+    {
+      "name": "Music",
+      "endpoints": 2
+    },
+    {
+      "name": "Negative Keywords",
+      "endpoints": 5
+    },
+    {
+      "name": "Page",
+      "endpoints": 4
+    },
+    {
+      "name": "Pangle",
+      "endpoints": 3
+    },
+    {
+      "name": "Playable Ads",
+      "endpoints": 5
+    },
+    {
+      "name": "Reach & Frequency",
+      "endpoints": 7
+    },
+    {
+      "name": "Reporting",
+      "endpoints": 5
+    },
+    {
+      "name": "Showcase",
+      "endpoints": 3
+    },
+    {
+      "name": "Smart Creative",
+      "endpoints": 4
+    },
+    {
+      "name": "(To be deprecated) Legacy Smart+",
+      "endpoints": 5
+    },
+    {
+      "name": "Upgraded Smart+",
+      "endpoints": 20
+    },
+    {
+      "name": "Spark Ads Recommendation",
+      "endpoints": 2
+    },
+    {
+      "name": "Spark Ads Using Authorized Posts",
+      "endpoints": 4
+    },
+    {
+      "name": "Super Split Test",
+      "endpoints": 5
+    },
+    {
+      "name": "Subscription",
+      "endpoints": 3
+    },
+    {
+      "name": "Terms",
+      "endpoints": 3
+    },
+    {
+      "name": "TikTok One",
+      "endpoints": 29
+    },
+    {
+      "name": "TikTok Store",
+      "endpoints": 2
+    },
+    {
+      "name": "Tools",
+      "endpoints": 38
+    },
+    {
+      "name": "Verification",
+      "endpoints": 4
+    },
+    {
+      "name": "Video",
+      "endpoints": 5
+    },
+    {
+      "name": "Welcome Messages",
+      "endpoints": 2
+    }
+  ]
+}

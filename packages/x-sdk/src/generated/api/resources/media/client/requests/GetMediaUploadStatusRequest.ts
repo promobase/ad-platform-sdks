@@ -5,12 +5,10 @@ import type * as XApi from "../../../../index.js";
 /**
  * @example
  *     {
- *         media_id: "1146654567674912769"
+ *         media_id: "media_id"
  *     }
  */
 export interface GetMediaUploadStatusRequest {
-    /** Media id for the requested media upload status. */
     media_id: XApi.MediaId;
-    /** The command for the media upload request. */
     command?: XApi.GetMediaUploadStatusRequestCommand;
 }

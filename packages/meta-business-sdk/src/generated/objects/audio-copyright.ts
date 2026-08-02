@@ -1,10 +1,12 @@
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
+import type { AudioAssetFields } from "./audio-asset.ts";
 import type { MediaCopyrightUpdateRecordFields } from "./media-copyright-update-record.ts";
 import type { VideoCopyrightRuleFields } from "./video-copyright-rule.ts";
 
 export interface AudioCopyrightFields {
+  audio_asset: AudioAssetFields;
   creation_time: string;
   displayed_matches_count: number;
   id: string;

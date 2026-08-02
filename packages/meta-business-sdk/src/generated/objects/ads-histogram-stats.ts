@@ -6,6 +6,7 @@ export interface AdsHistogramStatsFields {
   "1d_ev_all_conversions": number[];
   "1d_ev_first_conversion": number[];
   "1d_passback": number[];
+  "1d_sequenced": number[];
   "1d_view": number[];
   "1d_view_all_conversions": number[];
   "1d_view_first_conversion": number[];
@@ -13,6 +14,7 @@ export interface AdsHistogramStatsFields {
   "28d_click_all_conversions": number[];
   "28d_click_first_conversion": number[];
   "28d_passback": number[];
+  "28d_sequenced": number[];
   "28d_view": number[];
   "28d_view_all_conversions": number[];
   "28d_view_first_conversion": number[];
@@ -20,6 +22,7 @@ export interface AdsHistogramStatsFields {
   "7d_click_all_conversions": number[];
   "7d_click_first_conversion": number[];
   "7d_passback": number[];
+  "7d_sequenced": number[];
   "7d_view": number[];
   "7d_view_all_conversions": number[];
   "7d_view_first_conversion": number[];
@@ -41,6 +44,7 @@ export interface AdsHistogramStatsFields {
   action_video_asset_id: string;
   action_video_sound: string;
   action_video_type: string;
+  custom: number[];
   dda: number[];
   incrementality: number[];
   incrementality_all_conversions: number[];

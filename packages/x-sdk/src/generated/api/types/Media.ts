@@ -2,24 +2,18 @@
 
 import type * as XApi from "../index.js";
 
-export type Media = XApi.Media.AnimatedGif | XApi.Media.Photo | XApi.Media.Video;
-
-export namespace Media {
-    export interface AnimatedGif extends XApi.AnimatedGif, _Base {
-        type: "animated_gif";
-    }
-
-    export interface Photo extends XApi.Photo, _Base {
-        type: "photo";
-    }
-
-    export interface Video extends XApi.Video, _Base {
-        type: "video";
-    }
-
-    export interface _Base {
-        height?: XApi.MediaHeight;
-        media_key?: XApi.MediaKey;
-        width?: XApi.MediaWidth;
-    }
+export interface Media {
+    alt_text?: string | undefined;
+    duration_ms?: number | undefined;
+    height?: number | undefined;
+    media_key?: string | undefined;
+    non_public_metrics?: XApi.MediaNonPublicMetrics | undefined;
+    organic_metrics?: XApi.MediaOrganicMetrics | undefined;
+    preview_image_url?: string | undefined;
+    promoted_metrics?: XApi.MediaPromotedMetrics | undefined;
+    public_metrics?: XApi.MediaPublicMetrics | undefined;
+    type?: string | undefined;
+    url?: string | undefined;
+    variants?: XApi.MediaVariants | undefined;
+    width?: number | undefined;
 }

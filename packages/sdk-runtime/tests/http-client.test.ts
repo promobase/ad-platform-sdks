@@ -1,4 +1,5 @@
 import { expect, mock, test } from "bun:test";
+
 import { HttpClient, HttpError } from "../src/http-client.ts";
 
 test("HttpClient sends JSON POST with custom headers", async () => {

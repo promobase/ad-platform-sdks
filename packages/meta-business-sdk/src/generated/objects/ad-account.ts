@@ -129,6 +129,7 @@ export interface AdAccountFields {
   offsite_clo_signal_status: number;
   offsite_pixels_tos_accepted: boolean;
   opportunity_score: number;
+  opportunity_score_weight: number;
   owner: string;
   owner_business: BusinessFields;
   partner: string;
@@ -217,6 +218,7 @@ export interface AdAccountCreateAdcreativesParams {
   existing_post_title?: string;
   facebook_branded_content?: Record<string, unknown>;
   format_transformation_spec?: Record<string, unknown>[];
+  generative_asset_spec?: Record<string, unknown>;
   image_crops?: Record<string, unknown>;
   image_file?: string;
   image_hash?: string;
@@ -254,6 +256,7 @@ export interface AdAccountCreateAdcreativesParams {
   title?: string;
   url_tags?: string;
   use_page_actor_override?: boolean;
+  wamo_whatsapp_identity_spec?: Record<string, unknown>;
   [key: string]: unknown;
 }
 
@@ -339,6 +342,7 @@ export interface AdAccountCreateAdsParams {
   conversion_domain?: string;
   creative: AdCreativeFields;
   creative_asset_groups_spec?: Record<string, unknown>;
+  creative_automation_spec?: Record<string, unknown>;
   date_format?: string;
   display_sequence?: number;
   draft_adgroup_id?: string;
@@ -381,8 +385,10 @@ export interface AdAccountListAdsetsParams {
 }
 
 export interface AdAccountCreateAdsetsParams {
+  ad_set_goal?: Record<string, unknown>;
   adlabels?: Record<string, unknown>[];
   adset_schedule?: Record<string, unknown>[];
+  attribution_count_type?: string;
   attribution_spec?: Record<string, unknown>[];
   automatic_manual_state?: string;
   bid_adjustments?: Record<string, unknown>;
@@ -390,12 +396,14 @@ export interface AdAccountCreateAdsetsParams {
   bid_constraints?: Record<string, Record<string, unknown>>;
   bid_strategy?: string;
   billing_event?: string;
+  brand_safety_config?: Record<string, unknown>;
   budget_schedule_specs?: Record<string, unknown>[];
   budget_source?: string;
   budget_split_set_id?: string;
   campaign_attribution?: Record<string, unknown>;
   campaign_id?: string;
   campaign_spec?: Record<string, unknown>;
+  cost_bidding_mode?: string;
   creative_sequence?: string[];
   creative_sequence_repetition_pattern?: string;
   daily_budget?: number;
@@ -413,15 +421,19 @@ export interface AdAccountCreateAdsetsParams {
   full_funnel_exploration_mode?: string;
   is_ba_skip_delayed_eligible?: boolean;
   is_budget_schedule_enabled?: boolean;
+  is_dc_follow_optimized?: boolean;
   is_dynamic_creative?: boolean;
   is_incremental_attribution_enabled?: boolean;
   is_sac_cfca_terms_certified?: boolean;
+  is_sequenced_conversion_creation?: boolean;
   lifetime_budget?: number;
   lifetime_imps?: number;
   lifetime_min_spend_target?: number;
   lifetime_spend_cap?: number;
   line_number?: number;
+  live_video_ad_campaign_config?: Record<string, unknown>;
   max_budget_spend_percentage?: number;
+  meta_moment_maker_spec?: Record<string, unknown>;
   min_budget_spend_percentage?: number;
   multi_event_conversion_attribution_window_seconds?: number;
   multi_optimization_goal_weight?: string;
@@ -434,6 +446,7 @@ export interface AdAccountCreateAdsetsParams {
   rb_prediction_id?: string;
   regional_regulated_categories?: string[];
   regional_regulation_identities?: Record<string, unknown>;
+  relative_value?: number;
   rf_prediction_id?: string;
   source_adset_id?: string;
   start_time?: string;
@@ -541,6 +554,7 @@ export interface AdAccountCreateAdvideosParams {
   publish_event_id?: number;
   referenced_sticker_id?: string;
   replace_video_id?: string;
+  selected_audio_spec?: Record<string, unknown>;
   slideshow_spec?: Record<string, unknown>;
   source?: string;
   source_instagram_media_id?: string;
@@ -672,10 +686,13 @@ export interface AdAccountCreateCampaignsParams {
   buying_type?: string;
   daily_budget?: number;
   execution_options?: string[];
+  frequency_control_specs?: Record<string, unknown>[];
   is_adset_budget_sharing_enabled?: boolean;
   is_budget_schedule_enabled?: boolean;
   is_direct_send_campaign?: boolean;
   is_message_campaign?: boolean;
+  is_meta_moment_maker_enabled?: boolean;
+  is_reels_trending_ads_enabled?: boolean;
   is_skadnetwork_attribution?: boolean;
   iterative_split_test_configs?: Record<string, unknown>[];
   lifetime_budget?: number;
@@ -718,6 +735,7 @@ export interface AdAccountListCustomaudiencesParams {
 export interface AdAccountCreateCustomaudiencesParams {
   allowed_domains?: string[];
   associated_audience_id?: number;
+  audience_labels?: string[];
   claim_objective?: string;
   content_type?: string;
   countries?: string;
@@ -884,9 +902,12 @@ export interface AdAccountListMatchedSearchApplicationsParams {
 export interface AdAccountCreateMessageCampaignParams {
   bid_amount?: number;
   daily_budget?: number;
+  end_time?: string;
   lifetime_budget?: number;
   name: string;
   page_id: string;
+  pixel_id?: number;
+  start_time?: string;
   [key: string]: unknown;
 }
 
@@ -904,9 +925,11 @@ export interface AdAccountListMessageDeliveryEstimateParams {
 }
 
 export interface AdAccountCreateMessagesParams {
+  custom_audience_id?: string;
   message?: Record<string, unknown>;
   message_id: number;
-  messenger_delivery_data: Record<string, unknown>;
+  messenger_delivery_data?: Record<string, unknown>;
+  min_conversation_gap_seconds?: number;
   [key: string]: unknown;
 }
 
@@ -987,6 +1010,7 @@ export interface AdAccountCreateReachfrequencypredictionsParams {
   is_higher_average_frequency?: boolean;
   is_reach_and_frequency_io_buying?: boolean;
   is_reserved_buying?: boolean;
+  meta_moment_maker_spec?: Record<string, unknown>;
   num_curve_points?: number;
   objective?: string;
   optimization_goal?: string;
@@ -1115,6 +1139,7 @@ export interface AdAccountListValueRuleSetParams {
 }
 
 export interface AdAccountCreateValueRuleSetParams {
+  entry_point?: string;
   name: string;
   product_type?: string;
   rules: Record<string, unknown>[];

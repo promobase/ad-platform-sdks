@@ -4,6 +4,7 @@ import { metaPagination } from "../../pagination.ts";
 
 export interface IGUserExportForCAMFields {
   age_bucket: string;
+  badges: string[];
   biography: string;
   country: string;
   email: string;
@@ -11,10 +12,14 @@ export interface IGUserExportForCAMFields {
   has_brand_partnership_experience: boolean;
   id: string;
   is_account_verified: boolean;
+  is_creator_following_brand: boolean;
   is_paid_partnership_messages_enabled: boolean;
   messaging_id: string;
   onboarded_status: boolean;
+  page_id: string;
+  page_name: string;
   past_brand_partnership_partners: string[];
+  platforms: string[];
   portfolio_url: string;
   profile_picture_url: string;
   username: string;
@@ -24,6 +29,7 @@ export interface IGUserExportForCAMListInsightsParams {
   breakdown?: string;
   metrics?: string[];
   period?: string;
+  platform?: string[];
   time_range?: string;
   [key: string]: unknown;
 }

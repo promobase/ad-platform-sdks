@@ -67,8 +67,8 @@ const campaign = await meta.adAccount("act_123").campaigns.list({
 
 ## Features
 
-- **994 typed Graph API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and more
-- **483 real enum values** — not `string`, actual narrowed unions
+- **985 typed Graph API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and more
+- **503 real enum values** — not `string`, actual narrowed unions
 - **Field-level narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
 - **Publishing clients** — Instagram, Facebook, Threads (photo, video/reel, carousel, story)
 - **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads

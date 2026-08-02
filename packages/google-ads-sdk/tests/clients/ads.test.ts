@@ -1,5 +1,7 @@
 import { expect, mock, test } from "bun:test";
+
 import { HttpClient } from "@openpromo/sdk-runtime";
+
 import { ads } from "../../src/clients/ads.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -55,7 +57,7 @@ test("remove delegates to adGroupAdService.mutateAdGroupAds", async () => {
   let body: any;
   const client = makeClient((url, init) => {
     body = JSON.parse(init?.body as string);
-    expect(url).toContain("/v23/customers/123/adGroupAds:mutate");
+    expect(url).toContain("/v25/customers/123/adGroupAds:mutate");
     return new Response("{}", { status: 200 });
   });
   await ads(client, "123").remove("customers/123/adGroupAds/777~888");

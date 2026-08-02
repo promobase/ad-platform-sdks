@@ -21,6 +21,7 @@ import type { ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields } from "./shadow
 import type { ShadowIGUserCatalogProductSearchFields } from "./shadow-ig-user-catalog-product-search.ts";
 import type { ShadowIGUserCollaborationInvitesFields } from "./shadow-ig-user-collaboration-invites.ts";
 import type { ShadowIGUserCollaborativeMediaFields } from "./shadow-ig-user-collaborative-media.ts";
+import type { ShopFields } from "./shop.ts";
 import type { ThreadsUserFields } from "./threads-user.ts";
 import type { UserFields } from "./user.ts";
 import type { UserAvailableCatalogsFields } from "./user-available-catalogs.ts";
@@ -29,6 +30,7 @@ import type { UserPageOneTimeOptInTokenSettingsFields } from "./user-page-one-ti
 export interface IGUserFields {
   biography: string;
   business_discovery: IGUserFields;
+  collaborative_media_search: ShadowIGUserCollaborativeMediaFields;
   followers_count: number;
   follows_count: number;
   has_profile_pic: boolean;
@@ -39,6 +41,7 @@ export interface IGUserFields {
   media_count: number;
   mentioned_comment: IGCommentFields;
   mentioned_media: IGMediaFields;
+  mini_shop_storefront: ShopFields;
   name: string;
   owner_business: BusinessFields;
   profile_picture_url: string;
@@ -129,12 +132,18 @@ export interface IGUserListCreatorMarketplaceCreatorsParams {
   creator_max_followers?: number;
   creator_min_engaged_accounts?: number;
   creator_min_followers?: number;
+  creator_states?: string[];
+  custom_audience_id?: string;
   has_public_contact_email?: boolean;
+  is_paid_partnership_messages_enabled?: boolean;
   major_audience_age_bucket?: Record<string, unknown>[];
   major_audience_countries?: string[];
   major_audience_device_type?: Record<string, unknown>[];
   major_audience_gender?: string[];
+  major_audience_states?: string[];
+  platform?: string[];
   query?: string;
+  recommendation_type?: string;
   reels_interaction_rate?: Record<string, unknown>;
   show_onboarded_creators_only?: boolean;
   similar_to_creators?: string[];
@@ -173,13 +182,17 @@ export interface IGUserListMediaParams {
 
 export interface IGUserCreateMediaParams {
   alt_text?: string;
+  audio_configuration?: string;
   audio_name?: string;
+  branded_content_sponsor_ids?: number[];
   caption?: string;
   children?: string[];
   collaborators?: string[];
   cover_url?: string;
   image_url?: string;
+  is_ai_generated?: boolean;
   is_carousel_item?: boolean;
+  is_paid_partnership?: boolean;
   location_id?: string;
   media_type?: string;
   product_tags?: Record<string, unknown>[];
@@ -218,6 +231,13 @@ export interface IGUserListProductAppealParams {
 export interface IGUserCreateProductAppealParams {
   appeal_reason: string;
   product_id: string;
+  [key: string]: unknown;
+}
+
+export interface IGUserListTagsParams {
+  media_type?: string;
+  posted_after?: string;
+  posted_before?: string;
   [key: string]: unknown;
 }
 
@@ -343,7 +363,7 @@ export function iGUserNode(client: ApiClient, id: string) {
       new Cursor<Pick<ShadowIGScheduledMediaFields, F[number]>>(client, `${id}/scheduled_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     stories: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
-    tags: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+    tags: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListTagsParams }) =>
       new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     upcomingEvents: {
       __path: `${id}/upcoming_events`,

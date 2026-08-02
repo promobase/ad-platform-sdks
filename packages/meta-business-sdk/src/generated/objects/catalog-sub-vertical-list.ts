@@ -26,7 +26,6 @@ export interface CatalogSubVerticalListFields {
   large_appliances: Record<string, unknown>;
   local_service_business_item: Record<string, unknown>;
   local_service_business_restaurant: Record<string, unknown>;
-  loyalty_offer: Record<string, unknown>;
   nursery: Record<string, unknown>;
   printers_and_scanners: Record<string, unknown>;
   printers_scanners_and_fax_machines: Record<string, unknown>;

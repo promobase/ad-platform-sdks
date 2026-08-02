@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { buildDepGraph, findCycles } from "../../src/codegen/dep-graph.ts";
 import {
   emitEnumType,

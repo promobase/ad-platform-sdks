@@ -92,7 +92,7 @@ export interface DmpCustomAudienceRuleCreateParams {
   value: string;
   parameter_filters?: {
   field?: "URL" | "CONTENT_TYPE" | "PRICE" | "VALUE" | "CONTENT_ID" | "CONTENT_CATEGORY";
-  operator?: "CONTAINS" | "DOES_NOT_CONTAIN" | "EQ" | "IS_LESS_THAN" | "IS_GREATER_THAN" | "IS_LESS_THAN_OR_EQUAL_TO" | "IS_GRETER_THAN_OR_EQUAL_TO" | "URL" | "DOES_NOT_CONTAINS" | "IS_GREATER_THAN_OR_EQUAL_TO";
+  operator?: "CONTAINS" | "DOES_NOT_CONTAIN" | "EQ" | "NOT_EQUAL" | "IS_LESS_THAN" | "IS_GREATER_THAN" | "IS_LESS_THAN_OR_EQUAL_TO" | "IS_GREATER_THAN_OR_EQUAL_TO" | "URL" | "DOES_NOT_CONTAINS";
   values?: string[];
 }[];
 }[];
@@ -112,7 +112,7 @@ export interface DmpCustomAudienceRuleCreateParams {
   value?: string;
   parameter_filters?: {
   field?: "URL" | "CONTENT_TYPE" | "PRICE" | "VALUE" | "CONTENT_ID" | "CONTENT_CATEGORY";
-  operator?: "CONTAINS" | "DOES_NOT_CONTAIN" | "EQ" | "IS_LESS_THAN" | "IS_GREATER_THAN" | "IS_LESS_THAN_OR_EQUAL_TO" | "IS_GRETER_THAN_OR_EQUAL_TO" | "URL" | "DOES_NOT_CONTAINS" | "IS_GREATER_THAN_OR_EQUAL_TO";
+  operator?: "CONTAINS" | "DOES_NOT_CONTAIN" | "EQ" | "NOT_EQUAL" | "IS_LESS_THAN" | "IS_GREATER_THAN" | "IS_LESS_THAN_OR_EQUAL_TO" | "IS_GREATER_THAN_OR_EQUAL_TO" | "URL" | "DOES_NOT_CONTAINS";
   values?: string[];
 }[];
 }[];
@@ -146,7 +146,7 @@ export interface DmpCustomAudienceLookalikeCreateResponse {}
 
 export interface DmpCustomAudienceLookalikeUpdateParams {
   advertiser_id: string;
-  custom_audience_ids: string;
+  custom_audience_ids: string[];
 }
 
 
@@ -180,7 +180,7 @@ export interface DmpCustomAudienceShareLogResponse {}
 export interface DmpCustomAudienceApplyParams {
   advertiser_id: string;
   custom_audience_id: string;
-  adgroup_ids: string;
+  adgroup_ids: string[];
   action_mode: string;
   usage_mode?: string;
 }
@@ -232,6 +232,66 @@ export interface DmpSavedAudienceCreateResponse {
 }
 
 
+export interface DmpSavedAudienceListParams {
+  advertiser_id: string;
+  saved_audience_ids?: string[];
+}
+
+
+export interface DmpSavedAudienceListResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  saved_audiences?: {
+  saved_audience_id?: string;
+  saved_audience_name?: string;
+  location_ids?: string[];
+  gender?: "GENDER_FEMALE" | "GENDER_MALE" | "GENDER_UNLIMITED";
+  age_groups?: string[];
+  languages?: string[];
+  audience_ids?: string[];
+  excluded_audience_ids?: string[];
+  interest_category_ids?: string[];
+  interest_keyword_ids?: string[];
+  actions?: {
+  action_category_ids?: string[];
+  action_scene?: "VIDEO_RELATED" | "CREATOR_RELATED" | "HASHTAG_RELATED";
+  action_period?: "CREATOR_RELATED" | "HASHTAG_RELATED";
+  video_user_actions?: ("VIDEO_RELATED" | "WATCHED_TO_END" | "LIKED" | "COMMENTED" | "SHARED" | "CREATOR_RELATED" | "FOLLOWING" | "VIEW_HOMEPAGE" | "HASHTAG_RELATED" | "VIEW_HASHTAG")[];
+}[];
+  operating_systems?: ("ANDROID" | "IOS")[];
+  min_android_version?: string;
+  min_ios_version?: string;
+  device_model_ids?: string[];
+  network_types?: string[];
+  carrier_ids?: string[];
+  device_price_ranges?: number[];
+}[];
+  page_info?: {
+  page?: number;
+  page_size?: number;
+  total_number?: number;
+  total_page?: number;
+};
+};
+}
+
+
+export interface DmpSavedAudienceDeleteParams {
+  advertiser_id: string;
+  saved_audience_ids: string[];
+}
+
+
+export interface DmpSavedAudienceDeleteResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: Record<string, unknown>;
+}
+
+
 export interface AudienceInsightInfoParams {
   advertiser_id: string;
   custom_audience_id?: string;
@@ -246,8 +306,8 @@ export interface AudienceInsightInfoParams {
   age_groups?: string[];
   gender?: ("GENDER_FEMALE" | "GENDER_MALE")[];
   device_price_ranges?: number[];
-  min_ios_version?: string[];
-  min_android_version?: string[];
+  min_ios_version?: string;
+  min_android_version?: string;
   operating_systems?: ("ANDROID" | "IOS")[];
   interest_category_ids?: string[];
   video_action_category_ids?: string[];

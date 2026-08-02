@@ -57,13 +57,17 @@ export interface IGUserForIGOnlyAPIListMediaParams {
 
 export interface IGUserForIGOnlyAPICreateMediaParams {
   alt_text?: string;
+  audio_configuration?: string;
   audio_name?: string;
+  branded_content_sponsor_ids?: number[];
   caption?: string;
   children?: string[];
   collaborators?: string[];
   cover_url?: string;
   image_url?: string;
+  is_ai_generated?: boolean;
   is_carousel_item?: boolean;
+  is_paid_partnership?: boolean;
   location_id?: string;
   media_type?: string;
   product_tags?: Record<string, unknown>[];
@@ -117,8 +121,27 @@ export interface IGUserForIGOnlyAPICreateMessengerProfileParams {
   [key: string]: unknown;
 }
 
+export interface IGUserForIGOnlyAPICreatePassthreadcontrolParams {
+  metadata?: string;
+  recipient?: Record<string, unknown>;
+  target_app_id?: string;
+  [key: string]: unknown;
+}
+
+export interface IGUserForIGOnlyAPICreateReleasethreadcontrolParams {
+  recipient?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
 export interface IGUserForIGOnlyAPICreateSubscribedAppsParams {
   subscribed_fields: string[];
+  [key: string]: unknown;
+}
+
+export interface IGUserForIGOnlyAPIListTagsParams {
+  media_type?: string;
+  posted_after?: string;
+  posted_before?: string;
   [key: string]: unknown;
 }
 
@@ -183,6 +206,10 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
       delete: (params: IGUserForIGOnlyAPIDeleteMessengerProfileParams) =>
         client.delete(`${id}/messenger_profile`, params as Record<string, unknown> ?? {}),
     },
+    createPassthreadcontrol: (params: IGUserForIGOnlyAPICreatePassthreadcontrolParams) =>
+      client.post<Record<string, unknown>>(`${id}/passthreadcontrol`, params as Record<string, unknown>),
+    createReleasethreadcontrol: (params: IGUserForIGOnlyAPICreateReleasethreadcontrolParams) =>
+      client.post<Record<string, unknown>>(`${id}/releasethreadcontrol`, params as Record<string, unknown>),
     stories: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     subscribedApps: {
@@ -195,7 +222,7 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
-    tags: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
+    tags: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListTagsParams }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     welcomeMessageFlows: {
       __path: `${id}/welcome_message_flows`,

@@ -3,6 +3,7 @@ import type { ApiClient } from "@openpromo/sdk-runtime";
 export interface SignalsIWLExtractorFields {
   domain_uri: string;
   event_type: string;
+  extractor_config: Record<string, unknown>;
   extractor_type: string;
   id: string;
 }

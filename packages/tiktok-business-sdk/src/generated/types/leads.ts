@@ -75,6 +75,38 @@ export interface PageLeadMockDeleteResponse {
 }
 
 
+export interface PageLeadTaskParams {
+  advertiser_id?: string;
+  library_id?: string;
+  ad_id?: string;
+  page_id?: string;
+  task_id?: string;
+}
+
+
+export interface PageLeadTaskResponse {
+  code?: number;
+  message?: string;
+  data?: {
+  status?: "CREATED" | "FAILED" | "RUNNING" | "SUCCEED";
+  task_id?: string;
+  file_name?: string;
+  file_type?: string;
+};
+  request_id?: string;
+}
+
+
+export interface PageLeadTaskDownloadParams {
+  advertiser_id?: string;
+  library_id?: string;
+  task_id: string;
+}
+
+
+export interface PageLeadTaskDownloadResponse {}
+
+
 export interface PageLibraryGetParams {}
 
 

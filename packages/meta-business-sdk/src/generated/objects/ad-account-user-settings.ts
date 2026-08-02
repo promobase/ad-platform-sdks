@@ -13,6 +13,7 @@ export interface AdAccountUserSettingsFields {
   ads_manager_footer_row_toast_impressions: number;
   auto_review_video_caption: boolean;
   budget_optimization_quick_view_created: boolean;
+  budget_pool_qv_created: boolean;
   campaign_overview_columns: string[];
   column_suggestion_status: string;
   conditional_formatting_rules: string[];

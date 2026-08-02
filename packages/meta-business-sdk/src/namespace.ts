@@ -27,6 +27,12 @@ import type {
   ThreadsClientOptions,
   OAuthConfig as ThreadsOAuthConfig,
 } from "./clients/threads/types.ts";
+// Zod schemas
+import {
+  fbWebhookPayloadSchema,
+  igWebhookPayloadSchema,
+  threadsWebhookPayloadSchema,
+} from "./clients/webhooks-schemas.ts";
 import type { WebhookParseOptions, WebhookParseResult } from "./clients/webhooks.ts";
 // Webhooks
 import {
@@ -40,12 +46,6 @@ import {
   verifyWebhookSignature,
   WebhookParseError,
 } from "./clients/webhooks.ts";
-// Zod schemas
-import {
-  fbWebhookPayloadSchema,
-  igWebhookPayloadSchema,
-  threadsWebhookPayloadSchema,
-} from "./clients/webhooks-schemas.ts";
 import { FacebookApiError } from "./errors.ts";
 import type { MetaClientOptions } from "./generated/client-factory.ts";
 import { createTypedClient } from "./generated/client-factory.ts";

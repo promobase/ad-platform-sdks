@@ -9,8 +9,7 @@ import type * as XApi from "../../../../index.js";
  *     }
  */
 export interface GetMediaByMediaKeyRequest {
-    /** A single Media Key. */
-    media_key: XApi.MediaKey;
+    media_key: string;
     /** A comma separated list of Media fields to display. */
     "media.fields"?: XApi.GetMediaByMediaKeyRequestMediaFieldsItem | XApi.GetMediaByMediaKeyRequestMediaFieldsItem[];
 }

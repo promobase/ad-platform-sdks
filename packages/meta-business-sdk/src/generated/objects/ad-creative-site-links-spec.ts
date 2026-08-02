@@ -8,6 +8,7 @@ export interface AdCreativeSiteLinksSpecFields {
   site_link_image_hash: string;
   site_link_image_url: string;
   site_link_language: string;
+  site_link_original_url: string;
   site_link_recommendation_type: string;
   site_link_title: string;
   site_link_url: string;

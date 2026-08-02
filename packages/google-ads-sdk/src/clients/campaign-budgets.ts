@@ -1,6 +1,7 @@
 import type { HttpClient } from "@openpromo/sdk-runtime";
-import type { CampaignBudget } from "../generated/v23/resources/CampaignBudget.ts";
-import { campaignBudgetService, googleAdsService } from "../generated/v23/services/index.ts";
+
+import type { CampaignBudget } from "../generated/v25/resources/CampaignBudget.ts";
+import { campaignBudgetService, googleAdsService } from "../generated/v25/services/index.ts";
 
 const GAQL_FIELDS =
   "campaign_budget.id, campaign_budget.name, campaign_budget.amount_micros, campaign_budget.delivery_method, campaign_budget.resource_name";

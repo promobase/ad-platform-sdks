@@ -1,4 +1,5 @@
 import { expect, mock, test } from "bun:test";
+
 import { createClient } from "../src/client.ts";
 
 test("createClient builds headers with Bearer, developer-token, login-customer-id", async () => {
@@ -14,6 +15,7 @@ test("createClient builds headers with Bearer, developer-token, login-customer-i
     loginCustomerId: "1234567890",
     fetch: fetchMock as unknown as typeof fetch,
   });
+  expect(client.apiVersion).toBe("v25");
 
   await client.http.get("/v23/customers:listAccessibleCustomers");
 

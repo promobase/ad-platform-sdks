@@ -6,7 +6,7 @@
 
 # @openpromo/google-ads
 
-**Type-safe TypeScript SDK for the Google Ads API v23 — generated from protobuf, with a typed GAQL query builder.**
+**Type-safe TypeScript SDK for the Google Ads API v25 — generated from protobuf, with a typed GAQL query builder.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
@@ -20,7 +20,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-A fetch-based, runtime-agnostic Google Ads v23 client generated from the official protos. 184 resource types, 111 services, 543 enums, 235 metric fields, 132 segment fields — all typed. Plus a customer-bound factory for campaign lifecycle flows and a typed GAQL query builder with field-literal autocomplete and row-level narrowing.
+A fetch-based, runtime-agnostic Google Ads v25 client generated from the official protos. 184 GAQL resources, 110 services, 558 enums, 282 metric fields, and 155 segment fields — all typed. Plus a customer-bound factory for campaign lifecycle flows and a typed GAQL query builder with field-literal autocomplete and row-level narrowing. The prior raw v23 surface remains available from `@openpromo/google-ads/v23`.
 
 ## Install
 
@@ -75,7 +75,7 @@ const { rows } = await customer.gaql
 
 ## Features
 
-- **184 resource types, 111 services** — generated from pinned v23 protos
+- **184 GAQL resources, 110 services** — generated from pinned v25 protos
 - **Typed GAQL builder** — `.from().select(...).where().limit().execute()` with deep row narrowing
 - **Customer-bound factory** — `customer.campaigns.create(...)`, `customer.adGroups.create(...)`, rich refs
 - **Proper error surface** — `GoogleAdsError` parses nested `GoogleAdsFailure` details + request ID

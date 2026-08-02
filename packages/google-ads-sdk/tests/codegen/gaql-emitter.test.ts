@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
 import path from "node:path";
+
 import { emitGaqlCatalog } from "../../src/codegen/gaql-emitter.ts";
 import { loadProtos } from "../../src/codegen/parser.ts";
 

@@ -1,7 +1,4 @@
-export type {
-  LinkedInOrganization,
-  LinkedInOrganizationAcl,
-} from "./account.ts";
+export type { LinkedInOrganization, LinkedInOrganizationAcl } from "./account.ts";
 export { createAccount } from "./account.ts";
 export { createAssets } from "./assets.ts";
 export {
@@ -33,6 +30,7 @@ export type {
   LinkedInUserInfo,
   LinkedInVideoPostParams,
   LinkedInVideoUploadInstruction,
+  LinkedInVideoUploadOptions,
   LinkedInVideoUploadSession,
   LinkedInVisibility,
 } from "./types.ts";

@@ -1,4 +1,5 @@
 export interface AdAccountLiveVideoAdvertiserFields {
+  ig_lva_default_duration_s: number;
   is_lva_toggle_on: boolean;
   lva_default_budget: number;
   lva_default_duration_s: number;

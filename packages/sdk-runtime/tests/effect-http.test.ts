@@ -1,5 +1,7 @@
 import { expect, test } from "bun:test";
+
 import { Effect } from "effect";
+
 import { EffectHttpError, jsonRequestEffect } from "../src/effect-http.ts";
 
 const retry = {

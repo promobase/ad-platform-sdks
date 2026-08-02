@@ -9,6 +9,7 @@ import type { AdCreativeDegreesOfFreedomSpecFields } from "./ad-creative-degrees
 import type { AdCreativeDestinationSpecFields } from "./ad-creative-destination-spec.ts";
 import type { AdCreativeFacebookBrandedContentFields } from "./ad-creative-facebook-branded-content.ts";
 import type { AdCreativeFormatTransformationSpecFields } from "./ad-creative-format-transformation-spec.ts";
+import type { AdCreativeGenerativeAssetSpecFields } from "./ad-creative-generative-asset-spec.ts";
 import type { AdCreativeInsightsFields } from "./ad-creative-insights.ts";
 import type { AdCreativeInstagramBrandedContentFields } from "./ad-creative-instagram-branded-content.ts";
 import type { AdCreativeInteractiveComponentsSpecFields } from "./ad-creative-interactive-components-spec.ts";
@@ -25,6 +26,7 @@ import type { AdCreativeRecommenderSettingsFields } from "./ad-creative-recommen
 import type { AdCreativeRegionalRegulationDisclaimerFields } from "./ad-creative-regional-regulation-disclaimer.ts";
 import type { AdCreativeSourcingSpecFields } from "./ad-creative-sourcing-spec.ts";
 import type { AdCreativeTemplateURLSpecFields } from "./ad-creative-template-url-spec.ts";
+import type { AdCreativeWAMOWhatsAppIdentitySpecFields } from "./ad-creative-wamo-whats-app-identity-spec.ts";
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPreviewFields } from "./ad-preview.ts";
 import type { AdsImageCropsFields } from "./ads-image-crops.ts";
@@ -62,6 +64,7 @@ export interface AdCreativeFields {
   existing_post_title: string;
   facebook_branded_content: AdCreativeFacebookBrandedContentFields;
   format_transformation_spec: AdCreativeFormatTransformationSpecFields[];
+  generative_asset_spec: AdCreativeGenerativeAssetSpecFields;
   id: string;
   image_crops: AdsImageCropsFields;
   image_hash: string;
@@ -107,6 +110,7 @@ export interface AdCreativeFields {
   url_tags: string;
   use_page_actor_override: boolean;
   video_id: string;
+  wamo_whatsapp_identity_spec: AdCreativeWAMOWhatsAppIdentitySpecFields;
 }
 
 export interface AdCreativeCreateAdlabelsParams {

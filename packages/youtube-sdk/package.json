@@ -28,7 +28,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "node ../../scripts/generate-youtube-sdk.mjs",
+    "codegen": "bun ../../scripts/generate-youtube-sdk.mjs",
     "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/youtube-sdk/src/generated",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
@@ -43,7 +43,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": ">=5.9.3 <8"
   },
   "exports": {
     ".": {

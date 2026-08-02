@@ -1,5 +1,7 @@
 import { expect, mock, test } from "bun:test";
+
 import { HttpClient } from "@openpromo/sdk-runtime";
+
 import { adGroups } from "../../src/clients/ad-groups.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -16,7 +18,7 @@ test("create resolves Ref<Campaign> and posts the correct body", async () => {
   let body: any;
   const client = makeClient((url, init) => {
     body = JSON.parse(init?.body as string);
-    expect(url).toContain("/v23/customers/123/adGroups:mutate");
+    expect(url).toContain("/v25/customers/123/adGroups:mutate");
     return new Response(
       JSON.stringify({ results: [{ resourceName: "customers/123/adGroups/777" }] }),
       { status: 200 },

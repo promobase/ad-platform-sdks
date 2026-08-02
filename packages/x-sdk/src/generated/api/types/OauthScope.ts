@@ -11,6 +11,12 @@ export const OauthScope = {
      * Create and delete your bookmarks. */
     BookmarkWrite: "bookmark.write",
     /**
+     * View your live broadcasts and their chat. */
+    BroadcastRead: "broadcast.read",
+    /**
+     * Manage your live broadcasts and send chat messages on your behalf. */
+    BroadcastWrite: "broadcast.write",
+    /**
      * Read all your Direct Messages. */
     DmRead: "dm.read",
     /**
@@ -50,16 +56,16 @@ export const OauthScope = {
      * View all Spaces you have access to. */
     SpaceRead: "space.read",
     /**
-     * View all Custom Timelines you can see, including public Custom Timelines from other developers. */
+     * View all Custom Timelines you can see. */
     TimelineRead: "timeline.read",
     /**
-     * Hide and unhide replies to your Posts. */
+     * Hide and unhide replies to your posts. */
     TweetModerateWrite: "tweet.moderate.write",
     /**
-     * View all Posts you can see, including those from protected accounts. */
+     * View all posts you can see, including those from protected accounts. */
     TweetRead: "tweet.read",
     /**
-     * Post and repost on your behalf. */
+     * Create and repost on your behalf. */
     TweetWrite: "tweet.write",
     /**
      * View any account you can see, including protected accounts. */

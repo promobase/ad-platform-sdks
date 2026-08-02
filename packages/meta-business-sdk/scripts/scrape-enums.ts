@@ -1,6 +1,7 @@
 import { extractAllEnums } from "../src/codegen/enum-extractor.ts";
 
-const enums = await extractAllEnums("/tmp/fb-node-sdk/src/objects");
+const enumSourceDir = process.argv[2] ?? "/tmp/fb-node-sdk/src/objects";
+const enums = await extractAllEnums(enumSourceDir);
 console.log(`Extracted ${enums.size} enums`);
 
 // Convert Map to JSON-serializable object

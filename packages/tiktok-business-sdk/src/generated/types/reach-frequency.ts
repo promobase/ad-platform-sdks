@@ -51,7 +51,7 @@ export interface AdgroupRfCreateResponse {
   category_exclusion_ids?: string[];
   video_download_disabled?: boolean;
   feed_type?: "STANDARD_FEED" | "TOP_FEED";
-  delivery_mode?: "STANDARD" | "SCHEDULE" | "SEQUENCE" | "OPTIMIZE";
+  delivery_mode?: "STANDARD" | "SCHEDULE" | "SEQUENCE" | "VIEW_OPTIMIZE" | "OPTIMIZE";
   schedule_infos?: {
   schedules?: {
   start_time?: string;
@@ -112,7 +112,7 @@ export interface AdgroupRfUpdateResponse {
   category_exclusion_ids?: string[];
   video_download_disabled?: boolean;
   feed_type?: "STANDARD_FEED" | "TOP_FEED";
-  delivery_mode?: "STANDARD" | "SCHEDULE" | "SEQUENCE" | "OPTIMIZE";
+  delivery_mode?: "STANDARD" | "SCHEDULE" | "SEQUENCE" | "VIEW_OPTIMIZE" | "OPTIMIZE";
   schedule_infos?: {
   schedules?: {
   start_time?: string;

@@ -143,6 +143,8 @@ export interface AdsPixelUpdateParams {
   first_party_cookie_status?: string;
   name?: string;
   server_events_business_ids?: string[];
+  server_events_business_ids_add?: string[];
+  server_events_business_ids_remove?: string[];
   [key: string]: unknown;
 }
 

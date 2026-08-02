@@ -14,6 +14,7 @@ import type { UserFields } from "./user.ts";
 
 export interface IGMediaFields {
   alt_text: string;
+  audio_id: string;
   boost_eligibility_info: IGMediaBoostEligibilityInfoFields;
   caption: string;
   comments_count: number;
@@ -23,18 +24,26 @@ export interface IGMediaFields {
   has_slider: boolean;
   id: string;
   ig_id: string;
+  is_ai_generated: boolean;
   is_comment_enabled: boolean;
   is_shared_to_feed: boolean;
   legacy_instagram_media_id: string;
   like_count: number;
+  media_audio_type: string;
   media_product_type: string;
   media_type: string;
   media_url: string;
   owner: IGUserFields;
   permalink: string;
+  reposts_count: number;
+  saved_count: number;
+  shares_count: number;
   shortcode: string;
   thumbnail_url: string;
   timestamp: string;
+  total_comments_count: number;
+  total_like_count: number;
+  total_views_count: number;
   username: string;
   video_title: string;
   view_count: number;

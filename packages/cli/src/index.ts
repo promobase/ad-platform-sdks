@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from "commander";
+
 import { serveMcpStdio } from "./mcp.ts";
 import { registerPlatformCommands } from "./register.ts";
 

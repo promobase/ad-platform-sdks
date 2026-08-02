@@ -1,5 +1,5 @@
 // Auto-generated client for Audience — do not edit
-import type { DmpCustomAudienceFileUploadParams, DmpCustomAudienceFileUploadResponse, DmpCustomAudienceCreateParams, DmpCustomAudienceCreateResponse, SegmentAudienceParams, SegmentAudienceResponse, SegmentMappingParams, SegmentMappingResponse, DmpCustomAudienceUpdateParams, DmpCustomAudienceUpdateResponse, DmpCustomAudienceListParams, DmpCustomAudienceListResponse, DmpCustomAudienceGetParams, DmpCustomAudienceGetResponse, DmpCustomAudienceRuleCreateParams, DmpCustomAudienceRuleCreateResponse, DmpCustomAudienceLookalikeCreateParams, DmpCustomAudienceLookalikeCreateResponse, DmpCustomAudienceLookalikeUpdateParams, DmpCustomAudienceLookalikeUpdateResponse, DmpCustomAudienceDeleteParams, DmpCustomAudienceDeleteResponse, DmpCustomAudienceShareParams, DmpCustomAudienceShareResponse, DmpCustomAudienceShareCancelParams, DmpCustomAudienceShareCancelResponse, DmpCustomAudienceShareLogParams, DmpCustomAudienceShareLogResponse, DmpCustomAudienceApplyParams, DmpCustomAudienceApplyResponse, DmpCustomAudienceApplyLogParams, DmpCustomAudienceApplyLogResponse, DmpSavedAudienceCreateParams, DmpSavedAudienceCreateResponse, AudienceInsightInfoParams, AudienceInsightInfoResponse, AudienceInsightOverlapParams, AudienceInsightOverlapResponse } from "../types/audience.ts";
+import type { DmpCustomAudienceFileUploadParams, DmpCustomAudienceFileUploadResponse, DmpCustomAudienceCreateParams, DmpCustomAudienceCreateResponse, SegmentAudienceParams, SegmentAudienceResponse, SegmentMappingParams, SegmentMappingResponse, DmpCustomAudienceUpdateParams, DmpCustomAudienceUpdateResponse, DmpCustomAudienceListParams, DmpCustomAudienceListResponse, DmpCustomAudienceGetParams, DmpCustomAudienceGetResponse, DmpCustomAudienceRuleCreateParams, DmpCustomAudienceRuleCreateResponse, DmpCustomAudienceLookalikeCreateParams, DmpCustomAudienceLookalikeCreateResponse, DmpCustomAudienceLookalikeUpdateParams, DmpCustomAudienceLookalikeUpdateResponse, DmpCustomAudienceDeleteParams, DmpCustomAudienceDeleteResponse, DmpCustomAudienceShareParams, DmpCustomAudienceShareResponse, DmpCustomAudienceShareCancelParams, DmpCustomAudienceShareCancelResponse, DmpCustomAudienceShareLogParams, DmpCustomAudienceShareLogResponse, DmpCustomAudienceApplyParams, DmpCustomAudienceApplyResponse, DmpCustomAudienceApplyLogParams, DmpCustomAudienceApplyLogResponse, DmpSavedAudienceCreateParams, DmpSavedAudienceCreateResponse, DmpSavedAudienceListParams, DmpSavedAudienceListResponse, DmpSavedAudienceDeleteParams, DmpSavedAudienceDeleteResponse, AudienceInsightInfoParams, AudienceInsightInfoResponse, AudienceInsightOverlapParams, AudienceInsightOverlapResponse } from "../types/audience.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -125,6 +125,16 @@ export function createAudience(opts: { accessToken: string; advertiserId: string
     /** Create a Saved Audience */
     async createSavedAudience(params: DmpSavedAudienceCreateParams): Promise<DmpSavedAudienceCreateResponse> {
       return post<DmpSavedAudienceCreateResponse>("/open_api/v1.3/dmp/saved_audience/create/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get details of Saved Audiences */
+    async listSavedAudience(params: DmpSavedAudienceListParams): Promise<DmpSavedAudienceListResponse> {
+      return get<DmpSavedAudienceListResponse>("/open_api/v1.3/dmp/saved_audience/list/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Delete Saved Audiences */
+    async deleteSavedAudience(params: DmpSavedAudienceDeleteParams): Promise<DmpSavedAudienceDeleteResponse> {
+      return post<DmpSavedAudienceDeleteResponse>("/open_api/v1.3/dmp/saved_audience/delete/", params as unknown as Record<string, unknown>);
     },
 
     /** Get details of potential audiences */

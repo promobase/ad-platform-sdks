@@ -3,6 +3,7 @@ import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdCreativeFields } from "./ad-creative.ts";
 import type { AdCreativeAssetGroupsSpecFields } from "./ad-creative-asset-groups-spec.ts";
+import type { AdCreativeAutomationSpecFields } from "./ad-creative-automation-spec.ts";
 import type { AdLabelFields } from "./ad-label.ts";
 import type { AdPreviewFields } from "./ad-preview.ts";
 import type { AdRecommendationFields } from "./ad-recommendation.ts";
@@ -43,6 +44,7 @@ export interface AdFields {
   created_time: string;
   creative: AdCreativeFields;
   creative_asset_groups_spec: AdCreativeAssetGroupsSpecFields;
+  creative_automation_spec: AdCreativeAutomationSpecFields;
   demolink_hash: string;
   display_sequence: number;
   effective_status: AdEffectiveStatus;
@@ -175,6 +177,7 @@ export interface AdUpdateParams {
   conversion_domain?: string;
   creative?: AdCreativeFields;
   creative_asset_groups_spec?: Record<string, unknown>;
+  creative_automation_spec?: Record<string, unknown>;
   display_sequence?: number;
   draft_adgroup_id?: string;
   engagement_audience?: boolean;

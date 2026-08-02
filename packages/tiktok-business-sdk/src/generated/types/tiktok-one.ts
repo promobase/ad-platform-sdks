@@ -1,6 +1,6 @@
 // Auto-generated types for TikTok One — do not edit
 
-export interface TtUserOauth2RevokeParams {
+export interface TtUserOauth2TokenParams {
   client_id: string;
   client_secret: string;
   grant_type: string;
@@ -9,7 +9,7 @@ export interface TtUserOauth2RevokeParams {
 }
 
 
-export interface TtUserOauth2RevokeResponse {
+export interface TtUserOauth2TokenResponse {
   code?: number;
   message?: string;
   request_id?: string;
@@ -162,6 +162,22 @@ export interface TtoTcmReportParams {}
 
 
 export interface TtoTcmReportResponse {}
+
+
+export interface TcmTtVideoApplyParams {
+  video_id: string;
+  tcm_account_id: string;
+  authorization_days?: number;
+  action?: string;
+}
+
+
+export interface TcmTtVideoApplyResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: Record<string, unknown>;
+}
 
 
 export interface TcmTtVideoStatusParams {

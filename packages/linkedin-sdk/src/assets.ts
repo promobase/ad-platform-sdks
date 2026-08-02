@@ -4,6 +4,7 @@ import type {
   LinkedInImageUploadSession,
   LinkedInUrn,
   LinkedInVideoUploadInstruction,
+  LinkedInVideoUploadOptions,
   LinkedInVideoUploadSession,
 } from "./types.ts";
 
@@ -64,7 +65,7 @@ export function createAssets(client: LinkedInClient) {
     async initializeVideoUpload(
       ownerUrn: LinkedInUrn,
       fileSizeBytes: number,
-      opts?: { uploadCaptions?: boolean; uploadThumbnail?: boolean },
+      opts?: LinkedInVideoUploadOptions,
     ): Promise<LinkedInVideoUploadSession> {
       const response = await client.request<{
         value?: {
@@ -82,6 +83,10 @@ export function createAssets(client: LinkedInClient) {
             fileSizeBytes,
             uploadCaptions: opts?.uploadCaptions ?? false,
             uploadThumbnail: opts?.uploadThumbnail ?? false,
+            ...(opts?.templateName === undefined ? {} : { templateName: opts.templateName }),
+            ...(opts?.linkbackContext === undefined
+              ? {}
+              : { linkbackContext: opts.linkbackContext }),
           },
         },
       });

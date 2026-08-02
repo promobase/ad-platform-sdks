@@ -1,7 +1,8 @@
 import type { HttpClient } from "@openpromo/sdk-runtime";
-import type { Campaign } from "../generated/v23/resources/Campaign.ts";
-import type { CampaignBudget } from "../generated/v23/resources/CampaignBudget.ts";
-import { campaignService, googleAdsService } from "../generated/v23/services/index.ts";
+
+import type { Campaign } from "../generated/v25/resources/Campaign.ts";
+import type { CampaignBudget } from "../generated/v25/resources/CampaignBudget.ts";
+import { campaignService, googleAdsService } from "../generated/v25/services/index.ts";
 import { type Ref, resolveRef } from "./types.ts";
 
 const GAQL_FIELDS =

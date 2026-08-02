@@ -120,6 +120,7 @@ export interface BusinessCreateAdStudiesParams {
   client_business?: string;
   confidence_level?: number;
   cooldown_start_time?: number;
+  creative_test_config?: Record<string, unknown>;
   description?: string;
   end_time: number;
   name: string;
@@ -284,7 +285,11 @@ export interface BusinessDeleteClientsParams {
 }
 
 export interface BusinessListCollaborativeAdsCollaborationRequestsParams {
+  request_role?: string;
+  since?: string;
+  source?: string;
   status?: string;
+  until?: string;
   [key: string]: unknown;
 }
 
@@ -423,6 +428,7 @@ export interface BusinessCreateOnboardPartnersToMmLiteParams {
 
 export interface BusinessCreateOpenbridgeConfigurationsParams {
   active?: boolean;
+  associated_sgw_data_source_id?: number;
   blocked_event_types?: string[];
   blocked_websites?: string[];
   capi_publishing_state?: string;
@@ -570,15 +576,6 @@ export interface BusinessCreateSelfCertifyWhatsappBusinessParams {
   [key: string]: unknown;
 }
 
-export interface BusinessCreateSetupManagedPartnerAdaccountsParams {
-  credit_line_id: string;
-  marketplace_business_id: string;
-  subvertical_v2: string;
-  vendor_id: string;
-  vertical_v2: string;
-  [key: string]: unknown;
-}
-
 export interface BusinessDeleteSharePreverifiedNumbersParams {
   partner_business_id: string;
   preverified_id: string;
@@ -658,6 +655,7 @@ export interface BusinessCreateVideosParams {
   publish_event_id?: number;
   referenced_sticker_id?: string;
   replace_video_id?: string;
+  selected_audio_spec?: Record<string, unknown>;
   slideshow_spec?: Record<string, unknown>;
   source?: string;
   source_instagram_media_id?: string;
@@ -985,8 +983,6 @@ export function businessNode(client: ApiClient, id: string) {
       new Cursor<Pick<WhatsAppBusinessPartnerClientVerificationSubmissionFields, F[number]>>(client, `${id}/self_certified_whatsapp_business_submissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     createSelfCertifyWhatsappBusiness: (params: BusinessCreateSelfCertifyWhatsappBusinessParams) =>
       client.post<BusinessFields>(`${id}/self_certify_whatsapp_business`, params as Record<string, unknown>),
-    createSetupManagedPartnerAdaccount: (params: BusinessCreateSetupManagedPartnerAdaccountsParams) =>
-      client.post<BusinessFields>(`${id}/setup_managed_partner_adaccounts`, params as Record<string, unknown>),
     sharePreverifiedNumbers: {
       __path: `${id}/share_preverified_numbers`,
       __brand: undefined as unknown as BusinessFields,

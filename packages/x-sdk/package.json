@@ -28,8 +28,8 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "cd ../.. && npx fern-api@4.100.2 generate --local --group x-local --no-prompt --force && node scripts/patch-fern-x-sdk.mjs",
-    "codegen:check": "cd ../.. && npx fern-api@4.100.2 check",
+    "codegen": "cd ../.. && bunx fern-api@5.89.3 generate --local --group x-local --no-prompt --force && bun scripts/patch-fern-x-sdk.mjs",
+    "codegen:check": "cd ../.. && bunx fern-api@5.89.3 check",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
@@ -43,7 +43,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": ">=5.9.3 <8"
   },
   "exports": {
     ".": {
@@ -59,10 +59,16 @@
       "default": "./dist/generated/index.js"
     },
     "./tweets": {
-      "bun": "./src/generated/api/resources/tweets/exports.ts",
-      "types": "./dist/generated/api/resources/tweets/exports.d.ts",
-      "import": "./dist/generated/api/resources/tweets/exports.js",
-      "default": "./dist/generated/api/resources/tweets/exports.js"
+      "bun": "./src/tweets.ts",
+      "types": "./dist/tweets.d.ts",
+      "import": "./dist/tweets.js",
+      "default": "./dist/tweets.js"
+    },
+    "./posts": {
+      "bun": "./src/generated/api/resources/posts/exports.ts",
+      "types": "./dist/generated/api/resources/posts/exports.d.ts",
+      "import": "./dist/generated/api/resources/posts/exports.js",
+      "default": "./dist/generated/api/resources/posts/exports.js"
     },
     "./media": {
       "bun": "./src/generated/api/resources/media/exports.ts",

@@ -12,6 +12,7 @@ export interface AdActivityFields {
   object_id: string;
   object_name: string;
   object_type: string;
+  tool: string;
   translated_event_type: string;
 }
 

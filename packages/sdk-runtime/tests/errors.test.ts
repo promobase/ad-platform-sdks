@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { ApiError } from "../src/errors.ts";
 
 test("ApiError has status and message", () => {

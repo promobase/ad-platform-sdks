@@ -9,12 +9,11 @@ import type * as XApi from "../../../../index.js";
  *     }
  */
 export interface GetUsersByIdRequest {
-    /** The ID of the User to lookup. */
     id: XApi.UserId;
     /** A comma separated list of User fields to display. */
     "user.fields"?: XApi.GetUsersByIdRequestUserFieldsItem | XApi.GetUsersByIdRequestUserFieldsItem[];
     /** A comma separated list of fields to expand. */
     expansions?: XApi.GetUsersByIdRequestExpansionsItem | XApi.GetUsersByIdRequestExpansionsItem[];
-    /** A comma separated list of Tweet fields to display. */
-    "tweet.fields"?: XApi.GetUsersByIdRequestTweetFieldsItem | XApi.GetUsersByIdRequestTweetFieldsItem[];
+    /** A comma separated list of Post fields to display. */
+    "post.fields"?: XApi.GetUsersByIdRequestPostFieldsItem | XApi.GetUsersByIdRequestPostFieldsItem[];
 }

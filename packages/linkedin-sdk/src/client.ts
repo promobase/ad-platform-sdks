@@ -21,7 +21,7 @@ export interface LinkedInResponse<T> {
   status: number;
 }
 
-const DEFAULT_LINKEDIN_API_VERSION = "202604";
+const DEFAULT_LINKEDIN_API_VERSION = "202607";
 
 export class LinkedInClient {
   readonly accessToken: string;

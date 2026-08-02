@@ -9,7 +9,9 @@ export interface AdCreativeSourcingSpecFields {
   duplication_source: string;
   dynamic_site_links_spec: Record<string, unknown>;
   enable_social_feedback_preservation: boolean;
+  featured_offering_spec: Record<string, unknown>;
   intent: Record<string, unknown>;
+  ncs_testimonial: Record<string, unknown>;
   pca_spec: Record<string, unknown>;
   product_media_metadata_spec: Record<string, unknown>;
   promotion_metadata_spec: AdCreativePromotionMetadataSpecFields[];

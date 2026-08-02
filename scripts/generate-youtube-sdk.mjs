@@ -6,6 +6,7 @@ const root = dirname(fileURLToPath(new URL("../package.json", import.meta.url)))
 const discoveryPath = join(root, "google-discovery/youtube-v3.json");
 const outDir = join(root, "packages/youtube-sdk/src/generated");
 const discovery = JSON.parse(readFileSync(discoveryPath, "utf8"));
+applyDocumentedOverrides(discovery);
 
 const RESOURCE_NAMES = [
   "channels",
@@ -19,6 +20,34 @@ const RESOURCE_NAMES = [
   "search",
 ];
 
+// The live Discovery document can lag the human reference for newly released
+// methods. Keep narrow, source-linked overlays here until Discovery catches up.
+function applyDocumentedOverrides(document) {
+  const batchGetStats = document.resources?.videos?.methods?.batchGetStats;
+  if (!batchGetStats) return;
+
+  // https://developers.google.com/youtube/v3/docs/videos/batchGetStats
+  batchGetStats.parameters.id.required = true;
+  batchGetStats.parameters.part.required = true;
+
+  const response = document.schemas?.BatchGetStatsResponse;
+  const contentDetails = document.schemas?.VideoStatsContentDetails;
+  if (!response?.properties || !contentDetails?.properties) return;
+
+  document.schemas.BatchGetStatsSummary = {
+    id: "BatchGetStatsSummary",
+    type: "object",
+    properties: {
+      requestedVideoCount: { type: "string", format: "uint64" },
+      succeededVideoCount: { type: "string", format: "uint64" },
+      failedVideoCount: { type: "string", format: "uint64" },
+      failedVideoIds: { type: "array", items: { type: "string" } },
+    },
+  };
+  response.properties.summary = { $ref: "BatchGetStatsSummary" };
+  contentDetails.properties.durationMillis = { type: "string", format: "uint64" };
+}
+
 mkdirSync(outDir, { recursive: true });
 
 const generated = [
@@ -27,20 +56,22 @@ const generated = [
   "",
 ];
 
-generated.push(`export const YOUTUBE_DISCOVERY = ${JSON.stringify(
-  {
-    id: discovery.id,
-    revision: discovery.revision,
-    discoveryVersion: discovery.discoveryVersion,
-    protocol: discovery.protocol,
-    baseUrl: discovery.baseUrl,
-    rootUrl: discovery.rootUrl,
-    servicePath: discovery.servicePath,
-    source: "https://youtube.googleapis.com/$discovery/rest?version=v3",
-  },
-  null,
-  2,
-)} as const;`);
+generated.push(
+  `export const YOUTUBE_DISCOVERY = ${JSON.stringify(
+    {
+      id: discovery.id,
+      revision: discovery.revision,
+      discoveryVersion: discovery.discoveryVersion,
+      protocol: discovery.protocol,
+      baseUrl: discovery.baseUrl,
+      rootUrl: discovery.rootUrl,
+      servicePath: discovery.servicePath,
+      source: "https://youtube.googleapis.com/$discovery/rest?version=v3",
+    },
+    null,
+    2,
+  )} as const;`,
+);
 
 writeFileSync(join(outDir, "discovery.ts"), `${generated.join("\n")}\n`);
 
@@ -123,11 +154,16 @@ function emitResources() {
     )) {
       const paramsName = `YouTubeTypes.${paramsTypeName(resourceName, methodName)}`;
       const responseName = method.response?.$ref ? `YouTubeTypes.${method.response.$ref}` : "void";
-      const requestName = method.request?.$ref ? `YouTubeTypes.${method.request.$ref}` : "undefined";
-      const hasRequiredParams = Object.values(method.parameters ?? {}).some((param) => param.required);
-      const paramArg = hasRequiredParams || method.request?.$ref
-        ? `params: ${paramsName}`
-        : `params: ${paramsName} = {}`;
+      const requestName = method.request?.$ref
+        ? `YouTubeTypes.${method.request.$ref}`
+        : "undefined";
+      const hasRequiredParams = Object.values(method.parameters ?? {}).some(
+        (param) => param.required,
+      );
+      const paramArg =
+        hasRequiredParams || method.request?.$ref
+          ? `params: ${paramsName}`
+          : `params: ${paramsName} = {}`;
       const bodyArg = method.request?.$ref ? `body: ${requestName}` : "body?: undefined";
       lines.push(
         `      ${methodName}(${paramArg}, ${bodyArg}, opts?: YouTubeRequestOptions): Promise<${responseName}> {`,

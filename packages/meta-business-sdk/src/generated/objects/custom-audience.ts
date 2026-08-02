@@ -21,6 +21,7 @@ export interface CustomAudienceFields {
   account_id: string;
   approximate_count_lower_bound: number;
   approximate_count_upper_bound: number;
+  audience_labels: string[];
   customer_file_source: string;
   data_source: CustomAudienceDataSourceFields;
   data_source_types: string;
@@ -135,7 +136,9 @@ export interface CustomAudienceCreateUsersreplaceParams {
 }
 
 export interface CustomAudienceUpdateParams {
+  acting_account_id?: number;
   allowed_domains?: string[];
+  audience_labels?: string[];
   claim_objective?: string;
   content_type?: string;
   countries?: string;

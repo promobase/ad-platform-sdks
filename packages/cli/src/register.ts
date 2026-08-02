@@ -1,4 +1,5 @@
 import type { Command } from "commander";
+
 import { registerGoogleAdsCommands } from "./google-ads.ts";
 import { registerLinkedInCommands } from "./linkedin.ts";
 import { registerMetaCommands } from "./meta/index.ts";

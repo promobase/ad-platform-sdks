@@ -1,5 +1,7 @@
 import { expect, mock, test } from "bun:test";
+
 import { HttpClient } from "@openpromo/sdk-runtime";
+
 import { gaql } from "../../../src/clients/gaql/builder.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -16,7 +18,7 @@ test("execute posts serialized GAQL and returns rows", async () => {
   let body: any;
   const client = makeClient((url, init) => {
     body = JSON.parse(init?.body as string);
-    expect(url).toContain("/v23/customers/123/googleAds:search");
+    expect(url).toContain("/v25/customers/123/googleAds:search");
     return new Response(
       JSON.stringify({
         results: [{ campaign: { id: "1", name: "A" } }, { campaign: { id: "2", name: "B" } }],

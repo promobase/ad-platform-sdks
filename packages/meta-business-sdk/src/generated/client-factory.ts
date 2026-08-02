@@ -9,12 +9,10 @@ import { businessFranchiseConfigNode } from "./objects/business-franchise-config
 import { iGMediaNode } from "./objects/ig-media.ts";
 import { iGBCAdsPermissionNode } from "./objects/igbc-ads-permission.ts";
 import { adPlacePageSetNode } from "./objects/ad-place-page-set.ts";
-import { productCatalogMediaTitlesNode } from "./objects/product-catalog-media-titles.ts";
 import { canvasTemplateNode } from "./objects/canvas-template.ts";
 import { campaignNode } from "./objects/campaign.ts";
 import { eventTicketTierNode } from "./objects/event-ticket-tier.ts";
 import { musicVideoCopyrightNode } from "./objects/music-video-copyright.ts";
-import { productCatalogAppsAndSoftwareNode } from "./objects/product-catalog-apps-and-software.ts";
 import { advAInstanceNode } from "./objects/adv-a-instance.ts";
 import { pageUpcomingChangeNode } from "./objects/page-upcoming-change.ts";
 import { analyticsSegmentNode } from "./objects/analytics-segment.ts";
@@ -31,7 +29,6 @@ import { flightNode } from "./objects/flight.ts";
 import { adNode } from "./objects/ad.ts";
 import { hotelRoomNode } from "./objects/hotel-room.ts";
 import { businessCreativeFolderNode } from "./objects/business-creative-folder.ts";
-import { productSetArticlesAndPublicationsNode } from "./objects/product-set-articles-and-publications.ts";
 import { businessObjectTransferOwnershipAgreementNode } from "./objects/business-object-transfer-ownership-agreement.ts";
 import { pageCallToActionNode } from "./objects/page-call-to-action.ts";
 import { businessRoleRequestNode } from "./objects/business-role-request.ts";
@@ -44,6 +41,7 @@ import { audioCopyrightNode } from "./objects/audio-copyright.ts";
 import { withAsset3DNode } from "./objects/with-asset3-d.ts";
 import { woodhengePurchasedPAYGReceiptNode } from "./objects/woodhenge-purchased-payg-receipt.ts";
 import { canvasNode } from "./objects/canvas.ts";
+import { adAccountAccountControlsNode } from "./objects/ad-account-account-controls.ts";
 import { catalogContentVersionConfigNode } from "./objects/catalog-content-version-config.ts";
 import { eventSourceGroupNode } from "./objects/event-source-group.ts";
 import { personalAdsPersonaNode } from "./objects/personal-ads-persona.ts";
@@ -62,6 +60,7 @@ import { iGUserExportForCAMNode } from "./objects/ig-user-export-for-cam.ts";
 import { audioAssetNode } from "./objects/audio-asset.ts";
 import { whatsAppBusinessAccountNode } from "./objects/whats-app-business-account.ts";
 import { adMonetizationPropertyNode } from "./objects/ad-monetization-property.ts";
+import { productCatalogCheckBatchRequestStatusNode } from "./objects/product-catalog-check-batch-request-status.ts";
 import { vehicleNode } from "./objects/vehicle.ts";
 import { paymentEnginePaymentNode } from "./objects/payment-engine-payment.ts";
 import { adRuleExecutionSpecNode } from "./objects/ad-rule-execution-spec.ts";
@@ -70,7 +69,6 @@ import { businessOwnedObjectOnBehalfOfRequestNode } from "./objects/business-own
 import { productCatalogNode } from "./objects/product-catalog.ts";
 import { videoPollNode } from "./objects/video-poll.ts";
 import { playableContentNode } from "./objects/playable-content.ts";
-import { productSetMediaTitlesNode } from "./objects/product-set-media-titles.ts";
 import { businessAssetGroupNode } from "./objects/business-asset-group.ts";
 import { iGCommentNode } from "./objects/ig-comment.ts";
 import { userPageOneTimeOptInTokenSettingsNode } from "./objects/user-page-one-time-opt-in-token-settings.ts";
@@ -81,11 +79,10 @@ import { businessVideoNode } from "./objects/business-video.ts";
 import { arAdsDataContainerNode } from "./objects/ar-ads-data-container.ts";
 import { productSetNode } from "./objects/product-set.ts";
 import { adSavedReportNode } from "./objects/ad-saved-report.ts";
-import { productFeedMediaTitlesNode } from "./objects/product-feed-media-titles.ts";
-import { asyncSessionNode } from "./objects/async-session.ts";
 import { adAccountCreationRequestNode } from "./objects/ad-account-creation-request.ts";
 import { managementSiteLinkNode } from "./objects/management-site-link.ts";
 import { bidScheduleNode } from "./objects/bid-schedule.ts";
+import { adCampaignBudgetSchedulesNode } from "./objects/ad-campaign-budget-schedules.ts";
 import { chinaBusinessOnboardingVettingRequestNode } from "./objects/china-business-onboarding-vetting-request.ts";
 import { adReportRunNode } from "./objects/ad-report-run.ts";
 import { adStudyObjectiveNode } from "./objects/ad-study-objective.ts";
@@ -114,7 +111,6 @@ import { adToplineDetailNode } from "./objects/ad-topline-detail.ts";
 import { videoListNode } from "./objects/video-list.ts";
 import { adsConversionGoalNode } from "./objects/ads-conversion-goal.ts";
 import { brandSafetyDownloadableNode } from "./objects/brand-safety-downloadable.ts";
-import { bizInboxOffsiteEmailAccountNode } from "./objects/biz-inbox-offsite-email-account.ts";
 import { adLightCampaignGroupNode } from "./objects/ad-light-campaign-group.ts";
 import { adDraftNode } from "./objects/ad-draft.ts";
 import { businessImageNode } from "./objects/business-image.ts";
@@ -216,7 +212,6 @@ import { calibratorExistingRuleNode } from "./objects/calibrator-existing-rule.t
 import { videoCopyrightMatchNode } from "./objects/video-copyright-match.ts";
 import { storeCatalogSettingsNode } from "./objects/store-catalog-settings.ts";
 import { partnerAccountLinkingNode } from "./objects/partner-account-linking.ts";
-import { commerceOrderTransactionDetailNode } from "./objects/commerce-order-transaction-detail.ts";
 import { websiteCreativeAssetSourceNode } from "./objects/website-creative-asset-source.ts";
 import { placeNode } from "./objects/place.ts";
 import { woodhengeSupporterNode } from "./objects/woodhenge-supporter.ts";
@@ -242,7 +237,6 @@ import { mediaFingerprintNode } from "./objects/media-fingerprint.ts";
 import { instagramBusinessAssetNode } from "./objects/instagram-business-asset.ts";
 import { openGraphContextNode } from "./objects/open-graph-context.ts";
 import { catalogItemOverrideNode } from "./objects/catalog-item-override.ts";
-import { catalogSubscribedAppsNode } from "./objects/catalog-subscribed-apps.ts";
 import { cPASBusinessSetupConfigNode } from "./objects/cpas-business-setup-config.ts";
 import { adsNamingTemplateNode } from "./objects/ads-naming-template.ts";
 import { thirdPartyPartnerLiftRequestNode } from "./objects/third-party-partner-lift-request.ts";
@@ -254,6 +248,7 @@ import { adVideoNode } from "./objects/ad-video.ts";
 import { measurementReportNode } from "./objects/measurement-report.ts";
 import { adCreativeNode } from "./objects/ad-creative.ts";
 import { businessAgreementNode } from "./objects/business-agreement.ts";
+import { adCampaignGroupBudgetSchedulesNode } from "./objects/ad-campaign-group-budget-schedules.ts";
 import { adSavedKeywordsNode } from "./objects/ad-saved-keywords.ts";
 import { catalogSmartPixelSettingsNode } from "./objects/catalog-smart-pixel-settings.ts";
 import { adsPixelNode } from "./objects/ads-pixel.ts";
@@ -271,14 +266,12 @@ import { adsPivotRulesNode } from "./objects/ads-pivot-rules.ts";
 import { dynamicVideoMetadataNode } from "./objects/dynamic-video-metadata.ts";
 import { aLMAdAccountInfoNode } from "./objects/alm-ad-account-info.ts";
 import { thirdPartyPartnerViewabilityRequestNode } from "./objects/third-party-partner-viewability-request.ts";
-import { productSetAppsAndSoftwareNode } from "./objects/product-set-apps-and-software.ts";
 import { applicationNode } from "./objects/application.ts";
 import { privateLiftStudyInstanceNode } from "./objects/private-lift-study-instance.ts";
 import { iGUserForIGOnlyAPINode } from "./objects/ig-user-for-ig-only-api.ts";
 import { iGRefreshAccessTokenForIGOnlyAPINode } from "./objects/ig-refresh-access-token-for-ig-only-api.ts";
 import { fAMEKumoNode } from "./objects/fame-kumo.ts";
 import { linkNode } from "./objects/link.ts";
-import { catalogGenericFeedsNode } from "./objects/catalog-generic-feeds.ts";
 import { cPASMerchantConfigNode } from "./objects/cpas-merchant-config.ts";
 import { liveVideoAdCampaignConfigNode } from "./objects/live-video-ad-campaign-config.ts";
 import { cRMAddressNode } from "./objects/crm-address.ts";
@@ -291,19 +284,17 @@ import { paymentSubscriptionNode } from "./objects/payment-subscription.ts";
 import { partnerStudyNode } from "./objects/partner-study.ts";
 import { adsStartYourDayWidgetNode } from "./objects/ads-start-your-day-widget.ts";
 import { shadowIGMediaBuilderNode } from "./objects/shadow-ig-media-builder.ts";
-import { productFeedAppsAndSoftwareNode } from "./objects/product-feed-apps-and-software.ts";
 import { siteLinkNode } from "./objects/site-link.ts";
 import { catalogWebsiteSettingsNode } from "./objects/catalog-website-settings.ts";
 import { cloudGameNode } from "./objects/cloud-game.ts";
 import { systemUserNode } from "./objects/system-user.ts";
 import { videoCopyrightRuleNode } from "./objects/video-copyright-rule.ts";
+import { adAccountFeaturePreferencesNode } from "./objects/ad-account-feature-preferences.ts";
 import { customConversionNode } from "./objects/custom-conversion.ts";
 import { pageNode } from "./objects/page.ts";
-import { productFeedArticlesAndPublicationsNode } from "./objects/product-feed-articles-and-publications.ts";
 import { offlineConversionDataSetUploadNode } from "./objects/offline-conversion-data-set-upload.ts";
 import { copyrightOwnershipTransferNode } from "./objects/copyright-ownership-transfer.ts";
 import { profileNode } from "./objects/profile.ts";
-import { catalogGenericIngestionSessionErrorsNode } from "./objects/catalog-generic-ingestion-session-errors.ts";
 import { appEventConfigNode } from "./objects/app-event-config.ts";
 import { cPASLsbImageBankNode } from "./objects/cpas-lsb-image-bank.ts";
 import { productFeedRuleNode } from "./objects/product-feed-rule.ts";
@@ -339,12 +330,10 @@ export function createTypedClient(opts: MetaClientOptions) {
     iGMedia: (id: string) => iGMediaNode(client, id),
     iGBCAdsPermission: (id: string) => iGBCAdsPermissionNode(client, id),
     adPlacePageSet: (id: string) => adPlacePageSetNode(client, id),
-    productCatalogMediaTitles: (id: string) => productCatalogMediaTitlesNode(client, id),
     canvasTemplate: (id: string) => canvasTemplateNode(client, id),
     campaign: (id: string) => campaignNode(client, id),
     eventTicketTier: (id: string) => eventTicketTierNode(client, id),
     musicVideoCopyright: (id: string) => musicVideoCopyrightNode(client, id),
-    productCatalogAppsAndSoftware: (id: string) => productCatalogAppsAndSoftwareNode(client, id),
     advAInstance: (id: string) => advAInstanceNode(client, id),
     pageUpcomingChange: (id: string) => pageUpcomingChangeNode(client, id),
     analyticsSegment: (id: string) => analyticsSegmentNode(client, id),
@@ -361,7 +350,6 @@ export function createTypedClient(opts: MetaClientOptions) {
     ad: (id: string) => adNode(client, id),
     hotelRoom: (id: string) => hotelRoomNode(client, id),
     businessCreativeFolder: (id: string) => businessCreativeFolderNode(client, id),
-    productSetArticlesAndPublications: (id: string) => productSetArticlesAndPublicationsNode(client, id),
     businessObjectTransferOwnershipAgreement: (id: string) => businessObjectTransferOwnershipAgreementNode(client, id),
     pageCallToAction: (id: string) => pageCallToActionNode(client, id),
     businessRoleRequest: (id: string) => businessRoleRequestNode(client, id),
@@ -374,6 +362,7 @@ export function createTypedClient(opts: MetaClientOptions) {
     withAsset3D: (id: string) => withAsset3DNode(client, id),
     woodhengePurchasedPAYGReceipt: (id: string) => woodhengePurchasedPAYGReceiptNode(client, id),
     canvas: (id: string) => canvasNode(client, id),
+    adAccountAccountControls: (id: string) => adAccountAccountControlsNode(client, id),
     catalogContentVersionConfig: (id: string) => catalogContentVersionConfigNode(client, id),
     eventSourceGroup: (id: string) => eventSourceGroupNode(client, id),
     personalAdsPersona: (id: string) => personalAdsPersonaNode(client, id),
@@ -392,6 +381,7 @@ export function createTypedClient(opts: MetaClientOptions) {
     audioAsset: (id: string) => audioAssetNode(client, id),
     whatsAppBusinessAccount: (id: string) => whatsAppBusinessAccountNode(client, id),
     adMonetizationProperty: (id: string) => adMonetizationPropertyNode(client, id),
+    productCatalogCheckBatchRequestStatus: (id: string) => productCatalogCheckBatchRequestStatusNode(client, id),
     vehicle: (id: string) => vehicleNode(client, id),
     paymentEnginePayment: (id: string) => paymentEnginePaymentNode(client, id),
     adRuleExecutionSpec: (id: string) => adRuleExecutionSpecNode(client, id),
@@ -400,7 +390,6 @@ export function createTypedClient(opts: MetaClientOptions) {
     productCatalog: (id: string) => productCatalogNode(client, id),
     videoPoll: (id: string) => videoPollNode(client, id),
     playableContent: (id: string) => playableContentNode(client, id),
-    productSetMediaTitles: (id: string) => productSetMediaTitlesNode(client, id),
     businessAssetGroup: (id: string) => businessAssetGroupNode(client, id),
     iGComment: (id: string) => iGCommentNode(client, id),
     userPageOneTimeOptInTokenSettings: (id: string) => userPageOneTimeOptInTokenSettingsNode(client, id),
@@ -411,11 +400,10 @@ export function createTypedClient(opts: MetaClientOptions) {
     arAdsDataContainer: (id: string) => arAdsDataContainerNode(client, id),
     productSet: (id: string) => productSetNode(client, id),
     adSavedReport: (id: string) => adSavedReportNode(client, id),
-    productFeedMediaTitles: (id: string) => productFeedMediaTitlesNode(client, id),
-    asyncSession: (id: string) => asyncSessionNode(client, id),
     adAccountCreationRequest: (id: string) => adAccountCreationRequestNode(client, id),
     managementSiteLink: (id: string) => managementSiteLinkNode(client, id),
     bidSchedule: (id: string) => bidScheduleNode(client, id),
+    adCampaignBudgetSchedules: (id: string) => adCampaignBudgetSchedulesNode(client, id),
     chinaBusinessOnboardingVettingRequest: (id: string) => chinaBusinessOnboardingVettingRequestNode(client, id),
     adReportRun: (id: string) => adReportRunNode(client, id),
     adStudyObjective: (id: string) => adStudyObjectiveNode(client, id),
@@ -444,7 +432,6 @@ export function createTypedClient(opts: MetaClientOptions) {
     videoList: (id: string) => videoListNode(client, id),
     adsConversionGoal: (id: string) => adsConversionGoalNode(client, id),
     brandSafetyDownloadable: (id: string) => brandSafetyDownloadableNode(client, id),
-    bizInboxOffsiteEmailAccount: (id: string) => bizInboxOffsiteEmailAccountNode(client, id),
     adLightCampaignGroup: (id: string) => adLightCampaignGroupNode(client, id),
     adDraft: (id: string) => adDraftNode(client, id),
     businessImage: (id: string) => businessImageNode(client, id),
@@ -546,7 +533,6 @@ export function createTypedClient(opts: MetaClientOptions) {
     videoCopyrightMatch: (id: string) => videoCopyrightMatchNode(client, id),
     storeCatalogSettings: (id: string) => storeCatalogSettingsNode(client, id),
     partnerAccountLinking: (id: string) => partnerAccountLinkingNode(client, id),
-    commerceOrderTransactionDetail: (id: string) => commerceOrderTransactionDetailNode(client, id),
     websiteCreativeAssetSource: (id: string) => websiteCreativeAssetSourceNode(client, id),
     place: (id: string) => placeNode(client, id),
     woodhengeSupporter: (id: string) => woodhengeSupporterNode(client, id),
@@ -572,7 +558,6 @@ export function createTypedClient(opts: MetaClientOptions) {
     instagramBusinessAsset: (id: string) => instagramBusinessAssetNode(client, id),
     openGraphContext: (id: string) => openGraphContextNode(client, id),
     catalogItemOverride: (id: string) => catalogItemOverrideNode(client, id),
-    catalogSubscribedApps: (id: string) => catalogSubscribedAppsNode(client, id),
     cPASBusinessSetupConfig: (id: string) => cPASBusinessSetupConfigNode(client, id),
     adsNamingTemplate: (id: string) => adsNamingTemplateNode(client, id),
     thirdPartyPartnerLiftRequest: (id: string) => thirdPartyPartnerLiftRequestNode(client, id),
@@ -584,6 +569,7 @@ export function createTypedClient(opts: MetaClientOptions) {
     measurementReport: (id: string) => measurementReportNode(client, id),
     adCreative: (id: string) => adCreativeNode(client, id),
     businessAgreement: (id: string) => businessAgreementNode(client, id),
+    adCampaignGroupBudgetSchedules: (id: string) => adCampaignGroupBudgetSchedulesNode(client, id),
     adSavedKeywords: (id: string) => adSavedKeywordsNode(client, id),
     catalogSmartPixelSettings: (id: string) => catalogSmartPixelSettingsNode(client, id),
     adsPixel: (id: string) => adsPixelNode(client, id),
@@ -601,14 +587,12 @@ export function createTypedClient(opts: MetaClientOptions) {
     dynamicVideoMetadata: (id: string) => dynamicVideoMetadataNode(client, id),
     aLMAdAccountInfo: (id: string) => aLMAdAccountInfoNode(client, id),
     thirdPartyPartnerViewabilityRequest: (id: string) => thirdPartyPartnerViewabilityRequestNode(client, id),
-    productSetAppsAndSoftware: (id: string) => productSetAppsAndSoftwareNode(client, id),
     application: (id: string) => applicationNode(client, id),
     privateLiftStudyInstance: (id: string) => privateLiftStudyInstanceNode(client, id),
     iGUserForIGOnlyAPI: (id: string) => iGUserForIGOnlyAPINode(client, id),
     iGRefreshAccessTokenForIGOnlyAPI: (id: string) => iGRefreshAccessTokenForIGOnlyAPINode(client, id),
     fAMEKumo: (id: string) => fAMEKumoNode(client, id),
     link: (id: string) => linkNode(client, id),
-    catalogGenericFeeds: (id: string) => catalogGenericFeedsNode(client, id),
     cPASMerchantConfig: (id: string) => cPASMerchantConfigNode(client, id),
     liveVideoAdCampaignConfig: (id: string) => liveVideoAdCampaignConfigNode(client, id),
     cRMAddress: (id: string) => cRMAddressNode(client, id),
@@ -621,19 +605,17 @@ export function createTypedClient(opts: MetaClientOptions) {
     partnerStudy: (id: string) => partnerStudyNode(client, id),
     adsStartYourDayWidget: (id: string) => adsStartYourDayWidgetNode(client, id),
     shadowIGMediaBuilder: (id: string) => shadowIGMediaBuilderNode(client, id),
-    productFeedAppsAndSoftware: (id: string) => productFeedAppsAndSoftwareNode(client, id),
     siteLink: (id: string) => siteLinkNode(client, id),
     catalogWebsiteSettings: (id: string) => catalogWebsiteSettingsNode(client, id),
     cloudGame: (id: string) => cloudGameNode(client, id),
     systemUser: (id: string) => systemUserNode(client, id),
     videoCopyrightRule: (id: string) => videoCopyrightRuleNode(client, id),
+    adAccountFeaturePreferences: (id: string) => adAccountFeaturePreferencesNode(client, id),
     customConversion: (id: string) => customConversionNode(client, id),
     page: (id: string) => pageNode(client, id),
-    productFeedArticlesAndPublications: (id: string) => productFeedArticlesAndPublicationsNode(client, id),
     offlineConversionDataSetUpload: (id: string) => offlineConversionDataSetUploadNode(client, id),
     copyrightOwnershipTransfer: (id: string) => copyrightOwnershipTransferNode(client, id),
     profile: (id: string) => profileNode(client, id),
-    catalogGenericIngestionSessionErrors: (id: string) => catalogGenericIngestionSessionErrorsNode(client, id),
     appEventConfig: (id: string) => appEventConfigNode(client, id),
     cPASLsbImageBank: (id: string) => cPASLsbImageBankNode(client, id),
     productFeedRule: (id: string) => productFeedRuleNode(client, id),

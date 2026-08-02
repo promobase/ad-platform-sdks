@@ -5,16 +5,15 @@ import type * as XApi from "../../../../index.js";
 /**
  * @example
  *     {
- *         username: "TwitterDev"
+ *         username: "username"
  *     }
  */
 export interface GetUsersByUsernameRequest {
-    /** A username. */
     username: string;
     /** A comma separated list of User fields to display. */
     "user.fields"?: XApi.GetUsersByUsernameRequestUserFieldsItem | XApi.GetUsersByUsernameRequestUserFieldsItem[];
     /** A comma separated list of fields to expand. */
     expansions?: XApi.GetUsersByUsernameRequestExpansionsItem | XApi.GetUsersByUsernameRequestExpansionsItem[];
-    /** A comma separated list of Tweet fields to display. */
-    "tweet.fields"?: XApi.GetUsersByUsernameRequestTweetFieldsItem | XApi.GetUsersByUsernameRequestTweetFieldsItem[];
+    /** A comma separated list of Post fields to display. */
+    "post.fields"?: XApi.GetUsersByUsernameRequestPostFieldsItem | XApi.GetUsersByUsernameRequestPostFieldsItem[];
 }

@@ -2,6 +2,7 @@ import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface OpenBridgeConfigurationFields {
   active: boolean;
+  associated_sgw_data_source_id: string;
   blocked_event_types: string[];
   blocked_websites: string[];
   browser_agent: string[];
@@ -20,6 +21,7 @@ export interface OpenBridgeConfigurationFields {
   instance_version: string;
   is_sgw_instance: boolean;
   is_sgw_pixel_from_meta_pixel: boolean;
+  mpc_fallback_domain: string;
   partner_name: string;
   pixel_id: string;
   sgw_account_id: string;
@@ -29,6 +31,7 @@ export interface OpenBridgeConfigurationFields {
 
 export interface OpenBridgeConfigurationUpdateParams {
   active?: boolean;
+  associated_sgw_data_source_id?: number;
   blocked_event_types?: string[];
   blocked_websites?: string[];
   capi_publishing_state?: string;

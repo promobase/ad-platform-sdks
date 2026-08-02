@@ -1,13 +1,19 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
 import { emitGaqlCatalog } from "./gaql-emitter.ts";
 import { type EnumAst, loadProtos, type MessageAst } from "./parser.ts";
 
 const PKG_ROOT = path.resolve(import.meta.dir, "../..");
 const GOOGLEAPIS = path.join(PKG_ROOT, "vendor/googleapis");
-const V23_DIR = path.join(GOOGLEAPIS, "google/ads/googleads/v23");
-const OUT = path.join(PKG_ROOT, "src/generated/v23");
+const API_VERSION = process.env.GOOGLE_ADS_API_VERSION ?? "v25";
+if (!/^v\d+$/.test(API_VERSION)) {
+  throw new Error(`Invalid GOOGLE_ADS_API_VERSION: ${API_VERSION}`);
+}
+const VERSION_DIR = path.join(GOOGLEAPIS, "google/ads/googleads", API_VERSION);
+const OUT = path.join(PKG_ROOT, "src/generated", API_VERSION);
+const PACKAGE_PREFIX = `google.ads.googleads.${API_VERSION}`;
 
 async function walkProtos(dir: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -55,7 +61,13 @@ function assignShortNames(fullNames: Iterable<string>): Map<string, string> {
   // Second pass: mangle collisions by walking back up the dotted path.
   for (const [short, fns] of byShort) {
     if (fns.length === 1) continue;
-    for (const fn of fns) {
+    // Prefer the least-nested declaration for the plain public name. Proto
+    // traversal order can change between API releases, but the top-level
+    // resource name should remain stable (for example CampaignBudget).
+    const ordered = [...fns].sort(
+      (a, b) => a.split(".").length - b.split(".").length || a.localeCompare(b),
+    );
+    for (const fn of ordered) {
       const parts = fn.split(".");
       let depth = 2;
       let candidate = short;
@@ -78,8 +90,8 @@ function assignShortNames(fullNames: Iterable<string>): Map<string, string> {
 }
 
 async function main() {
-  console.log(`[codegen] scanning ${V23_DIR}`);
-  const protoFiles = await walkProtos(V23_DIR);
+  console.log(`[codegen] scanning ${VERSION_DIR}`);
+  const protoFiles = await walkProtos(VERSION_DIR);
   console.log(`[codegen] found ${protoFiles.length} .proto files`);
 
   const root = await loadProtos(protoFiles, [GOOGLEAPIS]);
@@ -91,43 +103,43 @@ async function main() {
   await fs.rm(OUT, { recursive: true, force: true });
   await fs.mkdir(OUT, { recursive: true });
 
-  const isV23 = (fullName: string) => fullName.startsWith("google.ads.googleads.v23.");
+  const isSelectedVersion = (fullName: string) => fullName.startsWith(`${PACKAGE_PREFIX}.`);
 
-  // Collect v23 types, deduplicating by fullName (the parser walks nested
+  // Collect selected-version types, deduplicating by fullName (the parser walks nested
   // types, which can appear multiple times if referenced from several files).
-  const v23Messages = new Map<string, MessageAst>();
+  const versionMessages = new Map<string, MessageAst>();
   for (const m of root.messages) {
-    if (!isV23(m.fullName)) continue;
-    if (!v23Messages.has(m.fullName)) v23Messages.set(m.fullName, m);
+    if (!isSelectedVersion(m.fullName)) continue;
+    if (!versionMessages.has(m.fullName)) versionMessages.set(m.fullName, m);
   }
-  const v23Enums = new Map<string, EnumAst>();
+  const versionEnums = new Map<string, EnumAst>();
   for (const e of root.enums) {
-    if (!isV23(e.fullName)) continue;
-    if (!v23Enums.has(e.fullName)) v23Enums.set(e.fullName, e);
+    if (!isSelectedVersion(e.fullName)) continue;
+    if (!versionEnums.has(e.fullName)) versionEnums.set(e.fullName, e);
   }
 
   // Short-name assignment across messages AND enums so we never emit two
   // top-level exports with the same TS name.
-  const shortNames = assignShortNames([...v23Messages.keys(), ...v23Enums.keys()]);
+  const shortNames = assignShortNames([...versionMessages.keys(), ...versionEnums.keys()]);
 
   // A messageIndex keyed by fullName is still handy for emitService so it
   // can look at request bodies.
   const messageIndex = new Map<string, MessageAst>();
-  for (const m of v23Messages.values()) messageIndex.set(m.fullName, m);
+  for (const m of versionMessages.values()) messageIndex.set(m.fullName, m);
 
   // Emit enums
   const emittedEnumNames: string[] = [];
-  for (const e of v23Enums.values()) {
+  for (const e of versionEnums.values()) {
     const name = shortNames.get(e.fullName)!;
     const file = path.join(OUT, "enums", `${name}.ts`);
     await writeFile(file, emitEnum(e, name));
     emittedEnumNames.push(name);
   }
 
-  // Emit messages (resources + any message types living in v23 — including
+  // Emit messages (resources + any message types living in the selected version — including
   // request/response wrappers under the services package).
   const emittedMessageNames: string[] = [];
-  for (const m of v23Messages.values()) {
+  for (const m of versionMessages.values()) {
     const name = shortNames.get(m.fullName)!;
     const file = path.join(OUT, "resources", `${name}.ts`);
     await writeFile(file, emitMessage(m, shortNames, name));
@@ -139,7 +151,7 @@ async function main() {
   // through the shortName map so request/response refs line up.
   const serviceInstances: { name: string; instance: string }[] = [];
   for (const s of root.services) {
-    if (!isV23(s.fullName)) continue;
+    if (!isSelectedVersion(s.fullName)) continue;
     const instance = s.name.charAt(0).toLowerCase() + s.name.slice(1);
     const file = path.join(OUT, "services", `${s.name}.ts`);
     await writeFile(file, emitService(s, messageIndex, shortNames));
@@ -176,9 +188,9 @@ async function main() {
   // GAQL catalog
   console.log("[codegen] emitting GAQL catalog");
   const gaqlCatalog = emitGaqlCatalog(root, {
-    resourcesPackagePrefix: "google.ads.googleads.v23.resources",
-    metricsMessageFullName: "google.ads.googleads.v23.common.Metrics",
-    segmentsMessageFullName: "google.ads.googleads.v23.common.Segments",
+    resourcesPackagePrefix: `${PACKAGE_PREFIX}.resources`,
+    metricsMessageFullName: `${PACKAGE_PREFIX}.common.Metrics`,
+    segmentsMessageFullName: `${PACKAGE_PREFIX}.common.Segments`,
     shortNameMap: shortNames,
   });
 

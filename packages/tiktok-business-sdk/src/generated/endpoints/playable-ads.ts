@@ -42,27 +42,27 @@ export function createPlayableAds(opts: { accessToken: string; advertiserId: str
   }
 
   return {
-    /** Upload a playable creative */
+    /** Upload a playable asset */
     async playableUpload(params: PlayableUploadParams): Promise<PlayableUploadResponse> {
       return post<PlayableUploadResponse>("/open_api/v1.3/playable/upload/", params as unknown as Record<string, unknown>);
     },
 
-    /** Check the status of a playable creative */
+    /** Check the status of a playable asset */
     async playableValidate(params: PlayableValidateParams): Promise<PlayableValidateResponse> {
       return get<PlayableValidateResponse>("/open_api/v1.3/playable/validate/", params as unknown as Record<string, unknown>);
     },
 
-    /** Save a playable creative */
+    /** Save a playable asset */
     async playableSave(params: PlayableSaveParams): Promise<PlayableSaveResponse> {
       return post<PlayableSaveResponse>("/open_api/v1.3/playable/save/", params as unknown as Record<string, unknown>);
     },
 
-    /** Get playable creatives */
+    /** Get playable assets */
     async getPlayable(params: PlayableGetParams): Promise<PlayableGetResponse> {
       return get<PlayableGetResponse>("/open_api/v1.3/playable/get/", params as unknown as Record<string, unknown>);
     },
 
-    /** Delete a playable creative */
+    /** Delete a playable asset */
     async deletePlayable(params: PlayableDeleteParams): Promise<PlayableDeleteResponse> {
       return post<PlayableDeleteResponse>("/open_api/v1.3/playable/delete/", params as unknown as Record<string, unknown>);
     },

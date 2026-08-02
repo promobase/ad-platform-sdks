@@ -1,5 +1,6 @@
 export interface CreativeMulticellTestConfigFields {
   budget_percentage: number;
+  budget_source: string;
   configured_cell_count: number;
   daily_budget: number;
   entry_source: string;

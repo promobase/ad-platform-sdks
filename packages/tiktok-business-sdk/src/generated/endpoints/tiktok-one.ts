@@ -1,5 +1,5 @@
 // Auto-generated client for TikTok One — do not edit
-import type { TtUserOauth2RevokeParams, TtUserOauth2RevokeResponse, TtUserTokenInfoGetParams, TtUserTokenInfoGetResponse, TtoOauth2TcmParams, TtoOauth2TcmResponse, TtoTcmCreatorStatusGetParams, TtoTcmCreatorStatusGetResponse, TtoOauth2InfoParams, TtoOauth2InfoResponse, TtoTcmCreatorPublicParams, TtoTcmCreatorPublicResponse, TtoTcmCreatorPublicVideoListParams, TtoTcmCreatorPublicVideoListResponse, TtoCreatorAuthorizedParams, TtoCreatorAuthorizedResponse, TtoCreatorAuthorizedVideoListParams, TtoCreatorAuthorizedVideoListResponse, TtoTcmCategoryLabelParams, TtoTcmCategoryLabelResponse, TtoTcmRankParams, TtoTcmRankResponse, TtoTcmCreatorDiscoverParams, TtoTcmCreatorDiscoverResponse, TtoTcmBrandProfileCreateParams, TtoTcmBrandProfileCreateResponse, TtoTcmBrandProfileGetParams, TtoTcmBrandProfileGetResponse, TtoTcmCampaignCreateParams, TtoTcmCampaignCreateResponse, TtoTcmCampaignUpdateParams, TtoTcmCampaignUpdateResponse, TtoTcmCampaignParams, TtoTcmCampaignResponse, TtoTcmCampaignLinkParams, TtoTcmCampaignLinkResponse, TtoTcmCampaignLinkStatusParams, TtoTcmCampaignLinkStatusResponse, TtoTcmReportParams, TtoTcmReportResponse, TcmTtVideoStatusParams, TcmTtVideoStatusResponse, TtoTcmAnchorCreateParams, TtoTcmAnchorCreateResponse, TtoTcmAnchorGetParams, TtoTcmAnchorGetResponse, TtoTcmAnchorDeleteParams, TtoTcmAnchorDeleteResponse, TtoCreatorCampaignJoinParams, TtoCreatorCampaignJoinResponse, TtoCreatorCampaignVideoLinkParams, TtoCreatorCampaignVideoLinkResponse, TtoCreatorLinkRequestGetParams, TtoCreatorLinkRequestGetResponse, TtoCreatorLinkRequestConfirmParams, TtoCreatorLinkRequestConfirmResponse } from "../types/tiktok-one.ts";
+import type { TtUserOauth2TokenParams, TtUserOauth2TokenResponse, TtUserTokenInfoGetParams, TtUserTokenInfoGetResponse, TtoOauth2TcmParams, TtoOauth2TcmResponse, TtoTcmCreatorStatusGetParams, TtoTcmCreatorStatusGetResponse, TtoOauth2InfoParams, TtoOauth2InfoResponse, TtoTcmCreatorPublicParams, TtoTcmCreatorPublicResponse, TtoTcmCreatorPublicVideoListParams, TtoTcmCreatorPublicVideoListResponse, TtoCreatorAuthorizedParams, TtoCreatorAuthorizedResponse, TtoCreatorAuthorizedVideoListParams, TtoCreatorAuthorizedVideoListResponse, TtoTcmCategoryLabelParams, TtoTcmCategoryLabelResponse, TtoTcmRankParams, TtoTcmRankResponse, TtoTcmCreatorDiscoverParams, TtoTcmCreatorDiscoverResponse, TtoTcmBrandProfileCreateParams, TtoTcmBrandProfileCreateResponse, TtoTcmBrandProfileGetParams, TtoTcmBrandProfileGetResponse, TtoTcmCampaignCreateParams, TtoTcmCampaignCreateResponse, TtoTcmCampaignUpdateParams, TtoTcmCampaignUpdateResponse, TtoTcmCampaignParams, TtoTcmCampaignResponse, TtoTcmCampaignLinkParams, TtoTcmCampaignLinkResponse, TtoTcmCampaignLinkStatusParams, TtoTcmCampaignLinkStatusResponse, TtoTcmReportParams, TtoTcmReportResponse, TcmTtVideoApplyParams, TcmTtVideoApplyResponse, TcmTtVideoStatusParams, TcmTtVideoStatusResponse, TtoTcmAnchorCreateParams, TtoTcmAnchorCreateResponse, TtoTcmAnchorGetParams, TtoTcmAnchorGetResponse, TtoTcmAnchorDeleteParams, TtoTcmAnchorDeleteResponse, TtoCreatorCampaignJoinParams, TtoCreatorCampaignJoinResponse, TtoCreatorCampaignVideoLinkParams, TtoCreatorCampaignVideoLinkResponse, TtoCreatorLinkRequestGetParams, TtoCreatorLinkRequestGetResponse, TtoCreatorLinkRequestConfirmParams, TtoCreatorLinkRequestConfirmResponse } from "../types/tiktok-one.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -43,8 +43,8 @@ export function createTiktokOne(opts: { accessToken: string; advertiserId: strin
 
   return {
     /** Get, renew or revoke a Creator access token */
-    async oauth2Revoke(params: TtUserOauth2RevokeParams): Promise<TtUserOauth2RevokeResponse> {
-      return post<TtUserOauth2RevokeResponse>("/open_api/v1.3/tt_user/oauth2/revoke/", params as unknown as Record<string, unknown>);
+    async oauth2Token(params: TtUserOauth2TokenParams): Promise<TtUserOauth2TokenResponse> {
+      return post<TtUserOauth2TokenResponse>("/open_api/v1.3/tt_user/oauth2/token/", params as unknown as Record<string, unknown>);
     },
 
     /** Obtain the authorized Creator permissions */
@@ -140,6 +140,11 @@ export function createTiktokOne(opts: { accessToken: string; advertiserId: strin
     /** Report on TTO Creator Marketplace videos */
     async tcmReport(params: TtoTcmReportParams): Promise<TtoTcmReportResponse> {
       return get<TtoTcmReportResponse>("/open_api/v1.3/tto/tcm/report/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Apply for Spark Ads authorization */
+    async ttVideoApply(params: TcmTtVideoApplyParams): Promise<TcmTtVideoApplyResponse> {
+      return post<TcmTtVideoApplyResponse>("/open_api/v1.3/tcm/tt_video/apply/", params as unknown as Record<string, unknown>);
     },
 
     /** Get the authorization status */

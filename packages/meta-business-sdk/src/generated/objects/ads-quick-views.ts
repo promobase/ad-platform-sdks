@@ -6,11 +6,13 @@ export interface AdsQuickViewsFields {
   breakdowns: string[];
   column_fields: string[];
   description: string;
+  grouping: string;
   id: string;
   is_attribution_windows_disabled: boolean;
   is_breakdowns_disabled: boolean;
   is_columns_and_sort_disabled: boolean;
   is_filters_disabled: boolean;
+  is_grouping_disabled: boolean;
   name: string;
   owner: ProfileFields;
   permission: string;

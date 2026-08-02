@@ -214,6 +214,59 @@ export interface SmartPlusCampaignStatusUpdateResponse {
 }
 
 
+export interface SmartPlusCampaignCopyTaskCreateParams {}
+
+
+export interface SmartPlusCampaignCopyTaskCreateResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  task_id?: string;
+  adgroup_error_list?: {
+  adgroup_id?: string;
+  error_message?: string;
+}[];
+};
+}
+
+
+export interface SmartPlusCampaignCopyTaskCheckParams {}
+
+
+export interface SmartPlusCampaignCopyTaskCheckResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  task_status?: "RUNNING" | "SUCCESS" | "FAILURE";
+  task_info?: {
+  total_ad_count?: number;
+  success_ad_count?: number;
+};
+  task_result?: {
+  campaign_id?: string;
+  campaign_name?: string;
+  campaign_error_infos?: string[];
+  adgroup_result_list?: {
+  adgroup_id?: string;
+  adgroup_name?: string;
+  total_ad_count?: number;
+  success_ad_count?: number;
+  adgroup_error_list?: string[];
+  ad_status?: "ALL_SUCCESS" | "PARTIAL_SUCCESS";
+  ad_result_list?: {
+  is_success?: "true" | "false";
+  smart_plus_ad_id?: string;
+  ad_name?: string;
+  ad_error_list?: string[];
+}[];
+}[];
+};
+};
+}
+
+
 export interface SmartPlusAdgroupGetParams {
   advertiser_id: string;
   fields?: string[];
@@ -225,7 +278,7 @@ export interface SmartPlusAdgroupGetParams {
   secondary_status?: string;
   objective_type?: "APP_PROMOTION" | "WEB_CONVERSIONS" | "LEAD_GENERATION";
   sales_destination?: "WEBSITE" | "APP" | "WEB_AND_APP";
-  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "LEAD_GENERATION" | "APP_PROMOTION" | "WEB_CONVERSIONS";
+  promotion_type?: "APP" | "WEBSITE" | "INSTANT_FORM" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
   optimization_goal?: "CLICK" | "INSTALL" | "IN_APP_EVENT" | "VALUE" | "CONVERT" | "TRAFFIC_LANDING_PAGE_VIEW" | "LEAD_GENERATION";
 };
   page?: number;
@@ -246,7 +299,7 @@ export interface SmartPlusAdgroupGetResponse {
   adgroup_name?: string;
   catalog_id?: string;
   catalog_authorized_bc_id?: string;
-  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "LEAD_GENERATION" | "APP_PROMOTION" | "WEB_CONVERSIONS";
+  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_GAME" | "NATIVE_SERIES" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "MINIS" | "MINI_APP" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
   app_id?: string;
   gaming_ad_compliance_agreement?: "APP_PROMOTION" | "APP_RETARGETING" | "APP_INSTALL" | "REGULAR_CAMPAIGN" | "ON" | "OFF";
   promotion_website_type?: string;
@@ -256,15 +309,18 @@ export interface SmartPlusAdgroupGetResponse {
   app_id?: string;
 }[];
   minis_id?: "MINI_APP" | "MINI_GAME";
-  optimization_event?: string;
+  optimization_event?: "IMPRESSION_LEVEL_AD_REVENUE" | "AD_REVENUE_VALUE";
   custom_conversion_id?: string;
   deep_funnel_optimization_status?: "ON" | "OFF";
   deep_funnel_event_source?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_event_source_id?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_optimization_event?: "ON" | "SHOPPING";
-  identity_id?: string;
-  identity_type?: "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
+  app_attribution_source?: "MMP" | "SAN";
+  app_data_source?: "MMP" | "EVENT_SDK" | "EVENT_API";
+  identity_id?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE";
+  identity_type?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
   identity_authorized_bc_id?: string;
+  native_series_id?: string;
   messaging_app_type?: "MESSENGER" | "WHATSAPP" | "ZALO" | "LINE" | "IM_URL";
   zalo_id_type?: "ZALO_OFFICIAL_ACCOUNT" | "ZALO_PHONE_ACCOUNT";
   messaging_app_account_id?: "MESSENGER" | "LINE" | "ZALO_OFFICIAL_ACCOUNT" | "WHATSAPP" | "ZALO_PHONE_ACCOUNT";
@@ -352,6 +408,7 @@ export interface SmartPlusAdgroupGetResponse {
   is_lhf_compliance?: "true" | "false";
   placement_type?: ("PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL")[];
   placements?: ("PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE")[];
+  tiktok_subplacements?: ("LEMON8" | "PINE_DRAMA")[];
   search_result_enabled?: "true" | "false";
   comment_disabled?: "true" | "false";
   share_disabled?: "true" | "false";
@@ -378,7 +435,7 @@ export interface SmartPlusAdgroupCreateParams {
   adgroup_name: string;
   catalog_id?: string;
   catalog_authorized_bc_id?: string;
-  promotion_type: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_APP" | "MINI_GAME" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "APP_RETARGETING" | "MINIS" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL" | "true";
+  promotion_type: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_APP" | "MINI_GAME" | "NATIVE_SERIES" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "APP_RETARGETING" | "MINIS" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL" | "true";
   promotion_target_type?: "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE" | "true";
   optimization_goal: "CLICK" | "INSTALL" | "IN_APP_EVENT" | "VALUE" | "CONVERT" | "TRAFFIC_LANDING_PAGE_VIEW" | "CONVERSATION" | "LEAD_GENERATION" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "MESSENGER" | "WHATSAPP" | "ZALO" | "true";
   app_id?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING" | "WEB_CONVERSIONS" | "APP" | "REGULAR_CAMPAIGN";
@@ -394,15 +451,18 @@ export interface SmartPlusAdgroupCreateParams {
   deep_funnel_event_source?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_event_source_id?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_optimization_event?: "ON" | "SHOPPING";
-  identity_id?: string;
-  identity_type?: "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
+  app_attribution_source?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING" | "MMP" | "SAN" | "true";
+  app_data_source?: "MMP" | "EVENT_SDK" | "EVENT_API" | "true";
+  identity_id?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE";
+  identity_type?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
   identity_authorized_bc_id?: string;
+  native_series_id?: string;
   messaging_app_type?: "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "CONVERSATION" | "CLICK" | "IM_URL" | "MESSENGER" | "WHATSAPP" | "ZALO" | "LINE";
   zalo_id_type?: "ZALO" | "ZALO_OFFICIAL_ACCOUNT" | "ZALO_PHONE_ACCOUNT" | "CLICK";
   messaging_app_account_id?: "MESSENGER" | "LINE" | "ZALO" | "ZALO_OFFICIAL_ACCOUNT" | "WHATSAPP" | "ZALO_PHONE_ACCOUNT";
   message_event_set_id?: "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "CONVERSATION";
   phone_info?: "WHATSAPP" | "ZALO" | "ZALO_PHONE_ACCOUNT";
-  bid_type: "BID_TYPE_NO_BID" | "BID_TYPE_CUSTOM" | "BUDGET_MODE_DYNAMIC_DAILY_BUDGET";
+  bid_type: "BID_TYPE_NO_BID" | "BID_TYPE_CUSTOM";
   bid_price?: "CLICK" | "BID_TYPE_CUSTOM" | "true";
   conversion_bid_price?: "CONVERT" | "TRAFFIC_LANDING_PAGE_VIEW" | "INSTALL" | "IN_APP_EVENT" | "BID_TYPE_CUSTOM" | "true";
   deep_bid_type?: "VALUE" | "DEFAULT" | "AEO" | "VO_MIN_ROAS" | "VO_HIGHEST_VALUE" | "BUDGET_MODE_DYNAMIC_DAILY_BUDGET";
@@ -421,12 +481,12 @@ export interface SmartPlusAdgroupCreateParams {
   zipcode_ids?: ("TRAVEL_ENTERTAINMENT" | "ZIP_CODE" | "RF_REACH")[];
   languages?: string[];
   operating_systems?: ("ANDROID" | "IOS" | "APP_ANDROID" | "APP_IOS")[];
-  spc_audience_age?: "ALL" | "MULTIPLE";
+  spc_audience_age?: "ALL" | "OVER_EIGHTEEN" | "OVER_TWENTY_FIVE" | "MULTIPLE";
   excluded_audience_ids?: string[];
   age_groups?: ("AGE_13_17" | "AGE_18_24" | "AGE_25_34" | "AGE_35_44" | "AGE_45_54" | "AGE_55_100" | "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING")[];
   gender?: "GENDER_FEMALE" | "GENDER_MALE" | "GENDER_UNLIMITED";
   audience_ids?: string[];
-  shopping_ads_retargeting_type?: "WEB_CONVERSION" | "WEB_AND_APP" | "ECOMMERCE" | "MANUAL" | "LAB1" | "LAB2" | "LAB3" | "OFF";
+  shopping_ads_retargeting_type?: "WEB_CONVERSION" | "WEB_AND_APP" | "WEBSITE" | "APP" | "ECOMMERCE" | "MANUAL" | "LAB1" | "LAB2" | "LAB3" | "OFF";
   shopping_ads_retargeting_actions_days?: "LAB1" | "LAB2";
   included_custom_actions?: {
   code?: "VIEW_PRODUCT" | "ADD_TO_CART" | "PURCHASE";
@@ -475,6 +535,7 @@ export interface SmartPlusAdgroupCreateParams {
   is_lhf_compliance?: "true" | "false";
   placement_type?: "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TIKTOK";
   placements?: ("PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE" | "TRAFFIC_LANDING_PAGE_VIEW")[];
+  tiktok_subplacements?: ("APP_PROMOTION" | "LEAD_GENERATION" | "WEB_CONVERSIONS" | "PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TIKTOK" | "LEMON8" | "PINE_DRAMA")[];
   comment_disabled?: "true" | "false";
   share_disabled?: "true" | "false";
   video_download_disabled?: "true" | "false";
@@ -493,7 +554,7 @@ export interface SmartPlusAdgroupCreateResponse {
   adgroup_name?: string;
   catalog_id?: string;
   catalog_authorized_bc_id?: string;
-  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_GAME" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "MINIS" | "MINI_APP" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
+  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_GAME" | "NATIVE_SERIES" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "MINIS" | "MINI_APP" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
   app_id?: string;
   gaming_ad_compliance_agreement?: "APP_PROMOTION" | "APP_RETARGETING" | "APP_INSTALL" | "REGULAR_CAMPAIGN" | "ON" | "OFF";
   promotion_website_type?: string;
@@ -504,15 +565,18 @@ export interface SmartPlusAdgroupCreateResponse {
   app_id?: string;
 }[];
   minis_id?: "MINI_APP" | "MINI_GAME";
-  optimization_event?: string;
+  optimization_event?: "IMPRESSION_LEVEL_AD_REVENUE" | "AD_REVENUE_VALUE";
   custom_conversion_id?: string;
   deep_funnel_optimization_status?: "ON" | "OFF";
   deep_funnel_event_source?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_event_source_id?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_optimization_event?: "ON" | "SHOPPING";
-  identity_id?: string;
-  identity_type?: "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
+  app_attribution_source?: "MMP" | "SAN";
+  app_data_source?: "MMP" | "EVENT_SDK" | "EVENT_API";
+  identity_id?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE";
+  identity_type?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
   identity_authorized_bc_id?: string;
+  native_series_id?: string;
   messaging_app_type?: "MESSENGER" | "WHATSAPP" | "ZALO" | "LINE" | "IM_URL";
   zalo_id_type?: "ZALO_OFFICIAL_ACCOUNT" | "ZALO_PHONE_ACCOUNT";
   messaging_app_account_id?: "MESSENGER" | "LINE" | "ZALO_OFFICIAL_ACCOUNT" | "WHATSAPP" | "ZALO_PHONE_ACCOUNT";
@@ -600,6 +664,7 @@ export interface SmartPlusAdgroupCreateResponse {
   is_lhf_compliance?: "true" | "false";
   placement_type?: ("PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL")[];
   placements?: ("PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE")[];
+  tiktok_subplacements?: ("LEMON8" | "PINE_DRAMA")[];
   search_result_enabled?: "true" | "false";
   comment_disabled?: "true" | "false";
   share_disabled?: "true" | "false";
@@ -631,14 +696,14 @@ export interface SmartPlusAdgroupUpdateParams {
   targeting_spec?: {
   location_ids?: string[];
   zipcode_ids?: ("TRAVEL_ENTERTAINMENT" | "ZIP_CODE" | "RF_REACH")[];
-  spc_audience_age?: "ALL" | "MULTIPLE";
+  spc_audience_age?: "ALL" | "OVER_EIGHTEEN" | "OVER_TWENTY_FIVE" | "MULTIPLE";
   languages?: string[];
   operating_systems?: ("ANDROID" | "IOS" | "APP_ANDROID" | "APP_IOS")[];
   excluded_audience_ids?: string[];
   age_groups?: ("AGE_13_17" | "AGE_18_24" | "AGE_25_34" | "AGE_35_44" | "AGE_45_54" | "AGE_55_100" | "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING")[];
   gender?: "GENDER_FEMALE" | "GENDER_MALE" | "GENDER_UNLIMITED";
   audience_ids?: string[];
-  shopping_ads_retargeting_type?: "WEB_CONVERSION" | "WEB_AND_APP" | "ECOMMERCE" | "MANUAL" | "LAB1" | "LAB2" | "LAB3" | "OFF";
+  shopping_ads_retargeting_type?: "WEB_CONVERSION" | "WEB_AND_APP" | "WEBSITE" | "APP" | "ECOMMERCE" | "MANUAL" | "LAB1" | "LAB2" | "LAB3" | "OFF";
   shopping_ads_retargeting_actions_days?: "LAB1" | "LAB2";
   included_custom_actions?: {
   code?: "VIEW_PRODUCT" | "ADD_TO_CART" | "PURCHASE";
@@ -689,7 +754,7 @@ export interface SmartPlusAdgroupUpdateResponse {
   adgroup_name?: string;
   catalog_id?: string;
   catalog_authorized_bc_id?: string;
-  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_GAME" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "MINIS" | "MINI_APP" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
+  promotion_type?: "APP_ANDROID" | "APP_IOS" | "WEBSITE" | "MINI_GAME" | "NATIVE_SERIES" | "LEAD_GENERATION" | "APP_PROMOTION" | "APP_INSTAL" | "MINIS" | "MINI_APP" | "WEB_CONVERSIONS" | "APP" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "LEAD_GEN_CLICK_TO_CALL";
   app_id?: string;
   gaming_ad_compliance_agreement?: "APP_PROMOTION" | "APP_RETARGETING" | "APP_INSTALL" | "REGULAR_CAMPAIGN" | "ON" | "OFF";
   promotion_website_type?: string;
@@ -700,15 +765,18 @@ export interface SmartPlusAdgroupUpdateResponse {
   app_id?: string;
 }[];
   minis_id?: "MINI_APP" | "MINI_GAME";
-  optimization_event?: string;
+  optimization_event?: "IMPRESSION_LEVEL_AD_REVENUE" | "AD_REVENUE_VALUE";
   custom_conversion_id?: string;
   deep_funnel_optimization_status?: "ON" | "OFF";
   deep_funnel_event_source?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_event_source_id?: "ON" | "PIXEL" | "OFFLINE" | "CRM";
   deep_funnel_optimization_event?: "ON" | "SHOPPING";
-  identity_id?: string;
-  identity_type?: "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
+  app_attribution_source?: "MMP" | "SAN";
+  app_data_source?: "MMP" | "EVENT_SDK" | "EVENT_API";
+  identity_id?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE";
+  identity_type?: "NATIVE_SERIES" | "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" | "TT_USER" | "BC_AUTH_TT";
   identity_authorized_bc_id?: string;
+  native_series_id?: string;
   messaging_app_type?: "MESSENGER" | "WHATSAPP" | "ZALO" | "LINE" | "IM_URL";
   zalo_id_type?: "ZALO_OFFICIAL_ACCOUNT" | "ZALO_PHONE_ACCOUNT";
   messaging_app_account_id?: "MESSENGER" | "LINE" | "ZALO_OFFICIAL_ACCOUNT" | "WHATSAPP" | "ZALO_PHONE_ACCOUNT";
@@ -796,6 +864,7 @@ export interface SmartPlusAdgroupUpdateResponse {
   is_lhf_compliance?: "true" | "false";
   placement_type?: ("PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL")[];
   placements?: ("PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE")[];
+  tiktok_subplacements?: ("LEMON8" | "PINE_DRAMA")[];
   search_result_enabled?: "true" | "false";
   comment_disabled?: "true" | "false";
   share_disabled?: "true" | "false";
@@ -913,6 +982,9 @@ export interface SmartPlusAdGetResponse {
   identity_authorized_bc_id?: string;
 };
 }[];
+  playable_list?: {
+  playable_url?: string;
+}[];
   ad_text_list?: {
   ad_text?: string;
 }[];
@@ -953,12 +1025,12 @@ export interface SmartPlusAdGetResponse {
   identity_id?: string;
   identity_authorized_bc_id?: string;
   dark_post_status?: "ON" | "OFF";
-  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS";
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "UNSET";
   product_set_id?: string;
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW")[];
   catalog_template_video_id?: string;
 };
   creative_auto_add_toggle?: "true" | "false";
@@ -982,6 +1054,7 @@ export interface SmartPlusAdGetResponse {
 }[];
   selling_points?: string[];
   catalog_tag_list?: ("WEB_CONVERSIONS" | "ECOMMERCE" | "LEAD_GENERATION" | "PRICE" | "STRIKETHROUGH_PRICE" | "DISCOUNT" | "FREE_SHIPPING" | "DEALER_NAME" | "CURRENT_MILEAGE" | "LEAD_PRICE" | "LEAD_SALE_PRICE" | "EXTERIOR_COLOR" | "TRIM" | "ADDRESS_CITY" | "VEHICLE_STATE" | "true")[];
+  product_card_type?: ("PRODUCT_CARD" | "PRODUCT_TILE" | "PRODUCT_INFO_CARD" | "PRODUCT_SHOWCASE_TILE" | "ANCHOR" | "CAROUSEL_LABEL")[];
   promo_info_list?: {
   discount_type?: "PERCENTAGE" | "CASH";
   discount_value?: number;
@@ -1002,6 +1075,10 @@ export interface SmartPlusAdGetResponse {
   phone_number?: string;
 };
   tracking_info?: {
+  viewability_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  viewability_vast_url?: string;
+  brand_safety_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  brand_safety_vast_url?: string;
   impression_tracking_url?: string;
   click_tracking_url?: string;
   tracking_app_id?: string;
@@ -1032,9 +1109,9 @@ export interface SmartPlusAdCreateParams {
   adgroup_id: string;
   ad_name?: string;
   operation_status?: "ENABLE" | "DISABLE";
-  creative_list: {
-  creative_info: {
-  ad_format: "SINGLE_VIDEO" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
+  creative_list?: {
+  creative_info?: {
+  ad_format?: "SINGLE_VIDEO" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
   video_info?: {
   video_id?: string;
   file_name?: string;
@@ -1050,6 +1127,7 @@ export interface SmartPlusAdCreateParams {
   identity_authorized_bc_id?: string;
 };
 }[];
+  playable_list?: ("APP_PROMOTION" | "APP_INSTALL" | "PLACEMENT_TYPE_NORMAL" | "SINGLE_VIDEO" | "MINIS" | "MINI_GAME")[];
   ad_text_list?: {
   ad_text?: string;
 }[];
@@ -1077,15 +1155,15 @@ export interface SmartPlusAdCreateParams {
   identity_id?: string;
   identity_authorized_bc_id?: string;
   dark_post_status?: "ON" | "OFF";
-  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "true";
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "UNSET" | "true" | "false";
   product_set_id?: string;
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "false")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW" | "false")[];
   catalog_template_video_id?: string;
 };
-  creative_auto_add_toggle?: "WEB_CONVERSIONS" | "WEBSITE" | "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE" | "true" | "false";
+  creative_auto_add_toggle?: "WEB_CONVERSIONS" | "WEBSITE" | "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE" | "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" | "MESSENGER" | "WHATAPP" | "true" | "false";
   creative_auto_enhancement_strategy_list?: ("TRANSLATE_AND_DUB" | "MUSIC_REFRESH" | "VIDEO_QUALITY" | "IMAGE_QUALITY" | "IMAGE_RESIZE")[];
   deeplink_utm_params?: ("WEB_CONVERSIONS" | "APP" | "DEFERRED_DEEPLINK")[];
   end_card_cta?: "LEAD_GENERATION" | "SEARCH_INVENTORY" | "LEARN_MORE" | "SHOP_NOW" | "SIGN_UP" | "CONTACT_US" | "BOOK_NOW" | "READ_MORE" | "VIEW_MORE" | "ORDER_NOW" | "SEND_MESSAGE" | "true";
@@ -1103,6 +1181,7 @@ export interface SmartPlusAdCreateParams {
 }[];
   selling_points?: string[];
   catalog_tag_list?: ("WEB_CONVERSIONS" | "ECOMMERCE" | "LEAD_GENERATION" | "PRICE" | "STRIKETHROUGH_PRICE" | "DISCOUNT" | "FREE_SHIPPING" | "DEALER_NAME" | "CURRENT_MILEAGE" | "LEAD_PRICE" | "LEAD_SALE_PRICE" | "EXTERIOR_COLOR" | "TRIM" | "ADDRESS_CITY" | "VEHICLE_STATE" | "true")[];
+  product_card_type?: ("PRODUCT_CARD" | "PRODUCT_TILE" | "PRODUCT_INFO_CARD" | "PRODUCT_SHOWCASE_TILE" | "ANCHOR" | "CAROUSEL_LABEL")[];
   promo_info_list?: {
   discount_type?: "PERCENTAGE" | "CASH";
   discount_value?: "PERCENTAGE" | "CASH";
@@ -1123,6 +1202,10 @@ export interface SmartPlusAdCreateParams {
   phone_number?: string;
 };
   tracking_info?: {
+  viewability_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  viewability_vast_url?: string;
+  brand_safety_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  brand_safety_vast_url?: string;
   impression_tracking_url?: string;
   click_tracking_url?: string;
   tracking_app_id?: "WEB_CONVERSIONS" | "LEAD_GENERATION";
@@ -1179,6 +1262,9 @@ export interface SmartPlusAdCreateResponse {
   identity_authorized_bc_id?: string;
 };
 }[];
+  playable_list?: {
+  playable_url?: string;
+}[];
   ad_text_list?: {
   ad_text?: string;
 }[];
@@ -1219,12 +1305,12 @@ export interface SmartPlusAdCreateResponse {
   identity_id?: string;
   identity_authorized_bc_id?: string;
   dark_post_status?: "ON" | "OFF";
-  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS";
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "UNSET";
   product_set_id?: string;
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW")[];
   catalog_template_video_id?: string;
 };
   creative_auto_add_toggle?: "true" | "false";
@@ -1248,6 +1334,7 @@ export interface SmartPlusAdCreateResponse {
 }[];
   selling_points?: string[];
   catalog_tag_list?: ("WEB_CONVERSIONS" | "ECOMMERCE" | "LEAD_GENERATION" | "PRICE" | "STRIKETHROUGH_PRICE" | "DISCOUNT" | "FREE_SHIPPING" | "DEALER_NAME" | "CURRENT_MILEAGE" | "LEAD_PRICE" | "LEAD_SALE_PRICE" | "EXTERIOR_COLOR" | "TRIM" | "ADDRESS_CITY" | "VEHICLE_STATE" | "true")[];
+  product_card_type?: ("PRODUCT_CARD" | "PRODUCT_TILE" | "PRODUCT_INFO_CARD" | "PRODUCT_SHOWCASE_TILE" | "ANCHOR" | "CAROUSEL_LABEL")[];
   promo_info_list?: {
   discount_type?: "PERCENTAGE" | "CASH";
   discount_value?: number;
@@ -1268,6 +1355,10 @@ export interface SmartPlusAdCreateResponse {
   phone_number?: string;
 };
   tracking_info?: {
+  viewability_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  viewability_vast_url?: string;
+  brand_safety_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  brand_safety_vast_url?: string;
   impression_tracking_url?: string;
   click_tracking_url?: string;
   tracking_app_id?: string;
@@ -1297,6 +1388,7 @@ export interface SmartPlusAdUpdateParams {
   smart_plus_ad_id: string;
   ad_name?: string;
   creative_list?: {
+  ad_material_id?: string;
   creative_info?: {
   ad_format?: "SINGLE_VIDEO" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
   video_info?: {
@@ -1316,6 +1408,7 @@ export interface SmartPlusAdUpdateParams {
   identity_authorized_bc_id?: string;
 };
 }[];
+  playable_list?: ("APP_PROMOTION" | "PLACEMENT_TYPE_NORMAL" | "SINGLE_VIDEO" | "APP_INSTALL" | "MINI_GAME")[];
   ad_text_list?: {
   ad_text?: string;
 }[];
@@ -1340,12 +1433,12 @@ export interface SmartPlusAdUpdateParams {
   identity_id?: string;
   identity_authorized_bc_id?: string;
   dark_post_status?: "ON" | "OFF";
-  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "true";
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "UNSET" | "true" | "false";
   product_set_id?: string;
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "false")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW" | "false")[];
   catalog_template_video_id?: string;
 };
   creative_auto_add_toggle?: "WEB_CONVERSIONS" | "WEBSITE" | "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE" | "true" | "false";
@@ -1364,6 +1457,7 @@ export interface SmartPlusAdUpdateParams {
 }[];
   selling_points?: string[];
   catalog_tag_list?: ("WEB_CONVERSIONS" | "ECOMMERCE" | "LEAD_GENERATION" | "PRICE" | "STRIKETHROUGH_PRICE" | "DISCOUNT" | "FREE_SHIPPING" | "DEALER_NAME" | "CURRENT_MILEAGE" | "LEAD_PRICE" | "LEAD_SALE_PRICE" | "EXTERIOR_COLOR" | "TRIM" | "ADDRESS_CITY" | "VEHICLE_STATE" | "true")[];
+  product_card_type?: ("PRODUCT_CARD" | "PRODUCT_TILE" | "PRODUCT_INFO_CARD" | "PRODUCT_SHOWCASE_TILE" | "ANCHOR" | "CAROUSEL_LABEL")[];
   promo_info_list?: {
   discount_type?: "PERCENTAGE" | "CASH";
   discount_value?: "PERCENTAGE" | "CASH";
@@ -1379,6 +1473,10 @@ export interface SmartPlusAdUpdateParams {
   product_info_enabled?: "UNSET" | "NON_CATALOG" | "CATALOG" | "MINIS" | "true";
   call_to_action_id?: "LEAD_GENERATION" | "PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TIKTOK" | "PLACEMENT_TYPE_AUTOMATIC" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TT_USER" | "BC_AUTH_TT" | "AUTH_CODE";
   tracking_info?: {
+  viewability_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  viewability_vast_url?: string;
+  brand_safety_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  brand_safety_vast_url?: string;
   impression_tracking_url?: string;
   click_tracking_url?: string;
   tracking_app_id?: string;
@@ -1428,6 +1526,9 @@ export interface SmartPlusAdUpdateResponse {
   identity_authorized_bc_id?: string;
 };
 }[];
+  playable_list?: {
+  playable_url?: string;
+}[];
   ad_text_list?: {
   ad_text?: string;
 }[];
@@ -1468,12 +1569,12 @@ export interface SmartPlusAdUpdateResponse {
   identity_id?: string;
   identity_authorized_bc_id?: string;
   dark_post_status?: "ON" | "OFF";
-  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS";
+  product_specific_type?: "ALL" | "PRODUCT_SET" | "CUSTOMIZED_PRODUCTS" | "UNSET";
   product_set_id?: string;
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW")[];
   catalog_template_video_id?: string;
 };
   creative_auto_add_toggle?: "true" | "false";
@@ -1497,6 +1598,7 @@ export interface SmartPlusAdUpdateResponse {
 }[];
   selling_points?: string[];
   catalog_tag_list?: ("WEB_CONVERSIONS" | "ECOMMERCE" | "LEAD_GENERATION" | "PRICE" | "STRIKETHROUGH_PRICE" | "DISCOUNT" | "FREE_SHIPPING" | "DEALER_NAME" | "CURRENT_MILEAGE" | "LEAD_PRICE" | "LEAD_SALE_PRICE" | "EXTERIOR_COLOR" | "TRIM" | "ADDRESS_CITY" | "VEHICLE_STATE" | "true")[];
+  product_card_type?: ("PRODUCT_CARD" | "PRODUCT_TILE" | "PRODUCT_INFO_CARD" | "PRODUCT_SHOWCASE_TILE" | "ANCHOR" | "CAROUSEL_LABEL")[];
   promo_info_list?: {
   discount_type?: "PERCENTAGE" | "CASH";
   discount_value?: number;
@@ -1517,6 +1619,10 @@ export interface SmartPlusAdUpdateResponse {
   phone_number?: string;
 };
   tracking_info?: {
+  viewability_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  viewability_vast_url?: string;
+  brand_safety_postbid_partner?: "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  brand_safety_vast_url?: string;
   impression_tracking_url?: string;
   click_tracking_url?: string;
   tracking_app_id?: string;
@@ -1604,7 +1710,7 @@ export interface SmartPlusAdPreviewParams {
   ad_text?: string;
 }[];
   call_to_action_list?: {
-  call_to_action?: Record<string, unknown>;
+  call_to_action?: string;
 }[];
   ad_configuration?: {
   identity_type?: "CUSTOMIZED_USER" | "TT_USER" | "BC_AUTH_TT" | "true";
@@ -1615,9 +1721,10 @@ export interface SmartPlusAdPreviewParams {
   product_ids?: string[];
   catalog_creative_toggle?: "true" | "false";
   catalog_creative_info?: {
-  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO")[];
+  catalog_media_settings?: ("VIDEO" | "IMAGE" | "TEMPLATE_VIDEO" | "MULTI_SHOW")[];
   catalog_template_video_id?: string;
 };
+  call_to_action_id?: string;
 };
 }
 

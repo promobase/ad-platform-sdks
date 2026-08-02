@@ -38,6 +38,14 @@ export interface AdsInsightsFields {
   catalog_segment_value_omni_purchase_roas: AdsActionStatsFields[];
   catalog_segment_value_website_purchase_roas: AdsActionStatsFields[];
   clicks: string;
+  configurable_attribution_action: AdsActionStatsFields[];
+  configurable_attribution_actionvalue: AdsActionStatsFields[];
+  configurable_audience_overlap_reach: AdsActionStatsFields[];
+  configurable_reachbyfrequency_action: AdsActionStatsFields[];
+  configurable_reachbyfrequency_converters_count: string;
+  configurable_reachbyfrequency_impressions_cost: string;
+  configurable_reachbyfrequency_impressions_count: string;
+  configurable_reachbyfrequency_reach: string;
   conversion_lead_rate: AdsActionStatsFields[];
   conversion_leads: AdsActionStatsFields[];
   conversion_rate_ranking: string;
@@ -65,6 +73,7 @@ export interface AdsInsightsFields {
   converted_promoted_product_website_pixel_purchase_value: AdsActionStatsFields[];
   cost_per_15_sec_video_view: AdsActionStatsFields[];
   cost_per_2_sec_continuous_video_view: AdsActionStatsFields[];
+  cost_per_6_sec_video_view: AdsActionStatsFields[];
   cost_per_action_type: AdsActionStatsFields[];
   cost_per_ad_click: AdsActionStatsFields[];
   cost_per_conversion: AdsActionStatsFields[];
@@ -73,6 +82,7 @@ export interface AdsInsightsFields {
   cost_per_estimated_ad_recallers: string;
   cost_per_inline_link_click: string;
   cost_per_inline_post_engagement: string;
+  cost_per_message_delivered: string;
   cost_per_objective_result: Record<string, unknown>[];
   cost_per_one_thousand_ad_impression: AdsActionStatsFields[];
   cost_per_outbound_click: AdsActionStatsFields[];
@@ -87,6 +97,11 @@ export interface AdsInsightsFields {
   cpm: string;
   cpp: string;
   created_time: string;
+  creative_diversity_data: Record<string, unknown>[];
+  creative_diversity_label: string;
+  creative_diversity_score: string;
+  creative_fatigue_summary: Record<string, unknown>[];
+  creative_fatigued_ads: Record<string, unknown>[];
   creative_media_type: string;
   ctr: string;
   date_start: string;
@@ -141,12 +156,15 @@ export interface AdsInsightsFields {
   marketing_messages_website_initiate_checkout: string;
   marketing_messages_website_purchase: string;
   marketing_messages_website_purchase_values: string;
+  messages_delivered: string;
+  messages_delivered_ctr: string;
   mobile_app_purchase_roas: AdsActionStatsFields[];
   multi_event_conversion_attribution_setting: string;
   objective: string;
   objective_result_rate: Record<string, unknown>[];
   objective_results: Record<string, unknown>[];
   onsite_conversion_messaging_detected_purchase_deduped: AdsActionStatsFields[];
+  opportunity_score_l4: string;
   optimization_goal: string;
   outbound_clicks: AdsActionStatsFields[];
   outbound_clicks_ctr: AdsActionStatsFields[];
@@ -160,6 +178,7 @@ export interface AdsInsightsFields {
   qualifying_question_qualify_answer_rate: string;
   quality_ranking: string;
   reach: string;
+  read_rate: string;
   result_rate: Record<string, unknown>[];
   result_values_performance_indicator: string;
   results: Record<string, unknown>[];
@@ -184,6 +203,7 @@ export interface AdsInsightsFields {
   updated_time: string;
   video_15_sec_watched_actions: AdsActionStatsFields[];
   video_30_sec_watched_actions: AdsActionStatsFields[];
+  video_6_sec_watched_actions: AdsActionStatsFields[];
   video_avg_time_watched_actions: AdsActionStatsFields[];
   video_continuous_2_sec_watched_actions: AdsActionStatsFields[];
   video_p100_watched_actions: AdsActionStatsFields[];

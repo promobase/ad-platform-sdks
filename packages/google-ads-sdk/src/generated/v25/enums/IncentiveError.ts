@@ -1,0 +1,14 @@
+// Generated from google.ads.googleads.v25.errors.IncentiveErrorEnum.IncentiveError. Do not edit by hand.
+export type IncentiveError =
+  | "UNSPECIFIED"
+  | "UNKNOWN"
+  | "INVALID_INCENTIVE_ID"
+  | "MAX_INCENTIVES_REDEEMED"
+  | "ACCOUNT_TOO_OLD"
+  | "BILLING_COUNTRY_NOT_ELIGIBLE"
+  | "USER_IS_MCC_MANAGER"
+  | "USER_SUSPENDED"
+  | "MAX_PENDING_INCENTIVES"
+  | "ACCOUNT_HAD_RECENT_SPEND"
+  | "MAX_INCENTIVES_REDEEMED_FROM_OFFER"
+  | "MISMATCHING_BILLING_COUNTRY_CODE";

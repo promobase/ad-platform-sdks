@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import { createThreadsClient, createThreadsOAuth } from "../../src/clients/threads/index.ts";
 
 const originalFetch = globalThis.fetch;

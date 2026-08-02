@@ -1,5 +1,5 @@
 // Auto-generated client for (To be deprecated) Legacy Smart+ — do not edit
-import type { CampaignSpcQuotaGetParams, CampaignSpcQuotaGetResponse, CampaignSpcCreateParams, CampaignSpcCreateResponse, CampaignSpcUpdateParams, CampaignSpcUpdateResponse, CampaignSpcMaterialStatusUpdateParams, CampaignSpcMaterialStatusUpdateResponse } from "../types/to-be-deprecated-legacy-smart.ts";
+import type { CampaignSpcQuotaGetParams, CampaignSpcQuotaGetResponse, CampaignSpcCreateParams, CampaignSpcCreateResponse, CampaignSpcUpdateParams, CampaignSpcUpdateResponse, CampaignSpcGetParams, CampaignSpcGetResponse, CampaignSpcMaterialStatusUpdateParams, CampaignSpcMaterialStatusUpdateResponse } from "../types/to-be-deprecated-legacy-smart.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -55,6 +55,11 @@ export function createToBeDeprecatedLegacySmart(opts: { accessToken: string; adv
     /** (To be deprecated) Update a Legacy Smart+ Campaign */
     async updateSpc(params: CampaignSpcUpdateParams): Promise<CampaignSpcUpdateResponse> {
       return post<CampaignSpcUpdateResponse>("/open_api/v1.3/campaign/spc/update/", params as unknown as Record<string, unknown>);
+    },
+
+    /** (To be deprecated) Get Legacy Smart+ Campaigns */
+    async getSpc(params: CampaignSpcGetParams): Promise<CampaignSpcGetResponse> {
+      return get<CampaignSpcGetResponse>("/open_api/v1.3/campaign/spc/get/", params as unknown as Record<string, unknown>);
     },
 
     /** (To be deprecated) Disable or enable creatives in a Legacy Smart+ Campaign */

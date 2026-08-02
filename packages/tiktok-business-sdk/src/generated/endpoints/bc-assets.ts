@@ -1,5 +1,5 @@
 // Auto-generated client for BC Assets — do not edit
-import type { BcAdvertiserCreateParams, BcAdvertiserCreateResponse, AdvertiserUpdateParams, AdvertiserUpdateResponse, BcAdvertiserDisableParams, BcAdvertiserDisableResponse, BcImageUploadParams, BcImageUploadResponse, BcAdvertiserQualificationGetParams, BcAdvertiserQualificationGetResponse, BcAdvertiserUnionpayInfoCheckParams, BcAdvertiserUnionpayInfoCheckResponse, BcAdvertiserUnionpayInfoSubmitParams, BcAdvertiserUnionpayInfoSubmitResponse, BcOaCreateParams, BcOaCreateResponse, BcAssetGetParams, BcAssetGetResponse, BcAssetAdminGetParams, BcAssetAdminGetResponse, BcAssetAccountAuthorizationParams, BcAssetAccountAuthorizationResponse, BcAssetAdvertiserAssignParams, BcAssetAdvertiserAssignResponse, BcAssetAdvertiserUnassignParams, BcAssetAdvertiserUnassignResponse, BcAssetAdvertiserAssignedParams, BcAssetAdvertiserAssignedResponse, BcPixelTransferParams, BcPixelTransferResponse, BcPixelLinkUpdateParams, BcPixelLinkUpdateResponse, BcPixelLinkGetParams, BcPixelLinkGetResponse, BcAssetPartnerGetParams, BcAssetPartnerGetResponse, BcAssetAdminDeleteParams, BcAssetAdminDeleteResponse, AssetBindQuotaParams, AssetBindQuotaResponse } from "../types/bc-assets.ts";
+import type { BcAdvertiserCreateParams, BcAdvertiserCreateResponse, AdvertiserUpdateParams, AdvertiserUpdateResponse, BcAdvertiserDisableParams, BcAdvertiserDisableResponse, BcImageUploadParams, BcImageUploadResponse, BcAdvertiserQualificationGetParams, BcAdvertiserQualificationGetResponse, BcAdvertiserUnionpayInfoCheckParams, BcAdvertiserUnionpayInfoCheckResponse, BcAdvertiserUnionpayInfoSubmitParams, BcAdvertiserUnionpayInfoSubmitResponse, BcOaCreateParams, BcOaCreateResponse, BcAssetGetParams, BcAssetGetResponse, BcAssetAdminGetParams, BcAssetAdminGetResponse, BcAssetAssignParams, BcAssetAssignResponse, BcAssetUnassignParams, BcAssetUnassignResponse, BcAssetAccountAuthorizationParams, BcAssetAccountAuthorizationResponse, BcAssetAdvertiserAssignParams, BcAssetAdvertiserAssignResponse, BcAssetAdvertiserUnassignParams, BcAssetAdvertiserUnassignResponse, BcAssetAdvertiserAssignedParams, BcAssetAdvertiserAssignedResponse, BcPixelTransferParams, BcPixelTransferResponse, BcPixelLinkUpdateParams, BcPixelLinkUpdateResponse, BcPixelLinkGetParams, BcPixelLinkGetResponse, BcAssetPartnerGetParams, BcAssetPartnerGetResponse, BcAssetMemberGetParams, BcAssetMemberGetResponse, BcAssetAdminDeleteParams, BcAssetAdminDeleteResponse, AssetBindQuotaParams, AssetBindQuotaResponse } from "../types/bc-assets.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -92,6 +92,16 @@ export function createBcAssets(opts: { accessToken: string; advertiserId: string
       return get<BcAssetAdminGetResponse>("/open_api/v1.3/bc/asset/admin/get/", params as unknown as Record<string, unknown>);
     },
 
+    /** Assign an asset */
+    async assetAssign(params: BcAssetAssignParams): Promise<BcAssetAssignResponse> {
+      return post<BcAssetAssignResponse>("/open_api/v1.3/bc/asset/assign/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Unassign an asset */
+    async assetUnassign(params: BcAssetUnassignParams): Promise<BcAssetUnassignResponse> {
+      return post<BcAssetUnassignResponse>("/open_api/v1.3/bc/asset/unassign/", params as unknown as Record<string, unknown>);
+    },
+
     /** Obtain a TikTok account ad delivery authorization URL */
     async accountAuthorization(params: BcAssetAccountAuthorizationParams): Promise<BcAssetAccountAuthorizationResponse> {
       return post<BcAssetAccountAuthorizationResponse>("/open_api/v1.3/bc/asset/account/authorization/", params as unknown as Record<string, unknown>);
@@ -130,6 +140,11 @@ export function createBcAssets(opts: { accessToken: string; advertiserId: string
     /** Get partners by an asset */
     async getPartner(params: BcAssetPartnerGetParams): Promise<BcAssetPartnerGetResponse> {
       return get<BcAssetPartnerGetResponse>("/open_api/v1.3/bc/asset/partner/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get members by an asset */
+    async getMember(params: BcAssetMemberGetParams): Promise<BcAssetMemberGetResponse> {
+      return get<BcAssetMemberGetResponse>("/open_api/v1.3/bc/asset/member/get/", params as unknown as Record<string, unknown>);
     },
 
     /** Delete assets from a BC */

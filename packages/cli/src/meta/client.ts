@@ -7,6 +7,7 @@ import {
   createThreadsClient,
   createThreadsOAuth,
 } from "@openpromo/meta";
+
 import type { GraphAuthInput, OAuthConfigInput } from "../schemas.ts";
 
 export function createMetaApi(input: GraphAuthInput): any {
@@ -36,7 +37,7 @@ export function createInstagram(
       env: "META_IG_ACCOUNT_ID",
     }),
     polling: {
-      ...(input.polling ?? {}),
+      ...input.polling,
       photoIntervalMs: input.photoIntervalMs,
       videoIntervalMs: input.videoIntervalMs,
       maxAttempts: input.maxAttempts,
@@ -79,7 +80,7 @@ export function createThreads(input: {
     }),
     apiVersion: input.apiVersion ?? process.env.THREADS_API_VERSION,
     polling: {
-      ...(input.polling ?? {}),
+      ...input.polling,
       textIntervalMs: input.textIntervalMs,
       videoIntervalMs: input.videoIntervalMs,
       maxAttempts: input.maxAttempts,

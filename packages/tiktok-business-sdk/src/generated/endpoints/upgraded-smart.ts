@@ -1,5 +1,5 @@
 // Auto-generated client for Upgraded Smart+ — do not edit
-import type { SmartPlusCampaignGetParams, SmartPlusCampaignGetResponse, SmartPlusCampaignCreateParams, SmartPlusCampaignCreateResponse, SmartPlusCampaignUpdateParams, SmartPlusCampaignUpdateResponse, SmartPlusCampaignStatusUpdateParams, SmartPlusCampaignStatusUpdateResponse, SmartPlusAdgroupGetParams, SmartPlusAdgroupGetResponse, SmartPlusAdgroupCreateParams, SmartPlusAdgroupCreateResponse, SmartPlusAdgroupUpdateParams, SmartPlusAdgroupUpdateResponse, SmartPlusAdgroupStatusUpdateParams, SmartPlusAdgroupStatusUpdateResponse, SmartPlusAdgroupBudgetUpdateParams, SmartPlusAdgroupBudgetUpdateResponse, SmartPlusAdGetParams, SmartPlusAdGetResponse, SmartPlusAdCreateParams, SmartPlusAdCreateResponse, SmartPlusAdUpdateParams, SmartPlusAdUpdateResponse, SmartPlusAdStatusUpdateParams, SmartPlusAdStatusUpdateResponse, SmartPlusAdMaterialStatusUpdateParams, SmartPlusAdMaterialStatusUpdateResponse, SmartPlusAdPreviewParams, SmartPlusAdPreviewResponse, SmartPlusAdReviewInfoParams, SmartPlusAdReviewInfoResponse, SmartPlusMaterialReviewInfoParams, SmartPlusMaterialReviewInfoResponse, SmartPlusAdAppealParams, SmartPlusAdAppealResponse } from "../types/upgraded-smart.ts";
+import type { SmartPlusCampaignGetParams, SmartPlusCampaignGetResponse, SmartPlusCampaignCreateParams, SmartPlusCampaignCreateResponse, SmartPlusCampaignUpdateParams, SmartPlusCampaignUpdateResponse, SmartPlusCampaignStatusUpdateParams, SmartPlusCampaignStatusUpdateResponse, SmartPlusCampaignCopyTaskCreateParams, SmartPlusCampaignCopyTaskCreateResponse, SmartPlusCampaignCopyTaskCheckParams, SmartPlusCampaignCopyTaskCheckResponse, SmartPlusAdgroupGetParams, SmartPlusAdgroupGetResponse, SmartPlusAdgroupCreateParams, SmartPlusAdgroupCreateResponse, SmartPlusAdgroupUpdateParams, SmartPlusAdgroupUpdateResponse, SmartPlusAdgroupStatusUpdateParams, SmartPlusAdgroupStatusUpdateResponse, SmartPlusAdgroupBudgetUpdateParams, SmartPlusAdgroupBudgetUpdateResponse, SmartPlusAdGetParams, SmartPlusAdGetResponse, SmartPlusAdCreateParams, SmartPlusAdCreateResponse, SmartPlusAdUpdateParams, SmartPlusAdUpdateResponse, SmartPlusAdStatusUpdateParams, SmartPlusAdStatusUpdateResponse, SmartPlusAdMaterialStatusUpdateParams, SmartPlusAdMaterialStatusUpdateResponse, SmartPlusAdPreviewParams, SmartPlusAdPreviewResponse, SmartPlusAdReviewInfoParams, SmartPlusAdReviewInfoResponse, SmartPlusMaterialReviewInfoParams, SmartPlusMaterialReviewInfoResponse, SmartPlusAdAppealParams, SmartPlusAdAppealResponse } from "../types/upgraded-smart.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -60,6 +60,16 @@ export function createUpgradedSmart(opts: { accessToken: string; advertiserId: s
     /** Update the operation statuses of Upgraded Smart+ Campaigns */
     async updateStatus(params: SmartPlusCampaignStatusUpdateParams): Promise<SmartPlusCampaignStatusUpdateResponse> {
       return post<SmartPlusCampaignStatusUpdateResponse>("/open_api/v1.3/smart_plus/campaign/status/update/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Create an asynchronous copy task for an Upgraded Smart+ Campaign */
+    async createTask(params: SmartPlusCampaignCopyTaskCreateParams): Promise<SmartPlusCampaignCopyTaskCreateResponse> {
+      return post<SmartPlusCampaignCopyTaskCreateResponse>("/open_api/v1.3/smart_plus/campaign/copy/task/create/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get the results of an asynchronous copy task for an Upgraded Smart+ Campaign */
+    async taskCheck(params: SmartPlusCampaignCopyTaskCheckParams): Promise<SmartPlusCampaignCopyTaskCheckResponse> {
+      return get<SmartPlusCampaignCopyTaskCheckResponse>("/open_api/v1.3/smart_plus/campaign/copy/task/check/", params as unknown as Record<string, unknown>);
     },
 
     /** Get Upgraded Smart+ Ad Groups */

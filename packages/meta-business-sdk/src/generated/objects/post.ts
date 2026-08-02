@@ -40,9 +40,11 @@ export interface PostFields {
   is_eligible_for_dark_post: boolean;
   is_eligible_for_promotion: boolean;
   is_expired: boolean;
+  is_fb_live_videos: boolean;
   is_hidden: boolean;
   is_inline_created: boolean;
   is_instagram_eligible: boolean;
+  is_live_clip: boolean;
   is_popular: boolean;
   is_published: boolean;
   is_spherical: boolean;
@@ -75,6 +77,7 @@ export interface PostFields {
   updated_time: string;
   via: Record<string, unknown>;
   video_buying_eligibility: string[];
+  was_fb_live_videos: boolean;
   width: number;
 }
 
@@ -111,12 +114,14 @@ export interface PostListInsightsParams {
 }
 
 export interface PostDeleteLikesParams {
+  attribution_id_v2?: string;
   nectar_module?: string;
   tracking?: string;
   [key: string]: unknown;
 }
 
 export interface PostCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   tracking?: string;

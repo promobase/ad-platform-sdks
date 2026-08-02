@@ -11,6 +11,7 @@ export interface AdCreativeFeatureCustomizationsFields {
   ig_stream_tag_name: string;
   image_crop_style: string;
   pe_carousel: Record<string, unknown>;
+  recomposition_type: Record<string, unknown>;
   showcase_card_display: string;
   text_extraction: Record<string, unknown>;
   text_style: string;

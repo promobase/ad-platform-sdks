@@ -1,0 +1,9 @@
+import type { MutateKeywordPlanAdGroupsRequest, MutateKeywordPlanAdGroupsResponse } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.KeywordPlanAdGroupService. Do not edit by hand.
+export const keywordPlanAdGroupService = {
+  mutateKeywordPlanAdGroups(client: HttpClient, customerId: string, body: Omit<MutateKeywordPlanAdGroupsRequest, "customerId">): Promise<MutateKeywordPlanAdGroupsResponse> {
+    return client.post<MutateKeywordPlanAdGroupsResponse>(`/v25/customers/${customerId}/keywordPlanAdGroups:mutate`, body);
+  }
+};

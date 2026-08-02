@@ -146,6 +146,7 @@ export interface ApplicationCreateAccountsParams {
 }
 
 export interface ApplicationCreateActivitiesParams {
+  add_to_messaging_customer_base_for_whatsapp?: string;
   advertiser_id?: string;
   advertiser_tracking_enabled?: boolean;
   anon_id?: string;
@@ -159,6 +160,7 @@ export interface ApplicationCreateActivitiesParams {
   bundle_short_version?: string;
   bundle_version?: string;
   campaign_ids?: string;
+  circuit_breaker_timeout_ms?: number;
   click_id?: string;
   consider_views?: boolean;
   custom_events?: Record<string, unknown>[];
@@ -177,6 +179,7 @@ export interface ApplicationCreateActivitiesParams {
   install_referrer?: string;
   install_timestamp?: number;
   installer_package?: string;
+  is_circuit_breaker_active?: boolean;
   is_fb?: boolean;
   limited_data_use?: boolean;
   meta_install_referrer?: string;
@@ -425,6 +428,7 @@ export interface ApplicationDeleteSubscriptionsParams {
 export interface ApplicationCreateSubscriptionsParams {
   callback_url?: string;
   fields?: string[];
+  include_client_certificate?: boolean;
   include_values?: boolean;
   object: string;
   verify_token?: string;

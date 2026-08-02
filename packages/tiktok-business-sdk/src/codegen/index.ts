@@ -1,5 +1,6 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import { emitBarrel, emitCategory, groupByCategory } from "./emitter.ts";
 import { parseAllDocs } from "./parser.ts";
 import { scrapeAllDocs } from "./scraper.ts";
@@ -28,6 +29,10 @@ async function main() {
   // 4. Create output directories
   const typesDir = join(OUTPUT_DIR, "types");
   const endpointsDir = join(OUTPUT_DIR, "endpoints");
+  // These directories are fully generated. Clean them so removed or renamed
+  // documentation categories cannot remain in the published package.
+  await rm(typesDir, { recursive: true, force: true });
+  await rm(endpointsDir, { recursive: true, force: true });
   await mkdir(typesDir, { recursive: true });
   await mkdir(endpointsDir, { recursive: true });
 
@@ -49,9 +54,23 @@ async function main() {
   // 6. Emit barrel index
   const barrelContent = emitBarrel(categories);
   await writeFile(join(OUTPUT_DIR, "index.ts"), barrelContent, "utf-8");
+  const totalEndpoints = [...grouped.values()].reduce((sum, specs) => sum + specs.length, 0);
+  await writeFile(
+    join(OUTPUT_DIR, "manifest.json"),
+    `${JSON.stringify(
+      {
+        source: "https://business-api.tiktok.com/gateway/api/doc/client",
+        docPages: docs.length,
+        endpoints: totalEndpoints,
+        categories: [...grouped].map(([name, specs]) => ({ name, endpoints: specs.length })),
+      },
+      null,
+      2,
+    )}\n`,
+    "utf-8",
+  );
 
   // Summary
-  const totalEndpoints = [...grouped.values()].reduce((sum, specs) => sum + specs.length, 0);
   console.log(
     `\n[codegen] Done! Generated ${totalEndpoints} endpoints across ${grouped.size} categories`,
   );

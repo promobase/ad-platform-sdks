@@ -23,19 +23,21 @@ export interface PageGetResponse {
   list?: {
   page_id?: string;
   status?: "EDITED" | "PUBLISHED";
+  title?: string;
+  preview_url?: string;
+  template_id?: string;
+  template_name?: string;
+  supported_objectives?: ("APP_PROMOTION" | "WEB_CONVERSIONS" | "LEAD_GENERATION" | "TRAFFIC" | "REACH" | "VIDEO_VIEWS" | "ENGAGEMENT" | "PRODUCT_SALES" | "RF_REACH")[];
+  thumbnail?: string;
   create_time?: string;
   update_time?: string;
   publish_time?: string;
-  title?: string;
-  preview_url?: string;
-  thumbnail?: string;
   app_id?: string;
   has_cpp?: "TIKTOK_INSTANT_PAGE" | "true" | "false";
   destination_urls?: ("LEAD_GEN" | "APP_PROFILE_PAGE" | "TIKTOK_INSTANT_PAGE")[];
   messaging_app_type?: "MESSENGER" | "WHATSAPP" | "IM_URL";
   messaging_app_account_id?: "MESSENGER" | "WHATSAPP" | "IM_URL";
   transfer_status?: "UNSET" | "TRANSFERRED";
-  template_id?: string;
   user_id?: string;
   is_associated?: boolean;
   duplicate_id?: string;

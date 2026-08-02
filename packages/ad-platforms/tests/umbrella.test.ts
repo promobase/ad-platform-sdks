@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
-import { LinkedIn, Meta, TikTok } from "../src/index.ts";
+
+import { Google, LinkedIn, Meta, TikTok } from "../src/index.ts";
 import { createAllTools } from "../src/unified-tools.ts";
 import { X } from "../src/x.ts";
 import { YouTube } from "../src/youtube.ts";
@@ -17,16 +18,20 @@ test("TikTok namespace is accessible", () => {
 });
 
 test("LinkedIn namespace is accessible", () => {
-  expect(LinkedIn.createClient).toBeDefined();
+  const client = LinkedIn.createClient({ accessToken: "token" });
+  expect(client.client.apiVersion).toBe("202607");
   expect(LinkedIn.OAuth.create).toBeDefined();
 });
 
 test("X namespace is accessible", () => {
-  expect(X.createClient).toBeDefined();
+  const client = X.createClient({ token: "token" });
+  expect(client.posts.createPosts).toBeDefined();
+  expect(client.tweets).toBe(client.posts);
 });
 
 test("YouTube namespace is accessible", () => {
-  expect(YouTube.createClient).toBeDefined();
+  const client = YouTube.createClient({ accessToken: "token" });
+  expect(client.resources.videos.batchGetStats).toBeDefined();
 });
 
 test("createAllTools combines Meta and TikTok tools", () => {
@@ -58,9 +63,11 @@ test("createAllTools works with empty config", () => {
   expect(Object.keys(tools)).toHaveLength(0);
 });
 
-test("Google namespace is accessible", async () => {
-  const { Google } = await import("../src/index.ts");
+test("Google namespace is accessible", () => {
   expect(Google.createClient).toBeDefined();
+  expect(
+    Google.createClient({ getAccessToken: () => "token", developerToken: "developer" }).apiVersion,
+  ).toBe("v25");
   expect(Google.Ads.paginate).toBeDefined();
   expect(Google.Errors.GoogleAdsError).toBeDefined();
 });

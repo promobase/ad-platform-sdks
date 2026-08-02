@@ -16,6 +16,7 @@ export interface AdCreativeFeaturesSpecFields {
   cv_transformation: AdCreativeFeatureDetailsFields;
   description_automation: AdCreativeFeatureDetailsFields;
   dha_optimization: AdCreativeFeatureDetailsFields;
+  dynamic_cta_text: AdCreativeFeatureDetailsFields;
   dynamic_partner_content: AdCreativeFeatureDetailsFields;
   enable_ncs_testimonials: AdCreativeFeatureDetailsFields;
   enhance_cta: AdCreativeFeatureDetailsFields;
@@ -25,6 +26,7 @@ export interface AdCreativeFeaturesSpecFields {
   feed_caption_optimization: AdCreativeFeatureDetailsFields;
   generate_cta: AdCreativeFeatureDetailsFields;
   hide_price: AdCreativeFeatureDetailsFields;
+  hyperlink_formatting: AdCreativeFeatureDetailsFields;
   ig_feed_tag: AdCreativeFeatureDetailsFields;
   ig_glados_feed: AdCreativeFeatureDetailsFields;
   ig_reels_tag: AdCreativeFeatureDetailsFields;
@@ -33,7 +35,9 @@ export interface AdCreativeFeaturesSpecFields {
   image_animation: AdCreativeFeatureDetailsFields;
   image_auto_crop: AdCreativeFeatureDetailsFields;
   image_background_gen: AdCreativeFeatureDetailsFields;
+  image_banner: AdCreativeFeatureDetailsFields;
   image_brightness_and_contrast: AdCreativeFeatureDetailsFields;
+  image_end_card: AdCreativeFeatureDetailsFields;
   image_enhancement: AdCreativeFeatureDetailsFields;
   image_templates: AdCreativeFeatureDetailsFields;
   image_text_translation: AdCreativeFeatureDetailsFields;
@@ -44,9 +48,13 @@ export interface AdCreativeFeaturesSpecFields {
   media_liquidity_animated_image: AdCreativeFeatureDetailsFields;
   media_order: AdCreativeFeatureDetailsFields;
   media_type_automation: AdCreativeFeatureDetailsFields;
+  multi_creative_post_carousel: AdCreativeFeatureDetailsFields;
   multi_photo_to_video: AdCreativeFeatureDetailsFields;
   music_generation: AdCreativeFeatureDetailsFields;
+  pac_genai_recomposition: AdCreativeFeatureDetailsFields;
+  pac_recomposition: AdCreativeFeatureDetailsFields;
   pac_relaxation: AdCreativeFeatureDetailsFields;
+  product_browsing: AdCreativeFeatureDetailsFields;
   product_extensions: AdCreativeFeatureDetailsFields;
   product_metadata_automation: AdCreativeFeatureDetailsFields;
   product_tags: AdCreativeFeatureDetailsFields;
@@ -73,6 +81,7 @@ export interface AdCreativeFeaturesSpecFields {
   video_highlights: AdCreativeFeatureDetailsFields;
   video_to_image: AdCreativeFeatureDetailsFields;
   video_uncrop: AdCreativeFeatureDetailsFields;
+  video_uncrop_9x16_to_9x18: AdCreativeFeatureDetailsFields;
   wa_mm_image_filtering: AdCreativeFeatureDetailsFields;
   wa_mm_text_truncation_length: AdCreativeFeatureDetailsFields;
 }

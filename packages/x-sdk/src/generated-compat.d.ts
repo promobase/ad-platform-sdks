@@ -4,7 +4,13 @@ declare const Buffer:
     }
   | undefined;
 
-declare const process: { versions: { bun?: string; node: string } } | undefined;
+declare const process:
+  | {
+      versions: { bun?: string; node: string };
+      platform: string;
+      arch: string;
+    }
+  | undefined;
 
 interface ErrorConstructor {
   captureStackTrace?(targetObject: object, constructorOpt?: Function): void;

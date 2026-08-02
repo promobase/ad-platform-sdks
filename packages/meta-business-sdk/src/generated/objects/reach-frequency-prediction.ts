@@ -1,5 +1,6 @@
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { DayPartFields } from "./day-part.ts";
+import type { MetaMomentMakerConfigFields } from "./meta-moment-maker-config.ts";
 import type { ReachFrequencyActivityFields } from "./reach-frequency-activity.ts";
 import type { ReachFrequencyAdFormatFields } from "./reach-frequency-ad-format.ts";
 import type { ReachFrequencyDayPartFields } from "./reach-frequency-day-part.ts";
@@ -68,6 +69,7 @@ export interface ReachFrequencyPredictionFields {
   is_io: boolean;
   is_reserved_buying: number;
   is_trp: boolean;
+  meta_moment_maker_spec: MetaMomentMakerConfigFields;
   name: string;
   objective: number;
   objective_name: string;

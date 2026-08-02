@@ -1,5 +1,5 @@
 // Auto-generated client for Catalog Event Sources — do not edit
-import type { CatalogEventsourceBindGetParams, CatalogEventsourceBindGetResponse } from "../types/catalog-event-sources.ts";
+import type { CatalogEventsourceBindParams, CatalogEventsourceBindResponse, CatalogEventsourceUnbindParams, CatalogEventsourceUnbindResponse, CatalogEventsourceBindGetParams, CatalogEventsourceBindGetResponse } from "../types/catalog-event-sources.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -42,6 +42,16 @@ export function createCatalogEventSources(opts: { accessToken: string; advertise
   }
 
   return {
+    /** Bind an event source to a catalog */
+    async eventsourceBind(params: CatalogEventsourceBindParams): Promise<CatalogEventsourceBindResponse> {
+      return post<CatalogEventsourceBindResponse>("/open_api/v1.3/catalog/eventsource/bind/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Unbind an event source from a catalog */
+    async eventsourceUnbind(params: CatalogEventsourceUnbindParams): Promise<CatalogEventsourceUnbindResponse> {
+      return post<CatalogEventsourceUnbindResponse>("/open_api/v1.3/catalog/eventsource/unbind/", params as unknown as Record<string, unknown>);
+    },
+
     /** Get event source binding info of a catalog */
     async getEventsourceBind(params: CatalogEventsourceBindGetParams): Promise<CatalogEventsourceBindGetResponse> {
       return get<CatalogEventsourceBindGetResponse>("/open_api/v1.3/catalog/eventsource_bind/get/", params as unknown as Record<string, unknown>);

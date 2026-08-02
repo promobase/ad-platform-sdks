@@ -2,126 +2,52 @@
 
 import type * as XApi from "../index.js";
 
-/**
- * The X User object.
- */
 export interface User {
-    /** Metadata about a user's affiliation. */
-    affiliation?: User.Affiliation | undefined;
-    /** Returns detailed information about the relationship between two users. */
-    connection_status?: User.ConnectionStatus.Item[] | undefined;
+    affiliation?: XApi.UserAffiliation | undefined;
+    confirmed_email?: string | undefined;
+    connection_status?: XApi.UserConnectionStatus | undefined;
     /** Creation time of this User. */
     created_at?: string | undefined;
     /** The text of this User's profile description (also known as bio), if the User provided one. */
     description?: string | undefined;
-    /** A list of metadata found in the User's profile description. */
-    entities?: User.Entities | undefined;
-    id: XApi.UserId;
-    /** The location specified in the User's profile, if the User provided one. As this is a freeform value, it may not indicate a valid location, but it may be fuzzily evaluated when performing searches with location queries. */
+    entities?: XApi.UserEntities | undefined;
+    /** Unique identifier of this User. */
+    id?: string | undefined;
+    /** Indicates if this User has completed identity verification. */
+    is_identity_verified?: boolean | undefined;
+    /** The location specified in the User's profile, if the User provided one. As this is a freeform value, it may not indicate a valid location. */
     location?: string | undefined;
-    most_recent_tweet_id?: XApi.TweetId | undefined;
+    /** Unique identifier of this User's most recent Post. */
+    most_recent_post_id?: string | undefined;
     /** The friendly name of this User, as shown on their profile. */
-    name: string;
-    pinned_tweet_id?: XApi.TweetId | undefined;
+    name?: string | undefined;
+    /** Indicates if this User is a parody account. */
+    parody?: boolean | undefined;
+    /** Unique identifier of this User's pinned Post. */
+    pinned_post_id?: string | undefined;
     /** The URL to the profile banner for this User. */
     profile_banner_url?: string | undefined;
     /** The URL to the profile image for this User. */
     profile_image_url?: string | undefined;
     /** Indicates if this User has chosen to protect their Posts (in other words, if this User's Posts are private). */
     protected?: boolean | undefined;
-    /** A list of metrics for this User. */
-    public_metrics?: User.PublicMetrics | undefined;
-    /** Indicates if you can send a DM to this User */
+    public_metrics?: XApi.UserPublicMetrics | undefined;
+    /** Indicates if you can send a DM to this User. */
     receives_your_dm?: boolean | undefined;
-    /** The X Blue subscription type of the user, eg: Basic, Premium, PremiumPlus or None. */
-    subscription_type?: User.SubscriptionType | undefined;
+    /** Indicates if this User subscribes to you. */
+    subscribes_to_you?: boolean | undefined;
+    subscription?: XApi.UserSubscription | undefined;
+    /** The X Blue subscription type of the user, e.g.: Basic, Premium, PremiumPlus or None. */
+    subscription_type?: string | undefined;
     /** The URL specified in the User's profile. */
     url?: string | undefined;
-    username: XApi.UserName;
-    /** Indicate if this User is a verified X User. */
+    /** The X handle (screen name) of this User. */
+    username?: string | undefined;
+    /** Indicates if this User is a verified X User. */
     verified?: boolean | undefined;
-    /** The X Blue verified type of the user, eg: blue, government, business or none. */
-    verified_type?: User.VerifiedType | undefined;
+    /** The number of verified followers of this User. */
+    verified_followers_count?: number | undefined;
+    /** The X Blue verified type of the user, e.g.: blue, government, business or none. */
+    verified_type?: string | undefined;
     withheld?: XApi.UserWithheld | undefined;
-}
-
-export namespace User {
-    /**
-     * Metadata about a user's affiliation.
-     */
-    export interface Affiliation {
-        /** The badge URL corresponding to the affiliation. */
-        badge_url?: string | undefined;
-        /** The description of the affiliation. */
-        description?: string | undefined;
-        /** The URL, if available, to details about an affiliation. */
-        url?: string | undefined;
-        user_id?: XApi.UserId[] | undefined;
-    }
-
-    export type ConnectionStatus = ConnectionStatus.Item[];
-
-    export namespace ConnectionStatus {
-        /** Type of connection between users. */
-        export const Item = {
-            FollowRequestReceived: "follow_request_received",
-            FollowRequestSent: "follow_request_sent",
-            Blocking: "blocking",
-            FollowedBy: "followed_by",
-            Following: "following",
-            Muting: "muting",
-        } as const;
-        export type Item = (typeof Item)[keyof typeof Item];
-    }
-
-    /**
-     * A list of metadata found in the User's profile description.
-     */
-    export interface Entities {
-        description?: XApi.FullTextEntities | undefined;
-        /** Expanded details for the URL specified in the User's profile, with start and end indices. */
-        url?: Entities.Url | undefined;
-    }
-
-    export namespace Entities {
-        /**
-         * Expanded details for the URL specified in the User's profile, with start and end indices.
-         */
-        export interface Url {
-            urls?: XApi.UrlEntity[] | undefined;
-        }
-    }
-
-    /**
-     * A list of metrics for this User.
-     */
-    export interface PublicMetrics {
-        /** Number of Users who are following this User. */
-        followers_count: number;
-        /** Number of Users this User is following. */
-        following_count: number;
-        /** The number of likes created by this User. */
-        like_count?: number | undefined;
-        /** The number of lists that include this User. */
-        listed_count: number;
-        /** The number of Posts (including Retweets) posted by this User. */
-        tweet_count: number;
-    }
-
-    /** The X Blue subscription type of the user, eg: Basic, Premium, PremiumPlus or None. */
-    export const SubscriptionType = {
-        Basic: "Basic",
-        Premium: "Premium",
-        PremiumPlus: "PremiumPlus",
-        None: "None",
-    } as const;
-    export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
-    /** The X Blue verified type of the user, eg: blue, government, business or none. */
-    export const VerifiedType = {
-        Blue: "blue",
-        Government: "government",
-        Business: "business",
-        None: "none",
-    } as const;
-    export type VerifiedType = (typeof VerifiedType)[keyof typeof VerifiedType];
 }

@@ -1,5 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
+
 import { createThreadsClient } from "../clients/threads/index.ts";
 
 export function createThreadsTools(opts: { accessToken: string; threadsUserId: string }) {

@@ -1,0 +1,20 @@
+// Generated. Do not edit by hand.
+export type CampaignBudgetSelectableField =
+  | "campaign_budget.resource_name"
+  | "campaign_budget.id"
+  | "campaign_budget.name"
+  | "campaign_budget.amount_micros"
+  | "campaign_budget.total_amount_micros"
+  | "campaign_budget.status"
+  | "campaign_budget.delivery_method"
+  | "campaign_budget.explicitly_shared"
+  | "campaign_budget.reference_count"
+  | "campaign_budget.has_recommended_budget"
+  | "campaign_budget.recommended_budget_amount_micros"
+  | "campaign_budget.period"
+  | "campaign_budget.recommended_budget_estimated_change_weekly_clicks"
+  | "campaign_budget.recommended_budget_estimated_change_weekly_cost_micros"
+  | "campaign_budget.recommended_budget_estimated_change_weekly_interactions"
+  | "campaign_budget.recommended_budget_estimated_change_weekly_views"
+  | "campaign_budget.type"
+  | "campaign_budget.aligned_bidding_strategy_id";

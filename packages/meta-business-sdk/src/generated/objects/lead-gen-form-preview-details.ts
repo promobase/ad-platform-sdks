@@ -1,7 +1,6 @@
 export interface LeadGenFormPreviewDetailsFields {
   book_on_website_text: string;
   call_business_text: string;
-  call_to_action_title: string;
   chat_on_messenger_text: string;
   chat_on_whatsapp_text: string;
   contact_information_text: string;
@@ -39,6 +38,7 @@ export interface LeadGenFormPreviewDetailsFields {
   return_to_facebook_text: string;
   review_your_info_text: string;
   secure_sharing_text: string;
+  secure_sharing_text_for_embedded_booking: string;
   secure_sharing_text_for_embedded_booking_calendly: string;
   secure_sharing_text_for_embedded_booking_ghl: string;
   secure_sharing_text_for_optional_privacy_policy: string;

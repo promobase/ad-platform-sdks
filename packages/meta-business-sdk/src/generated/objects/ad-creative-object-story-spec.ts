@@ -13,5 +13,6 @@ export interface AdCreativeObjectStorySpecFields {
   template_data: AdCreativeLinkDataFields;
   text_data: AdCreativeTextDataFields;
   video_data: AdCreativeVideoDataFields;
+  whats_app_business_phone_number: string;
 }
 

@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { applyPatches, parseSpecs } from "../../src/codegen/parser.ts";
 
 test("parseSpecs loads spec files into a map", async () => {

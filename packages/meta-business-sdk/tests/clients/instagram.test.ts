@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import { createInstagramClient, createInstagramOAuth } from "../../src/clients/instagram/index.ts";
 import { createClient } from "../../src/generated/index.ts";
 

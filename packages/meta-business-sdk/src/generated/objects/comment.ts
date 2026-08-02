@@ -58,6 +58,7 @@ export interface CommentCreateCommentsParams {
 }
 
 export interface CommentDeleteLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   tracking?: string;
@@ -65,6 +66,7 @@ export interface CommentDeleteLikesParams {
 }
 
 export interface CommentCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   tracking?: string;
