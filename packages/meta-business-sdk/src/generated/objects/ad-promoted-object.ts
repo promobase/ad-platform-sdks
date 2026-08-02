@@ -6,6 +6,7 @@ export interface AdPromotedObjectFields {
   application_id: string;
   boosted_product_set_id: string;
   conversion_goal_id: string;
+  custom_attribution_source_ids: string[];
   custom_conversion_id: string;
   custom_event_str: string;
   custom_event_type: AdPromotedObjectCustomEventType;
@@ -14,14 +15,18 @@ export interface AdPromotedObjectFields {
   event_id: string;
   full_funnel_objective: AdPromotedObjectFullFunnelObjective;
   fundraiser_campaign_id: string;
+  instagram_actor_id: string;
+  job_listing_id: string;
   lead_ads_custom_event_str: string;
   lead_ads_custom_event_type: AdPromotedObjectLeadAdsCustomEventType;
+  lead_ads_follow_up_event: string;
   lead_ads_form_event_source_type: string;
   lead_ads_offsite_conversion_type: string;
+  lead_ads_quality_volume_setting: string;
   lead_ads_selected_pixel_id: string;
   live_video_destination: string;
   mcme_conversion_id: string;
-  multi_event_product: string;
+  multi_event_product: number;
   object_store_url: string;
   object_store_urls: string[];
   offer_id: string;

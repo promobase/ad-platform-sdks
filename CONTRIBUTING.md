@@ -23,12 +23,13 @@ From the repo root — all fan out across every package:
 
 | Command | What it does |
 |---------|--------------|
-| `bun run typecheck` | TypeScript type-check |
-| `bun run build` | Compile to `dist/` |
+| `bun run typecheck` | Type-check with the native TypeScript 7 compiler |
+| `bun run build` | Compile declarations and JavaScript to `dist/` with TypeScript 7 |
 | `bun run test` | Run all tests |
-| `bun run lint` | Biome lint |
-| `bun run lint:fix` | Biome lint + auto-fix |
-| `bun run format` | Biome format |
+| `bun run lint` | Oxlint correctness and import analysis |
+| `bun run lint:fix` | Apply Oxlint's safe fixes |
+| `bun run format` | Format with Oxfmt |
+| `bun run format:check` | Check Oxfmt formatting without writing |
 | `bun run clean` | Delete all `dist/` folders |
 
 Per-package commands (run from the package dir):

@@ -6,6 +6,7 @@ export interface AdsActionStatsFields {
   "1d_ev_all_conversions": string;
   "1d_ev_first_conversion": string;
   "1d_passback": string;
+  "1d_sequenced": string;
   "1d_view": string;
   "1d_view_all_conversions": string;
   "1d_view_first_conversion": string;
@@ -13,6 +14,7 @@ export interface AdsActionStatsFields {
   "28d_click_all_conversions": string;
   "28d_click_first_conversion": string;
   "28d_passback": string;
+  "28d_sequenced": string;
   "28d_view": string;
   "28d_view_all_conversions": string;
   "28d_view_first_conversion": string;
@@ -20,6 +22,7 @@ export interface AdsActionStatsFields {
   "7d_click_all_conversions": string;
   "7d_click_first_conversion": string;
   "7d_passback": string;
+  "7d_sequenced": string;
   "7d_view": string;
   "7d_view_all_conversions": string;
   "7d_view_first_conversion": string;
@@ -41,6 +44,7 @@ export interface AdsActionStatsFields {
   action_video_asset_id: string;
   action_video_sound: string;
   action_video_type: string;
+  custom: string;
   dda: string;
   incrementality: string;
   incrementality_all_conversions: string;

@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { MetaRateLimiter } from "../../src/rate-limiter.ts";
 
 test("check returns shouldWait=false when under high water mark", () => {

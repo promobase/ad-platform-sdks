@@ -4,6 +4,7 @@ import type { BaseClientOptions, BaseRequestOptions } from "../../../../BaseClie
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
 import { mergeHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
+import { mergeAdditionalBodyParameters } from "../../../../core/requestBody.js";
 import * as environments from "../../../../environments.js";
 import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../errors/index.js";
@@ -16,7 +17,7 @@ export declare namespace MediaClient {
 }
 
 /**
- * Endpoints related to Media
+ * Endpoints related to retrieving and uploading Media
  */
 export class MediaClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<MediaClient.Options>;
@@ -26,10 +27,11 @@ export class MediaClient {
     }
 
     /**
-     * Retrieves details of Media files by their media keys.
-     *
      * @param {XApi.GetMediaByMediaKeysRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.media.getMediaByMediaKeys({
@@ -39,14 +41,14 @@ export class MediaClient {
     public getMediaByMediaKeys(
         request: XApi.GetMediaByMediaKeysRequest = {},
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.Get2MediaResponse> {
+    ): core.HttpResponsePromise<XApi.GetMediaByMediaKeysResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getMediaByMediaKeys(request, requestOptions));
     }
 
     private async __getMediaByMediaKeys(
         request: XApi.GetMediaByMediaKeysRequest = {},
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.Get2MediaResponse>> {
+    ): Promise<core.WithRawResponse<XApi.GetMediaByMediaKeysResponse>> {
         const { media_keys: mediaKeys, "media.fields": mediaFields } = request;
         const _queryParams: Record<string, unknown> = {
             media_keys: mediaKeys,
@@ -85,7 +87,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.Get2MediaResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.GetMediaByMediaKeysResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -105,22 +107,25 @@ export class MediaClient {
      * @param {XApi.GetMediaUploadStatusRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
+     *
      * @example
      *     await client.media.getMediaUploadStatus({
-     *         media_id: "1146654567674912769"
+     *         media_id: "media_id"
      *     })
      */
     public getMediaUploadStatus(
         request: XApi.GetMediaUploadStatusRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.MediaUploadResponse> {
+    ): core.HttpResponsePromise<XApi.GetMediaUploadStatusResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getMediaUploadStatus(request, requestOptions));
     }
 
     private async __getMediaUploadStatus(
         request: XApi.GetMediaUploadStatusRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.MediaUploadResponse>> {
+    ): Promise<core.WithRawResponse<XApi.GetMediaUploadStatusResponse>> {
         const { media_id: mediaId, command } = request;
         const _queryParams: Record<string, unknown> = {
             media_id: mediaId,
@@ -153,7 +158,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.MediaUploadResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.GetMediaUploadStatusResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -170,8 +175,11 @@ export class MediaClient {
     /**
      * Uploads a media file for use in posts or other content.
      *
-     * @param {XApi.MediaUploadRequestOneShot} request
+     * @param {XApi.MediaUploadRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.media.upload({
@@ -180,14 +188,14 @@ export class MediaClient {
      *     })
      */
     public upload(
-        request: XApi.MediaUploadRequestOneShot,
+        request: XApi.MediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
     ): core.HttpResponsePromise<XApi.MediaUploadResponse> {
         return core.HttpResponsePromise.fromPromise(this.__upload(request, requestOptions));
     }
 
     private async __upload(
-        request: XApi.MediaUploadRequestOneShot,
+        request: XApi.MediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
     ): Promise<core.WithRawResponse<XApi.MediaUploadResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -208,7 +216,7 @@ export class MediaClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: request,
+            body: mergeAdditionalBodyParameters(request, requestOptions?.additionalBodyParameters),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -233,23 +241,26 @@ export class MediaClient {
     /**
      * Initializes a media upload.
      *
-     * @param {XApi.MediaUploadConfigRequest} request
+     * @param {XApi.InitializeMediaUploadRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.media.initializeMediaUpload()
      */
     public initializeMediaUpload(
-        request: XApi.MediaUploadConfigRequest = {},
+        request: XApi.InitializeMediaUploadRequest = {},
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.MediaUploadResponse> {
+    ): core.HttpResponsePromise<XApi.InitializeMediaUploadResponse> {
         return core.HttpResponsePromise.fromPromise(this.__initializeMediaUpload(request, requestOptions));
     }
 
     private async __initializeMediaUpload(
-        request: XApi.MediaUploadConfigRequest = {},
+        request: XApi.InitializeMediaUploadRequest = {},
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.MediaUploadResponse>> {
+    ): Promise<core.WithRawResponse<XApi.InitializeMediaUploadResponse>> {
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -268,7 +279,7 @@ export class MediaClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: request,
+            body: mergeAdditionalBodyParameters(request, requestOptions?.additionalBodyParameters),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -276,7 +287,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.MediaUploadResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.InitializeMediaUploadResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -291,32 +302,31 @@ export class MediaClient {
     }
 
     /**
-     * Appends data to a Media upload request.
-     *
      * @param {XApi.AppendMediaUploadRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
+     *
      * @example
      *     await client.media.appendMediaUpload({
-     *         id: "1146654567674912769",
-     *         body: {
-     *             media: "media",
-     *             segment_index: 1
-     *         }
+     *         id: "id",
+     *         media: "media",
+     *         segment_index: 1
      *     })
      */
     public appendMediaUpload(
         request: XApi.AppendMediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.MediaUploadAppendResponse> {
+    ): core.HttpResponsePromise<XApi.AppendMediaUploadResponse> {
         return core.HttpResponsePromise.fromPromise(this.__appendMediaUpload(request, requestOptions));
     }
 
     private async __appendMediaUpload(
         request: XApi.AppendMediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.MediaUploadAppendResponse>> {
-        const { id, body: _body } = request;
+    ): Promise<core.WithRawResponse<XApi.AppendMediaUploadResponse>> {
+        const { id, ..._body } = request;
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
@@ -335,7 +345,7 @@ export class MediaClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: _body,
+            body: mergeAdditionalBodyParameters(_body, requestOptions?.additionalBodyParameters),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -343,7 +353,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.MediaUploadAppendResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.AppendMediaUploadResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -363,22 +373,25 @@ export class MediaClient {
      * @param {XApi.FinalizeMediaUploadRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
+     *
      * @example
      *     await client.media.finalizeMediaUpload({
-     *         id: "1146654567674912769"
+     *         id: "id"
      *     })
      */
     public finalizeMediaUpload(
         request: XApi.FinalizeMediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.MediaUploadResponse> {
+    ): core.HttpResponsePromise<XApi.FinalizeMediaUploadResponse> {
         return core.HttpResponsePromise.fromPromise(this.__finalizeMediaUpload(request, requestOptions));
     }
 
     private async __finalizeMediaUpload(
         request: XApi.FinalizeMediaUploadRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.MediaUploadResponse>> {
+    ): Promise<core.WithRawResponse<XApi.FinalizeMediaUploadResponse>> {
         const { id } = request;
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
@@ -403,7 +416,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.MediaUploadResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.FinalizeMediaUploadResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -423,10 +436,11 @@ export class MediaClient {
     }
 
     /**
-     * Retrieves details of a specific Media file by its media key.
-     *
      * @param {XApi.GetMediaByMediaKeyRequest} request
      * @param {MediaClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.media.getMediaByMediaKey({
@@ -436,14 +450,14 @@ export class MediaClient {
     public getMediaByMediaKey(
         request: XApi.GetMediaByMediaKeyRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.Get2MediaMediaKeyResponse> {
+    ): core.HttpResponsePromise<XApi.GetMediaByMediaKeyResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getMediaByMediaKey(request, requestOptions));
     }
 
     private async __getMediaByMediaKey(
         request: XApi.GetMediaByMediaKeyRequest,
         requestOptions?: MediaClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.Get2MediaMediaKeyResponse>> {
+    ): Promise<core.WithRawResponse<XApi.GetMediaByMediaKeyResponse>> {
         const { media_key: mediaKey, "media.fields": mediaFields } = request;
         const _queryParams: Record<string, unknown> = {
             "media.fields": Array.isArray(mediaFields)
@@ -480,7 +494,7 @@ export class MediaClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.Get2MediaMediaKeyResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.GetMediaByMediaKeyResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {

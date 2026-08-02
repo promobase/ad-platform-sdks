@@ -6,7 +6,7 @@ export interface Expansions {
     media?: XApi.Media[] | undefined;
     places?: XApi.Place[] | undefined;
     polls?: XApi.Poll[] | undefined;
+    posts?: XApi.Post[] | undefined;
     topics?: XApi.Topic[] | undefined;
-    tweets?: XApi.Tweet[] | undefined;
     users?: XApi.User[] | undefined;
 }

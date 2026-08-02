@@ -12,6 +12,43 @@ export interface ToolTargetingInfoParams {}
 export interface ToolTargetingInfoResponse {}
 
 
+export interface ToolRegionParams {
+  advertiser_id: string;
+  placements: string[];
+  objective_type: string;
+  app_promotion_type?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING" | "APP_PREREGISTRATION" | "MINIS";
+  level_range?: "ALL" | "TO_COUNTRY" | "TO_PROVINCE" | "TO_CITY" | "TO_DISTRICT";
+  language?: string;
+  shopping_ads_type?: "PRODUCT_SALES" | "VIDEO" | "LIVE" | "PRODUCT_SHOPPING_ADS";
+  promotion_type?: string;
+  promotion_target_type?: "LEAD_GENERATION" | "INSTANT_PAGE" | "EXTERNAL_WEBSITE";
+  operating_system?: "ANDROID" | "IOS";
+  brand_safety_type?: "PLACEMENT_TIKTOK" | "NO_BRAND_SAFETY" | "EXPANDED_INVENTORY" | "STANDARD_INVENTORY" | "LIMITED_INVENTORY" | "THIRD_PARTY" | "APP_PROMOTION" | "WEB_CONVERSIONS" | "TRAFFIC" | "LEAD_GENERATION";
+  brand_safety_partner?: "THIRD_PARTY" | "PLACEMENT_TIKTOK" | "IAS" | "OPEN_SLATE";
+  rf_campaign_type?: "RF_REACH" | "STANDARD" | "PULSE";
+}
+
+
+export interface ToolRegionResponse {
+  code?: number;
+  message?: string;
+  data?: {
+  region_list?: string[];
+  region_info?: {
+  location_id?: string;
+  name?: string;
+  parent_id?: string;
+  region_code?: string;
+  next_level_ids?: string[];
+  area_type?: "ADMIN" | "METROPOLITAN_OR_DMA";
+  level?: "COUNTRY" | "PROVINCE" | "CITY" | "DISTRICT";
+  support_below_18?: boolean;
+}[];
+};
+  request_id?: string;
+}
+
+
 export interface SearchRegionParams {}
 
 
@@ -482,6 +519,34 @@ export interface ToolBrandSafetyPartnerAuthorizeStatusResponse {
 }
 
 
+export interface ToolVastOptionParams {
+  advertiser_id: string;
+  objective_type: string;
+  region_codes?: string[];
+  brand_safety_type?: "STANDARD_INVENTORY" | "LIMITED_INVENTORY";
+}
+
+
+export interface ToolVastOptionResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  option_list?: {
+  partner?: "MOAT" | "DOUBLE_VERIFY" | "IAS" | "ZEFR";
+  partner_name?: string;
+  vast_type?: "VIEWABILITY" | "BRAND_SAFETY";
+  is_require_url?: boolean;
+  is_available?: boolean;
+  unavailable_reason?: {
+  reason?: string;
+  reason_type?: "UNSUPPORTED_PARTNER" | "UNSUPPORTED_OBJ_TYPE" | "UNSUPPORTED_COUNTRY" | "UNSUPPORTED_PREBID";
+}[];
+}[];
+};
+}
+
+
 export interface ToolUrlValidateParams {}
 
 
@@ -566,4 +631,54 @@ export interface MinisGetParams {}
 
 
 export interface MinisGetResponse {}
+
+
+export interface IdentityNativeSeriesGetParams {
+  advertiser_id: string;
+  identity_id: string;
+  identity_type: "TT_USER" | "BC_AUTH_TT";
+  identity_authorized_bc_id?: string;
+  cursor?: number;
+  count?: number;
+}
+
+
+export interface IdentityNativeSeriesGetResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  list?: {
+  native_series_id?: string;
+  native_series_name?: string;
+  native_series_cover_url?: string;
+  native_series_total_episode?: number;
+  native_series_total_duration?: number;
+}[];
+  cursor?: number;
+  has_more?: boolean;
+};
+}
+
+
+export interface ToolAvailableAttributionSourceParams {
+  advertiser_id: string;
+  app_id: string;
+  optimization_event?: string;
+  campaign_type?: "REGULAR_CAMPAIGN" | "IOS14_CAMPAIGN";
+}
+
+
+export interface ToolAvailableAttributionSourceResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  connected_data_source?: ("MMP" | "EVENT_SDK" | "EVENT_API")[];
+  available_attribution_source_list?: {
+  available_attribution_source?: "MMP" | "SAN";
+  available_data_source?: ("MMP" | "EVENT_SDK" | "EVENT_API")[];
+}[];
+};
+}
 

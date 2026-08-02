@@ -1,5 +1,5 @@
 // Auto-generated client for Tools — do not edit
-import type { ToolTargetingSearchParams, ToolTargetingSearchResponse, ToolTargetingInfoParams, ToolTargetingInfoResponse, SearchRegionParams, SearchRegionResponse, ToolLanguageParams, ToolLanguageResponse, TargetingSearchParams, TargetingSearchResponse, ToolInterestCategoryParams, ToolInterestCategoryResponse, ToolInterestKeywordRecommendParams, ToolInterestKeywordRecommendResponse, ToolInterestKeywordGetParams, ToolInterestKeywordGetResponse, ToolActionCategoryParams, ToolActionCategoryResponse, ToolHashtagRecommendParams, ToolHashtagRecommendResponse, ToolHashtagGetParams, ToolHashtagGetResponse, ToolTargetingCategoryRecommendParams, ToolTargetingCategoryRecommendResponse, ToolSearchKeywordRecommendParams, ToolSearchKeywordRecommendResponse, ToolDiagnosisSearchHealthParams, ToolDiagnosisSearchHealthResponse, ToolSearchKeywordKeywordIdeaParams, ToolSearchKeywordKeywordIdeaResponse, ToolOsVersionParams, ToolOsVersionResponse, ToolDeviceModelParams, ToolDeviceModelResponse, ToolCarrierParams, ToolCarrierResponse, ToolTargetingListParams, ToolTargetingListResponse, ToolContextualTagGetParams, ToolContextualTagGetResponse, ToolContextualTagInfoParams, ToolContextualTagInfoResponse, ToolContentExclusionGetParams, ToolContentExclusionGetResponse, ToolContentExclusionInfoParams, ToolContentExclusionInfoResponse, DeliveryBudgetRecommendParams, DeliveryBudgetRecommendResponse, DeliveryBidRecommendParams, DeliveryBidRecommendResponse, ToolBidRecommendParams, ToolBidRecommendResponse, ToolVboStatusParams, ToolVboStatusResponse, ToolBrandSafetyPartnerAuthorizeStatusParams, ToolBrandSafetyPartnerAuthorizeStatusResponse, ToolUrlValidateParams, ToolUrlValidateResponse, ToolPhoneRegionCodeParams, ToolPhoneRegionCodeResponse, ToolTimezoneParams, ToolTimezoneResponse, ToolOpenUrlParams, ToolOpenUrlResponse, CampaignLabelGetParams, CampaignLabelGetResponse, MinisGetParams, MinisGetResponse } from "../types/tools.ts";
+import type { ToolTargetingSearchParams, ToolTargetingSearchResponse, ToolTargetingInfoParams, ToolTargetingInfoResponse, ToolRegionParams, ToolRegionResponse, SearchRegionParams, SearchRegionResponse, ToolLanguageParams, ToolLanguageResponse, TargetingSearchParams, TargetingSearchResponse, ToolInterestCategoryParams, ToolInterestCategoryResponse, ToolInterestKeywordRecommendParams, ToolInterestKeywordRecommendResponse, ToolInterestKeywordGetParams, ToolInterestKeywordGetResponse, ToolActionCategoryParams, ToolActionCategoryResponse, ToolHashtagRecommendParams, ToolHashtagRecommendResponse, ToolHashtagGetParams, ToolHashtagGetResponse, ToolTargetingCategoryRecommendParams, ToolTargetingCategoryRecommendResponse, ToolSearchKeywordRecommendParams, ToolSearchKeywordRecommendResponse, ToolDiagnosisSearchHealthParams, ToolDiagnosisSearchHealthResponse, ToolSearchKeywordKeywordIdeaParams, ToolSearchKeywordKeywordIdeaResponse, ToolOsVersionParams, ToolOsVersionResponse, ToolDeviceModelParams, ToolDeviceModelResponse, ToolCarrierParams, ToolCarrierResponse, ToolTargetingListParams, ToolTargetingListResponse, ToolContextualTagGetParams, ToolContextualTagGetResponse, ToolContextualTagInfoParams, ToolContextualTagInfoResponse, ToolContentExclusionGetParams, ToolContentExclusionGetResponse, ToolContentExclusionInfoParams, ToolContentExclusionInfoResponse, DeliveryBudgetRecommendParams, DeliveryBudgetRecommendResponse, DeliveryBidRecommendParams, DeliveryBidRecommendResponse, ToolBidRecommendParams, ToolBidRecommendResponse, ToolVboStatusParams, ToolVboStatusResponse, ToolBrandSafetyPartnerAuthorizeStatusParams, ToolBrandSafetyPartnerAuthorizeStatusResponse, ToolVastOptionParams, ToolVastOptionResponse, ToolUrlValidateParams, ToolUrlValidateResponse, ToolPhoneRegionCodeParams, ToolPhoneRegionCodeResponse, ToolTimezoneParams, ToolTimezoneResponse, ToolOpenUrlParams, ToolOpenUrlResponse, CampaignLabelGetParams, CampaignLabelGetResponse, MinisGetParams, MinisGetResponse, IdentityNativeSeriesGetParams, IdentityNativeSeriesGetResponse, ToolAvailableAttributionSourceParams, ToolAvailableAttributionSourceResponse } from "../types/tools.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -50,6 +50,11 @@ export function createTools(opts: { accessToken: string; advertiserId: string })
     /** Obtain details about location targeting tags by ID */
     async targetingInfo(params: ToolTargetingInfoParams): Promise<ToolTargetingInfoResponse> {
       return post<ToolTargetingInfoResponse>("/open_api/v1.3/tool/targeting/info/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get available locations by different settings */
+    async toolRegion(params: ToolRegionParams): Promise<ToolRegionResponse> {
+      return get<ToolRegionResponse>("/open_api/v1.3/tool/region/", params as unknown as Record<string, unknown>);
     },
 
     /** Get available locations by advertiser ID */
@@ -182,6 +187,11 @@ export function createTools(opts: { accessToken: string; advertiserId: string })
       return get<ToolBrandSafetyPartnerAuthorizeStatusResponse>("/open_api/v1.3/tool/brand_safety/partner/authorize/status/", params as unknown as Record<string, unknown>);
     },
 
+    /** (Deprecated) Get available post-bid third-party measurement partners */
+    async toolVastOption(params: ToolVastOptionParams): Promise<ToolVastOptionResponse> {
+      return get<ToolVastOptionResponse>("/open_api/v1.3/tool/vast_option/", params as unknown as Record<string, unknown>);
+    },
+
     /** Get the verification results of a URL */
     async toolUrlValidate(params: ToolUrlValidateParams): Promise<ToolUrlValidateResponse> {
       return get<ToolUrlValidateResponse>("/open_api/v1.3/tool/url_validate/", params as unknown as Record<string, unknown>);
@@ -210,6 +220,16 @@ export function createTools(opts: { accessToken: string; advertiserId: string })
     /** Get the TikTok Minis within an ad account */
     async getMinis(params: MinisGetParams): Promise<MinisGetResponse> {
       return get<MinisGetResponse>("/open_api/v1.3/minis/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get the available TikTok Series within an ad account */
+    async getNativeSeries(params: IdentityNativeSeriesGetParams): Promise<IdentityNativeSeriesGetResponse> {
+      return get<IdentityNativeSeriesGetResponse>("/open_api/v1.3/identity/native_series/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get available attribution sources and data sources for an app */
+    async availableAttributionSource(params: ToolAvailableAttributionSourceParams): Promise<ToolAvailableAttributionSourceResponse> {
+      return get<ToolAvailableAttributionSourceResponse>("/open_api/v1.3/tool/available/attribution_source/", params as unknown as Record<string, unknown>);
     },
   };
 }

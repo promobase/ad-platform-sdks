@@ -1,7 +1,7 @@
 import type { ProductFeedUploadGetInputMethod } from "../enums.ts";
 
 export interface ProductFeedUploadGetFields {
-  end_time: string;
+  end_time: unknown;
   error_count: number;
   error_report: unknown;
   errors: unknown;
@@ -13,7 +13,7 @@ export interface ProductFeedUploadGetFields {
   num_invalid_items: number;
   num_persisted_items: number;
   progresses: unknown;
-  start_time: string;
+  start_time: unknown;
   upload_complete: boolean;
   url: string;
   warning_count: number;

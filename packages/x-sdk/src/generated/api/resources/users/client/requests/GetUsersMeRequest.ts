@@ -11,6 +11,6 @@ export interface GetUsersMeRequest {
     "user.fields"?: XApi.GetUsersMeRequestUserFieldsItem | XApi.GetUsersMeRequestUserFieldsItem[];
     /** A comma separated list of fields to expand. */
     expansions?: XApi.GetUsersMeRequestExpansionsItem | XApi.GetUsersMeRequestExpansionsItem[];
-    /** A comma separated list of Tweet fields to display. */
-    "tweet.fields"?: XApi.GetUsersMeRequestTweetFieldsItem | XApi.GetUsersMeRequestTweetFieldsItem[];
+    /** A comma separated list of Post fields to display. */
+    "post.fields"?: XApi.GetUsersMeRequestPostFieldsItem | XApi.GetUsersMeRequestPostFieldsItem[];
 }

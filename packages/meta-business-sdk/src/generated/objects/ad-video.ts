@@ -58,7 +58,9 @@ export interface AdVideoFields {
   premiere_living_room_status: string;
   privacy: PrivacyFields;
   published: boolean;
+  replace_audio_status: string;
   scheduled_publish_time: string;
+  selected_audio_spec: Record<string, unknown>;
   source: string;
   spherical: boolean;
   status: VideoStatusFields;
@@ -105,12 +107,8 @@ export interface AdVideoCreateCommentsParams {
   [key: string]: unknown;
 }
 
-export interface AdVideoCreateGamingClipCreateParams {
-  duration_seconds?: number;
-  [key: string]: unknown;
-}
-
 export interface AdVideoCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   notify?: boolean;
@@ -213,8 +211,6 @@ export function adVideoNode(client: ApiClient, id: string) {
     },
     crosspostSharedPages: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PageFields, F[number]>>(client, `${id}/crosspost_shared_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
-    createGamingClipCreate: (params: AdVideoCreateGamingClipCreateParams) =>
-      client.post<AdVideoFields>(`${id}/gaming_clip_create`, params as Record<string, unknown>),
     likes: {
       __path: `${id}/likes`,
       __brand: undefined as unknown as ProfileFields,

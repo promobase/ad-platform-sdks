@@ -38,13 +38,13 @@
     "access": "public"
   },
   "dependencies": {
-    "effect": "^3.21.2"
+    "effect": "^3.22.1"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": ">=5.9.3 <8"
   },
   "exports": {
     ".": {

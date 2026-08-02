@@ -3,7 +3,7 @@
 
 export const YOUTUBE_DISCOVERY = {
   "id": "youtube:v3",
-  "revision": "20260427",
+  "revision": "20260729",
   "discoveryVersion": "v1",
   "protocol": "rest",
   "baseUrl": "https://youtube.googleapis.com/",

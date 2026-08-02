@@ -6,11 +6,11 @@ This package is generated from Google's official Discovery document:
 
 - Source URL: https://youtube.googleapis.com/$discovery/rest?version=v3
 - Snapshot: `../../google-discovery/youtube-v3.json`
-- Revision: `20260427`
+- Revision: `20260729`
 
 The generated surface currently covers the OpenPromo migration path:
 
-- Videos: list, insert, update, delete, rate, rating, report abuse
+- Videos: list, batch statistics, insert, update, delete, rate, rating, report abuse
 - Uploads: Web-standard resumable video upload helper
 - Channels, playlists, playlist items
 - Comments and comment threads

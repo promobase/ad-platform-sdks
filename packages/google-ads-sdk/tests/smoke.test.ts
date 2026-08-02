@@ -1,5 +1,6 @@
 import { expect, mock, test } from "bun:test";
-import { googleAdsService } from "../src/generated/v23/services/index.ts";
+
+import { googleAdsService } from "../src/generated/v25/services/index.ts";
 import { Google } from "../src/index.ts";
 
 test("googleAdsService.search hits the right URL with correct body", async () => {
@@ -33,7 +34,7 @@ test("googleAdsService.search hits the right URL with correct body", async () =>
   });
 
   expect(calls).toHaveLength(1);
-  expect(calls[0]!.url).toContain("/v23/customers/123/googleAds:search");
+  expect(calls[0]!.url).toContain("/v25/customers/123/googleAds:search");
   expect(calls[0]!.init?.method).toBe("POST");
   const body = JSON.parse(calls[0]!.init?.body as string);
   expect(body.query).toBe("SELECT campaign.id, campaign.name FROM campaign");
@@ -50,7 +51,7 @@ test("GoogleAdsError surfaces when API returns failure", async () => {
             message: "invalid",
             details: [
               {
-                "@type": "type.googleapis.com/google.ads.googleads.v23.errors.GoogleAdsFailure",
+                "@type": "type.googleapis.com/google.ads.googleads.v25.errors.GoogleAdsFailure",
                 errors: [{ errorCode: { queryError: "BAD_FIELD_NAME" }, message: "bad field" }],
                 requestId: "req-1",
               },

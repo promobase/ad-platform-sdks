@@ -3,15 +3,12 @@
 import type * as XApi from "../index.js";
 
 export interface Place {
-    contained_within?: XApi.PlaceId[] | undefined;
-    /** The full name of the county in which this place exists. */
+    contained_within?: XApi.PlaceContainedWithin | undefined;
     country?: string | undefined;
-    country_code?: XApi.CountryCode | undefined;
-    /** The full name of this place. */
-    full_name: string;
-    geo?: XApi.Geo | undefined;
-    id: XApi.PlaceId;
-    /** The human readable name of this place. */
+    country_code?: string | undefined;
+    full_name?: string | undefined;
+    geo?: XApi.PlaceGeo | undefined;
+    id?: string | undefined;
     name?: string | undefined;
-    place_type?: XApi.PlaceType | undefined;
+    place_type?: string | undefined;
 }

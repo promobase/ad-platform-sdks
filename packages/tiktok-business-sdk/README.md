@@ -20,7 +20,10 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-Fully typed TikTok Business API client generated from the official docs. OAuth, photo/video/carousel publishing, comments, insights, webhooks, and AI SDK tool integration — with runtime-agnostic `fetch` (Bun, Node, Deno, edge).
+Fully typed TikTok Business API client generated from the official docs. The current snapshot includes
+502 Marketing API endpoints across 70 categories, plus hand-authored OAuth and organic publishing
+clients. It supports photo/video/carousel publishing, comments, insights, webhooks, and AI SDK tool
+integration with runtime-agnostic `fetch` (Bun, Node, Deno, edge).
 
 ## Install
 
@@ -54,6 +57,7 @@ const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
 ## Features
 
 - **Typed Business API surface** — generated from the official docs portal
+- **Current automation and verification APIs** — includes Automated Rules and account Verification
 - **OAuth** — token exchange, refresh
 - **Content publishing** — video, photo, carousel, status polling
 - **Webhooks** — Zod-validated payloads

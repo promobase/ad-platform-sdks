@@ -1,7 +1,8 @@
 import type { HttpClient } from "@openpromo/sdk-runtime";
-import type { FieldInfo, FieldMap } from "../../generated/v23/gaql/field-map.ts";
-import type { GaqlResource, ResourceFieldMap } from "../../generated/v23/gaql/resource-map.ts";
-import { googleAdsService } from "../../generated/v23/services/index.ts";
+
+import type { FieldInfo, FieldMap } from "../../generated/v25/gaql/field-map.ts";
+import type { GaqlResource, ResourceFieldMap } from "../../generated/v25/gaql/resource-map.ts";
+import { googleAdsService } from "../../generated/v25/services/index.ts";
 import { paginate } from "../../pagination.ts";
 import { type QueryState, serialize } from "./serialize.ts";
 

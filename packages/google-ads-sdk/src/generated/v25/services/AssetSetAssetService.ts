@@ -1,0 +1,9 @@
+import type { MutateAssetSetAssetsRequest, MutateAssetSetAssetsResponse } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.AssetSetAssetService. Do not edit by hand.
+export const assetSetAssetService = {
+  mutateAssetSetAssets(client: HttpClient, customerId: string, body: Omit<MutateAssetSetAssetsRequest, "customerId">): Promise<MutateAssetSetAssetsResponse> {
+    return client.post<MutateAssetSetAssetsResponse>(`/v25/customers/${customerId}/assetSetAssets:mutate`, body);
+  }
+};

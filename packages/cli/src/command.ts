@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+
 import type { Command } from "commander";
 import { ZodError, type z } from "zod";
 

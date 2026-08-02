@@ -1,5 +1,5 @@
 // Auto-generated client for GMV Max — do not edit
-import type { GmvMaxCampaignGetParams, GmvMaxCampaignGetResponse, CampaignGmvMaxInfoParams, CampaignGmvMaxInfoResponse, CampaignGmvMaxCreateParams, CampaignGmvMaxCreateResponse, CampaignGmvMaxUpdateParams, CampaignGmvMaxUpdateResponse, GmvMaxBidRecommendParams, GmvMaxBidRecommendResponse, CampaignGmvMaxSessionCreateParams, CampaignGmvMaxSessionCreateResponse, CampaignGmvMaxSessionUpdateParams, CampaignGmvMaxSessionUpdateResponse, CampaignGmvMaxSessionListParams, CampaignGmvMaxSessionListResponse, CampaignGmvMaxSessionGetParams, CampaignGmvMaxSessionGetResponse, CampaignGmvMaxSessionDeleteParams, CampaignGmvMaxSessionDeleteResponse, GmvMaxStoreListParams, GmvMaxStoreListResponse, GmvMaxStoreShopAdUsageCheckParams, GmvMaxStoreShopAdUsageCheckResponse, GmvMaxIdentityGetParams, GmvMaxIdentityGetResponse, GmvMaxOccupiedCustomShopAdsListParams, GmvMaxOccupiedCustomShopAdsListResponse, GmvMaxVideoGetParams, GmvMaxVideoGetResponse, GmvMaxCustomAnchorVideoListGetParams, GmvMaxCustomAnchorVideoListGetResponse, CampaignGmvMaxCreativeUpdateParams, CampaignGmvMaxCreativeUpdateResponse, GmvMaxExclusiveAuthorizationGetParams, GmvMaxExclusiveAuthorizationGetResponse, GmvMaxExclusiveAuthorizationCreateParams, GmvMaxExclusiveAuthorizationCreateResponse } from "../types/gmv-max.ts";
+import type { GmvMaxCampaignGetParams, GmvMaxCampaignGetResponse, CampaignGmvMaxInfoParams, CampaignGmvMaxInfoResponse, CampaignGmvMaxCreateParams, CampaignGmvMaxCreateResponse, CampaignGmvMaxUpdateParams, CampaignGmvMaxUpdateResponse, GmvMaxBidRecommendParams, GmvMaxBidRecommendResponse, CampaignGmvMaxSessionCreateParams, CampaignGmvMaxSessionCreateResponse, CampaignGmvMaxSessionUpdateParams, CampaignGmvMaxSessionUpdateResponse, CampaignGmvMaxSessionListParams, CampaignGmvMaxSessionListResponse, CampaignGmvMaxSessionGetParams, CampaignGmvMaxSessionGetResponse, CampaignGmvMaxSessionDeleteParams, CampaignGmvMaxSessionDeleteResponse, GmvMaxStoreListParams, GmvMaxStoreListResponse, GmvMaxStoreShopAdUsageCheckParams, GmvMaxStoreShopAdUsageCheckResponse, GmvMaxIdentityGetParams, GmvMaxIdentityGetResponse, GmvMaxOccupiedCustomShopAdsListParams, GmvMaxOccupiedCustomShopAdsListResponse, GmvMaxVideoGetParams, GmvMaxVideoGetResponse, GmvMaxCustomAnchorVideoListGetParams, GmvMaxCustomAnchorVideoListGetResponse, CampaignGmvMaxCreativeUpdateParams, CampaignGmvMaxCreativeUpdateResponse, GmvMaxCreationCustomAnchorVideoListCreateParams, GmvMaxCreationCustomAnchorVideoListCreateResponse, GmvMaxCreationCustomAnchorVideoListGetParams, GmvMaxCreationCustomAnchorVideoListGetResponse, GmvMaxCreationCustomAnchorVideoListDeleteParams, GmvMaxCreationCustomAnchorVideoListDeleteResponse, GmvMaxCreationShopVideoVideoAnchorsParams, GmvMaxCreationShopVideoVideoAnchorsResponse, GmvMaxExclusiveAuthorizationGetParams, GmvMaxExclusiveAuthorizationGetResponse, GmvMaxExclusiveAuthorizationCreateParams, GmvMaxExclusiveAuthorizationCreateResponse } from "../types/gmv-max.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -117,7 +117,7 @@ export function createGmvMax(opts: { accessToken: string; advertiserId: string }
       return get<GmvMaxVideoGetResponse>("/open_api/v1.3/gmv_max/video/get/", params as unknown as Record<string, unknown>);
     },
 
-    /** Get details of videos in customized posts */
+    /** (To be deprecated) Get details of videos in customized posts */
     async getCustomAnchorVideoList(params: GmvMaxCustomAnchorVideoListGetParams): Promise<GmvMaxCustomAnchorVideoListGetResponse> {
       return get<GmvMaxCustomAnchorVideoListGetResponse>("/open_api/v1.3/gmv_max/custom_anchor_video_list/get/", params as unknown as Record<string, unknown>);
     },
@@ -125,6 +125,26 @@ export function createGmvMax(opts: { accessToken: string; advertiserId: string }
     /** Remove or add back creatives in a GMV Max Campaign */
     async updateCreative(params: CampaignGmvMaxCreativeUpdateParams): Promise<CampaignGmvMaxCreativeUpdateResponse> {
       return post<CampaignGmvMaxCreativeUpdateResponse>("/open_api/v1.3/campaign/gmv_max/creative/update/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Create shop-level customized TikTok posts */
+    async createCustomAnchorVideoList(params: GmvMaxCreationCustomAnchorVideoListCreateParams): Promise<GmvMaxCreationCustomAnchorVideoListCreateResponse> {
+      return post<GmvMaxCreationCustomAnchorVideoListCreateResponse>("/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/create/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get customized TikTok posts */
+    async getCustomAnchorVideoList2(params: GmvMaxCreationCustomAnchorVideoListGetParams): Promise<GmvMaxCreationCustomAnchorVideoListGetResponse> {
+      return post<GmvMaxCreationCustomAnchorVideoListGetResponse>("/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Delete customized TikTok posts */
+    async deleteCustomAnchorVideoList(params: GmvMaxCreationCustomAnchorVideoListDeleteParams): Promise<GmvMaxCreationCustomAnchorVideoListDeleteResponse> {
+      return post<GmvMaxCreationCustomAnchorVideoListDeleteResponse>("/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/delete/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Get product linkage details of videos in customized posts */
+    async shopVideoVideoAnchors(params: GmvMaxCreationShopVideoVideoAnchorsParams): Promise<GmvMaxCreationShopVideoVideoAnchorsResponse> {
+      return post<GmvMaxCreationShopVideoVideoAnchorsResponse>("/open_api/v1.3/gmv_max/creation/shop_video/video_anchors/", params as unknown as Record<string, unknown>);
     },
 
     /** Get the TikTok Shop exclusive authorization status of an ad account */

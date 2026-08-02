@@ -1,12 +1,13 @@
 import type { DelayFn, RateLimiter, RetryConfig } from "@openpromo/sdk-runtime";
 import { HttpClient } from "@openpromo/sdk-runtime";
+
 import { parseGoogleAdsError } from "./errors.ts";
 
 export interface GoogleAdsClientOptions {
   getAccessToken: () => string | Promise<string>;
   developerToken: string;
   loginCustomerId?: string;
-  apiVersion?: "v23";
+  apiVersion?: "v25";
   fetch?: typeof fetch;
   rateLimiter?: RateLimiter;
   delay?: DelayFn;
@@ -20,7 +21,7 @@ export interface GoogleAdsClient {
 }
 
 export function createClient(opts: GoogleAdsClientOptions): GoogleAdsClient {
-  const apiVersion = opts.apiVersion ?? "v23";
+  const apiVersion = opts.apiVersion ?? "v25";
   const http = new HttpClient({
     baseUrl: "https://googleads.googleapis.com",
     getHeaders: async () => {

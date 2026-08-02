@@ -30,9 +30,12 @@ import { X } from "@openpromo/x";
 
 const client = X.createClient({ token: process.env.X_ACCESS_TOKEN! });
 
-const post = await client.tweets.createPosts({
+const post = await client.posts.createPosts({
   text: "New launch is live.",
 });
 
 console.log(post.data?.id);
 ```
+
+`client.tweets` and the `@openpromo/x/tweets` export remain as compatibility aliases for the
+upstream `posts` resource name introduced in OpenAPI 2.167.

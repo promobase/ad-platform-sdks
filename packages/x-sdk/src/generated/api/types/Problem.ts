@@ -2,114 +2,51 @@
 
 import type * as XApi from "../index.js";
 
-/**
- * An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).
- */
 export type Problem =
-    | XApi.Problem.AboutBlank
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsClientDisconnected
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsClientForbidden
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsConflict
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsDisallowedResource
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsDuplicateRules
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsInvalidRequest
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsInvalidRules
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsNoncompliantRules
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsNotAuthorizedForField
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsNotAuthorizedForResource
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsOperationalDisconnect
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsResourceNotFound
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsResourceUnavailable
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsRuleCap
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsStreamingConnection
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsUnsupportedAuthentication
-    | XApi.Problem.HttpsApiTwitterCom2ProblemsUsageCapped;
+    | XApi.Problem.HttpsApiXCom2ProblemsDisallowedResource
+    | XApi.Problem.HttpsApiXCom2ProblemsFieldHydrationFailure
+    | XApi.Problem.HttpsApiXCom2ProblemsFieldUnauthorized
+    | XApi.Problem.HttpsApiXCom2ProblemsInternalError
+    | XApi.Problem.HttpsApiXCom2ProblemsInvalidRequest
+    | XApi.Problem.HttpsApiXCom2ProblemsNotAuthorizedForField
+    | XApi.Problem.HttpsApiXCom2ProblemsNotAuthorizedForResource
+    | XApi.Problem.HttpsApiXCom2ProblemsResourceNotFound
+    | XApi.Problem.HttpsApiXCom2ProblemsResourceUnavailable;
 
 export namespace Problem {
-    export interface AboutBlank extends _Base {
-        type: "about:blank";
-        value: XApi.GenericProblem;
+    export interface HttpsApiXCom2ProblemsDisallowedResource extends XApi.DisallowedResourceProblem {
+        type: "https://api.x.com/2/problems/disallowed-resource";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsClientDisconnected extends _Base {
-        type: "https://api.twitter.com/2/problems/client-disconnected";
-        value: XApi.ClientDisconnectedProblem;
+    export interface HttpsApiXCom2ProblemsFieldHydrationFailure extends XApi.FieldHydrationFailureProblem {
+        type: "https://api.x.com/2/problems/field-hydration-failure";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsClientForbidden extends XApi.ClientForbiddenProblem, _Base {
-        type: "https://api.twitter.com/2/problems/client-forbidden";
+    export interface HttpsApiXCom2ProblemsFieldUnauthorized extends XApi.FieldUnauthorizedProblem {
+        type: "https://api.x.com/2/problems/field-unauthorized";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsConflict extends _Base {
-        type: "https://api.twitter.com/2/problems/conflict";
-        value: XApi.ConflictProblem;
+    export interface HttpsApiXCom2ProblemsInternalError extends XApi.InternalErrorProblem {
+        type: "https://api.x.com/2/problems/internal-error";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsDisallowedResource extends XApi.DisallowedResourceProblem, _Base {
-        type: "https://api.twitter.com/2/problems/disallowed-resource";
+    export interface HttpsApiXCom2ProblemsInvalidRequest extends XApi.InvalidRequestProblem {
+        type: "https://api.x.com/2/problems/invalid-request";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsDuplicateRules extends XApi.DuplicateRuleProblem, _Base {
-        type: "https://api.twitter.com/2/problems/duplicate-rules";
+    export interface HttpsApiXCom2ProblemsNotAuthorizedForField extends XApi.NotAuthorizedForFieldProblem {
+        type: "https://api.x.com/2/problems/not-authorized-for-field";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsInvalidRequest extends XApi.InvalidRequestProblem, _Base {
-        type: "https://api.twitter.com/2/problems/invalid-request";
+    export interface HttpsApiXCom2ProblemsNotAuthorizedForResource extends XApi.NotAuthorizedForResourceProblem {
+        type: "https://api.x.com/2/problems/not-authorized-for-resource";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsInvalidRules extends _Base {
-        type: "https://api.twitter.com/2/problems/invalid-rules";
-        value: XApi.InvalidRuleProblem;
+    export interface HttpsApiXCom2ProblemsResourceNotFound extends XApi.ResourceNotFoundProblem {
+        type: "https://api.x.com/2/problems/resource-not-found";
     }
 
-    export interface HttpsApiTwitterCom2ProblemsNoncompliantRules extends _Base {
-        type: "https://api.twitter.com/2/problems/noncompliant-rules";
-        value: XApi.NonCompliantRulesProblem;
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsNotAuthorizedForField extends XApi.FieldUnauthorizedProblem, _Base {
-        type: "https://api.twitter.com/2/problems/not-authorized-for-field";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsNotAuthorizedForResource
-        extends XApi.ResourceUnauthorizedProblem,
-            _Base {
-        type: "https://api.twitter.com/2/problems/not-authorized-for-resource";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsOperationalDisconnect extends XApi.OperationalDisconnectProblem, _Base {
-        type: "https://api.twitter.com/2/problems/operational-disconnect";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsResourceNotFound extends XApi.ResourceNotFoundProblem, _Base {
-        type: "https://api.twitter.com/2/problems/resource-not-found";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsResourceUnavailable extends XApi.ResourceUnavailableProblem, _Base {
-        type: "https://api.twitter.com/2/problems/resource-unavailable";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsRuleCap extends _Base {
-        type: "https://api.twitter.com/2/problems/rule-cap";
-        value: XApi.RulesCapProblem;
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsStreamingConnection extends XApi.ConnectionExceptionProblem, _Base {
-        type: "https://api.twitter.com/2/problems/streaming-connection";
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsUnsupportedAuthentication extends _Base {
-        type: "https://api.twitter.com/2/problems/unsupported-authentication";
-        value: XApi.UnsupportedAuthenticationProblem;
-    }
-
-    export interface HttpsApiTwitterCom2ProblemsUsageCapped extends XApi.UsageCapExceededProblem, _Base {
-        type: "https://api.twitter.com/2/problems/usage-capped";
-    }
-
-    export interface _Base {
-        detail?: string;
-        status?: number;
-        title: string;
+    export interface HttpsApiXCom2ProblemsResourceUnavailable extends XApi.ResourceUnavailableProblem {
+        type: "https://api.x.com/2/problems/resource-unavailable";
     }
 }

@@ -18,6 +18,12 @@ export interface BcPartnerDeleteParams {}
 export interface BcPartnerDeleteResponse {}
 
 
+export interface BcPartnerAssetDeleteParams {}
+
+
+export interface BcPartnerAssetDeleteResponse {}
+
+
 export interface BcPartnerAssetGetParams {}
 
 

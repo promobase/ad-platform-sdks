@@ -1,4 +1,5 @@
 import { expect, mock, test } from "bun:test";
+
 import { Google } from "../../../src/index.ts";
 
 test("customer.gaql binds client and customerId", async () => {
@@ -28,7 +29,7 @@ test("customer.gaql binds client and customerId", async () => {
     .first();
 
   expect(calls).toHaveLength(1);
-  expect(calls[0]!.url).toContain("/v23/customers/123/googleAds:search");
+  expect(calls[0]!.url).toContain("/v25/customers/123/googleAds:search");
   expect(calls[0]!.body.query).toBe("SELECT campaign.id, campaign.name FROM campaign LIMIT 1");
   expect(row?.campaign.id).toBe("1");
 });

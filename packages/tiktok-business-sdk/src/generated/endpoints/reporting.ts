@@ -1,5 +1,5 @@
 // Auto-generated client for Reporting — do not edit
-import type { ReportTaskCreateParams, ReportTaskCreateResponse, ReportTaskCheckParams, ReportTaskCheckResponse, ReportTaskDownloadParams, ReportTaskDownloadResponse, ReportTaskCancelParams, ReportTaskCancelResponse } from "../types/reporting.ts";
+import type { ReportIntegratedGetParams, ReportIntegratedGetResponse, ReportTaskCreateParams, ReportTaskCreateResponse, ReportTaskCheckParams, ReportTaskCheckResponse, ReportTaskDownloadParams, ReportTaskDownloadResponse, ReportTaskCancelParams, ReportTaskCancelResponse } from "../types/reporting.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -42,6 +42,11 @@ export function createReporting(opts: { accessToken: string; advertiserId: strin
   }
 
   return {
+    /** Run a synchronous report */
+    async getIntegrated(params: ReportIntegratedGetParams): Promise<ReportIntegratedGetResponse> {
+      return get<ReportIntegratedGetResponse>("/open_api/v1.3/report/integrated/get/", params as unknown as Record<string, unknown>);
+    },
+
     /** Create an asynchronous report task */
     async createTask(params: ReportTaskCreateParams): Promise<ReportTaskCreateResponse> {
       return post<ReportTaskCreateResponse>("/open_api/v1.3/report/task/create/", params as unknown as Record<string, unknown>);

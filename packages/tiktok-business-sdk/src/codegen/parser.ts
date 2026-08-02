@@ -28,12 +28,13 @@ export function parseDoc(doc: DocContent): EndpointSpec | null {
   if (!content) return null;
 
   // Extract endpoint URL
-  const urlMatch = content.match(/\*\*Endpoint\*\*\s+(https?:\/\/\S+)/);
-  if (!urlMatch?.[1]) return null;
-  const url = urlMatch[1].trim();
+  const url = extractEndpointUrl(content);
+  if (!url) return null;
 
   // Extract HTTP method
-  const methodMatch = content.match(/\*\*Method\*\*\s+(GET|POST|DELETE|PUT)/);
+  const methodMatch =
+    content.match(/\*\*Method\*\*\s+(GET|POST|DELETE|PUT)/) ??
+    content.match(/--request\s+(GET|POST|DELETE|PUT)\b/);
   if (!methodMatch?.[1]) return null;
   const method = methodMatch[1] as EndpointSpec["method"];
 
@@ -385,6 +386,7 @@ function detectAuthPattern(
 export function parseAllDocs(docs: DocContent[]): EndpointSpec[] {
   const specs: EndpointSpec[] = [];
   let skipped = 0;
+  const failedEndpointDocs: DocContent[] = [];
 
   for (const doc of docs) {
     const spec = parseDoc(doc);
@@ -392,9 +394,32 @@ export function parseAllDocs(docs: DocContent[]): EndpointSpec[] {
       specs.push(spec);
     } else {
       skipped++;
+      if (looksLikeEndpointDoc(doc.content)) {
+        failedEndpointDocs.push(doc);
+      }
     }
   }
 
   console.log(`[parser] Parsed ${specs.length} endpoints, skipped ${skipped} non-endpoint pages`);
+  if (failedEndpointDocs.length > 0) {
+    const details = failedEndpointDocs
+      .map((doc) => `${doc.docId} (${doc.category} / ${doc.title})`)
+      .join(", ");
+    throw new Error(`Failed to parse ${failedEndpointDocs.length} endpoint-like docs: ${details}`);
+  }
   return specs;
+}
+
+function extractEndpointUrl(content: string): string | null {
+  const endpointIndex = content.indexOf("**Endpoint**");
+  if (endpointIndex < 0) return null;
+
+  const methodIndex = content.indexOf("**Method**", endpointIndex);
+  const sectionEnd = methodIndex >= 0 ? methodIndex : endpointIndex + 1_500;
+  const endpointSection = content.slice(endpointIndex + "**Endpoint**".length, sectionEnd);
+  return endpointSection.match(/https?:\/\/[^\s>`'")]+/)?.[0] ?? null;
+}
+
+function looksLikeEndpointDoc(content: string): boolean {
+  return extractEndpointUrl(content)?.includes("/open_api/") ?? false;
 }

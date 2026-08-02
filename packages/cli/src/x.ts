@@ -1,6 +1,7 @@
 import { X } from "@openpromo/x";
 import type { Command } from "commander";
 import { z } from "zod";
+
 import { createGroup, defineCommand, option } from "./command.ts";
 import { jsonObjectFromCli, optionalJsonObjectFromCli, optionalStringArray } from "./schemas.ts";
 
@@ -26,7 +27,7 @@ function registerTweets(parent: Command): void {
     name: "create",
     description: "Create a post",
     schema: xAuth.extend({ body: jsonObjectFromCli }),
-    options: [...authOptions, option("--body <json>", "TweetCreateRequest JSON")],
+    options: [...authOptions, option("--body <json>", "CreatePostsRequest JSON")],
     action: (input) => createX(input).tweets.createPosts(input.body),
   });
 
@@ -107,7 +108,7 @@ function registerMedia(parent: Command): void {
     name: "upload",
     description: "Call generated one-shot media upload",
     schema: xAuth.extend({ body: jsonObjectFromCli }),
-    options: [...authOptions, option("--body <json>", "MediaUploadRequestOneShot JSON")],
+    options: [...authOptions, option("--body <json>", "MediaUploadRequest JSON")],
     action: (input) => createX(input).media.upload(input.body),
   });
 
@@ -115,7 +116,7 @@ function registerMedia(parent: Command): void {
     name: "initialize",
     description: "Initialize media upload",
     schema: xAuth.extend({ body: optionalJsonObjectFromCli }),
-    options: [...authOptions, option("--body <json>", "Media upload config JSON")],
+    options: [...authOptions, option("--body <json>", "InitializeMediaUploadRequest JSON")],
     action: (input) => createX(input).media.initializeMediaUpload(input.body ?? {}),
   });
 
@@ -170,7 +171,7 @@ function registerRaw(parent: Command): void {
     }),
     options: [
       ...authOptions,
-      option("--resource <name>", "Resource name: tweets, users, media"),
+      option("--resource <name>", "Resource name: posts (or tweets alias), users, media"),
       option("--operation <name>", "Generated operation name"),
       option("--body <json>", "Operation request JSON"),
     ],

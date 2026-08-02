@@ -1,5 +1,5 @@
 // Auto-generated client for Ads — do not edit
-import type { AdGetParams, AdGetResponse } from "../types/ads.ts";
+import type { AdGetParams, AdGetResponse, AdCreateParams, AdCreateResponse, AdUpdateParams, AdUpdateResponse, AdStatusUpdateParams, AdStatusUpdateResponse } from "../types/ads.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -45,6 +45,21 @@ export function createAds(opts: { accessToken: string; advertiserId: string }) {
     /** Get ads */
     async getAd(params: AdGetParams): Promise<AdGetResponse> {
       return get<AdGetResponse>("/open_api/v1.3/ad/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Create ads */
+    async createAd(params: AdCreateParams): Promise<AdCreateResponse> {
+      return post<AdCreateResponse>("/open_api/v1.3/ad/create/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Update ads */
+    async updateAd(params: AdUpdateParams): Promise<AdUpdateResponse> {
+      return post<AdUpdateResponse>("/open_api/v1.3/ad/update/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Update the statuses of ads */
+    async updateStatus(params: AdStatusUpdateParams): Promise<AdStatusUpdateResponse> {
+      return post<AdStatusUpdateResponse>("/open_api/v1.3/ad/status/update/", params as unknown as Record<string, unknown>);
     },
   };
 }

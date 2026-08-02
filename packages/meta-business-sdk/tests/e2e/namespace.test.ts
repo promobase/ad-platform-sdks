@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import { Meta } from "../../src/namespace.ts";
 
 const originalFetch = globalThis.fetch;

@@ -8,7 +8,6 @@ import type { CanvasPreviewFields } from "./canvas-preview.ts";
 import type { CanvasTemplateFields } from "./canvas-template.ts";
 import type { PageFields } from "./page.ts";
 import type { PhotoFields } from "./photo.ts";
-import type { RichMediaElementFields } from "./rich-media-element.ts";
 import type { TextWithEntitiesFields } from "./text-with-entities.ts";
 import type { UserFields } from "./user.ts";
 
@@ -22,7 +21,6 @@ export interface CanvasFields {
   collection_thumbnails: CanvasCollectionThumbnailFields[];
   dynamic_setting: CanvasDynamicSettingFields;
   element_payload: string;
-  elements: RichMediaElementFields[];
   fb_body_elements: Record<string, unknown>[];
   hero_asset_facebook_post_id: string;
   hero_asset_instagram_media_id: string;

@@ -51,6 +51,7 @@ export interface ProductCatalogFields {
   name: string;
   owner_business: BusinessFields;
   product_count: number;
+  show_assign_permissions: boolean;
   store_catalog_settings: StoreCatalogSettingsFields;
   user_access_expire_time: string;
   vertical: string;
@@ -647,7 +648,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
     flights: <F extends (keyof FlightFields)[]>(opts: { fields: F; params?: ProductCatalogListFlightsParams }) =>
       new Cursor<Pick<FlightFields, F[number]>>(client, `${id}/flights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     createGeolocatedItemsBatch: (params: ProductCatalogCreateGeolocatedItemsBatchParams) =>
-      client.post<ProductCatalogFields>(`${id}/geolocated_items_batch`, params as Record<string, unknown>),
+      client.post<Record<string, unknown>>(`${id}/geolocated_items_batch`, params as Record<string, unknown>),
     homeListings: {
       __path: `${id}/home_listings`,
       __brand: undefined as unknown as HomeListingFields,

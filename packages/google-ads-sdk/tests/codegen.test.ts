@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
 import path from "node:path";
+
 import { emitEnum, emitMessage, emitService } from "../src/codegen/emitter.ts";
 import { parseHttpPath } from "../src/codegen/http-binding.ts";
 import type { MessageAst } from "../src/codegen/parser.ts";

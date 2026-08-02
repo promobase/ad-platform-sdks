@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { buildDepGraph, type DepGraph, findCycles } from "../../src/codegen/dep-graph.ts";
 
 // Minimal Spec type for testing

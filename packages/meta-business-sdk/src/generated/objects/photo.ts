@@ -76,6 +76,7 @@ export interface PhotoListInsightsParams {
 }
 
 export interface PhotoCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   notify?: boolean;

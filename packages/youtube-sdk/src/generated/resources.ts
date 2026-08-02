@@ -26,6 +26,14 @@ export function createYouTubeResources(client: YouTubeClient) {
       },
     },
     videos: {
+      batchGetStats(params: YouTubeTypes.YouTubeVideosBatchGetStatsParams, body?: undefined, opts?: YouTubeRequestOptions): Promise<YouTubeTypes.BatchGetStatsResponse> {
+        return client.request<YouTubeTypes.BatchGetStatsResponse>({
+          method: "GET",
+          path: "youtube/v3/videos:batchGetStats",
+          params,
+          opts,
+        });
+      },
       delete(params: YouTubeTypes.YouTubeVideosDeleteParams, body?: undefined, opts?: YouTubeRequestOptions): Promise<void> {
         return client.request<void>({
           method: "DELETE",

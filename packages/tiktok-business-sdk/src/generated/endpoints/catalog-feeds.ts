@@ -1,5 +1,5 @@
 // Auto-generated client for Catalog Feeds — do not edit
-import type { CatalogFeedGetParams, CatalogFeedGetResponse, CatalogFeedDeleteParams, CatalogFeedDeleteResponse, CatalogFeedLogParams, CatalogFeedLogResponse } from "../types/catalog-feeds.ts";
+import type { CatalogFeedCreateParams, CatalogFeedCreateResponse, CatalogFeedGetParams, CatalogFeedGetResponse, CatalogFeedUpdateParams, CatalogFeedUpdateResponse, CatalogFeedDeleteParams, CatalogFeedDeleteResponse, CatalogFeedLogParams, CatalogFeedLogResponse, CatalogFeedSwitchParams, CatalogFeedSwitchResponse } from "../types/catalog-feeds.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -42,9 +42,19 @@ export function createCatalogFeeds(opts: { accessToken: string; advertiserId: st
   }
 
   return {
+    /** Create a feed */
+    async createFeed(params: CatalogFeedCreateParams): Promise<CatalogFeedCreateResponse> {
+      return post<CatalogFeedCreateResponse>("/open_api/v1.3/catalog/feed/create/", params as unknown as Record<string, unknown>);
+    },
+
     /** Get feeds */
     async getFeed(params: CatalogFeedGetParams): Promise<CatalogFeedGetResponse> {
       return get<CatalogFeedGetResponse>("/open_api/v1.3/catalog/feed/get/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Update a feed */
+    async updateFeed(params: CatalogFeedUpdateParams): Promise<CatalogFeedUpdateResponse> {
+      return post<CatalogFeedUpdateResponse>("/open_api/v1.3/catalog/feed/update/", params as unknown as Record<string, unknown>);
     },
 
     /** Delete a feed */
@@ -55,6 +65,11 @@ export function createCatalogFeeds(opts: { accessToken: string; advertiserId: st
     /** Get the log of a feed */
     async feedLog(params: CatalogFeedLogParams): Promise<CatalogFeedLogResponse> {
       return get<CatalogFeedLogResponse>("/open_api/v1.3/catalog/feed/log/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Update the schedule status of a feed */
+    async feedSwitch(params: CatalogFeedSwitchParams): Promise<CatalogFeedSwitchResponse> {
+      return post<CatalogFeedSwitchResponse>("/open_api/v1.3/catalog/feed/switch/", params as unknown as Record<string, unknown>);
     },
   };
 }

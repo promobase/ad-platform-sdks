@@ -1,5 +1,5 @@
 // Auto-generated client for Leads — do not edit
-import type { PageLeadMockCreateParams, PageLeadMockCreateResponse, PageLeadMockGetParams, PageLeadMockGetResponse, PageLeadMockDeleteParams, PageLeadMockDeleteResponse, PageLibraryGetParams, PageLibraryGetResponse, PageLibraryTransferParams, PageLibraryTransferResponse, PageFieldGetParams, PageFieldGetResponse, LeadFieldGetParams, LeadFieldGetResponse, LeadGetParams, LeadGetResponse } from "../types/leads.ts";
+import type { PageLeadMockCreateParams, PageLeadMockCreateResponse, PageLeadMockGetParams, PageLeadMockGetResponse, PageLeadMockDeleteParams, PageLeadMockDeleteResponse, PageLeadTaskParams, PageLeadTaskResponse, PageLeadTaskDownloadParams, PageLeadTaskDownloadResponse, PageLibraryGetParams, PageLibraryGetResponse, PageLibraryTransferParams, PageLibraryTransferResponse, PageFieldGetParams, PageFieldGetResponse, LeadFieldGetParams, LeadFieldGetResponse, LeadGetParams, LeadGetResponse } from "../types/leads.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -55,6 +55,16 @@ export function createLeads(opts: { accessToken: string; advertiserId: string })
     /** Delete a test lead */
     async deleteMock(params: PageLeadMockDeleteParams): Promise<PageLeadMockDeleteResponse> {
       return post<PageLeadMockDeleteResponse>("/open_api/v1.3/page/lead/mock/delete/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Create a lead download task */
+    async leadTask(params: PageLeadTaskParams): Promise<PageLeadTaskResponse> {
+      return post<PageLeadTaskResponse>("/open_api/v1.3/page/lead/task/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Download leads */
+    async taskDownload(params: PageLeadTaskDownloadParams): Promise<PageLeadTaskDownloadResponse> {
+      return get<PageLeadTaskDownloadResponse>("/open_api/v1.3/page/lead/task/download/", params as unknown as Record<string, unknown>);
     },
 
     /** Get form libraries */

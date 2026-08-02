@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { LinkedIn, LinkedInClient } from "../src/index.ts";
 
 function jsonResponse(body: unknown, init?: ResponseInit) {
@@ -7,7 +8,7 @@ function jsonResponse(body: unknown, init?: ResponseInit) {
     ...init,
     headers: {
       "content-type": "application/json",
-      ...(init?.headers ?? {}),
+      ...init?.headers,
     },
   });
 }
@@ -21,7 +22,6 @@ test("creates LinkedIn text posts with versioned REST headers", async () => {
 
   const linkedin = LinkedIn.createClient({
     accessToken: "token",
-    apiVersion: "202604",
     fetch: fetchMock,
   });
 
@@ -34,8 +34,9 @@ test("creates LinkedIn text posts with versioned REST headers", async () => {
   expect(calls).toHaveLength(1);
   expect(calls[0]?.url).toBe("https://api.linkedin.com/rest/posts");
   expect(calls[0]?.init?.method).toBe("POST");
-  expect((calls[0]?.init?.headers as Record<string, string>)["LinkedIn-Version"]).toBe("202604");
-  expect((calls[0]?.init?.headers as Record<string, string>).Authorization).toBe("Bearer token");
+  const headers = calls[0]?.init?.headers as Record<string, string> | undefined;
+  expect(headers?.["LinkedIn-Version"]).toBe("202607");
+  expect(headers?.Authorization).toBe("Bearer token");
 
   const body = JSON.parse(String(calls[0]?.init?.body)) as Record<string, unknown>;
   expect(body.author).toBe("urn:li:organization:42");
@@ -98,7 +99,10 @@ test("carries LinkedIn video uploadToken into finalizeUpload", async () => {
   }) as unknown as typeof fetch;
 
   const linkedin = LinkedIn.createClient({ accessToken: "token", fetch: fetchMock });
-  const session = await linkedin.assets.initializeVideoUpload("urn:li:organization:42", 4);
+  const session = await linkedin.assets.initializeVideoUpload("urn:li:organization:42", 4, {
+    templateName: "Launch template",
+    linkbackContext: "https://example.com/templates/launch",
+  });
   const etags = await linkedin.assets.uploadVideoChunks(
     session.uploadInstructions,
     new Uint8Array([1, 2, 3, 4]).buffer,
@@ -106,11 +110,19 @@ test("carries LinkedIn video uploadToken into finalizeUpload", async () => {
   await linkedin.assets.finalizeVideoUpload(session.videoUrn, etags, session.uploadToken);
 
   const finalizeCall = calls.find((call) => call.url.includes("action=finalizeUpload"));
+  const initializeCall = calls.find((call) => call.url.includes("action=initializeUpload"));
+  const initializeBody = JSON.parse(String(initializeCall?.init?.body)) as {
+    initializeUploadRequest?: { templateName?: string; linkbackContext?: string };
+  };
   const body = JSON.parse(String(finalizeCall?.init?.body)) as {
     finalizeUploadRequest?: { uploadToken?: string; uploadedPartIds?: string[] };
   };
 
   expect(session.uploadToken).toBe("upload-token");
+  expect(initializeBody.initializeUploadRequest?.templateName).toBe("Launch template");
+  expect(initializeBody.initializeUploadRequest?.linkbackContext).toBe(
+    "https://example.com/templates/launch",
+  );
   expect(etags).toEqual(["part-etag"]);
   expect(body.finalizeUploadRequest?.uploadToken).toBe("upload-token");
   expect(body.finalizeUploadRequest?.uploadedPartIds).toEqual(["part-etag"]);

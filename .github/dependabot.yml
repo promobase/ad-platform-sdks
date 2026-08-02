@@ -9,7 +9,7 @@ updates:
     groups:
       # Bundle minor/patch updates into one PR per group to reduce noise
       typescript-tooling:
-        patterns: ["typescript", "@types/*", "@biomejs/*"]
+        patterns: ["typescript", "@types/*", "oxlint", "oxfmt"]
       changesets:
         patterns: ["@changesets/*"]
       bun-types:

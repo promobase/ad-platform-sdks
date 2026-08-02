@@ -92,6 +92,15 @@ export interface LinkedInVideoUploadInstruction {
   lastByte: number;
 }
 
+export interface LinkedInVideoUploadOptions {
+  uploadCaptions?: boolean;
+  uploadThumbnail?: boolean;
+  /** Third-party template/tool name used to create the video (202602+). */
+  templateName?: string;
+  /** Link or opaque context for the media-attribution deeplink (202602+). */
+  linkbackContext?: string;
+}
+
 export interface LinkedInVideoUploadSession {
   videoUrn: LinkedInUrn;
   uploadInstructions: LinkedInVideoUploadInstruction[];

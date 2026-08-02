@@ -5,6 +5,7 @@ import type { UserFields } from "./user.ts";
 
 export interface AdsUserSettingsFields {
   a_plus_c_survey_seen: boolean;
+  adaptive_geo_excl_banner_seen_ts: Record<string, number>[];
   add_overlays_opt_in_status: string;
   adgroup_name_template: Record<string, unknown>;
   ads_cs_catalog_opt_out_timestamp: Record<string, number>[];
@@ -41,11 +42,13 @@ export interface AdsUserSettingsFields {
   da_creative_flex_opt_in_status: string;
   da_hide_price_opt_in_status: string;
   da_manual_media_nux_impressions: number;
+  dco_to_mmu_opt_out_status: string;
   default_creation_mode: string;
   dynamic_partnership_ads_opt_in_status: string;
   enhance_cta_text_extraction_opt_in_status: string;
   export_format_default: string;
   feedback_surveys: string[];
+  ff_to_mmu_opt_out_status: string;
   focus_mode_default: string;
   gen_ai_alpha_test_status: number;
   gen_ai_auto_select_opt_in_status: string;
@@ -54,6 +57,7 @@ export interface AdsUserSettingsFields {
   image_brightness_and_contrast_opt_in_status: string;
   image_expansion_opt_in_status: string;
   image_templates_text_extraction_opt_in_status: string;
+  image_text_translation_opt_in_status: string;
   is_ads_ai_consented: boolean;
   is_cbo_default_on: boolean;
   is_se_removal_guidance_dismissed: boolean;
@@ -69,6 +73,9 @@ export interface AdsUserSettingsFields {
   pac_relaxation_opt_in_status: string;
   pcau_cat_optout_survey_impr: number;
   pcau_cat_optout_survey_resp_ts: string;
+  pe_ai_relevancy_opt_out_ts: string;
+  pe_show_products_survey_impr: number;
+  pe_show_products_survey_resp_ts: string;
   placement_group_square_opt_in_status: string;
   placement_group_vertical_opt_in_status: string;
   previously_seen_recommendations: string[];
@@ -98,6 +105,8 @@ export interface AdsUserSettingsFields {
   syd_campaign_trends_metric: string;
   text_optimizations_text_extraction_opt_in_status: string;
   text_translation_opt_in_status: string;
+  text_unification_opt_in_status: string;
+  text_unification_opt_in_status_v2: string;
   text_variations_sticky_opt_in_status: string;
   total_coupon_syd_dismissals: number;
   total_coupon_upsell_dismissals: number;
@@ -106,6 +115,7 @@ export interface AdsUserSettingsFields {
   use_stepper_primary_entry: boolean;
   user: UserFields;
   video_to_image_opt_in_status: string;
+  voiceover_trans_opt_in_status: string;
   website_media_opt_in_status: string;
   website_reviews_data_opt_in_status: string;
   website_selling_points_data_opt_in_status: string;

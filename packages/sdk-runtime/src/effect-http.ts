@@ -1,4 +1,5 @@
 import { Data, Effect, Schedule } from "effect";
+
 import type { RetryConfig } from "./client.ts";
 
 export class EffectHttpError extends Data.TaggedError("EffectHttpError")<{

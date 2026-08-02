@@ -4,6 +4,9 @@ Type-safe TypeScript SDK for LinkedIn organic publishing and OAuth.
 
 LinkedIn does not currently publish a public OpenAPI/Swagger spec or public per-endpoint Rest.li restspec for the Marketing API surfaces this package wraps. This SDK is hand-authored against the official Microsoft Learn endpoint docs and LinkedIn's Rest.li protocol documentation.
 
+The default `LinkedIn-Version` is `202607`. Callers can still supply `apiVersion` explicitly for a
+different supported monthly release.
+
 ## Install
 
 ```bash
@@ -44,6 +47,9 @@ await linkedin.posts.createImage({
   options: { altText: "A team photo" },
 });
 ```
+
+Video initialization supports LinkedIn's optional `templateName` and `linkbackContext` media
+attribution fields introduced in the 202602 API and available in the current 202607 release.
 
 ## OAuth
 

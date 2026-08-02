@@ -3,7 +3,7 @@ let Headers: typeof globalThis.Headers;
 if (typeof globalThis.Headers !== "undefined") {
     Headers = globalThis.Headers;
 } else {
-    Headers = class Headers implements Headers {
+    Headers = class Headers {
         private headers: Map<string, string[]>;
 
         constructor(init?: HeadersInit) {
@@ -84,26 +84,26 @@ if (typeof globalThis.Headers !== "undefined") {
             return json;
         }
 
-        *entries(): HeadersIterator<[string, string]> {
+        *entries(): IterableIterator<[string, string]> {
             for (const [key, values] of this.headers.entries()) {
                 yield [key, values.join(", ")];
             }
         }
 
-        *keys(): HeadersIterator<string> {
+        *keys(): IterableIterator<string> {
             yield* this.headers.keys();
         }
 
-        *values(): HeadersIterator<string> {
+        *values(): IterableIterator<string> {
             for (const values of this.headers.values()) {
                 yield values.join(", ");
             }
         }
 
-        [Symbol.iterator](): HeadersIterator<[string, string]> {
+        [Symbol.iterator](): IterableIterator<[string, string]> {
             return this.entries();
         }
-    };
+    } as unknown as typeof globalThis.Headers;
 }
 
 export { Headers };

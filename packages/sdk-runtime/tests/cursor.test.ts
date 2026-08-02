@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import { ApiClient } from "../src/client.ts";
 import { Cursor, type PaginationStrategy } from "../src/cursor.ts";
 

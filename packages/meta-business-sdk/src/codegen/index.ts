@@ -1,5 +1,6 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
 import { type EmitContext, emitEnumType, emitObjectFile, specNameToFileName } from "./emitter.ts";
 import { type EnumMap, extractAllEnums } from "./enum-extractor.ts";
@@ -74,6 +75,9 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   // 6. Create output directories
   const objectsDir = join(outputDir, "objects");
   const enumsDir = join(outputDir, "enums");
+  // This directory is wholly owned by codegen. Clean it before emitting so
+  // upstream schema removals cannot remain as stale, published modules.
+  await rm(objectsDir, { recursive: true, force: true });
   await mkdir(objectsDir, { recursive: true });
   await mkdir(enumsDir, { recursive: true });
 

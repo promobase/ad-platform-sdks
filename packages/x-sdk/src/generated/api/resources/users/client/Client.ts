@@ -26,28 +26,29 @@ export class UsersClient {
     }
 
     /**
-     * Retrieves details of a specific User by their username.
-     *
      * @param {XApi.GetUsersByUsernameRequest} request
      * @param {UsersClient.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
+     *
      * @example
      *     await client.users.getUsersByUsername({
-     *         username: "TwitterDev"
+     *         username: "username"
      *     })
      */
     public getUsersByUsername(
         request: XApi.GetUsersByUsernameRequest,
         requestOptions?: UsersClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.Get2UsersByUsernameUsernameResponse> {
+    ): core.HttpResponsePromise<XApi.GetUsersByUsernameResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getUsersByUsername(request, requestOptions));
     }
 
     private async __getUsersByUsername(
         request: XApi.GetUsersByUsernameRequest,
         requestOptions?: UsersClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.Get2UsersByUsernameUsernameResponse>> {
-        const { username, "user.fields": userFields, expansions, "tweet.fields": tweetFields } = request;
+    ): Promise<core.WithRawResponse<XApi.GetUsersByUsernameResponse>> {
+        const { username, "user.fields": userFields, expansions, "post.fields": postFields } = request;
         const _queryParams: Record<string, unknown> = {
             "user.fields": Array.isArray(userFields)
                 ? userFields.map((item) => item)
@@ -59,10 +60,10 @@ export class UsersClient {
                 : expansions != null
                   ? expansions
                   : undefined,
-            "tweet.fields": Array.isArray(tweetFields)
-                ? tweetFields.map((item) => item)
-                : tweetFields != null
-                  ? tweetFields
+            "post.fields": Array.isArray(postFields)
+                ? postFields.map((item) => item)
+                : postFields != null
+                  ? postFields
                   : undefined,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -85,7 +86,7 @@ export class UsersClient {
                 .addMany(_queryParams)
                 .add("user.fields", _queryParams["user.fields"], { style: "comma" })
                 .add("expansions", _queryParams.expansions, { style: "comma" })
-                .add("tweet.fields", _queryParams["tweet.fields"], { style: "comma" })
+                .add("post.fields", _queryParams["post.fields"], { style: "comma" })
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -95,10 +96,7 @@ export class UsersClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return {
-                data: _response.body as XApi.Get2UsersByUsernameUsernameResponse,
-                rawResponse: _response.rawResponse,
-            };
+            return { data: _response.body as XApi.GetUsersByUsernameResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -118,10 +116,11 @@ export class UsersClient {
     }
 
     /**
-     * Retrieves details of the authenticated user.
-     *
      * @param {XApi.GetUsersMeRequest} request
      * @param {UsersClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.users.getUsersMe()
@@ -129,15 +128,15 @@ export class UsersClient {
     public getUsersMe(
         request: XApi.GetUsersMeRequest = {},
         requestOptions?: UsersClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.Get2UsersMeResponse> {
+    ): core.HttpResponsePromise<XApi.GetUsersMeResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getUsersMe(request, requestOptions));
     }
 
     private async __getUsersMe(
         request: XApi.GetUsersMeRequest = {},
         requestOptions?: UsersClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.Get2UsersMeResponse>> {
-        const { "user.fields": userFields, expansions, "tweet.fields": tweetFields } = request;
+    ): Promise<core.WithRawResponse<XApi.GetUsersMeResponse>> {
+        const { "user.fields": userFields, expansions, "post.fields": postFields } = request;
         const _queryParams: Record<string, unknown> = {
             "user.fields": Array.isArray(userFields)
                 ? userFields.map((item) => item)
@@ -149,10 +148,10 @@ export class UsersClient {
                 : expansions != null
                   ? expansions
                   : undefined,
-            "tweet.fields": Array.isArray(tweetFields)
-                ? tweetFields.map((item) => item)
-                : tweetFields != null
-                  ? tweetFields
+            "post.fields": Array.isArray(postFields)
+                ? postFields.map((item) => item)
+                : postFields != null
+                  ? postFields
                   : undefined,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -175,7 +174,7 @@ export class UsersClient {
                 .addMany(_queryParams)
                 .add("user.fields", _queryParams["user.fields"], { style: "comma" })
                 .add("expansions", _queryParams.expansions, { style: "comma" })
-                .add("tweet.fields", _queryParams["tweet.fields"], { style: "comma" })
+                .add("post.fields", _queryParams["post.fields"], { style: "comma" })
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -185,7 +184,7 @@ export class UsersClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.Get2UsersMeResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.GetUsersMeResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {
@@ -200,10 +199,11 @@ export class UsersClient {
     }
 
     /**
-     * Retrieves details of a specific User by their ID.
-     *
      * @param {XApi.GetUsersByIdRequest} request
      * @param {UsersClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link errors.XApiError}
+     * @throws {@link errors.XApiTimeoutError}
      *
      * @example
      *     await client.users.getUsersById({
@@ -213,15 +213,15 @@ export class UsersClient {
     public getUsersById(
         request: XApi.GetUsersByIdRequest,
         requestOptions?: UsersClient.RequestOptions,
-    ): core.HttpResponsePromise<XApi.Get2UsersIdResponse> {
+    ): core.HttpResponsePromise<XApi.GetUsersByIdResponse> {
         return core.HttpResponsePromise.fromPromise(this.__getUsersById(request, requestOptions));
     }
 
     private async __getUsersById(
         request: XApi.GetUsersByIdRequest,
         requestOptions?: UsersClient.RequestOptions,
-    ): Promise<core.WithRawResponse<XApi.Get2UsersIdResponse>> {
-        const { id, "user.fields": userFields, expansions, "tweet.fields": tweetFields } = request;
+    ): Promise<core.WithRawResponse<XApi.GetUsersByIdResponse>> {
+        const { id, "user.fields": userFields, expansions, "post.fields": postFields } = request;
         const _queryParams: Record<string, unknown> = {
             "user.fields": Array.isArray(userFields)
                 ? userFields.map((item) => item)
@@ -233,10 +233,10 @@ export class UsersClient {
                 : expansions != null
                   ? expansions
                   : undefined,
-            "tweet.fields": Array.isArray(tweetFields)
-                ? tweetFields.map((item) => item)
-                : tweetFields != null
-                  ? tweetFields
+            "post.fields": Array.isArray(postFields)
+                ? postFields.map((item) => item)
+                : postFields != null
+                  ? postFields
                   : undefined,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -259,7 +259,7 @@ export class UsersClient {
                 .addMany(_queryParams)
                 .add("user.fields", _queryParams["user.fields"], { style: "comma" })
                 .add("expansions", _queryParams.expansions, { style: "comma" })
-                .add("tweet.fields", _queryParams["tweet.fields"], { style: "comma" })
+                .add("post.fields", _queryParams["post.fields"], { style: "comma" })
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
@@ -269,7 +269,7 @@ export class UsersClient {
             logging: this._options.logging,
         });
         if (_response.ok) {
-            return { data: _response.body as XApi.Get2UsersIdResponse, rawResponse: _response.rawResponse };
+            return { data: _response.body as XApi.GetUsersByIdResponse, rawResponse: _response.rawResponse };
         }
 
         if (_response.error.reason === "status-code") {

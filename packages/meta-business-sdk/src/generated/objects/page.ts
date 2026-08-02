@@ -180,6 +180,7 @@ export interface PageFields {
   offer_eligible: boolean;
   overall_star_rating: number;
   owner_business: BusinessFields;
+  page_backed_threads_account_id: string;
   page_token: string;
   parent_page: PageFields;
   parking: PageParkingFields;
@@ -610,6 +611,7 @@ export interface PageCreateLeadgenFormsParams {
   custom_disclaimer?: Record<string, unknown>;
   follow_up_action_url?: string;
   is_for_canvas?: boolean;
+  is_lead_capture_ai_agent_enabled?: boolean;
   is_optimized_for_quality?: boolean;
   is_phone_sms_verify_enabled?: boolean;
   locale?: string;
@@ -832,6 +834,11 @@ export interface PageCreateNlpConfigsParams {
 export interface PageListNotificationMessageTokensParams {
   custom_audience_ids?: string[];
   do_not_return_duplicates?: boolean;
+  has_received_marketing_message?: boolean;
+  opt_in_source?: string[];
+  since?: string;
+  subscriber_tag_ids?: string[];
+  until?: string;
   [key: string]: unknown;
 }
 
@@ -912,6 +919,7 @@ export interface PageCreatePhotosParams {
   privacy?: string;
   profile_id?: number;
   provenance_info?: Record<string, unknown>;
+  provenance_metadata?: Record<string, unknown>;
   proxied_app_id?: string;
   published?: boolean;
   qn?: string;
@@ -1004,8 +1012,11 @@ export interface PageListRolesParams {
   [key: string]: unknown;
 }
 
-export interface PageListSecondaryReceiversParams {
-  platform?: string;
+export interface PageCreateScheduledLiveVideoParams {
+  end_time?: number;
+  start_time: number;
+  state: string;
+  video: string;
   [key: string]: unknown;
 }
 
@@ -1192,6 +1203,7 @@ export interface PageCreateVideosParams {
   replace_video_id?: string;
   scheduled_publish_time?: number;
   secret?: boolean;
+  selected_audio_spec?: Record<string, unknown>;
   slideshow_spec?: Record<string, unknown>;
   social_actions?: boolean;
   source?: string;
@@ -1255,6 +1267,7 @@ export interface PageUpdateParams {
   attire?: PageAttire;
   begin_crossposting_handshake?: Record<string, unknown>[];
   bio?: string;
+  caption?: string;
   category_list?: string[];
   company_overview?: string;
   contact_address?: Record<string, unknown>;
@@ -1559,6 +1572,8 @@ export function pageNode(client: ApiClient, id: string) {
       create: (params: Record<string, unknown>) =>
         client.post<IGUserFields>(`${id}/page_backed_instagram_accounts`, params as Record<string, unknown>),
     },
+    createPageBackedThreadsAccount: (params: Record<string, unknown>) =>
+      client.post<Record<string, unknown>>(`${id}/page_backed_threads_accounts`, params as Record<string, unknown>),
     createPageWhatsappNumberVerification: (params: PageCreatePageWhatsappNumberVerificationParams) =>
       client.post<PageFields>(`${id}/page_whatsapp_number_verification`, params as Record<string, unknown>),
     createPassThreadControl: (params: PageCreatePassThreadControlParams) =>
@@ -1605,10 +1620,10 @@ export function pageNode(client: ApiClient, id: string) {
       new Cursor<Pick<UserFields, F[number]>>(client, `${id}/roles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     rtbDynamicPosts: <F extends (keyof RTBDynamicPostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<RTBDynamicPostFields, F[number]>>(client, `${id}/rtb_dynamic_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+    createScheduledLiveVideo: (params: PageCreateScheduledLiveVideoParams) =>
+      client.post<Record<string, unknown>>(`${id}/scheduled_live_video`, params as Record<string, unknown>),
     scheduledPosts: <F extends (keyof PagePostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<PagePostFields, F[number]>>(client, `${id}/scheduled_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
-    secondaryReceivers: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: PageListSecondaryReceiversParams }) =>
-      new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/secondary_receivers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     settings: {
       __path: `${id}/settings`,
       __brand: undefined as unknown as PageSettingsFields,

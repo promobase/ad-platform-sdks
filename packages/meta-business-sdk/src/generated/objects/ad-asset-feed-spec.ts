@@ -45,5 +45,6 @@ export interface AdAssetFeedSpecFields {
   translations: Record<string, unknown>[];
   upcoming_events: Record<string, unknown>[];
   videos: AdAssetFeedSpecVideoFields[];
+  web_destination_spec: Record<string, unknown>;
 }
 

@@ -12,6 +12,7 @@ export interface ALMEventFields {
   id: string;
   parent_advertiser_ids: string[];
   reseller_business_id: string;
+  solution_id: string;
   sub_channel: string;
   user_id: string;
 }

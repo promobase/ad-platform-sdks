@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { runCodegen } from "../../src/codegen/index.ts";
 
 test("runCodegen generates Campaign object file", async () => {

@@ -1,4 +1,5 @@
 import type { ApiClient } from "@openpromo/sdk-runtime";
+
 import type {
   PublishResult,
   ThreadsContainerStatus,

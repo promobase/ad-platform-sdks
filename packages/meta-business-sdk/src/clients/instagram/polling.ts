@@ -1,4 +1,5 @@
 import { Data, Effect } from "effect";
+
 import type { PollingConfig } from "./types.ts";
 
 const DEFAULT_DELAY = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));

@@ -12,6 +12,7 @@ export interface StatusFields {
 }
 
 export interface StatusCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   notify?: boolean;

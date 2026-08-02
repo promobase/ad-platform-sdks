@@ -3,6 +3,7 @@ import { XApiClient } from "./generated/index.js";
 
 export const X = {
   createClient(opts: BaseClientOptions) {
-    return new XApiClient(opts);
+    const client = new XApiClient(opts);
+    return Object.assign(client, { tweets: client.posts });
   },
 };

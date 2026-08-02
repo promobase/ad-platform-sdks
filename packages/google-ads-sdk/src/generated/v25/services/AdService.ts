@@ -1,0 +1,9 @@
+import type { MutateAdsRequest, MutateAdsResponse } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.AdService. Do not edit by hand.
+export const adService = {
+  mutateAds(client: HttpClient, customerId: string, body: Omit<MutateAdsRequest, "customerId">): Promise<MutateAdsResponse> {
+    return client.post<MutateAdsResponse>(`/v25/customers/${customerId}/ads:mutate`, body);
+  }
+};

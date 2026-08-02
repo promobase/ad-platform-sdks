@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import { createRequire } from "node:module";
 import path from "node:path";
+
 import protobuf from "protobufjs";
 
 // Directory inside the installed protobufjs package that ships the
@@ -107,6 +108,13 @@ export async function loadProtos(entryFiles: string[], includePaths: string[]): 
     }
   }
   walk(root);
+
+  // protobufjs namespace traversal follows load/insertion order. The vendored
+  // repository and filesystem may present proto files in a different order,
+  // so normalize the AST before emitters build maps and barrels from it.
+  messages.sort((a, b) => a.fullName.localeCompare(b.fullName));
+  enums.sort((a, b) => a.fullName.localeCompare(b.fullName));
+  services.sort((a, b) => a.fullName.localeCompare(b.fullName));
 
   return { messages, enums, services };
 }

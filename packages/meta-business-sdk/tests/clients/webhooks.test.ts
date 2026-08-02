@@ -1,4 +1,10 @@
 import { expect, test } from "bun:test";
+
+import {
+  fbWebhookPayloadSchema,
+  igWebhookPayloadSchema,
+  threadsWebhookPayloadSchema,
+} from "../../src/clients/webhooks-schemas.ts";
 import {
   parseFacebookWebhook,
   parseInstagramWebhook,
@@ -10,11 +16,6 @@ import {
   verifyWebhookSignature,
   WebhookParseError,
 } from "../../src/clients/webhooks.ts";
-import {
-  fbWebhookPayloadSchema,
-  igWebhookPayloadSchema,
-  threadsWebhookPayloadSchema,
-} from "../../src/clients/webhooks-schemas.ts";
 
 // Shared helper: sign a body with HMAC-SHA256
 async function signBody(body: string, secret: string): Promise<string> {

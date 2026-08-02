@@ -1,60 +1,88 @@
 import { existsSync, readFileSync, readdirSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const mode = process.argv[2];
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+  const mode = process.argv[2];
 
-if (mode !== "prepare" && mode !== "restore") {
-  console.error("Usage: node scripts/publish-manifest.mjs <prepare|restore>");
-  process.exit(1);
+  if (mode !== "prepare" && mode !== "prepare-publish" && mode !== "restore") {
+    console.error("Usage: node scripts/publish-manifest.mjs <prepare|prepare-publish|restore>");
+    process.exit(1);
+  }
+
+  if (mode === "restore") {
+    restorePackage(process.cwd());
+  } else {
+    preparePackage(process.cwd(), { forPublish: mode === "prepare-publish" });
+  }
 }
 
-const packagePath = resolve(process.cwd(), "package.json");
-const backupPath = resolve(process.cwd(), "package.json.prepack-backup");
+export function preparePackage(packageDir, { forPublish = false } = {}) {
+  const packagePath = resolve(packageDir, "package.json");
+  const backupPath = resolve(packageDir, "package.json.prepack-backup");
 
-if (mode === "restore") {
   if (existsSync(backupPath)) {
-    renameSync(backupPath, packagePath);
-  }
-  process.exit(0);
-}
-
-if (existsSync(backupPath)) {
-  throw new Error(`Refusing to overwrite existing backup: ${backupPath}`);
-}
-
-const root = findRepoRoot(process.cwd());
-const workspaceVersions = readWorkspaceVersions(root);
-const packageJson = readJson(packagePath);
-let changed = false;
-
-for (const section of ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"]) {
-  const dependencies = packageJson[section];
-  if (!dependencies) {
-    continue;
+    throw new Error(`Refusing to overwrite existing backup: ${backupPath}`);
   }
 
-  for (const [name, specifier] of Object.entries(dependencies)) {
-    if (typeof specifier !== "string" || !specifier.startsWith("workspace:")) {
+  const root = findRepoRoot(packageDir);
+  const workspaceVersions = readWorkspaceVersions(root);
+  const packageJson = readJson(packagePath);
+  let changed = false;
+
+  for (const section of [
+    "dependencies",
+    "devDependencies",
+    "peerDependencies",
+    "optionalDependencies",
+  ]) {
+    const dependencies = packageJson[section];
+    if (!dependencies) {
       continue;
     }
 
-    const version = workspaceVersions.get(name);
-    if (!version) {
-      throw new Error(`No workspace package found for ${name}`);
-    }
+    for (const [name, specifier] of Object.entries(dependencies)) {
+      if (typeof specifier !== "string" || !specifier.startsWith("workspace:")) {
+        continue;
+      }
 
-    dependencies[name] = workspaceSpecifierToRange(specifier, version);
+      const version = workspaceVersions.get(name);
+      if (!version) {
+        throw new Error(`No workspace package found for ${name}`);
+      }
+
+      dependencies[name] = workspaceSpecifierToRange(specifier, version);
+      changed = true;
+    }
+  }
+
+  // During `npm publish`, npm restores its original manifest view after
+  // `postpack` and submits workspace:* to the registry even though the tarball
+  // contains the rewritten manifest. The release wrapper keeps this manifest
+  // rewritten for the whole publish and restores it in a finally block.
+  if (forPublish && packageJson.scripts) {
+    delete packageJson.scripts.prepack;
+    delete packageJson.scripts.postpack;
     changed = true;
+  }
+
+  writeFileSync(backupPath, readFileSync(packagePath));
+
+  if (changed) {
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
   }
 }
 
-writeFileSync(backupPath, readFileSync(packagePath));
+export function restorePackage(packageDir) {
+  const packagePath = resolve(packageDir, "package.json");
+  const backupPath = resolve(packageDir, "package.json.prepack-backup");
 
-if (changed) {
-  writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+  if (existsSync(backupPath)) {
+    renameSync(backupPath, packagePath);
+  }
 }
 
-function findRepoRoot(startDir) {
+export function findRepoRoot(startDir) {
   let current = resolve(startDir);
 
   while (current !== dirname(current)) {
@@ -67,7 +95,7 @@ function findRepoRoot(startDir) {
   throw new Error(`Unable to find repository root from ${startDir}`);
 }
 
-function readWorkspaceVersions(root) {
+export function readWorkspaceVersions(root) {
   const rootPackage = readJson(join(root, "package.json"));
   const versions = new Map();
 
@@ -99,7 +127,7 @@ function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
-function workspaceSpecifierToRange(specifier, version) {
+export function workspaceSpecifierToRange(specifier, version) {
   const range = specifier.slice("workspace:".length);
 
   if (range === "*" || range === "^") {

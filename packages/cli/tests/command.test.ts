@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, test } from "bun:test";
+
 import { Command, CommanderError } from "commander";
 import { z } from "zod";
+
 import { defineCommand, getRegisteredCommands } from "../src/command.ts";
 import { createProgram } from "../src/index.ts";
 import { createMcpServer } from "../src/mcp.ts";

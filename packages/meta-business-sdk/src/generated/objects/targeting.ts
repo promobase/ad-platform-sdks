@@ -11,6 +11,7 @@ import type { TargetingGeoLocationFields } from "./targeting-geo-location.ts";
 import type { TargetingProductAudienceSpecFields } from "./targeting-product-audience-spec.ts";
 import type { TargetingProspectingAudienceFields } from "./targeting-prospecting-audience.ts";
 import type { TargetingRelaxationFields } from "./targeting-relaxation.ts";
+import type { TargetingSubscriberUniverseFields } from "./targeting-subscriber-universe.ts";
 import type { TargetingDevicePlatforms, TargetingEffectiveDevicePlatforms } from "../enums.ts";
 
 export interface TargetingFields {
@@ -38,6 +39,7 @@ export interface TargetingFields {
   education_schools: IDNameFields[];
   education_statuses: number[];
   effective_audience_network_positions: string[];
+  effective_brand_safety_content_filter_levels: string[];
   effective_device_platforms: TargetingEffectiveDevicePlatforms[];
   effective_facebook_positions: string[];
   effective_instagram_positions: string[];
@@ -97,6 +99,7 @@ export interface TargetingFields {
   regions: IDNameFields[];
   relationship_statuses: number[];
   site_category: string[];
+  subscriber_universe: TargetingSubscriberUniverseFields;
   targeting_automation: TargetingAutomationFields;
   targeting_optimization: string;
   targeting_relaxation_types: TargetingRelaxationFields;

@@ -4,7 +4,6 @@ import { metaPagination } from "../../pagination.ts";
 import type { ApplicationFields } from "./application.ts";
 import type { CommerceMerchantSettingsSetupStatusFields } from "./commerce-merchant-settings-setup-status.ts";
 import type { CommerceOrderFields } from "./commerce-order.ts";
-import type { CommerceOrderTransactionDetailFields } from "./commerce-order-transaction-detail.ts";
 import type { CommercePayoutFields } from "./commerce-payout.ts";
 import type { ProductCatalogFields } from "./product-catalog.ts";
 import type { ProfileFields } from "./profile.ts";
@@ -13,7 +12,6 @@ import type { ShopFields } from "./shop.ts";
 export interface CommerceMerchantSettingsFields {
   checkout_config: string;
   contact_email: string;
-  cta: string;
   display_name: string;
   facebook_channel: Record<string, unknown>;
   id: string;
@@ -38,13 +36,6 @@ export interface CommerceMerchantSettingsListCommerceOrdersParams {
 
 export interface CommerceMerchantSettingsListCommercePayoutsParams {
   end_time?: string;
-  start_time?: string;
-  [key: string]: unknown;
-}
-
-export interface CommerceMerchantSettingsListCommerceTransactionsParams {
-  end_time?: string;
-  payout_reference_id?: string;
   start_time?: string;
   [key: string]: unknown;
 }
@@ -87,8 +78,6 @@ export function commerceMerchantSettingsNode(client: ApiClient, id: string) {
       new Cursor<Pick<CommerceOrderFields, F[number]>>(client, `${id}/commerce_orders`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     commercePayouts: <F extends (keyof CommercePayoutFields)[]>(opts: { fields: F; params?: CommerceMerchantSettingsListCommercePayoutsParams }) =>
       new Cursor<Pick<CommercePayoutFields, F[number]>>(client, `${id}/commerce_payouts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
-    commerceTransactions: <F extends (keyof CommerceOrderTransactionDetailFields)[]>(opts: { fields: F; params?: CommerceMerchantSettingsListCommerceTransactionsParams }) =>
-      new Cursor<Pick<CommerceOrderTransactionDetailFields, F[number]>>(client, `${id}/commerce_transactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     orderManagementApps: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/order_management_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     productCatalogs: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>

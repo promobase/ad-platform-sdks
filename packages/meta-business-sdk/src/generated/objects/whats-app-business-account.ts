@@ -24,6 +24,7 @@ export interface WhatsAppBusinessAccountFields {
   is_enabled_for_insights: boolean;
   is_shared_with_partners: boolean;
   linked_commerce_account: CommerceMerchantSettingsFields;
+  marketing_messages_ad_account: Record<string, unknown>;
   marketing_messages_lite_api_status: string;
   marketing_messages_onboarding_status: string;
   message_template_namespace: string;
@@ -39,6 +40,7 @@ export interface WhatsAppBusinessAccountFields {
   template_auto_archival_enabled: boolean;
   timezone_id: string;
   whatsapp_business_manager_messaging_limit: WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimit;
+  whatsapp_manager_marketing_messages_max_price_enroll_status: string;
 }
 
 export interface WhatsAppBusinessAccountDeleteAssignedUsersParams {
@@ -166,13 +168,17 @@ export interface WhatsAppBusinessAccountCreateMessageTemplatesParams {
   cta_url_link_tracking_opted_out?: boolean;
   degrees_of_freedom_spec?: Record<string, unknown>;
   display_format?: string;
+  is_primary_device_delivery_only?: boolean;
   language: string;
   library_template_body_inputs?: Record<string, unknown>;
+  library_template_body_param_inputs?: Record<string, unknown>[];
   library_template_button_inputs?: Record<string, unknown>[];
   library_template_name?: string;
   message_send_ttl_seconds?: number;
   name: string;
+  optimization_spec?: Record<string, unknown>;
   parameter_format?: string;
+  product_set_id?: string;
   send_type?: string;
   sub_category?: string;
   [key: string]: unknown;
@@ -246,11 +252,6 @@ export interface WhatsAppBusinessAccountCreateProductCatalogsParams {
   [key: string]: unknown;
 }
 
-export interface WhatsAppBusinessAccountCreateSetOboMobilityIntentParams {
-  solution_id?: string;
-  [key: string]: unknown;
-}
-
 export interface WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams {
   app_id?: string;
   solution_id?: string;
@@ -291,12 +292,6 @@ export interface WhatsAppBusinessAccountCreateTemplateGroupsParams {
   [key: string]: unknown;
 }
 
-export interface WhatsAppBusinessAccountListTemplatePerformanceMetricsParams {
-  name?: string;
-  template_id?: string;
-  [key: string]: unknown;
-}
-
 export interface WhatsAppBusinessAccountCreateUpsertMessageTemplatesParams {
   category: string;
   components: Record<string, unknown>[];
@@ -325,10 +320,12 @@ export interface WhatsAppBusinessAccountCreateWelcomeMessageSequencesParams {
 }
 
 export interface WhatsAppBusinessAccountUpdateParams {
+  creative_optimizations_enrollment?: Record<string, unknown>;
   degrees_of_freedom_spec?: Record<string, unknown>;
   disable_marketing_messages_on_cloud_api?: boolean;
   is_enabled_for_insights?: boolean;
   template_auto_archival_enabled?: boolean;
+  whatsapp_manager_marketing_messages_max_price_enroll_status?: string;
   [key: string]: unknown;
 }
 
@@ -436,8 +433,6 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
     },
     schedules: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
-    createSetOboMobilityIntent: (params: WhatsAppBusinessAccountCreateSetOboMobilityIntentParams) =>
-      client.post<Record<string, unknown>>(`${id}/set_obo_mobility_intent`, params as Record<string, unknown>),
     createSetSolutionMigrationIntent: (params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams) =>
       client.post<Record<string, unknown>>(`${id}/set_solution_migration_intent`, params as Record<string, unknown>),
     solutions: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
@@ -464,8 +459,6 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       create: (params: WhatsAppBusinessAccountCreateTemplateGroupsParams) =>
         client.post<Record<string, unknown>>(`${id}/template_groups`, params as Record<string, unknown>),
     },
-    templatePerformanceMetrics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListTemplatePerformanceMetricsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_performance_metrics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
     createUpsertMessageTemplate: (params: WhatsAppBusinessAccountCreateUpsertMessageTemplatesParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}/upsert_message_templates`, params as Record<string, unknown>),
     welcomeMessageSequences: {

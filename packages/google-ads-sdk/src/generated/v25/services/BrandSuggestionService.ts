@@ -1,0 +1,9 @@
+import type { SuggestBrandsRequest, SuggestBrandsResponse } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.BrandSuggestionService. Do not edit by hand.
+export const brandSuggestionService = {
+  suggestBrands(client: HttpClient, customerId: string, body: Omit<SuggestBrandsRequest, "customerId">): Promise<SuggestBrandsResponse> {
+    return client.post<SuggestBrandsResponse>(`/v25/customers/${customerId}:suggestBrands`, body);
+  }
+};

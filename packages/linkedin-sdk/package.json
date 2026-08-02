@@ -40,7 +40,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": ">=5.9.3 <8"
   },
   "exports": {
     ".": {

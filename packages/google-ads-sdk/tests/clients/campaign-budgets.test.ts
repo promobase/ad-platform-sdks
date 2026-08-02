@@ -1,5 +1,7 @@
 import { expect, mock, test } from "bun:test";
+
 import { HttpClient } from "@openpromo/sdk-runtime";
+
 import { campaignBudgets } from "../../src/clients/campaign-budgets.ts";
 
 function makeClient(respond: (url: string, init?: RequestInit) => Response): HttpClient {
@@ -25,7 +27,7 @@ test("create wraps input in operations array, returns resourceName", async () =>
   const result = await api.create({ name: "Q1", amountMicros: "5000000" });
 
   expect(calls).toHaveLength(1);
-  expect(calls[0]!.url).toContain("/v23/customers/123/campaignBudgets:mutate");
+  expect(calls[0]!.url).toContain("/v25/customers/123/campaignBudgets:mutate");
   expect(calls[0]!.init?.method).toBe("POST");
   const body = JSON.parse(calls[0]!.init?.body as string);
   expect(body.operations).toEqual([{ create: { name: "Q1", amountMicros: "5000000" } }]);
@@ -97,7 +99,7 @@ test("remove sends remove-only operation", async () => {
 
 test("get returns single budget or null", async () => {
   const client = makeClient((url, init) => {
-    expect(url).toContain("/v23/customers/123/googleAds:search");
+    expect(url).toContain("/v25/customers/123/googleAds:search");
     const body = JSON.parse(init?.body as string);
     expect(body.query).toContain(
       "campaign_budget.resource_name = 'customers/123/campaignBudgets/789'",

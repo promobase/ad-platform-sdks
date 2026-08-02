@@ -99,10 +99,7 @@ export {
   verifyWebhookSignature,
   WebhookParseError,
 } from "@openpromo/meta";
-export type {
-  TikTokApiClientOptions,
-  TikTokRateLimiterOptions,
-} from "@openpromo/tiktok";
+export type { TikTokApiClientOptions, TikTokRateLimiterOptions } from "@openpromo/tiktok";
 // --- TikTok: direct re-exports ---
 export {
   createTikTokClient,

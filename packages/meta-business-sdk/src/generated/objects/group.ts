@@ -261,6 +261,7 @@ export interface GroupCreatePhotosParams {
   privacy?: string;
   profile_id?: number;
   provenance_info?: Record<string, unknown>;
+  provenance_metadata?: Record<string, unknown>;
   proxied_app_id?: string;
   published?: boolean;
   qn?: string;
@@ -344,6 +345,7 @@ export interface GroupCreateVideosParams {
   referenced_sticker_id?: string;
   replace_video_id?: string;
   scheduled_publish_time?: number;
+  selected_audio_spec?: Record<string, unknown>;
   slideshow_spec?: Record<string, unknown>;
   source?: string;
   source_instagram_media_id?: string;

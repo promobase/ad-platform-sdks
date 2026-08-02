@@ -80,6 +80,8 @@ export interface ProductItemFields {
   material: string;
   mobile_link: string;
   name: string;
+  offer_disclaimer: string;
+  offer_disclaimer_url: string;
   ordering_index: number;
   origin_country: string;
   overall_ranking: number;

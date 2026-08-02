@@ -8,6 +8,7 @@ import type { AdBidAdjustmentsFields } from "./ad-bid-adjustments.ts";
 import type { AdCampaignBidConstraintFields } from "./ad-campaign-bid-constraint.ts";
 import type { AdCampaignDeliveryEstimateFields } from "./ad-campaign-delivery-estimate.ts";
 import type { AdCampaignFrequencyControlSpecsFields } from "./ad-campaign-frequency-control-specs.ts";
+import type { AdCampaignGoalFields } from "./ad-campaign-goal.ts";
 import type { AdCampaignIssuesInfoFields } from "./ad-campaign-issues-info.ts";
 import type { AdCampaignLearningStageInfoFields } from "./ad-campaign-learning-stage-info.ts";
 import type { AdCreativeFields } from "./ad-creative.ts";
@@ -23,7 +24,9 @@ import type { BrandSafetyCampaignConfigFields } from "./brand-safety-campaign-co
 import type { CampaignFields } from "./campaign.ts";
 import type { DayPartFields } from "./day-part.ts";
 import type { HighDemandPeriodFields } from "./high-demand-period.ts";
+import type { LiveVideoAdCampaignConfigFields } from "./live-video-ad-campaign-config.ts";
 import type { MessageDeliveryEstimateFields } from "./message-delivery-estimate.ts";
+import type { MetaMomentMakerConfigFields } from "./meta-moment-maker-config.ts";
 import type { PlacementSoftOptOutFields } from "./placement-soft-opt-out.ts";
 import type { RecommendationFields } from "./recommendation.ts";
 import type { RegionalRegulationIdentitiesFields } from "./regional-regulation-identities.ts";
@@ -34,9 +37,9 @@ import type { AdSetBidStrategy, AdSetBillingEvent, AdSetConfiguredStatus, AdSetE
 
 export interface AdSetFields {
   account_id: string;
+  ad_set_goal: AdCampaignGoalFields;
   adlabels: AdLabelFields[];
   adset_schedule: DayPartFields[];
-  anchor_event_attribution_window_days: number;
   asset_feed_id: string;
   attribution_count_type: string;
   attribution_spec: AttributionSpecFields[];
@@ -54,6 +57,7 @@ export interface AdSetFields {
   campaign_attribution: string;
   campaign_id: string;
   configured_status: AdSetConfiguredStatus;
+  cost_bidding_mode: string;
   created_time: string;
   creative_diversity_label: string[];
   creative_diversity_score: string[];
@@ -74,16 +78,21 @@ export interface AdSetFields {
   instagram_user_id: string;
   is_ba_skip_delayed_eligible: boolean;
   is_budget_schedule_enabled: boolean;
+  is_dc_follow_optimized: boolean;
   is_dynamic_creative: boolean;
   is_incremental_attribution_enabled: boolean;
+  is_organic_ad_joint_optimized: boolean;
+  is_sequenced_conversion_creation: boolean;
   issues_info: AdCampaignIssuesInfoFields[];
   learning_stage_info: AdCampaignLearningStageInfoFields;
   lifetime_budget: string;
   lifetime_imps: number;
   lifetime_min_spend_target: string;
   lifetime_spend_cap: string;
+  live_video_ad_campaign_config: LiveVideoAdCampaignConfigFields;
   low_creative_reach: string[];
   max_budget_spend_percentage: string;
+  meta_moment_maker_spec: MetaMomentMakerConfigFields;
   min_budget_spend_percentage: string;
   multi_event_conversion_attribution_window_seconds: number;
   multi_optimization_goal_weight: string;
@@ -97,6 +106,7 @@ export interface AdSetFields {
   recurring_budget_semantics: boolean;
   regional_regulated_categories: string[];
   regional_regulation_identities: RegionalRegulationIdentitiesFields;
+  relative_value: string;
   review_feedback: string;
   rf_prediction_id: string;
   source_adset: AdSetFields;
@@ -265,6 +275,7 @@ export interface AdSetListMessageDeliveryEstimateParams {
 
 export interface AdSetUpdateParams {
   account_id?: string;
+  ad_set_goal?: Record<string, unknown>;
   adlabels?: Record<string, unknown>[];
   adset_schedule?: Record<string, unknown>[];
   attribution_spec?: Record<string, unknown>[];
@@ -274,9 +285,11 @@ export interface AdSetUpdateParams {
   bid_constraints?: Record<string, Record<string, unknown>>;
   bid_strategy?: string;
   billing_event?: string;
+  brand_safety_config?: Record<string, unknown>;
   budget_schedule_specs?: Record<string, unknown>[];
   campaign_attribution?: Record<string, unknown>;
   campaign_spec?: Record<string, unknown>;
+  cost_bidding_mode?: string;
   creative_sequence?: string[];
   creative_sequence_repetition_pattern?: string;
   daily_budget?: number;
@@ -294,13 +307,17 @@ export interface AdSetUpdateParams {
   full_funnel_exploration_mode?: string;
   is_ba_skip_delayed_eligible?: boolean;
   is_budget_schedule_enabled?: boolean;
+  is_dc_follow_optimized?: boolean;
   is_incremental_attribution_enabled?: boolean;
   is_sac_cfca_terms_certified?: boolean;
+  is_sequenced_conversion_creation?: boolean;
   lifetime_budget?: number;
   lifetime_imps?: number;
   lifetime_min_spend_target?: number;
   lifetime_spend_cap?: number;
+  live_video_ad_campaign_config?: Record<string, unknown>;
   max_budget_spend_percentage?: number;
+  meta_moment_maker_spec?: Record<string, unknown>;
   min_budget_spend_percentage?: number;
   multi_event_conversion_attribution_window_seconds?: number;
   multi_optimization_goal_weight?: string;
@@ -313,6 +330,7 @@ export interface AdSetUpdateParams {
   rb_prediction_id?: string;
   regional_regulated_categories?: string[];
   regional_regulation_identities?: Record<string, unknown>;
+  relative_value?: number;
   rf_prediction_id?: string;
   start_time?: string;
   status?: string;

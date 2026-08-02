@@ -123,20 +123,23 @@ export interface ActivitySnippet {
   type?: "typeUnspecified" | "upload" | "like" | "favorite" | "comment" | "subscription" | "playlistItem" | "recommendation" | "bulletin" | "social" | "channelItem" | "promotedItem";
 }
 
-export interface AudioTrack {
+export interface BatchGetStatsResponse {
   etag?: string;
-  id?: string;
+  items?: VideoStat[];
   kind?: string;
-  snippet?: AudioTrackSnippet;
+  summary?: BatchGetStatsSummary;
 }
 
-export interface AudioTrackSnippet {
-  contentType?: string;
-  failureReason?: string;
-  language?: string;
-  status?: "audioTrackStatusUnspecified" | "processing" | "succeeded" | "failed" | "rejected";
-  updateTime?: string;
-  videoId?: string;
+export interface BatchGetStatsSummary {
+  failedVideoCount?: string;
+  failedVideoIds?: string[];
+  requestedVideoCount?: string;
+  succeededVideoCount?: string;
+}
+
+export interface BrandPartner {
+  channelHandle?: string;
+  channelId?: string;
 }
 
 export interface Caption {
@@ -341,6 +344,13 @@ export interface ChannelStatus {
   madeForKids?: boolean;
   privacyStatus?: "public" | "unlisted" | "private";
   selfDeclaredMadeForKids?: boolean;
+}
+
+export interface ChannelToAffiliateProgramLinkDetails {
+  merchantId?: string;
+  programStatus?: "affiliateProgramStatusUnspecified" | "active" | "inactive";
+  statusUpdateReason?: string;
+  statusUpdateTime?: string;
 }
 
 export interface ChannelTopicDetails {
@@ -638,12 +648,6 @@ export interface LanguageTag {
 
 export interface LevelDetails {
   displayName?: string;
-}
-
-export interface ListAudioTracksResponse {
-  audioTracks?: AudioTrack[];
-  etag?: string;
-  kind?: string;
 }
 
 export interface LiveBroadcast {
@@ -1313,8 +1317,9 @@ export interface ThirdPartyLinkListResponse {
 }
 
 export interface ThirdPartyLinkSnippet {
+  channelToAffiliateProgramLink?: ChannelToAffiliateProgramLinkDetails;
   channelToStoreLink?: ChannelToStoreLinkDetails;
-  type?: "linkUnspecified" | "channelToStoreLink";
+  type?: "linkUnspecified" | "channelToStoreLink" | "channelToAffiliateProgramLink";
 }
 
 export interface ThirdPartyLinkStatus {
@@ -1348,6 +1353,7 @@ export interface TokenPagination {
 
 export interface Video {
   ageGating?: VideoAgeGating;
+  brandPartner?: BrandPartner;
   contentDetails?: VideoContentDetails;
   etag?: string;
   fileDetails?: VideoFileDetails;
@@ -1574,10 +1580,34 @@ export interface VideoSnippet {
   title?: string;
 }
 
+export interface VideoStat {
+  contentDetails?: VideoStatsContentDetails;
+  etag?: string;
+  id?: string;
+  kind?: string;
+  snippet?: VideoStatsSnippet;
+  statistics?: VideoStatsStatistics;
+}
+
 export interface VideoStatistics {
   commentCount?: string;
   dislikeCount?: string;
   favoriteCount?: string;
+  likeCount?: string;
+  viewCount?: string;
+}
+
+export interface VideoStatsContentDetails {
+  duration?: string;
+  durationMillis?: string;
+}
+
+export interface VideoStatsSnippet {
+  publishTime?: string;
+}
+
+export interface VideoStatsStatistics {
+  commentCount?: string;
   likeCount?: string;
   viewCount?: string;
 }
@@ -1648,6 +1678,45 @@ export interface YouTubeChannelsUpdateParams {
   part: string[];
 }
 
+export interface YouTubeVideosRateParams {
+  id: string;
+  rating: "none" | "like" | "dislike";
+}
+
+export interface YouTubeVideosInsertParams {
+  autoLevels?: boolean;
+  notifySubscribers?: boolean;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+  stabilize?: boolean;
+}
+
+export interface YouTubeVideosUpdateParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubeVideosBatchGetStatsParams {
+  id: string[];
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubeVideosReportAbuseParams {
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeVideosGetRatingParams {
+  id: string[];
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeVideosDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+}
+
 export interface YouTubeVideosListParams {
   chart?: "chartUnspecified" | "mostPopular";
   hl?: string;
@@ -1664,45 +1733,6 @@ export interface YouTubeVideosListParams {
   videoCategoryId?: string;
 }
 
-export interface YouTubeVideosUpdateParams {
-  onBehalfOfContentOwner?: string;
-  part: string[];
-}
-
-export interface YouTubeVideosInsertParams {
-  autoLevels?: boolean;
-  notifySubscribers?: boolean;
-  onBehalfOfContentOwner?: string;
-  onBehalfOfContentOwnerChannel?: string;
-  part: string[];
-  stabilize?: boolean;
-}
-
-export interface YouTubeVideosReportAbuseParams {
-  onBehalfOfContentOwner?: string;
-}
-
-export interface YouTubeVideosDeleteParams {
-  id: string;
-  onBehalfOfContentOwner?: string;
-}
-
-export interface YouTubeVideosRateParams {
-  id: string;
-  rating: "none" | "like" | "dislike";
-}
-
-export interface YouTubeVideosGetRatingParams {
-  id: string[];
-  onBehalfOfContentOwner?: string;
-}
-
-export interface YouTubePlaylistsInsertParams {
-  onBehalfOfContentOwner?: string;
-  onBehalfOfContentOwnerChannel?: string;
-  part: string[];
-}
-
 export interface YouTubePlaylistsListParams {
   channelId?: string;
   hl?: string;
@@ -1712,6 +1742,12 @@ export interface YouTubePlaylistsListParams {
   onBehalfOfContentOwner?: string;
   onBehalfOfContentOwnerChannel?: string;
   pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistsInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
   part: string[];
 }
 
@@ -1725,16 +1761,6 @@ export interface YouTubePlaylistsDeleteParams {
   onBehalfOfContentOwner?: string;
 }
 
-export interface YouTubePlaylistItemsDeleteParams {
-  id: string;
-  onBehalfOfContentOwner?: string;
-}
-
-export interface YouTubePlaylistItemsInsertParams {
-  onBehalfOfContentOwner?: string;
-  part: string[];
-}
-
 export interface YouTubePlaylistItemsListParams {
   id?: string[];
   maxResults?: number;
@@ -1745,22 +1771,23 @@ export interface YouTubePlaylistItemsListParams {
   videoId?: string;
 }
 
+export interface YouTubePlaylistItemsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubePlaylistItemsInsertParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
 export interface YouTubePlaylistItemsUpdateParams {
   onBehalfOfContentOwner?: string;
   part: string[];
 }
 
-export interface YouTubeCommentsDeleteParams {
-  id: string;
-}
-
-export interface YouTubeCommentsListParams {
-  id?: string[];
-  maxResults?: number;
-  pageToken?: string;
-  parentId?: string;
+export interface YouTubeCommentsInsertParams {
   part: string[];
-  textFormat?: "textFormatUnspecified" | "html" | "plainText";
 }
 
 export interface YouTubeCommentsUpdateParams {
@@ -1773,16 +1800,21 @@ export interface YouTubeCommentsSetModerationStatusParams {
   moderationStatus: "published" | "heldForReview" | "likelySpam" | "rejected";
 }
 
-export interface YouTubeCommentsInsertParams {
-  part: string[];
+export interface YouTubeCommentsDeleteParams {
+  id: string;
 }
 
 export interface YouTubeCommentsMarkAsSpamParams {
   id: string[];
 }
 
-export interface YouTubeCommentThreadsInsertParams {
+export interface YouTubeCommentsListParams {
+  id?: string[];
+  maxResults?: number;
+  pageToken?: string;
+  parentId?: string;
   part: string[];
+  textFormat?: "textFormatUnspecified" | "html" | "plainText";
 }
 
 export interface YouTubeCommentThreadsListParams {
@@ -1800,11 +1832,8 @@ export interface YouTubeCommentThreadsListParams {
   videoId?: string;
 }
 
-export interface YouTubeCaptionsInsertParams {
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
+export interface YouTubeCommentThreadsInsertParams {
   part: string[];
-  sync?: boolean;
 }
 
 export interface YouTubeCaptionsListParams {
@@ -1815,11 +1844,12 @@ export interface YouTubeCaptionsListParams {
   videoId: string;
 }
 
-export interface YouTubeCaptionsUpdateParams {
+export interface YouTubeCaptionsDownloadParams {
+  id: string;
   onBehalfOf?: string;
   onBehalfOfContentOwner?: string;
-  part: string[];
-  sync?: boolean;
+  tfmt?: string;
+  tlang?: string;
 }
 
 export interface YouTubeCaptionsDeleteParams {
@@ -1828,12 +1858,18 @@ export interface YouTubeCaptionsDeleteParams {
   onBehalfOfContentOwner?: string;
 }
 
-export interface YouTubeCaptionsDownloadParams {
-  id: string;
+export interface YouTubeCaptionsInsertParams {
   onBehalfOf?: string;
   onBehalfOfContentOwner?: string;
-  tfmt?: string;
-  tlang?: string;
+  part: string[];
+  sync?: boolean;
+}
+
+export interface YouTubeCaptionsUpdateParams {
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+  part: string[];
+  sync?: boolean;
 }
 
 export interface YouTubeThumbnailsSetParams {

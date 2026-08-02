@@ -70,7 +70,7 @@ export interface CreativeAdsPreviewCreateParams {
   ad_format: "SINGLE_VIDEO" | "SINGLE_IMAGE" | "CAROUSEL_ADS" | "REACH" | "WEB_CONVERSIONS" | "APP_PROMOTION" | "LEAD_GENERATION" | "TRAFFIC" | "CATALOG_CAROUSEL" | "LIVE_CONTENT";
   video_id?: "SINGLE_VIDEO" | "SINGLE_IMAGE" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
   image_ids?: ("SINGLE_IMAGE" | "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "true")[];
-  end_card_cta?: ("LEAD_GENERATION" | "CATALOG_CAROUSEL" | "SEARCH_INVENTORY" | "LEARN_MORE" | "SHOP_NOW" | "SIGN_UP" | "CONTACT_US" | "BOOK_NOW" | "READ_MORE" | "VIEW_MORE" | "ORDER_NOW" | "true")[];
+  end_card_cta?: "LEAD_GENERATION" | "CATALOG_CAROUSEL" | "SEARCH_INVENTORY" | "LEARN_MORE" | "SHOP_NOW" | "SIGN_UP" | "CONTACT_US" | "BOOK_NOW" | "READ_MORE" | "VIEW_MORE" | "ORDER_NOW" | "true";
   music_id?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL";
   tiktok_item_id?: "AUTH_CODE" | "BC_AUTH_TT" | "CUSTOMIZED_USER";
   carousel_image_index?: number;
@@ -85,12 +85,15 @@ export interface CreativeAdsPreviewCreateParams {
   item_group_ids?: ("PRODUCT_SET" | "VIDEO" | "STORE" | "PRODUCT_SHOPPING_ADS" | "CUSTOMIZED_PRODUCTS")[];
   product_set_id?: string;
   sku_ids?: string[];
+  hotel_ids?: string[];
+  flight_ids?: string[];
+  destination_ids?: string[];
   vehicle_ids?: string[];
   auto_disclaimer_types?: ("LEAD_GENERATION" | "CATALOG_CAROUSEL" | "EMISSION" | "DISCOUNT")[];
   catalog_authorized_bc_id?: string;
   dynamic_format?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "UNSET" | "DYNAMIC_CREATIVE";
   vertical_video_strategy?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "SINGLE_VIDEO" | "CATALOG_VIDEOS" | "LIVE_STREAM" | "UNSET" | "DYNAMIC_CREATIVE";
-  shopping_ads_video_package_id?: string;
+  shopping_ads_video_template_id?: string;
   shopping_ads_fallback_type?: "DEFAULT" | "CUSTOM" | "SHOPPING_ADS" | "VIDEO" | "CATALOG" | "SINGLE_VIDEO" | "CATALOG_CAROUSEL";
   dynamic_destination?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "DLP" | "UNSET";
   instant_product_page_used?: "CAROUSEL_ADS" | "CATALOG_CAROUSEL" | "DLP" | "UNSET" | "true";
@@ -100,13 +103,14 @@ export interface CreativeAdsPreviewCreateParams {
 export interface CreativeAdsPreviewCreateResponse {
   code?: number;
   message?: string;
-  data?: string;
+  request_id?: string;
+  data?: {
   preview_link?: "ADS_CREATION" | "AD" | "CARD" | "PAGE" | "SINGLE_VIDEO" | "SINGLE_IMAGE";
   iframe?: string;
   tips?: string[];
   placement?: string;
   messages?: string[];
-  request_id?: string;
+};
 }
 
 

@@ -5,14 +5,19 @@ export interface RobotFields {
   bringup_vars: Record<string, string>[];
   configurations: Record<string, string>[];
   data_center: string;
+  fw_image: string;
   id: string;
   init_pos: Record<string, number>[];
   last_pos: Record<string, number>[];
   meetup_link_hash: string;
+  release_image: string;
   robot_notes: string;
   suite: string;
+  target_fw_image: string;
+  target_fw_image_uri: string;
   target_map_image_uri: string;
   target_os_image_uri: string;
+  target_release_image: string;
   target_sw_image_uri: string;
   user: UserFields;
 }

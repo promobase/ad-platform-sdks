@@ -1,5 +1,5 @@
 // Auto-generated client for BC Partners — do not edit
-import type { BcPartnerGetParams, BcPartnerGetResponse, BcPartnerAddParams, BcPartnerAddResponse, BcPartnerDeleteParams, BcPartnerDeleteResponse, BcPartnerAssetGetParams, BcPartnerAssetGetResponse } from "../types/bc-partners.ts";
+import type { BcPartnerGetParams, BcPartnerGetResponse, BcPartnerAddParams, BcPartnerAddResponse, BcPartnerDeleteParams, BcPartnerDeleteResponse, BcPartnerAssetDeleteParams, BcPartnerAssetDeleteResponse, BcPartnerAssetGetParams, BcPartnerAssetGetResponse } from "../types/bc-partners.ts";
 
 interface TikTokResponse<T> {
   code: number;
@@ -55,6 +55,11 @@ export function createBcPartners(opts: { accessToken: string; advertiserId: stri
     /** Delete a partner from a BC */
     async deletePartner(params: BcPartnerDeleteParams): Promise<BcPartnerDeleteResponse> {
       return post<BcPartnerDeleteResponse>("/open_api/v1.3/bc/partner/delete/", params as unknown as Record<string, unknown>);
+    },
+
+    /** Cancel the sharing of assets */
+    async deleteAsset(params: BcPartnerAssetDeleteParams): Promise<BcPartnerAssetDeleteResponse> {
+      return post<BcPartnerAssetDeleteResponse>("/open_api/v1.3/bc/partner/asset/delete/", params as unknown as Record<string, unknown>);
     },
 
     /** Get the assets of a partner */

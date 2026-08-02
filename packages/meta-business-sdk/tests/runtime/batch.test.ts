@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;

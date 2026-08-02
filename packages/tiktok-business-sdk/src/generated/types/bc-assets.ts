@@ -75,6 +75,44 @@ export interface BcAssetAdminGetParams {}
 export interface BcAssetAdminGetResponse {}
 
 
+export interface BcAssetAssignParams {
+  bc_id: string;
+  user_id: string;
+  asset_type: "ADVERTISER" | "CATALOG" | "TIKTOK_SHOP" | "LEAD" | "TT_ACCOUNT" | "BC_AUTH_TT" | "MANAGED_BUSINESS_ACCOUNT";
+  asset_id: "ADVERTISER" | "CATALOG" | "TIKTOK_SHOP" | "LEAD" | "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
+  advertiser_role?: "ADVERTISER" | "ADMIN" | "OPERATOR" | "ANALYST";
+  catalog_role?: "CATALOG" | "ADMIN" | "AD_PROMOTE";
+  form_library_role?: "LEAD" | "ADMIN";
+  tt_account_roles?: ("TT_ACCOUNT" | "POST" | "LIVE" | "DIRECT_MESSAGE")[];
+  business_account_roles?: ("MANAGED_BUSINESS_ACCOUNT" | "BUSINESS_ACCOUNT_ADMIN" | "BUSINESS_ACCOUNT_OPERATOR" | "BUSINESS_ACCOUNT_ANALYST")[];
+  store_role?: "TIKTOK_SHOP" | "AD_PROMOTION";
+}
+
+
+export interface BcAssetAssignResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: Record<string, unknown>;
+}
+
+
+export interface BcAssetUnassignParams {
+  bc_id: string;
+  user_id: string;
+  asset_type: "ADVERTISER" | "CATALOG" | "LEAD" | "TT_ACCOUNT" | "BC_AUTH_TT" | "MANAGED_BUSINESS_ACCOUNT";
+  asset_id: "ADVERTISER" | "CATALOG" | "LEAD" | "TT_ACCOUNT" | "MANAGED_BUSINESS_ACCOUNT";
+}
+
+
+export interface BcAssetUnassignResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: Record<string, unknown>;
+}
+
+
 export interface BcAssetAccountAuthorizationParams {
   bc_id: string;
   is_ads_only_mode?: "true" | "false";
@@ -173,6 +211,12 @@ export interface BcAssetPartnerGetParams {}
 
 
 export interface BcAssetPartnerGetResponse {}
+
+
+export interface BcAssetMemberGetParams {}
+
+
+export interface BcAssetMemberGetResponse {}
 
 
 export interface BcAssetAdminDeleteParams {}

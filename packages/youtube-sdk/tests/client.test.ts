@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { YouTube } from "../src/index.ts";
 
 function jsonResponse(body: unknown, init?: ResponseInit) {
@@ -7,7 +8,7 @@ function jsonResponse(body: unknown, init?: ResponseInit) {
     ...init,
     headers: {
       "content-type": "application/json",
-      ...(init?.headers ?? {}),
+      ...init?.headers,
     },
   });
 }
@@ -25,7 +26,29 @@ test("builds YouTube Data API requests from discovery-generated methods", async 
   expect(calls[0]?.url).toBe(
     "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatus&id=abc",
   );
-  expect((calls[0]?.init?.headers as Record<string, string>).Authorization).toBe("Bearer token");
+  const listHeaders = calls[0]?.init?.headers as Record<string, string> | undefined;
+  expect(listHeaders?.Authorization).toBe("Bearer token");
+});
+
+test("exposes videos.batchGetStats with documented required parameters", async () => {
+  const calls: string[] = [];
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    calls.push(String(input));
+    return jsonResponse({
+      items: [],
+      summary: { requestedVideoCount: "2", succeededVideoCount: "2", failedVideoCount: "0" },
+    });
+  }) as unknown as typeof fetch;
+
+  const youtube = YouTube.createClient({ accessToken: "token", fetch: fetchMock });
+  const result = await youtube.resources.videos.batchGetStats({
+    id: ["abc", "def"],
+    part: ["contentDetails", "statistics"],
+  });
+
+  expect(calls[0]).toContain("videos:batchGetStats");
+  expect(calls[0]).toContain("id=abc%2Cdef");
+  expect(result.summary?.requestedVideoCount).toBe("2");
 });
 
 test("starts and completes resumable video uploads", async () => {
@@ -53,9 +76,8 @@ test("starts and completes resumable video uploads", async () => {
   expect(calls[0]?.url).toBe(
     "https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable",
   );
-  expect((calls[0]?.init?.headers as Record<string, string>)["X-Upload-Content-Type"]).toBe(
-    "video/mp4",
-  );
+  const uploadHeaders = calls[0]?.init?.headers as Record<string, string> | undefined;
+  expect(uploadHeaders?.["X-Upload-Content-Type"]).toBe("video/mp4");
   expect(calls[1]?.url).toBe("https://upload.youtube.test/session");
   expect(calls[1]?.init?.method).toBe("PUT");
 });

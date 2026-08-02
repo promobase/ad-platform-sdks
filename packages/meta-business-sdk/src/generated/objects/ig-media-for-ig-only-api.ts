@@ -11,6 +11,7 @@ export interface IGMediaForIGOnlyAPIFields {
   comments_count: number;
   current_live_viewer_count: number;
   id: string;
+  is_ai_generated: boolean;
   is_comment_enabled: boolean;
   is_shared_to_feed: boolean;
   like_count: number;

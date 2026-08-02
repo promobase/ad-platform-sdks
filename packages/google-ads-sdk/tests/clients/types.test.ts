@@ -1,4 +1,5 @@
 import { expect, test } from "bun:test";
+
 import { resolveRef } from "../../src/clients/types.ts";
 
 test("resolveRef unwraps string refs", () => {

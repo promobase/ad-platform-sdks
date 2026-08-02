@@ -61,7 +61,9 @@ await generateText({
 
 ## Features
 
-- **994 typed Meta Graph API objects** with 483 real enum values (not `string`)
+- **985 typed Meta Graph API objects** with 503 real enum values (not `string`)
+- **Google Ads API v25** with typed GAQL, plus a retained raw v23 compatibility export
+- **502 generated TikTok Marketing API endpoints** across 70 current documentation categories
 - **Field-level type narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
 - **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
 - **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
@@ -79,6 +81,12 @@ await generateText({
 | [`@openpromo/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, single install |
 | [`@openpromo/meta`](./packages/meta-business-sdk/) | Meta only (Facebook, Instagram, Threads) |
 | [`@openpromo/tiktok`](./packages/tiktok-business-sdk/) | TikTok only |
+| [`@openpromo/google-ads`](./packages/google-ads-sdk/) | Google Ads v25, ergonomic clients, and typed GAQL |
+| [`@openpromo/linkedin`](./packages/linkedin-sdk/) | LinkedIn organic publishing, media, organizations, and OAuth |
+| [`@openpromo/x`](./packages/x-sdk/) | X posts, media upload, and user lookup |
+| [`@openpromo/youtube`](./packages/youtube-sdk/) | YouTube Data API v3 and resumable uploads |
+| [`@openpromo/ad-platforms-cli`](./packages/cli/) | Agent-discoverable CLI and MCP server |
+| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/) | Shared HTTP, pagination, retry, and rate-limit runtime |
 
 ## Why
 
@@ -93,9 +101,17 @@ git clone --recurse-submodules https://github.com/promobase/ad-platform-sdks.git
 cd ad-platform-sdks
 bun install
 
-# Per package
-cd packages/meta-business-sdk && bun test tests/
-cd packages/meta-business-sdk && bun run codegen   # regenerate from specs
+# Workspace gates
+bun run lint
+bun run format:check
+bun run typecheck # Native TypeScript 7 compiler (formerly tsgo)
+bun run build
+bun run test
+
+# Example provider codegen
+(cd packages/meta-business-sdk && bun run codegen)
+(cd packages/google-ads-sdk && bun run codegen)
+(cd packages/tiktok-business-sdk && bun run codegen:refresh)
 ```
 
 ## License

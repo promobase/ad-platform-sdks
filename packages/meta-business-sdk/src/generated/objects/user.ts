@@ -130,6 +130,7 @@ export interface UserCreateAdStudiesParams {
   client_business?: string;
   confidence_level?: number;
   cooldown_start_time?: number;
+  creative_test_config?: Record<string, unknown>;
   description?: string;
   end_time?: number;
   name?: string;
@@ -400,6 +401,7 @@ export interface UserListMusicParams {
 export interface UserCreateNotificationsParams {
   bot_message_payload_elements?: string;
   filtering?: string[];
+  game_metadata?: string;
   href?: Record<string, unknown>;
   label?: string;
   message?: Record<string, unknown>;
@@ -468,6 +470,7 @@ export interface UserCreatePhotosParams {
   privacy?: string;
   profile_id?: number;
   provenance_info?: Record<string, unknown>;
+  provenance_metadata?: Record<string, unknown>;
   proxied_app_id?: string;
   published?: boolean;
   qn?: string;
@@ -573,6 +576,7 @@ export interface UserCreateVideosParams {
   publish_event_id?: number;
   referenced_sticker_id?: string;
   replace_video_id?: string;
+  selected_audio_spec?: Record<string, unknown>;
   slideshow_spec?: Record<string, unknown>;
   source?: string;
   source_instagram_media_id?: string;

@@ -91,7 +91,7 @@ export interface BlockedwordDeleteResponse {
 export interface BlockedwordTaskCreateParams {
   advertiser_id: string;
   blocked_words?: string[];
-  language?: "EN" | "JA" | "ZH";
+  lang?: "EN" | "JA" | "ZH";
 }
 
 

@@ -11,6 +11,7 @@ export interface VideoCopyrightRuleFields {
   id: string;
   is_in_migration: boolean;
   name: string;
+  validity_status: string;
 }
 
 export function videoCopyrightRuleNode(client: ApiClient, id: string) {

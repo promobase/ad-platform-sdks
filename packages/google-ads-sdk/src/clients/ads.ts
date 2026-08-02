@@ -1,6 +1,7 @@
 import type { HttpClient } from "@openpromo/sdk-runtime";
-import type { Ad } from "../generated/v23/resources/Ad.ts";
-import { adGroupAdService, googleAdsService } from "../generated/v23/services/index.ts";
+
+import type { Ad } from "../generated/v25/resources/Ad.ts";
+import { adGroupAdService, googleAdsService } from "../generated/v25/services/index.ts";
 
 const GAQL_FIELDS =
   "ad_group_ad.ad.id, ad_group_ad.ad.resource_name, ad_group_ad.ad.type, ad_group_ad.ad.final_urls, ad_group_ad.ad.name";
@@ -12,7 +13,7 @@ function assertSafeResourceName(name: string) {
 /**
  * Ad wrapper — read-only by design.
  *
- * Google Ads v23 does not permit mutating most Ad fields after creation
+ * Google Ads v25 does not permit mutating most Ad fields after creation
  * (headlines, descriptions, URLs are immutable). Ad creation goes through
  * `adGroupAds.create`, which nests a full Ad object inside the operation body.
  *

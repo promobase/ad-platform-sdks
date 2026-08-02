@@ -48,6 +48,7 @@ export interface AdStudyUpdateParams {
   client_business?: string;
   confidence_level?: number;
   cooldown_start_time?: number;
+  creative_test_config?: Record<string, unknown>;
   description?: string;
   end_time?: number;
   name?: string;

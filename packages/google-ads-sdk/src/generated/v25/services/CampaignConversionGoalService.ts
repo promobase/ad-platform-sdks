@@ -1,0 +1,9 @@
+import type { MutateCampaignConversionGoalsRequest, MutateCampaignConversionGoalsResponse } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.CampaignConversionGoalService. Do not edit by hand.
+export const campaignConversionGoalService = {
+  mutateCampaignConversionGoals(client: HttpClient, customerId: string, body: Omit<MutateCampaignConversionGoalsRequest, "customerId">): Promise<MutateCampaignConversionGoalsResponse> {
+    return client.post<MutateCampaignConversionGoalsResponse>(`/v25/customers/${customerId}/campaignConversionGoals:mutate`, body);
+  }
+};

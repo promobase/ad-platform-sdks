@@ -1,7 +1,7 @@
 {
   "name": "@openpromo/meta",
   "version": "0.0.5",
-  "description": "Type-safe TypeScript SDK for the Meta (Facebook) Marketing API — fully typed Graph API client with auto-generated types for 994 API objects",
+  "description": "Type-safe TypeScript SDK for the Meta (Facebook) Marketing API — fully typed Graph API client with auto-generated types for 985 API objects",
   "keywords": [
     "meta",
     "facebook",
@@ -45,6 +45,7 @@
   ],
   "scripts": {
     "codegen": "bun src/codegen/index.ts",
+    "codegen:enums": "bun scripts/scrape-enums.ts",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
@@ -59,15 +60,15 @@
   "license": "MIT",
   "dependencies": {
     "@openpromo/sdk-runtime": "workspace:*",
-    "effect": "^3.21.2",
-    "zod": "^4.3.6"
+    "effect": "^3.22.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "ai": "^6.0.158",
-    "typescript": "^5.9.3"
+    "typescript": ">=5.9.3 <8"
   },
   "peerDependenciesMeta": {
     "ai": {

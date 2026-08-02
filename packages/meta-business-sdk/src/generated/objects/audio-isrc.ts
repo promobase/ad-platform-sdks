@@ -1,9 +1,11 @@
 import type { ApiClient } from "@openpromo/sdk-runtime";
+import type { AudioAssetFields } from "./audio-asset.ts";
 
 export interface AudioIsrcFields {
   all_kg_featured_artists: string;
   all_kg_main_artists: string;
   artist_profile_picture_url: string;
+  canonical_audio_asset: AudioAssetFields;
   id: string;
   isrc: string;
   publishing_rights_data: Record<string, unknown>;

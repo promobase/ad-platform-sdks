@@ -1,4 +1,5 @@
 import type { Command } from "commander";
+
 import { registerFacebookCommands } from "./facebook.ts";
 import { registerInstagramCommands } from "./instagram.ts";
 import { registerThreadsCommands } from "./threads.ts";

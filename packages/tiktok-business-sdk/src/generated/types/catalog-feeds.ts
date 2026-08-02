@@ -1,5 +1,50 @@
 // Auto-generated types for Catalog Feeds — do not edit
 
+export interface CatalogFeedCreateParams {
+  bc_id: string;
+  catalog_id: string;
+  feed_name: string;
+  update_mode: "OVERWRITE" | "INCREMENTAL";
+  schedule_param?: {
+  source?: {
+  uri?: string;
+  username?: string;
+  password?: string;
+};
+  interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  timezone?: string;
+  day_of_month?: number;
+  hour?: number;
+  minute?: number;
+};
+}
+
+
+export interface CatalogFeedCreateResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  feed_id?: string;
+  feed_name?: string;
+  status?: "ON" | "OFF";
+  last_update_param?: {
+  uri?: string;
+  update_mode?: "OVERWRITE" | "INCREMENTAL";
+  timezone?: string;
+  interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  day_of_month?: number;
+  hour?: number;
+  minute?: number;
+};
+  next_update_time?: string;
+  number_of_products?: number;
+};
+}
+
+
 export interface CatalogFeedGetParams {
   bc_id: string;
   catalog_id: string;
@@ -29,6 +74,51 @@ export interface CatalogFeedGetResponse {
   next_update_time?: string;
   number_of_products?: number;
 }[];
+};
+}
+
+
+export interface CatalogFeedUpdateParams {
+  bc_id: string;
+  catalog_id: string;
+  feed_id: string;
+  update_mode: "OVERWRITE" | "INCREMENTAL" | "SUPPLEMENT";
+  schedule_param?: {
+  source?: {
+  uri?: string;
+  username?: string;
+  password?: string;
+};
+  interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  timezone?: string;
+  day_of_month?: number;
+  hour?: number;
+  minute?: number;
+};
+}
+
+
+export interface CatalogFeedUpdateResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: {
+  feed_id?: string;
+  feed_name?: string;
+  status?: "ON" | "OFF";
+  last_update_param?: {
+  uri?: string;
+  update_mode?: "OVERWRITE" | "INCREMENTAL" | "SUPPLEMENT";
+  timezone?: string;
+  interval_type?: "HOURLY" | "DAILY" | "MONTHLY";
+  interval_count?: "HOURLY" | "DAILY" | "MONTHLY";
+  day_of_month?: number;
+  hour?: number;
+  minute?: number;
+};
+  next_update_time?: string;
+  number_of_products?: number;
 };
 }
 
@@ -77,5 +167,21 @@ export interface CatalogFeedLogResponse {
 };
 }[];
 };
+}
+
+
+export interface CatalogFeedSwitchParams {
+  bc_id: string;
+  catalog_id: string;
+  feed_id: string;
+  status: "ON" | "OFF";
+}
+
+
+export interface CatalogFeedSwitchResponse {
+  code?: number;
+  message?: string;
+  request_id?: string;
+  data?: Record<string, unknown>;
 }
 

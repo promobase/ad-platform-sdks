@@ -60,6 +60,7 @@ export interface AlbumCreateCommentsParams {
 }
 
 export interface AlbumCreateLikesParams {
+  attribution_id_v2?: string;
   feedback_source?: string;
   nectar_module?: string;
   notify?: boolean;
@@ -104,6 +105,7 @@ export interface AlbumCreatePhotosParams {
   privacy?: string;
   profile_id?: number;
   provenance_info?: Record<string, unknown>;
+  provenance_metadata?: Record<string, unknown>;
   proxied_app_id?: string;
   published?: boolean;
   qn?: string;

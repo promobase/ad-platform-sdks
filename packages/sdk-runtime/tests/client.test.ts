@@ -1,4 +1,5 @@
 import { afterEach, expect, mock, test } from "bun:test";
+
 import type { RateLimiter } from "../src/client.ts";
 import { ApiClient } from "../src/client.ts";
 import { ApiError } from "../src/errors.ts";

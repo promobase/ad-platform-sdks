@@ -1,0 +1,17 @@
+import type { ListCampaignDraftAsyncErrorsRequest, ListCampaignDraftAsyncErrorsResponse, MutateCampaignDraftsRequest, MutateCampaignDraftsResponse, PromoteCampaignDraftRequest } from "../index.ts";
+import type { HttpClient } from "@openpromo/sdk-runtime";
+
+// Generated from google.ads.googleads.v25.services.CampaignDraftService. Do not edit by hand.
+export const campaignDraftService = {
+  mutateCampaignDrafts(client: HttpClient, customerId: string, body: Omit<MutateCampaignDraftsRequest, "customerId">): Promise<MutateCampaignDraftsResponse> {
+    return client.post<MutateCampaignDraftsResponse>(`/v25/customers/${customerId}/campaignDrafts:mutate`, body);
+  },
+
+  promoteCampaignDraft(client: HttpClient, campaignDraft: string, body: Omit<PromoteCampaignDraftRequest, "campaignDraft">): Promise<unknown> {
+    return client.post<unknown>(`/v25/${campaignDraft}:promote`, body);
+  },
+
+  listCampaignDraftAsyncErrors(client: HttpClient, resourceName: string, query: Omit<ListCampaignDraftAsyncErrorsRequest, "resourceName"> = {} as Omit<ListCampaignDraftAsyncErrorsRequest, "resourceName">): Promise<ListCampaignDraftAsyncErrorsResponse> {
+    return client.get<ListCampaignDraftAsyncErrorsResponse>(`/v25/${resourceName}:listAsyncErrors`, { query: query as Record<string, string | number | boolean | undefined> });
+  }
+};
