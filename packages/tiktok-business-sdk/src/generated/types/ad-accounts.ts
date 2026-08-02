@@ -7,15 +7,10 @@ export interface Oauth2AdvertiserGetParams {
 
 
 export interface Oauth2AdvertiserGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   advertiser_id?: string;
   advertiser_name?: string;
 };
-};
-  request_id?: string;
 }
 
 
@@ -26,14 +21,10 @@ export interface AdvertiserInfoParams {
 
 
 export interface AdvertiserInfoResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   advertiser_id?: string;
-  can_use_custom_identity?: "true" | "false";
-  ads_only_mode?: "ON" | "true" | "false";
+  can_use_custom_identity?: boolean;
+  ads_only_mode?: boolean;
   owner_bc_id?: string;
   status?: string;
   role?: string;
@@ -42,7 +33,7 @@ export interface AdvertiserInfoResponse {
   timezone?: string;
   display_timezone?: string;
   company?: string;
-  company_name_editable?: "true" | "false";
+  company_name_editable?: boolean;
   industry?: string;
   address?: string;
   country?: string;
@@ -65,6 +56,4 @@ export interface AdvertiserInfoResponse {
   balance?: number;
   create_time?: string;
 }[];
-};
 }
-

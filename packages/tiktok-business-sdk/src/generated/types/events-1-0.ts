@@ -2,26 +2,21 @@
 
 export interface AppTrackParams {
   tiktok_app_id: string;
-  event?: "INSTALLAPP" | "PURCHASE";
+  event?: string;
   timestamp?: string;
   context: Record<string, unknown>;
   properties?: Record<string, unknown>;
 }
 
 
-export interface AppTrackResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
+export interface AppTrackResponse {}
 
 
 export interface AppBatchParams {
   tiktok_app_id: string;
   batch: {
   type: string;
-  event?: "INSTALLAPP" | "PURCHASE";
+  event?: string;
   timestamp?: string;
   context: Record<string, unknown>;
   properties?: Record<string, unknown>;
@@ -30,29 +25,72 @@ export interface AppBatchParams {
 
 
 export interface AppBatchResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   partial_failure?: boolean;
   failed_events?: {
   order_in_batch?: number;
   error?: string;
 }[];
+}
+
+
+export interface AppInfoParams {
+  advertiser_id: string;
+  app_id: string;
+}
+
+
+export interface AppInfoResponse {
+  app?: {
+  advertiser_id?: string;
+  app_platform_id?: string;
+  app_name?: string;
+  self_attribution_enabled?: boolean;
+  skan_allowed?: "ALLOWED" | "NOT_ALLOWED";
+  advanced_dedicated_campaign_allowed?: boolean;
+  is_attribution_flex_enable?: boolean;
+  download_url?: string;
+  icon?: {
+  height?: number;
+  web_uri?: string;
+  width?: number;
+};
+  app_id?: string;
+  package_name?: string;
+  tiktok_apps?: {
+  tiktok_app_id?: string;
+}[];
+  partner?: {
+  partner_id?: string;
+  partner_logo?: string;
+  partner_name?: string;
+};
+  platform?: "ANDROID" | "IOS";
+  enable_retargeting?: "RETARGETING" | "NON_RETARGETING";
+  tracking_url?: {
+  click_url?: string;
+  impression_url?: string;
+  retargeting_click_url?: string;
+  retargeting_impression_url?: string;
+};
+  create_time?: string;
 };
 }
 
 
-export interface AppInfoParams {}
+export interface AppCreateParams {
+  advertiser_id: string;
+  download_url: string;
+  partner?: string;
+  tracking_url?: {
+  click_url?: string;
+  impression_url?: string;
+};
+}
 
 
-export interface AppInfoResponse {}
-
-
-export interface AppCreateParams {}
-
-
-export interface AppCreateResponse {}
+export interface AppCreateResponse {
+  app_id?: string;
+}
 
 
 export interface AppUpdateParams {
@@ -72,35 +110,70 @@ export interface AppUpdateParams {
 export interface AppUpdateResponse {}
 
 
-export interface AppListParams {}
+export interface AppListParams {
+  advertiser_id: string;
+  app_platform_ids?: string[];
+}
 
 
-export interface AppListResponse {}
+export interface AppListResponse {
+  apps?: {
+  advertiser_id?: string;
+  app_platform_id?: string;
+  app_name?: string;
+  self_attribution_enabled?: boolean;
+  skan_allowed?: "ALLOWED" | "NOT_ALLOWED";
+  advanced_dedicated_campaign_allowed?: boolean;
+  is_attribution_flex_enable?: boolean;
+  download_url?: string;
+  icon?: {
+  height?: number;
+  web_uri?: string;
+  width?: number;
+};
+  app_id?: string;
+  package_name?: string;
+  tiktok_apps?: {
+  tiktok_app_id?: string;
+}[];
+  partner?: {
+  partner_id?: string;
+  partner_logo?: string;
+  partner_name?: string;
+};
+  platform?: "ANDROID" | "IOS";
+  enable_retargeting?: "RETARGETING" | "NON_RETARGETING";
+  tracking_url?: {
+  click_url?: string;
+  impression_url?: string;
+  retargeting_click_url?: string;
+  retargeting_impression_url?: string;
+};
+  create_time?: string;
+}[];
+}
 
 
 export interface AppOptimizationEventParams {
   advertiser_id: string;
   app_id: string;
   placement_type?: "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TYPE_NORMAL";
-  placement?: ("PLACEMENT_TYPE_NORMAL" | "PLACEMENT_TYPE_AUTOMATIC" | "PLACEMENT_TIKTOK" | "PLACEMENT_PANGLE" | "PLACEMENT_GLOBAL_APP_BUNDLE" | "PLACEMENT_TOPBUZZ" | "PLACEMENT_HELO" | "PRODUCT_SALES")[];
+  placement?: string[];
   optimization_goal: string;
   objective: string;
-  app_promotion_type?: "APP_PROMOTION" | "APP_INSTALL" | "APP_RETARGETING";
+  app_promotion_type?: "APP_INSTALL" | "APP_RETARGETING";
   available_only?: boolean;
   is_skan?: boolean;
 }
 
 
 export interface AppOptimizationEventResponse {
-  code?: number;
-  message?: string;
-  data?: {
   optimization_events?: {
   optimization_event?: string;
-  statistic_type?: "EVERYTIME" | "NONE";
-  availability_status?: "INACTIVE" | "INSUFFICIENT_POSTBACK" | "READY";
+  statistic_type?: string;
+  availability_status?: string;
   conversions?: number;
-  unlock_threshold?: "INSUFFICIENT_POSTBACK" | "READY";
+  unlock_threshold?: number;
   is_beta?: boolean;
   bid_type_availability?: {
   no_bid_enabled?: boolean;
@@ -109,14 +182,12 @@ export interface AppOptimizationEventResponse {
 };
   deep_optimization_events?: {
   optimization_event?: string;
-  statistic_type?: "EVERYTIME" | "NONE";
+  statistic_type?: string;
   availability_status?: "INACTIVE" | "INSUFFICIENT_POSTBACK" | "READY";
   conversions?: number;
-  unlock_threshold?: "INSUFFICIENT_POSTBACK" | "READY";
+  unlock_threshold?: number;
 };
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -127,12 +198,7 @@ export interface AppOptimizationEventRetargetingParams {
 
 
 export interface AppOptimizationEventRetargetingResponse {
-  code?: number;
-  message?: string;
-  data?: {
   optimization_events?: string[];
-};
-  request_id?: string;
 }
 
 
@@ -146,12 +212,7 @@ export interface PixelTrackParams {
 }
 
 
-export interface PixelTrackResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
+export interface PixelTrackResponse {}
 
 
 export interface PixelBatchParams {
@@ -168,16 +229,11 @@ export interface PixelBatchParams {
 
 
 export interface PixelBatchResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   partial_failure?: boolean;
   failed_events?: {
   order_in_batch?: number;
   error?: string;
 }[];
-};
 }
 
 
@@ -186,7 +242,7 @@ export interface PixelListParams {
   code?: string;
   pixel_id?: string;
   name?: string;
-  order_by?: "EARLIEST_CREATE" | "LATEST_CREATE";
+  order_by?: string;
   filtering?: {
   available_for_catalog_only?: boolean;
 };
@@ -196,9 +252,6 @@ export interface PixelListParams {
 
 
 export interface PixelListResponse {
-  code?: number;
-  message?: string;
-  data?: {
   pixels?: {
   pixel_id?: string;
   pixel_code?: string;
@@ -209,21 +262,21 @@ export interface PixelListResponse {
   pixel_setup_mode?: "STANDARD" | "DEVELOPER";
   partner_name?: string;
   advanced_matching_fields?: {
-  phone_number?: "true" | "false";
-  email?: "true" | "false";
+  phone_number?: boolean;
+  email?: boolean;
 };
   automatic_advanced_matching_fields?: {
-  phone_number?: "true" | "false";
-  email?: "true" | "false";
-  name?: "true" | "false";
-  address?: "true" | "false";
-  external_id?: "true" | "false";
+  phone_number?: boolean;
+  email?: boolean;
+  name?: boolean;
+  address?: boolean;
+  external_id?: boolean;
 };
-  enable_first_party_cookies?: "true" | "false";
-  enable_expanded_data_sharing?: "true" | "false";
+  enable_first_party_cookies?: boolean;
+  enable_expanded_data_sharing?: boolean;
   asset_ownership?: {
   asset_relation_status?: "TRANSFERRED" | "SHARED" | "UNBOUND";
-  ownership_status?: "TRANSFERRED" | "SHARED" | "UNBOUND" | "true" | "false";
+  ownership_status?: boolean;
   owner_bc_id?: string;
   updated_at?: number;
 };
@@ -237,12 +290,12 @@ export interface PixelListResponse {
   custom_event_type?: string;
   event_code?: string;
   event_id?: string;
-  statistic_type?: "EVERY_TIME" | "ONCE";
+  statistic_type?: string;
   rules?: {
-  operator?: "OPERATORTYPE_CONTAINS" | "OPERATORTYPE_DOES_NOT_EQUAL" | "OPERATORTYPE_EQUALS";
-  trigger?: "TRIGGERTYPE_CLICK" | "TRIGGERTYPE_PAGEVIEW";
+  operator?: string;
+  trigger?: string;
   value?: string;
-  variable?: "ELEMENT" | "PAGE_HOSTNAME" | "PAGE_PATH" | "PAGE_URL";
+  variable?: string;
 }[];
 }[];
 }[];
@@ -252,8 +305,6 @@ export interface PixelListResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
@@ -265,10 +316,6 @@ export interface PixelCreateParams {
 
 
 export interface PixelCreateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   pixel_code?: string;
   pixel_id?: string;
   pixel_name?: string;
@@ -287,7 +334,6 @@ export interface PixelCreateResponse {
 };
   enable_first_party_cookies?: boolean;
   enable_expanded_data_sharing?: boolean;
-};
 }
 
 
@@ -300,23 +346,18 @@ export interface PixelUpdateParams {
   email?: boolean;
 };
   automatic_advanced_matching_fields?: {
-  phone_number?: "true" | "false";
-  email?: "true" | "false";
-  name?: "true" | "false";
-  address?: "true" | "false";
-  external_id?: "true" | "false";
+  phone_number?: boolean;
+  email?: boolean;
+  name?: boolean;
+  address?: boolean;
+  external_id?: boolean;
 };
-  enable_first_party_cookies?: "true" | "false";
-  enable_expanded_data_sharing?: "true" | "false";
+  enable_first_party_cookies?: boolean;
+  enable_expanded_data_sharing?: boolean;
 }
 
 
-export interface PixelUpdateResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface PixelUpdateResponse {}
 
 
 export interface PixelEventCreateParams {
@@ -340,29 +381,19 @@ export interface PixelEventCreateParams {
 }
 
 
-export interface PixelEventCreateResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface PixelEventCreateResponse {}
 
 
 export interface PixelEventUpdateParams {
   advertiser_id: string;
   currency_value?: string;
-  currency?: "INR" | "USD";
+  currency?: string;
   event_id: string;
   event_name: string;
 }
 
 
-export interface PixelEventUpdateResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface PixelEventUpdateResponse {}
 
 
 export interface PixelEventDeleteParams {
@@ -371,31 +402,23 @@ export interface PixelEventDeleteParams {
 }
 
 
-export interface PixelEventDeleteResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface PixelEventDeleteResponse {}
 
 
 export interface PixelInstantPageEventParams {
   advertiser_id: string;
-  objective_type: "CONVERSIONS" | "APP_PROMOTION";
+  objective_type: string;
   optimization_goal: string;
   is_retargeting?: boolean;
 }
 
 
 export interface PixelInstantPageEventResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   business_type?: string;
   instant_page_events?: {
   objective_types?: {
-  objective_type?: "CONVERSIONS" | "APP_PROMOTION";
+  objective_type?: string;
   optimization_goals?: {
   optimization_goal?: string;
   optimization_events?: string[];
@@ -403,8 +426,6 @@ export interface PixelInstantPageEventResponse {
 }[];
 };
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -419,9 +440,6 @@ export interface PixelEventStatsParams {
 
 
 export interface PixelEventStatsResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   pixel_id?: string;
   statistics?: {
@@ -434,8 +452,6 @@ export interface PixelEventStatsResponse {
   server_event_total_count?: number;
 }[];
 }[];
-};
-  request_id?: string;
 }
 
 
@@ -443,7 +459,7 @@ export interface OfflineCreateParams {
   advertiser_id: string;
   name: string;
   description?: string;
-  auto_tracking?: "true" | "false";
+  auto_tracking?: boolean;
 }
 
 
@@ -452,22 +468,52 @@ export interface OfflineCreateResponse {
 }
 
 
-export interface OfflineUpdateParams {}
+export interface OfflineUpdateParams {
+  advertiser_id: string;
+  event_set_id: string;
+  name?: string;
+  auto_tracking?: boolean;
+}
 
 
-export interface OfflineUpdateResponse {}
+export interface OfflineUpdateResponse {
+  advertiser_id?: string;
+  event_set_id?: string;
+  name?: string;
+  description?: string;
+  auto_tracking?: boolean;
+  create_time?: string;
+  update_time?: string;
+}
 
 
-export interface OfflineDeleteParams {}
+export interface OfflineDeleteParams {
+  advertiser_id: string;
+  event_set_id: string;
+}
 
 
 export interface OfflineDeleteResponse {}
 
 
-export interface OfflineGetParams {}
+export interface OfflineGetParams {
+  advertiser_id: string;
+  event_set_ids?: string[];
+  name?: string;
+}
 
 
-export interface OfflineGetResponse {}
+export interface OfflineGetResponse {
+  event_set_list?: {
+  advertiser_id?: string;
+  event_set_id?: string;
+  name?: string;
+  description?: string;
+  auto_tracking?: boolean;
+  create_time?: string;
+  update_time?: string;
+}[];
+}
 
 
 export interface OfflineTrackParams {
@@ -480,12 +526,7 @@ export interface OfflineTrackParams {
 }
 
 
-export interface OfflineTrackResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
-}
+export interface OfflineTrackResponse {}
 
 
 export interface OfflineBatchParams {
@@ -500,28 +541,56 @@ export interface OfflineBatchParams {
 }
 
 
-export interface OfflineBatchResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: Record<string, unknown>;
+export interface OfflineBatchResponse {}
+
+
+export interface CrmListParams {
+  advertiser_id: string;
+  name?: string;
+  event_set_ids?: string[];
 }
 
 
-export interface CrmListParams {}
+export interface CrmListResponse {
+  crm_event_sets?: {
+  event_set_id?: string;
+  name?: string;
+  create_time?: string;
+}[];
+}
 
 
-export interface CrmListResponse {}
+export interface CrmCreateParams {
+  advertiser_id: string;
+  name: string;
+}
 
 
-export interface CrmCreateParams {}
+export interface CrmCreateResponse {
+  event_set_id?: string;
+  name?: string;
+  create_time?: string;
+}
 
 
-export interface CrmCreateResponse {}
+export interface CtmMessageEventSetGetParams {
+  advertiser_id: string;
+  messaging_app_type: "MESSENGER" | "WHATSAPP" | "ZALO";
+  messaging_app_account_id: string;
+  message_event_name?: string;
+  message_event_set_ids?: string[];
+}
 
 
-export interface CtmMessageEventSetGetParams {}
-
-
-export interface CtmMessageEventSetGetResponse {}
-
+export interface CtmMessageEventSetGetResponse {
+  message_event_set_list?: {
+  message_event_set_id?: string;
+  message_event_name?: string;
+  create_time?: string;
+}[];
+  matched_event_set?: {
+  message_event_set_id?: string;
+  message_event_name?: string;
+  create_time?: string;
+};
+}

@@ -1,5 +1,17 @@
 export type { LinkedInOrganization, LinkedInOrganizationAcl } from "./account.ts";
 export { createAccount } from "./account.ts";
+export type {
+  LinkedInDate,
+  LinkedInMemberPostAnalyticsParams,
+  LinkedInMemberPostAnalyticsPoint,
+  LinkedInMemberPostAnalyticsResponse,
+  LinkedInMemberPostMetric,
+  LinkedInOrganizationShareStatistic,
+  LinkedInOrganizationShareStatisticsParams,
+  LinkedInOrganizationShareStatisticsResponse,
+  LinkedInShareStatistics,
+} from "./analytics.ts";
+export { createAnalytics } from "./analytics.ts";
 export { createAssets } from "./assets.ts";
 export {
   createLinkedInClient,

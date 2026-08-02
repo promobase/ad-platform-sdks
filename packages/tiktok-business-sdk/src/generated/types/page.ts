@@ -17,9 +17,6 @@ export interface PageGetParams {
 
 
 export interface PageGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   page_id?: string;
   status?: "EDITED" | "PUBLISHED";
@@ -33,10 +30,10 @@ export interface PageGetResponse {
   update_time?: string;
   publish_time?: string;
   app_id?: string;
-  has_cpp?: "TIKTOK_INSTANT_PAGE" | "true" | "false";
-  destination_urls?: ("LEAD_GEN" | "APP_PROFILE_PAGE" | "TIKTOK_INSTANT_PAGE")[];
+  has_cpp?: boolean;
+  destination_urls?: string[];
   messaging_app_type?: "MESSENGER" | "WHATSAPP" | "IM_URL";
-  messaging_app_account_id?: "MESSENGER" | "WHATSAPP" | "IM_URL";
+  messaging_app_account_id?: string;
   transfer_status?: "UNSET" | "TRANSFERRED";
   user_id?: string;
   is_associated?: boolean;
@@ -48,25 +45,34 @@ export interface PageGetResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
-export interface Oauth2AccessTokenTipSdkCreateParams {}
+export interface Oauth2AccessTokenTipSdkCreateParams {
+  advertiser_id: string;
+}
 
 
-export interface Oauth2AccessTokenTipSdkCreateResponse {}
+export interface Oauth2AccessTokenTipSdkCreateResponse {
+  tip_sdk_access_token?: string;
+}
 
 
-export interface Oauth2AccessTokenTipSdkValidateParams {}
+export interface Oauth2AccessTokenTipSdkValidateParams {
+  advertiser_id: string;
+  tip_sdk_access_token: string;
+}
 
 
-export interface Oauth2AccessTokenTipSdkValidateResponse {}
+export interface Oauth2AccessTokenTipSdkValidateResponse {
+  is_valid?: boolean;
+}
 
 
-export interface Oauth2AccessTokenTipSdkRenewParams {}
+export interface Oauth2AccessTokenTipSdkRenewParams {
+  advertiser_id: string;
+  tip_sdk_access_token: string;
+}
 
 
 export interface Oauth2AccessTokenTipSdkRenewResponse {}
-

@@ -77,6 +77,18 @@
       "types": "./dist/ai/index.d.ts",
       "import": "./dist/ai/index.js",
       "default": "./dist/ai/index.js"
+    },
+    "./generated": {
+      "bun": "./src/generated/index.ts",
+      "types": "./dist/generated/index.d.ts",
+      "import": "./dist/generated/index.js",
+      "default": "./dist/generated/index.js"
+    },
+    "./generated/types/*": {
+      "bun": "./src/generated/types/*.ts",
+      "types": "./dist/generated/types/*.d.ts",
+      "import": "./dist/generated/types/*.js",
+      "default": "./dist/generated/types/*.js"
     }
   },
   "engines": {

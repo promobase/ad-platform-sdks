@@ -193,13 +193,13 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
     methodLines.push(emitMethodWithName(spec, methodName, paramsName, responseName));
   }
 
-  const typesContent = typesLines.join("\n");
+  const typesContent = `${typesLines.join("\n").trimEnd()}\n`;
 
   // Determine auth pattern (most endpoints in a category share the same pattern)
   const usesAccessToken = specs.some((s) => s.auth === "access_token");
   const optsType = usesAccessToken
-    ? "{ accessToken: string; advertiserId: string }"
-    : "{ appId: string; appSecret: string }";
+    ? "{ accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }"
+    : "{ appId: string; appSecret: string; baseUrl?: string; fetch?: typeof fetch }";
 
   const authHeader = usesAccessToken
     ? `"Access-Token": opts.accessToken`
@@ -218,6 +218,9 @@ interface TikTokResponse<T> {
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function create${pascalCategory(category)}(opts: ${optsType}) {
+  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\\/$/, "");
+  const fetchImpl = opts.fetch ?? fetch;
+
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
     const searchParams = new URLSearchParams();
     for (const [key, value] of Object.entries(params)) {
@@ -225,7 +228,7 @@ export function create${pascalCategory(category)}(opts: ${optsType}) {
         searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
       }
     }
-    const response = await fetch(\`\${TT_API_BASE}\${path}?\${searchParams.toString()}\`, {
+    const response = await fetchImpl(\`\${apiBase}\${path}?\${searchParams.toString()}\`, {
       headers: { ${authHeader} },
     });
     const body = (await response.json()) as TikTokResponse<T>;
@@ -236,7 +239,7 @@ export function create${pascalCategory(category)}(opts: ${optsType}) {
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetch(\`\${TT_API_BASE}\${path}\`, {
+    const response = await fetchImpl(\`\${apiBase}\${path}\`, {
       method: "POST",
       headers: { ${authHeader}, "Content-Type": "application/json" },
       body: JSON.stringify(body),

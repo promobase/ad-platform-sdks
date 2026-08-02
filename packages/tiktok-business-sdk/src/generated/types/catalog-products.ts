@@ -4,162 +4,85 @@ export interface CatalogProductFileParams {
   bc_id: string;
   catalog_id: string;
   feed_id?: string;
-  file_url: "US" | "VN";
+  file_url: string;
   update_mode?: "OVERWRITE" | "INCREMENTAL";
 }
 
 
-export interface CatalogProductFileResponse {}
+export interface CatalogProductFileResponse {
+  feed_log_id?: string;
+}
 
 
 export interface CatalogProductUploadParams {
-  products: {
-  sku_id: string;
-  title: string;
-  description: string;
-  availability: "IN_STOCK" | "AVAILABLE_FOR_ORDER" | "PREORDER" | "OUT_OF_STOCK" | "DISCONTINUED";
-  brand: string;
-  image_url: string;
-  additional_image_urls?: string[];
-  video_url?: string;
-  item_group_id?: string;
-  google_product_category?: string;
-  global_trade_item_number?: string;
-  manufacturer_part_number?: string;
-  product_detail: {
-  condition: "NEW" | "REFURBISHED" | "USED";
-  age_group?: "NEW_BORN" | "INFANT" | "TODDLER" | "KIDS" | "ADULT";
-  color?: string;
-  gender?: "MALE" | "FEMALE" | "UNISEX";
-  material?: string;
-  pattern?: string;
-  product_category?: string;
-  shipping?: string;
-  shipping_weight?: string;
-  size?: string;
-  tax?: string;
-};
-  price_info: {
-  price: number;
-  currency?: string;
-  sale_price?: number;
-  sale_price_effective_date?: string;
-};
-  landing_page: {
-  landing_page_url: string;
-  ios_url?: string;
-  ios_app_store_id?: string;
-  ios_app_name?: string;
-  iphone_app_store_id?: string;
-  iphone_app_name?: string;
-  ipad_app_store_id?: string;
-  ipad_app_name?: string;
-  android_url?: string;
-  android_package?: string;
-  android_app_name?: string;
-};
-  extra_info?: {
-  custom_label_0?: string;
-  custom_label_1?: string;
-  custom_label_2?: string;
-  custom_label_3?: string;
-  custom_label_4?: string;
-};
-}[];
+  bc_id: string;
+  catalog_id: string;
+  feed_id?: string;
+  products: Record<string, unknown>[];
 }
 
 
 export interface CatalogProductUploadResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_log_id?: string;
-};
 }
 
 
 export interface CatalogProductUpdateParams {
-  products: {
-  sku_id: string;
-  title?: string;
-  description?: string;
-  availability?: "IN_STOCK" | "AVAILABLE_FOR_ORDER" | "PREORDER" | "OUT_OF_STOCK" | "DISCONTINUED";
-  image_url?: string;
-  video_url?: string;
-  brand?: string;
-  additional_image_urls?: string[];
-  item_group_id?: string;
-  google_product_category?: string;
-  global_trade_item_number?: string;
-  manufacturer_part_number?: string;
-  product_detail?: {
-  condition?: "NEW" | "REFURBISHED" | "USED";
-  age_group?: "NEW_BORN" | "INFANT" | "TODDLER" | "KIDS" | "ADULT";
-  color?: string;
-  gender?: "MALE" | "FEMALE" | "UNISEX";
-  material?: string;
-  pattern?: string;
-  product_category?: string;
-  shipping?: string;
-  shipping_weight?: string;
-  size?: string;
-  tax?: string;
-};
-  price_info?: {
-  price?: number;
-  currency?: string;
-  sale_price?: number;
-  sale_price_effective_date?: string;
-};
-  landing_page?: {
-  landing_page_url?: string;
-  ios_url?: string;
-  ios_app_store_id?: string;
-  ios_app_name?: string;
-  iphone_app_store_id?: string;
-  iphone_app_name?: string;
-  ipad_app_store_id?: string;
-  ipad_app_name?: string;
-  android_url?: string;
-  android_package?: string;
-  android_app_name?: string;
-};
-  extra_info?: {
-  custom_label_0?: string;
-  custom_label_1?: string;
-  custom_label_2?: string;
-  custom_label_3?: string;
-  custom_label_4?: string;
-};
-}[];
+  bc_id: string;
+  catalog_id: string;
+  feed_id?: string;
+  products: Record<string, unknown>[];
 }
 
 
 export interface CatalogProductUpdateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   feed_log_id?: string;
-};
 }
 
 
-export interface CatalogProductDeleteParams {}
+export interface CatalogProductDeleteParams {
+  bc_id: string;
+  catalog_id: string;
+  sku_ids?: string[];
+  hotel_ids?: string[];
+  flight_ids?: string[];
+  destination_ids?: string[];
+  vehicle_ids?: string[];
+  series_ids?: string[];
+  feed_id?: string;
+}
 
 
 export interface CatalogProductDeleteResponse {}
 
 
-export interface CatalogProductGetParams {}
+export interface CatalogProductGetParams {
+  bc_id: string;
+  catalog_id: string;
+  page?: number;
+  page_size?: number;
+  product_ids?: string[];
+  sku_ids?: string[];
+  product_set_ids?: string[];
+  order?: {
+  order_condition?: string;
+  custom_order?: {
+  field?: string;
+  type?: "ASC" | "DES";
+}[];
+};
+  conditions?: {
+  "and / or"?: {
+  field?: string;
+  operator?: "EQ" | "NE" | "GT" | "GTE" | "LT" | "LTE" | "RNG" | "WILDCARD" | "NOT_WILDCARD" | "PREFIX" | "EXIST" | "IN" | "NOT_IN";
+  values?: string[];
+  case_senstive?: boolean;
+}[];
+};
+}
 
 
 export interface CatalogProductGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   audit?: {
   audit_status?: string;
@@ -176,7 +99,7 @@ export interface CatalogProductGetResponse {
   product_id?: string;
   title?: string;
   description?: string;
-  availability?: "IN_STOCK" | "AVAILABLE_FOR_ORDER" | "PREORDER" | "OUT_OF_STOCK" | "DISCONTINUED" | "AVAILABLE" | "SUBSCRIBERS_ONLY" | "ON_DEMAND" | "NOT_AVAILABLE";
+  availability?: string;
   image_url?: string;
   video_url?: string;
   brand?: string;
@@ -210,7 +133,7 @@ export interface CatalogProductGetResponse {
 };
   recharge?: {
   type?: "BY_TIERS" | "SUBSCRIPTION" | "BY_EPISODES";
-  purchase_unit?: ("BY_TIERS" | "TIER_2" | "SUBSCRIPTION" | "WEEKLY" | "MONTHLY" | "QUARTERLY" | "YEARLY" | "BY_EPISODES")[];
+  purchase_unit?: string[];
   cost?: string;
 }[];
   margin_level?: string;
@@ -268,7 +191,7 @@ export interface CatalogProductGetResponse {
   profession?: {
   age_group?: "NEW_BORN" | "INFANT" | "TODDLER" | "KIDS" | "ADULT";
   color?: string;
-  condition?: "NEW" | "REFURBISHED" | "USED" | "EXCELLENT" | "GOOD" | "FAIR" | "POOR" | "OTHER";
+  condition?: string;
   gender?: "MALE" | "FEMALE" | "UNISEX";
   material?: string;
   pattern?: string;
@@ -358,7 +281,7 @@ export interface CatalogProductGetResponse {
   image_url?: string;
   recharge?: {
   type?: "BY_TIERS" | "SUBSCRIPTION" | "BY_EPISODES";
-  purchase_unit?: ("BY_TIERS" | "TIER_2" | "SUBSCRIPTION" | "WEEKLY" | "MONTHLY" | "QUARTERLY" | "YEARLY" | "BY_EPISODES")[];
+  purchase_unit?: string[];
   cost?: string;
 }[];
   profession?: {
@@ -400,12 +323,76 @@ export interface CatalogProductGetResponse {
   total_number?: number;
   total_page?: number;
 };
-};
 }
 
 
-export interface CatalogProductLogParams {}
+export interface CatalogProductLogParams {
+  bc_id: string;
+  catalog_id: string;
+  feed_log_id: string;
+  language?: string;
+}
 
 
-export interface CatalogProductLogResponse {}
-
+export interface CatalogProductLogResponse {
+  product_feed_log?: {
+  catalog_id?: string;
+  feed_id?: string;
+  add_count?: number;
+  update_count?: number;
+  delete_count?: number;
+  error_count?: number;
+  warn_count?: number;
+  process_status?: "WAITING" | "PROCESSING" | "SUCCESS" | "FAILED";
+  update_mode?: number;
+  start_time?: string;
+  end_time?: string;
+  feed_log_data?: {
+  download_path?: Record<string, unknown>;
+  error_affected_products?: {
+  affected_product_count?: number;
+  affected_product_item_list?: {
+  index?: number;
+  title?: string;
+  sku_id?: string;
+  hotel_id?: string;
+  name?: string;
+  flight_id?: string;
+  airline_company?: string;
+  media_title_id?: string;
+  vehicle_id?: string;
+  series_id?: string;
+  make?: string;
+  product_url?: string;
+  description?: string;
+  value?: string;
+}[];
+  field?: string;
+  issue?: string;
+  suggestion?: string;
+}[];
+  warn_affected_products?: {
+  affected_product_count?: number;
+  affected_product_item_list?: {
+  index?: number;
+  title?: string;
+  sku_id?: string;
+  hotel_id?: string;
+  name?: string;
+  flight_id?: string;
+  airline_company?: string;
+  media_title_id?: string;
+  description?: string;
+  vehicle_id?: string;
+  series_id?: string;
+  make?: string;
+  product_url?: string;
+  value?: string;
+}[];
+  field?: string;
+  issue?: string;
+  suggestion?: string;
+}[];
+};
+};
+}

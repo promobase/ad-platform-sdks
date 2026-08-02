@@ -18,10 +18,6 @@ export interface ReportAdBenchmarkGetParams {
 
 
 export interface ReportAdBenchmarkGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   compare_date?: string;
   list?: {
   info?: {
@@ -41,7 +37,6 @@ export interface ReportAdBenchmarkGetResponse {
   page_size?: number;
   total_number?: number;
 };
-};
 }
 
 
@@ -49,7 +44,16 @@ export interface ReportVideoPerformanceGetParams {
   advertiser_id: string;
   report_type?: "AD" | "VIDEO";
   metrics_fields?: string[];
-  filtering: "AD" | "VIDEO";
+  filtering: {
+  ad_ids?: string[];
+  adgroup_ids?: string[];
+  campaign_ids?: string[];
+  material_ids?: string[];
+  video_ids?: string[];
+  start_time?: string;
+  end_time?: string;
+  lifetime?: boolean;
+};
   sort_field?: string;
   sort_type?: "ASC" | "DES";
   page?: number;
@@ -58,10 +62,6 @@ export interface ReportVideoPerformanceGetParams {
 
 
 export interface ReportVideoPerformanceGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   list?: {
   info?: {
   ad_id?: string;
@@ -78,6 +78,4 @@ export interface ReportVideoPerformanceGetResponse {
   page_size?: number;
   total_number?: number;
 };
-};
 }
-

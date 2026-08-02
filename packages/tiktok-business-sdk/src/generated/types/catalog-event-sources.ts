@@ -37,16 +37,10 @@ export interface CatalogEventsourceBindGetParams {
 
 
 export interface CatalogEventsourceBindGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   catalog_id?: number;
   event_sources?: {
   event_source_name?: string;
   app_id?: string;
   pixel_code?: string;
 }[];
-};
-  request_id?: string;
 }
-

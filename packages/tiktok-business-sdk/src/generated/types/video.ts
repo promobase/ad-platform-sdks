@@ -2,7 +2,7 @@
 
 export interface FileVideoAdUploadParams {
   advertiser_id: string;
-  file_name?: "false" | "true";
+  file_name?: string;
   upload_type?: "UPLOAD_BY_FILE" | "UPLOAD_BY_URL" | "UPLOAD_BY_FILE_ID" | "UPLOAD_BY_VIDEO_ID";
   video_file?: File | Blob;
   video_signature?: string;
@@ -11,16 +11,12 @@ export interface FileVideoAdUploadParams {
   video_id?: string;
   is_third_party?: boolean;
   flaw_detect?: boolean;
-  auto_fix_enabled?: "LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "false" | "true";
-  auto_bind_enabled?: "true" | "false";
+  auto_fix_enabled?: boolean;
+  auto_bind_enabled?: boolean;
 }
 
 
 export interface FileVideoAdUploadResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   video_cover_url?: string;
   format?: string;
   preview_url?: string;
@@ -34,14 +30,13 @@ export interface FileVideoAdUploadResponse {
   modify_time?: string;
   signature?: string;
   duration?: number;
-  video_id?: "UPLOAD_BY_VIDEO_ID" | "UPLOAD_BY_FILE" | "UPLOAD_BY_URL" | "UPLOAD_BY_FILE_ID";
+  video_id?: string;
   size?: number;
   material_id?: string;
-  allowed_placements?: ("PLACEMENT_TOPBUZZ" | "PLACEMENT_HELO")[];
+  allowed_placements?: string[];
   allow_download?: boolean;
   fix_task_id?: string;
-  flaw_types?: ("LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "NO_BGM" | "BLACK_EDGE" | "ILLEGAL_DURATION" | "true")[];
-}[];
+  flaw_types?: ("LOW_RESOLUTION" | "ILLEGAL_VIDEO_SIZE" | "NO_BGM" | "BLACK_EDGE" | "ILLEGAL_DURATION")[];
 }
 
 
@@ -52,12 +47,7 @@ export interface FileVideoAdUpdateParams {
 }
 
 
-export interface FileVideoAdUpdateResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface FileVideoAdUpdateResponse {}
 
 
 export interface FileVideoAdInfoParams {
@@ -67,9 +57,6 @@ export interface FileVideoAdInfoParams {
 
 
 export interface FileVideoAdInfoResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: string[];
   displayable?: boolean;
   width?: number;
@@ -89,8 +76,6 @@ export interface FileVideoAdInfoResponse {
   file_name?: string;
   create_time?: string;
   modify_time?: string;
-};
-  request_id?: string;
 }
 
 
@@ -109,9 +94,6 @@ export interface FileVideoAdSearchParams {
 
 
 export interface FileVideoAdSearchResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   video_id?: string;
   video_cover_url?: string;
@@ -138,8 +120,6 @@ export interface FileVideoAdSearchResponse {
   total_number?: number;
   total_page?: number;
 };
-};
-  request_id?: string;
 }
 
 
@@ -151,16 +131,10 @@ export interface FileVideoSuggestcoverParams {
 
 
 export interface FileVideoSuggestcoverResponse {
-  code?: number;
-  message?: string;
-  data?: {
   list?: {
   width?: number;
   height?: number;
   id?: string;
   url?: string;
 }[];
-};
-  request_id?: string;
 }
-

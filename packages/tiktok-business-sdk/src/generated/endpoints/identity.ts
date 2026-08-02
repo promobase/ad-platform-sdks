@@ -10,7 +10,10 @@ interface TikTokResponse<T> {
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
-export function createIdentity(opts: { accessToken: string; advertiserId: string }) {
+export function createIdentity(opts: { accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }) {
+  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\/$/, "");
+  const fetchImpl = opts.fetch ?? fetch;
+
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
     const searchParams = new URLSearchParams();
     for (const [key, value] of Object.entries(params)) {
@@ -18,7 +21,7 @@ export function createIdentity(opts: { accessToken: string; advertiserId: string
         searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
       }
     }
-    const response = await fetch(`${TT_API_BASE}${path}?${searchParams.toString()}`, {
+    const response = await fetchImpl(`${apiBase}${path}?${searchParams.toString()}`, {
       headers: { "Access-Token": opts.accessToken },
     });
     const body = (await response.json()) as TikTokResponse<T>;
@@ -29,7 +32,7 @@ export function createIdentity(opts: { accessToken: string; advertiserId: string
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetch(`${TT_API_BASE}${path}`, {
+    const response = await fetchImpl(`${apiBase}${path}`, {
       method: "POST",
       headers: { "Access-Token": opts.accessToken, "Content-Type": "application/json" },
       body: JSON.stringify(body),

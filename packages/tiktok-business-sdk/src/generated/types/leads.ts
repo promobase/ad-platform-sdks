@@ -2,17 +2,13 @@
 
 export interface PageLeadMockCreateParams {
   lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
-  advertiser_id?: "ADVERTISER" | "ADMIN";
+  advertiser_id?: string;
   library_id?: string;
-  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
+  page_id?: string;
 }
 
 
 export interface PageLeadMockCreateResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   lead_data?: Record<string, unknown>;
   meta_data?: {
   lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
@@ -25,24 +21,19 @@ export interface PageLeadMockCreateResponse {
   ad_id?: string;
   ad_name?: string;
   create_time?: string;
-};
 };
 }
 
 
 export interface PageLeadMockGetParams {
   lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
-  advertiser_id?: "ADVERTISER" | "ADMIN";
+  advertiser_id?: string;
   library_id?: string;
-  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
+  page_id?: string;
 }
 
 
 export interface PageLeadMockGetResponse {
-  code?: number;
-  message?: string;
-  request_id?: string;
-  data?: {
   lead_data?: Record<string, unknown>;
   meta_data?: {
   lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
@@ -55,7 +46,6 @@ export interface PageLeadMockGetResponse {
   ad_id?: string;
   ad_name?: string;
   create_time?: string;
-};
 };
 }
 
@@ -67,12 +57,7 @@ export interface PageLeadMockDeleteParams {
 }
 
 
-export interface PageLeadMockDeleteResponse {
-  code?: number;
-  message?: string;
-  data?: Record<string, unknown>;
-  request_id?: string;
-}
+export interface PageLeadMockDeleteResponse {}
 
 
 export interface PageLeadTaskParams {
@@ -85,15 +70,10 @@ export interface PageLeadTaskParams {
 
 
 export interface PageLeadTaskResponse {
-  code?: number;
-  message?: string;
-  data?: {
   status?: "CREATED" | "FAILED" | "RUNNING" | "SUCCEED";
   task_id?: string;
   file_name?: string;
   file_type?: string;
-};
-  request_id?: string;
 }
 
 
@@ -107,16 +87,32 @@ export interface PageLeadTaskDownloadParams {
 export interface PageLeadTaskDownloadResponse {}
 
 
-export interface PageLibraryGetParams {}
+export interface PageLibraryGetParams {
+  page?: number;
+  page_size?: number;
+}
 
 
-export interface PageLibraryGetResponse {}
+export interface PageLibraryGetResponse {
+  list?: {
+  library_id?: string;
+  library_name?: string;
+  advertiser_id?: string;
+  create_time?: string;
+  update_time?: string;
+}[];
+}
 
 
-export interface PageLibraryTransferParams {}
+export interface PageLibraryTransferParams {
+  advertiser_id: string;
+  bc_id: string;
+}
 
 
-export interface PageLibraryTransferResponse {}
+export interface PageLibraryTransferResponse {
+  library_id?: string;
+}
 
 
 export interface PageFieldGetParams {
@@ -126,9 +122,6 @@ export interface PageFieldGetParams {
 
 
 export interface PageFieldGetResponse {
-  code?: number;
-  message?: string;
-  data?: {
   fields?: string;
   meta_data?: {
   page_id?: string;
@@ -136,24 +129,48 @@ export interface PageFieldGetResponse {
   page_name?: string;
   page_url?: string;
 };
-};
-  request_id?: string;
 }
 
 
-export interface LeadFieldGetParams {}
+export interface LeadFieldGetParams {
+  lead_source: "INSTANT_FORM" | "DIRECT_MESSAGE";
+  advertiser_id?: string;
+  library_id?: string;
+  page_id?: string;
+}
 
 
-export interface LeadFieldGetResponse {}
+export interface LeadFieldGetResponse {
+  fields?: string[];
+  meta_data?: {
+  create_time?: string;
+  page_id?: string;
+  page_name?: string;
+  page_url?: string;
+};
+}
 
 
 export interface LeadGetParams {
   lead_source: "INSTANT_FORM" | "DIRECT_MESSAGE";
   advertiser_id?: string;
   library_id?: string;
-  page_id?: "INSTANT_FORM" | "DIRECT_MESSAGE" | "LEAD_GEN";
+  page_id?: string;
 }
 
 
-export interface LeadGetResponse {}
-
+export interface LeadGetResponse {
+  lead_data?: Record<string, unknown>;
+  meta_data?: {
+  lead_source?: "INSTANT_FORM" | "DIRECT_MESSAGE";
+  lead_id?: string;
+  page_id?: string;
+  campaign_id?: string;
+  campaign_name?: string;
+  adgroup_id?: string;
+  adgroup_name?: string;
+  ad_id?: string;
+  ad_name?: string;
+  create_time?: string;
+};
+}

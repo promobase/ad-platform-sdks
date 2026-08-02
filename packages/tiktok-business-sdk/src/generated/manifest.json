@@ -1,8 +1,12 @@
 {
   "source": "https://business-api.tiktok.com/gateway/api/doc/client",
-  "docPages": 511,
-  "endpoints": 502,
+  "docPages": 540,
+  "endpoints": 531,
   "categories": [
+    {
+      "name": "Accounts",
+      "endpoints": 29
+    },
     {
       "name": "Ads",
       "endpoints": 4

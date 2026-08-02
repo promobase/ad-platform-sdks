@@ -46,14 +46,6 @@ export async function fetchDoc(docId: string): Promise<{ title: string; content:
   return { title: json.data.title, content: json.data.content };
 }
 
-/**
- * Categories under "API Reference" to skip — these are covered by hand-written clients.
- * Everything else under "API Reference" gets scraped for codegen.
- */
-const SKIP_CATEGORIES = new Set([
-  "Accounts", // Hand-written: oauth, comments, videos, photos, account, properties, webhooks
-]);
-
 /** Recursively collect all leaf doc_ids from the "API Reference" tree node. */
 export function collectMarketingDocIds(
   tree: DocTreeNode[],
@@ -70,8 +62,6 @@ export function collectMarketingDocIds(
 
   for (const category of topCategories) {
     const categoryTitle = category.title?.trim() ?? "";
-    if (SKIP_CATEGORIES.has(categoryTitle)) continue;
-
     collectLeaves(category.child_docs ?? category.children ?? [], categoryTitle, results);
   }
 

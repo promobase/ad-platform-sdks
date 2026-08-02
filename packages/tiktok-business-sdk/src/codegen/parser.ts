@@ -65,14 +65,29 @@ export function parseDoc(doc: DocContent): EndpointSpec | null {
     auth,
     category,
     requestParams: requestTree,
-    responseFields: responseTree,
+    // Generated clients validate the TikTok envelope and return `body.data`, so
+    // their public response type must describe the data payload rather than the
+    // outer code/message/request_id envelope.
+    responseFields: unwrapResponseData(responseTree),
   };
+}
+
+function unwrapResponseData(fields: ParamSpec[]): ParamSpec[] {
+  const names = new Set(fields.map((field) => field.name));
+  const isTikTokEnvelope =
+    names.has("data") && (names.has("code") || names.has("message") || names.has("request_id"));
+  if (!isTikTokEnvelope) return fields;
+
+  const data = fields.find((field) => field.name === "data");
+  return data?.children.length ? data.children : [];
 }
 
 /** Extract all ```xtable ... ``` blocks from markdown content. */
 function extractXtableBlocks(content: string): { start: number; end: number; text: string }[] {
   const blocks: { start: number; end: number; text: string }[] = [];
-  const regex = /```xtable\n([\s\S]*?)```/g;
+  // TikTok docs use both ```xtable and ``` xtable fences (with optional
+  // trailing spaces and CRLF). Treat them as the same source format.
+  const regex = /```[ \t]*xtable[ \t]*\r?\n([\s\S]*?)```/g;
   let match: RegExpExecArray | null;
   while ((match = regex.exec(content)) !== null) {
     blocks.push({ start: match.index, end: match.index + match[0].length, text: match[1]! });
@@ -88,42 +103,51 @@ function classifyXtableBlocks(
   let headerBlock: string | undefined;
   let paramBlock: string | undefined;
   let responseBlock: string | undefined;
+  let responseBlockScore = -1;
+  const requestIdx = content.toLowerCase().indexOf("## request");
+  const responseIdx = content.toLowerCase().indexOf("## response");
 
   for (const block of blocks) {
     // Look at surrounding context (200 chars before the block)
     const before = content.slice(Math.max(0, block.start - 300), block.start).toLowerCase();
 
-    if (before.includes("**header**") && !headerBlock) {
+    const inRequestSection =
+      requestIdx >= 0 && block.start > requestIdx && (responseIdx < 0 || block.start < responseIdx);
+    const inResponseSection = responseIdx >= 0 && block.start > responseIdx;
+
+    if (inRequestSection && before.includes("**header**") && !headerBlock) {
       headerBlock = block.text;
-    } else if (before.includes("**parameter") && !paramBlock) {
+    } else if (inRequestSection && before.includes("**parameter") && !paramBlock) {
       paramBlock = block.text;
-    } else if (
-      (before.includes("## response") ||
-        before.includes("**body**") ||
-        before.includes("**response")) &&
-      !responseBlock
-    ) {
-      responseBlock = block.text;
+    } else if (inResponseSection) {
+      // Response sections sometimes contain a one-field response-header table
+      // before the actual response body. Prefer the table that looks like the
+      // standard TikTok response envelope.
+      const score = scoreResponseTable(block.text);
+      if (score > responseBlockScore) {
+        responseBlock = block.text;
+        responseBlockScore = score;
+      }
     } else if (!paramBlock && !before.includes("comparing") && !before.includes("changes")) {
       // First non-classified block after parameters section
       // Check if it's between Request and Response sections
-      const requestIdx = content.toLowerCase().indexOf("## request");
-      const responseIdx = content.toLowerCase().indexOf("## response");
-      if (
-        requestIdx >= 0 &&
-        block.start > requestIdx &&
-        (responseIdx < 0 || block.start < responseIdx)
-      ) {
+      if (inRequestSection) {
         if (!headerBlock || block.text !== headerBlock) {
           paramBlock = block.text;
         }
-      } else if (responseIdx >= 0 && block.start > responseIdx) {
-        responseBlock = block.text;
       }
     }
   }
 
   return { headerBlock, paramBlock, responseBlock };
+}
+
+function scoreResponseTable(tableText: string): number {
+  const names = parseXtable(tableText)
+    .filter((field) => field.nestLevel === 0)
+    .map((field) => field.name);
+  const envelopeFields = new Set(["code", "message", "request_id", "data"]);
+  return names.reduce((score, name) => score + (envelopeFields.has(name) ? 1 : 0), 0);
 }
 
 /** Parse an xtable block into flat ParamSpec entries. */
@@ -186,7 +210,7 @@ function parseXtable(tableText: string): ParamSpec[] {
     const type = normalizeType(cells[typeIdx]?.trim() ?? "string");
     const rawDescription = (descIdx >= 0 ? cells[descIdx]?.trim() : "") ?? "";
     const location = locationIdx >= 0 ? parseLocation(cells[locationIdx]?.trim() ?? "") : undefined;
-    const enumValues = extractEnumValues(rawDescription);
+    const enumValues = extractEnumValues(rawDescription, type);
 
     params.push({
       name,
@@ -311,18 +335,32 @@ function parseLocation(raw: string): "body" | "query" | "header" | undefined {
  * - Allowed values: `VALUE1`, `VALUE2`
  * - `true`, `false` for boolean-like enums
  */
-function extractEnumValues(description: string): string[] {
+function extractEnumValues(description: string, type: string): string[] {
+  if (type === "boolean" || type === "number" || type === "number[]") return [];
+
   // Strip HTML for easier matching but keep backticks
   const clean = description.replace(/<br\s*\/?>/gi, " ").replace(/<\/?[^>]+(>|$)/g, " ");
 
+  // Be conservative: uppercase identifiers elsewhere in prose are usually
+  // related field names or conditional values, not values for this parameter.
+  const marker =
+    /\b(?:enum(?: values?)?|supported values?|allowed values?|valid values?)\s*:/i.exec(clean);
+  if (!marker) return [];
+
+  let enumSection = clean.slice(marker.index + marker[0].length);
+  const stop = /\b(?:default value|default:|when\s+`|note:|important:|supported when)\b/i.exec(
+    enumSection,
+  );
+  if (stop) enumSection = enumSection.slice(0, stop.index);
+
   // Find all backtick-quoted values that look like enum constants
   // Match UPPER_CASE_VALUES, lowercase_values, camelCase, numbers, and true/false
-  const allBacktickValues = [...clean.matchAll(/`([A-Z][A-Z0-9_]*(?:\s*[A-Z][A-Z0-9_]*)*)`/g)].map(
-    (m) => m[1]!,
-  );
+  const allBacktickValues = [
+    ...enumSection.matchAll(/`([A-Z][A-Z0-9_]*(?:\s*[A-Z][A-Z0-9_]*)*)`/g),
+  ].map((m) => m[1]!);
 
   // Also catch lowercase enum-like values: `true`, `false`, specific known patterns
-  const lowerBacktickValues = [...clean.matchAll(/`(true|false)`/g)].map((m) => m[1]!);
+  const lowerBacktickValues = [...enumSection.matchAll(/`(true|false)`/g)].map((m) => m[1]!);
 
   const combined = [...new Set([...allBacktickValues, ...lowerBacktickValues])];
 

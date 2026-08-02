@@ -63,6 +63,20 @@ const oauth = LinkedIn.OAuth.create({
 const url = oauth.getAuthorizationUrl({ state: "opaque-state" });
 ```
 
+## Low-level post analytics
+
+```ts
+const organizationStats = await linkedin.analytics.getOrganizationShareStatistics({
+  organizationalEntity: "urn:li:organization:123456",
+  shares: ["urn:li:share:7132564752928563200"],
+});
+
+const memberStats = await linkedin.analytics.getMemberPostAnalytics({
+  entity: "urn:li:ugcPost:7132564752928563200",
+  queryType: "IMPRESSION",
+});
+```
+
 ## Official References
 
 - [LinkedIn API Clients](https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients) - official protocol-level client guidance; LinkedIn notes these clients do not model specific APIs.
@@ -74,6 +88,8 @@ const url = oauth.getAuthorizationUrl({ state: "opaque-state" });
 - [Comments API](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/comments-api) - source for comment creation, `x-restli-id`, and comment URNs.
 - [Organization Lookup API](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/organizations/organization-lookup-api) - source for organization lookup endpoints.
 - [Organization Access Control by Role](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/organizations/organization-access-control-by-role) - source for administered organization discovery.
+- [Organization Share Statistics](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/organizations/share-statistics) - source for organization share and UGC post lifetime statistics.
+- [Member Post Statistics](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/members/post-statistics) - source for member post impressions, reach, engagement, and date-range analytics.
 - [LinkedIn 3-Legged OAuth Flow](https://learn.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow) - source for authorization and token exchange.
 - [Programmatic Refresh Tokens](https://learn.microsoft.com/en-us/linkedin/shared/authentication/programmatic-refresh-tokens) - source for refresh token exchange behavior.
 - [Sign In with LinkedIn using OpenID Connect](https://learn.microsoft.com/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2) - source for `/v2/userinfo`.

@@ -1,31 +1,79 @@
 // Auto-generated types for Playable Ads — do not edit
 
-export interface PlayableUploadParams {}
+export interface PlayableUploadParams {
+  advertiser_id: string;
+  upload_type?: "UPLOAD_BY_FILE" | "UPLOAD_BY_FILE_ID";
+  playable_package?: File | Blob;
+  file_id?: string;
+}
 
 
-export interface PlayableUploadResponse {}
+export interface PlayableUploadResponse {
+  playable_id?: string;
+}
 
 
-export interface PlayableValidateParams {}
+export interface PlayableValidateParams {
+  advertiser_id: string;
+  playable_id: string;
+}
 
 
 export interface PlayableValidateResponse {}
 
 
-export interface PlayableSaveParams {}
+export interface PlayableSaveParams {
+  advertiser_id: string;
+  playable_id: string;
+  playable_name: string;
+}
 
 
-export interface PlayableSaveResponse {}
+export interface PlayableSaveResponse {
+  playable_id?: string;
+  playable_url?: string;
+  playable_name?: string;
+  playable_orientation?: "BOTH" | "LANDSCAPE" | "PORTRAIT";
+  status?: "AUDIT_FAIL" | "AUDIT_SUCCESS" | "VALIDATE_FAIL" | "VALIDATE_SUCCESS" | "VALIDATING";
+}
 
 
-export interface PlayableGetParams {}
+export interface PlayableGetParams {
+  advertiser_id: string;
+  playable_id?: string;
+  playable_name?: string;
+  playable_url?: string;
+  status?: "AUDIT_FAIL" | "AUDIT_SUCCESS" | "VALIDATE_FAIL" | "VALIDATE_SUCCESS" | "VALIDATING";
+  operation_status?: "UPLOADED" | "SAVED" | "DELETED";
+  page?: number;
+  page_size?: number;
+}
 
 
-export interface PlayableGetResponse {}
+export interface PlayableGetResponse {
+  list?: string;
+  advertiser_id?: string;
+  playable_id?: string;
+  playable_url?: string;
+  playable_name?: string;
+  playable_orientation?: "BOTH" | "LANDSCAPE" | "PORTRAIT";
+  status?: "AUDIT_FAIL" | "AUDIT_SUCCESS" | "VALIDATE_FAIL" | "VALIDATE_SUCCESS" | "VALIDATING";
+  operation_status?: "UPLOADED" | "SAVED" | "DELETED";
+  page_info?: {
+  page?: number;
+  page_size?: number;
+  total_number?: number;
+  total_page?: number;
+};
+}
 
 
-export interface PlayableDeleteParams {}
+export interface PlayableDeleteParams {
+  advertiser_id: string;
+  playable_id: string;
+}
 
 
-export interface PlayableDeleteResponse {}
-
+export interface PlayableDeleteResponse {
+  playable_id?: string;
+}
