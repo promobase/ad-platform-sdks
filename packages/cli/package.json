@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/ad-platforms-cli",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Command-line interface for OpenPromo ad platform SDK operations",
   "keywords": [
     "ad-platforms",
