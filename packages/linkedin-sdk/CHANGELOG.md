@@ -1,5 +1,19 @@
 # @promobase/linkedin-sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Refresh every platform integration from its current authoritative source. This adds Google Ads v25
+  while retaining the raw v23 export, updates Meta v25 schemas and enums, regenerates TikTok's current
+  Marketing API surface, advances LinkedIn to 202607, refreshes X OpenAPI/Fern output with Posts naming
+  and Tweets compatibility aliases, and updates YouTube discovery with batch video statistics.
+
+### Patch Changes
+
+- [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Adopt the stable native TypeScript 7 compiler across every workspace and accept TypeScript 7 in
+  published peer dependency ranges.
+
 ## 0.2.1
 
 ### Patch Changes

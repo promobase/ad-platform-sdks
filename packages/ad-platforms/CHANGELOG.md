@@ -1,5 +1,29 @@
 # @openpromo/ad-platforms
 
+## 0.3.0
+
+### Minor Changes
+
+- [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Refresh every platform integration from its current authoritative source. This adds Google Ads v25
+  while retaining the raw v23 export, updates Meta v25 schemas and enums, regenerates TikTok's current
+  Marketing API surface, advances LinkedIn to 202607, refreshes X OpenAPI/Fern output with Posts naming
+  and Tweets compatibility aliases, and updates YouTube discovery with batch video statistics.
+
+### Patch Changes
+
+- [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Adopt the stable native TypeScript 7 compiler across every workspace and accept TypeScript 7 in
+  published peer dependency ranges.
+
+- [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Publish registry-safe dependency ranges instead of leaking `workspace:*` specifiers into npm metadata.
+
+- Updated dependencies [[`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7), [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7), [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7)]:
+  - @openpromo/google-ads@0.2.0
+  - @openpromo/linkedin@0.3.0
+  - @openpromo/meta@0.1.0
+  - @openpromo/tiktok@0.1.0
+  - @openpromo/x@0.3.0
+  - @openpromo/youtube@0.3.0
+
 ## 0.2.1
 
 ### Patch Changes
