@@ -1,5 +1,24 @@
 # @openpromo/ad-platforms
 
+## 0.5.0
+
+### Minor Changes
+
+- [#20](https://github.com/promobase/ad-platform-sdks/pull/20) [`a5574eb`](https://github.com/promobase/ad-platform-sdks/commit/a5574eb5e62e06f40667ca1984a9b3930d6a305b) Thanks [@rayli09](https://github.com/rayli09)! - Add complete OpenPromo first-party provider coverage: Google Business Profile, provider OAuth and
+  inbox lifecycle primitives, TikTok Developer backfill and publishing, injectable transports, and
+  normalized single and bulk post metrics.
+
+### Patch Changes
+
+- Updated dependencies [[`a5574eb`](https://github.com/promobase/ad-platform-sdks/commit/a5574eb5e62e06f40667ca1984a9b3930d6a305b)]:
+  - @openpromo/google-business-profile@0.2.0
+  - @openpromo/linkedin@0.5.0
+  - @openpromo/meta@0.2.0
+  - @openpromo/tiktok@0.3.0
+  - @openpromo/x@0.4.0
+  - @openpromo/youtube@0.4.0
+  - @openpromo/google-ads@0.2.1
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/meta",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Type-safe TypeScript SDK for the Meta (Facebook) Marketing API — fully typed Graph API client with auto-generated types for 985 API objects",
   "keywords": [
     "meta",
