@@ -206,7 +206,11 @@ body {
 }
 
 .openpromo-wordmark-dark {
-	display: none;
+  display: none;
+}
+
+[data-mode="dark"] .openpromo-mark {
+  filter: invert(1);
 }
 
 [data-mode="dark"] .openpromo-wordmark-light {
