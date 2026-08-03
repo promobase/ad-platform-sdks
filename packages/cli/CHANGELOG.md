@@ -1,5 +1,25 @@
 # @openpromo/ad-platforms-cli
 
+## 0.6.0
+
+### Minor Changes
+
+- [#22](https://github.com/promobase/ad-platform-sdks/pull/22) [`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea) Thanks [@rayli09](https://github.com/rayli09)! - Add a canonical SDK codegen IR, generated Effect Schema contracts and endpoint descriptors,
+  Effect-native transport services and typed errors, matching Promise clients, and descriptor-backed
+  AI SDK, Code Mode, CLI, and MCP projections across every platform integration.
+
+### Patch Changes
+
+- Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
+  - @openpromo/sdk-runtime@0.4.0
+  - @openpromo/meta@0.3.0
+  - @openpromo/tiktok@0.4.0
+  - @openpromo/google-ads@0.3.0
+  - @openpromo/linkedin@0.6.0
+  - @openpromo/x@0.5.0
+  - @openpromo/youtube@0.5.0
+  - @openpromo/ad-platforms@0.6.0
+
 ## 0.5.1
 
 ### Patch Changes
