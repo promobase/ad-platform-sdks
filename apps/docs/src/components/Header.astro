@@ -36,12 +36,24 @@ const showSections = sections.length >= 2;
     <div class="flex items-center gap-3">
       <a href="/" class="group" aria-label={`${config.title} home`}>
         <span class="flex items-center gap-2.5 text-foreground group-hover:text-primary transition-colors">
-          <img src="/openpromo-logo.svg" alt="" width="28" height="28" class="h-7 w-7 shrink-0 dark:invert" />
-          <span class="flex items-baseline gap-2">
-            <span class="text-base font-semibold tracking-tight">OpenPromo</span>
-            <span class="hidden rounded-full border border-border px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground sm:inline">
-              SDK docs
-            </span>
+          <span class="relative block h-7 w-[6.75rem] shrink-0 overflow-hidden">
+            <img
+              src="/openpromo-wordmark-light.svg"
+              alt="OpenPromo"
+              width="667"
+              height="175"
+              class="openpromo-wordmark-light h-7 w-auto max-w-none"
+            />
+            <img
+              src="/openpromo-wordmark-dark.svg"
+              alt=""
+              width="667"
+              height="175"
+              class="openpromo-wordmark-dark h-7 w-auto max-w-none"
+            />
+          </span>
+          <span class="hidden rounded-full border border-border px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground sm:inline">
+            SDK docs
           </span>
         </span>
       </a>

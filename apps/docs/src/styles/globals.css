@@ -205,6 +205,18 @@ body {
 	opacity: 1;
 }
 
+.openpromo-wordmark-dark {
+	display: none;
+}
+
+[data-mode="dark"] .openpromo-wordmark-light {
+	display: none;
+}
+
+[data-mode="dark"] .openpromo-wordmark-dark {
+	display: block;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	html:focus-within {
 		scroll-behavior: smooth;

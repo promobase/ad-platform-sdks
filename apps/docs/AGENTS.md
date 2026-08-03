@@ -12,6 +12,9 @@ guidance. `AGENT.md` and `CLAUDE.md` are compatibility symlinks to this file.
 - `scripts/generate-reference.ts` owns generated reference output. Never hand-edit generated pages.
 - Nimbus-owned visible source is intentionally local: layouts, components, routes, and styles can
   be changed here. Upgrade scaffold files deliberately with `nimbus-docs diff`.
+- OpenPromo wordmarks in `public/openpromo-wordmark-*.svg` mirror the canonical assets in
+  [`promobase/identity`](https://github.com/promobase/identity). Keep mirrored files byte-identical
+  to that repository rather than editing them locally.
 
 ## Commands
 
