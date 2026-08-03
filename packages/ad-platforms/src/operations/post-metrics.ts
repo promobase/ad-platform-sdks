@@ -10,28 +10,28 @@ import {
 import { createTikTokClient, createTikTokDeveloperClient } from "@openpromo/tiktok";
 import { X } from "@openpromo/x";
 import { YouTubeClient } from "@openpromo/youtube";
-import { z } from "zod";
+import { Schema } from "effect";
 
 import { createOperationCatalog, defineOperation, type OperationMiddleware } from "./core.ts";
 
-export const commonPostMetricsSchema = z.object({
-  views: z.number().optional(),
-  reach: z.number().optional(),
-  likes: z.number().optional(),
-  comments: z.number().optional(),
-  shares: z.number().optional(),
-  saves: z.number().optional(),
-  quotes: z.number().optional(),
-  reposts: z.number().optional(),
-  replies: z.number().optional(),
-  bookmarks: z.number().optional(),
-  clicks: z.number().optional(),
-  watchTimeSeconds: z.number().optional(),
-  averageWatchTimeSeconds: z.number().optional(),
+export const commonPostMetricsSchema = Schema.Struct({
+  views: Schema.optional(Schema.Number),
+  reach: Schema.optional(Schema.Number),
+  likes: Schema.optional(Schema.Number),
+  comments: Schema.optional(Schema.Number),
+  shares: Schema.optional(Schema.Number),
+  saves: Schema.optional(Schema.Number),
+  quotes: Schema.optional(Schema.Number),
+  reposts: Schema.optional(Schema.Number),
+  replies: Schema.optional(Schema.Number),
+  bookmarks: Schema.optional(Schema.Number),
+  clicks: Schema.optional(Schema.Number),
+  watchTimeSeconds: Schema.optional(Schema.Number),
+  averageWatchTimeSeconds: Schema.optional(Schema.Number),
 });
 
-export const postMetricsResultSchema = z.object({
-  platform: z.enum([
+export const postMetricsResultSchema = Schema.Struct({
+  platform: Schema.Literal(
     "facebook",
     "google-business-profile",
     "instagram",
@@ -40,15 +40,15 @@ export const postMetricsResultSchema = z.object({
     "tiktok",
     "x",
     "youtube",
-  ]),
-  postId: z.string(),
-  fetchedAt: z.string(),
+  ),
+  postId: Schema.String,
+  fetchedAt: Schema.String,
   common: commonPostMetricsSchema,
-  provider: z.record(z.string(), z.unknown()),
+  provider: Schema.Record({ key: Schema.String, value: Schema.Unknown }),
 });
 
-export type CommonPostMetrics = z.infer<typeof commonPostMetricsSchema>;
-export type PostMetricsResult = z.infer<typeof postMetricsResultSchema>;
+export type CommonPostMetrics = typeof commonPostMetricsSchema.Type;
+export type PostMetricsResult = typeof postMetricsResultSchema.Type;
 
 export interface PostMetricsBatchFailure {
   index: number;
@@ -65,25 +65,29 @@ export interface PostMetricsBatchOptions {
   concurrency?: number;
 }
 
-const postIdSchema = z.object({
-  postId: z.string().min(1).describe("Provider post, media, or video identifier"),
+const nonEmptyString = Schema.String.pipe(Schema.minLength(1));
+const postIdSchema = Schema.Struct({
+  postId: nonEmptyString.annotations({ description: "Provider post, media, or video identifier" }),
 });
 
-const requestedMetricsSchema = postIdSchema.extend({
-  metrics: z.array(z.string().min(1)).min(1).optional(),
+const requestedMetricsSchema = Schema.Struct({
+  ...postIdSchema.fields,
+  metrics: Schema.optional(Schema.Array(nonEmptyString).pipe(Schema.minItems(1))),
 });
 
-const instagramMediaTypeSchema = z.enum(["feed", "reel", "story"]);
-const instagramInputSchema = z.union([
-  postIdSchema.extend({
+const instagramMediaTypeSchema = Schema.Literal("feed", "reel", "story");
+const instagramInputSchema = Schema.Union(
+  Schema.Struct({
+    ...postIdSchema.fields,
     mediaType: instagramMediaTypeSchema,
-    metrics: z.array(z.string().min(1)).min(1).optional(),
+    metrics: Schema.optional(Schema.Array(nonEmptyString).pipe(Schema.minItems(1))),
   }),
-  postIdSchema.extend({
-    mediaType: instagramMediaTypeSchema.optional(),
-    metrics: z.array(z.string().min(1)).min(1),
+  Schema.Struct({
+    ...postIdSchema.fields,
+    mediaType: Schema.optional(instagramMediaTypeSchema),
+    metrics: Schema.Array(nonEmptyString).pipe(Schema.minItems(1)),
   }),
-]);
+);
 
 const instagramDefaultMetrics = {
   feed: [
@@ -134,7 +138,7 @@ const facebookDefaultMetrics = [
   "post_reactions_anger_total",
 ] as const;
 
-const linkedInMetricSchema = z.enum([
+const linkedInMetricSchema = Schema.Literal(
   "IMPRESSION",
   "MEMBERS_REACHED",
   "RESHARE",
@@ -146,29 +150,33 @@ const linkedInMetricSchema = z.enum([
   "PREMIUM_CTA_CLICKS",
   "FOLLOWER_GAINED_FROM_CONTENT",
   "PROFILE_VIEW_FROM_CONTENT",
-]);
+);
 
-const linkedInInputSchema = postIdSchema
-  .extend({
-    source: z
-      .enum(["socialMetadata", "memberAnalytics", "organizationAnalytics"])
-      .default("socialMetadata"),
-    organizationUrn: z.string().min(1).optional(),
-    metrics: z.array(linkedInMetricSchema).min(1).default(["IMPRESSION", "REACTION", "COMMENT"]),
-    aggregation: z.enum(["DAILY", "TOTAL"]).default("TOTAL"),
-  })
-  .superRefine((input, context) => {
-    if (input.source === "organizationAnalytics" && !input.organizationUrn) {
-      context.addIssue({
-        code: "custom",
-        path: ["organizationUrn"],
-        message: "organizationUrn is required for organization analytics",
-      });
-    }
-  });
+const linkedInInputSchema = Schema.Struct({
+  ...postIdSchema.fields,
+  source: Schema.optionalWith(
+    Schema.Literal("socialMetadata", "memberAnalytics", "organizationAnalytics"),
+    { default: () => "socialMetadata" as const },
+  ),
+  organizationUrn: Schema.optional(nonEmptyString),
+  metrics: Schema.optionalWith(Schema.Array(linkedInMetricSchema).pipe(Schema.minItems(1)), {
+    default: () => ["IMPRESSION", "REACTION", "COMMENT"] as const,
+  }),
+  aggregation: Schema.optionalWith(Schema.Literal("DAILY", "TOTAL"), {
+    default: () => "TOTAL" as const,
+  }),
+}).pipe(
+  Schema.filter(
+    (input) =>
+      input.source !== "organizationAnalytics" ||
+      input.organizationUrn !== undefined ||
+      "organizationUrn is required for organization analytics",
+  ),
+);
 
-const xInputSchema = postIdSchema.extend({
-  includeOwnerMetrics: z.boolean().default(false),
+const xInputSchema = Schema.Struct({
+  ...postIdSchema.fields,
+  includeOwnerMetrics: Schema.optionalWith(Schema.Boolean, { default: () => false }),
 });
 
 export interface PostMetricsConnections {
@@ -198,14 +206,14 @@ export interface CreateAdPlatformsOptions<
 
 type PostMetricsInputFor<Platform extends keyof PostMetricsConnections> =
   Platform extends "instagram"
-    ? z.input<typeof instagramInputSchema>
+    ? typeof instagramInputSchema.Encoded
     : Platform extends "facebook" | "threads"
-      ? z.input<typeof requestedMetricsSchema>
+      ? typeof requestedMetricsSchema.Encoded
       : Platform extends "linkedin"
-        ? z.input<typeof linkedInInputSchema>
+        ? typeof linkedInInputSchema.Encoded
         : Platform extends "x"
-          ? z.input<typeof xInputSchema>
-          : z.input<typeof postIdSchema>;
+          ? typeof xInputSchema.Encoded
+          : typeof postIdSchema.Encoded;
 
 export type PostMetricsClient<Connections extends PostMetricsConnections> = {
   operations: ReturnType<typeof createPostMetricsCatalog>;
@@ -248,7 +256,7 @@ export function createPostMetricsCatalog(
           const requested = metrics ?? [
             ...instagramDefaultMetrics[requireInstagramMediaType(mediaType)],
           ];
-          const provider = await client.media.getInsights(postId, requested);
+          const provider = await client.media.getInsights(postId, [...requested]);
           return metricResult(
             "instagram",
             postId,
@@ -313,7 +321,10 @@ export function createPostMetricsCatalog(
         requiresApproval: false,
         requiredScopes: ["threads_manage_insights"],
         execute: async ({ postId, metrics }) => {
-          const provider = await client.posts.getInsights(postId, metrics);
+          const provider = await client.posts.getInsights(
+            postId,
+            metrics ? [...metrics] : undefined,
+          );
           return metricResult(
             "threads",
             postId,
@@ -631,7 +642,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     input: unknown,
   ): Promise<PostMetricsResult> => {
     const operationPlatform = platform === "googleBusinessProfile" ? "gbp" : platform;
-    return postMetricsResultSchema.parse(
+    return Schema.decodeUnknownPromise(postMetricsResultSchema)(
       await operations.invoke(`${operationPlatform}.posts.metrics.get`, input),
     );
   };
@@ -652,7 +663,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     instagram: connections.instagram
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof instagramInputSchema>) =>
+            getMetrics: (input: typeof instagramInputSchema.Encoded) =>
               getMetrics("instagram", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("instagram", inputs, batchOptions),
@@ -662,7 +673,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     facebook: connections.facebook
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof requestedMetricsSchema>) =>
+            getMetrics: (input: typeof requestedMetricsSchema.Encoded) =>
               getMetrics("facebook", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("facebook", inputs, batchOptions),
@@ -672,7 +683,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     threads: connections.threads
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof requestedMetricsSchema>) =>
+            getMetrics: (input: typeof requestedMetricsSchema.Encoded) =>
               getMetrics("threads", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("threads", inputs, batchOptions),
@@ -682,7 +693,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     tiktok: connections.tiktok
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof postIdSchema>) => getMetrics("tiktok", input),
+            getMetrics: (input: typeof postIdSchema.Encoded) => getMetrics("tiktok", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("tiktok", inputs, batchOptions),
           },
@@ -691,15 +702,15 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     tiktokDeveloper: connections.tiktokDeveloper
       ? {
           posts: {
-            getMetrics: async (input: z.input<typeof postIdSchema>) =>
-              postMetricsResultSchema.parse(
+            getMetrics: async (input: typeof postIdSchema.Encoded) =>
+              Schema.decodeUnknownPromise(postMetricsResultSchema)(
                 await operations.invoke("tiktok.developer.posts.metrics.get", input),
               ),
             getMetricsMany: (inputs, batchOptions) =>
               mapMetricsConcurrently(
                 inputs,
                 async (input) =>
-                  postMetricsResultSchema.parse(
+                  Schema.decodeUnknownPromise(postMetricsResultSchema)(
                     await operations.invoke("tiktok.developer.posts.metrics.get", input),
                   ),
                 batchOptions?.concurrency,
@@ -710,7 +721,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     linkedin: connections.linkedin
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof linkedInInputSchema>) =>
+            getMetrics: (input: typeof linkedInInputSchema.Encoded) =>
               getMetrics("linkedin", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("linkedin", inputs, batchOptions),
@@ -720,7 +731,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     x: connections.x
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof xInputSchema>) => getMetrics("x", input),
+            getMetrics: (input: typeof xInputSchema.Encoded) => getMetrics("x", input),
             getMetricsMany: (inputs, batchOptions) => getMetricsMany("x", inputs, batchOptions),
           },
         }
@@ -728,7 +739,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     youtube: connections.youtube
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof postIdSchema>) => getMetrics("youtube", input),
+            getMetrics: (input: typeof postIdSchema.Encoded) => getMetrics("youtube", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("youtube", inputs, batchOptions),
           },
@@ -737,7 +748,7 @@ export function createPostMetricsClient<const Connections extends PostMetricsCon
     googleBusinessProfile: connections.googleBusinessProfile
       ? {
           posts: {
-            getMetrics: (input: z.input<typeof postIdSchema>) =>
+            getMetrics: (input: typeof postIdSchema.Encoded) =>
               getMetrics("googleBusinessProfile", input),
             getMetricsMany: (inputs, batchOptions) =>
               getMetricsMany("googleBusinessProfile", inputs, batchOptions),
@@ -765,8 +776,8 @@ function metricResult(
 }
 
 function requireInstagramMediaType(
-  mediaType: z.infer<typeof instagramMediaTypeSchema> | undefined,
-): z.infer<typeof instagramMediaTypeSchema> {
+  mediaType: typeof instagramMediaTypeSchema.Type | undefined,
+): typeof instagramMediaTypeSchema.Type {
   if (!mediaType) {
     throw new Error("Instagram mediaType is required when metrics are not provided");
   }

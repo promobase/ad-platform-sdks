@@ -1,0 +1,13 @@
+{
+  "platform": "linkedin",
+  "source": {
+    "kind": "handwritten",
+    "location": "src/{account,analytics,assets,comments,oauth,posts}.ts"
+  },
+  "version": "202602",
+  "counts": {
+    "models": 0,
+    "endpoints": 18,
+    "capabilities": 8
+  }
+}

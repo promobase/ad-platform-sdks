@@ -6,7 +6,13 @@ import type {
   OperationCatalog,
   OperationSearchOptions,
 } from "@openpromo/ad-platforms/operations";
+import type {
+  AnyEndpointDescriptor,
+  EndpointCatalog,
+  EndpointSearchOptions,
+} from "@openpromo/sdk-runtime/effect";
 import { Command } from "commander";
+import { z } from "zod";
 
 import {
   type CliContext,
@@ -48,14 +54,19 @@ export function registerOperationCatalog<const Operations extends readonly AnyOp
 
   for (const operation of catalog.operations) {
     if (!selectedIds.has(operation.id)) continue;
+    const description = catalog.describe(operation.id);
     const name = `${options.prefix ?? ""}${operation.id.replaceAll(".", "_")}`;
     server.registerTool(
       name,
       {
         title: operation.summary,
         description: operation.description ?? operation.summary,
-        inputSchema: operation.inputSchema,
-        outputSchema: operation.outputSchema,
+        inputSchema: z.fromJSONSchema(
+          description.inputSchema as unknown as Parameters<typeof z.fromJSONSchema>[0],
+        ),
+        outputSchema: z.fromJSONSchema(
+          description.outputSchema as unknown as Parameters<typeof z.fromJSONSchema>[0],
+        ),
         annotations: {
           readOnlyHint: operation.effect === "read",
           destructiveHint: operation.effect === "delete",
@@ -71,9 +82,71 @@ export function registerOperationCatalog<const Operations extends readonly AnyOp
           "openpromo/requiredScopes": operation.requiredScopes ?? [],
         },
       },
-      async (input) => {
+      async (input: unknown) => {
         try {
           const output = await catalog.invoke(operation.id, input);
+          return {
+            content: [{ type: "text" as const, text: JSON.stringify(output, null, 2) }],
+            ...(isRecord(output) ? { structuredContent: output } : {}),
+          };
+        } catch (error) {
+          const serialized = serializeCliError(error);
+          return {
+            isError: true,
+            content: [{ type: "text" as const, text: JSON.stringify(serialized, null, 2) }],
+          };
+        }
+      },
+    );
+  }
+}
+
+export interface RegisterEndpointCatalogOptions {
+  prefix?: string;
+  search?: EndpointSearchOptions;
+}
+
+/** Register generated Effect endpoint schemas and metadata directly as MCP tools. */
+export function registerEndpointCatalog<const Descriptors extends readonly AnyEndpointDescriptor[]>(
+  server: McpServer,
+  catalog: EndpointCatalog<Descriptors>,
+  options: RegisterEndpointCatalogOptions = {},
+): void {
+  for (const description of catalog.search("", {
+    ...options.search,
+    limit: Number.MAX_SAFE_INTEGER,
+  })) {
+    const descriptor = catalog.operations.find(({ id }) => id === description.id);
+    if (!descriptor) continue;
+    server.registerTool(
+      `${options.prefix ?? ""}${descriptor.id.replaceAll(".", "_")}`,
+      {
+        title: descriptor.summary,
+        description: descriptor.description ?? descriptor.summary,
+        inputSchema: z.fromJSONSchema(
+          description.inputSchema as unknown as Parameters<typeof z.fromJSONSchema>[0],
+        ),
+        outputSchema: z.fromJSONSchema(
+          description.outputSchema as unknown as Parameters<typeof z.fromJSONSchema>[0],
+        ),
+        annotations: {
+          readOnlyHint: descriptor.effect === "read",
+          destructiveHint: descriptor.effect === "delete",
+          idempotentHint: descriptor.idempotency === "safe",
+          openWorldHint: true,
+        },
+        _meta: {
+          "openpromo/operationId": descriptor.id,
+          "openpromo/platform": descriptor.platform,
+          "openpromo/effect": descriptor.effect,
+          "openpromo/execution": descriptor.execution,
+          "openpromo/requiresApproval": descriptor.effect !== "read",
+          "openpromo/requiredScopes": descriptor.requiredScopes,
+        },
+      },
+      async (input: unknown) => {
+        try {
+          const output = await catalog.invoke(descriptor.id, input);
           return {
             content: [{ type: "text" as const, text: JSON.stringify(output, null, 2) }],
             ...(isRecord(output) ? { structuredContent: output } : {}),

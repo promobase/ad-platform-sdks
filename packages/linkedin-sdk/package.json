@@ -27,6 +27,7 @@
     "README.md"
   ],
   "scripts": {
+    "codegen": "bun scripts/generate-effect.ts",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
@@ -42,12 +43,25 @@
   "peerDependencies": {
     "typescript": ">=5.9.3 <8"
   },
+  "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
+    "effect": "^3.22.1"
+  },
+  "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*"
+  },
   "exports": {
     ".": {
       "bun": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
     }
   },
   "engines": {

@@ -1,0 +1,13 @@
+{
+  "platform": "google-ads",
+  "source": {
+    "kind": "protobuf",
+    "location": "packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25"
+  },
+  "version": "v25",
+  "counts": {
+    "models": 2577,
+    "endpoints": 169,
+    "capabilities": 120
+  }
+}

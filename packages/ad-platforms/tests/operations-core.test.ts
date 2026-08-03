@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { z } from "zod";
+import { Effect, Schema } from "effect";
 
 import { createOperationCatalog, defineOperation } from "../src/operations/index.ts";
 
@@ -9,8 +9,8 @@ const getMetrics = defineOperation({
   platform: "instagram",
   summary: "Get Instagram post metrics",
   tags: ["posts", "metrics", "insights"],
-  inputSchema: z.object({ postId: z.string() }),
-  outputSchema: z.object({ postId: z.string(), views: z.number() }),
+  inputSchema: Schema.Struct({ postId: Schema.String }),
+  outputSchema: Schema.Struct({ postId: Schema.String, views: Schema.Number }),
   effect: "read",
   execution: "inline",
   idempotency: "safe",
@@ -30,6 +30,9 @@ test("catalog validates, describes, searches, and invokes typed operations", asy
 
   const output = await catalog.invoke("instagram.posts.metrics.get", { postId: "post-1" });
   expect(output).toEqual({ postId: "post-1", views: 42 });
+  expect(
+    Effect.isEffect(catalog.invokeEffect("instagram.posts.metrics.get", { postId: "post-1" })),
+  ).toBe(true);
 });
 
 test("catalog rejects duplicate ids and invalid inputs", async () => {

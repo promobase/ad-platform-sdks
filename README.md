@@ -76,7 +76,13 @@ await generateText({
 - **58 AI SDK tools** — type-safe, filterable, with middleware and two-stage routing
 - **Agent-native operation catalog** — shared schemas and execution for direct clients, AI SDK,
   Code Mode, MCP, and CLI hosts
+- **Effect-native contracts and runtime** — generated Effect Schema, typed error channels, Layers,
+  cancellation, and a Promise projection from the same endpoint descriptor
 - **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
+
+See [the Effect migration guide](./docs/effect-migration.md),
+[the architecture](./docs/effect-native-architecture.md), and
+[the OpenPromo ownership boundary](./docs/openpromo-migration.md).
 
 ## Packages
 

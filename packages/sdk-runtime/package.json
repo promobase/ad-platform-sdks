@@ -52,6 +52,12 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./effect": {
+      "bun": "./src/effect.ts",
+      "types": "./dist/effect.d.ts",
+      "import": "./dist/effect.js",
+      "default": "./dist/effect.js"
     }
   },
   "engines": {

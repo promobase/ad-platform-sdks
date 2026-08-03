@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { Effect, JSONSchema, Schema } from "effect";
 
 export type OperationPlatform =
   | "facebook"
@@ -22,8 +22,8 @@ export interface OperationExecutionContext {
 
 export interface OperationDefinition<
   Id extends string = string,
-  InputSchema extends z.ZodType = z.ZodType,
-  OutputSchema extends z.ZodType = z.ZodType,
+  InputSchema extends Schema.Schema.Any = Schema.Schema.Any,
+  OutputSchema extends Schema.Schema.Any = Schema.Schema.Any,
 > {
   id: Id;
   platform: OperationPlatform;
@@ -38,24 +38,31 @@ export interface OperationDefinition<
   requiresApproval: boolean;
   requiredScopes?: readonly string[];
   execute: (
-    input: z.output<InputSchema>,
+    input: Schema.Schema.Type<InputSchema>,
     context: OperationExecutionContext,
-  ) => Promise<z.input<OutputSchema>> | z.input<OutputSchema>;
+  ) =>
+    | Effect.Effect<Schema.Schema.Type<OutputSchema>, unknown, never>
+    | Promise<Schema.Schema.Encoded<OutputSchema>>
+    | Schema.Schema.Encoded<OutputSchema>;
   revert?: (
-    input: z.output<InputSchema>,
-    result: z.output<OutputSchema>,
+    input: Schema.Schema.Type<InputSchema>,
+    result: Schema.Schema.Type<OutputSchema>,
     context: OperationExecutionContext,
-  ) => Promise<void> | void;
+  ) => Effect.Effect<void, unknown, never> | Promise<void> | void;
 }
 
-export type AnyOperation = OperationDefinition<string, z.ZodType, z.ZodType>;
+export type AnyOperation = OperationDefinition<string, Schema.Schema.Any, Schema.Schema.Any>;
 export type OperationId<Operations extends readonly AnyOperation[]> = Operations[number]["id"];
 export type OperationById<
   Operations extends readonly AnyOperation[],
   Id extends OperationId<Operations>,
 > = Extract<Operations[number], { id: Id }>;
-export type OperationInput<Operation extends AnyOperation> = z.input<Operation["inputSchema"]>;
-export type OperationOutput<Operation extends AnyOperation> = z.output<Operation["outputSchema"]>;
+export type OperationInput<Operation extends AnyOperation> = Schema.Schema.Encoded<
+  Operation["inputSchema"]
+>;
+export type OperationOutput<Operation extends AnyOperation> = Schema.Schema.Type<
+  Operation["outputSchema"]
+>;
 
 export interface OperationSearchOptions {
   platform?: OperationPlatform | readonly OperationPlatform[];
@@ -149,37 +156,66 @@ export class OperationCatalog<const Operations extends readonly AnyOperation[]> 
       .slice(0, options.limit ?? 20);
   }
 
+  invokeEffect<Id extends OperationId<Operations>>(
+    id: Id,
+    input: OperationInput<OperationById<Operations, Id>>,
+    context?: OperationExecutionContext,
+  ): Effect.Effect<OperationOutput<OperationById<Operations, Id>>, unknown>;
+  invokeEffect(
+    id: string,
+    input: unknown,
+    context?: OperationExecutionContext,
+  ): Effect.Effect<unknown, unknown>;
+  invokeEffect(
+    id: string,
+    input: unknown,
+    context: OperationExecutionContext = {},
+  ): Effect.Effect<unknown, unknown> {
+    const operation = this.require(id);
+    const description = describeOperation(operation);
+    const decodeInput = Schema.decodeUnknown(
+      operation.inputSchema as Schema.Schema<unknown, unknown, never>,
+    );
+    const decodeOutput = Schema.decodeUnknown(
+      operation.outputSchema as Schema.Schema<unknown, unknown, never>,
+    );
+    return decodeInput(input).pipe(
+      Effect.flatMap((parsedInput) =>
+        Effect.gen(this, function* () {
+          yield* fromPromiseOrValue(() =>
+            this.middleware?.beforeExecute?.(description, parsedInput),
+          );
+          const startedAt = Date.now();
+          const rawOutput = yield* fromEffectPromiseOrValue(() =>
+            operation.execute(parsedInput, context),
+          );
+          const output = yield* decodeOutput(rawOutput);
+          yield* fromPromiseOrValue(() =>
+            this.middleware?.afterExecute?.(
+              description,
+              parsedInput,
+              output,
+              Date.now() - startedAt,
+            ),
+          );
+          return output;
+        }).pipe(
+          Effect.tapError((error) =>
+            fromPromiseOrValue(() => this.middleware?.onError?.(description, parsedInput, error)),
+          ),
+        ),
+      ),
+    );
+  }
+
   async invoke<Id extends OperationId<Operations>>(
     id: Id,
     input: OperationInput<OperationById<Operations, Id>>,
     context?: OperationExecutionContext,
   ): Promise<OperationOutput<OperationById<Operations, Id>>>;
   async invoke(id: string, input: unknown, context?: OperationExecutionContext): Promise<unknown>;
-  async invoke(
-    id: string,
-    input: unknown,
-    context: OperationExecutionContext = {},
-  ): Promise<unknown> {
-    const operation = this.require(id);
-    const parsedInput = operation.inputSchema.parse(input);
-    const description = describeOperation(operation);
-    await this.middleware?.beforeExecute?.(description, parsedInput);
-    const startedAt = Date.now();
-
-    try {
-      const rawOutput = await operation.execute(parsedInput, context);
-      const output = operation.outputSchema.parse(rawOutput);
-      await this.middleware?.afterExecute?.(
-        description,
-        parsedInput,
-        output,
-        Date.now() - startedAt,
-      );
-      return output;
-    } catch (error) {
-      await this.middleware?.onError?.(description, parsedInput, error);
-      throw error;
-    }
+  async invoke(id: string, input: unknown, context?: OperationExecutionContext): Promise<unknown> {
+    return Effect.runPromise(this.invokeEffect(id, input, context));
   }
 
   private require(id: string): AnyOperation {
@@ -191,8 +227,8 @@ export class OperationCatalog<const Operations extends readonly AnyOperation[]> 
 
 export function defineOperation<
   const Id extends string,
-  InputSchema extends z.ZodType,
-  OutputSchema extends z.ZodType,
+  InputSchema extends Schema.Schema.Any,
+  OutputSchema extends Schema.Schema.Any,
 >(
   operation: OperationDefinition<Id, InputSchema, OutputSchema>,
 ): OperationDefinition<Id, InputSchema, OutputSchema> {
@@ -226,8 +262,8 @@ function describeOperation(operation: AnyOperation): OperationDescription {
     summary: operation.summary,
     ...(operation.description ? { description: operation.description } : {}),
     tags: operation.tags,
-    inputSchema: z.toJSONSchema(operation.inputSchema, { target: "draft-7", io: "input" }),
-    outputSchema: z.toJSONSchema(operation.outputSchema, { target: "draft-7" }),
+    inputSchema: JSONSchema.make(operation.inputSchema) as unknown as Record<string, unknown>,
+    outputSchema: JSONSchema.make(operation.outputSchema) as unknown as Record<string, unknown>,
     effect: operation.effect,
     execution: operation.execution,
     idempotency: operation.idempotency,
@@ -235,6 +271,21 @@ function describeOperation(operation: AnyOperation): OperationDescription {
     requiredScopes: operation.requiredScopes ?? [],
     reversible: operation.revert !== undefined,
   };
+}
+
+function fromPromiseOrValue<A>(evaluate: () => Promise<A> | A): Effect.Effect<A, unknown> {
+  return Effect.tryPromise({ try: () => Promise.resolve(evaluate()), catch: (error) => error });
+}
+
+function fromEffectPromiseOrValue<A>(
+  evaluate: () => Effect.Effect<A, unknown, never> | Promise<A> | A,
+): Effect.Effect<A, unknown> {
+  return Effect.suspend(() => {
+    const value = evaluate();
+    return Effect.isEffect(value)
+      ? value
+      : Effect.tryPromise({ try: () => Promise.resolve(value), catch: (error) => error });
+  });
 }
 
 function tokenize(value: string): string[] {

@@ -16,7 +16,8 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "node scripts/release.mjs",
-    "release:check": "node scripts/release.mjs --check"
+    "release:check": "node scripts/release.mjs --check",
+    "effect:check": "bun scripts/check-effect-runtime.mjs"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",

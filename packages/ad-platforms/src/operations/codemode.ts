@@ -1,4 +1,11 @@
 import type {
+  AnyEndpointDescriptor,
+  EndpointCatalog,
+  EndpointSearchOptions,
+} from "@openpromo/sdk-runtime/effect";
+import { Schema } from "effect";
+
+import type {
   AnyOperation,
   OperationCatalog,
   OperationPlatform,
@@ -63,8 +70,8 @@ export function toCodemodeConnector<const Operations extends readonly AnyOperati
     }
     tools[methodName] = {
       description: operation.description ?? operation.summary,
-      inputSchema: description.inputSchema,
-      outputSchema: description.outputSchema,
+      inputSchema: description.inputSchema as unknown as Record<string, unknown>,
+      outputSchema: description.outputSchema as unknown as Record<string, unknown>,
       requiresApproval: operation.requiresApproval,
       replay: operation.effect === "read" ? "log" : "reexecute",
       execute: (args, context) =>
@@ -78,8 +85,12 @@ export function toCodemodeConnector<const Operations extends readonly AnyOperati
               result: unknown,
               context?: CodemodeToolExecuteContext,
             ) => {
-              const input = operation.inputSchema.parse(args);
-              const output = operation.outputSchema.parse(result);
+              const input = Schema.decodeUnknownSync(
+                operation.inputSchema as Schema.Schema<unknown, unknown, never>,
+              )(args);
+              const output = Schema.decodeUnknownSync(
+                operation.outputSchema as Schema.Schema<unknown, unknown, never>,
+              )(result);
               await operation.revert?.(input, output, {
                 requestId: context?.executionId,
               });
@@ -97,6 +108,43 @@ export function toCodemodeConnector<const Operations extends readonly AnyOperati
       `Use ${name} to discover and compose typed advertising platform operations. Read operations run immediately; governed mutations may pause for approval.`,
     tools,
     operationIds: descriptions.map((description) => description.id),
+  };
+}
+
+/** Project generated Effect endpoint metadata into Code Mode without redefining schemas. */
+export function toCodemodeEndpointConnector<
+  const Descriptors extends readonly AnyEndpointDescriptor[],
+>(
+  catalog: EndpointCatalog<Descriptors>,
+  options: Omit<CodemodeAdapterOptions, "search"> & { search?: EndpointSearchOptions } = {},
+): CodemodeConnectorDefinition {
+  const descriptions = catalog.search("", {
+    ...options.search,
+    platform: options.platform,
+    limit: Number.MAX_SAFE_INTEGER,
+  });
+  const tools: CodemodeConnectorTools = {};
+  for (const description of descriptions) {
+    const methodName = connectorMethodName(description.id, options.platform !== undefined);
+    if (tools[methodName]) throw new Error(`Code Mode method collision for ${methodName}`);
+    tools[methodName] = {
+      description: description.description ?? description.summary,
+      inputSchema: description.inputSchema as unknown as Record<string, unknown>,
+      outputSchema: description.outputSchema as unknown as Record<string, unknown>,
+      requiresApproval: description.requiresApproval,
+      replay: description.effect === "read" ? "log" : "reexecute",
+      execute: (args, context) =>
+        catalog.invoke(description.id, args, { requestId: context?.executionId }),
+    };
+  }
+  const name = options.name ?? options.platform ?? "adPlatforms";
+  return {
+    name,
+    instructions:
+      options.instructions ??
+      `Use ${name} to discover and compose generated SDK endpoints. Mutations are approval-gated by endpoint metadata.`,
+    tools,
+    operationIds: descriptions.map(({ id }) => id),
   };
 }
 

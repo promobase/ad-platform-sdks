@@ -47,6 +47,12 @@
       "types": "./dist/generated/v25/index.d.ts",
       "import": "./dist/generated/v25/index.js",
       "default": "./dist/generated/v25/index.js"
+    },
+    "./v25/effect": {
+      "bun": "./src/generated/v25/effect/index.ts",
+      "types": "./dist/generated/v25/effect/index.d.ts",
+      "import": "./dist/generated/v25/effect/index.js",
+      "default": "./dist/generated/v25/effect/index.js"
     }
   },
   "files": [
@@ -69,9 +75,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*"
+    "@openpromo/sdk-runtime": "workspace:*",
+    "effect": "^3.22.1"
   },
   "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*",
     "@types/bun": "latest",
     "protobufjs": "^7.6.5",
     "typescript": "^7.0.2"

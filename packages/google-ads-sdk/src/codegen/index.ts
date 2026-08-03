@@ -1,8 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
+
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
 import { emitGaqlCatalog } from "./gaql-emitter.ts";
+import { googleAdsCanonicalIr } from "./ir.ts";
 import { type EnumAst, loadProtos, type MessageAst } from "./parser.ts";
 
 const PKG_ROOT = path.resolve(import.meta.dir, "../..");
@@ -213,6 +216,18 @@ async function main() {
   console.log(
     `[codegen] gaql: ${gaqlCatalog.resources.size} resources, ${gaqlCatalog.metrics.length} metrics, ${gaqlCatalog.segments.length} segments`,
   );
+
+  await writeEffectArtifacts({
+    outputDir: path.join(OUT, "effect"),
+    ir: googleAdsCanonicalIr({
+      root,
+      messages: versionMessages,
+      enums: versionEnums,
+      shortNames,
+      packagePrefix: PACKAGE_PREFIX,
+      version: API_VERSION,
+    }),
+  });
 }
 
 main().catch((err) => {
