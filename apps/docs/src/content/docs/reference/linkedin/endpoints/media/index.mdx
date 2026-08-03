@@ -1,0 +1,103 @@
+---
+title: "LinkedIn Media endpoints"
+description: "3 generated LinkedIn endpoint contracts for Media."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 102
+  label: "Media"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+## finalizeVideoUpload
+
+`POST` `/videos?action=finalizeUpload`
+
+finalize Video Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `media.upload` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `media.upload` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## initializeImageUpload
+
+`POST` `/images?action=initializeUpload`
+
+initialize Image Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `media.upload` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `media.upload` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## initializeVideoUpload
+
+`POST` `/videos?action=initializeUpload`
+
+initialize Video Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `media.upload` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `media.upload` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

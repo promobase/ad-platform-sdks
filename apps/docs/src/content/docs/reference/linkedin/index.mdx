@@ -1,0 +1,54 @@
+---
+title: "LinkedIn SDK reference"
+description: "Generated reference for 18 LinkedIn endpoints and 0 models."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 50
+  label: "LinkedIn"
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/linkedin
+```
+
+```ts
+import { createEffectClient } from "@openpromo/linkedin/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | LinkedIn |
+| API version | `202602` |
+| Source | `handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts` |
+| Endpoints | 18 |
+| Models | 0 |
+| Capabilities | 8 |
+
+## Endpoints
+
+- [Account](/reference/linkedin/endpoints/account)
+- [Comment](/reference/linkedin/endpoints/comment)
+- [Media](/reference/linkedin/endpoints/media)
+- [Oauth](/reference/linkedin/endpoints/oauth)
+- [Post](/reference/linkedin/endpoints/post)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `account.read` | Read organizations available to the authenticated member | `r_organization_social` |
+| `comment.publish` | Publish LinkedIn comments | `w_member_social`<br />`w_organization_social` |
+| `media.upload` | Initialize and upload LinkedIn media | `w_member_social`<br />`w_organization_social` |
+| `oauth` | Complete LinkedIn OAuth flows | `openid`<br />`profile` |
+| `post.delete` | Delete LinkedIn posts | `w_member_social`<br />`w_organization_social` |
+| `post.metrics.read` | Read post and organization analytics | `r_member_postAnalytics`<br />`r_organization_social` |
+| `post.publish` | Publish and update LinkedIn posts | `w_member_social`<br />`w_organization_social` |
+| `post.read` | Read LinkedIn posts | `r_organization_social` |

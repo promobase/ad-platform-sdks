@@ -1,0 +1,72 @@
+---
+title: "YouTube SDK reference"
+description: "Generated reference for 33 YouTube endpoints and 207 models."
+generated: true
+platform: "youtube"
+sourceVersion: "v3"
+sidebar:
+  order: 70
+  label: "YouTube"
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-v3.json). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/youtube
+```
+
+```ts
+import { createEffectClient } from "@openpromo/youtube/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | YouTube |
+| API version | `v3` |
+| Source | `discovery: google-discovery/youtube-v3.json` |
+| Endpoints | 33 |
+| Models | 207 |
+| Capabilities | 16 |
+
+## Endpoints
+
+- [Captions](/reference/youtube/endpoints/captions)
+- [Channels](/reference/youtube/endpoints/channels)
+- [Comment Threads](/reference/youtube/endpoints/comment-threads)
+- [Comments](/reference/youtube/endpoints/comments)
+- [Playlist Items](/reference/youtube/endpoints/playlist-items)
+- [Playlists](/reference/youtube/endpoints/playlists)
+- [Search](/reference/youtube/endpoints/search)
+- [Thumbnails](/reference/youtube/endpoints/thumbnails)
+- [Videos](/reference/youtube/endpoints/videos)
+
+## Models
+
+- [Abuse Report – Live Chat Moderator Snippet](/reference/youtube/models/abuse-report-to-live-chat-moderator-snippet)
+- [Live Chat New Sponsor Details – Video Stats Snippet](/reference/youtube/models/live-chat-new-sponsor-details-to-video-stats-snippet)
+- [Video Stats Statistics – Watch Settings](/reference/youtube/models/video-stats-statistics-to-watch-settings)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `captions.manage` | Manage YouTube captions | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `captions.read` | Read YouTube captions | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `channels.manage` | Manage YouTube channels | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `channels.read` | Read YouTube channels | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/youtubepartner-channel-audit` |
+| `comments.manage` | Manage YouTube comments | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| `comments.read` | Read YouTube comments | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| `commentThreads.manage` | Manage YouTube commentThreads | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| `commentThreads.read` | Read YouTube commentThreads | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| `playlistItems.manage` | Manage YouTube playlistItems | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `playlistItems.read` | Read YouTube playlistItems | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `playlists.manage` | Manage YouTube playlists | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `playlists.read` | Read YouTube playlists | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `posts.manage` | Manage YouTube videos | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `posts.read` | Read YouTube videos | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `search.read` | Read YouTube search | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| `thumbnails.manage` | Manage YouTube thumbnails | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.upload`<br />`https://www.googleapis.com/auth/youtubepartner` |

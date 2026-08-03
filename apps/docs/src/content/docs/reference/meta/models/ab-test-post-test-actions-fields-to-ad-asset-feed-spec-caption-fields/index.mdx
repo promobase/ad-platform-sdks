@@ -1,0 +1,1125 @@
+---
+title: "Meta models: AB Test Post Test Actions Fields – Ad Asset Feed Spec Caption Fields"
+description: "100 generated Meta model contracts, from ABTestPostTestActionsFields through AdAssetFeedSpecCaptionFields."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 1000
+  label: "AB Test Post Test Actions Fields – Ad Asset Feed Spec Caption Fields"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## ABTestPostTestActionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_change_budget_to_winner` | `auto_change_budget_to_winner` | `integer` | No | No | — |
+| `winner_budget` | `winner_budget` | `string` | No | No | — |
+
+## AdAccountAAACompatibleAdObjectsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_ids` | `adgroup_ids` | `Array<string>` | No | No | — |
+| `campaign_group_ids` | `campaign_group_ids` | `Array<string>` | No | No | — |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | — |
+
+## AdAccountAAASimilarCampaignsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `similar_campaign_limit` | `similar_campaign_limit` | `integer` | No | No | — |
+| `similar_campaigns_info` | `similar_campaigns_info` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `used_campaign_slots` | `used_campaign_slots` | `integer` | No | No | — |
+
+## AdAccountAccountControlsFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountAccountControlsPostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_code` | `error_code` | `integer` | No | No | — |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `success` | `success` | `boolean` | No | No | — |
+
+## AdAccountActionSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `PHYSICAL_STORE`, `WEBSITE`
+
+## AdAccountAdLimitsInsightsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date_start` | `date_start` | `string` | No | No | — |
+| `date_stop` | `date_stop` | `string` | No | No | — |
+
+## AdAccountAdRulesCountByTypeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `integer` | No | No | — |
+| `evaluation_type` | `evaluation_type` | `string` | No | No | — |
+
+## AdAccountAdRulesHistoryAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `BUDGET_NOT_REDISTRIBUTED`, `CHANGED_BID`, `CHANGED_BUDGET`, `CONSOLIDATE_ASC_FRAGMENTATION`, `CONSOLIDATE_FRAGMENTATION`, `CONVERT_ASC_CP_SINGLE_INSTANCE`, `EMAIL`, `ENABLE_ADVANTAGE_CAMPAIGN_BUDGET`, `ENABLE_ADVANTAGE_PLUS_AUDIENCE`, `ENABLE_ADVANTAGE_PLUS_CREATIVE`, `ENABLE_ADVANTAGE_PLUS_PLACEMENTS`, `ENABLE_AUTOFLOW`, `ENABLE_GEN_UNCROP`, `ENABLE_LANDING_PAGE_VIEWS`, `ENABLE_MUSIC`, `ENABLE_PIXELLESS_LPV_OPTIMIZATION_GOAL`, `ENABLE_PRODUCT_SET_BOOSTING`, `ENABLE_REELS_PLACEMENTS`, `ENABLE_SEMANTIC_BASED_AUDIENCE_EXPANSION`, `ENABLE_SHOPS_ADS`, `ENABLE_SHOPS_ADS_SAOFF`, `ENABLE_WTWA_UPSELL_IN_DUPLICATION`, `ENDPOINT_PINGED`, `ERROR`, `FACEBOOK_NOTIFICATION_SENT`, `MESSAGE_SENT`, `NOT_CHANGED`, `PAUSED`, `UNPAUSED`
+
+## AdAccountAdRulesHistoryEvaluationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SCHEDULE`, `TRIGGER`
+
+## AdAccountAdRulesHistoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `evaluation_spec` | `evaluation_spec` | `AdRuleEvaluationSpecFields` | No | No | — |
+| `exception_code` | `exception_code` | `integer` | No | No | — |
+| `exception_message` | `exception_message` | `string` | No | No | — |
+| `execution_spec` | `execution_spec` | `AdRuleExecutionSpecFields` | No | No | — |
+| `is_manual` | `is_manual` | `boolean` | No | No | — |
+| `results` | `results` | `Array<AdRuleHistoryResultFields>` | No | No | — |
+| `rule_id` | `rule_id` | `integer` | No | No | — |
+| `schedule_spec` | `schedule_spec` | `AdRuleScheduleSpecFields` | No | No | — |
+| `timestamp` | `timestamp` | `string<date-time>` | No | No | — |
+
+## AdAccountAdsRecommendedAudiosFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audio_assets` | `audio_assets` | `Array<integer>` | No | No | — |
+
+## AdAccountAdVolumeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor_id` | `actor_id` | `string` | No | No | — |
+| `actor_name` | `actor_name` | `string` | No | No | — |
+| `ad_limit_scope_business` | `ad_limit_scope_business` | `BusinessFields` | No | No | — |
+| `ad_limit_scope_business_manager_id` | `ad_limit_scope_business_manager_id` | `string` | No | No | — |
+| `ad_limit_set_by_page_admin` | `ad_limit_set_by_page_admin` | `integer` | No | No | — |
+| `ads_running_or_in_review_count` | `ads_running_or_in_review_count` | `integer` | No | No | — |
+| `ads_running_or_in_review_count_subject_to_limit_set_by_page` | `ads_running_or_in_review_count_subject_to_limit_set_by_page` | `integer` | No | No | — |
+| `current_account_ads_running_or_in_review_count` | `current_account_ads_running_or_in_review_count` | `integer` | No | No | — |
+| `future_limit_activation_date` | `future_limit_activation_date` | `string` | No | No | — |
+| `future_limit_on_ads_running_or_in_review` | `future_limit_on_ads_running_or_in_review` | `integer` | No | No | — |
+| `limit_on_ads_running_or_in_review` | `limit_on_ads_running_or_in_review` | `integer` | No | No | — |
+| `recommendations` | `recommendations` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdAccountAdVolumeRecommendationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AAC_CREATION_PACKAGE`, `AB_TEST`, `ACCOUNT_ERROR`, `ACCOUNT_NEEDS_CREDIT`, `ACCOUNT_SPEND_LIMIT`, `ACCOUNT_SPEND_LIMIT_DUPLICATION`, `ACO_TOGGLE`, `ADD_FUNDS_TO_RUN_CAMPAIGN`, `ADOPT_CATALOG_TO_RUN_PRODUCT_CENTRIC_ADS`, `ADOPT_CREATIVE_AUDIENCE_PAIRING`, `ADOPT_CREATIVE_MEDIA_SOURCING_BUNDLE`, `ADOPT_CTX_RECOMMENDED_TEMPLATE_BUNDLE`, `ADOPT_DAYPARTING_CTX_DEEP_CONVERSATIONS`, `ADOPT_GEN_AI_MVP_CHILD`, `ADOPT_INBOX_QUESTIONS_IN_ADS_MANAGER_CTM`, `ADOPT_PRODUCT_EXTENSIONS_CHILD`, `ADOPT_RELATED_MEDIA_SUGGESTIONS`, `ADOPT_SINGLE_MEDIA_AD_FORMAT_BUNDLE`, `ADOPT_SMS_VERIFICATION_FOR_LEAD_QUALITY`, `ADOPT_WEBSITE_TO_MESSENGER`, `ADSET_BUDGET_SHARING`, `ADS_REPORTING`, `ADS_STATUS`, `ADVANCED_CAMPAIGN_BUDGET`, `ADVANTAGE_APP_CAMPAIGN`, `ADVANTAGE_CAMPAIGN_BUDGET_DUPLICATION`, `ADVANTAGE_CUSTOM_AUDIENCE`, `ADVANTAGE_CUSTOM_AUDIENCE_DUPLICATION`, `ADVANTAGE_CUSTOM_AUDIENCE_UPSELL`, `ADVANTAGE_DETAILED_TARGETING`, `ADVANTAGE_LOOKALIKE_AUDIENCE`, `ADVANTAGE_LOOKALIKE_DUPLICATION`, `ADVANTAGE_PLUS_APP_CAMPAIGN`, `ADVANTAGE_PLUS_APP_CAMPAIGN_PRECREATE`, `ADVANTAGE_PLUS_AUDIENCE`, `ADVANTAGE_PLUS_AUDIENCE_DUPLICATION`, `ADVANTAGE_PLUS_AUDIENCE_FRICTION`, `ADVANTAGE_PLUS_AUDIENCE_TOGGLE`, `ADVANTAGE_PLUS_AUDIENCE_V2`, `ADVANTAGE_PLUS_CAMPAIGN_BUDGET`, `ADVANTAGE_PLUS_CATALOG_ADS`, `ADVANTAGE_PLUS_CATALOG_ADS_V2`, `ADVANTAGE_PLUS_CREATIVE`, `ADVANTAGE_PLUS_CREATIVE_CATALOG`, `ADVANTAGE_PLUS_CREATIVE_SE`, `ADVANTAGE_PLUS_LEAD_CAMPAIGN`, `ADVANTAGE_PLUS_PLACEMENTS_DUPLICATION`, `ADVANTAGE_PLUS_PLACEMENTS_FRICTION`, `ADVANTAGE_PLUS_PLACEMENTS_V2_DUPLICATION`, `ADVANTAGE_SHOPPING_CAMPAIGN`, `ADVANTAGE_SHOPPING_CAMPAIGN_FRAGMENTATION`, `AD_ACCOUNT_PLACEMENT_CONTROLS_UPSELL`, `AD_LIFT_RECALL_GOAL`, `AD_LIFT_RECALL_GOAL_PRECREATE`, `AD_LIFT_RECALL_OPTIMIZATION_GOAL`, `AD_OBJECTIVE`, `AD_SET_BUDGET_SHARING_GUIDANCE`, `AEM_V2_INELIGIBLE`, `AGGREGATED_BID_LIMITED`, `AGGREGATED_BUDGET_LIMITED`, `AGGREGATED_COST_LIMITED`, `AI_GENERATED_ICEBREAKERS`, `AMA_UPSELL`, `APLUSC_ADD_OVERLAYS`, `APLUSC_BIZ_AI_AGENT`, `APLUSC_DYNAMIC_DESCRIPTION`, `APLUSC_FLEXIBLE_MEDIA`, `APLUSC_IMAGE_BACKGROUND_GENERATION`, `APLUSC_MUSIC`, `APLUSC_RELEVANT_COMMENTS`, `APLUSC_STANDARD_ENHANCEMENTS_BUNDLE`, `APLUSC_TEXT_IMPROVEMENTS`, `APLUSC_VIDEO_EXPANSION`, `APLUSC_VISUAL_TOUCHUPS`, `APLUS_C_CATALOG_DUPLICATION`, `APP_AEM_V2_INSTALLATION_PROMOTION`, `APP_ENGAGED_VIEW_CONVERSIONS_DUPLICATION`, `APP_VO_IOS`, `ASC_AUTOMATION`, `ASC_BUDGET_OPTIMIZATION`, `ASC_CREATION_PACKAGE`, `ASC_FRAGMENTATION_V2`, `ASC_PRECREATE`, `ASPECT_RATIO`, `ATLEAST_6_PLACEMENTS`, `AUCTION_OVERLAP`, `AUCTION_OVERLAP_CONSOLIDATION`, `AUDIENCE_EXPANSION`, `AUDIENCE_EXPANSION_GEORADIUS`, `AUDIENCE_EXPANSION_LOOKALIKE`, `AUDIENCE_EXPANSION_RETARGETING`, `AUDIENCE_LEARNING_LIMITED`, `AUTOBID_TO_MANUAL_BID`, `AUTOFLOW_OPT_IN`, `AUTOFLOW_OPT_IN_FALLBACK_DUPLICATION_FLOW`, `AUTOFLOW_OPT_IN_V2`, `AUTOMATIC_PLACEMENTS`, `AUTOMATIC_PLACEMENTS_V2`, `AUTOMATIC_PLACEMENTS_V3`, `AUTOMATIC_PLACEMENTS_V4`, `AUTO_BID`, `AUTO_CAT_SELECTION_ENHANCEMENT`, `B2P_MESSAGING_UPSELL`, `BACKGROUND_GENERATION`, `BIDCAP_TO_COSTCAP`, `BIDCAP_TO_COSTCAP_GUIDANCE`, `BID_LIMITED_SENSITIVE`, `BID_LIMITED_STARVING`, `BLENDED_ADS`, `BLENDED_ADS_DUPLICATION`, `BLENDED_ADS_FOR_SHOPS_ADS_DUPLICATION`, `BPBAA_WITH_CAPI_UPSELL`, `BRAND_ADVERTISER_VIDEO_FORMAT_ADS`, `BROADGEO_AM_UPSELL_GUIDANCE`, `BROAD_TARGETING`, `BUDGET_AMORTIZATION`, `BUDGET_LIMITED`, `BUDGET_REALLOCATION`, `BUDGET_SEASONAL_GUIDANCE`, `BUSINESS_AI_AGENT_UPSELL`, `CALL_ADS_DAYPARTING_L3_RECOMMENDATION`, `CALL_ADS_L2_DAYPARTING`, `CAMPAIGN_CONSOLIDATION_WITH_FLEX`, `CAMPAIGN_GUIDANCE_NAVIGATOR_REELS_TIPS`, `CAMPAIGN_SPEND_LIMIT`, `CAPI`, `CAPI_CRM_FUNNEL`, `CAPI_CRM_GUIDANCE`, `CAPI_CRM_GUIDANCE_V2`, `CAPI_CRM_SETUP`, `CAPI_EVENT_COVERAGE`, `CAPI_PENETRATION`, `CAPI_PERFORMANCE_MATCH_KEY`, `CAPI_PERFORMANCE_MATCH_KEY_V2`, `CAPI_PERFORMANCE_MATCH_KEY_V3`, `CASH_REWARDS_OPT_IN`, `CATALOG_DYNAMIC_MEDIA`, `CATALOG_MATCH_RATE`, `CD_OPT_OUT_PREVENTION_GUIDANCE`, `CD_OPT_OUT_PREVENTION_LOW_DURATION`, `COMMERCE_SHOPS_ADS_DUPLICATION`, `CONNECTED_SOURCES`, `CONNECTED_SOURCES_DUPLICATION`, `CONNECT_FACEBOOK_PAGE_TO_INSTAGRAM`, `CONNECT_FACEBOOK_PAGE_TO_WHATSAPP`, `CONVERSION_LEADS_OPTIMIZATION`, `CONVERSION_LEADS_OPTIMIZATION_DUPLICATION`, `CONVERSION_LEADS_OPTIMIZATION_INTEGRATED`, `CONVERSION_LEADS_OPTIMIZATION_V2`, `CONVERSION_LEAD_ADS`, `CONVERT_APP_WEB_FALLBACK_TO_A_DESTINATION`, `CONVERT_IG_PROFILE_VISIT_TO_PTWA`, `COST_GOAL`, `COST_GOAL_BUDGET_LIMITED`, `COST_GOAL_CPA_LIMITED`, `COST_PER_RESULT`, `CREATION_PACKAGE_UPGRADE_TO_ASC`, `CREATION_PACKAGE_UPGRADE_TO_CTX`, `CREATION_PACKAGE_UPGRADE_TO_TLA`, `CREATION_PACKAGE_UPGRADE_TO_TMC`, `CREATIVE_AUDIENCE_PAIRING_DU`, `CREATIVE_BADGE`, `CREATIVE_DIVERSITY`, `CREATIVE_FATIGUE`, `CREATIVE_FATIGUE_DUPLICATION`, `CREATIVE_FATIGUE_HOURLY`, `CREATIVE_LIMITED`, `CREATIVE_LIMITED_DUPLICATION`, `CREATIVE_LIMITED_HOURLY`, `CREATIVE_TEST`, `CREATIVE_VOLUME`, `CREATOR_ADS_PA_CONVERSION`, `CTA`, `CTD_LEADS_OPTIMIZATION`, `CTD_PURCHASE_OPTIMIZATION`, `CTM_AD_OBJECTIVE_GROWTH`, `CTM_LEADS_OPTIMIZATION_UPSELL`, `CTM_LO_ODAX_PHASE_2`, `CTM_PO_ODAX_PHASE_2`, `CTM_VO_ODAX_PHASE_2`, `CTX_BUDGET_OPTIMIZATION`, `CTX_CREATION_PACKAGE`, `CTX_CREATION_PACKAGE_V2`, `CTX_CREATIVE_LOW_OUTCOME_WARNING`, `CTX_CTA_UPGRADE_IN_DUPLICATION`, `CTX_CTMPO_UPGRADE`, `CTX_CTWALO_UPGRADE`, `CTX_CTWAPO_UPGRADE`, `CTX_GUIDANCE`, `CTX_HVS`, `CTX_HVS_V2`, `CTX_MULTI_MESSAGE_DESTINATION`, `CTX_PRECREATE`, `CTX_PRODUCT_EXTENSION_DUPLICATION`, `CTX_SABR_CBO`, `CTX_SABR_NON_CBO`, `CTX_SMART_DEFAULTING`, `CTX_VALUE_OPTIMIZATION_CTM_PO_TO_VO`, `CTX_ZERO_OUTCOME_BUDGET`, `CTX_ZO_CBO`, `CTX_ZO_NON_CBO`, `CUSTOM_AUDIENCE_RELAXATION`, `DA_ADVANTAGE_PLUS_CREATIVE_INFO_LABELS`, `DA_DUPLICATION_PRODUCT_TAGS`, `DEAD_LINK`, `DEFRAGMENTATION_ACB`, `DEFRAGMENTATION_ACB_DUPLICATION`, `DEFRAGMENTATION_USING_VALUE_RULES_TEST_V2`, `DELIVERY_DEPENDENT_CREATIVE_LIMITED`, `DELIVERY_ERROR`, `DELIVERY_ERROR_V2`, `DELIVERY_WARNING`, `DUPLICATE_HIGH_PERFORMING_CAMPAIGN`, `DYNAMIC_ADVANTAGE_CAMPAIGN_BUDGET`, `ECOSYSTEM_BID_REDUCE_L1_CARDINALITY`, `EMAIL_CAPTURE_UPSELL_GUIDANCE`, `ENABLE_AI_GENERATED_ICEBREAKERS_FOR_CTX`, `ENABLE_AI_GENERATED_RESPONSES_CTM`, `ENABLE_WHATS_APP_ADS_DATA_SHARING`, `ENGAGED_VIEW_CONVERSIONS_CREATION`, `EVC_APP_DUPLICATION_UPGRADE`, `EVC_WEB_DUPLICATION_UPGRADE`, `EXPERIMENTATION_FRAMEWORK_TEST`, `F2_CONVERSION_LOCATION`, `FRAGMENTATION`, `FRAGMENTATION_RESOLUTION_UPDATE`, `FRAGMENTATION_V2`, `FRAGMENTATION_V3`, `FRAGMENTATION_V4`, `GENAI_FB_REELS_VIDEO`, `GENERATIVE_UNCROP_DUPLICATION`, `GEN_AI_FB_REELS_VIDEO`, `GEN_AI_MVP`, `GEN_AI_MVP_EXISTING_POSTS`, `GES_TEST`, `GOOGLE_ANALYTICS_INTEGRATION`, `GUIDANCE_CENTER_CODE_GEN`, `HEURISTIC_DEFAULT_DURATION`, `HIGH_COST`, `HISTORICAL_BENCHMARK`, `IAA_ROAS_OPTIMIZATION`, `IG_MULTI_ADS`, `IG_SURFACES_MANUAL_PLACEMENTS`, `INCREASE_BUDGET_UNDERPOWERED_EXPERIMENTS`, `INCREASE_SPEND_ON_VIDEO_CREATIVE`, `INCREMENTAL_ATTRIBUTION`, `INFORMED_CAMPAIGN_CREATION`, `INSTANT_FORMS_LEADS`, `IN_APP_AD_IMPRESSION_ROAS_ANDROID`, `LANDING_PAGE_VIEW`, `LANDING_PAGE_VIEW_OPTIMIZATION_GOAL`, `LANDING_PAGE_VIEW_OPTIMIZATION_GOAL_V2`, `LANDING_PAGE_VIEW_PRECREATE`, `LEAD_ADS_DFCA_LOOKALIKE_ADOPTION`, `LEAD_ADS_GUIDANCE`, `LEAD_NURTURING`, `LEAD_NURTURING_GUIDANCE`, `LEARNING_LIMITED`, `LEARNING_PAUSE_FRICTION`, `LEARNING_PHASE_BUDGET_EDITS`, `LIVE_VIDEO_ADS`, `LOW_BUDGET_UTILIZATION`, `LOW_OUTCOME`, `MANUAL_BIDDING_BUDGET_LIMITED`, `MARKETING_MESSAGES`, `MERLIN_GUIDANCE`, `MESSAGING_EVENTS`, `MESSAGING_EVENTS_PRECREATE`, `MESSAGING_PARTNERS`, `MESSAGING_PARTNERS_PRECREATE`, `MESSAGING_PARTNERS_V2`, `META_VERIFIED_ADS_PERFORMANCE_GUIDANCE`, `MISSING_OR_INVALID_PARAMETERS`, `MIXED_FORMATS`, `MIXED_FORMATS_V2`, `MIXED_FORMATS_V3`, `MIXED_PA_COMBINE_ADSETS`, `MMT_CAROUSEL_TO_VIDEO`, `MOBILE_FIRST_CREATIVE`, `MOBILE_FIRST_VIDEO`, `MR_AEMV2SUB_KCONSOLIDATION`, `MULTI_ADVERTISER_ADS`, `MULTI_TEXT`, `MUSIC`, `MUSIC_V2`, `NARROW_WEBSITE_CUSTOM_AUDIENCE`, `NOT_APPLICABLE`, `NO_DELIVERY_STATUS`, `OFFSITE_CONVERSION`, `OFFSITE_CONVERSION_AR`, `OFFSITE_CONVERSION_BASED_ON_SIGNALS`, `OFFSITE_CONVERSION_LEADS_OPTIMIZATION`, `OFFSITE_CONVERSION_V2`, `OMNI_OPTIMIZATION`, `OPTIMAL_BAU`, `OPT_INTO_CHAT_ON_WHATSAPP_POST_LEAD`, `OPT_INTO_NUDGE_FOLLOW_UP_MESSAGES_CTM`, `OPT_INTO_SINGLE_MEDIA_TO_COLLECTION_ADS`, `OUTCOME_FORECASTER_BID_RECOMMENDATION`, `OUTCOME_FORECASTER_BUDGET_RECOMMENDATION`, `OUTCOME_FORECASTER_SHADOW_LOGGING`, `PARTNERSHIP_ADS`, `PARTNERSHIP_ADS_DYNAMIC_HEADER`, `PAYMENT_METHOD`, `PERFORMANT_CREATIVE_REELS_OPT_IN`, `PERFORMANT_CREATIVE_REELS_OPT_IN_V2`, `PFR_L1_INLINE_MMT`, `PIXELLESS_LPV_OPTIMIZATION_GOAL`, `PIXEL_OPTIMIZATION_AAM`, `PIXEL_OPTIMIZATION_AAM_PRECREATE`, `PIXEL_OPTIMIZATION_HIE`, `PIXEL_OPTIMIZATION_HIE_PRECREATE`, `PIXEL_OPTIMIZATION_HIE_V2`, `PIXEL_SETUP`, `PIXEL_SETUP_PRECREATE`, `PIXEL_UPSELL`, `PIXEL_UPSELL_V2`, `PLACEMENTS_BUNDLE`, `PLACEMENTS_LIQUIDITY_AUTOMATIC_GUIDANCE`, `POST_ADOPTION_BUDGET_SCALING`, `POST_FLIGHT_SCALE_GOOD_CAMPAIGN`, `PREDICTIVE_CREATIVE_LIMITED`, `PREDICTIVE_CREATIVE_LIMITED_HOURLY`, `PREPARING_STATUS`, `PRODUCT_EXTENSIONS_GUIDANCE`, `PRODUCT_EXTENSIONS_IMAGE_TO_CAROUSEL`, `PRODUCT_SET_BOOSTING`, `PROMO_ADS_UPSELL_GUIDANCE`, `PURCHASE_OPTIMIZATION`, `RAPID_LEARNING_LIMITED`, `RAPID_LEARNING_PHASE`, `REACH_OPTIMIZATION_GOAL`, `REACH_OPTIMIZATION_GOAL_PRECREATE`, `REELS_DUPLICATION_UPSELL`, `REELS_MUSIC_DUPLICATION`, `REELS_PC_AND_MOBILE_FIRST_CREATIVE`, `REELS_PC_RECOMMENDATION`, `REELS_PC_RECOMMENDATION_V2`, `REELS_PERFORMANT_CREATIVE`, `REELS_PLACEMENT`, `RESOLVE_UNAVAILABLE_EVENT_OPTIMIZATION`, `REVERT`, `REVIEW_CREATIVE_DUPLICATED_REJECTED_ADS`, `SABR_DEFAULT_DURATION`, `SALES_CONVERSION`, `SAVED_AUDIENCE`, `SCALE_GOOD_CAMPAIGN`, `SCALE_GOOD_CAMPAIGN_DUPLICATION`, `SCALE_GOOD_CAMPAIGN_SMB`, `SCALE_GOOD_CAMPAIGN_V2`, `SCALE_GOOD_CAMPAIGN_V2_DUPLICATION`, `SCALE_GOOD_CTX_CAMPAIGN`, `SCALE_GOOD_CTX_CAMPAIGNS_DUPLICATION`, `SCALE_GOOD_VALUE_OPTIMIZATION_CAMPAIGN`, `SEASONAL_CAMPAIGNS`, `SEMANTIC_BASED_AUDIENCE_DUPLICATION`, `SEMANTIC_BASED_AUDIENCE_EXPANSION`, `SETUP_PIXEL`, `SHOPS_ADS`, `SHOPS_ADS_DUPLICATION`, `SHOPS_ADS_SAOFF`, `SHOPS_ADS_TRAFFIC_CAP_SETTINGS`, `SHOP_ADS_V2`, `SIGNALS_DOWN_FUNNEL_EVENT_OPTIMIZATION`, `SIGNALS_GROWTH_CAPI`, `SIGNALS_GROWTH_CAPI_PRECREATE`, `SIGNALS_GROWTH_CAPI_TABLE`, `SIGNALS_GROWTH_CAPI_V2`, `SIGNALS_VO_USING_CO_MODEL`, `SIMILAR_ADVERTISER_BUDGET_RECOMMENDATION`, `SINGLE_CELL_LIFT_STUDY`, `SITE_EXTENSIONS_DUPLICATION`, `SITE_EXTENSIONS_GUIDANCE`, `SIX_PLUS_MANUAL_PLACEMENTS`, `SIX_PLUS_PLACEMENTS_DUPLICATION`, `SMART_DEFAULT_VALUE_RULES`, `SMB_DUPLICATION`, `SMB_SGC_DUPLICATION`, `SMS_OTP_VERIFICATION_UPSELL`, `SPEND_LIMIT`, `SUPPORT_CTM_ADS_WITH_CUSTOMER_ACTIONS`, `SYD_TEST_MODE`, `TAILORED_LEAD_AD_CAMPAIGN`, `TAILORED_MESSAGES_CAMPAIGN`, `TARGETING_CREATIVE_FRAGMENTATION`, `THREECO_WEB_PLUS_APP_APLUSD`, `THREECO_WEB_PLUS_APP_UPSELL`, `TLA_CREATION_PACKAGE`, `TOP_ADSETS_WITH_ADS_UNDER_CAP`, `TOP_CAMPAIGNS_WITH_ADS_UNDER_CAP`, `TRANSLATION_DEFAULT_ON`, `TWO_P_GUIDANCE_CARD_AAA`, `TWO_P_GUIDANCE_CARD_AUTO_PLACEMENT`, `TWO_P_GUIDANCE_CARD_CBO_OFF`, `TWO_P_GUIDANCE_CARD_CTM_PREFLIGHT`, `UNCROP_IMAGE`, `UNECONOMICAL_ADS_THROTTLING`, `UNIFIED_INBOX`, `UNUSED_BUDGET`, `UPGRADE_DURATION_SETTINGS_FOR_DUPLICATION`, `UPPER_FUNNEL_TO_LEAD_INSTANT_FORM`, `UPSELL_SOFT_OPT_OUT_TO_NON_APLUS_P`, `VALUE_CO_CAMPAIGNS_LOW_PURCHASE_DQ`, `VALUE_DIAGNOSTICS_GUIDANCE`, `VALUE_OPTIMIZATION_GOAL`, `VALUE_RULES_GUIDANCE`, `VIDEO_LENGTH`, `VIDEO_VIEWS_UPSELL`, `VIDEO_VIEWS_UPSELL_PRECREATE`, `VO_IN_APP_PURCHASE`, `VO_VT_1D_DEFAULTING`, `WA_MESSAGING_PARTNERS`, `WA_MESSAGING_PARTNERS_PRECREATE`, `WA_MESSAGING_PARTNERS_V2`, `WEBSITE_AND_CALLS_UPSELL`, `WEBSITE_AND_INSTANT_FORM_L2`, `WEBSITE_TO_MESSENGER`, `WEB_APP_CONVERSION`, `WEB_ENGAGED_VIEW_CONVERSIONS`, `WTWA_UPSELL_IN_DUPLICATION`, `WTWA_UPSELL_IN_SYD_AND_AM_TABLE`, `YI_TEST`, `ZERO_CONVERSION`, `ZERO_IMPRESSION`, `ZERO_OUTCOME_BUDGET`, `ZIJI_SGP_UGP_TEST`
+
+## AdAccountAgencyFeeConfigFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_add_agency_fee_to_invoice` | `can_add_agency_fee_to_invoice` | `boolean` | No | No | — |
+| `default_agency_fee_pct` | `default_agency_fee_pct` | `number` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_agency_fee_disabled` | `is_agency_fee_disabled` | `boolean` | No | No | — |
+| `status` | `status` | `AdAccountAgencyFeeConfigStatus` | No | No | — |
+
+## AdAccountAgencyFeeConfigStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `ARCHIVED`, `DRAFT`, `UNKNOWN`
+
+## AdAccountAllPaymentMethodsFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountAmountSpentHistoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount_spent` | `amount_spent` | `integer` | No | No | — |
+| `spend_cap` | `spend_cap` | `integer` | No | No | — |
+| `time_start` | `time_start` | `string` | No | No | — |
+| `time_stop` | `time_stop` | `string` | No | No | — |
+
+## AdAccountAppSetupRequirementsFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountASLScheduleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account` | `ad_account` | `AdAccountFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `time_updated` | `time_updated` | `string<date-time>` | No | No | — |
+
+## AdAccountBankInfoListFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `banks` | `banks` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdAccountBillingDatePreferenceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account` | `ad_account` | `AdAccountFields` | No | No | — |
+| `day_of_month` | `day_of_month` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `next_bill_date` | `next_bill_date` | `string<date-time>` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `time_effective` | `time_effective` | `string<date-time>` | No | No | — |
+
+## AdAccountBrandSafetyContentFilterLevels
+
+`enum` model on the `json` wire format.
+
+**Values:** `AN_RELAXED`, `AN_STANDARD`, `AN_STRICT`, `FACEBOOK_RELAXED`, `FACEBOOK_STANDARD`, `FACEBOOK_STRICT`, `FEED_DNM`, `FEED_NESTED_DNM`, `FEED_RELAXED`, `FEED_STANDARD`, `FEED_STRICT`, `UNINITIALIZED`, `UNKNOWN`
+
+## AdAccountBusinessConstraintsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_controls` | `audience_controls` | `Record<string, unknown>` | No | No | — |
+| `campaigns_with_error` | `campaigns_with_error` | `Array<string>` | No | No | — |
+| `is_age_restriction_enabled` | `is_age_restriction_enabled` | `boolean` | No | No | — |
+| `placement_controls` | `placement_controls` | `Record<string, unknown>` | No | No | — |
+| `status` | `status` | `AdAccountBusinessConstraintsStatus` | No | No | — |
+
+## AdAccountBusinessConstraintsStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `APPLICATION_IN_PROGRESS`, `WITH_CAMPAIGN_ERROR`
+
+## AdAccountCampaignAttributionOptionInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_eligible` | `is_eligible` | `boolean` | No | No | — |
+| `value` | `value` | `string` | No | No | — |
+
+## AdAccountClaimObjective
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTOMOTIVE_MODEL`, `COLLABORATIVE_ADS`, `HOME_LISTING`, `MEDIA_TITLE`, `PRODUCT`, `TRAVEL`, `VEHICLE`, `VEHICLE_OFFER`
+
+## AdAccountContentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTOMOTIVE_MODEL`, `DESTINATION`, `FLIGHT`, `GENERIC`, `HOME_LISTING`, `HOTEL`, `LOCAL_SERVICE_BUSINESS`, `MEDIA_TITLE`, `OFFLINE_PRODUCT`, `PRODUCT`, `VEHICLE`, `VEHICLE_OFFER`
+
+## AdAccountCreationRequestFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_accounts_currency` | `ad_accounts_currency` | `string` | No | No | — |
+| `ad_accounts_info` | `ad_accounts_info` | `Array<Record<string, unknown>>` | No | No | — |
+| `additional_comment` | `additional_comment` | `string` | No | No | — |
+| `address_in_chinese` | `address_in_chinese` | `string` | No | No | — |
+| `address_in_english` | `address_in_english` | `Record<string, unknown>` | No | No | — |
+| `address_in_local_language` | `address_in_local_language` | `string` | No | No | — |
+| `advertiser_business` | `advertiser_business` | `BusinessFields` | No | No | — |
+| `appeal_reason` | `appeal_reason` | `Record<string, unknown>` | No | No | — |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `business_registration_id` | `business_registration_id` | `string` | No | No | — |
+| `chinese_legal_entity_name` | `chinese_legal_entity_name` | `string` | No | No | — |
+| `contact` | `contact` | `Record<string, unknown>` | No | No | — |
+| `creator` | `creator` | `UserFields` | No | No | — |
+| `credit_card_id` | `credit_card_id` | `string` | No | No | — |
+| `disapproval_reasons` | `disapproval_reasons` | `Array<Record<string, unknown>>` | No | No | — |
+| `english_legal_entity_name` | `english_legal_entity_name` | `string` | No | No | — |
+| `extended_credit_id` | `extended_credit_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_smb` | `is_smb` | `boolean` | No | No | — |
+| `is_test` | `is_test` | `boolean` | No | No | — |
+| `legal_entity_name_in_local_language` | `legal_entity_name_in_local_language` | `string` | No | No | — |
+| `oe_request_id` | `oe_request_id` | `string` | No | No | — |
+| `official_website_url` | `official_website_url` | `string` | No | No | — |
+| `planning_agency_business` | `planning_agency_business` | `BusinessFields` | No | No | — |
+| `planning_agency_business_id` | `planning_agency_business_id` | `string` | No | No | — |
+| `promotable_app_ids` | `promotable_app_ids` | `Array<string>` | No | No | — |
+| `promotable_page_ids` | `promotable_page_ids` | `Array<string>` | No | No | — |
+| `promotable_urls` | `promotable_urls` | `Array<string>` | No | No | — |
+| `request_change_reasons` | `request_change_reasons` | `Array<Record<string, unknown>>` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `subvertical` | `subvertical` | `string` | No | No | — |
+| `subvertical_v2` | `subvertical_v2` | `string` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `vertical` | `vertical` | `string` | No | No | — |
+| `vertical_v2` | `vertical_v2` | `string` | No | No | — |
+
+## AdAccountCurrency
+
+`enum` model on the `json` wire format.
+
+**Values:** `AED`, `ARS`, `AUD`, `BDT`, `BOB`, `BRL`, `CAD`, `CHF`, `CLP`, `CNY`, `COP`, `CRC`, `CZK`, `DKK`, `DZD`, `EGP`, `EUR`, `GBP`, `GTQ`, `HKD`, `HNL`, `HUF`, `IDR`, `ILS`, `INR`, `ISK`, `JPY`, `KES`, `KRW`, `LKR`, `MOP`, `MXN`, `MYR`, `NGN`, `NIO`, `NOK`, `NZD`, `PEN`, `PHP`, `PKR`, `PLN`, `PYG`, `QAR`, `RON`, `SAR`, `SEK`, `SGD`, `THB`, `TRY`, `TWD`, `UAH`, `USD`, `UYU`, `VND`, `ZAR`
+
+## AdAccountCustomAudienceLimitsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_update_quota_in_total` | `audience_update_quota_in_total` | `integer` | No | No | — |
+| `audience_update_quota_left` | `audience_update_quota_left` | `number` | No | No | — |
+| `has_hit_audience_update_limit` | `has_hit_audience_update_limit` | `boolean` | No | No | — |
+| `next_audience_update_available_time` | `next_audience_update_available_time` | `string` | No | No | — |
+| `rate_limit_reset_time` | `rate_limit_reset_time` | `string` | No | No | — |
+
+## AdAccountDefaultDestinationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destination_id` | `destination_id` | `string` | No | No | — |
+| `destination_url` | `destination_url` | `string` | No | No | — |
+
+## AdAccountDefaultObjectiveDefaultObjectiveForUser
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_INSTALLS`, `BRAND_AWARENESS`, `EVENT_RESPONSES`, `LEAD_GENERATION`, `LINK_CLICKS`, `LOCAL_AWARENESS`, `MESSAGES`, `OFFER_CLAIMS`, `OUTCOME_APP_PROMOTION`, `OUTCOME_AWARENESS`, `OUTCOME_ENGAGEMENT`, `OUTCOME_LEADS`, `OUTCOME_SALES`, `OUTCOME_TRAFFIC`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PRODUCT_CATALOG_SALES`, `REACH`, `STORE_VISITS`, `VIDEO_VIEWS`, `WEBSITE_CONVERSIONS`
+
+## AdAccountDefaultObjectiveFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `default_objective_for_user` | `default_objective_for_user` | `AdAccountDefaultObjectiveDefaultObjectiveForUser` | No | No | — |
+| `objective_for_level` | `objective_for_level` | `AdAccountDefaultObjectiveObjectiveForLevel` | No | No | — |
+
+## AdAccountDefaultObjectiveObjectiveForLevel
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_INSTALLS`, `BRAND_AWARENESS`, `EVENT_RESPONSES`, `LEAD_GENERATION`, `LINK_CLICKS`, `LOCAL_AWARENESS`, `MESSAGES`, `OFFER_CLAIMS`, `OUTCOME_APP_PROMOTION`, `OUTCOME_AWARENESS`, `OUTCOME_ENGAGEMENT`, `OUTCOME_LEADS`, `OUTCOME_SALES`, `OUTCOME_TRAFFIC`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PRODUCT_CATALOG_SALES`, `REACH`, `STORE_VISITS`, `VIDEO_VIEWS`, `WEBSITE_CONVERSIONS`
+
+## AdAccountDeliveryEstimateFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_outcomes_curve` | `daily_outcomes_curve` | `Array<OutcomePredictionPointFields>` | No | No | — |
+| `estimate_dau` | `estimate_dau` | `integer` | No | No | — |
+| `estimate_mau_lower_bound` | `estimate_mau_lower_bound` | `integer` | No | No | — |
+| `estimate_mau_upper_bound` | `estimate_mau_upper_bound` | `integer` | No | No | — |
+| `estimate_ready` | `estimate_ready` | `boolean` | No | No | — |
+| `targeting_optimization_types` | `targeting_optimization_types` | `Array<Record<string, integer>>` | No | No | — |
+
+## AdAccountDeliveryEstimateOptimizationGoal
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER_SILOED_VALUE`, `AD_RECALL_LIFT`, `APP_INSTALLS`, `APP_INSTALLS_AND_OFFSITE_CONVERSIONS`, `AUTOMATIC_OBJECTIVE`, `CONVERSATIONS`, `DERIVED_EVENTS`, `ENGAGED_PAGE_VIEWS`, `ENGAGED_USERS`, `EVENT_RESPONSES`, `IMPRESSIONS`, `IN_APP_VALUE`, `LANDING_PAGE_VIEWS`, `LEAD_GENERATION`, `LINK_CLICKS`, `MEANINGFUL_CALL_ATTEMPT`, `MESSAGING_APPOINTMENT_CONVERSION`, `MESSAGING_DEEP_CONVERSATION_AND_FOLLOW`, `MESSAGING_PURCHASE_CONVERSION`, `NONE`, `OFFSITE_CONVERSIONS`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PROFILE_AND_PAGE_ENGAGEMENT`, `PROFILE_VISIT`, `QUALITY_CALL`, `QUALITY_LEAD`, `REACH`, `REMINDERS_SET`, `SUBSCRIBERS`, `THRUPLAY`, `VALUE`, `VISIT_INSTAGRAM_PROFILE`
+
+## AdAccountDsaRecommendationsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Array<string>` | No | No | — |
+
+## AdAccountFeaturePreferencesFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountFeaturePreferencesPostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+
+## AdAccountFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `account_status` | `account_status` | `integer` | No | No | — |
+| `ad_account_promotable_objects` | `ad_account_promotable_objects` | `AdAccountPromotableObjectsFields` | No | No | — |
+| `age` | `age` | `number` | No | No | — |
+| `agency_client_declaration` | `agency_client_declaration` | `AgencyClientDeclarationFields` | No | No | — |
+| `all_capabilities` | `all_capabilities` | `Array<string>` | No | No | — |
+| `amount_spent` | `amount_spent` | `string` | No | No | — |
+| `attribution_spec` | `attribution_spec` | `Array<AttributionSpecFields>` | No | No | — |
+| `balance` | `balance` | `string` | No | No | — |
+| `brand_safety_content_filter_levels` | `brand_safety_content_filter_levels` | `Array<string>` | No | No | — |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `business_city` | `business_city` | `string` | No | No | — |
+| `business_country_code` | `business_country_code` | `string` | No | No | — |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `business_state` | `business_state` | `string` | No | No | — |
+| `business_street` | `business_street` | `string` | No | No | — |
+| `business_street2` | `business_street2` | `string` | No | No | — |
+| `business_zip` | `business_zip` | `string` | No | No | — |
+| `capabilities` | `capabilities` | `Array<string>` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `custom_audience_info` | `custom_audience_info` | `CustomAudienceGroupFields` | No | No | — |
+| `default_dsa_beneficiary` | `default_dsa_beneficiary` | `string` | No | No | — |
+| `default_dsa_payor` | `default_dsa_payor` | `string` | No | No | — |
+| `disable_reason` | `disable_reason` | `integer` | No | No | — |
+| `end_advertiser` | `end_advertiser` | `string` | No | No | — |
+| `end_advertiser_name` | `end_advertiser_name` | `string` | No | No | — |
+| `existing_customers` | `existing_customers` | `Array<string>` | No | No | — |
+| `expired_funding_source_details` | `expired_funding_source_details` | `FundingSourceDetailsFields` | No | No | — |
+| `extended_credit_invoice_group` | `extended_credit_invoice_group` | `ExtendedCreditInvoiceGroupFields` | No | No | — |
+| `failed_delivery_checks` | `failed_delivery_checks` | `Array<DeliveryCheckFields>` | No | No | — |
+| `fb_entity` | `fb_entity` | `integer` | No | No | — |
+| `funding_source` | `funding_source` | `string` | No | No | — |
+| `funding_source_details` | `funding_source_details` | `FundingSourceDetailsFields` | No | No | — |
+| `has_migrated_permissions` | `has_migrated_permissions` | `boolean` | No | No | — |
+| `has_page_authorized_adaccount` | `has_page_authorized_adaccount` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `io_number` | `io_number` | `string` | No | No | — |
+| `is_attribution_spec_system_default` | `is_attribution_spec_system_default` | `boolean` | No | No | — |
+| `is_ba_skip_delayed_eligible` | `is_ba_skip_delayed_eligible` | `boolean` | No | No | — |
+| `is_direct_deals_enabled` | `is_direct_deals_enabled` | `boolean` | No | No | — |
+| `is_in_3ds_authorization_enabled_market` | `is_in_3ds_authorization_enabled_market` | `boolean` | No | No | — |
+| `is_notifications_enabled` | `is_notifications_enabled` | `boolean` | No | No | — |
+| `is_personal` | `is_personal` | `integer` | No | No | — |
+| `is_prepay_account` | `is_prepay_account` | `boolean` | No | No | — |
+| `is_tax_id_required` | `is_tax_id_required` | `boolean` | No | No | — |
+| `liable_address` | `liable_address` | `CRMAddressFields` | No | No | — |
+| `line_numbers` | `line_numbers` | `Array<integer>` | No | No | — |
+| `marketing_messages_settings` | `marketing_messages_settings` | `AdAccountMarketingMessagesSettingsFields` | No | No | — |
+| `media_agency` | `media_agency` | `string` | No | No | — |
+| `min_campaign_group_spend_cap` | `min_campaign_group_spend_cap` | `string` | No | No | — |
+| `min_daily_budget` | `min_daily_budget` | `integer` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `offsite_clo_signal_status` | `offsite_clo_signal_status` | `integer` | No | No | — |
+| `offsite_pixels_tos_accepted` | `offsite_pixels_tos_accepted` | `boolean` | No | No | — |
+| `opportunity_score` | `opportunity_score` | `number` | No | No | — |
+| `opportunity_score_weight` | `opportunity_score_weight` | `integer` | No | No | — |
+| `owner` | `owner` | `string` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `partner` | `partner` | `string` | No | No | — |
+| `rf_spec` | `rf_spec` | `ReachFrequencySpecFields` | No | No | — |
+| `send_bill_to_address` | `send_bill_to_address` | `CRMAddressFields` | No | No | — |
+| `show_checkout_experience` | `show_checkout_experience` | `boolean` | No | No | — |
+| `sold_to_address` | `sold_to_address` | `CRMAddressFields` | No | No | — |
+| `spend_cap` | `spend_cap` | `string` | No | No | — |
+| `tax_id` | `tax_id` | `string` | No | No | — |
+| `tax_id_status` | `tax_id_status` | `integer` | No | No | — |
+| `tax_id_type` | `tax_id_type` | `string` | No | No | — |
+| `timezone_id` | `timezone_id` | `integer` | No | No | — |
+| `timezone_name` | `timezone_name` | `string` | No | No | — |
+| `timezone_offset_hours_utc` | `timezone_offset_hours_utc` | `number` | No | No | — |
+| `tos_accepted` | `tos_accepted` | `Record<string, integer>` | No | No | — |
+| `user_access_expire_time` | `user_access_expire_time` | `string<date-time>` | No | No | — |
+| `user_tasks` | `user_tasks` | `Array<string>` | No | No | — |
+| `user_tos_accepted` | `user_tos_accepted` | `Record<string, integer>` | No | No | — |
+| `viewable_business` | `viewable_business` | `BusinessFields` | No | No | — |
+
+## AdAccountIosFourteenCampaignLimitsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_group_limit` | `campaign_group_limit` | `integer` | No | No | — |
+| `campaign_group_limits_details` | `campaign_group_limits_details` | `Array<Record<string, unknown>>` | No | No | — |
+| `campaign_limit` | `campaign_limit` | `integer` | No | No | — |
+
+## AdAccountLiveVideoAdvertiserFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ig_lva_default_duration_s` | `ig_lva_default_duration_s` | `integer` | No | No | — |
+| `is_lva_toggle_on` | `is_lva_toggle_on` | `boolean` | No | No | — |
+| `lva_default_budget` | `lva_default_budget` | `integer` | No | No | — |
+| `lva_default_duration_s` | `lva_default_duration_s` | `integer` | No | No | — |
+| `should_default_current_live` | `should_default_current_live` | `boolean` | No | No | — |
+| `should_default_scheduled_live` | `should_default_scheduled_live` | `boolean` | No | No | — |
+| `should_default_toggle_on_from_model` | `should_default_toggle_on_from_model` | `boolean` | No | No | — |
+| `should_show_lva_toggle` | `should_show_lva_toggle` | `boolean` | No | No | — |
+
+## AdAccountMarketingMessagesSettingsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `whatsapp_activation_status` | `whatsapp_activation_status` | `string` | No | No | — |
+
+## AdAccountMatchedSearchApplicationsEdgeDataAppStore
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL_APP_STORES_FOR_ANDROID_AND_IOS`, `AMAZON_APP_STORE`, `APK_MIRROR`, `APK_MONK`, `APK_PURE`, `APTOIDE_A1_STORE`, `BEMOBI_MOBILE_STORE`, `DIGITAL_TURBINE_STORE`, `DOES_NOT_EXIST`, `FB_ANDROID_STORE`, `FB_CANVAS`, `FB_GAMEROOM`, `GALAXY_STORE`, `GOOGLE_PLAY`, `HORIZON_WORLD`, `INSTANT_GAME`, `ITUNES`, `ITUNES_IPAD`, `NEON_ANDROID_STORE`, `NONE`, `OCULUS_APP_STORE`, `OPPO`, `ROKU_STORE`, `UPTODOWN`, `VIVO`, `WINDOWS_10_STORE`, `WINDOWS_STORE`, `XIAOMI`
+
+## AdAccountMatchedSearchApplicationsEdgeDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `are_app_events_unavailable` | `are_app_events_unavailable` | `boolean` | No | No | — |
+| `icon_url` | `icon_url` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `search_source_store` | `search_source_store` | `string` | No | No | — |
+| `store` | `store` | `string` | No | No | — |
+| `unique_id` | `unique_id` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## AdAccountMatchedSearchApplicationsEdgeDataStoresToFilter
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL_APP_STORES_FOR_ANDROID_AND_IOS`, `AMAZON_APP_STORE`, `APK_MIRROR`, `APK_MONK`, `APK_PURE`, `APTOIDE_A1_STORE`, `BEMOBI_MOBILE_STORE`, `DIGITAL_TURBINE_STORE`, `DOES_NOT_EXIST`, `FB_ANDROID_STORE`, `FB_CANVAS`, `FB_GAMEROOM`, `GALAXY_STORE`, `GOOGLE_PLAY`, `HORIZON_WORLD`, `INSTANT_GAME`, `ITUNES`, `ITUNES_IPAD`, `NEON_ANDROID_STORE`, `NONE`, `OCULUS_APP_STORE`, `OPPO`, `ROKU_STORE`, `UPTODOWN`, `VIVO`, `WINDOWS_10_STORE`, `WINDOWS_STORE`, `XIAOMI`
+
+## AdAccountMaxBidFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_bid` | `max_bid` | `integer` | No | No | — |
+
+## AdAccountOptimizationGoalsAEMv2EligibilityFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_disabled` | `is_disabled` | `boolean` | No | No | — |
+| `optimization_goal` | `optimization_goal` | `AdAccountOptimizationGoalsAEMv2EligibilityOptimizationGoal` | No | No | — |
+
+## AdAccountOptimizationGoalsAEMv2EligibilityOptimizationGoal
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER_SILOED_VALUE`, `AD_RECALL_LIFT`, `APP_INSTALLS`, `APP_INSTALLS_AND_OFFSITE_CONVERSIONS`, `AUTOMATIC_OBJECTIVE`, `CONVERSATIONS`, `DERIVED_EVENTS`, `ENGAGED_PAGE_VIEWS`, `ENGAGED_USERS`, `EVENT_RESPONSES`, `IMPRESSIONS`, `IN_APP_VALUE`, `LANDING_PAGE_VIEWS`, `LEAD_GENERATION`, `LINK_CLICKS`, `MEANINGFUL_CALL_ATTEMPT`, `MESSAGING_APPOINTMENT_CONVERSION`, `MESSAGING_DEEP_CONVERSATION_AND_FOLLOW`, `MESSAGING_PURCHASE_CONVERSION`, `NONE`, `OFFSITE_CONVERSIONS`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PROFILE_AND_PAGE_ENGAGEMENT`, `PROFILE_VISIT`, `QUALITY_CALL`, `QUALITY_LEAD`, `REACH`, `REMINDERS_SET`, `SUBSCRIBERS`, `THRUPLAY`, `VALUE`, `VISIT_INSTAGRAM_PROFILE`
+
+## AdAccountPaymentDetailsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount` | `amount` | `CurrencyAmountFields` | No | No | — |
+| `create_date` | `create_date` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `last_action_status` | `last_action_status` | `string` | No | No | — |
+| `metadata` | `metadata` | `Record<string, unknown>` | No | No | — |
+| `payment_details_id` | `payment_details_id` | `string` | No | No | — |
+
+## AdAccountPaymentOptionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_altpay_options` | `available_altpay_options` | `Array<Record<string, unknown>>` | No | No | — |
+| `available_card_types` | `available_card_types` | `Array<string>` | No | No | — |
+| `available_payment_options` | `available_payment_options` | `Array<string>` | No | No | — |
+| `existing_payment_methods` | `existing_payment_methods` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdAccountPermittedTasks
+
+`enum` model on the `json` wire format.
+
+**Values:** `AA_ANALYZE`, `ADVERTISE`, `ANALYZE`, `DRAFT`, `MANAGE`
+
+## AdAccountPrepayDetailsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `default_funding_amount` | `default_funding_amount` | `CurrencyAmountFields` | No | No | — |
+| `max_acceptable_amount` | `max_acceptable_amount` | `CurrencyAmountFields` | No | No | — |
+| `min_acceptable_amount` | `min_acceptable_amount` | `CurrencyAmountFields` | No | No | — |
+| `should_collect_business_details` | `should_collect_business_details` | `boolean` | No | No | — |
+
+## AdAccountPromotableObjectsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promotable_app_ids` | `promotable_app_ids` | `Array<string>` | No | No | — |
+| `promotable_page_ids` | `promotable_page_ids` | `Array<string>` | No | No | — |
+| `promotable_urls` | `promotable_urls` | `Array<string>` | No | No | — |
+
+## AdAccountPromotionProgressBarFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adaccount_permission` | `adaccount_permission` | `boolean` | No | No | — |
+| `coupon_currency` | `coupon_currency` | `string` | No | No | — |
+| `coupon_value` | `coupon_value` | `integer` | No | No | — |
+| `expiration_time` | `expiration_time` | `string<date-time>` | No | No | — |
+| `progress_completed` | `progress_completed` | `boolean` | No | No | — |
+| `promotion_type` | `promotion_type` | `string` | No | No | — |
+| `spend_requirement_in_cent` | `spend_requirement_in_cent` | `integer` | No | No | — |
+| `spend_since_enrollment` | `spend_since_enrollment` | `integer` | No | No | — |
+
+## AdAccountReachEstimateFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimate_ready` | `estimate_ready` | `boolean` | No | No | — |
+| `users_lower_bound` | `users_lower_bound` | `integer` | No | No | — |
+| `users_upper_bound` | `users_upper_bound` | `integer` | No | No | — |
+
+## AdAccountRecommendationsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdAccountRecommendedCamapaignBudgetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily` | `daily` | `string` | No | No | — |
+| `lifetime` | `lifetime` | `string` | No | No | — |
+| `objective` | `objective` | `string` | No | No | — |
+
+## AdAccountRelatedIcoStudyFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountSmartSuggestedAdsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_creative_spec` | `ad_creative_spec` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `guidance_spec` | `guidance_spec` | `Array<string>` | No | No | — |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | — |
+
+## AdAccountSpendCapChangeHistoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | — |
+| `spend_cap` | `spend_cap` | `integer` | No | No | — |
+| `time_start` | `time_start` | `string` | No | No | — |
+| `time_stop` | `time_stop` | `string` | No | No | — |
+
+## AdAccountSpendLimitFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount_spent` | `amount_spent` | `string` | No | No | — |
+| `group_id` | `group_id` | `string` | No | No | — |
+| `limit_id` | `limit_id` | `string` | No | No | — |
+| `limit_value` | `limit_value` | `string` | No | No | — |
+| `time_created` | `time_created` | `integer` | No | No | — |
+| `time_start` | `time_start` | `integer` | No | No | — |
+| `time_stop` | `time_stop` | `integer` | No | No | — |
+
+## AdAccountSubscribedAppsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_name` | `app_name` | `string` | No | No | — |
+
+## AdAccountSubsidyAmountDetailsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entered_amount` | `entered_amount` | `CurrencyAmountFields` | No | No | — |
+| `fee_amount` | `fee_amount` | `CurrencyAmountFields` | No | No | — |
+| `total_amount` | `total_amount` | `CurrencyAmountFields` | No | No | — |
+
+## AdAccountSubtype
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP`, `BAG_OF_ACCOUNTS`, `BIDDING`, `CLAIM`, `CUSTOM`, `ENGAGEMENT`, `EXCLUSION`, `FOX`, `LOOKALIKE`, `MANAGED`, `MEASUREMENT`, `MESSENGER_SUBSCRIBER_LIST`, `OFFLINE_CONVERSION`, `PARTNER`, `PRIMARY`, `REGULATED_CATEGORIES_AUDIENCE`, `STUDY_RULE_AUDIENCE`, `VIDEO`, `WEBSITE`
+
+## AdAccountTargetingUnifiedAppStore
+
+`enum` model on the `json` wire format.
+
+**Values:** `all_app_stores_for_android_and_ios`, `amazon_app_store`, `apk_mirror`, `apk_monk`, `apk_pure`, `aptoide_a1_store`, `bemobi_mobile_store`, `digital_turbine_store`, `does_not_exist`, `fb_android_store`, `fb_canvas`, `fb_gameroom`, `galaxy_store`, `google_play`, `horizon_world`, `instant_game`, `itunes`, `itunes_ipad`, `neon_android_store`, `none`, `oculus_app_store`, `oppo`, `roku_channel_store`, `uptodown`, `vivo`, `windows_10_store`, `windows_store`, `xiaomi`
+
+## AdAccountTargetingUnifiedFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_size_lower_bound` | `audience_size_lower_bound` | `integer` | No | No | — |
+| `audience_size_upper_bound` | `audience_size_upper_bound` | `integer` | No | No | — |
+| `conversion_lift` | `conversion_lift` | `number` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `img` | `img` | `string` | No | No | — |
+| `info` | `info` | `string` | No | No | — |
+| `info_title` | `info_title` | `string` | No | No | — |
+| `is_recommendation` | `is_recommendation` | `boolean` | No | No | — |
+| `is_youth_ads_age_gated` | `is_youth_ads_age_gated` | `boolean` | No | No | — |
+| `key` | `key` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `parent` | `parent` | `string` | No | No | — |
+| `partner` | `partner` | `string` | No | No | — |
+| `path` | `path` | `Array<string>` | No | No | — |
+| `performance_rating` | `performance_rating` | `integer` | No | No | — |
+| `raw_name` | `raw_name` | `string` | No | No | — |
+| `recommendation_model` | `recommendation_model` | `string` | No | No | — |
+| `search_interest_id` | `search_interest_id` | `string` | No | No | — |
+| `source` | `source` | `string` | No | No | — |
+| `spend` | `spend` | `number` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `valid` | `valid` | `boolean` | No | No | — |
+
+## AdAccountTargetingUnifiedLimitType
+
+`enum` model on the `json` wire format.
+
+**Values:** `behaviors`, `college_years`, `education_majors`, `education_schools`, `education_statuses`, `ethnic_affinity`, `family_statuses`, `generation`, `home_ownership`, `home_type`, `home_value`, `household_composition`, `income`, `industries`, `interested_in`, `interests`, `life_events`, `location_categories`, `moms`, `net_worth`, `office_type`, `politics`, `relationship_statuses`, `user_adclusters`, `work_employers`, `work_positions`
+
+## AdAccountTargetingUnifiedMode
+
+`enum` model on the `json` wire format.
+
+**Values:** `best_performing`, `recently_used`, `related`, `suggestions`
+
+## AdAccountTargetingUnifiedObjective
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_INSTALLS`, `BRAND_AWARENESS`, `CONVERSIONS`, `EVENT_RESPONSES`, `LEAD_GENERATION`, `LINK_CLICKS`, `LOCAL_AWARENESS`, `MESSAGES`, `OFFER_CLAIMS`, `OUTCOME_APP_PROMOTION`, `OUTCOME_AWARENESS`, `OUTCOME_ENGAGEMENT`, `OUTCOME_LEADS`, `OUTCOME_SALES`, `OUTCOME_TRAFFIC`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PRODUCT_CATALOG_SALES`, `REACH`, `STORE_VISITS`, `VIDEO_VIEWS`
+
+## AdAccountTargetingUnifiedRegulatedCategories
+
+`enum` model on the `json` wire format.
+
+**Values:** `CREDIT`, `EMPLOYMENT`, `FINANCIAL_PRODUCTS_SERVICES`, `HOUSING`, `ISSUES_ELECTIONS_POLITICS`, `NONE`, `ONLINE_GAMBLING_AND_GAMING`
+
+## AdAccountTargetingUnifiedRegulatedCountries
+
+`enum` model on the `json` wire format.
+
+**Values:** `AC`, `AD`, `AE`, `AF`, `AG`, `AI`, `AL`, `AM`, `AN`, `AO`, `AQ`, `AR`, `AS`, `AT`, `AU`, `AW`, `AX`, `AZ`, `BA`, `BB`, `BD`, `BE`, `BF`, `BG`, `BH`, `BI`, `BJ`, `BL`, `BM`, `BN`, `BO`, `BQ`, `BR`, `BS`, `BT`, `BV`, `BW`, `BY`, `BZ`, `CA`, `CC`, `CD`, `CF`, `CG`, `CH`, `CI`, `CK`, `CL`, `CM`, `CN`, `CO`, `CR`, `CU`, `CV`, `CW`, `CX`, `CY`, `CZ`, `DE`, `DJ`, `DK`, `DM`, `DO`, `DZ`, `EC`, `EE`, `EG`, `EH`, `ER`, `ES`, `ET`, `FI`, `FJ`, `FK`, `FM`, `FO`, `FR`, `GA`, `GB`, `GD`, `GE`, `GF`, `GG`, `GH`, `GI`, `GL`, `GM`, `GN`, `GP`, `GQ`, `GR`, `GS`, `GT`, `GU`, `GW`, `GY`, `HK`, `HM`, `HN`, `HR`, `HT`, `HU`, `ID`, `IE`, `IL`, `IM`, `IN`, `IO`, `IQ`, `IR`, `IS`, `IT`, `JE`, `JM`, `JO`, `JP`, `KE`, `KG`, `KH`, `KI`, `KM`, `KN`, `KP`, `KR`, `KW`, `KY`, `KZ`, `LA`, `LB`, `LC`, `LI`, `LK`, `LR`, `LS`, `LT`, `LU`, `LV`, `LY`, `MA`, `MC`, `MD`, `ME`, `MF`, `MG`, `MH`, `MK`, `ML`, `MM`, `MN`, `MO`, `MP`, `MQ`, `MR`, `MS`, `MT`, `MU`, `MV`, `MW`, `MX`, `MY`, `MZ`, `NA`, `NC`, `NE`, `NF`, `NG`, `NI`, `NL`, `NO`, `NP`, `NR`, `NU`, `NZ`, `OM`, `PA`, `PE`, `PF`, `PG`, `PH`, `PK`, `PL`, `PM`, `PN`, `PR`, `PS`, `PT`, `PW`, `PY`, `QA`, `RE`, `RO`, `RS`, `RU`, `RW`, `SA`, `SB`, `SC`, `SD`, `SE`, `SG`, `SH`, `SI`, `SJ`, `SK`, `SL`, `SM`, `SN`, `SO`, `SR`, `SS`, `ST`, `SV`, `SX`, `SY`, `SZ`, `TC`, `TD`, `TF`, `TG`, `TH`, `TJ`, `TK`, `TL`, `TM`, `TN`, `TO`, `TR`, `TT`, `TV`, `TW`, `TZ`, `UA`, `UG`, `UM`, `US`, `UY`, `UZ`, `VA`, `VC`, `VE`, `VG`, `VI`, `VN`, `VU`, `WF`, `WS`, `XK`, `YE`, `YT`, `ZA`, `ZM`, `ZW`
+
+## AdAccountTargetingUnifiedWhitelistedTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `adgroup_id`, `age_max`, `age_min`, `age_range`, `alternate_auto_targeting_option`, `app_install_state`, `audience_concepts`, `audience_network_positions`, `behaviors`, `brand_safety_content_filter_levels`, `brand_safety_content_severity_levels`, `cafe_ca_contraction_targeting_signal`, `cafe_ca_expansion_targeting_signal`, `catalog_based_targeting`, `cities`, `city_keys`, `college_years`, `conjunctive_user_adclusters`, `connections`, `contextual_targeting_categories`, `countries`, `country`, `country_groups`, `custom_audiences`, `device_platforms`, `direct_install_devices`, `dt_consolidation_state`, `dynamic_audience_ids`, `education_majors`, `education_schools`, `education_statuses`, `effective_audience_network_positions`, `effective_brand_safety_content_filter_levels`, `effective_device_platforms`, `effective_facebook_positions`, `effective_instagram_positions`, `effective_messenger_positions`, `effective_oculus_positions`, `effective_publisher_platforms`, `effective_threads_positions`, `effective_whatsapp_positions`, `engagement_specs`, `ethnic_affinity`, `exclude_previous_days`, `exclude_reached_since`, `excluded_brand_safety_content_types`, `excluded_connections`, `excluded_custom_audiences`, `excluded_dynamic_audience_ids`, `excluded_engagement_specs`, `excluded_geo_locations`, `excluded_mobile_device_model`, `excluded_product_audience_specs`, `excluded_publisher_categories`, `excluded_publisher_list_ids`, `excluded_user_adclusters`, `excluded_user_device`, `exclusions`, `expanded_implicit_custom_audiences`, `facebook_positions`, `family_statuses`, `fb_deal_id`, `flexible_spec`, `follow_profiles`, `follow_profiles_negative`, `format`, `friends_of_connections`, `gatekeepers`, `genders`, `generation`, `geo_locations`, `hashtag_interactions`, `home_ownership`, `home_type`, `home_value`, `household_composition`, `household_income`, `id`, `income`, `industries`, `instagram_hashtags`, `instagram_positions`, `install_state_application`, `instream_video_skippable_excluded`, `instream_video_sponsorship_placements`, `interest_defaults_source`, `interested_in`, `interests`, `is_instagram_destination_ad`, `is_whatsapp_destination_ad`, `keywords`, `life_events`, `locales`, `location_categories`, `location_cluster_ids`, `location_expansion`, `marketing_message_channels`, `marketplace_product_categories`, `messenger_positions`, `mobile_device_model`, `moms`, `net_worth`, `oculus_positions`, `office_type`, `page_types`, `place_page_set_ids`, `political_views`, `politics`, `product_audience_specs`, `prospecting_audience`, `publisher_platforms`, `purchase_intent`, `radius`, `region_keys`, `regions`, `relationship_statuses`, `rtb_flag`, `site_category`, `subscriber_universe`, `tafe_ca_mitigation_strategy`, `targeting_automation`, `targeting_optimization`, `targeting_relaxation_types`, `threads_positions`, `timezones`, `topic`, `trending`, `user_adclusters`, `user_age_unknown`, `user_device`, `user_event`, `user_os`, `user_page_threads`, `user_page_threads_excluded`, `whatsapp_positions`, `wireless_carrier`, `work_employers`, `work_positions`, `zips`
+
+## AdAccountTasks
+
+`enum` model on the `json` wire format.
+
+**Values:** `AA_ANALYZE`, `ADVERTISE`, `ANALYZE`, `DRAFT`, `MANAGE`
+
+## AdAccountTrackingDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tracking_specs` | `tracking_specs` | `ConversionActionQueryFields` | No | No | — |
+
+## AdAccountURLForAssetExtractionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source_type` | `source_type` | `string` | No | No | — |
+| `source_url` | `source_url` | `string` | No | No | — |
+
+## AdAccountUserFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `tasks` | `tasks` | `Array<string>` | No | No | — |
+
+## AdAccountUserPermissionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `business_persona` | `business_persona` | `Record<string, unknown>` | No | No | — |
+| `created_by` | `created_by` | `UserFields` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `tasks` | `tasks` | `Array<string>` | No | No | — |
+| `updated_by` | `updated_by` | `UserFields` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+| `user` | `user` | `UserFields` | No | No | — |
+
+## AdAccountUserSettingsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `acf_should_opt_out_video_adjustments` | `acf_should_opt_out_video_adjustments` | `boolean` | No | No | — |
+| `aco_sticky_settings` | `aco_sticky_settings` | `Array<Record<string, string>>` | No | No | — |
+| `actions_quick_view_created` | `actions_quick_view_created` | `boolean` | No | No | — |
+| `active_ads_quick_view_created` | `active_ads_quick_view_created` | `boolean` | No | No | — |
+| `ad_account` | `ad_account` | `AdAccountFields` | No | No | — |
+| `ad_object_export_format` | `ad_object_export_format` | `string` | No | No | — |
+| `ads_manager_footer_row_toast_impressions` | `ads_manager_footer_row_toast_impressions` | `integer` | No | No | — |
+| `auto_review_video_caption` | `auto_review_video_caption` | `boolean` | No | No | — |
+| `budget_optimization_quick_view_created` | `budget_optimization_quick_view_created` | `boolean` | No | No | — |
+| `budget_pool_qv_created` | `budget_pool_qv_created` | `boolean` | No | No | — |
+| `campaign_overview_columns` | `campaign_overview_columns` | `Array<string>` | No | No | — |
+| `column_suggestion_status` | `column_suggestion_status` | `string` | No | No | — |
+| `conditional_formatting_rules` | `conditional_formatting_rules` | `Array<string>` | No | No | — |
+| `default_account_overview_agegender_metrics` | `default_account_overview_agegender_metrics` | `Array<string>` | No | No | — |
+| `default_account_overview_location_metrics` | `default_account_overview_location_metrics` | `Array<string>` | No | No | — |
+| `default_account_overview_metrics` | `default_account_overview_metrics` | `Array<string>` | No | No | — |
+| `default_account_overview_time_metrics` | `default_account_overview_time_metrics` | `Array<string>` | No | No | — |
+| `default_builtin_column_preset` | `default_builtin_column_preset` | `string` | No | No | — |
+| `default_nam_time_range` | `default_nam_time_range` | `string` | No | No | — |
+| `draft_mode_enabled` | `draft_mode_enabled` | `boolean` | No | No | — |
+| `export_deleted_items_with_delivery` | `export_deleted_items_with_delivery` | `boolean` | No | No | — |
+| `export_summary_row` | `export_summary_row` | `boolean` | No | No | — |
+| `had_delivery_quick_view_created` | `had_delivery_quick_view_created` | `boolean` | No | No | — |
+| `has_seen_groups_column_flexing_experience` | `has_seen_groups_column_flexing_experience` | `boolean` | No | No | — |
+| `has_seen_instagram_column_flexing_experience` | `has_seen_instagram_column_flexing_experience` | `boolean` | No | No | — |
+| `has_seen_leads_column_flexing_experience` | `has_seen_leads_column_flexing_experience` | `boolean` | No | No | — |
+| `has_seen_shops_ads_metrics_onboarding_tour` | `has_seen_shops_ads_metrics_onboarding_tour` | `boolean` | No | No | — |
+| `has_seen_shops_column_flexing_experience` | `has_seen_shops_column_flexing_experience` | `boolean` | No | No | — |
+| `has_used_quick_views_panel` | `has_used_quick_views_panel` | `boolean` | No | No | — |
+| `hidden_optimization_tips` | `hidden_optimization_tips` | `Array<Record<string, boolean>>` | No | No | — |
+| `high_performing_quick_view_created` | `high_performing_quick_view_created` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_3p_auth_setting_set` | `is_3p_auth_setting_set` | `boolean` | No | No | — |
+| `is_ads_manager_footer_row_preference_set` | `is_ads_manager_footer_row_preference_set` | `boolean` | No | No | — |
+| `is_ads_manager_footer_row_shown` | `is_ads_manager_footer_row_shown` | `boolean` | No | No | — |
+| `last_used_columns` | `last_used_columns` | `Record<string, unknown>` | No | No | — |
+| `last_used_pe_filters` | `last_used_pe_filters` | `Array<Record<string, unknown>>` | No | No | — |
+| `last_used_website_urls` | `last_used_website_urls` | `Array<string>` | No | No | — |
+| `outlier_preferences` | `outlier_preferences` | `Record<string, unknown>` | No | No | — |
+| `pinned_ad_object_ids` | `pinned_ad_object_ids` | `Array<string>` | No | No | — |
+| `rb_export_format` | `rb_export_format` | `string` | No | No | — |
+| `rb_export_raw_data` | `rb_export_raw_data` | `boolean` | No | No | — |
+| `rb_export_summary_row` | `rb_export_summary_row` | `boolean` | No | No | — |
+| `recently_used_quick_views` | `recently_used_quick_views` | `Array<string>` | No | No | — |
+| `saip_advertiser_setup_optimisation_guidance_overall_state` | `saip_advertiser_setup_optimisation_guidance_overall_state` | `string` | No | No | — |
+| `saip_advertiser_setup_optimisation_guidance_state` | `saip_advertiser_setup_optimisation_guidance_state` | `Array<Record<string, string>>` | No | No | — |
+| `shops_ads_metrics_onboarding_tour_close_count` | `shops_ads_metrics_onboarding_tour_close_count` | `integer` | No | No | — |
+| `shops_ads_metrics_onboarding_tour_last_action_time` | `shops_ads_metrics_onboarding_tour_last_action_time` | `string<date-time>` | No | No | — |
+| `should_default_image_auto_crop` | `should_default_image_auto_crop` | `boolean` | No | No | — |
+| `should_default_image_auto_crop_for_tail` | `should_default_image_auto_crop_for_tail` | `boolean` | No | No | — |
+| `should_default_image_auto_crop_optimization` | `should_default_image_auto_crop_optimization` | `boolean` | No | No | — |
+| `should_default_image_dof_toggle` | `should_default_image_dof_toggle` | `boolean` | No | No | — |
+| `should_default_image_lpp_ads_to_square` | `should_default_image_lpp_ads_to_square` | `boolean` | No | No | — |
+| `should_default_instagram_profile_card_optimization` | `should_default_instagram_profile_card_optimization` | `boolean` | No | No | — |
+| `should_default_text_swapping_optimization` | `should_default_text_swapping_optimization` | `boolean` | No | No | — |
+| `should_logout_of_3p_sourcing` | `should_logout_of_3p_sourcing` | `boolean` | No | No | — |
+| `should_show_shops_ads_metrics_onboarding_tour` | `should_show_shops_ads_metrics_onboarding_tour` | `boolean` | No | No | — |
+| `show_archived_data` | `show_archived_data` | `boolean` | No | No | — |
+| `syd_campaign_trends_activemetric` | `syd_campaign_trends_activemetric` | `string` | No | No | — |
+| `syd_campaign_trends_attribution` | `syd_campaign_trends_attribution` | `string` | No | No | — |
+| `syd_campaign_trends_metrics` | `syd_campaign_trends_metrics` | `Array<string>` | No | No | — |
+| `syd_campaign_trends_objective` | `syd_campaign_trends_objective` | `AdAccountUserSettingsSydCampaignTrendsObjective` | No | No | — |
+| `syd_campaign_trends_time_range` | `syd_campaign_trends_time_range` | `string` | No | No | — |
+| `syd_landing_page_opt_in_status` | `syd_landing_page_opt_in_status` | `string` | No | No | — |
+| `text_gen_persona_opt_in_type` | `text_gen_persona_opt_in_type` | `string` | No | No | — |
+| `text_variations_hl_opt_in_out_ts` | `text_variations_hl_opt_in_out_ts` | `string<date-time>` | No | No | — |
+| `text_variations_hl_opt_in_type` | `text_variations_hl_opt_in_type` | `string` | No | No | — |
+| `text_variations_opt_in_out_ts` | `text_variations_opt_in_out_ts` | `string<date-time>` | No | No | — |
+| `text_variations_opt_in_type` | `text_variations_opt_in_type` | `string` | No | No | — |
+| `user` | `user` | `UserFields` | No | No | — |
+| `value_optimized_qv_created` | `value_optimized_qv_created` | `boolean` | No | No | — |
+| `value_qv_nux_impressions` | `value_qv_nux_impressions` | `integer` | No | No | — |
+| `value_suggested_column_status` | `value_suggested_column_status` | `string` | No | No | — |
+
+## AdAccountUserSettingsSydCampaignTrendsObjective
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_INSTALLS`, `BRAND_AWARENESS`, `EVENT_RESPONSES`, `LEAD_GENERATION`, `LINK_CLICKS`, `LOCAL_AWARENESS`, `MESSAGES`, `OFFER_CLAIMS`, `OUTCOME_APP_PROMOTION`, `OUTCOME_AWARENESS`, `OUTCOME_ENGAGEMENT`, `OUTCOME_LEADS`, `OUTCOME_SALES`, `OUTCOME_TRAFFIC`, `PAGE_LIKES`, `POST_ENGAGEMENT`, `PRODUCT_CATALOG_SALES`, `REACH`, `STORE_VISITS`, `VIDEO_VIEWS`, `WEBSITE_CONVERSIONS`
+
+## AdAccountYouthAdsAdvertiserFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_youth_ads_advertiser` | `is_youth_ads_advertiser` | `boolean` | No | No | — |
+
+## AdActivityCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT`, `AD`, `AD_KEYWORDS`, `AD_SET`, `AUDIENCE`, `BID`, `BUDGET`, `CAMPAIGN`, `DATE`, `STATUS`, `TARGETING`
+
+## AdActivityDataSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `CALYPSO`, `TAO`, `TAO_AD_ACCOUNT`, `TAO_AD_STATUS`
+
+## AdActivityEventType
+
+`enum` model on the `json` wire format.
+
+**Values:** `accept_custom_audience_appeal`, `account_spending_limit_reached`, `ad_account_add_user_to_role`, `ad_account_billing_charge`, `ad_account_billing_charge_failed`, `ad_account_billing_chargeback`, `ad_account_billing_chargeback_reversal`, `ad_account_billing_decline`, `ad_account_billing_refund`, `ad_account_remove_spend_limit`, `ad_account_remove_user_from_role`, `ad_account_reset_spend_limit`, `ad_account_set_business_information`, `ad_account_update_audience_type_url_parameter`, `ad_account_update_spend_limit`, `ad_account_update_status`, `ad_review_approved`, `ad_review_declined`, `adaccount_update_audience_segment`, `add_funding_source`, `add_images`, `apply_restrictions_custom_audience`, `billing_event`, `campaign_ended`, `campaign_spending_limit_reached`, `conversion_event_updated`, `create_ad`, `create_ad_set`, `create_adaccount_agency_fee`, `create_audience`, `create_campaign_group`, `create_campaign_group_agency_fee`, `create_campaign_legacy`, `create_custom_audience_appeal`, `delete_audience`, `delete_images`, `di_ad_set_learning_stage_exit`, `edit_and_update_ad_creative`, `edit_images`, `first_delivery_event`, `funding_event_initiated`, `funding_event_successful`, `lifetime_budget_spent`, `merge_campaigns`, `receive_audience`, `reject_custom_audience_appeal`, `remove_funding_source`, `remove_shared_audience`, `share_audience`, `unknown`, `unshare_audience`, `update_ad_audience_persona`, `update_ad_bid_info`, `update_ad_bid_type`, `update_ad_creative`, `update_ad_friendly_name`, `update_ad_labels`, `update_ad_run_status`, `update_ad_run_status_to_be_set_after_review`, `update_ad_set_ad_keywords`, `update_ad_set_bid_adjustments`, `update_ad_set_bid_strategy`, `update_ad_set_bidding`, `update_ad_set_budget`, `update_ad_set_budget_scaling_cost_target`, `update_ad_set_budget_scaling_extra_budget`, `update_ad_set_budget_scaling_status`, `update_ad_set_cost_bidding_mode`, `update_ad_set_duration`, `update_ad_set_learning_stage_status`, `update_ad_set_min_spend_target`, `update_ad_set_name`, `update_ad_set_optimization_goal`, `update_ad_set_run_status`, `update_ad_set_spend_cap`, `update_ad_set_target_spec`, `update_ad_set_value_rules`, `update_ad_targets_spec`, `update_adaccount_agency_fee`, `update_adaccount_agency_fee_status`, `update_adgroup_stop_delivery`, `update_audience`, `update_budget_flex_toggle_status`, `update_campaign_ad_scheduling`, `update_campaign_budget`, `update_campaign_budget_optimization_toggling_status`, `update_campaign_budget_scheduling_state`, `update_campaign_budget_split`, `update_campaign_conversion_goal`, `update_campaign_delivery_destination`, `update_campaign_delivery_type`, `update_campaign_group_ad_scheduling`, `update_campaign_group_agency_fee`, `update_campaign_group_budget_scaling_cost_target`, `update_campaign_group_budget_scaling_extra_budget`, `update_campaign_group_budget_scaling_status`, `update_campaign_group_budget_scheduling_state`, `update_campaign_group_delivery_type`, `update_campaign_group_high_demand_periods`, `update_campaign_group_spend_cap`, `update_campaign_high_demand_periods`, `update_campaign_name`, `update_campaign_run_status`, `update_campaign_schedule`, `update_campaign_value_adjustment_rule`, `update_delivery_type_cross_level_shift`
+
+## AdActivityFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor_id` | `actor_id` | `string` | No | No | — |
+| `actor_name` | `actor_name` | `string` | No | No | — |
+| `application_id` | `application_id` | `string` | No | No | — |
+| `application_name` | `application_name` | `string` | No | No | — |
+| `date_time_in_timezone` | `date_time_in_timezone` | `string` | No | No | — |
+| `event_time` | `event_time` | `string<date-time>` | No | No | — |
+| `event_type` | `event_type` | `AdActivityEventType` | No | No | — |
+| `extra_data` | `extra_data` | `string` | No | No | — |
+| `object_id` | `object_id` | `string` | No | No | — |
+| `object_name` | `object_name` | `string` | No | No | — |
+| `object_type` | `object_type` | `string` | No | No | — |
+| `tool` | `tool` | `string` | No | No | — |
+| `translated_event_type` | `translated_event_type` | `string` | No | No | — |
+
+## AdAssetBodyFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `url_tags` | `url_tags` | `string` | No | No | — |
+
+## AdAssetCallToActionTypeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## AdAssetCustomizationRuleCustomizationSpecDevicePlatforms
+
+`enum` model on the `json` wire format.
+
+**Values:** `connected_tv`, `desktop`, `mobile`
+
+## AdAssetCustomizationRuleCustomizationSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_max` | `age_max` | `integer` | No | No | — |
+| `age_min` | `age_min` | `integer` | No | No | — |
+| `audience_network_positions` | `audience_network_positions` | `Array<string>` | No | No | — |
+| `device_platforms` | `device_platforms` | `Array<AdAssetCustomizationRuleCustomizationSpecDevicePlatforms>` | No | No | — |
+| `facebook_positions` | `facebook_positions` | `Array<string>` | No | No | — |
+| `geo_locations` | `geo_locations` | `TargetingGeoLocationFields` | No | No | — |
+| `instagram_positions` | `instagram_positions` | `Array<string>` | No | No | — |
+| `locales` | `locales` | `Array<integer>` | No | No | — |
+| `messenger_positions` | `messenger_positions` | `Array<string>` | No | No | — |
+| `publisher_platforms` | `publisher_platforms` | `Array<string>` | No | No | — |
+| `threads_positions` | `threads_positions` | `Array<string>` | No | No | — |
+
+## AdAssetDescriptionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `url_tags` | `url_tags` | `string` | No | No | — |
+
+## AdAssetFeedAdditionalDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `automated_product_tags` | `automated_product_tags` | `boolean` | No | No | — |
+| `brand_page_id` | `brand_page_id` | `string` | No | No | — |
+| `is_click_to_message` | `is_click_to_message` | `boolean` | No | No | — |
+| `multi_share_end_card` | `multi_share_end_card` | `boolean` | No | No | — |
+| `page_welcome_message` | `page_welcome_message` | `string` | No | No | — |
+| `partner_app_welcome_message_flow_id` | `partner_app_welcome_message_flow_id` | `string` | No | No | — |
+
+## AdAssetFeedAdditionalDataPageNudgeMessageFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enabled` | `enabled` | `boolean` | No | No | — |
+| `quick_replies` | `quick_replies` | `Array<Record<string, unknown>>` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+
+## AdAssetFeedAdditionalDataReconsiderationOfferFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offer_id` | `offer_id` | `string` | No | No | — |
+| `offer_name` | `offer_name` | `string` | No | No | — |
+
+## AdAssetFeedSpecAssetCustomizationRuleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body_label` | `body_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `call_to_action_label` | `call_to_action_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `call_to_action_type_label` | `call_to_action_type_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `caption_label` | `caption_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `carousel_label` | `carousel_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `customization_spec` | `customization_spec` | `AdAssetCustomizationRuleCustomizationSpecFields` | No | No | — |
+| `description_label` | `description_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `image_label` | `image_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `is_default` | `is_default` | `boolean` | No | No | — |
+| `link_url_label` | `link_url_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `priority` | `priority` | `integer` | No | No | — |
+| `title_label` | `title_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+| `video_label` | `video_label` | `AdAssetFeedSpecAssetLabelFields` | No | No | — |
+
+## AdAssetFeedSpecAssetLabelFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## AdAssetFeedSpecBodyFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adlabels` | `adlabels` | `Array<AdAssetFeedSpecAssetLabelFields>` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `url_tags` | `url_tags` | `string` | No | No | — |
+
+## AdAssetFeedSpecCallToActionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adlabels` | `adlabels` | `Array<AdAssetFeedSpecAssetLabelFields>` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `value` | `value` | `AdCreativeLinkDataCallToActionValueFields` | No | No | — |
+
+## AdAssetFeedSpecCallToActionTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADD_TO_CART`, `APPLY_NOW`, `ASK_ABOUT_SERVICES`, `ASK_A_QUESTION`, `ASK_FOR_MORE_INFO`, `ASK_US`, `AUDIO_CALL`, `BOOK_A_CONSULTATION`, `BOOK_NOW`, `BOOK_TRAVEL`, `BROWSE_SHOP`, `BUY`, `BUY_NOW`, `BUY_TICKETS`, `BUY_VIA_MESSAGE`, `CALL`, `CALL_ME`, `CALL_NOW`, `CHAT_NOW`, `CHAT_WITH_US`, `CONFIRM`, `CONTACT`, `CONTACT_US`, `DONATE`, `DONATE_NOW`, `DOWNLOAD`, `EVENT_RSVP`, `FIND_A_GROUP`, `FIND_OUT_MORE`, `FIND_YOUR_GROUPS`, `FOLLOW_NEWS_STORYLINE`, `FOLLOW_PAGE`, `FOLLOW_USER`, `GET_A_QUOTE`, `GET_DETAILS`, `GET_DIRECTIONS`, `GET_IN_TOUCH`, `GET_OFFER`, `GET_OFFER_VIEW`, `GET_PROMOTIONS`, `GET_QUOTE`, `GET_SHOWTIMES`, `GET_STARTED`, `INQUIRE_NOW`, `INSTALL_APP`, `INSTALL_MOBILE_APP`, `JOIN_CHANNEL`, `JOIN_LIVE_VIDEO`, `LEARN_MORE`, `LIKE_PAGE`, `LISTEN_MUSIC`, `LISTEN_NOW`, `MAKE_AN_APPOINTMENT`, `MESSAGE_PAGE`, `MOBILE_DOWNLOAD`, `NO_BUTTON`, `OPEN_INSTANT_APP`, `OPEN_LINK`, `ORDER_NOW`, `PAY_TO_ACCESS`, `PLAY_GAME`, `PLAY_GAME_ON_FACEBOOK`, `PURCHASE_GIFT_CARDS`, `RAISE_MONEY`, `RECORD_NOW`, `REFER_FRIENDS`, `REQUEST_TIME`, `SAY_THANKS`, `SEE_MORE`, `SEE_SHOP`, `SELL_NOW`, `SEND_A_GIFT`, `SEND_GIFT_MONEY`, `SEND_UPDATES`, `SHARE`, `SHOP_NOW`, `SHOP_WITH_AI`, `SIGN_UP`, `SOTTO_SUBSCRIBE`, `START_A_CHAT`, `START_ORDER`, `SUBSCRIBE`, `SWIPE_UP_PRODUCT`, `SWIPE_UP_SHOP`, `TRY_DEMO`, `TRY_ON_WITH_AI`, `UPDATE_APP`, `USE_APP`, `USE_MOBILE_APP`, `VIDEO_ANNOTATION`, `VIDEO_CALL`, `VIEW_CART`, `VIEW_CHANNEL`, `VIEW_IN_CART`, `VIEW_PRODUCT`, `VISIT_PAGES_FEED`, `VISIT_WEBSITE`, `WATCH_LIVE_VIDEO`, `WATCH_MORE`, `WATCH_VIDEO`, `WHATSAPP_MESSAGE`, `WOODHENGE_SUPPORT`
+
+## AdAssetFeedSpecCaptionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adlabels` | `adlabels` | `Array<AdAssetFeedSpecAssetLabelFields>` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `url_tags` | `url_tags` | `string` | No | No | — |

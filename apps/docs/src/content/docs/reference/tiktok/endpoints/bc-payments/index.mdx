@@ -1,0 +1,309 @@
+---
+title: "TikTok Business BC Payments endpoints"
+description: "8 generated TikTok Business endpoint contracts for BC Payments."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 119
+  label: "BC Payments"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCPayments.advertiserBalanceGet
+
+`GET` `/open_api/v1.3/advertiser/balance/get/`
+
+Generated from TikTok documentation 1739939106470913
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdvertiserBalanceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `fields` | `query` | `Array<string>` | No | No | A list of additional fields to return in the response. Supported values: `budget_remaining`: The remaining budget.`budget_frequency_restriction`: Restrictions on the number of budget changes allowed for the current day.`budget_amount_restriction`: Restrictions on the minimum amount that can be changed for the budget.`min_transferable_amount`: Details of the minimal amount that you can transfer to the ad account.`max_transferable_amount`: Details of the maximum amounts that you can transfer from the ad account to the Business Center.`balance_info`: Details of the balances for the ad account. If this field is not specified, all information will be returned by default excluding `budget_remaining`, `budget_frequency_restriction`, `min_transferable_amount`, `max_transferable_amount`, and `balance_info`.If you want to retrieve the additional fields (`budget_remaining`, `budget_frequency_restriction`, `budget_amount_restriction`, `min_transferable_amount`, `max_transferable_amount`, and `balance_info`) together with other fields, set `fields` to `["budget_remaining", "budget_frequency_restriction", "budget_amount_restriction", "min_transferable_amount", "max_transferable_amount", "balance_info"]` and `page_size` to 1. |
+| `filtering` | `query` | `AdvertiserBalanceGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: `1`. Value range : ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: `10`. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.advertiserTransactionGet
+
+`GET` `/open_api/v1.3/advertiser/transaction/get/`
+
+Generated from TikTok documentation 1739939116353538
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdvertiserTransactionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. Note: You can only get the transaction records of ad accounts under a Business Center whose `type` is not `NORMAL`. You can use [/bc/get/](https://ads.tiktok.com/marketing_api/docs?id=1737115687501826) to get the Business Center type via `type` in the response. |
+| `filtering` | `query` | `AdvertiserTransactionGetParamsFiltering` | No | No | Filtering conditions |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: `1`. Value range : ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: `10`. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcAccountBudgetChangelogGetN
+
+`GET` `/open_api/v1.3/bc/account/budget/changelog/get//`
+
+Generated from TikTok documentation 1830173979548674
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAccountBudgetChangelogGetNResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `advertiser_id` | `query` | `string` | Yes | No | Ad account ID. To obtain the list of ad accounts that you have access to, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` and select ad accounts with the returned `advertiser_role` as `ADMIN`, `OPERATOR`, or `ANALYST`. |
+| `filtering` | `query` | `BcAccountBudgetChangelogGetNParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcAccountCostGet
+
+`GET` `/open_api/v1.3/bc/account/cost/get/`
+
+Generated from TikTok documentation 1829079287639041
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAccountCostGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `query` | `BcAccountCostGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Value range : ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcAccountTransactionGet
+
+`GET` `/open_api/v1.3/bc/account/transaction/get/`
+
+Generated from TikTok documentation 1792849810925569
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAccountTransactionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `transaction_level` | `query` | `"BC" \| "ADVERTISER" \| "PAYMENT_PORTFOLIO"` | No | No | The transaction level that the transaction records will be retrieved at. Enum values: `BC`: The Business Center (`bc_id`). `ADVERTISER`: The ad accounts within the Business Center (`bc_id`).`PAYMENT_PORTFOLIO`: The Payment Portfolio. Default value: `ADVERTISER`. Note: If a Business Center has enabled Payment Portfolio, the transactions of ad accounts shared by other Business Centers won't be returned. |
+| `filtering` | `query` | `BcAccountTransactionGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcBalanceGet
+
+`GET` `/open_api/v1.3/bc/balance/get/`
+
+Generated from TikTok documentation 1739939128198145
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcBalanceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID。 |
+| `payment_portfolio_id` | `query` | `string` | No | No | The ID of the Payment Portfolio. To retrieve the list of Payment Portfolios that belong to the same client as the Business Center, use [/payment_portfolio/get/](https://business-api.tiktok.com/portal/docs?id=1839151931301954). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcTransactionGet
+
+`GET` `/open_api/v1.3/bc/transaction/get/`
+
+Generated from TikTok documentation 1739939140408322
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPayments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcTransactionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `filtering` | `query` | `BcTransactionGetParamsFiltering` | No | No | Filtering conditions. |
+| `start_date` | `query` | `string` | No | No | Start date of transaction records that you want to get, in the format of "YYYY-MM-DD". The default value is the date 90 days earlier. |
+| `end_date` | `query` | `string` | No | No | End date of transaction records that you want to get, in the format of "YYYY-MM-DD". The default value is the date today. |
+| `page` | `query` | `number` | No | No | Page number. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPayments.bcTransfer
+
+`POST` `/open_api/v1.3/bc/transfer/`
+
+Generated from TikTok documentation 1739939095321601
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPayments.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcTransferResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `transfer_level` | `body` | `"ADVERTISER" \| "BC"` | No | No | Transfer level. Enum values: `ADVERTISER`: Recharge money to or deduct money from an ad account. `BC`: Increase or decrease the credit balance of the Business Center. When `transfer_level` is set to `BC`, you need to specify the ID of a Business Center that has enabled Monthly Invoicing via `bc_id`. Default value: `ADVERTISER`. |
+| `advertiser_id` | `body` | `string` | No | No | Required when `transfer_level` is set to `ADVERTISER` or not specified. Ad account ID. |
+| `payment_portfolio_id` | `body` | `string` | No | No | Required if multiple Payment Portfolios belong to the same client as the Business Center (`bc_id`). The ID of the Payment Portfolio. To retrieve the list of Payment Portfolios that belong to the same client as the Business Center, use [/payment_portfolio/get/](https://business-api.tiktok.com/portal/docs?id=1839151931301954). |
+| `transfer_type` | `body` | `"RECHARGE" \| "REFUND"` | Yes | No | How you'd like to process payments for an ad account or the Business Center. Enum values:`RECHARGE`: Recharge money to an ad account or increase the credit balance of a Business Center.`REFUND`: Deduct money from an ad account or decrease the credit balance of a Business Center. |
+| `amount_info` | `body` | `BcTransferParamsAmountInfo` | No | No | Valid only when `transfer_level` is `ADVERTISER`.You need to specify one of `amount_info`, `cash_amount`, or `grant_amount`.Details of the amount to process. When you specify `amount_info`, `cash_amount` and `grant_amount` outside of `amoumt_info` will be ignored. |
+| `cash_amount` | `body` | `number` | No | No | You need to specify one of `amount_info`, `cash_amount`, or `grant_amount`. If [Balance Sharing](https://business-api.tiktok.com/portal/docs?id=1754705321657346#item-link-Balance%20Sharing) is enabled and `transfer_level` is `ADVERTISER`, this parameter is not supported. The cash or credit amount to process, rounded to two decimal places. When `transfer_level` is set to `ADVERTISER` or not specified, this field represents the cash amount to process.When `transfer_level` is set to `BC` or not specified, this field represents the credit amount to process. Value range: &gt; 0. Note: If you choose `RECHARGE` as the transfer type and then specify a cash amount, there will be a limit on the minimum amount that you can transfer from a Business Center to the ad account. To find the minimum amount limit , use [/advertiser/balance/get/](https://business-api.tiktok.com/portal/docs?id=1739939106470913) and check the returned `cash_amount` within the object `min_transferable_amount`. |
+| `grant_amount` | `body` | `number` | No | No | You need to specify one of `amount_info`, `cash_amount`, or `grant_amount`. When `transfer_level` is `BC`, this parameter is not supported. Voucher amount to process, rounded to two decimal places. Value range: &gt; 0. |
+| `request_id` | `body` | `string` | No | No | Valid only when `transfer_level` is `BC` or `ADVERTISER`. Request ID. This field supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times, then only one will succeed. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. When `transfer_level` is `BC`, the value should be a 32-bit string.When `transfer_level` is `ADVERTISER`, the value should be a 32-bit string, with idempotency guaranteed for a 30-minute window. Example: `123456789`. Note: Idempotency for ad account level transfers using `request_id` is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

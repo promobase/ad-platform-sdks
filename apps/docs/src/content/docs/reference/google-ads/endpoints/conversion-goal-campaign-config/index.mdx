@@ -1,0 +1,46 @@
+---
+title: "Google Ads Conversion Goal Campaign Config endpoints"
+description: "1 generated Google Ads endpoint contract for Conversion Goal Campaign Config."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 150
+  label: "Conversion Goal Campaign Config"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.conversionGoalCampaignConfig.mutateConversionGoalCampaignConfigs
+
+`POST` `/v25/customers/{customer_id=*}/conversionGoalCampaignConfigs:mutate`
+
+ConversionGoalCampaignConfigService.MutateConversionGoalCampaignConfigs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `conversionGoalCampaignConfig.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateConversionGoalCampaignConfigsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateConversionGoalCampaignConfigsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

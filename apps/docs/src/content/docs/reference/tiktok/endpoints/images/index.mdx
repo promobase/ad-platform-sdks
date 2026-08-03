@@ -1,0 +1,157 @@
+---
+title: "TikTok Business Images endpoints"
+description: "4 generated TikTok Business endpoint contracts for Images."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 145
+  label: "Images"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.images.fileImageAdInfo
+
+`GET` `/open_api/v1.3/file/image/ad/info/`
+
+Generated from TikTok documentation 1740051721711618
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `images.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileImageAdInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `image_ids` | `query` | `Array<string>` | Yes | No | Image ID list. Up to 100 IDs per request. Note: If you obtain the image IDs of thumbnails for ads created on TikTok Ads Manager using the [/ad/get/](https://ads.tiktok.com/marketing_api/docs?id=1735735588640770) endpoint, they are not supported. This is because these thumbnails have not been uploaded to the Asset Library and linked to your ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.images.fileImageAdSearch
+
+`GET` `/open_api/v1.3/file/image/ad/search/`
+
+Generated from TikTok documentation 1740052016789506
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `images.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileImageAdSearchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `query` | `FileImageAdSearchParamsFiltering` | No | No | Filters on the data. This parameter is an array of filter objects. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 20. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.images.fileImageAdUpdate
+
+`POST` `/open_api/v1.3/file/image/ad/update/`
+
+Generated from TikTok documentation 1740039806891010
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `images.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileImageAdUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `body` | `string` | Yes | No | Image name. Length limit: 1 - 100 characters. If another image uses the same file name under the same `advertiser_id`, there will a millisecond timestamp added at the end. If the file name contains more than 100 characters, only the first 100 characters will be used. |
+| `image_id` | `body` | `string` | Yes | No | Image ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.images.fileImageAdUpload
+
+`POST` `/open_api/v1.3/file/image/ad/upload/`
+
+Generated from TikTok documentation 1739067433456642
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `images.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileImageAdUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `body` | `string` | No | No | Image name. Length limit: 1-100 characters. The default value is the file name. If the final filename has more than 100 chars, it will be cut off. Important: Images under the same `advertiser_id` cannot have duplicated file names. You can call [/file/name/check/](https://ads.tiktok.com/marketing_api/docs?id=1759130033155073) to check whether the file name has been used. If you get an error about duplicated file names, please rename the files or append timestamps to the original file names ( for example, in the format of `_`) , and upload the images again. |
+| `upload_type` | `body` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL" \| "UPLOAD_BY_FILE_ID"` | Yes | No | Image upload method. Default value: `UPLOAD_BY_FILE`. Enum values: `UPLOAD_BY_FILE`, `UPLOAD_BY_URL`, `UPLOAD_BY_FILE_ID`. |
+| `image_file` | `body` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Image file. Recommended settings: File size: within 50 MB.Resolution: The total pixel count of the image, which is obtained by multiplying the width and height, should not exceed 3,686,400 pixels (1440 x 2560). For example, a resolution of 2400 x 1256 pixels is within the supported range, while a resolution of 3600 x 1256 pixels will result in an error. To learn about the recommended image resolution for a certain use case, refer to the section "Image resolution guidelines and use cases".File type: JPG, JPEG, or PNG |
+| `image_signature` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. MD5 of the image (used for server verification). |
+| `image_url` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. Image url address. Example: http://xxx.xxx. |
+| `file_id` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the image that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

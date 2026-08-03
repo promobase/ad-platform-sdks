@@ -1,0 +1,240 @@
+---
+title: "TikTok Business Catalog Products endpoints"
+description: "6 generated TikTok Business endpoint contracts for Catalog Products."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 130
+  label: "Catalog Products"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogProducts.catalogProductDelete
+
+`POST` `/open_api/v1.3/catalog/product/delete/`
+
+Generated from TikTok documentation 1740562489236481
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProducts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. To obtain the list of catalogs that you can access, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `CATALOG`. |
+| `sku_ids` | `body` | `Array<string>` | No | No | Required for products in an E-commerce catalog. SKU IDs of E-commerce products that you want to delete. Max size: 1,000. Length limit: 100 characters for each SKU ID and cannot contain emojis. To obtain SKU IDs for products in an E-commerce catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The SKU IDs will be available from the response parameter `sku_id`. Note: Duplicate SKU IDs are not supported. |
+| `hotel_ids` | `body` | `Array<string>` | No | No | Required for products in a hotel catalog. Hotel IDs of products that you want to delete. Max size: 1,000. Length limit: 100 characters for each hotel ID. To obtain hotel IDs for products in a hotel catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The hotel IDs will be available from the response parameter `hotel_id`. Note: Duplicate hotel IDs are not supported. |
+| `flight_ids` | `body` | `Array<string>` | No | No | Required for products in a flight catalog. Flight IDs of products that you want to delete. Max size: 1,000. Length limit: 150 characters for each flight ID. To obtain flight IDs for products in a flight catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The flight IDs will be available from the response parameter `flight_id`. Note: Duplicate flight IDs are not supported. |
+| `destination_ids` | `body` | `Array<string>` | No | No | Required for products in a destination catalog. Destination IDs of products that you want to delete. Max size: 1,000. Length limit: 100 characters for each destination ID. To obtain destination IDs for products in a destination catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The destination IDs will be available from the response parameter `destination_id`. Note: Duplicate destination IDs are not supported. |
+| `vehicle_ids` | `body` | `Array<string>` | No | No | Required for products in an Auto-Inventory or Auto-Model catalog. IDs of vehicles that you want to delete. Max size: 1,000. Length limit: 100 characters for each vehicle ID and cannot contain emojis. To obtain vehicle IDs for products in an Auto-Inventory or Auto-Model catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The vehicle IDs will be available from the response parameter `vehicle_id`. Note: Duplicate vehicle IDs are not supported. |
+| `series_ids` | `body` | `Array<string>` | No | No | Required for products in a mini series catalog. IDs of the short drama series that you want to delete. Max size: 1,000. Length limit: 100 characters for each short drama series ID. To obtain short drama series IDs for products in a mini series catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The short drama series IDs will be available from the response parameter `series_id`. Note: Duplicate short drama series IDs are not supported. |
+| `feed_id` | `body` | `string` | No | No | Feed ID. If the value of this field is empty, the default catalog will be processed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProducts.catalogProductFile
+
+`POST` `/open_api/v1.3/catalog/product/file/`
+
+Generated from TikTok documentation 1740496787164161
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProducts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductFileResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | No | No | Feed ID. |
+| `file_url` | `body` | `string` | Yes | No | The download address of the CSV file. The number of product lines in the file should be less than 20 million. Currently, the API only allows CSV file type Catalog Feeds. CSV Catalog Feed templates are available for different types of catalogs as below:[Template for E-commerce catalogs](https://bytedance.feishu.cn/sheets/shtcnZ3VnFbOO64OiFNZRhlz8Db)[Template for hotel catalogs](https://bytedance.feishu.cn/sheets/FJNUsA17Xhp540t41Kecq8ZInCf)When your CSV file contains alias fields, the system will automatically map these fields to their corresponding existing fields. To learn more about the alias fields and their related existing fields, see Alias fields for hotel catalogs.[Template for flight catalogs](https://bytedance.feishu.cn/sheets/SII0sykCGhEObgtJaENcPSDpnyc)When your CSV file contains alias fields, the system will automatically map these fields to their corresponding existing fields. To learn more about the alias fields and their related existing fields, see Alias fields for flight catalogs.[Template for destination catalogs](https://bytedance.feishu.cn/sheets/OvJIsVlNfhl30ttKs7MciksInPh)[Template for entertainment catalogs](https://bytedance.feishu.cn/sheets/MrBAsQuGchn0pQtRRiyc47lynyg)[Template for Auto-Inventory catalogs](https://bytedance.sg.larkoffice.com/sheets/QuGIs2PgjhXLtOtDLaBceZnVnVg)[Template for Auto-Model catalogs](https://bytedance.sg.larkoffice.com/sheets/RjwhsCwlIhepPHtOq1SlD868g8b)[Template for mini series catalogs](https://bytedance.sg.larkoffice.com/sheets/SmHxs8C4oh0mKWtenOslDZ0Sg6b)To learn about the detailed introduction of each catalog product parameter, see [`products` object array parameters](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-products%20object%20array%20parameters). To understand how a field and its corresponding value in JSON format are represented in the CSV template, see [Comparison of Catalog Product Parameters in JSON Format & CSV Template](https://bytedance.sg.larkoffice.com/sheets/F7CGsxjuahfnAYt7GzTlR5X5ghb?sheet=gJ73Xi).Product images (`image_link`) must be 500 x 500 pixels or larger in size. Otherwise, the product will not be approved. For details, see [Product Image Requirements](https://ads.tiktok.com/marketing_api/docs?id=1739578479392770). Note: To upload short drama series that target multiple regions to a short drama catalog, call [/catalog/product/file/](https://business-api.tiktok.com/portal/docs?id=1740496787164161) multiple times with the same `series_id` and different `country` settings. After the uploads, access the consolidated targeting settings for the same short drama series through `target_config` and `additional_product_list` in [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). For example, separate uploads with `country` set to `US` (same as the primary targeting region for the short drama catalog) and `VN` (same as one of the additional targeting regions) results in `list.target_config.region_code` as `US` and `list.additional_product_list.region_code` as `VN` in `/catalog/product/get/`.If your additional image URL contains commas (,), URL-encode them by replacing with %2C before adding them to this field. For example, for URLs such as `https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp`and `https://img.example.com/product_800x600,q85,webp.jpg`, you need to set this field to `["https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp","https://img.example.com/product_800x600%2Cq85%2Cwebp.jpg"]`. |
+| `update_mode` | `body` | `"OVERWRITE" \| "INCREMENTAL"` | No | No | Update mode. The mode is one-time only and only applies to the current request. Enum values: `OVERWRITE`: In this mode, all the products in the catalog will be replaced by the products in the file you specify.`INCREMENTAL`: In this mode, the products in the file you specify will be added to the catalog. Note that if you upload a product already in the catalog with a duplicate SKU ID via the file, the data for the product in the catalog will be replaced.Default value: `INCREMENTAL`. Note: If you pass in `feed_id`, the update mode you specify via this field will not affect the update mode of the feed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProducts.catalogProductGet
+
+`GET` `/open_api/v1.3/catalog/product/get/`
+
+Generated from TikTok documentation 1740564136678402
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogProducts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+| `page` | `query` | `number` | No | No | Current page number. Note: Only 10,000 results can be returned at most. You need to ensure that `page` multiplied by `page_size` is no more than 10,000. |
+| `page_size` | `query` | `number` | No | No | Page size. Default is 10. The maximum supported size is 500. |
+| `product_ids` | `query` | `Array<string>` | No | No | IDs of the products that you want to get. You can specify up to 1,000 product IDs. Note: `product_ids` and `sku_ids` cannot be specified at the same time. For mini series catalogs, the only supported filter is `product_ids`. |
+| `sku_ids` | `query` | `Array<string>` | No | No | IDs of the SKUs that you want to get information for. Max size: 1000. Length limit: 100 characters for each SKU ID and cannot contain emojis. Note:Duplicate SKU IDs are not supported. `product_ids` and `sku_ids` cannot be specified at the same time. |
+| `product_set_ids` | `query` | `Array<string>` | No | No | IDs of the product sets that you want to get. Max size: 100. |
+| `order` | `query` | `CatalogProductGetParamsOrder` | No | No | Ordering settings. When `product_ids` or `sku_ids` is specified, this field will be ignored. |
+| `conditions` | `query` | `CatalogProductGetParamsConditions` | No | No | Filtering conditions. When you specify a filtering condition, all data fields in this object are required except `case_senstive`. When `product_ids` or `sku_ids` is specified, this field will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProducts.catalogProductLog
+
+`GET` `/open_api/v1.3/catalog/product/log/`
+
+Generated from TikTok documentation 1740570027173889
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogProducts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductLogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+| `feed_log_id` | `query` | `string` | Yes | No | Product handling ID. |
+| `language` | `query` | `string` | No | No | Supported languages.`en`: English`zh-CN`: Chinese`ja-JP`: Japanese`de`: German`es`: Spanish`fr`: French`hi-IN`: Hindi (India)`id`: Indonesian`it`: Italian`ko`: Korean`ms`: Malay `ru`: Russian`th`: Thai`tr`: Turkish`vi`: Vietnamese Default value: `en`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProducts.catalogProductUpdate
+
+`POST` `/open_api/v1.3/catalog/product/update/`
+
+Generated from TikTok documentation 1740562287852546
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProducts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | No | No | Catalog feeds ID. |
+| `products` | `body` | `Array<string>` | Yes | No | List of products. For the data fields in this array, see the "`products` object array parameters" section below. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProducts.catalogProductUpload
+
+`POST` `/open_api/v1.3/catalog/product/upload/`
+
+Generated from TikTok documentation 1740497429681153
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProducts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogProductUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | No | No | Catalog feeds ID. |
+| `products` | `body` | `Array<string>` | Yes | No | List of products. For the data fields in this array, see the "`products` object array parameters" section below. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

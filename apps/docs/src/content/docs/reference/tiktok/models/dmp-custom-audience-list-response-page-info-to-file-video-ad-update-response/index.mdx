@@ -1,0 +1,1173 @@
+---
+title: "TikTok Business models: Dmp Custom Audience List Response Page Info – File Video Ad Update Response"
+description: "100 generated TikTok Business model contracts, from DmpCustomAudienceListResponsePageInfo through FileVideoAdUpdateResponse."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1013
+  label: "Dmp Custom Audience List Response Page Info – File Video Ad Update Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## DmpCustomAudienceListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## DmpCustomAudienceLookalikeCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `custom_audience_name` | `string` | Yes | No | Audience name. Maximum of 128 characters. |
+| `audience_sub_type` | `audience_sub_type` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL` Normal audience. It can be used in non-R&F ads. `REACH_FREQUENCY`: Audience for Reach & Frequency. It can only be used in R&F ads. Default: `NORMAL`. |
+| `lookalike_spec` | `lookalike_spec` | `DmpCustomAudienceLookalikeCreateParamsLookalikeSpec` | Yes | No | — |
+
+## DmpCustomAudienceLookalikeCreateParamsLookalikeSpec
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source_audience_id` | `source_audience_id` | `string` | Yes | No | Source (seed) audience ID. Source audience cannot be an existing lookalike audience. Note: The size of source audience should be no less than 100. |
+| `include_source` | `include_source` | `boolean` | Yes | No | Whether to include the source audience in the new lookalike audience. |
+| `mobile_os` | `mobile_os` | `string` | Yes | No | Device operating systems. Enum values support `ALL` for both `ANDROID` and `IOS`. See [Enumeration-Audience Management-Lookalike System](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for details. |
+| `placements` | `placements` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. Enum values: `TikTok`, `TopBuzz & BuzzVideo`, `Pangle`. See [Enumeration - Audience Management-Lookalike Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for details. |
+| `location_ids` | `location_ids` | `Array<string>` | Yes | No | IDs of the locations that you want to target. For enum values, see [Enumeration-Lookalike Locations](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `audience_size` | `audience_size` | `"NARROW" \| "BALANCED" \| "BROAD"` | Yes | No | Size of lookalike audience. Enum values: `NARROW`, `BALANCED` and `BROAD`. |
+
+## DmpCustomAudienceLookalikeCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `custom_audience_id` | `string` | No | No | Custom audience ID. |
+
+## DmpCustomAudienceLookalikeUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | Yes | No | A list of custom audience IDs. |
+
+## DmpCustomAudienceLookalikeUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpCustomAudienceRuleCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `custom_audience_name` | `string` | Yes | No | Audience name. Length limit: 128 characters. |
+| `audience_type` | `audience_type` | `"ENGAGEMENT" \| "ENGAGEMENT_ORGANIC_VIDEO" \| "ENGAGEMENT_LIVE_VIDEO" \| "APP" \| "PIXEL" \| "LEAD_GENERATION" \| "BUSINESS_ACCOUNT" \| "TIKTOK_SHOP" \| "OFFLINE"` | Yes | No | Audience type. Enum values:`ENGAGEMENT`: Engagement Audience (with asset type as ad groups). `ENGAGEMENT_ORGANIC_VIDEO`: Organic Engagement Audience (with asset type as public video).`ENGAGEMENT_LIVE_VIDEO`: Live Engagement Audience (with asset type as live video). `APP`: App Activity Audience. `PIXEL`: Website Traffic Audience.`LEAD_GENERATION`: Lead Generation Audience. `BUSINESS_ACCOUNT`: Business Account Audience.`TIKTOK_SHOP`: Shop Activity Audience.`OFFLINE`: Offline Activity Audience. |
+| `audience_sub_type` | `audience_sub_type` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL`: Audience for non-Reach & Frequency ads. `REACH_FREQUENCY`: Audience for Reach & Frequency ads. It can only be used in Reach & Frequency ads. Default value: `NORMAL`. |
+| `retention_in_days` | `retention_in_days` | `number` | No | No | Number of days to retain the audience. Value range: 1-365. Note:If this field is passed, the expiration date will be the specified number of retention days from the date when the audience was created. Any operations to the audience CANNOT reset the expiration date.If this field is not passed, the expiration date will be 365 days from the last time the audience was applied to an active ad group or modified. Applying the audience to an active ad group or modifying the audience will reset the expiration date. To learn about the actions that will reset the expiration date, refer to the Help Center article [Audience Expiration Policy](https://ads.tiktok.com/help/article/audience-expiration-policy?redirected=2). |
+| `is_auto_refresh` | `is_auto_refresh` | `boolean` | No | No | Whether to turn on the audience auto-refresh function. Supported values: `true`, `false`. Default value: `true`. If you enable this feature, your audience will automatically refresh to include the latest user data according to the lookback window you set. If you disable this feature, your audience will not automatically refresh. |
+| `identity_id` | `identity_id` | `string` | No | No | Required when `audience_type` is `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`. Identity ID. |
+| `identity_type` | `identity_type` | `"TT_USER" \| "BC_AUTH_TT"` | No | No | Required when `audience_type` is `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`. Identity type. Enum values: `TT_USER`, `BC_AUTH_TT` |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `rule_spec` | `rule_spec` | `DmpCustomAudienceRuleCreateParamsRuleSpec` | Yes | No | Rule of the audience. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpec
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `inclusion_rule_set` | `inclusion_rule_set` | `DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSet` | Yes | No | Details of the inclusion rule set. |
+| `exclusion_rule_set` | `exclusion_rule_set` | `DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSet` | No | No | Details of the exclusion rule set. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `string` | No | No | Required when `exclusion_rule_set` is passed. Operator between the exclusion rules within the exclusion rule set. Enum value: `OR`. |
+| `rules` | `rules` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRules>` | No | No | Required when `exclusion_rule_set` is passed. A list of exclusion rules within the exclusion rule set. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_source_ids` | `event_source_ids` | `Array<string>` | No | No | List of event source IDs of the rule. For an Engagement Audience, use ad group IDs as event source IDs. If not specified, all available event source IDs will be used.For an Organic Engagement Audience, use TikTok post IDs as event source IDs. You can use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) to get TikTok post IDs. The maximum allowed number of TikTok post IDs is 10. For a Live Engagement Audience, use live video ID as event source IDs. You can use [/identity/live/get/](https://business-api.tiktok.com/portal/docs?id=1785238052792321) to get live video IDs. The maximum allowed number of live video IDs is 10. For an App Activity Audience, use App IDs as event source IDs. For a Website Traffic Audience, use pixel IDs as event source IDs. For a Lead Generation Audience, do not pass in this field. Otherwise, an error will occur. If not specified, all available event source IDs will be used.For a Business Account Audience, use core user IDs of the advertisers. You can use [/user/info/](https://business-api.tiktok.com/portal/docs?id=1739665513181185) to get a core user ID. For a Shop Activity Audience, use TikTok Shop IDs as event source IDs. You can use [/store/list/](https://business-api.tiktok.com/portal/docs?id=1752267762718722) to get TikTok Shop IDs.For an Offline Activity Audience, use Offline Event set IDs as event source IDs. You can use [/offline/get/](https://business-api.tiktok.com/portal/docs?id=1765596808589313) to get Offline Event set IDs. |
+| `retention_days` | `retention_days` | `number` | No | No | Required when `exclusion_rule_set` is passed. Audience lookback window. For enum values, see [Enumerations - Lookback window](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Lookback%20window%20%28retention_days%29). Note: If `audience_type` = `BUSINESS_ACCOUNT`, and the `value` in the `filters` object is not `BUSINESS ACCOUNT PROFILE FOLLOW`, then `retention_days` must be `7`, `14`, or `30`.If `audience_type` = `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`, then `retention_days` must be `7`, `14`, or `30`.To avoid confusion between `retention_days` and `retention_in_days`, we'll rename `retention_days` in the next API version. |
+| `filter_set` | `filter_set` | `DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSet` | No | No | Required when `exclusion_rule_set` is passed. The set of filters for the exclusion rule. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `string` | No | No | Required when `exclusion_rule_set` is passed. Operator between filters in the `filters` object array. Enum value: `OR`. Within each exclusion rule, you can only specify one object in `filters`. |
+| `filters` | `filters` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSetFilters>` | No | No | Required when `exclusion_rule_set` is passed. An array of filters on previous audience actions and optionally also on URL keywords or parameters. Max size: 1. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSetFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | No | No | Required when `exclusion_rule_set` is passed. Filter field. Enum value: `EVENT`: To exclude the people who've carried out a certain action in the past few days as indicated by `retention_days`. |
+| `operator` | `operator` | `string` | No | No | Required when `exclusion_rule_set` is passed. Filter operator between filter field and filter value. Enum value: `EQ`: equals. |
+| `value` | `value` | `string` | No | No | Required when `exclusion_rule_set` is passed. Filter value. For enum values, see [Enumeration - Filter Value](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Filter%20Value). |
+| `parameter_filters` | `parameter_filters` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSetFiltersParameterFilters>` | No | No | List of filters on URL keywords or parameters. Within `parameter_filters`, you can add a maximum of one URL keyword filter (with `field` set to `URL`) and 10 parameter filters (with `field` not set to `URL`) . If specified, these filters (`parameter_filters`) are combined with the action filter (as specified by `field`, `operator` and `value`) using default AND logic to form the exclusion rule. For example, if `retention_days` is `30` and `filter_set` is set to `&#123;"operator": "OR", "filters":[&#123;"field":"EVENT","operator":"EQ", "value":"PIXEL COMPLETE PAYMENT"&#125;,"parameter_filters":[&#123;"field":"URL","operator":"CONTAINS","value":"us"&#125;]]&#125;`, the exclusion rule will create an audience that excludes people who carried out the "Complete Payment" action on a webpage with "us" included in the page URL within the past 30 days on the website where the Pixel is installed. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecExclusionRuleSetRulesFilterSetFiltersParameterFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `"URL" \| "CONTENT_TYPE" \| "PRICE" \| "VALUE" \| "CONTENT_ID" \| "CONTENT_CATEGORY"` | No | No | Required when `parameter_filters` within `exclusion_rule_set` is passed. Filter condition. Use this field to specify whether to filter URL keywords, or [Web Event parameters reported via the Pixel](https://business-api.tiktok.com/portal/docs?id=1739585702922241#item-link-Parameters). Enum value: `URL`: URL keywords. `CONTENT_TYPE`: the parameter `content_type`.`PRICE`: the parameter `price`. `VALUE`: the parameter `value`.`CONTENT_ID`: the parameter `content_id`.`CONTENT_CATEGORY`: the parameter `content_category`. |
+| `operator` | `operator` | `"CONTAINS" \| "DOES_NOT_CONTAIN" \| "EQ" \| "NOT_EQUAL" \| "IS_LESS_THAN" \| "IS_GREATER_THAN" \| "IS_LESS_THAN_OR_EQUAL_TO" \| "IS_GREATER_THAN_OR_EQUAL_TO" \| "URL" \| "DOES_NOT_CONTAINS"` | No | No | Required when `parameter_filters` within `exclusion_rule_set` is passed. Filter operator between filter condition and filter value. Enum values: `CONTAINS`: contains.`DOES_NOT_CONTAIN`: doesn't contain.`EQ`: equals. `NOT_EQUAL`: doesn't equal. `IS_LESS_THAN`: is less than.`IS_GREATER_THAN`: is greater than. `IS_LESS_THAN_OR_EQUAL_TO`: is less than or equal to. `IS_GREATER_THAN_OR_EQUAL_TO`: is greater than or equal to. The allowed values vary based on the `field` value:If `field` is set to `URL`, `operator` can only be set to `CONTAINS`, `DOES_NOT_CONTAIN`, `EQ`, or `NOT_EQUAL`. If `field` is not set to `URL`, `operator` can be set to `CONTAINS`, `DOES_NOT_CONTAINS`, `EQ`, `NOT_EQUAL`, `IS_LESS_THAN`, `IS_GREATER_THAN`, `IS_LESS_THAN_OR_EQUAL_TO`, or `IS_GREATER_THAN_OR_EQUAL_TO`. |
+| `values` | `values` | `Array<string>` | No | No | Required when `parameter_filters` within `exclusion_rule_set` is passed. A list of filter values. Max size: 10. Length limit for each value: 100 characters. If you specify multiple values, the values will be combined using OR logic. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `string` | Yes | No | Operator between the inclusion rules within the inclusion rule set. Enum value: `OR`. If you provide more than one inclusion rule, the inclusion rules will be combined using OR logic to broaden the audience. |
+| `rules` | `rules` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRules>` | Yes | No | A list of inclusion rules within the inclusion rule set. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_source_ids` | `event_source_ids` | `Array<string>` | No | No | Required when `audience_type` is not `ENGAGEMENT` or `LEAD_GENERATION`. List of event source IDs of the rule. For an Engagement Audience, use ad group IDs as event source IDs. If not specified, all available event source IDs will be used.For an Organic Engagement Audience, use TikTok post IDs as event source IDs. You can use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) to get TikTok post IDs. The maximum allowed number of TikTok post IDs is 10. For a Live Engagement Audience, use live video ID as event source IDs. You can use [/identity/live/get/](https://business-api.tiktok.com/portal/docs?id=1785238052792321) to get live video IDs. The maximum allowed number of live video IDs is 10. For an App Activity Audience, use App IDs as event source IDs. For a Website Traffic Audience, use pixel IDs as event source IDs. For a Lead Generation Audience, do not pass in this field. Otherwise, an error will occur. If not specified, all available event source IDs will be used.For a Business Account Audience, use core user IDs of the advertisers. You can use [/user/info/](https://business-api.tiktok.com/portal/docs?id=1739665513181185) to get a core user ID. For a Shop Activity Audience, use TikTok Shop IDs as event source IDs. You can use [/store/list/](https://business-api.tiktok.com/portal/docs?id=1752267762718722) to get TikTok Shop IDs.For an Offline Activity Audience, use Offline Event set IDs as event source IDs. You can use [/offline/get/](https://business-api.tiktok.com/portal/docs?id=1765596808589313) to get Offline Event set IDs. |
+| `retention_days` | `retention_days` | `number` | Yes | No | Audience lookback window. For enum values, see [Enumerations - Lookback window](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Lookback%20window%20%28retention_days%29). Note: If `audience_type` = `BUSINESS_ACCOUNT`, and the `value` in the `filters` object is not `BUSINESS ACCOUNT PROFILE FOLLOW`, then `retention_days` must be `7`, `14`, or `30`.If `audience_type` = `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`, then `retention_days` must be `7`, `14`, or `30`.To avoid confusion between `retention_days` and `retention_in_days`, we'll rename `retention_days` in the next API version. |
+| `filter_set` | `filter_set` | `DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSet` | Yes | No | The set of filters for each inclusion rule. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `string` | Yes | No | Operator between filters in the `filters` object array. Enum value: `OR`. Within each inclusion rule, you can only specify one object in `filters`. |
+| `filters` | `filters` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSetFilters>` | Yes | No | An array of filters on previous audience actions and optionally also on URL keywords or parameters. Max size: 1. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSetFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | Filter field. Enum value: `EVENT`: To include the people who've carried out a certain action in the past few days as indicated by `retention_days`. |
+| `operator` | `operator` | `string` | Yes | No | Filter operator between filter field and filter value. Enum value: `EQ`: equals. |
+| `value` | `value` | `string` | Yes | No | Filter value. For enum values, see [Enumeration - Filter Value](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Filter%20Value). |
+| `parameter_filters` | `parameter_filters` | `Array<DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSetFiltersParameterFilters>` | No | No | List of filters on URL keywords or parameters. Within `parameter_filters`, you can add a maximum of one URL keyword filter (with `field` set to `URL`) and 10 parameter filters (with `field` not set to `URL`) . If specified, these filters (`parameter_filters`) are combined with the action filter (as specified by `field`, `operator` and `value`) using default AND logic to form the inclusion rule. For example, if `retention_days` is `30` and `filter_set` is set to `&#123;"operator": "OR", "filters":[&#123;"field":"EVENT","operator":"EQ", "value":"PIXEL COMPLETE PAYMENT"&#125;,"parameter_filters":[&#123;"field":"URL","operator":"CONTAINS","value":"us"&#125;]]&#125;`, the inclusion rule will create an audience that includes people who carried out the "Complete Payment" action on a webpage with "us" included in the page URL within the past 30 days on the website where the Pixel is installed. |
+
+## DmpCustomAudienceRuleCreateParamsRuleSpecInclusionRuleSetRulesFilterSetFiltersParameterFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `"URL" \| "CONTENT_TYPE" \| "PRICE" \| "VALUE" \| "CONTENT_ID" \| "CONTENT_CATEGORY"` | No | No | Required when `parameter_filters` within `inclusion_rule_set` is passed. Filter condition. Use this field to specify whether to filter URL keywords, or [Web Event parameters reported via the Pixel](https://business-api.tiktok.com/portal/docs?id=1739585702922241#item-link-Parameters). Enum value: `URL`: URL keywords. `CONTENT_TYPE`: the parameter `content_type`.`PRICE`: the parameter `price`. `VALUE`: the parameter `value`.`CONTENT_ID`: the parameter `content_id`.`CONTENT_CATEGORY`: the parameter `content_category`. |
+| `operator` | `operator` | `"CONTAINS" \| "DOES_NOT_CONTAIN" \| "EQ" \| "NOT_EQUAL" \| "IS_LESS_THAN" \| "IS_GREATER_THAN" \| "IS_LESS_THAN_OR_EQUAL_TO" \| "IS_GREATER_THAN_OR_EQUAL_TO" \| "URL" \| "DOES_NOT_CONTAINS"` | No | No | Required when `parameter_filters` within `inclusion_rule_set` is passed. Filter operator between filter condition and filter value. Enum values: `CONTAINS`: contains.`DOES_NOT_CONTAIN`: doesn't contain.`EQ`: equals. `NOT_EQUAL`: doesn't equal. `IS_LESS_THAN`: is less than.`IS_GREATER_THAN`: is greater than. `IS_LESS_THAN_OR_EQUAL_TO`: is less than or equal to. `IS_GREATER_THAN_OR_EQUAL_TO`: is greater than or equal to. The allowed values vary based on the `field` value:If `field` is set to `URL`, `operator` can only be set to `CONTAINS`, `DOES_NOT_CONTAIN`, `EQ`, or `NOT_EQUAL`. If `field` is not set to `URL`, `operator` can be set to `CONTAINS`, `DOES_NOT_CONTAINS`, `EQ`, `NOT_EQUAL`, `IS_LESS_THAN`, `IS_GREATER_THAN`, `IS_LESS_THAN_OR_EQUAL_TO`, or `IS_GREATER_THAN_OR_EQUAL_TO`. |
+| `values` | `values` | `Array<string>` | No | No | Required when `parameter_filters` within `inclusion_rule_set` is passed. A list of filter values. Max size: 10. Length limit for each value: 100 characters. If you specify multiple values, the values will be combined using OR logic. |
+
+## DmpCustomAudienceRuleCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `custom_audience_id` | `string` | No | No | Custom audience ID. |
+
+## DmpCustomAudienceShareCancelParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `custom_audience_id` | `string` | Yes | No | Custom audiences that you want to stop sharing. |
+| `shared_advertiser_id` | `shared_advertiser_id` | `string` | Yes | No | Advertisers that you want to stop sharing audiences with. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Operator advertiser ID. |
+
+## DmpCustomAudienceShareCancelResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpCustomAudienceShareLogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `custom_audience_id` | `string` | Yes | No | Custom audiences that you want to get sharing log for. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+
+## DmpCustomAudienceShareLogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DmpCustomAudienceShareLogResponseList>` | No | No | A list of Audience. |
+
+## DmpCustomAudienceShareLogResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_advertiser_id` | `shared_advertiser_id` | `string` | No | No | ID of the advertiser that the audience is shared with. |
+| `shared_advertiser_name` | `shared_advertiser_name` | `string` | No | No | Name of the advertiser that the audience is shared with. |
+| `custom_audience_id` | `custom_audience_id` | `string` | No | No | ID of the audience that you want to get sharing log for. |
+| `status` | `status` | `string` | No | No | Audience status. |
+
+## DmpCustomAudienceShareParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | Yes | No | Custom audiences that you want to share. Size: 1-10. |
+| `shared_advertiser_ids` | `shared_advertiser_ids` | `Array<string>` | Yes | No | Advertisers that you want to share audiences with. They must be in the same Business Center as you. Size: 1-10. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Operator advertiser ID. |
+
+## DmpCustomAudienceShareResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpCustomAudienceUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_id` | `custom_audience_id` | `string` | Yes | No | Custom audience ID. |
+| `custom_audience_name` | `custom_audience_name` | `string` | No | No | New name for the audience. Length limit: 128 characters. You must pass in either this field or `file_paths`. |
+| `audience_sub_type` | `audience_sub_type` | `"REACH_FREQUENCY" \| "NORMAL"` | No | No | Audience sub type, indicating the type of ads that the audience can be used for. The allowed enum value: `REACH_FREQUENCY`(To enable the audience to be used in Reach & Frequency campaigns). It means you can only convert audience sub type from `NORMAL` to `REACH_FREQUENCY`, but not the other way round. Note: If you update this field, changes to other data fields will be ignored.If you want to update a Lookalike audience, you cannot change the `audience_sub_type` to `REACH_FREQUENCY`. Otherwise, an error will occur. |
+| `file_paths` | `file_paths` | `Array<string>` | No | No | The files you upload to update the Customer File audience. You must pass in either this field or `custom_audience_name`. The recommended size is per request to ensure stability. Once you pass in this field, you can specify the modification type (`APPEND`, `REMOVE` or `REPLACE`) via `action`. The files must be encrypted with the same encryption method/type with the audience that you want to update. |
+| `action` | `action` | `"APPEND" \| "REMOVE" \| "REPLACE"` | No | No | Modification type. This field is valid when `file_paths` is passed. Enum values: `APPEND`: Upload files to expand the Customer File audience. Only data not included in the original file will be added.`REMOVE`: Upload files to remove the Customer File audience. Only the data that coincide with the original file will be removed. `REPLACE`: Upload files to replace the Customer File audience. All the data in the original file will be replaced. Default value: `REPLACE`. Note: The `APPEND`, `REMOVE` and `REPLACE` operations will fail if the audience size is less than 1,000 after the operation. |
+
+## DmpCustomAudienceUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpSavedAudienceCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_name` | `saved_audience_name` | `string` | Yes | No | Saved Audience name. Character limit is 512 and cannot contain emoji. |
+| `location_ids` | `location_ids` | `Array<string>` | Yes | No | IDs of the locations that you want to target. To get the available locations and corresponding IDs, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) or [/tool/targeting/search/](https://ads.tiktok.com/marketing_api/docs?id=1761236883355649) endpoint. Note: Overlapping targeted locations are not supported. For instance, you cannot target the U.S. and the state of California at the same time. |
+| `gender` | `gender` | `"GENDER_FEMALE" \| "GENDER_MALE" \| "GENDER_UNLIMITED"` | No | No | Gender that you want to target. Enum values: `GENDER_FEMALE`,`GENDER_MALE`,`GENDER_UNLIMITED` |
+| `age_groups` | `age_groups` | `Array<string>` | No | No | Age groups you want to target. For enum values, see [Enumeration - Targeting Age Group](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `languages` | `languages` | `Array<string>` | No | No | Codes of the languages that you want to target. You can get language codes via [/tool/language/](https://ads.tiktok.com/marketing_api/docs?id=1737188554152962), and if you don't want to limit the languages you target, assign an empty value to this field or do not pass in this field. |
+| `audience_ids` | `audience_ids` | `Array<string>` | No | No | List of audience IDs. You can get audience IDs via the [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) endpoint. |
+| `excluded_audience_ids` | `excluded_audience_ids` | `Array<string>` | No | No | List of audience IDs to be excluded. You can get audience IDs via the [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) endpoint. |
+| `interest_category_ids` | `interest_category_ids` | `Array<string>` | No | No | Interest classification. You can use [/tool/target_recommend_tags/](https://ads.tiktok.com/marketing_api/docs?id=1736275204260866) to get a list of recommended interest categories based on your targeting regions and your industries, or use [/tool/interest_category/](https://ads.tiktok.com/marketing_api/docs?id=1737174348712961) endpoint to get the complete list of interest categories. If the interest is specified, users who do not meet the interest target will be excluded during delivery. Do not specify if you wish to target everyone. |
+| `interest_keyword_ids` | `interest_keyword_ids` | `Array<string>` | No | No | IDs of interest keywords that you want to use to target audience. You can use [/tool/interest_keyword/recommend/](https://ads.tiktok.com/marketing_api/docs?id=1763590884474882) to get recommended interest keywords. |
+| `actions` | `actions` | `Array<DmpSavedAudienceCreateParamsActions>` | No | No | A list of action category objects. |
+| `operating_systems` | `operating_systems` | `Array<"ANDROID" \| "IOS">` | No | No | Device operating systems that you want to target. Enum values: `ANDROID`, `IOS`. Only one value is allowed. |
+| `min_android_version` | `min_android_version` | `string` | No | No | Minimum device Android version. For enum values, see [Enumeration - Minimum Android Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `min_ios_version` | `min_ios_version` | `string` | No | No | Minimum iOS version. For enum values, see [Enumeration - Minimum iOS Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `device_model_ids` | `device_model_ids` | `Array<string>` | No | No | IDs of the device models that you want to target. Use [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369) to get the complete list of device model IDs and their statuses, and only active devices (`is_active` = `true` in the response of [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369)) can be used to create ads. Note: Device model (`device_model_ids`) and device price (`device_price_ranges`) cannot be set at the same time. |
+| `network_types` | `network_types` | `Array<string>` | No | No | Device connection types that you want to target. Default: `unlimited`. For enum values, see [Enumeration - Connection Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Connection%20Type). |
+| `carrier_ids` | `carrier_ids` | `Array<string>` | No | No | Carriers that you want to target. Use [/tool/carrier/](https://ads.tiktok.com/marketing_api/docs?id=1737168013095938) endpoint to get a list of carriers. A carrier is valid only when the `in_use` field for the carrier is `true`. The carriers must be consistent with the location(s) that you want to target. |
+| `device_price_ranges` | `device_price_ranges` | `Array<number>` | No | No | Targeting device price range. 10000 means 1000+. The numbers must be in multiples of 50. Important: The upper limit you set will be added by 50 and the resulting new number will be used as the actual upper limit for device targeting. The actual upper limit is shown in the ad group settings in TikTok Ads Manager. If you set and get the price range of [0, 250], it actually means [0, 300]. |
+
+## DmpSavedAudienceCreateParamsActions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_category_ids` | `action_category_ids` | `Array<string>` | No | No | Required when actions has been specified and valid only when TikTok placement is the only placement selected in your ad group. IDs of the action categories (behaviors) or hashtags that you want to target. You can get action category IDs via [/tool/action_category/](https://business-api.tiktok.com/portal/docs?id=1737166752522241). |
+| `action_scene` | `action_scene` | `"VIDEO_RELATED" \| "CREATOR_RELATED" \| "HASHTAG_RELATED"` | No | No | Required when `actions` has been specified. Where you can collect information about user actions. Enum values: `VIDEO_RELATED`, `CREATOR_RELATED`, `HASHTAG_RELATED`. |
+| `action_period` | `action_period` | `number` | No | No | Required when `actions` has been specified. The time period to include actions from. Enum values: `0`, `7`, `15`. If `action_scene` is `CREATOR_RELATED` or `HASHTAG_RELATED`, `0` will be used regardless of the value you pass in. `0` means that there is no definite timeframe to select actions from. |
+| `video_user_actions` | `video_user_actions` | `Array<string>` | No | No | Required when `actions` has been specified. Video-related Actions.If `action_scene` is `VIDEO_RELATED`, the allowed values are: `WATCHED_TO_END`,`LIKED`,`COMMENTED`,`SHARED`.If `action_scene` is `CREATOR_RELATED`, the allowed values are: `FOLLOWING`, `VIEW_HOMEPAGE`.If `action_scene` is `HASHTAG_RELATED`, the allowed value is `VIEW_HASHTAG`. |
+
+## DmpSavedAudienceCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `saved_audience_id` | `saved_audience_id` | `string` | No | No | Saved Audience ID. |
+
+## DmpSavedAudienceDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_ids` | `saved_audience_ids` | `Array<string>` | Yes | No | IDs of Saved Audiences that you want to delete. Max size = 100. |
+
+## DmpSavedAudienceDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpSavedAudienceListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_ids` | `saved_audience_ids` | `Array<string>` | No | No | IDs of Saved Audiences. Max size: 100. To create Saved Audiences and obtain the Saved Audience IDs, use [/dmp/saved_audience/create/](https://business-api.tiktok.com/portal/docs?id=1780154541898754). |
+
+## DmpSavedAudienceListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `saved_audiences` | `saved_audiences` | `Array<DmpSavedAudienceListResponseSavedAudiences>` | No | No | A list of Saved Audiences. |
+| `page_info` | `page_info` | `DmpSavedAudienceListResponsePageInfo` | No | No | Page information. |
+
+## DmpSavedAudienceListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging Size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages. |
+
+## DmpSavedAudienceListResponseSavedAudiences
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `saved_audience_id` | `saved_audience_id` | `string` | No | No | Saved Audience ID. |
+| `saved_audience_name` | `saved_audience_name` | `string` | No | No | Saved Audience name. |
+| `location_ids` | `location_ids` | `Array<string>` | No | No | IDs of the locations that you want to target. |
+| `gender` | `gender` | `"GENDER_FEMALE" \| "GENDER_MALE" \| "GENDER_UNLIMITED"` | No | No | Your targeted gender. Enum values: `GENDER_FEMALE`,`GENDER_MALE`,`GENDER_UNLIMITED` |
+| `age_groups` | `age_groups` | `Array<string>` | No | No | Your targeted age groups. For enum values, see [Enumeration - Targeting Age Group](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `languages` | `languages` | `Array<string>` | No | No | Codes of the languages that you want to target. |
+| `audience_ids` | `audience_ids` | `Array<string>` | No | No | List of audience IDs. |
+| `excluded_audience_ids` | `excluded_audience_ids` | `Array<string>` | No | No | List of audience IDs to be excluded. |
+| `interest_category_ids` | `interest_category_ids` | `Array<string>` | No | No | Interest classification. |
+| `interest_keyword_ids` | `interest_keyword_ids` | `Array<string>` | No | No | IDs of interest keywords to target audience. |
+| `actions` | `actions` | `Array<DmpSavedAudienceListResponseSavedAudiencesActions>` | No | No | A list of action category objects. |
+| `operating_systems` | `operating_systems` | `Array<"ANDROID" \| "IOS">` | No | No | Device operating systems. Enum values: `ANDROID`, `IOS`. Only one value is allowed. |
+| `min_android_version` | `min_android_version` | `string` | No | No | Minimum device Android version. For enum values, see [Enumeration - Minimum Android Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `min_ios_version` | `min_ios_version` | `string` | No | No | Minimum iOS version. For enum values, see [Enumeration - Minimum iOS Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `device_model_ids` | `device_model_ids` | `Array<string>` | No | No | IDs of the device models. |
+| `network_types` | `network_types` | `Array<string>` | No | No | Device connection types. Default: `unlimited`. For enum values, see [Enumeration - Connection Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `carrier_ids` | `carrier_ids` | `Array<string>` | No | No | Carriers. |
+| `device_price_ranges` | `device_price_ranges` | `Array<number>` | No | No | Targeting device price range. 10000 means 1000+. The numbers must be in multiples of 50. Important:The upper limit you set will be added by 50 and the resulting new number will be used as the actual upper limit for device targeting. The actual upper limit is shown in the ad group settings in TikTok Ads Manager. If you set and get the price range of [0, 250], it actually means [0, 300]. |
+
+## DmpSavedAudienceListResponseSavedAudiencesActions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_category_ids` | `action_category_ids` | `Array<string>` | No | No | IDs of the action categories (behaviors) or hashtags that you want to target. |
+| `action_scene` | `action_scene` | `"VIDEO_RELATED" \| "CREATOR_RELATED" \| "HASHTAG_RELATED"` | No | No | Where you can collect information about user actions. Enum values: `VIDEO_RELATED`, `CREATOR_RELATED`, `HASHTAG_RELATED`. |
+| `action_period` | `action_period` | `number` | No | No | The time period to include actions from. Enum values: `0`, `7`, `15`. If `action_scene` is `CREATOR_RELATED` or `HASHTAG_RELATED`, `0` will be used regardless of the value you pass in. `0` means that there is no definite timeframe to select actions from. |
+| `video_user_actions` | `video_user_actions` | `Array<string>` | No | No | Video-related Actions.If `action_scene` is `VIDEO_RELATED`, the allowed values are: `WATCHED_TO_END`, `LIKED`, `COMMENTED`, `SHARED`.If `action_scene` is `CREATOR_RELATED`, the allowed values are: `FOLLOWING`, `VIEW_HOMEPAGE`.If `action_scene` is `HASHTAG_RELATED`, the allowed value is `VIEW_HASHTAG`. |
+
+## DynamicSceneGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `material_package_id` | `material_package_id` | `string` | Yes | No | Material Package ID. |
+| `page` | `page` | `number` | No | No | Page that you want to get. |
+| `page_size` | `page_size` | `number` | No | No | Number of results on each page. Default value: 10. |
+
+## DynamicSceneGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DynamicSceneGetResponseList>` | No | No | Videos generated in a specified material package ID. |
+| `page_info` | `page_info` | `DynamicSceneGetResponsePageInfo` | No | No | Pagination information. |
+
+## DynamicSceneGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID. |
+| `video_preview_url` | `video_preview_url` | `string` | No | No | Preview link of the video. Notice that the period of validity is 24 hours. |
+| `music_id` | `music_id` | `string` | No | No | Music materials. You can get music IDs through [Music Upload](https://ads.tiktok.com/marketing_api/docs?id=1740052650395650) endpoint. |
+| `music_name` | `music_name` | `string` | No | No | Music name. |
+| `music_preview_url` | `music_preview_url` | `string` | No | No | Music link. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `duration` | `duration` | `number` | No | No | Video Duration (Seconds). |
+| `story_arc` | `story_arc` | `Array<string>` | No | No | Refers to the structure and shape of a story, consisting of multiple slots. |
+| `slots` | `slots` | `Array<DynamicSceneGetResponseListSlots>` | No | No | Slot information. |
+
+## DynamicSceneGetResponseListSlots
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `order` | `order` | `number` | No | No | The order of the story arc, ranging from 0 to 5. |
+| `tag` | `tag` | `string` | No | No | The tag of a slot. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | Video materials. You can get video IDs through [Video Upload](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449) endpoint. |
+| `mute` | `mute` | `boolean` | No | No | Whether to turn on the soundtrack of a scene. |
+| `bgm_volume` | `bgm_volume` | `number` | No | No | The volume of background music, as an integer, ranging from [0, 100]. |
+
+## DynamicSceneGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## DynamicSceneMaterialSubmitParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `slots` | `slots` | `Array<DynamicSceneMaterialSubmitParamsSlots>` | Yes | No | Max size is 6. |
+| `auto_soundtrack` | `auto_soundtrack` | `boolean` | No | No | Whether to use automatic soundtrack provided by the system. If you want auto soundtrack, set it equals to `true`. The default value is `false`. |
+| `music_ids` | `music_ids` | `Array<string>` | No | No | Music materials. You can get music IDs through [Music Upload](https://ads.tiktok.com/marketing_api/docs?id=1740052650395650) endpoint. |
+
+## DynamicSceneMaterialSubmitParamsSlots
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `order` | `order` | `number` | Yes | No | The order of slot in the story arc, ranging from 0 to 5. |
+| `tag` | `tag` | `string` | Yes | No | The tag of a slot. |
+| `video_ids` | `video_ids` | `Array<string>` | Yes | No | You can get video IDs through [Video Upload](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449) endpoint. Note: You can only pass in no more than 10 videos in this field. |
+| `mute` | `mute` | `boolean` | No | No | Whether to turn on the original soundtrack of a slot. The default value is `false`. If you set it to `true`, then `bgm_volume` is `100`. Note: In the case of no background music (`auto_soundtrack` is `false` and there is no `music_ids`), you are not allowed to set `mute` to `true`. |
+| `bgm_volume` | `bgm_volume` | `number` | No | No | The volume of background music, should be an integer, ranging from [0, 100]. |
+
+## DynamicSceneMaterialSubmitResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `material_package_id` | `material_package_id` | `string` | No | No | Material package ID. |
+
+## DynamicSceneReportGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `data_level` | `data_level` | `string` | Yes | No | The data level that you'd like to query in reports. Currently we only support `ADGROUP`. |
+| `input_ids` | `input_ids` | `Array<string>` | Yes | No | IDs of the `data level` fields. Currently we only support ad group id. |
+| `dimensions` | `dimensions` | `Array<string>` | Yes | No | Grouping conditions. For example: `["campaign_id", "stat_time_day"]` indicates that both campaign_id and stat_time_day (days) are grouped. Currently, we only support the value of`[advertiser_id, adgroup_id, story_arc, order, video_id]` in this field. Make sure that you've passed all the values of `[advertiser_id, adgroup_id, story_arc, order, video_id]` in this field. |
+| `metrics` | `metrics` | `Array<string>` | No | No | Metrics to query. Refer to the Response section for details. |
+| `start_time` | `start_time` | `string` | No | No | Query start date in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. |
+| `end_time` | `end_time` | `string` | No | No | Query end date in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: The start time and end time should be no more than one year apart. |
+| `order_field` | `order_field` | `string` | No | No | Sort field. All supported metrics (excluding attribute metrics) support sorting, not sorting by default. |
+| `order_type` | `order_type` | `"ASC" \| "DESC"` | No | No | Sort. Enum values: `ASC`, `DESC`. Default value: `DESC` . |
+| `filters` | `filters` | `Array<DynamicSceneReportGetParamsFilters>` | No | No | Filter criteria. |
+| `page` | `page` | `number` | No | No | Current number of pages. Default value: `1`. |
+| `page_size` | `page_size` | `number` | No | No | Pagination size. Value range: 1-1000. Default value: `10`. |
+
+## DynamicSceneReportGetParamsFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field_name` | `field_name` | `string` | No | No | Filter name. Enum values: `story_arc`, `order`. |
+| `filter_type` | `filter_type` | `string` | No | No | Filter type. We currently support `IN` in this field. |
+| `filter_value` | `filter_value` | `string` | No | No | The value to filter. When `filter_type = IN`, `filter_value` needs to be a valid JSON array character string. If `filter_name` is `order` and you want to pass in all order options, specify `-1` in the field. |
+
+## DynamicSceneReportGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | Response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `list` | `list` | `Array<DynamicSceneReportGetResponseList>` | No | No | Returned data. |
+| `request_id` | `request_id` | `string` | No | No | The log id of the request, which uniquely identifies a request |
+
+## DynamicSceneReportGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension` | `dimension` | `DynamicSceneReportGetResponseListDimension` | No | No | Dimension data. |
+| `metric` | `metric` | `DynamicSceneReportGetResponseListMetric` | No | No | Metric data. |
+
+## DynamicSceneReportGetResponseListDimension
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `story_arc` | `story_arc` | `string` | No | No | Refers to the structure and shape of a story, consisting of multiple slots. |
+| `order` | `order` | `number` | No | No | The order of the story arc, ranging from 0 to 5. |
+| `video_id` | `video_id` | `string` | No | No | IDs of all videos that have been created. |
+
+## DynamicSceneReportGetResponseListMetric
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clicks` | `clicks` | `number` | No | No | The number of clicks your video receives. |
+| `complete_plays` | `complete_plays` | `number` | No | No | The number of times your video is played to completion. |
+| `break_plays` | `break_plays` | `number` | No | No | The number of times that people drop off on your video. |
+| `ctr` | `ctr` | `number` | No | No | The number of clicks that your video receives divided by the number of times your video is shown. |
+| `complete_play_rate` | `complete_play_rate` | `number` | No | No | The number of times that your video is played to completion divided by the number of times your video starts to play. |
+| `break_play_rate` | `break_play_rate` | `number` | No | No | The number of times that people drop off on your video divided by the number of times your video starts to play. |
+
+## DynamicSceneTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `material_package_id` | `material_package_id` | `string` | Yes | No | Material package ID, in the response of [/dynamic_scene/material/submit/](https://ads.tiktok.com/marketing_api/docs?id=1740307384545345) endpoint. |
+
+## DynamicSceneTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID. |
+
+## DynamicSceneTaskGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `task_id` | `string` | No | No | Task ID, in the response of [/dynamic_scene/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1740317320231938) endpoint. |
+
+## DynamicSceneTaskGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"PROCESSING" \| "FAIL" \| "SUCCESS"` | No | No | Status of the task. Enum values: `PROCESSING`, `FAIL`, `SUCCESS`. |
+| `error_msg` | `error_msg` | `string` | No | No | The error massage if the task has exceptions. |
+| `material_package_id` | `material_package_id` | `string` | No | No | The mapping material package ID of the task. |
+| `available_quota` | `available_quota` | `number` | No | No | The number of videos remaining in your quota. You can create a new task to generate more videos, but the number of videos is not allowed to exceed the remaining quota. |
+| `videos` | `videos` | `Array<DynamicSceneTaskGetResponseVideos>` | No | No | Max size=8, Videos created by Dynamic Scene API. |
+
+## DynamicSceneTaskGetResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `music_name` | `music_name` | `string` | No | No | Music name. |
+| `music_preview_url` | `music_preview_url` | `string` | No | No | Music preview link. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `duration` | `duration` | `number` | No | No | Video Duration (seconds). |
+| `story_arc` | `story_arc` | `Array<string>` | No | No | Refers to the structure and shape of a story, consisting of multiple slots. |
+| `video_id` | `video_id` | `string` | No | No | Video ID. You can use it to create Ads. |
+| `video_preview_url` | `video_preview_url` | `string` | No | No | Preview link of the video. Notice that the period of validity is 24 hours. |
+| `slots` | `slots` | `Array<DynamicSceneTaskGetResponseVideosSlots>` | No | No | Slot information. |
+
+## DynamicSceneTaskGetResponseVideosSlots
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `order` | `order` | `number` | No | No | The order of slot in the story arc, ranging from 0 to 5. |
+| `tag` | `tag` | `string` | No | No | The tag of a slot. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | Video materials. |
+| `mute` | `mute` | `boolean` | No | No | Whether to turn on the soundtrack in a slot. |
+| `bgm_volume` | `bgm_volume` | `number` | No | No | The volume of background music, as an integer, ranging from [0, 100]. |
+
+## EventTrackParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_source` | `event_source` | `string` | Yes | No | This field is used to specify the type of events you are uploading through Events API. Enum values: `web`: The events took place on your website and are measured by a Pixel Code. To generate sample code in cURL, Python, or Node.js format for reporting Web Events via the Events API 2.0, use [the Payload Helper for Web](https://business-api.tiktok.com/portal/docs?id=1807346079965186). `app`: The events took place on your app and are measured by a TikTok App ID.`offline` : The conversions took place in a physical store and are measured by an Offline Event Set ID.`crm`: The lead events took place in a CRM system and are measured by a CRM Event Set ID. Note: Reporting App Events using Events API 2.0 is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `event_source_id` | `event_source_id` | `string` | Yes | No | An Event Source ID that is used to measure events. When `event_source` is set to `web`, specify a Pixel Code through this field. To obtain a Pixel Code, refer to [FAQs - Where can I find the Pixel Code](https://ads.tiktok.com/marketing_api/docs?id=1771101001228290). When `event_source` is set to `offline`, specify an Offline Event Set ID through this field. To obtain an Offline Event Set ID, refer to [Setup Guide for Offline](https://ads.tiktok.com/marketing_api/docs?id=1771101027431425).When `event_source` is set to `app`, specify a TikTok App ID through this field. To obtain a TikTok App ID, refer to [Setup Guide for App](https://ads.tiktok.com/marketing_api/docs?id=1771101111730178).When `event_source` is set to `crm`, specify a CRM Event Set ID through this field. To obtain a CRM Event Set ID, use [/crm/list/](https://business-api.tiktok.com/portal/docs?id=1780896521680898). |
+| `data` | `data` | `Array<EventTrackParamsData>` | Yes | No | An object array of the events you want to report. If you are sending a single event, pass one object in the array. If you are batching multiple events in a single payload, you can report up to 1,000 events in one request. If a request contains more than 1,000 events, the entire request will be rejected. To optimize campaign performance, it's highly recommended to send the event in real-time (without batching) as soon as it is seen on the advertiser's server. |
+
+## EventTrackParamsData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event` | `event` | `string` | Yes | No | For web, app, offline, and CRM events. Conversion event name. For web and app events, it can be either a Standard Event or Custom Event.For offline events, it can only be a Standard Event.For CRM events, it can only be a Custom Event.To find out the supported values for Standard Events, refer to [Events API 2.0-Supported events](https://ads.tiktok.com/marketing_api/docs?id=1771101186666498). To report a Custom Web Event or Custom App Event, pass a customized name in this field. Do not use sensitive words in the name of Custom Events. Otherwise, the responsibility for any consequences that may arise will be borne by you. |
+| `event_time` | `event_time` | `number` | Yes | No | For web, app, offline, and CRM events. The time when the event occurred, indicated as a Unix timestamp measured in seconds, and in UTC+0 time zone. |
+| `event_id` | `event_id` | `string` | No | No | For web, offline, and CRM events. Required in any of the following scenarios:You are sending web events (`event_source` = `web`) from both TikTok browser pixel and Events API.You are sending CRM events (`event_source` = `crm`) from both Events API and by uploading CSV files on Events Manager.The ID that is used to identify a unique event. It can be hashed or unhashed. TikTok uses the `event_source_id`, `event_id` and `event` to deduplicate the same event sent multiple times from a single channel or across multiple channels (for instance browser pixel and Events API). For more information on event deduplication and how to complete the setup, refer to [Events API 2.0 - Event Deduplication](https://ads.tiktok.com/marketing_api/docs?id=1771100965992450). |
+| `user` | `user` | `string` | No | No | For web, app, offline, and CRM events. Information about the customer. To view the list of fields included in the `user` object, refer to the "`user` parameters" section below. |
+| `properties` | `properties` | `string` | No | No | For web, app, offline, and CRM events. Information about the product, order and additional information to help improve ad performance. To view the list of fields included in the `properties` object, refer to the "`properties` parameters" section below. |
+| `page` | `page` | `string` | No | No | Required for web events. Information about the web page. To view the list of fields included in the `page` object, refer to the "`page` parameters" section below. |
+| `app` | `app` | `string` | No | No | Required for app events. Information about the app. To view the list of fields included in the `app` object, refer to the "`app` parameters" section below. Note: Reporting App Events using Events API 2.0 is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `ad` | `ad` | `string` | No | No | Only for app and web events. Information about the ad. To view the list of fields included in the `ad` object, refer to the "`ad` parameters" section below. |
+| `limited_data_use` | `limited_data_use` | `boolean` | No | No | For web and app events. To learn more about the Limited Data Use feature, refer to [Events API 2.0 - Limited Data Use](https://ads.tiktok.com/marketing_api/docs?id=1771101204435970). |
+| `lead` | `lead` | `string` | No | No | Required for CRM events. Information about the lead. To view the list of fields included in the `lead` object, refer to the "`lead` parameters" section below. |
+
+## EventTrackResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## FileFinishUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `upload_id` | `upload_id` | `string` | Yes | No | The ID of the upload task. |
+
+## FileFinishUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_id` | `file_id` | `string` | No | No | The ID of the file that you have uploaded. You can use this ID to upload the file from the file repository to the creatives library. It is valid for 24 hours. |
+| `file_name` | `file_name` | `string` | No | No | The name of the file that you have uploaded. |
+| `create_time` | `create_time` | `string` | No | No | The time when the file was uploaded in the format of YYYY-MM-DD HH:MM:SS(UTC+0). Example: 2020-06-10 07:39:14 |
+| `size` | `size` | `number` | No | No | The file size in bytes. |
+
+## FileImageAdInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `image_ids` | `image_ids` | `Array<string>` | Yes | No | Image ID list. Up to 100 IDs per request. Note: If you obtain the image IDs of thumbnails for ads created on TikTok Ads Manager using the [/ad/get/](https://ads.tiktok.com/marketing_api/docs?id=1735735588640770) endpoint, they are not supported. This is because these thumbnails have not been uploaded to the Asset Library and linked to your ad account. |
+
+## FileImageAdInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<FileImageAdInfoResponseList>` | No | No | Information about the images. |
+
+## FileImageAdInfoResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID, used to create ads. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `is_carousel_usable` | `is_carousel_usable` | `boolean` | No | No | Whether the source of the image is valid for Carousel Ads. Note: To use an image in Carousel Ads, you need to ensure: The value of this field is `true`, and The image meets the specifications requirements listed in [Create Carousel Ads-Steps-Create an ad](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713). |
+| `width` | `width` | `number` | No | No | Image width. |
+| `format` | `format` | `string` | No | No | Image format. |
+| `image_url` | `image_url` | `string` | No | No | Image URL, valid for an hour and needs to be re-acquired after expiration. |
+| `height` | `height` | `number` | No | No | Image height. |
+| `signature` | `signature` | `string` | No | No | MD5 of picture. |
+| `size` | `size` | `number` | No | No | Image size in bytes. |
+| `file_name` | `file_name` | `string` | No | No | Image name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+
+## FileImageAdSearchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `filtering` | `FileImageAdSearchParamsFiltering` | No | No | Filters on the data. This parameter is an array of filter objects. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 20. Value range: 1-100. |
+
+## FileImageAdSearchParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Image height. |
+| `image_ids` | `image_ids` | `Array<string>` | No | No | Image IDs. At most 100 IDs can be included in the list. |
+| `material_ids` | `material_ids` | `Array<string>` | No | No | A list of material IDs. At most 100 IDs can be included in the list. |
+| `ratio` | `ratio` | `string` | No | No | Image aspect ratio, e.g.: [1.7, 2.5]. Use 1.7 to search for Images with aspect ratio between 1.65-1.75, i.e. the precision floating point is 0.05. |
+| `width` | `width` | `number` | No | No | Image width. |
+| `displayable` | `displayable` | `boolean` | No | No | Enum values: `False`(default value): Search in all materials.`True`: Search in the materials displayed on the platform. |
+
+## FileImageAdSearchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<FileImageAdSearchResponseList>` | No | No | A list of image information. |
+| `page_info` | `page_info` | `FileImageAdSearchResponsePageInfo` | No | No | Pagination information. |
+
+## FileImageAdSearchResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID. It can be used to create ads. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `is_carousel_usable` | `is_carousel_usable` | `boolean` | No | No | Whether the source of the image is valid for Carousel Ads. Note: To use an image in Carousel Ads, you need to ensure: The value of this field is `true`, and The image meets the specifications requirements listed in [Create Carousel Ads-Steps-Create an ad](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713). |
+| `width` | `width` | `number` | No | No | Image width. |
+| `format` | `format` | `string` | No | No | Image format. |
+| `image_url` | `image_url` | `string` | No | No | Picture preview link, valid for an hour and needs to be re-acquired after expiration. |
+| `height` | `height` | `number` | No | No | Image height. |
+| `signature` | `signature` | `string` | No | No | MD5 of the image. |
+| `size` | `size` | `number` | No | No | Image size. |
+| `file_name` | `file_name` | `string` | No | No | Image name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+
+## FileImageAdSearchResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## FileImageAdUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `file_name` | `string` | Yes | No | Image name. Length limit: 1 - 100 characters. If another image uses the same file name under the same `advertiser_id`, there will a millisecond timestamp added at the end. If the file name contains more than 100 characters, only the first 100 characters will be used. |
+| `image_id` | `image_id` | `string` | Yes | No | Image ID. |
+
+## FileImageAdUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## FileImageAdUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `file_name` | `string` | No | No | Image name. Length limit: 1-100 characters. The default value is the file name. If the final filename has more than 100 chars, it will be cut off. Important: Images under the same `advertiser_id` cannot have duplicated file names. You can call [/file/name/check/](https://ads.tiktok.com/marketing_api/docs?id=1759130033155073) to check whether the file name has been used. If you get an error about duplicated file names, please rename the files or append timestamps to the original file names ( for example, in the format of `_`) , and upload the images again. |
+| `upload_type` | `upload_type` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL" \| "UPLOAD_BY_FILE_ID"` | Yes | No | Image upload method. Default value: `UPLOAD_BY_FILE`. Enum values: `UPLOAD_BY_FILE`, `UPLOAD_BY_URL`, `UPLOAD_BY_FILE_ID`. |
+| `image_file` | `image_file` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Image file. Recommended settings: File size: within 50 MB.Resolution: The total pixel count of the image, which is obtained by multiplying the width and height, should not exceed 3,686,400 pixels (1440 x 2560). For example, a resolution of 2400 x 1256 pixels is within the supported range, while a resolution of 3600 x 1256 pixels will result in an error. To learn about the recommended image resolution for a certain use case, refer to the section "Image resolution guidelines and use cases".File type: JPG, JPEG, or PNG |
+| `image_signature` | `image_signature` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. MD5 of the image (used for server verification). |
+| `image_url` | `image_url` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. Image url address. Example: http://xxx.xxx. |
+| `file_id` | `file_id` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the image that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. |
+
+## FileImageAdUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID that is used to create ads. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `is_carousel_usable` | `is_carousel_usable` | `boolean` | No | No | Whether the source of the image is valid for Carousel Ads. Note: Due to the latency in writing the image data, this field might not be returned. In such situations, we recommend waiting for 10 seconds and then using the `image_id` returned from this endpoint with either [/file/image/ad/info/](https://business-api.tiktok.com/portal/docs?id=1740051721711618) or [/file/image/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740052016789506) to retrieve the data.To use an image in Carousel Ads, you need to ensure the value of this field is `true`, and the image meets the specifications requirements listed in [Create Carousel Ads-Steps-Create an ad](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713). |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+| `height` | `height` | `number` | No | No | Image height. |
+| `width` | `width` | `number` | No | No | Image width. |
+| `format` | `format` | `string` | No | No | Image Format. |
+| `image_url` | `image_url` | `string` | No | No | Image URL, valid for an hour and needs to be re-acquired after expiration. |
+| `signature` | `signature` | `string` | No | No | MD5 of picture. |
+| `size` | `size` | `number` | No | No | Image size in bytes. |
+| `file_name` | `file_name` | `string` | No | No | Image name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. Note: Due to the latency in writing the image data, this field might not be returned. In such situations, we recommend waiting for 10 seconds and then using the `image_id` returned from this endpoint with either [/file/image/ad/info/](https://business-api.tiktok.com/portal/docs?id=1740051721711618) or [/file/image/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740052016789506) to retrieve the data. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z. Note: Due to the latency in writing the image data, this field might not be returned. In such situations, we recommend waiting for 10 seconds and then using the `image_id` returned from this endpoint with either [/file/image/ad/info/](https://business-api.tiktok.com/portal/docs?id=1740051721711618) or [/file/image/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740052016789506) to retrieve the data. |
+
+## FileMusicGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `music_scene` | `music_scene` | `"CREATIVE_ASSET" \| "CAROUSEL_ADS" \| "CATALOG_CAROUSEL"` | No | No | The scenario where the piece of music is used. Enum values: `CREATIVE_ASSET`: Creative Tools. `CAROUSEL_ADS`: Non-Shopping Ads - Carousel format.`CATALOG_CAROUSEL`: Shopping Ads (VSA) - Carousel format.Default value: `CREATIVE_ASSET`. |
+| `search_type` | `search_type` | `"SEARCH_BY_KEYWORD" \| "SEARCH_BY_RECOMMEND"` | No | No | Required when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. The type of music search that you want to perform. Enum values: `SEARCH_BY_KEYWORD`: To fuzzy search for music via keyword. You need to pass in `keyword` as well. Note that you cannot search for user-uploaded music through this search type.`SEARCH_BY_RECOMMEND`:When `music_scene` is set to `CAROUSEL_ADS`: To get recommended music for the images specified via the image URLs. You need to pass in `image_urls` as well. A maximum of 500 pieces of recommended music can be returned. Note that you cannot search for user-uploaded music through this search type.When `music_scene` is set to `CATALOG_CAROUSEL`: To get recommended music for the specified catalog products. You need to pass in `catalog_id` and `catalog_authorized_bc_id` as well. Additionally, you need to choose one of the three settings below. Note that you cannot search for user-uploaded music through this search type. To get recommended music for all products in a catalog, do not pass any of `product_set_id`, `item_group_ids`, and `sku_ids`. To get recommended music for products in a product set, pass in either `product_set_id` or `item_group_ids`. To get recommended music for specific products, pass in `sku_ids`. `SEARCH_BY_LIKED`: To search the Liked list for music. A maximum of 1,000 pieces of music in the Liked list can be returned. `SEARCH_BY_HISTORY`: To search the History list for music. `SEARCH_BY_MUSIC_ID`: To search for music via music IDs. `SEARCH_BY_SOURCE`: To search for music by music source. You need to pass in `sources` as well. Note that you can only filter user-uploaded music for Carousel Ads. Note: When this field is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED` or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. |
+| `filtering` | `filtering` | `FileMusicGetParamsFiltering` | No | No | Filter condition. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value Range: ≥ 1. The product of `page` and `page_size` cannot exceed 100,000. Note: When `search_type` is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED`, or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 1,000. Value Range: 1-1,000. The product of `page` and `page_size` cannot exceed 100,000. Note: When `search_type` is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED`, or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. When `search_type` is set to `SEARCH_BY_KEYWORD` or `SEARCH_BY_HISTORY`, the default value is 200 and the value range is [1,200]. |
+
+## FileMusicGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Required when `search_type` is set to `SEARCH_BY_KEYWORD`. Invalid when `search_type` is not set to `SEARCH_BY_KEYWORD`. The keyword for music search. |
+| `image_urls` | `image_urls` | `Array<string>` | No | No | Required when `music_scene` is set to `CAROUSEL_ADS` and `search_type` is set to `SEARCH_BY_RECOMMEND`. Invalid when `search_type` is not set to `SEARCH_BY_RECOMMEND`. A list of image URLs to get recommended music for. Size range: [2, 35]. You need to specify at least 2 image URLs obtained from [/file/image/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1739067433456642) and [/file/image/ad/search/](https://ads.tiktok.com/marketing_api/docs?id=1740052016789506). The image URLs should also meet the requirements below at the same time: Specifications: File Type: JPG, JPEG, or PNG. Image Resolution: a maximum of 1242*2340 px or 2340*1242 px. Aspect Ratio: a maximum of 9:20 or 20:9. File Size: below 50 MB. The value of the parameter `is_carousel_usable` returned from [/file/image/ad/search/](https://ads.tiktok.com/marketing_api/docs?id=1740052016789506) for the image is `true`. If you use the recommended music to create non-VSA Carousel Ads, you need to use the same images for which the recommended music is provided in the ad. |
+| `music_ids` | `music_ids` | `Array<string>` | No | No | Required when `search_type` is set to `SEARCH_BY_MUSIC_ID`. Music IDs. Max size: 100. |
+| `catalog_id` | `catalog_id` | `string` | No | No | Required when `music_scene` is set to `CATALOG_CAROUSEL` and `search_type` is set to `SEARCH_BY_RECOMMEND`. Catalog ID. |
+| `catalog_authorized_bc_id` | `catalog_authorized_bc_id` | `string` | No | No | Required when `music_scene` is set to `CATALOG_CAROUSEL` and `search_type` is set to `SEARCH_BY_RECOMMEND`. ID of the Business Center that has the permission to access the catalog. For a catalog in Business Center, specify the ID of the Business Center that the catalog belongs to. |
+| `item_group_ids` | `item_group_ids` | `Array<string>` | No | No | If `music_scene` is set to `CATALOG_CAROUSEL` , `search_type` is set to `SEARCH_BY_RECOMMEND`, and you want to get recommended music for a VSA Carousel Ad with products dynamically selected from a product set, either `product_set_id` or `item_group_ids` must be specified. Do not pass this field if you want to get recommended music for a VSA Carousel Ad with products dynamically selected from all products in the catalog. Product SPU IDs. Max size: 20. |
+| `product_set_id` | `product_set_id` | `string` | No | No | If `music_scene` is set to `CATALOG_CAROUSEL` , `search_type` is set to `SEARCH_BY_RECOMMEND`, and you want to get recommended music for a VSA Carousel Ad with products dynamically selected from a product set, either `product_set_id` or `item_group_ids` must be specified. Do not pass this field if you want to get recommended music for a VSA Carousel Ad with products dynamically selected from all products in the catalog. The ID of the product set. |
+| `sku_ids` | `sku_ids` | `Array<string>` | No | No | Required if `music_scene` is set to `CATALOG_CAROUSEL` ,`search_type` is set to `SEARCH_BY_RECOMMEND`, and you want to get recommended music for a VSA Carousel Ad with specific products from the catalog. Do not pass this field if you want to get recommended music for a VSA Carousel Ad with products dynamically selected from all products in the catalog. IDs of the SKUs. Max size: 20. Min size: 2. |
+| `carousel_image_index` | `carousel_image_index` | `number` | No | No | Valid only if `music_scene` is set to `CATALOG_CAROUSEL`, `search_type` is set to `SEARCH_BY_RECOMMEND`, and a list of additional images has been configured for the specified products. The index that specifies the additional images to be used in the VSA Carousel Ad. If this field is not passed, the main images of catalog products will be used in the VSA Carousel Ad. Value range: [0, 9]. The number you set via this field represents the position of the product image within the additional image list (`additional_image_urls`) for each catalog product. For instance, `carousel_image_index` = 1 means that you will use all the images specified via the second image URL in each `additional_image_urls` value as images in the Carousel Ad. You can retrieve the additional images configured for a product via `additional_image_urls` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). If you set a number greater than the total number of additional Image URLs specified for the product, this field will be ignored, and the main image (`image_url`) for the product will be used. You can retrieve the main image for a product via `image_url` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). |
+| `material_ids` | `material_ids` | `Array<string>` | No | No | Not supported when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Material IDs. Max size: 100. |
+| `styles` | `styles` | `Array<string>` | No | No | Not supported when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Music style. Max size: 1. |
+| `sources` | `sources` | `Array<string>` | No | No | When `music_scene` is set to `CREATIVE_ASSET` or not passed, this field is optional. When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL` and `search_type` is set to `SEARCH_BY_SOURCE`, this field is required and can only be set to `USER` to filter user-uploaded music for Carousel Ads. Music source. `USER` represents user uploaded music, and `SYSTEM` represents system music. Max size: 1. |
+
+## FileMusicGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `musics` | `musics` | `Array<string>` | No | No | Music data. |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `sources` | `sources` | `Array<string>` | No | No | Music source. `USER` means the adveritser's uploaded music, and `SYSTEM` means the system music. |
+| `author` | `author` | `string` | No | No | Returned only for music that can be used in Carousel Ads. Author of the piece of music. |
+| `liked` | `liked` | `boolean` | No | No | Returned only for music that can be used in Carousel Ads. Whether the piece of music is added to the Liked list. |
+| `cover_url` | `cover_url` | `string` | No | No | Returned only for music that can be used in Carousel Ads. URL of the cover for the piece of music. |
+| `url` | `url` | `string` | No | No | Music link. Effective duration: 12h. |
+| `duration` | `duration` | `number` | No | No | Video Duration (Seconds). Only returned for system music. |
+| `style` | `style` | `string` | No | No | Music style. Only returned for system music. |
+| `signature` | `signature` | `string` | No | No | Music file MD5. |
+| `name` | `name` | `string` | No | No | Music Name. |
+| `file_name` | `file_name` | `string` | No | No | File Name. |
+| `copyright` | `copyright` | `"MUSIC_FORBID_VIDEO_ALLOW" \| "MUSIC_FORBID_VIDEO_FORBID"` | No | No | Copyright information. Enum values: `MUSIC_FORBID_VIDEO_ALLOW`: Music is not allowed to download, but the generated video is allowed to download.`MUSIC_FORBID_VIDEO_FORBID`: Both music and the generated video are not allowed to download. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. Only returned for advertiser's music. UTC Time. Format: 2020-06-10 T07: 39: 14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modified time. Only returned for advertiser's music. Custom Soundtracks return this field, system music does not return this field. UTC Time. Format: 2020-06-10 T07: 39: 14Z. |
+| `page_info` | `page_info` | `FileMusicGetResponsePageInfo` | No | No | Pagination information. |
+
+## FileMusicGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## FileMusicUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `music_scene` | `music_scene` | `"CREATIVE_ASSET" \| "CAROUSEL_ADS" \| "CATALOG_CAROUSEL"` | No | No | The scenario where the piece of music is used. Enum values: `CREATIVE_ASSET`: Creative Tools. `CAROUSEL_ADS`: Non-Shopping Ads - Carousel format.`CATALOG_CAROUSEL`: Shopping Ads (VSA) - Carousel format.Default value: `CREATIVE_ASSET`. |
+| `upload_type` | `upload_type` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_FILE_ID"` | No | No | When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, you need to pass in either `upload_type` or `material_action`. When `music_scene` is set to `CREATIVE_ASSET` or not passed, this field is optional and defaults to `UPLOAD_BY_FILE`. The way you upload your music. Enum values: `UPLOAD_BY_FILE`: To upload a piece of music via file. `UPLOAD_BY_FILE_ID`: To upload a piece of music via file ID. |
+| `material_action` | `material_action` | `"ADD_TO_LIKED" \| "ADD_TO_HISTORY" \| "REMOVE_FROM_LIKED"` | No | No | When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, you need to pass in either `upload_type` or `material_action`. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. The type of operation you want to perform on a piece of music. You need to pass in `material_id` as well. Enum values: `ADD_TO_LIKED`: To add a piece of music to the Liked list.`ADD_TO_HISTORY`: To add a piece of music to the History list. `REMOVE_FROM_LIKED`: To remove a piece of music from the Liked list. Note: The Liked list of an ad account can have up to 1,000 pieces of music. When the limit is reached, you cannot set this field to `ADD_TO_LIKED` to add more music to the Liked list. |
+| `music_file` | `music_file` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE` or not specified. Music file. Note: When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, the customized music file that you specify through this field should meet the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `music_signature` | `music_signature` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE` or not specified. Music MD5 (used for server verification). |
+| `file_name` | `file_name` | `string` | No | No | Valid only when `upload_type` is passed. Music name. Length limit: 1-100 characters. The default is the local file name. |
+| `file_id` | `file_id` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the file that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. Note: When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, the ID that you specify through this field should correspond to a customized music file that meets the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `material_id` | `material_id` | `string` | No | No | Required when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL` and `material_action` is passed. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. Material ID for the piece of music, which is used for adding music to the Liked list or History list, or for removing music from the Liked list. To obtain a valid material ID , you can:upload a piece of customized music for Carousel Ads through this endpoint, OR retrieve the material IDs of music for Carousel Ads under an ad account via `material_id` returned by [/file/music/get/](https://ads.tiktok.com/marketing_api/docs?id=1740053909509122). |
+
+## FileMusicUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `sources` | `sources` | `Array<string>` | No | No | Music source. `USER` means the advertiser's uploaded music; `SYSTEM` means the system music. |
+| `author` | `author` | `string` | No | No | Returned only for music that can be used in Carousel Ads. Author of the piece of music. |
+| `liked` | `liked` | `boolean` | No | No | Returned only for music that can be used in Carousel Ads. Whether the piece of music is added to the Liked list. |
+| `cover_url` | `cover_url` | `string` | No | No | Returned only for music that can be used in Carousel Ads. URL of the cover for the piece of music. |
+| `url` | `url` | `string` | No | No | Music link. Effective duration: 12h. |
+| `duration` | `duration` | `number` | No | No | Music duration (in seconds). Only returned for system music. |
+| `style` | `style` | `string` | No | No | Music style. Only returned for system music. |
+| `signature` | `signature` | `string` | No | No | Music file MD5. |
+| `file_name` | `file_name` | `string` | No | No | File Name. |
+| `copyright` | `copyright` | `"MUSIC_FORBID_VIDEO_ALLOW" \| "MUSIC_FORBID_VIDEO_FORBID"` | No | No | Copyright information. Enum values: `MUSIC_FORBID_VIDEO_ALLOW` : Music is not allowed to download, but the generated video is allowed to download.`MUSIC_FORBID_VIDEO_FORBID` : Both music and the generated video are not allowed to download. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. Only returned for advertiser's music. UTC Time. Format: 2020-06-10 T07: 39: 14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modified time. Only returned for advertiser's music. Custom Soundtracks return this field, system music does not return this field. UTC Time. Format: 2020-06-10 T07: 39: 14Z. |
+
+## FileNameCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `files` | `files` | `Array<FileNameCheckParamsFiles>` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. Information about the file names to check. Max size: 20. |
+| `file_name` | `file_name` | `string` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. File name. |
+| `file_type` | `file_type` | `"VIDEO" \| "IMAGE"` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. File type. Enum values: `VIDEO` (video), `IMAGE` (image). Default value: `VIDEO`. |
+
+## FileNameCheckParamsFiles
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_name` | `file_name` | `string` | No | No | Required when `files` is passed. File name. |
+| `file_type` | `file_type` | `"VIDEO" \| "IMAGE"` | No | No | File type. Enum values: `VIDEO` (video), `IMAGE` (image). Default value: `VIDEO`. |
+
+## FileNameCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duplicate` | `duplicate` | `boolean` | No | No | Returned when `files` is not passed in the request. Whether the file name is duplicate. Supported values: `true`, `false`. |
+| `duplicate_material_id` | `duplicate_material_id` | `string` | No | No | Returned when `duplicate` is `true`. The material ID of the image or video that already uses the file name. |
+| `batch_results` | `batch_results` | `Array<FileNameCheckResponseBatchResults>` | No | No | Returned when `files` is passed in the request. The results for the list of file names checked. |
+
+## FileNameCheckResponseBatchResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_name` | `file_name` | `string` | No | No | File name. |
+| `duplicate` | `duplicate` | `boolean` | No | No | Whether the file name is duplicate. Supported values: `true`, `false`. |
+| `duplicate_material_id` | `duplicate_material_id` | `string` | No | No | Returned when `duplicate` is `true`. The material ID of the image or video that already uses the file name. |
+
+## FileStartUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `size` | `size` | `number` | Yes | No | The size of the file that you want to upload, in Bytes. |
+| `content_type` | `content_type` | `string` | Yes | No | The content type of the file. Enum values: `image`, `video`, and `music`. |
+| `name` | `name` | `string` | No | No | The file name. The maximum length is 100 characters. |
+
+## FileStartUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_id` | `upload_id` | `string` | No | No | The upload task ID. It will be needed in all of the following requests for the same task. |
+| `file_name` | `file_name` | `string` | No | No | The file name. The maximum length is 100 characters. |
+| `start_offset` | `start_offset` | `number` | No | No | The starting offset of the first chunk. |
+| `end_offset` | `end_offset` | `number` | No | No | The ending offset of the first chunk. |
+
+## FileTemporarilyUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `upload_type` | `upload_type` | `"FILE" \| "URL"` | Yes | No | The upload type. Enum values:`FILE`, `URL` |
+| `content_type` | `content_type` | `string` | Yes | No | The file type. Enum values:`image`, `music`, `video`, `playable` |
+| `file` | `file` | `unknown` | No | No | The file that you want to upload. Required when `upload_type`is set to`FILE`. The maximum size of a file that you can upload is 100 MB. Note: To upload a customized music file that can be used in [Carousel Ads](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713), the file that you specify through this field should meet the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `url` | `url` | `string` | No | No | The URL of the file that you want to upload, in the format of “http://xxx.xxx”. Required when `upload_type` is `URL`. |
+| `signature` | `signature` | `string` | No | No | The MD5 value of the file, used as a checksum to check data integrity by the server side. Required when `upload_type` is `FILE`. |
+| `name` | `name` | `string` | No | No | The file name. Character limit is 100. Note: Each word in Chinese or Japanese counts as three characters, while each letter in English counts as one character. |
+
+## FileTemporarilyUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_id` | `file_id` | `string` | No | No | The ID of the file that you have uploaded. You can use this ID to upload the file from the file library to the creatives library. It is valid for 24 hours. |
+| `signature` | `signature` | `string` | No | No | The MD5 value of the file. |
+| `file_size` | `file_size` | `number` | No | No | The file size in bytes. |
+| `create_time` | `create_time` | `string` | No | No | The time when the file was uploaded in the format of YYYY-MM-DD HH:MM:SS(UTC+0). Example: 2020-06-10 07:39:14. |
+
+## FileTransferUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `upload_id` | `upload_id` | `string` | Yes | No | The ID of the upload task. |
+| `signature` | `signature` | `string` | Yes | No | The MD5 of the chunk, used as a checksum to verify data integrity. |
+| `start_offset` | `start_offset` | `number` | Yes | No | The starting offset of the current chunk. |
+| `file` | `file` | `unknown` | Yes | No | The file chunk |
+
+## FileTransferUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start_offset` | `start_offset` | `number` | No | No | The starting offset of the uploaded chunk. |
+| `end_offset` | `end_offset` | `number` | No | No | The ending offset of the uploaded chunk. When the `start_offset` value is equal to the `end_offset` value, the last chunk has been uploaded. Then you can call [/file/finish/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737721642924033) to finish the upload. |
+
+## FileVideoAdInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `video_ids` | `video_ids` | `Array<string>` | Yes | No | Video ID list. Max size: 60. Note: If the video cannot be used in ads, the video ID will be ignored. |
+
+## FileVideoAdInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<string>` | No | No | Video data. |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for video cover, valid for six hours and needs to be re-acquired after expiration. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `http://p16-sign-sg.tiktokcdn.com/v0201/b99a388e3709470be5c~tplv-noop.image?x-expires=1671742348&x-signature=FziJhvED9NDTDmPofv3I%3D`. |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rate in bps. |
+| `format` | `format` | `string` | No | No | Video format. |
+| `preview_url` | `preview_url` | `string` | No | No | Video preview link, valid for six hours and needs to be re-acquired after expiration. To find out the expiration time of the preview link, see `preview_url_expire_time`. |
+| `preview_url_expire_time` | `preview_url_expire_time` | `string` | No | No | The expiration time of the video preview link, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `duration` | `duration` | `number` | No | No | Video duration, in seconds. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `signature` | `signature` | `string` | No | No | Video file MD5. |
+| `video_id` | `video_id` | `string` | No | No | Video ID, can be used to create ad in ad delivery. |
+| `size` | `size` | `number` | No | No | Video size in bytes. |
+| `material_id` | `material_id` | `string` | No | No | Material ID |
+| `allowed_placements` | `allowed_placements` | `Array<string>` | No | No | Available placements. Due to the music copyright, some materials generated by creative tools can only be shown on TikTok. It won't pass when they are created on other placements. For enum values, see [Enumerations-Ad Management-Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `allow_download` | `allow_download` | `boolean` | No | No | Whether the video is downloadable. Due to the music copyright, some materials generated by creative tools are only allowed to preview. It is prohibited to download and disseminate them. |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z. |
+
+## FileVideoAdSearchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `filtering` | `FileVideoAdSearchParamsFiltering` | No | No | Filters on the data. This parameter is an array of filter objects. |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "MODIFY_TIME"` | No | No | The sorting criteria for the video list. Enum values:`CREATE_TIME`: To sort the results by video creation time in descending order, returning the most recently created videos at the top of the list.`MODIFY_TIME`: To sort the results by the time the video was last updated in descending order, returning the most recently updated videos at the top of the list. Default value: `CREATE_TIME`. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 20. Value range: 1-100. |
+
+## FileVideoAdSearchParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | A list of video IDs. Max size: 100. Note: If the video cannot be used in ads, the video ID will be ignored.If this filter field is not passed, and multiple video IDs have been generated for the same video due to multiple uploads, only one valid video ID will be returned for the video. |
+| `material_ids` | `material_ids` | `Array<string>` | No | No | A list of material IDs. Max size: 20. |
+| `video_name` | `video_name` | `string` | No | No | Video name. You can perform a fuzzy search by entering the video name. |
+| `video_material_sources` | `video_material_sources` | `Array<"UPLOADED_TO_TIKTOK_ADS_MANAGER" \| "UPLOADED_TO_CATALOG" \| "CREATIVE_TOOL_SMART_VIDEO" \| "CREATIVE_TOOL_QUICK_OPTIMIZATION" \| "CREATIVE_TOOL_VIDEO_TEMPLATE" \| "CREATIVE_TOOL_SMART_VIDEO_SOUNDTRACK" \| "CREATIVE_TOOL_TIKTOK_VIDEO_EDITOR" \| "TIKTOK_CREATIVE_EXCHANGE" \| "CATALOG_VIDEO_TEMPLATE" \| "DYNAMIC_VIDEO_EDITOR" \| "CREATIVE_CHALLENGE" \| "AUTOMATED_CREATIVE_OPTIMIZATION" \| "OTHER" \| "QUICK_GENERATION" \| "CREATIVE_CENTER_VIDEO_UPLOAD" \| "CREATIVE_CENTER_TIKTOK_VIDEO_EDITOR" \| "CREATIVE_CENTER_VIDEO_TEMPLATE" \| "DYNAMIC_SCENE" \| "SMART_OPTIMIZATION_TOOL">` | No | No | List of video material sources. You can search for videos based on their material sources. Enum values: `UPLOADED_TO_TIKTOK_ADS_MANAGER`: Uploaded to TikTok Ads Manager. `UPLOADED_TO_CATALOG`: Uploaded to Catalog. `CREATIVE_TOOL_SMART_VIDEO`: Creative Tool - Smart Video. `CREATIVE_TOOL_QUICK_OPTIMIZATION`: Creative Tool - Quick Optimization. `CREATIVE_TOOL_VIDEO_TEMPLATE`: Creative Tool - Video Template.`CREATIVE_TOOL_SMART_VIDEO_SOUNDTRACK`: Creative Tool - Smart Video Soundtrack. `CREATIVE_TOOL_TIKTOK_VIDEO_EDITOR`: Creative Tool - TikTok Video Editor. `TIKTOK_CREATIVE_EXCHANGE`: TikTok Creative Exchange.`CATALOG_VIDEO_TEMPLATE`: Catalog Video Template. `DYNAMIC_VIDEO_EDITOR`: Dynamic Video Editor. `CREATIVE_CHALLENGE`: Creative challenge. `AUTOMATED_CREATIVE_OPTIMIZATION`: Automated Creative Optimization. `OTHER`: Other. `QUICK_GENERATION`: Quick Generation.`CREATIVE_CENTER_VIDEO_UPLOAD`: Creative Center - Video upload. `CREATIVE_CENTER_TIKTOK_VIDEO_EDITOR`：Creative Center - TikTok video editor. `CREATIVE_CENTER_VIDEO_TEMPLATE`：Creative Center - Video template.`DYNAMIC_SCENE`：Dynamic Scene.`SMART_OPTIMIZATION_TOOL`: Smart Optimization Tool. |
+
+## FileVideoAdSearchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<FileVideoAdSearchResponseList>` | No | No | A list of video information. |
+| `page_info` | `page_info` | `FileVideoAdSearchResponsePageInfo` | No | No | Pagination information. |
+
+## FileVideoAdSearchResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID, which can be used to create ads. Note: If the filter field `video_ids` is not passed, and multiple video IDs have been generated for the same video due to multiple uploads, only one valid video ID will be returned for the video. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for video cover, valid for six hours and needs to be re-acquired after expiration. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `http://p16-sign-sg.tiktokcdn.com/v0201/b99a388e3709470be5c~tplv-noop.image?x-expires=1671742348&x-signature=FziJhvED9NDTDmPofv3I%3D`. |
+| `format` | `format` | `string` | No | No | video Format |
+| `preview_url` | `preview_url` | `string` | No | No | Video preview link, valid for six hours and needs to be re-acquired after expiration. To find out the expiration time of the preview link, see `preview_url_expire_time`. |
+| `preview_url_expire_time` | `preview_url_expire_time` | `string` | No | No | The expiration time of the video preview link, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0). |
+| `duration` | `duration` | `number` | No | No | Video duration, in seconds. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rate, in bps |
+| `signature` | `signature` | `string` | No | No | MD5 of the video file. |
+| `size` | `size` | `number` | No | No | Video size. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `allowed_placements` | `allowed_placements` | `Array<string>` | No | No | Available placements. Due to music copyright, some materials generated by creative tools can only be shown on TikTok. It won't pass when they are created on other placements. For enum values, see [Enumerations-Ad Management-Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `allow_download` | `allow_download` | `boolean` | No | No | Whether the video is downloadable. Due to the music copyright, some materials generated by creative tools are only allowed to preview. It is prohibited to download and disseminate them. |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+
+## FileVideoAdSearchResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## FileVideoAdUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `file_name` | `string` | Yes | No | Video name. Length limit: 1 - 100 characters. If another video uses the same file name under the same `advertiser_id`, there will be a millisecond timestamp added at the end. If the file name contains more than 100 characters, only the first 100 characters will be used. |
+| `video_id` | `video_id` | `string` | Yes | No | Video ID. |
+
+## FileVideoAdUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.

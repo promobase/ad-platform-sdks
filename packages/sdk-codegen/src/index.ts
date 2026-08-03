@@ -26,3 +26,5 @@ export {
   validateSdkIr,
 } from "./ir.ts";
 export { emitEffectSchemaModule, emitModel, emitTypeRef } from "./schema-emitter.ts";
+export type { NimbusReferenceManifest, WriteNimbusReferenceOptions } from "./nimbus-emitter.ts";
+export { writeNimbusReference } from "./nimbus-emitter.ts";

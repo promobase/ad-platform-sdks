@@ -1,0 +1,191 @@
+---
+title: "YouTube Captions endpoints"
+description: "5 generated YouTube endpoint contracts for Captions."
+generated: true
+platform: "youtube"
+sourceVersion: "v3"
+sidebar:
+  order: 100
+  label: "Captions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-v3.json). Do not edit by hand. */}
+
+## youtube.captions.delete
+
+`DELETE` `youtube/v3/captions`
+
+Deletes a resource.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `captions.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `string` | Yes | No | — |
+| `onBehalfOf` | `query` | `string` | No | No | ID of the Google+ Page for the channel that the request is be on behalf of |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.captions.download
+
+`GET` `youtube/v3/captions/{id}`
+
+Downloads a caption track.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `captions.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | The ID of the caption track to download, required for One Platform. |
+| `onBehalfOf` | `query` | `string` | No | No | ID of the Google+ Page for the channel that the request is be on behalf of |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `tfmt` | `query` | `string` | No | No | Convert the captions into this format. Supported options are sbv, srt, and vtt. |
+| `tlang` | `query` | `string` | No | No | tlang is the language code; machine translate the captions into this language. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.captions.insert
+
+`POST` `youtube/v3/captions`
+
+Inserts a new resource into this collection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `captions.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `Caption` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOf` | `query` | `string` | No | No | ID of the Google+ Page for the channel that the request is be on behalf of |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet. |
+| `sync` | `query` | `boolean` | No | No | Extra parameter to allow automatically syncing the uploaded caption/transcript with the audio. |
+| `body` | `body` | `Caption` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.captions.list
+
+`GET` `youtube/v3/captions`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `captions.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `CaptionListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `string` | No | No | Returns the captions with the given IDs for Stubby or Apiary. |
+| `onBehalfOf` | `query` | `string` | No | No | ID of the Google+ Page for the channel that the request is on behalf of. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet. |
+| `videoId` | `query` | `string` | Yes | No | Returns the captions for the specified video. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.captions.update
+
+`PUT` `youtube/v3/captions`
+
+Updates an existing resource.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `captions.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `Caption` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOf` | `query` | `string` | No | No | ID of the Google+ Page for the channel that the request is on behalf of. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet. |
+| `sync` | `query` | `boolean` | No | No | Extra parameter to allow automatically syncing the uploaded caption/transcript with the audio. |
+| `body` | `body` | `Caption` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

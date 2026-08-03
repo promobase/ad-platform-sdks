@@ -1,0 +1,44 @@
+---
+title: "Google Business Profile Account endpoints"
+description: "1 generated Google Business Profile endpoint contract for Account."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+v4"
+sidebar:
+  order: 100
+  label: "Account"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{oauth,resources,types}.ts). Do not edit by hand. */}
+
+## listAccounts
+
+`GET` `https://mybusinessaccountmanagement.googleapis.com/v1/accounts`
+
+list Accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account.read` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `account.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `number` | No | No | — |
+| `pageToken` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

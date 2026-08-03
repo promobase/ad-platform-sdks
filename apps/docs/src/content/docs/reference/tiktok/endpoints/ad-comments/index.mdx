@@ -1,0 +1,317 @@
+---
+title: "TikTok Business Ad Comments endpoints"
+description: "8 generated TikTok Business endpoint contracts for Ad Comments."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 102
+  label: "Ad Comments"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.adComments.commentDelete
+
+`POST` `/open_api/v1.3/comment/delete/`
+
+Generated from TikTok documentation 1738957772267522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adComments.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `ad_id` | `body` | `string` | Yes | No | Ad ID |
+| `tiktok_item_id` | `body` | `string` | Yes | No | TikTok Video ID |
+| `comment_id` | `body` | `string` | Yes | No | ID of the comment you want delete |
+| `identity_type` | `body` | `"CUSTOMIZED_USER" \| "TT_USER"` | Yes | No | Type of the identity that are linked to the user. Enum values: `CUSTOMIZED_USER` (Custom User), `TT_USER` (TikTok User). For details about identity types, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `identity_id` | `body` | `string` | Yes | No | Identity ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentList
+
+`GET` `/open_api/v1.3/comment/list/`
+
+Generated from TikTok documentation 1738086301876225
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adComments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `comment_type` | `query` | `Array<"ALL" \| "COMMENT" \| "REPLY">` | No | No | Comment type. Enum values: `ALL`, `COMMENT`, `REPLY`. Default value: `["ALL"]` |
+| `search_field` | `query` | `string` | Yes | No | Field to search by. Enum value: `ADGROUP_ID`: To filter by an ad group ID. |
+| `search_value` | `query` | `string` | Yes | No | Value to search. When `search_field` is `ADGROUP_ID`, specify an ad group ID via this field.To obtain the list of ad groups within your ad account, use [/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1739314558673922). Example: `1234567891234567`. |
+| `sort_field` | `query` | `"CREATE_TIME" \| "LIKES" \| "REPLIES"` | No | No | Field to sort by. Enum values: `CREATE_TIME`, `LIKES`, `REPLIES`. Default value: `CREATE_TIME`. |
+| `sort_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`, `DESC`. Default value: `DESC`. |
+| `start_time` | `query` | `string` | Yes | No | Start date of the time range that you want to get comments, in the format of `YYYY-MM-DD`. |
+| `end_time` | `query` | `string` | Yes | No | End date of the time range that you want to get comments, in the format of `YYYY-MM-DD`. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: `10`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentPost
+
+`POST` `/open_api/v1.3/comment/post/`
+
+Generated from TikTok documentation 1738957702411265
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adComments.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `ad_id` | `body` | `string` | Yes | No | Ad ID |
+| `tiktok_item_id` | `body` | `string` | Yes | No | TikTok video ID |
+| `comment_id` | `body` | `string` | Yes | No | ID of the comment that you want reply to |
+| `comment_type` | `body` | `string` | Yes | No | Comment type. Currently, only `REPLY` is supported. |
+| `text` | `body` | `string` | Yes | No | Comment text. |
+| `identity_type` | `body` | `"CUSTOMIZED_USER" \| "TT_USER"` | Yes | No | Type of the identity that are linked to the user. Enum values: `CUSTOMIZED_USER` (Custom User), `TT_USER` (TikTok User). For details about identity types, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `identity_id` | `body` | `string` | Yes | No | Identity ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentReference
+
+`GET` `/open_api/v1.3/comment/reference/`
+
+Generated from TikTok documentation 1738086824859650
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adComments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentReferenceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `comment_id` | `query` | `string` | Yes | No | Comment ID. |
+| `comment_type` | `query` | `string` | Yes | No | Comment type. It can be `COMMENT`, which is an original comment, or `REPLY`, which is a reply to an original comment. |
+| `original_comment_id` | `query` | `string` | No | No | ID of the original comment. A value will be returned only when `comment_type` is REPLY`. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-1000. Default value: `10`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentStatusUpdate
+
+`POST` `/open_api/v1.3/comment/status/update/`
+
+Generated from TikTok documentation 1738086844585985
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adComments.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `comment_ids` | `body` | `Array<string>` | Yes | No | Comment ID |
+| `operation` | `body` | `"HIDDEN" \| "PUBLIC"` | Yes | No | Operation type. Enum values: `HIDDEN` (change comments to hidden), `PUBLIC` (make comments public). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentTaskCheck
+
+`GET` `/open_api/v1.3/comment/task/check/`
+
+Generated from TikTok documentation 1738088242659330
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adComments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentTaskCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `query` | `string` | Yes | No | Task ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentTaskCreate
+
+`POST` `/open_api/v1.3/comment/task/create/`
+
+Generated from TikTok documentation 1738088144215041
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adComments.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `comment_status` | `body` | `Array<"ALL" \| "PUBLIC" \| "HIDDEN">` | No | No | Comment status. Enum values: `ALL`, `PUBLIC`, `HIDDEN`. Default: `["ALL"]` |
+| `comment_type` | `body` | `Array<"ALL" \| "COMMENT" \| "REPLY">` | No | No | Comment type. Enum values: `ALL`, `COMMENT`, `REPLY`. Default: `["ALL"]` |
+| `search_field` | `body` | `string` | No | No | Field to search by. Enum values: `ADGROUP_ID` |
+| `search_value` | `body` | `string` | No | No | Value to search |
+| `comment_ids` | `body` | `Array<string>` | No | No | IDs of the comments that you want to export |
+| `sort_field` | `body` | `"CREATE_TIME" \| "LIKES" \| "REPLIES"` | No | No | Field to sort by. Enum values: `CREATE_TIME`, `LIKES`, `REPLIES` |
+| `sort_type` | `body` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`,`DESC` |
+| `start_time` | `body` | `string` | No | No | Start date of the time range that you want to get results, in the format of `YYYY-MM-DD`. |
+| `end_time` | `body` | `string` | No | No | End date of the time range that you want to get results, in the format of `YYYY-MM-DD`. |
+| `lang` | `body` | `"EN" \| "JA" \| "ZH"` | No | No | Language of the headers. Enum values: `EN`, `JA`, `ZH`. Default: `EN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adComments.commentTaskDownload
+
+`GET` `/open_api/v1.3/comment/task/download/`
+
+Generated from TikTok documentation 1738088341958658
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adComments.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CommentTaskDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `query` | `string` | Yes | No | Task ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

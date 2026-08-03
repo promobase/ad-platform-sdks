@@ -1,0 +1,74 @@
+---
+title: "LinkedIn Account endpoints"
+description: "2 generated LinkedIn endpoint contracts for Account."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 100
+  label: "Account"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+## getOrganization
+
+`GET` `/organizations/{organizationId}`
+
+get Organization
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account.read` |
+| Required scopes | `r_organization_social` |
+| Rate-limit bucket | `account.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## listOrganizationAcls
+
+`GET` `/organizationAcls`
+
+list Organization Acls
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account.read` |
+| Required scopes | `r_organization_social` |
+| Rate-limit bucket | `account.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `role` | `query` | `string` | No | No | — |
+| `state` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

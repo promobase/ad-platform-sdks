@@ -1,0 +1,112 @@
+---
+title: "Google Ads YouTube Video Upload endpoints"
+description: "3 generated Google Ads endpoint contracts for YouTube Video Upload."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 209
+  label: "YouTube Video Upload"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.youTubeVideoUpload.createYouTubeVideoUpload
+
+`POST` `/v25/customers/{customer_id=*}/youTubeVideoUploads:create`
+
+YouTubeVideoUploadService.CreateYouTubeVideoUpload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `youTubeVideoUpload.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `CreateYouTubeVideoUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `CreateYouTubeVideoUploadRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.youTubeVideoUpload.removeYouTubeVideoUpload
+
+`POST` `/v25/customers/{customer_id=*}/youTubeVideoUploads:remove`
+
+YouTubeVideoUploadService.RemoveYouTubeVideoUpload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `youTubeVideoUpload.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `RemoveYouTubeVideoUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `RemoveYouTubeVideoUploadRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.youTubeVideoUpload.updateYouTubeVideoUpload
+
+`POST` `/v25/customers/{customer_id=*}/youTubeVideoUploads:update`
+
+YouTubeVideoUploadService.UpdateYouTubeVideoUpload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `youTubeVideoUpload.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `UpdateYouTubeVideoUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `UpdateYouTubeVideoUploadRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

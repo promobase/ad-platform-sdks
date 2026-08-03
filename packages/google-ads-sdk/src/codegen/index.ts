@@ -219,6 +219,7 @@ async function main() {
 
   await writeEffectArtifacts({
     outputDir: path.join(OUT, "effect"),
+    docsOutputDir: path.join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
     ir: googleAdsCanonicalIr({
       root,
       messages: versionMessages,

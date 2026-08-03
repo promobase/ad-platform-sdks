@@ -1,0 +1,553 @@
+---
+title: "TikTok Business Mentions endpoints"
+description: "15 generated TikTok Business endpoint contracts for Mentions."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 148
+  label: "Mentions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.mentions.businessCommentReplyCreate2
+
+`POST` `/open_api/v1.3/business/comment/reply/create/`
+
+Generated from TikTok documentation 1825107991945218
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mentions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentReplyCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `video_id` | `body` | `string` | Yes | No | Unique identifier for the video on which you want to create a reply. You can get the `video_id` from the `item_id` field returned by [/business/mention/comment/list/](https://business-api.tiktok.com/portal/docs?id=1825107985360898). |
+| `comment_id` | `body` | `string` | Yes | No | Unique identifier for the comment to which you want to create a reply. You can get the`comment_id` from the `comment_id` field returned by [/business/mention/comment/list/](https://business-api.tiktok.com/portal/docs?id=1825107985360898). |
+| `text` | `body` | `string` | Yes | No | Text content of the reply you want to create. Length limit: 1,200 characters (UTF-8 encoding). Example: `This is a comment #comment 🙂`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionCommentGet
+
+`GET` `/open_api/v1.3/business/mention/comment/get/`
+
+Generated from TikTok documentation 1831358502098946
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionCommentGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `comment_id` | `query` | `string` | Yes | No | The ID of the comment or reply that mentions a business in the comment text. Pass the `comment_id` as obtained from `comment_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `item_id` | `query` | `string` | Yes | No | The ID of the post on which the comment was published. Pass the post ID as obtained from `video_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["comment_id","comment_text"]`. Supported fields:`item_id`: Unique identifier for the post.`video_link`: A generic URL for the post.`video_likes`: Total number of likes on the post.`thumbnail_url`: The URL of the post thumbnail.`commenter_handle_name`: The handle name of the user who made the comment.`comment_id`: Unique identifier for the comment.`comment_type`: The type of comment.`comment_text`: The comment text that mentions the business's handle.`comment_create_time`: The time when the comment was posted.`comment_likes`: Total number of likes for the comment. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionCommentList
+
+`GET` `/open_api/v1.3/business/mention/comment/list/`
+
+Generated from TikTok documentation 1825107985360898
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionCommentListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["comment_id","comment_text"]`. Supported fields:`item_id`: Unique identifier for the post.`video_link`: A generic URL for the post.`caption`: The description of the post.`video_likes`: Total number of likes on the post.`thumbnail_url`: The URL of the post thumbnail.`commenter_display_name`: The handle name of the user who made the comment.`comment_id`: Unique identifier for the comment.`comment_type`: The type of comment.`comment_text`: The comment text that mentions the business's handle.`comment_create_time`: The time when the comment was posted.`comment_likes`: Total number of likes for the comment. |
+| `sort_field` | `query` | `"VIDEO_LIKES" \| "COMMENT_CREATE_TIME" \| "COMMENT_LIKES"` | No | No | The field to sort the result by. Enum values:`VIDEO_LIKES`: The field `video_likes`.`COMMENT_CREATE_TIME`: The field `comment_create_time`.`COMMENT_LIKES`: The field `comment_likes`.Default value: `COMMENT_CREATE_TIME`. |
+| `sort_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `query` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `query` | `Array<string>` | No | No | The regions of posts that you want to filter the results by. If you specify this field, only comments on posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, comments on all relevant posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `query` | `number` | No | No | The maximum number of comments to be returned for each page of data. Default value: 10. Value range: 1-100. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionHashtagAdd
+
+`POST` `/open_api/v1.3/business/mention/hashtag/add/`
+
+Generated from TikTok documentation 1833831427732481
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mentions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionHashtagAddResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `body` | `string` | Yes | No | The username (handle) of the Business Account. |
+| `hashtags` | `body` | `Array<string>` | Yes | No | A list of hashtags to enable for the brand. You can include hashtags from [/business/mention/hashtag/verify/list/](https://business-api.tiktok.com/portal/docs?id=1833862470219842) or include the full Business Account handle as a substring of the hashtag. For example, if the Business Account handle is `@TikTok`, the hashtag `#drinktiktok` would be valid. Max size: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionHashtagManageList
+
+`GET` `/open_api/v1.3/business/mention/hashtag/manage/list/`
+
+Generated from TikTok documentation 1833832557996034
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionHashtagManageListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `query` | `string` | Yes | No | The username (handle) of the Business Account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionHashtagRemove
+
+`POST` `/open_api/v1.3/business/mention/hashtag/remove/`
+
+Generated from TikTok documentation 1833833401871362
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mentions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionHashtagRemoveResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `body` | `string` | Yes | No | The username (handle) of the Business Account. |
+| `hashtag` | `body` | `string` | Yes | No | A hashtag to remove. To obtain a list of existing enabled hashtags for the brand, use [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). Note: You can only delete hashtags that were enabled at least seven days ago. To ensure this, check the returned `create_date` for the hashtags from [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionHashtagVerifyList
+
+`GET` `/open_api/v1.3/business/mention/hashtag/verify/list/`
+
+Generated from TikTok documentation 1833862470219842
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionHashtagVerifyListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `query` | `string` | Yes | No | The username (handle) of the Business Account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionHashtagVideoList
+
+`GET` `/open_api/v1.3/business/mention/hashtag/video/list/`
+
+Generated from TikTok documentation 1825108001123522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionHashtagVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `hashtag` | `query` | `string` | No | No | The hashtag for which to retrieve the top 1,000 posts over the last 90 days. Specify one hashtag from the Business Account's enabled hashtags. If this field is omitted, the response will include the top posts across all of the Business Account's enabled hashtags. To retrieve the list of hashtags enabled for the Business Account, use [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). Note: The hashtag is case-sensitive and requires an exact match with an enabled hashtag for the Business Account. |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`matched_hashtags`: A list of brand hashtags in the post caption that match the hashtags configured for the business. |
+| `sort_field` | `query` | `"CREATE_TIME" \| "LIKES" \| "COMMENTS" \| "SHARES"` | No | No | The field to sort the result by. Enum values:`CREATE_TIME`: The field `create_time`.`LIKES`: The field `likes`.`COMMENTS`: The field `comments`.`SHARES`: The field `shares`.Default value: `CREATE_TIME`. |
+| `sort_order` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `query` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `query` | `Array<string>` | No | No | The regions of posts that you want to filter the results by. If you specify this field, only posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, all relevant posts that contain brand hashtags will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is `true`, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `query` | `number` | No | No | The maximum number of hashtags that will be returned for each page of data. Default value: 10. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of hashtags even if the response parameter `has_more` is `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionTopHashtagList
+
+`GET` `/open_api/v1.3/business/mention/top_hashtag/list/`
+
+Generated from TikTok documentation 1825107978583042
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionTopHashtagListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `regions` | `query` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the top hashtags in mentioned posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, the top hashtags in all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionTopWordList
+
+`GET` `/open_api/v1.3/business/mention/top_word/list/`
+
+Generated from TikTok documentation 1825107971247170
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionTopWordListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `regions` | `query` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the top keywords in mentioned posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, the top keywords in all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionVideoGet
+
+`GET` `/open_api/v1.3/business/mention/video/get/`
+
+Generated from TikTok documentation 1831359360477185
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionVideoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `item_id` | `query` | `string` | Yes | No | The ID of the post on which the comment was published. Pass the post ID as obtained from `video_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`views`: Total number of views the post has received.`reach`: Total number of unique viewers who viewed the post.`creator_handle_name`: The handle name of the creator who published the post. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessMentionVideoList
+
+`GET` `/open_api/v1.3/business/mention/video/list/`
+
+Generated from TikTok documentation 1825107955294402
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMentionVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`views`: Total number of views the post has received.`reach`: Total number of unique viewers who viewed the post.`creator_handle_name`: The handle name of the creator who published the post. |
+| `sort_field` | `query` | `"CREATE_TIME" \| "LIKES" \| "COMMENTS" \| "SHARES"` | No | No | The field to sort the result by. Enum values:`CREATE_TIME`: The field `create_time`.`LIKES`: The field `likes`.`COMMENTS`: The field `comments`.`SHARES`: The field `shares`.Default value: `CREATE_TIME`. |
+| `sort_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `query` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `query` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the mentioned posts published by TikTok users registered in the specified regions will be returned.If this field is not specified, all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is `true`, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `query` | `number` | No | No | The maximum number of comments to be returned for each page of data. Default value: 100. Value range: 1-100. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessWebhookDelete3
+
+`POST` `/open_api/v1.3/business/webhook/delete/`
+
+Generated from TikTok documentation 1825108021550082
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mentions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `string` | Yes | No | The type of Webhook event that you want to subscribe to. Enum values:`BRAND_MENTION`: Mentions events. To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Webhook%20schema). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessWebhookList3
+
+`GET` `/open_api/v1.3/business/webhook/list/`
+
+Generated from TikTok documentation 1825108014565442
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mentions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `query` | `string` | Yes | No | The type of Webhook event that you want to subscribe to. Enum values:`BRAND_MENTION`: Mentions events. To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Webhook%20schema). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mentions.businessWebhookUpdate3
+
+`POST` `/open_api/v1.3/business/webhook/update/`
+
+Generated from TikTok documentation 1825108008121346
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mentions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `string` | Yes | No | The type of Webhook event that you want to subscribe to. Enum values:`BRAND_MENTION`: Mentions events. To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Webhook%20schema). |
+| `callback_url` | `body` | `string` | Yes | No | The callback URL. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

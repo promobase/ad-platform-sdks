@@ -1,0 +1,1033 @@
+---
+title: "X models: Dm Event Entities – Get Users Owned Lists Response"
+description: "100 generated X model contracts, from DmEventEntities through GetUsersOwnedListsResponse."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 1002
+  label: "Dm Event Entities – Get Users Owned Lists Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## DmEventEntities
+
+`object` model on the `json` wire format.
+
+A list of metadata entities (hashtags, cashtags, mentions, URLs) found in the Direct Message text.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cashtags` | `cashtags` | `Array<json>` | No | Yes | — |
+| `hashtags` | `hashtags` | `Array<json>` | No | Yes | — |
+| `mentions` | `mentions` | `Array<json>` | No | Yes | — |
+| `urls` | `urls` | `Array<json>` | No | Yes | — |
+
+## DmEventReferencedPosts
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## Error
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `integer` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## EvaluateCommunityNotesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `note_text` | `note_text` | `string` | Yes | No | Text of the community note to evaluate. |
+| `post_id` | `post_id` | `string` | Yes | No | ID of the Post the note evaluates. |
+
+## EvaluateCommunityNotesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `EvaluateCommunityNotesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## EvaluateCommunityNotesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `claim_opinion_score` | `claim_opinion_score` | `number` | No | No | The evaluated claim-opinion score for the note. |
+
+## Expansions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media` | `media` | `Array<Media>` | No | No | — |
+| `places` | `places` | `Array<Place>` | No | No | — |
+| `polls` | `polls` | `Array<Poll>` | No | No | — |
+| `posts` | `posts` | `Array<Post>` | No | No | — |
+| `topics` | `topics` | `Array<Topic>` | No | No | — |
+| `users` | `users` | `Array<User>` | No | No | — |
+
+## FieldHydrationFailureProblem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | `detail` | `string` | Yes | No | — |
+| `field` | `field` | `string` | Yes | No | — |
+| `resource_type` | `resource_type` | `string` | No | No | — |
+| `section` | `section` | `string` | No | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `type` | `type` | `"https://api.x.com/2/problems/field-hydration-failure"` | Yes | No | — |
+
+## FieldUnauthorizedProblem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | `detail` | `string` | Yes | No | — |
+| `field` | `field` | `string` | Yes | No | — |
+| `resource_type` | `resource_type` | `string` | No | No | — |
+| `section` | `section` | `string` | No | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `type` | `type` | `"https://api.x.com/2/problems/field-unauthorized"` | Yes | No | — |
+
+## FinalizeMediaUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `FinalizeMediaUploadResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## FinalizeMediaUploadResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_after_secs` | `expires_after_secs` | `integer` | No | No | Seconds until the upload session expires. |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the media. |
+| `image` | `image` | `FinalizeMediaUploadResponseDataImage` | No | No | — |
+| `media_key` | `media_key` | `string` | No | No | The media key for the uploaded media. |
+| `processing_info` | `processing_info` | `FinalizeMediaUploadResponseDataProcessingInfo` | No | No | — |
+| `size` | `size` | `integer` | No | No | Total size of the media in bytes. |
+| `video` | `video` | `FinalizeMediaUploadResponseDataVideo` | No | No | — |
+
+## FinalizeMediaUploadResponseDataImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `h` | `h` | `integer` | No | No | Height in pixels. |
+| `image_type` | `image_type` | `string` | No | No | MIME type of the uploaded image. |
+| `w` | `w` | `integer` | No | No | Width in pixels. |
+
+## FinalizeMediaUploadResponseDataProcessingInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `check_after_secs` | `check_after_secs` | `integer` | No | No | Seconds to wait before polling status again. |
+| `progress_percent` | `progress_percent` | `integer` | No | No | Processing completion percentage. |
+| `state` | `state` | `string` | No | No | Processing state (pending, in_progress, failed, succeeded). |
+
+## FinalizeMediaUploadResponseDataVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_type` | `video_type` | `string` | No | No | MIME type of the processed video. |
+
+## FollowActivityResponsePayload
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source` | `source` | `User` | No | No | — |
+| `target` | `target` | `User` | No | No | — |
+
+## FollowListRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list_id` | `list_id` | `string` | Yes | No | — |
+
+## FollowListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `FollowListResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## FollowListResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `following` | `following` | `boolean` | Yes | No | Whether the user is following the List. |
+
+## FollowUserRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_user_id` | `target_user_id` | `string` | Yes | No | — |
+
+## FollowUserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `FollowUserResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## FollowUserResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `following` | `following` | `boolean` | Yes | No | Whether the source User is following the target User. |
+| `pending_follow` | `pending_follow` | `boolean` | Yes | No | Whether the follow request is pending the target User's approval. |
+
+## GetAccountActivitySubscriptionCountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `GetAccountActivitySubscriptionCountResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetAccountActivitySubscriptionCountResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_name` | `account_name` | `string` | No | No | Name of the subscribing account. |
+| `provisioned_count` | `provisioned_count` | `string` | No | No | Number of subscriptions provisioned for the app. |
+| `subscriptions_count_all` | `subscriptions_count_all` | `string` | No | No | Number of active subscriptions across all event types. |
+| `subscriptions_count_direct_messages` | `subscriptions_count_direct_messages` | `string` | No | No | Number of active Direct Message subscriptions. |
+
+## GetAccountActivitySubscriptionsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `GetAccountActivitySubscriptionsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetAccountActivitySubscriptionsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_id` | `application_id` | `string` | No | No | App the subscriptions belong to. |
+| `subscriptions` | `subscriptions` | `Array<GetAccountActivitySubscriptionsResponseDataSubscriptions>` | No | No | — |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook receiving the subscription events. |
+| `webhook_url` | `webhook_url` | `string` | No | No | URL the webhook delivers events to. |
+
+## GetAccountActivitySubscriptionsResponseDataSubscriptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_id` | `user_id` | `string` | No | No | Subscribed user. |
+
+## GetActivitySubscriptionsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<GetActivitySubscriptionsResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetActivitySubscriptionsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | No | No | Subscription creation time. |
+| `event_type` | `event_type` | `string` | No | No | Activity event type in dot notation. |
+| `filter` | `filter` | `GetActivitySubscriptionsResponseDataFilter` | No | No | — |
+| `subscription_id` | `subscription_id` | `string` | No | No | Unique identifier of the subscription. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined tag. |
+| `updated_at` | `updated_at` | `string` | No | No | Subscription last-update time. |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook receiving the subscription events. |
+
+## GetActivitySubscriptionsResponseDataFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | `direction` | `string` | No | No | Optional direction filter for directional events. Not present for mute.* or block.* events. |
+| `keyword` | `keyword` | `string` | No | No | Optional keyword filter. |
+| `user_id` | `user_id` | `string` | No | No | User the subscription is scoped to. |
+
+## GetBroadcastResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Broadcast` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetChatConversationEventsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<ChatMessageEvent>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetChatConversationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ChatConversation` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetChatConversationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<ChatConversation>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetCommunitiesByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Community` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetComplianceJobsByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ComplianceJob` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetComplianceJobsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<ComplianceJob>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetConnectionHistoryResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Connection>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetDirectMessagesEventsByConversationIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<DmEvent>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetDirectMessagesEventsByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DmEvent` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetDirectMessagesEventsByParticipantIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<DmEvent>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetDirectMessagesEventsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<DmEvent>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetListsByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `List` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetListsFollowersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetListsMembersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetListsPostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetMediaAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<MediaAnalytics>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetMediaByMediaKeyResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Media` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetMediaByMediaKeysResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Media>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetMediaUploadStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `GetMediaUploadStatusResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetMediaUploadStatusResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_after_secs` | `expires_after_secs` | `integer` | No | No | Seconds until the upload session expires. |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the media. |
+| `image` | `image` | `GetMediaUploadStatusResponseDataImage` | No | No | — |
+| `media_key` | `media_key` | `string` | No | No | The media key for the uploaded media. |
+| `processing_info` | `processing_info` | `GetMediaUploadStatusResponseDataProcessingInfo` | No | No | — |
+| `size` | `size` | `integer` | No | No | Total size of the media in bytes. |
+| `video` | `video` | `GetMediaUploadStatusResponseDataVideo` | No | No | — |
+
+## GetMediaUploadStatusResponseDataImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `h` | `h` | `integer` | No | No | Height in pixels. |
+| `image_type` | `image_type` | `string` | No | No | MIME type of the uploaded image. |
+| `w` | `w` | `integer` | No | No | Width in pixels. |
+
+## GetMediaUploadStatusResponseDataProcessingInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `check_after_secs` | `check_after_secs` | `integer` | No | No | Seconds to wait before polling status again. |
+| `progress_percent` | `progress_percent` | `integer` | No | No | Processing completion percentage. |
+| `state` | `state` | `string` | No | No | Processing state (pending, in_progress, failed, succeeded). |
+
+## GetMediaUploadStatusResponseDataVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_type` | `video_type` | `string` | No | No | MIME type of the processed video. |
+
+## GetNewsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `News` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetPostsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Analytics>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetPostsByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetPostsByIdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsCountsAllResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<GetPostsCountsAllResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsCountsAllResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end` | `end` | `string` | Yes | No | End of the count bucket (exclusive), RFC 3339. |
+| `post_count` | `post_count` | `integer` | Yes | No | Number of Posts in the bucket. |
+| `start` | `start` | `string` | Yes | No | Start of the count bucket (inclusive), RFC 3339. |
+
+## GetPostsCountsRecentResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<GetPostsCountsRecentResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsCountsRecentResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end` | `end` | `string` | Yes | No | End of the count bucket (exclusive), RFC 3339. |
+| `post_count` | `post_count` | `integer` | Yes | No | Number of Posts in the bucket. |
+| `start` | `start` | `string` | Yes | No | Start of the count bucket (inclusive), RFC 3339. |
+
+## GetPostsLikingUsersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsQuotedPostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsRepostedByResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetPostsRepostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetRuleCountsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `GetRuleCountsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetRuleCountsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_project_client_apps` | `all_project_client_apps` | `Array<GetRuleCountsResponseDataAllProjectClientApps>` | No | No | Per-client-app rule counts across the project. |
+| `cap_per_client_app` | `cap_per_client_app` | `string` | Yes | No | Maximum number of rules allowed per client application. |
+| `cap_per_project` | `cap_per_project` | `string` | Yes | No | Maximum number of rules allowed across the project. |
+| `client_app_rules_count` | `client_app_rules_count` | `GetRuleCountsResponseDataClientAppRulesCount` | Yes | No | The calling client application's own rule count. |
+| `project_rules_count` | `project_rules_count` | `string` | Yes | No | Number of rules across every client application in the project. |
+
+## GetRuleCountsResponseDataAllProjectClientApps
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_app_id` | `client_app_id` | `string` | No | No | Unique identifier of the client application. |
+| `rule_count` | `rule_count` | `integer` | Yes | No | Number of rules configured for the client application. |
+
+## GetRuleCountsResponseDataClientAppRulesCount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_app_id` | `client_app_id` | `string` | No | No | Unique identifier of the client application. |
+| `rule_count` | `rule_count` | `integer` | Yes | No | Number of rules configured for the client application. |
+
+## GetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<GetRulesResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetRulesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of the rule. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined label for the rule. |
+| `value` | `value` | `string` | No | No | The rule's filter expression. |
+
+## GetScheduledBroadcastResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `GetScheduledBroadcastResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetScheduledBroadcastResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | Whether replay is enabled. |
+| `broadcast_id` | `broadcast_id` | `string` | No | No | Alphanumeric UBS broadcast id (path `:id` for get/update/delete/live). |
+| `chat_option` | `chat_option` | `string` | No | No | Optional chat permission option. |
+| `description` | `description` | `string` | No | No | Optional description. |
+| `locale` | `locale` | `string` | No | No | Optional locale. |
+| `manual_publish` | `manual_publish` | `boolean` | No | No | When true, coordinator will not auto-publish; call POST .../live when ready. |
+| `recurring_schedule_id` | `recurring_schedule_id` | `string` | No | No | Set when this occurrence belongs to a recurrence. |
+| `scheduled_broadcast_id` | `scheduled_broadcast_id` | `string` | No | No | Numeric scheduler id. Required in the update request body. |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | No | No | Scheduled end, milliseconds since Unix epoch (decimal string). |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | No | No | Scheduled start, milliseconds since Unix epoch (decimal string). |
+| `source_id` | `source_id` | `string` | No | No | Bound ingest / source id (`rtmp_stream_key`). |
+| `state` | `state` | `string` | No | No | Scheduler state (Created, Scheduled, Running, …). |
+| `telecast_id` | `telecast_id` | `string` | No | No | Optional telecast association. |
+| `thumbnail_media_id` | `thumbnail_media_id` | `string` | No | No | Optional pre-live slate media id. |
+| `title` | `title` | `string` | No | No | Broadcast title / status text. |
+
+## GetSpacesBuyersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetSpacesByCreatorIdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Space>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetSpacesByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Space` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetSpacesByIdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Space>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetSpacesPostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetTrendsByWoeidResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Trend>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetTrendsPersonalizedTrendsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<PersonalizedTrend>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetUsageResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Usage` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetUsersAffiliatesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersBlockingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersBookmarkFoldersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<GetUsersBookmarkFoldersResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetUsersBookmarkFoldersResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the bookmark folder. |
+| `name` | `name` | `string` | Yes | No | Display name of the bookmark folder. |
+
+## GetUsersBookmarksByFolderIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<json>` | No | No | The Posts in this bookmark folder, by ID. |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## GetUsersBookmarksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `User` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetUsersByIdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetUsersByUsernameResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `User` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetUsersByUsernamesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetUsersFollowedListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<List>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersFollowersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersFollowingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersLikedPostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersListMembershipsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<List>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersMentionsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersMeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `User` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## GetUsersMutingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## GetUsersOwnedListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<List>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |

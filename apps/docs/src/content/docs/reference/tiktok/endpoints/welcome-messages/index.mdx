@@ -1,0 +1,85 @@
+---
+title: "TikTok Business Welcome Messages endpoints"
+description: "2 generated TikTok Business endpoint contracts for Welcome Messages."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 170
+  label: "Welcome Messages"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.welcomeMessages.creativeAutoMessageCreate
+
+`POST` `/open_api/v1.3/creative/auto_message/create/`
+
+Generated from TikTok documentation 1822106113771521
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `welcomeMessages.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeAutoMessageCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `auto_message_type` | `body` | `string` | Yes | No | The type of automatic message to greet people with when they start a conversation with you. Enum value: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to welcome people to the conversation after they tap on your ad. |
+| `welcome_message` | `body` | `CreativeAutoMessageCreateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.welcomeMessages.creativeAutoMessageGet
+
+`GET` `/open_api/v1.3/creative/auto_message/get/`
+
+Generated from TikTok documentation 1822106498804738
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `welcomeMessages.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeAutoMessageGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `auto_message_type` | `query` | `string` | Yes | No | The type of automatic message to greet people with when they start a conversation with you. Enum value: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to welcome people to the conversation after they tap on your ad. |
+| `auto_message_id` | `query` | `string` | No | No | The ID of the automatic message. When `auto_message_type` is `WELCOME_MESSAGE`, you can specify the ID of a welcome message via this field to filter the results. If this field is not passed, all messages that belong to the specified automatic message type will be returned. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

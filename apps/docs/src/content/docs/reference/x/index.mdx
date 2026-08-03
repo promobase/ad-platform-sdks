@@ -1,0 +1,58 @@
+---
+title: "X SDK reference"
+description: "Generated reference for 14 X endpoints and 527 models."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 60
+  label: "X"
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/x
+```
+
+```ts
+import { createEffectClient } from "@openpromo/x/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | X |
+| API version | `2.167` |
+| Source | `openapi: fern/openapi/x-openapi.json` |
+| Endpoints | 14 |
+| Models | 527 |
+| Capabilities | 5 |
+
+## Endpoints
+
+- [Media](/reference/x/endpoints/media)
+- [Posts](/reference/x/endpoints/posts)
+- [Users](/reference/x/endpoints/users)
+
+## Models
+
+- [Activity Event Id – Create Direct Messages Conversation Message Attachments](/reference/x/models/activity-event-id-to-create-direct-messages-conversation-message-attachments)
+- [Create Direct Messages Conversation Request – Dm Event Attachments](/reference/x/models/create-direct-messages-conversation-request-to-dm-event-attachments)
+- [Dm Event Entities – Get Users Owned Lists Response](/reference/x/models/dm-event-entities-to-get-users-owned-lists-response)
+- [Get Users Pinned Lists Response – Post Public Metrics](/reference/x/models/get-users-pinned-lists-response-to-post-public-metrics)
+- [Post Referenced Posts – User](/reference/x/models/post-referenced-posts-to-user)
+- [User Affiliation – Webhook Config Id](/reference/x/models/user-affiliation-to-webhook-config-id)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `media.manage` | Manage X media | None declared |
+| `media.read` | Read X media | None declared |
+| `posts.manage` | Manage X posts | None declared |
+| `posts.read` | Read X posts | None declared |
+| `users.read` | Read X users | None declared |

@@ -1,0 +1,46 @@
+---
+title: "Meta Event External Ticket Info endpoints"
+description: "1 generated Meta endpoint contract for Event External Ticket Info."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 242
+  label: "Event External Ticket Info"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.eventExternalTicketInfo.get
+
+`GET` `/{id}`
+
+GET EventExternalTicketInfo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `eventExternalTicketInfo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `EventExternalTicketInfoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,1084 @@
+---
+title: "TikTok Business TikTok One endpoints"
+description: "29 generated TikTok Business endpoint contracts for TikTok One."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 163
+  label: "TikTok One"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.tikTokOne.tcmTtVideoApply
+
+`POST` `/open_api/v1.3/tcm/tt_video/apply/`
+
+Generated from TikTok documentation 1751098904942594
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TcmTtVideoApplyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `body` | `string` | Yes | No | ID of the video that is created under the creator account. The video needs to meet the following requirement: The video has been uploaded and tagged as branded content, and the creator has linked the video to a TTO Creator Marketplace campaign via the invite link (`invite_link`) created via [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458).You can get `video_id` via [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) or [/tto/tcm/report/](https://business-api.tiktok.com/portal/docs?id=1815693573340162). |
+| `tcm_account_id` | `body` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the TTO Creator Marketplace accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `authorization_days` | `body` | `number` | No | No | Authorization validity period (in days). Value range: 1-365. Default value: 30. Note: You can use this field to specify the validity period of the authorization, or to request an update for the validity period of approved authorization. The actual validity period can be different from the validity period you request, because the creator can choose any validity period (one to 365 days) when approving the request. |
+| `action` | `body` | `string` | No | No | The action to take. Enum value:`EXTEND`: To extend the validity period of the authorization by the specified days (`authorization_days`). For instance, when `authorization_days` is 30, you'll request the authorization to be extended by 30 days. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.tcmTtVideoStatus
+
+`GET` `/open_api/v1.3/tcm/tt_video/status/`
+
+Generated from TikTok documentation 1751098935842817
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TcmTtVideoStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `query` | `string` | Yes | No | ID of the video that is created under the creator account. The video needs to meet the following requirement: The video has been uploaded and tagged as branded content, and the creator has linked the video to a TTO Creator Marketplace campaign via the invite link (`invite_link`) created via [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458).You can get `video_id` via [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) or [/tto/tcm/report/](https://business-api.tiktok.com/portal/docs?id=1815693573340162). |
+| `tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the TTO Creator Marketplace accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorAuthorized
+
+`GET` `/open_api/v1.3/tto/creator/authorized/`
+
+Generated from TikTok documentation 1834913529338882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorAuthorizedResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `query` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If this field is not set, the default fields (`profile_image` and `display_name`) will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorAuthorizedVideoList
+
+`GET` `/open_api/v1.3/tto/creator/authorized/video/list/`
+
+Generated from TikTok documentation 1834913554657282
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorAuthorizedVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `query` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `video_ids` | `query` | `Array<string>` | No | No | The IDs of the videos to retrieve information for. If `video_ids` is provided, `limit` and `cursor` will be ignored. |
+| `limit` | `query` | `number` | No | No | The number of videos that you want to retrieve per request. Value range: 1-10. Default value: 10. |
+| `cursor` | `query` | `number` | No | No | Timestamp cursor. The videos before the timestamp value in milliseconds will be returned in reverse-chronological order. By default, the value is 0 and the most recent videos will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorCampaignJoin
+
+`POST` `/open_api/v1.3/tto/creator/campaign/join/`
+
+Generated from TikTok documentation 1836584318657537
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorCampaignJoinResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `body` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `body` | `string` | Yes | No | An invite link that is associated with a TTO Creator Marketplace campaign. To create a TTO Creator Marketplace campaign and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). Note: If the invite link is a campaign level invite link (the `campaign_type` of the associated campaign is `CAMPAIGN`), the creator should be one of the creators invited to the campaign. To confirm this, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and check whether the returned `handle_names` includes the handle name of the creator (`creator_id`). If the invite link is a brand level invite link (the `campaign_type` of the associated campaign is `BRAND`), the creator can be any TTO creator. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorCampaignVideoLink
+
+`POST` `/open_api/v1.3/tto/creator/campaign/video/link/`
+
+Generated from TikTok documentation 1836584551347201
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorCampaignVideoLinkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `body` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `body` | `string` | Yes | No | An invite link that is associated with a TTO Creator Marketplace campaign. To create a TTO Creator Marketplace campaign and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). Note: If the invite link is a campaign level invite link (the `campaign_type` of the associated campaign is `CAMPAIGN`), the creator should be one of the creators invited to the campaign. To confirm this, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and check whether the returned `handle_names` includes the handle name of the creator (`creator_id`). If the invite link is a brand level invite link (the `campaign_type` of the associated campaign is `BRAND`), the creator can be any TTO creator. |
+| `video_id` | `body` | `string` | Yes | No | The ID of a video posted by the TTO creator. To obtain a list of videos posted by a TTO creator, use [/tto/creator/authorized/video/list/](https://business-api.tiktok.com/portal/docs?id=1834913554657282). To publish a video post from the TikTok account of a TTO creator, use [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234). Note: The ID cannot be of a video that has been linked to an existing TTO Creator Marketplace campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorLinkRequestConfirm
+
+`POST` `/open_api/v1.3/tto/creator/link/request/confirm/`
+
+Generated from TikTok documentation 1837247744649345
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorLinkRequestConfirmResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `body` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `link_request_id` | `body` | `string` | Yes | No | The ID of the linking request. To obtain the ID, use [/tto/creator/link/request/get/](https://business-api.tiktok.com/portal/docs?id=1837247726007298) and check the returned `link_request_id`. |
+| `action` | `body` | `"APPROVE" \| "REJECT"` | Yes | No | Action to be taken. Enum values: `APPROVE`: To approve the linking request.`REJECT`: To reject the linking request. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoCreatorLinkRequestGet
+
+`GET` `/open_api/v1.3/tto/creator/link/request/get/`
+
+Generated from TikTok documentation 1837247726007298
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoCreatorLinkRequestGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `query` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `query` | `string` | Yes | No | The invite link associated with a TTO Creator Marketplace campaign that the creator (TikTok account) has been invited to. To create a TTO Creator Marketplace campaign as a brand and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoOauth2Info
+
+`GET` `/open_api/v1.3/tto/oauth2/info/`
+
+Generated from TikTok documentation 1831975745134593
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoOauth2InfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoOauth2Tcm
+
+`GET` `/open_api/v1.3/tto/oauth2/tcm/`
+
+Generated from TikTok documentation 1815693478150146
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoOauth2TcmResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmAnchorCreate
+
+`GET` `/open_api/v1.3/tto/tcm/anchor/create/`
+
+Generated from TikTok documentation 1826564934723585
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmAnchorCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_type` | `query` | `string` | Yes | No | The type of anchor. Enum values:`WEB_ANCHOR`: Webpage anchor. A type of anchor through which you can display your website link above the creator's video description. |
+| `anchor_sub_type` | `query` | `string` | No | No | Required when `anchor_type` is `WEB_ANCHOR`. The specific type of webpage anchor. Enum values:`DESTINATION`: Web destination link. This type directs viewers to a web destination link that can be opened in TikTok. The anchor shows up both in the creator's video and the comment section. Note: The web destination link is available for countries where TikTok Shop is not yet available. TikTok Shop is currently available in Indonesia, Thailand, Vietnam, Philippines, Malaysia, Singapore, United States, United Kingdom, and Saudi Arabia. |
+| `category_label_id` | `query` | `number` | No | No | Required when `anchor_sub_type` is `DESTINATION`. The ID of the category of your product or service. To learn about the supported values, see Supported values for `category_label_id`. |
+| `country_code` | `query` | `string` | Yes | No | The code of the country or region. The app information from this country or region's app store will be used. This anchor won’t be available in other countries or regions. When `anchor_sub_type` is `DESTINATION`, the supported values vary based on `category_label_id`. To learn about the supported values for a specific category ID, see Supported values for `category_label_id`. To learn about the country or region that the code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `AU`. |
+| `call_to_action` | `query` | `TtoTcmAnchorCreateParamsCallToAction` | Yes | No | Anchor link information. |
+| `anchor_title` | `query` | `string` | Yes | No | The title of the anchor. When `anchor_sub_type` is `DESTINATION`, the enum values are:`WATCH_NOW`: Watch Now.`LISTEN_NOW`: Listen Now.`READ_MORE`: Read More.`SHOW_NOW`: Shop Now.`GET_OFFER`: Get Offer.`LEARN_MORE`: Learn More.`CONTACT_US`: Contact Us.`JOIN_NOW`: Join Now.`APPLY_NOW`: Apply Now. |
+| `anchor_name` | `query` | `string` | Yes | No | The name of the anchor. Length limit: 32 characters. This information will not be shown to users in TikTok App. |
+| `upload_type` | `query` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL"` | Yes | No | The upload method for thumbnail. Enum values:`UPLOAD_BY_FILE`: Upload by file. You need to specify `thumbnail_file` simultaneously.`UPLOAD_BY_URL`: Upload by URL. You need to specify `thumbnail_url` simultaneously. |
+| `thumbnail_file` | `query` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. The thumbnail file for the anchor. Specification requirements: File size: within 2 MB.Format: JPEG, PNG, and GIF.Resolution: 210 (width) x 375 (height) pixels. This information will not be shown to users in TikTok App. |
+| `thumbnail_url` | `query` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. A publicly accessible thumbnail URL for the anchor. Specification requirements: File size: within 2 MB.Format: JPEG, PNG, and GIF.Resolution: 210 (width) x 375 (height) pixels. This information will not be shown to users in TikTok App. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmAnchorDelete
+
+`POST` `/open_api/v1.3/tto/tcm/anchor/delete/`
+
+Generated from TikTok documentation 1826564985760770
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmAnchorDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `body` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_id` | `body` | `string` | Yes | No | Anchor ID. To obtain a draft anchor within your TikTok One (TTO) Creator Marketplace account, use [/tto/tcm/anchor/get/](https://business-api.tiktok.com/portal/docs?id=1826564965840066) and confirm that the `status` of the anchor is `DRAFT`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmAnchorGet
+
+`GET` `/open_api/v1.3/tto/tcm/anchor/get/`
+
+Generated from TikTok documentation 1826564965840066
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmAnchorGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_ids` | `query` | `Array<string>` | No | No | A list of anchor IDs. Max size: 100. If `anchor_ids` is not passed, all anchors within the TTO Creator Marketplace account will be returned. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmBrandProfileCreate
+
+`POST` `/open_api/v1.3/tto/tcm/brand/profile/create/`
+
+Generated from TikTok documentation 1830335387914241
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmBrandProfileCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `body` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `brand_name` | `body` | `string` | Yes | No | Brand name. Length limit: 60 characters. Note: Once set, this field cannot be updated. |
+| `brand_industry_id` | `body` | `string` | Yes | No | The ID of the brand industry. For enum values, see [Brand Profile industry IDs](https://business-api.tiktok.com/portal/docs?id=1830336456075458). Note: Once set, this field cannot be updated. |
+| `brand_website` | `body` | `string` | Yes | No | Brand website link. The link should start with `https://`. |
+| `logo_url` | `body` | `string` | Yes | No | The URL of the brand logo image. Specification requirements:File format: JPG, PNG, or GIF.Aspect ratio: 1:1.File size: Up to 5MB. Note: Once set, this field cannot be updated. |
+| `tiktok_account_url` | `body` | `string` | No | No | The URL of your TikTok account. The URL should start with `https://www.tiktok.com/@`. If you provide this URL when creating a Brand Profile, creators can view your linked account directly on your profile. This improves brand authenticity and transparency before you collaborate. To find the URL of your TikTok account, navigate to your TikTok profile, click the Share button, and copy the link. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmBrandProfileGet
+
+`GET` `/open_api/v1.3/tto/tcm/brand/profile/get/`
+
+Generated from TikTok documentation 1830335437705217
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmBrandProfileGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `brand_profile_ids` | `query` | `Array<string>` | No | No | The IDs of existing Brand Profiles to filter the results by. Max size: 20. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCampaign
+
+`GET` `/open_api/v1.3/tto/tcm/campaign/`
+
+Generated from TikTok documentation 1815693562720258
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_ids` | `query` | `Array<string>` | No | No | The ID list of TikTok One Creator Marketplace campaigns. Max size: 5. To create a campaign and obtain the campaign ID, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+| `campaign_type` | `query` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link).Default value: `CAMPAIGN`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-5. Default value: 5. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCampaignCreate
+
+`POST` `/open_api/v1.3/tto/tcm/campaign/create/`
+
+Generated from TikTok documentation 1815693549459458
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCampaignCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `body` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_type` | `body` | `string` | No | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).Default value: `CAMPAIGN`. |
+| `brand_profile_id` | `body` | `string` | No | No | Either `brand_profile_id` or `brand_name` is required. The ID of a Brand Profile within the TTO Creator Marketplace account to associate with the campaign.To create a Brand Profile and obtain the Brand Profile ID, use [/tto/tcm/brand/profile/create/](https://business-api.tiktok.com/portal/docs?id=1830335387914241).To retrieve existing Brand Profile IDs, use [/tto/tcm/brand/profile/get/](https://business-api.tiktok.com/portal/docs?id=1830335437705217). |
+| `brand_name` | `body` | `string` | No | No | Either `brand_profile_id` or `brand_name` is required. Brand name. Length limit: 60 characters. Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `brand_name` value will be used regardless of the value you pass in. |
+| `campaign_name` | `body` | `string` | Yes | No | Campaign name. Your campaign name should be informative and stand out to creators. You can follow the format [product name - product description] to tell creators about the basics of your brand or product. Length limit: 120 characters. Example: `CapCut - video editor` Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `campaign_name` value will be used regardless of the value you pass in. |
+| `campaign_description` | `body` | `string` | No | No | Campaign description. Provide relevant information about your campaign, such as your product's positioning, target audiences, and core features. Length limit: 1,000 characters. Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `campaign_description` value will be used regardless of the value you pass in. |
+| `anchor_id` | `body` | `string` | No | No | ID of the anchor to associate with the campaign. Anchors are links you add to your post that help viewers learn more about your product or service. The anchor is only visible to audiences in the anchor’s target country. Performance data of the anchor can only be measured when the creator's country matches the anchor’s target country. The video is still visible to the creator's audience, but the anchor attached is only visible to audiences in the anchor's country. To obtain the anchors within your TTO Creator Marketplace account, use [/tto/tcm/anchor/get/](https://business-api.tiktok.com/portal/docs?id=1826564965840066). |
+| `advertiser_ids` | `body` | `Array<string>` | No | No | A list of ad accounts to associate the campaign with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video and the video will be automatically synced to the creative library of these ad accounts. When you specify `advertiser_ids`, `default_spark_ads_requested_authorization_days` is required. Max size: 50. To obtain the IDs of the ad accounts that you can access via `Access-Token`, use [/oauth2/advertiser/get/](https://business-api.tiktok.com/portal/docs?id=1738455508553729). |
+| `default_spark_ads_requested_authorization_days` | `body` | `number` | No | No | Valid when you are creating a new campaign.Required when `advertiser_ids` is specified.Optional when `advertiser_ids` is not specified.Ignored when you are updating an existing campaign. The default number of authorization days you want to request from the creator to boost all of the videos uploaded for the campaign as Spark Ads. Value range: 0-365. Default value: 0. Once this field is set to a value other than the value 0, when a creator accepts the invitation and uploads videos to the campaign, the creator automatically grants you Spark Ads authorization for the videos for the specified number of days. |
+| `handle_names` | `body` | `Array<string>` | Yes | No | The handle name list of TikTok creators that you want to invite to the campaign. Max size: 100. For new campaigns, specify the handle names of TikTok Creators to invite. For existing campaigns, specify additional handle names to invite. The new Creators will be added to the existing list. For example, if you created a campaign with `handle_names` as `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;"]` and want to invite two more creators, you can pass `campaign_id` and set `handle_names` to `["&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. The `handle_names` value of the updated campaign will be `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;","&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. |
+| `send_notification` | `body` | `boolean` | No | No | Whether to send a notification regarding the TTO Creator Marketplace campaign invitation to the inboxes of invited TikTok creators (`handle_names`). The creators can open the notification to join the campaign. Supported values: `true`,`false`. Default value: `false`. |
+| `campaign_id` | `body` | `string` | No | No | Valid when you are updating an existing campaign. If this field is passed, all the other fields except `tto_tcm_account_id` and `handle_names` will be ignored. The ID of an existing TTO Creator Marketplace campaign. When you pass this field, you need to pass `handle_names` simultaneously to add new Creators to an existing campaign. |
+| `business_account_handle` | `body` | `string` | No | No | The handle (username) of the Business Account. When you include this parameter during campaign creation, the creator will have the option to message the brand directly when they open the generated invite link (invite_link). Only applicable when the handle is a non-EU Business Account.Note: Associating a Business Account with a TTO Creator Marketplace Campaign during campaign creation is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCampaignLink
+
+`POST` `/open_api/v1.3/tto/tcm/campaign/link/`
+
+Generated from TikTok documentation 1824449956282370
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCampaignLinkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `body` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of an existing TTO Creator Marketplace campaign. To obtain a list of TTO Creator Marketplace campaigns, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). |
+| `video_id` | `body` | `string` | Yes | No | The ID of a creator's public video to be linked to the campaign. To obtain a list of creator videos, use [/tcm/creator/authorized/video/list/](https://business-api.tiktok.com/portal/docs?id=1735827480228865). Note: Videos that have been linked to any other TikTok Creator Marketplace campaigns or TTO Creator Marketplace campaigns are not supported.The creator of the video needs to have been invited to the campaign. |
+| `action` | `body` | `"LINK" \| "REVOKE"` | Yes | No | Action to be taken. Enum values:`LINK`: Send a request to the creator for linking the video to the campaign. If such a request has been sent, the system will send a reminder notification to the creator. After you send a linking request, you need to wait for 24 hours to send a reminder notification. Otherwise, an error will occur. You can send up to two reminder notifications for a linking request. `REVOKE`: Revoke a linking request. You can only use this value when the creator has not accepted or rejected the request. You can only revoke each linking request once. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCampaignLinkStatus
+
+`GET` `/open_api/v1.3/tto/tcm/campaign/link/status/`
+
+Generated from TikTok documentation 1824450033584129
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCampaignLinkStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_ids` | `query` | `Array<string>` | No | No | The IDs of existing TTO Creator Marketplace campaigns to filter the results by. To obtain a list of TTO Creator Marketplace campaigns, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Max size: 50. |
+| `handle_names` | `query` | `Array<string>` | No | No | The creator handle names to filter the results by. Max size: 50. |
+| `campaign_type` | `query` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). If this field is not specified, all campaigns will be returned. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCampaignUpdate
+
+`POST` `/open_api/v1.3/tto/tcm/campaign/update/`
+
+Generated from TikTok documentation 1830338948169794
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCampaignUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `body` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of an existing TTO Creator Marketplace campaign. To retrieve existing campaigns with your TTO Creator Marketplace account, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). |
+| `campaign_type` | `body` | `"CAMPAIGN" \| "BRAND_LINK"` | Yes | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `handle_names` | `body` | `Array<string>` | No | No | Valid only when a campaign with a campaign-level invite link is specified through `campaign_id`.Not supported when a campaign with a brand-level invite link is specified through `campaign_id`. The handle name list of additional TikTok creators that you want to invite to the campaign with a campaign-level invite link. The new creators will be added to the existing list. Max size: 100. For example, if you created a campaign with `handle_names` as `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;"]` and want to invite two more creators, you can pass `campaign_id` and set `handle_names` to `["&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. The `handle_names` value of the updated campaign will be `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;","&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. |
+| `send_notification` | `body` | `boolean` | No | No | Valid only for a campaign with a campaign-level invite link. To retrieve such a campaign, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and select one campaign with `campaign_type` as `CAMPAIGN`. Whether to send a notification regarding the TTO Creator Marketplace campaign invitation to the inboxes of invited TikTok creators (`handle_names`). The creators can open the notification to join the campaign. Supported values: `true`,`false`. Default value: `false`. |
+| `advertiser_ids` | `body` | `Array<string>` | No | No | A list of additional ad accounts to associate the campaign with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video. You can specify ad accounts that share the same business center, legal entity, or logged in email. Max size: 50. For example, if you created a campaign with `advertiser_ids` as `["&#123;&#123;advertiser_id_1&#125;&#125;","&#123;&#123;advertiser_id_2&#125;&#125;"]` and want to invite two more creators, you can set `advertiser_ids` to `["&#123;&#123;advertiser_id_3&#125;&#125;","&#123;&#123;advertiser_id_4&#125;&#125;"]`. The `advertiser_ids` value of the updated campaign will be `["&#123;&#123;advertiser_id_1&#125;&#125;","&#123;&#123;advertiser_id_2&#125;&#125;","&#123;&#123;advertiser_id_3&#125;&#125;","&#123;&#123;advertiser_id_4&#125;&#125;"]`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCategoryLabel
+
+`GET` `/open_api/v1.3/tto/tcm/category/label/`
+
+Generated from TikTok documentation 1816372654109698
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCategoryLabelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `label_type` | `query` | `"RANKING" \| "SEARCH"` | Yes | No | The type of label. Enum value:`RANKING`: ranking label. A label that can be used with [/tto/tcm/rank/](https://business-api.tiktok.com/portal/docs?id=1816378813274113) for ranking creators.`SEARCH`: search label. A label that can be used with [/tto/tcm/creator/discover/](https://business-api.tiktok.com/portal/docs?id=1825017307843585) for discovering creators. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCreatorDiscover
+
+`GET` `/open_api/v1.3/tto/tcm/creator/discover/`
+
+Generated from TikTok documentation 1825017307843585
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCreatorDiscoverResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `country_codes` | `query` | `Array<string>` | Yes | No | Filter by the country or region codes of the creators. If you pass multiple codes, these codes should be from the same regional category. For enum values and regional category for each code, see List of values for `country_codes`. |
+| `state_provinces` | `query` | `Array<string>` | No | No | Valid only when `country_codes` is `["US"]`. Filter by the states or provinces of the creators. Currently, only U.S. states are supported. For enum values, see List of values for `state_provinces`. |
+| `content_label_ids` | `query` | `Array<string>` | No | No | Filter by the IDs of video content tags. A video content tag is a main focus of the creator’s TikTok account and primarily represents the direction of the creator’s organic content. Max size: 100. To obtain a list of video content tag IDs, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698) with `label_type` set to `SEARCH` and retrieve the IDs from the response parameter `label_id` within the object array `content_labels`. |
+| `industry_label_ids` | `query` | `Array<string>` | No | No | Filter by the IDs of industry tags. An industry tag indicates the creator industry that is assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represents their commercial experience in certain industries. Max size: 100. To obtain a list of industry tag IDs, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698) with `label_type` set to `SEARCH` and retrieve the IDs from the response parameter `label_id` within the object array `industry_labels`. |
+| `min_followers` | `query` | `number` | No | No | Filter by the minimum number of followers. Default value: 0. |
+| `max_followers` | `query` | `number` | No | No | Filter by the maximum number of followers. This field doesn’t have a default value. |
+| `languages` | `query` | `Array<string>` | No | No | Filter by language. For enum values, see List of values for `languages`. By default, the results are not filtered by languages. |
+| `min_creator_price` | `query` | `number` | No | No | Filter by the minimum creator starting price, in the currency specified by `creator_price_currency`. Default value: 0. |
+| `max_creator_price` | `query` | `number` | No | No | Filter by the maximum creator starting price, in the currency specified by `creator_price_currency`. This field doesn’t have a default value. |
+| `creator_price_currency` | `query` | `string` | No | No | The currency for creator starting price filters `min_creator_price` and `max_creator_price`. Enum value: `USD`. Default value: `USD`. |
+| `min_avg_views` | `query` | `number` | No | No | Filter by the minimum average views. Average views represent the number of views that the creator’s videos received. Default value: 0. |
+| `max_avg_views` | `query` | `number` | No | No | Filter by the maximum average views. This field doesn’t have a default value. |
+| `min_median_views` | `query` | `number` | No | No | Filter by the minimum median views. Median views represent the middle value in the range of views across a creator’s recent videos, ranked lowest to highest, which showcases the typical video view count of their content. Default value: 0. |
+| `max_median_views` | `query` | `number` | No | No | Filter by the maximum median views. This field doesn’t have a default value. |
+| `min_engagement_rate` | `query` | `number` | No | No | Filter by the minimum engagement rate. Engagement rate represents how much people interacted with content. It’s calculated by taking the total number of comments, likes, and shares divided by video views. Value range: 0-1. Default value: 0. |
+| `max_engagement_rate` | `query` | `number` | No | No | Filter by the maximum engagement rate. Value range: 0-1. This field doesn’t have a default value. |
+| `follower_country_codes` | `query` | `Array<string>` | No | No | Filter by the codes of followers’ locations. For enum values, see List of values for `follower_country_codes`. |
+| `follower_gender_ratio` | `query` | `"FEMALE_50" \| "FEMALE_60" \| "FEMALE_70" \| "MALE_50" \| "MALE_60" \| "MALE_70"` | No | No | Filter by followers’ gender ratio. Enum values:`FEMALE_50`: Percentage of audience who are female is over 50%.`FEMALE_60`: Percentage of audience who are female is over 60%.`FEMALE_70`: Percentage of audience who are female is over 70%.`MALE_50`: Percentage of audience who are male is over 50%.`MALE_60`: Percentage of audience who are male is over 60%.`MALE_70`: Percentage of audience who are male is over 70%. |
+| `follower_age` | `query` | `string` | No | No | Filter by followers’ majority age group. Enum values:`18-24`: 18-24.`25-34`: 25-34.`35-44`: 35-44.`45-54`: 45-54.`55+`: 55+. |
+| `keyword_search` | `query` | `string` | No | No | The keyword to search for creators. Length limit: 100 characters. Fuzzy match is supported. |
+| `sort_field` | `query` | `"RELEVANCE" \| "FOLLOWERS" \| "MEDIAN_VIEWS" \| "ENGAGEMENT_RATE"` | No | No | The specific metric by which to sort the results. Enum values:`RELEVANCE`: relevance.`FOLLOWERS`: followers.`MEDIAN_VIEWS`: median views.`ENGAGEMENT_RATE`: engagement rate.Default value: `RELEVANCE`. You can sort the returned data using this field. |
+| `sort_order` | `query` | `"ASC" \| "DESC"` | No | No | The order in which to sort the results. Enum values:`ASC`: Ascending.`DESC`: Descending. Default value: `DESC`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Current page size. Value range: 1-200. Default value: 24. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCreatorPublic
+
+`GET` `/open_api/v1.3/tto/tcm/creator/public/`
+
+Generated from TikTok documentation 1828185358712897
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCreatorPublicResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_name` | `query` | `string` | Yes | No | The handle name of the TTO Creator Marketplace creator that you want to search for. The exact match is supported. Note: If you specify the handle name of a creator that is not on TTO Creator Marketplace yet, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCreatorPublicVideoList
+
+`GET` `/open_api/v1.3/tto/tcm/creator/public/video/list/`
+
+Generated from TikTok documentation 1828185411810305
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCreatorPublicVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_name` | `query` | `string` | Yes | No | The handle name of the TTO Creator Marketplace creator that you want to search for. The exact match is supported. Note: If you specify the handle name of a creator that is not on TTO Creator Marketplace yet, an error will occur. |
+| `video_ids` | `query` | `Array<string>` | No | No | The IDs of the videos to filter the results by. Max size: 25. If this field is not specified, the results won't be filtered by video IDs. |
+| `cursor` | `query` | `number` | No | No | The timestamp cursor of the video from which you want to retrieve subsequent videos. If the response parameter `has_more` is `true`, pass the returned `cursor` to this parameter in the next request to retrieve the subsequent videos. Default value: 0. By default, the most recent videos will be returned. |
+| `limit` | `query` | `number` | No | No | The number of posts to return for each request. Value range: 1-25. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmCreatorStatusGet
+
+`GET` `/open_api/v1.3/tto/tcm/creator/status/get/`
+
+Generated from TikTok documentation 1837799887531010
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmCreatorStatusGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_names` | `query` | `Array<string>` | Yes | No | The handle names of TikTok Creators. Max size: 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmRank
+
+`GET` `/open_api/v1.3/tto/tcm/rank/`
+
+Generated from TikTok documentation 1816378813274113
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmRankResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `ranking_type` | `query` | `"BRANDED_CONTENT" \| "ORGANIC_CONTENT"` | Yes | No | The type of ranking. Enum values: `BRANDED_CONTENT`: ranking by branded content.`ORGANIC_CONTENT`: ranking by organic content. |
+| `time_period` | `query` | `"WEEK" \| "MONTH"` | Yes | No | The time period for the ranking. Enum values: `WEEK`: one week. `MONTH`: one month. |
+| `time_period_lookback` | `query` | `"ONE" \| "TWO" \| "THREE" \| "MONTH"` | Yes | No | The specific lookback period for the ranking. Enum values: `ONE`: the most recent available period. `TWO`: the second most recent period. `THREE`: the third most recent period. For example, if the most recent available monthly period is October and you set `time_period` to `MONTH` and `time_period_lookback` to `TWO`, the system will return ranking data for September. |
+| `label_id` | `query` | `string` | Yes | No | Creator label ID. When `ranking_type` is `BRANDED_CONTENT`, specify creator industry labels via this field.To obtain creator industry labels, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698). The creator industry labels will be available from the returned `industry_labels`. When `ranking_type` is `ORGANIC_CONTENT`, specify content tag labels via this field.To obtain content tag labels, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698). The content tag labels will be available from the returned `content_labels`. |
+| `country_code` | `query` | `string` | Yes | No | The code of the country or region that the creator ranking is for. Currently, the only supported enum value is `US` because the creator ranking data is only available for the United States. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttoTcmReport
+
+`GET` `/open_api/v1.3/tto/tcm/report/`
+
+Generated from TikTok documentation 1815693573340162
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokOne.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtoTcmReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `query` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `query` | `string` | Yes | No | The ID of a TikTok One Creator Marketplace campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link) or [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). To create a campaign and obtain the campaign ID, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+| `start_date` | `query` | `string` | No | No | Required when `end_date` is passed. If you specify both `start_date` and `end_date`, the response will include the `daily_stats` parameter that shows the daily metrics for the specified time range.If you don't specify both `start_date` and `end_date`, the response will not include the daily metrics (`daily_stats`). Report start date, in the format of `YYYY-MM-DD` (UTC+0 time). The `start_date` should not be earlier than the campaign creation time. To obtain the campaign creation time, check the `create_time` returned from [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458) or [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Example: `2024-01-01`. |
+| `end_date` | `query` | `string` | No | No | Required when `start_date` is passed. If you specify both `start_date` and `end_date`, the response will include the `daily_stats` parameter that shows the daily metrics for the specified time range.If you don't specify both `start_date` and `end_date`, the response will not include the daily metrics (`daily_stats`). Report end date, in the format of `YYYY-MM-DD` (UTC+0 time). Example: `2024-02-01`. |
+| `page` | `query` | `number` | No | No | Current page number. This field specifies which page of results to retrieve. The number of pages is based on the total number of records and the `page_size`. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. This specifies the number of records (the performance metrics for videos linked to the specified campaign ID) that you try to retrieve for each request. Default value: 25. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttUserOauth2Token2
+
+`POST` `/open_api/v1.3/tt_user/oauth2/token/`
+
+Generated from TikTok documentation 1768493902119937
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtUserOauth2TokenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_id` | `body` | `string` | Yes | No | ID of your developer app. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `client_secret` | `body` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `grant_type` | `body` | `string` | Yes | No | The way of generating the access token. The allowed enum value: `authorization_code`: To generate the access token by authorization code. |
+| `auth_code` | `body` | `string` | Yes | No | The authorization code (`auth_code`) generated by your TikTok account holder authorization URL. The code is valid for 10 minutes and can only be used once. To find out how to get the authorization code based on the type of API you use, see the "Authorization URL" row in [Comparing authorization for different APIs](https://business-api.tiktok.com/portal/docs?id=1781891256601602#item-link-Comparing%20authorization%20for%20different%20APIs). |
+| `redirect_uri` | `body` | `string` | Yes | No | The redirect URL which the client will be directed to. Its value must be the same as the TikTok account holder redirect URL set in the app. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokOne.ttUserTokenInfoGet2
+
+`POST` `/open_api/v1.3/tt_user/token_info/get/`
+
+Generated from TikTok documentation 1765926674648065
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tikTokOne.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtUserTokenInfoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `access_token` | `body` | `string` | Yes | No | Authorized access token for permission verification. To get an access token that is generated after a TikTok One (TTO) creator grants you the permission scopes of a TikTok creator account, see [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Obtain%20a%20Creator%20access%20token). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

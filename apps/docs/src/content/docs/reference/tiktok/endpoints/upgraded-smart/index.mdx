@@ -1,0 +1,863 @@
+---
+title: "TikTok Business Upgraded Smart endpoints"
+description: "20 generated TikTok Business endpoint contracts for Upgraded Smart."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 167
+  label: "Upgraded Smart"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.upgradedSmart.smartPlusAdAppeal
+
+`POST` `/open_api/v1.3/smart_plus/ad/appeal/`
+
+Generated from TikTok documentation 1843317522553106
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdAppealResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `smart_plus_ad_id` | `body` | `string` | Yes | No | Ad ID. To obtain ad IDs, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). |
+| `appeal_reason` | `body` | `string` | No | No | The reason for the appeal. |
+| `attachment_list` | `body` | `Array<string>` | No | No | List of attachment links. Max size: 100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdCreate
+
+`POST` `/open_api/v1.3/smart_plus/ad/create/`
+
+Generated from TikTok documentation 1843317390059522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. To obtain ad group IDs, use [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026). |
+| `ad_name` | `body` | `string` | No | No | Ad name. To make the ad name automatically generated, set this field to `""`(empty string). The format of the auto-generated ad name is ad ID (`ad_id`). Length limit: 512 and cannot contain emojis. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | The status of the ad when created. Enum values:`ENABLE` : The ad is enabled when created.`DISABLE` : The ad is disabled when created.Default value: `ENABLE`. |
+| `creative_list` | `body` | `Array<SmartPlusAdCreateParamsCreativeList>` | No | No | Required for Single Video, Standard Carousel, and Catalog Carousel formats.Not needed for the Multi-Show format. A list of creatives. Size range: 1-50. |
+| `playable_list` | `body` | `Array<SmartPlusAdCreateParamsPlayableList>` | No | No | Valid only in any of the following scenarios:Scenario 1:At the campaign level, `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL`.At the ad group level, the placement is not Global Apple Bundle-only (with `placement_type` as `PLACEMENT_TYPE_NORMAL` and `placements` as `["PLACEMENT_GLOBAL_APP_BUNDLE"]`) .At the ad level, `ad_format` is `SINGLE_VIDEO` and a video or video post is specified.Scenario 2:At the campaign level, `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `MINIS`.At the ad group level:`promotion_type` is `MINI_GAME`.The placement is not Global Apple Bundle-only (with `placement_type` as `PLACEMENT_TYPE_NORMAL` and `placements` as `["PLACEMENT_GLOBAL_APP_BUNDLE"]`) .At the ad level, `ad_format` is `SINGLE_VIDEO` and a video or video post is specified. The list of playables. Max size: 5. Note: The Playable Ad is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `ad_text_list` | `body` | `Array<SmartPlusAdCreateParamsAdTextList>` | No | No | Required when `tiktok_item_id` is not specified. List of ad texts. Ad texts are shown to your audience as part of your ad creatives, to deliver the message you intend to communicate to them. Max size: 5. |
+| `auto_message_list` | `body` | `Array<SmartPlusAdCreateParamsAutoMessageList>` | No | No | Required when `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE` at the ad group level. Details of the automatic message to use in a TikTok Direct Messaging Ad. Max size: 1. |
+| `call_to_action_list` | `body` | `Array<SmartPlusAdCreateParamsCallToActionList>` | No | No | Call-to-action list. Max size: 3. Note: This field is not supported in any of the following scenarios and you need to use `call_to_action_id` instead.Scenario 1: At the campaign level, `objective_type` is `LEAD_GENERATION`.At the ad group level, `placement_type` is `PLACEMENT_TYPE_NORMAL` and `placements` includes `PLACEMENT_TIKTOK`, or `placement_type` is `PLACEMENT_TYPE_AUTOMATIC`.Scenario 2: At the campaign level, `objective_type` is `APP_PROMOTION` or `WEB_CONVERSIONS`.At the ad group level, `placement_type` is `PLACEMENT_TYPE_NORMAL` and `placements` includes `PLACEMENT_TIKTOK`, or `placement_type` is `PLACEMENT_TYPE_AUTOMATIC`.At the ad level, `identity_type` within the `creative_info` object to `TT_USER`, `BC_AUTH_TT`, or `AUTH_CODE`. |
+| `interactive_add_on_list` | `body` | `Array<SmartPlusAdCreateParamsInteractiveAddOnList>` | No | No | A list of interactive add-on (creative portfolio) IDs. Size range: 0-1. |
+| `page_list` | `body` | `Array<SmartPlusAdCreateParamsPageList>` | No | No | A list of pages. Size range: 0-3. |
+| `landing_page_url_list` | `body` | `Array<SmartPlusAdCreateParamsLandingPageUrlList>` | No | No | Landing page URL list. Size range: 0-1. |
+| `custom_product_page_list` | `body` | `Array<SmartPlusAdCreateParamsCustomProductPageList>` | No | No | Valid only when the following conditions are all met:At the campaign level:`objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_RETARGETING`.At the ad group level:An iOS app is specified via `app_id`. Details of the custom product page to use in the ad. Size range: 0-1. |
+| `deeplink_list` | `body` | `Array<SmartPlusAdCreateParamsDeeplinkList>` | No | No | A list of deeplinks. Size range: 0-1. |
+| `disclaimer` | `body` | `SmartPlusAdCreateParamsDisclaimer` | No | No | Valid only when the following conditions are both met:At the campaign level, `objective_type` is `APP_PROMOTION` or `WEB_CONVERSIONS`, or `objective_type` is `LEAD_GENERATION` and `catalog_enabled` is `false` or not specified.At the ad group level, the TikTok placement is included. You can use any of the following configurations:Automatic Placement: Leave `placement_type` and `placements` unspecified.Select specific placements with TikTok included: Set `placement_type` to `PLACEMENT_TYPE_NORMAL` and include `PLACEMENT_TIKTOK` in the value for `placements`.Disclaimer information. Note: Once added to your ads, the disclaimer cannot be deleted. |
+| `ad_configuration` | `body` | `SmartPlusAdCreateParamsAdConfiguration` | No | No | Additional configurations. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdGet
+
+`GET` `/open_api/v1.3/smart_plus/ad/get/`
+
+Generated from TikTok documentation 1843317378982914
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. When not specified, all fields are returned by default. For allowed fields, see the fields under `list` and fields under `ad_configuration` in the Response section excluding `advertiser_id` and `smart_plus_ad_id`, which are returned by default. |
+| `filtering` | `query` | `SmartPlusAdGetParamsFiltering` | No | No | Filtering conditions. Example: `filtering=&#123;"objective_type":"APP_PROMOTION"&#125;` |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdgroupBudgetUpdate
+
+`POST` `/open_api/v1.3/smart_plus/adgroup/budget/update/`
+
+Generated from TikTok documentation 1843314914438466
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdgroupBudgetUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `budget` | `body` | `Array<SmartPlusAdgroupBudgetUpdateParamsBudget>` | No | No | Either `budget` or `scheduled_budget` has to be set.To update the budgets of one or more ad groups, specify `budget`.To set a scheduled budget change to the budgets of one or more ad groups, specify `scheduled_budget`. Information about the new budgets that you want to set for one or more ad groups. Max size: 20. Note: The changes to the budgets of one or more ad groups will take effect immediately. |
+| `scheduled_budget` | `body` | `Array<SmartPlusAdgroupBudgetUpdateParamsScheduledBudget>` | No | No | Either `budget` or `scheduled_budget` has to be set.To update the budgets of one or more ad groups, specify `budget`.To set a scheduled budget change to the budgets of one or more ad groups, specify `scheduled_budget`. Information about a list of scheduled budget adjustments for one or more ad groups. Max size: 20. Note:Configuring scheduled budget changes for your Upgraded Smart+ Ad Groups is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.The scheduled budget changes will take effect from 00:00 a.m. the following day in the ad account's time zone. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdgroupCreate
+
+`POST` `/open_api/v1.3/smart_plus/adgroup/create/`
+
+Generated from TikTok documentation 1843314887930946
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdgroupCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `request_id` | `body` | `string` | Yes | No | Request ID with which you can create ad groups with duplicate names. It also supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times, then only one will succeed. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer number. Example: `123456789`. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of the campaign that the ad group belongs to. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | The status of the ad group when created. Enum values:`ENABLE` : The ad group is enabled when created.`DISABLE` : The ad group is disabled when created. Default value: `ENABLE`. |
+| `adgroup_name` | `body` | `string` | Yes | No | Ad group name. Length limit: 512 characters. Emoji is not supported. |
+| `catalog_id` | `body` | `string` | No | No | Required when `catalog_enabled` is `true` at the campaign level. The ID of the catalog to use in the ad group. To retrieve the catalogs within your Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `catalog_authorized_bc_id` | `body` | `string` | No | No | Required when `catalog_enabled` is `true`. The ID of the Business Center that the catalog (`catalog_id`) belongs to. |
+| `promotion_type` | `body` | `string` | Yes | No | Promotion type (Optimization location). You can decide where you'd like to promote your products using this field. Currently, we support `APP_ANDROID`, `APP_IOS`, `WEBSITE`, `MINI_APP`, `MINI_GAME`, `NATIVE_SERIES`, and `LEAD_GENERATION`.When `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTAL` or `APP_RETARGETING`, set this field to `APP_ANDROID` or `APP_IOS`.When `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `MINIS`, set this field to `MINI_APP`, `MINI_GAME`, or `NATIVE_SERIES`.When `objective_type` is `WEB_CONVERSIONS`:If `sales_destination` is `WEBSITE`, set this field to `WEBSITE`.If `sales_destination` is `APP`, set this field to `APP_ANDROID` or `APP_IOS`.When `objective_type` is `LEAD_GENERATION`, set this field to any of the following values:`LEAD_GENERATION``LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE``LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE``LEAD_GEN_CLICK_TO_CALL` Note: When CBO is enabled (`budget_optimize_on` is `true` ) at the campaign level, this setting must be the same across all ad groups within the same campaign. |
+| `promotion_target_type` | `body` | `"INSTANT_PAGE" \| "EXTERNAL_WEBSITE" \| "true"` | No | No | Valid when `objective_type` is `LEAD_GENERATION`. The optimization location for Lead Generation objective. Enum values:`INSTANT_PAGE`: Instant Form. To create a fast-loading in-app TikTok Instant Form to collect more leads.`EXTERNAL_WEBSITE`: Website Form. To use a landing page that has the Website Form or the TikTok Instant Page that redirects to the website with the Website Form to collect more leads. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `optimization_goal` | `body` | `string` | Yes | No | The measurable results you'd like to drive with your campaigns. Currently, we support `CLICK`, `INSTALL`, `IN_APP_EVENT`, `VALUE`, `CONVERT`, `TRAFFIC_LANDING_PAGE_VIEW`, `CONVERSATION`, and `LEAD_GENERATION`. To find the detailed description for each optimization goal, see [Enumeration - Optimization Goal](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Optimization%20Goal). Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign.When `promotion_type` is `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE` and `optimization_goal` is `CONVERSATION`, you can only set `messaging_app_type` to any of the following values:`MESSENGER``WHATSAPP``ZALO` |
+| `app_id` | `body` | `string` | No | No | Required when the following conditions are both met: At the campaign level:`objective_type` is`APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL` or `APP_RETARGETING`, or `objective_type` is`WEB_CONVERSIONS` and `sales_destination` is `APP`.`camapign_type` is `REGULAR_CAMPAIGN`. The App ID of the app to promote. To get a list of App IDs, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Note: You cannot specify an App that has not activated the SAN module on your MMP through this field to create ad groups. To ensure that TikTok SAN integration is enabled for your App, see [How to migrate your app to SAN integration](https://ads.tiktok.com/help/article/transition-to-san-for-existing-apps). |
+| `gaming_ad_compliance_agreement` | `body` | `"ON" \| "OFF"` | No | No | Valid in any of the following scenarios:Scenario 1: When the following conditions are both met at the campaign level:`objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_RETARGETING`.Scenario 2: When the following conditions are both met at the campaign level:`objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `REGULAR_CAMPAIGN`. Whether to agree to the Compliance Assurance Policy for Gaming Advertisers on TikTok. The policy is as follows: You confirm and attest that any gaming application, product or service (game) you desire to advertise on TikTok, including any associated URL(s), (a) complies with all applicable laws and regulations of the jurisdictions where the game can be accessed or played, and upon request, can provide supporting documentation as evidence of why the game is not considered illegal gambling or lottery; and (b) has not been and is not part of any investigation or lawsuit regarding the game's legality or regulatory compliance. Enum values: `ON`: To agree to the policy.`OFF`: To leave the policy not accepted. Default value: `OFF`. Note: Agreeing to the Compliance Assurance Policy for Gaming Advertisers on TikTok is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `pixel_id` | `body` | `string` | No | No | Required when the following conditions are met:At the campaign level: `objective_type` is `WEB_CONVERSIONS` or `LEAD_GENERATION`.At the ad group level: `optimization_goal` is set to `CONVERT` or `VALUE`.Not supported when `optimization_goal` is set to `CLICK`, `INSTALL`, `IN_APP_EVENT`, or `TRAFFIC_LANDING_PAGE_VIEW`. Pixel ID. To get all Pixel IDs, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978). |
+| `app_config` | `body` | `Array<SmartPlusAdgroupCreateParamsAppConfig>` | No | No | Required when `sales_destination` is `WEB_AND_APP` at the campaign level. Details of the app or apps to promote. Max size: 2. You can specify any of the following in this field:an Android appan iOS appan Android app and an iOS app |
+| `minis_id` | `body` | `string` | No | No | Required when `promotion_type` is `MINI_APP` or `MINI_GAME`. The ID of a TikTok Mini.When `promotion_type` is `MINI_APP`, specify a TikTok Mini ID of the mini series type.When `promotion_type` is `MINI_GAME`, specify a TikTok Mini ID of the mini game type. To obtain the list of TikTok Minis within an ad account, use [/minis/get/](https://business-api.tiktok.com/portal/docs?id=1853450329535490) and select a TikTok Mini with `minis_status` as `ACTIVE`. To learn more about the campaign type where this setting is supported, see [Create an Upgraded Smart+ TikTok Growth Max: Mini Dramas campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-minis-campaign/v1.3) and [Create an Upgraded Smart+ TikTok Growth Max: Mini Games campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-mini-games-campaign/v1.3). |
+| `optimization_event` | `body` | `string` | No | No | Required in any of the following scenarios:`pixel_id` is specified.`pixel_id` is not specified and `optimization_goal` is `IN_APP_EVENT` or `VALUE`.`pixel_id` is not specified and `minis_id` is specified. Conversion event. For the supported app and pixel events, see [Conversion events](https://business-api.tiktok.com/portal/docs?id=1739361474981889). To find out the supported events for your app, use [/app/optimization_event/](https://business-api.tiktok.com/portal/docs?id=1740859338750977). Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `custom_conversion_id` | `body` | `string` | No | No | The ID of the Custom Conversion to use in the ad group. Valid only when the following conditions are all met:Either `pixel_id` or `app_id` is specified.A Custom Conversion has been configured for the `pixel_id` or `app_id`.The `optimization_goal` is set to `CONVERT` or `IN_APP_EVENT`.The parameter `optimization_event` is specified and matches the Standard Event associated with the Custom Conversion.The status of the Custom Conversion is Active or No recent activity. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). To confirm the eligibility of the Custom Conversion for ad group creation:Ensure the returned `optimization_event` matches the `optimization_event` specified during ad group creation. Ensure the `activity_status` is `NO_RECENT_ACTIVITY` or `ACTIVE`. |
+| `deep_funnel_optimization_status` | `body` | `"ON" \| "OFF"` | No | No | Valid only when `promotion_type` is `LEAD_GENERATION`. The status of deep funnel optimization. Deep funnel optimization optimizes both your upper funnel events and deeper funnel events. You can select a secondary event alongside the primary optimization event, which can help improve campaign effectiveness. Enum values:`ON`: To enable deep funnel optimization.`OFF`: To disable deep funnel optimization. Default value: `OFF`. Note: Deep funnel optimization with CRM events is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Deep funnel optimization with Pixel or Offline events is generally available. |
+| `deep_funnel_event_source` | `body` | `"PIXEL" \| "OFFLINE" \| "CRM"` | No | No | Required when `deep_funnel_optimization_status` is `ON`. The event source type. Enum values:`PIXEL`: Pixel.`OFFLINE`: Offline Event Set.`CRM`: CRM Event Set. |
+| `deep_funnel_event_source_id` | `body` | `string` | No | No | Required when `deep_funnel_optimization_status` is `ON`. Event Source ID.When `deep_funnel_event_source` is `PIXEL`, specify a Pixel ID via this field.To obtain a list of Pixels, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978).When `deep_funnel_event_source` is `OFFLINE`, specify an Offline Event Set ID via this field.To obtain a list of Offline Event Set IDs, use [/offline/get/](https://business-api.tiktok.com/portal/docs?id=1765596808589313).When `deep_funnel_event_source` is `CRM`, specify a CRM Event Set ID via this field.To obtain a list of CRM Event Set IDs, use [/crm/list/](https://business-api.tiktok.com/portal/docs?id=1780896521680898). |
+| `deep_funnel_optimization_event` | `body` | `string` | No | No | Required when `deep_funnel_optimization_status` is `ON`. Deep funnel optimization event. To find out the supported values for Standard Events available for Pixels, Offline Event Sets, and CRM Event Sets, see the "Event name for ad creation" column in [Supported Pixel events](https://business-api.tiktok.com/portal/docs?id=1739585696931842). To find the list of optimization events for a Pixel, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `optimization_event`. Example: `SHOPPING`. |
+| `app_attribution_source` | `body` | `"MMP" \| "SAN" \| "true"` | No | No | Valid only when the following conditions are all met:At the campaign level, `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL` or `APP_RETARGETING`.The mobile app is eligible for attribution source and data source configuration.To confirm this, use [/app/list/](https://business-api.tiktok.com/portal/docs/get-the-app-list/v1.3) or [/app/info/](https://business-api.tiktok.com/portal/docs/get-info-of-an-app/v1.3) and select an `app_id` where `is_attribution_flex_enable` returns `true`. Attribution source for your mobile app. The attribution source you choose will be used for optimization, bidding, and reporting. Enum values:`MMP`: MMP (mobile measurement partner) attribution. Signals from your selected MMP will be used for attribution.`SAN`: SAN (self-attribution network) attribution. Signals from TikTok SAN will be used for attribution. The exact value you can specify depends on your app (`app_id`) setup. To retrieve the available attribution and data source settings for your app, use [/tool/available/attribution_source/](https://business-api.tiktok.com/portal/docs/get-available-attribution-sources-and-data-sources-for-an-app/v1.3). Note: Once set, this field cannot be updated.When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign.Attribution source and data source configuration for an app during Upgraded Smart+ Ad Group creation is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `app_data_source` | `body` | `"MMP" \| "EVENT_SDK" \| "EVENT_API" \| "true"` | No | No | Data source for your app. The attribution signals you select will be used for reporting. Enum values:`MMP`: MMP signals. Signals from your MMP will be used for reporting.`EVENT_SDK`: App Events SDK signals. Signals from TikTok App Events SDK will be used for reporting.`EVENT_API`: Events API signals. Signals from TikTok Events API will be used for reporting. The exact value you can specify depends on your app (`app_id`) setup. To retrieve the available attribution and data source settings for your app, use [/tool/available/attribution_source/](https://business-api.tiktok.com/portal/docs/get-available-attribution-sources-and-data-sources-for-an-app/v1.3). Note: Once set, this field cannot be updated.When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign.Attribution source and data source configuration for an app during Upgraded Smart+ Ad Group creation is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `identity_id` | `body` | `string` | No | No | Valid only in any of the following scenarios: Scenario 1: When `promotion_type` is `NATIVE_SERIES`.Scenario 2: When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE` and your ad account is allowlisted for selecting a TikTok account at the ad group level in TikTok Direct Messaging Ads. Identity ID of the TikTok account where your Series is hosted and managed in TikTok Growth Max: Drama Series ads or the TikTok account to use in TikTok Direct Messaging Ads. To learn more about how to create TikTok Direct Messaging Ads, see [Create an Upgraded Smart+ Lead Generation Campaign with optimization location as TikTok direct messages](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-lead-generation-campaign-with-optimization-location-as-tiktok-direct-messages/v1.3). To learn more about how to create TikTok Growth Max: Drama Series ads, see [Create an Upgraded Smart+ TikTok Growth Max: Drama Series campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-mini-series-feed-campaign/v1.3). Note:Selecting a TikTok account at the ad group level in TikTok Direct Messaging Ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `identity_type` | `body` | `"TT_USER" \| "BC_AUTH_TT"` | No | No | Valid only in any of the following scenarios: Scenario 1: When `promotion_type` is `NATIVE_SERIES`.Scenario 2: When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE` and your ad account is allowlisted for selecting a TikTok account at the ad group level in TikTok Direct Messaging Ads. Identity type of the TikTok account where your Series is hosted and managed in TikTok Growth Max: Drama Series ads or the TikTok account to use in TikTok Direct Messaging Ads. Enum values: `TT_USER`: TikTok Business Account User.`BC_AUTH_TT`: The TikTok account that a Business Center is authorized to access. See [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097) for details. Note:Selecting a TikTok account at the ad group level in TikTok Direct Messaging Ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `identity_authorized_bc_id` | `body` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Note: Once set, this field cannot be updated. |
+| `native_series_id` | `body` | `string` | No | No | Required when `promotion_type` is `NATIVE_SERIES`. The ID of a TikTok Series. Series offers exclusive and premium video packages produced by creators. Access to Series is available to purchase through the creator's profile and links attached to TikTok videos. To obtain the list of TikTok Series available from a TikTok account that your ad account can access, use [/identity/native_series/get/](https://business-api.tiktok.com/portal/docs/get-the-available-tiktok-series-within-an-ad-account/v1.3) . |
+| `messaging_app_type` | `body` | `"MESSENGER" \| "WHATSAPP" \| "ZALO" \| "LINE" \| "IM_URL"` | No | No | Valid only when `promotion_type` is `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`.When `optimization_goal` is `CONVERSATION`, this field is required.When `optimization_goal` is `CLICK`, the default value for this field is `IM_URL`. The type of instant messaging app or customized URL to use in the Instant Messaging App Ad Group. Enum values:`MESSENGER`: Messenger. You need to simultaneously specify a Facebook Page ID via `messaging_app_account_id`.`WHATSAPP`: WhatsApp. You need to simultaneously specify `phone_info`, which will be used to automatically populate the corresponding WhatsApp phone number.`ZALO`: Zalo. You need to simultaneously specify Zalo contact format via `zalo_id_type`. `LINE`: Line. You need to simultaneously specify a LINE Business ID via `messaging_app_account_id`.`IM_URL`: Instant Messaging URL. To learn more about how to create Upgraded Smart+ TikTok Instant Messaging Ads, see [Create an Upgraded Smart+ Lead Generation Campaign with optimization location as instant messaging apps](https://business-api.tiktok.com/portal/docs?id=1847302988449921). Note: When `optimization_goal` is `CONVERSATION`, you cannot set this field to `LINE` or `IM_URL`.Once set, this field cannot be updated. |
+| `zalo_id_type` | `body` | `"ZALO_OFFICIAL_ACCOUNT" \| "ZALO_PHONE_ACCOUNT"` | No | No | Required when `messaging_app_type` is `ZALO`. The type of Zalo contact format. Enum values:`ZALO_OFFICIAL_ACCOUNT`: Zalo Official Account ID. You need to simultaneously specify a Zalo Official Account ID via `messaging_app_account_id`.`ZALO_PHONE_ACCOUNT`: Zalo phone number. You need to simultaneously specify `phone_info` to automatically populate the corresponding Zalo phone number.You can only set `zalo_id_type` to `ZALO_PHONE_ACCOUNT` when `optimization_goal` is `CLICK`. Note: Once set, this field cannot be updated. |
+| `messaging_app_account_id` | `body` | `string` | No | No | Required and valid in any of the following scenarios:When `messaging_app_type` is `MESSENGER` or `LINE`.When `messaging_app_type` is `ZALO` and `zalo_id_type` is `ZALO_OFFICIAL_ACCOUNT`. The ID of the instant messaging app account.When `messaging_app_type` is `MESSENGER`, specify the Facebook Page ID via this field.To find your Facebook Page ID, go to your Facebook Page and click About below your cover photo, then click Page transparency.When `zalo_id_type` is `ZALO_OFFICIAL_ACCOUNT`, specify the Zalo Official Account ID via this field.When `messaging_app_type` is `LINE`, specify the LINE Business ID via this field.To find your LINE Business ID, go to your LINE official account page.When `messaging_app_type` is `WHATSAPP` or when `zalo_id_type` is `ZALO_PHONE_ACCOUNT`, this field will be ignored and be set as the corresponding WhatsApp or Zalo phone number automatically populated based on the specified `phone_info`. Note: Once set, this field cannot be updated. |
+| `message_event_set_id` | `body` | `string` | No | No | Required when the following conditions are met:`promotion_type` is `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`.`optimization_goal` is `CONVERSATION`.The instant messaging app account in your ad group settings doesn't match any existing message event set. The ID of the message event set to be used in the Instant Messaging Ad Group.If the instant messaging app account, either the Messenger account or Zalo Official Account specified via `messaging_app_account_id` or the WhatsApp or Zalo phone account populated from the specified `phone_info`, in your ad group settings matches an existing event set, this field will be ignored and automatically populated with the unique message event set associated with the instant messaging app account you choose.To confirm whether a unique message event set is associated with the instant messaging app account you choose, use [/ctm/message_event_set/get/](https://business-api.tiktok.com/portal/docs?id=1816979158055937) and check the returned `matched_event_set`.If the instant messaging app account in your ad group settings doesn't match any existing message event set (`matched_event_set` returned from `/ctm/message_event_set/get/` is empty), use [/ctm/message_event_set/get/](https://business-api.tiktok.com/portal/docs?id=1816979158055937) to obtain the message event sets available for ad creation via the response parameter `message_event_set_list`. Note: Once set, this field cannot be updated. |
+| `phone_info` | `body` | `SmartPlusAdgroupCreateParamsPhoneInfo` | No | No | Required in any of the following scenarios:When `messaging_app_type` is `WHATSAPP`When `messaging_app_type` is `ZALO` and `zalo_id_type` is `ZALO_PHONE_ACCOUNT`. Details of WhatsApp or Zalo phone number. Note: Once set, this field cannot be updated. |
+| `bid_type` | `body` | `"BID_TYPE_NO_BID" \| "BID_TYPE_CUSTOM"` | Yes | No | Bidding strategy that determines how the system manages your cost per result, spends your budget, and how it delivers campaigns. Enum values:`BID_TYPE_NO_BID`: Maximum Delivery.`BID_TYPE_CUSTOM`: Cost Cap (or Target CPA). Note: This setting, if specified, must be the same across all ad groups within the same campaign. |
+| `bid_price` | `body` | `number` | No | No | Required when the following conditions are met:`optimization_goal` is `CLICK`.`bid_type` is `BID_TYPE_CUSTOM`. The target cost per click. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. `bid_price` needs to be lower than budget. See [Bidding-Bidding limits](https://business-api.tiktok.com/portal/docs?id=1745292444424193) to learn more about the bid verification mechanism. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `conversion_bid_price` | `body` | `number` | No | No | Required when the following conditions are met:`optimization_goal` is `CONVERT`,`TRAFFIC_LANDING_PAGE_VIEW` , `INSTALL`, or `IN_APP_EVENT`.`bid_type` is `BID_TYPE_CUSTOM`. The target cost per conversion or cost per landing page view. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. `conversion_bid_price` needs to be lower than budget. See [Bidding-Bidding limits](https://business-api.tiktok.com/portal/docs?id=1745292444424193) to learn more about the bid verification mechanism. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `deep_bid_type` | `body` | `"DEFAULT" \| "AEO" \| "VO_MIN_ROAS" \| "VO_HIGHEST_VALUE" \| "BUDGET_MODE_DYNAMIC_DAILY_BUDGET"` | No | No | Required when `optimization_goal` is `VALUE`. Bidding strategy for in-app events. Enum values: `DEFAULT`, `AEO`, `VO_MIN_ROAS`, and `VO_HIGHEST_VALUE`. For the descriptions of supported values, see [Enumeration - Deep Event Bidding Strategy](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Deep%20Event%20Bidding%20Strategy). You can only set `deep_bid_type` to `VO_MIN_ROAS` in any of the following scenarios:At the campaign level, `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET` At the ad group level, `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET` Note: This setting, if specified, must be the same across all ad groups within the same campaign. |
+| `roas_bid` | `body` | `number` | No | No | Required when `deep_bid_type` is `VO_MIN_ROAS`. Target ROAS for Value-Based Optimization. Value range: 0.01-1,000. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `vbo_window` | `body` | `"SEVEN_DAYS" \| "ZERO_DAY"` | No | No | The time window of the specified bidding strategy for [VBO IAA](https://business-api.tiktok.com/portal/docs?id=1739381743067137) (Value-Based Optimization for in-app advertising) or [VBO IAP](https://business-api.tiktok.com/portal/docs?id=1739381743067137) (Value-Based Optimization for in-app purchase). Enum values:`SEVEN_DAYS`: The first seven days (day 7).`ZERO_DAY`: The current day (day 0). Default value: `SEVEN_DAYS`. When the Minimum ROAS (Target ROAS) bidding strategy is used, this field represents the window type of the target ROAS value (Day 7 ROAS or Day 0 ROAS). The system will aim to keep your average ROAS of the seventh day or of the current day around or higher than the target ROAS value, regardless of your budget.When the Highest Value bidding strategy is used, this field represents the Highest Value window type (Day 7 Highest Value or Day 0 Highest Value). The system will aim to spend your budget fully and maximize the value of results within the first seven days or within the current day. Note: This setting, if specified, must be the same across all ad groups within the same campaign.VBO IAP and VBO IAA in different scenarios are currently allowlist-only features. If you would like to access them, please contact your TikTok representative.Day 0 or day 7 bidding (`vbo_window` is `ZERO_DAY` or `SEVEN_DAYS`) for VBO IAP in Advanced Dedicated Campaign or Android campaign scenarios are currently allowlist-only features. If you would like to access them, please contact your TikTok representative.Day 0 or day 7 bidding (`vbo_window` is `ZERO_DAY` or `SEVEN_DAYS`) for VBO IAA in Advanced Dedicated Campaign or Android campaign scenarios are currently allowlist-only features. If you would like to access them, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `click_attribution_window` | `body` | `"OFF" \| "ONE_DAY" \| "SEVEN_DAYS" \| "FOURTEEN_DAYS" \| "TWENTY_EIGHT_DAYS" \| "THIRTY_DAYS"` | No | No | Click-through window. This attribution window is the time between when a person clicks your ad and then takes an action. Use this field to define the timeframe during which conversions can be attributed to the ad group. Enum values:`OFF`: Off.`ONE_DAY`: 1-day click.`SEVEN_DAYS`: 7-day click.`FOURTEEN_DAYS`: 14-day click.`TWENTY_EIGHT_DAYS`: 28-day click.`THIRTY_DAYS`: 30-day click.This value is only valid when `promotion_type` is `MINI_GAME`.`THIRTY_TWO_DAYS`: 32-day click. This value is only valid when `promotion_type` is `MINI_APP` and `optimization_event` is `ACTIVE_PAY`.`ONE_HUNDRED_EIGHTY_DAYS`: 180-day click.This value is only valid when `promotion_type` is `MINI_APP` and `optimization_event` is `ACTIVE_PAY`. To learn about the allowed values of this field for different advertising objective scenarios, refer to [Attribution window and event count](https://business-api.tiktok.com/portal/docs?id=1777694366654465). Note:If you want to manually configure the attribution windows, you need to pass at least `click_attribution_window` and `view_attribution_window` simultaneously, and optionally `engaged_view_attribution_window`. Note that the `engaged_view_attribution_window`, once passed, must be accompanied by `click_attribution_window` and `view_attribution_window`.If you don't manually pass `click_attribution_window`, `engaged_view_attribution_window`, `view_attribution_window` and `attribution_event_count`, then default settings, if any, will be used. To confirm whether a default setting is used when you don't manually pass this field, use [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026).Once set, this field cannot be updated. |
+| `engaged_view_attribution_window` | `body` | `"OFF" \| "ONE_DAY" \| "SEVEN_DAYS" \| "FOURTEEN_DAYS" \| "TWENTY_EIGHT_DAYS"` | No | No | Engaged view-through window. This attribution window is the time after someone watches at least 6 seconds of your video ad that a conversion is counted. Use this field to define the timeframe during which conversions can be attributed to the ad group. Enum values:`OFF`: Off.`ONE_DAY`: 1-day engaged view.`SEVEN_DAYS`: 7-day engaged view.`FOURTEEN_DAYS`: 14-day engaged view.This value is only valid in [Upgraded Smart+ Ads with Website and App Optimization](https://business-api.tiktok.com/portal/docs?id=1854746404386113).`TWENTY_EIGHT_DAYS`: 28-day engaged view.This value is only valid in [Upgraded Smart+ Ads with Website and App Optimization](https://business-api.tiktok.com/portal/docs?id=1854746404386113). Default value: `OFF`. To learn about the allowed values of this field for different advertising objective scenarios, refer to [Attribution window and event count](https://business-api.tiktok.com/portal/docs?id=1777694366654465). Note: If you want to manually configure the attribution windows, you need to pass at least `click_attribution_window` and `view_attribution_window` simultaneously, and optionally `engaged_view_attribution_window`. Note that the `engaged_view_attribution_window`, once passed, must be accompanied by `click_attribution_window` and `view_attribution_window`.If you don't manually pass `click_attribution_window`, `engaged_view_attribution_window`, `view_attribution_window` and `attribution_event_count`, then default settings, if any, will be used. To confirm whether a default setting is used when you don't manually pass this field, use the [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026) interface.Once set, this field cannot be updated. |
+| `view_attribution_window` | `body` | `"OFF" \| "ONE_DAY" \| "SEVEN_DAYS"` | No | No | View-through window. This attribution window is the time between when a person views your ad and then takes an action. Use this field to define the timeframe during which conversions can be attributed to the ad group. Enum values:`OFF`: Off.`ONE_DAY`: 1-day view.`SEVEN_DAYS`: 7-day view. To learn about the allowed values of this field for different advertising objective scenarios, refer to [Attribution window and event count](https://business-api.tiktok.com/portal/docs?id=1777694366654465). Note: If you want to manually configure the attribution windows, you need to pass at least `click_attribution_window` and `view_attribution_window` simultaneously, and optionally `engaged_view_attribution_window`. Note that the `engaged_view_attribution_window`, once passed, must be accompanied by `click_attribution_window` and `view_attribution_window`.If you don't manually pass `click_attribution_window`, `engaged_view_attribution_window`, `view_attribution_window` and `attribution_event_count`, then default settings, if any, will be used. To confirm whether a default setting is used when you don't manually pass this field, use[/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026).Once set, this field cannot be updated. |
+| `attribution_event_count` | `body` | `"UNSET" \| "EVERY" \| "ONCE"` | No | No | Event count (Statistic type). The way that people\'s actions are counted after only viewing or clicking an ad. Enum values:`UNSET`: Unset.`EVERY`: Every. To count multiple events from someone as separate conversions.`ONCE`: Once. To count multiple events from someone as 1 conversion. To learn about the allowed values of this field for different advertising objective scenarios, refer to [Attribution window and event count](https://business-api.tiktok.com/portal/docs?id=1777694366654465). Note: If you don't manually pass `click_attribution_window`, `engaged_view_attribution_window`, `view_attribution_window` and `attribution_event_count`, then default settings, if any, will be used. To confirm whether a default setting is used when you don't manually pass this field, use [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026).Once set, this field cannot be updated. |
+| `billing_event` | `body` | `string` | Yes | No | Events that you want to pay for. For enum values, see [Enumeration - Billing Event](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Billing%20Event). Currently, we only support `OCPM` and `CPC`:When `optimization_goal` is `CLICK`, set this field to `CPC`.When `optimization_goal` is not `CLICK`, set this field to `OCPM`. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting must be the same across all ad groups within the same campaign. |
+| `targeting_optimization_mode` | `body` | `string` | No | No | Audience targeting optimization mode. `AUTOMATIC`: Automatic targeting. You can use automatic targeting to leverage real-time data and machine learning to target audiences most likely to engage with your ads. For an ad group that is not an Upgraded Smart+ Catalog Ad Group for App, when `targeting_optimization_mode` is `AUTOMATIC`, you can set `suggestion_audience_enabled` to `false` or `true`. When `targeting_optimization_mode` is `AUTOMATIC` and `suggestion_audience_enabled` is `false`, you can specify the following optional audience control settings: `location_ids``zipcode_ids``spc_audience_age``languages``operating_systems``excluded_audience_ids` When `targeting_optimization_mode` is `AUTOMATIC` and `suggestion_audience_enabled` is `true`, you can specify additional audience targeting settings as suggestions that guide automatic targeting. To learn more about the available settings, see the description of the parameter `suggestion_audience_enabled`. For an Upgraded Smart+ Catalog Ad Group for App (at the campaign level `sales_destination` is `APP`), when `targeting_optimization_mode` is `AUTOMATIC`, you can only set `suggestion_audience_enabled` to `false`. When `targeting_optimization_mode` is `AUTOMATIC` and `suggestion_audience_enabled` is `false` , you can specify the following optional audience control settings: `location_ids``zipcode_ids``spc_audience_age``languages``audience_ids``excluded_audience_ids``gender` `MANUAL`: Custom targeting. You can use custom targeting settings to precisely control who sees your ads. This may limit delivery and impact campaign performance. When `targeting_optimization_mode` is `MANUAL`, you can specify the following audience settings: `location_ids``zipcode_ids``age_groups``gender``languages``audience_ids``excluded_audience_ids``included_pangle_audience_package_ids``excluded_pangle_audience_package_ids``interest_category_ids``interest_keyword_ids``purchase_intention_keyword_ids``actions``smart_interest_behavior_enabled``smart_audience_enabled``spending_power``household_income``operating_systems``min_android_version``min_ios_version``device_model_ids``network_types``carrier_ids``isp_ids``device_price_ranges``saved_audience_id` Default value: `AUTOMATIC`. Note: If you specify targeting settings that don’t align with your targeting optimization mode settings (`targeting_optimization_mode` and `suggestion_audience_enabled`), those settings will be ignored, and no errors will occur. |
+| `suggestion_audience_enabled` | `body` | `boolean` | No | No | Valid only when `targeting_optimization_mode` is `AUTOMATIC`. Whether to enable audience suggestions. Audience suggestions guide automatic targeting by specifying additional audience settings. These serve as suggestions only, and delivery to those audiences is not guaranteed. Supported values: `true` (recommended), `false`. Default value: `false`. When `suggestion_audience_enabled` is `true`, you can specify the following additional audience targeting settings:`age_groups``gender``audience_ids``interest_category_ids``interest_keyword_ids``purchase_intention_keyword_ids``actions` Note: If you specify targeting settings that don’t align with your targeting optimization mode settings (`targeting_optimization_mode` and `suggestion_audience_enabled`), those settings will be ignored, and no errors will occur.You cannot set this field to `true` if Realtime API (RTA) is enabled at the campaign level. |
+| `targeting_spec` | `body` | `SmartPlusAdgroupCreateParamsTargetingSpec` | Yes | No | Targeting settings. The targeting settings that you can specify vary based on the values for `targeting_optimization_mode` and `suggestion_audience_enabled`. To learn more about the available settings, see the descriptions of the two parameters. |
+| `budget_mode` | `body` | `"BUDGET_MODE_TOTAL" \| "BUDGET_MODE_DYNAMIC_DAILY_BUDGET" \| "SCHEDULE_START_END" \| "BUDGET_MODE_DAY" \| "false"` | No | No | Required when Campaign Budget Optimization (CBO) is disabled (`budget_optimize_on` is `false`) at the campaign level.Ignored when CBO is enabled (`budget_optimize_on` is `true`) at the campaign level. Ad group budget mode. Enum values:`BUDGET_MODE_TOTAL`: Lifetime budget.`BUDGET_MODE_DYNAMIC_DAILY_BUDGET`: Dynamic daily budget. It is the average daily budget over a week. Daily costs will not exceed 125% of the average daily budget. Weekly costs will not exceed the average daily budget * 7. Note: This setting, if specified, must be the same across all ad groups within the same campaign.If this field is set to `BUDGET_MODE_TOTAL`, then `schedule_type` must be `SCHEDULE_START_END`, which requires an end date (`schedule_end_time`).When at the campaign level `budget_optimize_on` is `false` and `budget_mode` is `BUDGET_MODE_DAY`, you can only set this field to `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`. |
+| `budget_auto_adjust_strategy` | `body` | `string` | No | No | Valid only when the following conditions are all met: At the campaign level: `budget_optimize_on` is `false`. At the ad group level: When `objective_type` is `APP_PROMOTION`: `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`optimization_goal` is `VALUE`.`deep_bid_type` is `VO_MIN_ROAS`.`vbo_window` is `ZERO_DAY`. When `objective_type` is `LEAD_GENERATION`:`budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`bid_type` is`BID_TYPE_CUSTOM`. The ad group budget strategy for custom ad group budget. Enum values: `AUTO_BUDGET_INCREASE`: To enable Goal-based budget increase. Allow your budget to automatically increase when your ads are performing well and target CPA, Day 0 target ROAS, and budget requirements are met. When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, the specified `budget` will be the initial daily budget. Your daily budget will be allowed to automatically increase by 20%, up to 10 times per day, when your budget utilization reaches 90% or more. Your daily budget will reset to your original daily budget each day.`UNSET`: To disable Goal-based budget increase. Note: Enabling Goal-based budget increase is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget` | `body` | `number` | No | No | Required when Campaign Budget Optimization (CBO) is disabled (`budget_optimize_on` is `false`) at the campaign level.Ignored when CBO is enabled (`budget_optimize_on` is `true`) at the campaign level. Fixed ad group budget or initial ad group budget.When `budget_auto_adjust_strategy` is `UNSET`, this field represents your fixed ad group budget.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents your initial ad group budget. To retrieve the current ad group budget, check the returned `current_budget`. For how to configure budget settings, see [Budget](https://business-api.tiktok.com/portal/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Daily%20budget%20value%20range). |
+| `min_budget` | `body` | `number` | No | No | Valid only when the following conditions are all met:At the campaign level:`budget_optimize_on` is `true``budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`At the ad group level:`bid_type` is `BID_TYPE_NO_BID` Ad group minimum budget. The system will aim to spend at least this amount, but it is not guaranteed. |
+| `schedule_type` | `body` | `"SCHEDULE_FROM_NOW" \| "BUDGET_MODE_DYNAMIC_DAILY_BUDGET" \| "SCHEDULE_START_END"` | Yes | No | Schedule type. Enum values:`SCHEDULE_FROM_NOW`: To run the ad group continuously after the scheduled start time.You can only set `schedule_type` to `SCHEDULE_FROM_NOW` in any of the following scenarios:At the campaign level, `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET` At the ad group level, `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET``SCHEDULE_START_END`: To run the ad group between the scheduled start time and end time. |
+| `schedule_start_time` | `body` | `string` | Yes | No | Schedule start time, in the format of`YYYY-MM-DD HH:MM:SS` (UTC+0). The start time can be up to 12 hours earlier than the current time, but cannot be later than `2028-01-01 00:00:00`. |
+| `schedule_end_time` | `body` | `string` | No | No | Required when `schedule_type` is `SCHEDULE_START_END`. Schedule end time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). The end time cannot be later than `2038-01-01 00:00:00`. |
+| `movie_premiere_date` | `body` | `string` | No | No | Valid when the following conditions are both met:`is_promotional_campaign` is `true` at the campaign level.You are allowlisted to use promotion campaign settings for theatrical releases. The theatrical release date, in the format of `YYYY-MM-DD` (UTC+0). Providing the movie release date allows the system to incorporate this timing into performance enhancements. |
+| `dayparting` | `body` | `string` | No | No | Ad delivery arrangement, in the format of a string that consists of 48 x 7 characters. Each character is mapped to a 30-minute timeframe from Monday to Sunday. Each character can be set to either 0 or 1. 1 represents delivery in the 30-minute timeframe, and 0 stands for non-delivery in the 30-minute timeframe. The first character is mapped to 0:01-0:30 of Monday; The second character is mapped to 0:31-1:00 of Monday, and the last character represents 23:31-0:00 Sunday. Note: An all-1 value and when this field is not specified, are considered full-time delivery. |
+| `is_hfss` | `body` | `boolean` | No | No | Valid only when `targeting_optimization_mode` is `MANUAL`. Whether the promoted content is HFSS (High Fat, Salt, Sugar) Product/Brand. If your ad is promoting or prominently featuring a product/brand classed as high in fat, salt or sugar, set this field to `true`. In regulated regions, HFSS ads must only be targeted to users aged 18 or over. You can set this field to `true`when your targeting locations include locations in the UK, Australia, New Zealand, and the European Union. Supported values: `true`, `false`. Default value: `false`. |
+| `is_lhf_compliance` | `body` | `boolean` | No | No | When the targeting locations include locations in the UK and `is_hfss` is `true`, this field is required and must be set to `true`. Whether the promoted content complies with LHF (Less Healthy Foods) regulations. By setting `is_lhf_compliance` to `true`, you confirm that any food or drink products you advertise on TikTok in the UK comply with the [2024 Less Healthy Foods Regulations](https://www.legislation.gov.uk/uksi/2024/1266/made) and all other applicable laws. Supported values: `true`, `false`. Default value: `false`. |
+| `placement_type` | `body` | `"PLACEMENT_TYPE_AUTOMATIC" \| "PLACEMENT_TYPE_NORMAL" \| "PLACEMENT_TIKTOK"` | No | No | The placement strategy that decides where your ads will be shown. Enum values:`PLACEMENT_TYPE_AUTOMATIC`: Automatic Placement. TikTok's ad system will use smart calculations to give you the best combination of ad placements across all apps.`PLACEMENT_TYPE_NORMAL`: Select Placement. By selecting your placement manually, you\'ll be able to choose the apps to deliver your ads on. By default, the system will automatically configure placements for your Upgraded Smart+ Campaigns based on your other settings and select high-quality traffic from various placements to deliver better results. However, in cases where only Select Placement is supported, omitting the placement parameters (`placement_type` and `placements`) might trigger a placement error. In such cases, you need to manually set `placement_type` to `PLACEMENT_TYPE_NORMAL` and specify `placements`. Note:`placement_type` cannot be updated after the ad group has been created.If you set this field to `PLACEMENT_TYPE_AUTOMATIC`, the actual supported placements will be shown in the returned `placements`. For instance, if the actual supported placement is TikTok only, the returned `placements` value will be `PLACEMENT_TIKTOK`. |
+| `placements` | `body` | `Array<"PLACEMENT_TIKTOK" \| "PLACEMENT_PANGLE" \| "PLACEMENT_GLOBAL_APP_BUNDLE" \| "TRAFFIC_LANDING_PAGE_VIEW">` | No | No | When `placement_type` is `PLACEMENT_TYPE_NORMAL`, this field is required.When `placement_type` is `PLACEMENT_TYPE_AUTOMATIC`, this field is ignored and overwritten to the combination of ad placements that the TikTok ad system selects for your ad. The apps where you want to deliver your ads. Enum values:`PLACEMENT_TIKTOK`: TikTok.`PLACEMENT_PANGLE`: Pangle.`PLACEMENT_GLOBAL_APP_BUNDLE`: Global App Bundle. Note:`placements` cannot be updated after the ad group has been created.The available locations you can target with the Global App Bundle placement (`PLACEMENT_GLOBAL_APP_BUNDLE`) are: Brazil, Indonesia, Vietnam, the Philippines, Thailand, Malaysia, Mexico, Saudi Arabia, and Japan.The Global App Bundle placement (`PLACEMENT_GLOBAL_APP_BUNDLE`) does not support the optimization goal Landing Page View (`optimization_goal`=`TRAFFIC_LANDING_PAGE_VIEW`). To learn about the optimization goal, refer to the section [Enumerations-Optimization Goal](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Optimization%20Goal). |
+| `tiktok_subplacements` | `body` | `Array<"LEMON8" \| "PINE_DRAMA">` | No | No | Valid only when the following conditions are met:At the campaign level: `objective_type` is `APP_PROMOTION`, `LEAD_GENERATION`, or `WEB_CONVERSIONS`.At the ad group level: `placement_type` is `PLACEMENT_TYPE_NORMAL` and `placements` includes `PLACEMENT_TIKTOK`. The subplacements within TikTok for your ads, allowing you to choose where your ads will appear. Enum values:`LEMON8`: Lemon8, a community app for lifestyle content, focusing on real-life experiences, tips, guides, and product reviews. By including Lemon8 as a subplacement, your ads will appear in its For You feed, Search feed, and Immersive Video feed. [Learn more about Lemon8 for Performance Auction](https://ads.tiktok.com/help/article/about-lemon8-in-tiktok-ads-manager).`PINE_DRAMA`: PineDrama, an app for watching short-form dramas. Ads will be placed on recommendation pages, within episode streams, and more. [Learn more about PineDrama for Performance Auction](https://ads.tiktok.com/help/article/about-pinedrama-for-performance-auction-in-tiktok-ads-manager). Note: Using the Lemon8 subplacement (`LEMON8`) in your ad group is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.The Lemon8 subplacement (`LEMON8`) is not supported when `rta_id` is specified at the campaign level.If you want to use the Lemon8 subplacement (`LEMON8`) in Lead Generation campaigns (with `objective_type` as `LEAD_GENERATION` at the campaign level), ensure that at the ad group level `promotion_type` is `LEAD_GENERATION`.Using the PineDrama subplacement (`PINE_DRAMA`) in your ad group is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.When you use the PineDrama subplacement, the regions you can target include Brazil, Indonesia, Mexico, Thailand, the United States, and Vietnam.Once set, this field cannot be updated. |
+| `comment_disabled` | `body` | `boolean` | No | No | Whether to allow comments on your campaigns on TikTok. Supported values: `true`, `false`. Default value: `false`. |
+| `share_disabled` | `body` | `boolean` | No | No | Whether to disable sharing of the campaign to third-party platforms. Supported values: `true`, `false`. Default value: `false`. |
+| `video_download_disabled` | `body` | `boolean` | No | No | Whether users can download your video ads on TikTok. Supported values: `true`, `false`. Default value: `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdgroupGet
+
+`GET` `/open_api/v1.3/smart_plus/adgroup/get/`
+
+Generated from TikTok documentation 1843314879617026
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdgroupGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. When this field is not specified, all fields are returned by default. For allowed fields, see the fields under `list` in the Response section. |
+| `filtering` | `query` | `SmartPlusAdgroupGetParamsFiltering` | No | No | Filtering conditions. Example: `filtering=&#123;"objective_type":"APP_PROMOTION"&#125;` |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-1,000. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdgroupStatusUpdate
+
+`POST` `/open_api/v1.3/smart_plus/adgroup/status/update/`
+
+Generated from TikTok documentation 1843314908153858
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdgroupStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `body` | `Array<string>` | Yes | No | The IDs of the ad groups to operate on. Size range: 1-20. To obtain ad group IDs, use [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026). |
+| `operation_status` | `body` | `"DISABLE" \| "ENABLE" \| "DELETE"` | Yes | No | The operation to perform on the ad groups. Enum values: `DISABLE` (pause), `ENABLE` (enable), `DELETE` (delete). Note: The status of deleted ad groups or ad groups in deleted campaigns cannot be modified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdgroupUpdate
+
+`POST` `/open_api/v1.3/smart_plus/adgroup/update/`
+
+Generated from TikTok documentation 1843314894279682
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdgroupUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. To obtain ad group IDs, use [/smart_plus/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1843314879617026). |
+| `adgroup_name` | `body` | `string` | No | No | Ad group name. Length limit: 512 characters. Emoji is not supported. |
+| `bid_price` | `body` | `number` | No | No | Valid when the following conditions are met:`optimization_goal` is `CLICK`.`bid_type` is `BID_TYPE_CUSTOM`. The target cost per click. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. `bid_price` needs to be lower than budget. See [Bidding-Bidding limits](https://business-api.tiktok.com/portal/docs?id=1745292444424193#item-link-Bidding%20limits) to learn more about the bid verification mechanism. Important: When multiple ad groups are present within your campaign, updating the `bid_price` for one ad group will automatically update the `bid_price` for all other ad groups under the same campaign with the new value. Note: When Campaign Budget Optimization (CBO) is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `conversion_bid_price` | `body` | `number` | No | No | Valid when the following conditions are met:`optimization_goal` is `CONVERT`, `TRAFFIC_LANDING_PAGE_VIEW`, `INSTALL`, or `IN_APP_EVENT`.`bid_type` is `BID_TYPE_CUSTOM`. The target cost per conversion or cost per landing page view. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. `conversion_bid_price` needs to be lower than budget. See [Bidding-Bidding limits](https://business-api.tiktok.com/portal/docs?id=1745292444424193#item-link-Bidding%20limits) to learn more about the bid verification mechanism. Important: When multiple ad groups are present within your campaign, updating the `conversion_bid_price` for one ad group will automatically update the `bid_price` for all other ad groups under the same campaign with the new value. Note:When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `roas_bid` | `body` | `number` | No | No | Valid when `deep_bid_type` is `VO_MIN_ROAS`. Target ROAS for Value-Based Optimization. Value range: 0.01-1,000. Important: When multiple ad groups are present within your campaign, updating the `roas_bid` for one ad group will automatically update the `bid_price` for all other ad groups under the same campaign with the new value. Note: When CBO is enabled (`budget_optimize_on` is `true`) at the campaign level, this setting, if specified, must be the same across all ad groups within the same campaign. |
+| `comment_disabled` | `body` | `boolean` | No | No | Whether to allow comments on your campaigns on TikTok. Supported values: `true`, `false`. |
+| `share_disabled` | `body` | `boolean` | No | No | Whether to disable sharing of the campaign to third-party platforms. Supported values: `true`, `false`. |
+| `schedule_type` | `body` | `"SCHEDULE_FROM_NOW" \| "SCHEDULE_START_END" \| "BUDGET_MODE_TOTAL"` | No | No | Schedule type. Enum values:`SCHEDULE_FROM_NOW`: To run the ad group continuously after the scheduled start time.`SCHEDULE_START_END`: To run the ad group between the scheduled start time and end time. You can only set `schedule_type` to `SCHEDULE_START_END` in any of the following scenarios:At the campaign level, `budget_mode` is `BUDGET_MODE_TOTAL`At the ad group level, `budget_mode` is `BUDGET_MODE_TOTAL` |
+| `schedule_start_time` | `body` | `string` | No | No | Schedule start time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). The start time can be up to 12 hours earlier than the current time, but cannot be later than `2028-01-01 00:00:00`. |
+| `schedule_end_time` | `body` | `string` | No | No | Valid when `schedule_type` is `SCHEDULE_START_END`. Schedule end time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). The end time cannot be later than `2038-01-01 00:00:00`. |
+| `dayparting` | `body` | `string` | No | No | Ad delivery arrangement, in the format of a string that consists of 48 x 7 characters. Each character is mapped to a 30-minute timeframe from Monday to Sunday. Each character can be set to either 0 or 1. 1 represents delivery in the 30-minute timeframe, and 0 stands for non-delivery in the 30-minute timeframe. The first character is mapped to 0:01-0:30 of Monday; The second character is mapped to 0:31-1:00 of Monday, and the last character represents 23:31-0:00 Sunday. Note: An all-0 value, an all-1 value and when this field is not specified, are considered full-time delivery. |
+| `is_hfss` | `body` | `boolean` | No | No | Valid only when `targeting_optimization_mode` is `MANUAL`. Whether the promoted content is HFSS (High Fat, Salt, Sugar) Product/Brand. If your ad is promoting or prominently featuring a product/brand classed as high in fat, salt or sugar, set this field to `true`. In regulated regions, HFSS ads must only be targeted to users aged 18 or over. You can set this field to `true`when your targeting locations include locations in the UK, Australia, New Zealand, and the European Union. Supported values: `true`, `false`. |
+| `is_lhf_compliance` | `body` | `boolean` | No | No | When the targeting locations include locations in the UK and `is_hfss` is `true`, this field is required and must be set to `true`. Whether the promoted content complies with LHF (Less Healthy Foods) regulations. By setting `is_lhf_compliance` to `true`, you confirm that any food or drink products you advertise on TikTok in the UK comply with the [2024 Less Healthy Foods Regulations](https://www.legislation.gov.uk/uksi/2024/1266/made) and all other applicable laws. Supported values: `true`, `false`. |
+| `targeting_optimization_mode` | `body` | `string` | No | No | Audience targeting optimization mode.`AUTOMATIC`: Automatic targeting. You can use automatic targeting to leverage real-time data and machine learning to target audiences most likely to engage with your ads.When `targeting_optimization_mode` is `AUTOMATIC` and `suggestion_audience_enabled` is `false`, you can specify the following optional audience control settings:`location_ids``zipcode_ids``spc_audience_age``languages``operating_systems``excluded_audience_ids`When `targeting_optimization_mode` is `AUTOMATIC` and `suggestion_audience_enabled` is `true`, you can specify additional audience targeting settings as suggestions that guide automatic targeting. To learn more about the available settings, see the description of the parameter `suggestion_audience_enabled`.`MANUAL`: Custom targeting. You can use custom targeting settings to precisely control who sees your ads. This may limit delivery and impact campaign performance.When `targeting_optimization_mode` is `MANUAL`, you can specify the following audience settings:`location_ids``zipcode_ids``age_groups``gender``languages``audience_ids``excluded_audience_ids``interest_category_ids``interest_keyword_ids``purchase_intention_keyword_ids``actions``smart_interest_behavior_enabled``smart_audience_enabled``spending_power``household_income``operating_systems``min_android_version``min_ios_version``device_model_ids``network_types``carrier_ids``isp_ids``device_price_ranges``saved_audience_id` Note: If you specify targeting settings that don’t align with your targeting optimization mode settings (`targeting_optimization_mode` and `suggestion_audience_enabled`), those settings will be ignored, and no errors will occur. |
+| `suggestion_audience_enabled` | `body` | `boolean` | No | No | Valid only when `targeting_optimization_mode` is `AUTOMATIC`. Whether to enable audience suggestions. Audience suggestions guide automatic targeting by specifying additional audience settings. These serve as suggestions only, and delivery to those audiences is not guaranteed. Supported values: `true`, `false`. When `suggestion_audience_enabled` is `true`, you can specify the following additional audience targeting settings:`age_groups``gender``audience_ids``interest_category_ids``interest_keyword_ids``purchase_intention_keyword_ids``actions` Note: If you specify targeting settings that don’t align with your targeting optimization mode settings (`targeting_optimization_mode` and `suggestion_audience_enabled`), those settings will be ignored, and no errors will occur.You cannot set this field to `true` if Realtime API (RTA) is enabled at the campaign level. |
+| `targeting_spec` | `body` | `SmartPlusAdgroupUpdateParamsTargetingSpec` | No | No | Targeting settings. |
+| `budget_auto_adjust_strategy` | `body` | `string` | No | No | Valid only when the following conditions are all met: At the campaign level: `budget_optimize_on` is `false`. At the ad group level: When `objective_type` is `APP_PROMOTION`: `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`optimization_goal` is `VALUE`.`deep_bid_type` is `VO_MIN_ROAS`.`vbo_window` is `ZERO_DAY`. When `objective_type` is `LEAD_GENERATION`:`budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`bid_type` is`BID_TYPE_CUSTOM`. The ad group budget strategy for custom ad group budget. Enum values: `AUTO_BUDGET_INCREASE`: To enable Goal-based budget increase. Allow your budget to automatically increase when your ads are performing well and target CPA, Day 0 target ROAS, and budget requirements are met. When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, the specified `budget` will be the initial daily budget. Your daily budget will be allowed to automatically increase by 20%, up to 10 times per day, when your budget utilization reaches 90% or more. Your daily budget will reset to your original daily budget each day.`UNSET`: To disable Goal-based budget increase. Note: Enabling Goal-based budget increase is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget` | `body` | `number` | No | No | Fixed ad group budget or initial ad group budget.When `budget_auto_adjust_strategy` is `UNSET`, this field represents your fixed ad group budget.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents your initial ad group budget. To retrieve the current ad group budget, check the returned `current_budget`. For how to configure budget settings, see [Budget](https://business-api.tiktok.com/portal/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Daily%20budget%20value%20range). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdMaterialStatusUpdate
+
+`POST` `/open_api/v1.3/smart_plus/ad/material_status/update/`
+
+Generated from TikTok documentation 1843317433577601
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdMaterialStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `smart_plus_ad_id` | `body` | `string` | Yes | No | Ad ID. To obtain ad IDs, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). |
+| `ad_material_ids` | `body` | `Array<string>` | Yes | No | A list of ad material IDs for creatives to operate on. An ad material ID is an ad-specific material ID generated when a particular creative is used in an ad. This ID differs from the creative ID you receive when uploading the creative to your ad account’s Creative Library. To obtain ad material IDs associated with an ad, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). Max size: 20. You can operate on the following creative types:Carousels from Standard Carousel Spark Ads (via Spark Ads Push).Carousels from non-Spark Ad Standard Carousels.Videos from non-Spark Ads.Videos from Spark Ads (via Spark Ads Push).TikTok video posts used as Spark Ad Videos (via Spark Ads Pull).TikTok photo posts used as Standard Carousel Spark Ads (via Spark Ads Pull). Note: You cannot mix carousel and non-carousel creative types in the same request. |
+| `operation_status` | `body` | `"DISABLE" \| "ENABLE"` | Yes | No | The operation to perform on the creatives. Enum values: `DISABLE` (pause), `ENABLE` (enable). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdPreview
+
+`POST` `/open_api/v1.3/smart_plus/ad/preview/`
+
+Generated from TikTok documentation 1843317445798914
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdPreviewResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `preview_type` | `body` | `string` | Yes | No | Preview type. Enum value: `ADS_CREATION`: Preview an ad by ad creation parameters. |
+| `catalog_enabled` | `body` | `boolean` | No | No | Whether to use catalog in the campaign. Supported values: `true`, `false`. |
+| `catalog_id` | `body` | `string` | No | No | Required when `catalog_enabled` is `true`. The ID of the catalog to use in the ad group. To retrieve the catalogs within your Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `catalog_authorized_bc_id` | `body` | `string` | No | No | Required when `catalog_enabled` is `true`. The ID of the Business Center that the catalog (`catalog_id`) belongs to. |
+| `creative_list` | `body` | `Array<SmartPlusAdPreviewParamsCreativeList>` | Yes | No | A list of creatives. Size range: 1- 31. |
+| `ad_text_list` | `body` | `Array<SmartPlusAdPreviewParamsAdTextList>` | No | No | Required when `tiktok_item_id` is not specified. List of ad texts. Ad texts are shown to your audience as part of your ad creatives, to deliver the message you intend to communicate to them. Max size: 5. |
+| `call_to_action_list` | `body` | `Array<SmartPlusAdPreviewParamsCallToActionList>` | No | No | Call-to-action list. Max size: 3. Note:This field is not supported for Upgraded Smart+ Lead Generation Campaigns.The preview link will only display the first call-to-action in this list.`call_to_action_list` and `call_to_action_id` cannot be set at the same time. |
+| `ad_configuration` | `body` | `SmartPlusAdPreviewParamsAdConfiguration` | No | No | Additional configurations. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdReviewInfo
+
+`GET` `/open_api/v1.3/smart_plus/ad/review_info/`
+
+Generated from TikTok documentation 1843317465695233
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdReviewInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `smart_plus_ad_ids` | `query` | `Array<string>` | Yes | No | A list of Ad IDs. Max size: 100. To obtain ad IDs, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). |
+| `lang` | `query` | `string` | No | No | The code of the language for the returned `reasons`,`suggestion`, and `specification` within the `reject_info` object array. For enum values, see List of values for `lang`. Default value: `en`. |
+| `extra_info_setting` | `query` | `SmartPlusAdReviewInfoParamsExtraInfoSetting` | No | No | Additional settings. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdStatusUpdate
+
+`POST` `/open_api/v1.3/smart_plus/ad/status/update/`
+
+Generated from TikTok documentation 1843317423164482
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `smart_plus_ad_ids` | `body` | `Array<string>` | Yes | No | A list of ad IDs. Max size: 20. To obtain ad IDs, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). |
+| `operation_status` | `body` | `"DISABLE" \| "ENABLE" \| "DELETE"` | Yes | No | The operation to perform on the ads. Enum values: `DISABLE` (pause), `ENABLE` (enable), `DELETE` (delete). Note: The status of deleted ads or ads in deleted campaigns or ad groups cannot be modified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusAdUpdate
+
+`POST` `/open_api/v1.3/smart_plus/ad/update/`
+
+Generated from TikTok documentation 1843317411665921
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusAdUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `smart_plus_ad_id` | `body` | `string` | Yes | No | Ad ID. To obtain ad IDs, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). |
+| `ad_name` | `body` | `string` | No | No | Ad name. Length limit: 512 and cannot contain emojis. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `creative_list` | `body` | `Array<SmartPlusAdUpdateParamsCreativeList>` | No | No | A list of creatives. Size range: 1-50. Note: The update mode of the `creative_list` parameter is full replacement. Even if you want to update one field within it, you need to specify all fields within `creative_list`. |
+| `playable_list` | `body` | `Array<SmartPlusAdUpdateParamsPlayableList>` | No | No | Valid only in any of the following scenarios:Scenario 1:At the campaign level, `objective_type` is `APP_PROMOTION`.At the ad group level, the placement is not Global Apple Bundle-only (with `placement_type` as `PLACEMENT_TYPE_NORMAL` and `placements` as `["PLACEMENT_GLOBAL_APP_BUNDLE"]`) .At the ad level, `ad_format` is `SINGLE_VIDEO` and a video or video post is specified.Scenario 2:At the campaign level, `objective_type` is `APP_INSTALL`.At the ad group level:`promotion_type` is `MINI_GAME`.The placement is not Global Apple Bundle-only (with `placement_type` as `PLACEMENT_TYPE_NORMAL` and `placements` as `["PLACEMENT_GLOBAL_APP_BUNDLE"]`) .At the ad level, `ad_format` is `SINGLE_VIDEO` and a video or video post is specified. The list of playables. Max size: 5. Note: The Playable Ad is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `ad_text_list` | `body` | `Array<SmartPlusAdUpdateParamsAdTextList>` | No | No | List of ad texts. Ad texts are shown to your audience as part of your ad creatives, to deliver the message you intend to communicate to them. Max size: 5. |
+| `call_to_action_list` | `body` | `Array<SmartPlusAdUpdateParamsCallToActionList>` | No | No | Call-to-action list. Max size: 3. Note: This field is not supported in any of the following scenarios and you need to use `call_to_action_id` instead.Scenario 1: At the campaign level, `objective_type` is `LEAD_GENERATION`.At the ad group level, `placement_type` is `PLACEMENT_TYPE_NORMAL` and `placements` includes `PLACEMENT_TIKTOK`, or `placement_type` is `PLACEMENT_TYPE_AUTOMATIC`.Scenario 2: At the campaign level, `objective_type` is `APP_PROMOTION` or `WEB_CONVERSIONS`.At the ad group level, `placement_type` is `PLACEMENT_TYPE_NORMAL` and `placements` includes `PLACEMENT_TIKTOK`, or `placement_type` is `PLACEMENT_TYPE_AUTOMATIC`.At the ad level, `identity_type` within the `creative_info` object to `TT_USER`, `BC_AUTH_TT`, or `AUTH_CODE`. |
+| `interactive_add_on_list` | `body` | `Array<SmartPlusAdUpdateParamsInteractiveAddOnList>` | No | No | A list of interactive add-on (creative portfolio) IDs. Size range: 0-1. |
+| `page_list` | `body` | `Array<SmartPlusAdUpdateParamsPageList>` | No | No | A list of pages. Size range: 0-3. |
+| `landing_page_url_list` | `body` | `Array<SmartPlusAdUpdateParamsLandingPageUrlList>` | No | No | Landing page URL list. Size range: 0-1. |
+| `custom_product_page_list` | `body` | `Array<SmartPlusAdUpdateParamsCustomProductPageList>` | No | No | Valid only when the following conditions are all met:At the campaign level:`objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_RETARGETING`.At the ad group level:An iOS app is specified via `app_id`. Details of the custom product page to use in the ad. Size range: 0-1. |
+| `deeplink_list` | `body` | `Array<SmartPlusAdUpdateParamsDeeplinkList>` | No | No | A list of deeplinks. Size range: 0-1. |
+| `disclaimer` | `body` | `SmartPlusAdUpdateParamsDisclaimer` | No | No | Valid only when the following conditions are both met:At the campaign level, `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS`, or `objective_type` is `LEAD_GENERATION` and `catalog_enabled` is `false` or not specified.At the ad group level, the TikTok placement is included. You can use any of the following configurations:Automatic Placement: Leave `placement_type` and `placements` unspecified.Select specific placements with TikTok included: Set `placement_type` to `PLACEMENT_TYPE_NORMAL` and include `PLACEMENT_TIKTOK` in the value for `placements`.Disclaimer information. Note: You cannot remove a disclaimer that was previously added during ad creation, nor can you change its `disclaimer_type` between `TEXT_ONLY` and `TEXT_LINK`.You can only add a new disclaimer to an ad that does not already have one, or update the `text` (and `url`, if applicable) of an existing disclaimer. |
+| `ad_configuration` | `body` | `SmartPlusAdUpdateParamsAdConfiguration` | No | No | Additional configurations. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignCopyTaskCheck
+
+`GET` `/open_api/v1.3/smart_plus/campaign/copy/task/check/`
+
+Generated from TikTok documentation 1866529943741441
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignCopyTaskCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `query` | `string` | Yes | No | ID of the asynchronous campaign copy task. To get the task ID, use [/smart_plus/campaign/copy/task/create/](https://business-api.tiktok.com/portal/docs/create-an-asynchronous-copy-task-for-an-upgraded-smart-campaign/v1.3). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignCopyTaskCreate
+
+`POST` `/open_api/v1.3/smart_plus/campaign/copy/task/create/`
+
+Generated from TikTok documentation 1866528879472641
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignCopyTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `request_id` | `body` | `string` | Yes | No | Request ID that supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times within the 10-second cache time, then only one request will succeed. If a duplicate request with the expired request ID is received after the cache time, the server will treat it as a new request and process it accordingly. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer. Example: `"123456789"`. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of an Upgraded Smart+ Campaign that you want to copy. To retrieve Upgraded Smart+ Campaigns within your ad account, use [/smart_plus/campaign/get/](https://business-api.tiktok.com/portal/docs/get-upgraded-smart-campaigns/v1.3). Note: The source campaign must use one of these advertising objectives: `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`The source campaign must not be deleted.The source campaign must contain at least 1 undeleted ad group, which must contain at least 1 undeleted ad.The source campaign must satisfy all per-level limits, and the total copied assets must also not exceed the global new campaign limits:On the source campaign: you may have a maximum of 10 undeleted ad groups, each ad group may contain a maximum of 30 undeleted ads, and each individual ad may use a maximum of 50 creatives.Separately, there are hard global caps that apply to the resulting new campaign: no more than 200 total ads may be copied over, and no more than 1,000 total creatives may be copied into the new campaign. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | The status of the new campaign when created. Enum values:`ENABLE`: The campaign is enabled when created.`DISABLE`: The campaign is disabled when created. Default value: `DISABLE`. If you want to update the status of the campaign after creation, use [/smart_plus/campaign/status/update/](https://business-api.tiktok.com/portal/docs/update-the-operation-statuses-of-upgraded-smart-campaigns/v1.3). |
+| `campaign_name` | `body` | `string` | No | No | The name for the new campaign. Length limit: 512 characters. Emojis are not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. If not specified, this field will default to `"COPIED_&#123;&#123;name_of_the_source_campaign&#125;&#125;"`. For instance, if the source campaign is named `"FIRST_CAMPAIGN"` and this field is not specified, the name of the new campaign will be `"COPIED_FIRST_CAMPAIGN"`. |
+| `budget` | `body` | `number` | No | No | The budget for the new campaign or the budget limit for all ad groups under the new campaign.When `budget_optimize_on` of the source campaign is `true`, this field represents the fixed budget or initial budget for the new campaign.When `budget_auto_adjust_strategy` is `UNSET`, this field represents the fixed budget for the new campaign.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents the initial budget for the new campaign. To retrieve the current campaign budget, use [/smart_plus/campaign/get/](https://business-api.tiktok.com/portal/docs/get-upgraded-smart-campaigns/v1.3) after the copy task is completed and check the returned `current_budget`.When `budget_optimize_on` of the source campaign is `false`, this field represents the budget limit for all ad groups under the new campaign.When `budget_mode` is `BUDGET_MODE_DAY`, this field represents the daily limit for all ad groups under the new campaign.When `budget_mode` is `BUDGET_MODE_TOTAL`, this field represents the total limit for all ad groups under the new campaign. If not specified, this field will default to the budget of the source campaign or the budget limit for all ad groups under the source campaign. |
+| `schedule_type` | `body` | `"SCHEDULE_START_END" \| "SCHEDULE_FROM_NOW"` | No | No | Specify this field only when you want to set the same schedule for all ad groups in the new campaign.If you want to use schedules of the source ad groups in the new campaign, leave this field unspecified. Schedule type for all new ad groups. Enum values:`SCHEDULE_START_END`: Set start time and end time to run ad groups. You need to pass both `schedule_start_time` and `schedule_end_time` at the same time.`SCHEDULE_FROM_NOW`: Set start time to run ad groups continuously. You need to pass `schedule_start_time` and the end time will be automatically set to 10 years later than the start time. |
+| `schedule_start_time` | `body` | `string` | No | No | Required when `schedule_type` is passed. Schedule start time (UTC+0) for all new ad groups, in the format of `YYYY-MM-DD HH:MM:SS`. The start time can be up to 12 hours earlier than the current time, but cannot be later than `2028-01-01 00:00:00`. |
+| `schedule_end_time` | `body` | `string` | No | No | Required when `schedule_type` is `SCHEDULE_START_END`.Not supported when `schedule_type` is `SCHEDULE_FROM_NOW`. Schedule end time (UTC+0) for all new ad groups, in the format of `YYYY-MM-DD HH:MM:SS`. The end time cannot be later than `2038-01-01 00:00:00`. |
+| `dayparting` | `body` | `string` | No | No | Specify this field only when you want to set the same ad delivery arrangement for all ad groups in the new campaign.If you want to use the same ad delivery arrangements of the source ad groups in the new campaign, leave this field unspecified. Ad delivery arrangement, in the format of a string that consists of 48 x 7 characters. Each character is mapped to a 30-minute timeframe from Monday to Sunday. Each character can be set to either 0 or 1. 1 represents delivery in the 30-minute timeframe, and 0 stands for non-delivery in the 30-minute timeframe. The first character is mapped to 0:01-0:30 of Monday; The second character is mapped to 0:31-1:00 of Monday, and the last character represents 23:31-0:00 Sunday. Note: An all-1 value and when this field is not specified, are considered full-time delivery. |
+| `deep_copy_mode` | `body` | `"DEFAULT" \| "CUSTOM"` | No | No | The copying mode determining how you create ad groups and ads (asset groups) in the new campaign. Enum values:`DEFAULT`: The default copy mode. You copy all undeleted ad groups and ads from the source campaign to the new one. You can omit the `adgroup_list` field, as the API ignores it in this mode.`CUSTOM`: The custom copy mode. You copy only the specified undeleted ad groups and ads from the source campaign to the new one. You also have options to customize specific ad group or ad settings to override the source configurations.When using this mode, you need to provide the `adgroup_list` field simultaneously. You can copy a maximum of 20 ads per ad group, across a maximum of 30 ad groups. Default value: `DEFAULT`. |
+| `adgroup_list` | `body` | `Array<SmartPlusCampaignCopyTaskCreateParamsAdgroupList>` | No | No | When `deep_copy_mode` is set to `DEFAULT` or not passed, this field is ignored.When `deep_copy_mode` is set to `CUSTOM`, this field is required. The customized settings for ad groups in the new campaign. Max size: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignCreate
+
+`POST` `/open_api/v1.3/smart_plus/campaign/create/`
+
+Generated from TikTok documentation 1843312852800706
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `request_id` | `body` | `string` | Yes | No | Request ID with which you can create campaigns with duplicate names. It also supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times, then only one will succeed. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer number. Example: `123456789`. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | The status of the campaign when created. Enum values:`ENABLE`: The campaign is enabled when created.`DISABLE`: The campaign is disabled when created. Default value: `ENABLE`. |
+| `objective_type` | `body` | `string` | Yes | No | Advertising objective. Currently, we support `APP_PROMOTION`, `WEB_CONVERSIONS`, and `LEAD_GENERATION`. For detailed explanation of enum values, see [Enumeration-Advertising Objective](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Advertising%20Objective). To learn about how to create an Upgraded Smart+ App Campaign or Upgraded Smart+ TikTok Growth Max campaign, see [Create Upgraded Smart+ App Campaigns](https://business-api.tiktok.com/portal/docs?id=1843309500205058) and [Create Upgraded Smart+ Growth Max campaigns](https://business-api.tiktok.com/portal/docs/create-upgraded-smart-growth-max-campaigns/v1.3).To learn about how to create an Upgraded Smart+ Web Campaign, see [Create Upgraded Smart+ Web Campaigns](https://business-api.tiktok.com/portal/docs?id=1843309514567809).To learn about how to create an Upgraded Smart+ Lead Generation Campaign, see [Create Upgraded Smart+ Lead Generation Campaigns](https://business-api.tiktok.com/portal/docs?id=1843324498993154). |
+| `app_promotion_type` | `body` | `"APP_INSTALL" \| "APP_RETARGETING" \| "MINIS"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum value:`APP_INSTALL`: App install. Get new users to install your app.`APP_RETARGETING`: App retargeting. Re-engage existing app users to take action in your app.`MINIS`: TikTok Mini or Series. Promote your Series, mini series, or mini game by optimizing for organic and ads traffic. To learn more about the campaign type where this setting is supported, see [Create Upgraded Smart+ Growth Max campaigns](https://business-api.tiktok.com/portal/docs/create-upgraded-smart-growth-max-campaigns/v1.3). |
+| `sales_destination` | `body` | `"WEBSITE" \| "APP"` | No | No | Required when `objective_type` is `WEB_CONVERSIONS`. Sales destination, the destination where you want to drive your sales. Enum values:`WEBSITE`: Website. Drive sales on your website.`APP`: App. Drive sales on your app (product catalog required). Learn more about [how to create Upgraded Smart+ Catalog Ads for App](https://business-api.tiktok.com/portal/docs?id=1847303035303106). When `sales_destination` is `APP`:Set `catalog_enabled` to `true` and `catalog_type` to `ECOMMERCE` or `TRAVEL_ENTERTAINMENT`. The type of catalog that you can specify at the ad group level varies depending on your `rta_id` setting:If `rta_id` is not specified, you can set `catalog_id` at the ad group level to the ID of a catalog with `catalog_type` as `ECOM`, `HOTEL`,`FLIGHT`,`DESTINATION`, or `ENTERTAINMENT`.If `rta_id` is specified, you can set `catalog_id` at the ad group level to the ID of a catalog with `catalog_type` as `ECOM` or `ENTERTAINMENT`.`WEB_AND_APP`: Website and app. Drive sales on both your website and your app.Learn more about how to [create Upgraded Smart+ Ads with Website and App Optimization](https://business-api.tiktok.com/portal/docs?id=1854746404386113). Note: Once set, this field cannot be updated. |
+| `catalog_enabled` | `body` | `boolean` | No | No | Valid only when `objective_type` is `WEB_CONVERSIONS` or `LEAD_GENERATION`. Whether to use catalog in the campaign. Supported values: `true`, `false`. |
+| `catalog_type` | `body` | `"ECOMMERCE" \| "TRAVEL_ENTERTAINMENT" \| "MINI_SERIES"` | No | No | Required when `objective_type` is `WEB_CONVERSIONS` and `catalog_enabled` is `true`. The type of catalog. Enum values: `ECOMMERCE`: e-commerce.`TRAVEL_ENTERTAINMENT`: travel and entertainment.`MINI_SERIES`: mini series. Note: Create Upgraded Smart+ Mini Series Catalog Ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `campaign_type` | `body` | `"REGULAR_CAMPAIGN" \| "IOS14_CAMPAIGN"` | No | No | Campaign type. Enum values: `REGULAR_CAMPAIGN`, `IOS14_CAMPAIGN`. Default value: `REGULAR_CAMPAIGN`. |
+| `is_promotional_campaign` | `body` | `boolean` | No | No | Valid when `objective_type` is `WEB_CONVERSIONS`. Whether to use promotion campaign settings. Enable this feature to activate specialized campaign setup flows and optimization for theatrical releases and streaming service promotions. Default value: `false`. Supported values: `true`, `false`. Note: Using promotion campaign settings for theatrical releases and for streaming service promotions are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `app_id` | `body` | `string` | No | No | Required when the following conditions are both met:`objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL`, or `objective_type` is `WEB_CONVERSIONS` and `sales_destination` is `APP`.`camapign_type` is `IOS14_CAMPAIGN`. The App ID of the app to promote. To get a list of App IDs, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Note: You cannot specify an App that has not activated the SAN module on your MMP through this field to create iOS Dedicated Campaigns. To ensure that TikTok SAN integration is enabled for your App, see [How to migrate your app to SAN integration](https://ads.tiktok.com/help/article/transition-to-san-for-existing-apps). |
+| `gaming_ad_compliance_agreement` | `body` | `"ON" \| "OFF"` | No | No | Valid only when the following conditions are all met:`objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`. Whether to agree to the Compliance Assurance Policy for Gaming Advertisers on TikTok. The policy is as follows: You confirm and attest that any gaming application, product or service (game) you desire to advertise on TikTok, including any associated URL(s), (a) complies with all applicable laws and regulations of the jurisdictions where the game can be accessed or played, and upon request, can provide supporting documentation as evidence of why the game is not considered illegal gambling or lottery; and (b) has not been and is not part of any investigation or lawsuit regarding the game's legality or regulatory compliance. Enum values: `ON`: To agree to the policy.`OFF`: To leave the policy not accepted. Default value: `OFF`. Note: Agreeing to the Compliance Assurance Policy for Gaming Advertisers on TikTok is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `campaign_app_profile_page_state` | `body` | `"ON" \| "OFF"` | No | No | Whether to use app profile page to optimize delivery. Enum values: `ON`, `OFF`. Default value: `OFF`. Note:You can use the field only when `objective_type` is `APP_PROMOTION`and your campaign is an iOS 14 Dedicated Campaign. Otherwise, an error will occur.When `ON` is selected, pass in the `page_id` of App Profile Page.To create an App Profile Page, use [Instant Page Editor SDK](https://business-api.tiktok.com/portal/docs?id=1740307202170881) and set `businessType` to `4`. |
+| `disable_skan_campaign` | `body` | `boolean` | No | No | Valid only when the following conditions are all met:`objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL`, or `objective_type` is `WEB_CONVERSIONS` and `sales_destination` is `APP`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition).For a Dedicated Campaign using an app that is eligible for Advanced Dedicated Campaigns, you need to enable SKAN attribution or Advanced Dedicated Campaign or both. You cannot disable SKAN attribution and Advanced Dedicated Campaign simultaneously.`false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign.If you enable Advanced Dedicated Campaign by setting `is_advanced_dedicated_campaign` to `true` simultaneously, you'll be able to retrieve both [SAN](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) and [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Note:Disabling SKAN attribution for Dedicated Campaigns is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.If you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, you cannot set `bid_type` to `BID_TYPE_CUSTOM` when the following conditions are all met:`is_advanced_dedicated_campaign` is `false`.`disable_skan_campaign` is `false`.`optimization_goal` is `INSTALL` or `IN_APP_EVENT`.Getting access to Advanced Dedicated Campaign requires the app to meet certain criteria. If your app is ineligible for Advanced Dedicated Campaign, reach out to your TikTok representative. Your TikTok representative will be able to provide troubleshooting support to help your app get access to Advanced Dedicated Campaign. |
+| `campaign_name` | `body` | `string` | Yes | No | Campaign name. Length limit: 512 characters. Emoji is not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `special_industries` | `body` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internships, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note:Once you've specified the industry type, the system will adjust your target options to help you comply with advertising policies. See [Ad targeting](https://business-api.tiktok.com/portal/docs?id=1739381236849665) for details.This field is only supported for advertisers who are registered in the US or Canada. |
+| `budget_optimize_on` | `body` | `boolean` | No | No | Whether to enable Campaign Budget Optimization (CBO). Supported values: `true` (enabled), `false` (disabled). Default value: `true`. |
+| `budget_mode` | `body` | `string` | No | No | Budget mode.When `budget_optimize_on` is `true` or not specified, this field represents the campaign budget mode. The enum values are:`BUDGET_MODE_DYNAMIC_DAILY_BUDGET`: Dynamic daily budget. It is the average daily budget over a week. Daily costs will not exceed 125% of the average daily budget. Weekly costs will not exceed the average daily budget * 7.`BUDGET_MODE_TOTAL`: Lifetime budget.Default value when `budget_optimize_on` is `true` or not specified: `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.When `budget_optimize_on` is `false`, this field allows you to set a fixed limit for the total budget of all ad groups under this campaign. The enum values are:`BUDGET_MODE_INFINITE`: No limit.`BUDGET_MODE_DAY`: Daily budget.`BUDGET_MODE_TOTAL`: Lifetime budget.Default value when `budget_optimize_on` is `false`: `BUDGET_MODE_INFINITE`. Note:Once set, this field cannot be updated. |
+| `budget_auto_adjust_strategy` | `body` | `string` | No | No | Valid only when the following conditions are all met:`budget_optimize_on` is `true` or not specified.`budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`app_promotion_type` is not `MINIS`. The campaign budget strategy for automatic daily campaign budget. Enum value: `AUTO_BUDGET_INCREASE`: To enable Goal-based budget increase. Allow your budget to automatically increase when your ads are performing well and target CPA, Day 0 target ROAS, and budget requirements are met. When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, the specified `budget` will be the initial daily budget. Your daily budget will be allowed to automatically increase by 20%, up to 10 times per day, when your budget utilization reaches 90% or more. Your daily budget will reset to your original daily budget each day. Note: Enabling Goal-based budget increase is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget` | `body` | `number` | No | No | Required when `budget_mode` is set to `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`, `BUDGET_MODE_TOTAL`, or `BUDGET_MODE_DAY`.When `budget_optimize_on` is `true` or not specified, this field represents fixed campaign budget or initial campaign budget.When `budget_auto_adjust_strategy` is `UNSET`, this field represents your fixed campaign budget.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents your initial campaign budget. To retrieve the current campaign budget, check the returned `current_budget`.When `budget_optimize_on` is `false`, this field represents the limit for all ad groups under this campaign.When `budget_mode` is `BUDGET_MODE_DAY`, this field represents the daily limit for all ad groups under this campaign.When `budget_mode` is `BUDGET_MODE_TOTAL`, this field represents the total limit for all ad groups under this campaign. To learn about the minimum budget and how to set budget modes, see [Budget](https://business-api.tiktok.com/portal/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Daily%20budget%20value%20range). |
+| `postback_window_mode` | `body` | `"POSTBACK_WINDOW_MODE1" \| "POSTBACK_WINDOW_MODE2" \| "POSTBACK_WINDOW_MODE3" \| "ENABLE"` | No | No | Valid only when `campaign_type` is `IOS14_CAMPAIGN` and `operation_status` is `DISABLE`. You can specify this field when you create a disabled campaign or when you disable an existing campaign by using [/smart_plus/campaign/status/update/](https://business-api.tiktok.com/portal/docs?id=1843312888885314). The recommended practice is to specify this field when disabling an existing campaign. The mode that determines which SKAN (SKAdNetwork) 4.0 postback you want to secure. Options with longer windows require more time to receive, and as a result, more time to release the campaign back to the available number. Enum values:`POSTBACK_WINDOW_MODE1`: This option secures the first postback, which corresponds to the 0-2 day attribution window. The data can take up to 4 days to return, and the campaign will wait for 4 days to release the campaign quota.`POSTBACK_WINDOW_MODE2`: This mode secures the first two postbacks, which correspond to the 3-7 day attribution window. The data can take up to 13 days to return, and the campaign will wait for 13 days to release the campaign quota.`POSTBACK_WINDOW_MODE3`: This mode secures all three postbacks, which correspond to the 8-35 day attribution window. The data can take up to 41 days to return, and the campaign will wait for 41 days to release the campaign quota. Note: If you have set up Mobile Measurement Partner (MMP) Tracking with Adjust, Airbridge, Appsflyer, Branch, Kochava, or Singular for your App and your MMP SDK version is updated to a SKAN 4.0 supported SDK, you can transition your App to SKAN 4.0 on Events Manager. To learn about how to set up MMP tracking for your App, see [How to Set Up App Attribution in TikTok Ads Manager](https://ads.tiktok.com/help/article/set-up-app-attribution-tiktok-ads-manager). To learn more about how to transition your App to SKAN 4.0, see [About SKAN 4.0 and TikTok](https://ads.tiktok.com/help/article/about-skan-4-0-and-tiktok) and [How to transition to SKAN 4.0](https://ads.tiktok.com/help/article/how-to-transition-to-skan-4-0).Once set, this field cannot be updated.If `operation_status` is set to `ENABLE` or not specified, this field will be ignored.If you pass in this field when you have not enabled SKAN 4.0 for your App (`app_id`), an error will occur.If this field is not specified when `campaign_type` is set to `IOS14_CAMPAIGN`, `operation_status` is set to `DISABLE`, and you have enabled SKAN 4.0 for your App, this field will default to `POSTBACK_WINDOW_MODE1`.If you have enabled SKAN 4.0 for your App, ensure that you target devices running iOS 16.1 and later so that you can receive SKAN 4.0 postbacks. To only target iOS 16.1+ devices, set `min_ios_version` to `16.1` at the ad group level. |
+| `po_number` | `body` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+| `rta_id` | `body` | `string` | No | No | Realtime API (RTA) ID, the RTA strategy identifier. The RTA enables you to integrate real-time audience data to customize ad auction and targeting, thereby delivering better performance. To obtain the list of RTA IDs associated with your ad account, contact your TikTok representative. Note: Enabling RTA for your ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. You will need to complete the onboarding process to be able to receive and respond to RTA requests sent to your system first.Once set, this field cannot be updated. |
+| `rta_bid_enabled` | `body` | `boolean` | No | No | Whether to use RTA bid. Supported values:`true`: enabled.`false`: not enabled. Default value: `false`. You can only set this field to `true` in any of the following scenarios:Scenario 1: `objective_type` is set to `WEB_CONVERSIONS`.`sales_destination` is set to `APP`.`rta_id` is passed.Scenario 2: `objective_type` is set to `APP_PROMOTION`.`app_promotion_type` is set to `APP_RETARGETING`.`rta_id` is passed. Note: Enabling RTA bid is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `rta_product_selection_enabled` | `body` | `boolean` | No | No | Whether to use RTA to automatically select products. Enum values:`true`: enabled.`false`: not enabled. Default value: `false`. You can only set this field to `true` when the following conditions are met:`objective_type` is set to `WEB_CONVERSIONS`.`sales_destination` is set to `APP`.`rta_id` is specified. Note: Once set, this field cannot be updated.When `rta_product_selection_enabled` is `true` , you can only set `product_specific_type` to `ALL` at the ad level. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignGet
+
+`GET` `/open_api/v1.3/smart_plus/campaign/get/`
+
+Generated from TikTok documentation 1843312818332930
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. When not specified, all fields are returned by default. For allowed fields, see the fields under `list` in the Response section. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-1,000. |
+| `filtering` | `query` | `SmartPlusCampaignGetParamsFiltering` | No | No | Filtering conditions. Example: `filtering=&#123;"objective_type":"APP_PROMOTION"&#125;` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignStatusUpdate
+
+`POST` `/open_api/v1.3/smart_plus/campaign/status/update/`
+
+Generated from TikTok documentation 1843312888885314
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_ids` | `body` | `Array<string>` | Yes | No | The IDs of the campaigns to operate on. To obtain campaign IDs, use [/smart_plus/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1843312818332930). Size range: 1-20. |
+| `operation_status` | `body` | `"DELETE" \| "ENABLE"` | Yes | No | The operation to perform on the campaigns. Enum values: `DELETE` (delete),` DISABLE` (pause), `ENABLE` (enable). Note: The status of deleted campaigns cannot be modified. |
+| `postback_window_mode` | `body` | `"POSTBACK_WINDOW_MODE1" \| "POSTBACK_WINDOW_MODE2" \| "POSTBACK_WINDOW_MODE3" \| "ENABLE"` | No | No | Valid only when the following conditions are all met:The campaigns (`campaign_ids`) are Dedicated Campaigns (`campaign_type` is `IOS14_CAMPAIGN`).You specify `operation_status` as `DISABLE` at the same time in the request.`postback_window_mode` has not been configured for the campaign.You have enabled SKAN 4.0 for your App. The mode that defines which SKAN (SKAdNetwork) 4.0 postback you want to secure. Options with longer windows require more time to receive and, as a result, more time to release the campaign back to the available number. Enum values:`POSTBACK_WINDOW_MODE1`: This option secures the first postback, which corresponds to the 0-2 day attribution window. The data can take up to 4 days to return, and the campaign will wait for 4 days to release the campaign quota.`POSTBACK_WINDOW_MODE2`: This mode secures the first two postbacks, which corresponds to the 3-7 day attribution window. The data can take up to 13 days to return, and the campaign will wait for 13 days to release the campaign quota.`POSTBACK_WINDOW_MODE3`: This mode secures all three postbacks, which corresponds to the 8-35 day attribution window. The data can take up to 41 days to return, and the campaign will wait for 41 days to release the campaign quota. To learn more about SKAN 4.0 attribution window configuration and campaign quota, see [Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1740029173531649). Note:If you have set up Mobile Measurement Partner (MMP) Tracking with Adjust, Airbridge, Appsflyer, Branch, Kochava, or Singular for your App and your MMP SDK version is updated to a SKAN 4.0 supported SDK, you can transition your App to SKAN 4.0 on Events Manager. To learn about how to set up MMP tracking for your App, see [How to Set Up App Attribution in TikTok Ads Manager](https://ads.tiktok.com/help/article/set-up-app-attribution-tiktok-ads-manager). To learn more about how to transition your App to SKAN 4.0, see [About SKAN 4.0 and TikTok](https://ads.tiktok.com/help/article/about-skan-4-0-and-tiktok) and [How to transition to SKAN 4.0](https://ads.tiktok.com/help/article/how-to-transition-to-skan-4-0).If `operation_status` is set to `ENABLE` or not passed, and you pass in this field at the same time, an error will occur.If you pass in this field when you have not enabled SKAN 4.0 for your App (`app_id`), an error will occur.If this field is not passed when `campaign_type` is set to `IOS14_CAMPAIGN`, `operation_status` is set to `DISABLE`, and you have enabled SKAN 4.0 for your App, this field will default to `POSTBACK_WINDOW_MODE1`.The postback window mode configuration can be partially successful. If you provide `campaign_ids` for non-Dedicated Campaigns, or Dedicated Campaigns for which `postback_window_mode` has been configured, those campaigns will be ignored and their `postback_window_mode` will not be modified. Only the Dedicated Campaigns that meet the conditions mentioned above will have their `postback_window_mode` configured.If you have enabled SKAN 4.0 for your App, ensure that you target devices running iOS 16.1 and later so that you can receive SKAN 4.0 postbacks. To only target iOS 16.1+ devices, set `min_ios_version` to `16.1` at the ad group level. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusCampaignUpdate
+
+`POST` `/open_api/v1.3/smart_plus/campaign/update/`
+
+Generated from TikTok documentation 1843312876001282
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `upgradedSmart.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusCampaignUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | Campaign ID. To obtain campaign IDs, use [/smart_plus/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1843312818332930). |
+| `campaign_name` | `body` | `string` | No | No | Campaign name. Length limit: 512 characters. Emoji is not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `budget_auto_adjust_strategy` | `body` | `string` | No | No | Valid only when the following conditions are all met:`budget_optimize_on` is `true`.`budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`.`app_promotion_type` is not `MINIS`. The campaign budget strategy for automatic daily campaign budget. Enum values: `AUTO_BUDGET_INCREASE`: To enable Goal-based budget increase. Allow your budget to automatically increase when your ads are performing well and target CPA, Day 0 target ROAS, and budget requirements are met. When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, the specified `budget` will be the initial daily budget. Your daily budget will be allowed to automatically increase by 20%, up to 10 times per day, when your budget utilization reaches 90% or more. Your daily budget will reset to your original daily budget each day.`UNSET`: To disable Goal-based budget increase. Note: Enabling Goal-based budget increase is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget` | `body` | `number` | No | No | Fixed campaign budget or initial campaign budget.When `budget_auto_adjust_strategy` is `UNSET`, this field represents your fixed campaign budget.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents your initial campaign budget. To retrieve the current campaign budget, check the returned `current_budget`. To learn about the minimum budget and how to set budget modes, see [Budget](https://business-api.tiktok.com/portal/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Daily%20budget%20value%20range). |
+| `po_number` | `body` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.upgradedSmart.smartPlusMaterialReviewInfo
+
+`GET` `/open_api/v1.3/smart_plus/material/review_info/`
+
+Generated from TikTok documentation 1843317474334722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `upgradedSmart.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SmartPlusMaterialReviewInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `ad_material_ids` | `query` | `Array<string>` | Yes | No | A list of ad material IDs for creatives to operate on. An ad material ID is an ad-specific material ID generated when a particular creative is used in an ad. This ID differs from the creative ID you receive when uploading the creative to your ad account’s Creative Library. Max size: 100. To obtain ad material IDs associated with an ad, use [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914). Note: For images within a carousel, you need to provide the `ad_material_id` from [/smart_plus/ad/review_info/](https://business-api.tiktok.com/portal/docs?id=1843317465695233), not the one from [/smart_plus/ad/get/](https://business-api.tiktok.com/portal/docs?id=1843317378982914) which identifies the entire carousel. |
+| `lang` | `query` | `string` | No | No | The code of the language for the returned `reasons`,`suggestion`, and `specification` within the `reject_info` object array. For enum values, see List of values for `lang`. Default value: `en`. |
+| `extra_info_setting` | `query` | `SmartPlusMaterialReviewInfoParamsExtraInfoSetting` | No | No | Additional settings. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

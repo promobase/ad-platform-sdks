@@ -1,0 +1,59 @@
+---
+title: Agent surfaces
+description: Compose discoverable SDK operations through code, AI SDK, Code Mode, MCP, and CLI.
+sidebar:
+  order: 50
+  label: Agents and tools
+---
+
+The operation catalog is the stable agent-facing surface. One Effect Schema contract projects to
+typed execution, JSON Schema, AI SDK tools, Code Mode connectors, CLI commands, and MCP tools.
+
+```ts
+const matches = ads.operations.search("YouTube video statistics");
+const docs = ads.operations.describe("youtube.posts.metrics.get");
+const result = await ads.operations.invoke("youtube.posts.metrics.get", {
+  postId: "video_123",
+});
+```
+
+## AI SDK
+
+```ts
+import { toAiSdkTools } from "@openpromo/ad-platforms/operations/ai";
+
+const tools = toAiSdkTools(ads.operations, {
+  platform: ["instagram", "youtube"],
+});
+```
+
+## Cloudflare Code Mode
+
+```ts
+import { toCodemodeConnector } from "@openpromo/ad-platforms/operations/codemode";
+
+const connector = toCodemodeConnector(ads.operations, {
+  platform: "instagram",
+});
+```
+
+The connector definition includes input/output schemas, read/write effect metadata, approval
+policy, replay behavior, and optional rollback support. It has no Cloudflare runtime dependency.
+
+## MCP and CLI
+
+Install `@openpromo/ad-platforms-cli`, then run `openpromo-ads --help` or the stdio MCP server:
+
+```json
+{
+  "mcpServers": {
+    "openpromo-ads": {
+      "command": "openpromo-ads",
+      "args": ["mcp", "serve"]
+    }
+  }
+}
+```
+
+Use generated or provider-native APIs when an operation has not yet been promoted into the
+cross-platform catalog.

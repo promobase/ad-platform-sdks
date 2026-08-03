@@ -1,0 +1,112 @@
+---
+title: "Google Ads Smart Campaign Suggest endpoints"
+description: "3 generated Google Ads endpoint contracts for Smart Campaign Suggest."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 203
+  label: "Smart Campaign Suggest"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.smartCampaignSuggest.suggestKeywordThemes
+
+`POST` `/v25/customers/{customer_id=*}:suggestKeywordThemes`
+
+SmartCampaignSuggestService.SuggestKeywordThemes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `smartCampaignSuggest.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `SuggestKeywordThemesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `SuggestKeywordThemesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.smartCampaignSuggest.suggestSmartCampaignAd
+
+`POST` `/v25/customers/{customer_id=*}:suggestSmartCampaignAd`
+
+SmartCampaignSuggestService.SuggestSmartCampaignAd
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `smartCampaignSuggest.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `SuggestSmartCampaignAdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `SuggestSmartCampaignAdRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.smartCampaignSuggest.suggestSmartCampaignBudgetOptions
+
+`POST` `/v25/customers/{customer_id=*}:suggestSmartCampaignBudgetOptions`
+
+SmartCampaignSuggestService.SuggestSmartCampaignBudgetOptions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `smartCampaignSuggest.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `SuggestSmartCampaignBudgetOptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `SuggestSmartCampaignBudgetOptionsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

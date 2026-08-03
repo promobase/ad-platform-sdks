@@ -1,0 +1,44 @@
+---
+title: "LinkedIn Comment endpoints"
+description: "1 generated LinkedIn endpoint contract for Comment."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 101
+  label: "Comment"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+## createComment
+
+`POST` `/socialActions/{postUrn}/comments`
+
+create Comment
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `comment.publish` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `comment.publish` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

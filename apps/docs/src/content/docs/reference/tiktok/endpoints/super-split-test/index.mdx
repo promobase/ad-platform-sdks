@@ -1,0 +1,193 @@
+---
+title: "TikTok Business Super Split Test endpoints"
+description: "5 generated TikTok Business endpoint contracts for Super Split Test."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 161
+  label: "Super Split Test"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.superSplitTest.splitTestCreate
+
+`POST` `/open_api/v1.3/split_test/create/`
+
+Generated from TikTok documentation 1742666471475201
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `superSplitTest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SplitTestCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `split_test_level` | `body` | `"ADGROUP" \| "CAMPAIGN"` | No | No | Split test level. Enum values: `ADGROUP`(Ad group level split test.)`CAMPAIGN`(Campaign level split test.)Default value: `ADGROUP`. Note:Campaign-level split tests are currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Comparing two ad groups from different campaigns in a split test is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. The campaigns can have different advertising objectives. |
+| `object_ids` | `body` | `Array<string>` | No | No | `adgroup_ids` bound to this split-test. For ad group level split test, input either this field or `cells`.For campaign level split test, input `cells` instead of this field. |
+| `cells` | `body` | `Array<SplitTestCreateParamsCells>` | No | No | Required when `split_test_level` is set to `CAMPAIGN`. List of cells in split test. The length must be 2. |
+| `test_variable` | `body` | `"BIDDING_OPTIMIZATION" \| "TARGTING" \| "CREATIVE" \| "CUSTOM"` | No | No | Split test variable. It will NOT affect your test results. Enum values: `BIDDING_OPTIMIZATION`: Set different optimization values for bidding & optimization fields to compare how optimization methods impact your ad performance. `TARGTING`: Set different targeting values at the ad group level for comparing how effective your ad groups are at reaching different audiences or demographics. `CREATIVE`: Set different creatives to compare how different creatives impact your ad performance. `CUSTOM`: Set multiple variables to compare how these variables impact your ad performance. This enum value is only available for campaign level split test.Default value: For ad group level split test, the default value is `BIDDING_OPTIMIZATION`. For campaign level split test, the default value is `CUSTOM`. Note: The `test_variable` cannot be updated once specified. |
+| `key_metric` | `body` | `"UNSET" \| "CONVERT_RATE" \| "CLICK_THROUGH_RATE" \| "COST_PER_SHOW" \| "COST_PER_CONVERT" \| "COST_PER_REACH" \| "COST_PER_CLICK" \| "COST_PER_FOCUSED_VIEW" \| "FOCUSED_VIEW_RATE" \| "COMPLETE_PAYMENT_ROAS" \| "COST_PER_LANDING_PAGE_VIEW" \| "LANDING_PAGE_VIEW_RATE" \| "CLICK" \| "REACH" \| "SHOW" \| "CONVERT" \| "COST"` | No | No | The key metric you want to monitor. Enum values: `UNSET`: Unset.`CONVERT_RATE`: CVR (Conversion rate). `CLICK_THROUGH_RATE`: Click through rate (CTR).`COST_PER_SHOW`: Cost per mille (CPM). `COST_PER_CONVERT`: Cost per conversion. `COST_PER_REACH`: Cost per reach. `COST_PER_CLICK`: Cost per click. `COST_PER_FOCUSED_VIEW`: Cost per focused view. `FOCUSED_VIEW_RATE`: Focused view rate. `COMPLETE_PAYMENT_ROAS`: Complete Payment ROAS.`COST_PER_LANDING_PAGE_VIEW`: Cost per landing page view.`LANDING_PAGE_VIEW_RATE`: Landing page view rate.`CLICK`(deprecated): Click.`REACH`(deprecated): Reach. `SHOW`(deprecated): Impression. `CONVERT`(deprecated): Conversion. `COST`(deprecated): Cost. See [Super Split Test - Supported optimization goals](https://ads.tiktok.com/marketing_api/docs?id=1742668394531842&rid=2xb5zgugmdy) to find out the key metrics supported under different optimization goals. If no value is specified for this field, the following default values will be used: For ad group level split test, if both ad groups use `REACH` optimization goal, the default key metric will be `COST_PER_REACH`. Otherwise, the default key metric will be `COST_PER_SHOW`. For campaign level split test, the default key metric is `UNSET`. |
+| `budget` | `body` | `number` | No | No | Required when `split_test_level` is set to `ADGROUP`. Do not specify this field when `split_test_level` is set to `CAMPAIGN`. Otherwise, an error will occur. The total split test budget. For ad group level split test, the budget will be distributed to each group evenly. This budget specified here will overwrite the existing budgets in the two ad groups. If you want to change the total budget after the test has started, we recommend you update the budgets in the two ad groups to the same value. For campaign level split test, the budget will follow the existing budget amount set for each campaign. |
+| `start_time` | `body` | `string` | Yes | No | The start time of this split test, in the format of YYYY-MM-DD HH:MM:SS (UTC+0). Example: 2022-01-01 00:00:00. Note:The time of campaign level split test can only be set to hour level. Thus, any MM and SS input will default to 00. The start time set for campaign level split test will not overwrite the start time of campaigns and ad groups in this test. |
+| `end_time` | `body` | `string` | Yes | No | The end time of this split test, in the format of YYYY-MM-DD HH:MM:SS (UTC+0). Example: 2022-01-01 00:00:00. Note:The time of campaign level split test can only be set to hour level. Thus, any MM and SS input will default to 00. The end time set for campaign level split test will not overwrite the end time of campaigns and ad groups in this test. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.superSplitTest.splitTestEnd
+
+`POST` `/open_api/v1.3/split_test/end/`
+
+Generated from TikTok documentation 1742666522399746
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `superSplitTest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SplitTestEndResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `split_test_group_id` | `body` | `string` | Yes | No | Split test group ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.superSplitTest.splitTestPromote
+
+`POST` `/open_api/v1.3/split_test/promote/`
+
+Generated from TikTok documentation 1742666543736834
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `superSplitTest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SplitTestPromoteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `split_test_group_id` | `body` | `string` | Yes | No | Split test group ID. |
+| `winning_object_id` | `body` | `string` | Yes | No | The winning ad group ID. You can use [/split_test/result/get/](https://ads.tiktok.com/marketing_api/docs?id=1742666557045761) to get `metric` and its corresponding`p_value`. There will be a winning ad group when P value Note: Do not specify this field for campaign level split test. Otherwise, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.superSplitTest.splitTestResultGet
+
+`GET` `/open_api/v1.3/split_test/result/get/`
+
+Generated from TikTok documentation 1742666557045761
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `superSplitTest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SplitTestResultGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `split_test_group_id` | `query` | `string` | Yes | No | Split test group ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.superSplitTest.splitTestUpdate
+
+`POST` `/open_api/v1.3/split_test/update/`
+
+Generated from TikTok documentation 1742666501911553
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `superSplitTest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SplitTestUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `split_test_group_id` | `body` | `string` | Yes | No | Split test group ID. |
+| `start_time` | `body` | `string` | Yes | No | The start time of this split test, in the format of YYYY-MM-DD HH:MM:SS (UTC+0). Example: 2022-01-01 00:00:00. Note: For campaign level split tests, The time can only be set to hour level. Thus, any MM and SS input will default to 00.The start time set for campaign level split test will not overwrite the start time of campaigns and ad groups in this test.For ad group level split tests, the start time of the test will be applied to both ad groups under this test group.For both campaign and adgroup level split tests, the start time cannot be updated once the test has started. |
+| `end_time` | `body` | `string` | Yes | No | The end time of this split test, in the format of YYYY-MM-DD HH:MM:SS(UTC+0). Example: 2022-01-01 00:00:00. Note: For campaign level split tests, The time can only be set to hour level. Thus, any MM and SS input will default to 00.The end time set for campaign level split test will not overwrite the end time of campaigns and ad groups in this test.For ad group level split tests, the end time of the test will be applied to both ad groups under this test group. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

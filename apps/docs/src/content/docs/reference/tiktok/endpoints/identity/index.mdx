@@ -1,0 +1,313 @@
+---
+title: "TikTok Business Identity endpoints"
+description: "8 generated TikTok Business endpoint contracts for Identity."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 144
+  label: "Identity"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.identity.identityCreate
+
+`POST` `/open_api/v1.3/identity/create/`
+
+Generated from TikTok documentation 1740654203526146
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `display_name` | `body` | `string` | Yes | No | Display name. The maximum length is 100 characters. |
+| `image_uri` | `body` | `string` | No | No | The ID of the avatar image for the identity. The width and height ratio must be 1:1. To obtain the ID of an avatar image, you can upload the image by using [/file/image/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1739067433456642). If this field is not specified, a default image will be used as the avatar. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityDelete
+
+`POST` `/open_api/v1.3/identity/delete/`
+
+Generated from TikTok documentation 1759155939236865
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `body` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `body` | `string` | Yes | No | Identity type. Currently, this field only supports `CUSTOMIZED_USER`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityGet
+
+`GET` `/open_api/v1.3/identity/get/`
+
+Generated from TikTok documentation 1740218420781057
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_type` | `query` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | No | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. If this field is not specified, all identities will be returned. Note: If you set this field to `BC_AUTH_TT` and specify `identity_authorized_bc_id`, all identities linked to the ad account (`advertiser_id`) will be returned. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `filtering` | `query` | `IdentityGetParamsFiltering` | No | No | Filtering conditions. Note This field is valid only when `identity_type` = `CUSTOMIZED_USER` or when `identity_type` is not specified. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size.. Value range: 1-100. Default value: 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityInfo
+
+`GET` `/open_api/v1.3/identity/info/`
+
+Generated from TikTok documentation 1740218453385217
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `query` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityLiveGet
+
+`GET` `/open_api/v1.3/identity/live/get/`
+
+Generated from TikTok documentation 1785238052792321
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityLiveGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `query` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`, `BC_AUTH_TT`. See Identities for details. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `cursor` | `query` | `number` | No | No | Timestamp cursor. Live videos before the timestamp will be returned in reverse-chronological order. In the initial request, you can set it to `0`. The response will include a `has_more` flag and a `cursor`. If `has_more` is `true`, use the returned `cursor` in your subsequent request to obtain the following page of data. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityMusicAuthorization
+
+`GET` `/open_api/v1.3/identity/music/authorization/`
+
+Generated from TikTok documentation 1740218495869954
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityMusicAuthorizationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Ad account ID. |
+| `item_id` | `query` | `string` | Yes | No | Tiktok post ID. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `query` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE` (Authorized Post User), `TT_USER` (TikTok Business Account User), `BC_AUTH_TT` (TheTikTok account that a Business Center is authorized to access). See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+| `locations` | `query` | `Array<string>` | Yes | No | List of targeting locations. You must use the same set of locations as when you create the ad. |
+| `start_time` | `query` | `string` | Yes | No | Ad deployment start time (UTC), in the format of "YYYY-MM-DD HH:MM:SS". |
+| `end_time` | `query` | `string` | Yes | No | Ad deployment end time (UTC), in the format of "YYYY-MM-DD HH:MM:SS". |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityVideoGet
+
+`GET` `/open_api/v1.3/identity/video/get/`
+
+Generated from TikTok documentation 1740218475032577
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityVideoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `query` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+| `item_type` | `query` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of TikTok posts that you want to retrieve. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. Default value: `VIDEO`. |
+| `keyword` | `query` | `string` | No | No | Valid only when `identity_type` is set to `AUTH_CODE`. Otherwise, an error will occur. The text or TikTok post ID as a keyword to search TikTok posts by. If you want to search for TikTok posts based on text, provide a text string with a maximum length of 500 characters. This search type supports searching in multiple languages and fuzzy matches. Example: "summer". If you want to search for TikTok posts based on `item_id`, provide a numeric string with a minimum length of 19 characters. This search type supports exact matches. Example: "1234567891234567891" |
+| `exclude_adsonly` | `query` | `boolean` | No | No | Whether to exclude ads only posts from the results. Ads-only posts are those you publish from a TikTok account as ads, which remain hidden from the public on the account's profile page. Supported values:`false`: To retrieve both organic and ads only posts.`true`: To retrieve a maximum of 500 most recent organic posts. Default value: `false`. |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. |
+| `count` | `query` | `number` | No | No | Number of TikTok posts you want to get. Value range: 1-20. If you specify a value greater than 20, this field will be ignored and a maximum of 20 TikTok posts associated with the identity will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.identity.identityVideoInfo
+
+`GET` `/open_api/v1.3/identity/video/info/`
+
+Generated from TikTok documentation 1740218522178562
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityVideoInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_type` | `query` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. To get the identities within an ad account, use [/identity/get/](https://business-api.tiktok.com/portal/docs?id=1740218420781057). |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `item_id` | `query` | `string` | No | No | Either `item_id` or `item_ids` must be specified. If you want to retrieve the information for a single TikTok post, pass `item_id`. If you want to retrieve the information for multiple TikTok posts, pass `item_ids`. The TikTok post ID that is associated with the provided Identity ID (`identity_id`). To get the TikTok posts associated with an identity, use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) and extract the TikTok post ID (`item_id`) from the response. |
+| `item_ids` | `query` | `Array<string>` | No | No | Either `item_id` or `item_ids` must be specified. If you want to retrieve the information for a single TikTok post, pass `item_id`. If you want to retrieve the information for multiple TikTok posts, pass `item_ids`. A list of TikTok post IDs that are associated with the provided Identity ID (`identity_id`). Max size: 20. To get the TikTok posts associated with an identity, use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) and extract the TikTok post ID (`item_id`) from the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

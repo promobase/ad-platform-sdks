@@ -1,0 +1,46 @@
+---
+title: "YouTube Thumbnails endpoints"
+description: "1 generated YouTube endpoint contract for Thumbnails."
+generated: true
+platform: "youtube"
+sourceVersion: "v3"
+sidebar:
+  order: 107
+  label: "Thumbnails"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-v3.json). Do not edit by hand. */}
+
+## youtube.thumbnails.set
+
+`POST` `youtube/v3/thumbnails/set`
+
+As this is not an insert in a strict sense (it supports uploading/setting of a thumbnail for multiple videos, which doesn't result in creation of a single resource), I use a custom verb here.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `thumbnails.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.upload`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `ThumbnailSetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `videoId` | `query` | `string` | Yes | No | Returns the Thumbnail with the given video IDs for Stubby or Apiary. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

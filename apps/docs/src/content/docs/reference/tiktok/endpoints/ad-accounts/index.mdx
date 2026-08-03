@@ -1,0 +1,81 @@
+---
+title: "TikTok Business Ad Accounts endpoints"
+description: "2 generated TikTok Business endpoint contracts for Ad Accounts."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 101
+  label: "Ad Accounts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.adAccounts.advertiserInfo
+
+`GET` `/open_api/v1.3/advertiser/info/`
+
+Generated from TikTok documentation 1739593083610113
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adAccounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdvertiserInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_ids` | `query` | `Array<string>` | Yes | No | List of advertiser IDs to query. You can obtain Advertiser IDs through the [/oauth2/advertiser/get/](https://business-api.tiktok.com/portal/docs?id=1738455508553729) endpoint. |
+| `fields` | `query` | `Array<string>` | No | No | A list of information to be returned. If not specified, all information excluding `company_name_editable`, `can_use_custom_identity`, and `ads_only_mode` is returned by default. Supported values: `telephone_number`, `contacter`, `currency`, `cellphone_number`, `timezone`, `advertiser_id`, `role`, `company`, `status`, `description`, `rejection_reason`, `address`, `name`, `language`, `industry`, `license_no`, `email`, `license_url`, `country`, `balance`, `create_time`, `display_timezone`, `owner_bc_id`, `company_name_editable`, `can_use_custom_identity`, and `ads_only_mode`. See the Response section for detailed information on each field. Note: If you include `company_name_editable`, `can_use_custom_identity`, or `ads_only_mode` in the value of this field, only `company_name_editable`, `can_use_custom_identity`, or `ads_only_mode` along with `advertiser_id` will be returned and other values will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adAccounts.oauth2AdvertiserGet
+
+`GET` `/open_api/v1.3/oauth2/advertiser/get/`
+
+Generated from TikTok documentation 1738455508553729
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adAccounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `Oauth2AdvertiserGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | The App id applied by the developer, which can be found on the [Application Management](https://ads.tiktok.com/marketing_api/apps/) page. |
+| `secret` | `query` | `string` | Yes | No | The private key of the developer's application, which can be found on the [Application Management](https://ads.tiktok.com/marketing_api/apps/) page. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

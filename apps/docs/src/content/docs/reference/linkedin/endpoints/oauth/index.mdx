@@ -1,0 +1,97 @@
+---
+title: "LinkedIn Oauth endpoints"
+description: "3 generated LinkedIn endpoint contracts for Oauth."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 103
+  label: "Oauth"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+## exchangeOAuthCode
+
+`POST` `https://www.linkedin.com/oauth/v2/accessToken`
+
+exchange O Auth Code
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `inline` |
+| Idempotency | `unsafe` |
+| Capabilities | `oauth` |
+| Required scopes | None declared |
+| Rate-limit bucket | `oauth` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getOpenIdUserInfo
+
+`GET` `https://api.linkedin.com/v2/userinfo`
+
+get Open Id User Info
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `oauth` |
+| Required scopes | `openid`<br />`profile` |
+| Rate-limit bucket | `oauth` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## refreshOAuthToken
+
+`POST` `https://www.linkedin.com/oauth/v2/accessToken`
+
+refresh O Auth Token
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `inline` |
+| Idempotency | `unsafe` |
+| Capabilities | `oauth` |
+| Required scopes | None declared |
+| Rate-limit bucket | `oauth` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

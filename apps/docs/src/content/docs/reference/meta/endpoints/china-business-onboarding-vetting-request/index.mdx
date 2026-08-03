@@ -1,0 +1,46 @@
+---
+title: "Meta China Business Onboarding Vetting Request endpoints"
+description: "1 generated Meta endpoint contract for China Business Onboarding Vetting Request."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 212
+  label: "China Business Onboarding Vetting Request"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.chinaBusinessOnboardingVettingRequest.get
+
+`GET` `/{id}`
+
+GET ChinaBusinessOnboardingVettingRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `chinaBusinessOnboardingVettingRequest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ChinaBusinessOnboardingVettingRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

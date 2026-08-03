@@ -1,0 +1,77 @@
+---
+title: "YouTube Search endpoints"
+description: "1 generated YouTube endpoint contract for Search."
+generated: true
+platform: "youtube"
+sourceVersion: "v3"
+sidebar:
+  order: 106
+  label: "Search"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-v3.json). Do not edit by hand. */}
+
+## youtube.search.list
+
+`GET` `youtube/v3/search`
+
+Retrieves a list of search resources
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `search.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `SearchListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `query` | `string` | No | No | Filter on resources belonging to this channelId. (Force TAP rebuild) |
+| `channelType` | `query` | `"channelTypeUnspecified" \| "any" \| "show"` | No | No | Add a filter on the channel search. |
+| `eventType` | `query` | `"none" \| "upcoming" \| "live" \| "completed"` | No | No | Filter on the livestream status of the videos. |
+| `forContentOwner` | `query` | `boolean` | No | No | Search owned by a content owner. |
+| `forDeveloper` | `query` | `boolean` | No | No | Restrict the search to only retrieve videos uploaded using the project id of the authenticated user. |
+| `forMine` | `query` | `boolean` | No | No | Search for the private videos of the authenticated user. |
+| `location` | `query` | `string` | No | No | Filter on location of the video |
+| `locationRadius` | `query` | `string` | No | No | Filter on distance from the location (specified above). |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `order` | `query` | `"searchSortUnspecified" \| "date" \| "rating" \| "viewCount" \| "relevance" \| "title" \| "videoCount"` | No | No | Sort order of the results. |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet. |
+| `publishedAfter` | `query` | `string` | No | No | Filter on resources published after this date. |
+| `publishedBefore` | `query` | `string` | No | No | Filter on resources published before this date. |
+| `q` | `query` | `string` | No | No | Textual search terms to match. |
+| `regionCode` | `query` | `string` | No | No | Display the content as seen by viewers in this country. |
+| `relevanceLanguage` | `query` | `string` | No | No | Return results relevant to this language. |
+| `safeSearch` | `query` | `"safeSearchSettingUnspecified" \| "none" \| "moderate" \| "strict"` | No | No | Indicates whether the search results should include restricted content as well as standard content. |
+| `topicId` | `query` | `string` | No | No | Restrict results to a particular topic. |
+| `type` | `query` | `string` | No | No | Restrict results to a particular set of resource types from One Platform. |
+| `videoCaption` | `query` | `"videoCaptionUnspecified" \| "any" \| "closedCaption" \| "none"` | No | No | Filter on the presence of captions on the videos. |
+| `videoCategoryId` | `query` | `string` | No | No | Filter on videos in a specific category. |
+| `videoDefinition` | `query` | `"any" \| "standard" \| "high"` | No | No | Filter on the definition of the videos. |
+| `videoDimension` | `query` | `"any" \| "2d" \| "3d"` | No | No | Filter on 3d videos. |
+| `videoDuration` | `query` | `"videoDurationUnspecified" \| "any" \| "short" \| "medium" \| "long"` | No | No | Filter on the duration of the videos. |
+| `videoEmbeddable` | `query` | `"videoEmbeddableUnspecified" \| "any" \| "true"` | No | No | Filter on embeddable videos. |
+| `videoLicense` | `query` | `"any" \| "youtube" \| "creativeCommon"` | No | No | Filter on the license of the videos. |
+| `videoPaidProductPlacement` | `query` | `"videoPaidProductPlacementUnspecified" \| "any" \| "true"` | No | No | — |
+| `videoSyndicated` | `query` | `"videoSyndicatedUnspecified" \| "any" \| "true"` | No | No | Filter on syndicated videos. |
+| `videoType` | `query` | `"videoTypeUnspecified" \| "any" \| "movie" \| "episode"` | No | No | Filter on videos of a specific type. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

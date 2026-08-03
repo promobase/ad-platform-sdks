@@ -1,0 +1,366 @@
+---
+title: "TikTok Business Leads endpoints"
+description: "10 generated TikTok Business endpoint contracts for Leads."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 146
+  label: "Leads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.leads.leadFieldGet
+
+`GET` `/open_api/v1.3/lead/field/get/`
+
+Generated from TikTok documentation 1832112377641026
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `LeadFieldGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `query` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | Yes | No | The source of the leads. Enum values:`INSTANT_FORM`: leads generated through an Instant Form.`DIRECT_MESSAGE`: leads generated from direct messages of the associated Business Account. |
+| `advertiser_id` | `query` | `string` | No | No | Required when the leads are under an ad account. Advertiser ID. |
+| `library_id` | `query` | `string` | No | No | Required when the leads are under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489). |
+| `page_id` | `query` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM`.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.leadGet
+
+`GET` `/open_api/v1.3/lead/get/`
+
+Generated from TikTok documentation 1832112833212434
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `LeadGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `query` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | Yes | No | The source of the leads. Enum values:`INSTANT_FORM`: leads generated through an Instant Form.`DIRECT_MESSAGE`: leads generated from direct messages of the associated Business Account. |
+| `advertiser_id` | `query` | `string` | No | No | Required when the leads are under an ad account. Advertiser ID. |
+| `library_id` | `query` | `string` | No | No | Required when the leads are under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489). |
+| `page_id` | `query` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM`.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageFieldGet
+
+`GET` `/open_api/v1.3/page/field/get/`
+
+Generated from TikTok documentation 1739054080455681
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageFieldGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `page_id` | `query` | `string` | Yes | No | The ID of the Instant Form. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLeadMockCreate
+
+`POST` `/open_api/v1.3/page/lead/mock/create/`
+
+Generated from TikTok documentation 1739047132614722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `leads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLeadMockCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `body` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | No | No | The source of the lead. Enum values:`INSTANT_FORM`: a lead generated through an Instant Form.`DIRECT_MESSAGE`: a lead generated from a direct message of the associated Business Account. Default value: `INSTANT_FORM`. |
+| `advertiser_id` | `body` | `string` | No | No | Required when you want to create a test lead under an ad account. Advertiser ID. Note: If you pass in this field, you need to be an Admin of the ad account. To obtain the list of ad accounts that you have Admin access to, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` and select ad accounts with the returned `advertiser_role` as `ADMIN`. |
+| `library_id` | `body` | `string` | No | No | Required when you want to create a test lead under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://ads.tiktok.com/marketing_api/docs?id=1740029915327489). |
+| `page_id` | `body` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM` or not specified.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLeadMockDelete
+
+`POST` `/open_api/v1.3/page/lead/mock/delete/`
+
+Generated from TikTok documentation 1739049313198081
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `leads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLeadMockDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | No | No | Required when the test lead is under an ad account. Advertiser ID. |
+| `library_id` | `body` | `string` | No | No | Required when the test lead is under a form library of a Business Center. ID of a form library. |
+| `lead_id` | `body` | `string` | Yes | No | The ID of the test lead that you want to delete. To obtain the ID of the existing test lead, use [/page/lead/mock/get/](https://business-api.tiktok.com/portal/docs?id=1739048460493826). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLeadMockGet
+
+`GET` `/open_api/v1.3/page/lead/mock/get/`
+
+Generated from TikTok documentation 1739048460493826
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLeadMockGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `query` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | No | No | The source of the lead. Enum values:`INSTANT_FORM`: a lead generated through an Instant Form.`DIRECT_MESSAGE`: a lead generated from a direct message of the associated Business Account. Default value: `INSTANT_FORM`. |
+| `advertiser_id` | `query` | `string` | No | No | Required when the test lead is under an ad account. Advertiser ID. Note: If you pass in this field, you need to be an Admin of the ad account. To obtain the list of ad accounts that you have Admin access to, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` and select ad accounts with the returned `advertiser_role` as `ADMIN`. |
+| `library_id` | `query` | `string` | No | No | Required when the test lead is under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://ads.tiktok.com/marketing_api/docs?id=1740029915327489). |
+| `page_id` | `query` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM` or not specified.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLeadTask
+
+`POST` `/open_api/v1.3/page/lead/task/`
+
+Generated from TikTok documentation 1739052936772610
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `leads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLeadTaskResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | No | No | Either `advertiser_id` or `library_id` has to be set. If you haven't migrated the leads of the ad account to a Business Center via [/page/library/transfer/](https://business-api.tiktok.com/portal/docs?id=1740029931324417), specify the `advertiser_id`.If you have migrated the leads of the ad account to a Business Center via [/page/library/transfer/](https://business-api.tiktok.com/portal/docs?id=1740029931324417), specify the `library_id`. Advertiser ID. |
+| `library_id` | `body` | `string` | No | No | Either `advertiser_id` or `library_id` has to be set. If you haven't migrated the leads of the ad account to a Business Center via [/page/library/transfer/](https://business-api.tiktok.com/portal/docs?id=1740029931324417), specify the `advertiser_id`.If you have migrated the leads of the ad account to a Business Center via [/page/library/transfer/](https://business-api.tiktok.com/portal/docs?id=1740029931324417), specify the `library_id`. Form library ID. To obtain the IDs of form libraries that you can access, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489). |
+| `ad_id` | `body` | `string` | No | No | Either `ad_id` or `page_id` has to be set. If you specify `ad_id`, you will create a lead download task for a specific ad.If you specify `page_id`, you will create a lead download task for a specific Instant Form. Ad ID. Specify the ID of an ad that uses an Instant Form to collect leads. To learn about how to create such ads, see [Create a Lead Generation ad with optimization location as Instant Form](https://business-api.tiktok.com/portal/docs?id=1774482920012801). To obtain the IDs of ads within an ad account, use [/ad/get/](https://business-api.tiktok.com/portal/docs?id=1735735588640770). |
+| `page_id` | `body` | `string` | No | No | Either `ad_id` or `page_id` has to be set. If you specify `ad_id`, you will create a lead download task for a specific ad.If you specify `page_id`, you will create a lead download task for a specific Instant Form. Instant form ID. To obtain the IDs of Instant Forms within an ad account, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+| `task_id` | `body` | `string` | No | No | Task ID.If you do not pass in this field, the request will create a lead download task and you will get the `task_id` in the response.If you pass in this field, the request will poll the task status to check whether the task has been completed (`status` = `SUCCEED`). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLeadTaskDownload
+
+`GET` `/open_api/v1.3/page/lead/task/download/`
+
+Generated from TikTok documentation 1739053563877378
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLeadTaskDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | No | No | If leads are under an ad account, you must specify the advertiser ID. |
+| `library_id` | `query` | `string` | No | No | If leads are under a Business Center, you must specify the ID of the form library that contains the leads. |
+| `task_id` | `query` | `string` | Yes | No | Task ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLibraryGet
+
+`GET` `/open_api/v1.3/page/library/get/`
+
+Generated from TikTok documentation 1740029915327489
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLibraryGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `query` | `number` | No | No | Number of pages in response. |
+| `page_size` | `query` | `number` | No | No | Number of records in each page. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.leads.pageLibraryTransfer
+
+`POST` `/open_api/v1.3/page/library/transfer/`
+
+Generated from TikTok documentation 1740029931324417
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `leads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageLibraryTransferResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | ID of the advertiser that owns the leads. |
+| `bc_id` | `body` | `string` | Yes | No | ID of the Business Center that you want to migrate leads to. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

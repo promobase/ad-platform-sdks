@@ -1,0 +1,171 @@
+---
+title: "TikTok Business Smart Creative endpoints"
+description: "4 generated TikTok Business endpoint contracts for Smart Creative."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 157
+  label: "Smart Creative"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.smartCreative.adAcoCreate
+
+`POST` `/open_api/v1.3/ad/aco/create/`
+
+Generated from TikTok documentation 1739473063234626
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `smartCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdAcoCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. Note: The ID should be of the ad group that you will enable Smart Creative for, and `creative_material_mode` for the ad group must be `SMART_CREATIVE`. |
+| `media_info_list` | `body` | `Array<AdAcoCreateParamsMediaInfoList>` | Yes | No | List of media information. Max size: 30. |
+| `title_list` | `body` | `Array<AdAcoCreateParamsTitleList>` | No | No | List of ad titles (also called ad texts). Ad titles are shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. When you pass in `tiktok_item_id`, you don't need to pass in the objects `image_info`, `video_info`, and `title_list`. |
+| `call_to_action_list` | `body` | `Array<AdAcoCreateParamsCallToActionList>` | No | No | Call-to-action list. Note: For TikTok ads, either this field or `call_to_action_id` must be specified. If both are specified, this field will be ignored. You can include at most three call-to-action texts (`call_to_action`) in each `call_to_action_list` object. |
+| `deeplink_list` | `body` | `Array<AdAcoCreateParamsDeeplinkList>` | No | No | List of deeplinks. Length range: [0,1]. Note: Only one `deeplink` and corresponding `deeplink_type` can be submitted in each `deeplink_list` object. |
+| `display_name_list` | `body` | `Array<AdAcoCreateParamsDisplayNameList>` | No | No | Display names. Note: You can pass only one `app_name` or `landing_page_name` into each `display_name_list` object. |
+| `page_list` | `body` | `Array<AdAcoCreateParamsPageList>` | No | No | Page ID list. |
+| `card_list` | `body` | `Array<AdAcoCreateParamsCardList>` | No | No | Card ID list. Length range: [0,1]. |
+| `landing_page_urls` | `body` | `Array<AdAcoCreateParamsLandingPageUrls>` | No | No | Multiple landing page URLs. You can pass only one `landing_page_url` into each `landing_page_urls` object. Note: Once set, this field cannot be updated. |
+| `common_material` | `body` | `AdAcoCreateParamsCommonMaterial` | No | No | Common material. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.smartCreative.adAcoGet
+
+`GET` `/open_api/v1.3/ad/aco/get/`
+
+Generated from TikTok documentation 1739473020978177
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `smartCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdAcoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_ids` | `query` | `Array<string>` | Yes | No | A list of ad group IDs. Quantity: 1-100. |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `exclude_field_types_in_response` | `query` | `Array<string>` | No | No | The type of fields that you want to remove from the response. Allowed enum values: `NULL_FIELD`: Fields with null values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.smartCreative.adAcoMaterialStatusUpdate
+
+`POST` `/open_api/v1.3/ad/aco/material_status/update/`
+
+Generated from TikTok documentation 1739506701165570
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `smartCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdAcoMaterialStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `ad_group_id` | `body` | `string` | Yes | No | Ad group ID. Note: Pass the ID of an ad group that you have enabled Smart Creative for. The `creative_material_mode` for the ad group should be `SMART_CREATIVE`. |
+| `material_ids` | `body` | `Array<string>` | Yes | No | Material IDs. You can pass in only one Material ID. |
+| `material_status` | `body` | `"ENABLE" \| "DISABLE"` | Yes | No | Status of the material. Enum values: `ENABLE` (the material can be used), `DISABLE`(the material cannot be used). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.smartCreative.adAcoUpdate
+
+`POST` `/open_api/v1.3/ad/aco/update/`
+
+Generated from TikTok documentation 1739473077112833
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `smartCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdAcoUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. Note: Pass the ID of an ad group that you have enabled Smart Creative for. The `creative_material_mode` for the ad group should be `SMART_CREATIVE`. |
+| `patch_update` | `body` | `boolean` | No | No | Whether to use incremental update mode. For example, to update the ad texts by using incremental update mode, configure the following settings only: Set `patch_update` to `true`. Set `title_list` to the new ad texts. Pass the required fields, including the Header parameters, `advertiser_id`, and `adgroup_id`. |
+| `media_info_list` | `body` | `Array<AdAcoUpdateParamsMediaInfoList>` | No | No | List of media information. |
+| `title_list` | `body` | `Array<AdAcoUpdateParamsTitleList>` | No | No | List of ad titles (also called ad texts). Ad titles are shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. |
+| `call_to_action_list` | `body` | `Array<AdAcoUpdateParamsCallToActionList>` | No | No | Call-to-action list. Note: You can include at most three call-to-action texts (`call_to_action`) in each `call_to_action_list` object. |
+| `deeplink_list` | `body` | `Array<AdAcoUpdateParamsDeeplinkList>` | No | No | List of deeplinks. Length range: [0,1]. Note: Only one `deeplink` and corresponding `deeplink_type` can be submitted in each `deeplink_list` object. |
+| `display_name_list` | `body` | `Array<AdAcoUpdateParamsDisplayNameList>` | No | No | Display names. Note: You can pass only one `app_name` or `landing_page_name` into each `display_name_list` object. |
+| `avatar_icon_list` | `body` | `Array<AdAcoUpdateParamsAvatarIconList>` | No | No | Avatar image list. Note: When you pass in `identity_id` in `media_info` or `common_material`, you don't need to pass in this object, and when you do, it'll be ignored. You can only pass in only one avatar image ID (`web_uri`). |
+| `page_list` | `body` | `Array<AdAcoUpdateParamsPageList>` | No | No | Page ID list. |
+| `card_list` | `body` | `Array<AdAcoUpdateParamsCardList>` | No | No | Card ID list. Length range: [0,1]. |
+| `common_material` | `body` | `AdAcoUpdateParamsCommonMaterial` | No | No | Common material. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

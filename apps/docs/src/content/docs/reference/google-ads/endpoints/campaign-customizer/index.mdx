@@ -1,0 +1,46 @@
+---
+title: "Google Ads Campaign Customizer endpoints"
+description: "1 generated Google Ads endpoint contract for Campaign Customizer."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 140
+  label: "Campaign Customizer"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.campaignCustomizer.mutateCampaignCustomizers
+
+`POST` `/v25/customers/{customer_id=*}/campaignCustomizers:mutate`
+
+CampaignCustomizerService.MutateCampaignCustomizers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaignCustomizer.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateCampaignCustomizersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateCampaignCustomizersRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

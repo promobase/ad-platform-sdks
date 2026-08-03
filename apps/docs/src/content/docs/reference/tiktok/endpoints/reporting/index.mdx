@@ -1,0 +1,214 @@
+---
+title: "TikTok Business Reporting endpoints"
+description: "5 generated TikTok Business endpoint contracts for Reporting."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 155
+  label: "Reporting"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.reporting.reportIntegratedGet
+
+`GET` `/open_api/v1.3/report/integrated/get/`
+
+Generated from TikTok documentation 1740302848100353
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportIntegratedGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | No | No | You need to pass in either `advertiser_id`/`advertiser_ids` or `bc_id`.When `report_type` is set to `BASIC` or `AUDIENCE`, pass in `advertiser_id` or `advertiser_ids`. If you pass in both `advertiser_id` and `advertiser_ids`, `advertiser_id` will be ignored.When `report_type` is set to `PLAYABLE_MATERIAL`, `CATALOG`, or `TT_SHOP`, pass in `advertiser_id`.When `report_type` is set to `BC`, pass in `bc_id`. Advertiser ID. |
+| `advertiser_ids` | `query` | `Array<string>` | No | No | When `report_type` is set to `BASIC` or `AUDIENCE`, you need to pass in either `advertiser_id` or `advertiser_ids`. If you pass in both `advertiser_id` and `advertiser_ids`, `advertiser_id` will be ignored. Valid when `report_type` is `BASIC` or `AUDIENCE`. A list of advertiser IDs. Max size: 5. Please be aware of the following information when working with this field: When `advertiser_ids` is used, we will return up to 20,000 IDs in response. The cutoff logic for IDs is based on the creation time of campaigns, ad groups, or ads in descending order, but we cannot guarantee that each advertiser will have an evenly distributed number of IDs.When `advertiser_ids` is used, the returned metrics data in the response will include `currency`, `timezone`, and `advertiser_id`. Different advertisers might have different time zones. You can use `multi_adv_report_in_utc_time` to determine whether the data returned should be set to the UTC+0 timezone for all advertisers or set to the local timezone for each respective advertiser. Different advertisers might have different currencies, and we will return the corresponding currency for each advertiser in the returned `metrics`. These metric data will be presented without a decimal point. For instance, a spend of "100 USD" will be displayed as 100 without any decimal indicator such as ".000".If you want to view the total added-up metrics for all advertiser IDs, enable `enable_total_metrics` in your request. The returned `total_metrics` in the response will include `currency`, `timezone`, and `advertiser_id`, but all with a value of `-`. Note:If you use `advertiser_ids` but do not include any ID dimensions in the dimensions field, we will return `0` as the value for `currency`, `timezone`, and `advertiser_id` and `-` as the value of cost-related metrics, such as `spend`, in the `metrics` object of the response.The advertisers specified in `advertiser_ids` should all belong to the same TikTok for Business user. Otherwise, an error will occur. Use [/oauth2/advertiser/get/](https://business-api.tiktok.com/portal/docs?id=1738455508553729) to retrieve a list of advertiser IDs that belong to the same TikTok for Business user. |
+| `bc_id` | `query` | `string` | No | No | You need to pass in either `advertiser_id`/`advertiser_ids` or `bc_id`. When `report_type` is set to `BASIC` or `AUDIENCE`,, pass in `advertiser_id`or `advertiser_ids`.When `report_type` is set to `PLAYABLE_MATERIAL`, `CATALOG`, or `TT_SHOP`, pass in `advertiser_id`.When `report_type` is set to `BC`, pass in `bc_id`. ID of a Business Center that you have access to. To get a list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `service_type` | `query` | `"AUCTION" \| "RESERVATION"` | No | No | Not supported when `report_type` is `BC`. Ad service type. Enum values:`AUCTION`: auction ads, or both auction ads and reservation ads.`RESERVATION` (deprecated) : reservation ads. Default value when `report_type` is not set to `BC`: `AUCTION`. Note: To retrieve the reporting data of TopView ads, use the [basic reports](https://business-api.tiktok.com/portal/docs?id=1738864915188737) or [audience reports](https://business-api.tiktok.com/portal/docs?id=1738864928947201) and specify the value `RESERVATION_TOP_VIEW` for the `buying_type` [filter](https://business-api.tiktok.com/portal/docs?id=1751443975608321). |
+| `report_type` | `query` | `"BASIC" \| "AUDIENCE" \| "PLAYABLE_MATERIAL" \| "CATALOG" \| "BC" \| "TT_SHOP"` | Yes | No | Report type. Enum values: `BASIC`: basic report.`AUDIENCE`: audience report.`PLAYABLE_MATERIAL`: playable ads report.`CATALOG`: DSA report. `BC`: Business Center report.`TT_SHOP` (to-be-deprecated): GMV max ads report. When `service_type` is `AUCTION`, `BASIC`, `AUDIENCE`, `PLAYABLE_MATERIAL`, `CATALOG`, and `TT_SHOP` reports are all supported.When `report_type` is `BC`, you don't need to pass `service_type`. Important: GMV max ads reports (with `report_type` as `TT_SHOP`) only provide limited data and will be deprecated in the next API version. To ensure a smooth integration experience, run GMV Max Campaign reports for your Product GMV Max Campaigns or Live GMV Max Campaigns using [/gmv_max/report/get/](https://business-api.tiktok.com/portal/docs/run-a-gmv-max-campaign-report/v1.3) instead. |
+| `data_level` | `query` | `"AUCTION_AD" \| "AUCTION_ADGROUP" \| "AUCTION_CAMPAIGN" \| "AUCTION_ADVERTISER" \| "RESERVATION_AD" \| "RESERVATION_ADGROUP" \| "RESERVATION_CAMPAIGN" \| "RESERVATION_ADVERTISER"` | No | No | Not supported when `report_type` is `BC`. Required when `report_type` is `BASIC`,`AUDIENCE` or `CATALOG`. The data level that you'd like to query in reports. Enum values:`AUCTION_AD`: auction ads or both auction ads and reservation ads, ad level.`AUCTION_ADGROUP`: auction ads or both auction ads and reservation ads, ad group level. `AUCTION_CAMPAIGN`: auction ads or both auction ads and reservation ads, campaign level.`AUCTION_ADVERTISER`: auction ads or both auction ads and reservation ads, advertiser level. `RESERVATION_AD`(deprecated): reservation ads, ad level. `RESERVATION_ADGROUP`(deprecated): reservation ads, ad group level. `RESERVATION_CAMPAIGN`(deprecated): reservation ads, campaign level. `RESERVATION_ADVERTISER`(deprecated): reservation ads, advertiser level. Note:If you specify this field as `AUCTION_ADVERTISER`, data of all Auction Ads and Reservation Ads under the advertiser account will be returned. When `report_type` is `BASIC`, `AUDIENCE` or `CATALOG`:If you set this field to `AUCTION_CAMPAIGN`, the data for all ads under undeleted auction campaigns will be returned, because by default the `campaign_status` filter is applied and defaults to `STATUS_NOT_DELETE`.If you set this field to `AUCTION_ADGROUP`, the data for all ads under undeleted auction ad groups will be returned, because by default the `adgroup_status` filter is applied and defaults to `STATUS_NOT_DELETE`.If you set this field to `AUCTION_AD`, only the data for undeleted ads under all auction campaigns will be returned, because by default the `ad_status` filter is applied and defaults to `STATUS_NOT_DELETE`.If you want to get the data for all ads under all auction campaigns, set the `ad_status` filter to `STATUS_ALL` (`filtering=[&#123;"field_name":"ad_status","filter_type":"IN","filter_value":"[\"STATUS_ALL\"]"&#125;]`). When `report_type` is `TT_SHOP`, you can only set this field to `AUCTION_ADVERTISER` or `AUCTION_CAMPAIGN`. |
+| `dimensions` | `query` | `Array<string>` | Yes | No | Grouping conditions. For example: `["campaign_id", "stat_time_day"]` indicates that both `campaign_id` and `stat_time_day` (days) are grouped. Different report types support different dimensions. Supported dimensions in [basic reports](https://business-api.tiktok.com/portal/docs?id=1751443956638721)Supported dimensions in [audience reports](https://business-api.tiktok.com/portal/docs?id=1751454103714818)Supported dimensions in [playable ad reports](https://business-api.tiktok.com/portal/docs?id=1751617879104514)Supported dimensions in [DSA reports](https://business-api.tiktok.com/portal/docs?id=1751617879104514) Supported dimensions in [Business Center reports](https://business-api.tiktok.com/portal/docs?id=1775747465089026)Supported dimensions in [GMV max ads reports](https://business-api.tiktok.com/portal/docs?id=1803073629472770) Note: If `report_type` is not set to `BC`: When `dimensions` contains `stat_time_day`, the query time range cannot exceed 30 days.When `dimensions` contains `stat_time_hour`, the query time range cannot exceed 1 day. If your query `dimensions` contains more than xx_id and there is no ads reporting within the query time range, an empty list will be returned. |
+| `metrics` | `query` | `Array<string>` | No | No | Metrics to query. Different report types support different metrics. For supported metrics for each report type, see the corresponding articles under [Report types](https://ads.tiktok.com/marketing_api/docs?id=1738864835805186). When `report_type` is set to `BASIC`, `AUDIENCE`, `PLAYABLE_MATERIAL`, or `CATALOG`, the default value is `["spend", "impressions"]`. When `report_type` is set to `BC`, the default value is all the metrics supported by the dimension grouping specified through `dimensions`. When `report_type` is set to `TT_SHOP`, the default value is `["spend", "billed_cost"]`. Note that the amount of currency metrics are based on the currency set by the advertiser's account. |
+| `enable_total_metrics` | `query` | `boolean` | No | No | Whether to enable the total added-up data for your requested metrics. When `enable_total_metrics` is enabled, we will provide the aggregate data for all pages as you query different pages. Under this condition, you only need to specify this field when requesting data for the first page. Due to the 20,000-truncation limitation, when `enable_total_metrics` is enabled, we will provide the total added-up data for up to 20,000 IDs. Note: It only supports auction basic reports and GMV max ads reports.It is only valid when one ID dimension and(or) `stat_time_day` is specified in the `dimensions` field. Examples: `["campaign_id"]`, `["campaign_id", "stat_time_day"]`. It can not be used in the sandbox environment. |
+| `start_date` | `query` | `string` | No | No | This field is required when `query_lifetime` is `false` or not specified. Query start date (closed interval) in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: When `report_type` is not set to `BC` and the value of `dimensions` does not include `stat_time_day`, the maximum time range you can specify through `start_date` and `end_date` is 365 days.When `report_type` is not set to `BC` and the value of `dimensions` includes `stat_time_day`, the maximum time range you can specify through `start_date` and `end_date` is 30 days.When `report_type` is set to `BC`, the maximum time range you can specify through `start_date` and `end_date` is 365 days. |
+| `end_date` | `query` | `string` | No | No | This field is required when `query_lifetime` is `false` or not specified. Query end date (closed interval) in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: When `report_type` is not set to `BC` and the value of `dimensions` does not include `stat_time_day`, the maximum time range you can specify through `start_date` and `end_date` is 365 days.When `report_type` is not set to `BC` and the value of `dimensions` includes `stat_time_day`, the maximum time range you can specify through `start_date` and `end_date` is 30 days.When `report_type` is set to `BC`, the maximum time range you can specify through `start_date` and `end_date` is 365 days. |
+| `query_lifetime` | `query` | `boolean` | No | No | Supported when `report_type` is `BASIC` or `PLAYABLE_MATERIAL`. Whether to request the lifetime metrics. Default value: `False`. If `query_lifetime` = `True`, the `start_date` and `end_date` parameters will be ignored. The lifetime metric name is the same as the normal one. Note: Breakdown by time or audience is not supported when querying for lifetime metrics.Breakdown by location code (`country_code`) is not supported when querying for lifetime metrics.Audience reports, DSA reports, Business Center reports, and GMV max ads reports do not support lifetime metrics. |
+| `multi_adv_report_in_utc_time` | `query` | `boolean` | No | No | Supported when you have used `advertiser_ids` in your request. Whether to set the returned metrics in the local timezone of each respective advertiser. Default value: `false`. If it is set to `true`, the returned metrics will be set to the UTC+0 timezone for all advertisers. |
+| `order_field` | `query` | `string` | No | No | Sorting field. All supported metrics (excluding attribute metrics) support sorting. Not sorting by default. |
+| `order_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`, `DESC`. Default value: `DESC`. |
+| `filtering` | `query` | `Array<ReportIntegratedGetParamsFiltering>` | No | No | Supported when `report_type` is `BASIC`, `AUDIENCE`, `PLAYABLE_MATERIAL`, `CATALOG`, or `BC`.Not supported when `report_type` is `TT_SHOP`. Filtering conditions. Supported filtering conditions vary based on `service_type` and `data_level`. For filters supported in different report types, refer to the articles under [Report types](https://ads.tiktok.com/marketing_api/docs?id=1738864835805186). Note: When you pass in `filtering`, make sure you specify the fields `field_name`, `filter_type`, and `filter_value` at the same time as an object in a list. If you want to use `country_code` as your grouping filter, then please specify `country_code` in the `dimensions` field of the request. Note that `country_code` works with basic report (sync and async), audience report (sync and async), playable ad report (sync only), and Business Center report (sync only). |
+| `query_mode` | `query` | `"REGULAR" \| "CHUNK"` | No | No | Not supported when `report_type` is `BC`. The way data is queried. Enum values: `REGULAR`, `CHUNK`. Default value: `REGULAR`. With `CHUNK` mode on, data can be returned much faster in a more stable way. Meanwhile, pagination will not be working with `CHUNK`. Note: `CHUNK` mode will be deprecated soon. To ensure a smooth integration, we recommend that you do not use this mode.`CHUNK` mode is only supported in synchronous basic reports. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: `1`. |
+| `page_size` | `query` | `number` | No | No | Pagination size. Value range: 1-1,000. Default value: `10`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reporting.reportTaskCancel
+
+`POST` `/open_api/v1.3/report/task/cancel/`
+
+Generated from TikTok documentation 1803615367145537
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reporting.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportTaskCancelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. Note: If you use `advertiser_ids` when calling [/report/task/create/](https://business-api.tiktok.com/portal/docs?id=1740302766489602) (POST method), you need to set this field to one of the Advertiser IDs specified via `advertiser_ids`. |
+| `task_id` | `body` | `string` | Yes | No | The ID of an asynchronous report task that is either queued or currently being processed. To obtain such a task ID, first use [/report/task/create/](https://business-api.tiktok.com/portal/docs?id=1740302766489602) to create an asynchronous report task. Then use [/report/task/check/](https://business-api.tiktok.com/portal/docs?id=1740302781443073) to confirm that the status of the task is `QUEUING` or `PROCESSING` before attempting to cancel it. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reporting.reportTaskCheck
+
+`GET` `/open_api/v1.3/report/task/check/`
+
+Generated from TikTok documentation 1740302781443073
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportTaskCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Note: If you use `advertiser_ids` when calling [/report/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1740302766489602) (POST method), you need to set this field to one of the Advertiser IDs specified via `advertiser_ids`. |
+| `task_id` | `query` | `string` | Yes | No | The ID of the asynchronous report task. You can get the ID via the response of [/report/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1740302766489602) endpoint. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reporting.reportTaskCreate
+
+`POST` `/open_api/v1.3/report/task/create/`
+
+Generated from TikTok documentation 1740302766489602
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reporting.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | No | No | Either `advertiser_id` or `advertiser_ids` has to be set. If you pass in both `advertiser_id` and `advertiser_ids`, `advertiser_id` will be ignored. Advertiser ID. |
+| `advertiser_ids` | `body` | `Array<string>` | No | No | Either `advertiser_id` or `advertiser_ids` has to be set. If you pass in both `advertiser_id` and `advertiser_ids`, `advertiser_id` will be ignored. A list of advertiser IDs. Max size: 5. Note: This field is only valid when `report_type` is `BASIC` or `AUDIENCE`. The advertisers specified in `advertiser_ids` should all belong to the same TikTok for Business user. Otherwise, an error will occur. Use [/oauth2/advertiser/get/](https://business-api.tiktok.com/portal/docs?id=1738455508553729) to retrieve a list of advertiser IDs that belong to the same TikTok for Business user. If you specify `start_date` and `end_date` at the same time, the data will be pulled according to the timezone of each ad account. When you pass multiple advertiser IDs, you can specify up to two ID dimensions (`advertiser_id` + another ID dimension) in dimensions. However, many metrics do not support the `advertiser_id` dimension. Also, it's recommended that you include `currency` in `metrics`, because the ad accounts may have different currencies. |
+| `service_type` | `body` | `"AUCTION" \| "RESERVATION"` | No | No | Ad service type. Enum values:`AUCTION`: auction ads, or both auction ads and reservation ads.`RESERVATION` (deprecated) : reservation ads. Default value: `AUCTION`. Note: To retrieve the reporting data of TopView ads, use the [basic reports](https://business-api.tiktok.com/portal/docs?id=1738864915188737) or [audience reports](https://business-api.tiktok.com/portal/docs?id=1738864928947201) and specify the value `RESERVATION_TOP_VIEW` for the `buying_type` [filter](https://business-api.tiktok.com/portal/docs?id=1751443975608321). |
+| `report_type` | `body` | `"BASIC" \| "AUDIENCE" \| "PLAYABLE_MATERIAL" \| "CATALOG"` | Yes | No | Report type. Enum values: `BASIC` (basic report), `AUDIENCE` (audience report), `PLAYABLE_MATERIAL` (playable ads report), `CATALOG` (DSA report). When `service_type` is `AUCTION`, `BASIC`, `AUDIENCE`, `PLAYABLE_MATERIAL`, and `CATALOG` reports are all supported. Note: You can retrieve the creative level data for Upgraded Smart+ Ads when `report_type` is `BASIC`, `AUDIENCE`, or `CATALOG`. |
+| `data_level` | `body` | `"AUCTION_AD" \| "AUCTION_ADGROUP" \| "AUCTION_CAMPAIGN" \| "AUCTION_ADVERTISER" \| "RESERVATION_AD" \| "RESERVATION_ADGROUP" \| "RESERVATION_CAMPAIGN" \| "RESERVATION_ADVERTISER"` | No | No | The data level that you'd like to query in reports. Required when `report_type` is `BASIC`,`AUDIENCE` or `CATALOG`. Enum values:`AUCTION_AD`: auction ads or both auction ads and reservation ads, ad level.`AUCTION_ADGROUP`: auction ads or both auction ads and reservation ads, ad group level. `AUCTION_CAMPAIGN`: auction ads or both auction ads and reservation ads, campaign level.`AUCTION_ADVERTISER`: auction ads or both auction ads and reservation ads, advertiser level. `RESERVATION_AD`(deprecated): reservation ads, ad level. `RESERVATION_ADGROUP`(deprecated): reservation ads, ad group level. `RESERVATION_CAMPAIGN`(deprecated): reservation ads, campaign level. `RESERVATION_ADVERTISER`(deprecated): reservation ads, advertiser level. |
+| `dimensions` | `body` | `Array<string>` | Yes | No | Grouping conditions. For example: `["campaign_id", "stat_time_day"]` indicates that both `campaign_id` and `stat_time_day` (days) are grouped. Different report types support different dimensions. Supported dimensions in [basic reports](https://business-api.tiktok.com/portal/docs?id=1751443956638721)Supported dimensions in [audience reports](https://business-api.tiktok.com/portal/docs?id=1751454103714818)Supported dimensions in [playable ad reports](https://business-api.tiktok.com/portal/docs?id=1751617879104514)Supported dimensions in [DSA reports](https://business-api.tiktok.com/portal/docs?id=1751617879104514) Supported dimensions in [Business Center reports](https://business-api.tiktok.com/portal/docs?id=1775747465089026) Note : Different report types support different dimensions. For supported dimensions for each report type, see the corresponding articles under [Report types](https://ads.tiktok.com/marketing_api/docs?id=1738864835805186). If your query `dimensions` contain more than xx_id and there is no ads reporting within the query time range, an empty list will be returned.The dimension and metric combinations that are supported may vary between synchronous and asynchronous reports. Therefore, a valid dimension and metric combination in synchronous reports may not be supported in asynchronous reports.The dimension `ad_id_v2` is available. Note that:You need to ensure the `report_type` is `BASIC`, `AUDIENCE`, or `CATALOG`.You cannot use it together with the dimension `ad_id` or the filter `ad_ids`.The types of data you can get include:the ad level data for Manual Ads.the ad level data for Smart+ Campaigns.the ad level data for Upgraded Smart+ Ads. |
+| `metrics` | `body` | `Array<string>` | No | No | Metrics to query. Different report types support different metrics. For supported metrics for each report type, see the corresponding articles under [Report types](https://ads.tiktok.com/marketing_api/docs?id=1738864835805186). Default value: `["spend", "impressions"]`. |
+| `start_date` | `body` | `string` | No | No | This field is required when `query_lifetime` is `false` or not specified. Query start date (closed interval) in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: Asynchronous reports have no time range limitations. |
+| `end_date` | `body` | `string` | No | No | This field is required when `query_lifetime` is `false` or not specified. Query end date (closed interval) in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: Asynchronous reports have no time range limitations. |
+| `query_lifetime` | `body` | `boolean` | No | No | Whether to request the lifetime metrics. Default value: `false`. If `query_lifetime` = `true`, the `start_date` and `end_date` parameters will be ignored. The lifetime metric name is the same as the normal one. Note: Breakdown by time or audience is not supported when querying for lifetime metrics.Breakdown by location code (`country_code`) is not supported when querying for lifetime metrics.DSA reports do not support lifetime metrics. Besides, Audience reports do not support lifetime metrics at the time, and will support lifetime metrics in the first half of 2023. |
+| `order_field` | `body` | `string` | No | No | Sorting field. All supported metrics (excluding attribute metrics) support sorting. Not sorting by default. |
+| `order_type` | `body` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`, `DESC`. Default value: `DESC`. |
+| `enable_report_title_translation` | `body` | `boolean` | No | No | Whether to enable the translation of the title row of the asynchronous report (including dimension names and metric names). For instance, if this field is set to `false`, a report title can be `ad_id` (untranslated title) rather than `AD ID` (translated title). Default value: `true`. Note: This field is only valid when `report_type` is `BASIC` or `AUDIENCE`.Starting November 15th, 2024, the translation of certain metrics in the title row of async reports will be updated to provide a better user experience. This change will not affect the metric field names themselves. To minimize potential disruptions, we strongly recommend setting `enable_report_title_translation` to `false` in your code. This will eliminate dependencies on metric translations, which are subject to periodic updates. While these translations are provided to help map metrics to their corresponding names in TikTok Ads Manager, relying on them in your code may lead to breaking changes in the future. By disabling title row translation, you can ensure more stable and predictable behavior in your integration. |
+| `output_format` | `body` | `"CSV_STRING" \| "CSV_DOWNLOAD" \| "XLSX_DOWNLOAD"` | No | No | Format of output. Enum values: `CSV_STRING`, `CSV_DOWNLOAD`, `XLSX_DOWNLOAD`. Default value: `CSV_STRING`. |
+| `file_name` | `body` | `string` | No | No | Customized download file name, which is optional to pass when `output_format` is `CSV_DOWNLOAD` or `XLSX_DOWNLOAD`. The maximum length is 255 characters. The file name needs to exclude the following special characters: ['/', '\t', '\b', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']']. |
+| `filtering` | `body` | `Array<string>` | No | No | Filtering conditions. Supported filtering conditions vary based on `service_type` and `data_level`. For filters supported in different report types, refer to the articles under [Report types](https://ads.tiktok.com/marketing_api/docs?id=1738864835805186). Note: When you pass in `filtering`, please make sure you specify the fields `field_name`, `filter_type`, and `filter_value` at the same time as an object in a list.If you want to use `country_code` as your grouping filter, then please specify `country_code` in the `dimensions` field of the request. Note that `country_code` works with basic report (sync and async), audience report (sync and async), and playable ad report (sync only).In asynchronous mode for the report types of basic reports, audience reports, and DSA reports, the only supported filter fields are `campaign_ids`, `adgroup_ids`, and `ad_ids`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reporting.reportTaskDownload
+
+`GET` `/open_api/v1.3/report/task/download/`
+
+Generated from TikTok documentation 1740302808815618
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportTaskDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Note: If you use `advertiser_ids` when calling [/report/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1740302766489602) (POST method), you need to set this field to one of the Advertiser IDs specified via `advertiser_ids`. |
+| `task_id` | `query` | `string` | Yes | No | The ID of the asynchronous report task. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

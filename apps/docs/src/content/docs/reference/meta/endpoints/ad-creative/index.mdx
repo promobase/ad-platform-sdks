@@ -1,0 +1,236 @@
+---
+title: "Meta Ad Creative endpoints"
+description: "6 generated Meta endpoint contracts for Ad Creative."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 117
+  label: "Ad Creative"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adCreative.adlabels
+
+`POST` `/{id}/adlabels`
+
+POST AdCreative adlabels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `adlabels` | `body` | `Array<Record<string, unknown>>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adCreative.creativeInsights
+
+`GET` `/{id}/creative_insights`
+
+GET AdCreative creative_insights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCreativeInsightsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adCreative.delete
+
+`DELETE` `/{id}`
+
+DELETE AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_id` | `query` | `string` | No | No | — |
+| `adlabels` | `query` | `Array<Record<string, unknown>>` | No | No | — |
+| `name` | `query` | `string` | No | No | — |
+| `status` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adCreative.get
+
+`GET` `/{id}`
+
+GET AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `thumbnail_height` | `query` | `integer` | No | No | — |
+| `thumbnail_width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adCreative.previews
+
+`GET` `/{id}/previews`
+
+GET AdCreative previews
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdPreviewFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ad_format` | `query` | `unknown` | Yes | No | — |
+| `creative_feature` | `query` | `unknown` | No | No | — |
+| `dynamic_asset_label` | `query` | `string` | No | No | — |
+| `dynamic_creative_spec` | `query` | `Record<string, unknown>` | No | No | — |
+| `dynamic_customization` | `query` | `Record<string, unknown>` | No | No | — |
+| `end_date` | `query` | `string<date-time>` | No | No | — |
+| `height` | `query` | `integer` | No | No | — |
+| `locale` | `query` | `string` | No | No | — |
+| `place_page_id` | `query` | `integer` | No | No | — |
+| `post` | `query` | `Record<string, unknown>` | No | No | — |
+| `product_item_ids` | `query` | `Array<string>` | No | No | — |
+| `render_type` | `query` | `unknown` | No | No | — |
+| `start_date` | `query` | `string<date-time>` | No | No | — |
+| `width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adCreative.update
+
+`POST` `/{id}`
+
+POST AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_id` | `body` | `string` | No | No | — |
+| `adlabels` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `status` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import { config } from "virtual:nimbus/config";
+
+const platforms = ["Meta", "TikTok", "Google Ads", "Business Profile", "LinkedIn", "X", "YouTube"];
+---
+
+<BaseLayout title={config.title} description={config.description}>
+  <div class="min-h-screen bg-background text-foreground">
+    <Header />
+    <main id="main-content">
+      <section class="mx-auto max-w-6xl px-6 pb-20 pt-24 sm:pt-32">
+        <div class="max-w-4xl">
+          <p class="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            Open source · TypeScript · Effect native
+          </p>
+          <h1 class="text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl">
+            One typed foundation for every platform integration.
+          </h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            Provider-complete SDKs, a portable operation catalog, and agent-ready tools—generated
+            from canonical contracts without hiding the native APIs.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a
+              href="/getting-started"
+              class="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
+            >
+              Get started
+            </a>
+            <a
+              href="/reference"
+              class="rounded-md border border-border-strong px-5 py-3 text-sm font-medium text-foreground no-underline transition-colors hover:bg-accent"
+            >
+              Browse API reference
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-20 grid border-y border-border sm:grid-cols-3">
+          <div class="py-6 sm:border-r sm:border-border sm:pr-8">
+            <div class="text-3xl font-semibold tracking-tight">2,227</div>
+            <div class="mt-1 text-sm text-muted-foreground">generated endpoints</div>
+          </div>
+          <div class="border-t border-border py-6 sm:border-r sm:border-t-0 sm:px-8">
+            <div class="text-3xl font-semibold tracking-tight">7,207</div>
+            <div class="mt-1 text-sm text-muted-foreground">typed models</div>
+          </div>
+          <div class="border-t border-border py-6 sm:border-t-0 sm:pl-8">
+            <div class="text-3xl font-semibold tracking-tight">682</div>
+            <div class="mt-1 text-sm text-muted-foreground">declared capabilities</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-border bg-muted/40">
+        <div class="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">One contract</p>
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight">Use the boundary your product needs.</h2>
+            <p class="mt-4 leading-7 text-muted-foreground">
+              Effect schemas and endpoint descriptors remain the source of truth. Promise clients,
+              Code Mode, AI SDK, MCP, and CLI are projections of that same contract.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <a href="/guides/promise-and-effect" class="rounded-lg border border-border bg-card p-5 no-underline hover:border-border-strong">
+              <div class="font-medium text-foreground">Promise + Effect</div>
+              <div class="mt-2 text-sm leading-6 text-muted-foreground">Typed errors and cancellation, with a familiar Promise boundary.</div>
+            </a>
+            <a href="/guides/agent-surfaces" class="rounded-lg border border-border bg-card p-5 no-underline hover:border-border-strong">
+              <div class="font-medium text-foreground">Agent surfaces</div>
+              <div class="mt-2 text-sm leading-6 text-muted-foreground">Discovery and execution for AI SDK, Code Mode, MCP, and CLI.</div>
+            </a>
+            <a href="/guides/post-metrics" class="rounded-lg border border-border bg-card p-5 no-underline hover:border-border-strong">
+              <div class="font-medium text-foreground">Portable metrics</div>
+              <div class="mt-2 text-sm leading-6 text-muted-foreground">Compare common measures while retaining provider-native payloads.</div>
+            </a>
+            <a href="/guides/openpromo" class="rounded-lg border border-border bg-card p-5 no-underline hover:border-border-strong">
+              <div class="font-medium text-foreground">Built for product teams</div>
+              <div class="mt-2 text-sm leading-6 text-muted-foreground">Clear SDK and application ownership for durable multi-tenant workflows.</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-20">
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Platform coverage</p>
+        <div class="mt-7 flex flex-wrap gap-2">
+          {platforms.map((platform) => (
+            <span class="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">{platform}</span>
+          ))}
+        </div>
+        <div class="mt-14 border-t border-border pt-8 text-sm text-muted-foreground">
+          MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>

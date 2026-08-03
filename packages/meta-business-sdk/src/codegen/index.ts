@@ -121,6 +121,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
 
   await writeEffectArtifacts({
     outputDir: join(outputDir, "effect"),
+    docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
     ir: metaCanonicalIr(specs, extractedEnums),
   });
 

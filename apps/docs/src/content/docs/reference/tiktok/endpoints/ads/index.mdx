@@ -1,0 +1,158 @@
+---
+title: "TikTok Business Ads endpoints"
+description: "4 generated TikTok Business endpoint contracts for Ads."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 107
+  label: "Ads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.ads.adCreate
+
+`POST` `/open_api/v1.3/ad/create/`
+
+Generated from TikTok documentation 1739953377508354
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `ads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. |
+| `creatives` | `body` | `Array<AdCreateParamsCreatives>` | Yes | No | Advertising creatives. Max size: 20. Within an ad group, you can create a maximum of 20 ads in a single request. If you want to create additional ads within the same ad group, you need to make multiple calls to `/ad/create/`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.ads.adGet
+
+`GET` `/open_api/v1.3/ad/get/`
+
+Generated from TikTok documentation 1735735588640770
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `ads.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. For the list of fields that you can specify, see the fields under `list` in the response. If not set, all fields are returned by default. |
+| `exclude_field_types_in_response` | `query` | `Array<string>` | No | No | The type of fields that you want to remove from the response. Allowed enum values: `NULL_FIELD`: Fields with null values. |
+| `filtering` | `query` | `AdGetParamsFiltering` | No | No | Filters on the data. This parameter is an array of filter objects. . Example: `filtering=&#123;"campaign_automation_type":"UPGRADED_SMART_PLUS"&#125;` |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value:10. Value range: 1-1,000. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.ads.adStatusUpdate
+
+`POST` `/open_api/v1.3/ad/status/update/`
+
+Generated from TikTok documentation 1739953422970882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `ads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_ids` | `body` | `Array<string>` | No | No | A list of ad IDs. Allowed quantity: `1-20`. Either `ad_ids` or `aco_ad_ids` has to be set. |
+| `aco_ad_ids` | `body` | `Array<string>` | No | No | A list of ACO ad IDs. Only support `ENABLE` and `DISABLE` for ACO ads. Allowed quantity: `1-20`. Either `ad_ids` or `aco_ad_ids` has to be set. |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `operation_status` | `body` | `"DELETE" \| "ENABLE"` | Yes | No | The operation being made. Enum values: `DELETE` (delete),` DISABLE` (pause), `ENABLE` (enable). Note: The status of deleted ads or ads in deleted campaigns or ad groups cannot be modified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.ads.adUpdate
+
+`POST` `/open_api/v1.3/ad/update/`
+
+Generated from TikTok documentation 1739953405142018
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `ads.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. |
+| `patch_update` | `body` | `boolean` | No | No | Whether to use incremental update mode. The following fields are supported when you set this field to `true`: `ad_name``identity_id` `identity_type` `identity_authorized_bc_id``video_id``image_ids``music_id` `tiktok_item_id``ad_text``ad_texts` For example, to update the ad name by using incremental update mode, configure the following settings only: Set `patch_update` to `true`. Set `ad_name` to the new ad name. Pass the required fields, including the Header parameters, `advertiser_id`, and `ad_id`. Important: If you choose to enable the incremental update mode by passing this field, we recommend thoroughly testing to prevent any disruptions to your current ad update workflow. |
+| `creatives` | `body` | `Array<AdUpdateParamsCreatives>` | Yes | No | Advertising creatives. Max size: 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

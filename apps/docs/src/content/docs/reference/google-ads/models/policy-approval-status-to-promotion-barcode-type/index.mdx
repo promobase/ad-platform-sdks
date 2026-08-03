@@ -1,0 +1,797 @@
+---
+title: "Google Ads models: Policy Approval Status – Promotion Barcode Type"
+description: "100 generated Google Ads model contracts, from PolicyApprovalStatus through PromotionBarcodeType."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1019
+  label: "Policy Approval Status – Promotion Barcode Type"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## PolicyApprovalStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DISAPPROVED`, `APPROVED_LIMITED`, `APPROVED`, `AREA_OF_INTEREST_ONLY`
+
+## PolicyApprovalStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyFindingDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policy_topic_entries` | `policy_topic_entries` | `Array<PolicyTopicEntry>` | No | No | — |
+
+## PolicyFindingError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `POLICY_FINDING`, `POLICY_TOPIC_NOT_FOUND`
+
+## PolicyFindingErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyReviewStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `REVIEW_IN_PROGRESS`, `REVIEWED`, `UNDER_APPEAL`, `ELIGIBLE_MAY_SERVE`
+
+## PolicyReviewStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicySummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policy_topic_entries` | `policy_topic_entries` | `Array<unknown>` | No | No | — |
+| `review_status` | `review_status` | `PolicyReviewStatus` | No | No | — |
+| `approval_status` | `approval_status` | `PolicyApprovalStatus` | No | No | — |
+
+## PolicyTopicConstraint
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_constraint_list` | `country_constraint_list` | `unknown` | No | No | — |
+| `reseller_constraint` | `reseller_constraint` | `unknown` | No | No | — |
+| `certificate_missing_in_country_list` | `certificate_missing_in_country_list` | `unknown` | No | No | — |
+| `certificate_domain_mismatch_in_country_list` | `certificate_domain_mismatch_in_country_list` | `unknown` | No | No | — |
+
+## PolicyTopicEntry
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topic` | `topic` | `string` | No | No | — |
+| `type` | `type` | `PolicyTopicEntryType` | No | No | — |
+| `evidences` | `evidences` | `Array<unknown>` | No | No | — |
+| `constraints` | `constraints` | `Array<unknown>` | No | No | — |
+
+## PolicyTopicEntryType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PROHIBITED`, `LIMITED`, `FULLY_LIMITED`, `DESCRIPTIVE`, `BROADENING`, `AREA_OF_INTEREST_ONLY`
+
+## PolicyTopicEntryTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyTopicEvidence
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `website_list` | `website_list` | `unknown` | No | No | — |
+| `text_list` | `text_list` | `unknown` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `destination_text_list` | `destination_text_list` | `unknown` | No | No | — |
+| `destination_mismatch` | `destination_mismatch` | `unknown` | No | No | — |
+| `destination_not_working` | `destination_not_working` | `unknown` | No | No | — |
+
+## PolicyTopicEvidenceDestinationMismatchUrlType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DISPLAY_URL`, `FINAL_URL`, `FINAL_MOBILE_URL`, `TRACKING_URL`, `MOBILE_TRACKING_URL`
+
+## PolicyTopicEvidenceDestinationMismatchUrlTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyTopicEvidenceDestinationNotWorkingDevice
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DESKTOP`, `ANDROID`, `IOS`
+
+## PolicyTopicEvidenceDestinationNotWorkingDeviceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyTopicEvidenceDestinationNotWorkingDnsErrorType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HOSTNAME_NOT_FOUND`, `GOOGLE_CRAWLER_DNS_ISSUE`
+
+## PolicyTopicEvidenceDestinationNotWorkingDnsErrorTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyValidationParameter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ignorable_policy_topics` | `ignorable_policy_topics` | `Array<string>` | No | No | — |
+| `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<unknown>` | No | No | — |
+
+## PolicyValidationParameterError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNSUPPORTED_AD_TYPE_FOR_IGNORABLE_POLICY_TOPICS`, `UNSUPPORTED_AD_TYPE_FOR_EXEMPT_POLICY_VIOLATION_KEYS`, `CANNOT_SET_BOTH_IGNORABLE_POLICY_TOPICS_AND_EXEMPT_POLICY_VIOLATION_KEYS`
+
+## PolicyValidationParameterErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyViolationDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `external_policy_description` | `external_policy_description` | `string` | No | No | — |
+| `key` | `key` | `PolicyViolationKey` | No | No | — |
+| `external_policy_name` | `external_policy_name` | `string` | No | No | — |
+| `is_exemptible` | `is_exemptible` | `boolean` | No | No | — |
+
+## PolicyViolationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `POLICY_ERROR`
+
+## PolicyViolationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PolicyViolationKey
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policy_name` | `policy_name` | `string` | No | No | — |
+| `violating_text` | `violating_text` | `string` | No | No | — |
+
+## PositionEstimates
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `first_page_cpc_micros` | `first_page_cpc_micros` | `string` | No | No | — |
+| `first_position_cpc_micros` | `first_position_cpc_micros` | `string` | No | No | — |
+| `top_of_page_cpc_micros` | `top_of_page_cpc_micros` | `string` | No | No | — |
+| `estimated_add_clicks_at_first_position_cpc` | `estimated_add_clicks_at_first_position_cpc` | `string` | No | No | — |
+| `estimated_add_cost_at_first_position_cpc` | `estimated_add_cost_at_first_position_cpc` | `string` | No | No | — |
+
+## PositiveGeoTargetType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PRESENCE_OR_INTEREST`, `SEARCH_INTEREST`, `PRESENCE`
+
+## PositiveGeoTargetTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PostbackMapping
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postback_sequence_index` | `postback_sequence_index` | `integer` | No | No | — |
+| `coarse_grained_conversion_value_mappings` | `coarse_grained_conversion_value_mappings` | `unknown` | No | No | — |
+| `lock_window_coarse_conversion_value` | `lock_window_coarse_conversion_value` | `SkAdNetworkCoarseConversionValue` | No | No | — |
+| `lock_window_fine_conversion_value` | `lock_window_fine_conversion_value` | `integer` | No | No | — |
+| `lock_window_event` | `lock_window_event` | `string` | No | No | — |
+
+## PreviewType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UI_PREVIEW`, `YOUTUBE_LIVE_PREVIEW`
+
+## PreviewTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PriceAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `PriceExtensionType` | No | No | — |
+| `price_qualifier` | `price_qualifier` | `PriceExtensionPriceQualifier` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `price_offerings` | `price_offerings` | `Array<unknown>` | No | No | — |
+
+## PriceExtensionPriceQualifier
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FROM`, `UP_TO`, `AVERAGE`
+
+## PriceExtensionPriceQualifierEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PriceExtensionPriceUnit
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PER_HOUR`, `PER_DAY`, `PER_WEEK`, `PER_MONTH`, `PER_YEAR`, `PER_NIGHT`
+
+## PriceExtensionPriceUnitEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PriceExtensionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BRANDS`, `EVENTS`, `LOCATIONS`, `NEIGHBORHOODS`, `PRODUCT_CATEGORIES`, `PRODUCT_TIERS`, `SERVICES`, `SERVICE_CATEGORIES`, `SERVICE_TIERS`
+
+## PriceExtensionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PriceOffering
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `header` | `header` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `price` | `price` | `unknown` | No | No | — |
+| `unit` | `unit` | `PriceExtensionPriceUnit` | No | No | — |
+| `final_url` | `final_url` | `string` | No | No | — |
+| `final_mobile_url` | `final_mobile_url` | `string` | No | No | — |
+
+## ProductAvailability
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `IN_STOCK`, `OUT_OF_STOCK`, `PREORDER`
+
+## ProductAvailabilityEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductBrand
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductBrandInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductCategory
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | — |
+| `level` | `level` | `ListingGroupFilterProductCategoryLevel` | No | No | — |
+
+## ProductCategoryConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `category_id` | `category_id` | `string` | No | No | — |
+| `product_category_constant_parent` | `product_category_constant_parent` | `string` | No | No | — |
+| `level` | `level` | `ProductCategoryLevel` | No | No | — |
+| `state` | `state` | `ProductCategoryState` | No | No | — |
+| `localizations` | `localizations` | `Array<unknown>` | No | No | — |
+
+## ProductCategoryInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | — |
+| `level` | `level` | `ProductCategoryLevel` | No | No | — |
+
+## ProductCategoryLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LEVEL1`, `LEVEL2`, `LEVEL3`, `LEVEL4`, `LEVEL5`
+
+## ProductCategoryLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductCategoryLocalization
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductCategoryState
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `OBSOLETE`
+
+## ProductCategoryStateEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductChannel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ONLINE`, `LOCAL`
+
+## ProductChannelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductChannelExclusivity
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SINGLE_CHANNEL`, `MULTI_CHANNEL`
+
+## ProductChannelExclusivityEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductChannelExclusivityInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel_exclusivity` | `channel_exclusivity` | `ProductChannelExclusivity` | No | No | — |
+
+## ProductChannelInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel` | `channel` | `ProductChannel` | No | No | — |
+
+## ProductCondition
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW`, `REFURBISHED`, `USED`
+
+## ProductConditionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductConditionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `condition` | `condition` | `ProductCondition` | No | No | — |
+
+## ProductCoreAttributes
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `marketing_objective` | `marketing_objective` | `ReachPlanMarketingObjective` | No | No | — |
+| `cost_model` | `cost_model` | `ReachPlanCostModel` | No | No | — |
+| `buying_method` | `buying_method` | `ReachPlanBuyingMethod` | No | No | — |
+
+## ProductCustomAttribute
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+| `index` | `index` | `ListingGroupFilterCustomAttributeIndex` | No | No | — |
+
+## ProductCustomAttributeIndex
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INDEX0`, `INDEX1`, `INDEX2`, `INDEX3`, `INDEX4`
+
+## ProductCustomAttributeIndexEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductCustomAttributeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+| `index` | `index` | `ProductCustomAttributeIndex` | No | No | — |
+
+## ProductFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_list` | `product_list` | `unknown` | No | No | — |
+| `marketing_objective_list` | `marketing_objective_list` | `unknown` | No | No | — |
+
+## ProductGroupingInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductGroupView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## ProductIssue
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_code` | `error_code` | `string` | No | No | — |
+| `ads_severity` | `ads_severity` | `ProductIssueSeverity` | No | No | — |
+| `attribute_name` | `attribute_name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `detail` | `detail` | `string` | No | No | — |
+| `documentation` | `documentation` | `string` | No | No | — |
+| `affected_regions` | `affected_regions` | `Array<string>` | No | No | — |
+
+## ProductIssueSeverity
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WARNING`, `ERROR`
+
+## ProductIssueSeverityEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductItemId
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductItemIdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductLabelsInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductLegacyConditionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductLink
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `product_link_id` | `product_link_id` | `string` | No | No | — |
+| `type` | `type` | `LinkedProductType` | No | No | — |
+| `data_partner` | `data_partner` | `unknown` | No | No | — |
+| `google_ads` | `google_ads` | `unknown` | No | No | — |
+| `merchant_center` | `merchant_center` | `unknown` | No | No | — |
+| `advertising_partner` | `advertising_partner` | `unknown` | No | No | — |
+| `advertising_partner_properties` | `advertising_partner_properties` | `unknown` | No | No | — |
+
+## ProductLinkError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_OPERATION`, `CREATION_NOT_PERMITTED`, `INVITATION_EXISTS`, `LINK_EXISTS`
+
+## ProductLinkErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductLinkInvitation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `product_link_invitation_id` | `product_link_invitation_id` | `string` | No | No | — |
+| `status` | `status` | `ProductLinkInvitationStatus` | No | No | — |
+| `type` | `type` | `LinkedProductType` | No | No | — |
+| `hotel_center` | `hotel_center` | `unknown` | No | No | — |
+| `merchant_center` | `merchant_center` | `unknown` | No | No | — |
+| `advertising_partner` | `advertising_partner` | `unknown` | No | No | — |
+| `advertising_partner_properties` | `advertising_partner_properties` | `unknown` | No | No | — |
+
+## ProductLinkInvitationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_STATUS`, `PERMISSION_DENIED`, `NO_INVITATION_REQUIRED`, `CUSTOMER_NOT_PERMITTED_TO_CREATE_INVITATION`, `INVALID_ADVERTISING_PARTNER_ALLOWED_DOMAIN`
+
+## ProductLinkInvitationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductLinkInvitationStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACCEPTED`, `REQUESTED`, `PENDING_APPROVAL`, `REVOKED`, `REJECTED`, `EXPIRED`
+
+## ProductLinkInvitationStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_codes` | `product_codes` | `Array<string>` | No | No | — |
+
+## ProductMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
+| `plannable_product_name` | `plannable_product_name` | `string` | No | No | — |
+| `plannable_product_description` | `plannable_product_description` | `string` | No | No | — |
+| `plannable_product_core_attributes` | `plannable_product_core_attributes` | `unknown` | No | No | — |
+| `plannable_targeting` | `plannable_targeting` | `unknown` | No | No | — |
+
+## ProductRecontextGenerationImageInput
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `prompt` | `prompt` | `string` | No | No | — |
+| `source_images` | `source_images` | `Array<unknown>` | No | No | — |
+
+## ProductStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NOT_ELIGIBLE`, `ELIGIBLE_LIMITED`, `ELIGIBLE`
+
+## ProductStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ProductType
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+| `level` | `level` | `ListingGroupFilterProductTypeLevel` | No | No | — |
+
+## ProductTypeFullInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## ProductTypeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+| `level` | `level` | `ProductTypeLevel` | No | No | — |
+
+## ProductTypeLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LEVEL1`, `LEVEL2`, `LEVEL3`, `LEVEL4`, `LEVEL5`
+
+## ProductTypeLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PromoteCampaignDraftRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_draft` | `campaign_draft` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## PromoteExperimentMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `experiment` | `experiment` | `string` | No | No | — |
+
+## PromoteExperimentRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## PromotionAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promotion_target` | `promotion_target` | `string` | No | No | — |
+| `discount_modifier` | `discount_modifier` | `PromotionExtensionDiscountModifier` | No | No | — |
+| `redemption_start_date` | `redemption_start_date` | `string` | No | No | — |
+| `redemption_end_date` | `redemption_end_date` | `string` | No | No | — |
+| `occasion` | `occasion` | `PromotionExtensionOccasion` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `ad_schedule_targets` | `ad_schedule_targets` | `Array<unknown>` | No | No | — |
+| `terms_and_conditions_text` | `terms_and_conditions_text` | `string` | No | No | — |
+| `terms_and_conditions_uri` | `terms_and_conditions_uri` | `string` | No | No | — |
+| `percent_off` | `percent_off` | `string` | No | No | — |
+| `money_amount_off` | `money_amount_off` | `unknown` | No | No | — |
+| `promotion_code` | `promotion_code` | `string` | No | No | — |
+| `orders_over_amount` | `orders_over_amount` | `unknown` | No | No | — |
+| `promotion_barcode_info` | `promotion_barcode_info` | `unknown` | No | No | — |
+| `promotion_qr_code_info` | `promotion_qr_code_info` | `unknown` | No | No | — |
+
+## PromotionBarcodeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `PromotionBarcodeType` | No | No | — |
+| `barcode_content` | `barcode_content` | `string` | No | No | — |
+
+## PromotionBarcodeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AZTEC`, `CODABAR`, `CODE39`, `CODE128`, `DATA_MATRIX`, `EAN8`, `EAN13`, `ITF`, `PDF417`, `UPC_A`

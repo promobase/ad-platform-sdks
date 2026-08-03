@@ -1,0 +1,862 @@
+---
+title: "TikTok Business BC Assets endpoints"
+description: "23 generated TikTok Business endpoint contracts for BC Assets."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 112
+  label: "BC Assets"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCAssets.advertiserUpdate
+
+`POST` `/open_api/v1.3/advertiser/update/`
+
+Generated from TikTok documentation 1739939050770434
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdvertiserUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set.To update non-budget settings for a single ad account, use `advertiser_id`.To update the budget for one or more ad accounts, use `bc_id`. Ad account ID. |
+| `advertiser_name` | `body` | `string` | No | No | Ad account name. |
+| `company` | `body` | `string` | No | No | Company name. To confirm whether the company name of the ad account can be updated via API, call [/advertiser/info/](https://business-api.tiktok.com/portal/docs?id=1739593083610113) and set `fields` to `["company_name_editable"]`. If the returned `company_name_editable` is `true`, you can use this field to update the company name. If the returned `company_name_editable` is `false`, you need to contact your TikTok representative to update the company name. |
+| `contact_name` | `body` | `string` | No | No | Name of the contact person. |
+| `contact_email` | `body` | `string` | No | No | Contact email. |
+| `contact_number` | `body` | `string` | No | No | Contact phone number. |
+| `promotion_link` | `body` | `string` | No | No | Promotion link. Length cannot exceed 255 characters. |
+| `license_no` | `body` | `string` | No | No | Business license number. Note: This field is supported for ad accounts that are registered in the Chinese mainland, Hong Kong, or in countries Brazil and Mexico. |
+| `license_image_id` | `body` | `string` | No | No | Image ID (`image_id`) of the business license. |
+| `qualification_images` | `body` | `Array<AdvertiserUpdateParamsQualificationImages>` | No | No | Additional business certificates. |
+| `address` | `body` | `string` | No | No | Business address that is shown on receipts. Length range: 1-1,024 characters. |
+| `tax_map` | `body` | `string` | No | No | Billing and invoicing tax number. Different countries use different tax number fields. France uses `vat`, and Brazil uses `tax_id`. |
+| `need_submit_certificate` | `body` | `boolean` | No | No | Whether you want to submit the new certificate images for review. Supported values: `true`,`false`. Note: Set this field to `true` only when you update any of the following fields: `compnay``promotion_link``license_no``license_image_id``qualification_images`If none of these fields change, omit this parameter to avoid re-triggering the certificate review process. |
+| `bc_id` | `body` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set.To update non-budget settings for a single ad account, use `advertiser_id`.To update the budget for one or more ad accounts, use `bc_id`. Business Center ID. Only the ad accounts under the specified `bc_id` can be updated. Note: Only users with Finance Manager permission (`finance_role` is `MANAGER`) can update the budget and reset the budget consumption of an ad account. You can use [/bc/member/invite/](https://ads.tiktok.com/marketing_api/docs?id=1739939455765505) and [/bc/member/update/](https://ads.tiktok.com/marketing_api/docs?id=1739696704424961) to configure or update access settings for members. |
+| `budget_update_type` | `body` | `"UPDATE" \| "RESET" \| "CUSTOM_BUDGET" \| "INCREMENTAL_UPDATE" \| "ONE_CLICK_SET"` | No | No | Valid only when `bc_id` is passed.Not supported when `advertiser_id` is passed. The type of changes you want to perform on your budget. Enum values: `UPDATE`: To update the budget mode and budget amount. If you set this field to `UPDATE`, pass in `advertiser_id`, `budget`, and optionally `budget_mode` within the `advertiser_budgets` object. `RESET`: To reset the budget consumption of the ad account or ad accounts to 0.You can only reset the budget consumption of an ad account with a custom budget (`budget_mode` is `CUSTOM_BUDGET`).If you set this field to `RESET`, only `advertiser_id` within the `advertiser_budgets` object is required, and `budget_mode` and `budget`, if passed, will be ignored.`INCREMENTAL_UPDATE`: To add to or deduct from the current ad account budget. `ONE_CLICK_SET`: To set the ad account budget to the minimum amount. You don't need to specify the `budget` within the `advertiser_budgets` object array. You can obtain the budget after the change from the response parameter `one_click_set_amount`. Default value: `UPDATE`. Note: `UPDATE` and `RESET` are only supported for Auction ad accounts. |
+| `request_id` | `body` | `string` | No | No | Valid only when `budget_update_type` is `INCREMENTAL_UPDATE`. Request ID. This field supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times, then only one will succeed. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a 32-bit string, with idempotency guaranteed for a 30-minute window. Example: `123456789`. Note: Idempotency for incremental ad account budget updates using `request_id` is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `advertiser_budgets` | `body` | `Array<AdvertiserUpdateParamsAdvertiserBudgets>` | No | No | Required when `bc_id` is passed. Information about the new budget settings of one or more ad accounts. Max size: When `budget_update_type` is `UPDATE` or `RESET`: 50.When `budget_update_type` is `INCREMENTAL_UPDATE` or `ONE_CLICK_SET`: 1. Note: The monthly budget, daily budget, and custom budget of each ad account can be updated up to 20 times a calendar day. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.assetBindQuota
+
+`GET` `/open_api/v1.3/asset/bind/quota/`
+
+Generated from TikTok documentation 1739659584022529
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AssetBindQuotaResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `asset_id` | `query` | `string` | Yes | No | Asset ID. |
+| `asset_type` | `query` | `string` | Yes | No | Enum values: `IDENTITY`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAdvertiserCreate
+
+`POST` `/open_api/v1.3/bc/advertiser/create/`
+
+Generated from TikTok documentation 1739939020318721
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAdvertiserCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `tied_to_billing_group` | `body` | `boolean` | No | No | Whether to add the ad account to a billing group. Default value: `False`. Note: This field is an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `advertiser_info` | `body` | `BcAdvertiserCreateParamsAdvertiserInfo` | Yes | No | Ad Account information. |
+| `customer_info` | `body` | `BcAdvertiserCreateParamsCustomerInfo` | Yes | No | Business Information. |
+| `qualification_info` | `body` | `BcAdvertiserCreateParamsQualificationInfo` | No | No | Required when your Business Center type is `AGENCY` or `SELF_SERVICE_AGENCY`. Qualification information. Note: Don't specify this object when your Business Center type is `DIRECT`, or an error will occur. |
+| `contact_info` | `body` | `BcAdvertiserCreateParamsContactInfo` | No | No | Contact Information. |
+| `billing_info` | `body` | `BcAdvertiserCreateParamsBillingInfo` | No | No | Billing information. Required if the place of registration of the ad account or the agency that owns the Business Center is France, Brazil, or Mexico. Code example for Mexican ad account creation: `"billing_info":&#123;"address":"xxxx","tax_field_dict": &#123;"tax_id": "xxxx", "tax_regime": "xxxx"&#125;&#125;` |
+| `billing_group_info` | `body` | `BcAdvertiserCreateParamsBillingGroupInfo` | No | No | Billing group information. |
+| `payment_info` | `body` | `BcAdvertiserCreateParamsPaymentInfo` | No | No | Payment information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAdvertiserDisable
+
+`POST` `/open_api/v1.3/bc/advertiser/disable/`
+
+Generated from TikTok documentation 1752349244331009
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAdvertiserDisableResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | IDs of the ad accounts in the Business Center that you want to disable. Max size =1. Important : If an account in the Business Center is disabled, the balance of the ad account will be transferred to the Business Center that the ad account belongs to. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAdvertiserQualificationGet
+
+`GET` `/open_api/v1.3/bc/advertiser/qualification/get/`
+
+Generated from TikTok documentation 1770118680584194
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAdvertiserQualificationGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `query` | `BcAdvertiserQualificationGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: `1`. Value range : ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: `10`. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAdvertiserUnionpayInfoCheck
+
+`GET` `/open_api/v1.3/bc/advertiser/unionpay_info/check/`
+
+Generated from TikTok documentation 1813772238056449
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAdvertiserUnionpayInfoCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `license_no` | `query` | `string` | Yes | No | Business license number. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAdvertiserUnionpayInfoSubmit
+
+`POST` `/open_api/v1.3/bc/advertiser/unionpay_info/submit/`
+
+Generated from TikTok documentation 1813772274039809
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAdvertiserUnionpayInfoSubmitResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. You need to have Admin permission for the Business Center. To obtain the list of Business Centers where you have Admin permission, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826) and ensure the returned `user_role` is `ADMIN`. |
+| `advertiser_id` | `body` | `string` | Yes | No | Ad account ID. You need to specify the ID of the ad account associated with the business license that requires UnionPay verification and have Admin permission for the ad account. |
+| `representative_name` | `body` | `string` | Yes | No | The Chinese name of the legal representative as it appears on the business license. |
+| `representative_document_type` | `body` | `"ID_CARD" \| "PASSPORT" \| "HK_MACAO_EXIT_ENTRY_PERMIT" \| "TAIWAN_MAINLAND_TRAVEL_PERMIT" \| "HK_MACAO_MAINLAND_TRAVEL_PERMIT"` | No | No | The type of the representative document. Enum values:`ID_CARD`: ID card.`PASSPORT`: Passport.`HK_MACAO_EXIT_ENTRY_PERMIT`: Exit-Entry Permit for Travelling to and from Hong Kong and Macao.`TAIWAN_MAINLAND_TRAVEL_PERMIT`: Mainland Travel Permit for Taiwan Residents.`HK_MACAO_MAINLAND_TRAVEL_PERMIT`: Mainland Travel Permit for Hong Kong and Macao Residents.Default value: `ID_CARD`. |
+| `representative_id` | `body` | `string` | Yes | No | The ID of the representative document. When `representative_document_type` is `ID_CARD` or not passed, specify the ID card number of the legal representative in 18 digits. Example: `234123190101012345`.When `representative_document_type` is `PASSPORT`, specify the alphanumeric ID of the passport.Example: `EF1234567`.When `representative_document_type` is `HK_MACAO_EXIT_ENTRY_PERMIT`, specify the alphanumeric ID card number of the Exit-Entry Permit for Travelling to and from Hong Kong and Macao. Example: `CA1234567`. When `representative_document_type` is `TAIWAN_MAINLAND_TRAVEL_PERMIT`, specify the numeric ID of the Mainland Travel Permit for Taiwan Residents. Example: `12345678`.When `representative_document_type` is `HK_MACAO_MAINLAND_TRAVEL_PERMIT`, specify the alphanumeric ID Mainland Travel Permit for Hong Kong and Macao Residents. Example: `H12345678`. |
+| `unionpay_account` | `body` | `string` | Yes | No | The UnionPay account number in 12 to 19 digits. |
+| `representative_phone_number` | `body` | `string` | Yes | No | The phone number of the legal representative in 11 digits. Example: `13812345678`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAccountAuthorization
+
+`POST` `/open_api/v1.3/bc/asset/account/authorization/`
+
+Generated from TikTok documentation 1846868897541122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAccountAuthorizationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `is_ads_only_mode` | `body` | `boolean` | No | No | Whether to enable "Show through ads only" permission. You can enable this permission to prevent members from publishing posts that appear on the TikTok account profile. Once you enable this permission and receive approval for ad delivery permission from the TikTok account owner, videos published through Spark Ads PUSH by members who are assigned the TikTok account will get paid traffic (formerly "ads-only mode") and are hidden from organic traffic. Supported values: `true`, `false`. Default value: `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAdminDelete
+
+`POST` `/open_api/v1.3/bc/asset/admin/delete/`
+
+Generated from TikTok documentation 1739657251102722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAdminDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `asset_ids` | `body` | `Array<string>` | Yes | No | List of asset IDs that you want to delete. Currently, only one ID is allowed. `library_id` when `asset_type` is `LEAD`, and ID of a TikTok account in a Business Center when `asset_type` is `TT_ACCOUNT`. |
+| `asset_type` | `body` | `"LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT"` | Yes | No | Type of asset you want to delete. Enum values: `LEAD`, `TT_ACCOUNT`(corresponds to `BC_AUTH_TT`, and learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097)). Note When the `asset_type` is `LEAD`, you can only delete a single lead at a time. Once deleted, the lead will be moved back to the ad account that it was placed previously. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAdminGet
+
+`GET` `/open_api/v1.3/bc/asset/admin/get/`
+
+Generated from TikTok documentation 1739433007779841
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAdminGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `query` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | The type of asset that you want to get. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `filtering` | `query` | `BcAssetAdminGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAdvertiserAssign
+
+`POST` `/open_api/v1.3/bc/asset/advertiser/assign/`
+
+Generated from TikTok documentation 1846868953025538
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAdvertiserAssignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_type` | `body` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | No | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. Default value: `TT_ACCOUNT`. |
+| `asset_id` | `body` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `advertiser_id` | `body` | `string` | Yes | No | The ID of an ad account within the same Business Center to link the TikTok account to. To obtain the list of ad accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAdvertiserAssigned
+
+`GET` `/open_api/v1.3/bc/asset/advertiser/assigned/`
+
+Generated from TikTok documentation 1855027294743554
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAdvertiserAssignedResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_id` | `query` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `asset_type` | `query` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAdvertiserUnassign
+
+`POST` `/open_api/v1.3/bc/asset/advertiser/unassign/`
+
+Generated from TikTok documentation 1855027260369921
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAdvertiserUnassignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_id` | `body` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `asset_type` | `body` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `advertiser_id` | `body` | `string` | Yes | No | The ID of an ad account within the same Business Center to unlink the TikTok account from. To obtain the list of ad accounts already linked to a TikTok account within a Business Center, use [/bc/asset/advertiser/assigned/](https://business-api.tiktok.com/portal/docs?id=1855027294743554). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetAssign
+
+`POST` `/open_api/v1.3/bc/asset/assign/`
+
+Generated from TikTok documentation 1739438211077121
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetAssignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `user_id` | `body` | `string` | Yes | No | The ID of the Business Center user that you want to assign the asset to. You can obtain the Business Center user ID via `user_id` returned by [/bc/member/get/](https://ads.tiktok.com/marketing_api/docs?id=1739939404802049). |
+| `asset_type` | `body` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `body` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `TIKTOK_SHOP`, this field is the TikTok Shop ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `advertiser_role` | `body` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Required when `asset_type` is `ADVERTISER`. Advertiser role. This is equivalent to Layer 2 of Ad Account Permissions. Enum values: `ADMIN`, `OPERATOR`, `ANALYST`. For details about these permissions, see [Manage Permissions on TikTok Business Center](https://ads.tiktok.com/help/article?aid=12791). |
+| `catalog_role` | `body` | `"ADMIN" \| "AD_PROMOTE"` | No | No | Required when `asset_type` is `CATALOG`. Business Center user's permissions to the catalog. Enum values: `ADMIN`: The Business Center user has Admin permissions to the catalog. `AD_PROMOTE`: The Business Center user can only use the catalog for promotions. |
+| `form_library_role` | `body` | `string` | No | No | Required when `asset_type` is `LEAD`. Form library role assigned to the user. Currently, only `ADMIN` is supported. |
+| `tt_account_roles` | `body` | `Array<"POST" \| "LIVE" \| "DIRECT_MESSAGE">` | No | No | Required when `asset_type` is `TT_ACCOUNT`. Business Center user's ad delivery permission to the TikTok account. Enum values:`POST`: Existing posts permissions, including accessing your own profile info, accessing your own public videos, and accessing your own ad-authorized videos.`LIVE`: LIVE video permissions (Only available in some regions), including accessing your own profile info and accessing LIVE videos.`DIRECT_MESSAGE`: Direct message permissions, including allowing everyone to send you a direct message and reading and managing direct messages in your inbox, in addition to messaging or interacting with other accounts on your behalf. |
+| `business_account_roles` | `body` | `Array<"BUSINESS_ACCOUNT_ADMIN" \| "BUSINESS_ACCOUNT_OPERATOR" \| "BUSINESS_ACCOUNT_ANALYST">` | No | No | Required only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Business Center user's Business Account management permission to the TikTok account. Enum values:`BUSINESS_ACCOUNT_ADMIN`: Business Account admin. Business Account admins have access to all Business Account features, including verification, member management, and linking to Business Center.`BUSINESS_ACCOUNT_OPERATOR`: Business Account operator. Business Account operators can manage TikTok analytics, posts, messages, and profile information.`BUSINESS_ACCOUNT_ANALYST`: Business Account analyst. Business Account analysts only have access to analytics and are not able to manage posts, messages, etc. Max size: 1. |
+| `store_role` | `body` | `string` | No | No | Required when `asset_type` is `TIKTOK_SHOP`. Business Center user's permission to a TikTok Shop. Enum values:`AD_PROMOTION`: The Business Center user can only use the TikTok Shop for promotions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetGet
+
+`GET` `/open_api/v1.3/bc/asset/get/`
+
+Generated from TikTok documentation 1739432717798401
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `query` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Type of asset that you want to get. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `filtering` | `query` | `BcAssetGetParamsFiltering` | No | No | Filtering conditions. Note:You cannot use `user_id` and `user_email` at the same time.If you don't specify any filter values, the system will pass in to the `user_id` field the user ID of the TikTok for Business account that gives you the authorization code (`auth_code`). |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetMemberGet
+
+`GET` `/open_api/v1.3/bc/asset/member/get/`
+
+Generated from TikTok documentation 1739659558931458
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetMemberGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `query` | `"ADVERTISER" \| "CATALOG" \| "LEAD" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`LEAD`: leads.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `query` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `page` | `query` | `number` | No | No | Current page number. |
+| `page_size` | `query` | `number` | No | No | Page size. |
+| `filtering` | `query` | `BcAssetMemberGetParamsFiltering` | No | No | Filtering conditions |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetPartnerGet
+
+`GET` `/open_api/v1.3/bc/asset/partner/get/`
+
+Generated from TikTok documentation 1739663268166722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetPartnerGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `query` | `"ADVERTISER" \| "CATALOG"` | Yes | No | Asset type. Enum values: `ADVERTISER`, `CATALOG`. |
+| `asset_id` | `query` | `string` | Yes | No | Asset ID. Ad account ID when `asset_type` is `ADVERTISER`. Catalog ID when `asset_type` is` CATALOG`. |
+| `filtering` | `query` | `BcAssetPartnerGetParamsFiltering` | No | No | Filtering object |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcAssetUnassign
+
+`POST` `/open_api/v1.3/bc/asset/unassign/`
+
+Generated from TikTok documentation 1739448126749698
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcAssetUnassignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `user_id` | `body` | `string` | Yes | No | The ID of the Business Center user that you want to revoke the access to the asset from. You can obtain the Business Center user ID via `user_id` returned by [/bc/member/get/](https://ads.tiktok.com/marketing_api/docs?id=1739939404802049). |
+| `asset_type` | `body` | `"ADVERTISER" \| "CATALOG" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `body` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcImageUpload
+
+`POST` `/open_api/v1.3/bc/image/upload/`
+
+Generated from TikTok documentation 1739938996913218
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcImageUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `image_file` | `body` | `unknown` | Yes | No | The certificate image file to be uploaded. Supported picture format: JPG/JPEG/PNG. The maximum file size is 10 MB. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcOaCreate
+
+`POST` `/open_api/v1.3/bc/oa/create/`
+
+Generated from TikTok documentation 1855027199571138
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcOaCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | The ID of the Business Center. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `display_name` | `body` | `string` | Yes | No | The display name (username) for the Organization Account. Length limit: 30 characters. |
+| `handle` | `body` | `string` | No | No | The handle (name) for the Organization Account. Length limit: 24 characters. The handle cannot consist solely of numbers. If the handle is already taken, an error will occur. |
+| `profile_image` | `body` | `unknown` | No | No | The file to be used as the profile image for the Organization Account. |
+| `operating_region_code` | `body` | `string` | Yes | No | The code representing the country or region where you would like to run your business. For enum values, see List of values for `operating_region_code`. Note: If your business is based in the Chinese mainland, you must select an operating region other than China when creating an Organization Account, as `CN` is not an available option for `operating_region_code`. |
+| `qualification_info` | `body` | `BcOaCreateParamsQualificationInfo` | No | No | Required when the `type` of your Business Center is `AGENCY` or `SELF_SERVICE_AGENCY`. Qualification information. To obtain the type of your Business Center, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826) and check the returned `type`. If the `type` of your Business Center is `DIRECT` or `SELF_SERVICE`, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcPixelLinkGet
+
+`GET` `/open_api/v1.3/bc/pixel/link/get/`
+
+Generated from TikTok documentation 1753994966965249
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCAssets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPixelLinkGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID |
+| `pixel_code` | `query` | `string` | Yes | No | Pixel Code |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcPixelLinkUpdate
+
+`POST` `/open_api/v1.3/bc/pixel/link/update/`
+
+Generated from TikTok documentation 1753994950327297
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPixelLinkUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `pixel_code` | `body` | `string` | Yes | No | Pixel Code |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | Advertiser ID list |
+| `relation_status` | `body` | `"LINK" \| "UNLINK"` | Yes | No | Enum values: `LINK`, `UNLINK`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCAssets.bcPixelTransfer
+
+`POST` `/open_api/v1.3/bc/pixel/transfer/`
+
+Generated from TikTok documentation 1753994928261122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCAssets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPixelTransferResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | The BC id that you would like to transfer the pixel to. |
+| `pixel_code` | `body` | `string` | Yes | No | The pixel code that you would like to transfer to BC. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

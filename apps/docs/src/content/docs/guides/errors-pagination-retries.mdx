@@ -1,0 +1,35 @@
+---
+title: Errors, pagination, and retries
+description: Production behavior for provider failures, cursor traversal, cancellation, and safe retries.
+sidebar:
+  order: 30
+  label: Errors and retries
+---
+
+Expected provider failures use tagged platform errors. Generated descriptors also declare known
+status/code models and whether a failure is retryable; see each endpoint in the [generated
+reference](/reference).
+
+## Retry rules
+
+- Reads may retry bounded transient failures with jitter and `Retry-After` support.
+- Unsafe writes do not retry automatically.
+- Keyed writes retry only when the request includes an idempotency key.
+- Abort signals cancel backoff and the underlying request.
+
+Durable workflows still belong to your application: persist idempotency keys, approval state,
+operation status, billing state, and polling checkpoints outside the SDK.
+
+## Pagination
+
+Provider-native clients expose their native pagination shape. Shared runtime cursors are async
+iterables, so consumers can stop without fetching the full collection.
+
+```ts
+for await (const campaign of account.campaigns.get({ fields: ["id", "name"] })) {
+  if (campaign.id === targetId) break;
+}
+```
+
+Generated reference pages name the request cursor, response cursor, and item field when the source
+contract declares them.

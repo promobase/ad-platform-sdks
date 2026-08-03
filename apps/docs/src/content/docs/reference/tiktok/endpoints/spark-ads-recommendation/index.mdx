@@ -1,0 +1,87 @@
+---
+title: "TikTok Business Spark Ads Recommendation endpoints"
+description: "2 generated TikTok Business endpoint contracts for Spark Ads Recommendation."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 158
+  label: "Spark Ads Recommendation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.sparkAdsRecommendation.businessVideoRecommend
+
+`GET` `/open_api/v1.3/business/video/recommend/`
+
+Generated from TikTok documentation 1825128684907522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `sparkAdsRecommendation.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessVideoRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `video_ids` | `query` | `Array<string>` | No | No | If you want to have all videos under your Business Account analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of videos that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`. The recommendation level (`recommendation_level`) for each video is relative to the provided video set. Different video sets might result in different recommendation levels for the same video. The ID list of videos for which you wish to receive recommendations only. Max size: 20. To get the IDs of public videos under your Business Account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). |
+| `exclude_video_ids` | `query` | `Array<string>` | No | No | If you want to have all videos under your Business Account analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of videos that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`. The ID list of videos for which you don't wish to receive recommendations. No max size limit. To get the IDs of public videos under your Business Account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). |
+| `time` | `query` | `"PAST_ONE_MONTH" \| "PAST_THREE_MONTHS" \| "PAST_SIX_MONTHS"` | No | No | The time when the TikTok video posts were published. Enum values:`PAST_ONE_MONTH`: In the past one month.`PAST_THREE_MONTHS`: In the past three months.`PAST_SIX_MONTHS`: In the past six months. Default value: `PAST_SIX_MONTHS`. |
+| `objective_type` | `query` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "LEAD_GENERATION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | No | No | The advertising objective for which to generate recommendations. Enum values:`REACH`: Reach.`TRAFFIC`: Traffic.`VIDEO_VIEWS`: Video views.`ENGAGEMENT`: Community interaction.`APP_PROMOTION`: App promotion.`LEAD_GENERATION`: Lead generation.`WEB_CONVERSIONS`: Website conversions.`PRODUCT_SALES`: Product sales. Default value: `REACH`. If you specify this field, you can create a campaign with the same advertising objective (`objective_type`) value by using [/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1739318962329602) and use the recommended video post in your ads by setting `tiktok_item_id` to one of the recommended post IDs (`item_id`) in [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.sparkAdsRecommendation.sparkAdRecommend
+
+`GET` `/open_api/v1.3/spark_ad/recommend/`
+
+Generated from TikTok documentation 1825128700959746
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `sparkAdsRecommendation.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SparkAdRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tcm_account_id` | `query` | `string` | Yes | No | The ID of a TTO Creator Marketplace account. Specify this field if you want to receive Spark Ads recommendations for videos associated with a TTO Creator Marketplace account. |
+| `video_ids` | `query` | `Array<string>` | No | No | If you want to have all video posts associated with your TTO Creator Marketplace account in the past year analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of video posts that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`.The recommendation level (`recommendation_level`) for each video post is relative to the provided video set. Different video sets might result in different recommendation levels for the same video. The ID list of video posts for which you wish to receive recommendations only. Specify the IDs of video posts belonging to TTO campaigns associated with the TTO Creator Marketplace account. To obtain post IDs belonging to TTO campaigns, use [/tto/tcm/report/](https://business-api.tiktok.com/portal/docs?id=1815693573340162) or [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Max size: 100. |
+| `exclude_video_ids` | `query` | `Array<string>` | No | No | If you want to have all video posts associated with your TTO Creator Marketplace account in the past year analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of video posts that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`. The ID list of video posts for which you don't wish to receive recommendations. Specify the IDs of video posts belonging to TTO campaigns associated with the TTO Creator Marketplace account. To obtain post IDs belonging to TTO campaigns, use [/tto/tcm/report/](https://business-api.tiktok.com/portal/docs?id=1815693573340162) or [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Max size: 100. |
+| `time` | `query` | `"PAST_ONE_MONTH" \| "PAST_THREE_MONTHS" \| "PAST_SIX_MONTHS"` | No | No | The time when the TikTok video posts were published. Enum values:`PAST_ONE_MONTH`: In the past one month.`PAST_THREE_MONTHS`: In the past three months.`PAST_SIX_MONTHS`: In the past six months. If this field is not passed, all videos published at any time will be analyzed to generate recommendations. Note: If you pass the `video_ids` and `time` filters together, the `time` filter will be ignored. However, you can use `exclude_video_ids` and `time` filters together. |
+| `objective_type` | `query` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "APP_PROMOTION" \| "LEAD_GENERATION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | No | No | The advertising objective for which to generate recommendations. Enum values:`REACH`: Reach.`TRAFFIC`: Traffic.`VIDEO_VIEWS`: Video views.`APP_PROMOTION`: App promotion.`LEAD_GENERATION`: Lead generation.`WEB_CONVERSIONS`: Website conversions.`PRODUCT_SALES`: Product sales. If this field is not specified, advertising objectives will not be factored into recommendation results. If you specify this field, you can create a campaign with the same advertising objective (`objective_type`) value by using [/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1739318962329602) and use the recommended video post in your ads by setting `tiktok_item_id` to one of the recommended post IDs (`item_id`) in [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

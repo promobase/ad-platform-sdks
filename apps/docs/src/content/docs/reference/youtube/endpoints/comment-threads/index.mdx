@@ -1,0 +1,91 @@
+---
+title: "YouTube Comment Threads endpoints"
+description: "2 generated YouTube endpoint contracts for Comment Threads."
+generated: true
+platform: "youtube"
+sourceVersion: "v3"
+sidebar:
+  order: 102
+  label: "Comment Threads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-v3.json). Do not edit by hand. */}
+
+## youtube.commentThreads.insert
+
+`POST` `youtube/v3/commentThreads`
+
+Inserts a new resource into this collection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `commentThreads.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `CommentThread` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `part` | `query` | `string` | Yes | No | The *part* parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units. |
+| `body` | `body` | `CommentThread` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.commentThreads.list
+
+`GET` `youtube/v3/commentThreads`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `commentThreads.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `CommentThreadListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allThreadsRelatedToChannelId` | `query` | `string` | No | No | Returns the comment threads of all videos of the channel and the channel comments as well. |
+| `channelId` | `query` | `string` | No | No | Returns the comment threads for all the channel comments (ie does not include comments left on videos). |
+| `id` | `query` | `string` | No | No | Returns the comment threads with the given IDs for Stubby or Apiary. |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `moderationStatus` | `query` | `"published" \| "heldForReview" \| "likelySpam" \| "rejected"` | No | No | Limits the returned comment threads to those with the specified moderation status. Not compatible with the 'id' filter. Valid values: published, heldForReview, likelySpam. |
+| `order` | `query` | `"orderUnspecified" \| "time" \| "relevance"` | No | No | — |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include. |
+| `postId` | `query` | `string` | No | No | Returns the comment threads of the specified post. |
+| `searchTerms` | `query` | `string` | No | No | Limits the returned comment threads to those matching the specified key words. Not compatible with the 'id' filter. |
+| `textFormat` | `query` | `"textFormatUnspecified" \| "html" \| "plainText"` | No | No | The requested text format for the returned comments. |
+| `videoId` | `query` | `string` | No | No | Returns the comment threads of the specified video. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

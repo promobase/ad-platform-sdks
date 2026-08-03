@@ -1,0 +1,337 @@
+---
+title: "TikTok Business Campaign endpoints"
+description: "8 generated TikTok Business endpoint contracts for Campaign."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 123
+  label: "Campaign"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.campaign.campaignCopyTaskCheck
+
+`GET` `/open_api/v1.3/campaign/copy/task/check/`
+
+Generated from TikTok documentation 1788434463507458
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `campaign.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignCopyTaskCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `query` | `string` | Yes | No | ID of the asynchronous campaign copy task. To get the task ID, use [/campaign/copy/task/create/](https://business-api.tiktok.com/portal/docs?id=1788434394151938). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignCopyTaskCreate
+
+`POST` `/open_api/v1.3/campaign/copy/task/create/`
+
+Generated from TikTok documentation 1788434394151938
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaign.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignCopyTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of the campaign that you want to copy. Note: You cannot copy existing GMV Max Campaigns with customized TikTok posts. To check whether the campaign contains customized TikTok posts, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762) and check whether the returned `custom_anchor_video_list` is `[]`.You cannot copy iOS Dedicated Campaigns with Apps that have not activated the SAN module on your MMP. To ensure that TikTok SAN integration is enabled for your App, see [How to transition to SAN for existing apps](https://ads.tiktok.com/help/article/transition-to-san-for-existing-apps) and [How to integrate to SAN for new apps](https://ads.tiktok.com/help/article/integrate-to-san-for-new-apps). Starting September 30, 2024, you will no longer be able to copy campaigns that contain [Playable Ads](https://business-api.tiktok.com/portal/docs?id=1737730803189826) delivered to TikTok placement.Only campaigns with the supported advertising objectives (`REACH`, `TRAFFIC`, `VIDEO_VIEWS`, `ENGAGEMENT`, `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`) can be copied. Ad groups belonging to an `ENGAGEMENT` campaign and with a `promotion_type` of `LIVE_SHOPPING` cannot be copied. Ad groups belonging to an `ENGAGEMENT` campaign and with an `optimization_goal` of `PAGE_VISIT` cannot be copied. Smart+ Campaigns and Upgraded Smart+ Campaigns are not supported. If you want to copy an Upgraded Smart+ Campaign, use [/smart_plus/campaign/copy/task/create/](https://business-api.tiktok.com/portal/docs/create-an-asynchronous-copy-task-for-an-upgraded-smart-campaign/v1.3) instead. The campaign to be copied must have at least one undeleted ad group with at least one undeleted ad. The campaign to be copied should not exceed a limit of 20 undeleted ad groups, with a maximum of 50 undeleted ads per ad group. You cannot copy Automated Creative Optimization (ACO) ad groups in the campaign, but you can copy Smart Creative ad groups. If you copy a campaign that contains ad groups bound to a split test, only the ad groups will be copied. Split test groups associated with those ad groups will not be created. |
+| `request_id` | `body` | `string` | Yes | No | Request ID that supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times within the 10-second cache time, then only one request will succeed. If a duplicate request with the expired request ID is received after the cache time, the server will treat it as a new request and process it accordingly. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer. Example: `"123456789"`. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | The status of the new campaign when created. Enum values: `ENABLE`: The campaign is enabled when created. `DISABLE`: The campaign is disabled when created. Default value: `DISABLE`. If you want to update the status of the campaign after creation, use [/campaign/status/update/](https://business-api.tiktok.com/portal/docs?id=1739320994354178). |
+| `virtual_objective_type` | `body` | `string` | No | No | The new objective type. Enum value: `SALES`. Use this field to create a campaign with the Sales objective, the combined objective for Website Conversions and Product Sales objectives. Learn more about [the Sales objective](https://business-api.tiktok.com/portal/docs?id=1834189283112962). |
+| `sales_destination` | `body` | `"TIKTOK_SHOP" \| "WEBSITE" \| "APP"` | No | No | Required and valid only when `virtual_objective_type` is specified. Sales destination, the destination where you want to drive your sales. Enum values: `TIKTOK_SHOP`: TikTok Shop. Drive sales on your TikTok Shop.`WEBSITE`: Website. Drive sales on your website.`APP`: App. Drive sales on your app (product catalog required). |
+| `campaign_name` | `body` | `string` | No | No | The name for the new campaign. Length limit: 512 characters. Emojis are not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. If not specified, this field will default to `"COPIED_&#123;&#123;name_of_the_original_campaign&#125;&#125;"`. For instance, if the original campaign is named `"FIRST_CAMPAIGN"` and this field is not specified, the name of the new campaign will be `"COPIED_FIRST_CAMPAIGN"`. |
+| `is_advanced_dedicated_campaign` | `body` | `boolean` | No | No | Whether to enable the Advanced Dedicated Campaign setting for the new campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. To learn about how to create such campaigns, see [Create Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). Enum values: `true`, `false`. If this field is not passed, the new campaign will inherit the same Advanced Dedicated Campaign setting as the original campaign. Note: Once set, this field cannot be updated. |
+| `budget` | `body` | `number` | No | No | The budget for the new campaign. If not specified, this field will default to the budget of the original campaign. To learn about the minimum budget and how to set budget modes, see [Budget](https://business-api.tiktok.com/portal/docs?id=1739381246298114). To obtain the daily budget value range for a currency, see [Currency-Daily budget value range](https://business-api.tiktok.com/portal/docs?id=1737585839634433). |
+| `rta_id` | `body` | `string` | No | No | Realtime API (RTA) ID, the RTA strategy identifier. To obtain the list of RTA IDs associated with your ad account, contact your TikTok representative. To learn about the prerequisites for and the steps of enabling RTA for your ads, see [Realtime API](https://business-api.tiktok.com/portal/docs?id=1805437148769281). Note: Enabling RTA for your ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. You will need to complete the onboarding process to be able to receive and respond to RTA requests sent to your system first. |
+| `po_number` | `body` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+| `schedule_type` | `body` | `"SCHEDULE_START_END" \| "SCHEDULE_FROM_NOW"` | No | No | Specify this field only when you want to set the same schedule for all ad groups in the new campaign. If you want to set schedules separately for each ad group in the new campaign, you can pass the `schedule_type` within the object array `adgroup_list` instead. Schedule type for all new ad groups. Enum values: `SCHEDULE_START_END`: Set start time and end time to run ad groups. You need to pass both `schedule_start_time` and `schedule_end_time` at the same time.`SCHEDULE_FROM_NOW`: Set start time to run ad groups continuously. You need to pass `schedule_start_time` and the end time will be automatically set to 10 years later than the start time. |
+| `schedule_start_time` | `body` | `string` | No | No | Required when `schedule_type` is passed. Schedule start time (UTC+0) for all new ad groups, in the format of `"YYYY-MM-DD HH:MM:SS"`. The start time can be up to 12 hours earlier than the current time, but cannot be later than `"2028-01-01 00:00:00"`. |
+| `schedule_end_time` | `body` | `string` | No | No | Required when `schedule_type` is `SCHEDULE_START_END`. Not supported when `schedule_type` is `SCHEDULE_FROM_NOW`. Schedule end time (UTC+0) for all new ad groups, in the format of `"YYYY-MM-DD HH:MM:SS"`. The end time cannot be later than `"2038-01-01 00:00:00"`. |
+| `deep_copy_mode` | `body` | `"DEFAULT" \| "CUSTOM"` | No | No | The copying mode, which determines how ad groups and ads are created in the new campaign. Enum values: `DEFAULT`: Default copy mode. This mode copies all undeleted ad groups and ads from the original campaign to the new campaign. The field `adgroup_list` will be ignored. `CUSTOM`: Custom copy mode. This mode only copies the specified undeleted ad groups and ads from the original campaign to the new campaign. In this mode, you need to provide the field `adgroup_list` simultaneously. The maximum number of ads that can be copied is 50 ads per ad group, with a maximum of 20 ad groups. Default value: `DEFAULT`. |
+| `adgroup_list` | `body` | `Array<CampaignCopyTaskCreateParamsAdgroupList>` | No | No | When `deep_copy_mode` is set to `DEFAULT` or not passed, this field is ignored. When `deep_copy_mode` is set to `CUSTOM`, this field is required. The customized settings for ad groups in the new campaign. Max size: 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignCreate
+
+`POST` `/open_api/v1.3/campaign/create/`
+
+Generated from TikTok documentation 1739318962329602
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaign.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `body` | `string` | Yes | No | Advertising objective. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `app_promotion_type` | `body` | `"APP_INSTALL" \| "APP_RETARGETING" \| "APP_PREREGISTRATION"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum values: `APP_INSTALL`: App install. Get new users to install your app.`APP_RETARGETING`: App retargeting. Re-engage existing users to take action in your app. `APP_PREREGISTRATION`: App pre-registration. Get new users to pre-register before your app launches. To learn about how to create App Pre-registration ads, refer to [here](https://ads.tiktok.com/marketing_api/docs?id=1772549012687873). Note: `APP_INSTALL` can be used in an iOS14 Dedicated Campaign, while `APP_RETARGETING` and `APP_PREREGISTRATION` cannot be used.App Pre-Registration is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `virtual_objective_type` | `body` | `string` | No | No | The new objective type. Enum value: `SALES`. Use this field to create a campaign with the Sales objective, the combined objective for Website Conversions and Product Sales objectives. Learn more about [the Sales objective](https://business-api.tiktok.com/portal/docs?id=1834189283112962). |
+| `sales_destination` | `body` | `"TIKTOK_SHOP" \| "WEBSITE" \| "APP" \| "WEB_AND_APP"` | No | No | Required and valid only when `virtual_objective_type` is specified. Sales destination, the destination where you want to drive your sales. Enum values: `TIKTOK_SHOP`: TikTok Shop. Drive sales on your TikTok Shop.`WEBSITE`: Website. Drive sales on your website.`APP`: App. Drive sales on your app (product catalog required).`WEB_AND_APP`: Website and app. Drive sales on both your website and your app.To learn about how to create ads with this setting, see [Create ads with Website and App Optimization](https://business-api.tiktok.com/portal/docs?id=1839876593708034). Note: Creating ads with Website and App Optimization (with `sales_destination` set to `WEB_AND_APP`) is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `is_search_campaign` | `body` | `boolean` | No | No | Whether to create a Search Ads Campaign. With Search Ads Campaigns, you can select keywords and serve ads within TikTok's search result page. To learn more about how to create such campaigns, see [Create Search Ads Campaigns](https://business-api.tiktok.com/portal/docs?id=1815394136739841). Supported values: `true`, `false`. Note: Search Ads Campaigns are currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Once set, this field cannot be updated. |
+| `campaign_type` | `body` | `string` | No | No | Campaign type. Enums values: `REGULAR_CAMPAIGN`,` IOS14_CAMPAIGN`. The value `IOS14_CAMPAIGN` supports the advertising objectives of `PRODUCT_SALES` and `APP_PROMOTION`( its `app_promotion_type` = `APP_INSTALL`) . If `app_promotion_type` is specified as `APP_RETARGETING` or `APP_PREREGISTRATION`, `campaign_type` can only be set to `REGULAR_CAMPAIGN`. For iOS Dedicated Campaigns with other objectives, set `campaign_type` as `REGULAR_CAMPAIGN`. To learn more about Dedicated Campaigns, see [Dedicated Campaign](https://business-api.tiktok.com/portal/docs?id=1740029173531649). |
+| `app_id` | `body` | `string` | No | No | Required when the campaign is an iOS 14 Dedicated Campaign (`camapign_type`=`IOS14_CAMPAIGN`) with the advertising objective (`objective_type`) as `PRODUCT_SALES`, or `APP_PROMOTION`( its `app_promotion_type` = `APP_INSTALL`). The Application ID of the promoted app. You can get `app_id` by using the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. Note: You cannot specify an App that has not activated the SAN module on your MMP through this field to create iOS Dedicated Campaigns. To ensure that TikTok SAN integration is enabled for your App, see [How to transition to SAN for existing apps](https://ads.tiktok.com/help/article/transition-to-san-for-existing-apps) and [How to integrate to SAN for new apps](https://ads.tiktok.com/help/article/integrate-to-san-for-new-apps). |
+| `is_advanced_dedicated_campaign` | `body` | `boolean` | No | No | Whether the campaign is an Advanced Dedicated Campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. Enum values: `true`, `false`. Default value: `false`. To learn about how to create such campaigns, see [Create Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). Note: Once set, this field cannot be updated. |
+| `disable_skan_campaign` | `body` | `boolean` | No | No | Valid only when the following conditions are all met: `objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition). For a Dedicated Campaign using an app that is eligible for Advanced Dedicated Campaigns, you need to enable SKAN attribution or Advanced Dedicated Campaign or both. You cannot disable SKAN attribution and Advanced Dedicated Campaign simultaneously.`false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign.If you enable Advanced Dedicated Campaign by setting `is_advanced_dedicated_campaign` to `true` simultaneously, you'll be able to retrieve both [SAN](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) and [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Note: Disabling SKAN attribution for Dedicated Campaigns is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.If you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, you cannot set `bid_type` to `BID_TYPE_CUSTOM` at the ad group level when the following conditions are all met:At the campaign level: `is_advanced_dedicated_campaign` is `false`.`disable_skan_campaign` is `false`.At the ad group level:`optimization_goal` is `INSTALL` or `IN_APP_EVENT`.Once set, this field cannot be updated.Getting access to Advanced Dedicated Campaign requires the app to meet certain criteria. If your app is ineligible for Advanced Dedicated Campaign, reach out to your TikTok representative. Your TikTok representative will be able to provide troubleshooting support to help your app get access to Advanced Dedicated Campaign. |
+| `campaign_app_profile_page_state` | `body` | `"ON" \| "OFF"` | No | No | Whether to use app profile page to optimize delivery. Enum values: `ON`, `OFF`. Default value: `OFF`. You can use the field only when `objective_type` is `APP_PROMOTION` and your campaign is an iOS14 Dedicated Campaign. Otherwise, an error will occur. |
+| `rf_campaign_type` | `body` | `"STANDARD" \| "PULSE" \| "PREMIUM" \| "TOP_FEED"` | No | No | When `objective_type` is specified as `RF_REACH`, use this field to set the campaign as a TikTok Pulse campaign, then you can get available premium contextual tags. Do not pass in this field when `objective_type` is not specified as `RF_REACH`. Enum values: `STANDARD` (Reach & Frequency campaign), `PULSE`(TikTok Pulse campaign). Note: This is an allowlist-only feature. If you would like to access it, please contact your TikTok representative.This field cannot be updated after creation. If you select `rf_campaign_type` to `PULSE` , then you must enter contextual tags of `PREMIUM` type in the `contextual_tag_ids` field in [/adgroup/rf/create/](https://ads.tiktok.com/marketing_api/docs?id=1738235338194945). In this case, the CPM in your ad group is fixed. If you set `rf_campaign_type` to `PULSE`, then the targeting locations cannot be updated in [/adgroup/rf/update/](https://ads.tiktok.com/marketing_api/docs?id=1738235402874882). If you set `rf_campaign_type` to `PULSE`, then `feed_type` cannot be `TOP_FEED` in [/adgroup/rf/create/](https://ads.tiktok.com/marketing_api/docs?id=1738235338194945). |
+| `campaign_product_source` | `body` | `"CATALOG" \| "STORE" \| "PRODUCT_SALES" \| "SHOWCASE"` | No | No | Required when `objective_type` is set to `PRODUCT_SALES`. Product source of the campaign. Enum values: `CATALOG`: Catalog. `STORE`: TikTok Shop, or TikTok Showcase.Note: The objective `PRODUCT_SALES` is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. For [Video Shopping Ads](https://ads.tiktok.com/marketing_api/docs?id=1741942291730434), the product source setting at the campaign level determines the product source available at the ad group level: If this field is set to `CATALOG`, you need to set the `product_source` of ad groups under the campaign to `CATALOG`. If this field is set to `STORE`, you need to set the `product_source` of ad groups under the campaign to `STORE` or `SHOWCASE`. |
+| `catalog_enabled` | `body` | `boolean` | No | No | Whether to use your catalog to automatically advertise relevant products or services to people based on their unique interests, intent and actions. Supported values: `true`, `false`. Default value: `false`. Set this field to `true` only when you want to [create Automotive Ads for Inventory](https://business-api.tiktok.com/portal/docs?id=1827752507854850) or [Automotive Ads for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994). When the following conditions are met, the field will be overwritten to `true`: `objective_type` is `PRODUCT_SALES`.`campaign_product_source` is `CATALOG`. Note: Once set, this field cannot be updated. |
+| `campaign_name` | `body` | `string` | Yes | No | Campaign name. Length limit: 512 characters. Emoji is not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `request_id` | `body` | `string` | No | No | Request ID with which you can create campaigns with duplicate names. To create campaigns with duplicate names, send two requests for creating campaigns with the same `campaign_name` and different `request_id`. It also supports idempotency to prevent you from sending the same request twice within 10 seconds. If you retry requests with the same request ID multiple times within 10 seconds, then only one will succeed. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer number. Example: `123456789` |
+| `special_industries` | `body` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. By selecting a housing, employment, or credit category for your campaign, you certify not to use TikTok to discriminate based on protected characteristics in ads relating to housing, employment, or credit and to adhere to [TikTok's special ad category policy](https://ads.tiktok.com/help/article/housing-employment-credit-hec-ad-policy?redirected=2). Once you use this field to indicate that your campaign is promoting opportunities in any of the ad categories, the targeting options at the ad group level will be limited to help you comply with anti-discrimination laws in these categories. See [Targeting requirements for ad groups in a campaign with special ad categories](https://business-api.tiktok.com/portal/docs?id=1739381236849665#item-link-Targeting%20requirements%20for%20ad%20groups%20in%20a%20campaign%20with%20special%20ad%20categories) to learn about the requirements. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: Using special ad categories in Shopping Ads with campaign product source as Catalog and in Shopping Ads with campaign product source as non-Catalog are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. Once you select special ad categories for a campaign, you can remove the special ad categories, but you cannot change them or enable the special ad categories for an existing campaign if the special ad categories are currently disabled. |
+| `budget_optimize_on` | `body` | `boolean` | No | No | Whether to enable Campaign Budget Optimization (CBO). Enum values: `true` (enabled). For details about CBO, see [Campaign Budget Optimization](https://ads.tiktok.com/marketing_api/docs?id=1739381757818881). Note: CBO for Video Shopping Ads with product source as catalog is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget_mode` | `body` | `"BUDGET_MODE_TOTAL" \| "BUDGET_MODE_DYNAMIC_DAILY_BUDGET"` | No | No | Required when `objective_type` is NOT `RF_REACH`. When `objective_type` is `RF_REACH`, `budget_mode` only supports `BUDGET_MODE_INFINITE`. Budget mode. When Campaign Budget Optimization (CBO) is enabled, `budget_mode` at the campaign level supports the following enum values:`BUDGET_MODE_TOTAL`: Lifetime budget.`BUDGET_MODE_DYNAMIC_DAILY_BUDGET`: Dynamic daily budget. It is the average daily budget over a week. Daily costs will not exceed 125% of the average daily budget. Weekly costs will not exceed the average daily budget * 7. When `objective_type` is `TRAFFIC`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `LEAD_GENERATION`, `PRODUCT_SALES` (Video Shopping Ads only), `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`, and you want to set a non-lifetime budget, set this field to `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`. Note: `BUDGET_MODE_DYNAMIC_DAILY_BUDGET` for campaign objectives `REACH`, `VIDEO_VIEWS`, and `ENGAGEMENT` is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.`BUDGET_MODE_DAY`: Daily budget.When `objective_type` is `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`, we recommend that you use dynamic daily budget (`BUDGET_MODE_DYNAMIC_DAILY_BUDGET`) instead of daily budget (`BUDGET_MODE_DAY`). When CBO is disabled, `budget_mode` at the campaign level supports the following enum values:`BUDGET_MODE_INFINITE`: Unlimited budget.`BUDGET_MODE_TOTAL`: Lifetime budget.`BUDGET_MODE_DAY`: Daily budget. Note: For non-CBO campaigns, `BUDGET_MODE_DAY` is deprecated for campaign objectives `REACH`, `VIDEO_VIEWS`, and `ENGAGEMENT`. To learn about how to set budget modes, see [Budget](https://ads.tiktok.com/marketing_api/docs?id=1739381246298114). |
+| `budget` | `body` | `number` | No | No | Required when `budget_mode` is `BUDGET_MODE_DAY` or `BUDGET_MODE_DYNAMIC_DAILY_BUDGET` or `BUDGET_MODE_TOTAL`. Campaign budget. To learn about the minimum budget and how to set budget modes, see [Budget](https://ads.tiktok.com/marketing_api/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://ads.tiktok.com/marketing_api/docs?id=1737585839634433). |
+| `rta_id` | `body` | `string` | No | No | Realtime API (RTA) ID, the RTA strategy identifier. To obtain the list of RTA IDs associated with your ad account, contact your TikTok representative. To learn about the prerequisites for and the steps of enabling RTA for your ads, see [Realtime API](https://business-api.tiktok.com/portal/docs?id=1805437148769281). Note: Enabling RTA for your ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. You will need to complete the onboarding process to be able to receive and respond to RTA requests sent to your system first. |
+| `rta_bid_enabled` | `body` | `boolean` | No | No | Whether to use RTA bid. Supported values: `true`: enabled. `false`: not enabled. Default value: `false`. You can only set this field to `true` when the following conditions are met: `objective_type` is set to `APP_PROMOTION`, `WEB_CONVERSIONS`, or `PRODUCT_SALES`. `rta_id` is passed. Note: Enabling RTA bid is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `rta_product_selection_enabled` | `body` | `boolean` | No | No | Whether to use RTA to automatically select products. Enum values: `true`: enabled.`false`: not enabled. Default value: `false`. You can only set this field to `true` when the following conditions are met:`objective_type` is set to `PRODUCT_SALES`. `campaign_product_source` is set to `CATALOG`.`rta_id` is passed. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | No | No | NoteFor Reach & Frequency campaigns, please specify `operation_status` as `ENABLE` or do not pass in `operation_status`. Do not specify `operation_status` as `DISABLE`. The status of the campaign when created. Enum values: `ENABLE` : The campaign is enabled when created. `DISABLE` : The campaign is disabled when created. Default value: `ENABLE`. If you want to update the status of the campaign after creation, use the [/campaign/status/update/](https://ads.tiktok.com/marketing_api/docs?id=1739320994354178) endpoint. |
+| `postback_window_mode` | `body` | `"POSTBACK_WINDOW_MODE1" \| "POSTBACK_WINDOW_MODE2" \| "POSTBACK_WINDOW_MODE3" \| "ENABLE"` | No | No | Valid only when `campaign_type` is `IOS14_CAMPAIGN` and `operation_status` is `DISABLE`. You can specify this field when you create a disabled campaign or when you disable an existing campaign by using [/campaign/status/update/](https://ads.tiktok.com/marketing_api/docs?id=1739320994354178). The recommended practice is to specify this field when disabling an existing campaign. The mode that determines which SKAN (SKAdNetwork) 4.0 postback you want to secure. Options with longer windows require more time to receive, and as a result, more time to release the campaign back to the available number. Enum values: `POSTBACK_WINDOW_MODE1`: This option secures the first postback, which corresponds to the 0-2 day attribution window. The data can take up to 4 days to return, and the campaign will wait for 4 days to release the campaign quota. `POSTBACK_WINDOW_MODE2`: This mode secures the first two postbacks, which correspond to the 3-7 day attribution window. The data can take up to 13 days to return, and the campaign will wait for 13 days to release the campaign quota. `POSTBACK_WINDOW_MODE3`: This mode secures all three postbacks, which correspond to the 8-35 day attribution window. The data can take up to 41 days to return, and the campaign will wait for 41 days to release the campaign quota. To learn more about SKAN 4.0 attribution window configuration and campaign quota, see [Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1740029173531649). Note: If you have set up Mobile Measurement Partner (MMP) Tracking with Adjust, Airbridge, Appsflyer, Branch, Kochava, or Singular for your App and your MMP SDK version is updated to a SKAN 4.0 supported SDK, you can transition your App to SKAN 4.0 on Events Manager. To learn about how to set up MMP tracking for your App, see [How to Set Up App Attribution in TikTok Ads Manager](https://ads.tiktok.com/help/article/set-up-app-attribution-tiktok-ads-manager?lang=en). To learn more about how to transition your App to SKAN 4.0, see [About SKAN 4.0 and TikTok](https://ads.tiktok.com/help/article/about-skan-4-0-and-tiktok?lang=en) and [How to transition to SKAN 4.0](https://ads.tiktok.com/help/article/how-to-transition-to-skan-4-0). Once set, this field cannot be updated. If `operation_status` is set to `ENABLE` or not passed, this field will be ignored. If you pass in this field when you have not enabled SKAN 4.0 for your App (`app_id`), an error will occur. If this field is not passed when `campaign_type` is set to `IOS14_CAMPAIGN`, `operation_status` is set to `DISABLE`, and you have enabled SKAN 4.0 for your App, this field will default to `POSTBACK_WINDOW_MODE1`. If you have enabled SKAN 4.0 for your App, ensure that you target devices running iOS 16.1 and later so that you can receive SKAN 4.0 postbacks. To only target iOS 16.1+ devices, set `min_ios_version` to `16.1` at the ad group level. |
+| `po_number` | `body` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignGet
+
+`GET` `/open_api/v1.3/campaign/get/`
+
+Generated from TikTok documentation 1739315828649986
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `campaign.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. When not specified, all fields are returned by default. For allowed fields, see the fields under `list` in the Response section. |
+| `exclude_field_types_in_response` | `query` | `Array<string>` | No | No | The type of fields that you want to remove from the response. Allowed enum values: `NULL_FIELD`: Fields with null values. |
+| `filtering` | `query` | `CampaignGetParamsFiltering` | No | No | Filters on the data. Example: `filtering=&#123;"campaign_automation_type":"UPGRADED_SMART_PLUS"&#125;` |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-1,000. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignQuotaGet
+
+`GET` `/open_api/v1.3/campaign/quota/get/`
+
+Generated from TikTok documentation 1739324098894850
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `campaign.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignQuotaGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `app_id` | `query` | `string` | Yes | No | The Application ID of the promoted app. You can get `app_id` by using the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `campaign_id` | `query` | `string` | No | No | Campaign ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignQuotaInfo
+
+`GET` `/open_api/v1.3/campaign/quota/info/`
+
+Generated from TikTok documentation 1752256376677378
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `campaign.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignQuotaInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `app_id` | `query` | `string` | Yes | No | The Application ID of the promoted app. You can get `app_id` by using the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `campaign_id` | `query` | `string` | No | No | ID of a SKAN Dedicated Campaign. Specify this field if you want to get ad group quota (`adgroup_quota_info`) for a certain campaign. Note: If the ID is not the ID of a SKAN Dedicated Campaign, an error will occur. To determine whether a Dedicated Campaign is a SKAN Dedicated Campaign, use [/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1739315828649986) and check whether the returned `disable_skan_campaign` is `false`. |
+| `adgroup_id` | `query` | `string` | No | No | ID of an ad group within a SKAN 4.0 Dedicated Campaign. Specify this field if you want to get ad quota (`ad_quota_info`) for a certain group. Note: If the ID is not the ID of an ad group within a SKAN 4.0 Dedicated Campaign, the value of the returned `ad_quota_info` will be null. |
+| `has_advertiser_quota` | `query` | `boolean` | No | No | Whether to return quota info via different advertiser IDs under the promoted app. Set it to `true` if you want to get campaign quota via different advertiser IDs. Default value: `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignStatusUpdate
+
+`POST` `/open_api/v1.3/campaign/status/update/`
+
+Generated from TikTok documentation 1739320994354178
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaign.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | — |
+| `campaign_ids` | `body` | `Array<string>` | Yes | No | — |
+| `operation_status` | `body` | `string` | Yes | No | — |
+| `postback_window_mode` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.campaign.campaignUpdate
+
+`POST` `/open_api/v1.3/campaign/update/`
+
+Generated from TikTok documentation 1739320422086657
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaign.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | Campaign ID |
+| `campaign_name` | `body` | `string` | No | No | Campaign name. Length limit: 512 characters. Emoji is not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `special_industries` | `body` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. By selecting a housing, employment, or credit category for your campaign, you certify not to use TikTok to discriminate based on protected characteristics in ads relating to housing, employment, or credit and to adhere to [TikTok's special ad category policy](https://ads.tiktok.com/help/article/housing-employment-credit-hec-ad-policy?redirected=2). Once you use this field to indicate that your campaign is promoting opportunities in any of the ad categories, the targeting options at the ad group level will be limited to help you comply with anti-discrimination laws in these categories. See [Targeting requirements for ad groups in a campaign with special ad categories](https://business-api.tiktok.com/portal/docs?id=1739381236849665#item-link-Targeting%20requirements%20for%20ad%20groups%20in%20a%20campaign%20with%20special%20ad%20categories) to learn about the requirements. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: Using special ad categories in Shopping Ads with campaign product source as Catalog and in Shopping Ads with campaign product source as non-Catalog are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. If you have selected special ad categories for a campaign, you can remove the special ad categories, but you cannot change them or enable the special ad categories for an existing campaign if the special ad categories are currently disabled. |
+| `budget` | `body` | `number` | No | No | Campaign budget. To learn about the minimum budget and how to set budget modes, see [Budget](https://ads.tiktok.com/marketing_api/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://ads.tiktok.com/marketing_api/docs?id=1737585839634433). Note: The new budget should be at least 105% of the current spend. You can run [a synchronous report](https://ads.tiktok.com/marketing_api/docs?id=1740302848100353) or [an asynchronous report](https://ads.tiktok.com/marketing_api/docs?id=1740302766489602) to get the spend data via the Basic data metric `spend` . |
+| `po_number` | `body` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

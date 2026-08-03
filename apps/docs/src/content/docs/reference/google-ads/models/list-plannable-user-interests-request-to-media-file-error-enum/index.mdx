@@ -1,0 +1,803 @@
+---
+title: "Google Ads models: List Plannable User Interests Request – Media File Error Enum"
+description: "100 generated Google Ads model contracts, from ListPlannableUserInterestsRequest through MediaFileErrorEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1014
+  label: "List Plannable User Interests Request – Media File Error Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## ListPlannableUserInterestsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `user_interest_taxonomy_types` | `user_interest_taxonomy_types` | `Array<UserInterestTaxonomyType>` | No | No | — |
+| `name_query` | `name_query` | `string` | No | No | — |
+| `path_query` | `path_query` | `string` | No | No | — |
+| `reach_application_info` | `reach_application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListPlannableUserInterestsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_user_interests` | `plannable_user_interests` | `Array<unknown>` | No | No | — |
+
+## ListPlannableUserListsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `customer_reach_group` | `customer_reach_group` | `string` | No | No | — |
+| `reach_application_info` | `reach_application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListPlannableUserListsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_user_lists` | `plannable_user_lists` | `Array<unknown>` | No | No | — |
+
+## LocalAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `call_to_actions` | `call_to_actions` | `Array<unknown>` | No | No | — |
+| `marketing_images` | `marketing_images` | `Array<unknown>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
+| `videos` | `videos` | `Array<unknown>` | No | No | — |
+| `path1` | `path1` | `string` | No | No | — |
+| `path2` | `path2` | `string` | No | No | — |
+
+## LocalCampaignSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location_source_type` | `location_source_type` | `LocationSourceType` | No | No | — |
+
+## LocalServiceIdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `service_id` | `service_id` | `string` | No | No | — |
+
+## LocalServicesBusinessRegistrationCheckRejectionReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUSINESS_NAME_MISMATCH`, `BUSINESS_DETAILS_MISMATCH`, `ID_NOT_FOUND`, `POOR_DOCUMENT_IMAGE_QUALITY`, `DOCUMENT_EXPIRED`, `DOCUMENT_INVALID`, `DOCUMENT_TYPE_MISMATCH`, `DOCUMENT_UNVERIFIABLE`, `OTHER`
+
+## LocalServicesBusinessRegistrationCheckRejectionReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesBusinessRegistrationType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NUMBER`, `DOCUMENT`
+
+## LocalServicesBusinessRegistrationTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesCallout
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callout_id` | `callout_id` | `string` | No | No | — |
+
+## LocalServicesCampaignSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_bids` | `category_bids` | `Array<unknown>` | No | No | — |
+
+## LocalServicesCreditStateEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesDocumentReadOnly
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_url` | `document_url` | `string` | No | No | — |
+
+## LocalServicesEmployee
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `creation_date_time` | `creation_date_time` | `string` | No | No | — |
+| `status` | `status` | `LocalServicesEmployeeStatus` | No | No | — |
+| `type` | `type` | `LocalServicesEmployeeType` | No | No | — |
+| `university_degrees` | `university_degrees` | `Array<unknown>` | No | No | — |
+| `residencies` | `residencies` | `Array<unknown>` | No | No | — |
+| `fellowships` | `fellowships` | `Array<unknown>` | No | No | — |
+| `job_title` | `job_title` | `string` | No | No | — |
+| `year_started_practicing` | `year_started_practicing` | `integer` | No | No | — |
+| `languages_spoken` | `languages_spoken` | `Array<string>` | No | No | — |
+| `category_ids` | `category_ids` | `Array<string>` | No | No | — |
+| `national_provider_id_number` | `national_provider_id_number` | `string` | No | No | — |
+| `email_address` | `email_address` | `string` | No | No | — |
+| `first_name` | `first_name` | `string` | No | No | — |
+| `middle_name` | `middle_name` | `string` | No | No | — |
+| `last_name` | `last_name` | `string` | No | No | — |
+
+## LocalServicesEmployeeStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## LocalServicesEmployeeStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesEmployeeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUSINESS_OWNER`, `EMPLOYEE`
+
+## LocalServicesEmployeeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesInsuranceRejectionReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUSINESS_NAME_MISMATCH`, `INSURANCE_AMOUNT_INSUFFICIENT`, `EXPIRED`, `NO_SIGNATURE`, `NO_POLICY_NUMBER`, `NO_COMMERCIAL_GENERAL_LIABILITY`, `EDITABLE_FORMAT`, `CATEGORY_MISMATCH`, `MISSING_EXPIRATION_DATE`, `POOR_QUALITY`, `POTENTIALLY_EDITED`, `WRONG_DOCUMENT_TYPE`, `NON_FINAL`, `OTHER`
+
+## LocalServicesInsuranceRejectionReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLead
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `category_id` | `category_id` | `string` | No | No | — |
+| `service_id` | `service_id` | `string` | No | No | — |
+| `contact_details` | `contact_details` | `unknown` | No | No | — |
+| `lead_type` | `lead_type` | `LeadType` | No | No | — |
+| `lead_status` | `lead_status` | `LeadStatus` | No | No | — |
+| `creation_date_time` | `creation_date_time` | `string` | No | No | — |
+| `locale` | `locale` | `string` | No | No | — |
+| `note` | `note` | `unknown` | No | No | — |
+| `lead_charged` | `lead_charged` | `boolean` | No | No | — |
+| `credit_details` | `credit_details` | `unknown` | No | No | — |
+| `lead_feedback_submitted` | `lead_feedback_submitted` | `boolean` | No | No | — |
+
+## LocalServicesLeadConversation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `conversation_channel` | `conversation_channel` | `ConversationType` | No | No | — |
+| `participant_type` | `participant_type` | `ParticipantType` | No | No | — |
+| `lead` | `lead` | `string` | No | No | — |
+| `event_date_time` | `event_date_time` | `string` | No | No | — |
+| `phone_call_details` | `phone_call_details` | `unknown` | No | No | — |
+| `message_details` | `message_details` | `unknown` | No | No | — |
+
+## LocalServicesLeadConversationTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadCreditIssuanceDecisionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadSurveyAnswerEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadSurveyDissatisfiedReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadSurveySatisfiedReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLeadTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesLicenseRejectionReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUSINESS_NAME_MISMATCH`, `UNAUTHORIZED`, `EXPIRED`, `POOR_QUALITY`, `UNVERIFIABLE`, `WRONG_DOCUMENT_OR_ID`, `OTHER`
+
+## LocalServicesLicenseRejectionReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesParticipantTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesPhoneNumber
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `phone_number_type` | `phone_number_type` | `GlsPhoneNumberType` | No | No | — |
+
+## LocalServicesPmaxCampaignSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `navigational_query_leads_enabled` | `navigational_query_leads_enabled` | `boolean` | No | No | — |
+| `founding_year` | `founding_year` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `phone_numbers` | `phone_numbers` | `Array<LocalServicesPhoneNumber>` | No | No | — |
+
+## LocalServicesSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `granular_license_statuses` | `granular_license_statuses` | `Array<unknown>` | No | No | — |
+| `granular_insurance_statuses` | `granular_insurance_statuses` | `Array<unknown>` | No | No | — |
+
+## LocalServicesVerificationArtifact
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `creation_date_time` | `creation_date_time` | `string` | No | No | — |
+| `status` | `status` | `LocalServicesVerificationArtifactStatus` | No | No | — |
+| `artifact_type` | `artifact_type` | `LocalServicesVerificationArtifactType` | No | No | — |
+| `background_check_verification_artifact` | `background_check_verification_artifact` | `unknown` | No | No | — |
+| `insurance_verification_artifact` | `insurance_verification_artifact` | `unknown` | No | No | — |
+| `license_verification_artifact` | `license_verification_artifact` | `unknown` | No | No | — |
+| `business_registration_check_verification_artifact` | `business_registration_check_verification_artifact` | `unknown` | No | No | — |
+
+## LocalServicesVerificationArtifactStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PASSED`, `FAILED`, `PENDING`, `NO_SUBMISSION`, `CANCELLED`
+
+## LocalServicesVerificationArtifactStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesVerificationArtifactType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BACKGROUND_CHECK`, `INSURANCE`, `LICENSE`, `BUSINESS_REGISTRATION_CHECK`
+
+## LocalServicesVerificationArtifactTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocalServicesVerificationStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEEDS_REVIEW`, `FAILED`, `PASSED`, `NOT_APPLICABLE`, `NO_SUBMISSION`, `PARTIAL_SUBMISSION`, `PENDING_ESCALATION`
+
+## LocalServicesVerificationStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocationAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `place_id` | `place_id` | `string` | No | No | — |
+| `business_profile_locations` | `business_profile_locations` | `Array<unknown>` | No | No | — |
+| `location_ownership_type` | `location_ownership_type` | `LocationOwnershipType` | No | No | — |
+
+## LocationAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_location` | `country_location` | `unknown` | No | No | — |
+
+## LocationGroupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_target_constants` | `geo_target_constants` | `Array<string>` | No | No | — |
+| `radius` | `radius` | `string` | No | No | — |
+| `radius_units` | `radius_units` | `LocationGroupRadiusUnits` | No | No | — |
+| `feed_item_sets` | `feed_item_sets` | `Array<string>` | No | No | — |
+| `enable_customer_level_location_asset_set` | `enable_customer_level_location_asset_set` | `boolean` | No | No | — |
+| `location_group_asset_sets` | `location_group_asset_sets` | `Array<string>` | No | No | — |
+
+## LocationGroupRadiusUnits
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `METERS`, `MILES`, `MILLI_MILES`
+
+## LocationGroupRadiusUnitsEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocationInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_target_constant` | `geo_target_constant` | `string` | No | No | — |
+
+## LocationInterestView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## LocationList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locations` | `locations` | `Array<LocationInfo>` | No | No | — |
+
+## LocationNames
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `names` | `names` | `Array<string>` | No | No | — |
+
+## LocationOwnershipType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUSINESS_OWNER`, `AFFILIATE`
+
+## LocationOwnershipTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocationSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location_ownership_type` | `location_ownership_type` | `LocationOwnershipType` | No | No | — |
+| `business_profile_location_set` | `business_profile_location_set` | `unknown` | No | No | — |
+| `chain_location_set` | `chain_location_set` | `unknown` | No | No | — |
+| `maps_location_set` | `maps_location_set` | `unknown` | No | No | — |
+
+## LocationSourceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GOOGLE_MY_BUSINESS`, `AFFILIATE`
+
+## LocationSourceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocationStringFilterType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXACT`
+
+## LocationStringFilterTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LocationView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## LogicalUserListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rules` | `rules` | `Array<unknown>` | No | No | — |
+
+## LogicalUserListOperandInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list` | `user_list` | `string` | No | No | — |
+
+## LookalikeExpansionLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NARROW`, `BALANCED`, `BROAD`
+
+## LookalikeExpansionLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LookalikeUserListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seed_user_list_ids` | `seed_user_list_ids` | `Array<string>` | No | No | — |
+| `expansion_level` | `expansion_level` | `LookalikeExpansionLevel` | No | No | — |
+| `country_codes` | `country_codes` | `Array<string>` | No | No | — |
+
+## LowerTargetRoasParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_roas_multiplier` | `target_roas_multiplier` | `number` | No | No | — |
+
+## LowerTargetRoasRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_adjustment` | `target_adjustment` | `unknown` | No | No | — |
+
+## LoyaltyRetentionGoal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value_settings` | `value_settings` | `unknown` | No | No | — |
+
+## ManagedPlacementView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## ManagerLinkError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACCOUNTS_NOT_COMPATIBLE_FOR_LINKING`, `TOO_MANY_MANAGERS`, `TOO_MANY_INVITES`, `ALREADY_INVITED_BY_THIS_MANAGER`, `ALREADY_MANAGED_BY_THIS_MANAGER`, `ALREADY_MANAGED_IN_HIERARCHY`, `DUPLICATE_CHILD_FOUND`, `CLIENT_HAS_NO_ADMIN_USER`, `MAX_DEPTH_EXCEEDED`, `CYCLE_NOT_ALLOWED`, `TOO_MANY_ACCOUNTS`, `TOO_MANY_ACCOUNTS_AT_MANAGER`, `NON_OWNER_USER_CANNOT_MODIFY_LINK`, `SUSPENDED_ACCOUNT_CANNOT_ADD_CLIENTS`, `CLIENT_OUTSIDE_TREE`, `INVALID_STATUS_CHANGE`, `INVALID_CHANGE`, `CUSTOMER_CANNOT_MANAGE_SELF`, `CREATING_ENABLED_LINK_NOT_ALLOWED`
+
+## ManagerLinkErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ManagerLinkStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACTIVE`, `INACTIVE`, `PENDING`, `REFUSED`, `CANCELED`
+
+## ManagerLinkStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ManualCpa
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ManualCpc
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enhanced_cpc_enabled` | `enhanced_cpc_enabled` | `boolean` | No | No | — |
+
+## ManualCpcBiddingStrategy
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_budget_micros` | `daily_budget_micros` | `string` | No | No | — |
+| `max_cpc_bid_micros` | `max_cpc_bid_micros` | `string` | No | No | — |
+
+## ManualCpm
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ManualCpv
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MapsLocationInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `place_id` | `place_id` | `string` | No | No | — |
+
+## MapsLocationSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maps_locations` | `maps_locations` | `Array<unknown>` | No | No | — |
+
+## MarketingObjectiveList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `marketing_objectives` | `marketing_objectives` | `Array<BenchmarksMarketingObjective>` | No | No | — |
+
+## MatchedLocationInterestView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MatchType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BROAD`, `EXACT`, `PHRASE`, `AI_MAX`
+
+## MatchTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MaximizeClicksBiddingStrategy
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_target_spend_micros` | `daily_target_spend_micros` | `string` | No | No | — |
+| `max_cpc_bid_ceiling_micros` | `max_cpc_bid_ceiling_micros` | `string` | No | No | — |
+
+## MaximizeClicksOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_budget_amount_micros` | `recommended_budget_amount_micros` | `string` | No | No | — |
+
+## MaximizeConversions
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cpc_bid_ceiling_micros` | `cpc_bid_ceiling_micros` | `string` | No | No | — |
+| `cpc_bid_floor_micros` | `cpc_bid_floor_micros` | `string` | No | No | — |
+| `target_cpa_micros` | `target_cpa_micros` | `string` | No | No | — |
+
+## MaximizeConversionsBiddingStrategy
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_target_spend_micros` | `daily_target_spend_micros` | `string` | No | No | — |
+
+## MaximizeConversionsOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_budget_amount_micros` | `recommended_budget_amount_micros` | `string` | No | No | — |
+
+## MaximizeConversionValue
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_roas` | `target_roas` | `number` | No | No | — |
+| `cpc_bid_ceiling_micros` | `cpc_bid_ceiling_micros` | `string` | No | No | — |
+| `cpc_bid_floor_micros` | `cpc_bid_floor_micros` | `string` | No | No | — |
+| `target_roas_tolerance_percent_millis` | `target_roas_tolerance_percent_millis` | `string` | No | No | — |
+
+## MaximizeConversionValueOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MediaAudio
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_duration_millis` | `ad_duration_millis` | `string` | No | No | — |
+
+## MediaBundle
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## MediaBundleAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `string` | No | No | — |
+
+## MediaBundleError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BAD_REQUEST`, `DOUBLECLICK_BUNDLE_NOT_ALLOWED`, `EXTERNAL_URL_NOT_ALLOWED`, `FILE_TOO_LARGE`, `GOOGLE_WEB_DESIGNER_ZIP_FILE_NOT_PUBLISHED`, `INVALID_INPUT`, `INVALID_MEDIA_BUNDLE`, `INVALID_MEDIA_BUNDLE_ENTRY`, `INVALID_MIME_TYPE`, `INVALID_PATH`, `INVALID_URL_REFERENCE`, `MEDIA_DATA_TOO_LARGE`, `MISSING_PRIMARY_MEDIA_BUNDLE_ENTRY`, `SERVER_ERROR`, `STORAGE_ERROR`, `SWIFFY_BUNDLE_NOT_ALLOWED`, `TOO_MANY_FILES`, `UNEXPECTED_SIZE`, `UNSUPPORTED_GOOGLE_WEB_DESIGNER_ENVIRONMENT`, `UNSUPPORTED_HTML5_FEATURE`, `URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT`, `CUSTOM_EXIT_NOT_ALLOWED`
+
+## MediaBundleErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MediaFile
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `type` | `type` | `MediaType` | No | No | — |
+| `mime_type` | `mime_type` | `MimeType` | No | No | — |
+| `source_url` | `source_url` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `file_size` | `file_size` | `string` | No | No | — |
+| `image` | `image` | `unknown` | No | No | — |
+| `media_bundle` | `media_bundle` | `unknown` | No | No | — |
+| `audio` | `audio` | `unknown` | No | No | — |
+| `video` | `video` | `unknown` | No | No | — |
+
+## MediaFileError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_CREATE_STANDARD_ICON`, `CANNOT_SELECT_STANDARD_ICON_WITH_OTHER_TYPES`, `CANNOT_SPECIFY_MEDIA_FILE_ID_AND_DATA`, `DUPLICATE_MEDIA`, `EMPTY_FIELD`, `RESOURCE_REFERENCED_IN_MULTIPLE_OPS`, `FIELD_NOT_SUPPORTED_FOR_MEDIA_SUB_TYPE`, `INVALID_MEDIA_FILE_ID`, `INVALID_MEDIA_SUB_TYPE`, `INVALID_MEDIA_FILE_TYPE`, `INVALID_MIME_TYPE`, `INVALID_REFERENCE_ID`, `INVALID_YOU_TUBE_ID`, `MEDIA_FILE_FAILED_TRANSCODING`, `MEDIA_NOT_TRANSCODED`, `MEDIA_TYPE_DOES_NOT_MATCH_MEDIA_FILE_TYPE`, `NO_FIELDS_SPECIFIED`, `NULL_REFERENCE_ID_AND_MEDIA_ID`, `TOO_LONG`, `UNSUPPORTED_TYPE`, `YOU_TUBE_SERVICE_UNAVAILABLE`, `YOU_TUBE_VIDEO_HAS_NON_POSITIVE_DURATION`, `YOU_TUBE_VIDEO_NOT_FOUND`
+
+## MediaFileErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

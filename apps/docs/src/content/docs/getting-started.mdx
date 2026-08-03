@@ -1,0 +1,57 @@
+---
+title: Getting started
+description: Install the SDK family and make your first typed platform call.
+sidebar:
+  order: 1
+---
+
+The OpenPromo SDK family gives you provider-native clients, generated low-level contracts, and a
+cross-platform operation catalog from the same packages. Start with the umbrella package unless you
+only ship one integration.
+
+## Install
+
+```bash
+bun add @openpromo/ad-platforms
+```
+
+Individual packages such as `@openpromo/meta`, `@openpromo/tiktok`, and `@openpromo/youtube` are
+available when bundle isolation matters.
+
+## Create clients
+
+```ts
+import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { YouTube } from "@openpromo/ad-platforms/youtube";
+
+const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+const instagram = Meta.Instagram.createClient({
+  api: meta,
+  igAccountId: "ig_123",
+});
+
+const tiktok = TikTok.createClient({
+  accessToken: process.env.TIKTOK_TOKEN!,
+  businessId: "business_123",
+});
+
+const youtube = YouTube.createClient({
+  accessToken: process.env.YOUTUBE_TOKEN!,
+});
+```
+
+Pass credentials from your application at runtime. Do not bake access or refresh tokens into a
+bundle, repository, or generated configuration.
+
+## Choose the right layer
+
+| Need | Use |
+| --- | --- |
+| Provider-specific breadth | A platform client or generated Effect entrypoint |
+| Portable post metrics and agent actions | `@openpromo/ad-platforms/operations` |
+| AI SDK tools | `@openpromo/ad-platforms/operations/ai` |
+| Code Mode connector definitions | `@openpromo/ad-platforms/operations/codemode` |
+| Terminal or MCP access | `@openpromo/ad-platforms-cli` |
+
+Continue with [authentication](/guides/authentication), then choose the [Promise and Effect
+runtime](/guides/promise-and-effect) or [operation catalog](/guides/agent-surfaces).

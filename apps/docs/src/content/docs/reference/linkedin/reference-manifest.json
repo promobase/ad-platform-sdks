@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "platform": "linkedin",
+  "version": "202602",
+  "endpointCount": 18,
+  "modelCount": 0,
+  "capabilityCount": 8,
+  "endpointPages": [
+    "endpoints/account",
+    "endpoints/comment",
+    "endpoints/media",
+    "endpoints/oauth",
+    "endpoints/post"
+  ],
+  "modelPages": []
+}

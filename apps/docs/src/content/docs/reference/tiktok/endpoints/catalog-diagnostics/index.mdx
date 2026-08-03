@@ -1,0 +1,202 @@
+---
+title: "TikTok Business Catalog Diagnostics endpoints"
+description: "5 generated TikTok Business endpoint contracts for Catalog Diagnostics."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 124
+  label: "Catalog Diagnostics"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogDiagnostics.diagnosticCatalog
+
+`GET` `/open_api/v1.3/diagnostic/catalog/`
+
+Generated from TikTok documentation 1771117232728066
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogDiagnostics.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiagnosticCatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `query` | `string` | Yes | No | ID of a catalog that you have permission to access. |
+| `bc_id` | `query` | `string` | Yes | No | ID of a Business Center that either owns the catalog, or has been granted access to it as an asset. |
+| `feed_id` | `query` | `string` | No | No | Feed ID. If not specified, the ID of the default feed for the catalog will be used. To retrieve the diagnostics for all feeds for the catalog, set this field to `ALL`. To obtain feed IDs for a catalog, use [/catalog/feed/get/](https://ads.tiktok.com/marketing_api/docs?id=1740665183073281). |
+| `filtering` | `query` | `DiagnosticCatalogParamsFiltering` | No | No | Filtering conditions. |
+| `lang` | `query` | `string` | No | No | The language you want to set for the returned `issue_title` and `reason_and_suggestion`. Default value: `en`. To find out the enum values, refer to the Enum values for `lang` section below. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: [1, 20]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogDiagnostics.diagnosticCatalogEventsourceIssue
+
+`GET` `/open_api/v1.3/diagnostic/catalog/eventsource/issue/`
+
+Generated from TikTok documentation 1780799405041665
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogDiagnostics.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiagnosticCatalogEventsourceIssueResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To get the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. To get the catalogs under a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `event_source_type` | `query` | `"APP" \| "PIXEL"` | Yes | No | The event source type. Enum values: `APP`: App. Pass `app_id` at the same time. `PIXEL`: Pixel. Pass `pixel_code` at the same time. |
+| `app_id` | `query` | `string` | No | No | Required when `event_source_type` is set to `APP`. The App ID. To retrieve the App IDs that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362). |
+| `pixel_code` | `query` | `string` | No | No | Required when `event_source_type` is set to `PIXEL`. The Pixel code. To retrieve the Pixel codes that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362).. |
+| `event_type` | `query` | `"VIEW_CONTENT" \| "ADD_TO_CART" \| "PURCHASE"` | No | No | The event type that you want to retrieve data for. Enum values: `VIEW_CONTENT`: View Content.`ADD_TO_CART`: Add to Cart.`PURCHASE`: Complete Payment. Default value: `VIEW_CONTENT`. |
+| `time_range` | `query` | `"YESTERDAY" \| "LAST_7_DAYS" \| "LAST_30_DAYS"` | No | No | The time range that you want to retrieve data for. Enum values: `YESTERDAY`: Yesterday. `LAST_7_DAYS`: Last 7 days. `LAST_30_DAYS`: Last 30 days. Default value: `LAST_7_DAYS`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogDiagnostics.diagnosticCatalogEventsourceMetric
+
+`GET` `/open_api/v1.3/diagnostic/catalog/eventsource/metric/`
+
+Generated from TikTok documentation 1780802101608450
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogDiagnostics.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiagnosticCatalogEventsourceMetricResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To get the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. To get the catalogs under a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `event_source_type` | `query` | `"APP" \| "PIXEL"` | Yes | No | The event source type. Enum values: `APP`: App. Pass `app_id` at the same time. `PIXEL`: Pixel. Pass `pixel_code` at the same time. |
+| `app_id` | `query` | `string` | No | No | Required when `event_source_type` is set to `APP`. The App ID. To retrieve the App IDs that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362). |
+| `pixel_code` | `query` | `string` | No | No | Required when `event_source_type` is set to `PIXEL`. The Pixel code. To retrieve the Pixel codes that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362).. |
+| `event_type` | `query` | `"VIEW_CONTENT" \| "ADD_TO_CART" \| "PURCHASE"` | No | No | The event type that you want to retrieve data for. Enum values: `VIEW_CONTENT`: View Content.`ADD_TO_CART`: Add to Cart.`PURCHASE`: Complete Payment. Default value: `VIEW_CONTENT`. |
+| `time_range` | `query` | `"YESTERDAY" \| "LAST_7_DAYS" \| "LAST_30_DAYS"` | No | No | The time range that you want to retrieve data for. Enum values: `YESTERDAY`: Yesterday. `LAST_7_DAYS`: Last 7 days. `LAST_30_DAYS`: Last 30 days. Default value: `LAST_7_DAYS`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogDiagnostics.diagnosticCatalogProductTaskCreate
+
+`POST` `/open_api/v1.3/diagnostic/catalog/product/task/create/`
+
+Generated from TikTok documentation 1771117279175682
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogDiagnostics.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiagnosticCatalogProductTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `body` | `string` | Yes | No | ID of a catalog that you have permission to access. |
+| `bc_id` | `body` | `string` | Yes | No | ID of a Business Center that either owns the catalog, or has been granted access to it as an asset. |
+| `feed_id` | `body` | `string` | No | No | Feed ID. If not specified, the ID of the default feed for the catalog will be used. To retrieve the diagnostics for all feeds for the catalog, set this field to `ALL`. To obtain feed IDs for a catalog, use [/catalog/feed/get/](https://ads.tiktok.com/marketing_api/docs?id=1740665183073281). |
+| `lang` | `body` | `string` | No | No | The language you want to set for the returned catalog diagnostic information. Default value: `en`. To find out the enum values, refer to the Enum values for `lang` section below. |
+| `issue_id` | `body` | `string` | No | No | The ID of the issue you want to download the diagnostic information for. You need to specify the ID of a downloadable issue, which can be selected from the Downloadable issues section below. If not specified, the diagnostics for all detected issues will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogDiagnostics.diagnosticCatalogProductTaskGet
+
+`GET` `/open_api/v1.3/diagnostic/catalog/product/task/get/`
+
+Generated from TikTok documentation 1771117294731266
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogDiagnostics.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiagnosticCatalogProductTaskGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID that you used to create the download task for catalog diagnostic information. |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID that you used to create the download task for catalog diagnostic information. |
+| `task_id` | `query` | `string` | Yes | No | ID of the download task for catalog diagnostic information. To obtain the ID, use [/diagnostic/catalog/product/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1771117279175682). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

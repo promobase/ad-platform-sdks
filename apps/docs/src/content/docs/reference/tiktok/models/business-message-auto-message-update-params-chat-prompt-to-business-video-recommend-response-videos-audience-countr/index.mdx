@@ -1,0 +1,1032 @@
+---
+title: "TikTok Business models: Business Message Auto Message Update Params Chat Prompt – Business Video Recommend Response Videos Audience Countries"
+description: "100 generated TikTok Business model contracts, from BusinessMessageAutoMessageUpdateParamsChatPrompt through BusinessVideoRecommendResponseVideosAudienceCountries."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1006
+  label: "Business Message Auto Message Update Params Chat Prompt – Business Video Recommend Response Videos Audience Countries"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## BusinessMessageAutoMessageUpdateParamsChatPrompt
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | Required when `chat_prompt` is passed. The name of the prompt button that is displayed above the input box. Length limit: 18 characters. You can use text, system emojis, and both English and non-English languages. To ensure optimal display, keep the name concise and clear. |
+| `content` | `content` | `string` | No | No | Required when `chat_prompt` is passed. The corresponding question for the prompt that the system automatically generates for users to start the conversation when users tap the chat prompt. Length limit: 150 characters. You can use text, system emojis, and both English and non-English languages. |
+
+## BusinessMessageAutoMessageUpdateParamsSuggestedQuestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `question` | `question` | `string` | No | No | Required when `suggested_question` is passed. A frequently asked question to help users start a conversation. Length limit: 80 characters. |
+| `answer` | `answer` | `string` | No | No | Required when `suggested_question` is passed. The preset answer that will be automatically sent when a user selects the question. Length limit: 200 characters. |
+
+## BusinessMessageAutoMessageUpdateParamsWelcomeMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content` | `content` | `string` | No | No | Required when `welcome_message` is passed. The text of the welcome message. Example: `Hi there, Please leave us a message and we will respond to you shortly. Thank you!`. |
+
+## BusinessMessageAutoMessageUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message` | `auto_message` | `BusinessMessageAutoMessageUpdateResponseAutoMessage` | No | No | Information about the automatic message. |
+
+## BusinessMessageAutoMessageUpdateResponseAutoMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. |
+
+## BusinessMessageCapabilitiesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `capability_types` | `capability_types` | `Array<string>` | Yes | No | A list of capability types that you want to query for the Business Account. Enum value:`IMAGE_SEND`: The Business Account can send images and/or receive images in the specified conversation. |
+| `conversation_id` | `conversation_id` | `string` | No | No | Required when the value of `capability_types` includes `IMAGE_SEND`. Conversation ID. To get a list of conversation IDs, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). Note: If you receive a `"Param conversation_id is invalid."` error, it may be due to encoding issues. Try replacing any "+" characters with "%2B" to resolve potential encoding issues. |
+| `conversation_type` | `conversation_type` | `string` | No | No | Required when the value of `capability_types` includes `IMAGE_SEND`. Conversation type. Currently, the only allowed values are:`STRANGER`: Conversations with users who have sent a message to the Business Account of the business, but the business has not yet accepted the message request and responded to the message.`SINGLE`: One-on-one conversations with users who have sent a message to the Business Account of the business, and the business has previously responded to the user. |
+
+## BusinessMessageCapabilitiesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `capability_infos` | `capability_infos` | `Array<BusinessMessageCapabilitiesGetResponseCapabilityInfos>` | No | No | The results regarding the queried capabilities for the Business Account. |
+
+## BusinessMessageCapabilitiesGetResponseCapabilityInfos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `capability_type` | `capability_type` | `string` | No | No | The capability type. Enum value:`IMAGE_SEND`: The Business Account can send images and/or receive images in the specified conversation. |
+| `capability_result` | `capability_result` | `boolean` | No | No | Whether the Business Account has this capability. Supported values: `true`, `false`. |
+
+## BusinessMessageContentListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | Conversation ID. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). Note: If you receive a `"Param conversation_id is invalid."` error, it may be due to encoding issues. Try replacing any "+" characters with "%2B" to resolve potential encoding issues. |
+
+## BusinessMessageContentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `messages` | `messages` | `Array<BusinessMessageContentListResponseMessages>` | No | No | Messages in the conversation. |
+| `participants` | `participants` | `Array<BusinessMessageContentListResponseParticipants>` | No | No | Information of participants in the conversation. |
+
+## BusinessMessageContentListResponseMessages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sender` | `sender` | `string` | No | No | TikTok username of the message sender. |
+| `recipient` | `recipient` | `string` | No | No | TikTok username of the message recipient. |
+| `conversation_id` | `conversation_id` | `string` | No | No | Conversation ID. Example: `a1AbcBdeCfghDijkEF2b3+lmGn==`. |
+| `message_id` | `message_id` | `string` | No | No | Message ID. Example: `a1AbcdefBCghDE2iFGjk3HIJ4l==`. |
+| `timestamp` | `timestamp` | `number` | No | No | The time when the message was sent, in the format of an Epoch/Unix timestamp in milliseconds. Example: 1719447205701. |
+| `message_tag` | `message_tag` | `BusinessMessageContentListResponseMessagesMessageTag` | No | No | Additional information about the message. |
+| `message_type` | `message_type` | `"TEXT" \| "IMAGE" \| "SHARE_POST" \| "VIDEO" \| "EMOJI" \| "STICKER" \| "TEMPLATE" \| "OTHER"` | No | No | The type of the message. Enum values:`TEXT`: text.`IMAGE`: image.`SHARE_POST`: TikTok post.`VIDEO`: video.`EMOJI`: emoji.`STICKER`: sticker.`TEMPLATE`: message template.`OTHER`: other message types. |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "AUTO_REPLY"` | No | No | The type of automatic message. Enum values:`WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`AUTO_REPLY`: keyword reply. A keyword reply is an automated response triggered by specific keywords in a message. Note: When the message is not an automatic message, this field will not be returned. |
+| `text` | `text` | `BusinessMessageContentListResponseMessagesText` | No | No | Returned only when `message_type` is `TEXT`. Text information. |
+| `image` | `image` | `BusinessMessageContentListResponseMessagesImage` | No | No | Returned only when `message_type` is `IMAGE`. Image information. |
+| `share_post` | `share_post` | `BusinessMessageContentListResponseMessagesSharePost` | No | No | Returned only when `message_type` is `SHARE_POST`. Information about the post shared. |
+| `reactions` | `reactions` | `Array<BusinessMessageContentListResponseMessagesReactions>` | No | No | Information about the list of reactions in response to the message. |
+| `sticker` | `sticker` | `BusinessMessageContentListResponseMessagesSticker` | No | No | Returned only when `message_type` is `STICKER`. Information about the sticker. |
+| `emoji` | `emoji` | `BusinessMessageContentListResponseMessagesEmoji` | No | No | Returned only when `message_type` is `EMOJI`. Information about the emoji. |
+| `video` | `video` | `BusinessMessageContentListResponseMessagesVideo` | No | No | Returned only when `message_type` is `VIDEO`. Information about the video. |
+| `template` | `template` | `BusinessMessageContentListResponseMessagesTemplate` | No | No | Returned only when `message_type` is `TEMPLATE`. Details about the message template sent. |
+| `from_user` | `from_user` | `BusinessMessageContentListResponseMessagesFromUser` | No | No | User information of the sender. |
+| `to_user` | `to_user` | `BusinessMessageContentListResponseMessagesToUser` | No | No | User information of the receiver. |
+| `referenced_message_info` | `referenced_message_info` | `BusinessMessageContentListResponseMessagesReferencedMessageInfo` | No | No | Information about the original message that is replied to. |
+
+## BusinessMessageContentListResponseMessagesEmoji
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | The URL to the emoji. The URL will not expire. |
+
+## BusinessMessageContentListResponseMessagesFromUser
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `role` | `role` | `"BUSINESS_ACCOUNT" \| "PERSONAL_ACCOUNT"` | No | No | The TikTok account type of the sender. Enum values:`BUSINESS_ACCOUNT`: Business Account.`PERSONAL_ACCOUNT`: Personal Account. |
+| `id` | `id` | `string` | No | No | The identifier of the sender. When `role` is `BUSINESS_ACCOUNT`, this field is the same as the `business_id`, the application specific unique identifier for the TikTok Business Account.When `role` is `PERSONAL_ACCOUNT`, this field is the same as the `unique_identifier`, the globally unique identifier assigned to the TikTok Personal Account user in the conversation. This identifier remains consistent across different APIs, such as [the Accounts comment listing endpoint](https://business-api.tiktok.com/portal/docs?id=1760232109619202), facilitating cross-referencing and integration. |
+
+## BusinessMessageContentListResponseMessagesImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | No | No | Image ID. To download the image associated with the image ID, use [/business/message/media/download/](https://business-api.tiktok.com/portal/docs?id=1832184455450626). |
+
+## BusinessMessageContentListResponseMessagesMessageTag
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source` | `source` | `"APP" \| "WEB" \| "API" \| "OTHERS" \| "UNKNOWN_SOURCE"` | No | No | The source of the message, indicating the platform from which the message was sent. Enum values:`APP`: TikTok mobile app.`WEB`: TikTok Web or TikTok Business Center.`API`: TikTok Business Messaging API.`OTHERS`: Other TikTok internal servers or tools, including automatic bots.`UNKNOWN_SOURCE`: Unknown source. |
+
+## BusinessMessageContentListResponseMessagesReactions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"EMOJI" \| "AI_EMOJI"` | No | No | The type of reaction. Enum values:`EMOJI`: A text emoji.`AI_EMOJI`: An AI-generated emoji derived from a selfie-based avatar. |
+| `emoji` | `emoji` | `string` | No | No | Returned only when `type` is `EMOJI`. The text of the text emoji. |
+| `ai_emoji_url` | `ai_emoji_url` | `string` | No | No | Returned only when `type` is `AI_EMOJI`. The URL to the AI-generated emoji image. Validity period: 30 days. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | The identifier of the sender. When `role` within the object `from_user` is `BUSINESS_ACCOUNT`, this field is the same as the `business_id`, the application specific unique identifier for the TikTok Business Account.When `role` within the object `from_user` is `PERSONAL_ACCOUNT`, this field is the same as the `unique_identifier`, the globally unique identifier assigned to the TikTok Personal Account user in the conversation. This identifier remains consistent across different APIs, such as [the Accounts comment listing endpoint](https://business-api.tiktok.com/portal/docs?id=1760232109619202), facilitating cross-referencing and integration. |
+| `timestamp` | `timestamp` | `number` | No | No | The timestamp when the reaction was made, in the format of an Epoch/Unix timestamp in milliseconds. Example: 1719447205701. |
+
+## BusinessMessageContentListResponseMessagesReferencedMessageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `referenced_message_id` | `referenced_message_id` | `string` | No | No | The ID of the original message that is replied to. When `message_type` is `TEXT` and `referenced_message_id` is returned, the object `text` represents the text reply to the original message.When `message_type` is `OTHER` and `referenced_message_id` is returned, you won't be able to retrieve the content of the reply itself through API. |
+
+## BusinessMessageContentListResponseMessagesSharePost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for the TikTok post. This URL can be used to embed the TikTok post in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the post will not be viewable through this link. |
+
+## BusinessMessageContentListResponseMessagesSticker
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | The URL to the sticker. Validity period: 30 days. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. |
+
+## BusinessMessageContentListResponseMessagesTemplate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"QA_BUTTON_CARD" \| "QA_LINK_CARD"` | No | No | The type of message template. Enum values: `QA_BUTTON_CARD`: Q&A button card, a card showing a question and buttons that represent answers. When users click one of the buttons, the text content of the button will be sent to the conversation thread on behalf of the user as an answer to the pre-set question on the card.`QA_LINK_CARD`: Q&A text link card, a card showing a question and interactive text links that represent answers to the question. When users click one of the text links, the text content of the text link will be sent to the conversation thread on behalf of the user as an answer to the pre-set question on the card. |
+| `title` | `title` | `string` | No | No | The pre-set question on the card. |
+| `buttons` | `buttons` | `Array<BusinessMessageContentListResponseMessagesTemplateButtons>` | No | No | A list of buttons or text links that represent answers to the question on the card. |
+
+## BusinessMessageContentListResponseMessagesTemplateButtons
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | The type of the button or text link. Enum value: `REPLY`: Reply button or reply text link. When users click the button or text link, the system will send the text content of the button or text link as a reply message on behalf of the user in the conversation. |
+| `title` | `title` | `string` | No | No | The text content of the button or text link. |
+| `id` | `id` | `string` | No | No | A self-defined ID for the button or text link. You can use this ID to distinguish between the buttons and text links. |
+
+## BusinessMessageContentListResponseMessagesText
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | No | No | Text content. |
+
+## BusinessMessageContentListResponseMessagesToUser
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `role` | `role` | `"BUSINESS_ACCOUNT" \| "PERSONAL_ACCOUNT"` | No | No | The TikTok account type of the receiver. Enum values:`BUSINESS_ACCOUNT`: Business Account.`PERSONAL_ACCOUNT`: Personal Account. |
+| `id` | `id` | `string` | No | No | The identifier of the receiver. When `role` is `BUSINESS_ACCOUNT`, this field is the same as the `business_id`, the application specific unique identifier for the TikTok Business Account.When `role` is `PERSONAL_ACCOUNT`, this field is the same as the `unique_identifier`, the globally unique identifier assigned to the TikTok Personal Account user in the conversation. This identifier remains consistent across different APIs, such as [the Accounts comment listing endpoint](https://business-api.tiktok.com/portal/docs?id=1760232109619202), facilitating cross-referencing and integration. |
+
+## BusinessMessageContentListResponseMessagesVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | No | No | The video ID. To download the video associated with the video ID, use [/business/message/media/download/](https://business-api.tiktok.com/portal/docs?id=1832184455450626). |
+
+## BusinessMessageContentListResponseParticipants
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `role` | `role` | `"BUSINESS_ACCOUNT" \| "PERSONAL_ACCOUNT"` | No | No | The TikTok account type of the participant. Enum values:`BUSINESS_ACCOUNT`: Business Account.`PERSONAL_ACCOUNT`: Personal Account. |
+| `id` | `id` | `string` | No | No | The identifier of the participant. When `role` is `PERSONAL_ACCOUNT`, this field is the same as the `unique_identifier`, the globally unique identifier assigned to the TikTok Personal Account user in the conversation. This identifier remains consistent across different APIs, such as [the Accounts comment listing endpoint](https://business-api.tiktok.com/portal/docs?id=1760232109619202), facilitating cross-referencing and integration.When `role` is `BUSINESS_ACCOUNT`, this field is the same as the `business_id`, the application specific unique identifier for the TikTok Business Account. |
+| `display_name` | `display_name` | `string` | No | No | The TikTok display name (nickname) of the participant. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for the TikTok profile image of the participant and needs to be re-acquired after expiration. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-1234/5678a9b1c2d345ef6789123b4ghijkl5.jpeg?lk3s=a5d48078&nonce=56434&refresh_token=3b1a321962699a37d22f145bf20cf766&x-expires=1719579600&x-signature=RTkvJazVm0fjkS%2FGfNHOuqIpla4%3D&shp=a5d48078&shcp=8aecc5ac` |
+| `is_follower` | `is_follower` | `boolean` | No | No | Returned only when `role` is `PERSONAL_ACCOUNT`. Whether the Personal Account follows the Business Account in the conversation. Supported values: `true`, `false`. |
+
+## BusinessMessageConversationListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_type` | `conversation_type` | `string` | Yes | No | Conversation type. Currently, the only allowed values are: `STRANGER`: Conversations with users who have sent a message to the Business Account of the business, but the business has not yet accepted the message request and responded to the message. `SINGLE`: One-on-one conversations with users who have sent a message to the Business Account of the business, and the business has previously responded to the user. |
+| `limit` | `limit` | `number` | No | No | The maximum number of conversations to return for this request. Value range: 1-100. Default value: 100. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is `true`, pass the returned `cursor` value in this parameter in the subsequent request to receive the next page of conversations. Default value: 0. |
+
+## BusinessMessageConversationListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversations` | `conversations` | `Array<BusinessMessageConversationListResponseConversations>` | No | No | Conversation List. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of conversations is available. Example: `false`. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of conversations, to be passed in the `cursor` parameter of the subsequent API request. Example: 13. |
+
+## BusinessMessageConversationListResponseConversations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | No | No | Conversation ID. Example: `a1AbcBdeCfghDijkEF2b3+lmGn==`. |
+| `update_time` | `update_time` | `number` | No | No | The time of the last message in the conversation, in the format of an Epoch/Unix timestamp in milliseconds. Example: `1719447205701`. |
+| `referral` | `referral` | `BusinessMessageConversationListResponseConversationsReferral` | No | No | Referral information of the conversation. |
+
+## BusinessMessageConversationListResponseConversationsReferral
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `Array<BusinessMessageConversationListResponseConversationsReferralAd>` | No | No | Related referral ad information of the conversation, including all historical referral ads of the conversation. |
+| `short_link` | `short_link` | `Array<BusinessMessageConversationListResponseConversationsReferralShortLink>` | No | No | Information about the tiktok.me link. A tiktok.me link is a shareable TikTok shortlink that allows users to initiate a one-on-one conversation with a business in the TikTok App. |
+
+## BusinessMessageConversationListResponseConversationsReferralAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | The ID of the advertiser account that is associated with the ad. |
+| `ad_id` | `ad_id` | `string` | No | No | Ad ID of the related ad. Example: `1234567891234567`. The types of data you can get from this metric include:The ID of a [Manual Ad](https://business-api.tiktok.com/portal/docs?id=1735735524758530).The ID of an ad within a [Smart+ Campaign](https://business-api.tiktok.com/portal/docs?id=1765314260115458).The ID of a creative within an [Upgraded Smart+ Ad](https://business-api.tiktok.com/portal/docs?id=1843310530260097). |
+| `timestamp` | `timestamp` | `number` | No | No | The time of the referral event, in the format of an Epoch/Unix timestamp in seconds. Example: `1714430514`. |
+| `ad_name` | `ad_name` | `string` | No | No | The name of the related ad. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for the TikTok post used in the related ad. This URL can be used to embed the TikTok post in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the post will not be viewable through this link. |
+| `message_material_id` | `message_material_id` | `string` | No | No | Material ID. The encoded ID of a creative within [Upgraded Smart+ Ads](https://business-api.tiktok.com/portal/docs?id=1843310530260097). |
+
+## BusinessMessageConversationListResponseConversationsReferralShortLink
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ref` | `ref` | `string` | No | No | The referral parameter (`ref`) that is configured in the tiktok.me link, offering context about the conversation. You can incorporate the referral parameter in your tiktok.me link to monitor various links posted on different channels. This parameter is a URL-encoded string with a maximum length of 2,083 characters. Note: The `ref` parameter only supports alphanumeric characters and the special characters `-`, `_`, and `=`. |
+| `prefilled_message` | `prefilled_message` | `string` | No | No | The prefilled message that is configured in the tiktok.me link. |
+| `prefilled_message_audit_status` | `prefilled_message_audit_status` | `"REJECT" \| "PASS"` | No | No | The audit status of the prefilled message. Enum values: `REJECT`: The message was rejected during the review. If `prefilled_message_audit_status` is `REJECT`, the `prefilled_message` will not be prefilled into the message input box. `PASS`: The message passed the review. |
+
+## BusinessMessageDirectReplyGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `direct_reply_type` | `direct_reply_type` | `string` | Yes | No | The type of direct reply. Enum value: `COMMENT_TO_MESSAGE`: Comment-to-Message. Once you enable this feature, the TikTok system will identify high-intent comments, enabling you to send customized replies to assist these users more effectively. |
+
+## BusinessMessageDirectReplyGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | No | No | Application specific unique identifier for the TikTok Business Account. |
+| `direct_reply_type` | `direct_reply_type` | `string` | No | No | The type of direct reply. Enum value: `COMMENT_TO_MESSAGE`: Comment-to-Message. Once you enable this feature, the TikTok system will identify high-intent comments, enabling you to send customized replies to assist these users more effectively. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | No | No | The status of the direct reply type (`direct_reply_type`). Enum values: `ENABLE`: Enabled.`DISABLE`: Disabled. If you want to enable or disable this setting, use [/business/message/direct_reply/update/](https://business-api.tiktok.com/portal/docs?id=1843697551083522). |
+
+## BusinessMessageDirectReplyUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `direct_reply_type` | `direct_reply_type` | `string` | Yes | No | The type of direct reply. Enum value: `COMMENT_TO_MESSAGE`: Comment-to-Message. Once you enable this feature, the TikTok system will identify high-intent comments, enabling you to send customized replies to assist these users more effectively. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | Yes | No | The operation to perform. Enum values:`ENABLE`: To enable the Comment-to-Message feature.`DISABLE`: To disable the Comment-to-Message feature. |
+
+## BusinessMessageDirectReplyUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessMessageMediaDownloadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | Conversation ID. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). |
+| `message_id` | `message_id` | `string` | Yes | No | Message ID. To get a message ID, use [/business/message/content/list/](https://business-api.tiktok.com/portal/docs?id=1832184425841170). |
+| `media_id` | `media_id` | `string` | Yes | No | Media ID. To get a media ID, use [/business/message/content/list/](https://business-api.tiktok.com/portal/docs?id=1832184425841170). |
+| `media_type` | `media_type` | `"IMAGE" \| "VIDEO"` | Yes | No | Multimedia type. Enum values:`IMAGE`: image.`VIDEO`: video. |
+
+## BusinessMessageMediaDownloadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | Download URL. It is valid for 24 hours. If it expires, call this endpoint again to generate a new URL. Note: When downloading the image through the URL, you must include a header. Set the header to `x-user = &#123;&#123;Access-Token&#125;&#125;`. |
+
+## BusinessMessageMediaUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `file` | `file` | `unknown` | Yes | No | Multimedia File. File size limit: 3MB. Supported image file format: JPG and PNG. |
+| `media_type` | `media_type` | `string` | Yes | No | Multimedia type. Currently, we only support `IMAGE` as the multimedia type. |
+
+## BusinessMessageMediaUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | No | No | Media ID of the uploaded image. Validity period: 30 days. Once the Media ID expires, you need to re-upload the image to obtain a new Media ID. |
+
+## BusinessMessageSendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `recipient_type` | `recipient_type` | `string` | No | No | Required when `direct_reply` is not specified.Not supported when `direct_reply` is specified. |
+| `recipient` | `recipient` | `string` | No | No | Required when `direct_reply` is not specified.Not supported when `direct_reply` is specified. Recipient. When `recipient_type` is `CONVERSATION`, you need to specify `conversation_id` in this field. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). |
+| `message_type` | `message_type` | `"TEXT" \| "IMAGE" \| "SHARE_POST" \| "TEMPLATE" \| "SENDER_ACTION"` | Yes | No | The type of the message. Enum values: `TEXT`: text message. `IMAGE`: image message.`SHARE_POST`: TikTok post message.`TEMPLATE`: message template. `SENDER_ACTION`: Sender action. Note that for this type, the returned message ID is an empty string (`""`) because no actual message is sent. |
+| `text` | `text` | `BusinessMessageSendParamsText` | No | No | Required when `message_type` is `TEXT`. Text information. A message cannot include both a text and an image. |
+| `image` | `image` | `BusinessMessageSendParamsImage` | No | No | Required when `message_type` is `IMAGE`. Image information. A message cannot include both a text and an image. Sending and receiving image attachments via API are only available when both the sender and receiver are in countries that support image attachments in direct messages. Image sharing is not available in all markets. |
+| `share_post` | `share_post` | `BusinessMessageSendParamsSharePost` | No | No | Required when `message_type` is `SHARE_POST`. Information about the post to be shared. |
+| `template` | `template` | `BusinessMessageSendParamsTemplate` | No | No | Required when `message_type` is `TEMPLATE`. Details about the message template to send. |
+| `sender_action` | `sender_action` | `string` | No | No | Required when `message_type` is `SENDER_ACTION`. The sender's action in the messaging session. `TYPING`: The sender is preparing a reply. This displays a “Typing” icon in the messaging window, which will automatically disappear after five seconds.`MARK_READ`: The sender marks all messages in the session as read, displaying a “Seen” icon for those messages. |
+| `referenced_message_info` | `referenced_message_info` | `BusinessMessageSendParamsReferencedMessageInfo` | No | No | Required when you want to send a reply to a message. Information about the original message to reply to. |
+| `direct_reply` | `direct_reply` | `BusinessMessageSendParamsDirectReply` | No | No | Required when you are sending a direct reply. Details of the direct reply. Note: To send a direct reply, ensure that Comment-to-Message is enabled for the Business Account. To obtain the Comment-to-Message setting for a Business Account, use [/business/message/direct_reply/get/](https://business-api.tiktok.com/portal/docs?id=1843697576682497).The Comment-to-Message feature is only available for Business Accounts registered in Vietnam, Indonesia, and Thailand.Once you enable Comment-to-Message for a Business Account, the Business Account can only reply to comments published by TikTok accounts that are registered in the APAC, LATAM, and METAP regions. |
+
+## BusinessMessageSendParamsDirectReply
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reply_type` | `reply_type` | `string` | No | No | Required when `direct_reply` is specified. The type of direct reply. Enum value:`COMMENT_REPLY`: a reply to a comment on a video. Note: To send a comment reply, ensure that all the following conditions are all met:The comment that you want to reply to is a first-level comment on a video of the Business Account.Your reply is sent within 48 hours after the user posted the comment.The comment has not been replied to through direct messages yet in any way, including from the TikTok app or via the API.The user who posted the comment had no direct messaging communication with the Business Account in the past 24 hours.The user who posted the comment is over 18 years old. |
+| `comment_reply` | `comment_reply` | `BusinessMessageSendParamsDirectReplyCommentReply` | No | No | Required when `direct_reply` is specified. Details of the comment reply. |
+
+## BusinessMessageSendParamsDirectReplyCommentReply
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Required when `direct_reply` is specified. ID of the high-intent comment you want to reply to. A high-intent comment is one that expresses a strong intention to purchase or seek further information. You can obtain the ID of a high-intent comment from the webhook event [im_receive_high_intent_comment](https://business-api.tiktok.com/portal/docs?id=1832190670631937#item-link-im_receive_high_intent_comment). |
+
+## BusinessMessageSendParamsImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | No | No | Required when `image` is specified. Image ID. You can use [/business/message/capabilities/get/](https://business-api.tiktok.com/portal/docs?id=1836061597865986) to query if the Business Account can send a media attachment to a conversation. Before sending an image, use [/business/message/media/upload/](https://business-api.tiktok.com/portal/docs?id=1832184437720193) to upload an image to your account and obtain the `media_id`. |
+
+## BusinessMessageSendParamsReferencedMessageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `referenced_message_id` | `referenced_message_id` | `string` | No | No | Required when `referenced_message_info` is specified. The ID of the original message that you want to reply to. The original message can be a text, an image, or a TikTok post. To obtain such a message, use [/business/message/content/list/](https://business-api.tiktok.com/portal/docs?id=1832184425841170) and ensure the `message_type` of the message is `TEXT`, `IMAGE`, or `SHARE_POST`. When using this field, make sure to set the `message_type` to `TEXT` and specify `text` simultaneously, as only text replies are supported. After you send the reply, the original message will be quoted in the conversation thread. |
+
+## BusinessMessageSendParamsSharePost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Required when `share_post` is specified. The ID of the TikTok post to share with others. To obtain the IDs of TikTok posts associated with your TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Note: Currently, you can only share your posts. |
+
+## BusinessMessageSendParamsTemplate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"QA_BUTTON_CARD" \| "QA_LINK_CARD"` | No | No | Required when `template` is specified. The type of message template. Enum values: `QA_BUTTON_CARD`: Q&A button card, a card showing a question and buttons that represent answers. When users click one of the buttons, the text content of the button will be sent to the conversation thread on behalf of the user as an answer to the pre-set question on the card.`QA_LINK_CARD`: Q&A text link card, a card showing a question and interactive text links that represent answers to the question. When users click one of the text links, the text content of the text link will be sent to the conversation thread on behalf of the user as an answer to the pre-set question on the card. |
+| `title` | `title` | `string` | No | No | Required when `template` is specified. The pre-set question on the card. Length limit: 40 characters. |
+| `buttons` | `buttons` | `Array<BusinessMessageSendParamsTemplateButtons>` | No | No | Required when `template` is specified. A list of buttons or text links that represent answers to the question on the card. Size range: 1-3. |
+
+## BusinessMessageSendParamsTemplateButtons
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | Required when `buttons` is specified. The type of the button or text link. Enum value: `REPLY`: Reply button or reply text link. When users click the button or text link, the system will send the text content of the button or text link as a reply message on behalf of the user in the conversation. |
+| `title` | `title` | `string` | No | No | Required when `buttons` is specified. The text content of the button or text link. Length limit: When `type` of the message template is `QA_BUTTON_CARD`: 20 characters.When `type` of the message template is `QA_LINK_CARD`: 40 characters. |
+| `id` | `id` | `string` | No | No | A self-defined ID for the button or text link. You can use this ID to distinguish between different buttons and text links. Length limit: 40 characters. |
+
+## BusinessMessageSendParamsText
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | No | No | Required when `text` is specified. Text content. Length limit: 6,000 characters, including spaces and emojis. |
+
+## BusinessMessageSendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `BusinessMessageSendResponseMessage` | No | No | Message details. |
+
+## BusinessMessageSendResponseMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_id` | `message_id` | `string` | No | No | Message ID. Note: If `message_type` is set to `SENDER_ACTION` in the request, the value of this field will be an empty string (`""`) because no actual message is sent. |
+
+## BusinessPhotoPublishParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `photo_images` | `photo_images` | `Array<string>` | Yes | No | A list of up to 35 publicly accessible HTTP(s) URLs for the photo content to be published. Photo constraints: The maximum resolution of the image is 1080 x 1920 pixels or 1920 x 1080 pixels.File size: within 20 MB for each image.File type: JPG, JPEG, or WebP.Example: https://tiktok.com/tiktok-images/image.jpg Important: You cannot publish photo posts using unverified photo URLs. To ensure a smooth API integration, we recommend you verify ownership of URL properties as soon as possible, and specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://ads.tiktok.com/marketing_api/docs?id=1769324038780930).Note that if you are a developer or an advertiser who used the [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) endpoint to publish videos prior to April 7th, 2023, we have automatically set the corresponding domains of video URLs specified through the `video_url` parameter to the "verified" status. Therefore, we recommend that you use the [/business/property/list/](https://business-api.tiktok.com/portal/docs?id=1769325368603650) endpoint to confirm whether the domains you utilize for hosting images have been automatically verified. |
+| `photo_cover_index` | `photo_cover_index` | `number` | No | No | The index of the photo to be used as the cover for the post. Default value: `0` (the first photo). For example, if you want to use the second photo as the post cover, set this field to `1`. |
+| `post_info` | `post_info` | `BusinessPhotoPublishParamsPostInfo` | Yes | No | Information about the photo post. |
+
+## BusinessPhotoPublishParamsPostInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacy_level` | `privacy_level` | `"PUBLIC_TO_EVERYONE" \| "MUTUAL_FOLLOW_FRIENDS" \| "FOLLOWER_OF_CREATOR" \| "SELF_ONLY"` | Yes | No | The privacy level of the photo post. Enum values: `PUBLIC_TO_EVERYONE`: Everyone (people on or off TikTok). `MUTUAL_FOLLOW_FRIENDS`: Friends (followers you follow back). `FOLLOWER_OF_CREATOR`: Followers (Visible only to followers on your private account). `SELF_ONLY`: Only you. To determine the allowed values for your TikTok account's posts, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `privacy_level_options` from the response. |
+| `title` | `title` | `string` | No | No | The title of the post. Length limit: 90 runes (UTF-16 code units). |
+| `caption` | `caption` | `string` | No | No | Post caption/description - which can contain #hashtags and @mentions of friends (mutual followers) of the owned TikTok Account. Length limit: 4,000 runes (UTF-16 code units), including a maximum of 30 mentions. You can use "\n" as line break to display the post caption in multiple lines within the mobile TikTok App. However, for the line break to work effectively, the caption must contain enough characters to trigger truncation based on the current mobile phone's display settings and operating system. This truncation is characterized by an ellipsis mark (...) and the word "more", which users can click to expand and view the full caption. If the caption is too short and does not trigger truncation, the "\n" character will be ignored, and the caption will be displayed on a single line without any line breaks. Note that in the TikTok Web App "\n" will always be ignored. Example: Me and me casa 🏠 #cat #kitten #britishshorthair Note: Any hashtags and mentions included in the post caption will render as plain text on the TikTok application. |
+| `auto_add_music` | `auto_add_music` | `boolean` | No | No | Whether to automatically add recommended music to the post. Enum values: `true`, `false`. Default value: `false`. If you set this field to `true`, you can change the music later in the TikTok app. |
+| `is_brand_organic` | `is_brand_organic` | `boolean` | Yes | No | Whether to enable the Brand Organic Content toggle for the video. If this field is set to `true`, the video will be labeled as Brand Organic Content, indicating you are promoting yourself or your own business. A "Promotional content" label will be attached to the video. Note: If you set both `is_brand_organic` and `is_branded_content` to `true`, `is_brand_organic` will be ignored and the video will be labeled as Branded Content. |
+| `is_branded_content` | `is_branded_content` | `boolean` | Yes | No | Whether to enable the [Branded Content](https://creatormarketplace.tiktok.com/help#/doc/9493/10008169) toggle for the video. If this field is set to `true`, the video will be labeled as Branded Content, indicating you are in a paid partnership with a brand. A "Paid partnership" label will be attached to the video. Note:If you set both `is_brand_organic` and `is_branded_content` to `true`, `is_brand_organic` will be ignored and the video will be labeled as Branded Content. |
+| `is_draft` | `is_draft` | `boolean` | No | No | Whether to upload the post as a draft. Supported values: `true`, `false`. Default value: `false`. If you set this field to `true`, all the other fields within `post_info`, except for `title` and `caption`, will be ignored. Note: If you want to use this parameter to upload the post as a draft, obtain a TikTok account access token with `video.upload` permission and the application-specific unique ID for the TikTok account by following the steps in [Authorization](https://business-api.tiktok.com/portal/docs?id=1738083939371009) and [Authentication](https://business-api.tiktok.com/portal/docs?id=1738084387220481).To confirm whether a TikTok account access token has `video.upload` permission, use [/tt_user/token_info/get/](https://business-api.tiktok.com/portal/docs?id=1765927978092545) and check the returned scope. If the access token doesn't have the `video.upload` permission, request the TikTok account owner to approve draft uploading permission through the [Authorization](https://business-api.tiktok.com/portal/docs?id=1738083939371009) workflow. |
+| `disable_comment` | `disable_comment` | `boolean` | No | No | Whether to disable the "Allow comments" setting for the published photo post. Supported values: `false`: To enable the setting.`true`: To disable the setting. To determine the allowed values for your TikTok account's posts, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `comment_disabled` from the response.If `comment_disabled` is `true`, you can only set this field to `true`.If `comment_disabled` is `false`, you can set this field to `true` or `false`. Default value: `false` Example: `false` |
+| `music_sound_info` | `music_sound_info` | `BusinessPhotoPublishParamsPostInfoMusicSoundInfo` | No | No | Information about the track that you want to use with a photo. |
+| `location_id` | `location_id` | `string` | No | No | The ID of the location tag. When you publish a post using a location tag (which includes `location_id` and `location_name`), the associated location will be added to and displayed in your post. By adding a location tag, you help local audiences and users searching for that area discover your post. This can also boost your engagement by making your content more relevant to nearby users. To obtain the list of available location tags for a TikTok account, use [/business/publish/location/](https://business-api.tiktok.com/portal/docs/get-the-location-tags-for-a-tiktok-account/v1.3). |
+| `location_name` | `location_name` | `string` | No | No | Required when `location_id` is specified. The name of the location. |
+
+## BusinessPhotoPublishParamsPostInfoMusicSoundInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_sound_id` | `music_sound_id` | `string` | No | No | Required when using `music_sound_info`. The commercial music library ID of the track that you want to use with a photo. You can get this ID using the [/discovery/cml/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119063013505) endpoint. |
+
+## BusinessPhotoPublishResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `share_id` | `share_id` | `string` | No | No | Unique identifier for the photo post publishing task. You can use this ID as `publish_id` in [/business/publish/status/](https://business-api.tiktok.com/portal/docs?id=1816387106635778) to query the publishing status of the photo post. Example: p_pub_url~v1.2345123456789123456 Note:The [photo post publishing status Webhook](https://business-api.tiktok.com/portal/docs?id=1810515090228226) for the shared photo content will contain this identifier for developer applications to track the status of the photo upload. Once the photo publishing is complete, the success Webhook will also contain the newly created unique identifier for the photo post which can be used to access insights into the post.To configure a Webhook callback URL for your developer app, use the Webhook API endpoint [/business/webhook/update/](https://business-api.tiktok.com/portal/docs?id=1810521279479810). |
+
+## BusinessPostAuthorizeDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. Note: If the TikTok post doesn't have an authorization code, either because the code is not generated or is deleted, an error will occur. |
+
+## BusinessPostAuthorizeDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok post. Example: `7123456789123456789`. |
+| `auth_code_status` | `auth_code_status` | `string` | No | No | The status of the authorization code. Enum value: `DELETED`: The authorization code has been deleted. |
+
+## BusinessPostAuthorizeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. |
+| `authorization_days` | `authorization_days` | `number` | No | No | If the post already has an authorization code, this field represents the authorization extension period, which is an additional amount of time you can add on to your existing Ad authorization period. For instance, if the existing authorization period of a TikTok post is 180 days and you set this field to `180`, the authorization period of the post will be extended to 360 days.If the authorization code of a TikTok post is deleted, this field represents the validity period of the new authorization code. Supported values: `7`, `30`, `60`, `180`, `365`. Default value: `30`. |
+
+## BusinessPostAuthorizeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok post. Example: `7123456789123456789`. |
+| `auth_code` | `auth_code` | `string` | No | No | The authorization code for the TikTok post. Example: `#1Ea2bcde3fUM/ghijEk/L4mOceft5deFRq6za7JsgnAJ8PB9n1XIr1rC1b/5Rw4=`. |
+| `auth_code_start_time` | `auth_code_start_time` | `string` | No | No | The time when the authorization code becomes valid, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `auth_code_end_time` | `auth_code_end_time` | `string` | No | No | The time when the authorization code expires, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `authorization_days` | `authorization_days` | `number` | No | No | The authorization validity period in days. Example: `30`. |
+
+## BusinessPostAuthorizeSettingParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. |
+| `is_ad_promotable` | `is_ad_promotable` | `boolean` | Yes | No | Whether to enable the "Ad authorization" setting to allow the post to be promoted. Supported values: `true`: To enable the "Ad authorization" setting.`false`: To disable the "Ad authorization" setting. Note: If the TikTok post is being used in Spark Ads, you cannot disable the "Ad authorization" setting for the post. |
+| `authorization_days` | `authorization_days` | `number` | No | No | The authorization validity period in days. Supported values: `7`, `30`, `60`, `180`, `365`. Default value: `30`. |
+
+## BusinessPostAuthorizeSettingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Returned only when `is_ad_promotable` is set to `true` in the request. The ID of the TikTok post. Example: `7123456789123456789`. |
+| `auth_code` | `auth_code` | `string` | No | No | Returned only when `is_ad_promotable` is set to `true` in the request. The authorization code for the TikTok post. Example: `#1Ea2bcde3fUM/ghijEk/L4mOceft5deFRq6za7JsgnAJ8PB9n1XIr1rC1b/5Rw4=`. |
+| `auth_code_start_time` | `auth_code_start_time` | `string` | No | No | Returned only when `is_ad_promotable` is set to `true` in the request. The time when the authorization code becomes valid, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `auth_code_end_time` | `auth_code_end_time` | `string` | No | No | Returned only when `is_ad_promotable` is set to `true` in the request. The time when the authorization code expires, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `authorization_days` | `authorization_days` | `number` | No | No | Returned only when `is_ad_promotable` is set to `true` in the request. The authorization validity period in days. Supported values: `7`, `30`, `60`, `180`, `365`. |
+
+## BusinessPostAuthorizeStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. Note: If the TikTok post doesn't have an authorization code, either because the code is not generated or is deleted, an error will occur. |
+
+## BusinessPostAuthorizeStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok post. Example: `7123456789123456789`. |
+| `auth_code` | `auth_code` | `string` | No | No | The authorization code for the TikTok post. Example: `#1Ea2bcde3fUM/ghijEk/L4mOceft5deFRq6za7JsgnAJ8PB9n1XIr1rC1b/5Rw4=`. |
+| `auth_code_start_time` | `auth_code_start_time` | `string` | No | No | The time when the authorization code becomes valid, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `auth_code_end_time` | `auth_code_end_time` | `string` | No | No | The time when the authorization code expires, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. |
+| `authorization_days` | `authorization_days` | `number` | No | No | The authorization validity period in days. Example: `30`. |
+| `auth_code_status` | `auth_code_status` | `"NOT_USED" \| "IN_USE" \| "EXPIRED"` | No | No | The status of the authorization code. Enum values:`NOT_USED`: The authorization code has been generated but has not been used yet.`IN_USE`: The authorization code has been generated and is in use now. `EXPIRED`: The authorization code has been generated and has expired. |
+
+## BusinessPropertyAddParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `url_property_meta` | `BusinessPropertyAddParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to add and verify ownership for. |
+
+## BusinessPropertyAddParamsUrlPropertyMeta
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | Yes | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | Yes | No | An owned URL that you want to add. Pass in the URL according to the `property_type` that you specify. If `property_type` is 1, you need to specify a base domain (for example, `example.com`) or a subdomain (for example, `subdomain.example.com`). If `property_type` is 2, you need to specify a URL prefix which consists of: `https://` + host (must be a domain) + path + `/`, and should not include any redirections to other URLs. For instance, in the URL prefix `https://www.example.com/folder/` , the host is the domain `www.example.com` and the path is `/folder`. |
+
+## BusinessPropertyAddResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url_property_info` | `url_property_info` | `BusinessPropertyAddResponseUrlPropertyInfo` | No | No | Information about the URL property that is added and pending for ownership verification. |
+
+## BusinessPropertyAddResponseUrlPropertyInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | No | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | No | No | An owned URL that is added and pending for ownership verification. |
+| `property_status` | `property_status` | `number` | No | No | Verification status of the URL property. Enum values: 0: Pending for verification. |
+| `signature` | `signature` | `string` | No | No | Signature string to be used in the ownership verification process. |
+| `file_name` | `file_name` | `string` | No | No | Signature file name to be used in the ownership verification process. |
+
+## BusinessPropertyDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `url_property_meta` | `BusinessPropertyDeleteParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to delete the verified ownership of. |
+
+## BusinessPropertyDeleteParamsUrlPropertyMeta
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | Yes | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | Yes | No | An owned URL that you want to delete the verified ownership of. Pass in the URL according to the `property_type` that you specify. |
+
+## BusinessPropertyDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessPropertyListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+
+## BusinessPropertyListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url_property_info_list` | `url_property_info_list` | `BusinessPropertyListResponseUrlPropertyInfoList` | No | No | Information about the URL properties that have been added. |
+
+## BusinessPropertyListResponseUrlPropertyInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | No | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | No | No | An owned URL that is added. |
+| `property_status` | `property_status` | `number` | No | No | Verification status of the URL property. Enum values: 0: Pending for verification.1: Verified. 2: Not verified because the verification attempt failed. You need to re-verify the URL property. |
+| `signature` | `signature` | `string` | No | No | Signature string to be used in the ownership verification process. |
+| `file_name` | `file_name` | `string` | No | No | Signature file name to be used in the ownership verification process. |
+
+## BusinessPropertyVerifyParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `url_property_meta` | `BusinessPropertyVerifyParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to check the ownership verification result for. |
+
+## BusinessPropertyVerifyParamsUrlPropertyMeta
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | Yes | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | Yes | No | An owned URL that you want to check the ownership verification result for. Pass in the URL according to the `property_type` that you specify. If `property_type` is 1, you need to specify a base domain (for example, `example.com`) or a subdomain (for example, `subdomain.example.com`). If `property_type` is 2, you need to specify a URL prefix which consists of: `https://` + host (must be a domain) + path + `/`, and should not include any redirections to other URLs. For instance, in the URL prefix `https://www.example.com/folder/` , the host is the domain `www.example.com` and the path is `/folder`. Note: Pass to this field a URL property that you have added to the advertiser account through [/business/property/add/](https://business-api.tiktok.com/portal/docs?id=1769325280876545). Otherwise, an error will occur. Note that subdomains of a verified domain do not require separate verification, because they are automatically considered verified. |
+
+## BusinessPropertyVerifyResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url_property_info` | `url_property_info` | `BusinessPropertyVerifyResponseUrlPropertyInfo` | No | No | Information about the ownership verification result for the URL property. |
+
+## BusinessPropertyVerifyResponseUrlPropertyInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_type` | `property_type` | `number` | No | No | Type of the URL property. Enum values：1: Domain.2: URL prefix. |
+| `url` | `url` | `string` | No | No | The specified owned URL. |
+| `property_status` | `property_status` | `number` | No | No | Verification status of the URL property. Enum values: 1: Verified. 2: Not verified because the verification attempt failed. You need to re-verify the URL property. |
+| `signature` | `signature` | `string` | No | No | Signature string to be used in the ownership verification process. |
+| `file_name` | `file_name` | `string` | No | No | Signature file name to be used in the ownership verification process. |
+
+## BusinessPublishLocationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/obtain-a-short-term-access-token/v1.3) to this field. |
+| `search_query` | `search_query` | `string` | Yes | No | The query you provide to search for a location that can be added to the TikTok account's posts. Length limit: 100 characters. |
+
+## BusinessPublishLocationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locations` | `locations` | `Array<BusinessPublishLocationResponseLocations>` | No | No | A list of the locations. You can retrieve a maximum of 20 locations. |
+
+## BusinessPublishLocationResponseLocations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location_name` | `location_name` | `string` | No | No | The name of the location. |
+| `location_id` | `location_id` | `string` | No | No | The ID of the location tag. You can pass this ID, along with the `location_name`, to [/business/video/publish/](https://business-api.tiktok.com/portal/docs/publish-a-public-video-post-to-an-owned-account/v1.3) or [/business/photo/publish/](https://business-api.tiktok.com/portal/docs/publish-a-photo-post-to-an-owned-account/v1.3) to display the associated location on your published post. |
+| `location_address` | `location_address` | `string` | No | No | The additional information associated with the location. The content you receive varies and may include, but is not limited to:Country only: `United Kingdom`Region/State + country: `Florida, United States`, `Illinois, United States`City + country: `Cairo, Egypt`Full street address: `300 West 47th Street, New York, New York 10036, USA` |
+
+## BusinessPublishStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `publish_id` | `publish_id` | `string` | Yes | No | Unique identifier for a post publishing task. Pass the value of the `share_id` field returned in the response of [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) or [/business/photo/publish/](https://business-api.tiktok.com/portal/docs?id=1803630424390658) to this field. |
+
+## BusinessPublishStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"PROCESSING_DOWNLOAD" \| "PUBLISH_COMPLETE" \| "FAILED" \| "SEND_TO_USER_INBOX"` | No | No | The publishing status of the TikTok post. Enum values: `PROCESSING_DOWNLOAD`: The download of content from the URL is in progress. This status is only available when you publish the post using a file URL.`PUBLISH_COMPLETE`: The post has passed moderation and has been successfully published.`FAILED`: The publishing process failed due to an error. `SEND_TO_USER_INBOX`: The draft post has been successfully uploaded and the system has sent a corresponding notification to creator's inbox. |
+| `post_ids` | `post_ids` | `Array<string>` | No | No | Returned only when `status` is `PUBLISH_COMPLETE` and the posts are publicly viewable. The unique identifiers for the published TikTok posts. Note: Post IDs require up to three minutes of processing time. If post IDs are not immediately available in the initial response, retry after three minutes.You can use the IDs as the filter field `video_ids` in [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786) to obtain the detailed metrics for the posts. |
+| `reason` | `reason` | `string` | No | No | Returned only when `status` is `FAILED`. The reason for the publishing failure. Example: `frame_rate_check_failed`. To find out the detailed description for each reason, see [Failure reasons](https://business-api.tiktok.com/portal/docs?id=1810515090228226#item-link-Failure%20reasons). |
+
+## BusinessVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If not set, returns the default field only. Default value: `["item_id"]`. If you want to request multiple fields, you need to at least include `"item_id"` in the value for `fields`. Otherwise, an error may occur. Example: `["item_id", "create_time"]`. Note: All video engagement metrics are aggregated over the lifetime of the video. Unlike profile-level metrics, the aggregation is not limited to a 60-day look-back period. To retrieve certain fields in the response, you must have specific permissions. You can check the "Required permission" column for each field in the response schema to determine the permissions needed. To confirm that you have the necessary permission scope, you can check the scope returned by the [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545) endpoint. If the required permission has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission. Supported fields: `item_id`: Unique identifier for the post.`media_type`: The type of the post.`is_ad`: Whether the post is being used in an ad.`thumbnail_url`: Preview thumbnail URL for the post.`share_url`: A shareable URL for the post. `embed_url`: An embeddable URL for the post. `caption`: The caption/description for the post. `video_duration`: Duration of the video, in seconds. `likes`: Likes. The total number of likes the post has received. `comments`: Comments. The total number of comments the post has received. `shares`: Shares. The total number of times the post has been shared. `favorites`: Favorites. The total number of times the post has been added to favorites.`create_time`: Unix/epoch date-time when the post was published.`reach`: Reach. The number of people who watched your published content at least once.`video_views`: Video views. The number of times viewers watched your video post. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. `total_time_watched`: Total play time. The amount of time viewers spent watching your video post. `average_time_watched`: Average watch time. The average time viewers spent watching your video post. `full_video_watched_rate`: Watched full video rate. The percentage of viewers who finish watching your video post. `new_followers`: New followers. The number of viewers who started following you. `profile_views`: Profile views. The total number of profile views from users who visited through your post. `website_clicks`: Website clicks. The total number of clicks on your website link from users who visited your profile page through your post. `phone_number_clicks`: Phone number clicks. The total number of clicks on your phone number link from users who visited your profile page through your post. `lead_submissions`: Lead submissions. The total number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers who visited your profile page through your post. `app_download_clicks`: App download link clicks. The total number of clicks on your app download link from users who visited your profile page through your post. `email_clicks`: Email clicks. The total number of times people have clicked the Email button on your profile after viewing this specific post. `address_clicks`: Address clicks. The total number of times people have clicked the Address button on your profile after viewing this specific post. `video_view_retention`: Audience retention. This metric indicates how many of your viewers are still watching after a certain amount of time. `impression_sources`: Traffic source. This metric helps you understand the breakdown of traffic sources for those who viewed your video. `audience_genders`: Gender. The distribution of your viewers by gender. This data is based on factors including the information viewers provide. `audience_countries`: Top countries. The distribution of your viewers by the top countries or regions. This data is based on factors including the information viewers provide. `audience_cities`: Top cities. The distribution of your viewers by the top cities. This data is based on factors including the information viewers provide. `audience_types`: Viewer types. The breakdown of your audience into new viewers versus returning viewers, and followers versus non-followers. `engagement_likes`: Engagement likes. The distribution of your viewers who liked your video at specific points in the video's timeline. |
+| `filters` | `filters` | `BusinessVideoListParamsFilters` | No | No | Filters to apply to the result set. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: Current time as Epoch/Unix timestamp in milliseconds. Note: The cursor value is a UTC Unix timestamp in milliseconds. You can pass in a customized timestamp to fetch the user's videos posted before the provided timestamp. |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of videos that will be returned for each page. Default value: 10 Maximum value: 20 Note: Due to our trust and safety policies, it is possible that the endpoint returns less than `max_count` number of videos even if the response parameter `has_more` is true. |
+
+## BusinessVideoListParamsFilters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | A list of post IDs to filter the insights for. Example: `["6995316737801538821", "8015388216995316737"]`. |
+| `ad_post_only` | `ad_post_only` | `boolean` | No | No | Valid only when `video_ids` is specified. Whether to filter videos (`video_ids`) to only include video posts that have been authorized to advertisers for Spark Ads creation. Supported values: `true`, `false`. Default value: `false`. |
+
+## BusinessVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videos` | `videos` | `Array<BusinessVideoListResponseVideos>` | No | No | The list of public posts of the TikTok account, including organic videos displayed in the account's profile, as well as "Only show in ads" video posts (video posts used exclusively as ads that do not appear in the TikTok account's profile but are publicly accessible as ads). |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the cursor query parameter of the subsequent API request. Updated in: Real-time |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. Updated in: Real-time |
+
+## BusinessVideoListResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: 6995316737801538821 Updated in: Real-time |
+| `media_type` | `media_type` | `"VIDEO" \| "PHOTO"` | No | No | The type of the post. Enum values:`VIDEO`: a video post.`PHOTO`: a photo or text post. |
+| `is_ad` | `is_ad` | `boolean` | No | No | Whether the post is being used in an ad. A post can be promoted via Spark Ads Push or Spark Ads Pull. Learn more about [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3). Supported values: `true`: The post is used in an ad.`false`: The post is not used in an ad. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Temporary URL for thumbnail of post content. Expiration date-time included in x-expires query param as Epoch/Unix time in seconds. Example: https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/75dec21d63500917fb6ec8bc59415156~c5_300x300.jpeg?x-expires=1614099600&x-signature=PmK%2BWs3LzSzRL2tYs%2FZx7EjG3Gk%3D Updated in: Real-time |
+| `share_url` | `share_url` | `string` | No | No | A shareable URL for this TikTok post. Note that the website behaves differently on Mobile and Desktop devices. Example: https://www.tiktok.com/@feather_in_the_w1nd/video/6994189750940863749?utm_campaign=tt4d_open_api&utm_source=6945731504177676290 Updated in: Real-time |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for this TikTok post. This URL can be used to embed the TikTok post in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the video will not be viewable through this link. Example: https://www.tiktok.com/player/v1/1234567891234567891?music_info=1&description=1&autoplay=1&loop=1&utm_campaign=tt4d_open_api&utm_source=1234567891234567891 Updated in: Real-time |
+| `caption` | `caption` | `string` | No | No | Post description. Example: Nuki: me and me casa 🏠 #cat #kitten #britishshorthair Updated in: Real-time |
+| `video_duration` | `video_duration` | `number` | No | No | Video length - in seconds, up to three decimal places. Example: 20.001 Updated in: T + 24-48 hrs (UTC time) |
+| `likes` | `likes` | `number` | No | No | Likes. Total number of likes on the post. Example: 243 Updated in: T + 24-48 hrs (UTC time) |
+| `comments` | `comments` | `number` | No | No | Comments. Total number of comments on the post. Example: 10 Updated in: T + 24-48 hrs (UTC time) |
+| `shares` | `shares` | `number` | No | No | Shares. Total number of times the post has been shared. The share count displayed in this field corresponds to the number of shares shown in the For You feed on the TikTok mobile app. It includes both external shares and internal shares sent to friends using the "Send to friends" button. For example, if a post is shared externally 30 times and shared with friends within the TikTok app 20 times, the value of this field will be 50. Example: 10 Updated in: T + 24-48 hrs (UTC time) |
+| `favorites` | `favorites` | `number` | No | No | Favorites. The total number of times the post has been added to favorites. Data source: Business Analytics. Example: 10 Updated in: T + 24-48 hrs (UTC time) |
+| `create_time` | `create_time` | `string` | No | No | Unix/epoch date-time when the post was posted, in UTC time-zone. Example:1628461703 Updated in: Real-time |
+| `reach` | `reach` | `number` | No | No | Reach. The number of people who watched your published content at least once. Data source: TikTok Studio. Example: 136 Updated in: T + 24-48 hrs (UTC time) |
+| `video_views` | `video_views` | `number` | No | No | Video views. The number of times viewers watched your video post. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. Example: 603 Updated in: T + 24-48 hrs (UTC time) |
+| `total_time_watched` | `total_time_watched` | `number` | No | No | Total play time. The amount of time viewers spent watching your video post, in seconds. Data source: TikTok Studio. Example: 587.024 Updated in: T + 24-48 hrs (UTC time) |
+| `average_time_watched` | `average_time_watched` | `number` | No | No | Average watch time. The average time viewers spent watching your video post, in seconds. Data source: TikTok Studio. Example: 3.862 Updated in: T + 24-48 hrs (UTC time) |
+| `full_video_watched_rate` | `full_video_watched_rate` | `number` | No | No | Watched full video rate. The percentage of viewers who finish watching your video post. Data source: TikTok Studio. Example: 0.0395 Updated in: T + 24-48 hrs (UTC time) |
+| `new_followers` | `new_followers` | `number` | No | No | New followers. The number of viewers who started following you. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `profile_views` | `profile_views` | `number` | No | No | Profile views. The total number of profile views from users who visited through your post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for Business Accounts. |
+| `website_clicks` | `website_clicks` | `number` | No | No | Website clicks. The total number of clicks on your website link from users who visited your profile page through your post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `phone_number_clicks` | `phone_number_clicks` | `number` | No | No | Phone number clicks. The total number of clicks on your phone number link from users who visited your profile page through your post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `lead_submissions` | `lead_submissions` | `number` | No | No | Lead submissions. The total number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers who visited your profile page through your post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `app_download_clicks` | `app_download_clicks` | `number` | No | No | App download link clicks. The total number of clicks on your app download link from users who visited your profile page through your post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `email_clicks` | `email_clicks` | `number` | No | No | Email clicks. The total number of times people have clicked the Email button on your profile after viewing this specific post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `address_clicks` | `address_clicks` | `number` | No | No | Address clicks. The total number of times people have clicked the Address button on your profile after viewing this specific post. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `video_view_retention` | `video_view_retention` | `Array<BusinessVideoListResponseVideosVideoViewRetention>` | No | No | Audience retention. This metric indicates how many of your viewers are still watching after a certain amount of time. Data source: TikTok Studio. Updated in: T + 24-48 hrs (UTC time) |
+| `impression_sources` | `impression_sources` | `Array<BusinessVideoListResponseVideosImpressionSources>` | No | No | Traffic source. This metric shows the places where your viewers discover your posts and helps you understand the breakdown of traffic sources for those who viewed your video, ranked from the largest contribution to the smallest. Data source: TikTok Studio. Example: `[&#123;impression_source: "For You", percentage: 0.7554 &#125;, &#123;impression_source: "Follow", percentage: 0.2445 &#125;, ...]` Updated in: T + 24-48 hrs (UTC time) |
+| `audience_genders` | `audience_genders` | `Array<BusinessVideoListResponseVideosAudienceGenders>` | No | No | Gender. The distribution of your viewers by gender. This data is based on factors including the information viewers provide. Data source: TikTok Studio. Updated in: T + 24-48 hrs (UTC time) |
+| `audience_countries` | `audience_countries` | `Array<BusinessVideoListResponseVideosAudienceCountries>` | No | No | Top countries or regions. The distribution of your viewers by the top countries or regions. This data is based on factors including the information viewers provide. Max size: 10. Data source: TikTok Studio. Example: `[&#123;"country":"CA","percentage":0.0132&#125;, &#123;"country":"GB","percentage":0.0987&#125;,&#123;"country":"US","percentage":0.7303&#125;, ...]` Updated in: T + 24-48 hrs (UTC time) |
+| `audience_cities` | `audience_cities` | `Array<BusinessVideoListResponseVideosAudienceCities>` | No | No | Top cities. The distribution of your viewers by the top cities. This data is based on factors including the information viewers provide. Max size: 10. Data source: TikTok Studio. Example: `[&#123;"city_name": "US Cincinnati","percentage": 0.597&#125;,&#123;"city_name": "US Los Angeles","percentage": 0.597&#125;,&#123;"city_name": "US Other","percentage": 17.4921&#125;,&#123;"city_name": "US Ashburn","percentage": 1.2139&#125;]` Updated in: T + 24-48 hrs (UTC time) |
+| `audience_types` | `audience_types` | `Array<BusinessVideoListResponseVideosAudienceTypes>` | No | No | Viewer types. The breakdown of your audience into new viewers versus returning viewers, and followers versus non-followers. Data source: TikTok Studio. Example: `[&#123;"percentage": 0,"type": "FOLLOWER_PERCENT"&#125;,&#123;"percentage": 0.98,"type": "NEW_VIEWER"&#125;,&#123;"percentage": 1,"type": "NON_FOLLOWER_PERCENT"&#125;,&#123;"percentage": 0.02,"type": "RETURN_VIEWER"&#125;]` Updated in: T + 24-48 hrs (UTC time) |
+| `engagement_likes` | `engagement_likes` | `Array<BusinessVideoListResponseVideosEngagementLikes>` | No | No | Engagement likes. The distribution of your viewers who liked your video at specific points in the video's timeline. Data source: TikTok Studio. Updated in: T + 24-48 hrs (UTC time) |
+
+## BusinessVideoListResponseVideosAudienceCities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `city_name` | `city_name` | `string` | No | No | City name. Example: US Cincinnati. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of viewers associated with the city. Example: 1.2139 |
+
+## BusinessVideoListResponseVideosAudienceCountries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country or region code. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of viewers registered from a country or region. |
+
+## BusinessVideoListResponseVideosAudienceGenders
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gender` | `gender` | `string` | No | No | Gender. Enum values: `Female`, `Male`, `Other`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of viewers associated with the gender. |
+
+## BusinessVideoListResponseVideosAudienceTypes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"NEW_VIEWER" \| "RETURN_VIEWER" \| "FOLLOWER_PERCENT" \| "NON_FOLLOWER_PERCENT"` | No | No | Audience type. Enum values: `NEW_VIEWER`: New viewers. Viewers who are either viewing a post from you for the first time, or it has been a year since they last viewed your posts. `RETURN_VIEWER`: Returning viewers. Viewers who have viewed your posts in the past year. `FOLLOWER_PERCENT`: Followers. Viewers who are following you on TikTok. `NON_FOLLOWER_PERCENT`: Non-followers. Viewers who are not following you on TikTok. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of viewers associated with the audience type. |
+
+## BusinessVideoListResponseVideosEngagementLikes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `second` | `second` | `string` | No | No | A specific second in the video's timeline. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of viewers who liked your video at the specific second. |
+
+## BusinessVideoListResponseVideosImpressionSources
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `impression_source` | `impression_source` | `string` | No | No | The traffic source type. Enum values:`For You`: For You feed. `Follow`: Follow feed. `Sound`: sound pages. `Personal Profile`: profile pages.. `Search`: search pages. `Others`: others.`Direct Message`: direct message. Note: The availability of the `Direct Message` value depends on whether you can see the corresponding data within TikTok Studio. If the corresponding data is missing from TikTok Studio, you will not be able to get the data. |
+| `percentage` | `percentage` | `number` | No | No | The percentage of views from the source type. |
+
+## BusinessVideoListResponseVideosVideoViewRetention
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `second` | `second` | `string` | No | No | A specific second in the video's timeline. |
+| `percentage` | `percentage` | `number` | No | No | The percentage of viewers who are still watching your video at the specific second. |
+
+## BusinessVideoPublishParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_url` | `video_url` | `string` | Yes | No | A publicly accessible HTTP(s) URL for the video content to be published - with a minimum recommended TTL of 30 minutes. Video constraints : The audio-video content must be contained in .mp4, .mov or .webm format. The maximum video size is 1 GB. The minimum video duration must be 3 seconds, and the maximum video duration is 600 seconds. To check the maximum video duration allowed for a TikTok account, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `max_video_post_duration_sec` from the response. The minimum height and minimum width of the video must be 360 pixels. The minimum frame rate of the video must be 23 FPS, and maximum frame rate is 60 FPS.Example: https://www.example.com/tiktok-videos/video.mp4 Important: Starting from November 16th, 2023, you can no longer publish videos using unverified video URLs. To ensure a smooth API integration, we recommend you verify ownership of URL properties as soon as possible, and specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://ads.tiktok.com/marketing_api/docs?id=1769324038780930).After November 16th, 2023, if you want to publish a test video through [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) using a test video URL that doesn't require verification, use the [test URL](https://sf16-va.tiktokcdn.com/obj/eden-va2/uvpapzpbxjH-aulauvJ-WV[[/ljhwZthlaukjlkulzlp/3min.mp4) `https://sf16-va.tiktokcdn.com/obj/eden-va2/uvpapzpbxjH-aulauvJ-WV[[/ljhwZthlaukjlkulzlp/3min.mp4`.Note that if you are a developer or an advertiser who used the [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) endpoint to publish videos prior to April 7th, 2023, we have automatically set the corresponding domains of video URLs specified through the `video_url` parameter to the "verified" status. Therefore, we recommend that you use the [/business/property/list/](https://business-api.tiktok.com/portal/docs?id=1769325368603650) endpoint to confirm whether the domains you utilize for hosting videos have been automatically verified. |
+| `custom_thumbnail_url` | `custom_thumbnail_url` | `string` | No | No | A publicly accessible HTTP(s) URL for a custom image to be used as the video’s cover photo. Photo constraints: Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels.Minimum resolution: 360 x 360 pixels.File size: within 20 MB.File type: JPG, JPEG, WebP, or PNG. Example: `https://www.example.com/tiktok-images/image.png`. When `custom_thumbnail_url` is specified, `thumbnail_offset` will be ignored. Note: Specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://business-api.tiktok.com/portal/docs?id=1769324038780930). |
+| `post_info` | `post_info` | `BusinessVideoPublishParamsPostInfo` | Yes | No | Information about the post. This field is required, even if you don't want to use any of the additional parameters within `post_info`, including `caption`, `is_brand_organic`, `is_branded_content`, `disable_comment`, `disable_duet`, `disable_stitch`, `thumbnail_offset`, `is_ai_generated`, `upload_to_draft`, `tto_invite_link`, `location_id`, `location_name`, and `is_ads_only`. In such cases, set this field to an empty object (`&#123;&#125;`). |
+
+## BusinessVideoPublishParamsPostInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `caption` | `caption` | `string` | No | No | Video caption/description - which can contain #hashtags and @mentions of friends (mutual followers) of the owned TikTok Account. You can use "\n" as line break to display the video caption in multiple lines within the mobile TikTok App. However, for the line break to work effectively, the caption must contain enough characters to trigger truncation based on the current mobile phone's display settings and operating system. This truncation is characterized by an ellipsis mark (...) and the word "more", which users can click to expand and view the full caption. If the caption is too short and does not trigger truncation, the "\n" character will be ignored, and the caption will be displayed on a single line without any line breaks. Note that in the TikTok Web App "\n" will be ignored. Length limit: 2,200 characters (UTF-16 encoding), including a maximum of 30 mentions. Example: Me and me casa 🏠 #cat #kitten #britishshorthair Note: Any hashtags and mentions included in the video caption will render as plain text on the TikTok application. |
+| `is_brand_organic` | `is_brand_organic` | `boolean` | Yes | No | Whether to enable the Brand Organic Content toggle for the video. If this field is set to `true`, the video will be labeled as Brand Organic Content, indicating you are promoting yourself or your own business. A "Promotional content" label will be attached to the video. Note: If you set both `is_brand_organic` and `is_branded_content` to `true`, `is_brand_organic` will be ignored and the video will be labeled as Branded Content. |
+| `is_branded_content` | `is_branded_content` | `boolean` | Yes | No | Whether to enable the [Branded Content](https://creatormarketplace.tiktok.com/help#/doc/9493/10008169) toggle for the video. If this field is set to `true`, the video will be labeled as Branded Content, indicating you are in a paid partnership with a brand. A "Paid partnership" label will be attached to the video. Note: If you set both `is_brand_organic` and `is_branded_content` to `true`, `is_brand_organic` will be ignored and the video will be labeled as Branded Content. |
+| `tto_invite_link` | `tto_invite_link` | `string` | No | No | Valid only when the following conditions are both met:`is_branded_content` is set to `true`.The TikTok account (creator) has been invited to a TikTok One (TTO) Creator Marketplace campaign.The TikTok account has joined the campaign. To join a campaign, you can use [/tto/creator/campaign/join/](https://business-api.tiktok.com/portal/docs?id=1836584318657537). The invite link for a TTO Creator Marketplace campaign. When you specify this field, the video will be published and linked to the TTO Creator Marketplace campaign that is associated with the invite link. Brands can retrieve the invite link for a TTO Creator Marketplace campaign by using [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). |
+| `disable_comment` | `disable_comment` | `boolean` | No | No | Whether to disable the "Allow comments" setting for the published video post. Supported values: `false`: To enable the setting.`true`: To disable the setting. To determine the allowed values for your TikTok account's posts, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `comment_disabled` from the response.If `comment_disabled` is `true`, you can only set this field to `true`.If `comment_disabled` is `false`, you can set this field to `true` or `false`. Example: `false` Default value: `false` |
+| `disable_duet` | `disable_duet` | `boolean` | No | No | Whether to disable the "Allow Duet" setting for the published video post. Supported values: `false`: To enable the setting.`true`: To disable the setting. To determine the allowed values for your TikTok account's posts, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `duet_disabled` from the response. If `duet_disabled` is `true`, you can only set this field to `true`.If `duet_disabled` is `false`, you can set this field to `true` or `false`. Example: `false` Default value: `false` |
+| `disable_stitch` | `disable_stitch` | `boolean` | No | No | Whether to disable the "Allow Stitch" setting for the published video post. Supported values: `false`: To enable the setting.`true`: To disable the setting. To determine the allowed values for your TikTok account's posts, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `stitch_disabled` from the response. If `stitch_disabled` is `true`, you can only set this field to `true`.If `stitch_disabled` is `false`, you can set this field to `true` or `false`. Example: `false` Default value: `false` |
+| `thumbnail_offset` | `thumbnail_offset` | `number` | No | No | Setting to choose a frame of the published video as the cover photo, in the format of a timestamp in ms. Example: 8000. Default value: 0. Note: When `custom_thumbnail_url` is specified, `thumbnail_offset` will be ignored. A failure Webhook will be sent if you pass in a timestamp greater than the video length, and then the video will not be published. The timestamp you pass in will be rounded up to find the closest frame. For instance, if the video is a 2FPS video that lasts one second, the timestamp 499 (ms) will return the first frame and the timestamp 500 (ms) will return the second frame. |
+| `is_ai_generated` | `is_ai_generated` | `boolean` | No | No | Whether to enable the AI-generated content toggle for the video post. If you enable the toggle, your video will be labeled as Creator labeled as AI-generated once posted and can't be changed. The "Creator labeled as AI-generated" label indicates that the content was completely AI-generated or significantly edited with AI. Supported values: `true`, `false`. Default value: `false`. Note: Turning on the AI-generated content setting won't affect the distribution of your video as long as it doesn't violate our [Community Guidelines](https://www.tiktok.com/community-guidelines/en/). |
+| `upload_to_draft` | `upload_to_draft` | `boolean` | No | No | Whether to upload the post as a draft. Supported values: `true`, `false`. Default value: `false`. If you set this field to `true` , all the other fields within `post_info` will be ignored. After you successfully upload the post as a draft, you can find the draft through the inbox notification within the TikTok app. Note: If you want to use this parameter to upload the post as a draft, obtain a TikTok account access token with `video.upload` permission and the Application specific unique ID for the TikTok account by following the steps in [Authorization](https://business-api.tiktok.com/portal/docs?id=1738083939371009) and [Authentication](https://business-api.tiktok.com/portal/docs?id=1738084387220481).To confirm whether a TikTok account access token has `video.upload` permission, use [/tt_user/token_info/get/](https://business-api.tiktok.com/portal/docs?id=1765927978092545) and check the returned `scope`. If the access token doesn't have the `video.upload` permission, request the TikTok account owner to approve draft uploading permission through the [Authorization](https://business-api.tiktok.com/portal/docs?id=1738083939371009) workflow. |
+| `location_id` | `location_id` | `string` | No | No | The ID of the location tag. When you publish a post using a location tag (which includes `location_id` and `location_name`), the associated location will be added to and displayed in your post. By adding a location tag, you help local audiences and users searching for that area discover your post. This can also boost your engagement by making your content more relevant to nearby users. To obtain the list of available location tags for a TikTok account, use [/business/publish/location/](https://business-api.tiktok.com/portal/docs/get-the-location-tags-for-a-tiktok-account/v1.3). |
+| `location_name` | `location_name` | `string` | No | No | Required when `location_id` is specified. The name of the location. |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | Whether to publish the video as an "Only show in ads" video. Supported values:`true`: To publish the video as an ad that won't be visible to the public on your profile page.`false`: Not to publish the video as an ad. Default value: `false`. Note: If "Only show in ads" videos that have been used as Spark Ads, you can access the details of these videos through [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). |
+| `music_sound_info` | `music_sound_info` | `BusinessVideoPublishParamsPostInfoMusicSoundInfo` | No | No | Information about the commercial sound (track) that you want to use with a video. |
+
+## BusinessVideoPublishParamsPostInfoMusicSoundInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_sound_id` | `music_sound_id` | `string` | No | No | Required when using `music_sound_info`. The ID of the commercial sound that you want to use with a video. You can get this ID using the [/discovery/cml/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119063013505) endpoint. |
+| `music_sound_volume` | `music_sound_volume` | `number` | No | No | Required when using `music_sound_info`. The volume of the commercial sound. Default value: 0. Value range: 0-100. Note: When using the TikTok App, the default volume is 50. |
+| `music_sound_start` | `music_sound_start` | `number` | No | No | The starting point of the sound to be used for the video, measured in milliseconds. For example, if you input a value of 2000, the commercial sound will start from the `0:02` (2-second) time mark. If not provided, this field defaults to `0` (the track's beginning). |
+| `music_sound_end` | `music_sound_end` | `number` | No | No | The ending point of the sound to be used for the video, measured in milliseconds. If not provided, this field defaults to the video’s full duration expressed in milliseconds. For example, if your video is 2 seconds long (2000 ms) and the commercial sound is 10 seconds long (10000 ms), omitting both `music_sound_start` and `music_sound_end` will result in the addition of the first 2000 milliseconds of the commercial sound to your video. |
+| `video_original_sound_volume` | `video_original_sound_volume` | `number` | No | No | The background volume of the original video. Default value: 0. Value range: 0-100. Note: When using the TikTok App, the default volume is 50. |
+
+## BusinessVideoPublishResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `share_id` | `share_id` | `string` | No | No | Unique identifier for the video post publishing task. You can use this ID as `publish_id` in [/business/publish/status/](https://business-api.tiktok.com/portal/docs?id=1816387106635778) to query the publishing status of the video post. Example: v_pub_url~v1.2345123456789123456 Note: The [video publishing status Webhook](https://business-api.tiktok.com/portal/docs?id=1810515090228226) for the shared video content will contain this identifier for developer applications to track the status of the video upload. Once the video publishing is complete, the success Webhook will also contain the newly created unique identifier for the video which can be used to access insights into the video.To configure a Webhook callback URL for your developer app, use the Webhook API endpoint [/business/webhook/update/](https://business-api.tiktok.com/portal/docs?id=1810521279479810). |
+
+## BusinessVideoRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | If you want to have all videos under your Business Account analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of videos that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`. The recommendation level (`recommendation_level`) for each video is relative to the provided video set. Different video sets might result in different recommendation levels for the same video. The ID list of videos for which you wish to receive recommendations only. Max size: 20. To get the IDs of public videos under your Business Account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). |
+| `exclude_video_ids` | `exclude_video_ids` | `Array<string>` | No | No | If you want to have all videos under your Business Account analyzed, do not pass `video_ids` and `exclude_video_ids`.If you want to narrow down the scope of videos that will be analyzed to generate recommendations, pass either `video_ids` or `exclude_video_ids`. The ID list of videos for which you don't wish to receive recommendations. No max size limit. To get the IDs of public videos under your Business Account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). |
+| `time` | `time` | `"PAST_ONE_MONTH" \| "PAST_THREE_MONTHS" \| "PAST_SIX_MONTHS"` | No | No | The time when the TikTok video posts were published. Enum values:`PAST_ONE_MONTH`: In the past one month.`PAST_THREE_MONTHS`: In the past three months.`PAST_SIX_MONTHS`: In the past six months. Default value: `PAST_SIX_MONTHS`. |
+| `objective_type` | `objective_type` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "LEAD_GENERATION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | No | No | The advertising objective for which to generate recommendations. Enum values:`REACH`: Reach.`TRAFFIC`: Traffic.`VIDEO_VIEWS`: Video views.`ENGAGEMENT`: Community interaction.`APP_PROMOTION`: App promotion.`LEAD_GENERATION`: Lead generation.`WEB_CONVERSIONS`: Website conversions.`PRODUCT_SALES`: Product sales. Default value: `REACH`. If you specify this field, you can create a campaign with the same advertising objective (`objective_type`) value by using [/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1739318962329602) and use the recommended video post in your ads by setting `tiktok_item_id` to one of the recommended post IDs (`item_id`) in [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354). |
+
+## BusinessVideoRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videos` | `videos` | `Array<BusinessVideoRecommendResponseVideos>` | No | No | A list of up to 20 TikTok video posts with their Spark Ads recommendation results. |
+
+## BusinessVideoRecommendResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendation_level` | `recommendation_level` | `"HIGH" \| "MEDIUM" \| "LOW"` | No | No | The recommendation level, which indicates the video's suitability for Spark Ads. Enum values: `HIGH`: Highly recommended.`MEDIUM`: Moderately recommended.`LOW`: Not recommended. |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the TikTok video post. You can pass the value of this field to `tiktok_item_id` in [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354) to create Spark Ads. To learn more about Spark Ads, see [Create Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). Example: `6995316737801538821`. Updated in: Real-time |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for this TikTok video. Example: `https://www.tiktok.com/static/profile-video?id=7202758233486822657&hide_author=1&utm_campaign=tt4d_open_api&utm_source=7220548562860376066`. Updated in: Real-time |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Temporary URL for the video thumbnail. You need to re-acquire the URL after it expires. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/75dec21d63500917fb6ec8bc59415156~c5_300x300.jpeg?x-expires=1614099600&x-signature=PmK%2BWs3LzSzRL2tYs%2FZx7EjG3Gk%3D`. Updated in: Real-time |
+| `create_time` | `create_time` | `string` | No | No | The time when the video was published, in the format of an Epoch/Unix timestamp in seconds (UTC time). Example: `1628461703`. Updated in: Real-time |
+| `video_views` | `video_views` | `number` | No | No | Total number of video views for the video. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session.If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. Example: 603. Updated in: T + 24-48 hours (UTC time) |
+| `likes` | `likes` | `number` | No | No | Total number of likes on the video. Example: 243. Updated in: T + 24-48 hours (UTC time) |
+| `comments` | `comments` | `number` | No | No | Total number of comments on the video. Example: 10. Updated in: T + 24-48 hours (UTC time) |
+| `shares` | `shares` | `number` | No | No | Total number of times the video has been shared. The share count displayed in this field corresponds to the number of shares shown in the For You feed on the TikTok mobile app. It includes both external shares and internal shares sent to friends using the "Send to friends" button. For example, if a video is shared externally 30 times and shared with friends within the TikTok app 20 times, the value of this field will be 50. Example: 10. Updated in: T + 24-48 hours (UTC time) |
+| `audience_countries` | `audience_countries` | `Array<BusinessVideoRecommendResponseVideosAudienceCountries>` | No | No | Percentage breakdown of the top 10 countries or regions where viewers of the video are located. Max size: 10. Example: `[&#123;"country":"CA","percentage":0.0132&#125;, &#123;"country":"GB","percentage":0.0987&#125;,&#123;"country":"US","percentage":0.7303&#125;,...]` Updated in: T + 24-48 hours (UTC time) Note: If the `video_views` of the video is less than 100, the value of this field will be an empty list (`[]`). |
+
+## BusinessVideoRecommendResponseVideosAudienceCountries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country code. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of audience registered from a specified country or region. |

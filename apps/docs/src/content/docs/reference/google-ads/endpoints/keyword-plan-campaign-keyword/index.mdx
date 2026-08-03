@@ -1,0 +1,46 @@
+---
+title: "Google Ads Keyword Plan Campaign Keyword endpoints"
+description: "1 generated Google Ads endpoint contract for Keyword Plan Campaign Keyword."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 184
+  label: "Keyword Plan Campaign Keyword"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.keywordPlanCampaignKeyword.mutateKeywordPlanCampaignKeywords
+
+`POST` `/v25/customers/{customer_id=*}/keywordPlanCampaignKeywords:mutate`
+
+KeywordPlanCampaignKeywordService.MutateKeywordPlanCampaignKeywords
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `keywordPlanCampaignKeyword.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateKeywordPlanCampaignKeywordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateKeywordPlanCampaignKeywordsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

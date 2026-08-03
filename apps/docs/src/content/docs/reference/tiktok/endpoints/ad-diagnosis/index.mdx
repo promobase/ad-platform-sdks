@@ -1,0 +1,47 @@
+---
+title: "TikTok Business Ad Diagnosis endpoints"
+description: "1 generated TikTok Business endpoint contract for Ad Diagnosis."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 104
+  label: "Ad Diagnosis"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.adDiagnosis.toolDiagnosisGet
+
+`GET` `/open_api/v1.3/tool/diagnosis/get/`
+
+Generated from TikTok documentation 1738674986981378
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adDiagnosis.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolDiagnosisGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `query` | `ToolDiagnosisGetParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

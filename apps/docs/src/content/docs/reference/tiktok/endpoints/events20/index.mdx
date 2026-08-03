@@ -1,0 +1,48 @@
+---
+title: "TikTok Business Events20 endpoints"
+description: "1 generated TikTok Business endpoint contract for Events20."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 141
+  label: "Events20"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.events20.eventTrack
+
+`POST` `/open_api/v1.3/event/track/`
+
+Generated from TikTok documentation 1771101303285761
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `events20.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `EventTrackResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_source` | `body` | `string` | Yes | No | This field is used to specify the type of events you are uploading through Events API. Enum values: `web`: The events took place on your website and are measured by a Pixel Code. To generate sample code in cURL, Python, or Node.js format for reporting Web Events via the Events API 2.0, use [the Payload Helper for Web](https://business-api.tiktok.com/portal/docs?id=1807346079965186). `app`: The events took place on your app and are measured by a TikTok App ID.`offline` : The conversions took place in a physical store and are measured by an Offline Event Set ID.`crm`: The lead events took place in a CRM system and are measured by a CRM Event Set ID. Note: Reporting App Events using Events API 2.0 is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `event_source_id` | `body` | `string` | Yes | No | An Event Source ID that is used to measure events. When `event_source` is set to `web`, specify a Pixel Code through this field. To obtain a Pixel Code, refer to [FAQs - Where can I find the Pixel Code](https://ads.tiktok.com/marketing_api/docs?id=1771101001228290). When `event_source` is set to `offline`, specify an Offline Event Set ID through this field. To obtain an Offline Event Set ID, refer to [Setup Guide for Offline](https://ads.tiktok.com/marketing_api/docs?id=1771101027431425).When `event_source` is set to `app`, specify a TikTok App ID through this field. To obtain a TikTok App ID, refer to [Setup Guide for App](https://ads.tiktok.com/marketing_api/docs?id=1771101111730178).When `event_source` is set to `crm`, specify a CRM Event Set ID through this field. To obtain a CRM Event Set ID, use [/crm/list/](https://business-api.tiktok.com/portal/docs?id=1780896521680898). |
+| `data` | `body` | `Array<EventTrackParamsData>` | Yes | No | An object array of the events you want to report. If you are sending a single event, pass one object in the array. If you are batching multiple events in a single payload, you can report up to 1,000 events in one request. If a request contains more than 1,000 events, the entire request will be rejected. To optimize campaign performance, it's highly recommended to send the event in real-time (without batching) as soon as it is seen on the advertiser's server. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

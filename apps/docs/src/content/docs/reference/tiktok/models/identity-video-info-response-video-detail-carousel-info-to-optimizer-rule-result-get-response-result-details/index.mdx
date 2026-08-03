@@ -1,0 +1,1052 @@
+---
+title: "TikTok Business models: Identity Video Info Response Video Detail Carousel Info Music Info – Optimizer Rule Result Get Response Result Details"
+description: "100 generated TikTok Business model contracts, from IdentityVideoInfoResponseVideoDetailCarouselInfoMusicInfo through OptimizerRuleResultGetResponseResultDetails."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1015
+  label: "Identity Video Info Response Video Detail Carousel Info Music Info – Optimizer Rule Result Get Response Result Details"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## IdentityVideoInfoResponseVideoDetailCarouselInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `music_url` | `music_url` | `string` | No | No | The URL of the music. Validity period: 90 days. |
+| `music_duration` | `music_duration` | `number` | No | No | The duration of the music, in seconds. |
+
+## IdentityVideoInfoResponseVideoDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of TikTok post. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. |
+| `item_id` | `item_id` | `string` | No | No | TikTok post ID. |
+| `status` | `status` | `"ITEM_STATUS_HESITATE_RECOMMEND" \| "ITEM_STATUS_ONLY_AUTHOR_SEE" \| "STATUS_ONLY_FRIEND_SEE"` | No | No | Visibility status of the TikTok post. Enum values: `ITEM_STATUS_HESITATE_RECOMMEND`: visible to all. `ITEM_STATUS_ONLY_AUTHOR_SEE`: visible to friends.`STATUS_ONLY_FRIEND_SEE`: private. |
+| `text` | `text` | `string` | No | No | Text for the TikTok post. |
+| `auth_info` | `auth_info` | `IdentityVideoInfoResponseVideoDetailsAuthInfo` | No | No | Returned only when `identity_type` is set to `AUTH_CODE` in the request. Authorization status. |
+| `video_info` | `video_info` | `IdentityVideoInfoResponseVideoDetailsVideoInfo` | No | No | Information about the video post. Note: When `item_type` is `CAROUSEL`, the value of this field will be null. |
+| `carousel_info` | `carousel_info` | `IdentityVideoInfoResponseVideoDetailsCarouselInfo` | No | No | Information about the photo post. Note: When `item_type` is `VIDEO`, the value of this field will be null. |
+
+## IdentityVideoInfoResponseVideoDetailsAuthInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_auth_status` | `ad_auth_status` | `string` | No | No | The authorization status. |
+| `auth_start_time` | `auth_start_time` | `string` | No | No | Time when the authorization code is valid from (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+| `auth_end_time` | `auth_end_time` | `string` | No | No | Time when the authorization code expires (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+| `invite_start_time_stamp` | `invite_start_time_stamp` | `string` | No | No | The time when the authorization starts (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+
+## IdentityVideoInfoResponseVideoDetailsCarouselInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_info` | `image_info` | `Array<IdentityVideoInfoResponseVideoDetailsCarouselInfoImageInfo>` | No | No | Information about the images used in the photo post. The images are returned in the same order as they are shown in the photo post. |
+| `music_info` | `music_info` | `IdentityVideoInfoResponseVideoDetailsCarouselInfoMusicInfo` | No | No | Information about the music used in the photo post. Note: If the photo post is directly published in the TikTok App without music, the value of this field will be null. |
+
+## IdentityVideoInfoResponseVideoDetailsCarouselInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID. |
+| `image_url` | `image_url` | `string` | No | No | The URL of the image. Validity period: 90 days. |
+| `image_height` | `image_height` | `number` | No | No | The height of the image, measured in pixels. |
+| `image_width` | `image_width` | `number` | No | No | The width of the image, measured in pixels. |
+
+## IdentityVideoInfoResponseVideoDetailsCarouselInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `music_url` | `music_url` | `string` | No | No | The URL of the music. Validity period: 90 days. |
+| `music_duration` | `music_duration` | `number` | No | No | The duration of the music, in seconds. |
+
+## IdentityVideoInfoResponseVideoDetailsVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rates, in bps. |
+| `duration` | `duration` | `number` | No | No | The duration of the video, in seconds. |
+| `size` | `size` | `number` | No | No | The size of the video, in bytes. |
+| `height` | `height` | `number` | No | No | The height of the video. |
+| `width` | `width` | `number` | No | No | Width of the video. |
+| `poster_url` | `poster_url` | `string` | No | No | URL to the video poster. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. When it expires, you need to call this endpoint to get a new URL. |
+| `signature` | `signature` | `string` | No | No | The MD5 for the video file. |
+| `url` | `url` | `string` | No | No | Video preview link. Validity period: an hour. When it expires, you need to call the endpoint again to get a new URL. |
+
+## IdentityVideoInfoResponseVideoDetailVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rates, in bps. |
+| `duration` | `duration` | `number` | No | No | The duration of the video, in seconds. |
+| `size` | `size` | `number` | No | No | The size of the video, in bytes. |
+| `height` | `height` | `number` | No | No | The height of the video. |
+| `width` | `width` | `number` | No | No | The width of the video. |
+| `poster_url` | `poster_url` | `string` | No | No | The URL to the video poster. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. When it expires, you need to call this endpoint to get a new URL. |
+| `signature` | `signature` | `string` | No | No | The MD5 for the video file. |
+| `url` | `url` | `string` | No | No | Video preview link. Validity period: an hour. When it expires, you need to call the endpoint again to get a new URL. |
+
+## LeadFieldGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `lead_source` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | Yes | No | The source of the leads. Enum values:`INSTANT_FORM`: leads generated through an Instant Form.`DIRECT_MESSAGE`: leads generated from direct messages of the associated Business Account. |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Required when the leads are under an ad account. Advertiser ID. |
+| `library_id` | `library_id` | `string` | No | No | Required when the leads are under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489). |
+| `page_id` | `page_id` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM`.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+## LeadFieldGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `fields` | `fields` | `Array<string>` | No | No | The fields of the Instant Form or direct message leads. Note: The data within this string array depends on the questions that you have set in the Instant Form or the questions collected in the direct message leads. |
+| `meta_data` | `meta_data` | `LeadFieldGetResponseMetaData` | No | No | Metadata about the Instant Form or direct message leads. |
+
+## LeadFieldGetResponseMetaData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create_time` | `create_time` | `string` | No | No | The time when the Instant Form was created or when the direct message lead was collected, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0 time). Example: `2025-01-01 00:00:01`. |
+| `page_id` | `page_id` | `string` | No | No | The page ID of the Instant Form. When `lead_source` is `DIRECT_MESSAGE` in the request, this field will be `"0"`. |
+| `page_name` | `page_name` | `string` | No | No | The page name of the Instant Form. When `lead_source` is `DIRECT_MESSAGE` in the request, this field will be an empty string (`""`). |
+| `page_url` | `page_url` | `string` | No | No | The URL of the Instant Form. When `lead_source` is `DIRECT_MESSAGE` in the request, this field will be an empty string (`""`). |
+
+## LeadGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `lead_source` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | Yes | No | The source of the leads. Enum values:`INSTANT_FORM`: leads generated through an Instant Form.`DIRECT_MESSAGE`: leads generated from direct messages of the associated Business Account. |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Required when the leads are under an ad account. Advertiser ID. |
+| `library_id` | `library_id` | `string` | No | No | Required when the leads are under a form library of a Business Center. ID of a form library. To obtain the list of form libraries within a Business Center, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489). |
+| `page_id` | `page_id` | `string` | No | No | Required when `lead_source` is `INSTANT_FORM`.Not supported when `lead_source` is `DIRECT_MESSAGE`. The page ID of an Instant Form. To obtain a list of Instant Forms, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586) and set `business_type` to `LEAD_GEN`. |
+
+## LeadGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_data` | `lead_data` | `string` | No | No | The lead data. Note: The data within this object depends on the questions that you have set in the Instant Form or the questions collected in the direct message lead. |
+| `meta_data` | `meta_data` | `LeadGetResponseMetaData` | No | No | Metadata about the lead. |
+
+## LeadGetResponseMetaData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_source` | `lead_source` | `"INSTANT_FORM" \| "DIRECT_MESSAGE"` | No | No | The source of the lead. Enum values:`INSTANT_FORM`: a lead generated through an Instant Form.`DIRECT_MESSAGE`: a lead generated from a direct message of the associated Business Account. |
+| `lead_id` | `lead_id` | `string` | No | No | The lead ID. |
+| `page_id` | `page_id` | `string` | No | No | Returned only when `lead_source` is `INSTANT_FORM`. The page ID of the Instant Form. |
+| `campaign_id` | `campaign_id` | `string` | No | No | The campaign ID. |
+| `campaign_name` | `campaign_name` | `string` | No | No | The campaign name. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | The ad group ID. |
+| `adgroup_name` | `adgroup_name` | `string` | No | No | The ad group name. |
+| `ad_id` | `ad_id` | `string` | No | No | The ad ID. |
+| `ad_name` | `ad_name` | `string` | No | No | The ad name. |
+| `create_time` | `create_time` | `string` | No | No | The time when the lead was created, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0 time). Example: `2025-01-01 00:00:01`. |
+
+## MinisGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+## MinisGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<MinisGetResponseList>` | No | No | A list of TikTok Minis within an ad account. |
+| `page_info` | `page_info` | `MinisGetResponsePageInfo` | No | No | Pagination information. |
+
+## MinisGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `minis_id` | `minis_id` | `string` | No | No | The ID of the TikTok Mini. |
+| `minis_name` | `minis_name` | `string` | No | No | The name of the TikTok Mini. |
+| `minis_icon_url` | `minis_icon_url` | `string` | No | No | The URL to the app icon image of the TikTok Mini. |
+| `minis_status` | `minis_status` | `"ACTIVE" \| "INACTIVE"` | No | No | The status of the TikTok Mini. Enum values:`ACTIVE`: active. You can use the TikTok Mini to create ads.`INACTIVE`: inactive. You cannot use the TikTok Mini to create ads. |
+| `minis_type` | `minis_type` | `"MINI_SERIES" \| "MINI_GAME"` | No | No | The type of the TikTok Mini. Enum values:`MINI_SERIES`: mini drama.`MINI_GAME`: mini game. |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | The region codes of the supported country or region for the TikTok Mini. Example: `["ID", "US"]`. |
+
+## MinisGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## MmmApiCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mmm_request_id` | `mmm_request_id` | `string` | Yes | No | Unique identifier for the MMM data request. To create an MMM data request and obtain the data request ID, use [/mmm/api/create/](https://business-api.tiktok.com/portal/docs/create-an-mmm-data-request/v1.3).To retrieve historical MMM data requests, including data request IDs, use [/mmm/api/history/](https://business-api.tiktok.com/portal/docs/get-the-mmm-data-request-history/v1.3). |
+
+## MmmApiCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `string` | No | No | Status of the data request. Enum values: `request received`: The request was received but data processing has not started.`in progress`: Data processing is in progress.`completed - ready for download`: Data processing has completed and the data is ready for download. To obtain a download URL for the data, use [/mmm/api/download/](https://business-api.tiktok.com/portal/docs/obtain-the-download-url-for-mmm-data/v1.3).`failed`: The request failed. |
+| `message` | `message` | `string` | No | No | Returned only when `status` is `failed`. The reason why the data request failed. |
+
+## MmmApiCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | Yes | No | A list of advertiser IDs to request MMM data for. We recommend limiting the number of advertiser IDs to 5. To obtain a list of ad accounts within a Business Center that you have access to, use[ /bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+| `request_info` | `request_info` | `MmmApiCreateParamsRequestInfo` | Yes | No | Details of the data request. |
+| `email` | `email` | `string` | No | No | The email address to receive the notification when the data is ready for download. |
+
+## MmmApiCreateParamsRequestInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targets` | `targets` | `Array<MmmApiCreateParamsRequestInfoTargets>` | Yes | No | Details of the ad accounts and campaigns. The `advertiser_id` value within `targets` should correspond to the specified `advertiser_ids`. |
+| `from_date` | `from_date` | `string` | Yes | No | Start date, in the format of `YYYY-MM-DD` (UTC+0 time). The start date cannot be earlier than four years ago. |
+| `to_date` | `to_date` | `string` | Yes | No | End date, in the format of `YYYY-MM-DD` (UTC+0 time). |
+| `country_code` | `country_code` | `Array<string>` | No | No | Two-letter code of the country or region. For enum values, see List of values for `country_code`. If this field is not specified, data for all countries and regions will be returned. Example: `US`. |
+| `media_type` | `media_type` | `string` | No | No | Media type. Enum values: `All` (recommended): Both paid and earned media. `Paid`: Paid media. Advertising you have paid for directly, such as TV commercials and social media ads.`Earned`: Earned media. Advertising gained through organic means, such as social media mentions.Default value: `All`. |
+
+## MmmApiCreateParamsRequestInfoTargets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | The ID list of campaigns within the ad account to filter the data by. If you don't specify `campaign_ids`, data for all campaigns within the ad account will be returned. To obtain a list of campaigns within an ad account, use [/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1739315828649986). |
+| `brand` | `brand` | `string` | No | No | Brand. You can use this field to distinguish between data requests for different brands. If you specify this field, the value will be filled in the "Brand" column of the data file. |
+| `sub_brand` | `sub_brand` | `string` | No | No | Sub-brand. You can use this field to distinguish between data requests for different sub-brands. If you specify this field, the value will be filled in the "Sub-brand" column of the data file. |
+
+## MmmApiCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mmm_request_id` | `mmm_request_id` | `string` | No | No | Unique identifier for the MMM data request. To check the data request status, wait for up to 24 hours for the data processing to complete, and then pass this value of this field to `mmm_request_id` in [/mmm/api/check/](https://business-api.tiktok.com/portal/docs/check-the-status-of-an-mmm-data-request/v1.3). |
+
+## MmmApiDownloadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mmm_request_id` | `mmm_request_id` | `string` | Yes | No | Unique identifier for the MMM data request. To create an MMM data request and obtain the data request ID, use [/mmm/api/create/](https://business-api.tiktok.com/portal/docs/create-an-mmm-data-request/v1.3).To retrieve historical MMM data requests, including data request IDs, use [/mmm/api/history/](https://business-api.tiktok.com/portal/docs/get-the-mmm-data-request-history/v1.3). |
+
+## MmmApiDownloadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | A URL to download the compressed CSV file for MMM data. Validity period: seven days. Once the URL expires, you need to call [/mmm/api/download/](https://business-api.tiktok.com/portal/docs/obtain-the-download-url-for-mmm-data/v1.3) to obtain a new URL. To learn about the available MMM data fields, see [MMM templated data schema](https://bytedance.sg.larkoffice.com/sheets/YDwDsKe5whGQWdtaZVrlD9BHgIc). |
+
+## MmmApiHistoryParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_date` | `from_date` | `string` | Yes | No | Start date, in the format of `YYYY-MM-DD` (UTC+0 time). The start date cannot be earlier than four years ago. |
+| `end_date` | `end_date` | `string` | Yes | No | End date, in the format of `YYYY-MM-DD` (UTC+0 time). |
+
+## MmmApiHistoryResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `historical_requests` | `historical_requests` | `Array<string>` | No | No | A JSON-formatted string array that displays historical requests, providing details for each request. For the fields `media_type` and `Status`, you might need to convert the returned integer values to string values in other MMM endpoints based on the following mapping: Supported values for `media_type`: `0`: corresponds to `All`. `1`: corresponds to `Earned`.`2`: corresponds to `Paid`. Supported values for `Status`: `1`: corresponds to `request received`. `3`: corresponds to `in progress`.`5`: corresponds to `completed - ready for download`.`2`: corresponds to `failed`.`4`: corresponds to `failed`. |
+
+## Oauth2AccessTokenParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer app. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `auth_code` | `auth_code` | `string` | Yes | No | The authorization code (`auth_code`) generated by your Advertiser authorization URL. The code is valid for one hour and can only be used once. To find out how to get the authorization code based on the type of API you use, see the "Authorization URL" row in [Comparing authorization for different APIs](https://business-api.tiktok.com/portal/docs?id=1781891256601602#item-link-Comparing%20authorization%20for%20different%20APIs). |
+| `return_advertiser_ids` | `return_advertiser_ids` | `boolean` | No | No | Whether to return the full list of ad accounts that the generated token can access through `advertiser_ids` in the response. Supported values: `true`, `false`. Default value: `true`. Note: If you have access to thousands of ad accounts or more, setting this field to `false` can prevent timeouts when retrieving the full list of all advertiser IDs in the response. |
+
+## Oauth2AccessTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | No | No | The long-term access token for permission verification |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | The list of ad accounts that the token can access. When `return_advertiser_ids` is set to `false` in the request, this field will be an empty string array (`[]`). |
+| `scope` | `scope` | `Array<number>` | No | No | The scope of permissions granted to the access token. See [Permission scope](https://ads.tiktok.com/marketing_api/docs?id=1753986142651394) to learn about the permission that a scope ID (value of `scope`) corresponds to. |
+
+## Oauth2AccessTokenTipSdkCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+
+## Oauth2AccessTokenTipSdkCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tip_sdk_access_token` | `tip_sdk_access_token` | `string` | No | No | The temporary TIP Editor SDK access token. You can pass the token to the `ixAccessToken` parameter in the SDK function `InstantPage.start()` for invoking the TIP Editor. To learn about how to load the TIP SDK to create instant pages, see [Instant Page Editor SDK](https://business-api.tiktok.com/portal/docs?id=1740307202170881). The token is valid for 24 hours. After the token expires, you can either renew the token using [/oauth2/access_token/tip_sdk/renew/](https://business-api.tiktok.com/portal/docs?id=1820826847199234) or create a new token using [/oauth2/access_token/tip_sdk/create/](https://business-api.tiktok.com/portal/docs?id=1820826755283969). |
+
+## Oauth2AccessTokenTipSdkRenewParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `tip_sdk_access_token` | `tip_sdk_access_token` | `string` | Yes | No | A TIP Editor SDK access token. If you want to create a new TIP Editor SDK access token, use [/oauth2/access_token/tip_sdk/create/](https://business-api.tiktok.com/portal/docs?id=1820826755283969). |
+
+## Oauth2AccessTokenTipSdkRenewResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Oauth2AccessTokenTipSdkValidateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `tip_sdk_access_token` | `tip_sdk_access_token` | `string` | Yes | No | A TIP Editor SDK access token. If you want to create a new TIP Editor SDK access token, use [/oauth2/access_token/tip_sdk/create/](https://business-api.tiktok.com/portal/docs?id=1820826755283969). |
+
+## Oauth2AccessTokenTipSdkValidateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_valid` | `is_valid` | `boolean` | No | No | Whether the access token is valid. Supported values: `true`, `false`. |
+
+## Oauth2AdvertiserGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | The App id applied by the developer, which can be found on the [Application Management](https://ads.tiktok.com/marketing_api/apps/) page. |
+| `secret` | `secret` | `string` | Yes | No | The private key of the developer's application, which can be found on the [Application Management](https://ads.tiktok.com/marketing_api/apps/) page. |
+
+## Oauth2AdvertiserGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Oauth2AdvertiserGetResponseList` | No | No | Advertiser information list |
+
+## Oauth2AdvertiserGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Authorising Advertiser ID |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | Authorising Advertiser Name |
+
+## Oauth2RevokeTokenParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer app. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `access_token` | `access_token` | `string` | Yes | No | The long-term access token that you want to revoke. You can create a new access token via [/oauth2/access_token/](https://ads.tiktok.com/marketing_api/docs?id=1739965703387137#item-link-/oauth2/access_token/) or [/oauth/token/](https://ads.tiktok.com/marketing_api/docs?id=1739965703387137#item-link-/oauth/token/). |
+
+## Oauth2RevokeTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | ID of your developer app. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | The ID list of ad accounts that the token can no longer access. |
+
+## OfflineBatchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_set_id` | `event_set_id` | `string` | Yes | No | Event Set ID. |
+| `batch` | `batch` | `Array<OfflineBatchParamsBatch>` | No | No | A list of offline events. |
+
+## OfflineBatchParamsBatch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event` | `event` | `string` | Yes | No | Event type. Refer to the [Report Offline Events and Parameters-Supported Offline Events](https://ads.tiktok.com/marketing_api/docs?id=1758053486938113) section for supported values. |
+| `event_id` | `event_id` | `string` | No | No | A unique value for each event. This ID can be used to match data between partner and TikTok. We suggest it is a String of 32 characters, including numeric digits (0-9), uppercase letters (A-Z), and lowercase letters (a-z). |
+| `context` | `context` | `string` | Yes | No | Dictionary of extra information that provides useful context about a message. For the data fields in this object, see the "User context object parameters" section below. |
+| `properties` | `properties` | `string` | Yes | No | Free-form dictionary of properties of the event, e.g., revenue. For the data fields in this object, see the "Properties object parameters" section below. |
+| `timestamp` | `timestamp` | `string` | Yes | No | Timestamp that the event took place. Timestamp with [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
+
+## OfflineBatchResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## OfflineCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `name` | `name` | `string` | Yes | No | Event set name. Length limit: 40 characters. Example: in_store_purchases. Note: You cannot specify a name that has been used by another event set. Otherwise, an error will occur. |
+| `description` | `description` | `string` | No | No | Event set description. Example: in_store_purchases_blackfriday. |
+| `auto_tracking` | `auto_tracking` | `boolean` | No | No | Whether to enable Auto Tracking. If this field is set to true, new campaigns created afterwards under this advertiser account will use this event set for ad tracking and attribution. Enum values: `true`, `false`. Note: The maximum number of auto-tracking Offline Event sets under an advertiser account is 10. If the limit is reached, you cannot create another auto-tracking Offline Event set. |
+
+## OfflineCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_set_id` | `event_set_id` | `string` | No | No | The event set ID that you just created. |
+
+## OfflineDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `event_set_id` | `event_set_id` | `string` | Yes | No | ID of the Offline Event set that you want to delete. You can get Offline Event set IDs under an advertiser account via [/offline/get/](https://ads.tiktok.com/marketing_api/docs?id=1765596808589313). |
+
+## OfflineDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## OfflineGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `event_set_ids` | `event_set_ids` | `Array<string>` | No | No | A list of Offline Event set IDs that you want to filter the results by. If this field is not passed, all Offline Event sets under the advertiser account will be returned. |
+| `name` | `name` | `string` | No | No | Offline Event set name that you want to filter the results by. Length limit: 40 characters. If you pass in both `event_set_ids` and `name`, you will get either one result when an event set is matched with the specified name and its ID is one of the specified event set IDs, or zero result when no event set is matched. |
+
+## OfflineGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_set_list` | `event_set_list` | `Array<OfflineGetResponseEventSetList>` | No | No | The list of matched Offline Event sets under the specified advertiser account. |
+
+## OfflineGetResponseEventSetList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `event_set_id` | `event_set_id` | `string` | No | No | ID of the Offline Event set. |
+| `name` | `name` | `string` | No | No | Name of the Offline Event set. |
+| `description` | `description` | `string` | No | No | Description that you specified for the Offline Event set. Returns `""` if no description has been specified. |
+| `auto_tracking` | `auto_tracking` | `boolean` | No | No | Whether Auto Tracking is enabled for the Offline Event set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the Offline Event set was created, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2023-04-15T00:23:38Z`. |
+| `update_time` | `update_time` | `string` | No | No | The time when the event set was last updated, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2023-04-15T00:23:38Z`. |
+
+## OfflineTrackParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event` | `event` | `string` | Yes | No | Event type. Refer to the [Report Offline Events and Parameters-Supported Offline Events](https://ads.tiktok.com/marketing_api/docs?id=1758053486938113) section for supported values. |
+| `event_set_id` | `event_set_id` | `string` | Yes | No | Event Set ID. |
+| `event_id` | `event_id` | `string` | No | No | A unique value for each event. This ID can be used to match data between partner and TikTok. We suggest it is a String of 32 characters, including numeric digits (0-9), uppercase letters (A-Z), and lowercase letters (a-z). |
+| `context` | `context` | `string` | Yes | No | Dictionary of extra information that provides useful context about a message. For the data fields in this object, see the "User context object parameters" section below. |
+| `properties` | `properties` | `string` | Yes | No | Free-form dictionary of properties of the event, e.g., revenue. For the data fields in this object, see the "Properties object parameters" section below. |
+| `timestamp` | `timestamp` | `string` | Yes | No | Timestamp that the event took place. Timestamp with [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
+
+## OfflineTrackResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## OfflineUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `event_set_id` | `event_set_id` | `string` | Yes | No | ID of the Offline Event set that you want to update. You can get Offline Event set IDs under an advertiser account via [/offline/get/](https://ads.tiktok.com/marketing_api/docs?id=1765596808589313). |
+| `name` | `name` | `string` | No | No | New name for the Offline Event set. Length limit: 40 characters. Example: `in_store_purchases`. Note: You cannot specify a name that has been used by another event set. Otherwise, an error will occur. |
+| `auto_tracking` | `auto_tracking` | `boolean` | No | No | Whether to enable Auto Tracking for the Offline Event set. Enum values: `true`, `false`. If this field is set to `true`, new campaigns created afterwards under this advertiser account will use this event set for ad tracking and attribution. Note: The maximum number of auto-tracking Offline Event sets under an advertiser account is 10. If the limit is reached, you cannot change a non-auto-tracking Offline Event set into an auto-tracking one. However, you can delete an existing Offline Event set using [/offline/delete/](https://ads.tiktok.com/marketing_api/docs?id=1765596790860802). |
+
+## OfflineUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `event_set_id` | `event_set_id` | `string` | No | No | ID of the Offline Event set. |
+| `name` | `name` | `string` | No | No | Name of the Offline Event set. |
+| `description` | `description` | `string` | No | No | Description that you specified for the Offline Event set. Returns `""` if no description has been specified. |
+| `auto_tracking` | `auto_tracking` | `boolean` | No | No | Whether Auto Tracking is enabled for the Offline Event set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the Offline Event set was created, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2023-04-15T00:23:38Z`. |
+| `update_time` | `update_time` | `string` | No | No | The time when the event set was last updated, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2023-04-15T00:23:38Z`. |
+
+## OptimizerRuleBatchBindParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `bind_info` | `bind_info` | `Array<OptimizerRuleBatchBindParamsBindInfo>` | Yes | No | Information about binding. |
+| `lang` | `lang` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the returned messages. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+## OptimizerRuleBatchBindParamsBindInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rule_id` | `rule_id` | `string` | Yes | No | ID of the rule that you want to bind objects to. |
+| `dimension` | `dimension` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | Yes | No | Category of the object. Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+| `dimension_ids` | `dimension_ids` | `Array<string>` | Yes | No | IDs of the objects that you want to bind to the rule. |
+| `bind_type` | `bind_type` | `"BIND" \| "UNBIND"` | Yes | No | Whether you want to bind objects to a rule or unbind objects from a rule. Enum values: `BIND`, `UNBIND`. |
+
+## OptimizerRuleBatchBindResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | Response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | Unique ID of the request |
+
+## OptimizerRuleCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `rules` | `rules` | `Array<OptimizerRuleCreateParamsRules>` | No | No | List of rules |
+| `lang` | `lang` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the error messages. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+## OptimizerRuleCreateParamsRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `apply_objects` | `apply_objects` | `Array<OptimizerRuleCreateParamsRulesApplyObjects>` | Yes | No | Objects that you want to apply the rules to. Objects can be campaigns, ad groups, or ads. |
+| `conditions` | `conditions` | `Array<OptimizerRuleCreateParamsRulesConditions>` | Yes | No | Conditions |
+| `actions` | `actions` | `Array<OptimizerRuleCreateParamsRulesActions>` | Yes | No | Actions to be taken when the condition is met. |
+| `notification` | `notification` | `OptimizerRuleCreateParamsRulesNotification` | Yes | No | Notification settings |
+| `rule_exec_info` | `rule_exec_info` | `OptimizerRuleCreateParamsRulesRuleExecInfo` | Yes | No | Rule run settings. |
+| `tzone` | `tzone` | `string` | No | No | User timezone. In create/update rules, it's used with `mute_option` in notification.email_setting. For acceptable timezone code, see [Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `name` | `name` | `string` | Yes | No | Name of the rule. |
+
+## OptimizerRuleCreateParamsRulesActions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"TURN_ON" \| "TURN_OFF" \| "MESSAGE" \| "DAILY_BUDGET" \| "LIFETIME_BUDGET" \| "BID"` | Yes | No | Type of actions to take. Enum: `TURN_ON`, `TURN_OFF`, `MESSAGE`, `DAILY_BUDGET`, `LIFETIME_BUDGET`, `BID`. |
+| `action_type` | `action_type` | `"INCREASE" \| "DECREASE" \| "ADJUST_TO"` | No | No | Enum values: `INCREASE`, `DECREASE`, `ADJUST_TO`. |
+| `value_type` | `value_type` | `"EXACT" \| "PERCENT"` | No | No | Enum values: `EXACT`, `PERCENT`. |
+| `value` | `value` | `OptimizerRuleCreateParamsRulesActionsValue` | No | No | The budget value. Required when `subject_type`=`DAILY_BUDGET`, `LIFETIME_BUDGET` or `BID`. |
+| `frequency_info` | `frequency_info` | `OptimizerRuleCreateParamsRulesActionsFrequencyInfo` | No | No | Frequency settings. It can be used when the action `subject_type` is `DAILY_BUDGET`, `LIFETIME_BUDGET`, or `BID`. |
+
+## OptimizerRuleCreateParamsRulesActionsFrequencyInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"ONLY_ONCE" \| "ONCE_IN_24_H" \| "ONCE_IN_48_H" \| "ONCE_IN_1_W" \| "CUSTOM"` | No | No | Enum values: `ONLY_ONCE` `ONCE_IN_24_H` `ONCE_IN_48_H` `ONCE_IN_1_W` `CUSTOM` |
+| `custom_frequency_type` | `custom_frequency_type` | `"N_MINTUE_Y_TIMES" \| "N_HOUR_Y_TIMES" \| "N_DAY_Y_TIMES"` | No | No | Custom frequency type. Valid only when `type` is `CUSTOM`. Enum: `N_MINTUE_Y_TIMES` `N_HOUR_Y_TIMES` `N_DAY_Y_TIMES` |
+| `time` | `time` | `number` | No | No | It is the `N` in `custom_frequency_type` |
+| `count` | `count` | `number` | No | No | It is the `Y` in `custom_frequency_type` |
+
+## OptimizerRuleCreateParamsRulesActionsValue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `number` | No | No | The budget value you want to increase, decrease or adjust to.If `action_type` =`INCREASE` or `DECREASE`, value range:[0.01, 1000000000000]. If `action_type` =`ADJUST_TO`: when `dimension`=`CAMPAIGN`, value range: [50, 1000000000000].when `dimension`=`ADGROUP`, value range: [20, 1000000000000]. |
+| `limit` | `limit` | `number` | No | No | The maximum budget cap (if `action_type` =`INCREASE`) or minimum budget ( if `action_type` =`DECREASE`). Required when `action_type` =`INCREASE` or `DECREASE`. When `dimension`=`CAMPAIGN`, value range: [50, 1000000000000]. When `dimension`=`ADGROUP`, value range: [20, 1000000000000]. If `action_type`=`ADJUST_TO`, you don't need to pass in this field. |
+
+## OptimizerRuleCreateParamsRulesApplyObjects
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension` | `dimension` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | Yes | No | Category of the object. Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+| `dimension_ids` | `dimension_ids` | `Array<string>` | No | No | IDs of the objects. |
+| `pre_condition_type` | `pre_condition_type` | `string` | Yes | No | Conditions to filter objects that you want to include. `SELECTED`: Only include those that are selected by IDs.`ALL_ACTIVE_CAMPAIGN`: Select all active campaigns.`ALL_ACTIVE_AD_GROUP`: Select all active ad groups. `ALL_ACTIVE_AD`: Select all active ads.` ALL_ACTIVE_AD_GROUP_UNDER_SELECTED`: Select all active ad groups under the selected campaign.`ALL_ACTIVE_AD_UNDER_SELECTED`: Select all active ads under selected dimensions`ALL_INACTIVE_CAMPAIGN`: Select all inactive campaigns. `ALL_INACTIVE_AD_GROUP`: Select all inactive ad groups`ALL_INACTIVE_AD`: Select all inactive ads.`ALL_INACTIVE_AD_GROUP_UNDER_SELECTED`: Select all inactive ad groups under the selected campaign.`ALL_INACTIVE_AD_UNDER_SELECTED`: Select all inactive ads under the selected campaign or ad group (specified by `dimension` and `dimension_ids`) |
+
+## OptimizerRuleCreateParamsRulesConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"COST" \| "DAILY_BUDGET_SPENDING_RATE" \| "LIFETIME_BUDGET_SPENDING_RATE" \| "IMPRESSION" \| "CLICK" \| "CONVERSION" \| "CONVERSION_SKAN" \| "CVR" \| "CVR_SKAN" \| "CPA" \| "CPM" \| "CPC" \| "CTR" \| "COST_PER_RESULT" \| "RESULT" \| "RESULT_RATE" \| "BID_STRATEGY" \| "COST_CAP" \| "BID_CAP" \| "MAX_CONVERSION" \| "LOWEST_COST" \| "OPTIMIZATION_GOAL" \| "CONVERT" \| "SHOW" \| "REACH" \| "INSTALL" \| "IN_APP_EVENT" \| "LEAD_GENERATION" \| "TWO_SECOND_VIDEO_VIEW" \| "SIX_SECOND_VIDEO_VIEW" \| "OBJECTIVE" \| "TRAFFIC" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "VIDEO_VIEWS" \| "NAME" \| "DAYS_SINCE_CREATION" \| "GT" \| "LT" \| "BETWEEN" \| "MATCH" \| "NO_CONDITION" \| "ROAS_PURCHASE" \| "ROAS_IMPRESSION_ADS" \| "ROAS_PURCHASE_SKAN" \| "ROAS_COMPLETE_PAYMENT" \| "ROAS_PURCHASES_ONSITE" \| "NOT_REAL_TIME_CPA" \| "NOT_REAL_TIME_CONVERSION" \| "NOT_REAL_TIME_CVR"` | Yes | No | Subjects that the condition will be based on. Enum values: `COST``DAILY_BUDGET_SPENDING_RATE``LIFETIME_BUDGET_SPENDING_RATE``IMPRESSION``CLICK``CONVERSION``CONVERSION_SKAN``CVR``CVR_SKAN``CPA``CPM``CPC``CTR``COST_PER_RESULT``RESULT``RESULT_RATE``BID_STRATEGY`: `values` must be one of these: `COST_CAP`, `BID_CAP`, `MAX_CONVERSION`, `LOWEST_COST`.`OPTIMIZATION_GOAL`: `values`must be one of these: `CONVERT`, `CLICK`, `SHOW`, `REACH`, `INSTALL`, `IN_APP_EVENT`, `LEAD_GENERATION`, `TWO_SECOND_VIDEO_VIEW`, `SIX_SECOND_VIDEO_VIEW``OBJECTIVE`: `values`must be one of these: `TRAFFIC`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `VIDEO_VIEWS`, `REACH`, `LEAD_GENERATION``NAME``DAYS_SINCE_CREATION`: `match_type` should be one of `GT`, `LT`, `BETWEEN`, `MATCH`.`NO_CONDITION`: Be careful when setting a rule without any conditions to avoid any unintended changes.`ROAS_PURCHASE``ROAS_IMPRESSION_ADS``ROAS_PURCHASE_SKAN``ROAS_COMPLETE_PAYMENT``ROAS_PURCHASES_ONSITE``NOT_REAL_TIME_CPA``NOT_REAL_TIME_CONVERSION``NOT_REAL_TIME_CVR` |
+| `range_type` | `range_type` | `"TODAY" \| "YESTERDAY" \| "PAST_THREE_DAYS" \| "PAST_FIVE_DAYS" \| "PAST_SEVEN_DAYS" \| "LIFETIME"` | No | No | Time range for the condition. Enum values: `TODAY``YESTERDAY``PAST_THREE_DAYS``PAST_FIVE_DAYS``PAST_SEVEN_DAYS``LIFETIME` |
+| `match_type` | `match_type` | `"GT" \| "LT" \| "BETWEEN" \| "MATCH"` | No | No | Operator to connect a condition with a value. Enum values: `GT` (greater than), `LT` (less than), `BETWEEN`, `MATCH`. Only when `subject_type` is `NAME`, can below `match_type` be used:`CONTAINS``NOT_CONTAINS``START_WITH``END_WITH``STRING_EQUAL` |
+| `values` | `values` | `Array<string>` | No | No | Values for the condition. If `match_type` is `BETWEEN`, include two values in this array Note: Verification rules for the `values` field vary with the `subject_type` you pass in. See Verification Rules for values for details. |
+| `calculation_type` | `calculation_type` | `string` | No | No | The `subject_type` has to be `COST`. Set to `OF_EACH_OBJECT` by default if this field is not provided.`ALL_OBJECTS``OF_EACH_OBJECT` |
+
+## OptimizerRuleCreateParamsRulesNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_type` | `notification_type` | `"TASK_FINISH" \| "MESSAGE" \| "ANY_CHANGES" \| "NOT_NOTIFICATION"` | Yes | No | Notification type you need. Enum values: `TASK_FINISH`: Notification will be sent when the task is finished. This option is only for `MESSAGE` subject type.`ANY_CHANGES`: If the `subject_type` for the action is not `MESSAGE` but you still want to receive emails, use this option.`NOT_NOTIFICATION`: No notifications are needed. |
+| `email_setting` | `email_setting` | `OptimizerRuleCreateParamsRulesNotificationEmailSetting` | No | No | Email notification settings |
+
+## OptimizerRuleCreateParamsRulesNotificationEmailSetting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_period` | `notification_period` | `"EVERY_TIME" \| "TIME_SCHEDULE"` | No | No | Enum values:`EVERY_TIME``TIME_SCHEDULE`: notifications will be sent together around a specified time. |
+| `email_exec_time` | `email_exec_time` | `Array<string>` | No | No | Required when `notification_period` is`TIME_SCHEDULE`. Notification email sent time. For example, "12:00". |
+| `no_result_notification` | `no_result_notification` | `boolean` | No | No | It will be set as false by default if not provided, meaning no notification will be sent if there is no result. |
+| `mute_option` | `mute_option` | `"MUTE" \| "UNMUTE"` | No | No | This field can be used to mute or unmute email notification for the day. Enum values:`MUTE``UNMUTE` |
+
+## OptimizerRuleCreateParamsRulesRuleExecInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exec_time_type` | `exec_time_type` | `"PER_HALF_HOUR" \| "CUSTOM" \| "HALF_HOUR_IN_SPECIFIC_TIME_PERIOD" \| "SPECIFIC_TIME_ACCURATE_ONCE"` | Yes | No | When the rule will be run. Enum values: `PER_HALF_HOUR`: the rule will be run every half hour.`CUSTOM`: the rule will be run at a customized time (specified in the `exec_time` field).`HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`: the rule will be run every 30 minutes during specified time range on specifed days during the week.`SPECIFIC_TIME_ACCURATE_ONCE`: the rule will be run only once at a customized time (specified in the `exec_time` field). |
+| `exec_time` | `exec_time` | `string` | No | No | If `exec_time_type` is set to `CUSTOM` or `SPECIFIC_TIME_ACCURATE_ONCE`, use this field to specify the exact time when the rule will be run. Format: "HH:MM" when `exec_time_type` is `CUSTOM`. For example: "12:00"."YYYY-MM-DD HH:MM" when `exec_time_type` is `SPECIFIC_TIME_ACCURATE_ONCE`. For example: "2023-04-20 04:20".Note: If `exec_time_type` = `SPECIFIC_TIME_ACCURATE_ONCE`, the `exec_time` cannot exceed one year from the current time. |
+| `time_period_info` | `time_period_info` | `Array<OptimizerRuleCreateParamsRulesRuleExecInfoTimePeriodInfo>` | No | No | Valid when `exec_time_type` is `HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`. It has `start_time`, `end_time`, `date_type` and `num` to specify the time period information. |
+
+## OptimizerRuleCreateParamsRulesRuleExecInfoTimePeriodInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `num` | `num` | `string` | No | No | Required when `date_type` is `WEEK` or `MONTH`. Each number in the list represents the day in the week or month. When `date_type` is `WEEK`, value range for this field is [1, 7], meaning Monday to Sunday.When `date_type` is `MONTH`, value range for this field is [1, 28], meaning 1st day to the 28th day of the month. |
+| `start_time` | `start_time` | `string` | No | No | Start time of this time period. For example, "12:00". |
+| `end_time` | `end_time` | `string` | No | No | End time of this time period. For example, "12:00". |
+| `date_type` | `date_type` | `"DAY" \| "WEEK" \| "MONTH"` | No | No | Type of date. Enum values: `DAY`, `WEEK`, `MONTH`. |
+
+## OptimizerRuleCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rule_ids` | `rule_ids` | `Array<string>` | No | No | IDs of the rules that have been created or updated. |
+
+## OptimizerRuleGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `rule_ids` | `rule_ids` | `Array<string>` | Yes | No | IDs of the rules that you want to get |
+
+## OptimizerRuleGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_info` | `page_info` | `OptimizerRuleGetResponsePageInfo` | No | No | Pagination information. |
+| `rules` | `rules` | `Array<OptimizerRuleGetResponseRules>` | No | No | List of rules |
+
+## OptimizerRuleGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## OptimizerRuleGetResponseRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `apply_objects` | `apply_objects` | `Array<OptimizerRuleGetResponseRulesApplyObjects>` | No | No | Objects that you want to apply the rules to. Objects can be campaigns, ad groups, or ads. |
+| `conditions` | `conditions` | `Array<OptimizerRuleGetResponseRulesConditions>` | No | No | Conditions |
+| `action` | `action` | `Array<OptimizerRuleGetResponseRulesAction>` | No | No | Actions to be taken when the condition is met |
+| `notification` | `notification` | `OptimizerRuleGetResponseRulesNotification` | No | No | Notification settings |
+| `rule_exec_info` | `rule_exec_info` | `OptimizerRuleGetResponseRulesRuleExecInfo` | No | No | Rule run settings |
+| `last_check_result_summary` | `last_check_result_summary` | `OptimizerRuleGetResponseRulesLastCheckResultSummary` | No | No | Information about the last rule run |
+| `rule_id` | `rule_id` | `string` | No | No | ID of the rule |
+| `name` | `name` | `string` | No | No | Name of the rule |
+| `rule_status` | `rule_status` | `"ON" \| "OFF" \| "DELETED"` | No | No | Rule status. Enum values: `ON`: on.`OFF`: off.`DELETED`: deleted. |
+| `create_datetime` | `create_datetime` | `string` | No | No | Date and time when the rule was created, in UTC+0 time zone |
+
+## OptimizerRuleGetResponseRulesAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"TURN_ON" \| "TURN_OFF" \| "MESSAGE" \| "DAILY_BUDGET" \| "LIFERIME_BUDGET" \| "BID"` | No | No | Type of actions to take. Enum: `TURN_ON`, `TURN_OFF`, `MESSAGE`, `DAILY_BUDGET`, `LIFERIME_BUDGET`, `BID` |
+| `action_type` | `action_type` | `"INCREASE" \| "DECREASE" \| "ADJUST_TO"` | No | No | Enum values: `INCREASE`, `DECREASE`, `ADJUST_TO` |
+| `value_type` | `value_type` | `"EXACT" \| "PERCENT"` | No | No | Enum values: `EXACT`, `PERCENT` |
+| `value` | `value` | `string` | No | No | When `action_type` is `INCREASE` or `DECREASE`, users can specify the maximum(if `INCREASE`) or minimum(if `DECREASE`) budget using `use_limit` and `limit`. When `action_type` is `ADJUST_TO`, no need to provide `use_limit` and `limit`. |
+| `frequency_info` | `frequency_info` | `OptimizerRuleGetResponseRulesActionFrequencyInfo` | No | No | Frequency settings. It can be used when the action `subject_type` is `DAILY_BUDGET`, `LIFERIME_BUDGET`, or `BID` |
+
+## OptimizerRuleGetResponseRulesActionFrequencyInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"ONLY_ONCE" \| "ONCE_IN_24_H" \| "ONCE_IN_48_H" \| "ONCE_IN_1_W" \| "CUSTOM"` | No | No | Enum: `ONLY_ONCE` `ONCE_IN_24_H` `ONCE_IN_48_H` `ONCE_IN_1_W` `CUSTOM` |
+| `custom_frequency_type` | `custom_frequency_type` | `"N_MINTUE_Y_TIMES" \| "N_HOUR_Y_TIMES" \| "N_DAY_Y_TIMES"` | No | No | Custom frequency type. Valid only when `type` is `CUSTOM`. Enum: `N_MINTUE_Y_TIMES` `N_HOUR_Y_TIMES` `N_DAY_Y_TIMES` |
+| `time` | `time` | `number` | No | No | It is the `N` in `custom_frequency_type` |
+| `count` | `count` | `number` | No | No | It is the `Y` in `custom_frequency_type` |
+
+## OptimizerRuleGetResponseRulesApplyObjects
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimesion` | `dimesion` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | No | No | Category of the object. Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+| `dimension_ids` | `dimension_ids` | `Array<string>` | No | No | IDs of the objects |
+| `pre_condition_type` | `pre_condition_type` | `string` | No | No | Conditions to filter out objects that you do not want to include. `SELECTED`: Only include those that are selected by IDs.`ALL_ACTIVE_CAMPAIGN`: Select all active campaigns.`ALL_ACTIVE_AD_GROUP`: Select all active ad groups. `ALL_ACTIVE_AD`: Select all active ads.` ALL_ACTIVE_AD_GROUP_UNDER_SELECTED`: Select all active ad groups under the selected campaign.`ALL_ACTIVE_AD_UNDER_SELECTED`: Select all active ads under selected dimensions`ALL_INACTIVE_CAMPAIGN`: Select all inactive campaigns. `ALL_INACTIVE_AD_GROUP`: Select all inactive ad groups`ALL_INACTIVE_AD`: Select all inactive ads.`ALL_INACTIVE_AD_GROUP_UNDER_SELECTED`: Select all inactive ad groups under the selected campaign.`ALL_INACTIVE_AD_UNDER_SELECTED`: Select all inactive ads under the selected campaign or ad group (specified by `dimension` and `dimension_ids`) |
+| `bind_type` | `bind_type` | `"BIND" \| "UNBIND"` | No | No | Bind type of the rule. Enum values: `BIND`, `UNBIND`. |
+
+## OptimizerRuleGetResponseRulesConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"COST" \| "DAILY_BUDGET_SPENDING_RATE" \| "LIFETIME_BUDGET_SPENDING_RATE" \| "IMPRESSION" \| "CLICK" \| "CONVERSION" \| "CONVERSION_SKAN" \| "CVR" \| "CVR_SKAN" \| "CPA" \| "CPM" \| "CPC" \| "CTR" \| "COST_PER_RESULT" \| "RESULT" \| "RESULT_RATE" \| "BID_STRATEGY" \| "OPTIMIZATION_GOAL" \| "OBJECTIVE" \| "NAME" \| "DAYS_SINCE_CREATION" \| "NO_CONDITION" \| "ROAS_PURCHASE" \| "ROAS_IMPRESSION_ADS" \| "ROAS_PURCHASE_SKAN" \| "ROAS_COMPLETE_PAYMENT" \| "ROAS_PURCHASES_ONSITE" \| "NOT_REAL_TIME_CPA" \| "NOT_REAL_TIME_CONVERSION" \| "NOT_REAL_TIME_CVR"` | No | No | Subjects that the condition will be based on. Enum values: `COST``DAILY_BUDGET_SPENDING_RATE``LIFETIME_BUDGET_SPENDING_RATE``IMPRESSION``CLICK``CONVERSION``CONVERSION_SKAN``CVR``CVR_SKAN``CPA``CPM``CPC``CTR``COST_PER_RESULT``RESULT``RESULT_RATE``BID_STRATEGY``OPTIMIZATION_GOAL``OBJECTIVE``NAME``DAYS_SINCE_CREATION``NO_CONDITION``ROAS_PURCHASE``ROAS_IMPRESSION_ADS``ROAS_PURCHASE_SKAN``ROAS_COMPLETE_PAYMENT``ROAS_PURCHASES_ONSITE``NOT_REAL_TIME_CPA``NOT_REAL_TIME_CONVERSION``NOT_REAL_TIME_CVR` |
+| `range_type` | `range_type` | `"TODAY" \| "YESTERDAY" \| "PAST_THREE_DAYS" \| "PAST_FIVE_DAYS" \| "PAST_SEVEN_DAYS" \| "LIFETIME"` | No | No | Time range for the condition. Enum values: `TODAY``YESTERDAY``PAST_THREE_DAYS``PAST_FIVE_DAYS``PAST_SEVEN_DAYS``LIFETIME` |
+| `match_type` | `match_type` | `"GT" \| "LT" \| "BETWEEN" \| "MATCH" \| "CONTAINS" \| "NOT_CONTAINS" \| "START_WITH" \| "END_WITH" \| "STRING_EQUAL"` | No | No | Operator to connect a condition with a value. Enum values: `GT` (greater than) `LT` (less than) `BETWEEN``MATCH``CONTAINS``NOT_CONTAINS``START_WITH``END_WITH``STRING_EQUAL` |
+| `values` | `values` | `Array<string>` | No | No | Values for the condition. |
+| `calculation_type` | `calculation_type` | `"ALL_OBJECTS" \| "OF_EACH_OBJECT"` | No | No | Enum values:`ALL_OBJECTS``OF_EACH_OBJECT` |
+
+## OptimizerRuleGetResponseRulesLastCheckResultSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `check_datetime` | `check_datetime` | `string` | No | No | Date and time when the rule was checked, in UTC+0 time zone |
+| `exec_datetime` | `exec_datetime` | `string` | No | No | Date and time when the rule was run, in UTC+0 time zone |
+| `change_success` | `change_success` | `number` | No | No | Objects that have been changed |
+| `no_change` | `no_change` | `number` | No | No | Objects that have not been changed |
+| `change_fail` | `change_fail` | `number` | No | No | Objects that failed to be changed |
+| `task_exec_id` | `task_exec_id` | `string` | No | No | Rule execution ID |
+
+## OptimizerRuleGetResponseRulesNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_type` | `notification_type` | `"TASK_FINISH" \| "MESSAGE" \| "ANY_CHANGES" \| "NOT_NOTIFICATION"` | No | No | Notification type you need. Enum values: `TASK_FINISH`: Notification will be sent when the task is finished. This option is only for `MESSAGE` subject type.`ANY_CHANGES`: If the `subject_type` for the action is not `MESSAGE` but you still want to receive emails, use this option.`NOT_NOTIFICATION`: No notifications are needed. |
+| `email_setting` | `email_setting` | `OptimizerRuleGetResponseRulesNotificationEmailSetting` | No | No | Email notification settings |
+
+## OptimizerRuleGetResponseRulesNotificationEmailSetting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_period` | `notification_period` | `"EVERY_TIME" \| "TIME_SCHEDULE"` | No | No | Enum values:`EVERY_TIME``TIME_SCHEDULE`: notifications will be sent together around a specified time. |
+| `email_exec_time` | `email_exec_time` | `Array<string>` | No | No | Required when `notification_period` is`TIME_SCHEDULE`. Notification email sent time. For example, "12:00". |
+| `no_result_notification` | `no_result_notification` | `boolean` | No | No | It will be set as false by default if not provided, meaning no notification will be sent if there is no result. |
+
+## OptimizerRuleGetResponseRulesRuleExecInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exec_time_type` | `exec_time_type` | `"PER_HALF_HOUR" \| "CUSTOM" \| "HALF_HOUR_IN_SPECIFIC_TIME_PERIOD" \| "SPECIFIC_TIME_ACCURATE_ONCE"` | No | No | When the rule will be run. Enum values: `PER_HALF_HOUR`: the rule will be run every half hour.`CUSTOM`: the rule will be run at a customized time (specified in the `exec_time` field).`HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`: the rule will be run every 30 minutes during specified time range on specifed days during the week`SPECIFIC_TIME_ACCURATE_ONCE`: the rule will be run only once at a customized time (specified in the `exec_time` field). |
+| `exec_time` | `exec_time` | `string` | No | No | If `exec_time_type` is set to `CUSTOM` or `SPECIFIC_TIME_ACCURATE_ONCE`, use this field to specify the exact time when the rule will be run. Format: "HH:MM" when `exec_time_type` is `CUSTOM`. For example: "12:00"."YYYY-MM-DD HH:MM" when `exec_time_type` is `SPECIFIC_TIME_ACCURATE_ONCE`. For example: "2023-04-20 04:20". |
+| `time_period_info` | `time_period_info` | `Array<OptimizerRuleGetResponseRulesRuleExecInfoTimePeriodInfo>` | No | No | Valid when `exec_time_type` is `HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`. It has `start_time`, `end_time`, `date_type` and `num` to specify the time period information. |
+
+## OptimizerRuleGetResponseRulesRuleExecInfoTimePeriodInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `num` | `num` | `string` | No | No | Each number in the list represents the day in the week or month.When `date_type` is `WEEK`, value range for this field is [1, 7], meaning Monday to Sunday.When `date_type` is `MONTH`, value range for this field is [1, 28], meaning 1st day to the 28th day of the month. |
+| `start_time` | `start_time` | `string` | No | No | Start time of this time period. For example, "12:00". |
+| `end_time` | `end_time` | `string` | No | No | End time of this time period. For example, "12:00". |
+| `date_type` | `date_type` | `"DAY" \| "WEEK" \| "MONTH"` | No | No | Type of date. Enum values: `DAY`, `WEEK`, `MONTH`. |
+
+## OptimizerRuleListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `filtering` | `filtering` | `OptimizerRuleListParamsFiltering` | No | No | Filters. |
+| `tzone` | `tzone` | `string` | No | No | If provided, all the time information in the response (`create_datetime`, `email_exec_time`, `check_datetime`, `exec_datetime`) will be shown in user specified timezone. For acceptable timezone code, see [Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `page` | `page` | `number` | No | No | Current page number. Default: 1 |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default: 10 |
+
+## OptimizerRuleListParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ON" \| "OFF" \| "DELETED"` | No | No | Status of rules. Enum values: `ON`: on.`OFF`: off.`DELETED`: deleted. |
+| `rule_info` | `rule_info` | `Array<string>` | No | No | Rule ids or rule names. |
+| `data_dimension` | `data_dimension` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | No | No | Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+
+## OptimizerRuleListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rules` | `rules` | `Array<OptimizerRuleListResponseRules>` | No | No | List of rules |
+
+## OptimizerRuleListResponseRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `apply_objects` | `apply_objects` | `Array<OptimizerRuleListResponseRulesApplyObjects>` | No | No | Objects that you want to apply the rules to. Objects can be campaigns, ad groups, or ads. |
+| `conditions` | `conditions` | `Array<OptimizerRuleListResponseRulesConditions>` | No | No | Conditions |
+| `action` | `action` | `Array<OptimizerRuleListResponseRulesAction>` | No | No | Actions to be taken when the condition is met |
+| `notification` | `notification` | `OptimizerRuleListResponseRulesNotification` | No | No | Notification settings |
+| `rule_exec_info` | `rule_exec_info` | `OptimizerRuleListResponseRulesRuleExecInfo` | No | No | Rule run settings |
+| `last_check_result_summary` | `last_check_result_summary` | `OptimizerRuleListResponseRulesLastCheckResultSummary` | No | No | Information about the last rule run |
+| `rule_id` | `rule_id` | `string` | No | No | ID of the rule |
+| `name` | `name` | `string` | No | No | Name of the rule |
+| `rule_status` | `rule_status` | `"ON" \| "OFF" \| "DELETED"` | No | No | Rule status. Enum values: `ON`: on.`OFF`: off.`DELETED`: deleted. |
+| `create_datetime` | `create_datetime` | `string` | No | No | Date and time when the rule was created, in UTC+0 time zone |
+
+## OptimizerRuleListResponseRulesAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"TURN_ON" \| "TURN_OFF" \| "MESSAGE" \| "DAILY_BUDGET" \| "LIFETIME_BUDGET" \| "BID"` | No | No | Type of actions to take. Enum values: `TURN_ON`, `TURN_OFF`, `MESSAGE`, `DAILY_BUDGET`, `LIFETIME_BUDGET`, `BID` |
+| `action_type` | `action_type` | `"INCREASE" \| "DECREASE" \| "ADJUST_TO"` | No | No | Enum values: `INCREASE`, `DECREASE`, `ADJUST_TO` |
+| `value_type` | `value_type` | `"EXACT" \| "PERCENT"` | No | No | Enum values: `EXACT`, `PERCENT` |
+| `value` | `value` | `string` | No | No | When `action_type` is `INCREASE` or `DECREASE`, users can specify the maximum(if INCREASE) or minimum(if DECREASE) budget using `use_limit` and `limit`. When `action_type` is `ADJUST_TO`, no need to provide `use_limit` and `limit`. |
+| `frequency_info` | `frequency_info` | `OptimizerRuleListResponseRulesActionFrequencyInfo` | No | No | Frequency settings. It can be used when the action `subject_type` is `DAILY_BUDGET`, `LIFETIME_BUDGET`, or `BID` |
+
+## OptimizerRuleListResponseRulesActionFrequencyInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"ONLY_ONCE" \| "ONCE_IN_24_H" \| "ONCE_IN_48_H" \| "ONCE_IN_1_W" \| "CUSTOM"` | No | No | Enum values: `ONLY_ONCE` `ONCE_IN_24_H` `ONCE_IN_48_H` `ONCE_IN_1_W` `CUSTOM` |
+| `custom_frequency_type` | `custom_frequency_type` | `"N_MINTUE_Y_TIMES" \| "N_HOUR_Y_TIMES" \| "N_DAY_Y_TIMES"` | No | No | Custom frequency type. Valid only when `type` is `CUSTOM`. Enum: `N_MINTUE_Y_TIMES` `N_HOUR_Y_TIMES` `N_DAY_Y_TIMES` |
+| `time` | `time` | `number` | No | No | It is the `N` in `custom_frequency_type` |
+| `count` | `count` | `number` | No | No | It is the `Y` in `custom_frequency_type` |
+
+## OptimizerRuleListResponseRulesApplyObjects
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimesion` | `dimesion` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | No | No | Category of the object. Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+| `dimension_ids` | `dimension_ids` | `Array<string>` | No | No | IDs of the objects |
+| `pre_condition_type` | `pre_condition_type` | `"SELECTED" \| "ALL_ACTIVE_CAMPAIGN" \| "ALL_ACTIVE_AD_GROUP" \| "ALL_ACTIVE_AD" \| "ALL_ACTIVE_AD_UNDER_SELECTED" \| "ALL_INACTIVE_CAMPAIGN" \| "ALL_INACTIVE_AD_GROUP" \| "ALL_INACTIVE_AD" \| "ALL_INACTIVE_AD_GROUP_UNDER_SELECTED" \| "ALL_INACTIVE_AD_UNDER_SELECTED"` | No | No | Conditions to filter out objects that you do not want to include. Enum values: `SELECTED`: Only include those that are selected by IDs.`ALL_ACTIVE_CAMPAIGN`: Select all active campaigns.`ALL_ACTIVE_AD_GROUP`: Select all active ad groups. `ALL_ACTIVE_AD`: Select all active ads.` ALL_ACTIVE_AD_GROUP_UNDER_SELECTED`: Select all active ad groups under the selected campaign.`ALL_ACTIVE_AD_UNDER_SELECTED`: Select all active ads under selected dimensions`ALL_INACTIVE_CAMPAIGN`: Select all inactive campaigns. `ALL_INACTIVE_AD_GROUP`: Select all inactive ad groups`ALL_INACTIVE_AD`: Select all inactive ads.`ALL_INACTIVE_AD_GROUP_UNDER_SELECTED`: Select all inactive ad groups under the selected campaign.`ALL_INACTIVE_AD_UNDER_SELECTED`: Select all inactive ads under the selected campaign or ad group (specified by `dimension` and `dimension_ids`) |
+| `bind_type` | `bind_type` | `"BIND" \| "UNBIND"` | No | No | Bind type of the rule. Enum values: `BIND`, `UNBIND` |
+
+## OptimizerRuleListResponseRulesConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject_type` | `subject_type` | `"COST" \| "DAILY_BUDGET_SPENDING_RATE" \| "LIFETIME_BUDGET_SPENDING_RATE" \| "IMPRESSION" \| "CLICK" \| "CONVERSION" \| "CONVERSION_SKAN" \| "CVR" \| "CVR_SKAN" \| "CPA" \| "CPM" \| "CPC" \| "CTR" \| "COST_PER_RESULT" \| "RESULT" \| "RESULT_RATE" \| "BID_STRATEGY" \| "OPTIMIZATION_GOAL" \| "OBJECTIVE" \| "NAME" \| "DAYS_SINCE_CREATION" \| "NO_CONDITION" \| "ROAS_PURCHASE" \| "ROAS_IMPRESSION_ADS" \| "ROAS_PURCHASE_SKAN" \| "ROAS_COMPLETE_PAYMENT" \| "ROAS_PURCHASES_ONSITE" \| "NOT_REAL_TIME_CPA" \| "NOT_REAL_TIME_CONVERSION" \| "NOT_REAL_TIME_CVR"` | No | No | Subjects that the condition will be based on. Enum values: `COST``DAILY_BUDGET_SPENDING_RATE``LIFETIME_BUDGET_SPENDING_RATE``IMPRESSION``CLICK``CONVERSION``CONVERSION_SKAN``CVR``CVR_SKAN``CPA``CPM``CPC``CTR``COST_PER_RESULT``RESULT``RESULT_RATE``BID_STRATEGY``OPTIMIZATION_GOAL``OBJECTIVE``NAME``DAYS_SINCE_CREATION``NO_CONDITION``ROAS_PURCHASE``ROAS_IMPRESSION_ADS``ROAS_PURCHASE_SKAN``ROAS_COMPLETE_PAYMENT``ROAS_PURCHASES_ONSITE``NOT_REAL_TIME_CPA``NOT_REAL_TIME_CONVERSION``NOT_REAL_TIME_CVR` |
+| `range_type` | `range_type` | `"TODAY" \| "YESTERDAY" \| "PAST_THREE_DAYS" \| "PAST_FIVE_DAYS" \| "PAST_SEVEN_DAYS" \| "LIFETIME"` | No | No | Time range for the condition. Enum values: `TODAY``YESTERDAY``PAST_THREE_DAYS``PAST_FIVE_DAYS``PAST_SEVEN_DAYS``LIFETIME` |
+| `match_type` | `match_type` | `"GT" \| "LT" \| "BETWEEN" \| "MATCH" \| "CONTAINS" \| "NOT_CONTAINS" \| "START_WITH" \| "END_WITH" \| "STRING_EQUAL"` | No | No | Operator to connect a condition with a value. Enum values: `GT` (greater than) `LT` (less than) `BETWEEN``MATCH``CONTAINS``NOT_CONTAINS``START_WITH``END_WITH``STRING_EQUAL` |
+| `values` | `values` | `Array<string>` | No | No | Values for the condition. |
+| `calculation_type` | `calculation_type` | `"ALL_OBJECTS" \| "OF_EACH_OBJECT"` | No | No | Enum values:`ALL_OBJECTS``OF_EACH_OBJECT` |
+
+## OptimizerRuleListResponseRulesLastCheckResultSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `check_datetime` | `check_datetime` | `string` | No | No | Date and time when the rule was checked, in UTC+0 time zone |
+| `exec_datetime` | `exec_datetime` | `string` | No | No | Date and time when the rule was run, in UTC+0 time zone |
+| `change_success` | `change_success` | `number` | No | No | Objects that have been changed |
+| `no_change` | `no_change` | `number` | No | No | Objects that have not been changed |
+| `change_fail` | `change_fail` | `number` | No | No | Objects that failed to be changed |
+| `task_exec_id` | `task_exec_id` | `string` | No | No | Rule execution ID |
+
+## OptimizerRuleListResponseRulesNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_type` | `notification_type` | `"TASK_FINISH" \| "MESSAGE" \| "ANY_CHANGES" \| "NOT_NOTIFICATION"` | No | No | Notification type you need. Enum values: `TASK_FINISH`: Notification will be sent when the task is finished. This option is only for `MESSAGE` subject type.`ANY_CHANGES`: If the `subject_type` for the action is not `MESSAGE` but you still want to receive emails, use this option.`NOT_NOTIFICATION`: No notifications are needed. |
+| `email_setting` | `email_setting` | `OptimizerRuleListResponseRulesNotificationEmailSetting` | No | No | Email notification settings |
+
+## OptimizerRuleListResponseRulesNotificationEmailSetting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `notification_period` | `notification_period` | `"EVERY_TIME" \| "TIME_SCHEDULE"` | No | No | Enum values:`EVERY_TIME``TIME_SCHEDULE`: notifications will be sent together around a specified time. |
+| `email_exec_time` | `email_exec_time` | `Array<string>` | No | No | Required when `notification_period` is `TIME_SCHEDULE`. Notification email sent time. For example, "12:00". |
+| `no_result_notification` | `no_result_notification` | `boolean` | No | No | It will be set as false by default if not provided, meaning no notification will be sent if there is no result. |
+
+## OptimizerRuleListResponseRulesRuleExecInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exec_time_type` | `exec_time_type` | `"PER_HALF_HOUR" \| "CUSTOM" \| "HALF_HOUR_IN_SPECIFIC_TIME_PERIOD" \| "SPECIFIC_TIME_ACCURATE_ONCE"` | No | No | When the rule will be run. Enum values: `PER_HALF_HOUR`: the rule will be run every half hour.`CUSTOM`: the rule will be run at a customized time (specified in the `exec_time` field).`HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`: the rule will be run every 30 minutes during specified time range on specifed days during the week.`SPECIFIC_TIME_ACCURATE_ONCE`: the rule will be run only once at a customized time (specified in the `exec_time` field). |
+| `exec_time` | `exec_time` | `string` | No | No | If `exec_time_type` is set to `CUSTOM` or `SPECIFIC_TIME_ACCURATE_ONCE`, use this field to specify the exact time when the rule will be run. Format: "HH:MM" when `exec_time_type` is `CUSTOM`. For example: "12:00"."YYYY-MM-DD HH:MM" when `exec_time_type` is `SPECIFIC_TIME_ACCURATE_ONCE`. For example: "2023-04-20 04:20". |
+| `time_period_info` | `time_period_info` | `Array<OptimizerRuleListResponseRulesRuleExecInfoTimePeriodInfo>` | No | No | Valid when `exec_time_type` is `HALF_HOUR_IN_SPECIFIC_TIME_PERIOD`. It has `start_time`, `end_time`, `date_type` and `num` to specify the time period information. |
+
+## OptimizerRuleListResponseRulesRuleExecInfoTimePeriodInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `num` | `num` | `string` | No | No | Each number in the list represents the day in the week or month.When `date_type` is `WEEK`, value range for this field is [1, 7], meaning Monday to Sunday.When `date_type` is `MONTH`, value range for this field is [1, 28], meaning 1st day to the 28th day of the month. |
+| `start_time` | `start_time` | `string` | No | No | Start time of this time period. For example, "12:00". |
+| `end_time` | `end_time` | `string` | No | No | End time of this time period. For example, "12:00". |
+| `date_type` | `date_type` | `"DAY" \| "WEEK" \| "MONTH"` | No | No | Type of date. Enum values: `DAY`, `WEEK`, `MONTH` |
+
+## OptimizerRuleResultGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `result_detail` | `result_detail` | `Array<OptimizerRuleResultGetParamsResultDetail>` | Yes | No | Result details. |
+| `lang` | `lang` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the execution results. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+## OptimizerRuleResultGetParamsResultDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exec_id` | `exec_id` | `string` | Yes | No | Rule execution ID. |
+| `rule_id` | `rule_id` | `string` | Yes | No | Rule ID. |
+
+## OptimizerRuleResultGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result_details` | `result_details` | `Array<OptimizerRuleResultGetResponseResultDetails>` | No | No | Result details. |
+
+## OptimizerRuleResultGetResponseResultDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rule_id` | `rule_id` | `string` | No | No | Rule ID. |
+| `exec_id` | `exec_id` | `string` | No | No | Rule execution ID. |
+| `action_subject_type` | `action_subject_type` | `"TURN_ON" \| "TURN_OFF" \| "MESSAGE"` | No | No | Action type. Enum values: `TURN_ON`, `TURN_OFF`, `MESSAGE`. |
+| `status` | `status` | `"SUCCESS" \| "FAIL"` | No | No | Action status. Enum values: `SUCCESS`, `FAIL` |
+| `error_message` | `error_message` | `string` | No | No | If the action failed, this field returns the error message. |
+| `object_dimension` | `object_dimension` | `"CAMPAIGN" \| "ADGROUP" \| "AD"` | No | No | Category of the object. Enum values: `CAMPAIGN`, `ADGROUP`, `AD`. |
+| `object_dimension_id` | `object_dimension_id` | `string` | No | No | Object ID. |
+| `object_name` | `object_name` | `string` | No | No | Object name. |

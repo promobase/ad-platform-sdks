@@ -1,0 +1,843 @@
+---
+title: "Google Ads models: New Resource Creation Error – Pmax Campaign Settings"
+description: "100 generated Google Ads model contracts, from NewResourceCreationError through PmaxCampaignSettings."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1018
+  label: "New Resource Creation Error – Pmax Campaign Settings"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## NewResourceCreationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_SET_ID_FOR_CREATE`, `DUPLICATE_TEMP_IDS`, `TEMP_ID_RESOURCE_HAD_ERRORS`
+
+## NewResourceCreationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## NonSkippableInStreamRestrictions
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_duration` | `min_duration` | `NonSkippableMinDuration` | No | No | — |
+| `max_duration` | `max_duration` | `NonSkippableMaxDuration` | No | No | — |
+
+## NonSkippableMaxDuration
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MAX_DURATION_FIFTEEN_SECONDS`, `MAX_DURATION_THIRTY_SECONDS`, `MAX_DURATION_SIXTY_SECONDS`
+
+## NonSkippableMaxDurationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## NonSkippableMinDuration
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MIN_DURATION_FIVE_SECONDS`, `MIN_DURATION_SEVEN_SECONDS`, `MIN_DURATION_SIXTEEN_SECONDS`, `MIN_DURATION_THIRTY_ONE_SECONDS`
+
+## NonSkippableMinDurationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## NotAllowlistedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER_NOT_ALLOWLISTED_FOR_THIS_FEATURE`
+
+## NotAllowlistedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Note
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `edit_date_time` | `edit_date_time` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+
+## NotEmptyError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EMPTY_LIST`
+
+## NotEmptyErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## NullError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NULL_CONTENT`
+
+## NullErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfferType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NO_INCENTIVE`, `CYO_INCENTIVE`
+
+## OfflineConversionAlert
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `unknown` | No | No | — |
+| `error_percentage` | `error_percentage` | `number` | No | No | — |
+
+## OfflineConversionDiagnosticStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXCELLENT`, `GOOD`, `NEEDS_ATTENTION`, `NO_RECENT_UPLOAD`
+
+## OfflineConversionDiagnosticStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineConversionError
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collection_size_error` | `collection_size_error` | `CollectionSizeError` | No | No | — |
+| `conversion_adjustment_upload_error` | `conversion_adjustment_upload_error` | `ConversionAdjustmentUploadError` | No | No | — |
+| `conversion_upload_error` | `conversion_upload_error` | `ConversionUploadError` | No | No | — |
+| `date_error` | `date_error` | `DateError` | No | No | — |
+| `distinct_error` | `distinct_error` | `DistinctError` | No | No | — |
+| `field_error` | `field_error` | `FieldError` | No | No | — |
+| `mutate_error` | `mutate_error` | `MutateError` | No | No | — |
+| `not_allowlisted_error` | `not_allowlisted_error` | `NotAllowlistedError` | No | No | — |
+| `string_format_error` | `string_format_error` | `StringFormatError` | No | No | — |
+| `string_length_error` | `string_length_error` | `StringLengthError` | No | No | — |
+
+## OfflineConversionSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `successful_count` | `successful_count` | `string` | No | No | — |
+| `failed_count` | `failed_count` | `string` | No | No | — |
+| `pending_count` | `pending_count` | `string` | No | No | — |
+| `job_id` | `job_id` | `string` | No | No | — |
+| `upload_date` | `upload_date` | `string` | No | No | — |
+
+## OfflineConversionUploadClientSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `client` | `client` | `OfflineEventUploadClient` | No | No | — |
+| `status` | `status` | `OfflineConversionDiagnosticStatus` | No | No | — |
+| `total_event_count` | `total_event_count` | `string` | No | No | — |
+| `successful_event_count` | `successful_event_count` | `string` | No | No | — |
+| `success_rate` | `success_rate` | `number` | No | No | — |
+| `pending_event_count` | `pending_event_count` | `string` | No | No | — |
+| `pending_rate` | `pending_rate` | `number` | No | No | — |
+| `last_upload_date_time` | `last_upload_date_time` | `string` | No | No | — |
+| `daily_summaries` | `daily_summaries` | `Array<unknown>` | No | No | — |
+| `job_summaries` | `job_summaries` | `Array<unknown>` | No | No | — |
+| `alerts` | `alerts` | `Array<unknown>` | No | No | — |
+
+## OfflineConversionUploadConversionActionSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `client` | `client` | `OfflineEventUploadClient` | No | No | — |
+| `conversion_action_id` | `conversion_action_id` | `string` | No | No | — |
+| `conversion_action_name` | `conversion_action_name` | `string` | No | No | — |
+| `status` | `status` | `OfflineConversionDiagnosticStatus` | No | No | — |
+| `total_event_count` | `total_event_count` | `string` | No | No | — |
+| `successful_event_count` | `successful_event_count` | `string` | No | No | — |
+| `pending_event_count` | `pending_event_count` | `string` | No | No | — |
+| `last_upload_date_time` | `last_upload_date_time` | `string` | No | No | — |
+| `daily_summaries` | `daily_summaries` | `Array<unknown>` | No | No | — |
+| `job_summaries` | `job_summaries` | `Array<unknown>` | No | No | — |
+| `alerts` | `alerts` | `Array<unknown>` | No | No | — |
+
+## OfflineEventUploadClient
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GOOGLE_ADS_API`, `GOOGLE_ADS_WEB_CLIENT`, `ADS_DATA_CONNECTOR`
+
+## OfflineEventUploadClientEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineUserAddressInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashed_first_name` | `hashed_first_name` | `string` | No | No | — |
+| `hashed_last_name` | `hashed_last_name` | `string` | No | No | — |
+| `city` | `city` | `string` | No | No | — |
+| `state` | `state` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `postal_code` | `postal_code` | `string` | No | No | — |
+| `hashed_street_address` | `hashed_street_address` | `string` | No | No | — |
+
+## OfflineUserDataJob
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `external_id` | `external_id` | `string` | No | No | — |
+| `type` | `type` | `OfflineUserDataJobType` | No | No | — |
+| `status` | `status` | `OfflineUserDataJobStatus` | No | No | — |
+| `failure_reason` | `failure_reason` | `OfflineUserDataJobFailureReason` | No | No | — |
+| `operation_metadata` | `operation_metadata` | `unknown` | No | No | — |
+| `customer_match_user_list_metadata` | `customer_match_user_list_metadata` | `CustomerMatchUserListMetadata` | No | No | — |
+| `store_sales_metadata` | `store_sales_metadata` | `StoreSalesMetadata` | No | No | — |
+
+## OfflineUserDataJobError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_USER_LIST_ID`, `INVALID_USER_LIST_TYPE`, `NOT_ON_ALLOWLIST_FOR_USER_ID`, `INCOMPATIBLE_UPLOAD_KEY_TYPE`, `MISSING_USER_IDENTIFIER`, `INVALID_MOBILE_ID_FORMAT`, `TOO_MANY_USER_IDENTIFIERS`, `NOT_ON_ALLOWLIST_FOR_STORE_SALES_DIRECT`, `NOT_ON_ALLOWLIST_FOR_UNIFIED_STORE_SALES`, `INVALID_PARTNER_ID`, `INVALID_ENCODING`, `INVALID_COUNTRY_CODE`, `INCOMPATIBLE_USER_IDENTIFIER`, `FUTURE_TRANSACTION_TIME`, `INVALID_CONVERSION_ACTION`, `MOBILE_ID_NOT_SUPPORTED`, `INVALID_OPERATION_ORDER`, `CONFLICTING_OPERATION`, `EXTERNAL_UPDATE_ID_ALREADY_EXISTS`, `JOB_ALREADY_STARTED`, `REMOVE_NOT_SUPPORTED`, `REMOVE_ALL_NOT_SUPPORTED`, `INVALID_SHA256_FORMAT`, `CUSTOM_KEY_DISABLED`, `CUSTOM_KEY_NOT_PREDEFINED`, `CUSTOM_KEY_NOT_SET`, `CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS`, `ATTRIBUTES_NOT_APPLICABLE_FOR_CUSTOMER_MATCH_USER_LIST`, `LIFETIME_VALUE_BUCKET_NOT_IN_RANGE`, `INCOMPATIBLE_USER_IDENTIFIER_FOR_ATTRIBUTES`, `FUTURE_TIME_NOT_ALLOWED`, `LAST_PURCHASE_TIME_LESS_THAN_ACQUISITION_TIME`, `CUSTOMER_IDENTIFIER_NOT_ALLOWED`, `INVALID_ITEM_ID`, `FIRST_PURCHASE_TIME_GREATER_THAN_LAST_PURCHASE_TIME`, `INVALID_LIFECYCLE_STAGE`, `INVALID_EVENT_VALUE`, `EVENT_ATTRIBUTE_ALL_FIELDS_ARE_REQUIRED`, `OPERATION_LEVEL_CONSENT_PROVIDED`
+
+## OfflineUserDataJobErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineUserDataJobFailureReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INSUFFICIENT_MATCHED_TRANSACTIONS`, `INSUFFICIENT_TRANSACTIONS`, `HIGH_AVERAGE_TRANSACTION_VALUE`, `LOW_AVERAGE_TRANSACTION_VALUE`, `NEWLY_OBSERVED_CURRENCY_CODE`
+
+## OfflineUserDataJobFailureReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineUserDataJobMatchRateRange
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MATCH_RANGE_LESS_THAN_20`, `MATCH_RANGE_20_TO_30`, `MATCH_RANGE_31_TO_40`, `MATCH_RANGE_41_TO_50`, `MATCH_RANGE_51_TO_60`, `MATCH_RANGE_61_TO_70`, `MATCH_RANGE_71_TO_80`, `MATCH_RANGE_81_TO_90`, `MATCH_RANGE_91_TO_100`
+
+## OfflineUserDataJobMatchRateRangeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineUserDataJobMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `match_rate_range` | `match_rate_range` | `OfflineUserDataJobMatchRateRange` | No | No | — |
+
+## OfflineUserDataJobOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `UserData` | No | No | — |
+| `remove` | `remove` | `UserData` | No | No | — |
+| `remove_all` | `remove_all` | `boolean` | No | No | — |
+
+## OfflineUserDataJobStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PENDING`, `RUNNING`, `SUCCESS`, `FAILED`
+
+## OfflineUserDataJobStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OfflineUserDataJobType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `STORE_SALES_UPLOAD_FIRST_PARTY`, `STORE_SALES_UPLOAD_THIRD_PARTY`, `CUSTOMER_MATCH_USER_LIST`, `CUSTOMER_MATCH_WITH_ATTRIBUTES`
+
+## OfflineUserDataJobTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OnTargetAudienceMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_audience_size` | `youtube_audience_size` | `string` | No | No | — |
+| `census_audience_size` | `census_audience_size` | `string` | No | No | — |
+
+## OperatingSystemVersionConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `os_major_version` | `os_major_version` | `integer` | No | No | — |
+| `os_minor_version` | `os_minor_version` | `integer` | No | No | — |
+| `operator_type` | `operator_type` | `OperatingSystemVersionOperatorType` | No | No | — |
+
+## OperatingSystemVersionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operating_system_version_constant` | `operating_system_version_constant` | `string` | No | No | — |
+
+## OperatingSystemVersionOperatorType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EQUALS_TO`, `GREATER_THAN_EQUALS_TO`
+
+## OperatingSystemVersionOperatorTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OperationAccessDeniedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACTION_NOT_PERMITTED`, `CREATE_OPERATION_NOT_PERMITTED`, `REMOVE_OPERATION_NOT_PERMITTED`, `UPDATE_OPERATION_NOT_PERMITTED`, `MUTATE_ACTION_NOT_PERMITTED_FOR_CLIENT`, `OPERATION_NOT_PERMITTED_FOR_CAMPAIGN_TYPE`, `CREATE_AS_REMOVED_NOT_PERMITTED`, `OPERATION_NOT_PERMITTED_FOR_REMOVED_RESOURCE`, `OPERATION_NOT_PERMITTED_FOR_AD_GROUP_TYPE`, `MUTATE_NOT_PERMITTED_FOR_CUSTOMER`
+
+## OperationAccessDeniedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Operator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADD`, `REMOVE`
+
+## OperatorError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPERATOR_NOT_SUPPORTED`
+
+## OperatorErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OptimizationGoalSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimization_goal_types` | `optimization_goal_types` | `Array<OptimizationGoalType>` | No | No | — |
+
+## OptimizationGoalType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CALL_CLICKS`, `DRIVING_DIRECTIONS`, `APP_PRE_REGISTRATION`
+
+## OptimizationGoalTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OptimizeAdRotationRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## OptimizeAssetsExperimentInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimize_assets_experiment_subtype` | `optimize_assets_experiment_subtype` | `OptimizeAssetsExperimentSubtype` | No | No | — |
+
+## OptimizeAssetsExperimentSubtype
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADD_ASSETS_TO_ASSETLESS_RETAIL`, `ADD_VIDEO_ASSETS_TO_VIDEOLESS`, `COMPARE_ASSETS`
+
+## OptimizeAssetsExperimentSubtypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PageFeedAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_url` | `page_url` | `string` | No | No | — |
+| `labels` | `labels` | `Array<string>` | No | No | — |
+
+## PaidOrganicSearchTermView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+
+## ParentalStatusDimension
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parental_statuses` | `parental_statuses` | `Array<ParentalStatusType>` | No | No | — |
+| `include_undetermined` | `include_undetermined` | `boolean` | No | No | — |
+
+## ParentalStatusInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `ParentalStatusType` | No | No | — |
+
+## ParentalStatusType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PARENT`, `NOT_A_PARENT`, `UNDETERMINED`
+
+## ParentalStatusTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ParentalStatusView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## PartialFailureError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PARTIAL_FAILURE_MODE_REQUIRED`
+
+## PartialFailureErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ParticipantType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADVERTISER`, `CONSUMER`
+
+## PartnershipOpportunity
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CREATOR_PARTNERSHIPS`, `CREATOR_TAKEOVER`, `PARTNERSHIP_ADS`, `YOUTUBE_SELECT_LINEUPS`
+
+## PartnershipOpportunityEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PaymentMode
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CLICKS`, `CONVERSION_VALUE`, `CONVERSIONS`, `GUEST_STAY`
+
+## PaymentModeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PaymentsAccount
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `payments_account_id` | `payments_account_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `payments_profile_id` | `payments_profile_id` | `string` | No | No | — |
+| `secondary_payments_profile_id` | `secondary_payments_profile_id` | `string` | No | No | — |
+| `paying_manager_customer` | `paying_manager_customer` | `string` | No | No | — |
+
+## PaymentsAccountError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NOT_SUPPORTED_FOR_MANAGER_CUSTOMER`
+
+## PaymentsAccountErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PaymentsAccountInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payments_account_id` | `payments_account_id` | `string` | No | No | — |
+| `payments_account_name` | `payments_account_name` | `string` | No | No | — |
+| `payments_profile_id` | `payments_profile_id` | `string` | No | No | — |
+| `payments_profile_name` | `payments_profile_name` | `string` | No | No | — |
+| `secondary_payments_profile_id` | `secondary_payments_profile_id` | `string` | No | No | — |
+
+## PendingAccountBudgetProposal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_budget_proposal` | `account_budget_proposal` | `string` | No | No | — |
+| `proposal_type` | `proposal_type` | `AccountBudgetProposalType` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `start_date_time` | `start_date_time` | `string` | No | No | — |
+| `purchase_order_number` | `purchase_order_number` | `string` | No | No | — |
+| `notes` | `notes` | `string` | No | No | — |
+| `creation_date_time` | `creation_date_time` | `string` | No | No | — |
+| `end_date_time` | `end_date_time` | `string` | No | No | — |
+| `end_time_type` | `end_time_type` | `TimeType` | No | No | — |
+| `spending_limit_micros` | `spending_limit_micros` | `string` | No | No | — |
+| `spending_limit_type` | `spending_limit_type` | `SpendingLimitType` | No | No | — |
+
+## PercentCpc
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cpc_bid_ceiling_micros` | `cpc_bid_ceiling_micros` | `string` | No | No | — |
+| `enhanced_cpc_enabled` | `enhanced_cpc_enabled` | `boolean` | No | No | — |
+
+## PercentCpcBidSimulationPoint
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percent_cpc_bid_micros` | `percent_cpc_bid_micros` | `string` | No | No | — |
+| `biddable_conversions` | `biddable_conversions` | `number` | No | No | — |
+| `biddable_conversions_value` | `biddable_conversions_value` | `number` | No | No | — |
+| `clicks` | `clicks` | `string` | No | No | — |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `impressions` | `impressions` | `string` | No | No | — |
+| `top_slot_impressions` | `top_slot_impressions` | `string` | No | No | — |
+
+## PercentCpcBidSimulationPointList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `points` | `points` | `Array<unknown>` | No | No | — |
+
+## PerformanceMaxExperimentArmInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `experimental_performance_max_campaign_settings` | `experimental_performance_max_campaign_settings` | `unknown` | No | No | — |
+
+## PerformanceMaxFinalUrlOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PerformanceMaxOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PerformanceMaxPlacementView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `placement` | `placement` | `string` | No | No | — |
+| `display_name` | `display_name` | `string` | No | No | — |
+| `target_url` | `target_url` | `string` | No | No | — |
+| `placement_type` | `placement_type` | `PlacementType` | No | No | — |
+
+## PerformanceMaxUpgrade
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `performance_max_campaign` | `performance_max_campaign` | `string` | No | No | — |
+| `pre_upgrade_campaign` | `pre_upgrade_campaign` | `string` | No | No | — |
+| `status` | `status` | `PerformanceMaxUpgradeStatus` | No | No | — |
+
+## PerformanceMaxUpgradeStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UPGRADE_IN_PROGRESS`, `UPGRADE_COMPLETE`, `UPGRADE_FAILED`, `UPGRADE_ELIGIBLE`
+
+## PerformanceMaxUpgradeStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PerStoreView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `place_id` | `place_id` | `string` | No | No | — |
+| `address1` | `address1` | `string` | No | No | — |
+| `address2` | `address2` | `string` | No | No | — |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `city` | `city` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+| `postal_code` | `postal_code` | `string` | No | No | — |
+| `province` | `province` | `string` | No | No | — |
+
+## PhoneCallDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `call_duration_millis` | `call_duration_millis` | `string` | No | No | — |
+| `call_recording_url` | `call_recording_url` | `string` | No | No | — |
+
+## PhoneNumber
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+
+## PlacementInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | — |
+
+## PlacementListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+
+## PlacementType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WEBSITE`, `MOBILE_APP_CATEGORY`, `MOBILE_APPLICATION`, `YOUTUBE_VIDEO`, `YOUTUBE_CHANNEL`, `GOOGLE_PRODUCTS`
+
+## PlacementTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PlannableLocation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `parent_country_id` | `parent_country_id` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `location_type` | `location_type` | `string` | No | No | — |
+
+## PlannableTargeting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_ranges` | `age_ranges` | `Array<ReachPlanAgeRange>` | No | No | — |
+| `genders` | `genders` | `Array<GenderInfo>` | No | No | — |
+| `devices` | `devices` | `Array<DeviceInfo>` | No | No | — |
+| `networks` | `networks` | `Array<ReachPlanNetwork>` | No | No | — |
+| `youtube_select_lineup_targeting` | `youtube_select_lineup_targeting` | `unknown` | No | No | — |
+| `surface_targeting` | `surface_targeting` | `unknown` | No | No | — |
+
+## PlannableUserInterest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_interest` | `user_interest` | `UserInterestInfo` | No | No | — |
+| `user_interest_type` | `user_interest_type` | `UserInterestTaxonomyType` | No | No | — |
+| `user_interest_display_name` | `user_interest_display_name` | `string` | No | No | — |
+| `user_interest_path` | `user_interest_path` | `string` | No | No | — |
+
+## PlannableUserList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list_info` | `user_list_info` | `UserListInfo` | No | No | — |
+| `display_name` | `display_name` | `string` | No | No | — |
+| `user_list_type` | `user_list_type` | `UserListType` | No | No | — |
+| `plannable_status` | `plannable_status` | `ReachPlanPlannableUserListStatus` | No | No | — |
+| `plannable_user_list_metadata` | `plannable_user_list_metadata` | `unknown` | No | No | — |
+
+## PlannableUserListMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list_crm_data_source_type` | `user_list_crm_data_source_type` | `UserListCrmDataSourceType` | No | No | — |
+
+## PlannedProduct
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
+| `budget_micros` | `budget_micros` | `string` | No | No | — |
+| `conversion_rate` | `conversion_rate` | `number` | No | No | — |
+| `advanced_product_targeting` | `advanced_product_targeting` | `unknown` | No | No | — |
+
+## PlannedProductForecast
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `on_target_reach` | `on_target_reach` | `string` | No | No | — |
+| `total_reach` | `total_reach` | `string` | No | No | — |
+| `on_target_impressions` | `on_target_impressions` | `string` | No | No | — |
+| `total_impressions` | `total_impressions` | `string` | No | No | — |
+| `viewable_impressions` | `viewable_impressions` | `string` | No | No | — |
+| `on_target_coview_reach` | `on_target_coview_reach` | `string` | No | No | — |
+| `total_coview_reach` | `total_coview_reach` | `string` | No | No | — |
+| `on_target_coview_impressions` | `on_target_coview_impressions` | `string` | No | No | — |
+| `total_coview_impressions` | `total_coview_impressions` | `string` | No | No | — |
+| `average_frequency` | `average_frequency` | `number` | No | No | — |
+| `conversions` | `conversions` | `number` | No | No | — |
+| `trueview_views` | `trueview_views` | `string` | No | No | — |
+| `clicks` | `clicks` | `string` | No | No | — |
+
+## PlannedProductReachForecast
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `planned_product_forecast` | `planned_product_forecast` | `unknown` | No | No | — |
+
+## PmaxCampaignSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_targeting_overrides` | `brand_targeting_overrides` | `unknown` | No | No | — |
+| `local_services_pmax_campaign_settings` | `local_services_pmax_campaign_settings` | `unknown` | No | No | — |
+| `local_services_enabled` | `local_services_enabled` | `boolean` | No | No | — |

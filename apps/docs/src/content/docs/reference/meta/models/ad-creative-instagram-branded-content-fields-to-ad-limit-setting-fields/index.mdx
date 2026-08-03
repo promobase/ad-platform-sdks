@@ -1,0 +1,1163 @@
+---
+title: "Meta models: Ad Creative Instagram Branded Content Fields – Ad Limit Setting Fields"
+description: "100 generated Meta model contracts, from AdCreativeInstagramBrandedContentFields through AdLimitSettingFields."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 1002
+  label: "Ad Creative Instagram Branded Content Fields – Ad Limit Setting Fields"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## AdCreativeInstagramBrandedContentFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsor_id` | `sponsor_id` | `string` | No | No | — |
+
+## AdCreativeInteractiveComponentsSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `child_attachments` | `child_attachments` | `Array<Record<string, unknown>>` | No | No | — |
+| `components` | `components` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdCreativeLinkDataAppLinkSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android` | `android` | `Array<AndroidAppLinkFields>` | No | No | — |
+| `ios` | `ios` | `Array<IosAppLinkFields>` | No | No | — |
+| `ipad` | `ipad` | `Array<IosAppLinkFields>` | No | No | — |
+| `iphone` | `iphone` | `Array<IosAppLinkFields>` | No | No | — |
+
+## AdCreativeLinkDataCallToActionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `AdCreativeLinkDataCallToActionType` | No | No | — |
+| `value` | `value` | `AdCreativeLinkDataCallToActionValueFields` | No | No | — |
+
+## AdCreativeLinkDataCallToActionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADD_TO_CART`, `APPLY_NOW`, `ASK_ABOUT_SERVICES`, `ASK_A_QUESTION`, `ASK_FOR_MORE_INFO`, `ASK_US`, `AUDIO_CALL`, `BOOK_A_CONSULTATION`, `BOOK_NOW`, `BOOK_TRAVEL`, `BROWSE_SHOP`, `BUY`, `BUY_NOW`, `BUY_TICKETS`, `BUY_VIA_MESSAGE`, `CALL`, `CALL_ME`, `CALL_NOW`, `CHAT_NOW`, `CHAT_WITH_US`, `CONFIRM`, `CONTACT`, `CONTACT_US`, `DONATE`, `DONATE_NOW`, `DOWNLOAD`, `EVENT_RSVP`, `FIND_A_GROUP`, `FIND_OUT_MORE`, `FIND_YOUR_GROUPS`, `FOLLOW_NEWS_STORYLINE`, `FOLLOW_PAGE`, `FOLLOW_USER`, `GET_A_QUOTE`, `GET_DETAILS`, `GET_DIRECTIONS`, `GET_IN_TOUCH`, `GET_OFFER`, `GET_OFFER_VIEW`, `GET_PROMOTIONS`, `GET_QUOTE`, `GET_SHOWTIMES`, `GET_STARTED`, `INQUIRE_NOW`, `INSTALL_APP`, `INSTALL_MOBILE_APP`, `JOIN_CHANNEL`, `JOIN_LIVE_VIDEO`, `LEARN_MORE`, `LIKE_PAGE`, `LISTEN_MUSIC`, `LISTEN_NOW`, `MAKE_AN_APPOINTMENT`, `MESSAGE_PAGE`, `MOBILE_DOWNLOAD`, `NO_BUTTON`, `OPEN_INSTANT_APP`, `OPEN_LINK`, `ORDER_NOW`, `PAY_TO_ACCESS`, `PLAY_GAME`, `PLAY_GAME_ON_FACEBOOK`, `PURCHASE_GIFT_CARDS`, `RAISE_MONEY`, `RECORD_NOW`, `REFER_FRIENDS`, `REQUEST_TIME`, `SAY_THANKS`, `SEE_MORE`, `SEE_SHOP`, `SELL_NOW`, `SEND_A_GIFT`, `SEND_GIFT_MONEY`, `SEND_UPDATES`, `SHARE`, `SHOP_NOW`, `SHOP_WITH_AI`, `SIGN_UP`, `SOTTO_SUBSCRIBE`, `START_A_CHAT`, `START_ORDER`, `SUBSCRIBE`, `SWIPE_UP_PRODUCT`, `SWIPE_UP_SHOP`, `TRY_DEMO`, `TRY_ON_WITH_AI`, `UPDATE_APP`, `USE_APP`, `USE_MOBILE_APP`, `VIDEO_ANNOTATION`, `VIDEO_CALL`, `VIEW_CART`, `VIEW_CHANNEL`, `VIEW_IN_CART`, `VIEW_PRODUCT`, `VISIT_PAGES_FEED`, `VISIT_WEBSITE`, `WATCH_LIVE_VIDEO`, `WATCH_MORE`, `WATCH_VIDEO`, `WHATSAPP_MESSAGE`, `WOODHENGE_SUPPORT`
+
+## AdCreativeLinkDataCallToActionValueFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_url` | `android_url` | `string` | No | No | — |
+| `app_destination` | `app_destination` | `string` | No | No | — |
+| `app_link` | `app_link` | `string` | No | No | — |
+| `application` | `application` | `string` | No | No | — |
+| `event_id` | `event_id` | `string` | No | No | — |
+| `ios_url` | `ios_url` | `string` | No | No | — |
+| `land_on_whatsapp_catalog` | `land_on_whatsapp_catalog` | `integer` | No | No | — |
+| `land_on_whatsapp_profile` | `land_on_whatsapp_profile` | `integer` | No | No | — |
+| `lead_gen_form_id` | `lead_gen_form_id` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `link_caption` | `link_caption` | `string` | No | No | — |
+| `link_format` | `link_format` | `string` | No | No | — |
+| `object_store_urls` | `object_store_urls` | `Array<string>` | No | No | — |
+| `page` | `page` | `string` | No | No | — |
+| `product_link` | `product_link` | `string` | No | No | — |
+| `whatsapp_number` | `whatsapp_number` | `string` | No | No | — |
+
+## AdCreativeLinkDataChildAttachmentFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_url` | `android_url` | `string` | No | No | — |
+| `call_to_action` | `call_to_action` | `AdCreativeLinkDataCallToActionFields` | No | No | — |
+| `caption` | `caption` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `ig_media_id` | `ig_media_id` | `string` | No | No | — |
+| `image_crops` | `image_crops` | `AdsImageCropsFields` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `ios_url` | `ios_url` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `marketing_message_buttons` | `marketing_message_buttons` | `Array<Record<string, unknown>>` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `picture` | `picture` | `string` | No | No | — |
+| `place_data` | `place_data` | `AdCreativePlaceDataFields` | No | No | — |
+| `static_card` | `static_card` | `boolean` | No | No | — |
+| `video_id` | `video_id` | `string` | No | No | — |
+
+## AdCreativeLinkDataCustomOverlaySpecBackgroundColor
+
+`enum` model on the `json` wire format.
+
+**Values:** `background_000000`, `background_0090ff`, `background_00af4c`, `background_595959`, `background_755dde`, `background_e50900`, `background_f23474`, `background_f78400`, `background_ffffff`
+
+## AdCreativeLinkDataCustomOverlaySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `background_color` | `background_color` | `AdCreativeLinkDataCustomOverlaySpecBackgroundColor` | No | No | — |
+| `float_with_margin` | `float_with_margin` | `boolean` | No | No | — |
+| `font` | `font` | `AdCreativeLinkDataCustomOverlaySpecFont` | No | No | — |
+| `option` | `option` | `AdCreativeLinkDataCustomOverlaySpecOption` | No | No | — |
+| `position` | `position` | `AdCreativeLinkDataCustomOverlaySpecPosition` | No | No | — |
+| `render_with_icon` | `render_with_icon` | `boolean` | No | No | — |
+| `template` | `template` | `AdCreativeLinkDataCustomOverlaySpecTemplate` | No | No | — |
+| `text_color` | `text_color` | `AdCreativeLinkDataCustomOverlaySpecTextColor` | No | No | — |
+
+## AdCreativeLinkDataCustomOverlaySpecFont
+
+`enum` model on the `json` wire format.
+
+**Values:** `droid_serif_regular`, `lato_regular`, `noto_sans_regular`, `nunito_sans_bold`, `open_sans_bold`, `pt_serif_bold`, `roboto_condensed_regular`, `roboto_medium`
+
+## AdCreativeLinkDataCustomOverlaySpecOption
+
+`enum` model on the `json` wire format.
+
+**Values:** `bank_transfer`, `boleto`, `cash_on_delivery`, `discount_with_boleto`, `fast_delivery`, `free_shipping`, `home_delivery`, `inventory`, `pay_at_hotel`, `pay_on_arrival`
+
+## AdCreativeLinkDataCustomOverlaySpecPosition
+
+`enum` model on the `json` wire format.
+
+**Values:** `bottom_left`, `bottom_right`, `top_left`, `top_right`
+
+## AdCreativeLinkDataCustomOverlaySpecTemplate
+
+`enum` model on the `json` wire format.
+
+**Values:** `pill_with_text`
+
+## AdCreativeLinkDataCustomOverlaySpecTextColor
+
+`enum` model on the `json` wire format.
+
+**Values:** `text_000000`, `text_007ad0`, `text_009c2a`, `text_646464`, `text_755dde`, `text_c91b00`, `text_f23474`, `text_f78400`, `text_ffffff`
+
+## AdCreativeLinkDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_context` | `ad_context` | `string` | No | No | — |
+| `additional_image_index` | `additional_image_index` | `integer` | No | No | — |
+| `app_link_spec` | `app_link_spec` | `AdCreativeLinkDataAppLinkSpecFields` | No | No | — |
+| `attachment_style` | `attachment_style` | `string` | No | No | — |
+| `automated_product_tags` | `automated_product_tags` | `boolean` | No | No | — |
+| `boosted_product_set_id` | `boosted_product_set_id` | `string` | No | No | — |
+| `branded_content_shared_to_sponsor_status` | `branded_content_shared_to_sponsor_status` | `string` | No | No | — |
+| `branded_content_sponsor_page_id` | `branded_content_sponsor_page_id` | `string` | No | No | — |
+| `call_to_action` | `call_to_action` | `AdCreativeLinkDataCallToActionFields` | No | No | — |
+| `caption` | `caption` | `string` | No | No | — |
+| `child_attachments` | `child_attachments` | `Array<AdCreativeLinkDataChildAttachmentFields>` | No | No | — |
+| `collection_thumbnails` | `collection_thumbnails` | `Array<AdCreativeCollectionThumbnailInfoFields>` | No | No | — |
+| `customization_rules_spec` | `customization_rules_spec` | `Array<AdCustomizationRuleSpecFields>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `event_id` | `event_id` | `string` | No | No | — |
+| `force_single_link` | `force_single_link` | `boolean` | No | No | — |
+| `format_option` | `format_option` | `AdCreativeLinkDataFormatOption` | No | No | — |
+| `image_crops` | `image_crops` | `AdsImageCropsFields` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `image_layer_specs` | `image_layer_specs` | `Array<AdCreativeLinkDataImageLayerSpecFields>` | No | No | — |
+| `image_overlay_spec` | `image_overlay_spec` | `AdCreativeLinkDataImageOverlaySpecFields` | No | No | — |
+| `is_local_expansion` | `is_local_expansion` | `boolean` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `multi_share_end_card` | `multi_share_end_card` | `boolean` | No | No | — |
+| `multi_share_optimized` | `multi_share_optimized` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `offer_id` | `offer_id` | `string` | No | No | — |
+| `page_welcome_message` | `page_welcome_message` | `string` | No | No | — |
+| `picture` | `picture` | `string` | No | No | — |
+| `post_click_configuration` | `post_click_configuration` | `AdCreativePostClickConfigurationFields` | No | No | — |
+| `preferred_image_tags` | `preferred_image_tags` | `Array<string>` | No | No | — |
+| `preferred_video_tags` | `preferred_video_tags` | `Array<string>` | No | No | — |
+| `retailer_item_ids` | `retailer_item_ids` | `Array<string>` | No | No | — |
+| `show_multiple_images` | `show_multiple_images` | `boolean` | No | No | — |
+| `smart_pse_enabled` | `smart_pse_enabled` | `boolean` | No | No | — |
+| `static_fallback_spec` | `static_fallback_spec` | `AdCreativeStaticFallbackSpecFields` | No | No | — |
+| `use_flexible_image_aspect_ratio` | `use_flexible_image_aspect_ratio` | `boolean` | No | No | — |
+
+## AdCreativeLinkDataFormatOption
+
+`enum` model on the `json` wire format.
+
+**Values:** `carousel_ar_effects`, `carousel_images_multi_items`, `carousel_images_single_item`, `carousel_slideshows`, `collection_video`, `single_image`
+
+## AdCreativeLinkDataImageLayerSpecBlendingMode
+
+`enum` model on the `json` wire format.
+
+**Values:** `lighten`, `multiply`, `normal`
+
+## AdCreativeLinkDataImageLayerSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blending_mode` | `blending_mode` | `AdCreativeLinkDataImageLayerSpecBlendingMode` | No | No | — |
+| `content` | `content` | `Record<string, unknown>` | No | No | — |
+| `frame_auto_show_enroll_status` | `frame_auto_show_enroll_status` | `string` | No | No | — |
+| `frame_image_hash` | `frame_image_hash` | `string` | No | No | — |
+| `frame_source` | `frame_source` | `AdCreativeLinkDataImageLayerSpecFrameSource` | No | No | — |
+| `image_source` | `image_source` | `AdCreativeLinkDataImageLayerSpecImageSource` | No | No | — |
+| `layer_type` | `layer_type` | `AdCreativeLinkDataImageLayerSpecLayerType` | No | No | — |
+| `opacity` | `opacity` | `integer` | No | No | — |
+| `overlay_position` | `overlay_position` | `AdCreativeLinkDataImageLayerSpecOverlayPosition` | No | No | — |
+| `overlay_shape` | `overlay_shape` | `AdCreativeLinkDataImageLayerSpecOverlayShape` | No | No | — |
+| `scale` | `scale` | `integer` | No | No | — |
+| `shape_color` | `shape_color` | `string` | No | No | — |
+| `text_color` | `text_color` | `string` | No | No | — |
+| `text_font` | `text_font` | `AdCreativeLinkDataImageLayerSpecTextFont` | No | No | — |
+
+## AdCreativeLinkDataImageLayerSpecFrameSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `custom`
+
+## AdCreativeLinkDataImageLayerSpecImageSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `catalog`
+
+## AdCreativeLinkDataImageLayerSpecLayerType
+
+`enum` model on the `json` wire format.
+
+**Values:** `frame_overlay`, `image`, `text_overlay`
+
+## AdCreativeLinkDataImageLayerSpecOverlayPosition
+
+`enum` model on the `json` wire format.
+
+**Values:** `bottom`, `bottom_left`, `bottom_right`, `center`, `left`, `right`, `top`, `top_left`, `top_right`
+
+## AdCreativeLinkDataImageLayerSpecOverlayShape
+
+`enum` model on the `json` wire format.
+
+**Values:** `circle`, `none`, `pill`, `rectangle`, `triangle`
+
+## AdCreativeLinkDataImageLayerSpecTextFont
+
+`enum` model on the `json` wire format.
+
+**Values:** `droid_serif_regular`, `lato_regular`, `noto_sans_regular`, `nunito_sans_bold`, `open_sans_bold`, `open_sans_condensed_bold`, `pt_serif_bold`, `roboto_condensed_regular`, `roboto_medium`
+
+## AdCreativeLinkDataImageOverlaySpecCustomTextType
+
+`enum` model on the `json` wire format.
+
+**Values:** `free_shipping`, `popular`, `sale`
+
+## AdCreativeLinkDataImageOverlaySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_text_type` | `custom_text_type` | `AdCreativeLinkDataImageOverlaySpecCustomTextType` | No | No | — |
+| `float_with_margin` | `float_with_margin` | `boolean` | No | No | — |
+| `overlay_template` | `overlay_template` | `AdCreativeLinkDataImageOverlaySpecOverlayTemplate` | No | No | — |
+| `position` | `position` | `AdCreativeLinkDataImageOverlaySpecPosition` | No | No | — |
+| `text_font` | `text_font` | `AdCreativeLinkDataImageOverlaySpecTextFont` | No | No | — |
+| `text_template_tags` | `text_template_tags` | `Array<string>` | No | No | — |
+| `text_type` | `text_type` | `AdCreativeLinkDataImageOverlaySpecTextType` | No | No | — |
+| `theme_color` | `theme_color` | `AdCreativeLinkDataImageOverlaySpecThemeColor` | No | No | — |
+
+## AdCreativeLinkDataImageOverlaySpecOverlayTemplate
+
+`enum` model on the `json` wire format.
+
+**Values:** `circle_with_text`, `pill_with_text`, `triangle_with_text`
+
+## AdCreativeLinkDataImageOverlaySpecPosition
+
+`enum` model on the `json` wire format.
+
+**Values:** `bottom_left`, `bottom_right`, `top_left`, `top_right`
+
+## AdCreativeLinkDataImageOverlaySpecTextFont
+
+`enum` model on the `json` wire format.
+
+**Values:** `droid_serif_regular`, `dynads_hybrid_bold`, `lato_regular`, `noto_sans_regular`, `nunito_sans_bold`, `open_sans_bold`, `open_sans_condensed_bold`, `pt_serif_bold`, `roboto_condensed_regular`, `roboto_medium`
+
+## AdCreativeLinkDataImageOverlaySpecTextType
+
+`enum` model on the `json` wire format.
+
+**Values:** `automated_personalize`, `custom`, `disclaimer`, `from_price`, `guest_rating`, `percentage_off`, `price`, `star_rating`, `strikethrough_price`, `sustainable`
+
+## AdCreativeLinkDataImageOverlaySpecThemeColor
+
+`enum` model on the `json` wire format.
+
+**Values:** `background_000000_text_ffffff`, `background_0090ff_text_ffffff`, `background_00af4c_text_ffffff`, `background_595959_text_ffffff`, `background_755dde_text_ffffff`, `background_e50900_text_ffffff`, `background_f23474_text_ffffff`, `background_f78400_text_ffffff`, `background_ffffff_text_000000`, `background_ffffff_text_007ad0`, `background_ffffff_text_009c2a`, `background_ffffff_text_646464`, `background_ffffff_text_755dde`, `background_ffffff_text_c91b00`, `background_ffffff_text_f23474`, `background_ffffff_text_f78400`
+
+## AdCreativeLinkDataMomentFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `type` | `type` | `AdCreativeLinkDataMomentType` | No | No | — |
+
+## AdCreativeLinkDataMomentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `FB_LIVE_SHOPPING`, `IG_LIVE_SHOPPING`
+
+## AdCreativeLinkDataSponsorshipInfoSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsor_image_url` | `sponsor_image_url` | `string` | No | No | — |
+| `sponsor_name` | `sponsor_name` | `string` | No | No | — |
+
+## AdCreativeLinkDataTemplateVideoSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categorization_criteria` | `categorization_criteria` | `string` | No | No | — |
+| `customization` | `customization` | `Array<Record<string, string>>` | No | No | — |
+| `template_id` | `template_id` | `string` | No | No | — |
+
+## AdCreativeLiveVideoReminderFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enroll_status` | `enroll_status` | `string` | No | No | — |
+| `start_time` | `start_time` | `string<date-time>` | No | No | — |
+
+## AdCreativeMarketingMessageStructuredSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_customization` | `asset_customization` | `Record<string, unknown>` | No | No | — |
+| `autoreply` | `autoreply` | `Record<string, unknown>` | No | No | — |
+| `buttons` | `buttons` | `Array<Record<string, unknown>>` | No | No | — |
+| `conversation_template_id` | `conversation_template_id` | `string` | No | No | — |
+| `footer` | `footer` | `string` | No | No | — |
+| `greeting` | `greeting` | `string` | No | No | — |
+| `is_optimized_text` | `is_optimized_text` | `boolean` | No | No | — |
+| `language` | `language` | `string` | No | No | — |
+| `offer` | `offer` | `Record<string, unknown>` | No | No | — |
+| `referenced_adgroup_id` | `referenced_adgroup_id` | `string` | No | No | — |
+| `whats_app_business_phone_number_id` | `whats_app_business_phone_number_id` | `string` | No | No | — |
+
+## AdCreativeMediaSourcingSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bodies` | `bodies` | `Array<Record<string, unknown>>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<Record<string, unknown>>` | No | No | — |
+| `images` | `images` | `Array<Record<string, unknown>>` | No | No | — |
+| `push_metadata_ids` | `push_metadata_ids` | `Array<string>` | No | No | — |
+| `related_media` | `related_media` | `Record<string, unknown>` | No | No | — |
+| `titles` | `titles` | `Array<Record<string, unknown>>` | No | No | — |
+| `videos` | `videos` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdCreativeObjectStorySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `instagram_user_id` | `instagram_user_id` | `string` | No | No | — |
+| `link_data` | `link_data` | `AdCreativeLinkDataFields` | No | No | — |
+| `page_id` | `page_id` | `string` | No | No | — |
+| `photo_data` | `photo_data` | `AdCreativePhotoDataFields` | No | No | — |
+| `product_data` | `product_data` | `Array<AdCreativeProductDataFields>` | No | No | — |
+| `template_data` | `template_data` | `AdCreativeLinkDataFields` | No | No | — |
+| `text_data` | `text_data` | `AdCreativeTextDataFields` | No | No | — |
+| `video_data` | `video_data` | `AdCreativeVideoDataFields` | No | No | — |
+| `whats_app_business_phone_number` | `whats_app_business_phone_number` | `string` | No | No | — |
+
+## AdCreativeObjectType
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPLICATION`, `DOMAIN`, `EVENT`, `INVALID`, `OFFER`, `PAGE`, `PHOTO`, `POST_DELETED`, `PRIVACY_CHECK_FAIL`, `SHARE`, `STATUS`, `STORE_ITEM`, `VIDEO`
+
+## AdCreativeOmnichannelLinkSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app` | `app` | `Record<string, unknown>` | No | No | — |
+| `web` | `web` | `Record<string, unknown>` | No | No | — |
+
+## AdCreativeOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL`, `ANY`
+
+## AdCreativePhotoDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `branded_content_shared_to_sponsor_status` | `branded_content_shared_to_sponsor_status` | `string` | No | No | — |
+| `branded_content_sponsor_page_id` | `branded_content_sponsor_page_id` | `string` | No | No | — |
+| `caption` | `caption` | `string` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `page_welcome_message` | `page_welcome_message` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## AdCreativePhotoDataMediaElementsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `element_id` | `element_id` | `string` | No | No | — |
+| `element_type` | `element_type` | `string` | No | No | — |
+| `x` | `x` | `number` | No | No | — |
+| `y` | `y` | `number` | No | No | — |
+
+## AdCreativePlaceDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_string` | `address_string` | `string` | No | No | — |
+| `label` | `label` | `string` | No | No | — |
+| `latitude` | `latitude` | `number` | No | No | — |
+| `location_source_id` | `location_source_id` | `string` | No | No | — |
+| `longitude` | `longitude` | `number` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## AdCreativePlatformCustomizationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `instagram` | `instagram` | `Record<string, unknown>` | No | No | — |
+
+## AdCreativePortraitCustomizationsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `carousel_delivery_mode` | `carousel_delivery_mode` | `string` | No | No | — |
+| `specifications` | `specifications` | `Array<Record<string, unknown>>` | No | No | — |
+
+## AdCreativePostClickConfigurationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post_click_item_description` | `post_click_item_description` | `string` | No | No | — |
+| `post_click_item_headline` | `post_click_item_headline` | `string` | No | No | — |
+
+## AdCreativeProductDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_id` | `product_id` | `string` | No | No | — |
+| `product_source` | `product_source` | `string` | No | No | — |
+
+## AdCreativeProductSuggestionSettingsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enabled` | `enabled` | `boolean` | No | No | — |
+
+## AdCreativePromotionMetadataSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end_date` | `end_date` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `promotion_source` | `promotion_source` | `string` | No | No | — |
+| `promotion_type` | `promotion_type` | `string` | No | No | — |
+| `promotion_value` | `promotion_value` | `number` | No | No | — |
+| `required_code` | `required_code` | `string` | No | No | — |
+| `start_date` | `start_date` | `integer` | No | No | — |
+
+## AdCreativeRecommenderSettingsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preferred_events` | `preferred_events` | `Array<string>` | No | No | — |
+| `product_sales_channel` | `product_sales_channel` | `string` | No | No | — |
+
+## AdCreativeRegionalRegulationDisclaimerFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `australia_finserv` | `australia_finserv` | `Record<string, unknown>` | No | No | — |
+| `india_finserv` | `india_finserv` | `Record<string, unknown>` | No | No | — |
+| `singapore_universal` | `singapore_universal` | `Record<string, unknown>` | No | No | — |
+| `taiwan_finserv` | `taiwan_finserv` | `Record<string, unknown>` | No | No | — |
+| `taiwan_universal` | `taiwan_universal` | `Record<string, unknown>` | No | No | — |
+
+## AdCreativeRewardInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reward_offer_id` | `reward_offer_id` | `string` | No | No | — |
+| `reward_program_id` | `reward_program_id` | `string` | No | No | — |
+
+## AdCreativeShopSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collection_id` | `collection_id` | `string` | No | No | — |
+| `landing_view` | `landing_view` | `string` | No | No | — |
+| `shop_id` | `shop_id` | `string` | No | No | — |
+
+## AdCreativeSiteLinksSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_defaulting_eligible` | `is_defaulting_eligible` | `boolean` | No | No | — |
+| `is_site_link_sticky` | `is_site_link_sticky` | `boolean` | No | No | — |
+| `site_link_classification` | `site_link_classification` | `string` | No | No | — |
+| `site_link_extra_metadata` | `site_link_extra_metadata` | `string` | No | No | — |
+| `site_link_hash` | `site_link_hash` | `string` | No | No | — |
+| `site_link_id` | `site_link_id` | `string` | No | No | — |
+| `site_link_image_hash` | `site_link_image_hash` | `string` | No | No | — |
+| `site_link_image_url` | `site_link_image_url` | `string` | No | No | — |
+| `site_link_language` | `site_link_language` | `string` | No | No | — |
+| `site_link_original_url` | `site_link_original_url` | `string` | No | No | — |
+| `site_link_recommendation_type` | `site_link_recommendation_type` | `string` | No | No | — |
+| `site_link_title` | `site_link_title` | `string` | No | No | — |
+| `site_link_url` | `site_link_url` | `string` | No | No | — |
+| `site_link_url_anchor` | `site_link_url_anchor` | `string` | No | No | — |
+| `site_link_url_recommender_type` | `site_link_url_recommender_type` | `string` | No | No | — |
+| `site_link_website_data_source` | `site_link_website_data_source` | `string` | No | No | — |
+
+## AdCreativeSourcingSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_extensions_relevancy_spec` | `ad_extensions_relevancy_spec` | `Record<string, unknown>` | No | No | — |
+| `associated_product_set_id` | `associated_product_set_id` | `string` | No | No | — |
+| `brand` | `brand` | `Record<string, unknown>` | No | No | — |
+| `destination_screenshot_spec` | `destination_screenshot_spec` | `Record<string, unknown>` | No | No | — |
+| `duplication_source` | `duplication_source` | `string` | No | No | — |
+| `dynamic_site_links_spec` | `dynamic_site_links_spec` | `Record<string, unknown>` | No | No | — |
+| `enable_social_feedback_preservation` | `enable_social_feedback_preservation` | `boolean` | No | No | — |
+| `featured_offering_spec` | `featured_offering_spec` | `Record<string, unknown>` | No | No | — |
+| `intent` | `intent` | `Record<string, unknown>` | No | No | — |
+| `ncs_testimonial` | `ncs_testimonial` | `Record<string, unknown>` | No | No | — |
+| `pca_spec` | `pca_spec` | `Record<string, unknown>` | No | No | — |
+| `product_media_metadata_spec` | `product_media_metadata_spec` | `Record<string, unknown>` | No | No | — |
+| `promotion_metadata_spec` | `promotion_metadata_spec` | `Array<AdCreativePromotionMetadataSpecFields>` | No | No | — |
+| `site_links_data_consented` | `site_links_data_consented` | `Record<string, unknown>` | No | No | — |
+| `site_links_spec` | `site_links_spec` | `Array<AdCreativeSiteLinksSpecFields>` | No | No | — |
+| `source_url` | `source_url` | `string` | No | No | — |
+| `website_media_spec` | `website_media_spec` | `Record<string, unknown>` | No | No | — |
+| `website_summary_spec` | `website_summary_spec` | `Record<string, unknown>` | No | No | — |
+
+## AdCreativeStaticFallbackSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `call_to_action` | `call_to_action` | `AdCreativeLinkDataCallToActionFields` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## AdCreativeStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `DELETED`, `IN_PROCESS`, `WITH_ISSUES`
+
+## AdCreativeTemplateURLSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android` | `android` | `Record<string, unknown>` | No | No | — |
+| `config` | `config` | `Record<string, unknown>` | No | No | — |
+| `ios` | `ios` | `Record<string, unknown>` | No | No | — |
+| `ipad` | `ipad` | `Record<string, unknown>` | No | No | — |
+| `iphone` | `iphone` | `Record<string, unknown>` | No | No | — |
+| `web` | `web` | `Record<string, unknown>` | No | No | — |
+| `windows_phone` | `windows_phone` | `Record<string, unknown>` | No | No | — |
+
+## AdCreativeTextDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+
+## AdCreativeVideoDataCustomOverlaySpecBackgroundOpacity
+
+`enum` model on the `json` wire format.
+
+**Values:** `half`, `solid`
+
+## AdCreativeVideoDataCustomOverlaySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `background_color` | `background_color` | `string` | No | No | — |
+| `background_opacity` | `background_opacity` | `AdCreativeVideoDataCustomOverlaySpecBackgroundOpacity` | No | No | — |
+| `duration` | `duration` | `integer` | No | No | — |
+| `float_with_margin` | `float_with_margin` | `boolean` | No | No | — |
+| `full_width` | `full_width` | `boolean` | No | No | — |
+| `option` | `option` | `AdCreativeVideoDataCustomOverlaySpecOption` | No | No | — |
+| `position` | `position` | `AdCreativeVideoDataCustomOverlaySpecPosition` | No | No | — |
+| `start` | `start` | `integer` | No | No | — |
+| `template` | `template` | `AdCreativeVideoDataCustomOverlaySpecTemplate` | No | No | — |
+| `text_color` | `text_color` | `string` | No | No | — |
+
+## AdCreativeVideoDataCustomOverlaySpecOption
+
+`enum` model on the `json` wire format.
+
+**Values:** `bank_transfer`, `boleto`, `cash_on_delivery`, `discount_with_boleto`, `fast_delivery`, `free_shipping`, `home_delivery`, `inventory`, `pay_at_hotel`, `pay_on_arrival`
+
+## AdCreativeVideoDataCustomOverlaySpecPosition
+
+`enum` model on the `json` wire format.
+
+**Values:** `middle_center`, `middle_left`, `middle_right`, `top_center`, `top_left`, `top_right`
+
+## AdCreativeVideoDataCustomOverlaySpecTemplate
+
+`enum` model on the `json` wire format.
+
+**Values:** `rectangle_with_text`
+
+## AdCreativeVideoDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_image_index` | `additional_image_index` | `integer` | No | No | — |
+| `branded_content_shared_to_sponsor_status` | `branded_content_shared_to_sponsor_status` | `string` | No | No | — |
+| `branded_content_sponsor_page_id` | `branded_content_sponsor_page_id` | `string` | No | No | — |
+| `call_to_action` | `call_to_action` | `AdCreativeLinkDataCallToActionFields` | No | No | — |
+| `collection_thumbnails` | `collection_thumbnails` | `Array<AdCreativeCollectionThumbnailInfoFields>` | No | No | — |
+| `customization_rules_spec` | `customization_rules_spec` | `Array<AdCustomizationRuleSpecFields>` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `link_description` | `link_description` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `offer_id` | `offer_id` | `string` | No | No | — |
+| `page_welcome_message` | `page_welcome_message` | `string` | No | No | — |
+| `post_click_configuration` | `post_click_configuration` | `AdCreativePostClickConfigurationFields` | No | No | — |
+| `retailer_item_ids` | `retailer_item_ids` | `Array<string>` | No | No | — |
+| `targeting` | `targeting` | `TargetingFields` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `video_id` | `video_id` | `string` | No | No | — |
+
+## AdCreativeVideoDataMediaElementsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `element_id` | `element_id` | `string` | No | No | — |
+| `element_type` | `element_type` | `string` | No | No | — |
+
+## AdCreativeWAMOWhatsAppIdentitySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `wamo_whatsapp_identity_id` | `wamo_whatsapp_identity_id` | `string` | No | No | — |
+| `whatsapp_phone_number` | `whatsapp_phone_number` | `string` | No | No | — |
+
+## AdCreativeWhatsAppChannelSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+| `channel_url` | `channel_url` | `string` | No | No | — |
+
+## AdCustomDerivedMetricsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | — |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `creator` | `creator` | `ProfileFields` | No | No | — |
+| `custom_derived_metric_type` | `custom_derived_metric_type` | `string` | No | No | — |
+| `deletion_time` | `deletion_time` | `string<date-time>` | No | No | — |
+| `deletor` | `deletor` | `ProfileFields` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `format_type` | `format_type` | `string` | No | No | — |
+| `formula` | `formula` | `string` | No | No | — |
+| `has_attribution_windows` | `has_attribution_windows` | `boolean` | No | No | — |
+| `has_inline_attribution_window` | `has_inline_attribution_window` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `permission` | `permission` | `string` | No | No | — |
+| `saved_report_id` | `saved_report_id` | `string` | No | No | — |
+| `scope` | `scope` | `string` | No | No | — |
+
+## AdCustomDerivedMetricsScope
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT`, `BUSINESS`, `BUSINESS_ASSET_GROUP`
+
+## AdCustomizationRuleSpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `caption` | `caption` | `string` | No | No | — |
+| `customization_spec` | `customization_spec` | `Record<string, unknown>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `priority` | `priority` | `integer` | No | No | — |
+| `template_url_spec` | `template_url_spec` | `AdCreativeTemplateURLSpecFields` | No | No | — |
+| `video_id` | `video_id` | `integer` | No | No | — |
+
+## AdDatePreset
+
+`enum` model on the `json` wire format.
+
+**Values:** `data_maximum`, `last_14d`, `last_28d`, `last_30d`, `last_3d`, `last_7d`, `last_90d`, `last_month`, `last_quarter`, `last_week_mon_sun`, `last_week_sun_sat`, `last_year`, `maximum`, `this_month`, `this_quarter`, `this_week_mon_today`, `this_week_sun_today`, `this_year`, `today`, `yesterday`
+
+## AdDefaultValuesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_group` | `campaign_group` | `Record<string, unknown>` | No | No | — |
+
+## AdDraftFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `api_version` | `api_version` | `string` | No | No | — |
+| `async_request_set` | `async_request_set` | `AdAsyncRequestSetFields` | No | No | — |
+| `author_id` | `author_id` | `string` | No | No | — |
+| `created_by` | `created_by` | `string` | No | No | — |
+| `draft_version` | `draft_version` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_active` | `is_active` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `ownership_type` | `ownership_type` | `string` | No | No | — |
+| `publish_status` | `publish_status` | `Record<string, unknown>` | No | No | — |
+| `state` | `state` | `string` | No | No | — |
+| `summary` | `summary` | `string` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `time_updated` | `time_updated` | `string<date-time>` | No | No | — |
+
+## AdDynamicCreativeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preview_url` | `preview_url` | `string` | No | No | — |
+
+## AdEffectiveStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `ADSET_PAUSED`, `ARCHIVED`, `CAMPAIGN_PAUSED`, `DELETED`, `DISAPPROVED`, `IN_PROCESS`, `PAUSED`, `PENDING_BILLING_INFO`, `PENDING_REVIEW`, `PREAPPROVED`, `WITH_ISSUES`
+
+## AdEntityTargetSpendFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount` | `amount` | `string` | No | No | — |
+| `has_error` | `has_error` | `boolean` | No | No | — |
+| `is_accurate` | `is_accurate` | `boolean` | No | No | — |
+| `is_prorated` | `is_prorated` | `boolean` | No | No | — |
+| `is_updating` | `is_updating` | `boolean` | No | No | — |
+
+## AdExecutionOptions
+
+`enum` model on the `json` wire format.
+
+**Values:** `include_recommendations`, `synchronous_ad_review`, `validate_only`
+
+## AdExportPresetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `fields` | `fields` | `Array<string>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `owner` | `owner` | `UserFields` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+
+## AdFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `ad_active_time` | `ad_active_time` | `string` | No | No | — |
+| `ad_review_feedback` | `ad_review_feedback` | `AdgroupReviewFeedbackFields` | No | No | — |
+| `ad_schedule_end_time` | `ad_schedule_end_time` | `string<date-time>` | No | No | — |
+| `ad_schedule_start_time` | `ad_schedule_start_time` | `string<date-time>` | No | No | — |
+| `adlabels` | `adlabels` | `Array<AdLabelFields>` | No | No | — |
+| `adset` | `adset` | `AdSetFields` | No | No | — |
+| `adset_id` | `adset_id` | `string` | No | No | — |
+| `bid_amount` | `bid_amount` | `integer` | No | No | — |
+| `bid_info` | `bid_info` | `Record<string, integer>` | No | No | — |
+| `bid_type` | `bid_type` | `AdBidType` | No | No | — |
+| `campaign` | `campaign` | `CampaignFields` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `AdConfiguredStatus` | No | No | — |
+| `conversion_domain` | `conversion_domain` | `string` | No | No | — |
+| `conversion_specs` | `conversion_specs` | `Array<ConversionActionQueryFields>` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `creative` | `creative` | `AdCreativeFields` | No | No | — |
+| `creative_asset_groups_spec` | `creative_asset_groups_spec` | `AdCreativeAssetGroupsSpecFields` | No | No | — |
+| `creative_automation_spec` | `creative_automation_spec` | `AdCreativeAutomationSpecFields` | No | No | — |
+| `demolink_hash` | `demolink_hash` | `string` | No | No | — |
+| `display_sequence` | `display_sequence` | `integer` | No | No | — |
+| `effective_status` | `effective_status` | `AdEffectiveStatus` | No | No | — |
+| `engagement_audience` | `engagement_audience` | `boolean` | No | No | — |
+| `failed_delivery_checks` | `failed_delivery_checks` | `Array<DeliveryCheckFields>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `issues_info` | `issues_info` | `Array<AdgroupIssuesInfoFields>` | No | No | — |
+| `last_updated_by_app_id` | `last_updated_by_app_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `placement` | `placement` | `PlacementFields` | No | No | — |
+| `preview_shareable_link` | `preview_shareable_link` | `string` | No | No | — |
+| `priority` | `priority` | `integer` | No | No | — |
+| `recommendations` | `recommendations` | `Array<AdRecommendationFields>` | No | No | — |
+| `source_ad` | `source_ad` | `AdFields` | No | No | — |
+| `source_ad_id` | `source_ad_id` | `string` | No | No | — |
+| `special_ad_categories` | `special_ad_categories` | `Array<string>` | No | No | — |
+| `status` | `status` | `AdStatus` | No | No | — |
+| `targeting` | `targeting` | `TargetingFields` | No | No | — |
+| `tracking_and_conversion_with_defaults` | `tracking_and_conversion_with_defaults` | `TrackingAndConversionWithDefaultsFields` | No | No | — |
+| `tracking_specs` | `tracking_specs` | `Array<ConversionActionQueryFields>` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+
+## AdgroupDeleteFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `success` | `success` | `boolean` | No | No | — |
+
+## AdgroupFacebookFeedbackFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `preview` | `preview` | `string` | No | No | — |
+
+## AdgroupFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdgroupIssuesInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_code` | `error_code` | `integer` | No | No | — |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `error_summary` | `error_summary` | `string` | No | No | — |
+| `error_type` | `error_type` | `string` | No | No | — |
+| `level` | `level` | `string` | No | No | — |
+| `mid` | `mid` | `string` | No | No | — |
+
+## AdgroupMetadataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_standard_enhancements_edit_source` | `ad_standard_enhancements_edit_source` | `integer` | No | No | — |
+| `adgroup_creation_source` | `adgroup_creation_source` | `string` | No | No | — |
+| `adgroup_edit_source` | `adgroup_edit_source` | `string` | No | No | — |
+| `adgroup_media_source` | `adgroup_media_source` | `string` | No | No | — |
+| `carousel_style` | `carousel_style` | `string` | No | No | — |
+| `carousel_with_static_card_style` | `carousel_with_static_card_style` | `string` | No | No | — |
+| `is_pca_unified_format_ad` | `is_pca_unified_format_ad` | `boolean` | No | No | — |
+
+## AdgroupPlacementSpecificReviewFeedbackFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_admin` | `account_admin` | `Record<string, string>` | No | No | — |
+| `ad` | `ad` | `Record<string, string>` | No | No | — |
+| `ads_conversion_experiences` | `ads_conversion_experiences` | `Record<string, string>` | No | No | — |
+| `b2c` | `b2c` | `Record<string, string>` | No | No | — |
+| `b2c_commerce_unified` | `b2c_commerce_unified` | `Record<string, string>` | No | No | — |
+| `bsg` | `bsg` | `Record<string, string>` | No | No | — |
+| `city_community` | `city_community` | `Record<string, string>` | No | No | — |
+| `commerce` | `commerce` | `Record<string, string>` | No | No | — |
+| `compromise` | `compromise` | `Record<string, string>` | No | No | — |
+| `daily_deals` | `daily_deals` | `Record<string, string>` | No | No | — |
+| `daily_deals_legacy` | `daily_deals_legacy` | `Record<string, string>` | No | No | — |
+| `dpa` | `dpa` | `Record<string, string>` | No | No | — |
+| `dri_copyright` | `dri_copyright` | `Record<string, string>` | No | No | — |
+| `dri_counterfeit` | `dri_counterfeit` | `Record<string, string>` | No | No | — |
+| `facebook` | `facebook` | `Record<string, string>` | No | No | — |
+| `facebook_pages_live_shopping` | `facebook_pages_live_shopping` | `Record<string, string>` | No | No | — |
+| `independent_work` | `independent_work` | `Record<string, string>` | No | No | — |
+| `instagram` | `instagram` | `Record<string, string>` | No | No | — |
+| `instagram_shop` | `instagram_shop` | `Record<string, string>` | No | No | — |
+| `job_search` | `job_search` | `Record<string, string>` | No | No | — |
+| `lead_gen_honeypot` | `lead_gen_honeypot` | `Record<string, string>` | No | No | — |
+| `marketplace` | `marketplace` | `Record<string, string>` | No | No | — |
+| `marketplace_home_rentals` | `marketplace_home_rentals` | `Record<string, string>` | No | No | — |
+| `marketplace_home_sales` | `marketplace_home_sales` | `Record<string, string>` | No | No | — |
+| `marketplace_motors` | `marketplace_motors` | `Record<string, string>` | No | No | — |
+| `marketplace_shops` | `marketplace_shops` | `Record<string, string>` | No | No | — |
+| `max_review_placements` | `max_review_placements` | `Record<string, string>` | No | No | — |
+| `neighborhoods` | `neighborhoods` | `Record<string, string>` | No | No | — |
+| `page_admin` | `page_admin` | `Record<string, string>` | No | No | — |
+| `product` | `product` | `Record<string, string>` | No | No | — |
+| `product_service` | `product_service` | `Record<string, string>` | No | No | — |
+| `profile` | `profile` | `Record<string, string>` | No | No | — |
+| `seller` | `seller` | `Record<string, string>` | No | No | — |
+| `shops` | `shops` | `Record<string, string>` | No | No | — |
+| `traffic_quality` | `traffic_quality` | `Record<string, string>` | No | No | — |
+| `unified_commerce_content` | `unified_commerce_content` | `Record<string, string>` | No | No | — |
+| `whatsapp` | `whatsapp` | `Record<string, string>` | No | No | — |
+
+## AdgroupReviewFeedbackFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `global` | `global` | `Record<string, string>` | No | No | — |
+| `placement_specific` | `placement_specific` | `AdgroupPlacementSpecificReviewFeedbackFields` | No | No | — |
+
+## AdImageFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `creatives` | `creatives` | `Array<string>` | No | No | — |
+| `hash` | `hash` | `string` | No | No | — |
+| `height` | `height` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_associated_creatives_in_adgroups` | `is_associated_creatives_in_adgroups` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `original_height` | `original_height` | `integer` | No | No | — |
+| `original_width` | `original_width` | `integer` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `permalink_url` | `permalink_url` | `string` | No | No | — |
+| `status` | `status` | `AdImageStatus` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `url_128` | `url_128` | `string` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## AdImageStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `DELETED`, `INTERNAL`
+
+## AdKeywordsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brands` | `brands` | `Array<string>` | No | No | — |
+| `product_categories` | `product_categories` | `Array<string>` | No | No | — |
+| `product_names` | `product_names` | `Array<string>` | No | No | — |
+| `search_terms` | `search_terms` | `Array<string>` | No | No | — |
+
+## AdKeywordStatsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actions` | `actions` | `Array<AdsActionStatsFields>` | No | No | — |
+| `clicks` | `clicks` | `integer` | No | No | — |
+| `cost_per_total_action` | `cost_per_total_action` | `number` | No | No | — |
+| `cost_per_unique_click` | `cost_per_unique_click` | `number` | No | No | — |
+| `cpc` | `cpc` | `number` | No | No | — |
+| `cpm` | `cpm` | `number` | No | No | — |
+| `cpp` | `cpp` | `number` | No | No | — |
+| `ctr` | `ctr` | `number` | No | No | — |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `impressions` | `impressions` | `integer` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `reach` | `reach` | `integer` | No | No | — |
+| `spend` | `spend` | `number` | No | No | — |
+| `total_actions` | `total_actions` | `integer` | No | No | — |
+| `total_unique_actions` | `total_unique_actions` | `integer` | No | No | — |
+| `unique_actions` | `unique_actions` | `Array<AdsActionStatsFields>` | No | No | — |
+| `unique_clicks` | `unique_clicks` | `integer` | No | No | — |
+| `unique_ctr` | `unique_ctr` | `number` | No | No | — |
+| `unique_impressions` | `unique_impressions` | `integer` | No | No | — |
+
+## AdKpiShiftFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_set` | `ad_set` | `AdSetFields` | No | No | — |
+| `cost_per_result_shift` | `cost_per_result_shift` | `number` | No | No | — |
+| `enough_effective_days` | `enough_effective_days` | `boolean` | No | No | — |
+| `result_indicator` | `result_indicator` | `string` | No | No | — |
+| `result_shift` | `result_shift` | `number` | No | No | — |
+| `spend_shift` | `spend_shift` | `number` | No | No | — |
+
+## AdLabelFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `AdAccountFields` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+
+## AdLightAdgroupFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adset_id` | `adset_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+
+## AdLightCampaignFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+
+## AdLightCampaignGroupFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+
+## AdLimitsEnforcementDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_limit_on_page` | `ad_limit_on_page` | `integer` | No | No | — |
+| `ad_limit_on_scope` | `ad_limit_on_scope` | `integer` | No | No | — |
+| `ad_volume_on_page` | `ad_volume_on_page` | `integer` | No | No | — |
+| `ad_volume_on_scope` | `ad_volume_on_scope` | `integer` | No | No | — |
+| `is_admin` | `is_admin` | `boolean` | No | No | — |
+| `page_name` | `page_name` | `string` | No | No | — |
+
+## AdLimitSettingFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit_allocation_by_page_advertisers` | `limit_allocation_by_page_advertisers` | `Array<Record<string, integer>>` | No | No | — |

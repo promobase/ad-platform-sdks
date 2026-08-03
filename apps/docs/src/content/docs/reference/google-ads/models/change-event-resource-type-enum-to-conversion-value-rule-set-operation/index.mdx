@@ -1,0 +1,826 @@
+---
+title: "Google Ads models: Change Event Resource Type Enum – Conversion Value Rule Set Operation"
+description: "100 generated Google Ads model contracts, from ChangeEventResourceTypeEnum through ConversionValueRuleSetOperation."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1006
+  label: "Change Event Resource Type Enum – Conversion Value Rule Set Operation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## ChangeEventResourceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChangeStatus
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `last_change_date_time` | `last_change_date_time` | `string` | No | No | — |
+| `resource_type` | `resource_type` | `ChangeStatusResourceType` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `resource_status` | `resource_status` | `ChangeStatusOperation` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `string` | No | No | — |
+| `campaign_criterion` | `campaign_criterion` | `string` | No | No | — |
+| `ad_group_bid_modifier` | `ad_group_bid_modifier` | `string` | No | No | — |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+| `campaign_shared_set` | `campaign_shared_set` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `customer_asset` | `customer_asset` | `string` | No | No | — |
+| `campaign_asset` | `campaign_asset` | `string` | No | No | — |
+| `ad_group_asset` | `ad_group_asset` | `string` | No | No | — |
+| `combined_audience` | `combined_audience` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `asset_set` | `asset_set` | `string` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `string` | No | No | — |
+| `campaign_asset_set` | `campaign_asset_set` | `string` | No | No | — |
+
+## ChangeStatusError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `START_DATE_TOO_OLD`, `CHANGE_DATE_RANGE_INFINITE`, `CHANGE_DATE_RANGE_NEGATIVE`, `LIMIT_NOT_SPECIFIED`, `INVALID_LIMIT_CLAUSE`
+
+## ChangeStatusErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChangeStatusOperation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADDED`, `CHANGED`, `REMOVED`
+
+## ChangeStatusOperationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChangeStatusResourceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD_GROUP`, `AD_GROUP_AD`, `AD_GROUP_CRITERION`, `CAMPAIGN`, `CAMPAIGN_CRITERION`, `CAMPAIGN_BUDGET`, `FEED`, `FEED_ITEM`, `AD_GROUP_FEED`, `CAMPAIGN_FEED`, `AD_GROUP_BID_MODIFIER`, `SHARED_SET`, `CAMPAIGN_SHARED_SET`, `ASSET`, `CUSTOMER_ASSET`, `CAMPAIGN_ASSET`, `AD_GROUP_ASSET`, `COMBINED_AUDIENCE`, `ASSET_GROUP`, `ASSET_SET`, `CAMPAIGN_ASSET_SET`
+
+## ChangeStatusResourceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChannelAggregateAssetView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `advertising_channel_type` | `advertising_channel_type` | `AdvertisingChannelType` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `asset_source` | `asset_source` | `AssetSource` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+
+## ClickConversion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gclid` | `gclid` | `string` | No | No | — |
+| `gbraid` | `gbraid` | `string` | No | No | — |
+| `wbraid` | `wbraid` | `string` | No | No | — |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `conversion_date_time` | `conversion_date_time` | `string` | No | No | — |
+| `conversion_value` | `conversion_value` | `number` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `order_id` | `order_id` | `string` | No | No | — |
+| `external_attribution_data` | `external_attribution_data` | `unknown` | No | No | — |
+| `custom_variables` | `custom_variables` | `Array<unknown>` | No | No | — |
+| `cart_data` | `cart_data` | `unknown` | No | No | — |
+| `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
+| `conversion_environment` | `conversion_environment` | `ConversionEnvironment` | No | No | — |
+| `consent` | `consent` | `Consent` | No | No | — |
+| `customer_type` | `customer_type` | `ConversionCustomerType` | No | No | — |
+| `user_ip_address` | `user_ip_address` | `string` | No | No | — |
+| `session_attributes_encoded` | `session_attributes_encoded` | `string` | No | No | — |
+| `session_attributes_key_value_pairs` | `session_attributes_key_value_pairs` | `unknown` | No | No | — |
+
+## ClickConversionResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gclid` | `gclid` | `string` | No | No | — |
+| `gbraid` | `gbraid` | `string` | No | No | — |
+| `wbraid` | `wbraid` | `string` | No | No | — |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `conversion_date_time` | `conversion_date_time` | `string` | No | No | — |
+| `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
+
+## ClickLocation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `city` | `city` | `string` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `metro` | `metro` | `string` | No | No | — |
+| `most_specific` | `most_specific` | `string` | No | No | — |
+| `region` | `region` | `string` | No | No | — |
+
+## ClickType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APP_DEEPLINK`, `BREADCRUMBS`, `BROADBAND_PLAN`, `CALL_TRACKING`, `CALLS`, `CLICK_ON_ENGAGEMENT_AD`, `GET_DIRECTIONS`, `LOCATION_EXPANSION`, `LOCATION_FORMAT_CALL`, `LOCATION_FORMAT_DIRECTIONS`, `LOCATION_FORMAT_IMAGE`, `LOCATION_FORMAT_LANDING_PAGE`, `LOCATION_FORMAT_MAP`, `LOCATION_FORMAT_STORE_INFO`, `LOCATION_FORMAT_TEXT`, `MOBILE_CALL_TRACKING`, `OFFER_PRINTS`, `OTHER`, `PRODUCT_EXTENSION_CLICKS`, `PRODUCT_LISTING_AD_CLICKS`, `SITELINKS`, `STORE_LOCATOR`, `URL_CLICKS`, `VIDEO_APP_STORE_CLICKS`, `VIDEO_CALL_TO_ACTION_CLICKS`, `VIDEO_CARD_ACTION_HEADLINE_CLICKS`, `VIDEO_END_CAP_CLICKS`, `VIDEO_WEBSITE_CLICKS`, `VISUAL_SITELINKS`, `WIRELESS_PLAN`, `PRODUCT_LISTING_AD_LOCAL`, `PRODUCT_LISTING_AD_MULTICHANNEL_LOCAL`, `PRODUCT_LISTING_AD_MULTICHANNEL_ONLINE`, `PRODUCT_LISTING_ADS_COUPON`, `PRODUCT_LISTING_AD_TRANSACTABLE`, `PRODUCT_AD_APP_DEEPLINK`, `SHOWCASE_AD_CATEGORY_LINK`, `SHOWCASE_AD_LOCAL_STOREFRONT_LINK`, `SHOWCASE_AD_ONLINE_PRODUCT_LINK`, `SHOWCASE_AD_LOCAL_PRODUCT_LINK`, `PROMOTION_EXTENSION`, `SWIPEABLE_GALLERY_AD_HEADLINE`, `SWIPEABLE_GALLERY_AD_SWIPES`, `SWIPEABLE_GALLERY_AD_SEE_MORE`, `SWIPEABLE_GALLERY_AD_SITELINK_ONE`, `SWIPEABLE_GALLERY_AD_SITELINK_TWO`, `SWIPEABLE_GALLERY_AD_SITELINK_THREE`, `SWIPEABLE_GALLERY_AD_SITELINK_FOUR`, `SWIPEABLE_GALLERY_AD_SITELINK_FIVE`, `HOTEL_PRICE`, `PRICE_EXTENSION`, `HOTEL_BOOK_ON_GOOGLE_ROOM_SELECTION`, `SHOPPING_COMPARISON_LISTING`, `CROSS_NETWORK`, `AD_IMAGE`, `TRAVEL_ASSETS`, `VEHICLE_ASSETS`, `PRODUCT_ASSETS`, `VIDEO_CHANNEL_CLICK`, `VIDEO_RELATED_VIDEOS_CLICK`, `CLICK_TO_MESSAGE_THIRD_PARTY_CLICK`, `CLICK_TO_MESSAGE_LANDING_PAGE_CLICK`
+
+## ClickTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ClickView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `gclid` | `gclid` | `string` | No | No | — |
+| `area_of_interest` | `area_of_interest` | `ClickLocation` | No | No | — |
+| `location_of_presence` | `location_of_presence` | `ClickLocation` | No | No | — |
+| `page_number` | `page_number` | `string` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `campaign_location_target` | `campaign_location_target` | `string` | No | No | — |
+| `user_list` | `user_list` | `string` | No | No | — |
+| `keyword` | `keyword` | `string` | No | No | — |
+| `keyword_info` | `keyword_info` | `KeywordInfo` | No | No | — |
+
+## ClickViewError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXPECTED_FILTER_ON_A_SINGLE_DAY`, `DATE_TOO_OLD`
+
+## ClickViewErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CoarseGrainedConversionValueMappings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `low_conversion_value_mapping` | `low_conversion_value_mapping` | `unknown` | No | No | — |
+| `medium_conversion_value_mapping` | `medium_conversion_value_mapping` | `unknown` | No | No | — |
+| `high_conversion_value_mapping` | `high_conversion_value_mapping` | `unknown` | No | No | — |
+
+## CollectionSizeError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TOO_FEW`, `TOO_MANY`
+
+## CollectionSizeErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CombinedAudience
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `status` | `status` | `CombinedAudienceStatus` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+
+## CombinedAudienceInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `combined_audience` | `combined_audience` | `string` | No | No | — |
+
+## CombinedAudienceStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## CombinedAudienceStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Commission
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commission_rate_micros` | `commission_rate_micros` | `string` | No | No | — |
+
+## ConceptGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `type` | `type` | `KeywordPlanConceptGroupType` | No | No | — |
+
+## Consent
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_user_data` | `ad_user_data` | `ConsentStatus` | No | No | — |
+| `ad_personalization` | `ad_personalization` | `ConsentStatus` | No | No | — |
+
+## ConsentStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GRANTED`, `DENIED`
+
+## ConsentStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ContactDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+| `consumer_name` | `consumer_name` | `string` | No | No | — |
+| `phone_number_extension` | `phone_number_extension` | `string` | No | No | — |
+
+## ContentCreatorInsightsError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DIMENSION_INCOMPATIBLE_WITH_AUDIENCE_COMBINATIONS`
+
+## ContentCreatorInsightsErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ContentCreatorInsightsSupplementalData
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LOCAL_CREATOR_DATA`
+
+## ContentCreatorInsightsSupplementalDataEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ContentCriterionView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## ContentLabelInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `ContentLabelType` | No | No | — |
+
+## ContentLabelType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEXUALLY_SUGGESTIVE`, `BELOW_THE_FOLD`, `PARKED_DOMAIN`, `JUVENILE`, `PROFANITY`, `TRAGEDY`, `VIDEO`, `VIDEO_RATING_DV_G`, `VIDEO_RATING_DV_PG`, `VIDEO_RATING_DV_T`, `VIDEO_RATING_DV_MA`, `VIDEO_NOT_YET_RATED`, `EMBEDDED_VIDEO`, `LIVE_STREAMING_VIDEO`, `SOCIAL_ISSUES`, `BRAND_SUITABILITY_CONTENT_FOR_FAMILIES`, `BRAND_SUITABILITY_GAMES_FIGHTING`, `BRAND_SUITABILITY_GAMES_MATURE`, `BRAND_SUITABILITY_HEALTH_SENSITIVE`, `BRAND_SUITABILITY_HEALTH_SOURCE_UNDETERMINED`, `BRAND_SUITABILITY_NEWS_RECENT`, `BRAND_SUITABILITY_NEWS_SENSITIVE`, `BRAND_SUITABILITY_NEWS_SOURCE_NOT_FEATURED`, `BRAND_SUITABILITY_POLITICS`, `BRAND_SUITABILITY_RELIGION`
+
+## ContentLabelTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ContextError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPERATION_NOT_PERMITTED_FOR_CONTEXT`, `OPERATION_NOT_PERMITTED_FOR_REMOVED_RESOURCE`
+
+## ContextErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Conversation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `local_services_lead` | `local_services_lead` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+
+## ConversationOrError
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `local_services_lead_conversation` | `local_services_lead_conversation` | `string` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## ConversationType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EMAIL`, `MESSAGE`, `PHONE_CALL`, `SMS`, `BOOKING`, `WHATSAPP`, `ADS_API`
+
+## ConversionAction
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `status` | `status` | `ConversionActionStatus` | No | No | — |
+| `type` | `type` | `ConversionActionType` | No | No | — |
+| `origin` | `origin` | `ConversionOrigin` | No | No | — |
+| `primary_for_goal` | `primary_for_goal` | `boolean` | No | No | — |
+| `category` | `category` | `ConversionActionCategory` | No | No | — |
+| `owner_customer` | `owner_customer` | `string` | No | No | — |
+| `include_in_conversions_metric` | `include_in_conversions_metric` | `boolean` | No | No | — |
+| `click_through_lookback_window_days` | `click_through_lookback_window_days` | `string` | No | No | — |
+| `view_through_lookback_window_days` | `view_through_lookback_window_days` | `string` | No | No | — |
+| `value_settings` | `value_settings` | `unknown` | No | No | — |
+| `counting_type` | `counting_type` | `ConversionActionCountingType` | No | No | — |
+| `attribution_model_settings` | `attribution_model_settings` | `unknown` | No | No | — |
+| `tag_snippets` | `tag_snippets` | `Array<TagSnippet>` | No | No | — |
+| `phone_call_duration_seconds` | `phone_call_duration_seconds` | `string` | No | No | — |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `mobile_app_vendor` | `mobile_app_vendor` | `MobileAppVendor` | No | No | — |
+| `firebase_settings` | `firebase_settings` | `unknown` | No | No | — |
+| `third_party_app_analytics_settings` | `third_party_app_analytics_settings` | `unknown` | No | No | — |
+| `google_analytics_4_settings` | `google_analytics_4_settings` | `unknown` | No | No | — |
+
+## ConversionActionCategory
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DEFAULT`, `PAGE_VIEW`, `PURCHASE`, `SIGNUP`, `DOWNLOAD`, `ADD_TO_CART`, `BEGIN_CHECKOUT`, `SUBSCRIBE_PAID`, `PHONE_CALL_LEAD`, `IMPORTED_LEAD`, `SUBMIT_LEAD_FORM`, `BOOK_APPOINTMENT`, `REQUEST_QUOTE`, `GET_DIRECTIONS`, `OUTBOUND_CLICK`, `CONTACT`, `ENGAGEMENT`, `STORE_VISIT`, `STORE_SALE`, `QUALIFIED_LEAD`, `CONVERTED_LEAD`, `YOUTUBE_FOLLOW_ON_VIEWS`
+
+## ConversionActionCategoryEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionActionCountingType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ONE_PER_CLICK`, `MANY_PER_CLICK`
+
+## ConversionActionCountingTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionActionError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_NAME`, `DUPLICATE_APP_ID`, `TWO_CONVERSION_ACTIONS_BIDDING_ON_SAME_APP_DOWNLOAD`, `BIDDING_ON_SAME_APP_DOWNLOAD_AS_GLOBAL_ACTION`, `DATA_DRIVEN_MODEL_WAS_NEVER_GENERATED`, `DATA_DRIVEN_MODEL_EXPIRED`, `DATA_DRIVEN_MODEL_STALE`, `DATA_DRIVEN_MODEL_UNKNOWN`, `CREATION_NOT_SUPPORTED`, `UPDATE_NOT_SUPPORTED`, `CANNOT_SET_RULE_BASED_ATTRIBUTION_MODELS`
+
+## ConversionActionErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionActionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `ConversionAction` | No | No | — |
+| `update` | `update` | `ConversionAction` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## ConversionActionStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`, `HIDDEN`
+
+## ConversionActionStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionActionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD_CALL`, `CLICK_TO_CALL`, `GOOGLE_PLAY_DOWNLOAD`, `GOOGLE_PLAY_IN_APP_PURCHASE`, `UPLOAD_CALLS`, `UPLOAD_CLICKS`, `WEBPAGE`, `WEBSITE_CALL`, `STORE_SALES_DIRECT_UPLOAD`, `STORE_SALES`, `FIREBASE_ANDROID_FIRST_OPEN`, `FIREBASE_ANDROID_IN_APP_PURCHASE`, `FIREBASE_ANDROID_CUSTOM`, `FIREBASE_IOS_FIRST_OPEN`, `FIREBASE_IOS_IN_APP_PURCHASE`, `FIREBASE_IOS_CUSTOM`, `THIRD_PARTY_APP_ANALYTICS_ANDROID_FIRST_OPEN`, `THIRD_PARTY_APP_ANALYTICS_ANDROID_IN_APP_PURCHASE`, `THIRD_PARTY_APP_ANALYTICS_ANDROID_CUSTOM`, `THIRD_PARTY_APP_ANALYTICS_IOS_FIRST_OPEN`, `THIRD_PARTY_APP_ANALYTICS_IOS_IN_APP_PURCHASE`, `THIRD_PARTY_APP_ANALYTICS_IOS_CUSTOM`, `ANDROID_APP_PRE_REGISTRATION`, `ANDROID_INSTALLS_ALL_OTHER_APPS`, `FLOODLIGHT_ACTION`, `FLOODLIGHT_TRANSACTION`, `GOOGLE_HOSTED`, `LEAD_FORM_SUBMIT`, `SALESFORCE`, `SEARCH_ADS_360`, `SMART_CAMPAIGN_AD_CLICKS_TO_CALL`, `SMART_CAMPAIGN_MAP_CLICKS_TO_CALL`, `SMART_CAMPAIGN_MAP_DIRECTIONS`, `SMART_CAMPAIGN_TRACKED_CALLS`, `STORE_VISITS`, `WEBPAGE_CODELESS`, `UNIVERSAL_ANALYTICS_GOAL`, `UNIVERSAL_ANALYTICS_TRANSACTION`, `GOOGLE_ANALYTICS_4_CUSTOM`, `GOOGLE_ANALYTICS_4_PURCHASE`, `GOOGLE_ANALYTICS_4_GENERATE_LEAD`, `GOOGLE_ANALYTICS_4_QUALIFY_LEAD`, `GOOGLE_ANALYTICS_4_CLOSE_CONVERT_LEAD`, `FIREBASE_ANDROID_GENERATE_LEAD`, `FIREBASE_ANDROID_QUALIFY_LEAD`, `FIREBASE_ANDROID_CLOSE_CONVERT_LEAD`, `FIREBASE_IOS_GENERATE_LEAD`, `FIREBASE_IOS_QUALIFY_LEAD`, `FIREBASE_IOS_CLOSE_CONVERT_LEAD`, `LOCAL_SERVICES_ADS`
+
+## ConversionActionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionAdjustment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gclid_date_time_pair` | `gclid_date_time_pair` | `unknown` | No | No | — |
+| `order_id` | `order_id` | `string` | No | No | — |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `adjustment_date_time` | `adjustment_date_time` | `string` | No | No | — |
+| `adjustment_type` | `adjustment_type` | `ConversionAdjustmentType` | No | No | — |
+| `restatement_value` | `restatement_value` | `unknown` | No | No | — |
+| `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
+| `user_agent` | `user_agent` | `string` | No | No | — |
+
+## ConversionAdjustmentResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gclid_date_time_pair` | `gclid_date_time_pair` | `unknown` | No | No | — |
+| `order_id` | `order_id` | `string` | No | No | — |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `adjustment_date_time` | `adjustment_date_time` | `string` | No | No | — |
+| `adjustment_type` | `adjustment_type` | `ConversionAdjustmentType` | No | No | — |
+
+## ConversionAdjustmentType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `RETRACTION`, `RESTATEMENT`, `ENHANCEMENT`
+
+## ConversionAdjustmentTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionAdjustmentUploadError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TOO_RECENT_CONVERSION_ACTION`, `CONVERSION_ALREADY_RETRACTED`, `CONVERSION_NOT_FOUND`, `CONVERSION_EXPIRED`, `ADJUSTMENT_PRECEDES_CONVERSION`, `MORE_RECENT_RESTATEMENT_FOUND`, `TOO_RECENT_CONVERSION`, `CANNOT_RESTATE_CONVERSION_ACTION_THAT_ALWAYS_USES_DEFAULT_CONVERSION_VALUE`, `TOO_MANY_ADJUSTMENTS_IN_REQUEST`, `TOO_MANY_ADJUSTMENTS`, `RESTATEMENT_ALREADY_EXISTS`, `DUPLICATE_ADJUSTMENT_IN_REQUEST`, `CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS`, `CONVERSION_ACTION_NOT_ELIGIBLE_FOR_ENHANCEMENT`, `INVALID_USER_IDENTIFIER`, `UNSUPPORTED_USER_IDENTIFIER`, `GCLID_DATE_TIME_PAIR_AND_ORDER_ID_BOTH_SET`, `CONVERSION_ALREADY_ENHANCED`, `DUPLICATE_ENHANCEMENT_IN_REQUEST`, `CUSTOMER_DATA_POLICY_PROHIBITS_ENHANCEMENT`, `MISSING_ORDER_ID_FOR_WEBPAGE`, `ORDER_ID_CONTAINS_PII`, `INVALID_JOB_ID`, `NO_CONVERSION_ACTION_FOUND`, `INVALID_CONVERSION_ACTION_TYPE`
+
+## ConversionAdjustmentUploadErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionAttributionEventType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `IMPRESSION`, `INTERACTION`, `ENGAGED_VIEW`
+
+## ConversionAttributionEventTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionCustomerType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW`, `RETURNING`
+
+## ConversionCustomerTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionCustomVariable
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `tag` | `tag` | `string` | No | No | — |
+| `status` | `status` | `ConversionCustomVariableStatus` | No | No | — |
+| `owner_customer` | `owner_customer` | `string` | No | No | — |
+
+## ConversionCustomVariableError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_NAME`, `DUPLICATE_TAG`, `RESERVED_TAG`
+
+## ConversionCustomVariableErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionCustomVariableOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `ConversionCustomVariable` | No | No | — |
+| `update` | `update` | `ConversionCustomVariable` | No | No | — |
+
+## ConversionCustomVariableStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACTIVATION_NEEDED`, `ENABLED`, `PAUSED`
+
+## ConversionCustomVariableStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionEnvironment
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APP`, `WEB`
+
+## ConversionEnvironmentEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionGoalCampaignConfig
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `goal_config_level` | `goal_config_level` | `GoalConfigLevel` | No | No | — |
+| `custom_conversion_goal` | `custom_conversion_goal` | `string` | No | No | — |
+
+## ConversionGoalCampaignConfigError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_USE_CAMPAIGN_GOAL_FOR_SEARCH_ADS_360_MANAGED_CAMPAIGN`, `CUSTOM_GOAL_DOES_NOT_BELONG_TO_GOOGLE_ADS_CONVERSION_CUSTOMER`, `CAMPAIGN_CANNOT_USE_UNIFIED_GOALS`, `EMPTY_CONVERSION_GOALS`, `STORE_SALE_STORE_VISIT_CANNOT_BE_BOTH_INCLUDED`, `PERFORMANCE_MAX_CAMPAIGN_CANNOT_USE_CUSTOM_GOAL_WITH_STORE_SALES`
+
+## ConversionGoalCampaignConfigErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionGoalCampaignConfigOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update` | `update` | `ConversionGoalCampaignConfig` | No | No | — |
+
+## ConversionLagBucket
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LESS_THAN_ONE_DAY`, `ONE_TO_TWO_DAYS`, `TWO_TO_THREE_DAYS`, `THREE_TO_FOUR_DAYS`, `FOUR_TO_FIVE_DAYS`, `FIVE_TO_SIX_DAYS`, `SIX_TO_SEVEN_DAYS`, `SEVEN_TO_EIGHT_DAYS`, `EIGHT_TO_NINE_DAYS`, `NINE_TO_TEN_DAYS`, `TEN_TO_ELEVEN_DAYS`, `ELEVEN_TO_TWELVE_DAYS`, `TWELVE_TO_THIRTEEN_DAYS`, `THIRTEEN_TO_FOURTEEN_DAYS`, `FOURTEEN_TO_TWENTY_ONE_DAYS`, `TWENTY_ONE_TO_THIRTY_DAYS`, `THIRTY_TO_FORTY_FIVE_DAYS`, `FORTY_FIVE_TO_SIXTY_DAYS`, `SIXTY_TO_NINETY_DAYS`
+
+## ConversionLagBucketEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionOrAdjustmentLagBucket
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONVERSION_LESS_THAN_ONE_DAY`, `CONVERSION_ONE_TO_TWO_DAYS`, `CONVERSION_TWO_TO_THREE_DAYS`, `CONVERSION_THREE_TO_FOUR_DAYS`, `CONVERSION_FOUR_TO_FIVE_DAYS`, `CONVERSION_FIVE_TO_SIX_DAYS`, `CONVERSION_SIX_TO_SEVEN_DAYS`, `CONVERSION_SEVEN_TO_EIGHT_DAYS`, `CONVERSION_EIGHT_TO_NINE_DAYS`, `CONVERSION_NINE_TO_TEN_DAYS`, `CONVERSION_TEN_TO_ELEVEN_DAYS`, `CONVERSION_ELEVEN_TO_TWELVE_DAYS`, `CONVERSION_TWELVE_TO_THIRTEEN_DAYS`, `CONVERSION_THIRTEEN_TO_FOURTEEN_DAYS`, `CONVERSION_FOURTEEN_TO_TWENTY_ONE_DAYS`, `CONVERSION_TWENTY_ONE_TO_THIRTY_DAYS`, `CONVERSION_THIRTY_TO_FORTY_FIVE_DAYS`, `CONVERSION_FORTY_FIVE_TO_SIXTY_DAYS`, `CONVERSION_SIXTY_TO_NINETY_DAYS`, `ADJUSTMENT_LESS_THAN_ONE_DAY`, `ADJUSTMENT_ONE_TO_TWO_DAYS`, `ADJUSTMENT_TWO_TO_THREE_DAYS`, `ADJUSTMENT_THREE_TO_FOUR_DAYS`, `ADJUSTMENT_FOUR_TO_FIVE_DAYS`, `ADJUSTMENT_FIVE_TO_SIX_DAYS`, `ADJUSTMENT_SIX_TO_SEVEN_DAYS`, `ADJUSTMENT_SEVEN_TO_EIGHT_DAYS`, `ADJUSTMENT_EIGHT_TO_NINE_DAYS`, `ADJUSTMENT_NINE_TO_TEN_DAYS`, `ADJUSTMENT_TEN_TO_ELEVEN_DAYS`, `ADJUSTMENT_ELEVEN_TO_TWELVE_DAYS`, `ADJUSTMENT_TWELVE_TO_THIRTEEN_DAYS`, `ADJUSTMENT_THIRTEEN_TO_FOURTEEN_DAYS`, `ADJUSTMENT_FOURTEEN_TO_TWENTY_ONE_DAYS`, `ADJUSTMENT_TWENTY_ONE_TO_THIRTY_DAYS`, `ADJUSTMENT_THIRTY_TO_FORTY_FIVE_DAYS`, `ADJUSTMENT_FORTY_FIVE_TO_SIXTY_DAYS`, `ADJUSTMENT_SIXTY_TO_NINETY_DAYS`, `ADJUSTMENT_NINETY_TO_ONE_HUNDRED_AND_FORTY_FIVE_DAYS`, `CONVERSION_UNKNOWN`, `ADJUSTMENT_UNKNOWN`
+
+## ConversionOrAdjustmentLagBucketEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionOrigin
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WEBSITE`, `GOOGLE_HOSTED`, `APP`, `CALL_FROM_ADS`, `STORE`, `YOUTUBE_HOSTED`, `LOCAL_SERVICES_ADS`
+
+## ConversionOriginEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionRateSuggestion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_rate_model` | `conversion_rate_model` | `ReachPlanConversionRateModel` | No | No | — |
+| `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
+| `surface_targeting` | `surface_targeting` | `unknown` | No | No | — |
+| `conversion_rate` | `conversion_rate` | `number` | No | No | — |
+
+## ConversionTrackingSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tracking_id` | `conversion_tracking_id` | `string` | No | No | — |
+| `cross_account_conversion_tracking_id` | `cross_account_conversion_tracking_id` | `string` | No | No | — |
+| `accepted_customer_data_terms` | `accepted_customer_data_terms` | `boolean` | No | No | — |
+| `conversion_tracking_status` | `conversion_tracking_status` | `ConversionTrackingStatus` | No | No | — |
+| `enhanced_conversions_for_leads_enabled` | `enhanced_conversions_for_leads_enabled` | `boolean` | No | No | — |
+| `google_ads_conversion_customer` | `google_ads_conversion_customer` | `string` | No | No | — |
+
+## ConversionTrackingStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NOT_CONVERSION_TRACKED`, `CONVERSION_TRACKING_MANAGED_BY_SELF`, `CONVERSION_TRACKING_MANAGED_BY_THIS_MANAGER`, `CONVERSION_TRACKING_MANAGED_BY_ANOTHER_MANAGER`
+
+## ConversionTrackingStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionUploadError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TOO_MANY_CONVERSIONS_IN_REQUEST`, `UNPARSEABLE_GCLID`, `CONVERSION_PRECEDES_EVENT`, `EXPIRED_EVENT`, `TOO_RECENT_EVENT`, `EVENT_NOT_FOUND`, `UNAUTHORIZED_CUSTOMER`, `TOO_RECENT_CONVERSION_ACTION`, `CONVERSION_TRACKING_NOT_ENABLED_AT_IMPRESSION_TIME`, `EXTERNAL_ATTRIBUTION_DATA_SET_FOR_NON_EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION`, `EXTERNAL_ATTRIBUTION_DATA_NOT_SET_FOR_EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION`, `ORDER_ID_NOT_PERMITTED_FOR_EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION`, `ORDER_ID_ALREADY_IN_USE`, `DUPLICATE_ORDER_ID`, `TOO_RECENT_CALL`, `EXPIRED_CALL`, `CALL_NOT_FOUND`, `CONVERSION_PRECEDES_CALL`, `CONVERSION_TRACKING_NOT_ENABLED_AT_CALL_TIME`, `UNPARSEABLE_CALLERS_PHONE_NUMBER`, `CLICK_CONVERSION_ALREADY_EXISTS`, `CALL_CONVERSION_ALREADY_EXISTS`, `DUPLICATE_CLICK_CONVERSION_IN_REQUEST`, `DUPLICATE_CALL_CONVERSION_IN_REQUEST`, `CUSTOM_VARIABLE_NOT_ENABLED`, `CUSTOM_VARIABLE_VALUE_CONTAINS_PII`, `INVALID_CUSTOMER_FOR_CLICK`, `INVALID_CUSTOMER_FOR_CALL`, `CONVERSION_NOT_COMPLIANT_WITH_ATT_POLICY`, `CLICK_NOT_FOUND`, `INVALID_USER_IDENTIFIER`, `EXTERNALLY_ATTRIBUTED_CONVERSION_ACTION_NOT_PERMITTED_WITH_USER_IDENTIFIER`, `UNSUPPORTED_USER_IDENTIFIER`, `GBRAID_WBRAID_BOTH_SET`, `UNPARSEABLE_WBRAID`, `UNPARSEABLE_GBRAID`, `ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID`, `CUSTOMER_DATA_POLICY_PROHIBITS_ENHANCED_CONVERSIONS`, `CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS`, `ORDER_ID_CONTAINS_PII`, `CUSTOMER_NOT_ENABLED_ENHANCED_CONVERSIONS_FOR_LEADS`, `INVALID_JOB_ID`, `NO_CONVERSION_ACTION_FOUND`, `INVALID_CONVERSION_ACTION_TYPE`
+
+## ConversionUploadErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionValueMapping
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_time_post_install_hours` | `min_time_post_install_hours` | `string` | No | No | — |
+| `max_time_post_install_hours` | `max_time_post_install_hours` | `string` | No | No | — |
+| `mapped_events` | `mapped_events` | `Array<unknown>` | No | No | — |
+
+## ConversionValueRule
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `action` | `action` | `unknown` | No | No | — |
+| `geo_location_condition` | `geo_location_condition` | `unknown` | No | No | — |
+| `device_condition` | `device_condition` | `unknown` | No | No | — |
+| `audience_condition` | `audience_condition` | `unknown` | No | No | — |
+| `itinerary_condition` | `itinerary_condition` | `unknown` | No | No | — |
+| `owner_customer` | `owner_customer` | `string` | No | No | — |
+| `status` | `status` | `ConversionValueRuleStatus` | No | No | — |
+
+## ConversionValueRuleError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_GEO_TARGET_CONSTANT`, `CONFLICTING_INCLUDED_AND_EXCLUDED_GEO_TARGET`, `CONFLICTING_CONDITIONS`, `CANNOT_REMOVE_IF_INCLUDED_IN_VALUE_RULE_SET`, `CONDITION_NOT_ALLOWED`, `FIELD_MUST_BE_UNSET`, `CANNOT_PAUSE_UNLESS_VALUE_RULE_SET_IS_PAUSED`, `UNTARGETABLE_GEO_TARGET`, `INVALID_AUDIENCE_USER_LIST`, `INACCESSIBLE_USER_LIST`, `INVALID_AUDIENCE_USER_INTEREST`, `CANNOT_ADD_RULE_WITH_STATUS_REMOVED`, `NO_DAY_OF_WEEK_SELECTED`
+
+## ConversionValueRuleErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionValueRuleOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `ConversionValueRule` | No | No | — |
+| `update` | `update` | `ConversionValueRule` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## ConversionValueRulePrimaryDimension
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NO_RULE_APPLIED`, `ORIGINAL`, `NEW_VS_RETURNING_USER`, `GEO_LOCATION`, `DEVICE`, `AUDIENCE`, `MULTIPLE`, `ITINERARY`
+
+## ConversionValueRulePrimaryDimensionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionValueRuleSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `conversion_value_rules` | `conversion_value_rules` | `Array<string>` | No | No | — |
+| `dimensions` | `dimensions` | `Array<ValueRuleSetDimension>` | No | No | — |
+| `owner_customer` | `owner_customer` | `string` | No | No | — |
+| `attachment_type` | `attachment_type` | `ValueRuleSetAttachmentType` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `status` | `status` | `ConversionValueRuleSetStatus` | No | No | — |
+| `conversion_action_categories` | `conversion_action_categories` | `Array<ConversionActionCategory>` | No | No | — |
+
+## ConversionValueRuleSetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONFLICTING_VALUE_RULE_CONDITIONS`, `INVALID_VALUE_RULE`, `DIMENSIONS_UPDATE_ONLY_ALLOW_APPEND`, `CONDITION_TYPE_NOT_ALLOWED`, `DUPLICATE_DIMENSIONS`, `INVALID_CAMPAIGN_ID`, `CANNOT_PAUSE_UNLESS_ALL_VALUE_RULES_ARE_PAUSED`, `SHOULD_PAUSE_WHEN_ALL_VALUE_RULES_ARE_PAUSED`, `VALUE_RULES_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE`, `INELIGIBLE_CONVERSION_ACTION_CATEGORIES`, `DIMENSION_NO_CONDITION_USED_WITH_OTHER_DIMENSIONS`, `DIMENSION_NO_CONDITION_NOT_ALLOWED`, `UNSUPPORTED_CONVERSION_ACTION_CATEGORIES`, `DIMENSION_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE`
+
+## ConversionValueRuleSetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ConversionValueRuleSetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `ConversionValueRuleSet` | No | No | — |
+| `update` | `update` | `ConversionValueRuleSet` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |

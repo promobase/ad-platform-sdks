@@ -1,0 +1,92 @@
+---
+title: "TikTok Business Music endpoints"
+description: "2 generated TikTok Business endpoint contracts for Music."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 149
+  label: "Music"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.music.fileMusicGet
+
+`GET` `/open_api/v1.3/file/music/get/`
+
+Generated from TikTok documentation 1740053909509122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `music.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileMusicGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `music_scene` | `query` | `"CREATIVE_ASSET" \| "CAROUSEL_ADS" \| "CATALOG_CAROUSEL"` | No | No | The scenario where the piece of music is used. Enum values: `CREATIVE_ASSET`: Creative Tools. `CAROUSEL_ADS`: Non-Shopping Ads - Carousel format.`CATALOG_CAROUSEL`: Shopping Ads (VSA) - Carousel format.Default value: `CREATIVE_ASSET`. |
+| `search_type` | `query` | `"SEARCH_BY_KEYWORD" \| "SEARCH_BY_RECOMMEND"` | No | No | Required when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. The type of music search that you want to perform. Enum values: `SEARCH_BY_KEYWORD`: To fuzzy search for music via keyword. You need to pass in `keyword` as well. Note that you cannot search for user-uploaded music through this search type.`SEARCH_BY_RECOMMEND`:When `music_scene` is set to `CAROUSEL_ADS`: To get recommended music for the images specified via the image URLs. You need to pass in `image_urls` as well. A maximum of 500 pieces of recommended music can be returned. Note that you cannot search for user-uploaded music through this search type.When `music_scene` is set to `CATALOG_CAROUSEL`: To get recommended music for the specified catalog products. You need to pass in `catalog_id` and `catalog_authorized_bc_id` as well. Additionally, you need to choose one of the three settings below. Note that you cannot search for user-uploaded music through this search type. To get recommended music for all products in a catalog, do not pass any of `product_set_id`, `item_group_ids`, and `sku_ids`. To get recommended music for products in a product set, pass in either `product_set_id` or `item_group_ids`. To get recommended music for specific products, pass in `sku_ids`. `SEARCH_BY_LIKED`: To search the Liked list for music. A maximum of 1,000 pieces of music in the Liked list can be returned. `SEARCH_BY_HISTORY`: To search the History list for music. `SEARCH_BY_MUSIC_ID`: To search for music via music IDs. `SEARCH_BY_SOURCE`: To search for music by music source. You need to pass in `sources` as well. Note that you can only filter user-uploaded music for Carousel Ads. Note: When this field is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED` or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. |
+| `filtering` | `query` | `FileMusicGetParamsFiltering` | No | No | Filter condition. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value Range: ≥ 1. The product of `page` and `page_size` cannot exceed 100,000. Note: When `search_type` is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED`, or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 1,000. Value Range: 1-1,000. The product of `page` and `page_size` cannot exceed 100,000. Note: When `search_type` is set to `SEARCH_BY_RECOMMEND`, `SEARCH_BY_LIKED`, or `SEARCH_BY_MUSIC_ID`, pagination is not supported and the parameters `page` and `page_size` will be ignored. When `search_type` is set to `SEARCH_BY_KEYWORD` or `SEARCH_BY_HISTORY`, the default value is 200 and the value range is [1,200]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.music.fileMusicUpload
+
+`POST` `/open_api/v1.3/file/music/upload/`
+
+Generated from TikTok documentation 1740052650395650
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `music.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileMusicUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `music_scene` | `body` | `"CREATIVE_ASSET" \| "CAROUSEL_ADS" \| "CATALOG_CAROUSEL"` | No | No | The scenario where the piece of music is used. Enum values: `CREATIVE_ASSET`: Creative Tools. `CAROUSEL_ADS`: Non-Shopping Ads - Carousel format.`CATALOG_CAROUSEL`: Shopping Ads (VSA) - Carousel format.Default value: `CREATIVE_ASSET`. |
+| `upload_type` | `body` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_FILE_ID"` | No | No | When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, you need to pass in either `upload_type` or `material_action`. When `music_scene` is set to `CREATIVE_ASSET` or not passed, this field is optional and defaults to `UPLOAD_BY_FILE`. The way you upload your music. Enum values: `UPLOAD_BY_FILE`: To upload a piece of music via file. `UPLOAD_BY_FILE_ID`: To upload a piece of music via file ID. |
+| `material_action` | `body` | `"ADD_TO_LIKED" \| "ADD_TO_HISTORY" \| "REMOVE_FROM_LIKED"` | No | No | When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, you need to pass in either `upload_type` or `material_action`. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. The type of operation you want to perform on a piece of music. You need to pass in `material_id` as well. Enum values: `ADD_TO_LIKED`: To add a piece of music to the Liked list.`ADD_TO_HISTORY`: To add a piece of music to the History list. `REMOVE_FROM_LIKED`: To remove a piece of music from the Liked list. Note: The Liked list of an ad account can have up to 1,000 pieces of music. When the limit is reached, you cannot set this field to `ADD_TO_LIKED` to add more music to the Liked list. |
+| `music_file` | `body` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE` or not specified. Music file. Note: When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, the customized music file that you specify through this field should meet the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `music_signature` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE` or not specified. Music MD5 (used for server verification). |
+| `file_name` | `body` | `string` | No | No | Valid only when `upload_type` is passed. Music name. Length limit: 1-100 characters. The default is the local file name. |
+| `file_id` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the file that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. Note: When `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, the ID that you specify through this field should correspond to a customized music file that meets the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `material_id` | `body` | `string` | No | No | Required when `music_scene` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL` and `material_action` is passed. Not supported when `music_scene` is set to `CREATIVE_ASSET` or not passed. Material ID for the piece of music, which is used for adding music to the Liked list or History list, or for removing music from the Liked list. To obtain a valid material ID , you can:upload a piece of customized music for Carousel Ads through this endpoint, OR retrieve the material IDs of music for Carousel Ads under an ad account via `material_id` returned by [/file/music/get/](https://ads.tiktok.com/marketing_api/docs?id=1740053909509122). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

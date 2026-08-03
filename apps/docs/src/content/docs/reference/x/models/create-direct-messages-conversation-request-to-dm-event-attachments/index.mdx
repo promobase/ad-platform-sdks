@@ -1,0 +1,977 @@
+---
+title: "X models: Create Direct Messages Conversation Request – Dm Event Attachments"
+description: "100 generated X model contracts, from CreateDirectMessagesConversationRequest through DmEventAttachments."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 1001
+  label: "Create Direct Messages Conversation Request – Dm Event Attachments"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## CreateDirectMessagesConversationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_type` | `conversation_type` | `"Group"` | Yes | No | The conversation type to create. Supports `Group` only. |
+| `message` | `message` | `CreateDirectMessagesConversationMessage` | Yes | No | The initial Direct Message to send to the conversation. |
+| `participant_ids` | `participant_ids` | `Array<string>` | Yes | No | Participants for the conversation. |
+
+## CreateDirectMessagesConversationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateDirectMessagesConversationResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateDirectMessagesConversationResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dm_conversation_id` | `dm_conversation_id` | `string` | Yes | No | The id of the created conversation. |
+| `dm_event_id` | `dm_event_id` | `string` | Yes | No | The id of the created DM event. |
+
+## CreateListsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Description of the List (up to 100 characters). |
+| `name` | `name` | `string` | Yes | No | Name of the List (1-25 characters). |
+| `private` | `private` | `boolean` | No | No | Whether the List is private. |
+
+## CreateListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateListsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateListsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the created List. |
+| `name` | `name` | `string` | Yes | No | The name of the created List. |
+
+## CreateMediaMetadataMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allow_download_status` | `allow_download_status` | `CreateMediaMetadataMetadataAllowDownloadStatus` | No | No | — |
+| `alt_text` | `alt_text` | `CreateMediaMetadataMetadataAltText` | No | No | — |
+| `audience_policy` | `audience_policy` | `json` | No | No | — |
+| `content_expiration` | `content_expiration` | `CreateMediaMetadataMetadataContentExpiration` | No | No | — |
+| `domain_restrictions` | `domain_restrictions` | `CreateMediaMetadataMetadataDomainRestrictions` | No | No | — |
+| `found_media_origin` | `found_media_origin` | `CreateMediaMetadataMetadataFoundMediaOrigin` | No | No | — |
+| `geo_restrictions` | `geo_restrictions` | `json` | No | No | — |
+| `management_info` | `management_info` | `CreateMediaMetadataMetadataManagementInfo` | No | No | — |
+| `preview_image` | `preview_image` | `CreateMediaMetadataMetadataPreviewImage` | No | No | — |
+| `sensitive_media_warning` | `sensitive_media_warning` | `json` | No | No | — |
+| `shared_info` | `shared_info` | `CreateMediaMetadataMetadataSharedInfo` | No | No | — |
+| `sticker_info` | `sticker_info` | `CreateMediaMetadataMetadataStickerInfo` | No | No | — |
+| `upload_source` | `upload_source` | `CreateMediaMetadataMetadataUploadSource` | No | No | — |
+
+## CreateMediaMetadataMetadataAllowDownloadStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allow_download` | `allow_download` | `boolean` | No | No | — |
+
+## CreateMediaMetadataMetadataAltText
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | Yes | No | — |
+
+## CreateMediaMetadataMetadataContentExpiration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `timestamp_sec` | `timestamp_sec` | `number` | Yes | No | — |
+
+## CreateMediaMetadataMetadataDomainRestrictions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `whitelist` | `whitelist` | `Array<string>` | Yes | No | — |
+
+## CreateMediaMetadataMetadataFoundMediaOrigin
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `provider` | `provider` | `string` | Yes | No | — |
+
+## CreateMediaMetadataMetadataManagementInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `managed` | `managed` | `boolean` | Yes | No | — |
+
+## CreateMediaMetadataMetadataPreviewImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_key` | `media_key` | `json` | Yes | No | — |
+
+## CreateMediaMetadataMetadataSharedInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared` | `shared` | `boolean` | Yes | No | — |
+
+## CreateMediaMetadataMetadataStickerInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `stickers` | `stickers` | `Array<CreateMediaMetadataMetadataStickerInfoStickers>` | Yes | No | — |
+
+## CreateMediaMetadataMetadataStickerInfoStickers
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateMediaMetadataMetadataUploadSource
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_source` | `upload_source` | `string` | Yes | No | — |
+
+## CreateMediaMetadataRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The media id the metadata is attached to. |
+| `metadata` | `metadata` | `CreateMediaMetadataMetadata` | No | No | User-defined metadata to associate with the media. |
+
+## CreateMediaMetadataResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateMediaMetadataResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateMediaMetadataResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associated_metadata` | `associated_metadata` | `json` | No | No | The metadata now associated with the media. |
+| `id` | `id` | `string` | Yes | No | The media id the metadata was attached to. |
+
+## CreateMediaSubtitlesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | The media id of the video the subtitles belong to. |
+| `media_category` | `media_category` | `"AmplifyVideo" \| "TweetVideo"` | No | No | The media category of the target media. |
+| `subtitles` | `subtitles` | `CreateMediaSubtitlesSubtitles` | No | No | The subtitle tracks to associate with the media. |
+
+## CreateMediaSubtitlesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateMediaSubtitlesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateMediaSubtitlesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associated_subtitles` | `associated_subtitles` | `json` | No | No | The subtitles now associated with the media. |
+| `id` | `id` | `string` | No | No | The media id. |
+| `media_category` | `media_category` | `string` | No | No | The media category. |
+
+## CreateMediaSubtitlesSubtitles
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `display_name` | `display_name` | `string` | No | No | Language name in a human readable form. |
+| `id` | `id` | `string` | No | No | The media id of the subtitle track. |
+| `language_code` | `language_code` | `string` | No | No | BCP47 language code of the subtitle track. |
+
+## CreatePostsEditOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `previous_post_id` | `previous_post_id` | `string` | Yes | No | The ID of the Post being edited. |
+
+## CreatePostsGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `place_id` | `place_id` | `string` | Yes | No | Place ID for geo tagging. |
+
+## CreatePostsMedia
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `call_to_actions` | `call_to_actions` | `CreatePostsMediaCallToActions` | No | No | Call-to-action button rendered on the media entity. |
+| `description` | `description` | `string` | No | No | Description for the media, rendered on the Post card for video and Amplify content. |
+| `embeddable` | `embeddable` | `boolean` | No | No | When true, the media's asset URLs do not expire and external syndicated playback is allowed. |
+| `media_ids` | `media_ids` | `Array<string>` | Yes | No | Media IDs to attach to the tweet. |
+| `preview_media_id` | `preview_media_id` | `string` | No | No | Media id whose asset is used as the preview image. |
+| `tagged_user_ids` | `tagged_user_ids` | `Array<string>` | No | No | User IDs tagged in the media. |
+| `title` | `title` | `string` | No | No | Title for the media, rendered on the Post card for video and Amplify content. |
+
+## CreatePostsMediaCallToActions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_install` | `app_install` | `CreatePostsMediaCallToActionsAppInstall` | No | No | App Install CTA. At least one store id should be provided. |
+| `visit_site` | `visit_site` | `CreatePostsMediaCallToActionsVisitSite` | No | No | Visit Site CTA. |
+| `watch_now` | `watch_now` | `CreatePostsMediaCallToActionsWatchNow` | No | No | Watch Now CTA. |
+
+## CreatePostsMediaCallToActionsAppInstall
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_store_id` | `app_store_id` | `string` | No | No | Apple App Store iPhone app id. |
+| `ipad_app_store_id` | `ipad_app_store_id` | `string` | No | No | Apple App Store iPad app id. |
+| `play_store_id` | `play_store_id` | `string` | No | No | Google Play Store app id. |
+
+## CreatePostsMediaCallToActionsVisitSite
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | HTTPS URL the CTA links to. |
+
+## CreatePostsMediaCallToActionsWatchNow
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | HTTPS URL the CTA links to. |
+
+## CreatePostsPoll
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duration_minutes` | `duration_minutes` | `integer` | Yes | No | Duration of the poll in minutes. |
+| `options` | `options` | `Array<string>` | Yes | No | Poll options (2-4 choices, 1-25 characters each). |
+| `reply_settings` | `reply_settings` | `"following" \| "mentionedUsers" \| "subscribers" \| "verified"` | No | No | Who can reply to the poll Tweet. Accepted for compatibility; it carries no backend argument and is dropped before the mutation is issued (see `translate_body`). |
+
+## CreatePostsReply
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_populate_reply_metadata` | `auto_populate_reply_metadata` | `boolean` | No | No | If true, reply metadata is automatically populated. Accepted for compatibility; it carries no backend argument and is dropped before the mutation is issued (see `translate_body`). |
+| `exclude_reply_user_ids` | `exclude_reply_user_ids` | `Array<string>` | No | No | User IDs to exclude from the reply thread. |
+| `in_reply_to_tweet_id` | `in_reply_to_tweet_id` | `string` | Yes | No | The ID of the tweet being replied to. |
+
+## CreatePostsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `card_uri` | `card_uri` | `string` | No | No | Card URI parameter. |
+| `community_id` | `community_id` | `string` | No | No | Community to post the tweet to. |
+| `direct_message_deep_link` | `direct_message_deep_link` | `string` | No | No | Direct message deep link. |
+| `edit_options` | `edit_options` | `CreatePostsEditOptions` | No | No | Edit an existing tweet rather than creating a new one. |
+| `for_super_followers_only` | `for_super_followers_only` | `boolean` | No | No | Restrict tweet to super followers. |
+| `geo` | `geo` | `CreatePostsGeo` | No | No | Geo location for the tweet. |
+| `made_with_ai` | `made_with_ai` | `boolean` | No | No | Disclose that the tweet contains AI-generated media. |
+| `media` | `media` | `CreatePostsMedia` | No | No | Media attachments. |
+| `nullcast` | `nullcast` | `boolean` | No | No | If true, the tweet is not shown in the public timeline. |
+| `paid_partnership` | `paid_partnership` | `boolean` | No | No | Disclose that the tweet is a paid partnership. |
+| `poll` | `poll` | `CreatePostsPoll` | No | No | Poll configuration. |
+| `quote_tweet_id` | `quote_tweet_id` | `string` | No | No | Tweet ID to quote. |
+| `reply` | `reply` | `CreatePostsReply` | No | No | Tweet reply configuration. |
+| `reply_settings` | `reply_settings` | `"following" \| "mentionedUsers" \| "subscribers" \| "verified"` | No | No | Who can reply to this tweet. |
+| `share_with_followers` | `share_with_followers` | `boolean` | No | No | Share an exclusive (super-follower) tweet with all followers. |
+| `text` | `text` | `string` | No | No | Text of the tweet. Required unless media is provided. Defaulted to an empty string so it is always sent: the backend's `tweet_text` variable is non-null and rejects an absent value. |
+
+## CreatePostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreatePostsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreatePostsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `edit_history_post_ids` | `edit_history_post_ids` | `Array<string>` | No | No | Post IDs in this Post's edit history chain. |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the created Post. |
+| `text` | `text` | `string` | Yes | No | The content of the created Post. |
+
+## CreateScheduledBroadcastRecurrence
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `"Daily" \| "Weekly"` | Yes | No | Recurrence frequency. |
+| `repeats` | `repeats` | `string` | Yes | No | Number of repeats (numeric string). |
+
+## CreateScheduledBroadcastRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | Enable replay. |
+| `chat_option` | `chat_option` | `string` | No | No | Chat permission option (numeric string). |
+| `description` | `description` | `string` | No | No | Description. |
+| `is_locked` | `is_locked` | `boolean` | No | No | Lock the broadcast. |
+| `locale` | `locale` | `string` | No | No | Locale. |
+| `manual_publish` | `manual_publish` | `boolean` | No | No | If true, do not auto-publish at start; call POST .../live when ready. |
+| `recurrence` | `recurrence` | `CreateScheduledBroadcastRecurrence` | No | No | If set, creates a recurring series. |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | Yes | No | End time, ms since Unix epoch (decimal string). |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | Yes | No | Start time, ms since Unix epoch (decimal string). |
+| `source_id` | `source_id` | `string` | Yes | No | Ingest / source id to bind (same as sources `rtmp_stream_key`). |
+| `telecast_id` | `telecast_id` | `string` | No | No | Optional telecast id (numeric string). |
+| `thumbnail_media_id` | `thumbnail_media_id` | `string` | No | No | Pre-live slate media id (numeric string). |
+| `title` | `title` | `string` | No | No | Title / status text. |
+
+## CreateScheduledBroadcastResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateScheduledBroadcastResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateScheduledBroadcastResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | Whether replay is enabled. |
+| `broadcast_id` | `broadcast_id` | `string` | No | No | Alphanumeric UBS broadcast id (path `:id` for get/update/delete/live). |
+| `chat_option` | `chat_option` | `string` | No | No | Optional chat permission option. |
+| `description` | `description` | `string` | No | No | Optional description. |
+| `locale` | `locale` | `string` | No | No | Optional locale. |
+| `manual_publish` | `manual_publish` | `boolean` | No | No | When true, coordinator will not auto-publish; call POST .../live when ready. |
+| `recurring_schedule_id` | `recurring_schedule_id` | `string` | No | No | Set when this occurrence belongs to a recurrence. |
+| `scheduled_broadcast_id` | `scheduled_broadcast_id` | `string` | No | No | Numeric scheduler id. Required in the update request body. |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | No | No | Scheduled end, milliseconds since Unix epoch (decimal string). |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | No | No | Scheduled start, milliseconds since Unix epoch (decimal string). |
+| `source_id` | `source_id` | `string` | No | No | Bound ingest / source id (`rtmp_stream_key`). |
+| `state` | `state` | `string` | No | No | Scheduler state (Created, Scheduled, Running, …). |
+| `telecast_id` | `telecast_id` | `string` | No | No | Optional telecast association. |
+| `thumbnail_media_id` | `thumbnail_media_id` | `string` | No | No | Optional pre-live slate media id. |
+| `title` | `title` | `string` | No | No | Broadcast title / status text. |
+
+## CreateUsersBookmarkFolderRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | Name of the Bookmark folder (1-25 characters). |
+
+## CreateUsersBookmarkFolderResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateUsersBookmarkFolderResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateUsersBookmarkFolderResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the created Bookmark folder. |
+| `name` | `name` | `string` | Yes | No | The name of the created Bookmark folder. |
+
+## CreateUsersBookmarkRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `folder_id` | `folder_id` | `string` | No | No | Optional ID of the Bookmark folder to add the Post to. When omitted, the Post is added to the user's top-level Bookmarks only. |
+| `tweet_id` | `tweet_id` | `string` | Yes | No | The ID of the Post to add to the user's Bookmarks. |
+
+## CreateUsersBookmarkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateUsersBookmarkResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateUsersBookmarkResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmarked` | `bookmarked` | `boolean` | Yes | No | Indicates whether the Post is bookmarked by the user. |
+
+## CreateWebhookReplayJobRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_date` | `from_date` | `string` | Yes | No | The oldest (inclusive) UTC timestamp from which events are replayed, in yyyymmddhhmm format. |
+| `to_date` | `to_date` | `string` | Yes | No | The newest (inclusive) UTC timestamp up to which events are replayed, in yyyymmddhhmm format. |
+| `webhook_id` | `webhook_id` | `string` | Yes | No | The ID of the webhook to replay events to. |
+
+## CreateWebhookReplayJobResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateWebhookReplayJobResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateWebhookReplayJobResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | The UTC timestamp when the replay job was created. |
+| `job_id` | `job_id` | `string` | Yes | No | The unique identifier for the initiated replay job. |
+
+## CreateWebhooksRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | The URL the webhook delivers events to. |
+
+## CreateWebhooksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateWebhooksResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateWebhooksResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | Creation time of the webhook configuration. |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the webhook configuration. |
+| `url` | `url` | `string` | Yes | No | The URL the webhook delivers events to. |
+| `valid` | `valid` | `boolean` | Yes | No | Indicates whether the webhook URL passed validation. |
+
+## CreateWebhooksStreamLinkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateWebhooksStreamLinkResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateWebhooksStreamLinkResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `provisioned` | `provisioned` | `boolean` | Yes | No | Indicates whether the stream link was provisioned. |
+
+## DeleteAccountActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteAccountActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteAccountActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscribed` | `subscribed` | `boolean` | Yes | No | Whether the user has an active subscription. |
+
+## DeleteActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the subscription was deleted. |
+
+## DeleteActivitySubscriptionsByIdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<json>` | No | No | — |
+| `errors` | `errors` | `Array<json>` | No | No | Per-id failures; deletion continues for the remaining ids. |
+| `meta` | `meta` | `json` | No | No | — |
+
+## DeleteAllConnectionsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteAllConnectionsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteAllConnectionsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failed_kills` | `failed_kills` | `integer` | Yes | No | Number of connections that could not be terminated. |
+| `results` | `results` | `Array<DeleteAllConnectionsResponseDataResults>` | No | No | — |
+| `successful_kills` | `successful_kills` | `integer` | Yes | No | Number of connections successfully terminated. |
+
+## DeleteAllConnectionsResponseDataResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `success` | `success` | `boolean` | Yes | No | — |
+| `uuid` | `uuid` | `string` | Yes | No | — |
+
+## DeleteBroadcastChatMessageResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteBroadcastChatMessageResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteBroadcastChatMessageResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the chat message was removed. |
+
+## DeleteChatMessagesActionSignatures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encoded_message_event_detail` | `encoded_message_event_detail` | `string` | Yes | No | Base64-encoded message event detail. |
+| `message_event_signature` | `message_event_signature` | `DeleteChatMessagesActionSignaturesMessageEventSignature` | Yes | No | Message event signature supplied with an action signature. |
+| `message_id` | `message_id` | `string` | Yes | No | Client-generated ID of the message being signed. |
+| `signature_payload` | `signature_payload` | `string` | No | No | Payload string the client signed; used only in server-side failure logs. |
+
+## DeleteChatMessagesActionSignaturesMessageEventSignature
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_signing_key_info_list` | `message_signing_key_info_list` | `Array<DeleteChatMessagesActionSignaturesMessageEventSignatureMessageSigningKeyInfoList>` | No | No | List of signing key information for message verification. |
+| `public_key_version` | `public_key_version` | `string` | Yes | No | The version of the public key used for signing. |
+| `signature` | `signature` | `string` | Yes | No | The signature of the message event. |
+| `signature_version` | `signature_version` | `string` | Yes | No | The version of the signature algorithm. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The public key used for signing. |
+
+## DeleteChatMessagesActionSignaturesMessageEventSignatureMessageSigningKeyInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `member_id` | `member_id` | `string` | No | No | The member ID associated with this signing key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | The version of the public key. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The signing public key. |
+
+## DeleteChatMessagesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_signatures` | `action_signatures` | `Array<DeleteChatMessagesActionSignatures>` | Yes | No | Cryptographic signatures for the action. |
+| `delete_message_action` | `delete_message_action` | `"delete_for_all" \| "delete_for_self"` | Yes | No | delete_for_all removes the messages for every participant; delete_for_self removes them only from the authenticated user's view. |
+| `media_hash_keys` | `media_hash_keys` | `Array<string>` | No | No | Hash keys of encrypted media blobs to delete alongside the messages (delete_for_all only). |
+| `sequence_ids` | `sequence_ids` | `Array<string>` | Yes | No | Sequence IDs of the messages to delete. |
+
+## DeleteChatMessagesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteChatMessagesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteChatMessagesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the messages were deleted. |
+
+## DeleteCommunityNotesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteCommunityNotesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteCommunityNotesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Indicates whether the Community Note was deleted. |
+
+## DeleteConnectionsByEndpointResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteConnectionsByEndpointResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteConnectionsByEndpointResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failed_kills` | `failed_kills` | `integer` | Yes | No | Number of connections that could not be terminated. |
+| `results` | `results` | `Array<DeleteConnectionsByEndpointResponseDataResults>` | No | No | — |
+| `successful_kills` | `successful_kills` | `integer` | Yes | No | Number of connections successfully terminated. |
+
+## DeleteConnectionsByEndpointResponseDataResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `success` | `success` | `boolean` | Yes | No | — |
+| `uuid` | `uuid` | `string` | Yes | No | — |
+
+## DeleteConnectionsByUuidsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uuids` | `uuids` | `Array<string>` | Yes | No | Connection UUIDs to terminate (1-100). |
+
+## DeleteConnectionsByUuidsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteConnectionsByUuidsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteConnectionsByUuidsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failed_kills` | `failed_kills` | `integer` | Yes | No | Number of connections that could not be terminated. |
+| `results` | `results` | `Array<DeleteConnectionsByUuidsResponseDataResults>` | No | No | — |
+| `successful_kills` | `successful_kills` | `integer` | Yes | No | Number of connections successfully terminated. |
+
+## DeleteConnectionsByUuidsResponseDataResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `success` | `success` | `boolean` | Yes | No | — |
+| `uuid` | `uuid` | `string` | Yes | No | — |
+
+## DeleteDirectMessagesEventsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteDirectMessagesEventsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteDirectMessagesEventsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the event was deleted. |
+
+## DeleteListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteListsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteListsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Indicates whether the List was deleted. |
+
+## DeleteMediaSubtitlesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The media id of the video the subtitles belong to. |
+| `language_code` | `language_code` | `string` | Yes | No | The language code of the subtitles to delete. |
+| `media_category` | `media_category` | `string` | Yes | No | The media category of the target media. |
+
+## DeleteMediaSubtitlesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteMediaSubtitlesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteMediaSubtitlesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Indicates whether the subtitles were deleted. |
+
+## DeletePostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeletePostsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeletePostsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the Post was deleted. |
+
+## DeleteScheduledBroadcastResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteScheduledBroadcastResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteScheduledBroadcastResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Whether the scheduled broadcast was deleted. |
+
+## DeleteUsersBookmarkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteUsersBookmarkResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteUsersBookmarkResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmarked` | `bookmarked` | `boolean` | Yes | No | Whether the Post is bookmarked. |
+
+## DeleteWebhooksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteWebhooksResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteWebhooksResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Indicates whether the webhook configuration was deleted. |
+
+## DeleteWebhooksStreamLinkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `DeleteWebhooksStreamLinkResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## DeleteWebhooksStreamLinkResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted` | `deleted` | `boolean` | Yes | No | Indicates whether the stream link was deleted. |
+
+## DisallowedResourceProblem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | `detail` | `string` | Yes | No | — |
+| `resource_id` | `resource_id` | `string` | No | No | — |
+| `resource_type` | `resource_type` | `string` | No | No | — |
+| `section` | `section` | `string` | No | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `type` | `type` | `"https://api.x.com/2/problems/disallowed-resource"` | Yes | No | — |
+
+## DmEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attachments` | `attachments` | `DmEventAttachments` | No | No | — |
+| `created_at` | `created_at` | `string<date-time>` | No | No | — |
+| `dm_conversation_id` | `dm_conversation_id` | `string` | No | No | — |
+| `entities` | `entities` | `DmEventEntities` | No | No | — |
+| `event_type` | `event_type` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `participant_ids` | `participant_ids` | `Array<string>` | No | No | — |
+| `referenced_posts` | `referenced_posts` | `DmEventReferencedPosts` | No | No | — |
+| `sender_id` | `sender_id` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+
+## DmEventAttachments
+
+`object` model on the `json` wire format.
+
+Media and card attachments present in this Direct Message event.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `card_ids` | `card_ids` | `Array<string>` | No | Yes | IDs of cards attached to this Direct Message. |
+| `media_keys` | `media_keys` | `Array<string>` | No | Yes | Media keys of media (including audio) attached to this Direct Message. |

@@ -1,0 +1,86 @@
+---
+title: "Meta Image Copyright endpoints"
+description: "2 generated Meta endpoint contracts for Image Copyright."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 278
+  label: "Image Copyright"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.imageCopyright.get
+
+`GET` `/{id}`
+
+GET ImageCopyright
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `imageCopyright.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ImageCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.imageCopyright.update
+
+`POST` `/{id}`
+
+POST ImageCopyright
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `imageCopyright.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ImageCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `artist` | `body` | `string` | No | No | — |
+| `creator` | `body` | `string` | No | No | — |
+| `custom_id` | `body` | `string` | No | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `geo_ownership` | `body` | `Array<unknown>` | No | No | — |
+| `original_content_creation_date` | `body` | `integer` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

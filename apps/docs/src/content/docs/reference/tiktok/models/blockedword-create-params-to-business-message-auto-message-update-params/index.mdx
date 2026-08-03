@@ -1,0 +1,1084 @@
+---
+title: "TikTok Business models: Blockedword Create Params – Business Message Auto Message Update Params"
+description: "100 generated TikTok Business model contracts, from BlockedwordCreateParams through BusinessMessageAutoMessageUpdateParams."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1005
+  label: "Blockedword Create Params – Business Message Auto Message Update Params"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## BlockedwordCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The Advertiser ID. |
+| `blocked_words` | `blocked_words` | `Array<string>` | Yes | No | List of words that you want to block. |
+
+## BlockedwordCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BlockedwordDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `blocked_words` | `blocked_words` | `Array<string>` | Yes | No | List of blocked words that you want to delete. Note: If you attempt to delete a word that is not on the blocked word list, no errors will occur. |
+
+## BlockedwordDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BlockedwordListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `page_info` | `page_info` | `BlockedwordListParamsPageInfo` | No | No | Pagination information. |
+
+## BlockedwordListParamsPageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_size` | `page_size` | `number` | No | No | Page size. The default value: `10`. Value range: [1, 500]. |
+| `page` | `page` | `number` | No | No | Current page number. The default value is `1`. The value must be ≥ 1. |
+
+## BlockedwordListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BlockedwordListResponseList>` | No | No | List of blocked words. |
+| `page_info` | `page_info` | `BlockedwordListResponsePageInfo` | No | No | Pagination information. |
+
+## BlockedwordListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bw_content` | `bw_content` | `string` | No | No | Blocked word. |
+
+## BlockedwordListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BlockedwordTaskCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID. |
+
+## BlockedwordTaskCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID. |
+| `status` | `status` | `string` | No | No | Current Task status. Task status can be one of the following: `RUNNING`: Task is currently in running stage. `SUCCEED`: Task has completed processing. `FAILED`: Task has been failed. |
+
+## BlockedwordTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `blocked_words` | `blocked_words` | `Array<string>` | No | No | List of blocked words that you want to export. If not specified, all blocked words will be exported. Note: Unblocked words specified via this field will be ignored. Therefore, if you specify both blocked words and unblocked words at the same time via this field, only the blocked words will be exported. |
+| `lang` | `lang` | `"EN" \| "JA" \| "ZH"` | No | No | Language of the headers of the exported data. Enum values: `EN`, `JA`, `ZH`. Default value: `EN`. |
+
+## BlockedwordTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID. |
+
+## BlockedwordTaskDownloadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID |
+
+## BlockedwordTaskDownloadResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BlockedwordUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `old_word` | `old_word` | `string` | Yes | No | Old blocked word. |
+| `new_word` | `new_word` | `string` | Yes | No | New blocked word. |
+
+## BlockedwordUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | The return message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `code` | `code` | `number` | No | No | The return code. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | Unique ID of the request. |
+
+## BusinessBenchmarkParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `business_category` | `business_category` | `string` | Yes | No | Business category. For enum values, see List of values for `business_category`. Example: `ART_AND_CRAFTS`. |
+
+## BusinessBenchmarkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_category` | `business_category` | `string` | No | No | Business category. Example: `Art & Crafts`. Note that the value of this field is different from the value of the `business_category` field in the request. |
+| `average_likes` | `average_likes` | `number` | No | No | Average number of likes on owned videos across Business Accounts in the business category. Example: 22618.7106 |
+| `average_comments` | `average_comments` | `number` | No | No | Average number of comments on owned videos across Business Accounts in the business category. Example: 625.6003 |
+| `average_shares` | `average_shares` | `number` | No | No | Average number of shares on owned videos across Business Accounts in the business category. Example: 1161.3881 |
+| `average_video_count` | `average_video_count` | `number` | No | No | Average number of videos across Business Accounts in the business category. Example: 138.9494 |
+| `average_follower_count` | `average_follower_count` | `number` | No | No | Average number of followers across Business Accounts in the business category. Example: 1592.5344 |
+| `average_follower_growth` | `average_follower_growth` | `number` | No | No | Average increase in followers over the last 30 days across Business Accounts in business category. Example: 24.9218 |
+| `average_engagement_rate` | `average_engagement_rate` | `number` | No | No | Average engagement rate across Business Accounts in the business category. Example: 0.0449 |
+| `average_video_views` | `average_video_views` | `number` | No | No | Average video views across Business Accounts in the business category. Example: 353527.9227 |
+
+## BusinessCommentCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `video_id` | `string` | Yes | No | Unique identifier for owned TikTok video to create comments on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `text` | `text` | `string` | No | No | Either `text` or `image_uri` must be specified. Text for the comment reply. Length limit: 1,200 characters (UTF-8 encoding). Example: "This is a comment #comment 🙂". |
+| `image_uri` | `image_uri` | `string` | No | No | Either `text` or `image_uri` must be specified. URI for the reply image. To obtain the image URI, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Example: `54ccb875ae0c4368b94037d03a95b633` |
+| `image_width` | `image_width` | `number` | No | No | Required when `image_uri` is specified. The width of the image. To obtain the image width, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. |
+| `image_height` | `image_height` | `number` | No | No | Required when `image_uri` is specified. The height of the image. To obtain the image height, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Note: This value is from [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) response. |
+
+## BusinessCommentCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the newly created comment. Example: 6990565363377392901 |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the owned video the comment was created on. Example: 6990565363377392901 |
+| `user_id` | `user_id` | `string` | No | No | Developer application and TikTok account scoped unique identifier for the user that made the comment. Example: ce9b7be629b0447af777a0ad945783f61b7f790982b49fbda04a23b4722eaffe Note: This field will be deprecated in the next API version. We recommend using `unique_identifier` to identify the TikTok user because the identifier remains consistent across different APIs. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | A globally unique identifier assigned to each user commenting. This identifier remains consistent across different APIs, facilitating cross-referencing and integration. Example: +ABc1D2/E0fGhijklMNOrD34vDW/zDiZUNRH5Jyahue6OcA7b8ZpwnqXV9u1Uh+k |
+| `create_time` | `create_time` | `string` | No | No | Unix/Epoch date-time when the comment was created. Example: 1627617835 |
+| `text` | `text` | `string` | No | No | Text content of the comment. Example: "This is a comment #comment 🙂" |
+| `image_url` | `image_url` | `string` | No | No | A URL to an image in the comment. Returned if the comment is an image. The URL won't expire. |
+
+## BusinessCommentDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Unique identifier for owned comment on an owned TikTok video to delete.. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+
+## BusinessCommentDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessCommentHideParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to hide/unhide. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `video_id` | `video_id` | `string` | Yes | No | Unique identifier for owned TikTok video. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `action` | `action` | `"HIDE" \| "UNHIDE"` | Yes | No | Specific operation to be performed on the comment - hide or unhide. Enum values: `HIDE`, `UNHIDE`. Example: `HIDE`. |
+
+## BusinessCommentHideResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessCommentImageUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_file` | `image_file` | `unknown` | Yes | No | The image file which will be used to generate a new comment or to add reply to an existing comment thread. Maximum size: 5 MB. Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels. Minimum resolution: 360 x 360 pixels. File types supported: JPG, JPEG, WebP, or PNG. |
+
+## BusinessCommentImageUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_uri` | `image_uri` | `string` | No | No | URI for the uploaded image. Returned when an accepted image type is uploaded. |
+| `width` | `width` | `number` | No | No | Width of the `image_file`. Example: 720. |
+| `height` | `height` | `number` | No | No | Height of the `image_file`. Example: 900. |
+
+## BusinessCommentLikeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to like/unlike. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `action` | `action` | `"LIKE" \| "UNLIKE"` | Yes | No | Specific operation to be performed on the comment - like or unlike. Enum values: `LIKE`, `UNLIKE`. Example: `LIKE`. |
+
+## BusinessCommentLikeResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessCommentListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `video_id` | `string` | Yes | No | Unique identifier for owned TikTok video to list comments (and comment replies) on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint. |
+| `comment_ids` | `comment_ids` | `Array<string>` | No | No | A list of IDs for comments or comment replies that you want to filter the results by. Max size: 30. |
+| `include_replies` | `include_replies` | `boolean` | No | No | Whether to include replies to the top-level comments in the results. If you set this field to `true`, each top-level comment will be returned with their corresponding replies. The maximum number of replies for each comment is three. The returned comments and replies will be sorted by smart sorting algorithm by default. Default value: `false`. To get all the replies to a comment, use [/business/comment/reply/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228430145538). |
+| `status` | `status` | `string` | No | No | The visibility status of comments (and comment replies) that you want to filter the results by. Enum values:PUBLIC: Comments (and comment replies) that are publicly viewable by all TikTok users.ALL: Video owner's comments (and comment replies) that are both hidden from view as well as publicly viewable by all TikTok users.Default value: ALL |
+| `sort_field` | `sort_field` | `string` | No | No | Specific field to sort comments (and comment replies) by. Enum values:likes: Sort comments (and comment replies) by the number of likes in the specified sort_order.replies: Sort comments (and comment replies) by the number of replies in the specified sort_order.create_time: Sort comments (and comment replies) chronologically in the specified sort_order.By default, the comments will be returned in a random order. Note: If the number of comments on the owned video exceeds 500, the first 500 comments will be returned according to the specified sorting, and the remaining comments will be returned in reverse order based on the number of likes. Also, the comments beyond the first 500 and the first 500 comments themselves are not deduplicated and may contain duplicates. |
+| `sort_order` | `sort_order` | `string` | No | No | Specific field to sort comments (and comment replies) by. Enum values:asc: Sort comments (and comment replies) in ascending order by the specified sort_field.desc: Sort comments (and comment replies) in descending order by the specified sort_field.smart: Sort comments (and comment replies) using algorithms.Default value: smart |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. If the response parameter has_more is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0 |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of comments that will be returned for each page of data. Default value: 20 Minimum value: 1 Maximum value: 30 Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the max_count number of comments even if the response parameter has_more is true. |
+
+## BusinessCommentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<BusinessCommentListResponseComments>` | No | No | List of current page of comments (or comment replies or both) created on the specified video. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the cursor query parameter of the subsequent API request. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. |
+
+## BusinessCommentListResponseComments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the comment or comment reply. Example: 6990565363377392901 |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the owned video that the comment or comment reply was created on. Example: 6990565363377392901 |
+| `user_id` | `user_id` | `string` | No | No | Developer application and TikTok account scoped unique identifier for the user that made the comment or comment reply. Example: ce9b7be629b0447af777a0ad945783f61b7f790982b49fbda04a23b4722eaffe Note: This field will be deprecated in the next API version. We recommend using `unique_identifier` to identify the TikTok user because the identifier remains consistent across different APIs. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | A globally unique identifier assigned to each user commenting. This identifier remains consistent across different APIs, facilitating cross-referencing and integration. Example: +ABc1D2/E0fGhijklMNOrD34vDW/zDiZUNRH5Jyahue6OcA7b8ZpwnqXV9u1Uh+k |
+| `create_time` | `create_time` | `string` | No | No | Unix/Epoch date-time when the comment or comment reply was created. Example: 1627617835 |
+| `text` | `text` | `string` | No | No | Text content of the comment or comment reply. Example: "This is a comment #comment 🙂" |
+| `likes` | `likes` | `number` | No | No | Number of likes the comment or comment reply has received. Example: 123 |
+| `replies` | `replies` | `number` | No | No | Number of replies the comment has received. Example: 123 |
+| `owner` | `owner` | `boolean` | No | No | Whether the user who posted the video made the comment or comment reply. Example: true |
+| `liked` | `liked` | `boolean` | No | No | Whether the user who posted the video has liked the comment or comment reply. Example: true |
+| `pinned` | `pinned` | `boolean` | No | No | Whether the user who posted the video has pinned the comment or comment reply. Example: true |
+| `status` | `status` | `string` | No | No | The visibility status of the comment or comment reply. Enum values:HIDDEN: The comment or comment reply is hidden from public viewership. PUBLIC: The comment or comment reply can be viewed by all users.Example: PUBLIC |
+| `username` | `username` | `string` | No | No | The username of the TikTok user who made the comment or comment reply. Example: feather_in_the_w1nd |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok user who made the comment or comment reply. Example: Feather in the wind |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for profile image of the TikTok user who posted the comment or comment reply. Expiration date-time is included in the `x-expires` parameter as Epoch/Unix time in seconds. Example: https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/188d468fc1de3f328250ea0c96e98f8b~c5_168x168.jpeg?x-expires=1651687200&x-signature=AAiHg70%2Bnj9iUipTuQWodRmk0qA%3D |
+| `parent_comment_id` | `parent_comment_id` | `string` | No | No | Returned only for comment replies. The ID of the comment to which the reply is directed. |
+| `reply_list` | `reply_list` | `Array<BusinessCommentListResponseCommentsReplyList>` | No | No | Returned only for top-level comments when `include_replies` is set to `true`. Information about the replies to the comment. Max size: 3. |
+| `image_url` | `image_url` | `string` | No | No | A URL to an image in the comment. Returned if the comment is an image. The URL won't expire. |
+
+## BusinessCommentListResponseCommentsReplyList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `number` | No | No | Unique identifier for the owned video that the comment reply was created on. Example: 6990565363377392901 |
+| `comment_id` | `comment_id` | `number` | No | No | Unique identifier for the comment reply. Example: 6990565363377392901 |
+| `create_time` | `create_time` | `string` | No | No | Unix/Epoch date-time when the comment reply was created. Example: 1627617835 |
+| `text` | `text` | `string` | No | No | Text content of the comment reply. Example: "This is a comment reply#comment reply 🙂" |
+| `status` | `status` | `"HIDDEN" \| "PUBLIC"` | No | No | The visibility status of the comment reply. Enum values: `HIDDEN`: The comment reply is hidden from public viewership.`PUBLIC`: The comment reply can be viewed by all users. Example: `PUBLIC`. |
+| `liked` | `liked` | `boolean` | No | No | Whether this comment reply is liked by the user who posted the video. Example: `true` |
+| `likes` | `likes` | `number` | No | No | Number of likes the comment reply has received. Example: 123 |
+| `owner` | `owner` | `boolean` | No | No | Whether the comment reply is made by the user who posted the video. Example: `true` |
+| `user_id` | `user_id` | `string` | No | No | Developer application and TikTok account scoped unique identifier for the user who made the comment reply. Example: ce9b7be629b0447af777a0ad945783f61b7f790982b49fbda04a23b4722eaffe Note: This field will be deprecated in the next API version. We recommend using `unique_identifier` to identify the TikTok user because the identifier remains consistent across different APIs. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | A globally unique identifier assigned to each user commenting. This identifier remains consistent across different APIs, facilitating cross-referencing and integration. Example: +ABc1D2/E0fGhijklMNOrD34vDW/zDiZUNRH5Jyahue6OcA7b8ZpwnqXV9u1Uh+k |
+| `username` | `username` | `string` | No | No | The username of the TikTok user who posted the comment reply. Example: feather_in_the_w1nd |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok user who posted the comment reply. Example: Feather in the wind |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for profile image of the TikTok user who posted the comment reply. Expiration date-time is included in the `x-expires` parameter as Epoch/Unix time in seconds. Example: https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/188d468fc1de3f328250ea0c96e98f8b~c5_168x168.jpeg?x-expires=1651687200&x-signature=AAiHg70%2Bnj9iUipTuQWodRmk0qA%3D |
+| `parent_comment_id` | `parent_comment_id` | `string` | No | No | The ID of the parent comment to which the comment reply is directed. |
+
+## BusinessCommentReplyCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `video_id` | `string` | Yes | No | Unique identifier for owned TikTok video to create the reply on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to create reply on. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `reply_image_url` | `reply_image_url` | `string` | No | No | URL for the reply image. A publicly accessible HTTP(s) URL for a custom image to be used as the reply. Photo constraints:Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels.Minimum resolution: 360 x 360 pixels.File size: within 20 MB.File type: JPG, JPEG, WebP, or PNG. Example:: https://tiktok.com/tiktok-images/image.jpg Note: Specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in Manage URL properties. |
+| `text` | `text` | `string` | No | No | Either `text` or `image_uri` must be specified. Text for the comment reply. Length limit: 1,200 characters (UTF-8 encoding). Example: "This is a comment #comment 🙂". |
+| `image_uri` | `image_uri` | `string` | No | No | Either `text` or `image_uri` must be specified. URI for the reply image. To obtain the image URL, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Example: `54ccb875ae0c4368b94037d03a95b633` |
+| `image_width` | `image_width` | `number` | No | No | Required when `image_uri` is specified. The width of the image. To obtain the image width, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. |
+| `image_height` | `image_height` | `number` | No | No | Required when `image_uri` is specified. The height of the image. To obtain the image height, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Note: This value is from [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) response. |
+
+## BusinessCommentReplyCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the newly created reply. Example: 6990565363377392901 |
+| `parent_comment_id` | `parent_comment_id` | `string` | No | No | Unique identifier for the comment to which the reply was created. Example: 6990565363377392901 |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the owned video the reply was created on. Example: 6990565363377392901 |
+| `user_id` | `user_id` | `string` | No | No | Developer application and TikTok account scoped unique identifier for the user that made the reply. Example: ce9b7be629b0447af777a0ad945783f61b7f790982b49fbda04a23b4722eaffe Note: This field will be deprecated in the next API version. We recommend using `unique_identifier` to identify the TikTok user because the identifier remains consistent across different APIs. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | A globally unique identifier assigned to each user commenting. This identifier remains consistent across different APIs, facilitating cross-referencing and integration. Example: +ABc1D2/E0fGhijklMNOrD34vDW/zDiZUNRH5Jyahue6OcA7b8ZpwnqXV9u1Uh+k |
+| `create_time` | `create_time` | `string` | No | No | Unix/Epoch date-time when the reply was created, in UTC timezone. Example: 1627617835 |
+| `text` | `text` | `string` | No | No | Comment text. Returned if the user replies with text rather than with an image. Example: "This is a comment #comment 🙂" |
+| `image_url` | `image_url` | `string` | No | No | A URL to an image in the comment. Returned if the comment is an image. The URL won't expire. |
+
+## BusinessCommentReplyListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `video_id` | `string` | Yes | No | Unique identifier for owned TikTok video to list comments on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to list replies on. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `status` | `status` | `"PUBLIC" \| "ALL"` | No | No | Enumerated status of comment reply visibility. Enum values: `PUBLIC`: Comment replies are publicly viewable by all TikTok users.`ALL`: Comment replies are both hidden from view as well as publicly viewable by all TikTok users. Default value: `ALL`. |
+| `sort_field` | `sort_field` | `string` | No | No | Specific field to sort comment replies by. Enum values: `likes`: Sort comment replies by the number of likes in the specified `sort_order`. `replies`: Sort comment replies by the number of replies in the specified `sort_order`.`create_time`: Sort comment replies chronologically in the specified `sort_order`.By default, the comment replies will be returned in a random order. |
+| `sort_order` | `sort_order` | `string` | No | No | Specific field to sort comment replies by. Enum values: `asc`: Sort comment replies in ascending order by the specified `sort_field`. `desc`: Sort comment replies in descending order by the specified `sort_field`. By default, the comment replies will be sorted according to semantics. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of comment replies that will be returned for each page of data. Default value: 20. Minimum value: 0. Maximum value: 30. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is true. |
+
+## BusinessCommentReplyListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<BusinessCommentReplyListResponseComments>` | No | No | List of current page of replies to the specified comment created on the specified video. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the cursor query parameter of the subsequent API request. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. |
+
+## BusinessCommentReplyListResponseComments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the reply. Example: 6990565363377392901. |
+| `parent_comment_id` | `parent_comment_id` | `string` | No | No | The ID of the comment to which the reply (`comment_id`) is directed. Example: 6990565363377392901. |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the owned video the reply was created on. Example: 6990565363377392901. |
+| `user_id` | `user_id` | `string` | No | No | Developer application and TikTok account scoped unique identifier for the user that made the reply. Example: ce9b7be629b0447af777a0ad945783f61b7f790982b49fbda04a23b4722eaffe. Note: This field will be deprecated in the next API version. We recommend using `unique_identifier` to identify the TikTok user because the identifier remains consistent across different APIs. |
+| `unique_identifier` | `unique_identifier` | `string` | No | No | A globally unique identifier assigned to each user commenting. This identifier remains consistent across different APIs, facilitating cross-referencing and integration. Example: +ABc1D2/E0fGhijklMNOrD34vDW/zDiZUNRH5Jyahue6OcA7b8ZpwnqXV9u1Uh+k. |
+| `create_time` | `create_time` | `string` | No | No | Unix/Epoch date-time when the reply was created. Example: 1627617835. |
+| `text` | `text` | `string` | No | No | Text content of the reply. Example: "This is a reply #reply 🙂". |
+| `likes` | `likes` | `number` | No | No | Number of likes the reply has received. Example: 123. |
+| `replies` | `replies` | `number` | No | No | Number of replies the reply has received. Example: 123. |
+| `owner` | `owner` | `boolean` | No | No | Whether the current application user owns the reply. Example: `true`. |
+| `liked` | `liked` | `boolean` | No | No | Whether the current application user likes the reply. Example: `true`. |
+| `pinned` | `pinned` | `boolean` | No | No | Whether the current application user pinned the reply. Example: `true`. |
+| `status` | `status` | `string` | No | No | The visibility status of the reply. Possible values: `HIDDEN`: The reply is hidden from public viewership. `PUBLIC`: The reply can be viewed by all users. Example: `PUBLIC`. |
+| `username` | `username` | `string` | No | No | The username of the TikTok user who made the reply.. Example: feather_in_the_w1nd. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok user who made the reply. Example: Feather in the wind |
+| `profile_image` | `profile_image` | `string` | No | No | The avatar link for the account. It will expire at the x-expires Unix/Epoch date-time in the link. Example: https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/188d468fc1de3f328250ea0c96e98f8b~c5_168x168.jpeg?x-expires=1651687200&x-signature=AAiHg70%2Bnj9iUipTuQWodRmk0qA%3D. |
+| `image_url` | `image_url` | `string` | No | No | A URL to an image in the comment. Returned if the comment is an image. The URL won't expire. |
+
+## BusinessGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `start_date` | `start_date` | `string` | No | No | Query start date, closed interval, format such as: 2021-06-01. The date is based on the UTC time zone. If not set, then the `start_date` will be [current date - 7 days]. The maximum supported look-back period is 60 days. |
+| `end_date` | `end_date` | `string` | No | No | Query end date, closed interval, format such as: 2021-06-01. The date is based on the UTC time zone. If not set, then `end_date` will be [current date - 1 day]. |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If not set, returns the default fields only. Default fields: `["display_name", "profile_image"]` To retrieve certain fields in the response, you must have specific permissions. You can check the "Required permission" column for each field in the response schema to determine the permissions needed. To confirm that you have the necessary permission scope, you can check the scope returned by the [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545) endpoint. If the required permission has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission. Example: `["display_name", "profile_image"]`. Supported fields: `is_business_account`：Whether the TikTok account is a TikTok Business Account. This metric is only available when the TikTok account user has granted you the new permission scope "user.account.type". Note: To determine whether you have obtained the permission scope "user.account.type", you can check the `scope` returned from [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545). If the permission scope has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission scope.`profile_image`: The URL to the profile photo of the TikTok account.`username`: The username (handle) of the TikTok account.`profile_deep_link`: The link to the profile page of the TikTok account.`display_name`: The display name (nickname) of the TikTok account.`bio_description`: The bio description of the TikTok account. `is_verified`: Whether TikTok has provided a verified badge to the TikTok account after confirming that it belongs to the user it represents.`following_count`: The number of accounts that the TikTok account is following. `followers_count`: The number of followers for the TikTok account. Note: If you specify `followers_count` in the value of `fields`, you will obtain `followers_count` as both a lifetime metric and a daily metric in the response.`total_likes`: Total likes. The total number of times people have liked your published videos.`videos_count`: The lifetime number of public videos posted by the TikTok account. `video_views`: Daily video views. The daily number of times your videos have been viewed. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. `unique_video_views`: Daily reached audience. The daily number of people who watched your published content at least once. `profile_views`: Daily profile views. The daily number of clicks on your profile from users.`likes`: Daily likes. The daily number of times people have liked your published videos.`comments`: Daily comments. The daily number of times people have commented on your published videos. `shares`: Daily shares. The daily number of times people have shared your published videos. `phone_number_clicks`: Daily phone number clicks. The daily number of clicks collected on your phone number link in the selected date range. `lead_submissions`: Daily lead submissions. The daily number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers in the selected date range. `app_download_clicks`: Daily app download link clicks. The daily number of clicks collected on your app download link in the selected date range. `bio_link_clicks`: Daily bio link clicks. The daily number of clicks collected on your link-in-bio during the selected time range. `email_clicks`: Daily email clicks. The daily number of clicks collected on the Email button on your profile during the selected time range. `address_clicks`: Daily address clicks. The daily number of clicks collected on the Address button on your profile during the selected time range. `daily_total_followers`: Daily net growth. The daily change in the number of followers. `daily_new_followers`: Daily new followers. The daily number of new followers you have gained. `daily_lost_followers`: Daily lost followers. The daily number of followers you have lost. `audience_activity`: Hourly follower activity. The hourly breakdown of followers active on TikTok during the day.The data for this metric is only available for TikTok accounts with at least 100 followers.`engaged_audience`: Daily engaged audience. The daily number of people who engaged (liked, commented or shared) with at least one of your published content. `audience_ages`: Follower age. The distribution of your followers by age. This demographic data is based on a number of factors, including information users provide in their profiles. The data for this metric is only available for TikTok accounts with at least 100 followers. `audience_genders`: Follower gender. The distribution of your followers by gender. This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers.`audience_countries`: Follower top countries or regions. The distribution of your followers by their location (countries or regions). This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers. `audience_cities`: Follower top cities. The distribution of your followers by their cities. This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers. |
+
+## BusinessGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_business_account` | `is_business_account` | `boolean` | No | No | Whether the TikTok account (`business_id`) is a TikTok Business Account. Enum values: `true`: The TikTok account is a TikTok Business Account. `false`: The TikTok account is a TikTok Personal Account. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for profile photo of the TikTok account. Expiration date-time included in x-expires query param as Epoch/Unix time in seconds. Example: https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/75dec21d63500917fb6ec8bc59415156~c5_300x300.jpeg?x-expires=1614099600&x-signature=PmK%2BWs3LzSzRL2tYs%2FZx7EjG3Gk%3D Updated in: Real-time |
+| `username` | `username` | `string` | No | No | The username (handle) of the TikTok account. Example: la_flama_blanca Updated in: Real-time |
+| `profile_deep_link` | `profile_deep_link` | `string` | No | No | The link to the profile page of the TikTok account. Example: https://vm.tiktok.com/ABcdEfghi/ Updated in: Real-time |
+| `display_name` | `display_name` | `string` | No | No | The display name (nickname) for the TikTok account. Example: La Flama Blanca Updated in: Real-time |
+| `bio_description` | `bio_description` | `string` | No | No | The bio description of the TikTok account. Updated in: Real-time Note: If you have not set a bio for the TikTok account, the value of this field will be an empty string (`""`). |
+| `is_verified` | `is_verified` | `boolean` | No | No | Whether TikTok has provided a verified badge to the TikTok account after confirming that it belongs to the user it represents. Supported values: `true`, `false`. Example: `true` Updated in: Real-time |
+| `following_count` | `following_count` | `number` | No | No | The lifetime number of accounts that the TikTok account is following. Example: 2 Updated in: Real-time |
+| `followers_count` | `followers_count` | `number` | No | No | The total number of followers for the TikTok account. Example: 123 Updated in: Real-time |
+| `total_likes` | `total_likes` | `number` | No | No | Total likes. The total number of times people have liked your published videos. Example: 6 Updated in: Real-time |
+| `videos_count` | `videos_count` | `number` | No | No | The lifetime number of public videos posted by the TikTok account. Example: 6 Updated in: Real-time |
+| `metrics` | `metrics` | `Array<BusinessGetResponseMetrics>` | No | No | All requested daily metrics. Note: Metrics data will only be returned for dates after the TikTok Account was created. There can be up to a 24-48 hour delay in metrics availability. |
+| `audience_ages` | `audience_ages` | `Array<BusinessGetResponseAudienceAges>` | No | No | Follower age. The distribution of your followers by age. This demographic data is based on a number of factors, including information users provide in their profiles.. Updated in: T + 24-48 hrs (UTC time) Data source: TikTok Studio Note: The data for this metric is only available for TikTok accounts with at least 100 followers. |
+| `audience_genders` | `audience_genders` | `Array<BusinessGetResponseAudienceGenders>` | No | No | Follower gender. The distribution of your followers by gender. This demographic data is based on a number of factors, including information users provide in their profiles. Note: The data for this metric is only available for TikTok accounts with at least 100 followers. Data source: TikTok Studio Example: `[&#123;gender: "Female", percentage: 0.7554470336505679&#125;, &#123;gender: "Male", percentage: 0.24455296634943213&#125;, ...]` Updated in: T + 24-48 hrs (UTC time) |
+| `audience_countries` | `audience_countries` | `Array<BusinessGetResponseAudienceCountries>` | No | No | Follower top countries or regions. The distribution of your followers by their location (countries or regions). This demographic data is based on a number of factors, including information users provide in their profiles. Data source: TikTok Studio Note: The data for this metric is only available for TikTok accounts with at least 100 followers. Example: `[&#123;country: "US", percentage: 0.7554470336505679&#125;, &#123;country: "UK", percentage: 0.24455296634943213&#125;, ...]` Updated in: T + 24-48 hrs (UTC time) |
+| `audience_cities` | `audience_cities` | `Array<BusinessGetResponseAudienceCities>` | No | No | Follower top cities. The distribution of your followers by their cities. This demographic data is based on a number of factors, including information users provide in their profiles. Data source: TikTok Studio Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for TikTok accounts with at least 100 followers. |
+
+## BusinessGetResponseAudienceAges
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `string` | No | No | Age group. Enum values: `18-24`, `25-34`, `35-44`, `45-54`, `55+`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of followers associated with the age group. |
+
+## BusinessGetResponseAudienceCities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `city_name` | `city_name` | `string` | No | No | City name. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of followers associated with the city. |
+
+## BusinessGetResponseAudienceCountries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country or region code. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of followers Verified Business Accountsed from a specified country or region. |
+
+## BusinessGetResponseAudienceGenders
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gender` | `gender` | `string` | No | No | Gender. Enum values: `Female`, `Male`, `Other`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage of followers associated with the gender. |
+
+## BusinessGetResponseMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | The date for this set of daily metrics - in YYYY-MM-DD format - in UTC time zone. Example: 2021-08-12 Updated in: T + 24-48 hrs (UTC time) |
+| `video_views` | `video_views` | `number` | No | No | Daily video views. The daily number of times your videos have been viewed. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `unique_video_views` | `unique_video_views` | `number` | No | No | Daily reached audience. The daily number of people who watched your published content at least once. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for Business Accounts. |
+| `profile_views` | `profile_views` | `number` | No | No | Daily profile views. The daily number of clicks on your profile from users. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `likes` | `likes` | `number` | No | No | Daily likes. The daily number of times people have liked your published videos. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The likes count displayed in this field does not subtract unlikes (likes that are removed or withdrawn later). There may be a discrepancy between this value and the likes displayed on the Business Suite &gt; Analytics page for Business Accounts. For example, if a post receives 30 likes and 10 unlikes:This field will show 30 likes.The Analytics page for Business Accounts will show 20 likes (30 likes - 10 unlikes). |
+| `comments` | `comments` | `number` | No | No | Daily comments. The daily number of times people have commented on your published videos. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `shares` | `shares` | `number` | No | No | Daily shares. The daily number of times people have shared your published videos. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `phone_number_clicks` | `phone_number_clicks` | `number` | No | No | Daily phone number clicks. The daily number of clicks collected on your phone number link in the selected date range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `lead_submissions` | `lead_submissions` | `number` | No | No | Daily lead submissions. The daily number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers in the selected date range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `app_download_clicks` | `app_download_clicks` | `number` | No | No | Daily app download link clicks. The daily number of clicks collected on your app download link in the selected date range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `bio_link_clicks` | `bio_link_clicks` | `number` | No | No | Daily bio link clicks. The daily number of clicks collected on your link-in-bio during the selected time range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `email_clicks` | `email_clicks` | `number` | No | No | Daily email clicks.. The daily number of clicks collected on the Email button on your profile during the selected time range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `address_clicks` | `address_clicks` | `number` | No | No | Daily address clicks. The daily number of clicks collected on the Address button on your profile during the selected time range. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for [Verified Business Accounts](https://ads.tiktok.com/help/article/about-business-registration). |
+| `daily_total_followers` | `daily_total_followers` | `number` | No | No | Daily net growth. The daily change in the number of followers. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for Business Accounts |
+| `daily_new_followers` | `daily_new_followers` | `number` | No | No | Daily new followers. The daily number of new followers you have gained. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for Business Accounts |
+| `daily_lost_followers` | `daily_lost_followers` | `number` | No | No | Daily lost followers. The daily number of followers you have lost. Data source: Business Analytics. Example: 123 Updated in: T + 24-48 hrs (UTC time) Note: The data for this metric is only available for Business Accounts |
+| `followers_count` | `followers_count` | `number` | No | No | The total number of people who are following your account on the date. Data source: TikTok Studio. Example: 123 Updated in: T + 24-48 hrs (UTC time) |
+| `audience_activity` | `audience_activity` | `Array<BusinessGetResponseMetricsAudienceActivity>` | No | No | Hourly follower activity. The hourly breakdown of followers active on TikTok during the day in UTC+0 time zone. Note: The data for this metric is only available for Business Accounts with at least 100 followers. Data source: TikTok Studio. Example: `[&#123;"hour": "0", "count": 12&#125;, &#123;"hour": "1", "count": 18&#125;, &#123;"hour": "2", "count": 23&#125;, &#123;"hour": "3", "count": 28&#125;, ...]` Updated in: T + 24-48 hrs (UTC time) |
+| `engaged_audience` | `engaged_audience` | `number` | No | No | Daily engaged audience. The daily number of people who engaged (liked, commented or shared) with at least one of your published content. Data source: Business Analytics. Note: The data for this metric is only available for Business Accounts. |
+
+## BusinessGetResponseMetricsAudienceActivity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hour` | `hour` | `string` | No | No | The specific hour in the day. |
+| `count` | `count` | `number` | No | No | The number of followers active on TikTok during the hour. |
+
+## BusinessHashtagSuggestionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `keyword` | `keyword` | `string` | Yes | No | The keyword that you want to get recommended hashtags for. |
+| `language` | `language` | `string` | No | No | Keyword language. The language of the hashtag recommendations will match the keyword language. Default value: `en` (English). Enum values:`en`: English`ar`: Arabic`bn-IN`: Bengali`ceb-PH`: Cebuano`cs-CZ`: Czech`de-DE`: German`el-GR`: Greek`es`: Spanish`fi-FI`: Finnish`fil-PH`: Filipino`fr`: French`he-IL`: Hebrew`hi-IN`: Hindi`hu-HU`: Hungarian`id-ID`: Indonesian`it-IT`: Italian`ja-JP`: Japanese`jv-ID`: Javanese`km-KH`: Khmer`ko-KR`: Korean`ms-MY`: Malay`my-MM`: Burmese`nl-NL`: Dutch`pl-PL`: Polish`pt-BR`: Portuguese`ro-RO`: Romanian`ru-RU`: Russian`sv-SE`: Swedish`th-TH`: Thai`tr-TR`: Turkish`uk-UA`: Ukranian`ur`: Urdu`vi-VN`: Vietnamese`zh-Hans`: Chinese (simplified)`zh-Hant-TW`: Chinese (traditional) |
+
+## BusinessHashtagSuggestionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestions` | `suggestions` | `Array<BusinessHashtagSuggestionResponseSuggestions>` | No | No | List of hashtag suggestions. 10 recommended hashtags will be provided in total and the hashtags are first ordered by exact match and then by the number of views. Note: If no hashtag suggestion is available for the `keyword` you specify, we will return the same keyword in `name`, and `view_count` will be 0. |
+
+## BusinessHashtagSuggestionResponseSuggestions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | The name of the recommended hashtag. |
+| `view_count` | `view_count` | `number` | No | No | The number of views that the recommended hashtag has received. |
+
+## BusinessMentionCommentGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `comment_id` | `comment_id` | `string` | Yes | No | The ID of the comment or reply that mentions a business in the comment text. Pass the `comment_id` as obtained from `comment_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the post on which the comment was published. Pass the post ID as obtained from `video_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["comment_id","comment_text"]`. Supported fields:`item_id`: Unique identifier for the post.`video_link`: A generic URL for the post.`video_likes`: Total number of likes on the post.`thumbnail_url`: The URL of the post thumbnail.`commenter_handle_name`: The handle name of the user who made the comment.`comment_id`: Unique identifier for the comment.`comment_type`: The type of comment.`comment_text`: The comment text that mentions the business's handle.`comment_create_time`: The time when the comment was posted.`comment_likes`: Total number of likes for the comment. |
+
+## BusinessMentionCommentGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment` | `comment` | `BusinessMentionCommentGetResponseComment` | No | No | Information about the mention in the comment. |
+
+## BusinessMentionCommentGetResponseComment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: `6995316737801538821`. |
+| `video_link` | `video_link` | `string` | No | No | The generic URL of the post, in the format of https://www.tiktok.com/@/video/&#123;item_id&#125;. Example: `https://www.tiktok.com/@/video/7231234123412341234`. |
+| `video_likes` | `video_likes` | `number` | No | No | Total number of likes on the post. Example: 243. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the post thumbnail. Validity period: 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/tos-maliva-p-0068/1f9a445423844b82bd79317b42b9953f~c5_300x400.webp?x-expires=1614034800&x-signature=qChosOGafzBcTctPm9zYiF8Y2MA%3D"`. Note: For TikTok photo posts, the value of this field will be an empty string (`""`). |
+| `commenter_handle_name` | `commenter_handle_name` | `string` | No | No | The handle name of the user who made the comment. Example: `angely`. |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the comment. Example: `6990565363377392901`. |
+| `comment_type` | `comment_type` | `"COMMENT" \| "REPLY"` | No | No | The type of comment. Enum values:`COMMENT`: Top-level comment.`REPLY`: Comment reply. |
+| `comment_text` | `comment_text` | `string` | No | No | The comment text that mentions the brand's handle. Example: `This is a comment #comment 🙂`. |
+| `comment_create_time` | `comment_create_time` | `string` | No | No | Unix/epoch date-time when the comment was posted, in UTC timezone. Example: `2025-04-01 06:49:10 +0000 UTC`. |
+| `comment_likes` | `comment_likes` | `number` | No | No | Total number of likes for the comment. Example: 243. |
+
+## BusinessMentionCommentListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["comment_id","comment_text"]`. Supported fields:`item_id`: Unique identifier for the post.`video_link`: A generic URL for the post.`caption`: The description of the post.`video_likes`: Total number of likes on the post.`thumbnail_url`: The URL of the post thumbnail.`commenter_display_name`: The handle name of the user who made the comment.`comment_id`: Unique identifier for the comment.`comment_type`: The type of comment.`comment_text`: The comment text that mentions the business's handle.`comment_create_time`: The time when the comment was posted.`comment_likes`: Total number of likes for the comment. |
+| `sort_field` | `sort_field` | `"VIDEO_LIKES" \| "COMMENT_CREATE_TIME" \| "COMMENT_LIKES"` | No | No | The field to sort the result by. Enum values:`VIDEO_LIKES`: The field `video_likes`.`COMMENT_CREATE_TIME`: The field `comment_create_time`.`COMMENT_LIKES`: The field `comment_likes`.Default value: `COMMENT_CREATE_TIME`. |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `number_of_days` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `regions` | `Array<string>` | No | No | The regions of posts that you want to filter the results by. If you specify this field, only comments on posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, comments on all relevant posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of comments to be returned for each page of data. Default value: 10. Value range: 1-100. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is `true`. |
+
+## BusinessMentionCommentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<BusinessMentionCommentListResponseComments>` | No | No | Information about the mentions in comments. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the cursor query parameter of the subsequent API request. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. |
+
+## BusinessMentionCommentListResponseComments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: `6995316737801538821`. |
+| `video_link` | `video_link` | `string` | No | No | The generic URL of the post, in the format of https://www.tiktok.com/@/video/&#123;item_id&#125;. Example: `https://www.tiktok.com/@/video/7231234123412341234`. |
+| `caption` | `caption` | `string` | No | No | Post description. Example: `Nuki: me and me casa 🏠 #cat #kitten #britishshorthair`. |
+| `video_likes` | `video_likes` | `number` | No | No | Total number of likes on the post. Example: 243. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the post thumbnail. Validity period: 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/tos-maliva-p-0068/1f9a445423844b82bd79317b42b9953f~c5_300x400.webp?x-expires=1614034800&x-signature=qChosOGafzBcTctPm9zYiF8Y2MA%3D"`. Note: For TikTok photo posts, the value of this field will be an empty string (`""`). |
+| `commenter_display_name` | `commenter_display_name` | `string` | No | No | The handle name of the user who made the comment. Example: `angely`. |
+| `comment_id` | `comment_id` | `string` | No | No | Unique identifier for the comment. Example: `6990565363377392901`. |
+| `comment_type` | `comment_type` | `"COMMENT" \| "REPLY"` | No | No | The type of comment. Enum values:`COMMENT`: Top-level comment.`REPLY`: Comment reply. |
+| `comment_text` | `comment_text` | `string` | No | No | The comment text that mentions the brand's handle. Example: `This is a comment #comment 🙂`. |
+| `comment_create_time` | `comment_create_time` | `string` | No | No | Unix/epoch date-time when the comment was posted, in UTC timezone. Example: `1628461703`. |
+| `comment_likes` | `comment_likes` | `number` | No | No | Total number of likes for the comment. Example: 243. |
+
+## BusinessMentionHashtagAddParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `username` | `string` | Yes | No | The username (handle) of the Business Account. |
+| `hashtags` | `hashtags` | `Array<string>` | Yes | No | A list of hashtags to enable for the brand. You can include hashtags from [/business/mention/hashtag/verify/list/](https://business-api.tiktok.com/portal/docs?id=1833862470219842) or include the full Business Account handle as a substring of the hashtag. For example, if the Business Account handle is `@TikTok`, the hashtag `#drinktiktok` would be valid. Max size: 10. |
+
+## BusinessMentionHashtagAddResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_list` | `hashtag_list` | `Array<BusinessMentionHashtagAddResponseHashtagList>` | No | No | The list of hashtags enabled for the Business Account (brand). |
+
+## BusinessMentionHashtagAddResponseHashtagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag` | `hashtag` | `string` | No | No | A hashtag that has been enabled for the Business Account. |
+| `create_date` | `create_date` | `string` | No | No | The date when the hashtag was enabled for the brand, in the format of `YYYY-MM-DD` (UTC+0 time). Example: `2025-01-01`. |
+
+## BusinessMentionHashtagManageListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `username` | `string` | Yes | No | The username (handle) of the Business Account. |
+
+## BusinessMentionHashtagManageListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_list` | `hashtag_list` | `Array<BusinessMentionHashtagManageListResponseHashtagList>` | No | No | The list of hashtags enabled for the Business Account (brand). |
+
+## BusinessMentionHashtagManageListResponseHashtagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag` | `hashtag` | `string` | No | No | A hashtag enabled for the Business Account. |
+| `create_date` | `create_date` | `string` | No | No | The date when the hashtag was enabled for the Business Account, in the format of `YYYY-MM-DD` (UTC+0 time). Example: `2025-01-01`. |
+
+## BusinessMentionHashtagRemoveParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `username` | `string` | Yes | No | The username (handle) of the Business Account. |
+| `hashtag` | `hashtag` | `string` | Yes | No | A hashtag to remove. To obtain a list of existing enabled hashtags for the brand, use [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). Note: You can only delete hashtags that were enabled at least seven days ago. To ensure this, check the returned `create_date` for the hashtags from [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). |
+
+## BusinessMentionHashtagRemoveResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessMentionHashtagVerifyListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `username` | `username` | `string` | Yes | No | The username (handle) of the Business Account. |
+
+## BusinessMentionHashtagVerifyListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_list` | `hashtag_list` | `Array<BusinessMentionHashtagVerifyListResponseHashtagList>` | No | No | The list of valid hashtags that you can enable for the Business Account. |
+
+## BusinessMentionHashtagVerifyListResponseHashtagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag` | `hashtag` | `string` | No | No | A valid hashtag that you can enable for the Business Account. |
+| `post_count` | `post_count` | `number` | No | No | The total number of posts containing the hashtag in the post caption in the last 90 days. |
+| `like_count` | `like_count` | `number` | No | No | The total number of likes on posts containing the hashtag in the post caption in the last 90 days. |
+| `mention_post_rank` | `mention_post_rank` | `number` | No | No | The rank of the hashtag among all the valid hashtags for the Business Account. |
+
+## BusinessMentionHashtagVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `hashtag` | `hashtag` | `string` | No | No | The hashtag for which to retrieve the top 1,000 posts over the last 90 days. Specify one hashtag from the Business Account's enabled hashtags. If this field is omitted, the response will include the top posts across all of the Business Account's enabled hashtags. To retrieve the list of hashtags enabled for the Business Account, use [/business/mention/hashtag/manage/list/](https://business-api.tiktok.com/portal/docs?id=1833832557996034). Note: The hashtag is case-sensitive and requires an exact match with an enabled hashtag for the Business Account. |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`matched_hashtags`: A list of brand hashtags in the post caption that match the hashtags configured for the business. |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "LIKES" \| "COMMENTS" \| "SHARES"` | No | No | The field to sort the result by. Enum values:`CREATE_TIME`: The field `create_time`.`LIKES`: The field `likes`.`COMMENTS`: The field `comments`.`SHARES`: The field `shares`.Default value: `CREATE_TIME`. |
+| `sort_order` | `sort_order` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `number_of_days` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `regions` | `Array<string>` | No | No | The regions of posts that you want to filter the results by. If you specify this field, only posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, all relevant posts that contain brand hashtags will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is `true`, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of hashtags that will be returned for each page of data. Default value: 10. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of hashtags even if the response parameter `has_more` is `true`. |
+
+## BusinessMentionHashtagVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videos` | `videos` | `Array<BusinessMentionHashtagVideoListResponseVideos>` | No | No | Information about the posts. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the `cursor` query parameter of the subsequent API request. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. |
+
+## BusinessMentionHashtagVideoListResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: `6995316737801538821`. |
+| `create_time` | `create_time` | `string` | No | No | Unix/epoch date-time when the post was posted, in UTC timezone. Example: `1628461703`. |
+| `video_link` | `video_link` | `string` | No | No | The generic URL of the post, in the format of `https://www.tiktok.com/@/video/&#123;item_id&#125;`. Example: `https://www.tiktok.com/@/video/7231234123412341234`. |
+| `caption` | `caption` | `string` | No | No | Post description. Example: `Nuki: me and me casa 🏠 #cat #kitten #britishshorthair`. |
+| `likes` | `likes` | `number` | No | No | Total number of likes on the post. Example: 243. |
+| `comments` | `comments` | `number` | No | No | Total number of comments on the post. Example: 10. |
+| `shares` | `shares` | `number` | No | No | Total number of times the post has been shared. Example: 10. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the post thumbnail. Validity period: 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/tos-maliva-p-0068/1f9a445423844b82bd79317b42b9953f~c5_300x400.webp?x-expires=1614034800&x-signature=qChosOGafzBcTctPm9zYiF8Y2MA%3D`. |
+| `matched_hashtags` | `matched_hashtags` | `Array<string>` | No | No | A list of brand hashtags in the post caption that match the hashtags configured for the business. Example: `[\"tiktok\", \"tiktokrunning\"]`. Note: If a specific hashtag is passed in the request, this field will return an empty array `[]`, as the response is filtered to only include posts for the requested hashtag. |
+
+## BusinessMentionTopHashtagListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `regions` | `regions` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the top hashtags in mentioned posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, the top hashtags in all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+
+## BusinessMentionTopHashtagListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<BusinessMentionTopHashtagListResponseResults>` | No | No | The results of the top 20 hashtags in the mentioned posts. |
+
+## BusinessMentionTopHashtagListResponseResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag` | `hashtag` | `string` | No | No | A hashtag that appears frequently in the captions of mentioned posts. Example: `fashion`. |
+| `count` | `count` | `number` | No | No | The frequency of the hashtag. |
+
+## BusinessMentionTopWordListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `regions` | `regions` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the top keywords in mentioned posts posted by TikTok users registered in the specified regions will be returned.If this field is not specified, the top keywords in all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+
+## BusinessMentionTopWordListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<BusinessMentionTopWordListResponseResults>` | No | No | The results of the top 20 keywords in mentioned posts. |
+
+## BusinessMentionTopWordListResponseResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `word` | `word` | `string` | No | No | A word or phrase that appears frequently in the captions of mentioned posts. Example: `fashion`. |
+| `count` | `count` | `number` | No | No | The frequency of the word or phrase. |
+
+## BusinessMentionVideoGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the post on which the comment was published. Pass the post ID as obtained from `video_id` within the [`content` of the mentions webhook event](https://business-api.tiktok.com/portal/docs?id=1825113658431489#item-link-Event%20content). |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`views`: Total number of views the post has received.`reach`: Total number of unique viewers who viewed the post.`creator_handle_name`: The handle name of the creator who published the post. |
+
+## BusinessMentionVideoGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video` | `video` | `Array<BusinessMentionVideoGetResponseVideo>` | No | No | Information about the mentioned post. |
+
+## BusinessMentionVideoGetResponseVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: `6995316737801538821`. |
+| `create_time` | `create_time` | `string` | No | No | Unix/epoch date-time when the post was posted, in UTC timezone. Example: `1628461703`. |
+| `video_link` | `video_link` | `string` | No | No | The generic URL of the post, in the format of `https://www.tiktok.com/@/video/&#123;item_id&#125;`. Example: `https://www.tiktok.com/@/video/7231234123412341234`. |
+| `caption` | `caption` | `string` | No | No | Post description. Example: `Nuki: me and me casa 🏠 #cat #kitten #britishshorthair`. |
+| `likes` | `likes` | `number` | No | No | Total number of likes on the post. Example: 243. |
+| `comments` | `comments` | `number` | No | No | Total number of comments on the post. Example: 10. |
+| `shares` | `shares` | `number` | No | No | Total number of times the post has been shared. Example: 10. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the post thumbnail. Validity period: 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/tos-maliva-p-0068/1f9a445423844b82bd79317b42b9953f~c5_300x400.webp?x-expires=1614034800&x-signature=qChosOGafzBcTctPm9zYiF8Y2MA%3D`. Note: For TikTok photo posts, the value of this field will be an empty string (`""`). |
+| `creator_handle_name` | `creator_handle_name` | `string` | No | No | The handle name of the creator who published the post. |
+| `views` | `views` | `number` | No | No | Total number of views the post has received. Note: If the number of views the post has received is less than 1,000, the value of this field will be null. |
+| `reach` | `reach` | `number` | No | No | Total number of unique viewers who viewed the post. Note: If the number of unique viewers who viewed the post is less than 1,000, the value of this field will be null. |
+
+## BusinessMentionVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. You can get the ID through the `open_id` field returned by [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1825105003772930#item-link-Obtain%20an%20access%20token). |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If `fields` is not set, only the default fields will be returned. Default value: `["item_id","caption"]`. Supported fields:`item_id`: Unique identifier for the post.`create_time`: Unix/epoch date-time when the post was posted.`video_link`: A generic URL for the post.`caption`: The description for the post.`likes`: Total number of likes on the post.`comments`: Total number of comments on the post.`shares`: Total number of times the post has been shared.`thumbnail_url`: The URL of the post thumbnail.`views`: Total number of views the post has received.`reach`: Total number of unique viewers who viewed the post.`creator_handle_name`: The handle name of the creator who published the post. |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "LIKES" \| "COMMENTS" \| "SHARES"` | No | No | The field to sort the result by. Enum values:`CREATE_TIME`: The field `create_time`.`LIKES`: The field `likes`.`COMMENTS`: The field `comments`.`SHARES`: The field `shares`.Default value: `CREATE_TIME`. |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: Ascending.`DESC`: Descending.Default value: `DESC`. |
+| `number_of_days` | `number_of_days` | `number` | No | No | The lookback period for the results, measured in days. Value range: 1-90. Default value: 90. For instance, if you set this field to 90, the results for the last 90 days will be retrieved. |
+| `regions` | `regions` | `Array<string>` | No | No | The regions of mentioned posts that you want to filter the results by. If you specify this field, only the mentioned posts published by TikTok users registered in the specified regions will be returned.If this field is not specified, all mentioned posts will be returned. To learn about the allowed values for this field, refer to [List of values for `regions`](https://business-api.tiktok.com/portal/docs?id=1825107519114241#item-link-List%20of%20values%20for%20regions). |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. The position of the results that you want to retrieve from. For instance, setting `cursor` to 10 means you want to retrieve the next page of results after the 10th position. If the response parameter `has_more` is `true`, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `max_count` | `number` | No | No | The maximum number of comments to be returned for each page of data. Default value: 100. Value range: 1-100. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is `true`. |
+
+## BusinessMentionVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videos` | `videos` | `Array<BusinessMentionVideoListResponseVideos>` | No | No | Information about the mentioned posts. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for the next page of results, to be passed in the `cursor` query parameter of the subsequent API request. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. |
+
+## BusinessMentionVideoListResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | Unique identifier for the post. Example: `6995316737801538821`. |
+| `create_time` | `create_time` | `string` | No | No | Unix/epoch date-time when the post was posted, in UTC timezone. Example: `1628461703`. |
+| `video_link` | `video_link` | `string` | No | No | The generic URL of the post, in the format of `https://www.tiktok.com/@/video/&#123;item_id&#125;`. Example: `https://www.tiktok.com/@/video/7231234123412341234`. |
+| `caption` | `caption` | `string` | No | No | Post description. Example: `Nuki: me and me casa 🏠 #cat #kitten #britishshorthair`. |
+| `likes` | `likes` | `number` | No | No | Total number of likes on the post. Example: 243. |
+| `comments` | `comments` | `number` | No | No | Total number of comments on the post. Example: 10. |
+| `shares` | `shares` | `number` | No | No | Total number of times the post has been shared. Example: 10. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the post thumbnail. Validity period: 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign-sg.tiktokcdn.com/tos-maliva-p-0068/1f9a445423844b82bd79317b42b9953f~c5_300x400.webp?x-expires=1614034800&x-signature=qChosOGafzBcTctPm9zYiF8Y2MA%3D`. Note: For TikTok photo posts, the value of this field will be an empty string (`""`). |
+| `creator_handle_name` | `creator_handle_name` | `string` | No | No | The handle name of the creator who published the post. |
+| `views` | `views` | `number` | No | No | Total number of views the post has received. Note: If the number of views the post has received is less than 1,000, the value of this field will be null. |
+| `reach` | `reach` | `number` | No | No | Total number of unique viewers who viewed the post. Note: If the number of unique viewers who viewed the post is less than 1,000, the value of this field will be null. |
+
+## BusinessMessageAutoMessageCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you. To learn about how to manage the welcome message, see [Manage the welcome message for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184264385538).`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. To learn about how to manage suggested questions, see [Manage the suggested questions for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184277518338).`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. To learn about how to manage chat prompts, see [Manage the chat prompts for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184291198977). |
+| `welcome_message` | `welcome_message` | `BusinessMessageAutoMessageCreateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+| `suggested_question` | `suggested_question` | `BusinessMessageAutoMessageCreateParamsSuggestedQuestion` | No | No | Required when `auto_message_type` is `SUGGESTED_QUESTION`. Information about the suggested question. You can only create one suggested question per call. For each Business Account, you can customize up to three suggested questions. If you try to create more than three suggested questions, an error will occur. To create multiple suggested questions, call `/business/message/auto_message/create/` multiple times. Note: Duplicate suggested questions are not supported. |
+| `chat_prompt` | `chat_prompt` | `BusinessMessageAutoMessageCreateParamsChatPrompt` | No | No | Required when `auto_message_type` is `CHAT_PROMPT`. Information about the chat prompt. You can only create one chat prompt per call. For each Business Account, you can customize up to six chat prompts. If you try to create more than six chat prompts, an error will occur. To create multiple chat prompts, call `/business/message/auto_message/create/` multiple times. If you set up multiple chat prompts for your Business Account, the chat prompt that was created earliest will appear as the first prompt above the input box. To sort the chat prompts, use [/business/message/auto_message/sort/](https://business-api.tiktok.com/portal/docs?id=1832184641212433). Note: Duplicate chat prompts are not supported. |
+
+## BusinessMessageAutoMessageCreateParamsChatPrompt
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | Required when `chat_prompt` is passed. The name of the prompt button that is displayed above the input box. Length limit: 18 characters. You can use text, system emojis, and both English and non-English languages. To ensure optimal display, keep the name concise and clear. |
+| `content` | `content` | `string` | No | No | Required when `chat_prompt` is passed. The corresponding question for the prompt that the system automatically generates for users to start the conversation when users tap the chat prompt. Length limit: 150 characters. You can use text, system emojis, and both English and non-English languages. |
+
+## BusinessMessageAutoMessageCreateParamsSuggestedQuestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `question` | `question` | `string` | No | No | Required when `suggested_question` is passed. A frequently asked question to help users start a conversation. Length limit: 80 characters. |
+| `answer` | `answer` | `string` | No | No | Required when `suggested_question` is passed. The preset answer that will be automatically sent when a user selects the question. Length limit: 200 characters. |
+
+## BusinessMessageAutoMessageCreateParamsWelcomeMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content` | `content` | `string` | No | No | Required when `welcome_message` is passed. The text of the welcome message. Length limit: 250 characters. Example: `Hi there, Please leave us a message and we will respond to you shortly. Thank you!`. Note: You can use "\n" as a line break to display the welcome message in multiple lines within the mobile TikTok App. To ensure proper display, check the welcome message in the TikTok mobile app after deployment. |
+
+## BusinessMessageAutoMessageCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message` | `auto_message` | `BusinessMessageAutoMessageCreateResponseAutoMessage` | No | No | Information about the automatic message. |
+
+## BusinessMessageAutoMessageCreateResponseAutoMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. |
+
+## BusinessMessageAutoMessageDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `auto_message_type` | `"SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: The welcome message for a Business Account cannot be deleted. You can only turn off the welcome message via [/business/message/auto_message/status/update/](https://business-api.tiktok.com/portal/docs?id=1832184596566017). |
+| `auto_message_id` | `auto_message_id` | `string` | Yes | No | The ID of the automatic message. To retrieve the automatic messages for a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+
+## BusinessMessageAutoMessageDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessMessageAutoMessageGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you. Each Business Account can have up to one welcome message.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. Each Business Account can have up to three suggested questions.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Each Business Account can have up to six chat prompts. |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. |
+
+## BusinessMessageAutoMessageGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | No | No | Application specific unique identifier for the TikTok Business Account. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | No | No | The status of the automatic message. Enum values: `ENABLE`: The automatic message is turned on.`DISABLE`: The automatic message is turned off. If you want to turn on or turn off an automatic message, use [/business/message/auto_message/status/update/](https://business-api.tiktok.com/portal/docs?id=1832184596566017). |
+| `auto_messages` | `auto_messages` | `Array<BusinessMessageAutoMessageGetResponseAutoMessages>` | No | No | The list of automatic messages. |
+
+## BusinessMessageAutoMessageGetResponseAutoMessages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | No | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. |
+| `audit_status` | `audit_status` | `"REVIEWING" \| "APPROVED" \| "REJECTED"` | No | No | The review status of the automatic message. Enum values: `REVIEWING`: The automatic message is pending review.`APPROVED`: The automatic message has been approved.`REJECTED`: The automatic message has been rejected. Note: If the `audit_status` of the automatic message is `REJECTED`, you cannot update the automatic message by using [/business/message/auto_message/status/update/](https://business-api.tiktok.com/portal/docs?id=1832184596566017).If `audit_status` of the message is `REVIEWING`, you need to wait for some time before rechecking the review status. The exact waiting time may vary depending on the content and other factors, but normally ranges from a few seconds to 2-3 hours. |
+| `welcome_message` | `welcome_message` | `BusinessMessageAutoMessageGetResponseAutoMessagesWelcomeMessage` | No | No | Returned only when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+| `suggested_question` | `suggested_question` | `BusinessMessageAutoMessageGetResponseAutoMessagesSuggestedQuestion` | No | No | Returned only when `auto_message_type` is `SUGGESTED_QUESTION`. Information about the suggested question. |
+| `chat_prompt` | `chat_prompt` | `BusinessMessageAutoMessageGetResponseAutoMessagesChatPrompt` | No | No | Returned only when `auto_message_type` is `CHAT_PROMPT`. Information about the chat prompt. |
+
+## BusinessMessageAutoMessageGetResponseAutoMessagesChatPrompt
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | The name of the prompt button that is displayed above the input box. |
+| `content` | `content` | `string` | No | No | The corresponding question for the prompt that the system automatically generates for users to start the conversation when users tap the chat prompt. |
+
+## BusinessMessageAutoMessageGetResponseAutoMessagesSuggestedQuestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `question` | `question` | `string` | No | No | A frequently asked question to help users start a conversation. |
+| `answer` | `answer` | `string` | No | No | The preset answer that will be automatically sent when a user selects the question. |
+
+## BusinessMessageAutoMessageGetResponseAutoMessagesWelcomeMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content` | `content` | `string` | No | No | The text of the welcome message. Note: If you enable the welcome message for a Business Account for the first time, the default welcome message will be: `"Hi there,\nThanks for contacting &#123;&#123;display_name&#125;&#125;! Feel free to ask a question here or leave us a message and we'll get back to you shortly.\n\nThank you!"` |
+
+## BusinessMessageAutoMessageSortParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `auto_message_type` | `string` | Yes | No | The type of automatic message. Enum value: `CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. |
+| `auto_message_ids` | `auto_message_ids` | `Array<string>` | Yes | No | The IDs of the chat prompts in the desired order. The first ID in the ID list will be the first prompt button that is displayed above the input box. To retrieve the existing chat prompts of a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+
+## BusinessMessageAutoMessageSortResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessMessageAutoMessageStatusUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. Note: If you use this value, all the existing suggestion questions will be disabled.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: If you use this value, all the existing chat prompts will be disabled. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | Yes | No | The operation to perform on the type of automatic message. Enum values: `ENABLE`: To turn on the type of automatic message.`DISABLE`: To turn off the type of automatic message. |
+
+## BusinessMessageAutoMessageStatusUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BusinessMessageAutoMessageUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_id` | `auto_message_id` | `string` | Yes | No | The ID of the automatic message. To retrieve the automatic messages for a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+| `auto_message_type` | `auto_message_type` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT" \| "REVIEWING"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: An automatic message that is pending review cannot be updated. To check the review status of an automatic message, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377) and ensure the returned `audit_status` for the automatic message is not `REVIEWING`. |
+| `welcome_message` | `welcome_message` | `BusinessMessageAutoMessageUpdateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+| `suggested_question` | `suggested_question` | `BusinessMessageAutoMessageUpdateParamsSuggestedQuestion` | No | No | Required when `auto_message_type` is `SUGGESTED_QUESTION`. Information about the suggested question. You can only update one suggested question per call. To update multiple suggested questions, call `/business/message/auto_message/update/` multiple times. |
+| `chat_prompt` | `chat_prompt` | `BusinessMessageAutoMessageUpdateParamsChatPrompt` | No | No | Required when `auto_message_type` is `CHAT_PROMPT`. Information about the chat prompt. |

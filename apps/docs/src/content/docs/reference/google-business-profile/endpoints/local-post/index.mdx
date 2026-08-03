@@ -1,0 +1,199 @@
+---
+title: "Google Business Profile Local post endpoints"
+description: "6 generated Google Business Profile endpoint contracts for Local post."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+v4"
+sidebar:
+  order: 101
+  label: "Local post"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{oauth,resources,types}.ts). Do not edit by hand. */}
+
+## createLocalPost
+
+`POST` `https://mybusiness.googleapis.com/v4/{locationName}/localPosts`
+
+create Local Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `local-post.publish` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.publish` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationName` | `path` | `string` | Yes | No | — |
+| `post` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## deleteLocalPost
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{postName}`
+
+delete Local Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `local-post.delete` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.delete` |
+| Output | `true` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postName` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getLocalPost
+
+`GET` `https://mybusiness.googleapis.com/v4/{postName}`
+
+get Local Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `local-post.read` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postName` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## listLocalPosts
+
+`GET` `https://mybusiness.googleapis.com/v4/{locationName}/localPosts`
+
+list Local Posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `local-post.read` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationName` | `path` | `string` | Yes | No | — |
+| `pageSize` | `query` | `number` | No | No | — |
+| `pageToken` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reportLocalPostInsights
+
+`POST` `https://mybusiness.googleapis.com/v4/{locationName}/localPosts:reportInsights`
+
+report Local Post Insights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `local-post.metrics.read` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.metrics.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationName` | `path` | `string` | Yes | No | — |
+| `localPostNames` | `body` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## updateLocalPost
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{postName}`
+
+update Local Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `local-post.publish` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `local-post.publish` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postName` | `path` | `string` | Yes | No | — |
+| `updateMask` | `query` | `string` | Yes | No | — |
+| `post` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -4,16 +4,19 @@ import { join } from "node:path";
 import { emitEndpointDescriptors } from "./descriptor-emitter.ts";
 import type { SdkIr } from "./ir.ts";
 import { validateSdkIr } from "./ir.ts";
+import { writeNimbusReference } from "./nimbus-emitter.ts";
 import { emitEffectSchemaModule } from "./schema-emitter.ts";
 
 export interface WriteEffectArtifactsOptions {
   readonly outputDir: string;
   readonly ir: SdkIr;
+  readonly docsOutputDir?: string;
 }
 
 export async function writeEffectArtifacts({
   outputDir,
   ir,
+  docsOutputDir,
 }: WriteEffectArtifactsOptions): Promise<void> {
   const issues = validateSdkIr(ir);
   if (issues.length > 0) {
@@ -68,5 +71,8 @@ export async function writeEffectArtifacts({
       ].join("\n"),
       "utf8",
     ),
+    ...(docsOutputDir
+      ? [writeNimbusReference({ outputDir: docsOutputDir, ir }).then(() => {})]
+      : []),
   ]);
 }

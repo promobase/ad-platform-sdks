@@ -1,0 +1,46 @@
+---
+title: "Meta Video Copyright Match endpoints"
+description: "1 generated Meta endpoint contract for Video Copyright Match."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 393
+  label: "Video Copyright Match"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.videoCopyrightMatch.get
+
+`GET` `/{id}`
+
+GET VideoCopyrightMatch
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoCopyrightMatch.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `VideoCopyrightMatchFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

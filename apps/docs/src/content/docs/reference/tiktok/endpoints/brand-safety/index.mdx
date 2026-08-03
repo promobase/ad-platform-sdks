@@ -1,0 +1,83 @@
+---
+title: "TikTok Business Brand Safety endpoints"
+description: "2 generated TikTok Business endpoint contracts for Brand Safety."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 121
+  label: "Brand Safety"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.brandSafety.tiktokInventoryFiltersGet
+
+`GET` `/open_api/v1.3/tiktok_inventory_filters/get/`
+
+Generated from TikTok documentation 1830112550443073
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `brandSafety.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TiktokInventoryFiltersGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.brandSafety.tiktokInventoryFiltersUpdate
+
+`POST` `/open_api/v1.3/tiktok_inventory_filters/update/`
+
+Generated from TikTok documentation 1830112569774274
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `brandSafety.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TiktokInventoryFiltersUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `cover_all_ad_objectives` | `body` | `boolean` | Yes | No | Whether to apply the brand safety settings (`brand_safety_type`, `category_exclusion_ids`, and `vertical_sensitivity_id`) to all advertising objectives. Supported values: `true`: To apply the brand safety settings to all objectives, including Reach, Video views, Community Interaction, Traffic, App Promotion, Lead Generation, Website Conversions, and Product Sales.`false`: To apply the brand safety settings only to Reach, Video Views, and Community Interaction objectives. Note: Once set to `true`, this setting cannot be updated back to `false`. |
+| `brand_safety_type` | `body` | `"EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY"` | No | No | Inventory filter tier. The tier you select will apply to placements in the For You, Following, and Profile Page feeds, as well as Search feed, where ads appear next to search results being viewed. Enum values: `EXPANDED_INVENTORY`: Expanded inventory. Your ads will not appear next to explicitly inappropriate content, but they may appear next to content that features mature themes.`STANDARD_INVENTORY`: Standard inventory. Your ads will appear next to content that is appropriate for most brands.`LIMITED_INVENTORY`: Limited inventory. Your ads will not appear next to content that contains mature themes. Note: If you want to update the brand safety settings, you need to specify `brand_safety_type`, `category_exclusion_ids`, and `vertical_sensitivity_id` simultaneously. |
+| `category_exclusion_ids` | `body` | `Array<string>` | No | No | Valid only when `brand_safety_type` is `STANDARD_INVENTORY` or `LIMITED_INVENTORY`. The ID list of content categories that you want to avoid showing your ads next to. To obtain a list of content exclusion category IDs, use [/tool/content_exclusion/get/](https://business-api.tiktok.com/portal/docs?id=1769738074686465) and check the returned `excluded_category_list`. Note: Currently, category exclusion is not available for the Product Sales objective. |
+| `vertical_sensitivity_id` | `body` | `string` | No | No | Valid only when `brand_safety_type` is `STANDARD_INVENTORY` or `LIMITED_INVENTORY`. The ID of the vertical category to exclude sensitive vertical-related content that you want to avoid showing your ads next to. To obtain a list of vertical sensitivity categories, use [/tool/content_exclusion/get/](https://business-api.tiktok.com/portal/docs?id=1769738074686465) and check the returned `vertical_sensitivity_list`. Note: Currently, vertical sensitivity controls are not available for the following objectives: Traffic, App Promotion, Lead Generation, Website Conversions, and Product Sales. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

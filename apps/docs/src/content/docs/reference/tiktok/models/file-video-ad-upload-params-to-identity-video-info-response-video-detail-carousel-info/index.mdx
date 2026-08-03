@@ -1,0 +1,1197 @@
+---
+title: "TikTok Business models: File Video Ad Upload Params – Identity Video Info Response Video Detail Carousel Info Image Info"
+description: "100 generated TikTok Business model contracts, from FileVideoAdUploadParams through IdentityVideoInfoResponseVideoDetailCarouselInfoImageInfo."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1014
+  label: "File Video Ad Upload Params – Identity Video Info Response Video Detail Carousel Info Image Info"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## FileVideoAdUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `file_name` | `string` | No | No | Video name. Length limit: 1 - 100 characters. Default value: When Smart Fix is not enabled (`flaw_detect` and `auto_fix_enabled` are set to `false`): If you upload a local file, the default name will be the original file name.If you provide a URL, the default name will be the filename portion of the URL path.If the original file name or the filename portion of the URL path exceeds 100 characters, it will be truncated to use only the first 100 characters.When Smart Fix is enabled (`flaw_detect` and `auto_fix_enabled` are set to `true`): The default name will be either the original file name (for a local file) or the filename portion of the URL path (for a URL). If you specify a custom video name via `file_name`, the `file_name` value will be the name of the fixed video. Note: Videos under the same `advertiser_id` cannot have duplicated file names. You can call [/file/name/check/](https://ads.tiktok.com/marketing_api/docs?id=1759130033155073) to check whether the file name has been used. If you get an error about duplicated file names, please rename the files or append timestamps to the original file names (for example, in the format of `_`, and upload the videos again. |
+| `upload_type` | `upload_type` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL" \| "UPLOAD_BY_FILE_ID" \| "UPLOAD_BY_VIDEO_ID"` | No | No | Video upload method. Default value: `UPLOAD_BY_FILE` Enum values: `UPLOAD_BY_FILE`, `UPLOAD_BY_URL`, `UPLOAD_BY_FILE_ID`, `UPLOAD_BY_VIDEO_ID`. Note: If you set this field to `UPLOAD_BY_FILE`, `UPLOAD_BY_URL` or `UPLOAD_BY_FILE_ID`, a new video ID (`video_id`) will be returned. If you upload the same video multiple times using any of these three methods, you'll obtain a new video ID for each upload. |
+| `video_file` | `video_file` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Video file. Recommended settings： (1) File size：500 MB limit (2) ratio：9:16, 16:9, and 1:1. (3) Format：.mp4, .mov, .mpeg, .avi. Example: `'video_file=@"/Users/admin/Downloads/sample-mov-file.mov"'` Note: Before uploading, make sure that the file is playable and in a supported format. |
+| `video_signature` | `video_signature` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Video MD5 (used for server verification). |
+| `video_url` | `video_url` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. Video URL address, such as http://xxx.xxx. (1) File size: better within 10MB. (2) Verification: We will verify `Content-Type` in the response header. A common invalid media type is text (`Content-Type` = text/*, such as text/html, text/plain). Also, we will verify the data if you set a `Content-MD5` in the response header. (3) Encoding: The URL needs to be a valid URL in the browser. For instance, the spaces in the URL need to be encoded into `%20`. You can copy and paste the URL into a browser address bar, then the URL will be automatically encoded. (4) Others: ratio, format, resolution and bitrate limitation is the same as `video_file`. Note: Before uploading, make sure that the video URL is playable and in a supported format. If the URL is invalid or in an unsupported format (i.e. txt.), you may see an error message or obtain an invalid video ID that cannot be used for ad creation. |
+| `file_id` | `file_id` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the file that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. |
+| `video_id` | `video_id` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_VIDEO_ID`. Video ID. Note: You should pass in the `video_id` of the videos created on TikTok Ads Manager or through API. If you pass in the value from other sources, you may see an error message or cannot use the uploaded video for ad creation. You can obtain `video_id` in the response of the [/file/video/ad/upload/](https://business-api.tiktok.com/portal/docs?id=1737587322856449) endpoint or by using the [/file/video/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740050472224769) endpoint. |
+| `is_third_party` | `is_third_party` | `boolean` | No | No | The video is third party or not. |
+| `flaw_detect` | `flaw_detect` | `boolean` | No | No | Whether to automatically detect an issue in your video. Default value: `false`. |
+| `auto_fix_enabled` | `auto_fix_enabled` | `boolean` | No | No | Whether to automatically fix the detected issue. Default value : `false`. If an issue is detected in your video: When `auto_fix_enabled` is set to `false`, we'll return an error message with flaw types indicated.When `auto_fix_enabled` is set to `true`, we'll automatically fix the `LOW_RESOLUTION` and `ILLEGAL_VIDEO_SIZE` issues and return `fix_task_id` and `flaw_types`. Note: When a `LOW_RESOLUTION` issue is detected, the video is automatically enhanced to a standard resolution of 1280x720 pixels, also referred to as 720p.When an `ILLEGAL_VIDEO_SIZE` issue is detected, the video is automatically adjusted to one of the standard aspect ratios: 1:1 (square), 9:16 (vertical), or 16:9 (horizontal). |
+| `auto_bind_enabled` | `auto_bind_enabled` | `boolean` | No | No | Valid only when `flaw_detect` = `true` and `auto_fix_enabled` = `true`. Whether to automatically upload the fixed video to your creative library. Default value : `false`. |
+
+## FileVideoAdUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for video cover, valid for six hours and needs to be re-acquired after expiration. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `http://p16-sign-sg.tiktokcdn.com/v0201/b99a388e3709470be5c~tplv-noop.image?x-expires=1671742348&x-signature=FziJhvED9NDTDmPofv3I%3D`. |
+| `format` | `format` | `string` | No | No | Video format. |
+| `preview_url` | `preview_url` | `string` | No | No | Video preview link, valid for six hours and needs to be re-acquired after expiration. To find out the expiration time of the preview link, see `preview_url_expire_time`. |
+| `preview_url_expire_time` | `preview_url_expire_time` | `string` | No | No | The expiration time of the video preview link, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rate in bps. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time. Format: 2020-06-10T07:39:14Z. |
+| `signature` | `signature` | `string` | No | No | Video file MD5. |
+| `duration` | `duration` | `number` | No | No | Video duration, in seconds. |
+| `video_id` | `video_id` | `string` | No | No | Video ID, which can be used to create ads. Note: If you upload via video ID (`upload_type` as `UPLOAD_BY_VIDEO_ID`), the same video ID will be returned.If you upload via file , URL or file ID (`upload_type` as `UPLOAD_BY_FILE`, `UPLOAD_BY_URL` or `UPLOAD_BY_FILE_ID`), a new video ID (`video_id`) will be returned. If you upload the same video multiple times using any of these three methods, you'll obtain a new video ID for each upload. |
+| `size` | `size` | `number` | No | No | Video size, in bytes. |
+| `material_id` | `material_id` | `string` | No | No | Material ID |
+| `allowed_placements` | `allowed_placements` | `Array<string>` | No | No | Available placements. Due to music copyright, some materials generated by creative tools can only be shown on TikTok. It won't pass when they are created on other placements. For enum values, see [Enumerations-Ad Management-Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). Note: The values `PLACEMENT_TOPBUZZ` and `PLACEMENT_HELO` for this field cannot be used for ad creation and will be deprecated in the next API version. |
+| `allow_download` | `allow_download` | `boolean` | No | No | Whether the video is downloadable. Due to the music copyright, some materials generated by creative tools are only allowed to preview. It is prohibited to download and disseminate them. |
+| `fix_task_id` | `fix_task_id` | `string` | No | No | Returned only when you've set both `flaw_detect` and `auto_fix_enabled` to `true` in request, and video issues are detected. Fix task ID. To obtain the fixed video, you can use one of the following methods:Pass the value of this field to the `task_id` field in [/video/fix/task/get/](https://business-api.tiktok.com/portal/docs?id=1741469487859714).Retrieve the fixed video from [/file/video/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740050472224769) if you have set `auto_bind_enabled` to `true` in the request. |
+| `flaw_types` | `flaw_types` | `Array<"LOW_RESOLUTION" \| "ILLEGAL_VIDEO_SIZE" \| "NO_BGM" \| "BLACK_EDGE" \| "ILLEGAL_DURATION">` | No | No | Returned only when you've set both `flaw_detect` and `auto_fix_enabled` to `true` in request, and video issues are detected. Video issue types. Enum values: `LOW_RESOLUTION`: Video resolution is lower than 540x960 px, which doesn't meet our requirements.`ILLEGAL_VIDEO_SIZE`: The video size is not correct. Use the standard video size: Square (1:1) / Vertical (9:16) / Horizontal (16:9). `NO_BGM`(deprecated): The ad or video has no background audio, or the background audio is incoherent/unclear. `BLACK_EDGE`(deprecated) : A video image contains black bars, which affects user experience and is not allowed. `ILLEGAL_DURATION`(deprecated): Video length is either longer than 60s or shorter than 5s, which doesn't meet our requirements. |
+
+## FileVideoSuggestcoverParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `video_id` | `video_id` | `string` | Yes | No | Video ID. |
+| `poster_number` | `poster_number` | `number` | No | No | Number of cover candidates you want to get. Range: `1-10`. Default value: `10` .If the total number of cover candidates is less than the number given, all candidates will be returned. |
+
+## FileVideoSuggestcoverResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<FileVideoSuggestcoverResponseList>` | No | No | A list of image information. |
+
+## FileVideoSuggestcoverResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `width` | `width` | `number` | No | No | Image width. |
+| `height` | `height` | `number` | No | No | Image height. |
+| `id` | `id` | `string` | No | No | Image ID. |
+| `url` | `url` | `string` | No | No | Picture preview address, valid for an hour and needs to be re-acquired after expiration. |
+
+## GmvMaxBidRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `shopping_ads_type` | `shopping_ads_type` | `"PRODUCT" \| "LIVE"` | Yes | No | The type of the GMV Max Campaign. Enum values:`PRODUCT`: Product GMV Max Campaign.`LIVE`: Live GMV Max Campaign. |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | Optimization goal. Enum value:`VALUE`: Gross revenue. |
+| `item_group_ids` | `item_group_ids` | `Array<string>` | No | No | Valid only when `shopping_ads_type` is `PRODUCT`. The list of SPU (standard product unit) IDs for specific products to be promoted in a Product GMV Max Campaign. If you want to promote all products from the TikTok Shop in the Product GMV Max Campaign, you don't need to pass this field.If you want to promote specific products from the TikTok Shop in the Product GMV Max Campaign, specify these products via this field. Max size: 50. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `identity_id` | `identity_id` | `string` | No | No | Required and valid only when `shopping_ads_type` is `LIVE` The LIVE source identity that you want to use in a LIVE GMV Max Campaign. To obtain a list of identities for LIVE GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with`live_gmv_max_available` as `true`. |
+
+## GmvMaxBidRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `roas_bid` | `roas_bid` | `number` | No | No | Recommended ROI target for the optimization goal Groess revenue. The ROI is based on the average ROI for your product category. |
+| `budget` | `budget` | `number` | No | No | Recommended daily budget for the optimization goal Groess revenue, in the currency of the ad account. The budget is calculated with your average ad spend for your selected products or average ad spend in your product category from the previous 14 days. Higher budgets are recommended to ensure delivery throughout the day because lower budgets may spend more quickly and limit your campaign performance. To retrieve the currency of an ad account, use [/advertiser/info/](https://business-api.tiktok.com/portal/docs?id=1739593083610113) and check the returned `currency`. |
+
+## GmvMaxCampaignGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `fields` | `Array<string>` | No | No | Fields that you want to get. If this field is not specified, all fields are returned by default. For allowed fields, see the fields under `list` in the response. |
+| `filtering` | `filtering` | `GmvMaxCampaignGetParamsFiltering` | Yes | No | Filters on the data. Example: `filtering=&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+## GmvMaxCampaignGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gmv_max_promotion_types` | `gmv_max_promotion_types` | `Array<"PRODUCT_GMV_MAX" \| "LIVE_GMV_MAX">` | Yes | No | GMV Max Campaign type. Enum values:`PRODUCT_GMV_MAX`: [Product GMV Max Campaign](https://business-api.tiktok.com/portal/docs?id=1822009220448257).`LIVE_GMV_MAX`: [Live GMV Max Campaign](https://business-api.tiktok.com/portal/docs?id=1822009242546258). |
+| `store_ids` | `store_ids` | `Array<string>` | No | No | A list of TikTok Shop IDs. Max size: 10. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | A list of campaign IDs. Max size: 100. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `primary_status` | `primary_status` | `"STATUS_DELIVERY_OK" \| "STATUS_DISABLE" \| "STATUS_DELETE"` | No | No | Primary status. Enum values:`STATUS_DELIVERY_OK`: Active.`STATUS_DISABLE`: Inactive.`STATUS_DELETE`: Deleted. |
+| `creation_filter_start_time` | `creation_filter_start_time` | `string` | No | No | The earliest campaign creation time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC time). This filter will retrieve campaigns created after this time. Example: `2025-01-01 00:00:01`. If `creation_filter_start_time` and `creation_filter_end_time` are not specified, the results will include GMV Max Campaigns created at any time. Note: To ensure task efficiency and speed, consider setting a time range within 6 months for the creation time filters. |
+| `creation_filter_end_time` | `creation_filter_end_time` | `string` | No | No | The latest campaign creation time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC time). This filter will retrieve campaigns created before this time. Example: `2025-02-01 00:00:01`. If `creation_filter_start_time` and `creation_filter_end_time` are not specified, the results will include GMV Max Campaigns created at any time. Note: To ensure task efficiency and speed, consider setting a time range within 6 months for the creation time filters. |
+
+## GmvMaxCampaignGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<GmvMaxCampaignGetResponseList>` | No | No | A list of campaigns. The returned fields are generated based on the `fields` specified in the request. All fields are returned by default. |
+| `page_info` | `page_info` | `GmvMaxCampaignGetResponsePageInfo` | No | No | Pagination information. |
+
+## GmvMaxCampaignGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | No | No | The ON/OFF status of campaign. Enum values:`ENABLE`: in the ON status.`DISABLE`: in the OFF status. |
+| `create_time` | `create_time` | `string` | No | No | The time when the campaign was created, in the format of `YYYY-MM-DD HH:MM:SS` (UTC time). Example: `2025-01-01 00:00:01`. |
+| `modify_time` | `modify_time` | `string` | No | No | The time when the campaign was last modified, in the format of `YYYY-MM-DD HH:MM:SS` (UTC time). Example: `2025-01-01 00:00:01`. |
+| `objective_type` | `objective_type` | `string` | No | No | Advertising objective. Enum value: `PRODUCT_SALES` (Product Sales). |
+| `secondary_status` | `secondary_status` | `string` | No | No | Secondary status. For enum values, see [Supported campaign secondary statuses for GMV Max Campaigns](https://business-api.tiktok.com/portal/docs?id=1757239620352002#item-link-For%20GMV%20Max%20Campaigns). |
+| `roi_protection_compensation_status` | `roi_protection_compensation_status` | `"IN_EFFECT" \| "NOT_ELIGIBLE"` | No | No | The ROI protection compensation status of the campaign. ROI protection is a feature that automatically issues ad credits when the return on investment (ROI) for your campaign falls below a certain threshold despite following GMV Max guidelines and best practices. To learn about the eligibility criteria for ROI protection and scenarios where the campaign is ineligible for ROI protection, see [About ROI protection for GMV Max campaigns](https://ads.tiktok.com/help/article/about-roi-protection-for-gmv-max-campaigns). Enum values: `IN_EFFECT`: ROI protection eligible. This campaign is eligible for an ad credit if your ads drive more than 20 conversions in 24 hours, but your ROI result is less than 90% of your target. To maintain campaign eligibility for ROI protection, don't edit your ROI, pause ad delivery, or enable max delivery. Campaign eligibility resets every 24 hours.`NOT_ELIGIBLE`: ROI protection ineligible. This campaign isn't eligible for an ad credit if the target ROI isn't met because its ROI has been edited, the campaign has been paused, max delivery is enabled, or there are issues with your shop, ad accounts, livestreams, or products. Campaign eligibility resets every 24 hours. |
+
+## GmvMaxCampaignGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## GmvMaxCreationCustomAnchorVideoListCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `custom_anchor_video_list` | `custom_anchor_video_list` | `Array<GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoList>` | Yes | No | The details of your videos and the products you want to link them to. By linking videos to a product at the TikTok Shop level, you can generate shop-level customized TikTok posts. The system will automatically add these shop-level customized TikTok posts to your Product GMV Max Campaign (with `shopping_ads_type` set to `PRODUCT`) if you use the Autoselect creative mode (with `product_video_specific_type` as `AUTO_SELECTION`) and your campaign includes the linked product. Max size: 200. |
+
+## GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok video you intend to use in the customized post. To retrieve eligible videos, use [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs/get-posts-for-a-product-gmv-max-campaign/v1.3) with `custom_posts_eligible` set to `true`. |
+| `identity_info` | `identity_info` | `GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoListIdentityInfo` | Yes | No | Information about the identity (TikTok account) associated with the TikTok video. To find the identity details associated with the provided TikTok video (`item_id`), review the `identity_info` corresponding to the `item_id` returned by [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs/get-posts-for-a-product-gmv-max-campaign/v1.3). |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | Yes | No | The SPU IDs of the products to link to the video. Max size: 1. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+
+## GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoListIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | Yes | No | Identity type. Enum values:`AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Required only when `identity_type` is `BC_AUTH_TT` and `identity_authorized_shop_id` is returned for the identity from [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs/get-posts-for-a-product-gmv-max-campaign/v1.3). The ID of the TikTok Shop that a TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Required when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+
+## GmvMaxCreationCustomAnchorVideoListCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failure_list` | `failure_list` | `GmvMaxCreationCustomAnchorVideoListCreateResponseFailureList` | No | No | The list of shop-level customized TikTok posts that could not be successfully created. |
+
+## GmvMaxCreationCustomAnchorVideoListCreateResponseFailureList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `Array<string>` | No | No | The ID of a TikTok video you intended to use in the customized post. |
+| `identity_info` | `identity_info` | `Array<string>` | No | No | Information about the identity (TikTok account) associated with the TikTok video. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values:`AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | The ID of the TikTok Shop that a TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+| `spu_id_list` | `spu_id_list` | `string` | No | No | The SPU IDs of the products to link to the video. |
+| `reason` | `reason` | `"IDENTITY_NO_PERMISSION" \| "INVALID_PARAMETER" \| "AUTH_CODE_CAN_NOT_CHANGE_ANCHOR" \| "ITEM_NOT_FOUND" \| "NATIVE_ANCHOR_EXISTS"` | No | No | The reason for the failure. Enum values:`IDENTITY_NO_PERMISSION`: You do not have the required permissions for this identity.`INVALID_PARAMETER`: Invalid parameters are submitted.`AUTH_CODE_CAN_NOT_CHANGE_ANCHOR`: The anchor in the video cannot be changed without user permission.`ITEM_NOT_FOUND`: The TikTok video cannot be found.`NATIVE_ANCHOR_EXISTS`: The product link you want to add is the same as the product link already present in the video. |
+| `error_message` | `error_message` | `string` | No | No | The detailed error message. |
+
+## GmvMaxCreationCustomAnchorVideoListDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `custom_anchor_video_list` | `custom_anchor_video_list` | `Array<GmvMaxCreationCustomAnchorVideoListDeleteParamsCustomAnchorVideoList>` | Yes | No | The details of the videos and the products you want to unlink from them. Max size: 200. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Required when the specified TikTok videos (`item_id`) have been used in a campaign to create campaign-level customized posts. The ID of a Product GMV Max Campaign. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+
+## GmvMaxCreationCustomAnchorVideoListDeleteParamsCustomAnchorVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok video you no longer want to use in a customized post. To retrieve TikTok videos currently used in customized posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3). |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | Yes | No | The Product SPU (standard product unit) ID of the product you want to unlink from the video. To retrieve the products linked to a TikTok video used in customized posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3). |
+
+## GmvMaxCreationCustomAnchorVideoListDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GmvMaxCreationCustomAnchorVideoListGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `creative_source` | `creative_source` | `string` | Yes | No | Creative source type. Enum value:`CUSTOMIZED`: customized post. |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | A list of Product SPU (standard product unit) IDs to filter the results by. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `sort_field` | `sort_field` | `"GMV" \| "POST_TIME" \| "VIDEO_VIEWS" \| "VIDEO_LIKES" \| "CLICK_THROUGH_RATE" \| "PRODUCT_CLICKS"` | No | No | The sorting field. Enum values:`GMV`: GMV.`POST_TIME`: Post time.`VIDEO_VIEWS`: Video views.`VIDEO_LIKES`: Video likes.`CLICK_THROUGH_RATE`: Click-through Rate (CTR).`PRODUCT_CLICKS`: Product clicks. Default value: `GMV`. |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | The sorting order. Enum values:`ASC`: ascending.`DESC`: descending. |
+| `keyword` | `keyword` | `string` | No | No | A search keyword to filter posts (videos). You can specify a post ID or caption.To search by post caption (`text`), provide a text string. This search type supports multiple-language searches and fuzzy matches. Example: `summer`.To search by post ID (`item_id`), provide a numeric string with at least 19 characters. This search type supports exact matches. Example: `1234567891234567891`. |
+| `need_auth_code_video` | `need_auth_code_video` | `boolean` | No | No | Whether to include posts associated with `AUTH_CODE` identities in the results. Supported values: `true`, `false`. Default value: `false`. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `identity_list` | `identity_list` | `Array<GmvMaxCreationCustomAnchorVideoListGetParamsIdentityList>` | No | No | A list of `TT_USER`, `BC_AUTH_TT`, or `TTS_TT` identities to filter the results by. To obtain a list of identities available for Product GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `product_gmv_max_available` as `true`. Max size: 20. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of a Product GMV Max Campaign to filter the returns by. You can use this field to filter campaign-level customized posts. If this field is not specified, the results will only include shop-level customized posts. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value:10. |
+
+## GmvMaxCreationCustomAnchorVideoListGetParamsIdentityList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values:`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Required only when `dentity_type` is `BC_AUTH_TT` and `identity_authorized_shop_id` is returned for the identity from [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882). The ID of the TikTok Shop that a TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Required when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+
+## GmvMaxCreationCustomAnchorVideoListGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_list` | `item_list` | `Array<GmvMaxCreationCustomAnchorVideoListGetResponseItemList>` | No | No | A list of TikTok videos (posts) available for Product GMV Max campaigns using the specified TikTok Shop. |
+| `page_info` | `page_info` | `GmvMaxCreationCustomAnchorVideoListGetResponsePageInfo` | No | No | Pagination information. |
+
+## GmvMaxCreationCustomAnchorVideoListGetResponseItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok post. |
+| `text` | `text` | `string` | No | No | The caption of the TikTok post. |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | The list of Product SPU IDs that the TikTok post is associated with. Note: This field is not included in the response for videos with no product anchor link. |
+| `can_change_anchor` | `can_change_anchor` | `boolean` | No | No | Whether you can change the product anchor link in this video. Supported values:`true`: You can add a product anchor link to create a customized post.`false`: You cannot use the video to create a customized post. Note: If `can_change_anchor` is `false`, you cannot pass the video to `custom_anchor_video_list` or `item_list` in [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089) or [/campaign/gmv_max/update/](https://business-api.tiktok.com/portal/docs?id=1822001009002497) to create customized posts. |
+| `identity_info` | `identity_info` | `GmvMaxCreationCustomAnchorVideoListGetResponseItemListIdentityInfo` | No | No | Information about the identity associated with the TikTok post. |
+| `video_info` | `video_info` | `GmvMaxCreationCustomAnchorVideoListGetResponseItemListVideoInfo` | No | No | Details of the video in the post. |
+
+## GmvMaxCreationCustomAnchorVideoListGetResponseItemListIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values:`AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Returned only when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Returned for some `BC_AUTH_TT` identities. The ID of the TikTok Shop that the TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary profile image URL for the TikTok account that is associated with the identity. Validity period: around 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok account that is associated with the identity. |
+
+## GmvMaxCreationCustomAnchorVideoListGetResponseItemListVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of the video. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for the video cover. Validity period: around 24 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `preview_url` | `preview_url` | `string` | No | No | Temporary preview URL for the video. Validity period: six hours. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `height` | `height` | `number` | No | No | The height of the video in pixels. Example: 1920. |
+| `width` | `width` | `number` | No | No | The width of the video in pixels. Example: 1080. |
+| `bit_rate` | `bit_rate` | `number` | No | No | The bit rate of the video in bps. Example: 8500323. |
+| `duration` | `duration` | `number` | No | No | The duration of the video in seconds. Example: 3.669. |
+| `size` | `size` | `number` | No | No | The size of the video in bytes. Example: 3898461. |
+| `signature` | `signature` | `string` | No | No | The MD5 of the video. Example: `ab1cd2345e678fghi91jkl23b456m7no`. |
+| `format` | `format` | `string` | No | No | The format of the video. Example: `mp4`. |
+| `definition` | `definition` | `string` | No | No | The definition of the video. Example: `1080p`. |
+| `fps` | `fps` | `number` | No | No | The frames per second (FPS) of the video. Example: 27. |
+
+## GmvMaxCreationCustomAnchorVideoListGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## GmvMaxCreationShopVideoVideoAnchorsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `item_ids` | `item_ids` | `Array<string>` | Yes | No | The list of TikTok videos for which you want to retrieve product linkage information. To retrieve TikTok videos used in customized posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3). Max size: 20. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Required when the specified TikTok videos have been used in a campaign to create campaign-level customized posts. The ID of a Product GMV Max Campaign. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+
+## GmvMaxCreationShopVideoVideoAnchorsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_list` | `video_list` | `GmvMaxCreationShopVideoVideoAnchorsResponseVideoList` | No | No | The product linkage details for the specified videos. |
+
+## GmvMaxCreationShopVideoVideoAnchorsResponseVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok video. |
+| `product_list` | `product_list` | `GmvMaxCreationShopVideoVideoAnchorsResponseVideoListProductList` | No | No | The list of products that the video is linked to. |
+
+## GmvMaxCreationShopVideoVideoAnchorsResponseVideoListProductList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `spu_id` | `spu_id` | `string` | No | No | The SPU ID of the product linked to the TikTok video. |
+| `title` | `title` | `string` | No | No | The title of the product. |
+| `picture` | `picture` | `string` | No | No | The URL of the product image. |
+| `anchor_source` | `anchor_source` | `"CUSTOM" \| "ORGANIC"` | No | No | The source of the product anchor in the video. Enum values:`CUSTOM`: custom anchor. The product anchor was added to the video through [Shop Creative Hub for GMV Max](https://ads.tiktok.com/help/article/about-shop-creative-hub-for-gmv-max). The linked product will appear in ads traffic.`ORGANIC`: organic anchor. The product anchor was added to the video through the TikTok app. The linked product will appear in both ads and organic traffic. |
+
+## GmvMaxCustomAnchorVideoListGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | The ID of a GMV Max Campaign. To filter existing GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177). Important: Starting April 30th, 2026, this parameter will be required to enhance security. To ensure a smooth API integration, we recommend that you update your integration to specify this parameter in all future calls. |
+| `campaign_custom_anchor_video_id` | `campaign_custom_anchor_video_id` | `string` | Yes | No | The ID of the collection of customized posts created in a Product GMV Max Campaign. To obtain the customized post collection associated with a Product GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762) and check the returned `campaign_custom_anchor_video_id`. |
+| `custom_anchor_video_list` | `custom_anchor_video_list` | `Array<GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoList>` | Yes | No | The list of videos with customized product links (custom anchor videos) to filter the results by. Max size: 20. To obtain the customized posts associated with a Product GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762) and check the returned `custom_anchor_video_list`. |
+
+## GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the TikTok video. |
+| `identity_info` | `identity_info` | `GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoListIdentityInfo` | Yes | No | Information about the identity associated with the post. |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | The SPU IDs of the products associated with the customized product anchor link in the TikTok video. Max size: 1. If you want to have `spu_id_list` included in the response, specify `spu_id_list` in the request. |
+
+## GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoListIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | Yes | No | Identity type. Enum values:`AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Required only when `identity_type` is `BC_AUTH_TT` and `identity_authorized_shop_id` is returned for the identity from [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882). The ID of the TikTok Shop that a TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Required when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+
+## GmvMaxCustomAnchorVideoListGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_anchor_video_list` | `custom_anchor_video_list` | `Array<GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoList>` | No | No | The list of custom anchor videos. |
+
+## GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok video. Example: `1234567891234567891`. |
+| `text` | `text` | `string` | No | No | The caption of the TikTok post. Example: `summer`. |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | Returned only when `spu_id_list` is specified in the request. The list of Product SPU IDs that the TikTok post is associated with. |
+| `identity_info` | `identity_info` | `GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoListIdentityInfo` | No | No | Information about the identity associated with the TikTok post. |
+| `video_info` | `video_info` | `GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoListVideoInfo` | No | No | Details of the video in the post. |
+
+## GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoListIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. Example: `identity_12345`. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values:`AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request.`TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Returned only when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Returned for some `BC_AUTH_TT` identities. The ID of the TikTok Shop that the TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary profile image URL for the TikTok account that is associated with the identity. Validity period: around 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs?id=1830215925061633) to obtain a new URL. |
+| `user_name` | `user_name` | `string` | No | No | The username of the TikTok account that is associated with the identity. |
+
+## GmvMaxCustomAnchorVideoListGetResponseCustomAnchorVideoListVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of the video. Example: `video_12345`. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for the video cover. Validity period: around 24 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs?id=1830215925061633) to obtain a new URL. |
+| `preview_url` | `preview_url` | `string` | No | No | Temporary preview URL for the video. Validity period: six hours. Once the URL expires, you need to call [/gmv_max/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs?id=1830215925061633) to obtain a new URL. |
+| `height` | `height` | `number` | No | No | The height of the video in pixels. Example: 1920. |
+| `width` | `width` | `number` | No | No | The width of the video in pixels. Example: 1080. |
+| `bit_rate` | `bit_rate` | `number` | No | No | The bit rate of the video in bps. Example: 8500323. |
+| `duration` | `duration` | `number` | No | No | The duration of the video in seconds. Example: 3.669. |
+| `size` | `size` | `number` | No | No | The size of the video in bytes. Example: 3898461. |
+| `signature` | `signature` | `string` | No | No | The MD5 of the video. Example: `ab1cd2345e678fghi91jkl23b456m7no`. |
+| `format` | `format` | `string` | No | No | The format of the video. Example: `mp4`. |
+| `definition` | `definition` | `string` | No | No | The definition of the video. Example: `1080p`. |
+| `fps` | `fps` | `number` | No | No | The frames per second (FPS) of the video. Example: 27. |
+
+## GmvMaxExclusiveAuthorizationCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | ID of the Business Center that owns the TikTok Shop (`store_id`). To confirm that a Business Center owns a TikTok Shop, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and check whether the returned `is_owner_bc` for the ID in `store_authorized_bc_id` is `true`. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The ID of the ad account that you want to exclusively authorize to create GMV Max Campaigns for the TikTok Shop. To obtain the list of ad accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+
+## GmvMaxExclusiveAuthorizationCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GmvMaxExclusiveAuthorizationGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | ID of the ad account that you want to check the GMV Max exclusive authorization status for. |
+
+## GmvMaxExclusiveAuthorizationGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `store_id` | `string` | No | No | The ID of the TikTok Shop. |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | The ID of the ad account. |
+| `authorization_status` | `authorization_status` | `"EFFECTIVE" \| "INEFFECTIVE" \| "UNAUTHORIZED"` | No | No | The status of exclusive authorization for the ad account to create GMV Max ads for the TikTok Shop. Enum values:`EFFECTIVE`: The ad account is currently granted exclusive GMV Max authorization.`INEFFECTIVE`: The ad account was granted exclusive GMV Max authorization but the authorization has been cancelled.`UNAUTHORIZED`: The ad account has never been granted GMV Max exclusive authorization. |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | The name of the ad account. Note: When `authorization_status` is `UNAUTHORIZED`, this field is not returned. |
+| `advertiser_status` | `advertiser_status` | `"STATUS_ENABLE" \| "STATUS_CONFIRM_FAIL" \| "STATUS_PENDING_CONFIRM" \| "STATUS_LIMIT" \| "STATUS_CONTRACT_PENDING" \| "STATUS_DISABLE" \| "STATUS_PENDING_CONFIRM_MODIFY" \| "STATUS_PENDING_VERIFIED" \| "STATUS_SELF_SERVICE_UNAUDITED" \| "STATUS_WAIT_FOR_BPM_AUDIT" \| "STATUS_CONFIRM_FAIL_END" \| "STATUS_CONFIRM_MODIFY_FAIL"` | No | No | The status of the ad account. Enum values:`STATUS_ENABLE`: Approved.`STATUS_CONFIRM_FAIL`: Not approved.`STATUS_PENDING_CONFIRM`: In review.`STATUS_LIMIT`: Suspended.`STATUS_CONTRACT_PENDING`: Contract has not taken effect.`STATUS_DISABLE`: Disabled.`STATUS_PENDING_CONFIRM_MODIFY`: Modifications pending review.`STATUS_PENDING_VERIFIED`: Pending verification.`STATUS_SELF_SERVICE_UNAUDITED`: Pending verification of qualifications for the self-service account. `STATUS_WAIT_FOR_BPM_AUDIT`: Pending CRM system review.`STATUS_CONFIRM_FAIL_END`: CRM system review failed.`STATUS_CONFIRM_MODIFY_FAIL`: Review of modifications failed. Note: When `authorization_status` is `UNAUTHORIZED`, this field is not returned. |
+| `identity_id` | `identity_id` | `string` | No | No | Returned only when an official TikTok account is set for the TikTok Shop. The ID of the identity associated with the official TikTok account for the TikTok Shop. |
+
+## GmvMaxIdentityGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+
+## GmvMaxIdentityGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_list` | `identity_list` | `Array<GmvMaxIdentityGetResponseIdentityList>` | No | No | The list of identities associated with the TikTok Shop. |
+
+## GmvMaxIdentityGetResponseIdentityList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values: `AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request. `TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Returned only when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Returned for some `BC_AUTH_TT` identities. The ID of the TikTok Shop that the TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary profile image URL for the TikTok account that is associated with the identity. Validity period: around 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) to obtain a new URL. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok account that is associated with the identity. |
+| `user_name` | `user_name` | `string` | No | No | The username of the TikTok account that is associated with the identity. |
+| `is_running_custom_shop_ads` | `is_running_custom_shop_ads` | `boolean` | No | No | Whether the identity is being used in enabled Video Shopping Ads, Product Shopping Ads or Live Shopping Ads. Supported values: `true`, `false`. |
+| `product_gmv_max_available` | `product_gmv_max_available` | `boolean` | No | No | Whether the identity is available for use in Product GMV Max Campaigns. Supported values: `true`, `false`. |
+| `live_gmv_max_available` | `live_gmv_max_available` | `boolean` | No | No | Whether the identity is available for use in LIVE GMV Max Campaigns. Supported values: `true`, `false`. |
+| `unavailable_reason` | `unavailable_reason` | `"OCCUPIED" \| "UNAUTHORIZED"` | No | No | Returned only when `live_gmv_max_available` is `false`. The reason why the identity is not available for LIVE GMV Max Campaigns. Enum values: `OCCUPIED`: The identity has been occupied by an enabled LIVE GMV Max Campaign.`UNAUTHORIZED`: The identity is not authorized for use in LIVE GMV Max Campaigns. |
+
+## GmvMaxOccupiedCustomShopAdsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `occupied_asset_type` | `occupied_asset_type` | `"IDENTITY_TT_USER" \| "TT_USER" \| "IDENTITY_BC_AUTH_TT" \| "BC_AUTH_TT" \| "IDENTITY_TTS_TT" \| "TTS_TT" \| "SPU"` | Yes | No | The type of asset that you want to check for occupancy in enabled Video Shopping Ads, Product Shopping Ads, or Live Shopping Ads. Enum values: `IDENTITY_TT_USER`: TikTok User (`TT_USER`) identity.`IDENTITY_BC_AUTH_TT`: TikTok Account User in Business Center (`BC_AUTH_TT`) identity.`IDENTITY_TTS_TT`: TikTok Account User for TikTok Shop (`TTS_TT`) identity.`SPU`: SPU. |
+| `asset_ids` | `asset_ids` | `Array<string>` | Yes | No | The asset IDs. Max size: 1. When `occupied_asset_type` is `IDENTITY_TT_USER`, specify one `TT_USER` identity ID via this field.When `occupied_asset_type` is `IDENTITY_BC_AUTH_TT`, specify one `BC_AUTH_TT` identity ID via this field.When `occupied_asset_type` is `IDENTITY_TTS_TT`, specify one `TTS_TT` identity ID via this field. When `occupied_asset_type` is `SPU`, specify the SPU ID of a product within the TikTok Shop via this field. To obtain a list of identities, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882).To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and check the returned `item_group_id`. |
+
+## GmvMaxOccupiedCustomShopAdsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `occupied_custom_shop_ads` | `occupied_custom_shop_ads` | `Array<GmvMaxOccupiedCustomShopAdsListResponseOccupiedCustomShopAds>` | No | No | The list of enabled Shopping Ads that are currently using the assets. |
+
+## GmvMaxOccupiedCustomShopAdsListResponseOccupiedCustomShopAds
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `ad_id` | `ad_id` | `string` | No | No | Ad ID. |
+| `create_time` | `create_time` | `string` | No | No | The time when the ad group or ad was created, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). When `campaign_id` and `adgroup_id` are returned, this field represents the time when the ad group was created. When `adgroup_id` and `ad_id` are returned, this field represents the time when the ad was created. |
+
+## GmvMaxStoreListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+
+## GmvMaxStoreListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_list` | `store_list` | `Array<GmvMaxStoreListResponseStoreList>` | No | No | The list of TikTok Shops that the ad account has access to. |
+
+## GmvMaxStoreListResponseStoreList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `store_id` | `string` | No | No | ID of the TikTok Shop. |
+| `is_gmv_max_available` | `is_gmv_max_available` | `boolean` | No | No | Whether the TikTok Shop is available for GMV Max Campaigns. Supported values: `true`: available.`false`: unavailable. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | No | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `is_owner_bc` | `is_owner_bc` | `boolean` | No | No | Whether the Business Center (`store_authorized_bc_id`) owns the TikTok Shop (`store_id`). Supported values:`true`: The Business Center owns the TikTok Shop. `false`: The Business Center is a Partner Business Center that has access to the TikTok Shop and does not own the TikTok Shop. |
+| `store_authorized_bc_info` | `store_authorized_bc_info` | `GmvMaxStoreListResponseStoreListStoreAuthorizedBcInfo` | No | No | Information about the Business Center that is authorized to access the TikTok Shop. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The thumbnail URL of the TikTok Shop. |
+| `store_name` | `store_name` | `string` | No | No | The name of the TikTok Shop. |
+| `store_code` | `store_code` | `string` | No | No | The shop code of the TikTok Shop. |
+| `targeting_region_codes` | `targeting_region_codes` | `Array<string>` | No | No | The codes of the regions that the TikTok Shop can target. To find out the region that a region code corresponds to, see [Appendix-Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). For example, `VN` corresponds to Vietnam. |
+| `store_status` | `store_status` | `"ACTIVE" \| "INACTIVE" \| "NEW_CREATE"` | No | No | The status of the TikTok Shop. Enum values:`ACTIVE`: active. `INACTIVE`: inactive.`NEW_CREATE`: newly created. |
+| `store_role` | `store_role` | `"AD_PROMOTION" \| "MANAGER" \| "UNSET"` | No | No | Business Center user's permission to the TikTok Shop. Enum values: `AD_PROMOTION`: Ad promotion. Create ads promoting products from this TikTok Shop.`MANAGER`: Manager. Manage stores and related catalogs and view data insights in Store Manager.`UNSET`: Unset. |
+| `exclusive_authorized_advertiser_info` | `exclusive_authorized_advertiser_info` | `GmvMaxStoreListResponseStoreListExclusiveAuthorizedAdvertiserInfo` | No | No | Information about the GMV Max exclusive authorization of the TikTok Shop. |
+
+## GmvMaxStoreListResponseStoreListExclusiveAuthorizedAdvertiserInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | The ID of the only ad account that is authorized to create GMV Max Campaigns for the TikTok Shop. |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | The name of the only ad account that is authorized to create GMV Max Campaigns for the TikTok Shop. |
+| `advertiser_status` | `advertiser_status` | `"STATUS_ENABLE" \| "STATUS_CONFIRM_FAIL" \| "STATUS_PENDING_CONFIRM" \| "STATUS_LIMIT" \| "STATUS_CONTRACT_PENDING" \| "STATUS_DISABLE" \| "STATUS_PENDING_CONFIRM_MODIFY" \| "STATUS_PENDING_VERIFIED" \| "STATUS_SELF_SERVICE_UNAUDITED" \| "STATUS_WAIT_FOR_BPM_AUDIT" \| "STATUS_CONFIRM_FAIL_END" \| "STATUS_CONFIRM_MODIFY_FAIL"` | No | No | The status of the only ad account that is authorized to create GMV Max Campaign for the TikTok Shop. Enum values:`STATUS_ENABLE`: Approved.`STATUS_CONFIRM_FAIL`: Not approved.`STATUS_PENDING_CONFIRM`: In review.`STATUS_LIMIT`: Suspended.`STATUS_CONTRACT_PENDING`: Contract has not taken effect.`STATUS_DISABLE`: Disabled.`STATUS_PENDING_CONFIRM_MODIFY`: Modifications pending review.`STATUS_PENDING_VERIFIED`: Pending verification.`STATUS_SELF_SERVICE_UNAUDITED`: Pending verification of qualifications for the self-service account. `STATUS_WAIT_FOR_BPM_AUDIT`: Pending CRM system review.`STATUS_CONFIRM_FAIL_END`: CRM system review failed.`STATUS_CONFIRM_MODIFY_FAIL`: Review of modifications failed. |
+
+## GmvMaxStoreListResponseStoreListStoreAuthorizedBcInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | No | No | The ID of the Business Center. |
+| `bc_profile_image` | `bc_profile_image` | `string` | No | No | The profile image URL of the Business Center. |
+| `bc_name` | `bc_name` | `string` | No | No | The name of the Business Center. |
+| `user_role` | `user_role` | `"ADMIN" \| "STANDARD"` | No | No | The role of the user (member) within the Business Center. Enum values: `ADMIN`: Admin. Admins have full access to all features in Business Center. `STANDARD`: Standard. Standard members can only work on accounts they've been assigned to. |
+
+## GmvMaxStoreShopAdUsageCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+
+## GmvMaxStoreShopAdUsageCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promote_all_products_allowed` | `promote_all_products_allowed` | `boolean` | No | No | Whether the TikTok Shop can be used to create Product GMV Max Campaigns by promoting all products in the TikTok Shop. Supported values: `true`, `false`. |
+| `is_running_custom_shop_ads` | `is_running_custom_shop_ads` | `boolean` | No | No | Whether the TikTok Shop is being used in enabled Video Shopping Ads or Product Shopping Ads. Supported values: `true`, `false`. |
+
+## GmvMaxVideoGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `store_id` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | A list of Product SPU (standard product unit) IDs to filter the results by. If you want to promote all products from the TikTok Shop in the Product GMV Max Campaign using authorized posts, you don't need to pass `spu_id_list` and `custom_posts_eligible`.If you want to promote specific products from the TikTok Shop in the Product GMV Max Campaign using authorized posts, specify these products via `spu_id_list` and do not specify `custom_posts_eligible`.If you want to promote a specific product from the TikTok Shop in the Product GMV Max Campaign using customized posts, specify the product via `spu_id_list` and set `custom_posts_eligible` to `true`. Max size:When `custom_posts_eligible` is `false` or not specified: 50.When `custom_posts_eligible` is `true`: 1. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `custom_posts_eligible` | `custom_posts_eligible` | `boolean` | No | No | Whether to query videos that can be used in customized posts promoting a specific product. If you set this field to `true`, you need to specify one product using `spu_id_list` simultaneously. Supported values:`true`,`false`. Default value: `false`. |
+| `sort_field` | `sort_field` | `"GMV" \| "POST_TIME" \| "VIDEO_VIEWS" \| "VIDEO_LIKES" \| "CLICK_THROUGH_RATE" \| "PRODUCT_CLICKS"` | No | No | Valid only when `custom_posts_eligible` is `false` or not provided. The sorting field for videos available for authorized posts. Enum values:`GMV`: GMV.`POST_TIME`: Post time.`VIDEO_VIEWS`: Video views.`VIDEO_LIKES`: Video likes.`CLICK_THROUGH_RATE`: Click-through Rate (CTR).`PRODUCT_CLICKS`: Product clicks.Default value: `GMV`. |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | The sorting order for videos available for authorized posts or customized posts. Enum values:`ASC`: ascending.`DESC`: descending.Default value: `DESC`. If `custom_posts_eligible` is `false` or not specified, you can sort the videos available for authorized posts by specifying both `sort_field` and `sort_type`.If `custom_posts_eligible` is `true`, you don't need to specify `sort_field`. In this case, videos available for customized posts are sorted by default in descending order of post time, with the latest posts appearing first. If you prefer to sort posts in ascending order (earliest posts first), set `sort_type` to `ASC`. |
+| `keyword` | `keyword` | `string` | No | No | A search keyword to filter posts (videos). You can specify a post ID or caption.To search by post caption (`text`), provide a text string. This search type supports multiple-language searches and fuzzy matches. Example: `summer`. To search by post ID (`item_id`), provide a numeric string with at least 19 characters. This search type supports exact matches. Example: `1234567891234567891`. |
+| `need_auth_code_video` | `need_auth_code_video` | `boolean` | No | No | Whether to include posts associated with `AUTH_CODE` identities in the results. Supported values: `true`, `false`. Default value: `false`. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `identity_list` | `identity_list` | `Array<GmvMaxVideoGetParamsIdentityList>` | No | No | A list of `TT_USER`, `BC_AUTH_TT`, or `TTS_TT` identities to filter the results by. To obtain a list of identities available for Product GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `product_gmv_max_available` as `true`. Max size: 20. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value:10. |
+
+## GmvMaxVideoGetParamsIdentityList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values: `TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request. `TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Required only when `dentity_type` is `BC_AUTH_TT` and `identity_authorized_shop_id` is returned for the identity from [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882). The ID of the TikTok Shop that a TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Required when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+
+## GmvMaxVideoGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_list` | `item_list` | `Array<GmvMaxVideoGetResponseItemList>` | No | No | A list of TikTok videos (posts) available for Product GMV Max campaigns using the specified TikTok Shop. |
+| `page_info` | `page_info` | `GmvMaxVideoGetResponsePageInfo` | No | No | Pagination information. |
+
+## GmvMaxVideoGetResponseItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The ID of the TikTok post. |
+| `text` | `text` | `string` | No | No | The caption of the TikTok post. |
+| `spu_id_list` | `spu_id_list` | `Array<string>` | No | No | The list of Product SPU IDs that the TikTok post is associated with. Note: This field is not included in the response for videos with no product anchor link. |
+| `can_change_anchor` | `can_change_anchor` | `boolean` | No | No | Whether you can change the product anchor link in this video. Supported values:`true`: You can add a product anchor link to create a customized post.`false`: You cannot use the video to create a customized post. Note: If `can_change_anchor` is `false`, you cannot pass the video to `custom_anchor_video_list` or `item_list` in [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089) or [/campaign/gmv_max/update/](https://business-api.tiktok.com/portal/docs?id=1822001009002497) to create customized posts. |
+| `identity_info` | `identity_info` | `GmvMaxVideoGetResponseItemListIdentityInfo` | No | No | Information about the identity associated with the TikTok post. |
+| `video_info` | `video_info` | `GmvMaxVideoGetResponseItemListVideoInfo` | No | No | Details of the video in the post. |
+
+## GmvMaxVideoGetResponseItemListIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "TTS_TT"` | No | No | Identity type. Enum values: `AUTH_CODE`: Authorized User. This type of identity is created when you use the authorization code to access a TikTok account or a TikTok post.`TT_USER`: TikTok User. This type of identity is created when you bind your TikTok For Business account with your TikTok Business Account, or when you bind your TikTok For Business account with your regular TikTok account and then upgrade the account to Business Account.`BC_AUTH_TT`: TikTok Account User in Business Center. This type of identity is created when you add a TikTok account to your Business Center, and the TikTok account owner approves your request. `TTS_TT`: TikTok Account User for TikTok Shop. This type of identity is created when you set an official TikTok account for the TikTok Shop. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Returned only when `identity_type` is `BC_AUTH_TT`. The ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `identity_authorized_shop_id` | `identity_authorized_shop_id` | `string` | No | No | Returned for some `BC_AUTH_TT` identities. The ID of the TikTok Shop that the TikTok Account User in Business Center identity is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when `identity_type` is `TTS_TT`. The ID of the TikTok Shop that a TikTok Account User for TikTok Shop identity is associated with. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary profile image URL for the TikTok account that is associated with the identity. Validity period: around 48 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the TikTok account that is associated with the identity. |
+
+## GmvMaxVideoGetResponseItemListVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of the video. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Temporary URL for the video cover. Validity period: around 24 hours. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `preview_url` | `preview_url` | `string` | No | No | Temporary preview URL for the video. Validity period: six hours. Once the URL expires, you need to call [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129) to obtain a new URL. |
+| `height` | `height` | `number` | No | No | The height of the video in pixels. Example: 1920. |
+| `width` | `width` | `number` | No | No | The width of the video in pixels. Example: 1080. |
+| `bit_rate` | `bit_rate` | `number` | No | No | The bit rate of the video in bps. Example: 8500323. |
+| `duration` | `duration` | `number` | No | No | The duration of the video in seconds. Example: 3.669. |
+| `size` | `size` | `number` | No | No | The size of the video in bytes. Example: 3898461. |
+| `signature` | `signature` | `string` | No | No | The MD5 of the video. Example: `ab1cd2345e678fghi91jkl23b456m7no`. |
+| `format` | `format` | `string` | No | No | The format of the video. Example: `mp4`. |
+| `definition` | `definition` | `string` | No | No | The definition of the video. Example: `1080p`. |
+| `fps` | `fps` | `number` | No | No | The frames per second (FPS) of the video. Example: 27. |
+
+## GmvMaxVideoGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## IdentityCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `display_name` | `display_name` | `string` | Yes | No | Display name. The maximum length is 100 characters. |
+| `image_uri` | `image_uri` | `string` | No | No | The ID of the avatar image for the identity. The width and height ratio must be 1:1. To obtain the ID of an avatar image, you can upload the image by using [/file/image/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1739067433456642). If this field is not specified, a default image will be used as the avatar. |
+
+## IdentityCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+
+## IdentityDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | Yes | No | Identity type. Currently, this field only supports `CUSTOMIZED_USER`. |
+
+## IdentityDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## IdentityGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | No | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. If this field is not specified, all identities will be returned. Note: If you set this field to `BC_AUTH_TT` and specify `identity_authorized_bc_id`, all identities linked to the ad account (`advertiser_id`) will be returned. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `filtering` | `filtering` | `IdentityGetParamsFiltering` | No | No | Filtering conditions. Note This field is valid only when `identity_type` = `CUSTOMIZED_USER` or when `identity_type` is not specified. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size.. Value range: 1-100. Default value: 20. |
+
+## IdentityGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Keyword to filter by. When `identity_type` = `CUSTOMIZED_USER`, you can use fuzzy matching by specifying display name to this field. |
+
+## IdentityGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_list` | `identity_list` | `Array<IdentityGetResponseIdentityList>` | No | No | List of identities. |
+| `page_info` | `page_info` | `IdentityGetResponsePageInfo` | No | No | Pagination information. Note: Correct pagination info is available only when you have specified `identity_type` in the request. |
+
+## IdentityGetResponseIdentityList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity type. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `ads_only_mode` | `ads_only_mode` | `boolean` | No | No | Whether the "Show through ads only" mode is enabled for the identity. Supported values: `true`, `false`. This field returns a non-null value when `identity_type` is `BC_AUTH_TT`. When this field is `true`, you cannot set `dark_post_status` to `OFF` while creating ads (through [/smart_plus/ad/create/](https://business-api.tiktok.com/portal/docs?id=1843317390059522), [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354), or [/campaign/spc/create/](https://business-api.tiktok.com/portal/docs?id=1767334204047362)) or updating ads (through [/smart_plus/ad/update/](https://business-api.tiktok.com/portal/docs?id=1843317411665921), [/ad/update/](https://business-api.tiktok.com/portal/docs?id=1739953405142018), or [/campaign/spc/update/](https://business-api.tiktok.com/portal/docs?id=1767334250066945)) to allow your post to appear on your TikTok profile and be eligible to receive organic traffic. |
+| `username` | `username` | `string` | No | No | The username (handle name) of the identity. |
+| `is_gpppa` | `is_gpppa` | `boolean` | No | No | Whether the TikTok account is a [Government, Politician, and Political Party Account](https://support.tiktok.com/en/using-tiktok/growing-your-audience/government-politician-and-political-party-accounts) (GPPPA). Supported values: `true`, `false`. When this field is `true`, the TikTok account cannot be used to [create Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). |
+| `can_push_video` | `can_push_video` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can create or edit videos. Supported values: `true`, `false`. |
+| `can_pull_video` | `can_pull_video` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can get all videos under the TikTok account. Supported values: `true`, `false`. |
+| `can_use_live_ads` | `can_use_live_ads` | `boolean` | No | No | Whether the `BC_AUTH_TT`or `TT_USER` identity can access the live room. Supported values: `true`, `false`. |
+| `can_manage_message` | `can_manage_message` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can manage direct messages. Supported values: `true`, `false`. |
+| `display_name` | `display_name` | `string` | No | No | Display name. |
+| `available_status` | `available_status` | `"AVAILABLE" \| "NO_VALID_BIND_ACCOUNT" \| "SCOPE_UNAVAILABLE" \| "NOT_BUSINESS_ACCOUNT"` | No | No | Availability of the identity. Only valid for `TT_USER` and `BC_AUTH_TT` type of identities. Enum values: `AVAILABLE`, `NO_VALID_BIND_ACCOUNT`, `SCOPE_UNAVAILABLE`,` IS_PRIVATE_ACCOUNT`, `NOT_BUSINESS_ACCOUNT`. |
+| `profile_image` | `profile_image` | `string` | No | No | Profile image URL. |
+
+## IdentityGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `page_size` | `page_size` | `number` | No | No | Number of results on each page. |
+
+## IdentityInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+
+## IdentityInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_info` | `identity_info` | `IdentityInfoResponseIdentityInfo` | No | No | Identity information. |
+
+## IdentityInfoResponseIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | No | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `ads_only_mode` | `ads_only_mode` | `boolean` | No | No | Returned only when `identity_type` is `BC_AUTH_TT`. Whether the "Show through ads only" mode is enabled for the identity. Supported values: `true`, `false`. When this field is `true`, you cannot set `dark_post_status` to `OFF` while creating ads (through [/smart_plus/ad/create/](https://business-api.tiktok.com/portal/docs?id=1843317390059522), [/ad/create/](https://business-api.tiktok.com/portal/docs?id=1739953377508354), or [/campaign/spc/create/](https://business-api.tiktok.com/portal/docs?id=1767334204047362)) or updating ads (through [/smart_plus/ad/update/](https://business-api.tiktok.com/portal/docs?id=1843317411665921), [/ad/update/](https://business-api.tiktok.com/portal/docs?id=1739953405142018), or [/campaign/spc/update/](https://business-api.tiktok.com/portal/docs?id=1767334250066945)) to allow your post to appear on your TikTok profile and be eligible to receive organic traffic. |
+| `username` | `username` | `string` | No | No | The username (handle name) of the identity. |
+| `is_gpppa` | `is_gpppa` | `boolean` | No | No | Whether the TikTok account is a [Government, Politician, and Political Party Account](https://support.tiktok.com/en/using-tiktok/growing-your-audience/government-politician-and-political-party-accounts) (GPPPA). Supported values: `true`, `false`. When this field is `true`, the TikTok account cannot be used to [create Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). |
+| `can_push_video` | `can_push_video` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can create or edit videos. Supported values: `true`, `false`. |
+| `can_pull_video` | `can_pull_video` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can get all videos under the TikTok account. Supported values: `true`, `false`. |
+| `can_use_live_ads` | `can_use_live_ads` | `boolean` | No | No | Whether the `BC_AUTH_TT`or `TT_USER` identity can access the live room. Supported values: `true`, `false`. |
+| `can_manage_message` | `can_manage_message` | `boolean` | No | No | Whether the `BC_AUTH_TT` or `TT_USER` identity can manage direct messages. Supported values: `true`, `false`. |
+| `display_name` | `display_name` | `string` | No | No | Display name. |
+| `profile_image_url` | `profile_image_url` | `string` | No | No | Profile image URL. |
+| `available_status` | `available_status` | `"AVAILABLE" \| "NO_VALID_BIND_ACCOUNT" \| "SCOPE_UNAVAILABLE" \| "IS_PRIVATE_ACCOUNT" \| "NOT_BUSINESS_ACCOUNT"` | No | No | Availability of the identity. Only valid for `TT_USER` and `BC_AUTH_TT` type of identities. Enum values: `AVAILABLE`, `NO_VALID_BIND_ACCOUNT`, `SCOPE_UNAVAILABLE`, `IS_PRIVATE_ACCOUNT`, `NOT_BUSINESS_ACCOUNT`. |
+
+## IdentityLiveGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`, `BC_AUTH_TT`. See Identities for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `cursor` | `cursor` | `number` | No | No | Timestamp cursor. Live videos before the timestamp will be returned in reverse-chronological order. In the initial request, you can set it to `0`. The response will include a `has_more` flag and a `cursor`. If `has_more` is `true`, use the returned `cursor` in your subsequent request to obtain the following page of data. |
+
+## IdentityLiveGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | Timestamp cursor. The time value of the last item returned according to the current request. You need to use this cursor value in your subsequent request to get the next live videos. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether more data is available. |
+| `live_list` | `live_list` | `Array<IdentityLiveGetResponseLiveList>` | No | No | List of live videos. |
+
+## IdentityLiveGetResponseLiveList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `live_id` | `live_id` | `string` | No | No | Live video ID. |
+| `finish_timestamp` | `finish_timestamp` | `string` | No | No | Finish timestamp for a live video. Example: `2023-12-07 08:13:44`. |
+
+## IdentityMusicAuthorizationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Ad account ID. |
+| `item_id` | `item_id` | `string` | Yes | No | Tiktok post ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE` (Authorized Post User), `TT_USER` (TikTok Business Account User), `BC_AUTH_TT` (TheTikTok account that a Business Center is authorized to access). See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+| `locations` | `locations` | `Array<string>` | Yes | No | List of targeting locations. You must use the same set of locations as when you create the ad. |
+| `start_time` | `start_time` | `string` | Yes | No | Ad deployment start time (UTC), in the format of "YYYY-MM-DD HH:MM:SS". |
+| `end_time` | `end_time` | `string` | Yes | No | Ad deployment end time (UTC), in the format of "YYYY-MM-DD HH:MM:SS". |
+
+## IdentityMusicAuthorizationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_authorization` | `music_authorization` | `Array<IdentityMusicAuthorizationResponseMusicAuthorization>` | No | No | Music authorization information for TikTok posts. |
+
+## IdentityMusicAuthorizationResponseMusicAuthorization
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | TikTok post ID. |
+| `music_status` | `music_status` | `"WITHOUT_SONG_ID" \| "AUTHORIZATION_MISSING" \| "WITH_FULL_AUTHORIZATION"` | No | No | The aggregated authorization status for all the music in the TikTok post. Enum values: `WITHOUT_SONG_ID`, `AUTHORIZATION_MISSING`, `WITH_FULL_AUTHORIZATION`. |
+| `authorization_infos` | `authorization_infos` | `Array<IdentityMusicAuthorizationResponseMusicAuthorizationAuthorizationInfos>` | No | No | Authorization information for each music. |
+
+## IdentityMusicAuthorizationResponseMusicAuthorizationAuthorizationInfos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Song ID. |
+| `author` | `author` | `string` | No | No | Performer. |
+| `title` | `title` | `string` | No | No | Song title. |
+| `labels` | `labels` | `Array<string>` | No | No | Labels (tags) for this song. |
+| `lyricist` | `lyricist` | `string` | No | No | Lyricist. |
+| `composer` | `composer` | `string` | No | No | Music composer. |
+| `publisher` | `publisher` | `string` | No | No | Music publisher. |
+| `authorization_type` | `authorization_type` | `"NOT_AUTHORIZED" \| "AUTHORIZED"` | No | No | Authorization type. Enum values: `NOT_AUTHORIZED`, `AUTHORIZED`. |
+
+## IdentityNativeSeriesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. To get the list of identities under your ad account, use [/identity/get/](https://business-api.tiktok.com/portal/docs/get-the-identity-list/v1.3). |
+| `identity_type` | `identity_type` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`, `BC_AUTH_TT`. See [Identities](https://business-api.tiktok.com/portal/docs/identities/v1.3) for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `cursor` | `cursor` | `number` | No | No | The cursor for paginating results. If `has_more` in the response is `true`, use the returned cursor in your subsequent request to fetch the next set of data. Default value: 0. |
+| `count` | `count` | `number` | No | No | The maximum number of Series to return in the response. Value range: 1-100. Default value: 10. |
+
+## IdentityNativeSeriesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<IdentityNativeSeriesGetResponseList>` | No | No | The list of Series that you can access from the identity (`identity_id`). |
+| `cursor` | `cursor` | `number` | No | No | The cursor for paginating results. If `has_more` in the response is `true`, use this cursor in your subsequent request to fetch the next set of data. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether more data is available. |
+
+## IdentityNativeSeriesGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `native_series_id` | `native_series_id` | `string` | No | No | The ID of the TikTok Series. |
+| `native_series_name` | `native_series_name` | `string` | No | No | The name of the TikTok Series. |
+| `native_series_cover_url` | `native_series_cover_url` | `string` | No | No | The URL to the cover image of the TikTok Series. |
+| `native_series_total_episode` | `native_series_total_episode` | `number` | No | No | The total number of episodes in the TikTok Series. |
+| `native_series_total_duration` | `native_series_total_duration` | `number` | No | No | The combined duration of all episodes in the TikTok Series, measured in seconds. |
+
+## IdentityVideoGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | ID of the Business Center that a TikTok Account User in Business Center identity is associated with. Required when `identity_type` is `BC_AUTH_TT`. |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of TikTok posts that you want to retrieve. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. Default value: `VIDEO`. |
+| `keyword` | `keyword` | `string` | No | No | Valid only when `identity_type` is set to `AUTH_CODE`. Otherwise, an error will occur. The text or TikTok post ID as a keyword to search TikTok posts by. If you want to search for TikTok posts based on text, provide a text string with a maximum length of 500 characters. This search type supports searching in multiple languages and fuzzy matches. Example: "summer". If you want to search for TikTok posts based on `item_id`, provide a numeric string with a minimum length of 19 characters. This search type supports exact matches. Example: "1234567891234567891" |
+| `exclude_adsonly` | `exclude_adsonly` | `boolean` | No | No | Whether to exclude ads only posts from the results. Ads-only posts are those you publish from a TikTok account as ads, which remain hidden from the public on the account's profile page. Supported values:`false`: To retrieve both organic and ads only posts.`true`: To retrieve a maximum of 500 most recent organic posts. Default value: `false`. |
+| `cursor` | `cursor` | `number` | No | No | Cursor for pagination. |
+| `count` | `count` | `number` | No | No | Number of TikTok posts you want to get. Value range: 1-20. If you specify a value greater than 20, this field will be ignored and a maximum of 20 TikTok posts associated with the identity will be returned. |
+
+## IdentityVideoGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | Timestamp cursor or cursor for pagination.If `identity_type` is `TT_USER` or `BC_AUTH_TT` :When `exclude_adsonly` is `false` in the request, `cursor` is the time value of the last item returned according to the current request. You need to use this cursor value in your subsequent request to get the next posts.When `exclude_adsonly` is `true` in the request, `cursor` is the cursor for pagination. If `has_more` in the response is `true`, you need to use the returned `cursor` in the subsequent request to receive the next page of results.If `identity_type` is `AUTH_CODE`, `cursor` is the cursor for pagination. If `has_more` in the response is `true`, you need to use the returned `cursor` in the subsequent request to receive the next page of results. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether more data is available. |
+| `video_list` | `video_list` | `Array<IdentityVideoGetResponseVideoList>` | No | No | List of posts. |
+
+## IdentityVideoGetResponseVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of TikTok post. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. |
+| `item_id` | `item_id` | `string` | No | No | TikTok post ID. |
+| `status` | `status` | `"ITEM_STATUS_HESITATE_RECOMMEND" \| "STATUS_ONLY_FRIEND_SEE" \| "ITEM_STATUS_ONLY_AUTHOR_SEE"` | No | No | Status of the TikTok post. Enum values: `ITEM_STATUS_HESITATE_RECOMMEND`: visible to all. `STATUS_ONLY_FRIEND_SEE`: visible to friends.`ITEM_STATUS_ONLY_AUTHOR_SEE`: private. |
+| `text` | `text` | `string` | No | No | Text for the TikTok post. |
+| `auth_info` | `auth_info` | `IdentityVideoGetResponseVideoListAuthInfo` | No | No | Authorization Information. |
+| `anchor_list` | `anchor_list` | `IdentityVideoGetResponseVideoListAnchorList` | No | No | Information about anchors. |
+| `video_info` | `video_info` | `IdentityVideoGetResponseVideoListVideoInfo` | No | No | Information about the video post. Note: When `item_type` is `CAROUSEL`, the value of this field will be null. |
+| `carousel_info` | `carousel_info` | `IdentityVideoGetResponseVideoListCarouselInfo` | No | No | Information about the photo post. Note: When `item_type` is `VIDEO`, the value of this field will be null. |
+
+## IdentityVideoGetResponseVideoListAnchorList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor_id` | `anchor_id` | `string` | No | No | Anchor ID. |
+| `title` | `title` | `string` | No | No | Anchor title. |
+| `status` | `status` | `"CHECK_ING" \| "CHECK_FAILED" \| "CHECK_SUCCESS"` | No | No | Anchor status. Enum values: `CHECK_ING`, `CHECK_FAILED`, `CHECK_SUCCESS`. |
+| `url` | `url` | `string` | No | No | Anchor URL. |
+| `product_regions` | `product_regions` | `Array<string>` | No | No | Regions that the ad can be delivered to. This is a list of country or region codes. For example, `["DE"]`. |
+
+## IdentityVideoGetResponseVideoListAuthInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_auth_status` | `ad_auth_status` | `string` | No | No | Authorization status. |
+| `auth_end_time` | `auth_end_time` | `string` | No | No | Time when the authorization code is valid from (UTC+0), in the format of 2017-01-01 00:00:00. |
+| `auth_start_time` | `auth_start_time` | `string` | No | No | Time when the authorization code is valid from (time zone: UTC+0), in the format of 2017-01-01 00:00:00. |
+| `invite_start_time` | `invite_start_time` | `string` | No | No | The time when the authorization starts (UTC+0), in the format of 2017-01-01 00:00:00. |
+
+## IdentityVideoGetResponseVideoListCarouselInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_info` | `image_info` | `Array<IdentityVideoGetResponseVideoListCarouselInfoImageInfo>` | No | No | Information about the images used in the photo post. The images are returned in the same order as they are shown in the photo post. |
+| `music_info` | `music_info` | `IdentityVideoGetResponseVideoListCarouselInfoMusicInfo` | No | No | Information about the music used in the photo post. Note: If the photo post is directly published in the TikTok App without music, the value of this field will be null. |
+
+## IdentityVideoGetResponseVideoListCarouselInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID. |
+| `image_url` | `image_url` | `string` | No | No | The URL of the image. Validity period: 90 days. |
+| `image_height` | `image_height` | `number` | No | No | The height of the image, measured in pixels. |
+| `image_width` | `image_width` | `number` | No | No | The width of the image, measured in pixels. |
+
+## IdentityVideoGetResponseVideoListCarouselInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Music ID. |
+| `music_url` | `music_url` | `string` | No | No | The URL of the music. Validity period: 90 days. |
+| `music_duration` | `music_duration` | `number` | No | No | The duration of the music, in seconds. |
+
+## IdentityVideoGetResponseVideoListVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bit_rate` | `bit_rate` | `number` | No | No | Bit rates, in bps. |
+| `duration` | `duration` | `number` | No | No | Duration of the video, in seconds. |
+| `size` | `size` | `number` | No | No | Video size, in bytes. |
+| `height` | `height` | `number` | No | No | Video height. |
+| `width` | `width` | `number` | No | No | Video width. |
+| `poster_url` | `poster_url` | `string` | No | No | URL to the video poster. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. When it expires, you need to call this endpoint to get a new URL. |
+| `signature` | `signature` | `string` | No | No | MD5 for the video file. |
+| `url` | `url` | `string` | No | No | Video preview link. It is valid for an hour. When it expires, you need to call the endpoint again to get a new URL. |
+| `format` | `format` | `string` | No | No | Format of the video. |
+
+## IdentityVideoInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) for details. |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. To get the identities within an ad account, use [/identity/get/](https://business-api.tiktok.com/portal/docs?id=1740218420781057). |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `item_id` | `item_id` | `string` | No | No | Either `item_id` or `item_ids` must be specified. If you want to retrieve the information for a single TikTok post, pass `item_id`. If you want to retrieve the information for multiple TikTok posts, pass `item_ids`. The TikTok post ID that is associated with the provided Identity ID (`identity_id`). To get the TikTok posts associated with an identity, use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) and extract the TikTok post ID (`item_id`) from the response. |
+| `item_ids` | `item_ids` | `Array<string>` | No | No | Either `item_id` or `item_ids` must be specified. If you want to retrieve the information for a single TikTok post, pass `item_id`. If you want to retrieve the information for multiple TikTok posts, pass `item_ids`. A list of TikTok post IDs that are associated with the provided Identity ID (`identity_id`). Max size: 20. To get the TikTok posts associated with an identity, use [/identity/video/get/](https://business-api.tiktok.com/portal/docs?id=1740218475032577) and extract the TikTok post ID (`item_id`) from the response. |
+
+## IdentityVideoInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_detail` | `video_detail` | `IdentityVideoInfoResponseVideoDetail` | No | No | Returned when `item_id` is passed in the request. Information about the TikTok post. |
+| `video_details` | `video_details` | `Array<IdentityVideoInfoResponseVideoDetails>` | No | No | Returned when `item_ids` is passed in the request. Information about the TikTok posts. |
+
+## IdentityVideoInfoResponseVideoDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of TikTok post. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. |
+| `item_id` | `item_id` | `string` | No | No | TikTok post ID. |
+| `status` | `status` | `"ITEM_STATUS_HESITATE_RECOMMEND" \| "STATUS_ONLY_FRIEND_SEE" \| "ITEM_STATUS_ONLY_AUTHOR_SEE"` | No | No | Visibility status of the TikTok post. Enum values: `ITEM_STATUS_HESITATE_RECOMMEND`: visible to all. `STATUS_ONLY_FRIEND_SEE`: visible to friends.`ITEM_STATUS_ONLY_AUTHOR_SEE`: private. |
+| `text` | `text` | `string` | No | No | Text for the TikTok post. |
+| `anchor_list` | `anchor_list` | `Array<IdentityVideoInfoResponseVideoDetailAnchorList>` | No | No | Anchor information. |
+| `auth_info` | `auth_info` | `IdentityVideoInfoResponseVideoDetailAuthInfo` | No | No | Returned only when `identity_type` is set to `AUTH_CODE` in the request. Authorization status. |
+| `video_info` | `video_info` | `IdentityVideoInfoResponseVideoDetailVideoInfo` | No | No | Information about the video post. Note: When `item_type` is `CAROUSEL`, the value of this field will be null. |
+| `carousel_info` | `carousel_info` | `IdentityVideoInfoResponseVideoDetailCarouselInfo` | No | No | Information about the photo post. Note: When `item_type` is `VIDEO`, the value of this field will be null. |
+
+## IdentityVideoInfoResponseVideoDetailAnchorList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor_id` | `anchor_id` | `string` | No | No | Anchor ID. |
+| `title` | `title` | `string` | No | No | Anchor title. |
+| `status` | `status` | `"CHECKING" \| "CHECK_FAILED" \| "CHECK_SUCCESS"` | No | No | Anchor status. Enum values: `CHECKING`, `CHECK_FAILED`, `CHECK_SUCCESS`. |
+| `url` | `url` | `string` | No | No | Anchor URL. |
+| `product_regions` | `product_regions` | `Array<string>` | No | No | Countries and regions that the ad can be delivered to. This is a list of country or region codes. For example, ` ["DE"]`. |
+
+## IdentityVideoInfoResponseVideoDetailAuthInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_auth_status` | `ad_auth_status` | `string` | No | No | The authorization status. |
+| `auth_start_time` | `auth_start_time` | `string` | No | No | Time when the authorization code is valid from (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+| `auth_end_time` | `auth_end_time` | `string` | No | No | Time when the authorization code expires (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+| `invite_start_time_stamp` | `invite_start_time_stamp` | `string` | No | No | The time when the authorization starts (UTC+0), in the format of `"YYYY-MM-DD HH:MM:SS"`. |
+
+## IdentityVideoInfoResponseVideoDetailCarouselInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_info` | `image_info` | `Array<IdentityVideoInfoResponseVideoDetailCarouselInfoImageInfo>` | No | No | Information about the images used in the photo post. The images are returned in the same order as they are shown in the photo post. |
+| `music_info` | `music_info` | `IdentityVideoInfoResponseVideoDetailCarouselInfoMusicInfo` | No | No | Information about the music used in the photo post. Note: If the photo post is directly published in the TikTok App without music, the value of this field will be null. |
+
+## IdentityVideoInfoResponseVideoDetailCarouselInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID. |
+| `image_url` | `image_url` | `string` | No | No | The URL of the image. Validity period: 90 days. |
+| `image_height` | `image_height` | `number` | No | No | The height of the image, measured in pixels. |
+| `image_width` | `image_width` | `number` | No | No | The width of the image, measured in pixels. |

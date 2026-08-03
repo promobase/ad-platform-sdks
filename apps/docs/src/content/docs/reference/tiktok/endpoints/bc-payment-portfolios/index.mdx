@@ -1,0 +1,221 @@
+---
+title: "TikTok Business BC Payment Portfolios endpoints"
+description: "6 generated TikTok Business endpoint contracts for BC Payment Portfolios."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 118
+  label: "BC Payment Portfolios"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioAdvertiserGet
+
+`GET` `/open_api/v1.3/payment_portfolio/advertiser/get/`
+
+Generated from TikTok documentation 1839152005599234
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPaymentPortfolios.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioAdvertiserGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payment_portfolio_id` | `query` | `string` | Yes | No | The ID of the Payment Portfolio. To obtain a list of Payment Portfolio IDs, use [/payment_portfolio/get/](https://business-api.tiktok.com/portal/docs?id=1839151931301954). |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioAdvertiserUpdate
+
+`POST` `/open_api/v1.3/payment_portfolio/advertiser/update/`
+
+Generated from TikTok documentation 1839151992566081
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPaymentPortfolios.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioAdvertiserUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payment_portfolio_id` | `body` | `string` | Yes | No | The ID of the Advanced Payment Portfolio. To obtain a list of available Payment Portfolio IDs, use [/payment_portfolio/get/](https://business-api.tiktok.com/portal/docs?id=1839151931301954) and filter for Payment Portfolios where the `payment_portfolio_type` is `SHARED`. |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | The list of ad accounts that you want to link to the Payment Portfolio. You can only link ad accounts that belong to the same client as the Payment Portfolio. Max size: 20. If the ad account belongs to a Business Center, you need to have Finance Manager or Admin access to the Business Center. To confirm your access to a Business Center, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826) and check the returned `user_role` and `finance_role`.If the ad account does not belong to a Business Center, you need to have Admin or Operator access to the ad account. Note: If `advertiser_ids` contains any invalid IDs, the whole call will fail. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioCreate
+
+`POST` `/open_api/v1.3/payment_portfolio/create/`
+
+Generated from TikTok documentation 1839151986039809
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPaymentPortfolios.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payment_portfolio_name` | `body` | `string` | Yes | No | The name of the Payment Portfolio. |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | The list of ad accounts that you want to link to the Payment Portfolio. You can only link ad accounts that belong to the same client as the Payment Portfolio. Max size: 20. If the ad account belongs to a Business Center, you need to have Finance Manager or Admin access to the Business Center. To confirm your access to a Business Center, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826) and check the returned `user_role` and `finance_role`.If the ad account does not belong to a Business Center, you need to have Admin or Operator access to the ad account. Note: If `advertiser_ids` contains any invalid IDs, the whole call will fail. |
+| `payment_portfolio_type` | `body` | `string` | No | No | The type of the Payment Portfolio. Enum values:`SHARED`: Advanced Payment Portfolio. For Advanced Payment Portfolios, funds are centrally managed and jointly used by all linked ad accounts. Default value: `SHARED`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioCreditLineUpdate
+
+`POST` `/open_api/v1.3/payment_portfolio/credit_line/update/`
+
+Generated from TikTok documentation 1839151998450754
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPaymentPortfolios.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioCreditLineUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allocation_details` | `body` | `Array<PaymentPortfolioCreditLineUpdateParamsAllocationDetails>` | Yes | No | The details of credit line allocation. Max size: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioGet
+
+`GET` `/open_api/v1.3/payment_portfolio/get/`
+
+Generated from TikTok documentation 1839151931301954
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPaymentPortfolios.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | ID of a Business Center. By default, the response will include the Payment Portfolios that belong to the same client as the Business Center, even though some of them are not linked to the Business Center. |
+| `filtering` | `query` | `PaymentPortfolioGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPaymentPortfolios.paymentPortfolioUserGet
+
+`GET` `/open_api/v1.3/payment_portfolio/user/get/`
+
+Generated from TikTok documentation 1839152031645121
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPaymentPortfolios.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PaymentPortfolioUserGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payment_portfolio_id` | `query` | `string` | Yes | No | The ID of the Payment Portfolio. To obtain a list of Payment Portfolio IDs, use [/payment_portfolio/get/](https://business-api.tiktok.com/portal/docs?id=1839151931301954). |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

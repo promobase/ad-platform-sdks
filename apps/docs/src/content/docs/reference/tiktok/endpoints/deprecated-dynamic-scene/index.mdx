@@ -1,0 +1,197 @@
+---
+title: "TikTok Business Deprecated Dynamic Scene endpoints"
+description: "5 generated TikTok Business endpoint contracts for Deprecated Dynamic Scene."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 138
+  label: "Deprecated Dynamic Scene"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.deprecatedDynamicScene.dynamicSceneGet
+
+`GET` `/open_api/v1.3/dynamic_scene/get/`
+
+Generated from TikTok documentation 1740317360823297
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `deprecatedDynamicScene.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DynamicSceneGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `material_package_id` | `query` | `string` | Yes | No | Material Package ID. |
+| `page` | `query` | `number` | No | No | Page that you want to get. |
+| `page_size` | `query` | `number` | No | No | Number of results on each page. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.deprecatedDynamicScene.dynamicSceneMaterialSubmit
+
+`POST` `/open_api/v1.3/dynamic_scene/material/submit/`
+
+Generated from TikTok documentation 1740317263937538
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `deprecatedDynamicScene.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DynamicSceneMaterialSubmitResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `slots` | `body` | `Array<DynamicSceneMaterialSubmitParamsSlots>` | Yes | No | Max size is 6. |
+| `auto_soundtrack` | `body` | `boolean` | No | No | Whether to use automatic soundtrack provided by the system. If you want auto soundtrack, set it equals to `true`. The default value is `false`. |
+| `music_ids` | `body` | `Array<string>` | No | No | Music materials. You can get music IDs through [Music Upload](https://ads.tiktok.com/marketing_api/docs?id=1740052650395650) endpoint. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.deprecatedDynamicScene.dynamicSceneReportGet
+
+`GET` `/open_api/v1.3/dynamic_scene/report/get/`
+
+Generated from TikTok documentation 1740317382510593
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `deprecatedDynamicScene.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DynamicSceneReportGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `data_level` | `query` | `string` | Yes | No | The data level that you'd like to query in reports. Currently we only support `ADGROUP`. |
+| `input_ids` | `query` | `Array<string>` | Yes | No | IDs of the `data level` fields. Currently we only support ad group id. |
+| `dimensions` | `query` | `Array<string>` | Yes | No | Grouping conditions. For example: `["campaign_id", "stat_time_day"]` indicates that both campaign_id and stat_time_day (days) are grouped. Currently, we only support the value of`[advertiser_id, adgroup_id, story_arc, order, video_id]` in this field. Make sure that you've passed all the values of `[advertiser_id, adgroup_id, story_arc, order, video_id]` in this field. |
+| `metrics` | `query` | `Array<string>` | No | No | Metrics to query. Refer to the Response section for details. |
+| `start_time` | `query` | `string` | No | No | Query start date in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. |
+| `end_time` | `query` | `string` | No | No | Query end date in the format of `YYYY-MM-DD`. The date is based on the ad account time zone. Note: The start time and end time should be no more than one year apart. |
+| `order_field` | `query` | `string` | No | No | Sort field. All supported metrics (excluding attribute metrics) support sorting, not sorting by default. |
+| `order_type` | `query` | `"ASC" \| "DESC"` | No | No | Sort. Enum values: `ASC`, `DESC`. Default value: `DESC` . |
+| `filters` | `query` | `Array<DynamicSceneReportGetParamsFilters>` | No | No | Filter criteria. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: `1`. |
+| `page_size` | `query` | `number` | No | No | Pagination size. Value range: 1-1000. Default value: `10`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.deprecatedDynamicScene.dynamicSceneTaskCreate
+
+`POST` `/open_api/v1.3/dynamic_scene/task/create/`
+
+Generated from TikTok documentation 1740317320231938
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `deprecatedDynamicScene.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DynamicSceneTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `material_package_id` | `body` | `string` | Yes | No | Material package ID, in the response of [/dynamic_scene/material/submit/](https://ads.tiktok.com/marketing_api/docs?id=1740307384545345) endpoint. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.deprecatedDynamicScene.dynamicSceneTaskGet
+
+`GET` `/open_api/v1.3/dynamic_scene/task/get/`
+
+Generated from TikTok documentation 1740317337705473
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `deprecatedDynamicScene.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DynamicSceneTaskGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `query` | `string` | No | No | Task ID, in the response of [/dynamic_scene/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1740317320231938) endpoint. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,295 @@
+---
+title: "LinkedIn Post endpoints"
+description: "9 generated LinkedIn endpoint contracts for Post."
+generated: true
+platform: "linkedin"
+sourceVersion: "202602"
+sidebar:
+  order: 104
+  label: "Post"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+
+## batchGetSocialMetadata
+
+`GET` `/socialMetadata`
+
+batch Get Social Metadata
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.metrics.read` |
+| Required scopes | `r_member_postAnalytics`<br />`r_organization_social` |
+| Rate-limit bucket | `post.metrics.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## createPost
+
+`POST` `/posts`
+
+create Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `post.publish` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `post.publish` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## deletePost
+
+`DELETE` `/posts/{postUrn}`
+
+delete Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `post.delete` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `post.delete` |
+| Output | `true` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getMemberPostAnalytics
+
+`GET` `/memberCreatorPostAnalytics`
+
+get Member Post Analytics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.metrics.read` |
+| Required scopes | `r_member_postAnalytics` |
+| Rate-limit bucket | `post.metrics.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `queryType` | `query` | `string` | Yes | No | — |
+| `finder` | `query` | `string` | No | No | — |
+| `entity` | `query` | `string` | No | No | — |
+| `aggregation` | `query` | `string` | No | No | — |
+| `dateRange` | `query` | `json` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getOrganizationShareStatistics
+
+`GET` `/organizationalEntityShareStatistics`
+
+get Organization Share Statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.metrics.read` |
+| Required scopes | `r_organization_social` |
+| Rate-limit bucket | `post.metrics.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationalEntity` | `query` | `string` | Yes | No | — |
+| `shares` | `query` | `Array<string>` | No | No | — |
+| `ugcPosts` | `query` | `Array<string>` | No | No | — |
+| `timeIntervals` | `query` | `json` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getPost
+
+`GET` `/posts/{postUrn}`
+
+get Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.read` |
+| Required scopes | `r_organization_social` |
+| Rate-limit bucket | `post.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `path` | `string` | Yes | No | — |
+| `viewContext` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## getSocialMetadata
+
+`GET` `/socialMetadata/{postUrn}`
+
+get Social Metadata
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.metrics.read` |
+| Required scopes | `r_member_postAnalytics`<br />`r_organization_social` |
+| Rate-limit bucket | `post.metrics.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## listPostsByAuthor
+
+`GET` `/posts`
+
+list Posts By Author
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `post.read` |
+| Required scopes | `r_organization_social` |
+| Rate-limit bucket | `post.read` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `author` | `query` | `string` | Yes | No | — |
+| `start` | `query` | `number` | No | No | — |
+| `count` | `query` | `number` | No | No | — |
+| `sortBy` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## updatePostCommentary
+
+`POST` `/posts/{postUrn}`
+
+update Post Commentary
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `post.publish` |
+| Required scopes | `w_member_social`<br />`w_organization_social` |
+| Rate-limit bucket | `post.publish` |
+| Output | `true` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

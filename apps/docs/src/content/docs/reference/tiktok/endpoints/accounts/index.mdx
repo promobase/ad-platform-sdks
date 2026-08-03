@@ -1,0 +1,1045 @@
+---
+title: "TikTok Business Accounts endpoints"
+description: "29 generated TikTok Business endpoint contracts for Accounts."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 100
+  label: "Accounts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.accounts.businessBenchmark
+
+`GET` `/open_api/v1.3/business/benchmark/`
+
+Generated from TikTok documentation 1822388944791617
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessBenchmarkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `business_category` | `query` | `string` | Yes | No | Business category. For enum values, see List of values for `business_category`. Example: `ART_AND_CRAFTS`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentCreate
+
+`POST` `/open_api/v1.3/business/comment/create/`
+
+Generated from TikTok documentation 1762228442072066
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `body` | `string` | Yes | No | Unique identifier for owned TikTok video to create comments on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `text` | `body` | `string` | No | No | Either `text` or `image_uri` must be specified. Text for the comment reply. Length limit: 1,200 characters (UTF-8 encoding). Example: "This is a comment #comment 🙂". |
+| `image_uri` | `body` | `string` | No | No | Either `text` or `image_uri` must be specified. URI for the reply image. To obtain the image URI, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Example: `54ccb875ae0c4368b94037d03a95b633` |
+| `image_width` | `body` | `number` | No | No | Required when `image_uri` is specified. The width of the image. To obtain the image width, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. |
+| `image_height` | `body` | `number` | No | No | Required when `image_uri` is specified. The height of the image. To obtain the image height, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Note: This value is from [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentDelete
+
+`POST` `/open_api/v1.3/business/comment/delete/`
+
+Generated from TikTok documentation 1762228483080193
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `body` | `string` | Yes | No | Unique identifier for owned comment on an owned TikTok video to delete.. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentHide
+
+`POST` `/open_api/v1.3/business/comment/hide/`
+
+Generated from TikTok documentation 1762228474532865
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentHideResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `body` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to hide/unhide. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `video_id` | `body` | `string` | Yes | No | Unique identifier for owned TikTok video. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `action` | `body` | `"HIDE" \| "UNHIDE"` | Yes | No | Specific operation to be performed on the comment - hide or unhide. Enum values: `HIDE`, `UNHIDE`. Example: `HIDE`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentImageUpload
+
+`POST` `/open_api/v1.3/business/comment/image/upload/`
+
+Generated from TikTok documentation 1856212334897154
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentImageUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_file` | `body` | `unknown` | Yes | No | The image file which will be used to generate a new comment or to add reply to an existing comment thread. Maximum size: 5 MB. Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels. Minimum resolution: 360 x 360 pixels. File types supported: JPG, JPEG, WebP, or PNG. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentLike
+
+`POST` `/open_api/v1.3/business/comment/like/`
+
+Generated from TikTok documentation 1762228456608770
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentLikeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `comment_id` | `body` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to like/unlike. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `action` | `body` | `"LIKE" \| "UNLIKE"` | Yes | No | Specific operation to be performed on the comment - like or unlike. Enum values: `LIKE`, `UNLIKE`. Example: `LIKE`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentList
+
+`GET` `/open_api/v1.3/business/comment/list/`
+
+Generated from TikTok documentation 1760232109619202
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `query` | `string` | Yes | No | Unique identifier for owned TikTok video to list comments (and comment replies) on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint. |
+| `comment_ids` | `query` | `Array<string>` | No | No | A list of IDs for comments or comment replies that you want to filter the results by. Max size: 30. |
+| `include_replies` | `query` | `boolean` | No | No | Whether to include replies to the top-level comments in the results. If you set this field to `true`, each top-level comment will be returned with their corresponding replies. The maximum number of replies for each comment is three. The returned comments and replies will be sorted by smart sorting algorithm by default. Default value: `false`. To get all the replies to a comment, use [/business/comment/reply/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228430145538). |
+| `status` | `query` | `string` | No | No | The visibility status of comments (and comment replies) that you want to filter the results by. Enum values:PUBLIC: Comments (and comment replies) that are publicly viewable by all TikTok users.ALL: Video owner's comments (and comment replies) that are both hidden from view as well as publicly viewable by all TikTok users.Default value: ALL |
+| `sort_field` | `query` | `string` | No | No | Specific field to sort comments (and comment replies) by. Enum values:likes: Sort comments (and comment replies) by the number of likes in the specified sort_order.replies: Sort comments (and comment replies) by the number of replies in the specified sort_order.create_time: Sort comments (and comment replies) chronologically in the specified sort_order.By default, the comments will be returned in a random order. Note: If the number of comments on the owned video exceeds 500, the first 500 comments will be returned according to the specified sorting, and the remaining comments will be returned in reverse order based on the number of likes. Also, the comments beyond the first 500 and the first 500 comments themselves are not deduplicated and may contain duplicates. |
+| `sort_order` | `query` | `string` | No | No | Specific field to sort comments (and comment replies) by. Enum values:asc: Sort comments (and comment replies) in ascending order by the specified sort_field.desc: Sort comments (and comment replies) in descending order by the specified sort_field.smart: Sort comments (and comment replies) using algorithms.Default value: smart |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. If the response parameter has_more is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0 |
+| `max_count` | `query` | `number` | No | No | The maximum number of comments that will be returned for each page of data. Default value: 20 Minimum value: 1 Maximum value: 30 Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the max_count number of comments even if the response parameter has_more is true. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentReplyCreate
+
+`POST` `/open_api/v1.3/business/comment/reply/create/`
+
+Generated from TikTok documentation 1762228448779266
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentReplyCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `body` | `string` | Yes | No | Unique identifier for owned TikTok video to create the reply on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `comment_id` | `body` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to create reply on. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `reply_image_url` | `body` | `string` | No | No | URL for the reply image. A publicly accessible HTTP(s) URL for a custom image to be used as the reply. Photo constraints:Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels.Minimum resolution: 360 x 360 pixels.File size: within 20 MB.File type: JPG, JPEG, WebP, or PNG. Example:: https://tiktok.com/tiktok-images/image.jpg Note: Specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in Manage URL properties. |
+| `text` | `body` | `string` | No | No | Either `text` or `image_uri` must be specified. Text for the comment reply. Length limit: 1,200 characters (UTF-8 encoding). Example: "This is a comment #comment 🙂". |
+| `image_uri` | `body` | `string` | No | No | Either `text` or `image_uri` must be specified. URI for the reply image. To obtain the image URL, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Example: `54ccb875ae0c4368b94037d03a95b633` |
+| `image_width` | `body` | `number` | No | No | Required when `image_uri` is specified. The width of the image. To obtain the image width, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. |
+| `image_height` | `body` | `number` | No | No | Required when `image_uri` is specified. The height of the image. To obtain the image height, call the [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) endpoint first. Note: This value is from [/business/comment/image/upload/](https://business-api.tiktok.com/portal/docs?id=1856212334897154) response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessCommentReplyList
+
+`GET` `/open_api/v1.3/business/comment/reply/list/`
+
+Generated from TikTok documentation 1762228430145538
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessCommentReplyListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_id` | `query` | `string` | Yes | No | Unique identifier for owned TikTok video to list comments on. This can be accessed via the [/business/video/list/](https://ads.tiktok.com/marketing_api/docs?id=1762228421622786) endpoint as the `item_id` for each video listed. |
+| `comment_id` | `query` | `string` | Yes | No | Unique identifier for comment on an owned TikTok video to list replies on. This can be accessed via the [/business/comment/list/](https://ads.tiktok.com/marketing_api/docs?id=1760232109619202) endpoint as the `comment_id` for each comment listed. |
+| `status` | `query` | `"PUBLIC" \| "ALL"` | No | No | Enumerated status of comment reply visibility. Enum values: `PUBLIC`: Comment replies are publicly viewable by all TikTok users.`ALL`: Comment replies are both hidden from view as well as publicly viewable by all TikTok users. Default value: `ALL`. |
+| `sort_field` | `query` | `string` | No | No | Specific field to sort comment replies by. Enum values: `likes`: Sort comment replies by the number of likes in the specified `sort_order`. `replies`: Sort comment replies by the number of replies in the specified `sort_order`.`create_time`: Sort comment replies chronologically in the specified `sort_order`.By default, the comment replies will be returned in a random order. |
+| `sort_order` | `query` | `string` | No | No | Specific field to sort comment replies by. Enum values: `asc`: Sort comment replies in ascending order by the specified `sort_field`. `desc`: Sort comment replies in descending order by the specified `sort_field`. By default, the comment replies will be sorted according to semantics. |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: 0. |
+| `max_count` | `query` | `number` | No | No | The maximum number of comment replies that will be returned for each page of data. Default value: 20. Minimum value: 0. Maximum value: 30. Note: Due to our trust and safety policies, it is possible that the endpoint returns less than the `max_count` number of comments even if the response parameter `has_more` is true. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessGet
+
+`GET` `/open_api/v1.3/business/get/`
+
+Generated from TikTok documentation 1762228399168514
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `start_date` | `query` | `string` | No | No | Query start date, closed interval, format such as: 2021-06-01. The date is based on the UTC time zone. If not set, then the `start_date` will be [current date - 7 days]. The maximum supported look-back period is 60 days. |
+| `end_date` | `query` | `string` | No | No | Query end date, closed interval, format such as: 2021-06-01. The date is based on the UTC time zone. If not set, then `end_date` will be [current date - 1 day]. |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If not set, returns the default fields only. Default fields: `["display_name", "profile_image"]` To retrieve certain fields in the response, you must have specific permissions. You can check the "Required permission" column for each field in the response schema to determine the permissions needed. To confirm that you have the necessary permission scope, you can check the scope returned by the [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545) endpoint. If the required permission has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission. Example: `["display_name", "profile_image"]`. Supported fields: `is_business_account`：Whether the TikTok account is a TikTok Business Account. This metric is only available when the TikTok account user has granted you the new permission scope "user.account.type". Note: To determine whether you have obtained the permission scope "user.account.type", you can check the `scope` returned from [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545). If the permission scope has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission scope.`profile_image`: The URL to the profile photo of the TikTok account.`username`: The username (handle) of the TikTok account.`profile_deep_link`: The link to the profile page of the TikTok account.`display_name`: The display name (nickname) of the TikTok account.`bio_description`: The bio description of the TikTok account. `is_verified`: Whether TikTok has provided a verified badge to the TikTok account after confirming that it belongs to the user it represents.`following_count`: The number of accounts that the TikTok account is following. `followers_count`: The number of followers for the TikTok account. Note: If you specify `followers_count` in the value of `fields`, you will obtain `followers_count` as both a lifetime metric and a daily metric in the response.`total_likes`: Total likes. The total number of times people have liked your published videos.`videos_count`: The lifetime number of public videos posted by the TikTok account. `video_views`: Daily video views. The daily number of times your videos have been viewed. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. `unique_video_views`: Daily reached audience. The daily number of people who watched your published content at least once. `profile_views`: Daily profile views. The daily number of clicks on your profile from users.`likes`: Daily likes. The daily number of times people have liked your published videos.`comments`: Daily comments. The daily number of times people have commented on your published videos. `shares`: Daily shares. The daily number of times people have shared your published videos. `phone_number_clicks`: Daily phone number clicks. The daily number of clicks collected on your phone number link in the selected date range. `lead_submissions`: Daily lead submissions. The daily number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers in the selected date range. `app_download_clicks`: Daily app download link clicks. The daily number of clicks collected on your app download link in the selected date range. `bio_link_clicks`: Daily bio link clicks. The daily number of clicks collected on your link-in-bio during the selected time range. `email_clicks`: Daily email clicks. The daily number of clicks collected on the Email button on your profile during the selected time range. `address_clicks`: Daily address clicks. The daily number of clicks collected on the Address button on your profile during the selected time range. `daily_total_followers`: Daily net growth. The daily change in the number of followers. `daily_new_followers`: Daily new followers. The daily number of new followers you have gained. `daily_lost_followers`: Daily lost followers. The daily number of followers you have lost. `audience_activity`: Hourly follower activity. The hourly breakdown of followers active on TikTok during the day.The data for this metric is only available for TikTok accounts with at least 100 followers.`engaged_audience`: Daily engaged audience. The daily number of people who engaged (liked, commented or shared) with at least one of your published content. `audience_ages`: Follower age. The distribution of your followers by age. This demographic data is based on a number of factors, including information users provide in their profiles. The data for this metric is only available for TikTok accounts with at least 100 followers. `audience_genders`: Follower gender. The distribution of your followers by gender. This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers.`audience_countries`: Follower top countries or regions. The distribution of your followers by their location (countries or regions). This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers. `audience_cities`: Follower top cities. The distribution of your followers by their cities. This demographic data is based on a number of factors, including information users provide in their profiles.The data for this metric is only available for TikTok accounts with at least 100 followers. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessHashtagSuggestion
+
+`GET` `/open_api/v1.3/business/hashtag/suggestion/`
+
+Generated from TikTok documentation 1762228503821314
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessHashtagSuggestionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `keyword` | `query` | `string` | Yes | No | The keyword that you want to get recommended hashtags for. |
+| `language` | `query` | `string` | No | No | Keyword language. The language of the hashtag recommendations will match the keyword language. Default value: `en` (English). Enum values:`en`: English`ar`: Arabic`bn-IN`: Bengali`ceb-PH`: Cebuano`cs-CZ`: Czech`de-DE`: German`el-GR`: Greek`es`: Spanish`fi-FI`: Finnish`fil-PH`: Filipino`fr`: French`he-IL`: Hebrew`hi-IN`: Hindi`hu-HU`: Hungarian`id-ID`: Indonesian`it-IT`: Italian`ja-JP`: Japanese`jv-ID`: Javanese`km-KH`: Khmer`ko-KR`: Korean`ms-MY`: Malay`my-MM`: Burmese`nl-NL`: Dutch`pl-PL`: Polish`pt-BR`: Portuguese`ro-RO`: Romanian`ru-RU`: Russian`sv-SE`: Swedish`th-TH`: Thai`tr-TR`: Turkish`uk-UA`: Ukranian`ur`: Urdu`vi-VN`: Vietnamese`zh-Hans`: Chinese (simplified)`zh-Hant-TW`: Chinese (traditional) |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPhotoPublish
+
+`POST` `/open_api/v1.3/business/photo/publish/`
+
+Generated from TikTok documentation 1803630424390658
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPhotoPublishResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `photo_images` | `body` | `Array<string>` | Yes | No | A list of up to 35 publicly accessible HTTP(s) URLs for the photo content to be published. Photo constraints: The maximum resolution of the image is 1080 x 1920 pixels or 1920 x 1080 pixels.File size: within 20 MB for each image.File type: JPG, JPEG, or WebP.Example: https://tiktok.com/tiktok-images/image.jpg Important: You cannot publish photo posts using unverified photo URLs. To ensure a smooth API integration, we recommend you verify ownership of URL properties as soon as possible, and specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://ads.tiktok.com/marketing_api/docs?id=1769324038780930).Note that if you are a developer or an advertiser who used the [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) endpoint to publish videos prior to April 7th, 2023, we have automatically set the corresponding domains of video URLs specified through the `video_url` parameter to the "verified" status. Therefore, we recommend that you use the [/business/property/list/](https://business-api.tiktok.com/portal/docs?id=1769325368603650) endpoint to confirm whether the domains you utilize for hosting images have been automatically verified. |
+| `photo_cover_index` | `body` | `number` | No | No | The index of the photo to be used as the cover for the post. Default value: `0` (the first photo). For example, if you want to use the second photo as the post cover, set this field to `1`. |
+| `post_info` | `body` | `BusinessPhotoPublishParamsPostInfo` | Yes | No | Information about the photo post. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPostAuthorize
+
+`POST` `/open_api/v1.3/business/post/authorize/`
+
+Generated from TikTok documentation 1815051784582210
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPostAuthorizeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `body` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. |
+| `authorization_days` | `body` | `number` | No | No | If the post already has an authorization code, this field represents the authorization extension period, which is an additional amount of time you can add on to your existing Ad authorization period. For instance, if the existing authorization period of a TikTok post is 180 days and you set this field to `180`, the authorization period of the post will be extended to 360 days.If the authorization code of a TikTok post is deleted, this field represents the validity period of the new authorization code. Supported values: `7`, `30`, `60`, `180`, `365`. Default value: `30`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPostAuthorizeDelete
+
+`POST` `/open_api/v1.3/business/post/authorize/delete/`
+
+Generated from TikTok documentation 1815051817073665
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPostAuthorizeDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `body` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. Note: If the TikTok post doesn't have an authorization code, either because the code is not generated or is deleted, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPostAuthorizeSetting
+
+`POST` `/open_api/v1.3/business/post/authorize/setting/`
+
+Generated from TikTok documentation 1815051741912066
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPostAuthorizeSettingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `body` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. |
+| `is_ad_promotable` | `body` | `boolean` | Yes | No | Whether to enable the "Ad authorization" setting to allow the post to be promoted. Supported values: `true`: To enable the "Ad authorization" setting.`false`: To disable the "Ad authorization" setting. Note: If the TikTok post is being used in Spark Ads, you cannot disable the "Ad authorization" setting for the post. |
+| `authorization_days` | `body` | `number` | No | No | The authorization validity period in days. Supported values: `7`, `30`, `60`, `180`, `365`. Default value: `30`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPostAuthorizeStatus
+
+`GET` `/open_api/v1.3/business/post/authorize/status/`
+
+Generated from TikTok documentation 1815051801257986
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPostAuthorizeStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `item_id` | `query` | `string` | Yes | No | The ID of the TikTok post. To obtain the public posts of a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). Example: `7123456789123456789`. Note: If the TikTok post doesn't have an authorization code, either because the code is not generated or is deleted, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPropertyAdd
+
+`POST` `/open_api/v1.3/business/property/add/`
+
+Generated from TikTok documentation 1769325280876545
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPropertyAddResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `body` | `BusinessPropertyAddParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to add and verify ownership for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPropertyDelete
+
+`POST` `/open_api/v1.3/business/property/delete/`
+
+Generated from TikTok documentation 1769325351919617
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPropertyDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `body` | `BusinessPropertyDeleteParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to delete the verified ownership of. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPropertyList
+
+`GET` `/open_api/v1.3/business/property/list/`
+
+Generated from TikTok documentation 1769325368603650
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPropertyListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPropertyVerify
+
+`POST` `/open_api/v1.3/business/property/verify/`
+
+Generated from TikTok documentation 1769325308162050
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPropertyVerifyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://business-api.tiktok.com/portal/apps) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `url_property_meta` | `body` | `BusinessPropertyVerifyParamsUrlPropertyMeta` | Yes | No | Information about the URL property that you want to check the ownership verification result for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPublishLocation
+
+`GET` `/open_api/v1.3/business/publish/location/`
+
+Generated from TikTok documentation 1870580030749698
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPublishLocationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/obtain-a-short-term-access-token/v1.3) to this field. |
+| `search_query` | `query` | `string` | Yes | No | The query you provide to search for a location that can be added to the TikTok account's posts. Length limit: 100 characters. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessPublishStatus
+
+`GET` `/open_api/v1.3/business/publish/status/`
+
+Generated from TikTok documentation 1816387106635778
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessPublishStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `publish_id` | `query` | `string` | Yes | No | Unique identifier for a post publishing task. Pass the value of the `share_id` field returned in the response of [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) or [/business/photo/publish/](https://business-api.tiktok.com/portal/docs?id=1803630424390658) to this field. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessVideoList
+
+`GET` `/open_api/v1.3/business/video/list/`
+
+Generated from TikTok documentation 1762228421622786
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `fields` | `query` | `Array<string>` | No | No | Requested fields. If not set, returns the default field only. Default value: `["item_id"]`. If you want to request multiple fields, you need to at least include `"item_id"` in the value for `fields`. Otherwise, an error may occur. Example: `["item_id", "create_time"]`. Note: All video engagement metrics are aggregated over the lifetime of the video. Unlike profile-level metrics, the aggregation is not limited to a 60-day look-back period. To retrieve certain fields in the response, you must have specific permissions. You can check the "Required permission" column for each field in the response schema to determine the permissions needed. To confirm that you have the necessary permission scope, you can check the scope returned by the [/tt_user/token_info/get/](https://ads.tiktok.com/marketing_api/docs?id=1765927978092545) endpoint. If the required permission has not been granted to you, follow the steps outlined in [Authorization](https://ads.tiktok.com/marketing_api/docs?id=1738083939371009) to enable the TikTok account user to reauthorize your app with the permission. Supported fields: `item_id`: Unique identifier for the post.`media_type`: The type of the post.`is_ad`: Whether the post is being used in an ad.`thumbnail_url`: Preview thumbnail URL for the post.`share_url`: A shareable URL for the post. `embed_url`: An embeddable URL for the post. `caption`: The caption/description for the post. `video_duration`: Duration of the video, in seconds. `likes`: Likes. The total number of likes the post has received. `comments`: Comments. The total number of comments the post has received. `shares`: Shares. The total number of times the post has been shared. `favorites`: Favorites. The total number of times the post has been added to favorites.`create_time`: Unix/epoch date-time when the post was published.`reach`: Reach. The number of people who watched your published content at least once.`video_views`: Video views. The number of times viewers watched your video post. Note: Counts when playback duration &gt;0 and the playback is the first playback in an impression session. If the user swipes away from the ad then swipes back, it would be counted as 2 impressions. Therefore, a new video view will be counted again with the new impression session. `total_time_watched`: Total play time. The amount of time viewers spent watching your video post. `average_time_watched`: Average watch time. The average time viewers spent watching your video post. `full_video_watched_rate`: Watched full video rate. The percentage of viewers who finish watching your video post. `new_followers`: New followers. The number of viewers who started following you. `profile_views`: Profile views. The total number of profile views from users who visited through your post. `website_clicks`: Website clicks. The total number of clicks on your website link from users who visited your profile page through your post. `phone_number_clicks`: Phone number clicks. The total number of clicks on your phone number link from users who visited your profile page through your post. `lead_submissions`: Lead submissions. The total number of leads (e.g. price quotes, newsletter subscriptions, etc.) collected from your consumers who visited your profile page through your post. `app_download_clicks`: App download link clicks. The total number of clicks on your app download link from users who visited your profile page through your post. `email_clicks`: Email clicks. The total number of times people have clicked the Email button on your profile after viewing this specific post. `address_clicks`: Address clicks. The total number of times people have clicked the Address button on your profile after viewing this specific post. `video_view_retention`: Audience retention. This metric indicates how many of your viewers are still watching after a certain amount of time. `impression_sources`: Traffic source. This metric helps you understand the breakdown of traffic sources for those who viewed your video. `audience_genders`: Gender. The distribution of your viewers by gender. This data is based on factors including the information viewers provide. `audience_countries`: Top countries. The distribution of your viewers by the top countries or regions. This data is based on factors including the information viewers provide. `audience_cities`: Top cities. The distribution of your viewers by the top cities. This data is based on factors including the information viewers provide. `audience_types`: Viewer types. The breakdown of your audience into new viewers versus returning viewers, and followers versus non-followers. `engagement_likes`: Engagement likes. The distribution of your viewers who liked your video at specific points in the video's timeline. |
+| `filters` | `query` | `BusinessVideoListParamsFilters` | No | No | Filters to apply to the result set. |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is true, pass the returned cursor in this parameter in the subsequent request to receive the next page of results. Default value: Current time as Epoch/Unix timestamp in milliseconds. Note: The cursor value is a UTC Unix timestamp in milliseconds. You can pass in a customized timestamp to fetch the user's videos posted before the provided timestamp. |
+| `max_count` | `query` | `number` | No | No | The maximum number of videos that will be returned for each page. Default value: 10 Maximum value: 20 Note: Due to our trust and safety policies, it is possible that the endpoint returns less than `max_count` number of videos even if the response parameter `has_more` is true. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessVideoPublish
+
+`POST` `/open_api/v1.3/business/video/publish/`
+
+Generated from TikTok documentation 1762228496095234
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessVideoPublishResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+| `video_url` | `body` | `string` | Yes | No | A publicly accessible HTTP(s) URL for the video content to be published - with a minimum recommended TTL of 30 minutes. Video constraints : The audio-video content must be contained in .mp4, .mov or .webm format. The maximum video size is 1 GB. The minimum video duration must be 3 seconds, and the maximum video duration is 600 seconds. To check the maximum video duration allowed for a TikTok account, use [/business/video/settings/](https://business-api.tiktok.com/portal/docs?id=1816387951979521) and obtain `max_video_post_duration_sec` from the response. The minimum height and minimum width of the video must be 360 pixels. The minimum frame rate of the video must be 23 FPS, and maximum frame rate is 60 FPS.Example: https://www.example.com/tiktok-videos/video.mp4 Important: Starting from November 16th, 2023, you can no longer publish videos using unverified video URLs. To ensure a smooth API integration, we recommend you verify ownership of URL properties as soon as possible, and specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://ads.tiktok.com/marketing_api/docs?id=1769324038780930).After November 16th, 2023, if you want to publish a test video through [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) using a test video URL that doesn't require verification, use the [test URL](https://sf16-va.tiktokcdn.com/obj/eden-va2/uvpapzpbxjH-aulauvJ-WV[[/ljhwZthlaukjlkulzlp/3min.mp4) `https://sf16-va.tiktokcdn.com/obj/eden-va2/uvpapzpbxjH-aulauvJ-WV[[/ljhwZthlaukjlkulzlp/3min.mp4`.Note that if you are a developer or an advertiser who used the [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234) endpoint to publish videos prior to April 7th, 2023, we have automatically set the corresponding domains of video URLs specified through the `video_url` parameter to the "verified" status. Therefore, we recommend that you use the [/business/property/list/](https://business-api.tiktok.com/portal/docs?id=1769325368603650) endpoint to confirm whether the domains you utilize for hosting videos have been automatically verified. |
+| `custom_thumbnail_url` | `body` | `string` | No | No | A publicly accessible HTTP(s) URL for a custom image to be used as the video’s cover photo. Photo constraints: Maximum resolution: 1080 x 1920 pixels or 1920 x 1080 pixels.Minimum resolution: 360 x 360 pixels.File size: within 20 MB.File type: JPG, JPEG, WebP, or PNG. Example: `https://www.example.com/tiktok-images/image.png`. When `custom_thumbnail_url` is specified, `thumbnail_offset` will be ignored. Note: Specify a URL that has been verified for ownership, either manually or automatically. To manually verify ownership of a URL property, follow the steps outlined in [Manage URL properties](https://business-api.tiktok.com/portal/docs?id=1769324038780930). |
+| `post_info` | `body` | `BusinessVideoPublishParamsPostInfo` | Yes | No | Information about the post. This field is required, even if you don't want to use any of the additional parameters within `post_info`, including `caption`, `is_brand_organic`, `is_branded_content`, `disable_comment`, `disable_duet`, `disable_stitch`, `thumbnail_offset`, `is_ai_generated`, `upload_to_draft`, `tto_invite_link`, `location_id`, `location_name`, and `is_ads_only`. In such cases, set this field to an empty object (`&#123;&#125;`). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessVideoSettings
+
+`GET` `/open_api/v1.3/business/video/settings/`
+
+Generated from TikTok documentation 1816387951979521
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessVideoSettingsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) to this field. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessWebhookDelete
+
+`POST` `/open_api/v1.3/business/webhook/delete/`
+
+Generated from TikTok documentation 1810521297052673
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `"VIDEO" \| "COMMENT"` | Yes | No | The type of Webhook event configuration that you want to delete. Enum values: `VIDEO`: Post publishing events, which provide you with real-time updates on the status of content published via specific TikTok API endpoints. To learn more about the schema and sample payload of the events within this event category, see [Post publishing events](https://business-api.tiktok.com/portal/docs?id=1810515090228226). `COMMENT`: comment update event, including the event `comment.update`.To learn more about the schema and sample payload of the event within this event category, see [Comment update event](https://business-api.tiktok.com/portal/docs?id=1810515104773122). |
+| `item_list` | `body` | `Array<string>` | No | No | Valid only when `event_type` is `COMMENT`. The IDs of the specific TikTok posts that you no longer want to receive comment update event notifications for. Max size: 100. To obtain the IDs of TikTok posts specified for an existing comment update Webhook configuration, use [/business/webhook/list/](https://business-api.tiktok.com/portal/docs?id=1810521289122818). If `event_type` is set to `COMMENT` and this field is provided, you will no longer receive notification of `comment.update` events for the specified posts under the TikTok account or TikTok accounts that authorized the developer app (`app_id`).If `event_type` is set to `COMMENT` and this field is not provided, you will no longer receive notification of `comment.update` events for all posts under the TikTok account or TikTok accounts that authorized the developer app (`app_id`). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessWebhookList
+
+`GET` `/open_api/v1.3/business/webhook/list/`
+
+Generated from TikTok documentation 1810521289122818
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `accounts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `query` | `"VIDEO" \| "COMMENT"` | Yes | No | The type of Webhook event that you subscribe to. Enum values: `VIDEO`: Post publishing events, which provide you with real-time updates on the status of content published via specific TikTok API endpoints. To learn more about the schema and sample payload of the events within this event category, see [Post publishing events](https://business-api.tiktok.com/portal/docs?id=1810515090228226). `COMMENT`: comment update event, including the event `comment.update`.To learn more about the schema and sample payload of the event within this event category, see [Comment update event](https://business-api.tiktok.com/portal/docs?id=1810515104773122). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.businessWebhookUpdate
+
+`POST` `/open_api/v1.3/business/webhook/update/`
+
+Generated from TikTok documentation 1810521279479810
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `"VIDEO" \| "COMMENT"` | Yes | No | The type of Webhook event that you want to subscribe to. Enum values: `VIDEO`: Post publishing events, which provide you with real-time updates on the status of content published via specific TikTok API endpoints. To learn more about the schema and sample payload of the events within this event category, see [Post publishing events](https://business-api.tiktok.com/portal/docs?id=1810515090228226). `COMMENT`: comment update event, including the event `comment.update`.To learn more about the schema and sample payload of the event within this event category, see [Comment update event](https://business-api.tiktok.com/portal/docs?id=1810515104773122). |
+| `callback_url` | `body` | `string` | Yes | No | The callback URL. |
+| `item_list` | `body` | `Array<string>` | No | No | Valid only when `event_type` is `COMMENT`. Ignored when `event_type` is `DEFAULT` or `VIDEO`. The IDs of the specific TikTok posts that you want to receive comment update event notifications for. Max size: 100. To obtain the IDs of TikTok posts under a TikTok account, use [/business/video/list/](https://business-api.tiktok.com/portal/docs?id=1762228421622786). When `event_type` is set to `COMMENT` and `item_list` is included in the request: If `item_list` has never been configured for the developer app (`app_id`) previously, you will only receive notifications of `comment.update` events for the specified posts in `item_list`.If `item_list` has been configured for the developer app (`app_id`) before, you will receive notifications for `comment.update` events of all previously configured posts in addition to the newly specified posts in `item_list`.When `event_type` is set to `COMMENT` and `item_list` is not included in the request: If `item_list` has never been configured for the developer app (`app_id`) previously, you will receive notifications of `comment.update` events for all posts under the TikTok account or TikTok accounts that authorized the developer app (`app_id`).If `item_list` has been configured for the developer app (`app_id`) before, you will receive notifications of `comment.update` events for all previously configured posts. To review the specific posts configured for your developer app, check the `item_list` value in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.accounts.ttUserTokenInfoGet
+
+`POST` `/open_api/v1.3/tt_user/token_info/get/`
+
+Generated from TikTok documentation 1765927978092545
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `accounts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtUserTokenInfoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `access_token` | `body` | `string` | Yes | No | Access token authorized by TikTok accounts. For details, see [Authentication](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Obtain%20a%20TikTok%20account%20access%20token). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

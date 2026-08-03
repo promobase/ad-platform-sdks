@@ -1,0 +1,542 @@
+---
+title: "TikTok Business Creative Tools endpoints"
+description: "13 generated TikTok Business endpoint contracts for Creative Tools."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 136
+  label: "Creative Tools"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.creativeTools.creativeAdsPreviewCreate
+
+`POST` `/open_api/v1.3/creative/ads_preview/create/`
+
+Generated from TikTok documentation 1739403070695426
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeAdsPreviewCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. Note: You need to have Operator or Admin permission for the ad account. To check your permission for an ad account, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). The returned `advertiser_role` should be `ADMIN` or `OPERATOR`. |
+| `preview_type` | `body` | `string` | Yes | No | Preview type. To preview ads by ads creation parameters, use `ADS_CREATION`. |
+| `objective_type` | `body` | `string` | Yes | No | Advertising objective. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). Note: Currently the supported objectives are: `REACH`,`TRAFFIC`, `VIDEO_VIEWS`, `ENGAGEMENT`, `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`, and `RF_REACH`. |
+| `is_smart_performance_campaign` | `body` | `boolean` | No | No | Whether the campaign is a Smart+ Campaign. Default value: `false`. Note: This field can only be set to `false` when any of the following conditions is met:`ad_fomat` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`.`placement` is set to `PLACEMENT_PANGLE` or `ALL`. `objective_type` is set to `TRAFFIC`, `REACH`, `VIDEO_VIEWS`, or `PRODUCT_SALES`. |
+| `placement` | `body` | `string` | No | No | The app where you want to deliver your ads. When `ad_format` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, specify this field as `PLACEMENT_TIKTOK`, or do not pass this field. Enum values: `PLACEMENT_TIKTOK`: Supported only when `objective_type` is `REACH`,`TRAFFIC`, `VIDEO_VIEWS`, `ENGAGEMENT`, `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`, or `PRODUCT_SALES`.`PLACEMENT_PANGLE`: Supported only when `objective_type` is `TRAFFIC`, `LEAD_GENERATION` (only when `promotion_type` is `LEAD_GENERATION`), `APP_PROMOTION`, or `WEB_CONVERSIONS`. `PLACEMENT_GLOBAL_APP_BUNDLE`: Suppported only when `objective_type` is `REACH`.`ALL`: Supported only when `objective_type` is `TRAFFIC`, `LEAD_GENERATION` (only when `promotion_type` is `LEAD_GENERATION`), `APP_PROMOTION`, or `WEB_CONVERSIONS`. |
+| `tiktok_subplacement` | `body` | `"LEMON8" \| "UNSET"` | No | No | Valid only when the following conditions are both met:`objective_type` is `REACH`.`placement` is `PLACEMENT_TIKTOK`. The subplacements within TikTok for your ads, allowing you to choose where your ads will appear. Enum values:`LEMON8`: Lemon8, a community app for lifestyle content, focusing on real-life experiences, tips, guides, and product reviews. By including Lemon8 as a subplacement, your ads will appear in its For You feed, Search feed, and Immersive Video feed. [Learn more about Lemon8](https://ads.tiktok.com/help/article/about-lemon8-in-tiktok-ads-manager). `UNSET`: Unset. |
+| `preview_format` | `body` | `string` | No | No | Based on the `placement` you've selected, the allowed preview formats are different.When `placement` is `PLACEMENT_TIKTOK`, the allowed preview formats are: `IN_FEED`: In-feed. Ads will be placed in the For You feed and might also be placed in Profile Page and Following feeds.`SEARCH_RESULTS`: Search result. `SEARCH_FEED`: Search feed. `TIKTOK_LITE`: TikTok Lite, a streamlined version of TikTok that features a smaller app size and faster video loading speed. The TikTok Lite subplacement is currently available for Japan or South Korea as targeting locations.`PRODUCT_SEARCH`: Search (Shopping Center). Show your products in the Shop Tab search results, as well as general search results in the TikTok App. Learn more about [Shop Tab placements for Shop Ads](https://ads.tiktok.com/help/article/about-onsite-shopping-placements).`PRODUCT_SHOP_CENTER`: Recommendations (Shopping Center). Show your products to people who are likely to buy them in a Recommended for you section. When `placement` is `PLACEMENT_TIKTOK` and `tiktok_subplacement` is `LEMON8`, the allowed preview formats are:`IN_FEED`: In-feed. The ad will be displayed in a full-screen format, providing an immersive and undistracted viewing experience.`IN_FEED_TWO_COLUMNS`: In feed (two columns). The ad will be displayed in a two-column layout within the For You feed, allowing multiple content pieces to be displayed side by side. When `placement` is `PLACEMENT_GLOBAL_APP_BUNDLE`, the allowed preview formats are:`APP_OPEN`: App Open. The ad will be displayed when the Capcut app is opened, marking the beginning of each user session. This premium full-screen placement ensures visibility as the first screen users see.`IN_FEED`: In-feed. The ad will be displayed in a full-screen format, providing an immersive and undistracted viewing experience.`IN_FEED_TWO_COLUMNS`: In feed (two columns). The ad will be displayed in a two-column layout within the For You feed, allowing multiple content pieces to be displayed side by side. Default value: `IN_FEED`. Note: The values `SEARCH_FEED` and `TIKTOK_LITE` are valid only when the following conditions are met: `objective_type` is `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`.`placement` is `PLACEMENT_TIKTOK`.The values `PRODUCT_SEARCH` and `PRODUCT_SHOP_CENTER` are only available for Video Shopping Ads and Product Shopping Ads. When `placement` is `PLACEMENT_PANGLE`, this field is not supported. |
+| `shopping_ads_type` | `body` | `"VIDEO" \| "LIVE" \| "PRODUCT_SHOPPING_ADS"` | No | No | Required when `objective_type` is `PRODUCT_SALES` and `catalog_id` is not specified. Shopping ads type. Enum values: `VIDEO`: Video Shopping Ads. `LIVE`: Live Shopping Ads.`PRODUCT_SHOPPING_ADS`: Product Shopping Ads. When `ad_format` is set to `CATALOG_CAROUSEL`, specify this field as `VIDEO`, or do not pass this field. |
+| `product_source` | `body` | `"STORE" \| "SHOWCASE"` | No | No | Required only for Video Shopping Ads and Product Shopping Ads. Product source where you want to get products for promotion. Enum values: `STORE` (TikTok Shop),`SHOWCASE`(TikTok Showcase). For Video Shopping Ads, you can set this field to `STORE` or `SHOWCASE`.For Product Shopping Ads, set this field to `STORE`. |
+| `store_id` | `body` | `string` | No | No | Required in any of the following scenarios:`shopping_ads_type` is `VIDEO` and `product_source` is `STORE`.`shopping_ads_type` is `PRODUCT_SHOPPING_ADS` and `product_source` is `STORE`. Optional when `shopping_ads_type` is `LIVE`. ID of the TikTok Shop. To get the TikTok Shop ID, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TIKTOK_SHOP`. The returned `asset_id` will be the TikTok Shop ID. |
+| `store_authorized_bc_id` | `body` | `string` | No | No | Required when `store_id` is passed. ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `showcase_products` | `body` | `Array<CreativeAdsPreviewCreateParamsShowcaseProducts>` | No | No | Required when `shopping_ads_type` is `VIDEO` and `product_source` is `SHOWCASE`. See [Create Video Shopping Ads with products from Showcase](https://business-api.tiktok.com/portal/docs?id=1759232259360770) to learn more. The list of Showcase products that you want to use in your ad. Max size: 20. You can get the available Showcase products via [/showcase/product/get/](https://business-api.tiktok.com/portal/docs?id=1759233576199169). |
+| `promotion_type` | `body` | `"APP_ANDROID" \| "APP_IOS" \| "WEBSITE" \| "LEAD_GENERATION" \| "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" \| "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" \| "LEAD_GEN_CLICK_TO_CALL"` | No | No | Promotion type. You can decide where you'd like to promote your products using this field. Enum values: `APP_ANDROID`: Android application.`APP_IOS`: iOS application.`WEBSITE`: landing page.`LEAD_GENERATION`: Instant Form or Website.`LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`: TikTok direct messages.`LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`: instant messaging apps. `LEAD_GEN_CLICK_TO_CALL`: phone call. Note: The following enum values are valid only when `objective_type` is `LEAD_GENERATION`: `LEAD_GENERATION``LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE` `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE` `LEAD_GEN_CLICK_TO_CALL` |
+| `identity_id` | `body` | `string` | Yes | No | Identity ID. If you are not using Spark Ads, `identity_id` and `identity_type` (`CUSTOMIZED_USER`) can be used for better management of ad information. |
+| `identity_type` | `body` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. Use `CUSTOMIZED_USER` for custom identity and use `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT` in Spark Ads. For details about identities, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). When `ad_format` is `CATALOG_CAROUSEL`, you can only set this field to `CUSTOMIZED_USER`. If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, Spark Ads must be used and `identity_type` must be `TT_USER` or `BC_AUTH_TT`. When `promotion_type` is not `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, both Spark Ads & non-Spark Ads are supported, so `identity_type` can be set to any of the enum values. If `objective_type` is `ENGAGEMENT`, only Spark Ads are supported and `identity_type` must be `AUTH_CODE`, `TT_USER` or `BC_AUTH_TT`. |
+| `identity_authorized_bc_id` | `body` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `ad_format` | `body` | `string` | Yes | No | Ad format. For single video ads, set this field to `SINGLE_VIDEO`. For single image ads, set this field to `SINGLE_IMAGE`. Supported only on Pangle.For TikTok Standard Carousel ads, set this field to `CAROUSEL_ADS`. To use this ad format, you need to set `objective_type` to `REACH`, `WEB_CONVERSIONS`, `APP_PROMOTION`, `LEAD_GENERATION` or `TRAFFIC`. For TikTok Catalog Carousel ads, set this field to `CATALOG_CAROUSEL`. See [here](https://business-api.tiktok.com/portal/docs?id=1766217791987713) to learn about the steps of creating TikTok Carousel Ads. For Live Shopping Ads, set this field to `LIVE_CONTENT`. |
+| `video_id` | `body` | `string` | No | No | Video ID. Required when `ad_format` is `SINGLE_VIDEO`. Not supported when `ad_format` is `SINGLE_IMAGE`, `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. To create video [Spark Ads](https://ads.tiktok.com/marketing_api/docs?id=1739470744631298) using Spark Ads Push or create video Non-Spark Ads, use `video_id`. You can find video IDs using [/file/video/ad/search/](https://ads.tiktok.com/marketing_api/docs?id=1740050472224769). To create video Spark Ads using Spark Ads Pull, use `tiktok_item_id` to specify the TikTok post ID. |
+| `image_ids` | `body` | `Array<string>` | No | No | Required in any of the following scenarios: `ad_format` is `SINGLE_IMAGE`. `ad_format` is `CAROUSEL_ADS` and you want to create Standard Carousel Spark Ads via Spark Ads Push or Standard Carousel Non-Spark Ads. `ad_format` is `CATALOG_CAROUSEL`, `catalog_enabled` is set to `true`, and an Auto-Model catalog is specified through `catalog_id`. A list of image IDs (images used in an ad or as a video cover). When `ad_format` is set to `CAROUSEL_ADS`, the size range for this field is [1, 35], and the sequence of the image IDs specified via this field is the order in which the images are shown in the Carousel Ads. See [Create Carousel Ads](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713) to learn about the requirements for images that can be used in TikTok Carousel Ads. When `ad_format` is set to `CATALOG_CAROUSEL` and `catalog_enabled` is set to `true`, the value of this field will be used as the summary photo in the Automotive Ads for Models (only one value is allowed). To learn about the requirements for the summary photo that can be used in Automotive Ads for Models, see [Automotive Ads for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994).When `ad_format` is set to `SINGLE_IMAGE`, you can only assign one image ID to this field. To learn about the requirements for images that can be used in single image ads, see [Create single image ads](https://business-api.tiktok.com/portal/docs?id=1777633230937090). |
+| `end_card_cta` | `body` | `"SEARCH_INVENTORY" \| "LEARN_MORE" \| "SHOP_NOW" \| "SIGN_UP" \| "CONTACT_US" \| "BOOK_NOW" \| "READ_MORE" \| "VIEW_MORE" \| "ORDER_NOW"` | No | No | Required when the following conditions are met:`objective_type` is `LEAD_GENERATION`.`catalog_enabled` is `true`.An Auto-Model catalog is specified through `catalog_id`.`ad_format` is `CATALOG_CAROUSEL`. Call-to-action for the end card (`image_ids`) of an [Automotive Carousel Ad for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994#item-link-Ad%20format%20as%20Catalog%20Carousel). Enum values:`SEARCH_INVENTORY` (Recommended): Search inventory.`LEARN_MORE`: Learn more.`SHOP_NOW`: Shop now.`SIGN_UP`: Sign up.`CONTACT_US`: Contact us.`BOOK_NOW`: Book now.`READ_MORE`: Read more.`VIEW_MORE`: View now.`ORDER_NOW`: Order now. |
+| `music_id` | `body` | `string` | No | No | Required in any of the following scenarios:`ad_format` is `CAROUSEL_ADS` and you create Standard Carousel Spark Ads via Spark Ads Push or Standard Carousel Non-Spark Ads. `ad_format` is `CATALOG_CAROUSEL`. The ID of the piece of music that you want to use in the TikTok Carousel Ad. |
+| `tiktok_item_id` | `body` | `string` | No | No | Required when `identity_type` is `AUTH_CODE` or `BC_AUTH_TT` and you want to create Spark Ads through Spark Ads Pull.Not supported when `identity_type` is `CUSTOMIZED_USER`. The ID of the TikTok post to be used as Spark Ad. To learn more about Spark Ads, see [Create Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). Pass in the `item_id` you get from the response of the [/tt_video/info/](https://ads.tiktok.com/marketing_api/docs?id=1738376324021250) or [/identity/video/get/](https://ads.tiktok.com/marketing_api/docs?id=1740218475032577) endpoint. Note: By using Spark Ads, you confirm that you have the rights to use the music in the videos for commercial purposes. |
+| `carousel_image_index` | `body` | `number` | No | No | Valid only when you set `ad_format` to `CATALOG_CAROUSEL`, and a list of additional images has been configured for the specified products. The index that specifies the additional images to be used in the VSA Carousel ad. If this field is not passed, the main images of catalog products will be used in the VSA Carousel ad. Value range: [0, 9]. The number you set via this field represents the position of the product image within the additional image list (`additional_image_urls`) for each catalog product. For instance, `carousel_image_index` = 1 means that you will use all the images specified via the second image URL in each `additional_image_urls` value as images in the Carousel Ad. You can retrieve the additional images configured for a product via `additional_image_urls` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). If you set a number greater than the total number of additional Image URLs specified for the product, this field will be ignored, and the main image (`image_url`) for the product will be used. You can retrieve the main image for a product via `image_url` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). |
+| `ad_text` | `body` | `string` | No | No | An ad text. It is shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. If you don't know how to create effective ad texts, you can try the [Smart Text](https://ads.tiktok.com/marketing_api/docs?id=1739084248002626) feature, which generates ad text recommendations based on the industry and language. This field is required if your ad is non-Spark Ads. Ad text must be 1-100 characters long and cannot contain emoji.Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `call_to_action` | `body` | `string` | No | No | Call-to-action text. For TikTok ads, either this field or `call_to_action_id` must be specified. If both are specified, this field will be ignored. For enum values, see [Enumeration - Call-to-Action](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). For live shopping ads, the call to action must be `WATCH_LIVE`. NoteIf `objective_type` is `REACH`or `VIDEO_VIEW`, and `landing_page_url` or `page_id` has been specified, then either `call_to_action` or `call_to_action_id` is required. If `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS`, or `TRAFFIC`, then either `call_to_action` or `call_to_action_id` is required.If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GENERATION`, either `call_to_action` or `call_to_action_id` is required. When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, `call_to_action` is required and must be set to `SEND_MESSAGE`. When `promotion_type` is `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`, `call_to_action` is required and cannot be set to `CALL_NOW`. When `promotion_type` is `LEAD_GEN_CLICK_TO_CALL`, `call_to_action` is required. If `objective_type` is `PRODUCT_SALES`, `call_to_action` is required. |
+| `call_to_action_id` | `body` | `string` | No | No | The ID of the CTA portfolio that you want to use in your ads. A CTA portfolio is a group of auto-optimized CTAs. If both this field and `call_to_action` are specified, `call_to_action` will be ignored. For details about auto-optimized CTAs, see [CTA recommendations &gt; Dynamic CTAs](https://ads.tiktok.com/marketing_api/docs?id=1740307296329730). NoteIf `objective_type` is `REACH`or `VIDEO_VIEW`, and `landing_page_url` or `page_id` has been specified, then either `call_to_action` or `call_to_action_id` is required. If `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS`, or `TRAFFIC`, then either `call_to_action` or `call_to_action_id` is required. If `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, `call_to_action_id` is not supported.If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GENERATION`, either `call_to_action` or `call_to_action_id` is required. When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`, or `LEAD_GEN_CLICK_TO_CALL`, `call_to_action_id` is not supported. |
+| `card_id` | `body` | `string` | No | No | Creative portfolio ID. Pass the ID of one of the following creative portfolio types:Display Card. Website info card.Product Card.Product Tiles.Countdown Sticker. Gift Code Sticker.Gesture.Superlike. To create a creative portfolio, use [/creative/portfolio/create/](https://business-api.tiktok.com/portal/docs?id=1739091950439426). To learn about how to get the ID of a Display Card, Website info card, Product Card, or Product Tiles portfolio, see [Cards](https://business-api.tiktok.com/portal/docs?id=1749019652141058).To learn about how to get the ID of a Countdown Sticker or Giftcode Sticker portfolio, see [Stickers](https://business-api.tiktok.com/portal/docs?id=1749019667506177).To learn about how to get the ID of a Gesture or Superlike portfolio, see [Premium Add-ons](https://business-api.tiktok.com/portal/docs?id=1749019676181505). Note: You can use this field in the following scenarios. When `objective_type`= `REACH`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `TRAFFIC`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `VIDEO_VIEWS`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `ENGAGEMENT`, you can only specify a Countdown Sticker portfolio through this field.When `objective_type`= `APP_PROMOTION`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `LEAD_GENERATION`, you can only specify a Display Card portfolio through this field. When `objective_type`=`WEB_CONVERSIONS`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`=`PRODUCT_SALES`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`. |
+| `landing_page_url` | `body` | `string` | No | No | Landing page URL. NoteIf `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS` or `TRAFFIC`, and `promotion_type` is `WEBSITE`, then either `page_id` or `landing_page_url` is required.If `objective_type` is `APP_PROMOTION` or `TRAFFIC`, and `promotion_type` is `APP_ANDROID`/`APP_IOS` , then neither `page_id` nor `landing_page_url` can be used. |
+| `page_id` | `body` | `string` | No | No | Used to preview TikTok Instant Page. NoteIf `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS` or `TRAFFIC`, and `promotion_type` is `WEBSITE`, then either `page_id` or `landing_page_url` is required.If `objective_type` is `APP_PROMOTION`, or `TRAFFIC`, and `promotion_type` is `APP_ANDROID`/`APP_IOS` , then neither `page_id` nor `landing_page_url` can be used. If `ad_format` is `CATALOG_CAROUSEL`, this field is not supported. |
+| `catalog_id` | `body` | `string` | No | No | Product catalog ID. Products whose links are shown in the ad are from this catalog. When `ad_format` is `CATALOG_CAROUSEL`, this field is required. Note: You need to have Ad promotion or Catalog management permission for the catalog. To check your permission for a catalog, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). The returned `catalog_role` should be `ADMIN` or `AD_PROMOTE`. |
+| `product_specific_type` | `body` | `"ALL" \| "PRODUCT_SET" \| "CUSTOMIZED_PRODUCTS"` | No | No | Different dimensions to choose products. When `ad_format` is `CATALOG_CAROUSEL`, this field is required. The Carousel images will be dynamically chosen from the images for the specified catalog products, and the specified product range needs to include at least two products. Enum values: `ALL`: Allow TikTok to dynamically choose from all catalog products.`PRODUCT_SET`: Specify a product set. TikTok will dynamically choose products from this set.`CUSTOMIZED_PRODUCTS`:Specify up to 20 products from your catalog. If this field is set to `ALL`, you don't need to input `sku_ids` or `item_group_ids` or `product_set_id`. If this field is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`.If this field is set to `CUSTOMIZED_PRODUCTS`, you need to pass in `sku_ids` or `vehicle_ids`. Note:When `shopping_ads_type` is `PRODUCT_SHOPPING_ADS` and `product_source` is `STORE`, you can set this field to `ALL` or `CUSTOMIZED_PRODUCTS`. If this field is set to `ALL`, you don't need to input `sku_ids`,`vehicle_ids`, `item_group_ids`, and `product_set_id`. If this field is set to `CUSTOMIZED_PRODUCTS`, `item_group_ids` is required. When `shopping_ads_type` is `VIDEO` and `product_source` is `STORE`, specify the products through `item_group_ids`. When `shopping_ads_type` is `VIDEO` and `product_source` is `SHOWCASE`, specify the products through `showcase_products`.When `shopping_ads_type` is `LIVE`, you don't need to specify the products. |
+| `item_group_ids` | `body` | `Array<string>` | No | No | If `catalog_id` is specified and `product_specific_type` is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`.Required in any of the following scenarios:`shopping_ads_type` is `VIDEO` and `product_source` is `STORE`. `shopping_ads_type` is `PRODUCT_SHOPPING_ADS`,`product_source` is `STORE`, and `product_specific_type` is `CUSTOMIZED_PRODUCTS`. Product SPU IDs. |
+| `product_set_id` | `body` | `string` | No | No | If `catalog_id` is specified and `product_specific_type` is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`. The ID of the product set. |
+| `sku_ids` | `body` | `Array<string>` | No | No | Required when the following conditions are both met:An E-commerce catalog is specified through `catalog_id`.`product_specific_type` is set to `CUSTOMIZED_PRODUCTS`. IDs of the SKUs. Max size: 20. |
+| `hotel_ids` | `body` | `Array<string>` | No | No | IDs of hotels. Max size: 20. |
+| `flight_ids` | `body` | `Array<string>` | No | No | IDs of flights. Max size: 20. |
+| `destination_ids` | `body` | `Array<string>` | No | No | IDs of destinations. Max size:20. |
+| `vehicle_ids` | `body` | `Array<string>` | No | No | Required when the following conditions are both met:An Auto-Model catalog is specified through `catalog_id`.`product_specific_type` is set to `CUSTOMIZED_PRODUCTS`. IDs of vehicles. Max size: 20. |
+| `auto_disclaimer_types` | `body` | `Array<"EMISSION" \| "DISCOUNT">` | No | No | Valid only when the following conditions are met:`objective_type` is `LEAD_GENERATION`.`catalog_enabled` is true.An Auto-Model catalog is specified through `catalog_id`.`ad_format` is `CATALOG_CAROUSEL`. The type of disclaimer to show in the [Automotive Carousel Ads for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994#item-link-Ad%20format%20as%20Catalog%20Carousel). Enum values:`EMISSION`: Emission disclaimer.`DISCOUNT`: Discount or offer disclaimer. Max size: 1. |
+| `catalog_authorized_bc_id` | `body` | `string` | No | No | Same as `bc_id`. Please use this field when previewing catalog items. |
+| `dynamic_format` | `body` | `"UNSET" \| "DYNAMIC_CREATIVE"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Dynamic format. Enum values: `UNSET`: Unset.`DYNAMIC_CREATIVE`: smart creative. To display different videos, product cards and destinations to each person based on purchase intent, maximizing conversions. |
+| `vertical_video_strategy` | `body` | `"SINGLE_VIDEO" \| "CATALOG_VIDEOS" \| "LIVE_STREAM" \| "UNSET" \| "DYNAMIC_CREATIVE"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Video strategy. Enum values:`SINGLE_VIDEO`: Use a video creative to promote your products.`CATALOG_VIDEOS`: Generate a dynamic video based on information from the product catalog.`LIVE_STREAM`: Use livestream to promote your products. Supported only for Live Shopping Ads with ad format as Real-time LIVE.`UNSET`: Unset.It must be `UNSET` if `dynamic_format` = `DYNAMIC_CREATIVE`. |
+| `shopping_ads_video_template_id` | `body` | `string` | No | No | Product video package ID. Use the [/catalog/video/get/](https://ads.tiktok.com/marketing_api/docs?id=1740574099715073) endpoint to get video package IDs. |
+| `shopping_ads_fallback_type` | `body` | `"DEFAULT" \| "CUSTOM" \| "SHOPPING_ADS"` | No | No | In the Shopping Ads retargeting scenario, the fallback website type when the deeplink fails to be triggered. Enum values:`DEFAULT`: Unset.`CUSTOM`: Custom link. Fall back to the web page link you provide. You need to pass in `landing_page_url` at the same time. `SHOPPING_ADS`: Product link. Fall back to the web page link you've provided for each product in the catalog. The `SHOPPING_ADS` value is not supported when the following conditions are met: `shopping_ads_type` is set to `VIDEO` (Video Shopping Ads) `product_source` is set to `CATALOG``ad_format` is set to `SINGLE_VIDEO` and `vertical_video_strategy` is set to `SINGLE_VIDEO` or `ad_format` is set to `CATALOG_CAROUSEL` To learn about the supported scenarios for fallback types, see the "[Deeplink - Availability - Fallback type](https://business-api.tiktok.com/portal/docs?id=1779541971843073#item-link-Fallback type)" section. |
+| `dynamic_destination` | `body` | `"DLP" \| "UNSET"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Dynamic destination strategy. Enum values:`DLP`: Dynamic Landing Page. Displaying different destinations including a custom website or Instant Product Page to each person based on their profile, behavior, and intent to maximize ad conversion. `UNSET`: Unset. |
+| `instant_product_page_used` | `body` | `boolean` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Whether to use TikTok Instant Product Page, an auto-generated TikTok instant page that displays a range of products and provides a native experience landing page. When `dynamic_destination `= `DLP`, you don't need this parameter. When `dynamic_destination` = `UNSET`, you can set this field to `true` to use TikTok Instant Product Page, and you don't need to pass in `page_id`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeAssetDelete
+
+`POST` `/open_api/v1.3/creative/asset/delete/`
+
+Generated from TikTok documentation 1797202997456897
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeAssetDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `video_ids` | `body` | `Array<string>` | No | No | A list of video IDs. At most 50 IDs can be included in the list. |
+| `image_ids` | `body` | `Array<string>` | No | No | A list of image IDs. At most 50 IDs can be included in the list. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeAssetShare
+
+`POST` `/open_api/v1.3/creative/asset/share/`
+
+Generated from TikTok documentation 1773192725768193
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeAssetShareResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Operator advertiser ID. |
+| `asset_type` | `body` | `"VIDEO" \| "IMAGE" \| "MUSIC"` | No | No | Type of creative assets that you want to share. Enum values: `VIDEO`, `IMAGE`, `MUSIC` Default value: `VIDEO` |
+| `material_ids` | `body` | `Array<string>` | Yes | No | Material ID. Max size: 20 After successful sharing, the name of the shared creative materials will be copied in the shared advertiser account. Note: Currently, the sharing will only fail when there is a creative material with the same name as the material you want to share under the shared advertiser account. |
+| `shared_advertiser_ids` | `body` | `Array<string>` | Yes | No | IDs of advertisers that you want to share creative materials with. Max size: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeCtaRecommend
+
+`GET` `/open_api/v1.3/creative/cta/recommend/`
+
+Generated from TikTok documentation 1739362202742785
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeTools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeCtaRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `new_version` | `query` | `boolean` | No | No | Whether to use the new version of the endpoint that supports retrieval of Dynamic CTAs based on your ad settings. Supported values: `true`, `false`. Default value: `false`. |
+| `asset_type` | `query` | `string` | No | No | Required when `new_version` is `false` or not passed. Ignored when `new_version` is `true`. The asset type. Enum values： `CTA_NORMAL`: Standard Recommended CTAs.`CTA_AUTO_OPTIMIZED`: Dynamic CTAs. |
+| `content_type` | `query` | `"APP_DOWNLOAD" \| "LANDING_PAGE" \| "OTHER" \| "MESSAGE" \| "SOCIAL_MEDIA_APP_MESSAGE" \| "PHONE_CALL"` | No | No | Required when `new_version` is `false` or not passed. Ignored when `new_version` is `true`. The ads content type. Enum values:`APP_DOWNLOAD``LANDING_PAGE``OTHER``MESSAGE` : a Lead Generation ad with promotion type as TikTok direct message.`SOCIAL_MEDIA_APP_MESSAGE` : a Lead Generation ad with promotion type as social media app. `PHONE_CALL`: a Lead Generation ad with promotion type as phone call. |
+| `objective_type` | `query` | `string` | No | No | Required when `new_version` is `true`.Not supported when `new_version` is `false` or not passed. Advertising objective. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `query` | `string` | No | No | Required when `new_version` is `true`.Not supported when `new_version` is `false` or not passed. Promotion type (Optimization location). For enum values, see [Enumeration - Promotion Type](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Promotion%20Type). |
+| `language` | `query` | `string` | No | No | Valid only when `new_version` is `true`. The code of language for the recommended CTAs. To obtain the list of available language codes, use [/tool/language/](https://ads.tiktok.com/marketing_api/docs?id=1737188554152962). Default value: `en`. For example, if you set this field to `fr`, the returned `asset_content` will be in French. |
+| `app_id` | `query` | `string` | No | No | Valid only when `new_version` is `true`. The application ID of the promoted app. To obtain the list of apps within your ad account, use [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786). Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `placements` | `query` | `Array<"PLACEMENT_TIKTOK" \| "PLACEMENT_PANGLE" \| "PLACEMENT_GLOBAL_APP_BUNDLE">` | No | No | Valid only when `new_version` is `true`. The apps where you want to deliver your ads. Enum values: `PLACEMENT_TIKTOK`: TikTok.`PLACEMENT_PANGLE`: Pangle. `PLACEMENT_GLOBAL_APP_BUNDLE`: Global App Bundle. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `region_codes` | `query` | `Array<string>` | No | No | Valid only when `new_version` is `true`. Codes of the regions that you want to target. For enum values, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `US`. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `optimization_goal` | `query` | `string` | No | No | Valid only when `new_version` is `true`. The measurable results you'd like to drive with your ads. For a complete list of enum values, see [Enumeration - Optimization Goal](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Optimization%20Goal). Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `ad_texts` | `query` | `Array<string>` | No | No | Valid only when `new_version` is `true`. A list of ad texts. Each ad text is shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. Ad text must be 1-100 characters long and cannot contain emoji.Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. Recommended size: 1. If you don't know how to create effective ad texts, you can try the [Smart Text](https://ads.tiktok.com/marketing_api/docs?id=1739084248002626) feature, which generates ad text recommendations based on the industry and language. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `landing_page_url` | `query` | `string` | No | No | Valid only when `new_version` is `true`. The landing page that users will be redirected to. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeFatigueGet
+
+`GET` `/open_api/v1.3/creative_fatigue/get/`
+
+Generated from TikTok documentation 1767568466842626
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeTools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeFatigueGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `ad_id` | `query` | `string` | Yes | No | The ID of the ad that you want to get Creative Fatigue detection results for. |
+| `filtering` | `query` | `CreativeFatigueGetParamsFiltering` | Yes | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: [1, 500]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeImageEdit
+
+`POST` `/open_api/v1.3/creative/image/edit/`
+
+Generated from TikTok documentation 1739067107903489
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeImageEditResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `image_id` | `body` | `string` | Yes | No | Image ID. |
+| `edit_method` | `body` | `string` | No | No | Editing method. Supported methods: `fix_size`, `only_gauss_pad`, and `gauss_padding_reserve_score`. Default value: `fix_size`. See the "Image editing methods" section to learn about the differences between the editing methods. |
+| `width` | `body` | `number` | Yes | No | Width of edited image. |
+| `height` | `body` | `number` | Yes | No | Height of edited image. |
+| `image_name` | `body` | `string` | No | No | Image name after editing. If the name is not set, this will be automatically generated. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeQuickOptimizationCreate
+
+`POST` `/open_api/v1.3/creative/quick_optimization/create/`
+
+Generated from TikTok documentation 1739355078757377
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeQuickOptimizationCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `video_id` | `body` | `string` | Yes | No | Video ID |
+| `logo` | `body` | `string` | No | No | Logo image ID, which will be shown in the optimized video |
+| `title` | `body` | `string` | No | No | Title, which will be shown in the optimized video. Limit: 2-20 characters. |
+| `description` | `body` | `string` | No | No | Description, which will be shown in the optimized video |
+| `callback_info` | `body` | `CreativeQuickOptimizationCreateParamsCallbackInfo` | No | No | Callback information |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeSmartTextGenerate
+
+`POST` `/open_api/v1.3/creative/smart_text/generate/`
+
+Generated from TikTok documentation 1739084248002626
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeSmartTextGenerateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID |
+| `param_type` | `body` | `"RECOMMENDED" \| "CUSTOMIZED"` | No | No | How parameters are passed in. Enum values: `RECOMMENDED`, `CUSTOMIZED`. Default value: `CUSTOMIZED`. `RECOMMENDED`: Use the parameters predicted by the system. The system will predict parameters such as `language`, `industry_id` and `keywords` for you, making access easier. `CUSTOMIZED`: Customize the relevant parameters. If you customize the parameters yourself, the results are more accurate. |
+| `language` | `body` | `"EN" \| "JA" \| "RU" \| "VI"` | No | No | Language。Enum values: `EN`,`JA`,`RU`,`VI`. This field is required when `param_type` = `CUSTOMIZED`. |
+| `industry_id` | `body` | `string` | No | No | Industry ID. For details, see [Appendix - Industries](https://ads.tiktok.com/marketing_api/docs?id=1739357589575681). |
+| `keywords` | `body` | `Array<string>` | No | No | Keywords. This field is required when `param_type` = `CUSTOMIZED`. |
+| `limit` | `body` | `number` | No | No | The number of texts to be generated, in the range of [1, 20]. The default value is 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeSmartVideoCreate
+
+`POST` `/open_api/v1.3/creative/smart_video/create/`
+
+Generated from TikTok documentation 1739352294717441
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeSmartVideoCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `videos` | `body` | `Array<CreativeSmartVideoCreateParamsVideos>` | Yes | No | Video list. Number of videos |
+| `images` | `body` | `Array<CreativeSmartVideoCreateParamsImages>` | Yes | No | Image list. Number of images |
+| `texts` | `body` | `Array<CreativeSmartVideoCreateParamsTexts>` | No | No | Text list. |
+| `layout` | `body` | `"VERTICAL" \| "HORIZONTAL"` | Yes | No | Horizontal screen or vertical screen. Enum values: `VERTICAL`，`HORIZONTAL`. |
+| `style` | `body` | `"PEACEFUL" \| "DYNAMIC" \| "CUSTOM"` | Yes | No | Background Music style. Enum values: `PEACEFUL`，`DYNAMIC`，`CUSTOM`. |
+| `music_id` | `body` | `string` | No | No | Music ID. Required when `style` is `CUSTOM`. |
+| `duration` | `body` | `number` | No | No | Duration of generated video. Max duration is 60s. |
+| `frame` | `body` | `Array<CreativeSmartVideoCreateParamsFrame>` | No | No | Keyframe. |
+| `callback_info` | `body` | `CreativeSmartVideoCreateParamsCallbackInfo` | No | No | Callback information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeStatusGet
+
+`GET` `/open_api/v1.3/creative/status/get/`
+
+Generated from TikTok documentation 1739351979503618
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeTools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeStatusGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `query` | `string` | Yes | No | Task ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.creativeVideoSoundtrackCreate
+
+`POST` `/open_api/v1.3/creative/video_soundtrack/create/`
+
+Generated from TikTok documentation 1739089635852289
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativeVideoSoundtrackCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `video_id` | `body` | `string` | Yes | No | Video ID |
+| `music_ids` | `body` | `Array<string>` | No | No | Customize the list of music IDs. If you want to use music of your choice, use this field to set it up. If you want to use the music recommended by the system, ignore this field. Quantity limit: |
+| `video_volume` | `body` | `number` | No | No | Video volume. Value range: [0,1]. The larger the value, the louder the volume. Default value: 0.5. |
+| `music_volume` | `body` | `number` | No | No | Music volume. Value range: [0,1]. The larger the value, the louder the volume. Default value: 0.5. |
+| `name_prefix` | `body` | `string` | No | No | Video name prefix. The video name length must be with [1,90] characters. If the name is not set, we use the original video name as `name_prefix`. Generated video name: `&lt;name_prefix&gt;_&lt;music_name&gt;`. If the music has no name, the name of the generated video will be `&lt;name_prefix&gt;_&lt;timestamp&gt;`. |
+| `callback_info` | `body` | `CreativeVideoSoundtrackCreateParamsCallbackInfo` | No | No | Callback information |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.videoFixTaskCreate
+
+`POST` `/open_api/v1.3/video/fix/task/create/`
+
+Generated from TikTok documentation 1741468875279361
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativeTools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `VideoFixTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `tasks` | `body` | `Array<VideoFixTaskCreateParamsTasks>` | No | No | Task info. Max size is 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeTools.videoFixTaskGet
+
+`GET` `/open_api/v1.3/video/fix/task/get/`
+
+Generated from TikTok documentation 1741469487859714
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeTools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `VideoFixTaskGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `query` | `string` | Yes | No | Fix task ID. Pass in the `fix_task_id` you get from the response of the [/video/fix/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1741468875279361) or [/file/video/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449)endpoint. |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Note: If `task_id` and `advertiser_id` do not match, we will return an error message. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,995 @@
+---
+title: "Google Ads models: Residency – Shopping Loyalty"
+description: "100 generated Google Ads model contracts, from Residency through ShoppingLoyalty."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1021
+  label: "Residency – Shopping Loyalty"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## Residency
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `institution_name` | `institution_name` | `string` | No | No | — |
+| `completion_year` | `completion_year` | `integer` | No | No | — |
+
+## ResolveMultiPartyAuthReviewOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `multi_party_auth_review` | `multi_party_auth_review` | `string` | No | No | — |
+| `new_status` | `new_status` | `MultiPartyAuthReviewStatus` | No | No | — |
+
+## ResolveMultiPartyAuthReviewRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+
+## ResolveMultiPartyAuthReviewResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result_or_error` | `result_or_error` | `Array<unknown>` | No | No | — |
+
+## ResolveMultiPartyAuthReviewResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `multi_party_auth_review` | `multi_party_auth_review` | `string` | No | No | — |
+| `customer_user_access_invitation` | `customer_user_access_invitation` | `string` | No | No | — |
+| `customer_user_access` | `customer_user_access` | `string` | No | No | — |
+
+## ResolveMultiPartyAuthReviewResultOrError
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result` | `result` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## ResourceAccessDeniedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WRITE_ACCESS_DENIED`
+
+## ResourceAccessDeniedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ResourceChangeOperation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CREATE`, `UPDATE`, `REMOVE`
+
+## ResourceChangeOperationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ResourceCountDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enclosing_id` | `enclosing_id` | `string` | No | No | — |
+| `enclosing_resource` | `enclosing_resource` | `string` | No | No | — |
+| `limit` | `limit` | `integer` | No | No | — |
+| `limit_type` | `limit_type` | `ResourceLimitType` | No | No | — |
+| `existing_count` | `existing_count` | `integer` | No | No | — |
+
+## ResourceCountLimitExceededError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACCOUNT_LIMIT`, `CAMPAIGN_LIMIT`, `ADGROUP_LIMIT`, `AD_GROUP_AD_LIMIT`, `AD_GROUP_CRITERION_LIMIT`, `SHARED_SET_LIMIT`, `MATCHING_FUNCTION_LIMIT`, `RESPONSE_ROW_LIMIT_EXCEEDED`, `RESOURCE_LIMIT`
+
+## ResourceCountLimitExceededErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ResourceLimitType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGNS_PER_CUSTOMER`, `BASE_CAMPAIGNS_PER_CUSTOMER`, `EXPERIMENT_CAMPAIGNS_PER_CUSTOMER`, `HOTEL_CAMPAIGNS_PER_CUSTOMER`, `SMART_SHOPPING_CAMPAIGNS_PER_CUSTOMER`, `AD_GROUPS_PER_CAMPAIGN`, `AD_GROUPS_PER_SHOPPING_CAMPAIGN`, `AD_GROUPS_PER_HOTEL_CAMPAIGN`, `REPORTING_AD_GROUPS_PER_LOCAL_CAMPAIGN`, `REPORTING_AD_GROUPS_PER_APP_CAMPAIGN`, `MANAGED_AD_GROUPS_PER_SMART_CAMPAIGN`, `AD_GROUP_CRITERIA_PER_CUSTOMER`, `BASE_AD_GROUP_CRITERIA_PER_CUSTOMER`, `EXPERIMENT_AD_GROUP_CRITERIA_PER_CUSTOMER`, `AD_GROUP_CRITERIA_PER_CAMPAIGN`, `CAMPAIGN_CRITERIA_PER_CUSTOMER`, `BASE_CAMPAIGN_CRITERIA_PER_CUSTOMER`, `EXPERIMENT_CAMPAIGN_CRITERIA_PER_CUSTOMER`, `WEBPAGE_CRITERIA_PER_CUSTOMER`, `BASE_WEBPAGE_CRITERIA_PER_CUSTOMER`, `EXPERIMENT_WEBPAGE_CRITERIA_PER_CUSTOMER`, `COMBINED_AUDIENCE_CRITERIA_PER_AD_GROUP`, `CUSTOMER_NEGATIVE_PLACEMENT_CRITERIA_PER_CUSTOMER`, `CUSTOMER_NEGATIVE_YOUTUBE_CHANNEL_CRITERIA_PER_CUSTOMER`, `CRITERIA_PER_AD_GROUP`, `LISTING_GROUPS_PER_AD_GROUP`, `EXPLICITLY_SHARED_BUDGETS_PER_CUSTOMER`, `IMPLICITLY_SHARED_BUDGETS_PER_CUSTOMER`, `COMBINED_AUDIENCE_CRITERIA_PER_CAMPAIGN`, `NEGATIVE_KEYWORDS_PER_CAMPAIGN`, `NEGATIVE_PLACEMENTS_PER_CAMPAIGN`, `GEO_TARGETS_PER_CAMPAIGN`, `NEGATIVE_IP_BLOCKS_PER_CAMPAIGN`, `PROXIMITIES_PER_CAMPAIGN`, `LISTING_SCOPES_PER_SHOPPING_CAMPAIGN`, `LISTING_SCOPES_PER_NON_SHOPPING_CAMPAIGN`, `NEGATIVE_KEYWORDS_PER_SHARED_SET`, `NEGATIVE_PLACEMENTS_PER_SHARED_SET`, `SHARED_SETS_PER_CUSTOMER_FOR_TYPE_DEFAULT`, `SHARED_SETS_PER_CUSTOMER_FOR_NEGATIVE_PLACEMENT_LIST_LOWER`, `HOTEL_ADVANCE_BOOKING_WINDOW_BID_MODIFIERS_PER_AD_GROUP`, `BIDDING_STRATEGIES_PER_CUSTOMER`, `BASIC_USER_LISTS_PER_CUSTOMER`, `LOGICAL_USER_LISTS_PER_CUSTOMER`, `RULE_BASED_USER_LISTS_PER_CUSTOMER`, `BASE_AD_GROUP_ADS_PER_CUSTOMER`, `EXPERIMENT_AD_GROUP_ADS_PER_CUSTOMER`, `AD_GROUP_ADS_PER_CAMPAIGN`, `TEXT_AND_OTHER_ADS_PER_AD_GROUP`, `IMAGE_ADS_PER_AD_GROUP`, `SHOPPING_SMART_ADS_PER_AD_GROUP`, `RESPONSIVE_SEARCH_ADS_PER_AD_GROUP`, `APP_ADS_PER_AD_GROUP`, `APP_ENGAGEMENT_ADS_PER_AD_GROUP`, `LOCAL_ADS_PER_AD_GROUP`, `VIDEO_ADS_PER_AD_GROUP`, `LEAD_FORM_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `PROMOTION_CUSTOMER_ASSETS_PER_CUSTOMER`, `PROMOTION_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `PROMOTION_AD_GROUP_ASSETS_PER_AD_GROUP`, `CALLOUT_CUSTOMER_ASSETS_PER_CUSTOMER`, `CALLOUT_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `CALLOUT_AD_GROUP_ASSETS_PER_AD_GROUP`, `SITELINK_CUSTOMER_ASSETS_PER_CUSTOMER`, `SITELINK_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `SITELINK_AD_GROUP_ASSETS_PER_AD_GROUP`, `STRUCTURED_SNIPPET_CUSTOMER_ASSETS_PER_CUSTOMER`, `STRUCTURED_SNIPPET_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `STRUCTURED_SNIPPET_AD_GROUP_ASSETS_PER_AD_GROUP`, `MOBILE_APP_CUSTOMER_ASSETS_PER_CUSTOMER`, `MOBILE_APP_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `MOBILE_APP_AD_GROUP_ASSETS_PER_AD_GROUP`, `HOTEL_CALLOUT_CUSTOMER_ASSETS_PER_CUSTOMER`, `HOTEL_CALLOUT_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `HOTEL_CALLOUT_AD_GROUP_ASSETS_PER_AD_GROUP`, `CALL_CUSTOMER_ASSETS_PER_CUSTOMER`, `CALL_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `CALL_AD_GROUP_ASSETS_PER_AD_GROUP`, `PRICE_CUSTOMER_ASSETS_PER_CUSTOMER`, `PRICE_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `PRICE_AD_GROUP_ASSETS_PER_AD_GROUP`, `AD_IMAGE_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `AD_IMAGE_AD_GROUP_ASSETS_PER_AD_GROUP`, `PAGE_FEED_ASSET_SETS_PER_CUSTOMER`, `DYNAMIC_EDUCATION_FEED_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_PAGE_FEED_ASSET_SET`, `ASSETS_PER_DYNAMIC_EDUCATION_FEED_ASSET_SET`, `DYNAMIC_REAL_ESTATE_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_REAL_ESTATE_ASSET_SET`, `DYNAMIC_CUSTOM_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_CUSTOM_ASSET_SET`, `DYNAMIC_HOTELS_AND_RENTALS_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_HOTELS_AND_RENTALS_ASSET_SET`, `DYNAMIC_LOCAL_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_LOCAL_ASSET_SET`, `DYNAMIC_FLIGHTS_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_FLIGHTS_ASSET_SET`, `DYNAMIC_TRAVEL_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_TRAVEL_ASSET_SET`, `DYNAMIC_JOBS_ASSET_SETS_PER_CUSTOMER`, `ASSETS_PER_DYNAMIC_JOBS_ASSET_SET`, `BUSINESS_NAME_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `BUSINESS_LOGO_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `VERSIONS_PER_AD`, `USER_FEEDS_PER_CUSTOMER`, `SYSTEM_FEEDS_PER_CUSTOMER`, `FEED_ATTRIBUTES_PER_FEED`, `FEED_ITEMS_PER_CUSTOMER`, `CAMPAIGN_FEEDS_PER_CUSTOMER`, `BASE_CAMPAIGN_FEEDS_PER_CUSTOMER`, `EXPERIMENT_CAMPAIGN_FEEDS_PER_CUSTOMER`, `AD_GROUP_FEEDS_PER_CUSTOMER`, `BASE_AD_GROUP_FEEDS_PER_CUSTOMER`, `EXPERIMENT_AD_GROUP_FEEDS_PER_CUSTOMER`, `AD_GROUP_FEEDS_PER_CAMPAIGN`, `FEED_ITEM_SETS_PER_CUSTOMER`, `FEED_ITEMS_PER_FEED_ITEM_SET`, `CAMPAIGN_EXPERIMENTS_PER_CUSTOMER`, `EXPERIMENT_ARMS_PER_VIDEO_EXPERIMENT`, `OWNED_LABELS_PER_CUSTOMER`, `LABELS_PER_CAMPAIGN`, `LABELS_PER_AD_GROUP`, `LABELS_PER_AD_GROUP_AD`, `LABELS_PER_AD_GROUP_CRITERION`, `TARGET_CUSTOMERS_PER_LABEL`, `KEYWORD_PLANS_PER_USER_PER_CUSTOMER`, `KEYWORD_PLAN_AD_GROUP_KEYWORDS_PER_KEYWORD_PLAN`, `KEYWORD_PLAN_AD_GROUPS_PER_KEYWORD_PLAN`, `KEYWORD_PLAN_NEGATIVE_KEYWORDS_PER_KEYWORD_PLAN`, `KEYWORD_PLAN_CAMPAIGNS_PER_KEYWORD_PLAN`, `CONVERSION_ACTIONS_PER_CUSTOMER`, `BATCH_JOB_OPERATIONS_PER_JOB`, `BATCH_JOBS_PER_CUSTOMER`, `HOTEL_CHECK_IN_DATE_RANGE_BID_MODIFIERS_PER_AD_GROUP`, `SHARED_SETS_PER_ACCOUNT_FOR_ACCOUNT_LEVEL_NEGATIVE_KEYWORDS`, `ACCOUNT_LEVEL_NEGATIVE_KEYWORDS_PER_SHARED_SET`, `ENABLED_ASSET_PER_HOTEL_PROPERTY_ASSET_SET`, `ENABLED_HOTEL_PROPERTY_ASSET_LINKS_PER_ASSET_GROUP`, `BRANDS_PER_SHARED_SET`, `ENABLED_BRAND_LIST_CRITERIA_PER_CAMPAIGN`, `SHARED_SETS_PER_ACCOUNT_FOR_BRAND`, `LOOKALIKE_USER_LISTS_PER_CUSTOMER`, `LOGO_CAMPAIGN_ASSETS_PER_CAMPAIGN`, `BUSINESS_MESSAGE_ASSET_LINKS_PER_CUSTOMER`, `WHATSAPP_BUSINESS_MESSAGE_ASSET_LINKS_PER_CAMPAIGN`, `WHATSAPP_BUSINESS_MESSAGE_ASSET_LINKS_PER_AD_GROUP`, `BRAND_LIST_CRITERIA_PER_AD_GROUP`
+
+## ResourceLimitTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ResponseContentType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `RESOURCE_NAME_ONLY`, `MUTABLE_RESOURCE`
+
+## ResponseContentTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ResponsiveDisplayAdControlSpec
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enable_asset_enhancements` | `enable_asset_enhancements` | `boolean` | No | No | — |
+| `enable_autogen_video` | `enable_autogen_video` | `boolean` | No | No | — |
+
+## ResponsiveDisplayAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `marketing_images` | `marketing_images` | `Array<unknown>` | No | No | — |
+| `square_marketing_images` | `square_marketing_images` | `Array<unknown>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
+| `square_logo_images` | `square_logo_images` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `long_headline` | `long_headline` | `unknown` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `main_color` | `main_color` | `string` | No | No | — |
+| `accent_color` | `accent_color` | `string` | No | No | — |
+| `allow_flexible_color` | `allow_flexible_color` | `boolean` | No | No | — |
+| `call_to_action_text` | `call_to_action_text` | `string` | No | No | — |
+| `price_prefix` | `price_prefix` | `string` | No | No | — |
+| `promo_text` | `promo_text` | `string` | No | No | — |
+| `format_setting` | `format_setting` | `DisplayAdFormatSetting` | No | No | — |
+| `control_spec` | `control_spec` | `unknown` | No | No | — |
+
+## ResponsiveSearchAdAssetParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `updated_ad` | `updated_ad` | `Ad` | No | No | — |
+
+## ResponsiveSearchAdAssetRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `current_ad` | `current_ad` | `unknown` | No | No | — |
+| `recommended_assets` | `recommended_assets` | `unknown` | No | No | — |
+
+## ResponsiveSearchAdImproveAdStrengthParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `updated_ad` | `updated_ad` | `Ad` | No | No | — |
+
+## ResponsiveSearchAdImproveAdStrengthRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `current_ad` | `current_ad` | `unknown` | No | No | — |
+| `recommended_ad` | `recommended_ad` | `unknown` | No | No | — |
+
+## ResponsiveSearchAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `path1` | `path1` | `string` | No | No | — |
+| `path2` | `path2` | `string` | No | No | — |
+
+## ResponsiveSearchAdParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `Ad` | No | No | — |
+
+## ResponsiveSearchAdRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `unknown` | No | No | — |
+
+## RestatementValue
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adjusted_value` | `adjusted_value` | `number` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+
+## RetailFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expression` | `expression` | `unknown` | No | No | — |
+| `tag` | `tag` | `unknown` | No | No | — |
+
+## RetailFilterBundle
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+
+## RetailFilterExpression
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+
+## RetailTag
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+| `expression_name` | `expression_name` | `string` | No | No | — |
+
+## RetentionGoal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value_settings` | `value_settings` | `unknown` | No | No | — |
+
+## RevenueRange
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_event_revenue` | `min_event_revenue` | `number` | No | No | — |
+| `max_event_revenue` | `max_event_revenue` | `number` | No | No | — |
+
+## RuleBasedUserListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `prepopulation_status` | `prepopulation_status` | `UserListPrepopulationStatus` | No | No | — |
+| `flexible_rule_user_list` | `flexible_rule_user_list` | `unknown` | No | No | — |
+
+## RunBatchJobRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RunOfflineUserDataJobRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## SampleChannel
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_channel` | `youtube_channel` | `unknown` | No | No | — |
+| `display_name` | `display_name` | `string` | No | No | — |
+| `youtube_channel_metadata` | `youtube_channel_metadata` | `unknown` | No | No | — |
+
+## ScheduleExperimentMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `experiment` | `experiment` | `string` | No | No | — |
+
+## ScheduleExperimentRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## SearchAttributes
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_attributes` | `audience_attributes` | `Array<AudienceInsightsAttribute>` | No | No | — |
+| `audience_combinations` | `audience_combinations` | `Array<InsightsAudienceAttributeGroup>` | No | No | — |
+| `creator_attributes` | `creator_attributes` | `Array<AudienceInsightsAttribute>` | No | No | — |
+
+## SearchAudience
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_attributes` | `audience_attributes` | `Array<AudienceInsightsAttribute>` | No | No | — |
+| `audience_combinations` | `audience_combinations` | `Array<InsightsAudienceAttributeGroup>` | No | No | — |
+
+## SearchEngineResultsPageType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADS_ONLY`, `ORGANIC_ONLY`, `ADS_AND_ORGANIC`
+
+## SearchEngineResultsPageTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entity_capability_filters` | `entity_capability_filters` | `Array<InsightsKnowledgeGraphEntityCapabilities>` | No | No | — |
+
+## SearchGoogleAdsFieldsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `page_size` | `page_size` | `integer` | No | No | — |
+
+## SearchGoogleAdsFieldsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<GoogleAdsField>` | No | No | — |
+| `next_page_token` | `next_page_token` | `string` | No | No | — |
+| `total_results_count` | `total_results_count` | `string` | No | No | — |
+
+## SearchGoogleAdsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `query` | `query` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `page_size` | `page_size` | `integer` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `search_settings` | `search_settings` | `unknown` | No | No | — |
+
+## SearchGoogleAdsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `next_page_token` | `next_page_token` | `string` | No | No | — |
+| `total_results_count` | `total_results_count` | `string` | No | No | — |
+| `field_mask` | `field_mask` | `unknown` | No | No | — |
+| `summary_row` | `summary_row` | `unknown` | No | No | — |
+| `query_resource_consumption` | `query_resource_consumption` | `string` | No | No | — |
+| `metric_attributes` | `metric_attributes` | `Array<unknown>` | No | No | — |
+
+## SearchGoogleAdsStreamRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `query` | `query` | `string` | No | No | — |
+| `summary_row_setting` | `summary_row_setting` | `SummaryRowSetting` | No | No | — |
+
+## SearchGoogleAdsStreamResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `field_mask` | `field_mask` | `unknown` | No | No | — |
+| `summary_row` | `summary_row` | `unknown` | No | No | — |
+| `request_id` | `request_id` | `string` | No | No | — |
+| `query_resource_consumption` | `query_resource_consumption` | `string` | No | No | — |
+| `metric_attributes` | `metric_attributes` | `Array<unknown>` | No | No | — |
+
+## SearchPartnersOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `omit_results` | `omit_results` | `boolean` | No | No | — |
+| `return_summary_row` | `return_summary_row` | `boolean` | No | No | — |
+| `return_total_results_count` | `return_total_results_count` | `boolean` | No | No | — |
+
+## SearchTerm
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | — |
+| `estimated_weekly_search_count` | `estimated_weekly_search_count` | `string` | No | No | — |
+
+## SearchTermInsightError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FILTERING_NOT_ALLOWED_WITH_SEGMENTS`, `LIMIT_NOT_ALLOWED_WITH_SEGMENTS`, `MISSING_FIELD_IN_SELECT_CLAUSE`, `REQUIRES_FILTER_BY_SINGLE_RESOURCE`, `SORTING_NOT_ALLOWED_WITH_SEGMENTS`, `SUMMARY_ROW_NOT_ALLOWED_WITH_SEGMENTS`
+
+## SearchTermInsightErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchTermMatchSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADVERTISER_PROVIDED_KEYWORD`, `AI_MAX_KEYWORDLESS`, `AI_MAX_BROAD_MATCH`, `DYNAMIC_SEARCH_ADS`, `PERFORMANCE_MAX`, `VERTICAL_ADS_DATA_FEED`
+
+## SearchTermMatchSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchTermMatchType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BROAD`, `EXACT`, `PHRASE`, `NEAR_EXACT`, `NEAR_PHRASE`, `AI_MAX`, `PERFORMANCE_MAX`
+
+## SearchTermMatchTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchTermTargetingStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADDED`, `EXCLUDED`, `ADDED_EXCLUDED`, `NONE`
+
+## SearchTermTargetingStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SearchTermView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `status` | `status` | `SearchTermTargetingStatus` | No | No | — |
+
+## SearchThemeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | — |
+
+## SearchTopics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entities` | `entities` | `Array<AudienceInsightsEntity>` | No | No | — |
+
+## SearchVolumeRange
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min` | `min` | `string` | No | No | — |
+| `max` | `max` | `string` | No | No | — |
+
+## SeasonalityEventScope
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER`, `CAMPAIGN`, `CHANNEL`
+
+## SeasonalityEventScopeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SeasonalityEventStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## SeasonalityEventStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SeedInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url_seed` | `url_seed` | `string` | No | No | — |
+| `keyword_seeds` | `keyword_seeds` | `Array<string>` | No | No | — |
+
+## Segments
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activity_account_id` | `activity_account_id` | `string` | No | No | — |
+| `activity_city` | `activity_city` | `string` | No | No | — |
+| `activity_country` | `activity_country` | `string` | No | No | — |
+| `activity_rating` | `activity_rating` | `string` | No | No | — |
+| `activity_state` | `activity_state` | `string` | No | No | — |
+| `external_activity_id` | `external_activity_id` | `string` | No | No | — |
+| `ad_destination_type` | `ad_destination_type` | `AdDestinationType` | No | No | — |
+| `ad_format_type` | `ad_format_type` | `AdFormatType` | No | No | — |
+| `ad_network_type` | `ad_network_type` | `AdNetworkType` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `ad_sub_format_type` | `ad_sub_format_type` | `AdSubFormatType` | No | No | — |
+| `ad_sub_network_type` | `ad_sub_network_type` | `AdSubNetworkType` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `auction_insight_domain` | `auction_insight_domain` | `string` | No | No | — |
+| `budget_campaign_association_status` | `budget_campaign_association_status` | `unknown` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `click_type` | `click_type` | `ClickType` | No | No | — |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `conversion_action_category` | `conversion_action_category` | `ConversionActionCategory` | No | No | — |
+| `conversion_action_name` | `conversion_action_name` | `string` | No | No | — |
+| `conversion_adjustment` | `conversion_adjustment` | `boolean` | No | No | — |
+| `conversion_attribution_event_type` | `conversion_attribution_event_type` | `ConversionAttributionEventType` | No | No | — |
+| `conversion_lag_bucket` | `conversion_lag_bucket` | `ConversionLagBucket` | No | No | — |
+| `conversion_or_adjustment_lag_bucket` | `conversion_or_adjustment_lag_bucket` | `ConversionOrAdjustmentLagBucket` | No | No | — |
+| `date` | `date` | `string` | No | No | — |
+| `day_of_week` | `day_of_week` | `DayOfWeek` | No | No | — |
+| `device` | `device` | `Device` | No | No | — |
+| `mobile_device_platform` | `mobile_device_platform` | `MobileDevicePlatform` | No | No | — |
+| `external_conversion_source` | `external_conversion_source` | `ExternalConversionSource` | No | No | — |
+| `geo_target_airport` | `geo_target_airport` | `string` | No | No | — |
+| `geo_target_canton` | `geo_target_canton` | `string` | No | No | — |
+| `geo_target_city` | `geo_target_city` | `string` | No | No | — |
+| `geo_target_country` | `geo_target_country` | `string` | No | No | — |
+| `geo_target_county` | `geo_target_county` | `string` | No | No | — |
+| `geo_target_district` | `geo_target_district` | `string` | No | No | — |
+| `geo_target_metro` | `geo_target_metro` | `string` | No | No | — |
+| `geo_target_most_specific_location` | `geo_target_most_specific_location` | `string` | No | No | — |
+| `geo_target_postal_code` | `geo_target_postal_code` | `string` | No | No | — |
+| `geo_target_province` | `geo_target_province` | `string` | No | No | — |
+| `geo_target_region` | `geo_target_region` | `string` | No | No | — |
+| `geo_target_state` | `geo_target_state` | `string` | No | No | — |
+| `hotel_booking_window_days` | `hotel_booking_window_days` | `string` | No | No | — |
+| `hotel_center_id` | `hotel_center_id` | `string` | No | No | — |
+| `hotel_check_in_date` | `hotel_check_in_date` | `string` | No | No | — |
+| `hotel_check_in_day_of_week` | `hotel_check_in_day_of_week` | `DayOfWeek` | No | No | — |
+| `hotel_city` | `hotel_city` | `string` | No | No | — |
+| `hotel_class` | `hotel_class` | `integer` | No | No | — |
+| `hotel_country` | `hotel_country` | `string` | No | No | — |
+| `hotel_date_selection_type` | `hotel_date_selection_type` | `HotelDateSelectionType` | No | No | — |
+| `hotel_length_of_stay` | `hotel_length_of_stay` | `integer` | No | No | — |
+| `hotel_rate_rule_id` | `hotel_rate_rule_id` | `string` | No | No | — |
+| `hotel_rate_type` | `hotel_rate_type` | `HotelRateType` | No | No | — |
+| `hotel_price_bucket` | `hotel_price_bucket` | `HotelPriceBucket` | No | No | — |
+| `hotel_state` | `hotel_state` | `string` | No | No | — |
+| `hour` | `hour` | `integer` | No | No | — |
+| `interaction_on_this_extension` | `interaction_on_this_extension` | `boolean` | No | No | — |
+| `keyword` | `keyword` | `unknown` | No | No | — |
+| `landing_page_source` | `landing_page_source` | `LandingPageSource` | No | No | — |
+| `month` | `month` | `string` | No | No | — |
+| `month_of_year` | `month_of_year` | `MonthOfYear` | No | No | — |
+| `partner_hotel_id` | `partner_hotel_id` | `string` | No | No | — |
+| `product_aggregator_id` | `product_aggregator_id` | `string` | No | No | — |
+| `product_category_level1` | `product_category_level1` | `string` | No | No | — |
+| `product_category_level2` | `product_category_level2` | `string` | No | No | — |
+| `product_category_level3` | `product_category_level3` | `string` | No | No | — |
+| `product_category_level4` | `product_category_level4` | `string` | No | No | — |
+| `product_category_level5` | `product_category_level5` | `string` | No | No | — |
+| `product_brand` | `product_brand` | `string` | No | No | — |
+| `product_channel` | `product_channel` | `ProductChannel` | No | No | — |
+| `product_channel_exclusivity` | `product_channel_exclusivity` | `ProductChannelExclusivity` | No | No | — |
+| `product_condition` | `product_condition` | `ProductCondition` | No | No | — |
+| `product_country` | `product_country` | `string` | No | No | — |
+| `product_custom_attribute0` | `product_custom_attribute0` | `string` | No | No | — |
+| `product_custom_attribute1` | `product_custom_attribute1` | `string` | No | No | — |
+| `product_custom_attribute2` | `product_custom_attribute2` | `string` | No | No | — |
+| `product_custom_attribute3` | `product_custom_attribute3` | `string` | No | No | — |
+| `product_custom_attribute4` | `product_custom_attribute4` | `string` | No | No | — |
+| `product_feed_label` | `product_feed_label` | `string` | No | No | — |
+| `product_item_id` | `product_item_id` | `string` | No | No | — |
+| `product_language` | `product_language` | `string` | No | No | — |
+| `product_merchant_id` | `product_merchant_id` | `string` | No | No | — |
+| `product_sold_category_level1` | `product_sold_category_level1` | `string` | No | No | — |
+| `product_sold_category_level2` | `product_sold_category_level2` | `string` | No | No | — |
+| `product_sold_category_level3` | `product_sold_category_level3` | `string` | No | No | — |
+| `product_sold_category_level4` | `product_sold_category_level4` | `string` | No | No | — |
+| `product_sold_category_level5` | `product_sold_category_level5` | `string` | No | No | — |
+| `product_sold_brand` | `product_sold_brand` | `string` | No | No | — |
+| `product_sold_condition` | `product_sold_condition` | `ProductCondition` | No | No | — |
+| `product_sold_custom_attribute0` | `product_sold_custom_attribute0` | `string` | No | No | — |
+| `product_sold_custom_attribute1` | `product_sold_custom_attribute1` | `string` | No | No | — |
+| `product_sold_custom_attribute2` | `product_sold_custom_attribute2` | `string` | No | No | — |
+| `product_sold_custom_attribute3` | `product_sold_custom_attribute3` | `string` | No | No | — |
+| `product_sold_custom_attribute4` | `product_sold_custom_attribute4` | `string` | No | No | — |
+| `product_sold_item_id` | `product_sold_item_id` | `string` | No | No | — |
+| `product_sold_title` | `product_sold_title` | `string` | No | No | — |
+| `product_sold_type_l1` | `product_sold_type_l1` | `string` | No | No | — |
+| `product_sold_type_l2` | `product_sold_type_l2` | `string` | No | No | — |
+| `product_sold_type_l3` | `product_sold_type_l3` | `string` | No | No | — |
+| `product_sold_type_l4` | `product_sold_type_l4` | `string` | No | No | — |
+| `product_sold_type_l5` | `product_sold_type_l5` | `string` | No | No | — |
+| `product_store_id` | `product_store_id` | `string` | No | No | — |
+| `product_title` | `product_title` | `string` | No | No | — |
+| `product_type_l1` | `product_type_l1` | `string` | No | No | — |
+| `product_type_l2` | `product_type_l2` | `string` | No | No | — |
+| `product_type_l3` | `product_type_l3` | `string` | No | No | — |
+| `product_type_l4` | `product_type_l4` | `string` | No | No | — |
+| `product_type_l5` | `product_type_l5` | `string` | No | No | — |
+| `quarter` | `quarter` | `string` | No | No | — |
+| `travel_destination_city` | `travel_destination_city` | `string` | No | No | — |
+| `travel_destination_country` | `travel_destination_country` | `string` | No | No | — |
+| `travel_destination_region` | `travel_destination_region` | `string` | No | No | — |
+| `vertical_ads_event_participant_display_names` | `vertical_ads_event_participant_display_names` | `string` | No | No | — |
+| `vertical_ads_hotel_class` | `vertical_ads_hotel_class` | `string` | No | No | — |
+| `vertical_ads_listing` | `vertical_ads_listing` | `string` | No | No | — |
+| `vertical_ads_listing_brand` | `vertical_ads_listing_brand` | `string` | No | No | — |
+| `vertical_ads_listing_city` | `vertical_ads_listing_city` | `string` | No | No | — |
+| `vertical_ads_listing_country` | `vertical_ads_listing_country` | `string` | No | No | — |
+| `vertical_ads_listing_region` | `vertical_ads_listing_region` | `string` | No | No | — |
+| `vertical_ads_listing_user_rating` | `vertical_ads_listing_user_rating` | `string` | No | No | — |
+| `vertical_ads_listing_venue` | `vertical_ads_listing_venue` | `string` | No | No | — |
+| `vertical_ads_partner_account` | `vertical_ads_partner_account` | `string` | No | No | — |
+| `vertical_ads_vertical` | `vertical_ads_vertical` | `VerticalAdsItemVerticalType` | No | No | — |
+| `recommendation_type` | `recommendation_type` | `RecommendationType` | No | No | — |
+| `search_engine_results_page_type` | `search_engine_results_page_type` | `SearchEngineResultsPageType` | No | No | — |
+| `search_subcategory` | `search_subcategory` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+| `search_term_match_type` | `search_term_match_type` | `SearchTermMatchType` | No | No | — |
+| `match_type` | `match_type` | `MatchType` | No | No | — |
+| `slot` | `slot` | `Slot` | No | No | — |
+| `conversion_value_rule_primary_dimension` | `conversion_value_rule_primary_dimension` | `ConversionValueRulePrimaryDimension` | No | No | — |
+| `webpage` | `webpage` | `string` | No | No | — |
+| `week` | `week` | `string` | No | No | — |
+| `year` | `year` | `integer` | No | No | — |
+| `sk_ad_network_fine_conversion_value` | `sk_ad_network_fine_conversion_value` | `string` | No | No | — |
+| `sk_ad_network_redistributed_fine_conversion_value` | `sk_ad_network_redistributed_fine_conversion_value` | `string` | No | No | — |
+| `sk_ad_network_user_type` | `sk_ad_network_user_type` | `SkAdNetworkUserType` | No | No | — |
+| `sk_ad_network_ad_event_type` | `sk_ad_network_ad_event_type` | `SkAdNetworkAdEventType` | No | No | — |
+| `sk_ad_network_source_app` | `sk_ad_network_source_app` | `unknown` | No | No | — |
+| `sk_ad_network_attribution_credit` | `sk_ad_network_attribution_credit` | `SkAdNetworkAttributionCredit` | No | No | — |
+| `sk_ad_network_coarse_conversion_value` | `sk_ad_network_coarse_conversion_value` | `SkAdNetworkCoarseConversionValue` | No | No | — |
+| `sk_ad_network_source_domain` | `sk_ad_network_source_domain` | `string` | No | No | — |
+| `sk_ad_network_source_type` | `sk_ad_network_source_type` | `SkAdNetworkSourceType` | No | No | — |
+| `sk_ad_network_postback_sequence_index` | `sk_ad_network_postback_sequence_index` | `string` | No | No | — |
+| `sk_ad_network_version` | `sk_ad_network_version` | `string` | No | No | — |
+| `asset_interaction_target` | `asset_interaction_target` | `unknown` | No | No | — |
+| `new_versus_returning_customers` | `new_versus_returning_customers` | `ConvertingUserPriorEngagementTypeAndLtvBucket` | No | No | — |
+| `adjusted_age_range` | `adjusted_age_range` | `AgeRangeType` | No | No | — |
+| `adjusted_gender` | `adjusted_gender` | `GenderType` | No | No | — |
+| `search_term_match_source` | `search_term_match_source` | `SearchTermMatchSource` | No | No | — |
+| `search_term_targeting_status` | `search_term_targeting_status` | `SearchTermTargetingStatus` | No | No | — |
+| `ad_using_product_data` | `ad_using_product_data` | `boolean` | No | No | — |
+| `ad_using_video` | `ad_using_video` | `boolean` | No | No | — |
+
+## SelectiveOptimization
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_actions` | `conversion_actions` | `Array<string>` | No | No | — |
+
+## ServedAssetFieldType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HEADLINE_1`, `HEADLINE_2`, `HEADLINE_3`, `DESCRIPTION_1`, `DESCRIPTION_2`, `HEADLINE`, `HEADLINE_IN_PORTRAIT`, `LONG_HEADLINE`, `DESCRIPTION`, `DESCRIPTION_IN_PORTRAIT`, `BUSINESS_NAME_IN_PORTRAIT`, `BUSINESS_NAME`, `MARKETING_IMAGE`, `MARKETING_IMAGE_IN_PORTRAIT`, `SQUARE_MARKETING_IMAGE`, `PORTRAIT_MARKETING_IMAGE`, `LOGO`, `LANDSCAPE_LOGO`, `CALL_TO_ACTION`, `YOU_TUBE_VIDEO`, `SITELINK`, `CALL`, `MOBILE_APP`, `CALLOUT`, `STRUCTURED_SNIPPET`, `PRICE`, `PROMOTION`, `AD_IMAGE`, `LEAD_FORM`, `BUSINESS_LOGO`, `DESCRIPTION_PREFIX`, `HEADLINE_AS_SITELINK_POSITION_ONE`, `HEADLINE_AS_SITELINK_POSITION_TWO`, `DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_ONE`, `DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_TWO`
+
+## ServedAssetFieldTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## services_Metrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `average_rate_metrics` | `average_rate_metrics` | `unknown` | No | No | — |
+
+## SessionAttributeKeyValuePair
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `session_attribute_key` | `session_attribute_key` | `string` | No | No | — |
+| `session_attribute_value` | `session_attribute_value` | `string` | No | No | — |
+
+## SessionAttributesKeyValuePairs
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key_value_pairs` | `key_value_pairs` | `Array<unknown>` | No | No | — |
+
+## SettingError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SETTING_TYPE_IS_NOT_AVAILABLE`, `SETTING_TYPE_IS_NOT_COMPATIBLE_WITH_CAMPAIGN`, `TARGETING_SETTING_CONTAINS_INVALID_CRITERION_TYPE_GROUP`, `TARGETING_SETTING_DEMOGRAPHIC_CRITERION_TYPE_GROUPS_MUST_BE_SET_TO_TARGET_ALL`, `TARGETING_SETTING_CANNOT_CHANGE_TARGET_ALL_TO_FALSE_FOR_DEMOGRAPHIC_CRITERION_TYPE_GROUP`, `DYNAMIC_SEARCH_ADS_SETTING_AT_LEAST_ONE_FEED_ID_MUST_BE_PRESENT`, `DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_DOMAIN_NAME`, `DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_SUBDOMAIN_NAME`, `DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_LANGUAGE_CODE`, `TARGET_ALL_IS_NOT_ALLOWED_FOR_PLACEMENT_IN_SEARCH_CAMPAIGN`, `SETTING_VALUE_NOT_COMPATIBLE_WITH_CAMPAIGN`, `BID_ONLY_IS_NOT_ALLOWED_TO_BE_MODIFIED_WITH_CUSTOMER_MATCH_TARGETING`
+
+## SettingErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ShareablePreview
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preview_type` | `preview_type` | `PreviewType` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+
+## ShareablePreviewError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNSUPPORTED_AD_TYPE`, `TOO_MANY_RESOURCES_IN_REQUEST`
+
+## ShareablePreviewErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ShareablePreviewResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expiration_date_time` | `expiration_date_time` | `string` | No | No | — |
+| `ui_preview_result` | `ui_preview_result` | `unknown` | No | No | — |
+| `youtube_live_preview_result` | `youtube_live_preview_result` | `unknown` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+
+## SharedCriterion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+| `criterion_id` | `criterion_id` | `string` | No | No | — |
+| `type` | `type` | `CriterionType` | No | No | — |
+| `negative` | `negative` | `boolean` | No | No | — |
+| `keyword` | `keyword` | `KeywordInfo` | No | No | — |
+| `youtube_video` | `youtube_video` | `YouTubeVideoInfo` | No | No | — |
+| `youtube_channel` | `youtube_channel` | `YouTubeChannelInfo` | No | No | — |
+| `placement` | `placement` | `PlacementInfo` | No | No | — |
+| `mobile_app_category` | `mobile_app_category` | `MobileAppCategoryInfo` | No | No | — |
+| `mobile_application` | `mobile_application` | `MobileApplicationInfo` | No | No | — |
+| `brand` | `brand` | `BrandInfo` | No | No | — |
+| `webpage` | `webpage` | `WebpageInfo` | No | No | — |
+| `vertical_ads_item_group_rule` | `vertical_ads_item_group_rule` | `VerticalAdsItemGroupRuleInfo` | No | No | — |
+| `retail_filter` | `retail_filter` | `RetailFilter` | No | No | — |
+
+## SharedCriterionError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CRITERION_TYPE_NOT_ALLOWED_FOR_SHARED_SET_TYPE`
+
+## SharedCriterionErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SharedCriterionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `SharedCriterion` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## SharedSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `type` | `type` | `SharedSetType` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `status` | `status` | `SharedSetStatus` | No | No | — |
+| `member_count` | `member_count` | `string` | No | No | — |
+| `reference_count` | `reference_count` | `string` | No | No | — |
+| `vertical_ads_item_vertical_type` | `vertical_ads_item_vertical_type` | `VerticalAdsItemVerticalType` | No | No | — |
+
+## SharedSetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER_CANNOT_CREATE_SHARED_SET_OF_THIS_TYPE`, `DUPLICATE_NAME`, `SHARED_SET_REMOVED`, `SHARED_SET_IN_USE`
+
+## SharedSetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SharedSetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `SharedSet` | No | No | — |
+| `update` | `update` | `SharedSet` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## SharedSetStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## SharedSetStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## SharedSetType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEGATIVE_KEYWORDS`, `NEGATIVE_PLACEMENTS`, `ACCOUNT_LEVEL_NEGATIVE_KEYWORDS`, `BRANDS`, `WEBPAGES`, `VERTICAL_ADS_ITEM_GROUP_RULE_LIST`, `RETAIL_FILTER`
+
+## SharedSetTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ShoppingAddProductsToCampaignRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant` | `merchant` | `unknown` | No | No | — |
+| `feed_label` | `feed_label` | `string` | No | No | — |
+| `reason` | `reason` | `Reason` | No | No | — |
+
+## ShoppingAddProductsToCampaignRecommendationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ShoppingComparisonListingAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headline` | `headline` | `string` | No | No | — |
+
+## ShoppingFixDisapprovedProductsRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant` | `merchant` | `unknown` | No | No | — |
+| `feed_label` | `feed_label` | `string` | No | No | — |
+| `products_count` | `products_count` | `string` | No | No | — |
+| `disapproved_products_count` | `disapproved_products_count` | `string` | No | No | — |
+
+## ShoppingLoyalty
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `loyalty_tier` | `loyalty_tier` | `string` | No | No | — |

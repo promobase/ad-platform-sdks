@@ -1,0 +1,227 @@
+---
+title: "TikTok Business Catalog Video Templates endpoints"
+description: "6 generated TikTok Business endpoint contracts for Catalog Video Templates."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 131
+  label: "Catalog Video Templates"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogVideoTemplates.catalogTemplatePreviewCreate
+
+`POST` `/open_api/v1.3/catalog/template_preview/create/`
+
+Generated from TikTok documentation 1740665368159233
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideoTemplates.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogTemplatePreviewCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_ids` | `body` | `Array<string>` | Yes | No | Catalog IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideoTemplates.catalogTemplateUpload
+
+`POST` `/open_api/v1.3/catalog/template/upload/`
+
+Generated from TikTok documentation 1740665346584577
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideoTemplates.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogTemplateUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_ids` | `body` | `Array<string>` | Yes | No | List of catalog IDs that you want to associate this catalog with. |
+| `file` | `body` | `unknown` | Yes | No | Template file in ZIP. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideoTemplates.catalogVideoPackageCreate
+
+`POST` `/open_api/v1.3/catalog/video_package/create/`
+
+Generated from TikTok documentation 1740665273039873
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideoTemplates.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoPackageCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `video_package_type` | `body` | `string` | Yes | No | Video package type. Currently, only `GREEN_SCREEEN` is supported. |
+| `videos` | `body` | `Array<CatalogVideoPackageCreateParamsVideos>` | No | No | List of videos that will be used to create the video pakcage. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+| `music_id` | `body` | `string` | No | No | Music ID. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+| `template_id` | `body` | `string` | No | No | Template ID. This field is required when when `video_package_type` is `GREEEN_SCREEN` |
+| `video_package_name` | `body` | `string` | No | No | Name of the video package that you are about to create. If not specified, a name will be automatically generated in the format of `[VIDEO_TYPE]_[CREATE_TIME]`. For example, GreenScreenVideo_20210720_17:20. UTC+0 time will be used in generating video package names. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideoTemplates.catalogVideoPackageDelete
+
+`POST` `/open_api/v1.3/catalog/video_package/delete/`
+
+Generated from TikTok documentation 1740665332455426
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideoTemplates.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoPackageDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `body` | `string` | Yes | No | ID of the video package that you want to update. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideoTemplates.catalogVideoPackageGet
+
+`GET` `/open_api/v1.3/catalog/video_package/get/`
+
+Generated from TikTok documentation 1740574099715073
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogVideoTemplates.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoPackageGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `query` | `string` | No | No | Catalog video package ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideoTemplates.catalogVideoPackageUpdate
+
+`POST` `/open_api/v1.3/catalog/video_package/update/`
+
+Generated from TikTok documentation 1740665303669761
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideoTemplates.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoPackageUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `body` | `string` | Yes | No | ID of the video package that you want to update. |
+| `video_package_name` | `body` | `string` | Yes | No | Video package name. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,122 @@
+---
+title: "TikTok Business Showcase endpoints"
+description: "3 generated TikTok Business endpoint contracts for Showcase."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 156
+  label: "Showcase"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.showcase.showcaseIdentityGet
+
+`GET` `/open_api/v1.3/showcase/identity/get/`
+
+Generated from TikTok documentation 1759233549899778
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `showcase.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ShowcaseIdentityGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.showcase.showcaseProductGet
+
+`GET` `/open_api/v1.3/showcase/product/get/`
+
+Generated from TikTok documentation 1759233576199169
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `showcase.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ShowcaseProductGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | The ID of the identity that is bound to a Showcase and the identity needs to have permission of the Showcase. |
+| `identity_type` | `query` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`: TikTok User.`BC_AUTH_TT`: TikTok Account User in Business Center. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) to learn more about different identity types. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `region_codes` | `query` | `Array<string>` | Yes | No | The list of country or region codes that you want to use products in the Showcase to target. |
+| `filtering` | `query` | `ShowcaseProductGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: [1, 1000]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.showcase.showcaseRegionGet
+
+`GET` `/open_api/v1.3/showcase/region/get/`
+
+Generated from TikTok documentation 1759233561597954
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `showcase.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ShowcaseRegionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | The ID of the identity that is bound to a Showcase and the identity needs to have permission of the Showcase. |
+| `identity_type` | `query` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`: TikTok User.`BC_AUTH_TT`: TikTok Account User in Business Center. See [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097) to learn more about different identity types. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,198 @@
+---
+title: "TikTok Business Video endpoints"
+description: "5 generated TikTok Business endpoint contracts for Video."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 169
+  label: "Video"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.video.fileVideoAdInfo
+
+`GET` `/open_api/v1.3/file/video/ad/info/`
+
+Generated from TikTok documentation 1740050161973250
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `video.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileVideoAdInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `video_ids` | `query` | `Array<string>` | Yes | No | Video ID list. Max size: 60. Note: If the video cannot be used in ads, the video ID will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.video.fileVideoAdSearch
+
+`GET` `/open_api/v1.3/file/video/ad/search/`
+
+Generated from TikTok documentation 1740050472224769
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `video.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileVideoAdSearchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `query` | `FileVideoAdSearchParamsFiltering` | No | No | Filters on the data. This parameter is an array of filter objects. |
+| `sort_field` | `query` | `"CREATE_TIME" \| "MODIFY_TIME"` | No | No | The sorting criteria for the video list. Enum values:`CREATE_TIME`: To sort the results by video creation time in descending order, returning the most recently created videos at the top of the list.`MODIFY_TIME`: To sort the results by the time the video was last updated in descending order, returning the most recently updated videos at the top of the list. Default value: `CREATE_TIME`. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 20. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.video.fileVideoAdUpdate
+
+`POST` `/open_api/v1.3/file/video/ad/update/`
+
+Generated from TikTok documentation 1740049987749890
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `video.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileVideoAdUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `body` | `string` | Yes | No | Video name. Length limit: 1 - 100 characters. If another video uses the same file name under the same `advertiser_id`, there will be a millisecond timestamp added at the end. If the file name contains more than 100 characters, only the first 100 characters will be used. |
+| `video_id` | `body` | `string` | Yes | No | Video ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.video.fileVideoAdUpload
+
+`POST` `/open_api/v1.3/file/video/ad/upload/`
+
+Generated from TikTok documentation 1737587322856449
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `video.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileVideoAdUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `file_name` | `body` | `string` | No | No | Video name. Length limit: 1 - 100 characters. Default value: When Smart Fix is not enabled (`flaw_detect` and `auto_fix_enabled` are set to `false`): If you upload a local file, the default name will be the original file name.If you provide a URL, the default name will be the filename portion of the URL path.If the original file name or the filename portion of the URL path exceeds 100 characters, it will be truncated to use only the first 100 characters.When Smart Fix is enabled (`flaw_detect` and `auto_fix_enabled` are set to `true`): The default name will be either the original file name (for a local file) or the filename portion of the URL path (for a URL). If you specify a custom video name via `file_name`, the `file_name` value will be the name of the fixed video. Note: Videos under the same `advertiser_id` cannot have duplicated file names. You can call [/file/name/check/](https://ads.tiktok.com/marketing_api/docs?id=1759130033155073) to check whether the file name has been used. If you get an error about duplicated file names, please rename the files or append timestamps to the original file names (for example, in the format of `_`, and upload the videos again. |
+| `upload_type` | `body` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL" \| "UPLOAD_BY_FILE_ID" \| "UPLOAD_BY_VIDEO_ID"` | No | No | Video upload method. Default value: `UPLOAD_BY_FILE` Enum values: `UPLOAD_BY_FILE`, `UPLOAD_BY_URL`, `UPLOAD_BY_FILE_ID`, `UPLOAD_BY_VIDEO_ID`. Note: If you set this field to `UPLOAD_BY_FILE`, `UPLOAD_BY_URL` or `UPLOAD_BY_FILE_ID`, a new video ID (`video_id`) will be returned. If you upload the same video multiple times using any of these three methods, you'll obtain a new video ID for each upload. |
+| `video_file` | `body` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Video file. Recommended settings： (1) File size：500 MB limit (2) ratio：9:16, 16:9, and 1:1. (3) Format：.mp4, .mov, .mpeg, .avi. Example: `'video_file=@"/Users/admin/Downloads/sample-mov-file.mov"'` Note: Before uploading, make sure that the file is playable and in a supported format. |
+| `video_signature` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. Video MD5 (used for server verification). |
+| `video_url` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. Video URL address, such as http://xxx.xxx. (1) File size: better within 10MB. (2) Verification: We will verify `Content-Type` in the response header. A common invalid media type is text (`Content-Type` = text/*, such as text/html, text/plain). Also, we will verify the data if you set a `Content-MD5` in the response header. (3) Encoding: The URL needs to be a valid URL in the browser. For instance, the spaces in the URL need to be encoded into `%20`. You can copy and paste the URL into a browser address bar, then the URL will be automatically encoded. (4) Others: ratio, format, resolution and bitrate limitation is the same as `video_file`. Note: Before uploading, make sure that the video URL is playable and in a supported format. If the URL is invalid or in an unsupported format (i.e. txt.), you may see an error message or obtain an invalid video ID that cannot be used for ad creation. |
+| `file_id` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the file that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Upload Files](https://ads.tiktok.com/marketing_api/docs?id=1737719988918274) endpoints. |
+| `video_id` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_VIDEO_ID`. Video ID. Note: You should pass in the `video_id` of the videos created on TikTok Ads Manager or through API. If you pass in the value from other sources, you may see an error message or cannot use the uploaded video for ad creation. You can obtain `video_id` in the response of the [/file/video/ad/upload/](https://business-api.tiktok.com/portal/docs?id=1737587322856449) endpoint or by using the [/file/video/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740050472224769) endpoint. |
+| `is_third_party` | `body` | `boolean` | No | No | The video is third party or not. |
+| `flaw_detect` | `body` | `boolean` | No | No | Whether to automatically detect an issue in your video. Default value: `false`. |
+| `auto_fix_enabled` | `body` | `boolean` | No | No | Whether to automatically fix the detected issue. Default value : `false`. If an issue is detected in your video: When `auto_fix_enabled` is set to `false`, we'll return an error message with flaw types indicated.When `auto_fix_enabled` is set to `true`, we'll automatically fix the `LOW_RESOLUTION` and `ILLEGAL_VIDEO_SIZE` issues and return `fix_task_id` and `flaw_types`. Note: When a `LOW_RESOLUTION` issue is detected, the video is automatically enhanced to a standard resolution of 1280x720 pixels, also referred to as 720p.When an `ILLEGAL_VIDEO_SIZE` issue is detected, the video is automatically adjusted to one of the standard aspect ratios: 1:1 (square), 9:16 (vertical), or 16:9 (horizontal). |
+| `auto_bind_enabled` | `body` | `boolean` | No | No | Valid only when `flaw_detect` = `true` and `auto_fix_enabled` = `true`. Whether to automatically upload the fixed video to your creative library. Default value : `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.video.fileVideoSuggestcover
+
+`GET` `/open_api/v1.3/file/video/suggestcover/`
+
+Generated from TikTok documentation 1740051189071873
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `video.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileVideoSuggestcoverResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `video_id` | `query` | `string` | Yes | No | Video ID. |
+| `poster_number` | `query` | `number` | No | No | Number of cover candidates you want to get. Range: `1-10`. Default value: `10` .If the total number of cover candidates is less than the number given, all candidates will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

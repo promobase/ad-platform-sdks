@@ -1,0 +1,37 @@
+---
+title: Authentication
+description: Keep provider credentials scoped, refreshable, and outside generated contracts.
+sidebar:
+  order: 10
+  label: Authentication
+---
+
+Authentication is configured on the provider client. Generated endpoint descriptors intentionally
+do not own tokens, OAuth storage, or tenant selection.
+
+## Credential patterns
+
+| Platform | Client input |
+| --- | --- |
+| Meta, TikTok, LinkedIn, X, YouTube | An access token for the connected account |
+| Google Ads | An async access-token provider plus developer token and optional manager account |
+| Google Business Profile | An access token; your application owns refresh and persistence |
+
+```ts
+import { Google } from "@openpromo/ad-platforms";
+
+const google = Google.createClient({
+  getAccessToken: async () => refreshGoogleAccessToken(workspaceId),
+  developerToken: process.env.GOOGLE_ADS_DEVELOPER_TOKEN!,
+  loginCustomerId: managerCustomerId,
+});
+```
+
+Keep credentials scoped to the workspace and connection that supplied them. Refresh at the host
+boundary, pass the current credential to the SDK, and persist rotated refresh tokens atomically.
+For long-running jobs, reacquire credentials immediately before the provider call.
+
+Provider scopes are listed beside generated capabilities and endpoints in the [API
+reference](/reference). Treat an absent generated scope as “not declared by the source,” not proof
+that no permission is required; consult the provider's current app-review documentation before
+shipping.

@@ -1,0 +1,227 @@
+---
+title: "TikTok Business BC Invoices endpoints"
+description: "6 generated TikTok Business endpoint contracts for BC Invoices."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 114
+  label: "BC Invoices"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCInvoices.bcInvoiceDownload
+
+`GET` `/open_api/v1.3/bc/invoice/download/`
+
+Generated from TikTok documentation 1754000198430722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCInvoices.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `invoice_id` | `query` | `string` | Yes | No | Invoice ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCInvoices.bcInvoiceGet
+
+`GET` `/open_api/v1.3/bc/invoice/get/`
+
+Generated from TikTok documentation 1740295890332674
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCInvoices.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `invoice_id` | `query` | `string` | No | No | Invoice ID. |
+| `invoice_title` | `query` | `string` | No | No | Invoice title. |
+| `invoice_types` | `query` | `Array<"RECON" \| "CREDIT" \| "AUTO_PAY">` | Yes | No | Invoice types. Enum values:`RECON`: Reconciliation Invoice.`CREDIT`: Credit Invoice. `AUTO_PAY`: Automatic Payment Invoice. Note: `AUTO_PAY` cannot be used with other invoice types. To filter Automatic Payment Invoices, set `invoice_types` to `["AUTO_PAY"]`. |
+| `pay_statuses` | `query` | `Array<"UNPAID" \| "PAID" \| "PARTIAL_PAID" \| "NO_NEED">` | No | No | Payment statuses of the invoices. Enum values: `UNPAID`, `PAID`, `PARTIAL_PAID`, `NO_NEED`(No need to pay). |
+| `start_time` | `query` | `string` | No | No | The start time for the invoice issuance, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2024-01-01 00:00:00`. You must specify both `start_time` and `end_time` or neither. |
+| `end_time` | `query` | `string` | No | No | The end time for the invoice issuance, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2024-02-01 00:00:00`. You must specify both `start_time` and `end_time` or neither. |
+| `page` | `query` | `number` | No | No | Page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size, in the range of 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCInvoices.bcInvoiceTaskCreate
+
+`POST` `/open_api/v1.3/bc/invoice/task/create/`
+
+Generated from TikTok documentation 1754000448122882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCInvoices.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `download_type` | `body` | `"INVOICE_LIST" \| "INVOICE_BATCH" \| "BILLING_REPORT"` | Yes | No | Download type. Enum values: `INVOICE_LIST`: Invoice list in Excel format, with up to 100 invoices.`INVOICE_BATCH`: Invoice batch download in ZIP format, with uncompressed invoices in PDF format.`BILLING_REPORT`: Detailed transaction report in Excel format. After you have created an asynchronous download task, you can use [/bc/invoice/task/get/](https://ads.tiktok.com/marketing_api/docs?id=1754000480307265) to get the Excel file stream for `BILLING_REPORT` tasks, and [/bc/invoice/task/list/](https://ads.tiktok.com/marketing_api/docs?id=1754000504437762) to get the download URLs for `BILLING_REPORT`, `INVOICE_LIST` and `INVOICE_BATCH` tasks. |
+| `invoice_id` | `body` | `string` | No | No | When `download_type` is `BILLING_REPORT`, this field is required.When `download_type` is `INVOICE_LIST` or `INVOICE_BATCH`, this field is optional and can be specified as a filter. Invoice ID. To retrieve the IDs of invoices within a Business Center, use [/bc/invoice/get/](https://business-api.tiktok.com/portal/docs?id=1740295890332674). |
+| `filtering` | `body` | `BcInvoiceTaskCreateParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCInvoices.bcInvoiceTaskGet
+
+`GET` `/open_api/v1.3/bc/invoice/task/get/`
+
+Generated from TikTok documentation 1754000480307265
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCInvoices.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceTaskGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `task_id` | `query` | `string` | Yes | No | Task ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCInvoices.bcInvoiceTaskList
+
+`GET` `/open_api/v1.3/bc/invoice/task/list/`
+
+Generated from TikTok documentation 1754000504437762
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCInvoices.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceTaskListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `page` | `query` | `number` | No | No | Page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size, in the range of 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCInvoices.bcInvoiceUnpaidGet
+
+`GET` `/open_api/v1.3/bc/invoice/unpaid/get/`
+
+Generated from TikTok documentation 1740295904843777
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCInvoices.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcInvoiceUnpaidGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `invoice_type` | `query` | `string` | Yes | No | Invoice type. Enum values: `RECON` (Reconciliation Invoice). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

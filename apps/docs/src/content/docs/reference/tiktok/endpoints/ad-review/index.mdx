@@ -1,0 +1,120 @@
+---
+title: "TikTok Business Ad Review endpoints"
+description: "3 generated TikTok Business endpoint contracts for Ad Review."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 106
+  label: "Ad Review"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.adReview.adgroupAppeal
+
+`POST` `/open_api/v1.3/adgroup/appeal/`
+
+Generated from TikTok documentation 1740571821728770
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adReview.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdgroupAppealResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `body` | `string` | Yes | No | Ad group ID. |
+| `ad_id` | `body` | `string` | No | No | Ad ID. Optional. |
+| `appeal_reason` | `body` | `string` | No | No | The reason for the appeal. |
+| `attachment_list` | `body` | `Array<string>` | No | No | List of attachment links. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adReview.adgroupReviewInfo
+
+`GET` `/open_api/v1.3/adgroup/review_info/`
+
+Generated from TikTok documentation 1740554277061634
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adReview.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdgroupReviewInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `query` | `Array<string>` | Yes | No | The list of ad group IDs. Currently, we support a maximum of 20 ad group IDs in the request. |
+| `lang` | `query` | `string` | No | No | Language. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.adReview.adReviewInfo
+
+`GET` `/open_api/v1.3/ad/review_info/`
+
+Generated from TikTok documentation 1740559669226498
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adReview.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdReviewInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `ad_ids` | `query` | `Array<string>` | Yes | No | The list of ad IDs. Quantity: 1-100. |
+| `lang` | `query` | `string` | No | No | Language. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

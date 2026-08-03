@@ -1,0 +1,121 @@
+---
+title: "TikTok Business Catalog Event Sources endpoints"
+description: "3 generated TikTok Business endpoint contracts for Catalog Event Sources."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 125
+  label: "Catalog Event Sources"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogEventSources.catalogEventsourceBind
+
+`POST` `/open_api/v1.3/catalog/eventsource/bind/`
+
+Generated from TikTok documentation 1740492491200513
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogEventSources.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogEventsourceBindResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `app_id` | `body` | `string` | No | No | Mobile application ID. You can find the mobile app ID by navigating to Assets &gt; Events &gt; App Events in TikTok Ads Manager. You need to specify at least the mobile app ID (`app_id`) or website Pixel code (`pixel_code`). You can specify both if you want to bind both events to the same catalog. |
+| `pixel_code` | `body` | `string` | No | No | Website Pixel code. You can find the pixel code by navigating to Assets &gt; Events &gt; Website Events in TikTok Ads Manager. You need to specify at least the mobile app ID (`app_id`) or website Pixel code (`pixel_code`). You can specify both if you want to bind both events to the same catalog. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogEventSources.catalogEventsourceBindGet
+
+`GET` `/open_api/v1.3/catalog/eventsource_bind/get/`
+
+Generated from TikTok documentation 1740492531343362
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogEventSources.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogEventsourceBindGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogEventSources.catalogEventsourceUnbind
+
+`POST` `/open_api/v1.3/catalog/eventsource/unbind/`
+
+Generated from TikTok documentation 1740492512449538
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogEventSources.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogEventsourceUnbindResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `app_id` | `body` | `string` | No | No | Mobile application ID. You can find the mobile app ID by navigating to Assets &gt; Events &gt; App Events in TikTok Ads Manager. |
+| `pixel_code` | `body` | `string` | No | No | Website Pixel code. You can find the pixel code by navigating to Assets&gt; Events &gt; Website Events in TikTok Ads Manager. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

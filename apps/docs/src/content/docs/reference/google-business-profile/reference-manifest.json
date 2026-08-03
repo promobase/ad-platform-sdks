@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "platform": "google-business-profile",
+  "version": "v1+v4",
+  "endpointCount": 11,
+  "modelCount": 0,
+  "capabilityCount": 8,
+  "endpointPages": [
+    "endpoints/account",
+    "endpoints/local-post",
+    "endpoints/location",
+    "endpoints/oauth"
+  ],
+  "modelPages": []
+}

@@ -1,0 +1,157 @@
+---
+title: "TikTok Business Catalog Videos endpoints"
+description: "4 generated TikTok Business endpoint contracts for Catalog Videos."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 132
+  label: "Catalog Videos"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogVideos.catalogVideoDelete
+
+`POST` `/open_api/v1.3/catalog/video/delete/`
+
+Generated from TikTok documentation 1803655103069185
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideos.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management permission for the catalog. To obtain the catalogs for which you have Catalog Management permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN`. |
+| `catalog_video_ids` | `body` | `Array<string>` | Yes | No | The ID list of catalog videos that you want to delete. Max size: 1. To obtain the catalog videos within a catalog, use [/catalog/video/get/](https://business-api.tiktok.com/portal/docs?id=1803655082498050). Note: If catalog videos have already been synced to the creative libraries of ad accounts, deleting those videos from the associated catalog will not remove them from the creative libraries. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideos.catalogVideoFile
+
+`POST` `/open_api/v1.3/catalog/video/file/`
+
+Generated from TikTok documentation 1803655037415489
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogVideos.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoFileResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management permission for the catalog. To obtain the catalogs for which you have Catalog Management permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN`. |
+| `file_url` | `body` | `string` | Yes | No | The download URL of the CSV file. The CSV catalog video template is accessible via [catalog_video_template](https://bytedance.sg.larkoffice.com/sheets/PcBjsyYxahFGMqteR3jl3lv8gKh). To find a detailed description of each catalog video parameter, see Catalog video parameters. |
+| `advertiser_ids` | `body` | `Array<string>` | No | No | The IDs of the ad accounts that you want to sync the videos to. Once synced, the videos will be available in the creative library of those ad accounts. If you don't want to sync the catalog videos to any ad accounts, do not pass this field. Max size: 100. The ad account and the catalog (`catalog_id`) must be within the same Business Center (`bc_id`) and you need to have Admin or Operator permission for the ad account. Ineligible ad accounts will be ignored. To obtain the ad accounts for which you have Admin or Operator permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` to retrieve `asset_id` values with `advertiser_role` as `ADMIN` or `OPERATOR`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideos.catalogVideoGet
+
+`GET` `/open_api/v1.3/catalog/video/get/`
+
+Generated from TikTok documentation 1803655082498050
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogVideos.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management or Ad Promotion permission for the catalog. To obtain the catalogs for which you have Catalog Management or Ad Promotion permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN` or `AD_PROMOTE`. |
+| `catalog_video_ids` | `query` | `Array<string>` | No | No | The ID list of catalog videos that you want to filter. Max size: 50. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogVideos.catalogVideoLog
+
+`GET` `/open_api/v1.3/catalog/video/log/`
+
+Generated from TikTok documentation 1803655061642242
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogVideos.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogVideoLogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management or Ad Promotion permission for the catalog. To obtain the catalogs for which you have Catalog Management or Ad Promotion permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN` or `AD_PROMOTE`. |
+| `feed_log_id` | `query` | `string` | Yes | No | Catalog video handling log ID. To upload catalog videos and obtain the log ID, use [/catalog/video/file/](https://business-api.tiktok.com/portal/docs?id=1803655037415489). |
+| `language` | `query` | `string` | No | No | Supported languages. Enum values:`en`: English`zh-CN`: Chinese`ja-JP`: Japanese`de`: German`es`: Spanish`fr`: French`hi-IN`: Hindi (India)`id`: Indonesian`it`: Italian`ko`: Korean`ms`: Malay `ru`: Russian`th`: Thai`tr`: Turkish`vi`: Vietnamese Default value: `en`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
