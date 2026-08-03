@@ -1,0 +1,1394 @@
+---
+title: "TikTok Business Tools endpoints"
+description: "38 generated TikTok Business endpoint contracts for Tools."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 166
+  label: "Tools"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.tools.campaignLabelGet
+
+`GET` `/open_api/v1.3/campaign_label/get/`
+
+Generated from TikTok documentation 1851286489283585
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignLabelGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `campaign_label_ids` | `query` | `Array<string>` | No | No | A list of campaign label IDs. Max size: 50. Each label ID must be a 19-digit numeric string. Note: This filter is only supported in synchronous basic reports. |
+| `campaign_label_names` | `query` | `Array<string>` | No | No | A list of campaign label names. Fuzzy matching is supported. Max size: 10. |
+| `campaign_label_types` | `query` | `Array<"GENERAL" \| "MARKETING_EVENT">` | No | No | A list of campaign label types. Enum values:`GENERAL`: General label.`MARKETING_EVENT`: Marketing event label. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-1,000. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.deliveryBidRecommend
+
+`GET` `/open_api/v1.3/delivery/bid/recommend/`
+
+Generated from TikTok documentation 1746463732779009
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DeliveryBidRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `query` | `Array<string>` | Yes | No | Ad group IDs. The number of IDs cannot exceed 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.deliveryBudgetRecommend
+
+`GET` `/open_api/v1.3/delivery/budget/recommend/`
+
+Generated from TikTok documentation 1746463695763458
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DeliveryBudgetRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `query` | `Array<string>` | Yes | No | Ad group IDs. The number of IDs cannot exceed 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.identityNativeSeriesGet
+
+`GET` `/open_api/v1.3/identity/native_series/get/`
+
+Generated from TikTok documentation 1863332009162754
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `IdentityNativeSeriesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `identity_id` | `query` | `string` | Yes | No | Identity ID. To get the list of identities under your ad account, use [/identity/get/](https://business-api.tiktok.com/portal/docs/get-the-identity-list/v1.3). |
+| `identity_type` | `query` | `"TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `TT_USER`, `BC_AUTH_TT`. See [Identities](https://business-api.tiktok.com/portal/docs/identities/v1.3) for details. |
+| `identity_authorized_bc_id` | `query` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `cursor` | `query` | `number` | No | No | The cursor for paginating results. If `has_more` in the response is `true`, use the returned cursor in your subsequent request to fetch the next set of data. Default value: 0. |
+| `count` | `query` | `number` | No | No | The maximum number of Series to return in the response. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.minisGet
+
+`GET` `/open_api/v1.3/minis/get/`
+
+Generated from TikTok documentation 1853450329535490
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `MinisGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.searchRegion
+
+`GET` `/open_api/v1.3/search/region/`
+
+Generated from TikTok documentation 1773644763581441
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchRegionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `language` | `query` | `string` | No | No | The language you want the returned region name to be translated into. Default value: `en` Currently, we only support `zh`, `fr`, `es`, `ko`, `vi`, `en`, `hi`, `it`, `tr`, `ru`, `ja`, `id`, `de`, `ms`, `ar`, and `th` Note: If you do not pass in one of the supported values above, it will return as the default `en`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.targetingSearch
+
+`GET` `/open_api/v1.3/targeting/search/`
+
+Generated from TikTok documentation 1796638342793218
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TargetingSearchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `targeting_type` | `query` | `string` | Yes | No | The primary targeting type. Enum value: `INTEREST_AND_BEHAVIOR` (Interests & Behaviors). |
+| `sub_targeting_types` | `query` | `Array<"GENERAL_INTEREST" \| "ADDITIONAL_INTEREST" \| "PURCHASE_INTENTION" \| "VIDEO_INTERACTION" \| "CREATOR_INTERACTION" \| "HASHTAG_INTERACTION">` | No | No | Required when `targeting_type` is `INTEREST_AND_BEHAVIOR` and multiple keywords are passed to `search_keywords`. The secondary targeting types. Enum values: `GENERAL_INTEREST`: general interests. `ADDITIONAL_INTEREST`: additional interests. `PURCHASE_INTENTION`: purchase intention. `VIDEO_INTERACTION`: video interactions. `CREATOR_INTERACTION`: creator interactions. `HASHTAG_INTERACTION`: hashtag interactions. If `search_keywords` is not passed, the allowed values are `GENERAL_INTEREST`, `PURCHASE_INTENTION`, `VIDEO_INTERACTION`, `CREATOR_INTERACTION`, `HASHTAG_INTERACTION`. If you don't pass `sub_targeting_types` in such cases, the default value for `sub_targeting_types` will be ` ["GENERAL_INTEREST","PURCHASE_INTENTION","VIDEO_INTERACTION","CREATOR_INTERACTION","HASHTAG_INTERACTION"]`. If `search_keywords` is passed and contains one single keyword, the allowed values are `GENERAL_INTEREST`, `ADDITIONAL_INTEREST`, `PURCHASE_INTENTION`, `VIDEO_INTERACTION`, `CREATOR_INTERACTION`, `HASHTAG_INTERACTION`. If you don't pass `sub_targeting_types` in such cases, the default value for `sub_targeting_types` will be ` ["GENERAL_INTEREST","ADDITIONAL_INTEREST","PURCHASE_INTENTION","VIDEO_INTERACTION","CREATOR_INTERACTION","HASHTAG_INTERACTION"]`. If `search_keywords` is passed and contains more than one keyword, the allowed values are `ADDITIONAL_INTEREST`, `HASHTAG_INTERACTION`. In such cases, you need to manually pass `sub_targeting_types`. |
+| `search_keywords` | `query` | `Array<string>` | No | No | A list of seed keywords that you provide to search for targeting categories or hashtags. Max size: 10. The length limit for each keyword is 100 characters. If you pass multiple seed keywords to this field, ensure the value of `sub_targeting_types` includes only `ADDITIONAL_INTEREST` and `HASHTAG_INTERACTION`. Note: Searching for hashtag bundles is not supported. Therefore, if you include `HASHTAG_INTERACTION` in the value of `sub_targeting_types` and pass `search_keywords`, you can only get hashtags from the returned `search_result` within the `hashtag_interaction` object. To retrieve hashtag bundles, include `HASHTAG_INTERACTION` in the value of `sub_targeting_types` and do not pass `search_keywords`. |
+| `language` | `query` | `string` | No | No | The language of the seed keywords. Default value: `en`. To find the allowed values, see List of values for `language`. Note: If you include `HASHTAG_INTERACTION` in the value of `sub_targeting_types` and pass one or more non-English seed keywords to `search_keywords`, hashtags in multiple languages might be returned, even if you specify `language`. This is because searching for hashtags based on a single language is not supported and some characters or letters are shared among certain languages. |
+| `filtering` | `query` | `TargetingSearchParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolActionCategory
+
+`GET` `/open_api/v1.3/tool/action_category/`
+
+Generated from TikTok documentation 1737166752522241
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolActionCategoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `special_industries` | `query` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. |
+| `language` | `query` | `string` | No | No | Category name language in repsonse. Default value: `en`. Supported languages: `en`, ` zh`, ` ja`, ` de`, ` es`, ` fr`, ` id`, ` it`, ` ko`, ` ru`, ` th`, ` tr`, ` vi`, ` ar`, ` pt`, ` ms`. For details, see [Enumeration - Language Code](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolAvailableAttributionSource
+
+`GET` `/open_api/v1.3/tool/available/attribution_source/`
+
+Generated from TikTok documentation 1870952425111618
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolAvailableAttributionSourceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `app_id` | `query` | `string` | Yes | No | App ID. To retrieve the App ID of a mobile app, use [/app/list/](https://business-api.tiktok.com/portal/docs/get-the-app-list/v1.3). |
+| `optimization_event` | `query` | `string` | No | No | Optimization event (Conversion event). To learn about the enum values, see List of values for `optimization_event`. |
+| `campaign_type` | `query` | `"REGULAR_CAMPAIGN" \| "IOS14_CAMPAIGN"` | No | No | Campaign type. Enum values:`REGULAR_CAMPAIGN`: a campaign with the iOS 14 Dedicated Campaign setting disabled.`IOS14_CAMPAIGN`: a campaign with the iOS 14 Dedicated Campaign setting enabled. Default value: `REGULAR_CAMPAIGN`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolBidRecommend
+
+`POST` `/open_api/v1.3/tool/bid/recommend/`
+
+Generated from TikTok documentation 1737107845597186
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolBidRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | No | No | Campaign ID. |
+| `objective_type` | `body` | `string` | Yes | No | Campaign objective. The current API endpoint only supports Traffic and Website conversions objectives. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). Note: This API is being revamped to support larger function scope and more accurate result. Please stay tuned for updates. |
+| `location_ids` | `body` | `Array<string>` | Yes | No | IDs of the locations that you want to target. |
+| `external_action` | `body` | `string` | No | No | Conversion event for the ad group. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolBrandSafetyPartnerAuthorizeStatus
+
+`GET` `/open_api/v1.3/tool/brand_safety/partner/authorize/status/`
+
+Generated from TikTok documentation 1738456743621634
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolBrandSafetyPartnerAuthorizeStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `partner` | `query` | `string` | Yes | No | Brand Safety post bid measurement partner. Enum values: `Zefr`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolCarrier
+
+`GET` `/open_api/v1.3/tool/carrier/`
+
+Generated from TikTok documentation 1737168013095938
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolCarrierResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolContentExclusionGet
+
+`GET` `/open_api/v1.3/tool/content_exclusion/get/`
+
+Generated from TikTok documentation 1769738074686465
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolContentExclusionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `query` | `string` | Yes | No | Advertising objective. Only supports `REACH`, `VIDEO_VIEWS` and `ENGAGEMENT`. |
+| `brand_safety_type` | `query` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY"` | No | No | Brand safety type. Default value: `NO_BRAND_SAFETY`. Enum values:`NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes.`EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option. Note:`EXPANDED_INVENTORY` is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands.`LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes. Note: If you want to retrieve vertical sensitivity category IDs(`vertical_sensitivity_list`), you can only use `STANDARD_INVENTORY` or `LIMITED_INVENTORY`.If you are not on the allowlist for vertical sensitivity, the `vertical_sensitivity_list` will be null in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolContentExclusionInfo
+
+`GET` `/open_api/v1.3/tool/content_exclusion/info/`
+
+Generated from TikTok documentation 1769738105333826
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolContentExclusionInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `category_ids` | `query` | `Array<string>` | Yes | No | IDs of the content exclusion categories or vertical sensitivity categories. You can get `category_id` from the response of [/tool/content_exclusion/get/](https://ads.tiktok.com/marketing_api/docs?rid=7xusz43oh3h&id=1769738074686465). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolContextualTagGet
+
+`GET` `/open_api/v1.3/tool/contextual_tag/get/`
+
+Generated from TikTok documentation 1747747118654465
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolContextualTagGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `query` | `string` | Yes | No | Advertising objective. Only supports `REACH`, `VIDEO_VIEWS`, `RF_REACH`. |
+| `region_codes` | `query` | `Array<string>` | No | No | Country or region codes. |
+| `brand_safety_type` | `query` | `"EXPANDED_INVENTORY" \| "NO_BRAND_SAFETY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Default value: `STANDARD_INVENTORY`. Enum values: `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and may contain some mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `rf_campaign_type` | `query` | `"STANDARD" \| "PULSE"` | No | No | Campaign type. Enum values: `STANDARD`(Reach & Frequency campaign), `PULSE`(TikTok Pulse campaign). Note: When `objective_type` is specified as `RF_REACH`, use this field to set the campaign as a TikTok Pulse campaign, then you can get available premium contextual tags. Do not pass in this field when `objective_type` is not specified as `RF_REACH`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolContextualTagInfo
+
+`GET` `/open_api/v1.3/tool/contextual_tag/info/`
+
+Generated from TikTok documentation 1747747180830722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolContextualTagInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `contextual_tag_ids` | `query` | `Array<string>` | Yes | No | Contextual tag IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolDeviceModel
+
+`GET` `/open_api/v1.3/tool/device_model/`
+
+Generated from TikTok documentation 1737172880570369
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolDeviceModelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolDiagnosisSearchHealth
+
+`GET` `/open_api/v1.3/tool/diagnosis/search/health/`
+
+Generated from TikTok documentation 1848591212970082
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolDiagnosisSearchHealthResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `query` | `string` | No | No | Ad group ID. Specify this field if you want to get the diagnoses for an existing ad group. To get the IDs of ad groups within a Search Ads Campaign, use [/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1739314558673922) with the filter field `campaign_ids` set to the ID of a Search Ads Campaign. Note: If both `adgroup id` and `ad_ids` are specified, `adgroup id` will be ignored. |
+| `ad_ids` | `query` | `Array<string>` | No | No | A list of ad IDs. Specify this field if you want to get the diagnoses for existing ads The ad IDs must belong to the same ad group. Max size: 50. To get the IDs of ads within a Search Ads Group, use [/ad/get/](https://business-api.tiktok.com/portal/docs?id=1735735588640770) with the filter field `adgroup_ids` set to the ID of a Search Ads Group within a Search Ads Campaign. Note: If both `adgroup id` and `ad_ids` are specified, `adgroup id` will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolHashtagGet
+
+`GET` `/open_api/v1.3/tool/hashtag/get/`
+
+Generated from TikTok documentation 1736280889167874
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolHashtagGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `keyword_ids` | `query` | `Array<string>` | Yes | No | List of keyword IDs |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolHashtagRecommend
+
+`GET` `/open_api/v1.3/tool/hashtag/recommend/`
+
+Generated from TikTok documentation 1736271339521025
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolHashtagRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `query` | `Array<string>` | Yes | No | Keywords that you want to get recommended hashtags for. If you specify multiple unrelated keywords and set `operator` to `AND`, it is possible that no recommended hashtags are returned. Max size: 10. |
+| `operator` | `query` | `"AND" \| "OR"` | No | No | The operator to be used between the keywords. Enum values: `AND`: Recommended hashtags will be generated based on all the keywords specified in `keywords`. `OR`: Recommended hashtags will be generated separately for each individual keyword in `keywords`. Default value: `AND`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolInterestCategory
+
+`GET` `/open_api/v1.3/tool/interest_category/`
+
+Generated from TikTok documentation 1737174348712961
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolInterestCategoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `version` | `query` | `number` | No | No | Version of interest category. Enum values:`1`(`interest_category`), `2` (`interest_category_v2`)。Default: `2`. |
+| `language` | `query` | `string` | No | No | Category name language in repsonse. Default value: `en`. Supported languages: `en`, ` zh`, ` ja`, ` de`, ` es`, ` fr`, ` id`, ` it`, ` ko`, ` ru`, ` th`, ` tr`, ` vi`, ` ar`, ` pt`, ` ms`. For details, see [Enumeration - Language Code](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `query` | `Array<string>` | No | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). The interest categories available for different placements may be different, and the field only takes effect when `version` = `2`. |
+| `special_industries` | `query` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolInterestKeywordGet
+
+`GET` `/open_api/v1.3/tool/interest_keyword/get/`
+
+Generated from TikTok documentation 1763590894544897
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolInterestKeywordGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `keyword_query` | `query` | `Array<ToolInterestKeywordGetParamsKeywordQuery>` | No | No | Information of the additional interest category you want to get. Max size = 50. |
+| `filtering` | `query` | `ToolInterestKeywordGetParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolInterestKeywordRecommend
+
+`GET` `/open_api/v1.3/tool/interest_keyword/recommend/`
+
+Generated from TikTok documentation 1763590884474882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolInterestKeywordRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `query` | `Array<string>` | No | No | Either `keywords` or `keyword` has to be set. If `keywords` and `keyword` are passed simultaneously, `keyword` will be ignored. A list of seed keywords that you provide to search for additional interest categories. Each seed keyword will be used separately to generate corresponding additional interest categories. Max size: 10. |
+| `keyword` | `query` | `string` | No | No | Either `keywords` or `keyword` has to be set. If `keywords` and `keyword` are passed simultaneously, `keyword` will be ignored. One seed keyword that you provide to search for additional interest categories. |
+| `mode` | `query` | `"FUZZ_MATCH" \| "SEMANTIC_RECOMMEND"` | No | No | Search mode. Enum values: `FUZZ_MATCH`, `SEMANTIC_RECOMMEND`. Default value: `FUZZ_MATCH`. |
+| `language` | `query` | `string` | No | No | Keyword language. Enum values: `fr`, `id`, `it`, `ja`, `ms`, `ar`, `vi`, `en`, `ru`, `es`, `th`, `tr`, `hi`, `zh`, `de`, `ko`. Default value: `en`. Note that target audience languages are not limited by keyword languages. You can use English categories to target audience that do not speak English. |
+| `limit` | `query` | `number` | No | No | Number of additional interest categories you want to get. Default value: 50. Value range: 1-50. |
+| `audience_type` | `query` | `"GENERAL_INTEREST" \| "PURCHASE_INTENTION"` | No | No | Audience type. Enum values: `GENERAL_INTEREST`: General interest. The audiences have a general, long-term interest in a video category. `PURCHASE_INTENTION` (deprecated): Purchase intent. The audiences' recent behavior suggests they may buy something related to a content category. Default value: `GENERAL_INTEREST`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolLanguage
+
+`GET` `/open_api/v1.3/tool/language/`
+
+Generated from TikTok documentation 1737188554152962
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolLanguageResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolOpenUrl
+
+`GET` `/open_api/v1.3/tool/open_url/`
+
+Generated from TikTok documentation 1738457335681026
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolOpenUrlResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `url` | `query` | `string` | Yes | No | Open URL that you want to get the internal link for. |
+| `url_type` | `query` | `"USER_PROFILE" \| "VIDEO" \| "HASHTAG_CHALLENGE" \| "MUSIC" \| "STICKER" \| "STICKER_SHOOTER"` | Yes | No | Type of the open TikTok URL. Enum: `USER_PROFILE``VIDEO`: Video detail page`HASHTAG_CHALLENGE`: Hashtag challenge page`MUSIC`: Music page`STICKER`: Sticker (special effect) page`STICKER_SHOOTER`: Shoot a video with a sticker (special effect). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolOsVersion
+
+`GET` `/open_api/v1.3/tool/os_version/`
+
+Generated from TikTok documentation 1738308662898689
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolOsVersionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `os_type` | `query` | `"ANDROID" \| "IOS"` | Yes | No | OS type. Enum values: `ANDROID`,`IOS`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolPhoneRegionCode
+
+`GET` `/open_api/v1.3/tool/phone_region_code/`
+
+Generated from TikTok documentation 1774488637039618
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolPhoneRegionCodeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolRegion
+
+`GET` `/open_api/v1.3/tool/region/`
+
+Generated from TikTok documentation 1737189539571713
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolRegionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `placements` | `query` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) |
+| `objective_type` | `query` | `string` | Yes | No | Your objective type. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `app_promotion_type` | `query` | `"APP_INSTALL" \| "APP_RETARGETING" \| "APP_PREREGISTRATION" \| "MINIS"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum value:`APP_INSTALL`: App install. Get new users to install your app.`APP_RETARGETING`: App retargeting. Re-engage existing app users to take action in your app.`APP_PREREGISTRATION`: App pre-registration. Get new users to pre-register before your app launches. To learn about how to create Manual App Pre-registration ads, refer to [here](https://business-api.tiktok.com/portal/docs/create-app-pre-registration-ads/v1.3).`MINIS`: TikTok Minis or Series. Promote your Series, mini series, or mini game by optimizing for organic and ads traffic.To learn more about the campaign type where this setting is supported, see [Create an Upgraded Smart+ Upgraded Smart+ TikTok Growth Max: Mini Dramas campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-minis-campaign/v1.3) and [Create an Upgraded Smart+ TikTok Growth Max: Drama Series campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-mini-series-feed-campaign/v1.3). |
+| `level_range` | `query` | `"ALL" \| "TO_COUNTRY" \| "TO_PROVINCE" \| "TO_CITY" \| "TO_DISTRICT"` | No | No | Location level you want to get. Enum values: `ALL`: all levels`TO_COUNTRY`: only country or region level `TO_PROVINCE`: country and province level; DMA and Metropolitan are at province level.`TO_CITY`: country, province, and city levels`TO_DISTRICT`: country, province, city, and district levels. |
+| `language` | `query` | `string` | No | No | The language of the returned location name (`name`). Default value: `en` (English). To find out the allowed values, see List of values for `language`. Note:If the specified language is not supported, it will be ignored and the default value `en` will be used.If a supported non-English language is specified, the names of locations outside the native country or region associated with that language might not be translated. For example, if you set `language` to `ja` (Japanese), the names of locations outside Japan might not be translated. |
+| `shopping_ads_type` | `query` | `"VIDEO" \| "LIVE" \| "PRODUCT_SHOPPING_ADS"` | No | No | Valid only when `objective_type` is `PRODUCT_SALES`. Shopping ads type. Enum values: `VIDEO`: Video Shopping Ads.`LIVE`: Live Shopping Ads.`PRODUCT_SHOPPING_ADS`: Product Shopping Ads. To find out the introduction to different Shopping Ads types and the steps of creating [Video Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1741942291730434), [Live Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1754162402455554), and [Product Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1785886237030401), see [Create Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1741942179356738). |
+| `promotion_type` | `query` | `string` | No | No | Promotion type (Optimization location). For enum values, see [Enumeration - Promotion Type](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Promotion%20Type). |
+| `promotion_target_type` | `query` | `"INSTANT_PAGE" \| "EXTERNAL_WEBSITE"` | No | No | Valid when `objective_type` is `LEAD_GENERATION`. The promotion type for Lead Generation objective. Enum values: `INSTANT_PAGE`：Instant Form. To create a fast-loading in-app TikTok Instant Form to collect more leads. `EXTERNAL_WEBSITE`：Website Form. To use a landing page that has the Website Form or the TikTok Instant Page that redirects to the website with the Website Form to collect more leads. |
+| `operating_system` | `query` | `"ANDROID" \| "IOS"` | No | No | Operating systems that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `query` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `query` | `"IAS" \| "OPEN_SLATE"` | No | No | Brand safety partner. Required when `brand_safety_type` is `THIRD_PARTY`, and `placements` needs to be set as `PLACEMENT_TIKTOK`. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+| `rf_campaign_type` | `query` | `"STANDARD" \| "PULSE"` | No | No | When `objective_type` is specified as `RF_REACH`, use this field to set the campaign as a TikTok Pulse campaign, then you can get available premium contextual tags. Enum values: `STANDARD` (Reach & Frequency campaign), `PULSE` (TikTok Pulse campaign). If you set this field as `PULSE`, only one location ID (`location_id`) will be returned. Note: Do not pass in this field when `objective_type` is not specified as `RF_REACH`.You need to pass the `location_id` value returned in this endpoint to `location_ids` when you use [/adgroup/rf/create/](https://ads.tiktok.com/marketing_api/docs?id=1738235338194945) to create a TikTok Pulse ad group. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolSearchKeywordKeywordIdea
+
+`GET` `/open_api/v1.3/tool/search_keyword/keyword_idea/`
+
+Generated from TikTok documentation 1855460985594881
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolSearchKeywordKeywordIdeaResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `query` | `Array<string>` | Yes | No | A list of keywords. You can specify products or services closely related to your business. Max size: 10. Length limit for each keyword: 80 characters. Only English words are supported.Emojis and special symbols such as # are not supported. Note: For optimal results, provide all keywords in lowercase. Providing uppercase keyword is not recommended. |
+| `order_field` | `query` | `"AVG_MONTHLY_SEARCHES" \| "THREE_MONTH_CHANGE" \| "YEAR_OVER_YEAR_CHANGE" \| "COMPETITION"` | No | No | Sorting logic. Enum values:`AVG_MONTHLY_SEARCHES`: Sort the results by the range of average monthly searches as indicated by the response parameters `avg_monthly_searches_lower` and `avg_monthly_searches_upper`.`THREE_MONTH_CHANGE`: Sort the results by the response parameter `three_month_change`.`YEAR_OVER_YEAR_CHANGE`: Sort the results by the response parameter `year_over_year_change`.`COMPETITION`: Sort the results by the response parameter `competition`.Default value: `AVG_MONTHLY_SEARCHES`. |
+| `order_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: ascending.`DESC`: descending.Default value: `DESC`. |
+| `brand_type` | `query` | `"BRAND" \| "NON_BRAND" \| "ALL"` | No | No | Brand type. Enum values:`BRAND`: Brand.`NON_BRAND`: Non-brand.`ALL`: All.Default value: `ALL`. Note: This filter is only available when `country_codes` is set to `["US"]`. For all other countries or regions, `ALL` is the default and only allowed value. |
+| `country_codes` | `query` | `Array<string>` | No | No | The location code of the country or region that you want to target. Max size: 1. Default value: `US`. For enum values, see List of values for `country_codes`. Note: Discovering new keywords for supported non-US locations outside of your home country is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolSearchKeywordRecommend
+
+`GET` `/open_api/v1.3/tool/search_keyword/recommend/`
+
+Generated from TikTok documentation 1838630375757825
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolSearchKeywordRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `search_queries` | `query` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on search queries. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of search queries. You can specify products, services, or brands as search queries. Max size: 5. Length limit for each query: 80 characters. Only English words are supported.Emojis and special symbols such as # are not supported. |
+| `ad_ids` | `query` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on specific ads. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of ad IDs. Max size: 1. Note: Obtaining suggested search keywords based on specific ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `landing_page_urls` | `query` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on URLs. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of landing page URLs. Max size: 5. No length limit for each landing page URL. Note: Obtaining suggested search keywords based on URLs is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `regions` | `query` | `Array<string>` | Yes | No | A list of country or region codes. Currently, the only supported value is `US`. |
+| `order_field` | `query` | `"RELEVANCE" \| "MONTHLY_SEARCHES"` | No | No | Sorting logic. Enum values:`RELEVANCE`: Sort the results by relevance.`MONTHLY_SEARCHES`: Sort the results by the response parameter `monthly_searches`. Default value when `search_queries` is specified: `RELEVANCE`. Note: When `ad_ids` or `landing_page_urls` is specified, you can only set this field to `MONTHLY_SEARCHES`. |
+| `order_type` | `query` | `"ASC" \| "DESC"` | No | No | Valid only when `order_field` is `MONTHLY_SEARCHES`. Sorting order. Enum values:`ASC`: ascending.`DESC`: descending. Default value: `DESC`. Note: When `ad_ids` or `landing_page_urls` is specified, you can only set this field to `DESC`. |
+| `total_size` | `query` | `number` | No | No | The total number of recommended keywords to return. Value range: 1-1,000. Default value: 1,000. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-1,000. Default value: 50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolTargetingCategoryRecommend
+
+`POST` `/open_api/v1.3/tool/targeting_category/recommend/`
+
+Generated from TikTok documentation 1736275204260866
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolTargetingCategoryRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `region_codes` | `body` | `Array<string>` | Yes | No | List of country or region codes. For example: `["US", "JP", "KR"]` |
+| `app_id` | `body` | `string` | No | No | ID of the mobile app that you want to promote. This field in optional and only valid if you want to promote a mobile app. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolTargetingInfo
+
+`POST` `/open_api/v1.3/tool/targeting/info/`
+
+Generated from TikTok documentation 1761237001980929
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolTargetingInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `scene` | `body` | `"GEO" \| "ISP"` | No | No | The targeting type that the specified `targeting_ids` is used for. Enum values: `GEO`: Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting).`ISP` : Internet Service Provider targeting. Default value: `GEO`. |
+| `targeting_ids` | `body` | `Array<string>` | Yes | No | Targeting tag IDs. You can pass in location IDs, zip code IDs or postal code IDs, a combination of location IDs, zip code IDs or postal code IDs, or ISP IDs. Max size: 1,000. You can get location IDs, zip code IDs, or postal code IDs via `geo_id` returned from [/tool/targeting/search/](https://ads.tiktok.com/marketing_api/docs?id=1761236883355649), or get location IDs via `location_id` returned from [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713). You can get ISP IDs via `isp_id` returned from [/tool/targeting/list/](https://ads.tiktok.com/marketing_api/docs?id=1762962378261506). |
+| `objective_type` | `body` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "LEAD_GENERATION" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | No | No | Required when `scene` is set as `GEO`. Campaign objective. The allowed enum values: `REACH`, `TRAFFIC`, `VIDEO_VIEWS`, `LEAD_GENERATION`, `ENGAGEMENT`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`. For descriptions of the objectives, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `body` | `string` | No | No | Required when `scene` is set as `GEO` and `objective_type` is NOT set as `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`. Promotion type and you can decide where you'd like to promote your products using this field. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `body` | `Array<string>` | No | No | Required when `scene` is set as `GEO`. The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). Note: If you want to get information about zip code IDs to be used for zip code targeting or postal code IDs to be used for postal code targeting, the value of this field needs to include `PLACEMENT_TIKTOK`. |
+| `operating_system` | `body` | `"ANDROID" \| "IOS"` | No | No | Valid only when `scene` is set as `GEO`. Device operating system that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `body` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `scene` is set as `GEO` and `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `body` | `"IAS" \| "OPEN_SLATE"` | No | No | Required only when `brand_safety_type` is `THIRD_PARTY`. Brand safety partner. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolTargetingList
+
+`GET` `/open_api/v1.3/tool/targeting/list/`
+
+Generated from TikTok documentation 1762962378261506
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolTargetingListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `location_ids` | `query` | `Array<string>` | Yes | No | IDs of the locations that you want to get the supported `ISP` IDs for. Max size: 1000. To find out the list of location IDs, see [Location IDs](https://ads.tiktok.com/marketing_api/docs?id=1739311040498689). Note: You need to pass location IDs at the country or region level. To get the available locations and corresponding IDs based on your placement and objective, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) and the returned `level` for location IDs at the country or region level will be `COUNTRY`. |
+| `scene` | `query` | `string` | Yes | No | The targeting type that the targeting tags are used for. The allowed enum values: `ISP` ( Internet Service Provider targeting). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolTargetingSearch
+
+`POST` `/open_api/v1.3/tool/targeting/search/`
+
+Generated from TikTok documentation 1761236883355649
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tools.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolTargetingSearchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `body` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "LEAD_GENERATION" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | Yes | No | Campaign objective. The allowed enum values: `REACH`, `TRAFFIC`, `VIDEO_VIEWS`, `LEAD_GENERATION`, `ENGAGEMENT`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`. For descriptions of the objectives, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `body` | `string` | No | No | Promotion type and you can decide where you'd like to promote your products using this field. You need to specify the field when advertising objective (`objective_type`) for your campaign is NOT set as `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `body` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). Note: If you want to fuzzy search for a zip code ID to be used for zip code targeting or a postal code ID to be used for postal code targeting, the value of this field needs to include `PLACEMENT_TIKTOK`. |
+| `search_type` | `body` | `"FUZZY_SEARCH" \| "BATCH_REGION_SEARCH" \| "BATCH_ZIPCODE_SEARCH"` | Yes | No | The type of search you want to perform. Enum values: `FUZZY_SEARCH`: To fuzzy search for a single location ID, a zip code ID, or a postal code ID. For this search type, you can only pass one keyword to `keywords` and a maximum of 100 results will be returned.`BATCH_REGION_SEARCH`: To search for location IDs in batch. Fuzzy search is supported. For this search type, you can pass up to 1,000 keywords to `keywords`, and for each keyword a maximum of 5 results ordered by relevance will be returned. `BATCH_ZIPCODE_SEARCH`: To search for zip code IDs or postal code IDs in batch. Exact search is supported. For this search type, you can pass up to 1,000 keywords to `keywords`, and for each keyword one result or no result will be returned. Note: Targeting postal code areas in Brazil, Indonesia, Thailand, and Vietnam is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. The enum values `BATCH_ZIPCODE_SEARCH` and `BATCH_REGION_SEARCH` can only be used to search for IDs of zip codes (or postal codes) or locations. In contrast, you can use `FUZZY_SEARCH` to search for a single ID of a zip code (or postal code) or location. |
+| `keywords` | `body` | `Array<string>` | Yes | No | The keywords that you use to search for targeting tags. Length limit: 1 when `search_type` is `FUZZY_SEARCH`.1,000 when `search_type` is `BATCH_REGION_SEARCH` or `BATCH_ZIPCODE_SEARCH`. If you set `search_type` as `BATCH_ZIPCODE_SEARCH`, you need to pass zip codes or postal codes as keywords because this search type only supports exact search.For US zip code targeting, provide the five-digit US zip codes as keywords. Example: `["10001","10002"]`.For Canadian postal code targeting, provide the three-character Forward Sortation Area (FSA) portions of Canadian postal codes as keywords. Example: `["A0A","A0B"]`.For Brazil postal code targeting, provide the first five digits of postal codes as keywords. Example: `["81480","18072"]`.For Indonesia postal code targeting, provide the five-digit postal codes as keywords. Example: `["20371","12120"]`.For Thailand postal code targeting, provide the five-digit postal codes as keywords. Example: `["30000","40000"]`. For Vietnam postal code targeting, provide the first three digits of postal codes as keywords. Example: `["718","719"]`. |
+| `geo_types` | `body` | `Array<"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE" \| "FUZZY_SEARCH" \| "BATCH_ZIPCODE_SEARCH" \| "BATCH_REGION_SEARCH">` | No | No | The types of locations that you want to filter the results by. Enum values: `COUNTRY` (country or region), `PROVINCE` (province), `CITY` (city or county), `DISTRICT` (district or city), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). When you specify `search_type` as `FUZZY_SEARCH`, the allowed enum values for this field are `ZIP_CODE`, `COUNTRY`, `PROVINCE`, `CITY`, `DISTRICT`, and `DMA`. When you specify `search_type` as `BATCH_ZIPCODE_SEARCH`, the allowed enum value for this field is `ZIP_CODE`. When you specify `search_type` as `BATCH_REGION_SEARCH`, the allowed enum values for this field are `COUNTRY`, `PROVINCE`, `CITY`, `DISTRICT`, and `DMA`. |
+| `region_codes` | `body` | `Array<string>` | No | No | The codes of targeted countries or regions that you want to filter the results by. When you specify `search_type` as `BATCH_ZIPCODE_SEARCH` or `BATCH_REGION_SEARCH`, this field is required and needs to be set as `US` (the US) , `CA` (Canada), `BR` (Brazil), `ID` (Indonesia), `TH` (Thailand), or `VN` (Vietnam). When you specify `search_type` as `FUZZY_SEARCH`, this field is optional and you can pass any supported country or region code to this field. To find out the complete list of country or region codes, see [Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+| `operating_system` | `body` | `"ANDROID" \| "IOS"` | No | No | Device operating system that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `body` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `body` | `"IAS" \| "OPEN_SLATE"` | No | No | Required only when `brand_safety_type` is `THIRD_PARTY`. Brand safety partner. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolTimezone
+
+`GET` `/open_api/v1.3/tool/timezone/`
+
+Generated from TikTok documentation 1738455961470977
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolTimezoneResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolUrlValidate
+
+`GET` `/open_api/v1.3/tool/url_validate/`
+
+Generated from TikTok documentation 1774487686007810
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolUrlValidateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `url` | `query` | `string` | Yes | No | The URL that you want to get verification results for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolVastOption
+
+`GET` `/open_api/v1.3/tool/vast_option/`
+
+Generated from TikTok documentation 1755436556897281
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolVastOptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `objective_type` | `query` | `string` | Yes | No | Your objective type. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `region_codes` | `query` | `Array<string>` | No | No | List of country or region codes. For example: `["US", "JP", "KR"]`. See [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010) for enum values. |
+| `brand_safety_type` | `query` | `"STANDARD_INVENTORY" \| "LIMITED_INVENTORY"` | No | No | Brand safety type. The allowed enum values: `STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tools.toolVboStatus
+
+`GET` `/open_api/v1.3/tool/vbo_status/`
+
+Generated from TikTok documentation 1770016073586753
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tools.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ToolVboStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `query` | `string` | Yes | No | Advertising objective. Set this field to `APP_PROMOTION`, `WEB_CONVERSIONS`, or `PRODUCT_SALES`. When you set this field to any other objective, `vo_status` will be `NOT_SUPPORT` because these objectives are not supported for VBO. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). Note: When `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING`, do not pass in `pixel_id` or `app_id`. Otherwise, pass in either `pixel_id` or `app_id`. |
+| `app_promotion_type` | `query` | `"APP_INSTALL" \| "APP_RETARGETING" \| "MINIS"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum values: `APP_INSTALL`: Get new users to install your app. `APP_RETARGETING`: Re-engage existing users to take action in your app.`MINIS`: TikTok Minis. Get people to watch your series or play your games with TikTok Minis.To learn more about the campaign type where this setting is supported, see [Create an Upgraded Smart+ Minis Campaign](https://business-api.tiktok.com/portal/docs?id=1853377811982657). Note: Only the enum value `APP_INSTALL` can be used in an iOS14 Dedicated Campaign. |
+| `campaign_type` | `query` | `string` | No | No | Do not pass `campaign_type` and `ios14_quota_type` at the same time. If both fields are passed, `ios14_quota_type` will be ignored. Campaign type. Enums values: `REGULAR_CAMPAIGN`: non-iOS 14 Dedicated Campaign. `IOS14_CAMPAIGN`: iOS 14 Dedicated Campaign. The value `IOS14_CAMPAIGN` can only be used when: `objective_type` is `PRODUCT_SALES`. `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL`. |
+| `is_advanced_dedicated_campaign` | `query` | `boolean` | No | No | Whether the campaign is an Advanced Dedicated Campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. Supported values: `true`, `false`. Default value: `false`. To learn about how to create such campaigns, see [Create Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). Note: Once set, this field cannot be updated. |
+| `disable_skan_campaign` | `query` | `boolean` | No | No | Valid only when the following conditions are all met: `objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition). For a Dedicated Campaign using an app that is eligible for Advanced Dedicated Campaigns, you need to enable SKAN attribution or Advanced Dedicated Campaign or both. You cannot disable SKAN attribution and Advanced Dedicated Campaign simultaneously.`false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign.If you enable Advanced Dedicated Campaign by setting `is_advanced_dedicated_campaign` to `true` simultaneously, you'll be able to retrieve both [SAN](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) and [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Note: Disabling SKAN attribution for Dedicated Campaigns is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.If you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, you cannot set `bid_type` to `BID_TYPE_CUSTOM` at the ad group level when the following conditions are all met:At the campaign level: `is_advanced_dedicated_campaign` is `false`.`disable_skan_campaign` is `false`.At the ad group level:`optimization_goal` is `INSTALL` or `IN_APP_EVENT`.Once set, this field cannot be updated.Getting access to Advanced Dedicated Campaign requires the app to meet certain criteria. If your app is ineligible for Advanced Dedicated Campaign, reach out to your TikTok representative. Your TikTok representative will be able to provide troubleshooting support to help your app get access to Advanced Dedicated Campaign. |
+| `bid_align_type` | `query` | `"SAN" \| "SKAN"` | No | No | Valid only when the following conditions are all met: `objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. The attribution type for the Dedicated Campaign. The type determines which attribution network the target CPA or ROAS at the ad group level is based on. Enum value:`SAN`: Self Attributing Network(SAN).`SKAN`: SKAdNetwork (SKAN). When `is_advanced_dedicated_campaign` is `true` and you are not allowlisted for disabling SKAN attribution for Dedicated Campaigns, set this field to `SKAN`.When `is_advanced_dedicated_campaign` is `true`, you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, and `disable_skan_campaign` is `false`, set this field to `SAN`.When `is_advanced_dedicated_campaign` is `true` and `disable_skan_campaign` is `true`, set this field to `SAN`.When `is_advanced_dedicated_campaign` is `false` and `disable_skan_campaign` is `false`, set this field to `SKAN`. |
+| `promotion_type` | `query` | `string` | Yes | No | Promotion type and you can decide where you'd like to promote your products using this field. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Promotion%20Type). Note: When `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING`, do not pass in `pixel_id` or `app_id`. Otherwise, pass in either `pixel_id` or `app_id`. |
+| `placements` | `query` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. Note: Currently, we support `PLACEMENT_TIKTOK`, `PLACEMENT_PANGLE` and `PLACEMENT_GLOBAL_APP_BUNDLE`. For Product Sales campaigns (`objective_type` = `PRODUCT_SALES`), only TikTok placement (`PLACEMENT_TIKTOK`) is supported. |
+| `ios14_quota_type` | `query` | `"OCCUPIED" \| "UNOCCUPIED"` | No | No | Do not pass `campaign_type` and `ios14_quota_type` at the same time. If both fields are passed, `ios14_quota_type` will be ignored. We recommend using `campaign_type` alone when you specify an iOS 14 Dedicated Campaign. `campaign_type` as `REGULAR_CAMPAIGN` or `ios14_quota_type` as `UNOCCUPIED` both indicate a non-iOS 14 Dedicated Campaign.`campaign_type` as `IOS14_CAMPAIGN` or `ios14_quota_type` as `OCCUPIED` both indicate an iOS 14 Dedicated Campaign. Whether the campaign will be counted towards the iOS 14 Dedicated Campaign quota. Enum values: `OCCUPIED`: The campaign is an iOS 14 Dedicated Campaign. `UNOCCUPIED`: The campaign is not an iOS 14 Dedicated Campaign. |
+| `campaign_app_profile_page_state` | `query` | `"ON" \| "OFF"` | No | No | Whether to use App Profile Page at the campaign level to optimize delivery. Enum values: `ON`, `OFF`. You can use the field only when `objective_type` is `APP_PROMOTION` and your campaign is an iOS14 Dedicated Campaign (`ios14_quota_type` =`OCCUPIED`). Otherwise, an error will occur. |
+| `pixel_id` | `query` | `string` | No | No | Not supported when `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING` or when `app_promotion_type` is `MINIS`. Otherwise, pass in either `pixel_id` or `app_id`. Pixel ID. When you pass in this field, you need to specify `optimization_event` at the same time. To get Pixel IDs, use the [/pixel/list/](https://ads.tiktok.com/marketing_api/docs?id=1740858697598978) endpoint. |
+| `app_id` | `query` | `string` | No | No | Not supported when `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING` or when `app_promotion_type` is `MINIS`. Otherwise, pass in either `pixel_id` or `app_id`. The Application ID of the promoted app. To get App IDs, use the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `optimization_event` | `query` | `string` | No | No | Required when `pixel_id` is passed. Ignored when `app_id` is passed. Conversion event for the ad group. See [Conversion events](https://ads.tiktok.com/marketing_api/docs?id=1739361474981889) for more. |
+| `store_id` | `query` | `string` | No | No | Valid only when `objective_type` is `PRODUCT_SALES`. ID of the TikTok Shop. Note: To get the TikTok Shop ID, you can use [/bc/asset/get/](https://ads.tiktok.com/marketing_api/docs?id=1739432717798401): When in the response `asset_type` is `TIKTOK_SHOP`, the returned `asset_id` is the TikTok Shop ID. |
+| `is_smart_performance_campaign` | `query` | `boolean` | No | No | Whether the campaign is a Smart+ Campaign or not. Enum values: `true`, `false`. |
+| `campaign_automation_type` | `query` | `"MANUAL" \| "SMART_PLUS" \| "UPGRADED_SMART_PLUS"` | No | No | Campaign automation type. Enum values:`MANUAL`: Manual Campaigns.`SMART_PLUS`: Smart+ Campaigns.`UPGRADED_SMART_PLUS`: Upgraded Smart+ Campaigns, a new automated campaign type. To learn more about Upgraded Smart+ Campaigns, see [Upgraded Smart+ Campaign](https://business-api.tiktok.com/portal/docs?id=1853452461203458). |
+| `budget_optimize_on` | `query` | `boolean` | No | No | Whether to enable Campaign Budget Optimization (CBO). Enum values: `true`, `false`. For details about CBO, see [Campaign Budget Optimization](https://ads.tiktok.com/marketing_api/docs?id=1739381757818881). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,32 @@
+---
+title: Post metrics
+description: Read portable post performance while retaining every provider-native field.
+sidebar:
+  order: 40
+  label: Post metrics
+---
+
+The operation catalog normalizes common post metrics across Instagram, Facebook, Threads, TikTok,
+LinkedIn, X, and YouTube. The provider payload remains attached so normalization never discards
+information.
+
+```ts
+import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
+
+const ads = createAdPlatforms({
+  connections: { instagram, tiktok, youtube },
+});
+
+const metrics = await ads.instagram.posts.getMetrics({
+  postId: "media_123",
+  metrics: ["views", "reach", "likes"],
+});
+
+console.log(metrics.common.views);
+console.log(metrics.provider);
+```
+
+Use `common` for cross-platform reporting and `provider` for diagnostics or provider-only measures.
+Bulk reads use bounded concurrency and preserve per-item failures instead of silently losing a
+post. Google Business Profile exposes local-post insights and location performance through its
+provider client because those resources do not map cleanly to a social post.

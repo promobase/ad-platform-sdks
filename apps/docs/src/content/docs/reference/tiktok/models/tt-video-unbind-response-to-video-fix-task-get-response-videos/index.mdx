@@ -1,0 +1,83 @@
+---
+title: "TikTok Business models: Tt Video Unbind Response – Video Fix Task Get Response Videos"
+description: "8 generated TikTok Business model contracts, from TtVideoUnbindResponse through VideoFixTaskGetResponseVideos."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1024
+  label: "Tt Video Unbind Response – Video Fix Task Get Response Videos"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## TtVideoUnbindResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## VideoFixTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `tasks` | `tasks` | `Array<VideoFixTaskCreateParamsTasks>` | No | No | Task info. Max size is 10. |
+
+## VideoFixTaskCreateParamsTasks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | Yes | No | ID of the Video that you want to fix. |
+| `auto_bind_enabled` | `auto_bind_enabled` | `boolean` | No | No | Whether to automatically upload the fixed video to your creative library. Default value:`False`. |
+
+## VideoFixTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tasks` | `tasks` | `Array<VideoFixTaskCreateResponseTasks>` | No | No | Task info. Max size is 10. |
+
+## VideoFixTaskCreateResponseTasks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID. Returned when there are no issues detected. |
+| `fix_task_id` | `fix_task_id` | `string` | No | No | Fix task ID. Returned when issues are detected. |
+| `flaw_types` | `flaw_types` | `Array<"LOW_RESOLUTION" \| "ILLEGAL_VIDEO_SIZE" \| "NO_BGM" \| "BLACK_EDGE" \| "ILLEGAL_DURATION">` | No | No | Returned when issues are detected. Video issue types. Enum values: `LOW_RESOLUTION`: Video resolution is lower than 540x960 px, which doesn't meet our requirements.`ILLEGAL_VIDEO_SIZE`: The video size is not correct. Use the standard video size: Square (1:1) / Vertical (9:16) / Horizontal (16:9). `NO_BGM`(deprecated): The ad or video has no background audio, or the background audio is incoherent/unclear. `BLACK_EDGE`(deprecated) : A video image contains black bars, which affects user experience and is not allowed. `ILLEGAL_DURATION`(deprecated): Video length is either longer than 60s or shorter than 5s, which doesn't meet our requirements. |
+
+## VideoFixTaskGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | Yes | No | Fix task ID. Pass in the `fix_task_id` you get from the response of the [/video/fix/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1741468875279361) or [/file/video/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449)endpoint. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Note: If `task_id` and `advertiser_id` do not match, we will return an error message. |
+
+## VideoFixTaskGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"PROCESSING" \| "FAILED" \| "SUCCESS"` | No | No | Task status. Enum values: `PROCESSING`, `FAILED`, `SUCCESS`. |
+| `error_msg` | `error_msg` | `string` | No | No | Error message. Returned only when the status is `FAILED`. |
+| `videos` | `videos` | `Array<VideoFixTaskGetResponseVideos>` | No | No | Fixed video info. Max size is 3. Returned only when the status is `SUCCESS`. |
+
+## VideoFixTaskGetResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Fixed video ID. |
+| `video_url` | `video_url` | `string` | No | No | Fixed video preview URL. Valid only for 7 days. |

@@ -1,0 +1,297 @@
+---
+title: "TikTok Business Automated Rules endpoints"
+description: "8 generated TikTok Business endpoint contracts for Automated Rules."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 110
+  label: "Automated Rules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.automatedRules.optimizerRuleBatchBind
+
+`POST` `/open_api/v1.3/optimizer/rule/batch_bind/`
+
+Generated from TikTok documentation 1738769164954626
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `automatedRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleBatchBindResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `bind_info` | `body` | `Array<OptimizerRuleBatchBindParamsBindInfo>` | Yes | No | Information about binding. |
+| `lang` | `body` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the returned messages. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleCreate
+
+`POST` `/open_api/v1.3/optimizer/rule/create/`
+
+Generated from TikTok documentation 1738767670852610
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `automatedRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `rules` | `body` | `Array<OptimizerRuleCreateParamsRules>` | No | No | List of rules |
+| `lang` | `body` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the error messages. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleGet
+
+`GET` `/open_api/v1.3/optimizer/rule/get/`
+
+Generated from TikTok documentation 1738768750822466
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `automatedRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `rule_ids` | `query` | `Array<string>` | Yes | No | IDs of the rules that you want to get |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleList
+
+`GET` `/open_api/v1.3/optimizer/rule/list/`
+
+Generated from TikTok documentation 1738768861976578
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `automatedRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `filtering` | `query` | `OptimizerRuleListParamsFiltering` | No | No | Filters. |
+| `tzone` | `query` | `string` | No | No | If provided, all the time information in the response (`create_datetime`, `email_exec_time`, `check_datetime`, `exec_datetime`) will be shown in user specified timezone. For acceptable timezone code, see [Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `page` | `query` | `number` | No | No | Current page number. Default: 1 |
+| `page_size` | `query` | `number` | No | No | Page size. Default: 10 |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleResultGet
+
+`GET` `/open_api/v1.3/optimizer/rule/result/get/`
+
+Generated from TikTok documentation 1738769098314754
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `automatedRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleResultGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `result_detail` | `query` | `Array<OptimizerRuleResultGetParamsResultDetail>` | Yes | No | Result details. |
+| `lang` | `query` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the execution results. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleResultList
+
+`GET` `/open_api/v1.3/optimizer/rule/result/list/`
+
+Generated from TikTok documentation 1738769076676609
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `automatedRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleResultListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `filtering` | `query` | `OptimizerRuleResultListParamsFiltering` | No | No | Filters |
+| `page` | `query` | `number` | No | No | Current page number. Default: 1 |
+| `page_size` | `query` | `number` | No | No | Page size. Default: 10 |
+| `lang` | `query` | `string` | No | No | Language of the error messages. Enum values: `EN` (default value), `ZH`,` JA`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleUpdate
+
+`POST` `/open_api/v1.3/optimizer/rule/update/`
+
+Generated from TikTok documentation 1738769123170306
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `automatedRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `rules` | `body` | `Array<OptimizerRuleUpdateParamsRules>` | No | No | List of rules |
+| `lang` | `body` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the error messages. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.automatedRules.optimizerRuleUpdateStatus
+
+`POST` `/open_api/v1.3/optimizer/rule/update/status/`
+
+Generated from TikTok documentation 1738769144119298
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `automatedRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `OptimizerRuleUpdateStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `rule_ids` | `body` | `Array<string>` | Yes | No | IDs of the rules that you want to update status. |
+| `operate_type` | `body` | `"TURN_ON" \| "TURN_OFF" \| "DELETE"` | Yes | No | Operation type. Enum values: `TURN_ON`, `TURN_OFF`, `DELETE`. |
+| `lang` | `body` | `"ZH" \| "EN" \| "JA"` | No | No | Language of the response error message if there is an error occurred. Enum values: `ZH` (Simplified Chinese), `EN` (English)(default), `JA` (Japanese). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

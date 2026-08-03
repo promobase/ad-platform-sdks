@@ -1,0 +1,152 @@
+---
+title: "TikTok Business Creative Portfolios endpoints"
+description: "4 generated TikTok Business endpoint contracts for Creative Portfolios."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 134
+  label: "Creative Portfolios"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.creativePortfolios.creativePortfolioCreate
+
+`POST` `/open_api/v1.3/creative/portfolio/create/`
+
+Generated from TikTok documentation 1739091950439426
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativePortfolios.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativePortfolioCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | The advertiser ID |
+| `creative_portfolio_type` | `body` | `"CTA" \| "CARD" \| "WEB_INFO_CARD" \| "DOWNLOAD_CARD" \| "INVENTORY_CARD" \| "PRODUCT_CARD" \| "PRODUCT_TILE" \| "STICKER" \| "PREMIUM_BADGE" \| "GESTURE" \| "SUPER_LIKE"` | No | No | Type of the portfolio. Enum values: `CTA`: call-to-action text.`CARD`: card (Display Card). `WEB_INFO_CARD`: Website info card.`DOWNLOAD_CARD`: Download Card.`INVENTORY_CARD`: Inventory Card. `PRODUCT_CARD`: Product Card. `PRODUCT_TILE`: Product Tiles.`STICKER`: Countdown Sticker or Gift Code Sticker. `PREMIUM_BADGE`: Pop-up Showcase.`GESTURE`: Gesture.`SUPER_LIKE`: Superlike. A Superlike engages the audience with a surprise visual element after they like a video ad. With Superlke, heart-shaped and customized icons float across the screen when the audience likes or double-taps on the ads. Default value: `CTA`. Note: You can only create one creative portfolio of any type at a time.Website info cards can only be used for auction ads with the `objective_type` as `WEB_CONVERSIONS` or `TRAFFIC` (with `promotion_type` set to `WEBSITE`).You can only use the Inventory Card portfolio in Automotive Ads.Product Cards can only be used in Video Shopping Ads.Product Tiles can only be used in Video Shopping Ads with product source as catalog.Before creating a Product Tiles portfolio, ensure that you have a catalog containing at least four products that have passed the review. To verify whether you have a catalog with enough eligible products for the Product Tile portfolio, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402) and confirm that the `audit_status` of at least four products is `approved`.Using a Product Tiles portfolio to create ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Countdown Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F (`RF_REACH`) ads. If you want to use Countdown Stickers in Lead Generation ads, you can only set the Optimization location as Website at the ad group level. To learn about how to create such ads, see [Create a Lead Generation ad with optimization location as Website](https://business-api.tiktok.com/portal/docs?id=1774482976097281). Reminder Countdown Sticker (`sticker_type` as `REMINDER_COUNTDOWN` or `LIVE_REMINDER_COUNTDOWN`) is an allowlist-only feature for Traffic (`TRAFFIC`), App promotion (`APP_PROMOTION`), Website conversions (`WEB_CONVERSIONS`) ads. If you would like to access it for ads with these objectives, please contact your TikTok representative. Gift Code Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F ads with the advertising objective(`objective_type`) as Reach (`RF_REACH`).Gestures can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Gesture portfolios in campaigns with the advertising objective `APP_PROMOTION`, `TRAFFIC`, or `WEB_CONVERSIONS` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.Superlikes can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `ENGAGEMENT` (with `optimization_goal` as `PAGE_VISIT`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Superlike portfolios in campaigns with the advertising objective `APP_PROMOTION` or `TRAFFIC` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+| `portfolio_content` | `body` | `Array<CreativePortfolioCreateParamsPortfolioContent>` | No | No | The content of the portfolio. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativePortfolios.creativePortfolioDelete
+
+`POST` `/open_api/v1.3/creative/portfolio/delete/`
+
+Generated from TikTok documentation 1834560049625089
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `creativePortfolios.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativePortfolioDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `creative_portfolio_ids` | `body` | `Array<string>` | Yes | No | List of creative portfolio IDs to delete. Max size: 100. To obtain creative portfolio IDs within an ad account, use [/creative/portfolio/list/](https://business-api.tiktok.com/portal/docs?id=1766324010279938). Note: You cannot use this field to delete Product Card portfolios, Product Tile portfolios, or CTA (Call-to-action) portfolios. If any creative portfolio ID is invalid, the entire deletion process will fail. Invalid portfolio IDs include: Portfolio IDs that do not exist.Portfolio IDs that have already been deleted. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativePortfolios.creativePortfolioGet
+
+`GET` `/open_api/v1.3/creative/portfolio/get/`
+
+Generated from TikTok documentation 1739092113671170
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativePortfolios.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativePortfolioGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `creative_portfolio_id` | `query` | `string` | Yes | No | ID of the creative portfolio that you want to get. You can find the portfolio id (`creative_portfolio_id`) in the response of [/creative/portfolio/create/](https://ads.tiktok.com/marketing_api/docs?id=1739091950439426). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativePortfolios.creativePortfolioList
+
+`GET` `/open_api/v1.3/creative/portfolio/list/`
+
+Generated from TikTok documentation 1766324010279938
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativePortfolios.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CreativePortfolioListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `query` | `CreativePortfolioListParamsFiltering` | No | No | Filtering conditions. If not specified, you can retrieve all types of creative portfolios excluding CTA portfolios under the specified advertiser account. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 20. Value range: [1, 100]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

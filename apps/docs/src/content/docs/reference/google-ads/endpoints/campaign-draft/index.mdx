@@ -1,0 +1,112 @@
+---
+title: "Google Ads Campaign Draft endpoints"
+description: "3 generated Google Ads endpoint contracts for Campaign Draft."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 141
+  label: "Campaign Draft"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.campaignDraft.listCampaignDraftAsyncErrors
+
+`GET` `/v25/{resource_name=customers/*/campaignDrafts/*}:listAsyncErrors`
+
+CampaignDraftService.ListCampaignDraftAsyncErrors
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `campaignDraft.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `ListCampaignDraftAsyncErrorsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `ListCampaignDraftAsyncErrorsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.campaignDraft.mutateCampaignDrafts
+
+`POST` `/v25/customers/{customer_id=*}/campaignDrafts:mutate`
+
+CampaignDraftService.MutateCampaignDrafts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaignDraft.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateCampaignDraftsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateCampaignDraftsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.campaignDraft.promoteCampaignDraft
+
+`POST` `/v25/{campaign_draft=customers/*/campaignDrafts/*}:promote`
+
+CampaignDraftService.PromoteCampaignDraft
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `campaignDraft.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `PromoteCampaignDraftRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

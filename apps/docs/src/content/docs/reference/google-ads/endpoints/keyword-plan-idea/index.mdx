@@ -1,0 +1,145 @@
+---
+title: "Google Ads Keyword Plan Idea endpoints"
+description: "4 generated Google Ads endpoint contracts for Keyword Plan Idea."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 185
+  label: "Keyword Plan Idea"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.keywordPlanIdea.generateAdGroupThemes
+
+`POST` `/v25/customers/{customer_id=*}:generateAdGroupThemes`
+
+KeywordPlanIdeaService.GenerateAdGroupThemes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `keywordPlanIdea.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateAdGroupThemesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateAdGroupThemesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.keywordPlanIdea.generateKeywordForecastMetrics
+
+`POST` `/v25/customers/{customer_id=*}:generateKeywordForecastMetrics`
+
+KeywordPlanIdeaService.GenerateKeywordForecastMetrics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `keywordPlanIdea.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateKeywordForecastMetricsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateKeywordForecastMetricsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.keywordPlanIdea.generateKeywordHistoricalMetrics
+
+`POST` `/v25/customers/{customer_id=*}:generateKeywordHistoricalMetrics`
+
+KeywordPlanIdeaService.GenerateKeywordHistoricalMetrics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `keywordPlanIdea.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateKeywordHistoricalMetricsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateKeywordHistoricalMetricsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.keywordPlanIdea.generateKeywordIdeas
+
+`POST` `/v25/customers/{customer_id=*}:generateKeywordIdeas`
+
+KeywordPlanIdeaService.GenerateKeywordIdeas
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `keywordPlanIdea.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateKeywordIdeaResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateKeywordIdeasRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

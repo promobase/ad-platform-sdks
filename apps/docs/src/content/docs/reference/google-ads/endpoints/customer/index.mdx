@@ -1,0 +1,112 @@
+---
+title: "Google Ads Customer endpoints"
+description: "3 generated Google Ads endpoint contracts for Customer."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 157
+  label: "Customer"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.customer.createCustomerClient
+
+`POST` `/v25/customers/{customer_id=*}:createCustomerClient`
+
+CustomerService.CreateCustomerClient
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `customer.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `CreateCustomerClientResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `CreateCustomerClientRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.customer.listAccessibleCustomers
+
+`GET` `/v25/customers:listAccessibleCustomers`
+
+CustomerService.ListAccessibleCustomers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `customer.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `ListAccessibleCustomersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `ListAccessibleCustomersRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.customer.mutateCustomer
+
+`POST` `/v25/customers/{customer_id=*}:mutate`
+
+CustomerService.MutateCustomer
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `customer.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateCustomerResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateCustomerRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

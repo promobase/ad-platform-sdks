@@ -1,0 +1,192 @@
+---
+title: "TikTok Business Playable Ads endpoints"
+description: "5 generated TikTok Business endpoint contracts for Playable Ads."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 153
+  label: "Playable Ads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.playableAds.playableDelete
+
+`POST` `/open_api/v1.3/playable/delete/`
+
+Generated from TikTok documentation 1737733368940546
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `playableAds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PlayableDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `playable_id` | `body` | `string` | Yes | No | Playable asset ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.playableAds.playableGet
+
+`GET` `/open_api/v1.3/playable/get/`
+
+Generated from TikTok documentation 1737732758495234
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `playableAds.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PlayableGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `playable_id` | `query` | `string` | No | No | Playable asset ID to filter the results by. |
+| `playable_name` | `query` | `string` | No | No | Playable asset name to filter the results by. |
+| `playable_url` | `query` | `string` | No | No | Playable URL. |
+| `status` | `query` | `"AUDIT_FAIL" \| "AUDIT_SUCCESS" \| "VALIDATE_FAIL" \| "VALIDATE_SUCCESS" \| "VALIDATING"` | No | No | Playable asset status . Enum values:`AUDIT_FAIL`, `AUDIT_SUCCESS`,`VALIDATE_FAIL`,`VALIDATE_SUCCESS`,`VALIDATING`. |
+| `operation_status` | `query` | `"UPLOADED" \| "SAVED" \| "DELETED"` | No | No | Playable asset operation status. Enum values:`UPLOADED`,`SAVED`,`DELETED`. Default value: `SAVED`. |
+| `page` | `query` | `number` | No | No | Current number of pages. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.playableAds.playableSave
+
+`POST` `/open_api/v1.3/playable/save/`
+
+Generated from TikTok documentation 1737732203851777
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `playableAds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PlayableSaveResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `playable_id` | `body` | `string` | Yes | No | Playable asset ID. |
+| `playable_name` | `body` | `string` | Yes | No | Playable asset name. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.playableAds.playableUpload
+
+`POST` `/open_api/v1.3/playable/upload/`
+
+Generated from TikTok documentation 1737730926765057
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `playableAds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PlayableUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `upload_type` | `body` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_FILE_ID"` | No | No | The way you upload your playable assets. Enum values: `UPLOAD_BY_FILE`, `UPLOAD_BY_FILE_ID`. Default value: `UPLOAD_BY_FILE`. |
+| `playable_package` | `body` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. The playable asset file. Specification requirements: 1. The format is ZIP, and the size is no more than 5 MB. 2. Playable JS-SDK has been accessed, and the calling method is `window.openAppStore();` 3. The main HTML file needs to be named `index.html` and located in the primary directory. 4. The `playable_orientation` field should be stored in the `config.json` file and located in the first directory, with a value of 0 (`BOTH`), 1 (`PORTRAIT`), or 2 (`LANDSCAPE`). Example: `&#123; "playable_orientation": 0, &#125;`. 5. File names only support uppercase and lowercase letters, numbers, minus signs and underscores. 6. The `mraid.js` format is not allowed in the file. 7. The file is not allowed to load dynamic material over an external network. 8. JS redirection is not allowed in the file. 9. The file does not allow an HTTP request. 10. A file with empty content is not allowed. |
+| `file_id` | `body` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE_ID`. The `file_id` of the file that you want to upload. This field is for files that are uploaded to the file repository. You can get `file_id` via the [Files](https://business-api.tiktok.com/portal/docs/files/v1.3) endpoints. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.playableAds.playableValidate
+
+`GET` `/open_api/v1.3/playable/validate/`
+
+Generated from TikTok documentation 1737732054892545
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `playableAds.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PlayableValidateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `playable_id` | `query` | `string` | Yes | No | Playable asset ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

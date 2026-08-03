@@ -79,7 +79,11 @@ writeFileSync(join(outDir, "discovery.ts"), `${generated.join("\n")}\n`);
 
 writeFileSync(join(outDir, "types.ts"), `${emitTypes()}\n`);
 writeFileSync(join(outDir, "resources.ts"), `${emitResources()}\n`);
-await writeEffectArtifacts({ outputDir: join(outDir, "effect"), ir: buildCanonicalIr() });
+await writeEffectArtifacts({
+  outputDir: join(outDir, "effect"),
+  docsOutputDir: join(root, "apps/docs/src/content/docs/reference"),
+  ir: buildCanonicalIr(),
+});
 
 function buildCanonicalIr() {
   const models = Object.entries(discovery.schemas ?? {})

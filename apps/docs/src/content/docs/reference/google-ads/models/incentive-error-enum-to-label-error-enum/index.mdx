@@ -1,0 +1,846 @@
+---
+title: "Google Ads models: Incentive Error Enum – Label Error Enum"
+description: "100 generated Google Ads model contracts, from IncentiveErrorEnum through LabelErrorEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1012
+  label: "Incentive Error Enum – Label Error Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## IncentiveErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IncentiveOffer
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `consolidated_terms_and_conditions_url` | `consolidated_terms_and_conditions_url` | `string` | No | No | — |
+| `offer_type` | `offer_type` | `OfferType` | No | No | — |
+| `cyo_incentives` | `cyo_incentives` | `unknown` | No | No | — |
+
+## IncentiveOfferTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IncentiveState
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `REDEEMED`, `FULFILLED`, `REWARD_GRANTED`, `EXPIRED`, `REWARD_EXPIRED`, `INVALIDATED`, `REWARD_EXHAUSTED`
+
+## IncentiveStateEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IncentiveType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACQUISITION`
+
+## IncentiveTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IncomeRangeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `IncomeRangeType` | No | No | — |
+
+## IncomeRangeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INCOME_RANGE_0_50`, `INCOME_RANGE_50_60`, `INCOME_RANGE_60_70`, `INCOME_RANGE_70_80`, `INCOME_RANGE_80_90`, `INCOME_RANGE_90_UP`, `INCOME_RANGE_UNDETERMINED`
+
+## IncomeRangeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IncomeRangeView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## IncompatibleCloGoalsErrorDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clo_goal_sub_type1` | `clo_goal_sub_type1` | `CustomerLifecycleOptimizationGoalSubType` | No | No | — |
+| `clo_goal_sub_type2` | `clo_goal_sub_type2` | `CustomerLifecycleOptimizationGoalSubType` | No | No | — |
+
+## IndustryVerticalInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `industry_vertical_name` | `industry_vertical_name` | `string` | No | No | — |
+| `industry_vertical_id` | `industry_vertical_id` | `string` | No | No | — |
+| `parent_industry_vertical_id` | `parent_industry_vertical_id` | `string` | No | No | — |
+
+## InFeedVideoAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headline` | `headline` | `string` | No | No | — |
+| `description1` | `description1` | `string` | No | No | — |
+| `description2` | `description2` | `string` | No | No | — |
+| `thumbnail` | `thumbnail` | `VideoThumbnail` | No | No | — |
+
+## InsightsAudience
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_locations` | `country_locations` | `Array<LocationInfo>` | No | No | — |
+| `sub_country_locations` | `sub_country_locations` | `Array<LocationInfo>` | No | No | — |
+| `gender` | `gender` | `GenderInfo` | No | No | — |
+| `age_ranges` | `age_ranges` | `Array<AgeRangeInfo>` | No | No | — |
+| `parental_status` | `parental_status` | `ParentalStatusInfo` | No | No | — |
+| `income_ranges` | `income_ranges` | `Array<IncomeRangeInfo>` | No | No | — |
+| `lineups` | `lineups` | `Array<AudienceInsightsLineup>` | No | No | — |
+| `user_list` | `user_list` | `UserListInfo` | No | No | — |
+| `topic_audience_combinations` | `topic_audience_combinations` | `Array<InsightsAudienceAttributeGroup>` | No | No | — |
+
+## InsightsAudienceAttributeGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+
+## InsightsAudienceDefinition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience` | `audience` | `unknown` | No | No | — |
+| `baseline_audience` | `baseline_audience` | `unknown` | No | No | — |
+| `data_month` | `data_month` | `string` | No | No | — |
+
+## InsightsAudienceDescription
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_locations` | `country_locations` | `Array<LocationInfo>` | No | No | — |
+| `audience_description` | `audience_description` | `string` | No | No | — |
+| `marketing_objective` | `marketing_objective` | `AudienceInsightsMarketingObjective` | No | No | — |
+| `audience_dimensions` | `audience_dimensions` | `unknown` | No | No | — |
+
+## InsightsKnowledgeGraphEntityCapabilities
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONTENT_TRENDING_INSIGHTS`, `CREATOR_ATTRIBUTE`, `CREATOR_TOPIC_INSIGHTS`
+
+## InsightsKnowledgeGraphEntityCapabilitiesEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InsightsTrend
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EMERGING`, `RISING`, `SUSTAINED`, `DECLINING`
+
+## InsightsTrendEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InsuranceVerificationArtifact
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+| `rejection_reason` | `rejection_reason` | `LocalServicesInsuranceRejectionReason` | No | No | — |
+| `insurance_document_readonly` | `insurance_document_readonly` | `LocalServicesDocumentReadOnly` | No | No | — |
+| `expiration_date_time` | `expiration_date_time` | `string` | No | No | — |
+
+## InteractionEventType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CLICK`, `ENGAGEMENT`, `VIDEO_VIEW`, `NONE`
+
+## InteractionEventTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InteractionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CALLS`
+
+## InteractionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InteractionTypeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `InteractionType` | No | No | — |
+
+## InternalError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INTERNAL_ERROR`, `ERROR_CODE_NOT_PUBLISHED`, `TRANSIENT_ERROR`, `DEADLINE_EXCEEDED`
+
+## InternalErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InvalidActivitySummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `original_month_of_service` | `original_month_of_service` | `MonthOfYear` | No | No | — |
+| `original_year_of_service` | `original_year_of_service` | `string` | No | No | — |
+| `original_invoice_id` | `original_invoice_id` | `string` | No | No | — |
+| `original_account_budget_name` | `original_account_budget_name` | `string` | No | No | — |
+| `original_purchase_order_number` | `original_purchase_order_number` | `string` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+
+## Invoice
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `type` | `type` | `InvoiceType` | No | No | — |
+| `billing_setup` | `billing_setup` | `string` | No | No | — |
+| `payments_account_id` | `payments_account_id` | `string` | No | No | — |
+| `payments_profile_id` | `payments_profile_id` | `string` | No | No | — |
+| `issue_date` | `issue_date` | `string` | No | No | — |
+| `due_date` | `due_date` | `string` | No | No | — |
+| `service_date_range` | `service_date_range` | `DateRange` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `adjustments_subtotal_amount_micros` | `adjustments_subtotal_amount_micros` | `string` | No | No | — |
+| `adjustments_tax_amount_micros` | `adjustments_tax_amount_micros` | `string` | No | No | — |
+| `adjustments_total_amount_micros` | `adjustments_total_amount_micros` | `string` | No | No | — |
+| `regulatory_costs_subtotal_amount_micros` | `regulatory_costs_subtotal_amount_micros` | `string` | No | No | — |
+| `regulatory_costs_tax_amount_micros` | `regulatory_costs_tax_amount_micros` | `string` | No | No | — |
+| `regulatory_costs_total_amount_micros` | `regulatory_costs_total_amount_micros` | `string` | No | No | — |
+| `export_charge_subtotal_amount_micros` | `export_charge_subtotal_amount_micros` | `string` | No | No | — |
+| `export_charge_tax_amount_micros` | `export_charge_tax_amount_micros` | `string` | No | No | — |
+| `export_charge_total_amount_micros` | `export_charge_total_amount_micros` | `string` | No | No | — |
+| `subtotal_amount_micros` | `subtotal_amount_micros` | `string` | No | No | — |
+| `tax_amount_micros` | `tax_amount_micros` | `string` | No | No | — |
+| `total_amount_micros` | `total_amount_micros` | `string` | No | No | — |
+| `corrected_invoice` | `corrected_invoice` | `string` | No | No | — |
+| `replaced_invoices` | `replaced_invoices` | `Array<string>` | No | No | — |
+| `pdf_url` | `pdf_url` | `string` | No | No | — |
+| `account_budget_summaries` | `account_budget_summaries` | `Array<unknown>` | No | No | — |
+| `account_summaries` | `account_summaries` | `Array<unknown>` | No | No | — |
+
+## InvoiceError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `YEAR_MONTH_TOO_OLD`, `NOT_INVOICED_CUSTOMER`, `BILLING_SETUP_NOT_APPROVED`, `BILLING_SETUP_NOT_ON_MONTHLY_INVOICING`, `NON_SERVING_CUSTOMER`
+
+## InvoiceErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## InvoiceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CREDIT_MEMO`, `INVOICE`
+
+## InvoiceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## IpBlockInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ip_address` | `ip_address` | `string` | No | No | — |
+
+## Item
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_id` | `product_id` | `string` | No | No | — |
+| `quantity` | `quantity` | `integer` | No | No | — |
+| `unit_price` | `unit_price` | `number` | No | No | — |
+
+## ItemAttribute
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | — |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `quantity` | `quantity` | `string` | No | No | — |
+
+## Keyword
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_criterion` | `ad_group_criterion` | `string` | No | No | — |
+| `info` | `info` | `unknown` | No | No | — |
+
+## KeywordAndUrlSeed
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | — |
+| `keywords` | `keywords` | `Array<string>` | No | No | — |
+
+## KeywordAnnotations
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `concepts` | `concepts` | `Array<unknown>` | No | No | — |
+
+## KeywordConcept
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `concept_group` | `concept_group` | `unknown` | No | No | — |
+
+## KeywordForecastMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `average_cpc_micros` | `average_cpc_micros` | `string` | No | No | — |
+| `clicks` | `clicks` | `number` | No | No | — |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `conversions` | `conversions` | `number` | No | No | — |
+| `average_cpa_micros` | `average_cpa_micros` | `string` | No | No | — |
+
+## KeywordInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | — |
+| `match_type` | `match_type` | `KeywordMatchType` | No | No | — |
+
+## KeywordMatchType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXACT`, `PHRASE`, `BROAD`
+
+## KeywordMatchTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordMatchTypeRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `KeywordInfo` | No | No | — |
+| `recommended_match_type` | `recommended_match_type` | `KeywordMatchType` | No | No | — |
+
+## KeywordParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `match_type` | `match_type` | `KeywordMatchType` | No | No | — |
+| `cpc_bid_micros` | `cpc_bid_micros` | `string` | No | No | — |
+
+## KeywordPlan
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `forecast_period` | `forecast_period` | `unknown` | No | No | — |
+
+## KeywordPlanAdGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `keyword_plan_campaign` | `keyword_plan_campaign` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `cpc_bid_micros` | `cpc_bid_micros` | `string` | No | No | — |
+
+## KeywordPlanAdGroupError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_NAME`, `DUPLICATE_NAME`
+
+## KeywordPlanAdGroupErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanAdGroupKeyword
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `keyword_plan_ad_group` | `keyword_plan_ad_group` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `match_type` | `match_type` | `KeywordMatchType` | No | No | — |
+| `cpc_bid_micros` | `cpc_bid_micros` | `string` | No | No | — |
+| `negative` | `negative` | `boolean` | No | No | — |
+
+## KeywordPlanAdGroupKeywordError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_KEYWORD_MATCH_TYPE`, `DUPLICATE_KEYWORD`, `KEYWORD_TEXT_TOO_LONG`, `KEYWORD_HAS_INVALID_CHARS`, `KEYWORD_HAS_TOO_MANY_WORDS`, `INVALID_KEYWORD_TEXT`, `NEGATIVE_KEYWORD_HAS_CPC_BID`, `NEW_BMM_KEYWORDS_NOT_ALLOWED`
+
+## KeywordPlanAdGroupKeywordErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanAdGroupKeywordOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `KeywordPlanAdGroupKeyword` | No | No | — |
+| `update` | `update` | `KeywordPlanAdGroupKeyword` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## KeywordPlanAdGroupOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `KeywordPlanAdGroup` | No | No | — |
+| `update` | `update` | `KeywordPlanAdGroup` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## KeywordPlanAggregateMetricResults
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `device_searches` | `device_searches` | `Array<unknown>` | No | No | — |
+
+## KeywordPlanAggregateMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aggregate_metric_types` | `aggregate_metric_types` | `Array<KeywordPlanAggregateMetricType>` | No | No | — |
+
+## KeywordPlanAggregateMetricType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DEVICE`
+
+## KeywordPlanAggregateMetricTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanCampaign
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `keyword_plan` | `keyword_plan` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `language_constants` | `language_constants` | `Array<string>` | No | No | — |
+| `keyword_plan_network` | `keyword_plan_network` | `KeywordPlanNetwork` | No | No | — |
+| `cpc_bid_micros` | `cpc_bid_micros` | `string` | No | No | — |
+| `geo_targets` | `geo_targets` | `Array<unknown>` | No | No | — |
+
+## KeywordPlanCampaignError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_NAME`, `INVALID_LANGUAGES`, `INVALID_GEOS`, `DUPLICATE_NAME`, `MAX_GEOS_EXCEEDED`, `MAX_LANGUAGES_EXCEEDED`
+
+## KeywordPlanCampaignErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanCampaignKeyword
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `keyword_plan_campaign` | `keyword_plan_campaign` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `match_type` | `match_type` | `KeywordMatchType` | No | No | — |
+| `negative` | `negative` | `boolean` | No | No | — |
+
+## KeywordPlanCampaignKeywordError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_KEYWORD_IS_POSITIVE`
+
+## KeywordPlanCampaignKeywordErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanCampaignKeywordOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `KeywordPlanCampaignKeyword` | No | No | — |
+| `update` | `update` | `KeywordPlanCampaignKeyword` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## KeywordPlanCampaignOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `KeywordPlanCampaign` | No | No | — |
+| `update` | `update` | `KeywordPlanCampaign` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## KeywordPlanCompetitionLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LOW`, `MEDIUM`, `HIGH`
+
+## KeywordPlanCompetitionLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanConceptGroupType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BRAND`, `OTHER_BRANDS`, `NON_BRAND`
+
+## KeywordPlanConceptGroupTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanDeviceSearches
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `device` | `device` | `Device` | No | No | — |
+| `search_count` | `search_count` | `string` | No | No | — |
+
+## KeywordPlanError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BID_MULTIPLIER_OUT_OF_RANGE`, `BID_TOO_HIGH`, `BID_TOO_LOW`, `BID_TOO_MANY_FRACTIONAL_DIGITS`, `DAILY_BUDGET_TOO_LOW`, `DAILY_BUDGET_TOO_MANY_FRACTIONAL_DIGITS`, `INVALID_VALUE`, `KEYWORD_PLAN_HAS_NO_KEYWORDS`, `KEYWORD_PLAN_NOT_ENABLED`, `KEYWORD_PLAN_NOT_FOUND`, `MISSING_BID`, `MISSING_FORECAST_PERIOD`, `INVALID_FORECAST_DATE_RANGE`, `INVALID_NAME`
+
+## KeywordPlanErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanForecastInterval
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEXT_WEEK`, `NEXT_MONTH`, `NEXT_QUARTER`
+
+## KeywordPlanForecastIntervalEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanForecastPeriod
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date_interval` | `date_interval` | `KeywordPlanForecastInterval` | No | No | — |
+| `date_range` | `date_range` | `DateRange` | No | No | — |
+
+## KeywordPlanGeoTarget
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_target_constant` | `geo_target_constant` | `string` | No | No | — |
+
+## KeywordPlanHistoricalMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `avg_monthly_searches` | `avg_monthly_searches` | `string` | No | No | — |
+| `monthly_search_volumes` | `monthly_search_volumes` | `Array<unknown>` | No | No | — |
+| `competition` | `competition` | `KeywordPlanCompetitionLevel` | No | No | — |
+| `competition_index` | `competition_index` | `string` | No | No | — |
+| `low_top_of_page_bid_micros` | `low_top_of_page_bid_micros` | `string` | No | No | — |
+| `high_top_of_page_bid_micros` | `high_top_of_page_bid_micros` | `string` | No | No | — |
+| `average_cpc_micros` | `average_cpc_micros` | `string` | No | No | — |
+
+## KeywordPlanIdeaError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `URL_CRAWL_ERROR`, `INVALID_VALUE`
+
+## KeywordPlanIdeaErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanKeywordAnnotation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `KEYWORD_CONCEPT`
+
+## KeywordPlanKeywordAnnotationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanNetwork
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GOOGLE_SEARCH`, `GOOGLE_SEARCH_AND_PARTNERS`
+
+## KeywordPlanNetworkEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## KeywordPlanOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `KeywordPlan` | No | No | — |
+| `update` | `update` | `KeywordPlan` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## KeywordRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `KeywordInfo` | No | No | — |
+| `search_terms` | `search_terms` | `Array<unknown>` | No | No | — |
+| `recommended_cpc_bid_micros` | `recommended_cpc_bid_micros` | `string` | No | No | — |
+
+## KeywordSeed
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<string>` | No | No | — |
+
+## KeywordTheme
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword_theme_constant` | `keyword_theme_constant` | `KeywordThemeConstant` | No | No | — |
+| `free_form_keyword_theme` | `free_form_keyword_theme` | `string` | No | No | — |
+
+## KeywordThemeConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `display_name` | `display_name` | `string` | No | No | — |
+
+## KeywordThemeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword_theme_constant` | `keyword_theme_constant` | `string` | No | No | — |
+| `free_form_keyword_theme` | `free_form_keyword_theme` | `string` | No | No | — |
+
+## KeywordView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## KnowledgeGraphAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entity_capabilities` | `entity_capabilities` | `Array<InsightsKnowledgeGraphEntityCapabilities>` | No | No | — |
+| `related_categories` | `related_categories` | `Array<unknown>` | No | No | — |
+
+## KnowledgeGraphEntitySearchOptions
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `get_all_creator_attributes` | `get_all_creator_attributes` | `boolean` | No | No | — |
+| `search_filter` | `search_filter` | `unknown` | No | No | — |
+
+## Label
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `status` | `status` | `LabelStatus` | No | No | — |
+| `text_label` | `text_label` | `TextLabel` | No | No | — |
+
+## LabelError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_APPLY_INACTIVE_LABEL`, `CANNOT_APPLY_LABEL_TO_DISABLED_AD_GROUP_CRITERION`, `CANNOT_APPLY_LABEL_TO_NEGATIVE_AD_GROUP_CRITERION`, `EXCEEDED_LABEL_LIMIT_PER_TYPE`, `INVALID_RESOURCE_FOR_MANAGER_LABEL`, `DUPLICATE_NAME`, `INVALID_LABEL_NAME`, `CANNOT_ATTACH_LABEL_TO_DRAFT`, `CANNOT_ATTACH_NON_MANAGER_LABEL_TO_CUSTOMER`
+
+## LabelErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

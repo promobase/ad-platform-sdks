@@ -1,0 +1,1078 @@
+---
+title: "TikTok Business models: Creative Status Get Response – Dmp Custom Audience List Response List"
+description: "100 generated TikTok Business model contracts, from CreativeStatusGetResponse through DmpCustomAudienceListResponseList."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1012
+  label: "Creative Status Get Response – Dmp Custom Audience List Response List"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## CreativeStatusGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `string` | No | No | Task status. See [Enumeration-Creative Management-Task Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `video_ids` | `video_ids` | `string` | No | No | Video IDs. Valid only when `status` is `SUCCESS`. |
+| `error_msg` | `error_msg` | `string` | No | No | Error message. |
+| `extra_info` | `extra_info` | `string` | No | No | Extra callback info that is specified when the task was created. |
+
+## CreativeVideoSoundtrackCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `video_id` | `video_id` | `string` | Yes | No | Video ID |
+| `music_ids` | `music_ids` | `Array<string>` | No | No | Customize the list of music IDs. If you want to use music of your choice, use this field to set it up. If you want to use the music recommended by the system, ignore this field. Quantity limit: |
+| `video_volume` | `video_volume` | `number` | No | No | Video volume. Value range: [0,1]. The larger the value, the louder the volume. Default value: 0.5. |
+| `music_volume` | `music_volume` | `number` | No | No | Music volume. Value range: [0,1]. The larger the value, the louder the volume. Default value: 0.5. |
+| `name_prefix` | `name_prefix` | `string` | No | No | Video name prefix. The video name length must be with [1,90] characters. If the name is not set, we use the original video name as `name_prefix`. Generated video name: `&lt;name_prefix&gt;_&lt;music_name&gt;`. If the music has no name, the name of the generated video will be `&lt;name_prefix&gt;_&lt;timestamp&gt;`. |
+| `callback_info` | `callback_info` | `CreativeVideoSoundtrackCreateParamsCallbackInfo` | No | No | Callback information |
+
+## CreativeVideoSoundtrackCreateParamsCallbackInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callback_url` | `callback_url` | `string` | No | No | Callback address. Required when you set `callback_info` |
+| `callback_extra_info` | `callback_extra_info` | `string` | No | No | Extra callback information, which will be returned when call back |
+
+## CreativeVideoSoundtrackCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID. |
+
+## CrmCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `name` | `name` | `string` | Yes | No | The name for the CRM Event Set that you want to create within the ad account. Length limit: 40 characters. Leading and trailing spaces will be trimmed, and the resulting name must not be empty. Note: Duplicate CRM Event Set names are not allowed. |
+
+## CrmCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_set_id` | `event_set_id` | `string` | No | No | The ID of the CRM Event Set. |
+| `name` | `name` | `string` | No | No | The name of the CRM Event Set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the CRM Event Set was created, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2026-01-01T00:00:01Z`. |
+
+## CrmListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `name` | `name` | `string` | No | No | The CRM Event Set name to filter the results by. Length limit: 1-40 characters. Exact match is supported. If this field is not passed, all CRM Event Sets within the advertiser account will be returned. If you pass a name that cannot be matched, the results will be empty. |
+| `event_set_ids` | `event_set_ids` | `Array<string>` | No | No | The list of CRM Event Set IDs to filter the results by. Max size: 50. Exact match is supported. If this field is not passed, all CRM Event Sets within the advertiser account will be returned. Only the CRM Event Sets that match the IDs you specify in this field will be returned. Unmatched IDs will be excluded from the returned results. If you pass both `event_set_ids` and `name`, the result will be either one event set that matches the specified name and has an ID that corresponds to one of the specified event set IDs, or empty if no event set meets the criteria. Note: The maximum number of CRM Event Sets allowed within an advertiser account is 50. |
+
+## CrmListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `crm_event_sets` | `crm_event_sets` | `Array<CrmListResponseCrmEventSets>` | No | No | The list of matched CRM Event Sets within the advertiser account. |
+
+## CrmListResponseCrmEventSets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_set_id` | `event_set_id` | `string` | No | No | The ID of the CRM Event Set. |
+| `name` | `name` | `string` | No | No | The name of the CRM Event Set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the CRM Event Set was created, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `"2023-04-15T00:23:38Z"`. |
+
+## CtmMessageEventSetGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `messaging_app_type` | `messaging_app_type` | `"MESSENGER" \| "WHATSAPP" \| "ZALO"` | Yes | No | The type of instant messaging app. Enum values: `MESSENGER`: Messenger.`WHATSAPP`: WhatsApp.`ZALO`: Zalo. |
+| `messaging_app_account_id` | `messaging_app_account_id` | `string` | Yes | No | The ID of the instant messaging app account. If `messaging_app_type` is `MESSENGER`, specify a Facebook Page ID. A valid Facebook Page ID contains numbers only. To find your Facebook Page ID, go to your Facebook Page and click About below your cover photo, then click Page transparency.If `messaging_app_type` is `WHATSAPP`, specify your WhatsApp phone number following the format: region calling code followed by phone number without any special symbols. For instance, if the region calling code is +1, and the phone number is (555) 555-1234, set this field to `15555551234`.If `messaging_app_type` is `ZALO`, specify the Zalo Official Account ID. |
+| `message_event_name` | `message_event_name` | `string` | No | No | The name of the message event set to filter the results by. Exact match is supported. |
+| `message_event_set_ids` | `message_event_set_ids` | `Array<string>` | No | No | The ID list of the message event sets to filter the results by. Max size: 10. |
+
+## CtmMessageEventSetGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_event_set_list` | `message_event_set_list` | `Array<CtmMessageEventSetGetResponseMessageEventSetList>` | No | No | The list of existing message event sets within the specified ad account. |
+| `matched_event_set` | `matched_event_set` | `CtmMessageEventSetGetResponseMatchedEventSet` | No | No | The information about the only message event set that is associated with the instant messaging app account (`messaging_app_account_id`). |
+
+## CtmMessageEventSetGetResponseMatchedEventSet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_event_set_id` | `message_event_set_id` | `string` | No | No | The ID of the message event set. |
+| `message_event_name` | `message_event_name` | `string` | No | No | The name of the message event set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the message event set was created, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2024-01-01 00:00:01`. |
+
+## CtmMessageEventSetGetResponseMessageEventSetList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_event_set_id` | `message_event_set_id` | `string` | No | No | The ID of the message event set. |
+| `message_event_name` | `message_event_name` | `string` | No | No | The name of the message event set. |
+| `create_time` | `create_time` | `string` | No | No | The time when the message event set was created, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2024-01-01 00:00:01`. |
+
+## CustomConversionCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `name` | `name` | `string` | Yes | No | The name of the Custom Conversion. The name must start with a letter and can include letters, numbers, spaces, underscores, or hyphens. Length limit: 50 characters and cannot contain emoji. Note:Do not specify the name of a standard event.Duplicate names for Custom Conversion within an ad account are not allowed. |
+| `description` | `description` | `string` | No | No | The description of the Custom Conversion. Length limit: 500 characters and cannot contain emoji. |
+| `event_source_type` | `event_source_type` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `event_source_id` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.This app can only be used with the TikTok App Events SDK. The SDK creates a direct first-party connection from your app to TikTok, reducing signal loss and providing more accurate measurement. Learn [how to install the SDK](https://business-api.tiktok.com/portal/docs?id=1739584951798785).To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `optimization_event` | `optimization_event` | `string` | No | No | Required in any of the following scenarios:When `event_source_type` is `PIXEL`.When `event_source_type` is `APP` and you are creating a custom conversion using a standard event.When `event_source_type` is `APP` and you are creating a custom conversion using a Custom Event, and the app is allowlisted for mapping Custom Events to Standard Events.Not supported when the following conditions are all met:`event_source_type` is `APP`.You are creating a custom conversion using a Custom Event.The app is not allowlisted for mapping Custom Events to Standard Events. The Standard Event to associate with the Custom Conversion. For enum values, see List of values for `optimization_event`. Note: Mapping Custom Events to Standard Events while creating custom conversions using an app event source and a custom event is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `custom_event_type` | `custom_event_type` | `string` | No | No | Valid only when the Custom Event has been configured for the App or Pixel (`event_source_id`). The Custom Event to associate with the Custom Conversion. When you specify a Custom Event for the Custom Conversion, you need to specify the Standard Event to map the event to through `optimization_event` simultaneously. Custom Events are actions that TikTok partners can define themselves beyond the predefined Standard Events list. To learn more about Custom Events, see [About Custom Events in TikTok Ads Manager](https://ads.tiktok.com/help/article/custom-events). To obtain the Custom Events that are configured for a Pixel, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `custom_event_type`. Note: When creating custom conversions using an app event source and a custom event, ensure that postbacks of the specified App Custom Event (`custom_event_type`) have been received before this custom conversion can be created. Otherwise, an error will occur. |
+| `rules` | `rules` | `Array<CustomConversionCreateParamsRules>` | Yes | No | Details of the conversion rules for the Custom Conversion. Only actions that meet these conditions will count as Custom Conversions. Size range: 1-10. |
+
+## CustomConversionCreateParamsRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parameter` | `parameter` | `"BRAND" \| "CONTENT_CATEGORY" \| "CONTENT_ID" \| "CONTENT_NAME" \| "CONTENT_TYPE" \| "CURRENCY" \| "DESCRIPTION" \| "EVENT_ID" \| "NUM_ITEMS" \| "PRICE" \| "SEARCH_STRING" \| "STATUS" \| "URL" \| "VALUE"` | Yes | No | Parameter. Enum values:`BRAND`: `brand`.`CONTENT_CATEGORY`: `content_category`.`CONTENT_ID`: `content_id`.`CONTENT_NAME`: `content_name`.`CONTENT_TYPE`: `content_type`.`CURRENCY`: `currency`.`DESCRIPTION`: `description`.`EVENT_ID`: `event_id`.`NUM_ITEMS`: `num_items`.`PRICE`: `price`.`SEARCH_STRING`: `search_string`.`STATUS`: `status`.`URL`: `url`.`VALUE`: `value`. |
+| `operator` | `operator` | `string` | Yes | No | Operator. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, or `URL`, the enum values are:`CONTAIN`: Contains.`NOT_CONTAIN`: Does not contain.`START_WITH`: Starts with.`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.When `parameter` is `NUM_ITEMS`, `PRICE`, or `VALUE`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.`LT`: Is less than.`GT`: Is greater than.`LTE`: Is less than or equal to.`GTE`: Is greater than or equal to.When `parameter` is `CURRENCY`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to. |
+| `values` | `values` | `Array<string>` | Yes | No | Values for the parameter. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, `URL`, the field will be an array of strings, each with a maximum length of 100 characters and up to 100 entries.When `parameter` is `NUM_ITEMS`, the field will be an integer between 0 and 1,000,000,000.When `parameter` is `PRICE`, `VALUE`, the field will be a float kept to two decimal places, within the range from 0.00 to 1,000,000,000.00.When `parameter` is `CURRENCY`, the field will be an array of strings. To learn about the enum values, see List of currency values. |
+
+## CustomConversionCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | No | No | The ID of the Custom Conversion. |
+
+## CustomConversionDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+
+## CustomConversionDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CustomConversionGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+| `event_source_type` | `event_source_type` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `event_source_id` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+
+## CustomConversionGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | No | No | The ID of the Custom Conversion. |
+| `name` | `name` | `string` | No | No | The name of the Custom Conversion. |
+| `description` | `description` | `string` | No | No | The description of the Custom Conversion. |
+| `event_source_type` | `event_source_type` | `"PIXEL" \| "APP"` | No | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `event_source_id` | `string` | No | No | Event source ID. When `event_source_type` is `PIXEL`, this field represents a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, this field represents the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `activity_status` | `activity_status` | `"NO_RECENT_ACTIVITY" \| "ACTIVE" \| "WAITING_FOR_ACTIVITY"` | No | No | The status of the Custom Conversion. Enum values:`NO_RECENT_ACTIVITY`: No recent activity. Activity received, but not in the past 7 days.`ACTIVE`: Active. Activity received in the past 7 days.`WAITING_FOR_ACTIVITY`: Inactive. No activity received in the past 90 days. |
+| `optimization_event` | `optimization_event` | `string` | No | No | The conversion event (standard event) associated with the Custom Conversion. For enum values, see [List of values for `optimization_event`](https://business-api.tiktok.com/portal/docs?id=1842225226006530#item-link-List%20of%20values%20for%20optimization_event). |
+| `rules` | `rules` | `Array<CustomConversionGetResponseRules>` | No | No | Details of the conversion rules for the Custom Conversion. Only actions that meet these conditions will count as Custom Conversions. |
+
+## CustomConversionGetResponseRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parameter` | `parameter` | `"BRAND" \| "CONTENT_CATEGORY" \| "CONTENT_ID" \| "CONTENT_NAME" \| "CONTENT_TYPE" \| "CURRENCY" \| "DESCRIPTION" \| "EVENT_ID" \| "NUM_ITEMS" \| "PRICE" \| "SEARCH_STRING" \| "STATUS" \| "URL" \| "VALUE"` | No | No | Parameter. Enum values:`BRAND`: `brand`.`CONTENT_CATEGORY`: `content_category`.`CONTENT_ID`: `content_id`.`CONTENT_NAME`: `content_name`.`CONTENT_TYPE`: `content_type`.`CURRENCY`: `currency`.`DESCRIPTION`: `description`.`EVENT_ID`: `event_id`.`NUM_ITEMS`: `num_items`.`PRICE`: `price`.`SEARCH_STRING`: `search_string`.`STATUS`: `status`.`URL`: `url`.`VALUE`: `value`. |
+| `operator` | `operator` | `string` | No | No | Operator. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, or `URL`, the enum values are:`CONTAIN`: Contains.`NOT_CONTAIN`: Does not contain.`START_WITH`: Starts with.`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.When `parameter` is `NUM_ITEMS`, `PRICE`, or `VALUE`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.`LT`: Is less than.`GT`: Is greater than.`LTE`: Is less than or equal to.`GTE`: Is greater than or equal to.When `parameter` is `CURRENCY`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to. |
+| `values` | `values` | `Array<string>` | No | No | Values for the parameter. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, `URL`, the field will be an array of strings, each with a maximum length of 100 characters and up to 100 entries.When `parameter` is `NUM_ITEMS`, the field will be an integer between 0 and 1,000,000,000.When `parameter` is `PRICE`, `VALUE`, the field will be a float kept to two decimal places, within the range from 0.00 to 1,000,000,000.00.When `parameter` is `CURRENCY`, the field will be an array of strings. To learn about the enum values, see [List of currency values](https://business-api.tiktok.com/portal/docs?id=1842225226006530#item-link-List%20of%20currency%20values). |
+| `create_time` | `create_time` | `string` | No | No | The time when the Custom Conversion was created, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0). Example: `2025-01-01 00:00:01`. |
+| `update_time` | `update_time` | `string` | No | No | The time when the Custom Conversion was last updated, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0). Example: `2025-01-01 00:00:01`. |
+
+## CustomConversionListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `event_source_type` | `event_source_type` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `event_source_id` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `search_keyword` | `search_keyword` | `string` | No | No | The keyword to search for Custom Conversions by. You can search by Custom Conversion name or Custom Conversion ID. When you search by Custom Conversion name, fuzzy matches are supported.When you search by Custom Conversion ID, exact matches are supported. |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "TOTAL_COUNT"` | No | No | Sorting field. Enum values:`CREATE_TIME`: The time when the Custom Conversion was created.`TOTAL_COUNT`: The total conversion count for the Custom Conversion.Default value: `CREATE_TIME`. |
+| `sort_type` | `sort_type` | `"DESC" \| "ASC"` | No | No | Sorting type. Enum values:`DESC`: descending.`ASC`: ascending.Default value: `DESC`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-1,000. Default value: 10. |
+
+## CustomConversionListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CustomConversionListResponseList>` | No | No | The list of Custom Conversions associated with the event source. |
+| `page_info` | `page_info` | `CustomConversionListResponsePageInfo` | No | No | Pagination information. |
+
+## CustomConversionListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | No | No | The ID of the Custom Conversion. |
+| `name` | `name` | `string` | No | No | The name of the Custom Conversion. |
+| `description` | `description` | `string` | No | No | The description of the Custom Conversion. |
+| `event_source_type` | `event_source_type` | `"PIXEL" \| "APP"` | No | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `event_source_id` | `string` | No | No | Event source ID. When `event_source_type` is `PIXEL`, this field represents a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, this field represents the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `activity_info` | `activity_info` | `CustomConversionListResponseListActivityInfo` | No | No | Details of the activity for the Custom Conversion. |
+| `optimization_event` | `optimization_event` | `string` | No | No | The conversion event (standard event) associated with the Custom Conversion. For enum values, see [List of values for `optimization_event`](https://business-api.tiktok.com/portal/docs?id=1842225226006530#item-link-List%20of%20values%20for%20optimization_event). |
+| `rules` | `rules` | `Array<CustomConversionListResponseListRules>` | No | No | Details of the conversion rules for the Custom Conversion. Only actions that meet these conditions will count as Custom Conversions. |
+
+## CustomConversionListResponseListActivityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activity_status` | `activity_status` | `"NO_RECENT_ACTIVITY" \| "ACTIVE" \| "WAITING_FOR_ACTIVITY"` | No | No | The activity status of the Custom Conversion. Enum values:`NO_RECENT_ACTIVITY`: No recent activity. Activity received, but not in the past 7 days.`ACTIVE`: Active. Activity received in the past 7 days.`WAITING_FOR_ACTIVITY`: Inactive. No activity received in the past 90 days. |
+| `total_count` | `total_count` | `number` | No | No | The total conversion count for the Custom Conversion. |
+| `last_record_time` | `last_record_time` | `string` | No | No | The time when activity for the Custom Conversion was last received, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2025-01-01 00:00:01`. |
+
+## CustomConversionListResponseListRules
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parameter` | `parameter` | `"BRAND" \| "CONTENT_CATEGORY" \| "CONTENT_ID" \| "CONTENT_NAME" \| "CONTENT_TYPE" \| "CURRENCY" \| "DESCRIPTION" \| "EVENT_ID" \| "NUM_ITEMS" \| "PRICE" \| "SEARCH_STRING" \| "STATUS" \| "URL" \| "VALUE"` | No | No | Parameter. Enum values:`BRAND`: `brand`.`CONTENT_CATEGORY`: `content_category`.`CONTENT_ID`: `content_id`.`CONTENT_NAME`: `content_name`.`CONTENT_TYPE`: `content_type`.`CURRENCY`: `currency`.`DESCRIPTION`: `description`.`EVENT_ID`: `event_id`.`NUM_ITEMS`: `num_items`.`PRICE`: `price`.`SEARCH_STRING`: `search_string`.`STATUS`: `status`.`URL`: `url`.`VALUE`: `value`. |
+| `operator` | `operator` | `string` | No | No | Operator. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, or `URL`, the enum values are:`CONTAIN`: Contains.`NOT_CONTAIN`: Does not contain.`START_WITH`: Starts with.`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.When `parameter` is `NUM_ITEMS`, `PRICE`, or `VALUE`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to.`LT`: Is less than.`GT`: Is greater than.`LTE`: Is less than or equal to.`GTE`: Is greater than or equal to.When `parameter` is `CURRENCY`, the enum values are:`EQUAL`: Is equal to.`NOT_EQUAL`: Is not equal to. |
+| `values` | `values` | `Array<string>` | No | No | Values for the parameter. When `parameter` is `BRAND`, `CONTENT_CATEGORY`, `CONTENT_ID`, `CONTENT_NAME`, `CONTENT_TYPE`, `DESCRIPTION`, `EVENT_ID`, `SEARCH_STRING`, `STATUS`, `URL`, the field will be an array of strings, each with a maximum length of 100 characters and up to 100 entries.When `parameter` is `NUM_ITEMS`, the field will be an integer between 0 and 1,000,000,000.When `parameter` is `PRICE`, `VALUE`, the field will be a float kept to two decimal places, within the range from 0.00 to 1,000,000,000.00.When `parameter` is `CURRENCY`, the field will be an array of strings. To learn about the enum values, see [List of currency values](https://business-api.tiktok.com/portal/docs?id=1842225226006530#item-link-List%20of%20currency%20values). |
+| `create_time` | `create_time` | `string` | No | No | The time when the Custom Conversion was created, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0). Example: `2025-01-01 00:00:01`. |
+| `update_time` | `update_time` | `string` | No | No | The time when the Custom Conversion was last updated, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0). Example: `2025-01-01 00:00:01`. |
+
+## CustomConversionListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CustomConversionUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `custom_conversion_id` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+| `name` | `name` | `string` | No | No | The new name of the Custom Conversion. The name must start with a letter and can include letters, numbers, spaces, underscores, or hyphens. Length limit: 50 characters and cannot contain emoji. Note:Do not specify the name of a standard event.Duplicate names for Custom Conversion within an ad account are not allowed. |
+| `description` | `description` | `string` | No | No | The new description of the Custom Conversion. Length limit: 500 characters and cannot contain emoji. |
+
+## CustomConversionUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeliveryBidRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `adgroup_ids` | `Array<string>` | Yes | No | Ad group IDs. The number of IDs cannot exceed 20. |
+
+## DeliveryBidRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<DeliveryBidRecommendResponseResults>` | No | No | List of ad group IDs and corresponding bid recommendation results. |
+
+## DeliveryBidRecommendResponseResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `recommendations` | `recommendations` | `Array<DeliveryBidRecommendResponseResultsRecommendations>` | No | No | 9 sets of data for recommended bid raise ratios from -10% to 30% with a step of 5% and corresponding estimated results. |
+
+## DeliveryBidRecommendResponseResultsRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_bid` | `recommended_bid` | `number` | No | No | Recommended bid. Please adopt one suitable bid using [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) and pass the adopted bid price to `conversion_bid_price` within the same day (advertiser account time zone). |
+| `bid_increase_ratio` | `bid_increase_ratio` | `number` | No | No | Estimated bid raise ratio. |
+| `estimated_cost` | `estimated_cost` | `number` | No | No | Estimated cost. |
+| `cost_uplift` | `cost_uplift` | `number` | No | No | Estimated cost uplift. |
+| `cost_uplift_ratio` | `cost_uplift_ratio` | `number` | No | No | Estimated cost uplift ratio. |
+
+## DeliveryBudgetRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_ids` | `adgroup_ids` | `Array<string>` | Yes | No | Ad group IDs. The number of IDs cannot exceed 20. |
+
+## DeliveryBudgetRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<DeliveryBudgetRecommendResponseResults>` | No | No | List of ad group IDs and corresponding budget recommendation results. |
+
+## DeliveryBudgetRecommendResponseResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `recommendations` | `recommendations` | `Array<DeliveryBudgetRecommendResponseResultsRecommendations>` | No | No | 15 sets of data for recommended budget raise ratios from -20% to 50% with a step of 5%, and corresponding estimated results. |
+
+## DeliveryBudgetRecommendResponseResultsRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_budget` | `recommended_budget` | `number` | No | No | Recommended budget. Please adopt one suitable budget using [/adgroup/budget/update/](https://ads.tiktok.com/marketing_api/docs?id=1739591133130817) within the same day (advertiser account time zone). |
+| `budget_increase_ratio` | `budget_increase_ratio` | `number` | No | No | Estimated budget raise ratio. |
+| `estimated_conversion` | `estimated_conversion` | `number` | No | No | Estimated conversion. |
+| `conversion_uplift` | `conversion_uplift` | `number` | No | No | Estimated conversion uplift. |
+| `conversion_uplift_ratio` | `conversion_uplift_ratio` | `number` | No | No | Estimated conversion uplift ratio. |
+
+## DiagnosticCatalogEventsourceIssueParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To get the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To get the catalogs under a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `event_source_type` | `event_source_type` | `"APP" \| "PIXEL"` | Yes | No | The event source type. Enum values: `APP`: App. Pass `app_id` at the same time. `PIXEL`: Pixel. Pass `pixel_code` at the same time. |
+| `app_id` | `app_id` | `string` | No | No | Required when `event_source_type` is set to `APP`. The App ID. To retrieve the App IDs that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362). |
+| `pixel_code` | `pixel_code` | `string` | No | No | Required when `event_source_type` is set to `PIXEL`. The Pixel code. To retrieve the Pixel codes that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362).. |
+| `event_type` | `event_type` | `"VIEW_CONTENT" \| "ADD_TO_CART" \| "PURCHASE"` | No | No | The event type that you want to retrieve data for. Enum values: `VIEW_CONTENT`: View Content.`ADD_TO_CART`: Add to Cart.`PURCHASE`: Complete Payment. Default value: `VIEW_CONTENT`. |
+| `time_range` | `time_range` | `"YESTERDAY" \| "LAST_7_DAYS" \| "LAST_30_DAYS"` | No | No | The time range that you want to retrieve data for. Enum values: `YESTERDAY`: Yesterday. `LAST_7_DAYS`: Last 7 days. `LAST_30_DAYS`: Last 30 days. Default value: `LAST_7_DAYS`. |
+
+## DiagnosticCatalogEventsourceIssueResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DiagnosticCatalogEventsourceIssueResponseList>` | No | No | A list of returned data. |
+
+## DiagnosticCatalogEventsourceIssueResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diagnostic_result` | `diagnostic_result` | `string` | No | No | The issue detected from diagnostics. If no issues are detected, the value of this field will be "No Issues Found". Example: `"You have fewer View Content events than Add to Cart events." ` To learn about detectable issues, see Detectable catalog event source issues. |
+| `level` | `level` | `"ERROR" \| "WARNING" \| "INFO"` | No | No | Issue level. Enum value: `ERROR`: Error. This issue affects ad delivery and should be resolved. `WARNING`: Warning. This issue may affect ad delivery and should be reviewed.`INFO`: No issue. |
+| `diagnostic_solution` | `diagnostic_solution` | `string` | No | No | The suggested solution for the issue. If no issues are detected, the value of this field will be empty. |
+
+## DiagnosticCatalogEventsourceMetricParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To get the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To get the catalogs under a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). |
+| `event_source_type` | `event_source_type` | `"APP" \| "PIXEL"` | Yes | No | The event source type. Enum values: `APP`: App. Pass `app_id` at the same time. `PIXEL`: Pixel. Pass `pixel_code` at the same time. |
+| `app_id` | `app_id` | `string` | No | No | Required when `event_source_type` is set to `APP`. The App ID. To retrieve the App IDs that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362). |
+| `pixel_code` | `pixel_code` | `string` | No | No | Required when `event_source_type` is set to `PIXEL`. The Pixel code. To retrieve the Pixel codes that are bound to your catalog (`catalog_id`), use [/catalog/eventsource_bind/get/](https://business-api.tiktok.com/portal/docs?id=1740492531343362).. |
+| `event_type` | `event_type` | `"VIEW_CONTENT" \| "ADD_TO_CART" \| "PURCHASE"` | No | No | The event type that you want to retrieve data for. Enum values: `VIEW_CONTENT`: View Content.`ADD_TO_CART`: Add to Cart.`PURCHASE`: Complete Payment. Default value: `VIEW_CONTENT`. |
+| `time_range` | `time_range` | `"YESTERDAY" \| "LAST_7_DAYS" \| "LAST_30_DAYS"` | No | No | The time range that you want to retrieve data for. Enum values: `YESTERDAY`: Yesterday. `LAST_7_DAYS`: Last 7 days. `LAST_30_DAYS`: Last 30 days. Default value: `LAST_7_DAYS`. |
+
+## DiagnosticCatalogEventsourceMetricResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DiagnosticCatalogEventsourceMetricResponseList>` | No | No | Information about the trend of events received and the number of events available for retargeting. |
+
+## DiagnosticCatalogEventsourceMetricResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_type` | `available_type` | `"EVENT_RECEIVED" \| "EVENT_WITH_CONTENT_ID" \| "EVENT_WITH_CONTENT_ID_MATCHING_INVENTORY"` | No | No | The available categories of events. Enum values: `EVENT_RECEIVED`: All events. `EVENT_WITH_CONTENT_ID`: Events with content IDs.`EVENT_WITH_CONTENT_ID_MATCHING_INVENTORY`: Events matching content IDs (Events with content IDs that match inventory). |
+| `event_details` | `event_details` | `Array<DiagnosticCatalogEventsourceMetricResponseListEventDetails>` | No | No | The details of the event category (`available_type`). |
+
+## DiagnosticCatalogEventsourceMetricResponseListEventDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | The date, in the format of `"YYYY-MM-DD"`. Example: `"2023-12-30"`. |
+| `count` | `count` | `string` | No | No | The number of events that belong to the event category are received on the date. Example: `"245076"`. For instance, when `available_type` is `EVENT_WITH_CONTENT_ID_MATCHING_INVENTORY`, a value of `"245076"` for this field represents that 245,076 events with content IDs that match products (SKU ID) in your catalog are received on the date. |
+| `percentage` | `percentage` | `string` | No | No | The percentage of the events belonging to the event category that are received on the date, out of all events received on the date. When `available_type` is `EVENT_WITH_CONTENT_ID_MATCHING_INVENTORY`, the value of this field represents the catalog match rate, which is calculated by dividing the number of signal events that match products in your catalog by the total number of signal events shared with TikTok. We recommend keeping your match rate levels above 90% to ensure optimal ad performance for Video Shopping Ads. Example: `"100"`. Note: When `available_type` is `EVENT_RECEIVED`, the value of this field is always `"100"`. |
+
+## DiagnosticCatalogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | ID of a catalog that you have permission to access. |
+| `bc_id` | `bc_id` | `string` | Yes | No | ID of a Business Center that either owns the catalog, or has been granted access to it as an asset. |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. If not specified, the ID of the default feed for the catalog will be used. To retrieve the diagnostics for all feeds for the catalog, set this field to `ALL`. To obtain feed IDs for a catalog, use [/catalog/feed/get/](https://ads.tiktok.com/marketing_api/docs?id=1740665183073281). |
+| `filtering` | `filtering` | `DiagnosticCatalogParamsFiltering` | No | No | Filtering conditions. |
+| `lang` | `lang` | `string` | No | No | The language you want to set for the returned `issue_title` and `reason_and_suggestion`. Default value: `en`. To find out the enum values, refer to the Enum values for `lang` section below. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: [1, 20]. |
+
+## DiagnosticCatalogParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `issue_level` | `issue_level` | `"CRITICAL" \| "WARNING"` | No | No | The issue level to filter the results by. Enum values: `CRITICAL`: To filter critical issues that require immediate attention. `WARNING`: To filter warning issues for which suggestions are provided to optimize the product settings. |
+| `issue_category` | `issue_category` | `"PRODUCT_ATTRIBUTES" \| "PRODUCT_REVIEW" \| "CATALOG" \| "PIXEL_OR_EVENT" \| "FILE_UPLOAD_OR_FEED"` | No | No | The issue category to filter the results by. Enum values: `PRODUCT_ATTRIBUTES`: Product attributes issue. `PRODUCT_REVIEW`: Product review issue. `CATALOG`: Catalog issue.`PIXEL_OR_EVENT`: Pixel or event issue.`FILE_UPLOAD_OR_FEED`: File upload or feed issue. |
+
+## DiagnosticCatalogProductTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | ID of a catalog that you have permission to access. |
+| `bc_id` | `bc_id` | `string` | Yes | No | ID of a Business Center that either owns the catalog, or has been granted access to it as an asset. |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. If not specified, the ID of the default feed for the catalog will be used. To retrieve the diagnostics for all feeds for the catalog, set this field to `ALL`. To obtain feed IDs for a catalog, use [/catalog/feed/get/](https://ads.tiktok.com/marketing_api/docs?id=1740665183073281). |
+| `lang` | `lang` | `string` | No | No | The language you want to set for the returned catalog diagnostic information. Default value: `en`. To find out the enum values, refer to the Enum values for `lang` section below. |
+| `issue_id` | `issue_id` | `string` | No | No | The ID of the issue you want to download the diagnostic information for. You need to specify the ID of a downloadable issue, which can be selected from the Downloadable issues section below. If not specified, the diagnostics for all detected issues will be returned. |
+
+## DiagnosticCatalogProductTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | ID of the download task for catalog diagnostic information. |
+
+## DiagnosticCatalogProductTaskGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID that you used to create the download task for catalog diagnostic information. |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID that you used to create the download task for catalog diagnostic information. |
+| `task_id` | `task_id` | `string` | Yes | No | ID of the download task for catalog diagnostic information. To obtain the ID, use [/diagnostic/catalog/product/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1771117279175682). |
+
+## DiagnosticCatalogProductTaskGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"SUCCEED" \| "PROCESSING" \| "FAILED"` | No | No | The status of the download task for catalog diagnostic information. Enum values: `SUCCEED`: The task has succeeded. You can download the file of catalog diagnostic information through the URL returned in the field `diagnostic_file_url`. `PROCESSING`: The task is being processed. `FAILED`: The task has failed. |
+| `diagnostic_file_url` | `diagnostic_file_url` | `string` | No | No | The URL to download the CSV file of catalog diagnostic information. Note: The URL doesn't expire. |
+
+## DiagnosticCatalogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diagnostic_date` | `diagnostic_date` | `string` | No | No | The date (UTC +0 Time) when the diagnostic information was generated, in the format of `"YYYY-MM-DD"`. Example: `"2023-06-15"`. |
+| `issues` | `issues` | `Array<DiagnosticCatalogResponseIssues>` | No | No | Diagnostic information about issues detected in the catalog. |
+| `page_info` | `page_info` | `DiagnosticCatalogResponsePageInfo` | No | No | Pagination information. |
+
+## DiagnosticCatalogResponseIssues
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `issue_id` | `issue_id` | `string` | No | No | Issue ID. Some issue IDs can be passed to the endpoint [/diagnostic/catalog/product/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1771117279175682) to create an asynchronous download task for diagnostic information about the issue. |
+| `issue_title` | `issue_title` | `string` | No | No | The issue title, which provides a summary of the issue. |
+| `reason_and_suggestion` | `reason_and_suggestion` | `string` | No | No | Reason and suggestion. This field contains a description of the issue and a suggestion on how to fix it. |
+| `issue_level` | `issue_level` | `"CRITICAL" \| "WARNING"` | No | No | Issue level. Enum values: `CRITICAL`: This is a critical issue that requires immediate attention. `WARNING`: This is a warning issue for which a suggestion is provided to optimize the product settings. |
+| `issue_category` | `issue_category` | `"PRODUCT_ATTRIBUTES" \| "PRODUCT_REVIEW" \| "CATALOG" \| "PIXEL_OR_EVENT" \| "FILE_UPLOAD_OR_FEED"` | No | No | Issue category. Enum values: `PRODUCT_ATTRIBUTES`: Product attributes issue. `PRODUCT_REVIEW`: Product review issue. `CATALOG`: Catalog issue. `PIXEL_OR_EVENT`: Pixel or event issue. `FILE_UPLOAD_OR_FEED`: File upload or feed issue. |
+| `issue_product_field` | `issue_product_field` | `string` | No | No | The product field for which the issue was detected. |
+| `affected_product_count` | `affected_product_count` | `number` | No | No | The number of catalog products for which the issue was detected. |
+| `affected_product_percentage` | `affected_product_percentage` | `number` | No | No | The percentage of catalog products for which the issue was detected. Value range: [0,100]. |
+| `example_affected_products` | `example_affected_products` | `Array<string>` | No | No | Returned when the value of `affected_product_count` is greater than 0. An object array containing up to 10 sample catalog products for which the issue was detected. You can use the fields in this object array to analyze the issues in detail. The schema for this object array is the same as the `list` parameter in the response of [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402#item-link-Response). Note that the specific fields returned for each product vary depending on the product type. For instance, `hotel_id` is only returned for hotel catalog products. |
+
+## DiagnosticCatalogResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## DiscoveryCmlTrendingListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `genre` | `genre` | `string` | No | No | The specific genre to filter the results by. Default value: `ALL`. For enum values, see List of values for `genre`. |
+| `country_code` | `country_code` | `string` | No | No | The code of the location to filter the results by. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+| `date_range` | `date_range` | `string` | No | No | The timeframe in which the tracks have been popular. Enum values:`1DAY`: last one day.`7DAY`: last seven days.`30DAY`: last 30 days.`90DAY`: last 90 days.Default value: `7DAY`. |
+
+## DiscoveryCmlTrendingListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DiscoveryCmlTrendingListResponseList>` | No | No | The list of the trending tracks. |
+
+## DiscoveryCmlTrendingListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commercial_music_id` | `commercial_music_id` | `string` | No | No | The ID of the track. Example: `1234567890`. |
+| `commercial_music_name` | `commercial_music_name` | `string` | No | No | The name of the track. |
+| `duration` | `duration` | `number` | No | No | The duration of the track in seconds. Note: For a track that is only a part (clips) of the full piece of music and not the entire piece, the duration might be recorded as 0. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The URL of the thumbnail image associated with the track. |
+| `artist` | `artist` | `string` | No | No | The name of the artist who performed the track. |
+| `preview_url` | `preview_url` | `string` | No | No | The URL for a preview of the track. The URL won't expire. |
+| `genres` | `genres` | `Array<string>` | No | No | A list of genres associated with the track. |
+| `rank_position` | `rank_position` | `string` | No | No | Current rank position of the track in the selected region (`country_code`). Example: `100`. |
+| `trending_history` | `trending_history` | `Array<DiscoveryCmlTrendingListResponseListTrendingHistory>` | No | No | The historical ranking data for the track, spanning up to the past 30 days. |
+| `full_duration_song_clip` | `full_duration_song_clip` | `DiscoveryCmlTrendingListResponseListFullDurationSongClip` | No | No | Information related to the track, including the full duration of the track. |
+| `trending_song_clip` | `trending_song_clip` | `DiscoveryCmlTrendingListResponseListTrendingSongClip` | No | No | Information related to the most popular track in the last 30 days. |
+
+## DiscoveryCmlTrendingListResponseListFullDurationSongClip
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preview_url` | `preview_url` | `string` | No | No | The track preview URL. The URL won't expire. Note: This is the same as the `preview_url` parameter outside `full_duration_song_clip`. |
+| `duration` | `duration` | `number` | No | No | The track duration in seconds. Note: This value is the same as the existing duration value. |
+| `song_clip_id` | `song_clip_id` | `string` | No | No | The track ID. Note: This value can be passed to the `music_sound_id` in [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234). |
+
+## DiscoveryCmlTrendingListResponseListTrendingHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | Date, in the format of `YYYY-MM-DD`. Example: `2024-01-01`. |
+| `rank_position_daily` | `rank_position_daily` | `string` | No | No | The rank position of the track in the selected region (`country_code`) on the date. Example: `73`. Note: If the track does not perform well compared to the last time period, the track will not be considered a popular track and the value of this field will be `NULL`. |
+
+## DiscoveryCmlTrendingListResponseListTrendingSongClip
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preview_url` | `preview_url` | `string` | No | No | The track preview URL. The URL won't expire. Note: This is the same as the `preview_url` parameter outside `trending_song_clip`. |
+| `duration` | `duration` | `number` | No | No | The track duration in seconds. Note: This value is the same as the existing duration value. |
+| `song_clip_id` | `song_clip_id` | `string` | No | No | The track ID. Note: This value can be passed to the `music_sound_id` in [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234). |
+
+## DiscoveryCmlVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `commercial_music_id` | `commercial_music_id` | `string` | Yes | No | The ID of the track. |
+| `country_code` | `country_code` | `string` | No | No | The code of the location to filter the results by. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+
+## DiscoveryCmlVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commercial_music_id` | `commercial_music_id` | `string` | No | No | The ID of the track. |
+| `commercial_music_name` | `commercial_music_name` | `string` | No | No | The name of the track. |
+| `top_video_list` | `top_video_list` | `Array<DiscoveryCmlVideoListResponseTopVideoList>` | No | No | The list of the top 20 trending videos for the track. |
+
+## DiscoveryCmlVideoListResponseTopVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the TikTok video. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for the TikTok video. This URL can be used to embed the TikTok video in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the video will not be viewable through this link. |
+| `share_url` | `share_url` | `string` | No | No | A shareable URL for the TikTok video. |
+
+## DiscoveryDetailParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `discovery_type` | `string` | Yes | No | The type of discovery item. Currently, we only support `HASHTAG`. |
+| `hashtag_id` | `hashtag_id` | `string` | Yes | No | Hashtag ID. Pass in a hashtag ID that is returned via the [/discovery/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119032526849) endpoint. If the hashtag you provide isn't included in the list returned by the `/discovery/trending_list/` endpoint, you will receive an empty list in response. Example: `4268426520694`. |
+| `country_code` | `country_code` | `string` | Yes | No | Location code. Specify the same `country_code` as the one you input in the `/discovery/trending_list/` endpoint. If the `country_code` you provide is not associated with the hashtag, we will return an error. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. Example: `DE`. |
+| `date_range` | `date_range` | `string` | Yes | No | The timeframe in which the items have been popular. Specify the same `date_range` as the one you input in the `/discovery/trending_list/` endpoint. If the `date_range` you provide is not associated with the hashtag, we will return an error. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. |
+
+## DiscoveryDetailResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_id` | `hashtag_id` | `string` | No | No | Hashtag ID. Example: `4268426520694`. |
+| `hashtag_name` | `hashtag_name` | `string` | No | No | Hashtag name. Example: `yummy`. |
+| `views` | `views` | `number` | No | No | The number of views for related videos that feature this hashtag in the selected region and timeframe. Example: 134333716. |
+| `views_global_lifetime` | `views_global_lifetime` | `number` | No | No | The number of views for related videos that feature this hashtag, globally and across their whole lifetime. Example: 91639649280. |
+| `posts` | `posts` | `number` | No | No | The number of posts for related videos that feature this hashtag in the selected region and timeframe. Example: 21856. |
+| `posts_global_lifetime` | `posts_global_lifetime` | `number` | No | No | The number of posts for related videos that feature this hashtag, globally and across their whole lifetime. Example: 7846729. |
+| `top_country_list` | `top_country_list` | `Array<string>` | No | No | The location codes of the top five locations in the world where this hashtag is most popular. To learn about the location that a location code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `["US", "GB", "PH", "CA", "DE"]`. |
+| `hashtag_status` | `hashtag_status` | `"ONLINE" \| "OFFLINE"` | No | No | The status of the hashtag. Enum values:`ONLINE`: available for ad creation.`OFFLINE`: unavailable for ad creation. |
+| `trending_history` | `trending_history` | `Array<DiscoveryDetailResponseTrendingHistory>` | No | No | The historical ranking data for the hashtag, spanning up to the past 30 days. |
+| `audience_insights` | `audience_insights` | `DiscoveryDetailResponseAudienceInsights` | No | No | Information about viewers that watch videos associated with this hashtag. Note: If `hashtag_status` is `OFFLINE` or the expected audience size for the hashtag is less than 1,000, `audience_insights` will be returned as empty. |
+
+## DiscoveryDetailResponseAudienceInsights
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_ages` | `audience_ages` | `Array<DiscoveryDetailResponseAudienceInsightsAudienceAges>` | No | No | Information about viewers' age. |
+
+## DiscoveryDetailResponseAudienceInsightsAudienceAges
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `string` | No | No | Age group. Enum values:`18-24`,`25-34`,`35+`. |
+| `percentage` | `percentage` | `number` | No | No | The approximate percentage of viewers associated with different age groups. |
+
+## DiscoveryDetailResponseTrendingHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | Date, in the format of `YYYY-MM-DD`. Example: `2024-01-01`. |
+| `rank_position_daily` | `rank_position_daily` | `string` | No | No | The rank position of the hashtag among hashtags across all categories or industries in the selected region (`country_code`) on the date. Example: `73`. Note: If the hashtag does not perform well compared to the last time period, the hashtag will not be considered a trending hashtag and the value of this field will be null. |
+| `views_daily` | `views_daily` | `number` | No | No | The number of views for related videos that feature this hashtag in the selected region (`country_code`) on the date. Example: 39409290. Note: If the daily views are less than 1,000, the value of this field will be null. |
+
+## DiscoveryTrendingListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `discovery_type` | `string` | Yes | No | The type of discovery item. Currently, we only support `HASHTAG`. |
+| `country_code` | `country_code` | `string` | No | No | Location code. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+| `category_name` | `category_name` | `string` | No | No | The name of the hashtag industry category. To learn about the enum values, see Hashtag industry category names. You can pass either a level-1 category name or a level-2 category name. Default value: `ALL`. Example: `FOOD_AND_BEVERAGE`. If you pass `category_name` and `industry_id` at the same time, `industry_id` will be ignored. |
+| `date_range` | `date_range` | `string` | No | No | The timeframe in which the items have been popular. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. Default value: `7DAY`. |
+
+## DiscoveryTrendingListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter_info` | `filter_info` | `DiscoveryTrendingListResponseFilterInfo` | No | No | Filtering information that is specified in your request. If you don't include the following parameters in the request, we will return the default values for them, which are `date_range = 7DAY`, `country_code = US`, `industry_id = ALL`, and `category_name = ALL`. |
+| `list` | `list` | `Array<DiscoveryTrendingListResponseList>` | No | No | The list of popular hashtags. |
+
+## DiscoveryTrendingListResponseFilterInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date_range` | `date_range` | `string` | No | No | The timeframe in which the items have been popular. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. |
+| `country_code` | `country_code` | `string` | No | No | Location code. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the enum values. Example: `DE`. |
+| `category_name` | `category_name` | `string` | No | No | The name of the hashtag industry category. To learn about the enum values, see Hashtag industry category names. Example: `FOOD_AND_BEVERAGE`. |
+
+## DiscoveryTrendingListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_id` | `hashtag_id` | `string` | No | No | Hashtag ID. Example: `4268426520694`. |
+| `hashtag_name` | `hashtag_name` | `string` | No | No | Hashtag name. Example: `yummy`. |
+| `rank_position` | `rank_position` | `string` | No | No | Current rank position of the hashtag among hashtags within the same category (`category_name`) or industry (`industry_id`) in the selected region (`country_code`). Example: `100`. |
+| `rank_change` | `rank_change` | `string` | No | No | The change in rank position compared to the rank in the last time period. A positive `rank_change` indicates an increase in rank. For example, if the rank position shifts from 5 to 1, `rank_change` will be `4`.A negative `rank_change` indicates a decrease in rank. For example, if the rank position shifts from 1 to 5, `rank_change` will be `-4`.A `rank_change` of `0` indicates no changes in rank.A `rank_change` marked as `NEW` indicates that the hashtag was not present in the top 200 ranking list in the last time period. |
+| `views` | `views` | `number` | No | No | The number of views for related videos that feature this hashtag in the selected region and timeframe. Note: If you fail to specify `country_code` or `date_range` in your request, we will return data based on the default values for these two parameters, which are `date_range = 7DAY` or `country_code = US`. Example: 134333716. |
+| `views_global_lifetime` | `views_global_lifetime` | `number` | No | No | The number of views for related videos that feature this hashtag, globally and across their whole lifetime. Example: 91639649280. |
+| `posts` | `posts` | `number` | No | No | The number of posts for related videos that feature this hashtag in the selected region and timeframe. Note: If you fail to specify `country_code` or `date_range` in your request, we will return data based on the default values for these two parameters, which are `date_range = 7DAY` or `country_code = US`. Example: 21856. |
+| `posts_global_lifetime` | `posts_global_lifetime` | `number` | No | No | The number of posts for related videos that feature this hashtag, globally and across their whole lifetime. Example: 7846729. |
+| `top_country_list` | `top_country_list` | `Array<string>` | No | No | The location codes of the top five locations in the world where this hashtag is most popular. To learn about the location that a location code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `["US", "GB", "PH", "CA", "DE"]`. |
+| `trending_history` | `trending_history` | `Array<DiscoveryTrendingListResponseListTrendingHistory>` | No | No | The historical ranking data for the hashtag, spanning up to the past 30 days.. |
+
+## DiscoveryTrendingListResponseListTrendingHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | Date, in the format of `YYYY-MM-DD`. Example: `2024-01-01`. |
+| `rank_position_daily` | `rank_position_daily` | `string` | No | No | The rank position of the hashtag among hashtags across all categories or industries in the selected region (`country_code`) on the date. Example: `73`. Note: If the hashtag does not perform well compared to the last time period, the hashtag will not be considered a trending hashtag and the value of this field will be null. |
+| `views_daily` | `views_daily` | `number` | No | No | The number of views for related videos that feature this hashtag in the selected region (`country_code`) on the date. Example: 21215985. Note: If the daily views are less than 1,000, the value of this field will be null. |
+
+## DiscoveryTrendingSearchKeywordParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `query` | `query` | `string` | Yes | No | A search query. You can specify products, services, or brands as the search query. Length limit: 255 characters. |
+| `is_personalized` | `is_personalized` | `boolean` | No | No | Whether to return personalized search keywords for the Business Account. Supported values: `true`: To return trending search keywords that are personalized for the Business Account. `false`: To return trending search keywords that are not personalized for the Business Account. Default value: `false`. |
+
+## DiscoveryTrendingSearchKeywordResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `search_keywords` | `search_keywords` | `Array<string>` | No | No | A list of 20 recommended search keywords. |
+
+## DiscoveryTrendingSearchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `business_id` | `string` | Yes | No | Application specific unique identifier for the Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `is_personalized` | `is_personalized` | `boolean` | No | No | Whether to return personalized search keywords for the Business Account. Supported values: `true`: To return trending search keywords that are personalized for the Business Account. `false`: To return trending search keywords that are not personalized for the Business Account. Default value: `false`. |
+
+## DiscoveryTrendingSearchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `search_keywords` | `search_keywords` | `Array<string>` | No | No | A list of 20 trending search keywords. |
+
+## DiscoveryVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `discovery_type` | `string` | Yes | No | The type of discovery item. Enum values:`HASHTAG`: hashtag-related videos. |
+| `hashtag_ids` | `hashtag_ids` | `Array<string>` | Yes | No | A list of hashtag IDs. Max size: 10. Pass one or more popular hashtag IDs obtained via `hashtag_id` from [/discovery/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119032526849). Example: `["4268426520694"]`. |
+| `country_code` | `country_code` | `string` | No | No | Location code. Default value: `US`. Pass one of the location codes returned via `top_country_list` from `/discovery/trending_list/`. |
+| `date_range` | `date_range` | `string` | No | No | The timeframe in which the videos have been popular. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. Default value: `7DAY`. |
+
+## DiscoveryVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DiscoveryVideoListResponseList>` | No | No | The list of trending videos using popular hashtags. This object array returns the top 20 videos related to each popular hashtag in the selected region and timeframe. |
+
+## DiscoveryVideoListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_id` | `hashtag_id` | `string` | No | No | Hashtag ID. Example: `4268426520694`. |
+| `hashtag_name` | `hashtag_name` | `string` | No | No | Hashtag name. Example: `yummy`. |
+| `top_video_list` | `top_video_list` | `Array<DiscoveryVideoListResponseListTopVideoList>` | No | No | The list of trending videos for the hashtag. |
+
+## DiscoveryVideoListResponseListTopVideoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the TikTok video. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for the TikTok video. This URL can be used to embed the TikTok video in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the video will not be viewable through this link. |
+| `share_url` | `share_url` | `string` | No | No | A shareable URL for the TikTok video. |
+
+## DmpCustomAudienceApplyLogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | Yes | No | A list of custom audience IDs. Note The advertiser must be the owner of the `custom_audience_ids`. Otherwise, an error will occur. You can use the `is_creator` field returned in [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) and [/dmp/custom_audience/get/](https://ads.tiktok.com/marketing_api/docs?id=1739940507792385) to check whether this advertiser is the owner of this audience. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. |
+| `timezone` | `timezone` | `string` | No | No | The timezone of returned value. For enum values, see [Appendix - Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). If not specified, UTC will be used. |
+
+## DmpCustomAudienceApplyLogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `list` | `list` | `Array<string>` | No | No | Array of application data. |
+| `audience_id` | `audience_id` | `string` | No | No | Audience ID. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `adgroup_name` | `adgroup_name` | `string` | No | No | Ad group name. |
+| `usage_mode` | `usage_mode` | `string` | No | No | Audience's usage mode in the ad group. Enum values: `Include`, `Exclude`. |
+| `editor` | `editor` | `string` | No | No | Operator. |
+| `action_timestamp` | `action_timestamp` | `string` | No | No | Time when the action took place, in the format of "YYYY-MM-DD HH:MM:SS". |
+| `page_info` | `page_info` | `DmpCustomAudienceApplyLogResponsePageInfo` | No | No | Pagination information. |
+
+## DmpCustomAudienceApplyLogResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## DmpCustomAudienceApplyParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_id` | `custom_audience_id` | `string` | Yes | No | Custom audience ID. You can only pass one custom audience ID. |
+| `adgroup_ids` | `adgroup_ids` | `Array<string>` | Yes | No | A list of ad group IDs. Note: `adgroup_ids` and `custom_audience_id` should be under the same advertiser account. Otherwise, an error will occur.Lookalike Audience cannot be used in Reach & Frequency ads. Otherwise, an error will occur. See below for more details. 1. If the `custom_audience_id` is a Lookalike Audience and the `adgroup_ids` are Reach & Frequency ad groups, an error will occur.2. If the `custom_audience_id` is a Lookalike Audience with the `REACH_FREQUENCY` audience subtype, an error will occur. |
+| `action_mode` | `action_mode` | `string` | Yes | No | Specific operation to be performed on the audience. Enum values: `Apply`, `Disconnect`. |
+| `usage_mode` | `usage_mode` | `string` | No | No | Whether to include this audience in or exclude it from your ad groups. Required when `action_mode` is Apply. Enum values: `Include`, `Exclude`. |
+
+## DmpCustomAudienceApplyResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpCustomAudienceCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `custom_audience_name` | `string` | Yes | No | Audience name. Maximum of 128 characters. |
+| `audience_sub_type` | `audience_sub_type` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL` Normal audience. It can be used in non-R&F ads. `REACH_FREQUENCY`: Audience for Reach & Frequency. It can only be used in R&F ads. Default: `NORMAL`. |
+| `file_paths` | `file_paths` | `Array<string>` | Yes | No | List of file paths. The recommended size is to ensure a stable request. You can use [/dmp/custom_audience/update/](https://business-api.tiktok.com/portal/docs?id=1739940572667906) to append more data files to the audience. You get the `file_path` in response after you upload your file calling [Upload audience files](https://ads.tiktok.com/marketing_api/docs?id=1739940567842818) endpoint. |
+| `calculate_type` | `calculate_type` | `string` | Yes | No | Encryption type. `calculate_type` should be the same as all the files in the `file_path`, or you will not get a audience id or get an invalid audience id. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `retention_in_days` | `retention_in_days` | `number` | No | No | Number of days to retain the audience. Value range: [1, 365]. Note:If this field is passed, the expiration date will be the specified number of retention days from the date when the audience was created. Any operations to the audience CANNOT reset the expiration date.If this field is not passed, the expiration date will be 365 days from the last time the audience was applied to an active ad group or modified. Applying the audience to an active ad group or modifying the audience will reset the expiration date. To learn about the actions that will reset the expiration date, refer to the Help Center article [Audience Expiration Policy](https://ads.tiktok.com/help/article/audience-expiration-policy?redirected=2). |
+
+## DmpCustomAudienceCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `custom_audience_id` | `string` | No | No | Custom audience ID. |
+
+## DmpCustomAudienceDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | Yes | No | A list of Audience IDs. Length range is `[1, 100]`. |
+
+## DmpCustomAudienceDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DmpCustomAudienceFileUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `file` | `file` | `unknown` | Yes | No | Data files. Only supports CSV and TXT files. The file suffixes should exactly be `.csv` or `.txt`. |
+| `file_signature` | `file_signature` | `string` | Yes | No | The file's MD5, which is used for server-side verification. |
+| `calculate_type` | `calculate_type` | `string` | Yes | No | Encryption type. The value for this field must be consistent with the actual file data. Otherwise, your upload will fail or you will not be able to create a valid audience. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+## DmpCustomAudienceFileUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_path` | `file_path` | `string` | No | No | Unique path to the file in the repository. Note: Only the same advertiser ID that was used to upload the audience file can later use the returned `file_path` to create the audience. |
+
+## DmpCustomAudienceGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | Yes | No | A list of Audience IDs. Length range is ` [1, 100] `. |
+| `history_size` | `history_size` | `number` | No | No | The size of the history data which the user requests. |
+
+## DmpCustomAudienceGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DmpCustomAudienceGetResponseList>` | No | No | A list of audience details. |
+
+## DmpCustomAudienceGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_details` | `audience_details` | `DmpCustomAudienceGetResponseListAudienceDetails` | No | No | Audience data. |
+| `audience_history` | `audience_history` | `Array<DmpCustomAudienceGetResponseListAudienceHistory>` | No | No | List of audience modification history. |
+
+## DmpCustomAudienceGetResponseListAudienceDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `string` | No | No | Audience ID. |
+| `msg` | `msg` | `string` | No | No | Information about audience status. |
+| `audience_sub_type` | `audience_sub_type` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL`: Normal audience. It can be used in non-R&F ads. `REACH_FREQUENCY`: Audience for Reach & Frequency. It can only be used in R&F ads. |
+| `error_msg` | `error_msg` | `string` | No | No | Error information when creating or modifying an audience. |
+| `is_valid` | `is_valid` | `boolean` | No | No | Audience availability. An audience becomes available after it has been processed. An audience becomes invalid after it is expired. |
+| `is_expiring` | `is_expiring` | `boolean` | No | No | Whether an audience is expiring. When an audience is expiring, it will expire in less than 60 days. |
+| `expired_time` | `expired_time` | `string` | No | No | Time when the audience expires, in the format of "YYYY-MM-DD HH:MM:SS". |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `string` | No | No | If this audience is an engagement audience, app activity audience or website traffic audience, this is the creation rule for it. |
+| `is_auto_refresh` | `is_auto_refresh` | `boolean` | No | No | If this audience is an engagement audience / app activity audience or website traffic audience, this indicates whether the audience refreshes daily. |
+| `shared` | `shared` | `boolean` | No | No | Whether this audience is shared with others. Enum values: `True`, `False`. |
+| `is_creator` | `is_creator` | `boolean` | No | No | Whether this advertiser is the owner of the audience. Enum values: `true`, `false`. You can use `shared` and `is_creator` to check audience ownership and shared status. The rules are as follows: 1. `shared` = `true` and `is_creator` = `true`: The advertiser is the owner and the audience is shared to others. 2. `shared` = `true` and `is_creator` = `false`: The advertiser is NOT the owner and the audience is shared by others. 3. `shared` = `false` and `is_creator` = `true`: The advertiser is the owner and the audience has not been shared to others. |
+| `owner_id` | `owner_id` | `string` | No | No | Advertiser ID of the audience creator. If `is_creator`=`true`, `owner_id` will be `advertiser_id` that you specified in the request. If `is_creator`=`false`, `owner_id` will be the ID of the advertiser that created the audience. |
+| `create_time` | `create_time` | `string` | No | No | Time when the audience was created, in the format of "YYYY-MM-DD HH:MM:SS". |
+| `type` | `type` | `string` | No | No | Audience type. Enum values: `Customer File Audience` ([Customer File Audience](https://ads.tiktok.com/help/article?aid=6721963343558475781)). `Engagement Audience` ([Engagement Audience](https://ads.tiktok.com/help/article?aid=6721963298155134982)). `App Activity Audience` ([App Activity Audience](https://ads.tiktok.com/help/article?aid=6721962999092871173)). `Website Audience` ([Website Traffic Audience](https://ads.tiktok.com/help/article?aid=6721962903081058309)). `Lookalike Audience` ([Lookalike Audience](https://ads.tiktok.com/help/article?aid=6746381707865227270)).`Lead Generation `([Lead Generation Audience](https://ads.tiktok.com/help/article/lead-generation-audience?lang=en))`Rule Business Account` ([Business Account Audience](https://ads.tiktok.com/help/article?aid=10011405&redirected=1))`Rule ad shop` ([Shop Activity Audience](https://ads.tiktok.com/help/article/shop-retargeting?lang=en))`Partner` (Partner Audience) `Challenge` (Challenge Audience) `Preferred Population` (Premium Audience)Note: Currently, Partner Audience, Challenge Audience and Premium Audience cannot be created through the API. |
+| `cover_num` | `cover_num` | `number` | No | No | TikTok coverage, or number of matched users on TikTok. |
+| `calculate_type` | `calculate_type` | `string` | No | No | Encryption type. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `lookalike_spec` | `lookalike_spec` | `Array<DmpCustomAudienceGetResponseListAudienceDetailsLookalikeSpec>` | No | No | Lookalike audience-specific information. Returned only when the audience is a lookalike audience. |
+
+## DmpCustomAudienceGetResponseListAudienceDetailsLookalikeSpec
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source_audience_id` | `source_audience_id` | `string` | No | No | Source (seed) audience ID. |
+| `include_source` | `include_source` | `boolean` | No | No | Whether to include the source audience in the new lookalike audience. |
+| `mobile_os` | `mobile_os` | `string` | No | No | Device operating systems. Enum values support `ALL` for both `ANDROID` and `IOS`. See [Enumeration-Audience Management-Lookalike System](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for details. |
+| `placements` | `placements` | `string` | No | No | The apps where you want to deliver your ads. Enum values: `TikTok`, `TopBuzz & BuzzVideo`, `Pangle`. See [Enumeration - Audience Management-Lookalike Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for details. |
+| `location_ids` | `location_ids` | `Array<string>` | No | No | IDs of the locations that you want to target. For enum values, see [Enumeration-Lookalike Locations](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `audience_size` | `audience_size` | `"NARROW" \| "BALANCED" \| "BROAD"` | No | No | Size of lookalike audience. Enum values: `NARROW`, `BALANCED` and `BROAD`. |
+
+## DmpCustomAudienceGetResponseListAudienceHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | Modification made. To learn about the meaning of the values, see "Mapping between `action` value and operation via /dmp/custom_audience/update/" section below. |
+| `action_detail` | `action_detail` | `string` | No | No | Modification result. |
+| `editor` | `editor` | `string` | No | No | Operator used. If modification was made through the TikTok API for Business, the value is "open_api". |
+| `msg` | `msg` | `string` | No | No | If the operation is partial success, the information will be shown here. |
+| `opt_time` | `opt_time` | `string` | No | No | The operation time. Formats such as：2019-04-14 06:52:56. |
+
+## DmpCustomAudienceListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `custom_audience_ids` | `Array<string>` | No | No | A list of Audience IDs. Length range is [1, 100]. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: `1`. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Defaults is `10`. Value range: 1-100. |
+
+## DmpCustomAudienceListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<DmpCustomAudienceListResponseList>` | No | No | A list of Audience. |
+| `page_info` | `page_info` | `DmpCustomAudienceListResponsePageInfo` | No | No | Pagination information. |
+
+## DmpCustomAudienceListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared` | `shared` | `boolean` | No | No | Whether this audience is shared with others. Enum values: `True`, `False`. |
+| `is_creator` | `is_creator` | `boolean` | No | No | Whether this advertiser is the owner of the audience. Enum values: `true`, `false`. You can use `shared` and `is_creator` to check audience ownership and shared status. The rules are as follows: 1. `shared` = `true` and `is_creator` = `true`: The advertiser is the owner and the audience is shared to others. 2. `shared` = `true` and `is_creator` = `false`: The advertiser is NOT the owner and the audience is shared by others. 3. `shared` = `false` and `is_creator` = `true`: The advertiser is the owner and the audience has not been shared to others. |
+| `audience_id` | `audience_id` | `string` | No | No | Audience ID. |
+| `cover_num` | `cover_num` | `number` | No | No | Coverage, or number of matched users on TikTok. |
+| `create_time` | `create_time` | `string` | No | No | Time when the audience was created. GMT time. |
+| `is_valid` | `is_valid` | `boolean` | No | No | Audience availability. An audience becomes available after it has been processed. An audience becomes invalid after it is expired. |
+| `is_expiring` | `is_expiring` | `boolean` | No | No | Whether an audience is expiring. When an audience is expiring, it will expire in less than 60 days. |
+| `expired_time` | `expired_time` | `string` | No | No | Time when the audience expires, in the format of "YYYY-MM-DD HH:MM:SS". |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `audience_type` | `audience_type` | `string` | No | No | Audience type. Enum values: `Customer File Audience` ([Customer File Audience](https://ads.tiktok.com/help/article?aid=6721963343558475781)). `Engagement Audience` ([Engagement Audience](https://ads.tiktok.com/help/article?aid=6721963298155134982)). `App Activity Audience` ([App Activity Audience](https://ads.tiktok.com/help/article?aid=6721962999092871173)). `Website Audience` ([Website Traffic Audience](https://ads.tiktok.com/help/article?aid=6721962903081058309)). `Lookalike Audience` ([Lookalike Audience](https://ads.tiktok.com/help/article?aid=6746381707865227270)).`Lead Generation `([Lead Generation Audience](https://ads.tiktok.com/help/article/lead-generation-audience?lang=en))`Rule Business Account` ([Business Account Audience](https://ads.tiktok.com/help/article?aid=10011405&redirected=1))`Rule ad shop` ([Shop Activity Audience](https://ads.tiktok.com/help/article/shop-retargeting?lang=en))`Partner` (Partner Audience) `Challenge` (Challenge Audience) `Preferred Population` (Premium Audience)Note: Currently, Partner Audience, Challenge Audience and Premium Audience cannot be created through the API. |
+| `calculate_type` | `calculate_type` | `string` | No | No | Encryption type, only applies to customer file audience. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |

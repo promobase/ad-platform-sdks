@@ -1,0 +1,808 @@
+---
+title: "Google Ads models: Upload User Data Request – Vertical Ads Item Vertical Type Enum"
+description: "100 generated Google Ads model contracts, from UploadUserDataRequest through VerticalAdsItemVerticalTypeEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1024
+  label: "Upload User Data Request – Vertical Ads Item Vertical Type Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## UploadUserDataRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `customer_match_user_list_metadata` | `customer_match_user_list_metadata` | `CustomerMatchUserListMetadata` | No | No | — |
+
+## UploadUserDataResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_date_time` | `upload_date_time` | `string` | No | No | — |
+| `received_operations_count` | `received_operations_count` | `integer` | No | No | — |
+
+## UrlCollection
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url_collection_id` | `url_collection_id` | `string` | No | No | — |
+| `final_urls` | `final_urls` | `Array<string>` | No | No | — |
+| `final_mobile_urls` | `final_mobile_urls` | `Array<string>` | No | No | — |
+| `tracking_url_template` | `tracking_url_template` | `string` | No | No | — |
+
+## UrlFieldError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_TRACKING_URL_TEMPLATE`, `INVALID_TAG_IN_TRACKING_URL_TEMPLATE`, `MISSING_TRACKING_URL_TEMPLATE_TAG`, `MISSING_PROTOCOL_IN_TRACKING_URL_TEMPLATE`, `INVALID_PROTOCOL_IN_TRACKING_URL_TEMPLATE`, `MALFORMED_TRACKING_URL_TEMPLATE`, `MISSING_HOST_IN_TRACKING_URL_TEMPLATE`, `INVALID_TLD_IN_TRACKING_URL_TEMPLATE`, `REDUNDANT_NESTED_TRACKING_URL_TEMPLATE_TAG`, `INVALID_FINAL_URL`, `INVALID_TAG_IN_FINAL_URL`, `REDUNDANT_NESTED_FINAL_URL_TAG`, `MISSING_PROTOCOL_IN_FINAL_URL`, `INVALID_PROTOCOL_IN_FINAL_URL`, `MALFORMED_FINAL_URL`, `MISSING_HOST_IN_FINAL_URL`, `INVALID_TLD_IN_FINAL_URL`, `INVALID_FINAL_MOBILE_URL`, `INVALID_TAG_IN_FINAL_MOBILE_URL`, `REDUNDANT_NESTED_FINAL_MOBILE_URL_TAG`, `MISSING_PROTOCOL_IN_FINAL_MOBILE_URL`, `INVALID_PROTOCOL_IN_FINAL_MOBILE_URL`, `MALFORMED_FINAL_MOBILE_URL`, `MISSING_HOST_IN_FINAL_MOBILE_URL`, `INVALID_TLD_IN_FINAL_MOBILE_URL`, `INVALID_FINAL_APP_URL`, `INVALID_TAG_IN_FINAL_APP_URL`, `REDUNDANT_NESTED_FINAL_APP_URL_TAG`, `MULTIPLE_APP_URLS_FOR_OSTYPE`, `INVALID_OSTYPE`, `INVALID_PROTOCOL_FOR_APP_URL`, `INVALID_PACKAGE_ID_FOR_APP_URL`, `URL_CUSTOM_PARAMETERS_COUNT_EXCEEDS_LIMIT`, `INVALID_CHARACTERS_IN_URL_CUSTOM_PARAMETER_KEY`, `INVALID_CHARACTERS_IN_URL_CUSTOM_PARAMETER_VALUE`, `INVALID_TAG_IN_URL_CUSTOM_PARAMETER_VALUE`, `REDUNDANT_NESTED_URL_CUSTOM_PARAMETER_TAG`, `MISSING_PROTOCOL`, `INVALID_PROTOCOL`, `INVALID_URL`, `DESTINATION_URL_DEPRECATED`, `INVALID_TAG_IN_URL`, `MISSING_URL_TAG`, `DUPLICATE_URL_ID`, `INVALID_URL_ID`, `FINAL_URL_SUFFIX_MALFORMED`, `INVALID_TAG_IN_FINAL_URL_SUFFIX`, `INVALID_TOP_LEVEL_DOMAIN`, `MALFORMED_TOP_LEVEL_DOMAIN`, `MALFORMED_URL`, `MISSING_HOST`, `NULL_CUSTOM_PARAMETER_VALUE`, `VALUE_TRACK_PARAMETER_NOT_SUPPORTED`, `UNSUPPORTED_APP_STORE`
+
+## UrlFieldErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UrlSeed
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | — |
+
+## UseBroadMatchKeywordParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `new_budget_amount_micros` | `new_budget_amount_micros` | `string` | No | No | — |
+
+## UseBroadMatchKeywordRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `Array<KeywordInfo>` | No | No | — |
+| `suggested_keywords_count` | `suggested_keywords_count` | `string` | No | No | — |
+| `campaign_keywords_count` | `campaign_keywords_count` | `string` | No | No | — |
+| `campaign_uses_shared_budget` | `campaign_uses_shared_budget` | `boolean` | No | No | — |
+| `required_campaign_budget_amount_micros` | `required_campaign_budget_amount_micros` | `string` | No | No | — |
+
+## UserAttribute
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lifetime_value_micros` | `lifetime_value_micros` | `string` | No | No | — |
+| `lifetime_value_bucket` | `lifetime_value_bucket` | `integer` | No | No | — |
+| `last_purchase_date_time` | `last_purchase_date_time` | `string` | No | No | — |
+| `average_purchase_count` | `average_purchase_count` | `integer` | No | No | — |
+| `average_purchase_value_micros` | `average_purchase_value_micros` | `string` | No | No | — |
+| `acquisition_date_time` | `acquisition_date_time` | `string` | No | No | — |
+| `shopping_loyalty` | `shopping_loyalty` | `unknown` | No | No | — |
+| `lifecycle_stage` | `lifecycle_stage` | `string` | No | No | — |
+| `first_purchase_date_time` | `first_purchase_date_time` | `string` | No | No | — |
+| `event_attribute` | `event_attribute` | `Array<unknown>` | No | No | — |
+
+## UserData
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_identifiers` | `user_identifiers` | `Array<unknown>` | No | No | — |
+| `transaction_attribute` | `transaction_attribute` | `unknown` | No | No | — |
+| `user_attribute` | `user_attribute` | `unknown` | No | No | — |
+| `consent` | `consent` | `unknown` | No | No | — |
+
+## UserDataError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPERATIONS_FOR_CUSTOMER_MATCH_NOT_ALLOWED`, `TOO_MANY_USER_IDENTIFIERS`, `USER_LIST_NOT_APPLICABLE`
+
+## UserDataErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserDataOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `UserData` | No | No | — |
+| `remove` | `remove` | `UserData` | No | No | — |
+
+## UserIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_identifier_source` | `user_identifier_source` | `UserIdentifierSource` | No | No | — |
+| `hashed_email` | `hashed_email` | `string` | No | No | — |
+| `hashed_phone_number` | `hashed_phone_number` | `string` | No | No | — |
+| `mobile_id` | `mobile_id` | `string` | No | No | — |
+| `third_party_user_id` | `third_party_user_id` | `string` | No | No | — |
+| `address_info` | `address_info` | `unknown` | No | No | — |
+
+## UserIdentifierSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FIRST_PARTY`, `THIRD_PARTY`
+
+## UserIdentifierSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserInterest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `taxonomy_type` | `taxonomy_type` | `UserInterestTaxonomyType` | No | No | — |
+| `user_interest_id` | `user_interest_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `user_interest_parent` | `user_interest_parent` | `string` | No | No | — |
+| `launched_to_all` | `launched_to_all` | `boolean` | No | No | — |
+| `availabilities` | `availabilities` | `Array<CriterionCategoryAvailability>` | No | No | — |
+
+## UserInterestAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_interest_description` | `user_interest_description` | `string` | No | No | — |
+
+## UserInterestInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_interest_category` | `user_interest_category` | `string` | No | No | — |
+
+## UserInterestSegment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_interest_category` | `user_interest_category` | `string` | No | No | — |
+
+## UserInterestTaxonomyType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AFFINITY`, `IN_MARKET`, `MOBILE_APP_INSTALL_USER`, `VERTICAL_GEO`, `NEW_SMART_PHONE_USER`
+
+## UserInterestTaxonomyTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `read_only` | `read_only` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `membership_status` | `membership_status` | `UserListMembershipStatus` | No | No | — |
+| `integration_code` | `integration_code` | `string` | No | No | — |
+| `membership_life_span` | `membership_life_span` | `string` | No | No | — |
+| `size_for_display` | `size_for_display` | `string` | No | No | — |
+| `size_range_for_display` | `size_range_for_display` | `UserListSizeRange` | No | No | — |
+| `size_for_search` | `size_for_search` | `string` | No | No | — |
+| `size_range_for_search` | `size_range_for_search` | `UserListSizeRange` | No | No | — |
+| `type` | `type` | `UserListType` | No | No | — |
+| `closing_reason` | `closing_reason` | `UserListClosingReason` | No | No | — |
+| `access_reason` | `access_reason` | `AccessReason` | No | No | — |
+| `account_user_list_status` | `account_user_list_status` | `UserListAccessStatus` | No | No | — |
+| `eligible_for_search` | `eligible_for_search` | `boolean` | No | No | — |
+| `eligible_for_display` | `eligible_for_display` | `boolean` | No | No | — |
+| `match_rate_percentage` | `match_rate_percentage` | `integer` | No | No | — |
+| `crm_based_user_list` | `crm_based_user_list` | `CrmBasedUserListInfo` | No | No | — |
+| `similar_user_list` | `similar_user_list` | `SimilarUserListInfo` | No | No | — |
+| `rule_based_user_list` | `rule_based_user_list` | `RuleBasedUserListInfo` | No | No | — |
+| `logical_user_list` | `logical_user_list` | `LogicalUserListInfo` | No | No | — |
+| `basic_user_list` | `basic_user_list` | `BasicUserListInfo` | No | No | — |
+| `lookalike_user_list` | `lookalike_user_list` | `LookalikeUserListInfo` | No | No | — |
+
+## UserListAccessStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `DISABLED`
+
+## UserListAccessStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListActionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_action` | `conversion_action` | `string` | No | No | — |
+| `remarketing_action` | `remarketing_action` | `string` | No | No | — |
+
+## UserListAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list_type` | `user_list_type` | `UserListType` | No | No | — |
+
+## UserListClosingReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNUSED`
+
+## UserListClosingReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListCrmDataSourceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FIRST_PARTY`, `THIRD_PARTY_CREDIT_BUREAU`, `THIRD_PARTY_VOTER_FILE`, `THIRD_PARTY_PARTNER_DATA`
+
+## UserListCrmDataSourceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListCustomerType
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `user_list` | `user_list` | `string` | No | No | — |
+| `customer_type_category` | `customer_type_category` | `UserListCustomerTypeCategory` | No | No | — |
+
+## UserListCustomerTypeCategory
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ALL_CUSTOMERS`, `PURCHASERS`, `HIGH_VALUE_CUSTOMERS`, `DISENGAGED_CUSTOMERS`, `QUALIFIED_LEADS`, `CONVERTED_LEADS`, `PAID_SUBSCRIBERS`, `CART_ABANDONERS`, `LOYALTY_TIER_1_MEMBERS`, `LOYALTY_TIER_2_MEMBERS`, `LOYALTY_TIER_3_MEMBERS`, `LOYALTY_TIER_4_MEMBERS`, `LOYALTY_TIER_5_MEMBERS`, `LOYALTY_TIER_6_MEMBERS`, `LOYALTY_TIER_7_MEMBERS`
+
+## UserListCustomerTypeCategoryEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListCustomerTypeError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONFLICTING_CUSTOMER_TYPES`, `NO_ACCESS_TO_USER_LIST`, `USERLIST_NOT_ELIGIBLE`, `CONVERSION_TRACKING_NOT_ENABLED_OR_NOT_MCC_MANAGER_ACCOUNT`, `TOO_MANY_USER_LISTS_FOR_THE_CUSTOMER_TYPE`
+
+## UserListCustomerTypeErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListCustomerTypeOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `UserListCustomerType` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## UserListDateRuleItemInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `UserListDateRuleItemOperator` | No | No | — |
+| `value` | `value` | `string` | No | No | — |
+| `offset_in_days` | `offset_in_days` | `string` | No | No | — |
+
+## UserListDateRuleItemOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EQUALS`, `NOT_EQUALS`, `BEFORE`, `AFTER`
+
+## UserListDateRuleItemOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXTERNAL_REMARKETING_USER_LIST_MUTATE_NOT_SUPPORTED`, `CONCRETE_TYPE_REQUIRED`, `CONVERSION_TYPE_ID_REQUIRED`, `DUPLICATE_CONVERSION_TYPES`, `INVALID_CONVERSION_TYPE`, `INVALID_DESCRIPTION`, `INVALID_NAME`, `INVALID_TYPE`, `CAN_NOT_ADD_LOGICAL_LIST_AS_LOGICAL_LIST_OPERAND`, `INVALID_USER_LIST_LOGICAL_RULE_OPERAND`, `NAME_ALREADY_USED`, `NEW_CONVERSION_TYPE_NAME_REQUIRED`, `CONVERSION_TYPE_NAME_ALREADY_USED`, `OWNERSHIP_REQUIRED_FOR_SET`, `USER_LIST_MUTATE_NOT_SUPPORTED`, `INVALID_RULE`, `INVALID_DATE_RANGE`, `CAN_NOT_MUTATE_SENSITIVE_USERLIST`, `MAX_NUM_RULEBASED_USERLISTS`, `CANNOT_MODIFY_BILLABLE_RECORD_COUNT`, `APP_ID_NOT_SET`, `USERLIST_NAME_IS_RESERVED_FOR_SYSTEM_LIST`, `ADVERTISER_NOT_ON_ALLOWLIST_FOR_USING_UPLOADED_DATA`, `RULE_TYPE_IS_NOT_SUPPORTED`, `CAN_NOT_ADD_A_SIMILAR_USERLIST_AS_LOGICAL_LIST_OPERAND`, `CAN_NOT_MIX_CRM_BASED_IN_LOGICAL_LIST_WITH_OTHER_LISTS`, `APP_ID_NOT_ALLOWED`, `CANNOT_MUTATE_SYSTEM_LIST`, `MOBILE_APP_IS_SENSITIVE`, `SEED_LIST_DOES_NOT_EXIST`, `INVALID_SEED_LIST_ACCESS_REASON`, `INVALID_SEED_LIST_TYPE`, `INVALID_COUNTRY_CODES`, `DUPLICATE_LOOKALIKE`, `PARTNER_AUDIENCE_SOURCE_NOT_SUPPORTED_FOR_USER_LIST_TYPE`, `COMMERCE_PARTNER_NOT_ALLOWED`, `PARTNER_AUDIENCE_INFO_NOT_SUPPORTED_FOR_USER_LIST_TYPE`, `PARTNER_MANAGER_ACCOUNT_DISALLOWED`, `PARTNER_NOT_ALLOWLISTED_FOR_THIRD_PARTY_PARTNER_DATA`, `ADVERTISER_TOS_NOT_ACCEPTED`, `ADVERTISER_PARTNER_LINK_MISSING`, `ADVERTISER_NOT_ALLOWLISTED_FOR_THIRD_PARTY_PARTNER_DATA`, `ACCOUNT_SETTING_TYPE_NOT_ALLOWED`
+
+## UserListErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListFlexibleRuleOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AND`, `OR`
+
+## UserListFlexibleRuleOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list` | `user_list` | `string` | No | No | — |
+
+## UserListLogicalRuleInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `UserListLogicalRuleOperator` | No | No | — |
+| `rule_operands` | `rule_operands` | `Array<unknown>` | No | No | — |
+
+## UserListLogicalRuleOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ALL`, `ANY`, `NONE`
+
+## UserListLogicalRuleOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListMembershipStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPEN`, `CLOSED`
+
+## UserListMembershipStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListNumberRuleItemInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `UserListNumberRuleItemOperator` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## UserListNumberRuleItemOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL`, `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUAL`
+
+## UserListNumberRuleItemOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `UserList` | No | No | — |
+| `update` | `update` | `UserList` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## UserListPrepopulationStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `REQUESTED`, `FINISHED`, `FAILED`
+
+## UserListPrepopulationStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListRuleInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rule_type` | `rule_type` | `UserListRuleType` | No | No | — |
+| `rule_item_groups` | `rule_item_groups` | `Array<unknown>` | No | No | — |
+
+## UserListRuleItemGroupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rule_items` | `rule_items` | `Array<unknown>` | No | No | — |
+
+## UserListRuleItemInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `number_rule_item` | `number_rule_item` | `unknown` | No | No | — |
+| `string_rule_item` | `string_rule_item` | `unknown` | No | No | — |
+| `date_rule_item` | `date_rule_item` | `unknown` | No | No | — |
+
+## UserListRuleType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AND_OF_ORS`, `OR_OF_ANDS`
+
+## UserListRuleTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListSegment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list` | `user_list` | `string` | No | No | — |
+
+## UserListSizeRange
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LESS_THAN_FIVE_HUNDRED`, `LESS_THAN_ONE_THOUSAND`, `ONE_THOUSAND_TO_TEN_THOUSAND`, `TEN_THOUSAND_TO_FIFTY_THOUSAND`, `FIFTY_THOUSAND_TO_ONE_HUNDRED_THOUSAND`, `ONE_HUNDRED_THOUSAND_TO_THREE_HUNDRED_THOUSAND`, `THREE_HUNDRED_THOUSAND_TO_FIVE_HUNDRED_THOUSAND`, `FIVE_HUNDRED_THOUSAND_TO_ONE_MILLION`, `ONE_MILLION_TO_TWO_MILLION`, `TWO_MILLION_TO_THREE_MILLION`, `THREE_MILLION_TO_FIVE_MILLION`, `FIVE_MILLION_TO_TEN_MILLION`, `TEN_MILLION_TO_TWENTY_MILLION`, `TWENTY_MILLION_TO_THIRTY_MILLION`, `THIRTY_MILLION_TO_FIFTY_MILLION`, `OVER_FIFTY_MILLION`
+
+## UserListSizeRangeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListStringRuleItemInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operator` | `operator` | `UserListStringRuleItemOperator` | No | No | — |
+| `value` | `value` | `string` | No | No | — |
+
+## UserListStringRuleItemOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONTAINS`, `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `NOT_EQUALS`, `NOT_CONTAINS`, `NOT_STARTS_WITH`, `NOT_ENDS_WITH`
+
+## UserListStringRuleItemOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserListType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `REMARKETING`, `LOGICAL`, `EXTERNAL_REMARKETING`, `RULE_BASED`, `SIMILAR`, `CRM_BASED`, `LOOKALIKE`
+
+## UserListTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## UserLocationView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `country_criterion_id` | `country_criterion_id` | `string` | No | No | — |
+| `targeting_location` | `targeting_location` | `boolean` | No | No | — |
+
+## Value
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boolean_value` | `boolean_value` | `boolean` | No | No | — |
+| `int64_value` | `int64_value` | `string` | No | No | — |
+| `float_value` | `float_value` | `number` | No | No | — |
+| `double_value` | `double_value` | `number` | No | No | — |
+| `string_value` | `string_value` | `string` | No | No | — |
+
+## ValueRuleAction
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation` | `operation` | `ValueRuleOperation` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## ValueRuleAudienceCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_lists` | `user_lists` | `Array<string>` | No | No | — |
+| `user_interests` | `user_interests` | `Array<string>` | No | No | — |
+
+## ValueRuleDeviceCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `device_types` | `device_types` | `Array<ValueRuleDeviceType>` | No | No | — |
+
+## ValueRuleDeviceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MOBILE`, `DESKTOP`, `TABLET`
+
+## ValueRuleDeviceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ValueRuleGeoLocationCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `excluded_geo_target_constants` | `excluded_geo_target_constants` | `Array<string>` | No | No | — |
+| `excluded_geo_match_type` | `excluded_geo_match_type` | `ValueRuleGeoLocationMatchType` | No | No | — |
+| `geo_target_constants` | `geo_target_constants` | `Array<string>` | No | No | — |
+| `geo_match_type` | `geo_match_type` | `ValueRuleGeoLocationMatchType` | No | No | — |
+
+## ValueRuleGeoLocationMatchType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ANY`, `LOCATION_OF_PRESENCE`
+
+## ValueRuleGeoLocationMatchTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ValueRuleItineraryAdvanceBookingWindow
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_days` | `min_days` | `integer` | No | No | — |
+| `max_days` | `max_days` | `integer` | No | No | — |
+
+## ValueRuleItineraryCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advance_booking_window` | `advance_booking_window` | `unknown` | No | No | — |
+| `travel_length` | `travel_length` | `unknown` | No | No | — |
+| `travel_start_day` | `travel_start_day` | `unknown` | No | No | — |
+
+## ValueRuleItineraryTravelLength
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_nights` | `min_nights` | `integer` | No | No | — |
+| `max_nights` | `max_nights` | `integer` | No | No | — |
+
+## ValueRuleItineraryTravelStartDay
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `monday` | `monday` | `boolean` | No | No | — |
+| `tuesday` | `tuesday` | `boolean` | No | No | — |
+| `wednesday` | `wednesday` | `boolean` | No | No | — |
+| `thursday` | `thursday` | `boolean` | No | No | — |
+| `friday` | `friday` | `boolean` | No | No | — |
+| `saturday` | `saturday` | `boolean` | No | No | — |
+| `sunday` | `sunday` | `boolean` | No | No | — |
+
+## ValueRuleOperation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADD`, `MULTIPLY`, `SET`
+
+## ValueRuleOperationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ValueRuleSetAttachmentType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER`, `CAMPAIGN`
+
+## ValueRuleSetAttachmentTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ValueRuleSetDimension
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GEO_LOCATION`, `DEVICE`, `AUDIENCE`, `NO_CONDITION`, `ITINERARY`
+
+## ValueRuleSetDimensionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ValueSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `default_value` | `default_value` | `number` | No | No | — |
+| `default_currency_code` | `default_currency_code` | `string` | No | No | — |
+| `always_use_default_value` | `always_use_default_value` | `boolean` | No | No | — |
+
+## VanityPharma
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `vanity_pharma_display_url_mode` | `vanity_pharma_display_url_mode` | `VanityPharmaDisplayUrlMode` | No | No | — |
+| `vanity_pharma_text` | `vanity_pharma_text` | `VanityPharmaText` | No | No | — |
+
+## VanityPharmaDisplayUrlMode
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MANUFACTURER_WEBSITE_URL`, `WEBSITE_DESCRIPTION`
+
+## VanityPharmaDisplayUrlModeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VanityPharmaText
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PRESCRIPTION_TREATMENT_WEBSITE_EN`, `PRESCRIPTION_TREATMENT_WEBSITE_ES`, `PRESCRIPTION_DEVICE_WEBSITE_EN`, `PRESCRIPTION_DEVICE_WEBSITE_ES`, `MEDICAL_DEVICE_WEBSITE_EN`, `MEDICAL_DEVICE_WEBSITE_ES`, `PREVENTATIVE_TREATMENT_WEBSITE_EN`, `PREVENTATIVE_TREATMENT_WEBSITE_ES`, `PRESCRIPTION_CONTRACEPTION_WEBSITE_EN`, `PRESCRIPTION_CONTRACEPTION_WEBSITE_ES`, `PRESCRIPTION_VACCINE_WEBSITE_EN`, `PRESCRIPTION_VACCINE_WEBSITE_ES`
+
+## VanityPharmaTextEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VerticalAdsFormatSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `disable_text_ads` | `disable_text_ads` | `boolean` | No | No | — |
+| `enable_booking_links` | `enable_booking_links` | `boolean` | No | No | — |
+| `enable_vertical_promotion_ads` | `enable_vertical_promotion_ads` | `boolean` | No | No | — |
+
+## VerticalAdsItemGroupRuleInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_code` | `item_code` | `string` | No | No | — |
+| `country_criterion_id` | `country_criterion_id` | `string` | No | No | — |
+| `region_criterion_id` | `region_criterion_id` | `string` | No | No | — |
+| `city_criterion_id` | `city_criterion_id` | `string` | No | No | — |
+| `hotel_class` | `hotel_class` | `string` | No | No | — |
+| `user_rating` | `user_rating` | `string` | No | No | — |
+| `venue` | `venue` | `string` | No | No | — |
+| `event_participant_display_name` | `event_participant_display_name` | `string` | No | No | — |
+
+## VerticalAdsItemGroupRuleListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+
+## VerticalAdsItemVerticalType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HOTELS`, `VACATION_RENTALS`, `RENTAL_CARS`, `EVENTS`, `THINGS_TO_DO`, `FLIGHTS`
+
+## VerticalAdsItemVerticalTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

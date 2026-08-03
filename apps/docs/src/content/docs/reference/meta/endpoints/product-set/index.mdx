@@ -1,0 +1,401 @@
+---
+title: "Meta Product Set endpoints"
+description: "11 generated Meta endpoint contracts for Product Set."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 357
+  label: "Product Set"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.productSet.automotiveModels
+
+`GET` `/{id}/automotive_models`
+
+GET ProductSet automotive_models
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AutomotiveModelFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.delete
+
+`DELETE` `/{id}`
+
+DELETE ProductSet
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `productSet.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `allow_live_product_set_deletion` | `query` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.destinations
+
+`GET` `/{id}/destinations`
+
+GET ProductSet destinations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `DestinationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.flights
+
+`GET` `/{id}/flights`
+
+GET ProductSet flights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `FlightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.get
+
+`GET` `/{id}`
+
+GET ProductSet
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProductSetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.homeListings
+
+`GET` `/{id}/home_listings`
+
+GET ProductSet home_listings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `HomeListingFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.hotels
+
+`GET` `/{id}/hotels`
+
+GET ProductSet hotels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `HotelFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.products
+
+`GET` `/{id}/products`
+
+GET ProductSet products
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProductItemFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `error_priority` | `query` | `unknown` | No | No | — |
+| `error_type` | `query` | `unknown` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.update
+
+`POST` `/{id}`
+
+POST ProductSet
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `productSet.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProductSetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `filter` | `body` | `Record<string, unknown>` | No | No | — |
+| `metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `ordering_info` | `body` | `Array<integer>` | No | No | — |
+| `publish_to_shops` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `retailer_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.vehicleOffers
+
+`GET` `/{id}/vehicle_offers`
+
+GET ProductSet vehicle_offers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `VehicleOfferFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.productSet.vehicles
+
+`GET` `/{id}/vehicles`
+
+GET ProductSet vehicles
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `productSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `VehicleFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `bulk_pagination` | `query` | `boolean` | No | No | — |
+| `filter` | `query` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

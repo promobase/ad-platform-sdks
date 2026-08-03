@@ -1,0 +1,46 @@
+---
+title: "Meta Ad Account Agency Fee Config endpoints"
+description: "1 generated Meta endpoint contract for Ad Account Agency Fee Config."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 104
+  label: "Ad Account Agency Fee Config"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adAccountAgencyFeeConfig.get
+
+`GET` `/{id}`
+
+GET AdAccountAgencyFeeConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adAccountAgencyFeeConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdAccountAgencyFeeConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

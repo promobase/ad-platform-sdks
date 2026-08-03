@@ -1,0 +1,79 @@
+---
+title: "Google Ads Asset Generation endpoints"
+description: "2 generated Google Ads endpoint contracts for Asset Generation."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 116
+  label: "Asset Generation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.assetGeneration.generateImages
+
+`POST` `/v25/customers/{customer_id=*}/assetGenerations:generateImages`
+
+AssetGenerationService.GenerateImages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `assetGeneration.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateImagesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateImagesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.assetGeneration.generateText
+
+`POST` `/v25/customers/{customer_id=*}/assetGenerations:generateText`
+
+AssetGenerationService.GenerateText
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `assetGeneration.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `GenerateTextResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `GenerateTextRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

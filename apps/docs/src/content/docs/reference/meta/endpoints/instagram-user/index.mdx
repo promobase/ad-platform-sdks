@@ -1,0 +1,80 @@
+---
+title: "Meta Instagram User endpoints"
+description: "2 generated Meta endpoint contracts for Instagram User."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 282
+  label: "Instagram User"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.instagramUser.get
+
+`GET` `/{id}`
+
+GET InstagramUser
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `instagramUser.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `InstagramUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `adgroup_id` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.instagramUser.upcomingEvents
+
+`GET` `/{id}/upcoming_events`
+
+GET InstagramUser upcoming_events
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `instagramUser.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `IGUpcomingEventFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

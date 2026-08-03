@@ -1,0 +1,155 @@
+---
+title: "TikTok Business Page endpoints"
+description: "4 generated TikTok Business endpoint contracts for Page."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 151
+  label: "Page"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.page.oauth2AccessTokenTipSdkCreate
+
+`POST` `/open_api/v1.3/oauth2/access_token/tip_sdk/create/`
+
+Generated from TikTok documentation 1820826755283969
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `Oauth2AccessTokenTipSdkCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.page.oauth2AccessTokenTipSdkRenew
+
+`POST` `/open_api/v1.3/oauth2/access_token/tip_sdk/renew/`
+
+Generated from TikTok documentation 1820826847199234
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `Oauth2AccessTokenTipSdkRenewResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `tip_sdk_access_token` | `body` | `string` | Yes | No | A TIP Editor SDK access token. If you want to create a new TIP Editor SDK access token, use [/oauth2/access_token/tip_sdk/create/](https://business-api.tiktok.com/portal/docs?id=1820826755283969). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.page.oauth2AccessTokenTipSdkValidate
+
+`POST` `/open_api/v1.3/oauth2/access_token/tip_sdk/validate/`
+
+Generated from TikTok documentation 1820826826000385
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `Oauth2AccessTokenTipSdkValidateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `tip_sdk_access_token` | `body` | `string` | Yes | No | A TIP Editor SDK access token. If you want to create a new TIP Editor SDK access token, use [/oauth2/access_token/tip_sdk/create/](https://business-api.tiktok.com/portal/docs?id=1820826755283969). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.page.pageGet
+
+`GET` `/open_api/v1.3/page/get/`
+
+Generated from TikTok documentation 1820826387779586
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PageGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | No | No | Either `advertiser_id` or `library_id` has to be set. To get pages under an ad account, you must specify the advertiser ID. |
+| `library_id` | `query` | `string` | No | No | Either `advertiser_id` or `library_id` has to be set. To get pages under a Business Center, you must specify the ID of the form library that contains the page and leads. You can migrate pages and leads from an ad account to a Business Center. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-100. |
+| `status` | `query` | `"EDITED" \| "PUBLISHED"` | No | No | Page status. Enum values: `EDITED` (draft), `PUBLISHED` (ready). |
+| `title` | `query` | `string` | No | No | The page name for filtering results. This filter supports exact matches. |
+| `update_time_range` | `query` | `PageGetParamsUpdateTimeRange` | No | No | Filter for pages updated in the specified time range. |
+| `business_type` | `query` | `"LEAD_GEN" \| "STORE_FRONT" \| "APP_PROFILE_PAGE" \| "TIKTOK_INSTANT_PAGE" \| "SHOP_ADS_PLP" \| "SHOP_ADS_PDP" \| "POP_UP_FORM"` | No | No | Page type. Enum values: `LEAD_GEN`(Instant Form), `STORE_FRONT`(Storefront Page), `APP_PROFILE_PAGE` (App Profile Page),`TIKTOK_INSTANT_PAGE` (Custom Page or Custom TikTok Instant Page), `SHOP_ADS_PLP` (Shop Ads Product List Page), `SHOP_ADS_PDP` (Shop Ads Product Detail Page), `POP_UP_FORM`(Direct Message Page). Default value: `LEAD_GEN`. |
+| `business_types` | `query` | `Array<"LEAD_GEN" \| "STORE_FRONT" \| "APP_PROFILE_PAGE" \| "TIKTOK_INSTANT_PAGE" \| "SHOP_ADS_PLP" \| "SHOP_ADS_PDP" \| "POP_UP_FORM">` | No | No | Page types. Enum values: `LEAD_GEN`(Instant Form), `STORE_FRONT`(Storefront Page), `APP_PROFILE_PAGE` (App Profile Page),`TIKTOK_INSTANT_PAGE` (Custom Page or Custom TikTok Instant Page), `SHOP_ADS_PLP` (Shop Ads Product List Page), `SHOP_ADS_PDP` (Shop Ads Product Detail Page), `POP_UP_FORM`(Direct Message Page). Note: If it is passed concurrently with `business_type`, the value of `business_type` will be ignored. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,46 @@
+---
+title: "Meta CPAS Merchant Config endpoints"
+description: "1 generated Meta endpoint contract for CPAS Merchant Config."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 226
+  label: "CPAS Merchant Config"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.cPASMerchantConfig.get
+
+`GET` `/{id}`
+
+GET CPASMerchantConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASMerchantConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `CPASMerchantConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

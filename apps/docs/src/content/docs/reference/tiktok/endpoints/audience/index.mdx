@@ -1,0 +1,784 @@
+---
+title: "TikTok Business Audience endpoints"
+description: "21 generated TikTok Business endpoint contracts for Audience."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 108
+  label: "Audience"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.audience.audienceInsightInfo
+
+`POST` `/open_api/v1.3/audience/insight/info/`
+
+Generated from TikTok documentation 1797016593782785
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AudienceInsightInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_id` | `body` | `string` | No | No | You need pass in either `locations`or `custom_audience_id` in the request. Custom audience ID. Note:When `custom_audience_id` is specified, either `selected_audience` or `locations` cannot be used. Otherwise, an error will occur.The audience ID you input must belong to your specified advertisers. |
+| `locations` | `body` | `Array<AudienceInsightInfoParamsLocations>` | No | No | You need pass in either `locations`or `custom_audience_id` in the request. Locations. Max size : 5 Note: When `locations` is specified, `custom_audience_id` cannot be used. Otherwise, an error will occur. |
+| `dimensions` | `body` | `Array<string>` | Yes | No | Use this field to control which API response dimensions are returned. Enum values: `age`, `gender`, `country`, `top_regions`, `operating_system`, `operating_system_version`, `device_price`, `top_interests`, `bottom_interests`, `engagement`, `ad_interest_categories`, and `top_hashtags`. Note: Currently, you can input only one dimension for each API call. |
+| `selected_audience` | `body` | `AudienceInsightInfoParamsSelectedAudience` | No | No | The audience you want to filter for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.audienceInsightOverlap
+
+`GET` `/open_api/v1.3/audience/insight/overlap/`
+
+Generated from TikTok documentation 1797023590780930
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AudienceInsightOverlapResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `benchmark_custom_audience_id` | `query` | `string` | Yes | No | The ID of the custom audience that you select as the benchmark audience. Note: The audience ID that you input here must be accessible by your advertiser ID. Otherwise, an error will occur. |
+| `comparison_custom_audience_ids` | `query` | `Array<string>` | No | No | The IDs of the custom audience that you select as the comparison audience. Max size: 4. Note: The audience IDs that you input here must be accessible by your advertiser ID. Otherwise, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceApply
+
+`POST` `/open_api/v1.3/dmp/custom_audience/apply/`
+
+Generated from TikTok documentation 1758615097524225
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceApplyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_id` | `body` | `string` | Yes | No | Custom audience ID. You can only pass one custom audience ID. |
+| `adgroup_ids` | `body` | `Array<string>` | Yes | No | A list of ad group IDs. Note: `adgroup_ids` and `custom_audience_id` should be under the same advertiser account. Otherwise, an error will occur.Lookalike Audience cannot be used in Reach & Frequency ads. Otherwise, an error will occur. See below for more details. 1. If the `custom_audience_id` is a Lookalike Audience and the `adgroup_ids` are Reach & Frequency ad groups, an error will occur.2. If the `custom_audience_id` is a Lookalike Audience with the `REACH_FREQUENCY` audience subtype, an error will occur. |
+| `action_mode` | `body` | `string` | Yes | No | Specific operation to be performed on the audience. Enum values: `Apply`, `Disconnect`. |
+| `usage_mode` | `body` | `string` | No | No | Whether to include this audience in or exclude it from your ad groups. Required when `action_mode` is Apply. Enum values: `Include`, `Exclude`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceApplyLog
+
+`GET` `/open_api/v1.3/dmp/custom_audience/apply/log/`
+
+Generated from TikTok documentation 1758615737388033
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceApplyLogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `query` | `Array<string>` | Yes | No | A list of custom audience IDs. Note The advertiser must be the owner of the `custom_audience_ids`. Otherwise, an error will occur. You can use the `is_creator` field returned in [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) and [/dmp/custom_audience/get/](https://ads.tiktok.com/marketing_api/docs?id=1739940507792385) to check whether this advertiser is the owner of this audience. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. |
+| `timezone` | `query` | `string` | No | No | The timezone of returned value. For enum values, see [Appendix - Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). If not specified, UTC will be used. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceCreate
+
+`POST` `/open_api/v1.3/dmp/custom_audience/create/`
+
+Generated from TikTok documentation 1739940570793985
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `body` | `string` | Yes | No | Audience name. Maximum of 128 characters. |
+| `audience_sub_type` | `body` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL` Normal audience. It can be used in non-R&F ads. `REACH_FREQUENCY`: Audience for Reach & Frequency. It can only be used in R&F ads. Default: `NORMAL`. |
+| `file_paths` | `body` | `Array<string>` | Yes | No | List of file paths. The recommended size is to ensure a stable request. You can use [/dmp/custom_audience/update/](https://business-api.tiktok.com/portal/docs?id=1739940572667906) to append more data files to the audience. You get the `file_path` in response after you upload your file calling [Upload audience files](https://ads.tiktok.com/marketing_api/docs?id=1739940567842818) endpoint. |
+| `calculate_type` | `body` | `string` | Yes | No | Encryption type. `calculate_type` should be the same as all the files in the `file_path`, or you will not get a audience id or get an invalid audience id. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `retention_in_days` | `body` | `number` | No | No | Number of days to retain the audience. Value range: [1, 365]. Note:If this field is passed, the expiration date will be the specified number of retention days from the date when the audience was created. Any operations to the audience CANNOT reset the expiration date.If this field is not passed, the expiration date will be 365 days from the last time the audience was applied to an active ad group or modified. Applying the audience to an active ad group or modifying the audience will reset the expiration date. To learn about the actions that will reset the expiration date, refer to the Help Center article [Audience Expiration Policy](https://ads.tiktok.com/help/article/audience-expiration-policy?redirected=2). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceDelete
+
+`POST` `/open_api/v1.3/dmp/custom_audience/delete/`
+
+Generated from TikTok documentation 1739940539757569
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `body` | `Array<string>` | Yes | No | A list of Audience IDs. Length range is `[1, 100]`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceFileUpload
+
+`POST` `/open_api/v1.3/dmp/custom_audience/file/upload/`
+
+Generated from TikTok documentation 1739940567842818
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceFileUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `file` | `body` | `unknown` | Yes | No | Data files. Only supports CSV and TXT files. The file suffixes should exactly be `.csv` or `.txt`. |
+| `file_signature` | `body` | `string` | Yes | No | The file's MD5, which is used for server-side verification. |
+| `calculate_type` | `body` | `string` | Yes | No | Encryption type. The value for this field must be consistent with the actual file data. Otherwise, your upload will fail or you will not be able to create a valid audience. For enum values, see [Enumeration - Encryption Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceGet
+
+`GET` `/open_api/v1.3/dmp/custom_audience/get/`
+
+Generated from TikTok documentation 1739940507792385
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `query` | `Array<string>` | Yes | No | A list of Audience IDs. Length range is ` [1, 100] `. |
+| `history_size` | `query` | `number` | No | No | The size of the history data which the user requests. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceList
+
+`GET` `/open_api/v1.3/dmp/custom_audience/list/`
+
+Generated from TikTok documentation 1739940506015746
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `query` | `Array<string>` | No | No | A list of Audience IDs. Length range is [1, 100]. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: `1`. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Defaults is `10`. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceLookalikeCreate
+
+`POST` `/open_api/v1.3/dmp/custom_audience/lookalike/create/`
+
+Generated from TikTok documentation 1739940511844353
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceLookalikeCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `body` | `string` | Yes | No | Audience name. Maximum of 128 characters. |
+| `audience_sub_type` | `body` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL` Normal audience. It can be used in non-R&F ads. `REACH_FREQUENCY`: Audience for Reach & Frequency. It can only be used in R&F ads. Default: `NORMAL`. |
+| `lookalike_spec` | `body` | `DmpCustomAudienceLookalikeCreateParamsLookalikeSpec` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceLookalikeUpdate
+
+`POST` `/open_api/v1.3/dmp/custom_audience/lookalike/update/`
+
+Generated from TikTok documentation 1758616888158209
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceLookalikeUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_ids` | `body` | `Array<string>` | Yes | No | A list of custom audience IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceRuleCreate
+
+`POST` `/open_api/v1.3/dmp/custom_audience/rule/create/`
+
+Generated from TikTok documentation 1739940509849601
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceRuleCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_name` | `body` | `string` | Yes | No | Audience name. Length limit: 128 characters. |
+| `audience_type` | `body` | `"ENGAGEMENT" \| "ENGAGEMENT_ORGANIC_VIDEO" \| "ENGAGEMENT_LIVE_VIDEO" \| "APP" \| "PIXEL" \| "LEAD_GENERATION" \| "BUSINESS_ACCOUNT" \| "TIKTOK_SHOP" \| "OFFLINE"` | Yes | No | Audience type. Enum values:`ENGAGEMENT`: Engagement Audience (with asset type as ad groups). `ENGAGEMENT_ORGANIC_VIDEO`: Organic Engagement Audience (with asset type as public video).`ENGAGEMENT_LIVE_VIDEO`: Live Engagement Audience (with asset type as live video). `APP`: App Activity Audience. `PIXEL`: Website Traffic Audience.`LEAD_GENERATION`: Lead Generation Audience. `BUSINESS_ACCOUNT`: Business Account Audience.`TIKTOK_SHOP`: Shop Activity Audience.`OFFLINE`: Offline Activity Audience. |
+| `audience_sub_type` | `body` | `"NORMAL" \| "REACH_FREQUENCY"` | No | No | Audience sub type, indicating the type of ads that the audience can be used. Enum values: `NORMAL`: Audience for non-Reach & Frequency ads. `REACH_FREQUENCY`: Audience for Reach & Frequency ads. It can only be used in Reach & Frequency ads. Default value: `NORMAL`. |
+| `retention_in_days` | `body` | `number` | No | No | Number of days to retain the audience. Value range: 1-365. Note:If this field is passed, the expiration date will be the specified number of retention days from the date when the audience was created. Any operations to the audience CANNOT reset the expiration date.If this field is not passed, the expiration date will be 365 days from the last time the audience was applied to an active ad group or modified. Applying the audience to an active ad group or modifying the audience will reset the expiration date. To learn about the actions that will reset the expiration date, refer to the Help Center article [Audience Expiration Policy](https://ads.tiktok.com/help/article/audience-expiration-policy?redirected=2). |
+| `is_auto_refresh` | `body` | `boolean` | No | No | Whether to turn on the audience auto-refresh function. Supported values: `true`, `false`. Default value: `true`. If you enable this feature, your audience will automatically refresh to include the latest user data according to the lookback window you set. If you disable this feature, your audience will not automatically refresh. |
+| `identity_id` | `body` | `string` | No | No | Required when `audience_type` is `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`. Identity ID. |
+| `identity_type` | `body` | `"TT_USER" \| "BC_AUTH_TT"` | No | No | Required when `audience_type` is `ENGAGEMENT_LIVE_VIDEO` or `ENGAGEMENT_ORGANIC_VIDEO`. Identity type. Enum values: `TT_USER`, `BC_AUTH_TT` |
+| `identity_authorized_bc_id` | `body` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `rule_spec` | `body` | `DmpCustomAudienceRuleCreateParamsRuleSpec` | Yes | No | Rule of the audience. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceShare
+
+`POST` `/open_api/v1.3/dmp/custom_audience/share/`
+
+Generated from TikTok documentation 1740245803888706
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceShareResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_ids` | `body` | `Array<string>` | Yes | No | Custom audiences that you want to share. Size: 1-10. |
+| `shared_advertiser_ids` | `body` | `Array<string>` | Yes | No | Advertisers that you want to share audiences with. They must be in the same Business Center as you. Size: 1-10. |
+| `advertiser_id` | `body` | `string` | Yes | No | Operator advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceShareCancel
+
+`POST` `/open_api/v1.3/dmp/custom_audience/share/cancel/`
+
+Generated from TikTok documentation 1740245829978113
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceShareCancelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `body` | `string` | Yes | No | Custom audiences that you want to stop sharing. |
+| `shared_advertiser_id` | `body` | `string` | Yes | No | Advertisers that you want to stop sharing audiences with. |
+| `advertiser_id` | `body` | `string` | Yes | No | Operator advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceShareLog
+
+`GET` `/open_api/v1.3/dmp/custom_audience/share/log/`
+
+Generated from TikTok documentation 1740245827044354
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceShareLogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audience_id` | `query` | `string` | Yes | No | Custom audiences that you want to get sharing log for. |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpCustomAudienceUpdate
+
+`POST` `/open_api/v1.3/dmp/custom_audience/update/`
+
+Generated from TikTok documentation 1739940572667906
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpCustomAudienceUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_audience_id` | `body` | `string` | Yes | No | Custom audience ID. |
+| `custom_audience_name` | `body` | `string` | No | No | New name for the audience. Length limit: 128 characters. You must pass in either this field or `file_paths`. |
+| `audience_sub_type` | `body` | `"REACH_FREQUENCY" \| "NORMAL"` | No | No | Audience sub type, indicating the type of ads that the audience can be used for. The allowed enum value: `REACH_FREQUENCY`(To enable the audience to be used in Reach & Frequency campaigns). It means you can only convert audience sub type from `NORMAL` to `REACH_FREQUENCY`, but not the other way round. Note: If you update this field, changes to other data fields will be ignored.If you want to update a Lookalike audience, you cannot change the `audience_sub_type` to `REACH_FREQUENCY`. Otherwise, an error will occur. |
+| `file_paths` | `body` | `Array<string>` | No | No | The files you upload to update the Customer File audience. You must pass in either this field or `custom_audience_name`. The recommended size is per request to ensure stability. Once you pass in this field, you can specify the modification type (`APPEND`, `REMOVE` or `REPLACE`) via `action`. The files must be encrypted with the same encryption method/type with the audience that you want to update. |
+| `action` | `body` | `"APPEND" \| "REMOVE" \| "REPLACE"` | No | No | Modification type. This field is valid when `file_paths` is passed. Enum values: `APPEND`: Upload files to expand the Customer File audience. Only data not included in the original file will be added.`REMOVE`: Upload files to remove the Customer File audience. Only the data that coincide with the original file will be removed. `REPLACE`: Upload files to replace the Customer File audience. All the data in the original file will be replaced. Default value: `REPLACE`. Note: The `APPEND`, `REMOVE` and `REPLACE` operations will fail if the audience size is less than 1,000 after the operation. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpSavedAudienceCreate
+
+`POST` `/open_api/v1.3/dmp/saved_audience/create/`
+
+Generated from TikTok documentation 1780154541898754
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpSavedAudienceCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_name` | `body` | `string` | Yes | No | Saved Audience name. Character limit is 512 and cannot contain emoji. |
+| `location_ids` | `body` | `Array<string>` | Yes | No | IDs of the locations that you want to target. To get the available locations and corresponding IDs, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) or [/tool/targeting/search/](https://ads.tiktok.com/marketing_api/docs?id=1761236883355649) endpoint. Note: Overlapping targeted locations are not supported. For instance, you cannot target the U.S. and the state of California at the same time. |
+| `gender` | `body` | `"GENDER_FEMALE" \| "GENDER_MALE" \| "GENDER_UNLIMITED"` | No | No | Gender that you want to target. Enum values: `GENDER_FEMALE`,`GENDER_MALE`,`GENDER_UNLIMITED` |
+| `age_groups` | `body` | `Array<string>` | No | No | Age groups you want to target. For enum values, see [Enumeration - Targeting Age Group](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `languages` | `body` | `Array<string>` | No | No | Codes of the languages that you want to target. You can get language codes via [/tool/language/](https://ads.tiktok.com/marketing_api/docs?id=1737188554152962), and if you don't want to limit the languages you target, assign an empty value to this field or do not pass in this field. |
+| `audience_ids` | `body` | `Array<string>` | No | No | List of audience IDs. You can get audience IDs via the [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) endpoint. |
+| `excluded_audience_ids` | `body` | `Array<string>` | No | No | List of audience IDs to be excluded. You can get audience IDs via the [/dmp/custom_audience/list/](https://ads.tiktok.com/marketing_api/docs?id=1739940506015746) endpoint. |
+| `interest_category_ids` | `body` | `Array<string>` | No | No | Interest classification. You can use [/tool/target_recommend_tags/](https://ads.tiktok.com/marketing_api/docs?id=1736275204260866) to get a list of recommended interest categories based on your targeting regions and your industries, or use [/tool/interest_category/](https://ads.tiktok.com/marketing_api/docs?id=1737174348712961) endpoint to get the complete list of interest categories. If the interest is specified, users who do not meet the interest target will be excluded during delivery. Do not specify if you wish to target everyone. |
+| `interest_keyword_ids` | `body` | `Array<string>` | No | No | IDs of interest keywords that you want to use to target audience. You can use [/tool/interest_keyword/recommend/](https://ads.tiktok.com/marketing_api/docs?id=1763590884474882) to get recommended interest keywords. |
+| `actions` | `body` | `Array<DmpSavedAudienceCreateParamsActions>` | No | No | A list of action category objects. |
+| `operating_systems` | `body` | `Array<"ANDROID" \| "IOS">` | No | No | Device operating systems that you want to target. Enum values: `ANDROID`, `IOS`. Only one value is allowed. |
+| `min_android_version` | `body` | `string` | No | No | Minimum device Android version. For enum values, see [Enumeration - Minimum Android Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `min_ios_version` | `body` | `string` | No | No | Minimum iOS version. For enum values, see [Enumeration - Minimum iOS Version](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `device_model_ids` | `body` | `Array<string>` | No | No | IDs of the device models that you want to target. Use [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369) to get the complete list of device model IDs and their statuses, and only active devices (`is_active` = `true` in the response of [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369)) can be used to create ads. Note: Device model (`device_model_ids`) and device price (`device_price_ranges`) cannot be set at the same time. |
+| `network_types` | `body` | `Array<string>` | No | No | Device connection types that you want to target. Default: `unlimited`. For enum values, see [Enumeration - Connection Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Connection%20Type). |
+| `carrier_ids` | `body` | `Array<string>` | No | No | Carriers that you want to target. Use [/tool/carrier/](https://ads.tiktok.com/marketing_api/docs?id=1737168013095938) endpoint to get a list of carriers. A carrier is valid only when the `in_use` field for the carrier is `true`. The carriers must be consistent with the location(s) that you want to target. |
+| `device_price_ranges` | `body` | `Array<number>` | No | No | Targeting device price range. 10000 means 1000+. The numbers must be in multiples of 50. Important: The upper limit you set will be added by 50 and the resulting new number will be used as the actual upper limit for device targeting. The actual upper limit is shown in the ad group settings in TikTok Ads Manager. If you set and get the price range of [0, 250], it actually means [0, 300]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpSavedAudienceDelete
+
+`POST` `/open_api/v1.3/dmp/saved_audience/delete/`
+
+Generated from TikTok documentation 1780154666312706
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpSavedAudienceDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_ids` | `body` | `Array<string>` | Yes | No | IDs of Saved Audiences that you want to delete. Max size = 100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.dmpSavedAudienceList
+
+`GET` `/open_api/v1.3/dmp/saved_audience/list/`
+
+Generated from TikTok documentation 1780154619404290
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audience.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DmpSavedAudienceListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `saved_audience_ids` | `query` | `Array<string>` | No | No | IDs of Saved Audiences. Max size: 100. To create Saved Audiences and obtain the Saved Audience IDs, use [/dmp/saved_audience/create/](https://business-api.tiktok.com/portal/docs?id=1780154541898754). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.segmentAudience
+
+`POST` `/open_api/v1.3/segment/audience/`
+
+Generated from TikTok documentation 1739940583739393
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SegmentAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `action` | `body` | `string` | Yes | No | Type of action to be performed. Enum values: `create`: To create an audience segment. You will also need to include `custom_audience_name` in the request. `delete`: To delete an audience segment. You will also need to include `delete_audience_id` in the request. If no value is specified, the default value is `create`. |
+| `custom_audience_name` | `body` | `string` | No | No | Custom audience name of audience to be created. Please note that names over 70 characters will be truncated to 67 characters with "..." appended. This field is required when the value of `action` is `create`. |
+| `delete_audience_id` | `body` | `string` | No | No | Audience ID to be deleted. This field is required when the value of `action` is `delete`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.audience.segmentMapping
+
+`POST` `/open_api/v1.3/segment/mapping/`
+
+Generated from TikTok documentation 1739940585975809
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `audience.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SegmentMappingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | A list of advertiser IDs to make segment mappings, or delete existing segment mappings. All advertiser IDs must belong to the same business account. |
+| `action` | `body` | `string` | No | No | Type of action to be performed. Enum values:`add`: To add UIDs to an audience or a group of audiences.`delete`: To remove UIDs from an audience or a group of audiences. Default value: `add`. Note: UID refers tohashed Device ID ( `id_type`= `IDFA_MD5`, `AAID_MD5`, `IDFA_SHA256`, or `AAID_SHA256`).External user ID such as hashed email or hashed phone (`id_type`=`EMAIL_SHA256`,`PHONE_SHA256`) |
+| `id_schema` | `body` | `Array<"IDFA_MD5" \| "AAID_MD5" \| "IDFA_SHA256" \| "AAID_SHA256" \| "EMAIL_SHA256" \| "PHONE_SHA256">` | Yes | No | ID Types to be used for populating the audiences. Allowed values: `IDFA_MD5`: MD5 hash of an iOS IDFA.`AAID_MD5`: MD5 hash of an Android AAID/GAID.`IDFA_SHA256`: SHA256 iOS IDFA.`AAID_SHA256`: SHA256 Android AAID/GAID.`EMAIL_SHA256`: SHA256 hash of email ID. Refer to [Guidelines for identifier normalization](https://business-api.tiktok.com/portal/docs?id=1850030360880129) to learn about how to normalize your identifiers.`PHONE_SHA256`: SHA256 hash of a phone number in E.164 form, e.g. +1231234567. Note:Duplicate ID Types are not allowed.The ID Types can be provided in any order, and you can pass in the allowed values in lower case. |
+| `batch_data` | `body` | `string` | Yes | No | `batch_data` contains one or more of the following items as an array in JSON format. The field is used to add or delete multiple ID mapping (multiple audience IDs per user or device ). |
+| `id` | `body` | `string` | No | No | ID of a user or device. |
+| `audience_ids` | `body` | `Array<string>` | No | No | Array of `audience_id` to add or delete multiple ID mapping. Audience IDs must belong to at least one of the advertisers provided in the `advertiser_ids` field. Note: You can get `audience_id` via [/segment/audience/](https://ads.tiktok.com/marketing_api/docs?id=1739940583739393). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

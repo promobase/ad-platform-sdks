@@ -1,0 +1,46 @@
+---
+title: "Google Ads User List endpoints"
+description: "1 generated Google Ads endpoint contract for User List."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 207
+  label: "User List"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.userList.mutateUserLists
+
+`POST` `/v25/customers/{customer_id=*}/userLists:mutate`
+
+UserListService.MutateUserLists
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `userList.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateUserListsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateUserListsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

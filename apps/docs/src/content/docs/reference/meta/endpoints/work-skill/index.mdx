@@ -1,0 +1,79 @@
+---
+title: "Meta Work Skill endpoints"
+description: "2 generated Meta endpoint contracts for Work Skill."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 411
+  label: "Work Skill"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.workSkill.get
+
+`GET` `/{id}`
+
+GET WorkSkill
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `workSkill.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `WorkSkillFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.workSkill.users
+
+`GET` `/{id}/users`
+
+GET WorkSkill users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `workSkill.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `UserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

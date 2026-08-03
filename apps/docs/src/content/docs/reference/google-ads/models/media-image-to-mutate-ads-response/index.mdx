@@ -1,0 +1,1152 @@
+---
+title: "Google Ads models: Media Image – Mutate Ads Response"
+description: "100 generated Google Ads model contracts, from MediaImage through MutateAdsResponse."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1015
+  label: "Media Image – Mutate Ads Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## MediaImage
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `string` | No | No | — |
+| `full_size_image_url` | `full_size_image_url` | `string` | No | No | — |
+| `preview_size_image_url` | `preview_size_image_url` | `string` | No | No | — |
+
+## MediaType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `IMAGE`, `ICON`, `MEDIA_BUNDLE`, `AUDIO`, `VIDEO`, `DYNAMIC_IMAGE`
+
+## MediaTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MediaUploadError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FILE_TOO_BIG`, `UNPARSEABLE_IMAGE`, `ANIMATED_IMAGE_NOT_ALLOWED`, `FORMAT_NOT_ALLOWED`, `EXTERNAL_URL_NOT_ALLOWED`, `INVALID_URL_REFERENCE`, `MISSING_PRIMARY_MEDIA_BUNDLE_ENTRY`, `ANIMATED_VISUAL_EFFECT`, `ANIMATION_TOO_LONG`, `ASPECT_RATIO_NOT_ALLOWED`, `AUDIO_NOT_ALLOWED_IN_MEDIA_BUNDLE`, `CMYK_JPEG_NOT_ALLOWED`, `FLASH_NOT_ALLOWED`, `FRAME_RATE_TOO_HIGH`, `GOOGLE_WEB_DESIGNER_ZIP_FILE_NOT_PUBLISHED`, `IMAGE_CONSTRAINTS_VIOLATED`, `INVALID_MEDIA_BUNDLE`, `INVALID_MEDIA_BUNDLE_ENTRY`, `INVALID_MIME_TYPE`, `INVALID_PATH`, `LAYOUT_PROBLEM`, `MALFORMED_URL`, `MEDIA_BUNDLE_NOT_ALLOWED`, `MEDIA_BUNDLE_NOT_COMPATIBLE_TO_PRODUCT_TYPE`, `MEDIA_BUNDLE_REJECTED_BY_MULTIPLE_ASSET_SPECS`, `TOO_MANY_FILES_IN_MEDIA_BUNDLE`, `UNSUPPORTED_GOOGLE_WEB_DESIGNER_ENVIRONMENT`, `UNSUPPORTED_HTML5_FEATURE`, `URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT`, `VIDEO_FILE_NAME_TOO_LONG`, `VIDEO_MULTIPLE_FILES_WITH_SAME_NAME`, `VIDEO_NOT_ALLOWED_IN_MEDIA_BUNDLE`, `CANNOT_UPLOAD_MEDIA_TYPE_THROUGH_API`, `DIMENSIONS_NOT_ALLOWED`
+
+## MediaUploadErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MediaVideo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_duration_millis` | `ad_duration_millis` | `string` | No | No | — |
+| `youtube_video_id` | `youtube_video_id` | `string` | No | No | — |
+| `advertising_id_code` | `advertising_id_code` | `string` | No | No | — |
+| `isci_code` | `isci_code` | `string` | No | No | — |
+
+## MerchantCenterError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MERCHANT_ID_CANNOT_BE_ACCESSED`, `CUSTOMER_NOT_ALLOWED_FOR_SHOPPING_PERFORMANCE_MAX`
+
+## MerchantCenterErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MerchantCenterFeed
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `feed_label` | `feed_label` | `string` | No | No | — |
+
+## MerchantCenterIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant_center_id` | `merchant_center_id` | `string` | No | No | — |
+
+## MerchantCenterLinkInvitationIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant_center_id` | `merchant_center_id` | `string` | No | No | — |
+
+## MerchantInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `multi_client` | `multi_client` | `boolean` | No | No | — |
+
+## MessageDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | — |
+| `attachment_urls` | `attachment_urls` | `Array<string>` | No | No | — |
+
+## MessagingRestriction
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `restriction_text` | `restriction_text` | `string` | No | No | — |
+| `restriction_type` | `restriction_type` | `MessagingRestrictionType` | No | No | — |
+
+## MessagingRestrictionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `RESTRICTION_BASED_EXCLUSION`
+
+## MessagingRestrictionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MetricAttributes
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+
+## MetricGoal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metric` | `metric` | `ExperimentMetric` | No | No | — |
+| `direction` | `direction` | `ExperimentMetricDirection` | No | No | — |
+
+## Metrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `absolute_top_impression_percentage` | `absolute_top_impression_percentage` | `number` | No | No | — |
+| `active_view_cpm` | `active_view_cpm` | `number` | No | No | — |
+| `active_view_ctr` | `active_view_ctr` | `number` | No | No | — |
+| `active_view_impressions` | `active_view_impressions` | `string` | No | No | — |
+| `active_view_measurability` | `active_view_measurability` | `number` | No | No | — |
+| `active_view_measurable_cost_micros` | `active_view_measurable_cost_micros` | `string` | No | No | — |
+| `active_view_measurable_impressions` | `active_view_measurable_impressions` | `string` | No | No | — |
+| `active_view_viewability` | `active_view_viewability` | `number` | No | No | — |
+| `all_conversions_from_interactions_rate` | `all_conversions_from_interactions_rate` | `number` | No | No | — |
+| `all_conversions_value` | `all_conversions_value` | `number` | No | No | — |
+| `all_conversions_value_by_conversion_date` | `all_conversions_value_by_conversion_date` | `number` | No | No | — |
+| `all_new_customer_lifetime_value` | `all_new_customer_lifetime_value` | `number` | No | No | — |
+| `all_conversions` | `all_conversions` | `number` | No | No | — |
+| `all_conversions_by_conversion_date` | `all_conversions_by_conversion_date` | `number` | No | No | — |
+| `all_conversions_value_per_cost` | `all_conversions_value_per_cost` | `number` | No | No | — |
+| `all_conversions_from_click_to_call` | `all_conversions_from_click_to_call` | `number` | No | No | — |
+| `all_conversions_from_directions` | `all_conversions_from_directions` | `number` | No | No | — |
+| `all_conversions_from_interactions_value_per_interaction` | `all_conversions_from_interactions_value_per_interaction` | `number` | No | No | — |
+| `all_conversions_from_menu` | `all_conversions_from_menu` | `number` | No | No | — |
+| `all_conversions_from_order` | `all_conversions_from_order` | `number` | No | No | — |
+| `all_conversions_from_other_engagement` | `all_conversions_from_other_engagement` | `number` | No | No | — |
+| `all_conversions_from_store_visit` | `all_conversions_from_store_visit` | `number` | No | No | — |
+| `all_conversions_from_store_website` | `all_conversions_from_store_website` | `number` | No | No | — |
+| `auction_insight_search_absolute_top_impression_percentage` | `auction_insight_search_absolute_top_impression_percentage` | `number` | No | No | — |
+| `auction_insight_search_impression_share` | `auction_insight_search_impression_share` | `number` | No | No | — |
+| `auction_insight_search_outranking_share` | `auction_insight_search_outranking_share` | `number` | No | No | — |
+| `auction_insight_search_overlap_rate` | `auction_insight_search_overlap_rate` | `number` | No | No | — |
+| `auction_insight_search_position_above_rate` | `auction_insight_search_position_above_rate` | `number` | No | No | — |
+| `auction_insight_search_top_impression_percentage` | `auction_insight_search_top_impression_percentage` | `number` | No | No | — |
+| `average_cost` | `average_cost` | `number` | No | No | — |
+| `average_cpc` | `average_cpc` | `number` | No | No | — |
+| `average_cpe` | `average_cpe` | `number` | No | No | — |
+| `average_cpm` | `average_cpm` | `number` | No | No | — |
+| `trueview_average_cpv` | `trueview_average_cpv` | `number` | No | No | — |
+| `average_page_views` | `average_page_views` | `number` | No | No | — |
+| `average_time_on_site` | `average_time_on_site` | `number` | No | No | — |
+| `benchmark_average_max_cpc` | `benchmark_average_max_cpc` | `number` | No | No | — |
+| `biddable_app_install_conversions` | `biddable_app_install_conversions` | `number` | No | No | — |
+| `biddable_app_post_install_conversions` | `biddable_app_post_install_conversions` | `number` | No | No | — |
+| `biddable_cohort_app_post_install_conversions` | `biddable_cohort_app_post_install_conversions` | `number` | No | No | — |
+| `benchmark_ctr` | `benchmark_ctr` | `number` | No | No | — |
+| `bounce_rate` | `bounce_rate` | `number` | No | No | — |
+| `clicks` | `clicks` | `string` | No | No | — |
+| `control_clicks` | `control_clicks` | `string` | No | No | — |
+| `combined_clicks` | `combined_clicks` | `string` | No | No | — |
+| `combined_clicks_per_query` | `combined_clicks_per_query` | `number` | No | No | — |
+| `combined_queries` | `combined_queries` | `string` | No | No | — |
+| `content_budget_lost_impression_share` | `content_budget_lost_impression_share` | `number` | No | No | — |
+| `content_impression_share` | `content_impression_share` | `number` | No | No | — |
+| `conversion_last_received_request_date_time` | `conversion_last_received_request_date_time` | `string` | No | No | — |
+| `conversion_last_conversion_date` | `conversion_last_conversion_date` | `string` | No | No | — |
+| `content_rank_lost_impression_share` | `content_rank_lost_impression_share` | `number` | No | No | — |
+| `conversions_from_interactions_rate` | `conversions_from_interactions_rate` | `number` | No | No | — |
+| `conversions_value` | `conversions_value` | `number` | No | No | — |
+| `conversions_value_by_conversion_date` | `conversions_value_by_conversion_date` | `number` | No | No | — |
+| `new_customer_lifetime_value` | `new_customer_lifetime_value` | `number` | No | No | — |
+| `conversions_value_per_cost` | `conversions_value_per_cost` | `number` | No | No | — |
+| `conversions_from_interactions_value_per_interaction` | `conversions_from_interactions_value_per_interaction` | `number` | No | No | — |
+| `conversions` | `conversions` | `number` | No | No | — |
+| `conversions_by_conversion_date` | `conversions_by_conversion_date` | `number` | No | No | — |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `cost_per_all_conversions` | `cost_per_all_conversions` | `number` | No | No | — |
+| `cost_per_conversion` | `cost_per_conversion` | `number` | No | No | — |
+| `cost_per_current_model_attributed_conversion` | `cost_per_current_model_attributed_conversion` | `number` | No | No | — |
+| `cross_device_conversions` | `cross_device_conversions` | `number` | No | No | — |
+| `cross_device_conversions_by_conversion_date` | `cross_device_conversions_by_conversion_date` | `number` | No | No | — |
+| `cross_device_conversions_value` | `cross_device_conversions_value` | `number` | No | No | — |
+| `cross_device_conversions_value_micros` | `cross_device_conversions_value_micros` | `string` | No | No | — |
+| `cross_device_conversions_value_by_conversion_date` | `cross_device_conversions_value_by_conversion_date` | `number` | No | No | — |
+| `ctr` | `ctr` | `number` | No | No | — |
+| `current_model_attributed_conversions` | `current_model_attributed_conversions` | `number` | No | No | — |
+| `current_model_attributed_conversions_from_interactions_rate` | `current_model_attributed_conversions_from_interactions_rate` | `number` | No | No | — |
+| `current_model_attributed_conversions_from_interactions_value_per_interaction` | `current_model_attributed_conversions_from_interactions_value_per_interaction` | `number` | No | No | — |
+| `current_model_attributed_conversions_value` | `current_model_attributed_conversions_value` | `number` | No | No | — |
+| `current_model_attributed_conversions_value_per_cost` | `current_model_attributed_conversions_value_per_cost` | `number` | No | No | — |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | — |
+| `engagements` | `engagements` | `string` | No | No | — |
+| `hotel_average_lead_value_micros` | `hotel_average_lead_value_micros` | `number` | No | No | — |
+| `hotel_commission_rate_micros` | `hotel_commission_rate_micros` | `string` | No | No | — |
+| `hotel_expected_commission_cost` | `hotel_expected_commission_cost` | `number` | No | No | — |
+| `hotel_price_difference_percentage` | `hotel_price_difference_percentage` | `number` | No | No | — |
+| `hotel_eligible_impressions` | `hotel_eligible_impressions` | `string` | No | No | — |
+| `historical_creative_quality_score` | `historical_creative_quality_score` | `QualityScoreBucket` | No | No | — |
+| `historical_landing_page_quality_score` | `historical_landing_page_quality_score` | `QualityScoreBucket` | No | No | — |
+| `historical_quality_score` | `historical_quality_score` | `string` | No | No | — |
+| `historical_search_predicted_ctr` | `historical_search_predicted_ctr` | `QualityScoreBucket` | No | No | — |
+| `gmail_forwards` | `gmail_forwards` | `string` | No | No | — |
+| `gmail_saves` | `gmail_saves` | `string` | No | No | — |
+| `gmail_secondary_clicks` | `gmail_secondary_clicks` | `string` | No | No | — |
+| `impressions_from_store_reach` | `impressions_from_store_reach` | `string` | No | No | — |
+| `impressions` | `impressions` | `string` | No | No | — |
+| `interaction_rate` | `interaction_rate` | `number` | No | No | — |
+| `interactions` | `interactions` | `string` | No | No | — |
+| `interaction_event_types` | `interaction_event_types` | `Array<InteractionEventType>` | No | No | — |
+| `invalid_click_rate` | `invalid_click_rate` | `number` | No | No | — |
+| `invalid_clicks` | `invalid_clicks` | `string` | No | No | — |
+| `general_invalid_click_rate` | `general_invalid_click_rate` | `number` | No | No | — |
+| `general_invalid_clicks` | `general_invalid_clicks` | `string` | No | No | — |
+| `message_chats` | `message_chats` | `string` | No | No | — |
+| `message_impressions` | `message_impressions` | `string` | No | No | — |
+| `message_chat_rate` | `message_chat_rate` | `number` | No | No | — |
+| `mobile_friendly_clicks_percentage` | `mobile_friendly_clicks_percentage` | `number` | No | No | — |
+| `optimization_score_uplift` | `optimization_score_uplift` | `number` | No | No | — |
+| `optimization_score_url` | `optimization_score_url` | `string` | No | No | — |
+| `organic_clicks` | `organic_clicks` | `string` | No | No | — |
+| `organic_clicks_per_query` | `organic_clicks_per_query` | `number` | No | No | — |
+| `organic_impressions` | `organic_impressions` | `string` | No | No | — |
+| `organic_impressions_per_query` | `organic_impressions_per_query` | `number` | No | No | — |
+| `organic_queries` | `organic_queries` | `string` | No | No | — |
+| `percent_new_visitors` | `percent_new_visitors` | `number` | No | No | — |
+| `phone_calls` | `phone_calls` | `string` | No | No | — |
+| `phone_impressions` | `phone_impressions` | `string` | No | No | — |
+| `phone_through_rate` | `phone_through_rate` | `number` | No | No | — |
+| `relative_ctr` | `relative_ctr` | `number` | No | No | — |
+| `search_absolute_top_impression_share` | `search_absolute_top_impression_share` | `number` | No | No | — |
+| `search_budget_lost_absolute_top_impression_share` | `search_budget_lost_absolute_top_impression_share` | `number` | No | No | — |
+| `search_budget_lost_impression_share` | `search_budget_lost_impression_share` | `number` | No | No | — |
+| `search_budget_lost_top_impression_share` | `search_budget_lost_top_impression_share` | `number` | No | No | — |
+| `search_click_share` | `search_click_share` | `number` | No | No | — |
+| `search_exact_match_impression_share` | `search_exact_match_impression_share` | `number` | No | No | — |
+| `search_impression_share` | `search_impression_share` | `number` | No | No | — |
+| `search_rank_lost_absolute_top_impression_share` | `search_rank_lost_absolute_top_impression_share` | `number` | No | No | — |
+| `search_rank_lost_impression_share` | `search_rank_lost_impression_share` | `number` | No | No | — |
+| `search_rank_lost_top_impression_share` | `search_rank_lost_top_impression_share` | `number` | No | No | — |
+| `search_top_impression_share` | `search_top_impression_share` | `number` | No | No | — |
+| `search_volume` | `search_volume` | `unknown` | No | No | — |
+| `speed_score` | `speed_score` | `string` | No | No | — |
+| `average_target_cpa_micros` | `average_target_cpa_micros` | `string` | No | No | — |
+| `average_target_roas` | `average_target_roas` | `number` | No | No | — |
+| `top_impression_percentage` | `top_impression_percentage` | `number` | No | No | — |
+| `valid_accelerated_mobile_pages_clicks_percentage` | `valid_accelerated_mobile_pages_clicks_percentage` | `number` | No | No | — |
+| `value_per_all_conversions` | `value_per_all_conversions` | `number` | No | No | — |
+| `value_per_all_conversions_by_conversion_date` | `value_per_all_conversions_by_conversion_date` | `number` | No | No | — |
+| `value_per_conversion` | `value_per_conversion` | `number` | No | No | — |
+| `value_per_conversions_by_conversion_date` | `value_per_conversions_by_conversion_date` | `number` | No | No | — |
+| `value_per_current_model_attributed_conversion` | `value_per_current_model_attributed_conversion` | `number` | No | No | — |
+| `video_quartile_p100_rate` | `video_quartile_p100_rate` | `number` | No | No | — |
+| `video_quartile_p25_rate` | `video_quartile_p25_rate` | `number` | No | No | — |
+| `video_quartile_p50_rate` | `video_quartile_p50_rate` | `number` | No | No | — |
+| `video_quartile_p75_rate` | `video_quartile_p75_rate` | `number` | No | No | — |
+| `video_trueview_view_rate` | `video_trueview_view_rate` | `number` | No | No | — |
+| `video_trueview_views` | `video_trueview_views` | `string` | No | No | — |
+| `view_through_conversions` | `view_through_conversions` | `string` | No | No | — |
+| `sk_ad_network_installs` | `sk_ad_network_installs` | `string` | No | No | — |
+| `sk_ad_network_total_conversions` | `sk_ad_network_total_conversions` | `string` | No | No | — |
+| `publisher_purchased_clicks` | `publisher_purchased_clicks` | `string` | No | No | — |
+| `publisher_organic_clicks` | `publisher_organic_clicks` | `string` | No | No | — |
+| `publisher_unknown_clicks` | `publisher_unknown_clicks` | `string` | No | No | — |
+| `all_conversions_from_location_asset_click_to_call` | `all_conversions_from_location_asset_click_to_call` | `number` | No | No | — |
+| `all_conversions_from_location_asset_directions` | `all_conversions_from_location_asset_directions` | `number` | No | No | — |
+| `all_conversions_from_location_asset_menu` | `all_conversions_from_location_asset_menu` | `number` | No | No | — |
+| `all_conversions_from_location_asset_order` | `all_conversions_from_location_asset_order` | `number` | No | No | — |
+| `all_conversions_from_location_asset_other_engagement` | `all_conversions_from_location_asset_other_engagement` | `number` | No | No | — |
+| `all_conversions_from_location_asset_store_visits` | `all_conversions_from_location_asset_store_visits` | `number` | No | No | — |
+| `all_conversions_from_location_asset_website` | `all_conversions_from_location_asset_website` | `number` | No | No | — |
+| `eligible_impressions_from_location_asset_store_reach` | `eligible_impressions_from_location_asset_store_reach` | `string` | No | No | — |
+| `view_through_conversions_from_location_asset_click_to_call` | `view_through_conversions_from_location_asset_click_to_call` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_directions` | `view_through_conversions_from_location_asset_directions` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_menu` | `view_through_conversions_from_location_asset_menu` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_order` | `view_through_conversions_from_location_asset_order` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_other_engagement` | `view_through_conversions_from_location_asset_other_engagement` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_store_visits` | `view_through_conversions_from_location_asset_store_visits` | `number` | No | No | — |
+| `view_through_conversions_from_location_asset_website` | `view_through_conversions_from_location_asset_website` | `number` | No | No | — |
+| `orders` | `orders` | `number` | No | No | — |
+| `average_order_value_micros` | `average_order_value_micros` | `string` | No | No | — |
+| `average_cart_size` | `average_cart_size` | `number` | No | No | — |
+| `cost_of_goods_sold_micros` | `cost_of_goods_sold_micros` | `string` | No | No | — |
+| `gross_profit_micros` | `gross_profit_micros` | `string` | No | No | — |
+| `gross_profit_margin` | `gross_profit_margin` | `number` | No | No | — |
+| `revenue_micros` | `revenue_micros` | `string` | No | No | — |
+| `units_sold` | `units_sold` | `number` | No | No | — |
+| `cross_sell_cost_of_goods_sold_micros` | `cross_sell_cost_of_goods_sold_micros` | `string` | No | No | — |
+| `cross_sell_gross_profit_micros` | `cross_sell_gross_profit_micros` | `string` | No | No | — |
+| `cross_sell_revenue_micros` | `cross_sell_revenue_micros` | `string` | No | No | — |
+| `cross_sell_units_sold` | `cross_sell_units_sold` | `number` | No | No | — |
+| `lead_cost_of_goods_sold_micros` | `lead_cost_of_goods_sold_micros` | `string` | No | No | — |
+| `lead_gross_profit_micros` | `lead_gross_profit_micros` | `string` | No | No | — |
+| `lead_revenue_micros` | `lead_revenue_micros` | `string` | No | No | — |
+| `lead_units_sold` | `lead_units_sold` | `number` | No | No | — |
+| `unique_users` | `unique_users` | `string` | No | No | — |
+| `average_impression_frequency_per_user` | `average_impression_frequency_per_user` | `number` | No | No | — |
+| `linked_entities_count` | `linked_entities_count` | `string` | No | No | — |
+| `linked_sample_entities` | `linked_sample_entities` | `Array<string>` | No | No | — |
+| `asset_pinned_total_count` | `asset_pinned_total_count` | `string` | No | No | — |
+| `asset_pinned_as_headline_position_one_count` | `asset_pinned_as_headline_position_one_count` | `string` | No | No | — |
+| `asset_pinned_as_headline_position_two_count` | `asset_pinned_as_headline_position_two_count` | `string` | No | No | — |
+| `asset_pinned_as_headline_position_three_count` | `asset_pinned_as_headline_position_three_count` | `string` | No | No | — |
+| `asset_pinned_as_description_position_one_count` | `asset_pinned_as_description_position_one_count` | `string` | No | No | — |
+| `asset_pinned_as_description_position_two_count` | `asset_pinned_as_description_position_two_count` | `string` | No | No | — |
+| `store_visits_last_click_model_attributed_conversions` | `store_visits_last_click_model_attributed_conversions` | `number` | No | No | — |
+| `results_conversions_purchase` | `results_conversions_purchase` | `number` | No | No | — |
+| `video_trueview_view_rate_in_feed` | `video_trueview_view_rate_in_feed` | `number` | No | No | — |
+| `video_trueview_view_rate_in_stream` | `video_trueview_view_rate_in_stream` | `number` | No | No | — |
+| `video_trueview_view_rate_shorts` | `video_trueview_view_rate_shorts` | `number` | No | No | — |
+| `coviewed_impressions` | `coviewed_impressions` | `string` | No | No | — |
+| `primary_impressions` | `primary_impressions` | `string` | No | No | — |
+| `platform_comparable_conversions_from_interactions_rate` | `platform_comparable_conversions_from_interactions_rate` | `number` | No | No | — |
+| `platform_comparable_conversions` | `platform_comparable_conversions` | `number` | No | No | — |
+| `platform_comparable_conversions_value` | `platform_comparable_conversions_value` | `number` | No | No | — |
+| `platform_comparable_conversions_value_per_cost` | `platform_comparable_conversions_value_per_cost` | `number` | No | No | — |
+| `platform_comparable_conversions_by_conversion_date` | `platform_comparable_conversions_by_conversion_date` | `number` | No | No | — |
+| `platform_comparable_conversions_value_by_conversion_date` | `platform_comparable_conversions_value_by_conversion_date` | `number` | No | No | — |
+| `platform_comparable_conversions_from_interactions_value_per_interaction` | `platform_comparable_conversions_from_interactions_value_per_interaction` | `number` | No | No | — |
+| `cost_per_platform_comparable_conversion` | `cost_per_platform_comparable_conversion` | `number` | No | No | — |
+| `value_per_platform_comparable_conversion` | `value_per_platform_comparable_conversion` | `number` | No | No | — |
+| `value_per_platform_comparable_conversions_by_conversion_date` | `value_per_platform_comparable_conversions_by_conversion_date` | `number` | No | No | — |
+| `cost_converted_currency_per_platform_comparable_conversion` | `cost_converted_currency_per_platform_comparable_conversion` | `number` | No | No | — |
+| `unique_users_two_plus` | `unique_users_two_plus` | `string` | No | No | — |
+| `unique_users_three_plus` | `unique_users_three_plus` | `string` | No | No | — |
+| `unique_users_four_plus` | `unique_users_four_plus` | `string` | No | No | — |
+| `unique_users_five_plus` | `unique_users_five_plus` | `string` | No | No | — |
+| `unique_users_ten_plus` | `unique_users_ten_plus` | `string` | No | No | — |
+| `value_adjustment` | `value_adjustment` | `number` | No | No | — |
+| `all_value_adjustment` | `all_value_adjustment` | `number` | No | No | — |
+| `clicks_unique_query_clusters` | `clicks_unique_query_clusters` | `string` | No | No | — |
+| `conversions_unique_query_clusters` | `conversions_unique_query_clusters` | `string` | No | No | — |
+| `impressions_unique_query_clusters` | `impressions_unique_query_clusters` | `string` | No | No | — |
+| `video_watch_time_duration_millis` | `video_watch_time_duration_millis` | `string` | No | No | — |
+| `average_video_watch_time_duration_millis` | `average_video_watch_time_duration_millis` | `string` | No | No | — |
+| `svr` | `svr` | `string` | No | No | — |
+| `active_view_audibility_measurable_impressions` | `active_view_audibility_measurable_impressions` | `string` | No | No | — |
+| `active_view_audibility_measurable_impressions_rate` | `active_view_audibility_measurable_impressions_rate` | `number` | No | No | — |
+| `active_view_audibility_invalid_measurable_impressions_rate` | `active_view_audibility_invalid_measurable_impressions_rate` | `number` | No | No | — |
+| `active_view_audibility_invalid_givt_measurable_impressions_rate` | `active_view_audibility_invalid_givt_measurable_impressions_rate` | `number` | No | No | — |
+| `active_view_audible_impressions` | `active_view_audible_impressions` | `string` | No | No | — |
+| `active_view_audible_impressions_rate` | `active_view_audible_impressions_rate` | `number` | No | No | — |
+| `active_view_audible_two_seconds_impressions` | `active_view_audible_two_seconds_impressions` | `string` | No | No | — |
+| `active_view_audible_two_seconds_impressions_rate` | `active_view_audible_two_seconds_impressions_rate` | `number` | No | No | — |
+| `active_view_audible_thirty_seconds_impressions` | `active_view_audible_thirty_seconds_impressions` | `string` | No | No | — |
+| `active_view_audible_thirty_seconds_impressions_rate` | `active_view_audible_thirty_seconds_impressions_rate` | `number` | No | No | — |
+| `active_view_audible_quartile_p25_rate` | `active_view_audible_quartile_p25_rate` | `number` | No | No | — |
+| `active_view_audible_quartile_p50_rate` | `active_view_audible_quartile_p50_rate` | `number` | No | No | — |
+| `active_view_audible_quartile_p75_rate` | `active_view_audible_quartile_p75_rate` | `number` | No | No | — |
+| `active_view_audible_quartile_p100_rate` | `active_view_audible_quartile_p100_rate` | `number` | No | No | — |
+| `biddable_indirect_install_first_in_app_conversion_micros` | `biddable_indirect_install_first_in_app_conversion_micros` | `string` | No | No | — |
+| `all_average_cart_size` | `all_average_cart_size` | `number` | No | No | — |
+| `all_average_order_value_micros` | `all_average_order_value_micros` | `string` | No | No | — |
+| `all_cost_of_goods_sold_micros` | `all_cost_of_goods_sold_micros` | `string` | No | No | — |
+| `all_cross_sell_cost_of_goods_sold_micros` | `all_cross_sell_cost_of_goods_sold_micros` | `string` | No | No | — |
+| `all_cross_sell_gross_profit_micros` | `all_cross_sell_gross_profit_micros` | `string` | No | No | — |
+| `all_cross_sell_revenue_micros` | `all_cross_sell_revenue_micros` | `string` | No | No | — |
+| `all_cross_sell_units_sold` | `all_cross_sell_units_sold` | `number` | No | No | — |
+| `all_gross_profit_margin` | `all_gross_profit_margin` | `number` | No | No | — |
+| `all_gross_profit_micros` | `all_gross_profit_micros` | `string` | No | No | — |
+| `all_lead_cost_of_goods_sold_micros` | `all_lead_cost_of_goods_sold_micros` | `string` | No | No | — |
+| `all_lead_gross_profit_micros` | `all_lead_gross_profit_micros` | `string` | No | No | — |
+| `all_lead_revenue_micros` | `all_lead_revenue_micros` | `string` | No | No | — |
+| `all_lead_units_sold` | `all_lead_units_sold` | `number` | No | No | — |
+| `all_orders` | `all_orders` | `number` | No | No | — |
+| `all_revenue_micros` | `all_revenue_micros` | `string` | No | No | — |
+| `all_units_sold` | `all_units_sold` | `number` | No | No | — |
+| `control_cost_per_conversion` | `control_cost_per_conversion` | `number` | No | No | — |
+| `cost_per_conversion_margin_of_error` | `cost_per_conversion_margin_of_error` | `number` | No | No | — |
+| `cost_per_conversion_p_value` | `cost_per_conversion_p_value` | `number` | No | No | — |
+| `cost_per_conversion_change_point_estimate` | `cost_per_conversion_change_point_estimate` | `number` | No | No | — |
+| `control_conversions` | `control_conversions` | `number` | No | No | — |
+| `conversions_absolute_change_margin_of_error` | `conversions_absolute_change_margin_of_error` | `number` | No | No | — |
+| `conversions_absolute_change_p_value` | `conversions_absolute_change_p_value` | `number` | No | No | — |
+| `conversions_absolute_change_point_estimate` | `conversions_absolute_change_point_estimate` | `number` | No | No | — |
+| `control_conversion_value_per_cost` | `control_conversion_value_per_cost` | `number` | No | No | — |
+| `conversion_value_per_cost_margin_of_error` | `conversion_value_per_cost_margin_of_error` | `number` | No | No | — |
+| `conversion_value_per_cost_p_value` | `conversion_value_per_cost_p_value` | `number` | No | No | — |
+| `conversion_value_per_cost_change_point_estimate` | `conversion_value_per_cost_change_point_estimate` | `number` | No | No | — |
+| `control_cost_micros` | `control_cost_micros` | `string` | No | No | — |
+| `cost_micros_margin_of_error` | `cost_micros_margin_of_error` | `number` | No | No | — |
+| `cost_micros_p_value` | `cost_micros_p_value` | `number` | No | No | — |
+| `cost_micros_change_point_estimate` | `cost_micros_change_point_estimate` | `number` | No | No | — |
+| `control_impressions` | `control_impressions` | `string` | No | No | — |
+| `impressions_margin_of_error` | `impressions_margin_of_error` | `number` | No | No | — |
+| `impressions_p_value` | `impressions_p_value` | `number` | No | No | — |
+| `impressions_point_estimate` | `impressions_point_estimate` | `number` | No | No | — |
+| `clicks_margin_of_error` | `clicks_margin_of_error` | `number` | No | No | — |
+| `clicks_p_value` | `clicks_p_value` | `number` | No | No | — |
+| `clicks_point_estimate` | `clicks_point_estimate` | `number` | No | No | — |
+| `control_conversion_value` | `control_conversion_value` | `number` | No | No | — |
+| `conversion_value_margin_of_error` | `conversion_value_margin_of_error` | `number` | No | No | — |
+| `conversion_value_p_value` | `conversion_value_p_value` | `number` | No | No | — |
+| `conversion_value_change_point_estimate` | `conversion_value_change_point_estimate` | `number` | No | No | — |
+| `youtube_comments` | `youtube_comments` | `string` | No | No | — |
+| `youtube_likes` | `youtube_likes` | `string` | No | No | — |
+| `youtube_shares` | `youtube_shares` | `string` | No | No | — |
+
+## MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `apply_link` | `apply_link` | `string` | No | No | — |
+
+## MimeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `IMAGE_JPEG`, `IMAGE_GIF`, `IMAGE_PNG`, `FLASH`, `TEXT_HTML`, `PDF`, `MSWORD`, `MSEXCEL`, `RTF`, `AUDIO_WAV`, `AUDIO_MP3`, `HTML5_AD_ZIP`
+
+## MimeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MinuteOfHour
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ZERO`, `FIFTEEN`, `THIRTY`, `FORTY_FIVE`
+
+## MinuteOfHourEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MobileAppAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_store` | `app_store` | `MobileAppVendor` | No | No | — |
+| `link_text` | `link_text` | `string` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+
+## MobileAppCategoryConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `integer` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## MobileAppCategoryInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mobile_app_category_constant` | `mobile_app_category_constant` | `string` | No | No | — |
+
+## MobileApplicationInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## MobileAppVendor
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APPLE_APP_STORE`, `GOOGLE_APP_STORE`
+
+## MobileAppVendorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MobileDeviceConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `manufacturer_name` | `manufacturer_name` | `string` | No | No | — |
+| `operating_system_name` | `operating_system_name` | `string` | No | No | — |
+| `type` | `type` | `MobileDeviceType` | No | No | — |
+
+## MobileDeviceInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mobile_device_constant` | `mobile_device_constant` | `string` | No | No | — |
+
+## MobileDevicePlatform
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ANDROID`, `IOS`, `OTHER_MOBILE`, `DESKTOP`
+
+## MobileDevicePlatformEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MobileDeviceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MOBILE`, `TABLET`
+
+## MobileDeviceTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Money
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+
+## MonthlySearchVolume
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `year` | `year` | `string` | No | No | — |
+| `month` | `month` | `MonthOfYear` | No | No | — |
+| `monthly_searches` | `monthly_searches` | `string` | No | No | — |
+
+## MonthOfYear
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, `DECEMBER`
+
+## MonthOfYearEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MoveManagerLinkRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `previous_customer_manager_link` | `previous_customer_manager_link` | `string` | No | No | — |
+| `new_manager` | `new_manager` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MoveManagerLinkResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MoveUnusedBudgetParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_micros_to_move` | `budget_micros_to_move` | `string` | No | No | — |
+
+## MoveUnusedBudgetRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `excess_campaign_budget` | `excess_campaign_budget` | `string` | No | No | — |
+| `budget_recommendation` | `budget_recommendation` | `unknown` | No | No | — |
+
+## MultiPartyAuthOperationType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CREATE`, `UPDATE`, `REMOVE`
+
+## MultiPartyAuthOperationTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MultiPartyAuthReview
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `multi_party_auth_review_id` | `multi_party_auth_review_id` | `string` | No | No | — |
+| `creation_date_time` | `creation_date_time` | `string` | No | No | — |
+| `review_status` | `review_status` | `MultiPartyAuthReviewStatus` | No | No | — |
+| `approval_date_time` | `approval_date_time` | `string` | No | No | — |
+| `justification` | `justification` | `string` | No | No | — |
+| `request_user_email` | `request_user_email` | `string` | No | No | — |
+| `operation_type` | `operation_type` | `MultiPartyAuthOperationType` | No | No | — |
+| `target_resource` | `target_resource` | `MultiPartyAuthReviewTargetResource` | No | No | — |
+| `customer_user_access_review` | `customer_user_access_review` | `unknown` | No | No | — |
+| `customer_user_access_invitation_review` | `customer_user_access_invitation_review` | `unknown` | No | No | — |
+
+## MultiPartyAuthReviewError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACCESS_INVITATION_NOT_FOUND`, `ACCESS_INVITATION_INVALID_STATUS`, `INVALID_STATUS_TRANSITION`, `PERMISSION_DENIED`
+
+## MultiPartyAuthReviewErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MultiPartyAuthReviewStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APPROVED`, `PENDING`, `REVOKED`, `REJECTED`, `EXPIRED`
+
+## MultiPartyAuthReviewStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MultiPartyAuthReviewTargetResource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER_USER_ACCESS`, `CUSTOMER_USER_ACCESS_INVITATION`
+
+## MultiPartyAuthReviewTargetResourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MultiplierError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MULTIPLIER_TOO_HIGH`, `MULTIPLIER_TOO_LOW`, `TOO_MANY_FRACTIONAL_DIGITS`, `MULTIPLIER_NOT_ALLOWED_FOR_BIDDING_STRATEGY`, `MULTIPLIER_NOT_ALLOWED_WHEN_BASE_BID_IS_MISSING`, `NO_MULTIPLIER_SPECIFIED`, `MULTIPLIER_CAUSES_BID_TO_EXCEED_DAILY_BUDGET`, `MULTIPLIER_CAUSES_BID_TO_EXCEED_MONTHLY_BUDGET`, `MULTIPLIER_CAUSES_BID_TO_EXCEED_CUSTOM_BUDGET`, `MULTIPLIER_CAUSES_BID_TO_EXCEED_MAX_ALLOWED_BID`, `BID_LESS_THAN_MIN_ALLOWED_BID_WITH_MULTIPLIER`, `MULTIPLIER_AND_BIDDING_STRATEGY_TYPE_MISMATCH`
+
+## MultiplierErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## MutateAccountBudgetProposalRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operation` | `operation` | `unknown` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAccountBudgetProposalResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result` | `result` | `unknown` | No | No | — |
+
+## MutateAccountBudgetProposalResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MutateAccountLinkRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operation` | `operation` | `unknown` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAccountLinkResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result` | `result` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## MutateAccountLinkResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MutateAdGroupAdLabelResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MutateAdGroupAdLabelsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAdGroupAdLabelsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupAdResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `AdGroupAd` | No | No | — |
+
+## MutateAdGroupAdsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupAdsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupAssetResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_asset` | `ad_group_asset` | `AdGroupAsset` | No | No | — |
+
+## MutateAdGroupAssetSetResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_asset_set` | `ad_group_asset_set` | `AdGroupAssetSet` | No | No | — |
+
+## MutateAdGroupAssetSetsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupAssetSetsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## MutateAdGroupAssetsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupAssetsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupBidModifierResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_bid_modifier` | `ad_group_bid_modifier` | `AdGroupBidModifier` | No | No | — |
+
+## MutateAdGroupBidModifiersRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupBidModifiersResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupCriteriaRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupCriteriaResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupCriterionCustomizerResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_criterion_customizer` | `ad_group_criterion_customizer` | `AdGroupCriterionCustomizer` | No | No | — |
+
+## MutateAdGroupCriterionCustomizersRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupCriterionCustomizersResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## MutateAdGroupCriterionLabelResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MutateAdGroupCriterionLabelsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAdGroupCriterionLabelsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupCriterionResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `AdGroupCriterion` | No | No | — |
+
+## MutateAdGroupCustomizerResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_customizer` | `ad_group_customizer` | `AdGroupCustomizer` | No | No | — |
+
+## MutateAdGroupCustomizersRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupCustomizersResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## MutateAdGroupLabelResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## MutateAdGroupLabelsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAdGroupLabelsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdGroupResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `AdGroup` | No | No | — |
+
+## MutateAdGroupsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdGroupsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdParameterResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_parameter` | `ad_parameter` | `AdParameter` | No | No | — |
+
+## MutateAdParametersRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## MutateAdParametersResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## MutateAdResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad` | `ad` | `Ad` | No | No | — |
+
+## MutateAdsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## MutateAdsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<unknown>` | No | No | — |

@@ -1,0 +1,94 @@
+---
+title: "TikTok Business Creative Reports endpoints"
+description: "2 generated TikTok Business endpoint contracts for Creative Reports."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 135
+  label: "Creative Reports"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.creativeReports.reportAdBenchmarkGet
+
+`GET` `/open_api/v1.3/report/ad_benchmark/get/`
+
+Generated from TikTok documentation 1738824501176321
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeReports.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportAdBenchmarkGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `compare_time_window` | `query` | `string` | No | No | Time window for comparison (in days). Enum: `7` (default), `14`, `30`, `60` |
+| `dimensions` | `query` | `Array<"LOCATION" \| "AD_CATEGORY" \| "EXTERNAL_ACTION" \| "PLACEMENT">` | Yes | No | List of dimensions to compare. 1-4 dimensions are allowed. Enum: `LOCATION`, `AD_CATEGORY`, `EXTERNAL_ACTION`, `PLACEMENT` |
+| `metrics_fields` | `query` | `Array<string>` | No | No | Metrics that you want to get. By default, all metrics will be returned. See the Supported metrics section for supported metrics. |
+| `filtering` | `query` | `ReportAdBenchmarkGetParamsFiltering` | Yes | No | Filtering conditions. You must specify one and only one out of the three conditions allowed |
+| `sort_field` | `query` | `string` | No | No | Field to sort by. By default, results will be sorted by `CREATE_TIME` |
+| `sort_type` | `query` | `"ASC" \| "DES"` | No | No | Sorting type. Enum: `ASC` (starting from the one that was created earliest), `DES` (starting from the one that was created latest) |
+| `page` | `query` | `number` | No | No | Page number |
+| `page_size` | `query` | `number` | No | No | Page size |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.creativeReports.reportVideoPerformanceGet
+
+`GET` `/open_api/v1.3/report/video_performance/get/`
+
+Generated from TikTok documentation 1738825259075586
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `creativeReports.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ReportVideoPerformanceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `report_type` | `query` | `"AD" \| "VIDEO"` | No | No | Report type. Enum values: `AD` to-be-deprecated: A report that provides in-seconds performance data on ads. `VIDEO`: A Video Insights report on a video. Default value: `AD`. Note: The enum value `AD` will be deprecated in the next API version. We recommend that you use `VIDEO` instead. |
+| `metrics_fields` | `query` | `Array<string>` | No | No | Metrics that you want to get. By default, all metrics supported for the `report_type` that you specify will be returned. See the Supported metrics section for supported metrics. |
+| `filtering` | `query` | `ReportVideoPerformanceGetParamsFiltering` | Yes | No | Filtering conditions. When `report_type` is set to `AD` or not passed, you need to specify `ad_ids`, `adgroup_ids`, or `campaign_ids`. When `report_type` is set to `VIDEO`, you need to specify either `material_ids` or `video_ids`. |
+| `sort_field` | `query` | `string` | No | No | Field to sort by. By default, results will be sorted by `CREATE_TIME`. |
+| `sort_type` | `query` | `"ASC" \| "DES"` | No | No | Sorting type. Enum values: `ASC` (starting from the one that was created earliest), `DES` (starting from the one that was created latest). |
+| `page` | `query` | `number` | No | No | Page number. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-500. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

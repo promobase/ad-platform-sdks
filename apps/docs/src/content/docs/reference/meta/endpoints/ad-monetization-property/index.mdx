@@ -1,0 +1,165 @@
+---
+title: "Meta Ad Monetization Property endpoints"
+description: "4 generated Meta endpoint contracts for Ad Monetization Property."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 126
+  label: "Ad Monetization Property"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adMonetizationProperty.adnetworkanalytics
+
+`GET` `/{id}/adnetworkanalytics`
+
+GET AdMonetizationProperty adnetworkanalytics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adMonetizationProperty.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdNetworkAnalyticsSyncQueryResultFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `aggregation_period` | `query` | `unknown` | No | No | — |
+| `breakdowns` | `query` | `Array<unknown>` | No | No | — |
+| `filters` | `query` | `Array<Record<string, unknown>>` | No | No | — |
+| `limit` | `query` | `integer` | No | No | — |
+| `metrics` | `query` | `Array<unknown>` | Yes | No | — |
+| `ordering_column` | `query` | `unknown` | No | No | — |
+| `ordering_type` | `query` | `unknown` | No | No | — |
+| `should_include_until` | `query` | `boolean` | No | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+| `until` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adMonetizationProperty.adnetworkanalytics2
+
+`POST` `/{id}/adnetworkanalytics`
+
+POST AdMonetizationProperty adnetworkanalytics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adMonetizationProperty.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdMonetizationPropertyFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `aggregation_period` | `body` | `unknown` | No | No | — |
+| `breakdowns` | `body` | `Array<unknown>` | No | No | — |
+| `filters` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `limit` | `body` | `integer` | No | No | — |
+| `metrics` | `body` | `Array<unknown>` | Yes | No | — |
+| `ordering_column` | `body` | `unknown` | No | No | — |
+| `ordering_type` | `body` | `unknown` | No | No | — |
+| `since` | `body` | `string<date-time>` | No | No | — |
+| `until` | `body` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adMonetizationProperty.adnetworkanalyticsResults
+
+`GET` `/{id}/adnetworkanalytics_results`
+
+GET AdMonetizationProperty adnetworkanalytics_results
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adMonetizationProperty.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdNetworkAnalyticsAsyncQueryResultFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `query_ids` | `query` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.adMonetizationProperty.get
+
+`GET` `/{id}`
+
+GET AdMonetizationProperty
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adMonetizationProperty.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdMonetizationPropertyFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

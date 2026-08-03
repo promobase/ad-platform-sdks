@@ -1,0 +1,112 @@
+---
+title: "Google Ads Offline User Data Job endpoints"
+description: "3 generated Google Ads endpoint contracts for Offline User Data Job."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 190
+  label: "Offline User Data Job"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.offlineUserDataJob.addOfflineUserDataJobOperations
+
+`POST` `/v25/{resource_name=customers/*/offlineUserDataJobs/*}:addOperations`
+
+OfflineUserDataJobService.AddOfflineUserDataJobOperations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `offlineUserDataJob.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `AddOfflineUserDataJobOperationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `AddOfflineUserDataJobOperationsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.offlineUserDataJob.createOfflineUserDataJob
+
+`POST` `/v25/customers/{customer_id=*}/offlineUserDataJobs:create`
+
+OfflineUserDataJobService.CreateOfflineUserDataJob
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `offlineUserDataJob.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `CreateOfflineUserDataJobResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `CreateOfflineUserDataJobRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.offlineUserDataJob.runOfflineUserDataJob
+
+`POST` `/v25/{resource_name=customers/*/offlineUserDataJobs/*}:run`
+
+OfflineUserDataJobService.RunOfflineUserDataJob
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `offlineUserDataJob.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `RunOfflineUserDataJobRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

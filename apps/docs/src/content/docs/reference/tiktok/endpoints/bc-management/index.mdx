@@ -1,0 +1,87 @@
+---
+title: "TikTok Business BC Management endpoints"
+description: "2 generated TikTok Business endpoint contracts for BC Management."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 115
+  label: "BC Management"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCManagement.bcGet
+
+`GET` `/open_api/v1.3/bc/get/`
+
+Generated from TikTok documentation 1737115687501826
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCManagement.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | No | No | The Business Center ID. When not passed, returns the user's entire list of Business Centers by default, and returns the specified Business Center account when passed in. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: 1. Value range : ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCManagement.changelogGet
+
+`GET` `/open_api/v1.3/changelog/get/`
+
+Generated from TikTok documentation 1820767460168705
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCManagement.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ChangelogGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `query` | `ChangelogGetParamsFiltering` | No | No | Filtering conditions. |
+| `lang` | `query` | `string` | No | No | The language of the activity log. Default value: `en`. To find out the enum values, see Enum values for lang. |
+| `sort_field` | `query` | `string` | No | No | Field to sort by. Enum value: `operation_time`: To sort by the time when the activity occurred, which corresponds to the `time` parameter within the returned object array `changelog_list`.Default value: `operation_time`. |
+| `sort_type` | `query` | `string` | No | No | Sorting order. Enum values:`DESC`: Descending.When `sort_field` is `operation_time` or not passed, this value means to sort from the most recent to earliest activity.`ASC`: Ascending.When `sort_field` is `operation_time` or not passed, this value means to sort from the earliest to the most recent activity. Default value: `DESC`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,300 @@
+---
+title: "Google Ads SDK reference"
+description: "Generated reference for 169 Google Ads endpoints and 2577 models."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 30
+  label: "Google Ads"
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/google-ads
+```
+
+```ts
+import { createEffectClient } from "@openpromo/google-ads/v25/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Google Ads |
+| API version | `v25` |
+| Source | `protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25` |
+| Endpoints | 169 |
+| Models | 2577 |
+| Capabilities | 120 |
+
+## Endpoints
+
+- [Account Budget Proposal](/reference/google-ads/endpoints/account-budget-proposal)
+- [Account Link](/reference/google-ads/endpoints/account-link)
+- [Ad](/reference/google-ads/endpoints/ad)
+- [Ad Group](/reference/google-ads/endpoints/ad-group)
+- [Ad Group Ad](/reference/google-ads/endpoints/ad-group-ad)
+- [Ad Group Ad Label](/reference/google-ads/endpoints/ad-group-ad-label)
+- [Ad Group Asset](/reference/google-ads/endpoints/ad-group-asset)
+- [Ad Group Asset Set](/reference/google-ads/endpoints/ad-group-asset-set)
+- [Ad Group Bid Modifier](/reference/google-ads/endpoints/ad-group-bid-modifier)
+- [Ad Group Criterion](/reference/google-ads/endpoints/ad-group-criterion)
+- [Ad Group Criterion Customizer](/reference/google-ads/endpoints/ad-group-criterion-customizer)
+- [Ad Group Criterion Label](/reference/google-ads/endpoints/ad-group-criterion-label)
+- [Ad Group Customizer](/reference/google-ads/endpoints/ad-group-customizer)
+- [Ad Group Label](/reference/google-ads/endpoints/ad-group-label)
+- [Ad Parameter](/reference/google-ads/endpoints/ad-parameter)
+- [Asset](/reference/google-ads/endpoints/asset)
+- [Asset Generation](/reference/google-ads/endpoints/asset-generation)
+- [Asset Group](/reference/google-ads/endpoints/asset-group)
+- [Asset Group Asset](/reference/google-ads/endpoints/asset-group-asset)
+- [Asset Group Listing Group Filter](/reference/google-ads/endpoints/asset-group-listing-group-filter)
+- [Asset Group Signal](/reference/google-ads/endpoints/asset-group-signal)
+- [Asset Set](/reference/google-ads/endpoints/asset-set)
+- [Asset Set Asset](/reference/google-ads/endpoints/asset-set-asset)
+- [Audience](/reference/google-ads/endpoints/audience)
+- [Audience Insights](/reference/google-ads/endpoints/audience-insights)
+- [Automatically Created Asset Removal](/reference/google-ads/endpoints/automatically-created-asset-removal)
+- [Batch Job](/reference/google-ads/endpoints/batch-job)
+- [Benchmarks](/reference/google-ads/endpoints/benchmarks)
+- [Bidding Data Exclusion](/reference/google-ads/endpoints/bidding-data-exclusion)
+- [Bidding Seasonality Adjustment](/reference/google-ads/endpoints/bidding-seasonality-adjustment)
+- [Bidding Strategy](/reference/google-ads/endpoints/bidding-strategy)
+- [Billing Setup](/reference/google-ads/endpoints/billing-setup)
+- [Brand Suggestion](/reference/google-ads/endpoints/brand-suggestion)
+- [Campaign](/reference/google-ads/endpoints/campaign)
+- [Campaign Asset](/reference/google-ads/endpoints/campaign-asset)
+- [Campaign Asset Set](/reference/google-ads/endpoints/campaign-asset-set)
+- [Campaign Bid Modifier](/reference/google-ads/endpoints/campaign-bid-modifier)
+- [Campaign Budget](/reference/google-ads/endpoints/campaign-budget)
+- [Campaign Conversion Goal](/reference/google-ads/endpoints/campaign-conversion-goal)
+- [Campaign Criterion](/reference/google-ads/endpoints/campaign-criterion)
+- [Campaign Customizer](/reference/google-ads/endpoints/campaign-customizer)
+- [Campaign Draft](/reference/google-ads/endpoints/campaign-draft)
+- [Campaign Goal Config](/reference/google-ads/endpoints/campaign-goal-config)
+- [Campaign Group](/reference/google-ads/endpoints/campaign-group)
+- [Campaign Label](/reference/google-ads/endpoints/campaign-label)
+- [Campaign Shared Set](/reference/google-ads/endpoints/campaign-shared-set)
+- [Content Creator Insights](/reference/google-ads/endpoints/content-creator-insights)
+- [Conversion Action](/reference/google-ads/endpoints/conversion-action)
+- [Conversion Adjustment Upload](/reference/google-ads/endpoints/conversion-adjustment-upload)
+- [Conversion Custom Variable](/reference/google-ads/endpoints/conversion-custom-variable)
+- [Conversion Goal Campaign Config](/reference/google-ads/endpoints/conversion-goal-campaign-config)
+- [Conversion Upload](/reference/google-ads/endpoints/conversion-upload)
+- [Conversion Value Rule](/reference/google-ads/endpoints/conversion-value-rule)
+- [Conversion Value Rule Set](/reference/google-ads/endpoints/conversion-value-rule-set)
+- [Custom Audience](/reference/google-ads/endpoints/custom-audience)
+- [Custom Conversion Goal](/reference/google-ads/endpoints/custom-conversion-goal)
+- [Custom Interest](/reference/google-ads/endpoints/custom-interest)
+- [Customer](/reference/google-ads/endpoints/customer)
+- [Customer Asset](/reference/google-ads/endpoints/customer-asset)
+- [Customer Asset Set](/reference/google-ads/endpoints/customer-asset-set)
+- [Customer Client Link](/reference/google-ads/endpoints/customer-client-link)
+- [Customer Conversion Goal](/reference/google-ads/endpoints/customer-conversion-goal)
+- [Customer Customizer](/reference/google-ads/endpoints/customer-customizer)
+- [Customer Label](/reference/google-ads/endpoints/customer-label)
+- [Customer Manager Link](/reference/google-ads/endpoints/customer-manager-link)
+- [Customer Negative Criterion](/reference/google-ads/endpoints/customer-negative-criterion)
+- [Customer Sk Ad Network Conversion Value Schema](/reference/google-ads/endpoints/customer-sk-ad-network-conversion-value-schema)
+- [Customer User Access](/reference/google-ads/endpoints/customer-user-access)
+- [Customer User Access Invitation](/reference/google-ads/endpoints/customer-user-access-invitation)
+- [Customizer Attribute](/reference/google-ads/endpoints/customizer-attribute)
+- [Data Link](/reference/google-ads/endpoints/data-link)
+- [Experiment](/reference/google-ads/endpoints/experiment)
+- [Experiment Arm](/reference/google-ads/endpoints/experiment-arm)
+- [Geo Target Constant](/reference/google-ads/endpoints/geo-target-constant)
+- [Goal](/reference/google-ads/endpoints/goal)
+- [Google Ads](/reference/google-ads/endpoints/google-ads)
+- [Google Ads Field](/reference/google-ads/endpoints/google-ads-field)
+- [Identity Verification](/reference/google-ads/endpoints/identity-verification)
+- [Incentive](/reference/google-ads/endpoints/incentive)
+- [Invoice](/reference/google-ads/endpoints/invoice)
+- [Keyword Plan](/reference/google-ads/endpoints/keyword-plan)
+- [Keyword Plan Ad Group](/reference/google-ads/endpoints/keyword-plan-ad-group)
+- [Keyword Plan Ad Group Keyword](/reference/google-ads/endpoints/keyword-plan-ad-group-keyword)
+- [Keyword Plan Campaign](/reference/google-ads/endpoints/keyword-plan-campaign)
+- [Keyword Plan Campaign Keyword](/reference/google-ads/endpoints/keyword-plan-campaign-keyword)
+- [Keyword Plan Idea](/reference/google-ads/endpoints/keyword-plan-idea)
+- [Keyword Theme Constant](/reference/google-ads/endpoints/keyword-theme-constant)
+- [Label](/reference/google-ads/endpoints/label)
+- [Local Services Lead](/reference/google-ads/endpoints/local-services-lead)
+- [Multi Party Auth Review](/reference/google-ads/endpoints/multi-party-auth-review)
+- [Offline User Data Job](/reference/google-ads/endpoints/offline-user-data-job)
+- [Payments Account](/reference/google-ads/endpoints/payments-account)
+- [Product Link](/reference/google-ads/endpoints/product-link)
+- [Product Link Invitation](/reference/google-ads/endpoints/product-link-invitation)
+- [Reach Plan](/reference/google-ads/endpoints/reach-plan)
+- [Recommendation](/reference/google-ads/endpoints/recommendation)
+- [Recommendation Subscription](/reference/google-ads/endpoints/recommendation-subscription)
+- [Remarketing Action](/reference/google-ads/endpoints/remarketing-action)
+- [Reservation](/reference/google-ads/endpoints/reservation)
+- [Shareable Preview](/reference/google-ads/endpoints/shareable-preview)
+- [Shared Criterion](/reference/google-ads/endpoints/shared-criterion)
+- [Shared Set](/reference/google-ads/endpoints/shared-set)
+- [Smart Campaign Setting](/reference/google-ads/endpoints/smart-campaign-setting)
+- [Smart Campaign Suggest](/reference/google-ads/endpoints/smart-campaign-suggest)
+- [Third Party App Analytics Link](/reference/google-ads/endpoints/third-party-app-analytics-link)
+- [Travel Asset Suggestion](/reference/google-ads/endpoints/travel-asset-suggestion)
+- [User Data](/reference/google-ads/endpoints/user-data)
+- [User List](/reference/google-ads/endpoints/user-list)
+- [User List Customer Type](/reference/google-ads/endpoints/user-list-customer-type)
+- [YouTube Video Upload](/reference/google-ads/endpoints/you-tube-video-upload)
+
+## Models
+
+- [Accessible Bidding Strategy – Ad Group Criterion Customizer Operation](/reference/google-ads/models/accessible-bidding-strategy-to-ad-group-criterion-customizer-operation)
+- [Ad Group Criterion Error – App Campaign App Store Enum](/reference/google-ads/models/ad-group-criterion-error-to-app-campaign-app-store-enum)
+- [App Campaign Bidding Strategy Goal Type – Asset Set Error Enum](/reference/google-ads/models/app-campaign-bidding-strategy-goal-type-to-asset-set-error-enum)
+- [Asset Set Link Error – Bidding Strategy Status](/reference/google-ads/models/asset-set-link-error-to-bidding-strategy-status)
+- [Bidding Strategy Status Enum – Campaign Audience View](/reference/google-ads/models/bidding-strategy-status-enum-to-campaign-audience-view)
+- [Campaign Bidding Strategy – Change Event Resource Type](/reference/google-ads/models/campaign-bidding-strategy-to-change-event-resource-type)
+- [Change Event Resource Type Enum – Conversion Value Rule Set Operation](/reference/google-ads/models/change-event-resource-type-enum-to-conversion-value-rule-set-operation)
+- [Conversion Value Rule Set Status – Customer Manager Link](/reference/google-ads/models/conversion-value-rule-set-status-to-customer-manager-link)
+- [Customer Manager Link Error – Device](/reference/google-ads/models/customer-manager-link-error-to-device)
+- [Device Enum – Feed Mapping Error Enum](/reference/google-ads/models/device-enum-to-feed-mapping-error-enum)
+- [Fellowship – Geo Target Constant Status Enum](/reference/google-ads/models/fellowship-to-geo-target-constant-status-enum)
+- [Geo Target Constant Suggestion – Incentive Error](/reference/google-ads/models/geo-target-constant-suggestion-to-incentive-error)
+- [Incentive Error Enum – Label Error Enum](/reference/google-ads/models/incentive-error-enum-to-label-error-enum)
+- [Label Operation – List Plannable Products Response](/reference/google-ads/models/label-operation-to-list-plannable-products-response)
+- [List Plannable User Interests Request – Media File Error Enum](/reference/google-ads/models/list-plannable-user-interests-request-to-media-file-error-enum)
+- [Media Image – Mutate Ads Response](/reference/google-ads/models/media-image-to-mutate-ads-response)
+- [Mutate Asset Group Asset Result – Mutate Customer Asset Result](/reference/google-ads/models/mutate-asset-group-asset-result-to-mutate-customer-asset-result)
+- [Mutate Customer Asset Set Result – New Customer Acquisition Goal](/reference/google-ads/models/mutate-customer-asset-set-result-to-new-customer-acquisition-goal)
+- [New Resource Creation Error – Pmax Campaign Settings](/reference/google-ads/models/new-resource-creation-error-to-pmax-campaign-settings)
+- [Policy Approval Status – Promotion Barcode Type](/reference/google-ads/models/policy-approval-status-to-promotion-barcode-type)
+- [Promotion Barcode Type Enum – Reservation Request Type Enum](/reference/google-ads/models/promotion-barcode-type-enum-to-reservation-request-type-enum)
+- [Residency – Shopping Loyalty](/reference/google-ads/models/residency-to-shopping-loyalty)
+- [Shopping Merchant Center Account Suspension Recommendation – Tag Snippet](/reference/google-ads/models/shopping-merchant-center-account-suspension-recommendati-to-tag-snippet)
+- [Target Adjustment Info – Upload Conversion Adjustments Response](/reference/google-ads/models/target-adjustment-info-to-upload-conversion-adjustments-response)
+- [Upload User Data Request – Vertical Ads Item Vertical Type Enum](/reference/google-ads/models/upload-user-data-request-to-vertical-ads-item-vertical-type-enum)
+- [Video – Zalo Business Message Info](/reference/google-ads/models/video-to-zalo-business-message-info)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `accountBudgetProposal.manage` | Manage Google Ads accountBudgetProposal | `https://www.googleapis.com/auth/adwords` |
+| `accountLink.manage` | Manage Google Ads accountLink | `https://www.googleapis.com/auth/adwords` |
+| `ad.manage` | Manage Google Ads ad | `https://www.googleapis.com/auth/adwords` |
+| `adGroup.manage` | Manage Google Ads adGroup | `https://www.googleapis.com/auth/adwords` |
+| `adGroupAd.manage` | Manage Google Ads adGroupAd | `https://www.googleapis.com/auth/adwords` |
+| `adGroupAdLabel.manage` | Manage Google Ads adGroupAdLabel | `https://www.googleapis.com/auth/adwords` |
+| `adGroupAsset.manage` | Manage Google Ads adGroupAsset | `https://www.googleapis.com/auth/adwords` |
+| `adGroupAssetSet.manage` | Manage Google Ads adGroupAssetSet | `https://www.googleapis.com/auth/adwords` |
+| `adGroupBidModifier.manage` | Manage Google Ads adGroupBidModifier | `https://www.googleapis.com/auth/adwords` |
+| `adGroupCriterion.manage` | Manage Google Ads adGroupCriterion | `https://www.googleapis.com/auth/adwords` |
+| `adGroupCriterionCustomizer.manage` | Manage Google Ads adGroupCriterionCustomizer | `https://www.googleapis.com/auth/adwords` |
+| `adGroupCriterionLabel.manage` | Manage Google Ads adGroupCriterionLabel | `https://www.googleapis.com/auth/adwords` |
+| `adGroupCustomizer.manage` | Manage Google Ads adGroupCustomizer | `https://www.googleapis.com/auth/adwords` |
+| `adGroupLabel.manage` | Manage Google Ads adGroupLabel | `https://www.googleapis.com/auth/adwords` |
+| `adParameter.manage` | Manage Google Ads adParameter | `https://www.googleapis.com/auth/adwords` |
+| `asset.manage` | Manage Google Ads asset | `https://www.googleapis.com/auth/adwords` |
+| `assetGeneration.manage` | Manage Google Ads assetGeneration | `https://www.googleapis.com/auth/adwords` |
+| `assetGroup.manage` | Manage Google Ads assetGroup | `https://www.googleapis.com/auth/adwords` |
+| `assetGroupAsset.manage` | Manage Google Ads assetGroupAsset | `https://www.googleapis.com/auth/adwords` |
+| `assetGroupListingGroupFilter.manage` | Manage Google Ads assetGroupListingGroupFilter | `https://www.googleapis.com/auth/adwords` |
+| `assetGroupSignal.manage` | Manage Google Ads assetGroupSignal | `https://www.googleapis.com/auth/adwords` |
+| `assetSet.manage` | Manage Google Ads assetSet | `https://www.googleapis.com/auth/adwords` |
+| `assetSetAsset.manage` | Manage Google Ads assetSetAsset | `https://www.googleapis.com/auth/adwords` |
+| `audience.manage` | Manage Google Ads audience | `https://www.googleapis.com/auth/adwords` |
+| `audienceInsights.manage` | Manage Google Ads audienceInsights | `https://www.googleapis.com/auth/adwords` |
+| `audienceInsights.read` | Read Google Ads audienceInsights | `https://www.googleapis.com/auth/adwords` |
+| `automaticallyCreatedAssetRemoval.manage` | Manage Google Ads automaticallyCreatedAssetRemoval | `https://www.googleapis.com/auth/adwords` |
+| `batchJob.manage` | Manage Google Ads batchJob | `https://www.googleapis.com/auth/adwords` |
+| `batchJob.read` | Read Google Ads batchJob | `https://www.googleapis.com/auth/adwords` |
+| `benchmarks.manage` | Manage Google Ads benchmarks | `https://www.googleapis.com/auth/adwords` |
+| `benchmarks.read` | Read Google Ads benchmarks | `https://www.googleapis.com/auth/adwords` |
+| `biddingDataExclusion.manage` | Manage Google Ads biddingDataExclusion | `https://www.googleapis.com/auth/adwords` |
+| `biddingSeasonalityAdjustment.manage` | Manage Google Ads biddingSeasonalityAdjustment | `https://www.googleapis.com/auth/adwords` |
+| `biddingStrategy.manage` | Manage Google Ads biddingStrategy | `https://www.googleapis.com/auth/adwords` |
+| `billingSetup.manage` | Manage Google Ads billingSetup | `https://www.googleapis.com/auth/adwords` |
+| `brandSuggestion.read` | Read Google Ads brandSuggestion | `https://www.googleapis.com/auth/adwords` |
+| `campaign.manage` | Manage Google Ads campaign | `https://www.googleapis.com/auth/adwords` |
+| `campaignAsset.manage` | Manage Google Ads campaignAsset | `https://www.googleapis.com/auth/adwords` |
+| `campaignAssetSet.manage` | Manage Google Ads campaignAssetSet | `https://www.googleapis.com/auth/adwords` |
+| `campaignBidModifier.manage` | Manage Google Ads campaignBidModifier | `https://www.googleapis.com/auth/adwords` |
+| `campaignBudget.manage` | Manage Google Ads campaignBudget | `https://www.googleapis.com/auth/adwords` |
+| `campaignConversionGoal.manage` | Manage Google Ads campaignConversionGoal | `https://www.googleapis.com/auth/adwords` |
+| `campaignCriterion.manage` | Manage Google Ads campaignCriterion | `https://www.googleapis.com/auth/adwords` |
+| `campaignCustomizer.manage` | Manage Google Ads campaignCustomizer | `https://www.googleapis.com/auth/adwords` |
+| `campaignDraft.manage` | Manage Google Ads campaignDraft | `https://www.googleapis.com/auth/adwords` |
+| `campaignDraft.read` | Read Google Ads campaignDraft | `https://www.googleapis.com/auth/adwords` |
+| `campaignGoalConfig.manage` | Manage Google Ads campaignGoalConfig | `https://www.googleapis.com/auth/adwords` |
+| `campaignGroup.manage` | Manage Google Ads campaignGroup | `https://www.googleapis.com/auth/adwords` |
+| `campaignLabel.manage` | Manage Google Ads campaignLabel | `https://www.googleapis.com/auth/adwords` |
+| `campaignSharedSet.manage` | Manage Google Ads campaignSharedSet | `https://www.googleapis.com/auth/adwords` |
+| `contentCreatorInsights.manage` | Manage Google Ads contentCreatorInsights | `https://www.googleapis.com/auth/adwords` |
+| `conversionAction.manage` | Manage Google Ads conversionAction | `https://www.googleapis.com/auth/adwords` |
+| `conversionAdjustmentUpload.manage` | Manage Google Ads conversionAdjustmentUpload | `https://www.googleapis.com/auth/adwords` |
+| `conversionCustomVariable.manage` | Manage Google Ads conversionCustomVariable | `https://www.googleapis.com/auth/adwords` |
+| `conversionGoalCampaignConfig.manage` | Manage Google Ads conversionGoalCampaignConfig | `https://www.googleapis.com/auth/adwords` |
+| `conversionUpload.manage` | Manage Google Ads conversionUpload | `https://www.googleapis.com/auth/adwords` |
+| `conversionValueRule.manage` | Manage Google Ads conversionValueRule | `https://www.googleapis.com/auth/adwords` |
+| `conversionValueRuleSet.manage` | Manage Google Ads conversionValueRuleSet | `https://www.googleapis.com/auth/adwords` |
+| `customAudience.manage` | Manage Google Ads customAudience | `https://www.googleapis.com/auth/adwords` |
+| `customConversionGoal.manage` | Manage Google Ads customConversionGoal | `https://www.googleapis.com/auth/adwords` |
+| `customer.manage` | Manage Google Ads customer | `https://www.googleapis.com/auth/adwords` |
+| `customer.read` | Read Google Ads customer | `https://www.googleapis.com/auth/adwords` |
+| `customerAsset.manage` | Manage Google Ads customerAsset | `https://www.googleapis.com/auth/adwords` |
+| `customerAssetSet.manage` | Manage Google Ads customerAssetSet | `https://www.googleapis.com/auth/adwords` |
+| `customerClientLink.manage` | Manage Google Ads customerClientLink | `https://www.googleapis.com/auth/adwords` |
+| `customerConversionGoal.manage` | Manage Google Ads customerConversionGoal | `https://www.googleapis.com/auth/adwords` |
+| `customerCustomizer.manage` | Manage Google Ads customerCustomizer | `https://www.googleapis.com/auth/adwords` |
+| `customerLabel.manage` | Manage Google Ads customerLabel | `https://www.googleapis.com/auth/adwords` |
+| `customerManagerLink.manage` | Manage Google Ads customerManagerLink | `https://www.googleapis.com/auth/adwords` |
+| `customerNegativeCriterion.manage` | Manage Google Ads customerNegativeCriterion | `https://www.googleapis.com/auth/adwords` |
+| `customerSkAdNetworkConversionValueSchema.manage` | Manage Google Ads customerSkAdNetworkConversionValueSchema | `https://www.googleapis.com/auth/adwords` |
+| `customerUserAccess.manage` | Manage Google Ads customerUserAccess | `https://www.googleapis.com/auth/adwords` |
+| `customerUserAccessInvitation.manage` | Manage Google Ads customerUserAccessInvitation | `https://www.googleapis.com/auth/adwords` |
+| `customInterest.manage` | Manage Google Ads customInterest | `https://www.googleapis.com/auth/adwords` |
+| `customizerAttribute.manage` | Manage Google Ads customizerAttribute | `https://www.googleapis.com/auth/adwords` |
+| `dataLink.manage` | Manage Google Ads dataLink | `https://www.googleapis.com/auth/adwords` |
+| `experiment.manage` | Manage Google Ads experiment | `https://www.googleapis.com/auth/adwords` |
+| `experiment.read` | Read Google Ads experiment | `https://www.googleapis.com/auth/adwords` |
+| `experimentArm.manage` | Manage Google Ads experimentArm | `https://www.googleapis.com/auth/adwords` |
+| `geoTargetConstant.read` | Read Google Ads geoTargetConstant | `https://www.googleapis.com/auth/adwords` |
+| `goal.manage` | Manage Google Ads goal | `https://www.googleapis.com/auth/adwords` |
+| `googleAds.manage` | Manage Google Ads googleAds | `https://www.googleapis.com/auth/adwords` |
+| `googleAds.read` | Read Google Ads googleAds | `https://www.googleapis.com/auth/adwords` |
+| `googleAdsField.read` | Read Google Ads googleAdsField | `https://www.googleapis.com/auth/adwords` |
+| `identityVerification.manage` | Manage Google Ads identityVerification | `https://www.googleapis.com/auth/adwords` |
+| `identityVerification.read` | Read Google Ads identityVerification | `https://www.googleapis.com/auth/adwords` |
+| `incentive.manage` | Manage Google Ads incentive | `https://www.googleapis.com/auth/adwords` |
+| `invoice.read` | Read Google Ads invoice | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlan.manage` | Manage Google Ads keywordPlan | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlanAdGroup.manage` | Manage Google Ads keywordPlanAdGroup | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlanAdGroupKeyword.manage` | Manage Google Ads keywordPlanAdGroupKeyword | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlanCampaign.manage` | Manage Google Ads keywordPlanCampaign | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlanCampaignKeyword.manage` | Manage Google Ads keywordPlanCampaignKeyword | `https://www.googleapis.com/auth/adwords` |
+| `keywordPlanIdea.manage` | Manage Google Ads keywordPlanIdea | `https://www.googleapis.com/auth/adwords` |
+| `keywordThemeConstant.read` | Read Google Ads keywordThemeConstant | `https://www.googleapis.com/auth/adwords` |
+| `label.manage` | Manage Google Ads label | `https://www.googleapis.com/auth/adwords` |
+| `localServicesLead.manage` | Manage Google Ads localServicesLead | `https://www.googleapis.com/auth/adwords` |
+| `multiPartyAuthReview.manage` | Manage Google Ads multiPartyAuthReview | `https://www.googleapis.com/auth/adwords` |
+| `offlineUserDataJob.manage` | Manage Google Ads offlineUserDataJob | `https://www.googleapis.com/auth/adwords` |
+| `paymentsAccount.read` | Read Google Ads paymentsAccount | `https://www.googleapis.com/auth/adwords` |
+| `productLink.manage` | Manage Google Ads productLink | `https://www.googleapis.com/auth/adwords` |
+| `productLinkInvitation.manage` | Manage Google Ads productLinkInvitation | `https://www.googleapis.com/auth/adwords` |
+| `reachPlan.manage` | Manage Google Ads reachPlan | `https://www.googleapis.com/auth/adwords` |
+| `reachPlan.read` | Read Google Ads reachPlan | `https://www.googleapis.com/auth/adwords` |
+| `recommendation.manage` | Manage Google Ads recommendation | `https://www.googleapis.com/auth/adwords` |
+| `recommendationSubscription.manage` | Manage Google Ads recommendationSubscription | `https://www.googleapis.com/auth/adwords` |
+| `remarketingAction.manage` | Manage Google Ads remarketingAction | `https://www.googleapis.com/auth/adwords` |
+| `reservation.manage` | Manage Google Ads reservation | `https://www.googleapis.com/auth/adwords` |
+| `shareablePreview.manage` | Manage Google Ads shareablePreview | `https://www.googleapis.com/auth/adwords` |
+| `sharedCriterion.manage` | Manage Google Ads sharedCriterion | `https://www.googleapis.com/auth/adwords` |
+| `sharedSet.manage` | Manage Google Ads sharedSet | `https://www.googleapis.com/auth/adwords` |
+| `smartCampaignSetting.manage` | Manage Google Ads smartCampaignSetting | `https://www.googleapis.com/auth/adwords` |
+| `smartCampaignSetting.read` | Read Google Ads smartCampaignSetting | `https://www.googleapis.com/auth/adwords` |
+| `smartCampaignSuggest.read` | Read Google Ads smartCampaignSuggest | `https://www.googleapis.com/auth/adwords` |
+| `thirdPartyAppAnalyticsLink.manage` | Manage Google Ads thirdPartyAppAnalyticsLink | `https://www.googleapis.com/auth/adwords` |
+| `travelAssetSuggestion.read` | Read Google Ads travelAssetSuggestion | `https://www.googleapis.com/auth/adwords` |
+| `userData.manage` | Manage Google Ads userData | `https://www.googleapis.com/auth/adwords` |
+| `userList.manage` | Manage Google Ads userList | `https://www.googleapis.com/auth/adwords` |
+| `userListCustomerType.manage` | Manage Google Ads userListCustomerType | `https://www.googleapis.com/auth/adwords` |
+| `youTubeVideoUpload.manage` | Manage Google Ads youTubeVideoUpload | `https://www.googleapis.com/auth/adwords` |

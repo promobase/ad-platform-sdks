@@ -1,0 +1,1026 @@
+---
+title: "TikTok Business models: Audience Insight Info Response Country – Bc Asset Unassign Response"
+description: "100 generated TikTok Business model contracts, from AudienceInsightInfoResponseCountry through BcAssetUnassignResponse."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1003
+  label: "Audience Insight Info Response Country – Bc Asset Unassign Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## AudienceInsightInfoResponseCountry
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Country data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Country data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseDevicePrice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Device price data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request . |
+| `selected` | `selected` | `Array<string>` | No | No | Device price data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseEngagement
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Engagement data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Engagement data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseGender
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Gender data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Gender data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseOperatingSystem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Operating system data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request . |
+| `selected` | `selected` | `Array<string>` | No | No | Operating system data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseOperatingSystemVersion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Operating system version data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Operating system version data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseTopHashtags
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hashtag_id` | `hashtag_id` | `string` | No | No | Hashtag ID. |
+| `hashtag_name` | `hashtag_name` | `string` | No | No | Hashtag name. |
+| `count` | `count` | `number` | No | No | The number of times the hashtag is used. |
+
+## AudienceInsightInfoResponseTopInterests
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Interest category data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Interest category data of the audience you filtered for. |
+
+## AudienceInsightInfoResponseTopRegions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all` | `all` | `Array<string>` | No | No | Region data of all audience, that is, the audience for the selected locations. In certain scenarios, `all` will be returned as null. These include instances when:When your audience size is less than 1,000. When you specify `custom_audience_id` in your request. |
+| `selected` | `selected` | `Array<string>` | No | No | Region data of the audience you filtered for. |
+
+## AudienceInsightOverlapParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `benchmark_custom_audience_id` | `benchmark_custom_audience_id` | `string` | Yes | No | The ID of the custom audience that you select as the benchmark audience. Note: The audience ID that you input here must be accessible by your advertiser ID. Otherwise, an error will occur. |
+| `comparison_custom_audience_ids` | `comparison_custom_audience_ids` | `Array<string>` | No | No | The IDs of the custom audience that you select as the comparison audience. Max size: 4. Note: The audience IDs that you input here must be accessible by your advertiser ID. Otherwise, an error will occur. |
+
+## AudienceInsightOverlapResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmark_audience` | `benchmark_audience` | `AudienceInsightOverlapResponseBenchmarkAudience` | No | No | Benchmark audience data. |
+| `comparison_audiences` | `comparison_audiences` | `Array<AudienceInsightOverlapResponseComparisonAudiences>` | No | No | Comparison audience data. Returned if you have input `comparison_custom_audience_ids` in your request. |
+
+## AudienceInsightOverlapResponseBenchmarkAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `string` | No | No | Audience ID. |
+| `audience_name` | `audience_name` | `string` | No | No | Audience name. |
+| `audience_size` | `audience_size` | `number` | No | No | Audience size. |
+| `targetable_users_count_range` | `targetable_users_count_range` | `string` | No | No | The size range of users in the custom audience who have been active in the last 30 days and can be targeted. |
+
+## AudienceInsightOverlapResponseComparisonAudiences
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `string` | No | No | Audience ID. |
+| `audience_name` | `audience_name` | `string` | No | No | Audience name. |
+| `audience_size` | `audience_size` | `number` | No | No | Audience size. |
+| `targetable_users_count_range` | `targetable_users_count_range` | `string` | No | No | The size range of users in the custom audience who have been active in the last 30 days and can be targeted. |
+| `benchmark_overlap_rate` | `benchmark_overlap_rate` | `string` | No | No | The base percentage of users from the benchmark audience that are available in the comparison audience. |
+| `benchmark_overlap_rate_range` | `benchmark_overlap_rate_range` | `string` | No | No | The percentage range of users from the benchmark audience that are available in the comparison audience. |
+| `benchmark_overlap_count_range` | `benchmark_overlap_count_range` | `string` | No | No | The size range of users from the benchmark audience that are available in the comparison audience. |
+
+## BcAccountBudgetChangelogGetNParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Ad account ID. To obtain the list of ad accounts that you have access to, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` and select ad accounts with the returned `advertiser_role` as `ADMIN`, `OPERATOR`, or `ANALYST`. |
+| `filtering` | `filtering` | `BcAccountBudgetChangelogGetNParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## BcAccountBudgetChangelogGetNParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start_date` | `start_date` | `string` | No | No | Query start date, in the format of `YYYY-MM-DD` (UTC+0 time). You can either specify `start_date` and `end_date` simultaneously or leave both `start_date` and `end_date` unspecified.If you specify `start_date` and `end_date` simultaneously, the maximum time range is 365 days.If you leave both `start_date` and `end_date` unspecified, the results for the last seven days will be returned by default. Example: `2025-01-01`. |
+| `end_date` | `end_date` | `string` | No | No | Query end date, in the format of `YYYY-MM-DD` (UTC+0 time). You can either specify `start_date` and `end_date` simultaneously or leave both `start_date` and `end_date` unspecified.If you specify `start_date` and `end_date` simultaneously, the maximum time range is 365 days.If you leave both `start_date` and `end_date` unspecified, the results for the last seven days will be returned by default. Example: `2025-02-01`. |
+
+## BcAccountBudgetChangelogGetNResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `changelog_list` | `changelog_list` | `Array<BcAccountBudgetChangelogGetNResponseChangelogList>` | No | No | The budget change history details. |
+| `page_info` | `page_info` | `BcAccountBudgetChangelogGetNResponsePageInfo` | No | No | Pagination information. |
+
+## BcAccountBudgetChangelogGetNResponseChangelogList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation_time` | `operation_time` | `string` | No | No | The time when the budget change occurred, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0 time). Example: `2025-01-01 00:00:01`. |
+| `activity_type` | `activity_type` | `"RESET" \| "BUDGET_MODE_UPDATE" \| "INCREASE_BUDGET" \| "DECREASE_BUDGET" \| "REMOVE_BUDGET"` | No | No | Change type. Enum values:`RESET`: Reset the one-time budget consumption of the ad account to 0.`BUDGET_MODE_UPDATE`: Change the budget mode to monthly, daily, or one-time.`INCREASE_BUDGET`: Increase budget without changing budget mode.`DECREASE_BUDGET`: Decrease budget without changing budget mode.`REMOVE_BUDGET`: Change the budget mode to unlimited. |
+| `previous_budget` | `previous_budget` | `number` | No | No | The previous budget amount of the ad account before the change, kept to two decimal places. |
+| `previous_budget_mode` | `previous_budget_mode` | `"UNLIMITED" \| "MONTHLY_BUDGET" \| "DAILY_BUDGET" \| "CUSTOM_BUDGET"` | No | No | The previous budget mode of the ad account. Enum values:`UNLIMITED`: Unlimited budget. No budget limit for the ad account.`MONTHLY_BUDGET`: Monthly budget. The ad account consumes Business Center credit line within the monthly budget.`DAILY_BUDGET`: Daily budget. The ad account consumes Business Center credit line within the daily budget.`CUSTOM_BUDGET`: One-time budget (custom budget). The ad account consumes Business Center credit line within the one-time custom budget. |
+| `current_budget` | `current_budget` | `number` | No | No | The current budget amount of the ad account after the change, kept to two decimal places. |
+| `current_budget_mode` | `current_budget_mode` | `"UNLIMITED" \| "MONTHLY_BUDGET" \| "DAILY_BUDGET" \| "CUSTOM_BUDGET"` | No | No | The current budget mode of the ad account. Enum values:`UNLIMITED`: Unlimited budget. No budget limit for the ad account.`MONTHLY_BUDGET`: Monthly budget. The ad account consumes Business Center credit line within the monthly budget.`DAILY_BUDGET`: Daily budget. The ad account consumes Business Center credit line within the daily budget.`CUSTOM_BUDGET`: One-time budget (custom budget). The ad account consumes Business Center credit line within the one-time custom budget. |
+| `currency` | `currency` | `string` | No | No | The currency for the current budget, in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code format. Example: `EUR`. |
+| `operator_id` | `operator_id` | `string` | No | No | The user ID of the operator. |
+| `operator_name` | `operator_name` | `string` | No | No | The user name of the operator. |
+
+## BcAccountBudgetChangelogGetNResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## BcAccountCostGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `filtering` | `BcAccountCostGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current page number. Value range : ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## BcAccountCostGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Search keyword. The fuzzy match is supported. You can specify an advertiser ID or name as search keyword. |
+| `start_date` | `start_date` | `string` | No | No | Query start date, in the format of `YYYY-MM-DD` (ad account time zone). You can either specify `start_date` and `end_date` simultaneously or leave both `start_date` and `end_date` unspecified. If you specify `start_date` and `end_date` simultaneously, the maximum time range is 365 days. If you leave both `start_date` and `end_date` unspecified, the results for the last 90 days will be returned by default. |
+| `end_date` | `end_date` | `string` | No | No | Query end date, in the format of `YYYY-MM-DD` (ad account time zone). You can either specify `start_date` and `end_date` simultaneously or leave both `start_date` and `end_date` unspecified. If you specify `start_date` and `end_date` simultaneously, the maximum time range is 365 days. If you leave both `start_date` and `end_date` unspecified, the results for the last 90 days will be returned by default. |
+
+## BcAccountCostGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cost_list` | `cost_list` | `Array<BcAccountCostGetResponseCostList>` | No | No | The list of cost records for each advertiser. |
+| `transaction_summary` | `transaction_summary` | `BcAccountCostGetResponseTransactionSummary` | No | No | A summary of cost records for the Business Center. |
+| `page_info` | `page_info` | `BcAccountCostGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAccountCostGetResponseCostList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | Advertiser name. |
+| `amount` | `amount` | `number` | No | No | Total cost amount for the advertiser. Example: -1376616. |
+| `cash_amount` | `cash_amount` | `number` | No | No | Cash cost amount for the advertiser. Example: -1376616. |
+| `grant_amount` | `grant_amount` | `number` | No | No | Ad credit cost amount for the advertiser. Example: 0. |
+| `tax_amount` | `tax_amount` | `number` | No | No | Estimated tax amount for the advertiser. Example: -68831. |
+| `currency` | `currency` | `string` | No | No | The currency of the advertiser. Example: `USD`. |
+
+## BcAccountCostGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## BcAccountCostGetResponseTransactionSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount` | `amount` | `number` | No | No | Total cost amount for the Business Center. Example: -484400000. |
+| `cash_amount` | `cash_amount` | `number` | No | No | Cash cost amount for the Business Center. Example: -484400000. |
+| `grant_amount` | `grant_amount` | `number` | No | No | Ad credit cost amount for the Business Center. Example: 0. |
+| `tax_amount` | `tax_amount` | `number` | No | No | Estimated tax amount for the Business Center. Example: -2400000. |
+| `currency` | `currency` | `string` | No | No | The currency of the Business Center. Example: `USD`. |
+
+## BcAccountTransactionGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `transaction_level` | `transaction_level` | `"BC" \| "ADVERTISER" \| "PAYMENT_PORTFOLIO"` | No | No | The transaction level that the transaction records will be retrieved at. Enum values: `BC`: The Business Center (`bc_id`). `ADVERTISER`: The ad accounts within the Business Center (`bc_id`).`PAYMENT_PORTFOLIO`: The Payment Portfolio. Default value: `ADVERTISER`. Note: If a Business Center has enabled Payment Portfolio, the transactions of ad accounts shared by other Business Centers won't be returned. |
+| `filtering` | `filtering` | `BcAccountTransactionGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current number of pages. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: 1-50. |
+
+## BcAccountTransactionGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `transaction_types` | `transaction_types` | `Array<string>` | No | No | Transaction types. `BILL_PAYMENT`: Bill payment. `ADD_BALANCE`: Add balance. `CANCELLATION`: Cancellation.`PROMOTION_ISSUED`: Issued promotion, which indicates the issuance of ad credit. `PROMOTION_EXPIRED`: Expired promotion, which indicates the expiration of ad credit. `INCREASE_BALANCE`: Increase of balance.`DECREASE_BALANCE`: Decrease of balance. `CARD_VERIFICATION`: Card verification. `CARD_VERIFICATION_REFUND`: Card verification refund. `ORDER_CREATION_PAYMENT`: Order creation payment.`ORDER_EDIT_PAYMENT`: Order edit payment. `RETURN_OF_REMAINING_BUDGET`: Return of remaining budget.`REFUND`: Refund. |
+| `owner_of_account` | `owner_of_account` | `Array<"OWNED_BY_CURRENT_BUSINESS_CENTER" \| "SHARED_BY_OTHER_BUSINESS_CENTER">` | No | No | Valid only when `transaction_level` is `ADVERTISER` or not passed. Owner of ad accounts. Enum values: `OWNED_BY_CURRENT_BUSINESS_CENTER`: Owned by the current Business Center. `SHARED_BY_OTHER_BUSINESS_CENTER`: Shared by another Business Center. Default value: `OWNED_BY_CURRENT_BUSINESS_CENTER`. If you want to obtain the transaction records of ad accounts shared by another Business Center, you need to have Admin access to these accounts. To confirm if you have Admin access to these accounts, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). The returned `advertiser_role` for the `asset_id` with `asset_type` as `ADVERTISER` should be `ADMIN`. Note: If your Business Center has more than 200 ad accounts shared by another Business Center, you cannot set this field to `SHARED_BY_OTHER_BUSINESS_CENTER` to filter shared ad accounts. In such cases, we recommend that you specify the `account_ids` filter or both `account_ids` and `account_name` filters simultaneously to narrow down the scope of your query. |
+| `account_ids` | `account_ids` | `Array<string>` | No | No | Valid only when `transaction_level` is `ADVERTISER` or not passed. A list of ad account IDs. Max size: 100. |
+| `account_name` | `account_name` | `string` | No | No | Valid only when `transaction_level` is `ADVERTISER` or not passed. Ad account name. Fuzzy match is supported. |
+| `start_time` | `start_time` | `string` | No | No | Query start time, closed interval, in the format of `YYYY-MM-DD HH:MM:SS` (ad account time zone or Business Center time zone). Example: `2024-01-01 00:00:00`. The maximum query time range that you can define through `start_date` and `end_date` is 365 days. If `start_time` and `end_time` are not passed, the transaction records of the last 90 days will be returned by default. |
+| `end_time` | `end_time` | `string` | No | No | Query end time, closed interval, in the format of `YYYY-MM-DD HH:MM:SS` (ad account time zone or Business Center time zone). Example: `2024-01-01 00:00:00`. The maximum query time range that you can define through `start_time` and `end_time` is 365 days. If `start_time` and `end_time` are not passed, the transaction records of the last 90 days will be returned by default. |
+| `billing_types` | `billing_types` | `Array<"CASH" \| "CREDIT">` | No | No | Billing types. Enum values: `CASH`: cash. `CREDIT`: ad credit. |
+
+## BcAccountTransactionGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `transaction_list` | `transaction_list` | `Array<BcAccountTransactionGetResponseTransactionList>` | No | No | The list of transaction records. |
+| `page_info` | `page_info` | `BcAccountTransactionGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAccountTransactionGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BcAccountTransactionGetResponseTransactionList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `transaction_id` | `transaction_id` | `string` | No | No | Transaction ID, the unique identifier of the translation. |
+| `payment_portfolio_id` | `payment_portfolio_id` | `string` | No | No | The ID of the Payment Portfolio associated with the transaction. This field returns a non-null value only when `transaction_level` is `PAYMENT_PORTFOLIO`. Note: To manage the budget of a Payment Portfolio, use `advertiser_budgets` in [/advertiser/update/](https://business-api.tiktok.com/portal/docs?id=1739939050770434). The default `budget_mode` within `advertiser_budgets` will be `CUSTOM`. |
+| `payment_portfolio_name` | `payment_portfolio_name` | `string` | No | No | The name of the Payment Portfolio associated with the transaction. This field returns a non-null value only when `transaction_level` is `PAYMENT_PORTFOLIO`. |
+| `account_id` | `account_id` | `string` | No | No | The ID of the ad account associated with the transaction. When `transaction_level` is set to `BC` in the request, the value of this field will be null. |
+| `account_name` | `account_name` | `string` | No | No | The name of the ad account associated with the transaction. When `transaction_level` is set to `BC` in the request, the value of this field will be null. |
+| `bc_id` | `bc_id` | `string` | No | No | Business Center ID. |
+| `bc_name` | `bc_name` | `string` | No | No | Business Center name. |
+| `amount` | `amount` | `number` | No | No | The total amount of the transaction, which includes the subtotal and tax amount. For example, if the amount excluding tax is 50 USD and the tax is 5 USD, the total amount will be 55 USD. Example: 55. |
+| `subtotal` | `subtotal` | `number` | No | No | The subtotal amount (the amount excluding taxes) of the transaction. Example: 50. |
+| `tax_amount` | `tax_amount` | `number` | No | No | The amount of tax included in the transaction. Example: 5. |
+| `currency` | `currency` | `string` | No | No | The currency code in which the amounts (`amount`, `subtotal`, and `tax_amount`) are calculated. Example: `USD`. |
+| `amount_type` | `amount_type` | `"POSITIVE" \| "NEGATIVE" \| "OTHER"` | No | No | Amount type. Enum values: `POSITIVE`: This type represents that a positive amount is associated with the transaction, such as a balance addition. `NEGATIVE`: This type represents that a negative amount is associated with the transaction, such as an order creation payment. `OTHER`: This type represents that neither a positive amount nor a negative amount is associated with the transaction, such as a card verification refund. |
+| `transaction_type` | `transaction_type` | `string` | No | No | Transaction type. `BILL_PAYMENT`: Bill payment. `ADD_BALANCE`: Add balance. `CANCELLATION`: Cancellation.`PROMOTION_ISSUED`: Issued promotion, which indicates the issuance of ad credit. `PROMOTION_EXPIRED`: Expired promotion, which indicates the expiration of ad credit. `INCREASE_BALANCE`: Increase of balance.`DECREASE_BALANCE`: Decrease of balance. `CARD_VERIFICATION`: Card verification. `CARD_VERIFICATION_REFUND`: Card verification refund. `ORDER_CREATION_PAYMENT`: Order creation payment.`ORDER_EDIT_PAYMENT`: Order edit payment. `RETURN_OF_REMAINING_BUDGET`: Return of remaining budget.`REFUND`: Refund. |
+| `billing_type` | `billing_type` | `"CASH" \| "CREDIT"` | No | No | Billing type. Enum values: `CASH`: cash. `CREDIT`: ad credit. |
+| `timezone` | `timezone` | `string` | No | No | The time zone where the transaction occurred, in the format of `UTC±HH:MM`. Example: `"UTC+07:00"`. |
+| `create_time` | `create_time` | `string` | No | No | The time when the transaction record was generated, in the format of `"YYYY-MM-DD HH:MM:SS"`. Example: `2024-01-01 00:00:01` |
+| `invoice_id` | `invoice_id` | `string` | No | No | Invoice ID. To download the invoice synchronously, pass the invoice ID to [/bc/invoice/download/](https://business-api.tiktok.com/portal/docs?id=1754000198430722). To download the invoice asynchronously, pass the invoice ID to [/bc/invoice/task/create/](https://business-api.tiktok.com/portal/docs?id=1754000448122882). |
+| `serial_number` | `serial_number` | `string` | No | No | Invoice serial number. |
+
+## BcAdvertiserAttributeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To get a list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+
+## BcAdvertiserAttributeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currencies` | `currencies` | `Array<string>` | No | No | The location codes for the places of registration for ad accounts in the Business Center. Example: `["USD"]` |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | Currency codes of ad accounts in the Business Center. Example: `["US", "BR"]` |
+
+## BcAdvertiserCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `tied_to_billing_group` | `tied_to_billing_group` | `boolean` | No | No | Whether to add the ad account to a billing group. Default value: `False`. Note: This field is an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `advertiser_info` | `advertiser_info` | `BcAdvertiserCreateParamsAdvertiserInfo` | Yes | No | Ad Account information. |
+| `customer_info` | `customer_info` | `BcAdvertiserCreateParamsCustomerInfo` | Yes | No | Business Information. |
+| `qualification_info` | `qualification_info` | `BcAdvertiserCreateParamsQualificationInfo` | No | No | Required when your Business Center type is `AGENCY` or `SELF_SERVICE_AGENCY`. Qualification information. Note: Don't specify this object when your Business Center type is `DIRECT`, or an error will occur. |
+| `contact_info` | `contact_info` | `BcAdvertiserCreateParamsContactInfo` | No | No | Contact Information. |
+| `billing_info` | `billing_info` | `BcAdvertiserCreateParamsBillingInfo` | No | No | Billing information. Required if the place of registration of the ad account or the agency that owns the Business Center is France, Brazil, or Mexico. Code example for Mexican ad account creation: `"billing_info":&#123;"address":"xxxx","tax_field_dict": &#123;"tax_id": "xxxx", "tax_regime": "xxxx"&#125;&#125;` |
+| `billing_group_info` | `billing_group_info` | `BcAdvertiserCreateParamsBillingGroupInfo` | No | No | Billing group information. |
+| `payment_info` | `payment_info` | `BcAdvertiserCreateParamsPaymentInfo` | No | No | Payment information. |
+
+## BcAdvertiserCreateParamsAdvertiserInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | Ad Account name, length cannot exceed 100 characters. |
+| `currency` | `currency` | `string` | Yes | No | Ad Account currency, note: need to be consistent with the Business Center, the value range is shown in [Appendix-Currency](https://ads.tiktok.com/marketing_api/docs?id=1737585839634433). |
+| `timezone` | `timezone` | `string` | Yes | No | Ad Account time zone code, the value range is shown in [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `type` | `type` | `"RESERVATION" \| "AUCTION" \| "DIRECT"` | No | No | Type of ad account that you want to create. Enum values: `RESERVATION`, `AUCTION` (default). Note: `DIRECT` Business Centers can only create an ad account of `AUCTION` type . |
+
+## BcAdvertiserCreateParamsBillingGroupInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invoice_group_by` | `invoice_group_by` | `"ACCOUNT" \| "ADVERTISER"` | Yes | No | Invoicing mode. Enum values: `ACCOUNT`: Invoices in this billing groups are combined. `ADVERTISER`: Invoices in this billing group are handled separately. |
+| `billing_group_id` | `billing_group_id` | `string` | No | No | Billing group ID. Valid when `invoice_group_by` is `ACCOUNT`. |
+| `invoice_payer` | `invoice_payer` | `"AGENCY" \| "ADVERTISER" \| "FR"` | No | No | Party who pays the invoices. Enum values: `AGENCY`, `ADVERTISER`. This field is required when the registered area of the ad account is `FR` (France). |
+
+## BcAdvertiserCreateParamsBillingInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `string` | No | No | Billing address, no more than 512 characters in length. |
+| `tax_field_dict` | `tax_field_dict` | `string` | No | No | Billing and invoicing tax number. Different countries use different tax number fields. The tax number field `vat` is used for European countries, for instance, France.The tax number field `tax_id` is used for Brazil (required), Mexico (required), United Arab Emirates, Egypt, Saudi Arabia, Israel, Turkey, Canada, and the United States.The tax number field `abn` is used for Australia and New Zealand. |
+
+## BcAdvertiserCreateParamsContactInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | Contact name. No more than 100 characters in length. |
+| `email` | `email` | `string` | No | No | Contact email. Required if the place of registration of the ad account or the Business Center is France, Brazil, or Mexico. |
+| `number` | `number` | `string` | No | No | Contact phone. |
+
+## BcAdvertiserCreateParamsCustomerInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `company` | `company` | `string` | Yes | No | Ad Account company name. Length cannot exceed 255 characters. |
+| `industry` | `industry` | `number` | Yes | No | Ad Account industry ID. The value range is shown in [Appendix-Industries](https://ads.tiktok.com/marketing_api/docs?id=1739357589575681). |
+| `registered_area` | `registered_area` | `string` | Yes | No | Ad Account registration code. The value range is shown in [Appendix-Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+
+## BcAdvertiserCreateParamsPaymentInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payment_portfolio_id` | `payment_portfolio_id` | `string` | No | No | Valid when you have enabled the multiple Payment Portfolios feature. The ID of the Payment Portfolio to which the ad account will be linked. If the linkage to the Payment Portfolio fails, the ad account creation will still succeed. To confirm the result of the linkage, check the response parameter `payment_portfolio_binding_result`. Note: Multiple Payment Portfolios for one client is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `budget_info` | `budget_info` | `BcAdvertiserCreateParamsPaymentInfoBudgetInfo` | No | No | Details of the budget settings for the ad account. If budget settings fail, the ad account creation will still succeed. To confirm the final budget settings, check the response parameter `budget_setup_result`. |
+
+## BcAdvertiserCreateParamsPaymentInfoBudgetInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_mode` | `budget_mode` | `"UNLIMITED" \| "MONTHLY_BUDGET" \| "DAILY_BUDGET" \| "CUSTOM_BUDGET"` | No | No | Budget mode of the ad account. Enum values:`UNLIMITED`: Unlimited budget. No budget limit for the ad account.`MONTHLY_BUDGET`: Monthly budget. The ad account consumes BC credit balance within the monthly budget.`DAILY_BUDGET`: Daily budget. The ad account consumes BC credit balance within the daily budget.`CUSTOM_BUDGET`: Custom budget. The ad account consumes BC credit balance within the one-time custom budget.Default value : `MONTHLY_BUDGET`. |
+| `budget` | `budget` | `number` | No | No | Required when `budget_mode` is `MONTHLY_BUDGET`, `DAILY_BUDGET`, or `CUSTOM_BUDGET`. The ad account budget, kept to two decimal places.If `budget_mode` is set to `MONTHLY_BUDGET`, specify a monthly budget.If `budget_mode` is set to `DAILY_BUDGET`, specify a daily budget.If `budget_mode` is set to `CUSTOM_BUDGET`, specify your one-time custom budget. |
+
+## BcAdvertiserCreateParamsQualificationInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promotion_link` | `promotion_link` | `string` | No | No | Required when your Business Center type is `AGENCY` or `SELF_SERVICE_AGENCY`. Promotion link. The value must be the company's website URL. Length limit: 255 characters. |
+| `license_no` | `license_no` | `string` | No | No | Required for ad accounts that are registered in the Chinese mainland, Hong Kong, or in countries Brazil and Mexico. Business license number. Note: If the ad account is registered in the Chinese Mainland, you might need to submit UnionPay verification for your business license. To check the UnionPay verification requirement for your business license, use [/bc/advertiser/unionpay_info/check/](https://business-api.tiktok.com/portal/docs?id=1813772238056449). To learn more about UnionPay verification and how to create ad accounts in a Business Center, see [Create an ad account](https://business-api.tiktok.com/portal/docs?id=1754705407307777#item-link-Create%20an%20ad%20account). |
+| `license_image_id` | `license_image_id` | `string` | No | No | Required for ad accounts that are registered in the Chinese mainland or Hong Kong. Qualified Document picture ID, see [Upload a business certificate](https://ads.tiktok.com/marketing_api/docs?id=1739938996913218). |
+| `qualification_image_ids` | `qualification_image_ids` | `Array<string>` | No | No | Required if the ad account or the Business Center is registered in France, Brazil, or Mexico. Other Qualified Documents picture ID. See [Upload a business certificate](https://ads.tiktok.com/marketing_api/docs?id=1739938996913218). |
+| `qualification_id` | `qualification_id` | `string` | No | No | Qualification id. You can use this field to reuse the qualification information of other ad accounts. You can get the ID via the response of [/bc/advertiser/qualification/get/](https://ads.tiktok.com/marketing_api/docs?id=1770118680584194) endpoint. Note: If you pass in this field, you can not pass in other parameters under `qualification_info`. |
+
+## BcAdvertiserCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Ad Account ID |
+| `payment_portfolio_binding_result` | `payment_portfolio_binding_result` | `BcAdvertiserCreateResponsePaymentPortfolioBindingResult` | No | No | The result of binding the newly created ad account to the Payment Portfolio (`payment_portfolio_id`) specified in the request. |
+| `budget_setup_result` | `budget_setup_result` | `BcAdvertiserCreateResponseBudgetSetupResult` | No | No | The result of setting the budget for the newly created ad account. |
+
+## BcAdvertiserCreateResponseBudgetSetupResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"SUCCESS" \| "FAILED"` | No | No | Budget setup status. Enum values: `SUCCESS`: The budget settings were successfully configured for the ad account.`FAILED`: The budget settings failed to be configured for the ad account. |
+| `error_msg` | `error_msg` | `string` | No | No | The error message. When `status` is `SUCCESS`, the value of this field will be null. |
+
+## BcAdvertiserCreateResponsePaymentPortfolioBindingResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"SUCCESS" \| "FAILED"` | No | No | Binding status. Enum values: `SUCCESS`: The ad account was successfully bound to the Payment Portfolio.`FAILED`: The ad account failed to be bound to the Payment Portfolio. |
+| `error_msg` | `error_msg` | `string` | No | No | The error message. When `status` is `SUCCESS`, the value of this field will be null. |
+
+## BcAdvertiserDisableParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | Yes | No | IDs of the ad accounts in the Business Center that you want to disable. Max size =1. Important : If an account in the Business Center is disabled, the balance of the ad account will be transferred to the Business Center that the ad account belongs to. |
+
+## BcAdvertiserDisableResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `disabled_advertiser_ids` | `disabled_advertiser_ids` | `Array<string>` | No | No | IDs of the ad accounts that have been successfully disabled. |
+| `failed_infos` | `failed_infos` | `"DELIVERING" \| "UNPAID_BILL" \| "SUSPENDED" \| "UNFINISHED_TRANSFER" \| "AUTOPAY_UNBILLED"` | No | No | Information about the ad accounts that have not been successfully disabled. Key: The ID of the ad account (`advertiser_id`) that has not been successfully disabled. Value: The reason or reasons why the attempt to disable the ad account failed. Enum values: `DELIVERING`: The ad account has ads that are being delivered within 3 days.`UNPAID_BILL`: The ad account has unpaid bills.`SUSPENDED`: The ad account is being suspended.`UNFINISHED_TRANSFER` : The ad account has unfinished transfers.`AUTOPAY_UNBILLED`: The ad account whose Payment Method is Automatic Payment has unbilled cost. |
+
+## BcAdvertiserQualificationGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `filtering` | `BcAdvertiserQualificationGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current number of pages. Default value: `1`. Value range : ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: `10`. Value range: 1-100. |
+
+## BcAdvertiserQualificationGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `verified` | `verified` | `boolean` | No | No | Whether the qualifications are verified or not. |
+
+## BcAdvertiserQualificationGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `qualifications` | `qualifications` | `Array<BcAdvertiserQualificationGetResponseQualifications>` | No | No | Qualification information. |
+| `page_info` | `page_info` | `BcAdvertiserQualificationGetResponsePageInfo` | No | No | Pagination information |
+
+## BcAdvertiserQualificationGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number |
+| `page_size` | `page_size` | `number` | No | No | Page size |
+| `total_number` | `total_number` | `number` | No | No | Total number of results |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results |
+
+## BcAdvertiserQualificationGetResponseQualifications
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `qualification_id` | `qualification_id` | `string` | No | No | Qualification id. |
+| `company_name` | `company_name` | `string` | No | No | Company name. |
+| `status` | `status` | `string` | No | No | Qualifications verification status. Enum values：`VERIFIED` , `UNVERIFIED`. |
+| `owner_advertiser_id` | `owner_advertiser_id` | `string` | No | No | Advertiser ID of the qualifications owner. |
+| `linked_advertiser_count` | `linked_advertiser_count` | `number` | No | No | Number of linked advertiser accounts. |
+| `region_code` | `region_code` | `string` | No | No | Country or region code. For example, "DE". |
+
+## BcAdvertiserUnionpayInfoCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `license_no` | `license_no` | `string` | Yes | No | Business license number. |
+
+## BcAdvertiserUnionpayInfoCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `unionpay_verification_required` | `unionpay_verification_required` | `boolean` | No | No | Whether UnionPay verification is required for the business license. Supported values: `true`: required.`false`: not required. Note: If this field is `true`, submit UnionPay verification for your business license using [/bc/advertiser/unionpay_info/submit/](https://business-api.tiktok.com/portal/docs?id=1813772274039809). |
+
+## BcAdvertiserUnionpayInfoSubmitParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. You need to have Admin permission for the Business Center. To obtain the list of Business Centers where you have Admin permission, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826) and ensure the returned `user_role` is `ADMIN`. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Ad account ID. You need to specify the ID of the ad account associated with the business license that requires UnionPay verification and have Admin permission for the ad account. |
+| `representative_name` | `representative_name` | `string` | Yes | No | The Chinese name of the legal representative as it appears on the business license. |
+| `representative_document_type` | `representative_document_type` | `"ID_CARD" \| "PASSPORT" \| "HK_MACAO_EXIT_ENTRY_PERMIT" \| "TAIWAN_MAINLAND_TRAVEL_PERMIT" \| "HK_MACAO_MAINLAND_TRAVEL_PERMIT"` | No | No | The type of the representative document. Enum values:`ID_CARD`: ID card.`PASSPORT`: Passport.`HK_MACAO_EXIT_ENTRY_PERMIT`: Exit-Entry Permit for Travelling to and from Hong Kong and Macao.`TAIWAN_MAINLAND_TRAVEL_PERMIT`: Mainland Travel Permit for Taiwan Residents.`HK_MACAO_MAINLAND_TRAVEL_PERMIT`: Mainland Travel Permit for Hong Kong and Macao Residents.Default value: `ID_CARD`. |
+| `representative_id` | `representative_id` | `string` | Yes | No | The ID of the representative document. When `representative_document_type` is `ID_CARD` or not passed, specify the ID card number of the legal representative in 18 digits. Example: `234123190101012345`.When `representative_document_type` is `PASSPORT`, specify the alphanumeric ID of the passport.Example: `EF1234567`.When `representative_document_type` is `HK_MACAO_EXIT_ENTRY_PERMIT`, specify the alphanumeric ID card number of the Exit-Entry Permit for Travelling to and from Hong Kong and Macao. Example: `CA1234567`. When `representative_document_type` is `TAIWAN_MAINLAND_TRAVEL_PERMIT`, specify the numeric ID of the Mainland Travel Permit for Taiwan Residents. Example: `12345678`.When `representative_document_type` is `HK_MACAO_MAINLAND_TRAVEL_PERMIT`, specify the alphanumeric ID Mainland Travel Permit for Hong Kong and Macao Residents. Example: `H12345678`. |
+| `unionpay_account` | `unionpay_account` | `string` | Yes | No | The UnionPay account number in 12 to 19 digits. |
+| `representative_phone_number` | `representative_phone_number` | `string` | Yes | No | The phone number of the legal representative in 11 digits. Example: `13812345678`. |
+
+## BcAdvertiserUnionpayInfoSubmitResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetAccountAuthorizationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `is_ads_only_mode` | `is_ads_only_mode` | `boolean` | No | No | Whether to enable "Show through ads only" permission. You can enable this permission to prevent members from publishing posts that appear on the TikTok account profile. Once you enable this permission and receive approval for ad delivery permission from the TikTok account owner, videos published through Spark Ads PUSH by members who are assigned the TikTok account will get paid traffic (formerly "ads-only mode") and are hidden from organic traffic. Supported values: `true`, `false`. Default value: `false`. |
+
+## BcAssetAccountAuthorizationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_auth_qr_code` | `bc_auth_qr_code` | `string` | No | No | The TikTok account ad delivery authorization URL. Once you obtain the authorization URL, generate a QR code from it using a QR code generator and share the QR code with a TikTok account owner. When the TikTok account owner scans the QR code, they can grant the "Existing posts" permissions for Spark Ads Pull and the "TikTok posts" permissions for Spark Ads Push to the Business Center. |
+
+## BcAssetAdminDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `asset_ids` | `asset_ids` | `Array<string>` | Yes | No | List of asset IDs that you want to delete. Currently, only one ID is allowed. `library_id` when `asset_type` is `LEAD`, and ID of a TikTok account in a Business Center when `asset_type` is `TT_ACCOUNT`. |
+| `asset_type` | `asset_type` | `"LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT"` | Yes | No | Type of asset you want to delete. Enum values: `LEAD`, `TT_ACCOUNT`(corresponds to `BC_AUTH_TT`, and learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097)). Note When the `asset_type` is `LEAD`, you can only delete a single lead at a time. Once deleted, the lead will be moved back to the ad account that it was placed previously. |
+
+## BcAssetAdminDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetAdminGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | The type of asset that you want to get. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `filtering` | `filtering` | `BcAssetAdminGetParamsFiltering` | No | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## BcAssetAdminGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_show_status` | `advertiser_show_status` | `string` | No | No | Valid only when `asset_type` is `ADVERTISER`. Ad account display status. For enum values, see [Enumeration - Advertiser Display Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). If not specified, ad accounts of all display statuses will be returned. |
+| `relation_type` | `relation_type` | `"OWNER_BC" \| "OWNER_PARTNER" \| "OWNER_INDIVIDUAL"` | No | No | The type of the relation between the Business Center and the asset. Enum values: `OWNER_BC`: The asset is created and owned by the current Business Center. `OWNER_PARTNER`: The asset is owned by a partner Business Center. `OWNER_INDIVIDUAL`: The asset is owned by a user. |
+| `relation_status` | `relation_status` | `"BOUND" \| "UNBOUND" \| "PENDING" \| "REJECTED"` | No | No | Valid only when `asset_type` is `ADVERTISER`, `PIXEL`, `MANAGED_BUSINESS_ACCOUNT`, or `TIKTOK_SHOP`. The status of the relation between the Business Center account and the asset. Enum values: `BOUND`: The request to manage the asset has been approved by the owner.`UNBOUND`: The request to manage the asset was approved but has been cancelled by the owner.`PENDING`: The request to manage the asset is pending on the owner's approval.`REJECTED`: The request to manage the asset has been rejected by the owner. |
+
+## BcAssetAdminGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BcAssetAdminGetResponseList>` | No | No | List of assets. |
+| `page_info` | `page_info` | `BcAssetAdminGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAssetAdminGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | No | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `asset_id` | `string` | No | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `TIKTOK_SHOP`, this field is the TikTok Shop ID.If `asset_type` is `PIXEL`, this field is the Pixel ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `asset_name` | `asset_name` | `string` | No | No | Asset name. |
+| `relation_type` | `relation_type` | `"OWNER_BC" \| "OWNER_PARTNER" \| "OWNER_INDIVIDUAL"` | No | No | The type of the relation between the Business Center and the asset. Enum values: `OWNER_BC`: The asset is created and owned by the current Business Center. `OWNER_PARTNER`: The asset is owned by a partner Business Center. `OWNER_INDIVIDUAL`: The asset is owned by a user. |
+| `relation_status` | `relation_status` | `"BOUND" \| "UNBOUND" \| "PENDING" \| "REJECTED"` | No | No | Status of the relation between the Business Center account and the asset. Enum values: `BOUND`: The request to manage the asset has been approved by the owner.`UNBOUND`: The request to manage the asset was approved but has been cancelled by the owner.`PENDING`: The request to manage the asset is pending on the owner's approval.`REJECTED`: The request to manage the asset has been rejected by the owner.When `asset_type` is `CATALOG` , `LEAD`, or `TT_ACCOUNT`, the value of this field will be null. |
+| `advertiser_status` | `advertiser_status` | `string` | No | No | Advertiser status. For enum values, see [Enumeration - Advertiser Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `advertiser_account_type` | `advertiser_account_type` | `"RESERVATION" \| "AUCTION"` | No | No | The type of the ad account. Enum values: `RESERVATION` (reservation ad account), `AUCTION`(auction ad account). |
+| `advertiser_role` | `advertiser_role` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Returned only when `asset_type` is `ADVERTISER`. Business Center user's permissions to the ad account. Enum values:`ADMIN`: Admin. Manage ad account finances, settings, and permissions. Create and edit ad campaigns and view performance data.`OPERATOR`: Operator. Manage finances for ad accounts, create and edit ad campaigns, and view performance data.`ANALYST`: Analyst. View ads and performance data. |
+| `catalog_role` | `catalog_role` | `"ADMIN" \| "AD_PROMOTE"` | No | No | Returned only when `asset_type` is `CATALOG`. Business Center user's permissions to the catalog. Enum values: `ADMIN`: Catalog management. Promote products both organically and in ads, and edit products and catalogs. `AD_PROMOTE`: Ad promotion. Create ads using product catalogs. |
+| `ad_creation_eligible` | `ad_creation_eligible` | `"NOT_AVAILABLE" \| "AVAILABLE"` | No | No | Returned only when `asset_type` is `CATALOG`. Whether the catalog can be used in ads when it contains the number of available products required for the ad format. Enum values:`NOT_AVAILABLE`: The catalog cannot be used in ads.`AVAILABLE`: The catalog can be used in ads when it contains the number of available products required for the ad format. |
+| `store_role` | `store_role` | `string` | No | No | Returned only when `asset_type` is `TIKTOK_SHOP`. Business Center user's permission to the TikTok Shop. Enum values:`AD_PROMOTION`: Ad promotion. Create ads promoting products from this TikTok Shop. |
+| `pixel_code` | `pixel_code` | `string` | No | No | The pixel code. This field returns a non-null value when `asset_type` is `PIXEL`. |
+| `tt_account_roles` | `tt_account_roles` | `Array<"POST" \| "LIVE" \| "DIRECT_MESSAGE">` | No | No | Returned only when `asset_type` is `TT_ACCOUNT`. Business Center user's ad delivery permission to the TikTok account. Enum values:`POST`: Existing posts permissions, including accessing your own profile info, accessing your own public videos, and accessing your own ad-authorized videos.`LIVE`: LIVE video permissions (Only available in some regions), including accessing your own profile info and accessing LIVE videos.`DIRECT_MESSAGE`: Direct message permissions, including allowing everyone to send you a direct message and reading and managing direct messages in your inbox, in addition to messaging or interacting with other accounts on your behalf.This field returns a non-null value when `asset_type` is `TT_ACCOUNT`. |
+| `business_account_roles` | `business_account_roles` | `Array<"BUSINESS_ACCOUNT_ADMIN" \| "BUSINESS_ACCOUNT_OPERATOR" \| "BUSINESS_ACCOUNT_ANALYST">` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Business Center user's Business Account management permission to the TikTok account. Enum values:`BUSINESS_ACCOUNT_ADMIN`: Business Account admin. Business Account admins have access to all Business Account features, including verification, member management, and linking to Business Center.`BUSINESS_ACCOUNT_OPERATOR`: Business Account operator. Business Account operators can manage TikTok analytics, posts, messages, and profile information.`BUSINESS_ACCOUNT_ANALYST` : Business Account analyst. Business Account analysts only have access to analytics and are not able to manage posts, messages, etc. |
+| `owner_bc_name` | `owner_bc_name` | `string` | No | No | The owner Business Center of this asset. When `asset_type` is `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`, the value of this field will be null. |
+| `is_business_verified` | `is_business_verified` | `boolean` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Whether the TikTok account is a Verified Business Account. A verified badge shows your account is authentic, based on your activity and the information you provided. With a verified account, you’ll also get extra protection, direct support, and more visibility. Supported values: `true`, `false`. Note: Organization Accounts created in Business Center will have access to functions exclusive to Verified Business Accounts such as Business Suite features. For these accounts, business verification will be approved without requiring any business verification documentation. For these accounts, `is_business_verified` will be `true`. |
+| `operating_region_code` | `operating_region_code` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The region code of the operating region for the TikTok account. Example: `US`. For enum values, see [List of values for `operating_region_code`](https://business-api.tiktok.com/portal/docs?id=1855027199571138#item-link-List%20of%20values%20for%20operating_region_code). |
+| `tt_asset_handle` | `tt_asset_handle` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The handle of the TikTok account. |
+| `tt_asset_profile_image` | `tt_asset_profile_image` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The URL to the profile image of the TikTok account. If no profile image has been specified for the TikTok account, this field will be empty. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-ad-site-sign-sg.ibyteimg.com/ad-site-i18n-sg/012345ab-cd67-89e0-1f23-gh45ij67kl89~mnop-q0rstuvwxy12-abcde.fghij?kl0m=123n4o56&x-expires=1768561500&x-signature=Hi0jKLMnOPq%2Fr1sTAv2OW3X%4D`. |
+
+## BcAssetAdminGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BcAssetAdvertiserAssignedParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_id` | `asset_id` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `asset_type` | `asset_type` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## BcAssetAdvertiserAssignedResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BcAssetAdvertiserAssignedResponseList>` | No | No | The list of ad accounts linked to the TikTok account (`asset_id`) in the Business Center. |
+| `page_info` | `page_info` | `BcAssetAdvertiserAssignedResponsePageInfo` | No | No | Pagination information. |
+
+## BcAssetAdvertiserAssignedResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | The ID of the ad account. |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | The name of the ad account. |
+
+## BcAssetAdvertiserAssignedResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BcAssetAdvertiserAssignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_type` | `asset_type` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | No | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. Default value: `TT_ACCOUNT`. |
+| `asset_id` | `asset_id` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The ID of an ad account within the same Business Center to link the TikTok account to. To obtain the list of ad accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+
+## BcAssetAdvertiserAssignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetAdvertiserUnassignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `asset_id` | `asset_id` | `string` | Yes | No | The ID of a TikTok account in a Business Center. To obtain the list of TikTok accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`. |
+| `asset_type` | `asset_type` | `"TT_ACCOUNT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The ID of an ad account within the same Business Center to unlink the TikTok account from. To obtain the list of ad accounts already linked to a TikTok account within a Business Center, use [/bc/asset/advertiser/assigned/](https://business-api.tiktok.com/portal/docs?id=1855027294743554). |
+
+## BcAssetAdvertiserUnassignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetAssignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `user_id` | `user_id` | `string` | Yes | No | The ID of the Business Center user that you want to assign the asset to. You can obtain the Business Center user ID via `user_id` returned by [/bc/member/get/](https://ads.tiktok.com/marketing_api/docs?id=1739939404802049). |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `asset_id` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `TIKTOK_SHOP`, this field is the TikTok Shop ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `advertiser_role` | `advertiser_role` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Required when `asset_type` is `ADVERTISER`. Advertiser role. This is equivalent to Layer 2 of Ad Account Permissions. Enum values: `ADMIN`, `OPERATOR`, `ANALYST`. For details about these permissions, see [Manage Permissions on TikTok Business Center](https://ads.tiktok.com/help/article?aid=12791). |
+| `catalog_role` | `catalog_role` | `"ADMIN" \| "AD_PROMOTE"` | No | No | Required when `asset_type` is `CATALOG`. Business Center user's permissions to the catalog. Enum values: `ADMIN`: The Business Center user has Admin permissions to the catalog. `AD_PROMOTE`: The Business Center user can only use the catalog for promotions. |
+| `form_library_role` | `form_library_role` | `string` | No | No | Required when `asset_type` is `LEAD`. Form library role assigned to the user. Currently, only `ADMIN` is supported. |
+| `tt_account_roles` | `tt_account_roles` | `Array<"POST" \| "LIVE" \| "DIRECT_MESSAGE">` | No | No | Required when `asset_type` is `TT_ACCOUNT`. Business Center user's ad delivery permission to the TikTok account. Enum values:`POST`: Existing posts permissions, including accessing your own profile info, accessing your own public videos, and accessing your own ad-authorized videos.`LIVE`: LIVE video permissions (Only available in some regions), including accessing your own profile info and accessing LIVE videos.`DIRECT_MESSAGE`: Direct message permissions, including allowing everyone to send you a direct message and reading and managing direct messages in your inbox, in addition to messaging or interacting with other accounts on your behalf. |
+| `business_account_roles` | `business_account_roles` | `Array<"BUSINESS_ACCOUNT_ADMIN" \| "BUSINESS_ACCOUNT_OPERATOR" \| "BUSINESS_ACCOUNT_ANALYST">` | No | No | Required only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Business Center user's Business Account management permission to the TikTok account. Enum values:`BUSINESS_ACCOUNT_ADMIN`: Business Account admin. Business Account admins have access to all Business Account features, including verification, member management, and linking to Business Center.`BUSINESS_ACCOUNT_OPERATOR`: Business Account operator. Business Account operators can manage TikTok analytics, posts, messages, and profile information.`BUSINESS_ACCOUNT_ANALYST`: Business Account analyst. Business Account analysts only have access to analytics and are not able to manage posts, messages, etc. Max size: 1. |
+| `store_role` | `store_role` | `string` | No | No | Required when `asset_type` is `TIKTOK_SHOP`. Business Center user's permission to a TikTok Shop. Enum values:`AD_PROMOTION`: The Business Center user can only use the TikTok Shop for promotions. |
+
+## BcAssetAssignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Type of asset that you want to get. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `filtering` | `filtering` | `BcAssetGetParamsFiltering` | No | No | Filtering conditions. Note:You cannot use `user_id` and `user_email` at the same time.If you don't specify any filter values, the system will pass in to the `user_id` field the user ID of the TikTok for Business account that gives you the authorization code (`auth_code`). |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## BcAssetGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_id` | `user_id` | `string` | No | No | ID of the user that you want to get assets for. Note:`user_id` and `user_mail` cannot be set at the same time.For users that are in `BOUND` status, use `user_id` to get their assets.For users that are in `PENDING` status, use `user_email` to get their assets.This filter is not supported when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. |
+| `user_email` | `user_email` | `string` | No | No | Email of the user that you want to get assets for. Note:`user_id` and `user_mail` cannot be set at the same time.For users that are in `BOUND` status, use `user_id` to get their assets.For users that are in `PENDING` status, use `user_email` to get their assets.Use `user_email` as filter only when you've set `asset_type` as `ADVERTISER` and the invitation for the user to join Business Center is still pending.This filter is not supported when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. |
+| `keyword` | `keyword` | `string` | No | No | Keyword of the asset you are looking for. Note: This filter is not supported when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. |
+
+## BcAssetGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BcAssetGetResponseList>` | No | No | List of assets |
+| `page_info` | `page_info` | `BcAssetGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAssetGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "TIKTOK_SHOP" \| "PIXEL" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | No | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`TIKTOK_SHOP`: TikTok Shop.`PIXEL`: Pixel.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `asset_id` | `string` | No | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `TIKTOK_SHOP`, this field is the TikTok Shop ID.If `asset_type` is `PIXEL`, this field is the Pixel ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `asset_name` | `asset_name` | `string` | No | No | Asset name. |
+| `advertiser_account_type` | `advertiser_account_type` | `"RESERVATION" \| "AUCTION"` | No | No | Type of the ad account. Enum values: `RESERVATION` (reservation ad account), `AUCTION`(auction ad account). |
+| `advertiser_role` | `advertiser_role` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Business Center user's permissions to the ad account. Enum values:`ADMIN`: Admin. Manage ad account finances, settings, and permissions. Create and edit ad campaigns and view performance data.`OPERATOR`: Operator. Manage finances for ad accounts, create and edit ad campaigns, and view performance data.`ANALYST`: Analyst. View ads and performance data. This field returns a non-null value when `asset_type` is `ADVERTISER`. |
+| `catalog_role` | `catalog_role` | `"ADMIN" \| "AD_PROMOTE"` | No | No | Business Center user's permissions to the catalog. Enum values: `ADMIN`: Catalog management. Promote products both organically and in ads, and edit products and catalogs. `AD_PROMOTE`: Ad promotion. Create ads using product catalogs. This field returns a non-null value when `asset_type` is `CATALOG`. |
+| `ad_creation_eligible` | `ad_creation_eligible` | `"NOT_AVAILABLE" \| "AVAILABLE"` | No | No | Returned only when `asset_type` is `CATALOG`. Whether the catalog can be used in ads when it contains the number of available products required for the ad format. Enum values:`NOT_AVAILABLE`: The catalog cannot be used in ads.`AVAILABLE`: The catalog can be used in ads when it contains the number of available products required for the ad format. |
+| `store_role` | `store_role` | `string` | No | No | Business Center user's permission to the TikTok Shop. Enum values:`AD_PROMOTION`: Ad promotion. Create ads promoting products from this TikTok Shop. This field returns a non-null value when `asset_type` is `TIKTOK_SHOP`. |
+| `tt_account_roles` | `tt_account_roles` | `Array<"POST" \| "LIVE" \| "DIRECT_MESSAGE">` | No | No | Business Center user's ad delivery permission to the TikTok account. Enum values:`POST`: Existing posts permissions, including accessing your own profile info, accessing your own public videos, and accessing your own ad-authorized videos.`LIVE`: LIVE video permissions (Only available in some regions), including accessing your own profile info and accessing LIVE videos.`DIRECT_MESSAGE`: Direct message permissions, including allowing everyone to send you a direct message and reading and managing direct messages in your inbox, in addition to messaging or interacting with other accounts on your behalf.This field returns a non-null value when `asset_type` is `TT_ACCOUNT`. |
+| `business_account_roles` | `business_account_roles` | `Array<"BUSINESS_ACCOUNT_ADMIN" \| "BUSINESS_ACCOUNT_OPERATOR" \| "BUSINESS_ACCOUNT_ANALYST">` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Business Center user's Business Account management permission to the TikTok account. Enum values:`BUSINESS_ACCOUNT_ADMIN`: Business Account admin. Business Account admins have access to all Business Account features, including verification, member management, and linking to Business Center.`BUSINESS_ACCOUNT_OPERATOR`: Business Account operator. Business Account operators can manage TikTok analytics, posts, messages, and profile information.`BUSINESS_ACCOUNT_ANALYST` : Business Account analyst. Business Account analysts only have access to analytics and are not able to manage posts, messages, etc. |
+| `owner_bc_name` | `owner_bc_name` | `string` | No | No | The owner Business Center of this asset. When `asset_type` is `TT_ACCOUNT` or `MANAGED_BUSINESS_ACCOUNT`, the value of this field will be null. |
+| `is_business_verified` | `is_business_verified` | `boolean` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Whether the TikTok account is a Verified Business Account. A verified badge shows your account is authentic, based on your activity and the information you provided. With a verified account, you’ll also get extra protection, direct support, and more visibility. Supported values: `true`, `false`. Note: Organization Accounts created in Business Center will have access to functions exclusive to Verified Business Accounts such as Business Suite features. For these accounts, business verification will be approved without requiring any business verification documentation. For these accounts, `is_business_verified` will be `true`. |
+| `operating_region_code` | `operating_region_code` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The region code of the operating region for the TikTok account. Example: `US`. For enum values, see [List of values for `operating_region_code`](https://business-api.tiktok.com/portal/docs?id=1855027199571138#item-link-List%20of%20values%20for%20operating_region_code). |
+| `tt_asset_handle` | `tt_asset_handle` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The handle of the TikTok account. |
+| `tt_asset_profile_image` | `tt_asset_profile_image` | `string` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. The profile image of the TikTok account. If no profile image has been specified for the TikTok account, this field will be empty. |
+
+## BcAssetGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BcAssetGroupCreateParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupDeleteParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupGetParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupGetResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupListParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupListResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupUpdateParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetGroupUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BcAssetMemberGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "LEAD" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`LEAD`: leads.`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `asset_id` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `filtering` | `filtering` | `BcAssetMemberGetParamsFiltering` | No | No | Filtering conditions |
+
+## BcAssetMemberGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Keyword to filter by. |
+
+## BcAssetMemberGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BcAssetMemberGetResponseList>` | No | No | List of members. |
+| `page_info` | `page_info` | `BcAssetMemberGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAssetMemberGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_id` | `user_id` | `string` | No | No | User ID. |
+| `user_name` | `user_name` | `string` | No | No | User name. |
+| `user_email` | `user_email` | `string` | No | No | User email |
+| `advertiser_role` | `advertiser_role` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Returned only when `asset_type` is `ADVERTISER`. Ad account role. Enum values: `ADMIN`, `OPERATOR`, `ANALYST`. |
+| `catalog_role` | `catalog_role` | `"ADMIN" \| "AD_PROMOTE"` | No | No | Returned only when `asset_type` is `CATALOG`. Business Center user's permissions to the catalog. Enum values: `ADMIN`: The Business Center user has Admin permissions to the catalog. `AD_PROMOTE`: The Business Center user can only use the catalog for promotions. |
+| `business_account_roles` | `business_account_roles` | `Array<"BUSINESS_ACCOUNT_ADMIN" \| "BUSINESS_ACCOUNT_OPERATOR" \| "BUSINESS_ACCOUNT_ANALYST">` | No | No | Returned only when `asset_type` is `MANAGED_BUSINESS_ACCOUNT`. Business Center user's Business Account management permission to the TikTok account. Enum values:`BUSINESS_ACCOUNT_ADMIN`: Business Account admin. Business Account admins have access to all Business Account features, including verification, member management, and linking to Business Center.`BUSINESS_ACCOUNT_OPERATOR`: Business Account operator. Business Account operators can manage TikTok analytics, posts, messages, and profile information.`BUSINESS_ACCOUNT_ANALYST`: Business Account analyst. Business Account analysts only have access to analytics and are not able to manage posts, messages, etc. |
+
+## BcAssetMemberGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages. |
+| `page_size` | `page_size` | `number` | No | No | Page Size. |
+| `page` | `page` | `number` | No | No | Current page number. |
+
+## BcAssetPartnerGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG"` | Yes | No | Asset type. Enum values: `ADVERTISER`, `CATALOG`. |
+| `asset_id` | `asset_id` | `string` | Yes | No | Asset ID. Ad account ID when `asset_type` is `ADVERTISER`. Catalog ID when `asset_type` is` CATALOG`. |
+| `filtering` | `filtering` | `BcAssetPartnerGetParamsFiltering` | No | No | Filtering object |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. |
+
+## BcAssetPartnerGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | Yes | No | Partner name keyword that you want to filter by. |
+
+## BcAssetPartnerGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<BcAssetPartnerGetResponseList>` | No | No | List of partners. |
+| `page_info` | `page_info` | `BcAssetPartnerGetResponsePageInfo` | No | No | Pagination information. |
+
+## BcAssetPartnerGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_name` | `bc_name` | `string` | No | No | Partner name. |
+| `bc_id` | `bc_id` | `string` | No | No | Partner ID. |
+
+## BcAssetPartnerGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page Size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## BcAssetUnassignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID |
+| `user_id` | `user_id` | `string` | Yes | No | The ID of the Business Center user that you want to revoke the access to the asset from. You can obtain the Business Center user ID via `user_id` returned by [/bc/member/get/](https://ads.tiktok.com/marketing_api/docs?id=1739939404802049). |
+| `asset_type` | `asset_type` | `"ADVERTISER" \| "CATALOG" \| "LEAD" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "MANAGED_BUSINESS_ACCOUNT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`CATALOG`: catalog.`LEAD`: Leads.`TT_ACCOUNT`: TikTok account as an ad delivery asset. You can run ads from these TikTok accounts. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097).`MANAGED_BUSINESS_ACCOUNT`: TikTok account for Business Account management. You can run ads from these TikTok accounts, and manage messages, leads, forms, comments, product links, and insights in your TikTok account. |
+| `asset_id` | `asset_id` | `string` | Yes | No | Asset ID.If `asset_type` is `ADVERTISER`, this field is the advertiser ID.If `asset_type` is `CATALOG`, this field is the catalog ID.If `asset_type` is `LEAD`, this field is the form library ID. To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `TT_ACCOUNT`, this field is the ID of a TikTok account as an ad delivery asset in a Business Center.If `asset_type` is `MANAGED_BUSINESS_ACCOUNT`, this field is the ID of a TikTok account for Business Account management in a Business Center. |
+
+## BcAssetUnassignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.

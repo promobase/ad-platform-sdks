@@ -1,0 +1,162 @@
+---
+title: "TikTok Business BC Billing Groups endpoints"
+description: "4 generated TikTok Business endpoint contracts for BC Billing Groups."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 113
+  label: "BC Billing Groups"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCBillingGroups.bcBillingGroupAdvertiserList
+
+`GET` `/open_api/v1.3/bc/billing_group/advertiser/list/`
+
+Generated from TikTok documentation 1738458108705794
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCBillingGroups.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcBillingGroupAdvertiserListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID |
+| `billing_group_id` | `query` | `string` | Yes | No | Billing Group ID |
+| `page` | `query` | `number` | No | No | Page number. Default value: 1 |
+| `page_size` | `query` | `number` | No | No | Page size, in the range of 1-50. The default value is 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCBillingGroups.bcBillingGroupCreate
+
+`POST` `/open_api/v1.3/bc/billing_group/create/`
+
+Generated from TikTok documentation 1738947780033537
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCBillingGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcBillingGroupCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `billing_group_name` | `body` | `string` | Yes | No | Billing group name. |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | Ad account IDs that you want to include in the billing group. Note: If you want to create a billing group for Auction ad accounts, you should add all Auction ad accounts to one Billing Group, except the ad accounts registered in France, Brazil, or Mexico. However, if you want to create a billing group of Reservation ad accounts, you should add one Reservation ad account to one Billing Group. |
+| `billing_group_emails` | `body` | `Array<string>` | No | No | Billing group emails |
+| `is_primary` | `body` | `boolean` | No | No | Whether to set this billing group as the default billing group for the Business Center. |
+| `billing_group_type` | `body` | `"AUCTION" \| "RESERVATION"` | No | No | The advertising type of all ad accounts in the billing group. This setting can not be edited. Enum values: `AUCTION`, `RESERVATION`(to be deprecated) Note: Starting March 31st, 2024, we're making all brand relevant campaign management processes fulfilled directly on TikTok Ads Manager. You'll manage all brand campaigns in one place - no more juggling between auction and reservation ads. This means our Business Center API won't support reservation account or related billing group creation and management anymore. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCBillingGroups.bcBillingGroupGet
+
+`GET` `/open_api/v1.3/bc/billing_group/get/`
+
+Generated from TikTok documentation 1738944324279297
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCBillingGroups.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcBillingGroupGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID |
+| `filtering` | `query` | `BcBillingGroupGetParamsFiltering` | No | No | Filtering conditions |
+| `page` | `query` | `number` | No | No | Page number. Default value: 1 |
+| `page_size` | `query` | `number` | No | No | Page size, in the range of 1-50. The default value is 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCBillingGroups.bcBillingGroupUpdate
+
+`POST` `/open_api/v1.3/bc/billing_group/update/`
+
+Generated from TikTok documentation 1738947843447809
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCBillingGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcBillingGroupUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `billing_group_id` | `body` | `string` | Yes | No | ID of the billing group you'd like to edit |
+| `new_billing_group_name` | `body` | `string` | No | No | New billing group name |
+| `new_billing_group_emails` | `body` | `Array<string>` | No | No | List of emails for the billing group. If this field is provided, this new list of emails will overwrite the billing group's existing emails |
+| `add_advertiser_ids` | `body` | `Array<string>` | No | No | List of ad account IDs you want to add to this billing group |
+| `delete_advertiser_ids` | `body` | `Array<string>` | No | No | List of ad account IDs you want to remove from this billing group |
+| `is_primary` | `body` | `boolean` | No | No | Whether to set this billing group as the default billing group for the Business Center |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

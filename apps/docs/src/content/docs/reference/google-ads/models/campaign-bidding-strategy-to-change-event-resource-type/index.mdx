@@ -1,0 +1,919 @@
+---
+title: "Google Ads models: Campaign Bidding Strategy – Change Event Resource Type"
+description: "100 generated Google Ads model contracts, from CampaignBiddingStrategy through ChangeEventResourceType."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1005
+  label: "Campaign Bidding Strategy – Change Event Resource Type"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## CampaignBiddingStrategy
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `manual_cpc_bidding_strategy` | `manual_cpc_bidding_strategy` | `unknown` | No | No | — |
+| `maximize_clicks_bidding_strategy` | `maximize_clicks_bidding_strategy` | `unknown` | No | No | — |
+| `maximize_conversions_bidding_strategy` | `maximize_conversions_bidding_strategy` | `unknown` | No | No | — |
+
+## CampaignBidModifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `criterion_id` | `criterion_id` | `string` | No | No | — |
+| `bid_modifier` | `bid_modifier` | `number` | No | No | — |
+| `interaction_type` | `interaction_type` | `InteractionTypeInfo` | No | No | — |
+
+## CampaignBidModifierOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignBidModifier` | No | No | — |
+| `update` | `update` | `CampaignBidModifier` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignBudget
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+| `total_amount_micros` | `total_amount_micros` | `string` | No | No | — |
+| `status` | `status` | `BudgetStatus` | No | No | — |
+| `delivery_method` | `delivery_method` | `BudgetDeliveryMethod` | No | No | — |
+| `explicitly_shared` | `explicitly_shared` | `boolean` | No | No | — |
+| `reference_count` | `reference_count` | `string` | No | No | — |
+| `has_recommended_budget` | `has_recommended_budget` | `boolean` | No | No | — |
+| `recommended_budget_amount_micros` | `recommended_budget_amount_micros` | `string` | No | No | — |
+| `period` | `period` | `BudgetPeriod` | No | No | — |
+| `recommended_budget_estimated_change_weekly_clicks` | `recommended_budget_estimated_change_weekly_clicks` | `string` | No | No | — |
+| `recommended_budget_estimated_change_weekly_cost_micros` | `recommended_budget_estimated_change_weekly_cost_micros` | `string` | No | No | — |
+| `recommended_budget_estimated_change_weekly_interactions` | `recommended_budget_estimated_change_weekly_interactions` | `string` | No | No | — |
+| `recommended_budget_estimated_change_weekly_views` | `recommended_budget_estimated_change_weekly_views` | `string` | No | No | — |
+| `type` | `type` | `BudgetType` | No | No | — |
+| `aligned_bidding_strategy_id` | `aligned_bidding_strategy_id` | `string` | No | No | — |
+
+## CampaignBudgetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_BUDGET_CANNOT_BE_SHARED`, `CAMPAIGN_BUDGET_REMOVED`, `CAMPAIGN_BUDGET_IN_USE`, `CAMPAIGN_BUDGET_PERIOD_NOT_AVAILABLE`, `CANNOT_MODIFY_FIELD_OF_IMPLICITLY_SHARED_CAMPAIGN_BUDGET`, `CANNOT_UPDATE_CAMPAIGN_BUDGET_TO_IMPLICITLY_SHARED`, `CANNOT_UPDATE_CAMPAIGN_BUDGET_TO_EXPLICITLY_SHARED_WITHOUT_NAME`, `CANNOT_UPDATE_CAMPAIGN_BUDGET_TO_EXPLICITLY_SHARED`, `CANNOT_USE_IMPLICITLY_SHARED_CAMPAIGN_BUDGET_WITH_MULTIPLE_CAMPAIGNS`, `DUPLICATE_NAME`, `MONEY_AMOUNT_IN_WRONG_CURRENCY`, `MONEY_AMOUNT_LESS_THAN_CURRENCY_MINIMUM_CPC`, `MONEY_AMOUNT_TOO_LARGE`, `NEGATIVE_MONEY_AMOUNT`, `NON_MULTIPLE_OF_MINIMUM_CURRENCY_UNIT`, `TOTAL_BUDGET_AMOUNT_MUST_BE_UNSET_FOR_BUDGET_PERIOD_DAILY`, `INVALID_PERIOD`, `CANNOT_USE_ACCELERATED_DELIVERY_MODE`, `BUDGET_AMOUNT_MUST_BE_UNSET_FOR_CUSTOM_BUDGET_PERIOD`, `BUDGET_BELOW_PER_DAY_MINIMUM`
+
+## CampaignBudgetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignBudgetMapping
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `experiment_campaign` | `experiment_campaign` | `string` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `string` | No | No | — |
+
+## CampaignBudgetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignBudget` | No | No | — |
+| `update` | `update` | `CampaignBudget` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignBudgetParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `new_budget_amount_micros` | `new_budget_amount_micros` | `string` | No | No | — |
+
+## CampaignBudgetRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `current_budget_amount_micros` | `current_budget_amount_micros` | `string` | No | No | — |
+| `recommended_budget_amount_micros` | `recommended_budget_amount_micros` | `string` | No | No | — |
+| `budget_options` | `budget_options` | `Array<unknown>` | No | No | — |
+
+## CampaignBudgetRecommendationOption
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_amount_micros` | `budget_amount_micros` | `string` | No | No | — |
+| `impact` | `impact` | `unknown` | No | No | — |
+
+## CampaignConversionGoal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `category` | `category` | `ConversionActionCategory` | No | No | — |
+| `origin` | `origin` | `ConversionOrigin` | No | No | — |
+| `biddable` | `biddable` | `boolean` | No | No | — |
+
+## CampaignConversionGoalError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_USE_CAMPAIGN_GOAL_FOR_SEARCH_ADS_360_MANAGED_CAMPAIGN`, `CANNOT_USE_STORE_SALE_GOAL_FOR_PERFORMANCE_MAX_CAMPAIGN`
+
+## CampaignConversionGoalErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignConversionGoalOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update` | `update` | `CampaignConversionGoal` | No | No | — |
+
+## CampaignCriterion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `criterion_id` | `criterion_id` | `string` | No | No | — |
+| `display_name` | `display_name` | `string` | No | No | — |
+| `bid_modifier` | `bid_modifier` | `number` | No | No | — |
+| `negative` | `negative` | `boolean` | No | No | — |
+| `type` | `type` | `CriterionType` | No | No | — |
+| `status` | `status` | `CampaignCriterionStatus` | No | No | — |
+| `keyword` | `keyword` | `KeywordInfo` | No | No | — |
+| `placement` | `placement` | `PlacementInfo` | No | No | — |
+| `mobile_app_category` | `mobile_app_category` | `MobileAppCategoryInfo` | No | No | — |
+| `mobile_application` | `mobile_application` | `MobileApplicationInfo` | No | No | — |
+| `location` | `location` | `LocationInfo` | No | No | — |
+| `device` | `device` | `DeviceInfo` | No | No | — |
+| `ad_schedule` | `ad_schedule` | `AdScheduleInfo` | No | No | — |
+| `age_range` | `age_range` | `AgeRangeInfo` | No | No | — |
+| `gender` | `gender` | `GenderInfo` | No | No | — |
+| `income_range` | `income_range` | `IncomeRangeInfo` | No | No | — |
+| `parental_status` | `parental_status` | `ParentalStatusInfo` | No | No | — |
+| `user_list` | `user_list` | `UserListInfo` | No | No | — |
+| `youtube_video` | `youtube_video` | `YouTubeVideoInfo` | No | No | — |
+| `youtube_channel` | `youtube_channel` | `YouTubeChannelInfo` | No | No | — |
+| `proximity` | `proximity` | `ProximityInfo` | No | No | — |
+| `topic` | `topic` | `TopicInfo` | No | No | — |
+| `listing_scope` | `listing_scope` | `ListingScopeInfo` | No | No | — |
+| `language` | `language` | `LanguageInfo` | No | No | — |
+| `ip_block` | `ip_block` | `IpBlockInfo` | No | No | — |
+| `content_label` | `content_label` | `ContentLabelInfo` | No | No | — |
+| `carrier` | `carrier` | `CarrierInfo` | No | No | — |
+| `user_interest` | `user_interest` | `UserInterestInfo` | No | No | — |
+| `webpage` | `webpage` | `WebpageInfo` | No | No | — |
+| `operating_system_version` | `operating_system_version` | `OperatingSystemVersionInfo` | No | No | — |
+| `mobile_device` | `mobile_device` | `MobileDeviceInfo` | No | No | — |
+| `location_group` | `location_group` | `LocationGroupInfo` | No | No | — |
+| `custom_affinity` | `custom_affinity` | `CustomAffinityInfo` | No | No | — |
+| `custom_audience` | `custom_audience` | `CustomAudienceInfo` | No | No | — |
+| `combined_audience` | `combined_audience` | `CombinedAudienceInfo` | No | No | — |
+| `keyword_theme` | `keyword_theme` | `KeywordThemeInfo` | No | No | — |
+| `local_service_id` | `local_service_id` | `LocalServiceIdInfo` | No | No | — |
+| `brand_list` | `brand_list` | `BrandListInfo` | No | No | — |
+| `life_event` | `life_event` | `LifeEventInfo` | No | No | — |
+| `webpage_list` | `webpage_list` | `WebpageListInfo` | No | No | — |
+| `video_lineup` | `video_lineup` | `VideoLineupInfo` | No | No | — |
+| `extended_demographic` | `extended_demographic` | `ExtendedDemographicInfo` | No | No | — |
+
+## CampaignCriterionError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONCRETE_TYPE_REQUIRED`, `INVALID_PLACEMENT_URL`, `CANNOT_EXCLUDE_CRITERIA_TYPE`, `CANNOT_SET_STATUS_FOR_CRITERIA_TYPE`, `CANNOT_SET_STATUS_FOR_EXCLUDED_CRITERIA`, `CANNOT_TARGET_AND_EXCLUDE`, `TOO_MANY_OPERATIONS`, `OPERATOR_NOT_SUPPORTED_FOR_CRITERION_TYPE`, `SHOPPING_CAMPAIGN_SALES_COUNTRY_NOT_SUPPORTED_FOR_SALES_CHANNEL`, `CANNOT_ADD_EXISTING_FIELD`, `CANNOT_UPDATE_NEGATIVE_CRITERION`, `CANNOT_SET_NEGATIVE_KEYWORD_THEME_CONSTANT_CRITERION`, `INVALID_KEYWORD_THEME_CONSTANT`, `MISSING_KEYWORD_THEME_CONSTANT_OR_FREE_FORM_KEYWORD_THEME`, `CANNOT_TARGET_BOTH_PROXIMITY_AND_LOCATION_CRITERIA_FOR_SMART_CAMPAIGN`, `CANNOT_TARGET_MULTIPLE_PROXIMITY_CRITERIA_FOR_SMART_CAMPAIGN`, `LOCATION_NOT_LAUNCHED_FOR_LOCAL_SERVICES_CAMPAIGN`, `LOCATION_INVALID_FOR_LOCAL_SERVICES_CAMPAIGN`, `CANNOT_TARGET_COUNTRY_FOR_LOCAL_SERVICES_CAMPAIGN`, `LOCATION_NOT_IN_HOME_COUNTRY_FOR_LOCAL_SERVICES_CAMPAIGN`, `CANNOT_ADD_OR_REMOVE_LOCATION_FOR_LOCAL_SERVICES_CAMPAIGN`, `AT_LEAST_ONE_POSITIVE_LOCATION_REQUIRED_FOR_LOCAL_SERVICES_CAMPAIGN`, `AT_LEAST_ONE_LOCAL_SERVICE_ID_CRITERION_REQUIRED_FOR_LOCAL_SERVICES_CAMPAIGN`, `LOCAL_SERVICE_ID_NOT_FOUND_FOR_CATEGORY`, `CANNOT_ATTACH_BRAND_LIST_TO_NON_QUALIFIED_SEARCH_CAMPAIGN`, `CANNOT_REMOVE_ALL_LOCATIONS_DUE_TO_TOO_MANY_COUNTRY_EXCLUSIONS`, `INVALID_VIDEO_LINEUP_ID`, `CANNOT_REMOVE_ALL_LOCATIONS_FROM_LOCAL_SERVICES_PMAX_CAMPAIGN`
+
+## CampaignCriterionErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignCriterionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignCriterion` | No | No | — |
+| `update` | `update` | `CampaignCriterion` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignCriterionStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`, `REMOVED`
+
+## CampaignCriterionStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignCustomizer
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `customizer_attribute` | `customizer_attribute` | `string` | No | No | — |
+| `status` | `status` | `CustomizerValueStatus` | No | No | — |
+| `value` | `value` | `CustomizerValue` | No | No | — |
+
+## CampaignCustomizerError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`
+
+## CampaignCustomizerErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignCustomizerOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `CampaignCustomizer` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignDraft
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `draft_id` | `draft_id` | `string` | No | No | — |
+| `base_campaign` | `base_campaign` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `draft_campaign` | `draft_campaign` | `string` | No | No | — |
+| `status` | `status` | `CampaignDraftStatus` | No | No | — |
+| `has_experiment_running` | `has_experiment_running` | `boolean` | No | No | — |
+| `long_running_operation` | `long_running_operation` | `string` | No | No | — |
+
+## CampaignDraftError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_DRAFT_NAME`, `INVALID_STATUS_TRANSITION_FROM_REMOVED`, `INVALID_STATUS_TRANSITION_FROM_PROMOTED`, `INVALID_STATUS_TRANSITION_FROM_PROMOTE_FAILED`, `CUSTOMER_CANNOT_CREATE_DRAFT`, `CAMPAIGN_CANNOT_CREATE_DRAFT`, `INVALID_DRAFT_CHANGE`, `INVALID_STATUS_TRANSITION`, `MAX_NUMBER_OF_DRAFTS_PER_CAMPAIGN_REACHED`, `LIST_ERRORS_FOR_PROMOTED_DRAFT_ONLY`
+
+## CampaignDraftErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignDraftOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignDraft` | No | No | — |
+| `update` | `update` | `CampaignDraft` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignDraftStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PROPOSED`, `REMOVED`, `PROMOTING`, `PROMOTED`, `PROMOTE_FAILED`
+
+## CampaignDraftStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignDuration
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duration_in_days` | `duration_in_days` | `integer` | No | No | — |
+| `date_range` | `date_range` | `DateRange` | No | No | — |
+
+## CampaignError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_TARGET_CONTENT_NETWORK`, `CANNOT_TARGET_SEARCH_NETWORK`, `CANNOT_TARGET_SEARCH_NETWORK_WITHOUT_GOOGLE_SEARCH`, `CANNOT_TARGET_GOOGLE_SEARCH_FOR_CPM_CAMPAIGN`, `CAMPAIGN_MUST_TARGET_AT_LEAST_ONE_NETWORK`, `CANNOT_TARGET_PARTNER_SEARCH_NETWORK`, `CANNOT_TARGET_CONTENT_NETWORK_ONLY_WITH_CRITERIA_LEVEL_BIDDING_STRATEGY`, `CAMPAIGN_DURATION_MUST_CONTAIN_ALL_RUNNABLE_TRIALS`, `CANNOT_MODIFY_FOR_TRIAL_CAMPAIGN`, `DUPLICATE_CAMPAIGN_NAME`, `INCOMPATIBLE_CAMPAIGN_FIELD`, `INVALID_CAMPAIGN_NAME`, `INVALID_AD_SERVING_OPTIMIZATION_STATUS`, `INVALID_TRACKING_URL`, `CANNOT_SET_BOTH_TRACKING_URL_TEMPLATE_AND_TRACKING_SETTING`, `MAX_IMPRESSIONS_NOT_IN_RANGE`, `TIME_UNIT_NOT_SUPPORTED`, `INVALID_OPERATION_IF_SERVING_STATUS_HAS_ENDED`, `BUDGET_CANNOT_BE_SHARED`, `CAMPAIGN_CANNOT_USE_SHARED_BUDGET`, `CANNOT_CHANGE_BUDGET_ON_CAMPAIGN_WITH_TRIALS`, `CAMPAIGN_LABEL_DOES_NOT_EXIST`, `CAMPAIGN_LABEL_ALREADY_EXISTS`, `MISSING_SHOPPING_SETTING`, `INVALID_SHOPPING_SALES_COUNTRY`, `ADVERTISING_CHANNEL_TYPE_NOT_AVAILABLE_FOR_ACCOUNT_TYPE`, `INVALID_ADVERTISING_CHANNEL_SUB_TYPE`, `AT_LEAST_ONE_CONVERSION_MUST_BE_SELECTED`, `CANNOT_SET_AD_ROTATION_MODE`, `CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED`, `CANNOT_SET_DATE_TO_PAST`, `MISSING_HOTEL_CUSTOMER_LINK`, `INVALID_HOTEL_CUSTOMER_LINK`, `MISSING_HOTEL_SETTING`, `CANNOT_USE_SHARED_CAMPAIGN_BUDGET_WHILE_PART_OF_CAMPAIGN_GROUP`, `APP_NOT_FOUND`, `SHOPPING_ENABLE_LOCAL_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE`, `MERCHANT_NOT_ALLOWED_FOR_COMPARISON_LISTING_ADS`, `INSUFFICIENT_APP_INSTALLS_COUNT`, `SENSITIVE_CATEGORY_APP`, `HEC_AGREEMENT_REQUIRED`, `NOT_COMPATIBLE_WITH_VIEW_THROUGH_CONVERSION_OPTIMIZATION`, `INVALID_EXCLUDED_PARENT_ASSET_FIELD_TYPE`, `CANNOT_CREATE_APP_PRE_REGISTRATION_FOR_NON_ANDROID_APP`, `APP_NOT_AVAILABLE_TO_CREATE_APP_PRE_REGISTRATION_CAMPAIGN`, `INCOMPATIBLE_BUDGET_TYPE`, `LOCAL_SERVICES_DUPLICATE_CATEGORY_BID`, `LOCAL_SERVICES_INVALID_CATEGORY_BID`, `LOCAL_SERVICES_MISSING_CATEGORY_BID`, `INVALID_STATUS_CHANGE`, `MISSING_TRAVEL_CUSTOMER_LINK`, `INVALID_TRAVEL_CUSTOMER_LINK`, `INVALID_EXCLUDED_PARENT_ASSET_SET_TYPE`, `ASSET_SET_NOT_A_HOTEL_PROPERTY_ASSET_SET`, `HOTEL_PROPERTY_ASSET_SET_ONLY_FOR_PERFORMANCE_MAX_FOR_TRAVEL_GOALS`, `AVERAGE_DAILY_SPEND_TOO_HIGH`, `CANNOT_ATTACH_TO_REMOVED_CAMPAIGN_GROUP`, `CANNOT_ATTACH_TO_BIDDING_STRATEGY`, `CANNOT_CHANGE_BUDGET_PERIOD`, `NOT_ENOUGH_CONVERSIONS`, `CANNOT_SET_MORE_THAN_ONE_CONVERSION_ACTION`, `NOT_COMPATIBLE_WITH_BUDGET_TYPE`, `NOT_COMPATIBLE_WITH_UPLOAD_CLICKS_CONVERSION`, `APP_ID_MUST_MATCH_CONVERSION_ACTION_APP_ID`, `CONVERSION_ACTION_WITH_DOWNLOAD_CATEGORY_NOT_ALLOWED`, `CONVERSION_ACTION_WITH_DOWNLOAD_CATEGORY_REQUIRED`, `CONVERSION_TRACKING_NOT_ENABLED`, `NOT_COMPATIBLE_WITH_BIDDING_STRATEGY_TYPE`, `NOT_COMPATIBLE_WITH_GOOGLE_ATTRIBUTION_CONVERSIONS`, `CONVERSION_LAG_TOO_HIGH`, `NOT_LINKED_ADVERTISING_PARTNER`, `INVALID_NUMBER_OF_ADVERTISING_PARTNER_IDS`, `CANNOT_TARGET_DISPLAY_NETWORK_WITHOUT_YOUTUBE`, `CANNOT_LINK_TO_COMPARISON_SHOPPING_SERVICE_ACCOUNT`, `CANNOT_TARGET_NETWORK_FOR_COMPARISON_SHOPPING_SERVICE_LINKED_ACCOUNTS`, `CANNOT_MODIFY_TEXT_ASSET_AUTOMATION_WITH_ENABLED_TRIAL`, `DYNAMIC_TEXT_ASSET_CANNOT_OPT_OUT_WITH_FINAL_URL_EXPANSION_OPT_IN`, `CANNOT_SET_CAMPAIGN_KEYWORD_MATCH_TYPE`, `CANNOT_DISABLE_BROAD_MATCH_WHEN_KEYWORD_CONVERSION_IN_PROCESS`, `CANNOT_DISABLE_BROAD_MATCH_WHEN_TARGETING_BRANDS`, `CANNOT_ENABLE_BROAD_MATCH_FOR_BASE_CAMPAIGN_WITH_PROMOTING_TRIAL`, `CANNOT_ENABLE_BROAD_MATCH_FOR_PROMOTING_TRIAL_CAMPAIGN`, `REQUIRED_BUSINESS_NAME_ASSET_NOT_LINKED`, `REQUIRED_LOGO_ASSET_NOT_LINKED`, `BRAND_TARGETING_OVERRIDES_NOT_SUPPORTED`, `BRAND_GUIDELINES_NOT_ENABLED_FOR_CAMPAIGN`, `BRAND_GUIDELINES_MAIN_AND_ACCENT_COLORS_REQUIRED`, `BRAND_GUIDELINES_COLOR_INVALID_FORMAT`, `BRAND_GUIDELINES_UNSUPPORTED_FONT_FAMILY`, `BRAND_GUIDELINES_UNSUPPORTED_CHANNEL`, `CANNOT_ENABLE_BRAND_GUIDELINES_FOR_TRAVEL_GOALS`, `CUSTOMER_NOT_ALLOWLISTED_FOR_BRAND_GUIDELINES`, `THIRD_PARTY_INTEGRATION_PARTNER_NOT_ALLOWED`, `THIRD_PARTY_INTEGRATION_PARTNER_SHARE_COST_NOT_ALLOWED`, `DUPLICATE_INTERACTION_TYPE`, `INVALID_INTERACTION_TYPE`, `VIDEO_SEQUENCE_ERROR_SEQUENCE_DEFINITION_REQUIRED`, `AI_MAX_MUST_BE_ENABLED`, `DURATION_TOO_LONG_FOR_TOTAL_BUDGET`, `END_DATE_TIME_REQUIRED_FOR_TOTAL_BUDGET`
+
+## CampaignErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignExperimentError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_NAME`, `INVALID_TRANSITION`, `CANNOT_CREATE_EXPERIMENT_WITH_SHARED_BUDGET`, `CANNOT_CREATE_EXPERIMENT_FOR_REMOVED_BASE_CAMPAIGN`, `CANNOT_CREATE_EXPERIMENT_FOR_NON_PROPOSED_DRAFT`, `CUSTOMER_CANNOT_CREATE_EXPERIMENT`, `CAMPAIGN_CANNOT_CREATE_EXPERIMENT`, `EXPERIMENT_DURATIONS_MUST_NOT_OVERLAP`, `EXPERIMENT_DURATION_MUST_BE_WITHIN_CAMPAIGN_DURATION`, `CANNOT_MUTATE_EXPERIMENT_DUE_TO_STATUS`
+
+## CampaignExperimentErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignExperimentType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BASE`, `DRAFT`, `EXPERIMENT`
+
+## CampaignExperimentTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignFeedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FEED_ALREADY_EXISTS_FOR_PLACEHOLDER_TYPE`, `CANNOT_CREATE_FOR_REMOVED_FEED`, `CANNOT_CREATE_ALREADY_EXISTING_CAMPAIGN_FEED`, `CANNOT_MODIFY_REMOVED_CAMPAIGN_FEED`, `INVALID_PLACEHOLDER_TYPE`, `MISSING_FEEDMAPPING_FOR_PLACEHOLDER_TYPE`, `NO_EXISTING_LOCATION_CUSTOMER_FEED`, `LEGACY_FEED_TYPE_READ_ONLY`
+
+## CampaignFeedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignGoalConfig
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `goal` | `goal` | `string` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+| `campaign_retention_settings` | `campaign_retention_settings` | `CampaignRetentionGoalSettings` | No | No | — |
+| `campaign_new_customer_acquisition_settings` | `campaign_new_customer_acquisition_settings` | `CampaignNewCustomerAcquisitionGoalSettings` | No | No | — |
+| `campaign_loyalty_retention_settings` | `campaign_loyalty_retention_settings` | `CampaignLoyaltyRetentionGoalSettings` | No | No | — |
+
+## CampaignGoalConfigError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GOAL_NOT_FOUND`, `CAMPAIGN_NOT_FOUND`, `HIGH_LIFETIME_VALUE_PRESENT_BUT_VALUE_ABSENT`, `HIGH_LIFETIME_VALUE_LESS_THAN_OR_EQUAL_TO_VALUE`, `CUSTOMER_LIFECYCLE_OPTIMIZATION_CAMPAIGN_TYPE_NOT_SUPPORTED`, `CUSTOMER_NOT_ALLOWLISTED_FOR_RETENTION_ONLY`, `CAMPAIGN_OVERRIDE_VALUES_SET_FOR_NEW_CUSTOMER_ACQUISITION_TARGET_SPECIFIC_OPTION`, `CAMPAIGN_OVERRIDE_HIGH_LIFETIME_VALUE_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE`, `CANNOT_USE_INCOMPATIBLE_CLO_GOALS`, `LOYALTY_RETENTION_GOAL_INVALID_MODE`
+
+## CampaignGoalConfigErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignGoalConfigOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignGoalConfig` | No | No | — |
+| `update` | `update` | `CampaignGoalConfig` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignGoalSettings
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `status` | `status` | `CampaignGroupStatus` | No | No | — |
+
+## CampaignGroupOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `CampaignGroup` | No | No | — |
+| `update` | `update` | `CampaignGroup` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignGroupStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## CampaignGroupStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignKeywordMatchType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BROAD`
+
+## CampaignKeywordMatchTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignLabel
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `label` | `label` | `string` | No | No | — |
+
+## CampaignLabelOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `CampaignLabel` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignLoyaltyRetentionGoalSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `enable_bid_adjustments_for_loyalty_members` | `enable_bid_adjustments_for_loyalty_members` | `boolean` | No | No | — |
+| `show_targeted_loyalty_member_benefits_in_pla` | `show_targeted_loyalty_member_benefits_in_pla` | `boolean` | No | No | — |
+
+## CampaignNewCustomerAcquisitionGoalSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `target_option` | `target_option` | `CustomerLifecycleOptimizationMode` | No | No | — |
+
+## CampaignOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `Campaign` | No | No | — |
+| `update` | `update` | `Campaign` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignPrimaryStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ELIGIBLE`, `PAUSED`, `REMOVED`, `ENDED`, `PENDING`, `MISCONFIGURED`, `LIMITED`, `LEARNING`, `NOT_ELIGIBLE`
+
+## CampaignPrimaryStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignPrimaryStatusReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_REMOVED`, `CAMPAIGN_PAUSED`, `CAMPAIGN_PENDING`, `CAMPAIGN_ENDED`, `CAMPAIGN_DRAFT`, `BIDDING_STRATEGY_MISCONFIGURED`, `BIDDING_STRATEGY_LIMITED`, `BIDDING_STRATEGY_LEARNING`, `BIDDING_STRATEGY_CONSTRAINED`, `BUDGET_CONSTRAINED`, `BUDGET_MISCONFIGURED`, `SEARCH_VOLUME_LIMITED`, `AD_GROUPS_PAUSED`, `NO_AD_GROUPS`, `KEYWORDS_PAUSED`, `NO_KEYWORDS`, `AD_GROUP_ADS_PAUSED`, `NO_AD_GROUP_ADS`, `HAS_ADS_LIMITED_BY_POLICY`, `HAS_ADS_DISAPPROVED`, `MOST_ADS_UNDER_REVIEW`, `MISSING_LEAD_FORM_EXTENSION`, `MISSING_CALL_EXTENSION`, `LEAD_FORM_EXTENSION_UNDER_REVIEW`, `LEAD_FORM_EXTENSION_DISAPPROVED`, `CALL_EXTENSION_UNDER_REVIEW`, `CALL_EXTENSION_DISAPPROVED`, `NO_MOBILE_APPLICATION_AD_GROUP_CRITERIA`, `CAMPAIGN_GROUP_PAUSED`, `CAMPAIGN_GROUP_ALL_GROUP_BUDGETS_ENDED`, `APP_NOT_RELEASED`, `APP_PARTIALLY_RELEASED`, `HAS_ASSET_GROUPS_DISAPPROVED`, `HAS_ASSET_GROUPS_LIMITED_BY_POLICY`, `MOST_ASSET_GROUPS_UNDER_REVIEW`, `NO_ASSET_GROUPS`, `ASSET_GROUPS_PAUSED`, `MISSING_LOCATION_TARGETING`, `CAMPAIGN_NOT_BOOKED`, `BOOKING_HOLD_EXPIRING`, `BOOKING_HOLD_EXPIRED`, `BOOKING_CANCELLED`
+
+## CampaignPrimaryStatusReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignReservationQuote
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `max_budget_micros` | `max_budget_micros` | `string` | No | No | — |
+| `possible_hold_duration_seconds` | `possible_hold_duration_seconds` | `string` | No | No | — |
+| `suggested_cpm_micros` | `suggested_cpm_micros` | `string` | No | No | — |
+
+## CampaignRetentionGoalSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `target_option` | `target_option` | `CustomerLifecycleOptimizationMode` | No | No | — |
+
+## CampaignSearchTermInsight
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `category_label` | `category_label` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+
+## CampaignSearchTermView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+
+## CampaignServingStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SERVING`, `NONE`, `ENDED`, `PENDING`, `SUSPENDED`
+
+## CampaignServingStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignSharedSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+| `status` | `status` | `CampaignSharedSetStatus` | No | No | — |
+
+## CampaignSharedSetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SHARED_SET_ACCESS_DENIED`
+
+## CampaignSharedSetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignSharedSetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `CampaignSharedSet` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## CampaignSharedSetStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## CampaignSharedSetStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignSimulation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `type` | `type` | `SimulationType` | No | No | — |
+| `modification_method` | `modification_method` | `SimulationModificationMethod` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `cpc_bid_point_list` | `cpc_bid_point_list` | `CpcBidSimulationPointList` | No | No | — |
+| `target_cpa_point_list` | `target_cpa_point_list` | `TargetCpaSimulationPointList` | No | No | — |
+| `target_roas_point_list` | `target_roas_point_list` | `TargetRoasSimulationPointList` | No | No | — |
+| `target_impression_share_point_list` | `target_impression_share_point_list` | `TargetImpressionShareSimulationPointList` | No | No | — |
+| `budget_point_list` | `budget_point_list` | `BudgetSimulationPointList` | No | No | — |
+
+## CampaignStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`, `REMOVED`
+
+## CampaignStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## CampaignSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_description` | `campaign_description` | `string` | No | No | — |
+| `quantity` | `quantity` | `string` | No | No | — |
+| `unit_of_measure` | `unit_of_measure` | `UnitOfMeasure` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+
+## CampaignThirdPartyBrandLiftIntegrationPartner
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_lift_integration_partner` | `brand_lift_integration_partner` | `ThirdPartyBrandLiftIntegrationPartner` | No | No | — |
+| `brand_lift_integration_partner_data` | `brand_lift_integration_partner_data` | `unknown` | No | No | — |
+| `share_cost` | `share_cost` | `boolean` | No | No | — |
+
+## CampaignThirdPartyBrandSafetyIntegrationPartner
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_safety_integration_partner` | `brand_safety_integration_partner` | `ThirdPartyBrandSafetyIntegrationPartner` | No | No | — |
+| `brand_safety_integration_partner_data` | `brand_safety_integration_partner_data` | `unknown` | No | No | — |
+
+## CampaignThirdPartyConversionAttributionIntegrationPartner
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_attribution_integration_partner` | `conversion_attribution_integration_partner` | `ThirdPartyConversionAttributionIntegrationPartner` | No | No | — |
+| `conversion_attribution_integration_partner_data` | `conversion_attribution_integration_partner_data` | `unknown` | No | No | — |
+
+## CampaignThirdPartyIntegrationPartners
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewability_integration_partners` | `viewability_integration_partners` | `Array<unknown>` | No | No | — |
+| `brand_lift_integration_partners` | `brand_lift_integration_partners` | `Array<unknown>` | No | No | — |
+| `brand_safety_integration_partners` | `brand_safety_integration_partners` | `Array<unknown>` | No | No | — |
+| `reach_integration_partners` | `reach_integration_partners` | `Array<unknown>` | No | No | — |
+| `conversion_attribution_integration_partners` | `conversion_attribution_integration_partners` | `Array<unknown>` | No | No | — |
+
+## CampaignThirdPartyReachIntegrationPartner
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reach_integration_partner` | `reach_integration_partner` | `ThirdPartyReachIntegrationPartner` | No | No | — |
+| `reach_integration_partner_data` | `reach_integration_partner_data` | `unknown` | No | No | — |
+| `share_cost` | `share_cost` | `boolean` | No | No | — |
+
+## CampaignThirdPartyViewabilityIntegrationPartner
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewability_integration_partner` | `viewability_integration_partner` | `ThirdPartyViewabilityIntegrationPartner` | No | No | — |
+| `viewability_integration_partner_data` | `viewability_integration_partner_data` | `unknown` | No | No | — |
+| `share_cost` | `share_cost` | `boolean` | No | No | — |
+
+## CampaignToForecast
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `language_constants` | `language_constants` | `Array<string>` | No | No | — |
+| `geo_target_constants` | `geo_target_constants` | `Array<string>` | No | No | — |
+| `bidding_strategy` | `bidding_strategy` | `unknown` | No | No | — |
+| `ad_groups` | `ad_groups` | `Array<unknown>` | No | No | — |
+
+## CarrierConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+
+## CarrierInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `carrier_constant` | `carrier_constant` | `string` | No | No | — |
+
+## CartData
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `feed_country_code` | `feed_country_code` | `string` | No | No | — |
+| `feed_language_code` | `feed_language_code` | `string` | No | No | — |
+| `local_transaction_cost` | `local_transaction_cost` | `number` | No | No | — |
+| `items` | `items` | `Array<unknown>` | No | No | — |
+
+## CartDataSalesView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## CategoryBid
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | — |
+| `manual_cpa_bid_micros` | `manual_cpa_bid_micros` | `string` | No | No | — |
+| `target_cpa_bid_micros` | `target_cpa_bid_micros` | `string` | No | No | — |
+
+## ChainFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chain_id` | `chain_id` | `string` | No | No | — |
+| `location_attributes` | `location_attributes` | `Array<string>` | No | No | — |
+
+## ChainLocationGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dynamic_chain_location_group_filters` | `dynamic_chain_location_group_filters` | `Array<unknown>` | No | No | — |
+
+## ChainRelationshipType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AUTO_DEALERS`, `GENERAL_RETAILERS`
+
+## ChainRelationshipTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChainSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `relationship_type` | `relationship_type` | `ChainRelationshipType` | No | No | — |
+| `chains` | `chains` | `Array<unknown>` | No | No | — |
+
+## ChangeClientType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `GOOGLE_ADS_WEB_CLIENT`, `GOOGLE_ADS_AUTOMATED_RULE`, `GOOGLE_ADS_SCRIPTS`, `GOOGLE_ADS_BULK_UPLOAD`, `GOOGLE_ADS_API`, `GOOGLE_ADS_EDITOR`, `GOOGLE_ADS_MOBILE_APP`, `GOOGLE_ADS_RECOMMENDATIONS`, `SEARCH_ADS_360_SYNC`, `SEARCH_ADS_360_POST`, `INTERNAL_TOOL`, `OTHER`, `GOOGLE_ADS_RECOMMENDATIONS_SUBSCRIPTION`
+
+## ChangeClientTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChangedResource
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `unknown` | No | No | — |
+| `ad_group` | `ad_group` | `unknown` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `unknown` | No | No | — |
+| `campaign` | `campaign` | `unknown` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
+| `ad_group_bid_modifier` | `ad_group_bid_modifier` | `unknown` | No | No | — |
+| `campaign_criterion` | `campaign_criterion` | `unknown` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `unknown` | No | No | — |
+| `asset` | `asset` | `unknown` | No | No | — |
+| `customer_asset` | `customer_asset` | `unknown` | No | No | — |
+| `campaign_asset` | `campaign_asset` | `unknown` | No | No | — |
+| `ad_group_asset` | `ad_group_asset` | `unknown` | No | No | — |
+| `asset_set` | `asset_set` | `unknown` | No | No | — |
+| `asset_set_asset` | `asset_set_asset` | `unknown` | No | No | — |
+| `campaign_asset_set` | `campaign_asset_set` | `unknown` | No | No | — |
+
+## ChangeEvent
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `change_date_time` | `change_date_time` | `string` | No | No | — |
+| `change_resource_type` | `change_resource_type` | `ChangeEventResourceType` | No | No | — |
+| `change_resource_name` | `change_resource_name` | `string` | No | No | — |
+| `client_type` | `client_type` | `ChangeClientType` | No | No | — |
+| `user_email` | `user_email` | `string` | No | No | — |
+| `old_resource` | `old_resource` | `unknown` | No | No | — |
+| `new_resource` | `new_resource` | `unknown` | No | No | — |
+| `resource_change_operation` | `resource_change_operation` | `ResourceChangeOperation` | No | No | — |
+| `changed_fields` | `changed_fields` | `unknown` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+
+## ChangeEventError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `START_DATE_TOO_OLD`, `CHANGE_DATE_RANGE_INFINITE`, `CHANGE_DATE_RANGE_NEGATIVE`, `LIMIT_NOT_SPECIFIED`, `INVALID_LIMIT_CLAUSE`
+
+## ChangeEventErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ChangeEventResourceType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD`, `AD_GROUP`, `AD_GROUP_CRITERION`, `CAMPAIGN`, `CAMPAIGN_BUDGET`, `AD_GROUP_BID_MODIFIER`, `CAMPAIGN_CRITERION`, `FEED`, `FEED_ITEM`, `CAMPAIGN_FEED`, `AD_GROUP_FEED`, `AD_GROUP_AD`, `ASSET`, `CUSTOMER_ASSET`, `CAMPAIGN_ASSET`, `AD_GROUP_ASSET`, `ASSET_SET`, `ASSET_SET_ASSET`, `CAMPAIGN_ASSET_SET`

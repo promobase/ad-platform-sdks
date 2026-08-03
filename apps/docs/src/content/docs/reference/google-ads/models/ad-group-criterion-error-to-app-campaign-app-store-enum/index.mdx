@@ -1,0 +1,790 @@
+---
+title: "Google Ads models: Ad Group Criterion Error – App Campaign App Store Enum"
+description: "100 generated Google Ads model contracts, from AdGroupCriterionError through AppCampaignAppStoreEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1001
+  label: "Ad Group Criterion Error – App Campaign App Store Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## AdGroupCriterionError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD_GROUP_CRITERION_LABEL_DOES_NOT_EXIST`, `AD_GROUP_CRITERION_LABEL_ALREADY_EXISTS`, `CANNOT_ADD_LABEL_TO_NEGATIVE_CRITERION`, `TOO_MANY_OPERATIONS`, `CANT_UPDATE_NEGATIVE`, `CONCRETE_TYPE_REQUIRED`, `BID_INCOMPATIBLE_WITH_ADGROUP`, `CANNOT_TARGET_AND_EXCLUDE`, `ILLEGAL_URL`, `INVALID_KEYWORD_TEXT`, `INVALID_DESTINATION_URL`, `MISSING_DESTINATION_URL_TAG`, `KEYWORD_LEVEL_BID_NOT_SUPPORTED_FOR_MANUALCPM`, `INVALID_USER_STATUS`, `CANNOT_ADD_CRITERIA_TYPE`, `CANNOT_EXCLUDE_CRITERIA_TYPE`, `CAMPAIGN_TYPE_NOT_COMPATIBLE_WITH_PARTIAL_FAILURE`, `OPERATIONS_FOR_TOO_MANY_SHOPPING_ADGROUPS`, `CANNOT_MODIFY_URL_FIELDS_WITH_DUPLICATE_ELEMENTS`, `CANNOT_SET_WITHOUT_FINAL_URLS`, `CANNOT_CLEAR_FINAL_URLS_IF_FINAL_MOBILE_URLS_EXIST`, `CANNOT_CLEAR_FINAL_URLS_IF_FINAL_APP_URLS_EXIST`, `CANNOT_CLEAR_FINAL_URLS_IF_TRACKING_URL_TEMPLATE_EXISTS`, `CANNOT_CLEAR_FINAL_URLS_IF_URL_CUSTOM_PARAMETERS_EXIST`, `CANNOT_SET_BOTH_DESTINATION_URL_AND_FINAL_URLS`, `CANNOT_SET_BOTH_DESTINATION_URL_AND_TRACKING_URL_TEMPLATE`, `FINAL_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE`, `FINAL_MOBILE_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE`
+
+## AdGroupCriterionErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupCriterionLabel
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `string` | No | No | — |
+| `label` | `label` | `string` | No | No | — |
+
+## AdGroupCriterionLabelOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `AdGroupCriterionLabel` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdGroupCriterionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<PolicyViolationKey>` | No | No | — |
+| `create` | `create` | `AdGroupCriterion` | No | No | — |
+| `update` | `update` | `AdGroupCriterion` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdGroupCriterionPrimaryStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ELIGIBLE`, `PAUSED`, `REMOVED`, `PENDING`, `NOT_ELIGIBLE`
+
+## AdGroupCriterionPrimaryStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupCriterionPrimaryStatusReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_PENDING`, `CAMPAIGN_CRITERION_NEGATIVE`, `CAMPAIGN_PAUSED`, `CAMPAIGN_REMOVED`, `CAMPAIGN_ENDED`, `AD_GROUP_PAUSED`, `AD_GROUP_REMOVED`, `AD_GROUP_CRITERION_DISAPPROVED`, `AD_GROUP_CRITERION_RARELY_SERVED`, `AD_GROUP_CRITERION_LOW_QUALITY`, `AD_GROUP_CRITERION_UNDER_REVIEW`, `AD_GROUP_CRITERION_PENDING_REVIEW`, `AD_GROUP_CRITERION_BELOW_FIRST_PAGE_BID`, `AD_GROUP_CRITERION_NEGATIVE`, `AD_GROUP_CRITERION_RESTRICTED`, `AD_GROUP_CRITERION_PAUSED`, `AD_GROUP_CRITERION_PAUSED_DUE_TO_LOW_ACTIVITY`, `AD_GROUP_CRITERION_REMOVED`
+
+## AdGroupCriterionPrimaryStatusReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupCriterionSimulation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | — |
+| `criterion_id` | `criterion_id` | `string` | No | No | — |
+| `type` | `type` | `SimulationType` | No | No | — |
+| `modification_method` | `modification_method` | `SimulationModificationMethod` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `cpc_bid_point_list` | `cpc_bid_point_list` | `CpcBidSimulationPointList` | No | No | — |
+| `percent_cpc_bid_point_list` | `percent_cpc_bid_point_list` | `PercentCpcBidSimulationPointList` | No | No | — |
+
+## AdGroupCriterionStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`, `REMOVED`
+
+## AdGroupCriterionStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupCustomizer
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `customizer_attribute` | `customizer_attribute` | `string` | No | No | — |
+| `status` | `status` | `CustomizerValueStatus` | No | No | — |
+| `value` | `value` | `CustomizerValue` | No | No | — |
+
+## AdGroupCustomizerError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`
+
+## AdGroupCustomizerErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupCustomizerOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `AdGroupCustomizer` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdGroupError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_ADGROUP_NAME`, `INVALID_ADGROUP_NAME`, `ADVERTISER_NOT_ON_CONTENT_NETWORK`, `BID_TOO_BIG`, `BID_TYPE_AND_BIDDING_STRATEGY_MISMATCH`, `MISSING_ADGROUP_NAME`, `ADGROUP_LABEL_DOES_NOT_EXIST`, `ADGROUP_LABEL_ALREADY_EXISTS`, `INVALID_CONTENT_BID_CRITERION_TYPE_GROUP`, `AD_GROUP_TYPE_NOT_VALID_FOR_ADVERTISING_CHANNEL_TYPE`, `ADGROUP_TYPE_NOT_SUPPORTED_FOR_CAMPAIGN_SALES_COUNTRY`, `CANNOT_ADD_ADGROUP_OF_TYPE_DSA_TO_CAMPAIGN_WITHOUT_DSA_SETTING`, `PROMOTED_HOTEL_AD_GROUPS_NOT_AVAILABLE_FOR_CUSTOMER`, `INVALID_EXCLUDED_PARENT_ASSET_FIELD_TYPE`, `INVALID_EXCLUDED_PARENT_ASSET_SET_TYPE`, `CANNOT_ADD_AD_GROUP_FOR_CAMPAIGN_TYPE`, `INVALID_STATUS`, `INVALID_STEP_ID_FOR_VIDEO_ADS_SEQUENCING`, `INVALID_AD_GROUP_TYPE_FOR_VIDEO_ADS_SEQUENCING`, `DUPLICATE_STEP_ID`, `INVALID_VERTICAL_ADS_FORMAT_SETTING`, `VERTICAL_ADS_FORMAT_SETTING_NOT_SUPPORTED_FOR_CAMPAIGNS_WITHOUT_AI_MAX`, `VERTICAL_ADS_FORMAT_SETTING_NOT_SUPPORTED_FOR_CAMPAIGNS_WITHOUT_ENABLED_TRAVEL_FEED`
+
+## AdGroupErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupFeedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FEED_ALREADY_EXISTS_FOR_PLACEHOLDER_TYPE`, `CANNOT_CREATE_FOR_REMOVED_FEED`, `ADGROUP_FEED_ALREADY_EXISTS`, `CANNOT_OPERATE_ON_REMOVED_ADGROUP_FEED`, `INVALID_PLACEHOLDER_TYPE`, `MISSING_FEEDMAPPING_FOR_PLACEHOLDER_TYPE`, `NO_EXISTING_LOCATION_CUSTOMER_FEED`
+
+## AdGroupFeedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_type` | `ad_group_type` | `AdGroupType` | No | No | — |
+| `keywords` | `keywords` | `Array<KeywordInfo>` | No | No | — |
+
+## AdGroupKeywordSuggestion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword_text` | `keyword_text` | `string` | No | No | — |
+| `suggested_keyword_text` | `suggested_keyword_text` | `string` | No | No | — |
+| `suggested_match_type` | `suggested_match_type` | `KeywordMatchType` | No | No | — |
+| `suggested_ad_group` | `suggested_ad_group` | `string` | No | No | — |
+| `suggested_campaign` | `suggested_campaign` | `string` | No | No | — |
+
+## AdGroupLabel
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `label` | `label` | `string` | No | No | — |
+
+## AdGroupLabelOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `AdGroupLabel` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdGroupOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `AdGroup` | No | No | — |
+| `update` | `update` | `AdGroup` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdGroupPrimaryStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ELIGIBLE`, `PAUSED`, `REMOVED`, `PENDING`, `NOT_ELIGIBLE`, `LIMITED`
+
+## AdGroupPrimaryStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupPrimaryStatusReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_REMOVED`, `CAMPAIGN_PAUSED`, `CAMPAIGN_PENDING`, `CAMPAIGN_ENDED`, `AD_GROUP_PAUSED`, `AD_GROUP_REMOVED`, `AD_GROUP_INCOMPLETE`, `KEYWORDS_PAUSED`, `NO_KEYWORDS`, `AD_GROUP_ADS_PAUSED`, `NO_AD_GROUP_ADS`, `HAS_ADS_DISAPPROVED`, `HAS_ADS_LIMITED_BY_POLICY`, `MOST_ADS_UNDER_REVIEW`, `CAMPAIGN_DRAFT`, `AD_GROUP_PAUSED_DUE_TO_LOW_ACTIVITY`
+
+## AdGroupPrimaryStatusReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupSimulation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | — |
+| `type` | `type` | `SimulationType` | No | No | — |
+| `modification_method` | `modification_method` | `SimulationModificationMethod` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `cpc_bid_point_list` | `cpc_bid_point_list` | `CpcBidSimulationPointList` | No | No | — |
+| `cpv_bid_point_list` | `cpv_bid_point_list` | `CpvBidSimulationPointList` | No | No | — |
+| `target_cpa_point_list` | `target_cpa_point_list` | `TargetCpaSimulationPointList` | No | No | — |
+| `target_roas_point_list` | `target_roas_point_list` | `TargetRoasSimulationPointList` | No | No | — |
+
+## AdGroupStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`, `REMOVED`
+
+## AdGroupStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdGroupType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEARCH_STANDARD`, `DISPLAY_STANDARD`, `SHOPPING_PRODUCT_ADS`, `HOTEL_ADS`, `SHOPPING_SMART_ADS`, `VIDEO_BUMPER`, `VIDEO_TRUE_VIEW_IN_STREAM`, `VIDEO_TRUE_VIEW_IN_DISPLAY`, `VIDEO_NON_SKIPPABLE_IN_STREAM`, `SEARCH_DYNAMIC_ADS`, `SHOPPING_COMPARISON_LISTING_ADS`, `PROMOTED_HOTEL_ADS`, `VIDEO_RESPONSIVE`, `VIDEO_EFFICIENT_REACH`, `SMART_CAMPAIGN_ADS`, `TRAVEL_ADS`, `YOUTUBE_AUDIO`
+
+## AdGroupTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdImageAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+
+## AdjustmentSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adjustment_description` | `adjustment_description` | `string` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+
+## AdMediaBundleAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+
+## AdNetworkType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEARCH`, `SEARCH_PARTNERS`, `CONTENT`, `MIXED`, `YOUTUBE`, `GOOGLE_TV`, `GOOGLE_OWNED_CHANNELS`, `GMAIL`, `DISCOVER`, `MAPS`
+
+## AdNetworkTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `policy_validation_parameter` | `policy_validation_parameter` | `PolicyValidationParameter` | No | No | — |
+| `update` | `update` | `Ad` | No | No | — |
+
+## AdOptimizedBusinessProfileSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include_lead_form` | `include_lead_form` | `boolean` | No | No | — |
+
+## AdParameter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `string` | No | No | — |
+| `parameter_index` | `parameter_index` | `string` | No | No | — |
+| `insertion_text` | `insertion_text` | `string` | No | No | — |
+
+## AdParameterError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD_GROUP_CRITERION_MUST_BE_KEYWORD`, `INVALID_INSERTION_TEXT_FORMAT`
+
+## AdParameterErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdParameterOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `AdParameter` | No | No | — |
+| `update` | `update` | `AdParameter` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AdScheduleInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start_minute` | `start_minute` | `MinuteOfHour` | No | No | — |
+| `end_minute` | `end_minute` | `MinuteOfHour` | No | No | — |
+| `start_hour` | `start_hour` | `integer` | No | No | — |
+| `end_hour` | `end_hour` | `integer` | No | No | — |
+| `day_of_week` | `day_of_week` | `DayOfWeek` | No | No | — |
+
+## AdScheduleView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## AdServingOptimizationStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPTIMIZE`, `CONVERSION_OPTIMIZE`, `ROTATE`, `ROTATE_INDEFINITELY`, `UNAVAILABLE`
+
+## AdServingOptimizationStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdSharingError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AD_GROUP_ALREADY_CONTAINS_AD`, `INCOMPATIBLE_AD_UNDER_AD_GROUP`, `CANNOT_SHARE_INACTIVE_AD`
+
+## AdSharingErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdStrength
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PENDING`, `NO_ADS`, `POOR`, `AVERAGE`, `GOOD`, `EXCELLENT`
+
+## AdStrengthActionItem
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_item_type` | `action_item_type` | `AdStrengthActionItemType` | No | No | — |
+| `add_asset_details` | `add_asset_details` | `unknown` | No | No | — |
+
+## AdStrengthActionItemType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADD_ASSET`
+
+## AdStrengthActionItemTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdStrengthEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdSubFormatType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNSEGMENTED`, `INSTREAM_NON_SKIPPABLE_STANDARD`, `INSTREAM_NON_SKIPPABLE_MAX30_SEC`, `INSTREAM_NON_SKIPPABLE_MAX60_SEC`
+
+## AdSubFormatTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdSubNetworkType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNSEGMENTED`, `YOUTUBE_INSTREAM`, `YOUTUBE_INFEED`, `YOUTUBE_SHORTS`
+
+## AdSubNetworkTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdTextAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | — |
+| `pinned_field` | `pinned_field` | `ServedAssetFieldType` | No | No | — |
+| `asset_performance_label` | `asset_performance_label` | `AssetPerformanceLabel` | No | No | — |
+| `policy_summary_info` | `policy_summary_info` | `unknown` | No | No | — |
+
+## AdType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TEXT_AD`, `EXPANDED_TEXT_AD`, `EXPANDED_DYNAMIC_SEARCH_AD`, `HOTEL_AD`, `SHOPPING_SMART_AD`, `SHOPPING_PRODUCT_AD`, `VIDEO_AD`, `IMAGE_AD`, `RESPONSIVE_SEARCH_AD`, `LEGACY_RESPONSIVE_DISPLAY_AD`, `APP_AD`, `LEGACY_APP_INSTALL_AD`, `RESPONSIVE_DISPLAY_AD`, `LOCAL_AD`, `HTML5_UPLOAD_AD`, `DYNAMIC_HTML5_AD`, `APP_ENGAGEMENT_AD`, `SHOPPING_COMPARISON_LISTING_AD`, `VIDEO_BUMPER_AD`, `VIDEO_NON_SKIPPABLE_IN_STREAM_AD`, `VIDEO_TRUEVIEW_IN_STREAM_AD`, `VIDEO_RESPONSIVE_AD`, `SMART_CAMPAIGN_AD`, `CALL_AD`, `APP_PRE_REGISTRATION_AD`, `IN_FEED_VIDEO_AD`, `DEMAND_GEN_MULTI_ASSET_AD`, `DEMAND_GEN_CAROUSEL_AD`, `TRAVEL_AD`, `DEMAND_GEN_VIDEO_RESPONSIVE_AD`, `DEMAND_GEN_PRODUCT_AD`, `YOUTUBE_AUDIO_AD`
+
+## AdTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdvancedProductTargeting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `surface_targeting_settings` | `surface_targeting_settings` | `unknown` | No | No | — |
+| `target_frequency_settings` | `target_frequency_settings` | `unknown` | No | No | — |
+| `youtube_select_settings` | `youtube_select_settings` | `unknown` | No | No | — |
+
+## AdvertisingChannelSubType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEARCH_MOBILE_APP`, `DISPLAY_MOBILE_APP`, `SEARCH_EXPRESS`, `DISPLAY_EXPRESS`, `SHOPPING_SMART_ADS`, `DISPLAY_GMAIL_AD`, `DISPLAY_SMART_CAMPAIGN`, `VIDEO_ACTION`, `VIDEO_NON_SKIPPABLE`, `APP_CAMPAIGN`, `APP_CAMPAIGN_FOR_ENGAGEMENT`, `LOCAL_CAMPAIGN`, `SHOPPING_COMPARISON_LISTING_ADS`, `SMART_CAMPAIGN`, `VIDEO_SEQUENCE`, `APP_CAMPAIGN_FOR_PRE_REGISTRATION`, `VIDEO_REACH_TARGET_FREQUENCY`, `TRAVEL_ACTIVITIES`, `YOUTUBE_AUDIO`
+
+## AdvertisingChannelSubTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdvertisingChannelType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEARCH`, `DISPLAY`, `SHOPPING`, `HOTEL`, `VIDEO`, `MULTI_CHANNEL`, `LOCAL`, `SMART`, `PERFORMANCE_MAX`, `LOCAL_SERVICES`, `TRAVEL`, `DEMAND_GEN`
+
+## AdvertisingChannelTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AdvertisingPartnerIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer` | `customer` | `string` | No | No | — |
+
+## AdvertisingPartnerLinkInvitationIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer` | `customer` | `string` | No | No | — |
+
+## AdvertisingPartnerLinkInvitationProperties
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed_domain` | `allowed_domain` | `string` | No | No | — |
+
+## AdvertisingPartnerProperties
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed_domain` | `allowed_domain` | `string` | No | No | — |
+
+## AdVideoAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+| `ad_video_asset_info` | `ad_video_asset_info` | `unknown` | No | No | — |
+
+## AdVideoAssetInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_video_asset_inventory_preferences` | `ad_video_asset_inventory_preferences` | `unknown` | No | No | — |
+| `ad_video_asset_feature_control` | `ad_video_asset_feature_control` | `unknown` | No | No | — |
+
+## AdVideoAssetInventoryPreferences
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `in_feed_preference` | `in_feed_preference` | `boolean` | No | No | — |
+| `in_stream_preference` | `in_stream_preference` | `boolean` | No | No | — |
+| `shorts_preference` | `shorts_preference` | `boolean` | No | No | — |
+
+## AdVideoAssetLinkFeatureControl
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allow_youtube_comments` | `allow_youtube_comments` | `boolean` | No | No | — |
+
+## AdxError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UNSUPPORTED_FEATURE`
+
+## AdxErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AgeDimension
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_ranges` | `age_ranges` | `Array<unknown>` | No | No | — |
+| `include_undetermined` | `include_undetermined` | `boolean` | No | No | — |
+
+## AgeRangeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `AgeRangeType` | No | No | — |
+
+## AgeRangeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AGE_RANGE_18_24`, `AGE_RANGE_25_34`, `AGE_RANGE_35_44`, `AGE_RANGE_45_54`, `AGE_RANGE_55_64`, `AGE_RANGE_65_UP`, `AGE_RANGE_UNDETERMINED`
+
+## AgeRangeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AgeRangeView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## AgeSegment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_age` | `min_age` | `integer` | No | No | — |
+| `max_age` | `max_age` | `integer` | No | No | — |
+
+## AiMaxAdGroupSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `disable_search_term_matching` | `disable_search_term_matching` | `boolean` | No | No | — |
+
+## AiMaxBundlingRequired
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NOT_REQUIRED`, `REQUIRED`
+
+## AiMaxSearchTermAdCombinationView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+| `landing_page` | `landing_page` | `string` | No | No | — |
+| `headline` | `headline` | `string` | No | No | — |
+
+## AiMaxSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enable_ai_max` | `enable_ai_max` | `boolean` | No | No | — |
+| `bundling_required` | `bundling_required` | `unknown` | No | No | — |
+
+## AndroidPrivacyInteractionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CLICK`, `ENGAGED_VIEW`, `VIEW`
+
+## AndroidPrivacyInteractionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AndroidPrivacyNetworkType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SEARCH`, `DISPLAY`, `YOUTUBE`
+
+## AndroidPrivacyNetworkTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AndroidPrivacySharedKeyGoogleAdGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `android_privacy_interaction_type` | `android_privacy_interaction_type` | `AndroidPrivacyInteractionType` | No | No | — |
+| `android_privacy_interaction_date` | `android_privacy_interaction_date` | `string` | No | No | — |
+| `android_privacy_network_type` | `android_privacy_network_type` | `AndroidPrivacyNetworkType` | No | No | — |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | — |
+| `shared_ad_group_key` | `shared_ad_group_key` | `string` | No | No | — |
+
+## AndroidPrivacySharedKeyGoogleCampaign
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `android_privacy_interaction_type` | `android_privacy_interaction_type` | `AndroidPrivacyInteractionType` | No | No | — |
+| `android_privacy_interaction_date` | `android_privacy_interaction_date` | `string` | No | No | — |
+| `shared_campaign_key` | `shared_campaign_key` | `string` | No | No | — |
+
+## AndroidPrivacySharedKeyGoogleNetworkType
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `android_privacy_interaction_type` | `android_privacy_interaction_type` | `AndroidPrivacyInteractionType` | No | No | — |
+| `android_privacy_interaction_date` | `android_privacy_interaction_date` | `string` | No | No | — |
+| `android_privacy_network_type` | `android_privacy_network_type` | `AndroidPrivacyNetworkType` | No | No | — |
+| `shared_network_type_key` | `shared_network_type_key` | `string` | No | No | — |
+
+## AppAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mandatory_ad_text` | `mandatory_ad_text` | `unknown` | No | No | — |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `images` | `images` | `Array<unknown>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+| `html5_media_bundles` | `html5_media_bundles` | `Array<unknown>` | No | No | — |
+| `app_deep_link` | `app_deep_link` | `unknown` | No | No | — |
+
+## AppBiddingGoal
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPTIMIZE_FOR_INSTALL_CONVERSION_VOLUME`, `OPTIMIZE_FOR_IN_APP_CONVERSION_VOLUME`, `OPTIMIZE_FOR_TOTAL_CONVERSION_VALUE`, `OPTIMIZE_FOR_TARGET_IN_APP_CONVERSION`, `OPTIMIZE_FOR_RETURN_ON_ADVERTISING_SPEND`, `OPTIMIZE_FOR_INSTALL_CONVERSION_VOLUME_WITHOUT_TARGET_CPI`, `OPTIMIZE_FOR_PRE_REGISTRATION_CONVERSION_VOLUME`
+
+## AppBiddingGoalEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AppCampaignAppStore
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APPLE_APP_STORE`, `GOOGLE_APP_STORE`
+
+## AppCampaignAppStoreEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

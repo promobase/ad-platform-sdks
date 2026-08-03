@@ -1,0 +1,1047 @@
+---
+title: "X models: Activity Event Id – Create Direct Messages Conversation Message Attachments"
+description: "100 generated X model contracts, from ActivityEventId through CreateDirectMessagesConversationMessageAttachments."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 1000
+  label: "Activity Event Id – Create Direct Messages Conversation Message Attachments"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## ActivityEventId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ActivityStreamingResponsePayload
+
+`scalar` model on the `json` wire format.
+
+**Value:** `ProfileUpdateActivityResponsePayload \| NewsActivityResponsePayload \| FollowActivityResponsePayload \| Post \| PostDeleteActivityResponsePayload \| LikeWithPostAuthor`
+
+## ActivityStreamResponse
+
+`object` model on the `json` wire format.
+
+An activity event or error that can be returned by the x activity streaming API.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `json` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ActivitySubscriptionFilter
+
+`object` model on the `json` wire format.
+
+An XAA subscription filter.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | `direction` | `"inbound" \| "outbound"` | No | No | Optional direction filter for directional events. |
+| `keyword` | `keyword` | `Keyword` | No | No | — |
+| `user_id` | `user_id` | `UserId` | No | No | — |
+
+## AddChatGroupMembersActionSignatures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encoded_message_event_detail` | `encoded_message_event_detail` | `string` | Yes | No | Base64-encoded message event detail. |
+| `message_event_signature` | `message_event_signature` | `AddChatGroupMembersActionSignaturesMessageEventSignature` | Yes | No | Message event signature supplied with an action signature. |
+| `message_id` | `message_id` | `string` | Yes | No | Client-generated ID of the message being signed. |
+| `signature_payload` | `signature_payload` | `string` | No | No | Payload string the client signed; used only in server-side failure logs. |
+
+## AddChatGroupMembersActionSignaturesMessageEventSignature
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_signing_key_info_list` | `message_signing_key_info_list` | `Array<AddChatGroupMembersActionSignaturesMessageEventSignatureMessageSigningKeyInfoList>` | No | No | List of signing key information for message verification. |
+| `public_key_version` | `public_key_version` | `string` | Yes | No | The version of the public key used for signing. |
+| `signature` | `signature` | `string` | Yes | No | The signature of the message event. |
+| `signature_version` | `signature_version` | `string` | Yes | No | The version of the signature algorithm. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The public key used for signing. |
+
+## AddChatGroupMembersActionSignaturesMessageEventSignatureMessageSigningKeyInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `member_id` | `member_id` | `string` | No | No | The member ID associated with this signing key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | The version of the public key. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The signing public key. |
+
+## AddChatGroupMembersConversationParticipantKeys
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encrypted_conversation_key` | `encrypted_conversation_key` | `string` | No | No | Conversation key encrypted with this participant's public key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | Version of the participant's public key used for encryption. |
+| `user_id` | `user_id` | `string` | No | No | Participant user ID. |
+
+## AddChatGroupMembersRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_signatures` | `action_signatures` | `Array<AddChatGroupMembersActionSignatures>` | No | No | Cryptographic signatures for the action. |
+| `conversation_key_version` | `conversation_key_version` | `string` | No | No | Version of the new rotated conversation key. |
+| `conversation_participant_keys` | `conversation_participant_keys` | `Array<AddChatGroupMembersConversationParticipantKeys>` | No | No | Encrypted conversation keys for each participant. |
+| `encrypted_avatar_url` | `encrypted_avatar_url` | `string` | No | No | Re-encrypted group avatar URL with new conversation key. |
+| `encrypted_title` | `encrypted_title` | `string` | No | No | Re-encrypted group title with new conversation key. |
+| `user_ids` | `user_ids` | `Array<string>` | Yes | No | List of user IDs to add to the group conversation. |
+
+## AddChatGroupMembersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## AddConversationKeysActionSignatures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encoded_message_event_detail` | `encoded_message_event_detail` | `string` | Yes | No | Base64-encoded message event detail. |
+| `message_event_signature` | `message_event_signature` | `AddConversationKeysActionSignaturesMessageEventSignature` | Yes | No | Message event signature supplied with an action signature. |
+| `message_id` | `message_id` | `string` | Yes | No | Client-generated ID of the message being signed. |
+| `signature_payload` | `signature_payload` | `string` | No | No | Payload string the client signed; used only in server-side failure logs. |
+
+## AddConversationKeysActionSignaturesMessageEventSignature
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_signing_key_info_list` | `message_signing_key_info_list` | `Array<AddConversationKeysActionSignaturesMessageEventSignatureMessageSigningKeyInfoList>` | No | No | List of signing key information for message verification. |
+| `public_key_version` | `public_key_version` | `string` | Yes | No | The version of the public key used for signing. |
+| `signature` | `signature` | `string` | Yes | No | The signature of the message event. |
+| `signature_version` | `signature_version` | `string` | Yes | No | The version of the signature algorithm. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The public key used for signing. |
+
+## AddConversationKeysActionSignaturesMessageEventSignatureMessageSigningKeyInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `member_id` | `member_id` | `string` | No | No | The member ID associated with this signing key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | The version of the public key. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The signing public key. |
+
+## AddConversationKeysConversationParticipantKeys
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encrypted_conversation_key` | `encrypted_conversation_key` | `string` | No | No | Conversation key encrypted with this participant's public key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | Version of the participant's public key used for encryption. |
+| `user_id` | `user_id` | `string` | No | No | Participant user ID. |
+
+## AddConversationKeysRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_signatures` | `action_signatures` | `Array<AddConversationKeysActionSignatures>` | No | No | Cryptographic signatures for the action. |
+| `base64_encoded_key_rotation` | `base64_encoded_key_rotation` | `string` | No | No | Base64-encoded key rotation payload for ratchet tree key management. |
+| `conversation_key_version` | `conversation_key_version` | `string` | Yes | No | Version of the conversation encryption key (typically a timestamp in milliseconds). |
+| `conversation_participant_keys` | `conversation_participant_keys` | `Array<AddConversationKeysConversationParticipantKeys>` | Yes | No | Encrypted conversation keys for each participant. |
+
+## AddConversationKeysResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AddConversationKeysResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## AddConversationKeysResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | No | No | Canonical ID of the conversation. |
+| `sequence_id` | `sequence_id` | `string` | No | No | Sequence ID of the key change. |
+
+## AddListsMemberRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_id` | `user_id` | `string` | Yes | No | — |
+
+## AddListsMemberResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AddListsMemberResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## AddListsMemberResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_member` | `is_member` | `boolean` | Yes | No | Indicates whether the user is a member of the List. |
+
+## AddUserPublicKeyPublicKey
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_public_key_signature` | `identity_public_key_signature` | `string` | No | No | Signature over the identity public key. |
+| `public_key` | `public_key` | `string` | No | No | Identity public key (base64 encoded). |
+| `public_key_fingerprint` | `public_key_fingerprint` | `string` | No | No | Fingerprint of the identity public key. |
+| `registration_method` | `registration_method` | `string` | No | No | Registration method for the public key. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | Signing public key (base64 encoded). |
+| `signing_public_key_signature` | `signing_public_key_signature` | `string` | No | No | Signature over the signing public key. |
+
+## AddUserPublicKeyRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `generate_version` | `generate_version` | `boolean` | No | No | When true, the server generates a new version. |
+| `public_key` | `public_key` | `AddUserPublicKeyPublicKey` | Yes | No | Public key registration payload. |
+| `version` | `version` | `string` | Yes | No | Public key version. |
+
+## AddUserPublicKeyResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AddUserPublicKeyResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## AddUserPublicKeyResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `juicebox_config` | `juicebox_config` | `json` | No | No | Juicebox recovery-service configuration for this key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | Version assigned to the registered public key. |
+
+## Analytics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_install_attempts` | `app_install_attempts` | `integer` | No | No | — |
+| `app_opens` | `app_opens` | `integer` | No | No | — |
+| `bookmarks` | `bookmarks` | `integer` | No | No | — |
+| `detail_expands` | `detail_expands` | `integer` | No | No | — |
+| `email_tweet` | `email_tweet` | `integer` | No | No | — |
+| `engagements` | `engagements` | `integer` | No | No | — |
+| `follows` | `follows` | `integer` | No | No | — |
+| `hashtag_clicks` | `hashtag_clicks` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `impressions` | `impressions` | `integer` | No | No | — |
+| `likes` | `likes` | `integer` | No | No | — |
+| `media_views` | `media_views` | `integer` | No | No | — |
+| `permalink_clicks` | `permalink_clicks` | `integer` | No | No | — |
+| `quote_tweets` | `quote_tweets` | `integer` | No | No | — |
+| `replies` | `replies` | `integer` | No | No | — |
+| `retweets` | `retweets` | `integer` | No | No | — |
+| `shares` | `shares` | `integer` | No | No | — |
+| `timestamp` | `timestamp` | `string` | No | No | — |
+| `timestamped_metrics` | `timestamped_metrics` | `AnalyticsTimestampedMetrics` | No | No | — |
+| `unfollows` | `unfollows` | `integer` | No | No | — |
+| `unlikes` | `unlikes` | `integer` | No | No | — |
+| `url_clicks` | `url_clicks` | `integer` | No | No | — |
+| `user_profile_clicks` | `user_profile_clicks` | `integer` | No | No | — |
+
+## AnalyticsId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AnalyticsTimestampedMetrics
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## AppendMediaUploadRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media` | `media` | `string \| string` | Yes | No | The media chunk to upload. |
+| `segment_index` | `segment_index` | `integer` | Yes | No | The index of this segment in the upload sequence. |
+
+## AppendMediaUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AppendMediaUploadResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## AppendMediaUploadResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_at` | `expires_at` | `integer` | No | No | Epoch seconds when the upload session expires. |
+
+## ArticleCreateDraftContentState
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blocks` | `blocks` | `Array<ArticleCreateDraftContentStateBlocks>` | Yes | No | The text blocks that make up the article body. |
+| `entities` | `entities` | `Array<ArticleCreateDraftContentStateEntities>` | Yes | No | Non-text entities referenced by blocks (links, embedded posts, images, emoji, markdown/code/tables, dividers, LaTeX). Full set matches article storage. |
+
+## ArticleCreateDraftContentStateBlocks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ArticleCreateDraftContentStateBlocksData` | No | No | Block-level metadata for mentions, hashtags, cashtags, and URLs. |
+| `entity_ranges` | `entity_ranges` | `Array<ArticleCreateDraftContentStateBlocksEntityRanges>` | No | No | References to entries in entities. |
+| `inline_style_ranges` | `inline_style_ranges` | `Array<ArticleCreateDraftContentStateBlocksInlineStyleRanges>` | No | No | Inline formatting ranges. |
+| `key` | `key` | `string` | No | No | Optional block key. |
+| `text` | `text` | `string` | Yes | No | The text content of this block. For latex entities, this holds the LaTeX source; for divider/markdown/image/post atomic placeholders, typically a single space. |
+| `type` | `type` | `"unstyled" \| "header-one" \| "header-two" \| "header-three" \| "unordered-list-item" \| "ordered-list-item" \| "blockquote" \| "atomic"` | Yes | No | The block type. Use atomic for non-text embeds (image, post, markdown, divider, latex). |
+
+## ArticleCreateDraftContentStateBlocksData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cashtags` | `cashtags` | `Array<ArticleCreateDraftContentStateBlocksDataCashtags>` | No | No | Cashtag spans in this block. |
+| `hashtags` | `hashtags` | `Array<ArticleCreateDraftContentStateBlocksDataHashtags>` | No | No | Hashtag spans in this block. |
+| `mentions` | `mentions` | `Array<ArticleCreateDraftContentStateBlocksDataMentions>` | No | No | Mention spans in this block. |
+| `urls` | `urls` | `Array<ArticleCreateDraftContentStateBlocksDataUrls>` | No | No | URL spans in this block. |
+
+## ArticleCreateDraftContentStateBlocksDataCashtags
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_index` | `from_index` | `integer` | Yes | No | Start index of the tagged span. |
+| `text` | `text` | `string` | Yes | No | The tagged text. |
+| `to_index` | `to_index` | `integer` | Yes | No | End index of the tagged span. |
+
+## ArticleCreateDraftContentStateBlocksDataHashtags
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_index` | `from_index` | `integer` | Yes | No | Start index of the tagged span. |
+| `text` | `text` | `string` | Yes | No | The tagged text. |
+| `to_index` | `to_index` | `integer` | Yes | No | End index of the tagged span. |
+
+## ArticleCreateDraftContentStateBlocksDataMentions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_index` | `from_index` | `integer` | Yes | No | Start index of the tagged span. |
+| `text` | `text` | `string` | Yes | No | The tagged text. |
+| `to_index` | `to_index` | `integer` | Yes | No | End index of the tagged span. |
+
+## ArticleCreateDraftContentStateBlocksDataUrls
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_index` | `from_index` | `integer` | Yes | No | Start index of the tagged span. |
+| `text` | `text` | `string` | Yes | No | The tagged text. |
+| `to_index` | `to_index` | `integer` | Yes | No | End index of the tagged span. |
+
+## ArticleCreateDraftContentStateBlocksEntityRanges
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `integer` | Yes | No | Index into the entities array. |
+| `length` | `length` | `integer` | Yes | No | Length of the entity range. |
+| `offset` | `offset` | `integer` | Yes | No | Start offset in the text. |
+
+## ArticleCreateDraftContentStateBlocksInlineStyleRanges
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `length` | `length` | `integer` | Yes | No | Length of the styled range. |
+| `offset` | `offset` | `integer` | Yes | No | Start offset in the text. |
+| `style` | `style` | `"bold" \| "italic" \| "strikethrough"` | Yes | No | The inline style. |
+
+## ArticleCreateDraftContentStateEntities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | Yes | No | The entity key referenced by entity_ranges. |
+| `value` | `value` | `ArticleCreateDraftContentStateEntitiesValue` | Yes | No | — |
+
+## ArticleCreateDraftContentStateEntitiesValue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ArticleCreateDraftContentStateEntitiesValueData` | Yes | No | Entity payload. Fields depend on the entity type: post_id (post), url (link), media_items (image), entity_key (emoji and other opaque keys), markdown (markdown / code blocks / GFM tables). divider and latex use an empty data object; latex source is the block text; emoji uses block text for the character(s). There is no separate table entity type in article storage; tables are markdown. |
+| `mutability` | `mutability` | `"immutable" \| "mutable" \| "segmented"` | Yes | No | Whether the entity can be edited. Recommended: immutable for post, image, divider, latex; mutable for link and markdown (matches the in-app Articles composer). |
+| `type` | `type` | `"post" \| "link" \| "image" \| "emoji" \| "markdown" \| "divider" \| "latex"` | Yes | No | The entity type. markdown carries code blocks, GFM tables, and other Markdown; emoji maps to backend TWEMOJI (Twemoji is internal); divider is a horizontal rule; latex renders TeX from the block text. Tables are not a separate enum value — use type markdown with a pipe table in data.markdown. |
+
+## ArticleCreateDraftContentStateEntitiesValueData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `caption` | `caption` | `string` | No | No | Caption text. |
+| `entity_key` | `entity_key` | `string` | No | No | Opaque entity key. Used with type emoji (and reserved for other keyed embeds) to match in-app Articles composer payloads. |
+| `markdown` | `markdown` | `string` | No | No | Markdown body for type markdown. Use fenced code blocks (```lang ... ```) for code. Max weighted length is enforced by the Articles backend (10,000 per article). |
+| `media_items` | `media_items` | `Array<ArticleCreateDraftContentStateEntitiesValueDataMediaItems>` | No | No | Media keys. Used with type image. |
+| `post_id` | `post_id` | `string` | No | No | The ID of the post to embed. Used with type post. |
+| `url` | `url` | `string` | No | No | The URL. Used with type link. |
+
+## ArticleCreateDraftContentStateEntitiesValueDataMediaItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_category` | `media_category` | `string` | Yes | No | — |
+| `media_id` | `media_id` | `string` | Yes | No | — |
+
+## ArticleCreateDraftCoverMedia
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_category` | `media_category` | `string` | Yes | No | The media category (e.g. tweet_image). |
+| `media_id` | `media_id` | `string` | Yes | No | The media ID from the media upload endpoint. |
+
+## ArticleCreateDraftRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_state` | `content_state` | `ArticleCreateDraftContentState` | Yes | No | DraftJS content state representing the article body. Special formatting (markdown/code/tables, dividers, LaTeX, emoji, images, embedded posts) uses atomic blocks with entity_ranges pointing into entities. |
+| `cover_media` | `cover_media` | `ArticleCreateDraftCoverMedia` | No | No | Optional cover media for the Article. |
+| `title` | `title` | `string` | Yes | No | The title of the Article. |
+
+## ArticleCreateDraftResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ArticleCreateDraftResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ArticleCreateDraftResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the created draft Article. |
+| `title` | `title` | `string` | Yes | No | The title of the draft Article. |
+
+## ArticlePublishResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ArticlePublishResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ArticlePublishResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post_id` | `post_id` | `string` | Yes | No | The ID of the post created for the published Article. |
+
+## BlockUsersDmsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `BlockUsersDmsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## BlockUsersDmsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blocked` | `blocked` | `boolean` | Yes | No | Indicates whether the target user is DM-blocked. |
+
+## Broadcast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | — |
+| `broadcast_id` | `broadcast_id` | `string` | No | No | — |
+| `chat_option` | `chat_option` | `integer` | No | No | — |
+| `created_at_ms` | `created_at_ms` | `string` | No | No | — |
+| `end_ms` | `end_ms` | `string` | No | No | — |
+| `height` | `height` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `image_url_medium` | `image_url_medium` | `string` | No | No | — |
+| `image_url_small` | `image_url_small` | `string` | No | No | — |
+| `is_high_latency` | `is_high_latency` | `boolean` | No | No | — |
+| `language` | `language` | `string` | No | No | — |
+| `media_key` | `media_key` | `string` | No | No | — |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | No | No | — |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | No | No | — |
+| `share_url` | `share_url` | `string` | No | No | — |
+| `source_id` | `source_id` | `string` | No | No | — |
+| `start_ms` | `start_ms` | `string` | No | No | — |
+| `state` | `state` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `total_watched` | `total_watched` | `string` | No | No | — |
+| `total_watching` | `total_watching` | `string` | No | No | — |
+| `tweet_id` | `tweet_id` | `string` | No | No | — |
+| `twitter_user_id` | `twitter_user_id` | `string` | No | No | — |
+| `updated_at_ms` | `updated_at_ms` | `string` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## ChatConversation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `admin_ids` | `admin_ids` | `Array<string>` | No | No | — |
+| `created_at` | `created_at` | `string<date-time>` | No | No | — |
+| `group_avatar_url` | `group_avatar_url` | `string` | No | No | — |
+| `group_name` | `group_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_muted` | `is_muted` | `boolean` | No | No | — |
+| `member_ids` | `member_ids` | `Array<string>` | No | No | — |
+| `message_ttl_ms` | `message_ttl_ms` | `integer` | No | No | — |
+| `participant_ids` | `participant_ids` | `Array<string>` | No | No | — |
+| `screen_capture_blocking_enabled` | `screen_capture_blocking_enabled` | `boolean` | No | No | — |
+| `screen_capture_detection_enabled` | `screen_capture_detection_enabled` | `boolean` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `updated_at` | `updated_at` | `string<date-time>` | No | No | — |
+
+## ChatMediaUploadAppendRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | The XChat conversation the upload belongs to. |
+| `media` | `media` | `string \| string` | Yes | No | The media segment bytes: base64-encoded in JSON bodies, raw bytes in multipart bodies. |
+| `media_hash_key` | `media_hash_key` | `string` | Yes | No | The media hash key returned by the initialize step. |
+| `segment_index` | `segment_index` | `integer` | Yes | No | The index of this segment in the upload sequence. |
+
+## ChatMediaUploadAppendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ChatMediaUploadAppendResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ChatMediaUploadAppendResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_at` | `expires_at` | `integer` | No | No | Epoch seconds when the upload session expires. |
+
+## ChatMediaUploadFinalizeRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | The XChat conversation the upload belongs to. |
+| `media_hash_key` | `media_hash_key` | `string` | Yes | No | The media hash key returned by the initialize step. |
+| `message_id` | `message_id` | `string` | No | No | Optional message identifier associated with the upload. |
+| `num_parts` | `num_parts` | `string` | Yes | No | Total number of uploaded parts, as a numeric string. |
+| `ttl_msec` | `ttl_msec` | `string` | No | No | Optional TTL for the media in milliseconds, as a numeric string. |
+
+## ChatMediaUploadFinalizeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ChatMediaUploadFinalizeResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ChatMediaUploadFinalizeResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `success` | `success` | `boolean` | Yes | No | Whether the upload was finalized. |
+
+## ChatMediaUploadInitializeRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | The XChat conversation the upload belongs to. |
+| `total_bytes` | `total_bytes` | `integer` | Yes | No | Total size of the media upload in bytes. |
+
+## ChatMediaUploadInitializeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ChatMediaUploadInitializeResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ChatMediaUploadInitializeResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | Canonical ID of the conversation. |
+| `media_hash_key` | `media_hash_key` | `string` | Yes | No | Hash key addressing the uploaded media. |
+| `session_id` | `session_id` | `string` | Yes | No | Upload session ID. |
+
+## ChatMessageEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | No | No | — |
+| `conversation_token` | `conversation_token` | `string` | No | No | — |
+| `created_at` | `created_at` | `string<date-time>` | No | No | — |
+| `encoded_event` | `encoded_event` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_trusted` | `is_trusted` | `boolean` | No | No | — |
+| `message_event_signature` | `message_event_signature` | `json` | No | No | — |
+| `previous_id` | `previous_id` | `string` | No | No | — |
+| `sender_id` | `sender_id` | `string` | No | No | — |
+
+## Community
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access` | `access` | `string` | No | No | — |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `join_policy` | `join_policy` | `string` | No | No | — |
+| `member_count` | `member_count` | `integer` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## CommunityId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ComplianceJob
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `download_expires_at` | `download_expires_at` | `string` | No | No | — |
+| `download_url` | `download_url` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `resumable` | `resumable` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `upload_expires_at` | `upload_expires_at` | `string` | No | No | — |
+| `upload_url` | `upload_url` | `string` | No | No | — |
+
+## Connection
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_ip` | `client_ip` | `string` | No | No | — |
+| `connected_at` | `connected_at` | `string<date-time>` | No | No | — |
+| `disconnect_reason` | `disconnect_reason` | `string` | No | No | — |
+| `disconnected_at` | `disconnected_at` | `string<date-time>` | No | No | — |
+| `endpoint_name` | `endpoint_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+
+## CountryCode
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CreateAccountActivitySubscriptionRequest
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateAccountActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateAccountActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateAccountActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscribed` | `subscribed` | `boolean` | Yes | No | Whether the subscription is active. |
+
+## CreateActivitySubscriptionFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | `direction` | `"inbound" \| "outbound"` | No | No | Optional direction filter for directional events. Not supported for mute.* or block.* events. |
+| `keyword` | `keyword` | `string` | No | No | Optional keyword filter. |
+| `user_id` | `user_id` | `string` | No | No | User the subscription is scoped to. For mute.* and block.* events, this must be the authenticated source user. |
+
+## CreateActivitySubscriptionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_type` | `event_type` | `"profile.update.bio" \| "profile.update.profile_picture" \| "profile.update.banner_picture" \| "profile.update.screenname" \| "profile.update.geo" \| "profile.update.url" \| "profile.update.verified_badge" \| "profile.update.affiliate_badge" \| "profile.update.handle" \| "news.new" \| "follow.follow" \| "follow.unfollow" \| "spaces.start" \| "spaces.end" \| "chat.received" \| "chat.sent" \| "chat.conversation.join" \| "chat.conversation_join" \| "chat.conversation.member_added" \| "chat.conversation.member_removed" \| "chat.conversation.admin_added" \| "chat.conversation.admin_removed" \| "chat.update.group_name" \| "chat.update.restrictions" \| "dm.sent" \| "dm.received" \| "dm.indicate_typing" \| "dm.read" \| "post.create" \| "post.delete" \| "post.mention.create" \| "like.create" \| "mute.mute" \| "mute.unmute" \| "block.block" \| "block.unblock"` | Yes | No | Activity event type in dot notation. `chat.conversation_join` is a deprecated alias of `chat.conversation.join`; responses always use the canonical name. |
+| `filter` | `filter` | `CreateActivitySubscriptionFilter` | Yes | No | Subscription filter. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined tag. |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook to deliver the subscription events to. |
+
+## CreateActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscription` | `subscription` | `CreateActivitySubscriptionResponseDataSubscription` | No | No | — |
+
+## CreateActivitySubscriptionResponseDataSubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | No | No | Subscription creation time. |
+| `event_type` | `event_type` | `string` | No | No | Activity event type in dot notation. |
+| `filter` | `filter` | `CreateActivitySubscriptionResponseDataSubscriptionFilter` | No | No | Subscription filter. |
+| `subscription_id` | `subscription_id` | `string` | No | No | Unique identifier of the subscription. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined tag. |
+| `updated_at` | `updated_at` | `string` | No | No | Subscription last-update time. |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook receiving the subscription events. |
+
+## CreateActivitySubscriptionResponseDataSubscriptionFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | `direction` | `string` | No | No | Optional direction filter for directional events. Not present for mute.* or block.* events. |
+| `keyword` | `keyword` | `string` | No | No | Optional keyword filter. |
+| `user_id` | `user_id` | `string` | No | No | User the subscription is scoped to. |
+
+## CreateChatConversationActionSignatures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encoded_message_event_detail` | `encoded_message_event_detail` | `string` | Yes | No | Base64-encoded message event detail. |
+| `message_event_signature` | `message_event_signature` | `CreateChatConversationActionSignaturesMessageEventSignature` | Yes | No | Message event signature supplied with an action signature. |
+| `message_id` | `message_id` | `string` | Yes | No | Client-generated ID of the message being signed. |
+| `signature_payload` | `signature_payload` | `string` | No | No | Payload string the client signed; used only in server-side failure logs. |
+
+## CreateChatConversationActionSignaturesMessageEventSignature
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_signing_key_info_list` | `message_signing_key_info_list` | `Array<CreateChatConversationActionSignaturesMessageEventSignatureMessageSigningKeyInfoList>` | No | No | List of signing key information for message verification. |
+| `public_key_version` | `public_key_version` | `string` | Yes | No | The version of the public key used for signing. |
+| `signature` | `signature` | `string` | Yes | No | The signature of the message event. |
+| `signature_version` | `signature_version` | `string` | Yes | No | The version of the signature algorithm. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The public key used for signing. |
+
+## CreateChatConversationActionSignaturesMessageEventSignatureMessageSigningKeyInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `member_id` | `member_id` | `string` | No | No | The member ID associated with this signing key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | The version of the public key. |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | The signing public key. |
+
+## CreateChatConversationConversationParticipantKeys
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encrypted_conversation_key` | `encrypted_conversation_key` | `string` | No | No | Conversation key encrypted with this participant's public key. |
+| `public_key_version` | `public_key_version` | `string` | No | No | Version of the participant's public key used for encryption. |
+| `user_id` | `user_id` | `string` | No | No | Participant user ID. |
+
+## CreateChatConversationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_signatures` | `action_signatures` | `Array<CreateChatConversationActionSignatures>` | No | No | Cryptographic signatures for the action. |
+| `base64_encoded_key_rotation` | `base64_encoded_key_rotation` | `string` | No | No | Base64-encoded key rotation payload. |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | Client-generated conversation ID. |
+| `conversation_key_version` | `conversation_key_version` | `string` | Yes | No | Version of the conversation encryption key. |
+| `conversation_participant_keys` | `conversation_participant_keys` | `Array<CreateChatConversationConversationParticipantKeys>` | Yes | No | Encrypted conversation keys for each participant. |
+| `group_admins` | `group_admins` | `Array<string>` | No | No | User IDs of group admins. Defaults to the creator if omitted. |
+| `group_avatar_url` | `group_avatar_url` | `string` | No | No | URL of the avatar image for the group conversation. |
+| `group_description` | `group_description` | `string` | No | No | Description for the group conversation. |
+| `group_members` | `group_members` | `Array<string>` | Yes | No | User IDs of group members to include in the conversation. |
+| `group_name` | `group_name` | `string` | No | No | Display name for the group conversation. |
+| `ttl_msec` | `ttl_msec` | `string` | No | No | Message time-to-live in milliseconds. Messages expire after this duration. |
+
+## CreateChatConversationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateChatConversationResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateChatConversationResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_id` | `conversation_id` | `string` | Yes | No | Canonical ID of the created conversation. |
+| `conversation_key_change_sequence_id` | `conversation_key_change_sequence_id` | `string` | No | No | Sequence ID of the conversation key change. |
+
+## CreateCommunityNotesInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `classification` | `classification` | `"misinformed_or_potentially_misleading" \| "not_misleading"` | Yes | No | Community Note classification. |
+| `is_media_note` | `is_media_note` | `boolean` | No | No | Whether the note is a media note. |
+| `misleading_tags` | `misleading_tags` | `Array<"disputed_claim_as_fact" \| "factual_error" \| "manipulated_media" \| "misinterpreted_satire" \| "missing_important_context" \| "other" \| "outdated_information">` | Yes | No | Tags describing why the Post is misleading. |
+| `text` | `text` | `string` | Yes | No | The text summary of the Community Note (must contain a URL). |
+| `trustworthy_sources` | `trustworthy_sources` | `boolean` | Yes | No | Whether the note cites trustworthy sources. |
+
+## CreateCommunityNotesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `info` | `info` | `CreateCommunityNotesInfo` | Yes | No | The Community Note contents. |
+| `post_id` | `post_id` | `string` | Yes | No | ID of the Post the note is about. |
+| `test_mode` | `test_mode` | `boolean` | Yes | No | If true, the note is only for testing and is not publicly visible. |
+
+## CreateCommunityNotesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateCommunityNotesResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateCommunityNotesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Unique identifier of the created Community Note. |
+
+## CreateComplianceJobsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | A user-provided name for this job. |
+| `resumable` | `resumable` | `boolean` | No | No | Whether to enable the upload URL with support for resumable uploads. |
+| `type` | `type` | `"tweets" \| "users"` | Yes | No | Type of compliance job to list. |
+
+## CreateComplianceJobsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ComplianceJob` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateDirectMessagesByConversationIdAttachments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | A media id to attach to the message. |
+
+## CreateDirectMessagesByConversationIdRequest
+
+`object` model on the `json` wire format.
+
+At least one of `text`, `attachments` is required.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attachments` | `attachments` | `Array<CreateDirectMessagesByConversationIdAttachments>` | No | No | Attachments to include with the message. |
+| `text` | `text` | `string` | No | No | Text of the Direct Message. |
+
+## CreateDirectMessagesByConversationIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateDirectMessagesByConversationIdResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateDirectMessagesByConversationIdResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dm_conversation_id` | `dm_conversation_id` | `string` | Yes | No | The conversation the message was sent to. |
+| `dm_event_id` | `dm_event_id` | `string` | Yes | No | The id of the created DM event. |
+
+## CreateDirectMessagesByParticipantIdAttachments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | A media id to attach to the message. |
+
+## CreateDirectMessagesByParticipantIdRequest
+
+`object` model on the `json` wire format.
+
+At least one of `text`, `attachments` is required.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attachments` | `attachments` | `Array<CreateDirectMessagesByParticipantIdAttachments>` | No | No | Attachments to include with the message. |
+| `text` | `text` | `string` | No | No | Text of the Direct Message. |
+
+## CreateDirectMessagesByParticipantIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CreateDirectMessagesByParticipantIdResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## CreateDirectMessagesByParticipantIdResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dm_conversation_id` | `dm_conversation_id` | `string` | Yes | No | The conversation the message was sent to. |
+| `dm_event_id` | `dm_event_id` | `string` | Yes | No | The id of the created DM event. |
+
+## CreateDirectMessagesConversationMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attachments` | `attachments` | `Array<CreateDirectMessagesConversationMessageAttachments>` | No | No | Attachments to include with the message. |
+| `text` | `text` | `string` | No | No | Text of the Direct Message. |
+
+## CreateDirectMessagesConversationMessageAttachments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | A media id to attach to the message. |

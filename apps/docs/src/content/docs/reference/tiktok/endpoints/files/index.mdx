@@ -1,0 +1,195 @@
+---
+title: "TikTok Business Files endpoints"
+description: "5 generated TikTok Business endpoint contracts for Files."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 142
+  label: "Files"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.files.fileFinishUpload
+
+`POST` `/open_api/v1.3/file/finish/upload/`
+
+Generated from TikTok documentation 1737721642924033
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `files.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileFinishUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `upload_id` | `body` | `string` | Yes | No | The ID of the upload task. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.files.fileNameCheck
+
+`GET` `/open_api/v1.3/file/name/check/`
+
+Generated from TikTok documentation 1759130033155073
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `files.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileNameCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `files` | `query` | `Array<FileNameCheckParamsFiles>` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. Information about the file names to check. Max size: 20. |
+| `file_name` | `query` | `string` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. File name. |
+| `file_type` | `query` | `"VIDEO" \| "IMAGE"` | No | No | If you want to check whether a single file name has been used as video or image name, `file_name` and `file_type` are required.If you want to check whether multiple file names have been used as video or image names, `files` is required. File type. Enum values: `VIDEO` (video), `IMAGE` (image). Default value: `VIDEO`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.files.fileStartUpload
+
+`POST` `/open_api/v1.3/file/start/upload/`
+
+Generated from TikTok documentation 1737721229896705
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `files.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileStartUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `size` | `body` | `number` | Yes | No | The size of the file that you want to upload, in Bytes. |
+| `content_type` | `body` | `string` | Yes | No | The content type of the file. Enum values: `image`, `video`, and `music`. |
+| `name` | `body` | `string` | No | No | The file name. The maximum length is 100 characters. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.files.fileTemporarilyUpload
+
+`POST` `/open_api/v1.3/file/temporarily/upload/`
+
+Generated from TikTok documentation 1737720893061122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `files.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileTemporarilyUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `upload_type` | `body` | `"FILE" \| "URL"` | Yes | No | The upload type. Enum values:`FILE`, `URL` |
+| `content_type` | `body` | `string` | Yes | No | The file type. Enum values:`image`, `music`, `video`, `playable` |
+| `file` | `body` | `unknown` | No | No | The file that you want to upload. Required when `upload_type`is set to`FILE`. The maximum size of a file that you can upload is 100 MB. Note: To upload a customized music file that can be used in [Carousel Ads](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713), the file that you specify through this field should meet the following specifications requirements:File Type: MP3.File Size: no greater than 10 MB. |
+| `url` | `body` | `string` | No | No | The URL of the file that you want to upload, in the format of “http://xxx.xxx”. Required when `upload_type` is `URL`. |
+| `signature` | `body` | `string` | No | No | The MD5 value of the file, used as a checksum to check data integrity by the server side. Required when `upload_type` is `FILE`. |
+| `name` | `body` | `string` | No | No | The file name. Character limit is 100. Note: Each word in Chinese or Japanese counts as three characters, while each letter in English counts as one character. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.files.fileTransferUpload
+
+`POST` `/open_api/v1.3/file/transfer/upload/`
+
+Generated from TikTok documentation 1737721489945601
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `files.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `FileTransferUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `upload_id` | `body` | `string` | Yes | No | The ID of the upload task. |
+| `signature` | `body` | `string` | Yes | No | The MD5 of the chunk, used as a checksum to verify data integrity. |
+| `start_offset` | `body` | `number` | Yes | No | The starting offset of the current chunk. |
+| `file` | `body` | `unknown` | Yes | No | The file chunk |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

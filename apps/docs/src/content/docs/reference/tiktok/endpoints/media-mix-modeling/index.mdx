@@ -1,0 +1,148 @@
+---
+title: "TikTok Business Media Mix Modeling endpoints"
+description: "4 generated TikTok Business endpoint contracts for Media Mix Modeling."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 147
+  label: "Media Mix Modeling"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.mediaMixModeling.mmmApiCheck
+
+`GET` `/open_api/v1.3/mmm/api/check/`
+
+Generated from TikTok documentation 1825299576698882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mediaMixModeling.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `MmmApiCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mmm_request_id` | `query` | `string` | Yes | No | Unique identifier for the MMM data request. To create an MMM data request and obtain the data request ID, use [/mmm/api/create/](https://business-api.tiktok.com/portal/docs/create-an-mmm-data-request/v1.3).To retrieve historical MMM data requests, including data request IDs, use [/mmm/api/history/](https://business-api.tiktok.com/portal/docs/get-the-mmm-data-request-history/v1.3). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mediaMixModeling.mmmApiCreate
+
+`POST` `/open_api/v1.3/mmm/api/create/`
+
+Generated from TikTok documentation 1825299567855617
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mediaMixModeling.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `MmmApiCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_ids` | `body` | `Array<string>` | Yes | No | A list of advertiser IDs to request MMM data for. We recommend limiting the number of advertiser IDs to 5. To obtain a list of ad accounts within a Business Center that you have access to, use[ /bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+| `request_info` | `body` | `MmmApiCreateParamsRequestInfo` | Yes | No | Details of the data request. |
+| `email` | `body` | `string` | No | No | The email address to receive the notification when the data is ready for download. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mediaMixModeling.mmmApiDownload
+
+`GET` `/open_api/v1.3/mmm/api/download/`
+
+Generated from TikTok documentation 1825299584678017
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mediaMixModeling.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `MmmApiDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mmm_request_id` | `query` | `string` | Yes | No | Unique identifier for the MMM data request. To create an MMM data request and obtain the data request ID, use [/mmm/api/create/](https://business-api.tiktok.com/portal/docs/create-an-mmm-data-request/v1.3).To retrieve historical MMM data requests, including data request IDs, use [/mmm/api/history/](https://business-api.tiktok.com/portal/docs/get-the-mmm-data-request-history/v1.3). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mediaMixModeling.mmmApiHistory
+
+`GET` `/open_api/v1.3/mmm/api/history/`
+
+Generated from TikTok documentation 1825299591414850
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mediaMixModeling.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `MmmApiHistoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from_date` | `query` | `string` | Yes | No | Start date, in the format of `YYYY-MM-DD` (UTC+0 time). The start date cannot be earlier than four years ago. |
+| `end_date` | `query` | `string` | Yes | No | End date, in the format of `YYYY-MM-DD` (UTC+0 time). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

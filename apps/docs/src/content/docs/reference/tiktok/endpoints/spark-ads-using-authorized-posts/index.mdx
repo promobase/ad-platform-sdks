@@ -1,0 +1,153 @@
+---
+title: "TikTok Business Spark Ads Using Authorized Posts endpoints"
+description: "4 generated TikTok Business endpoint contracts for Spark Ads Using Authorized Posts."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 159
+  label: "Spark Ads Using Authorized Posts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.sparkAdsUsingAuthorizedPosts.ttVideoAuthorize
+
+`POST` `/open_api/v1.3/tt_video/authorize/`
+
+Generated from TikTok documentation 1738376435339265
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `sparkAdsUsingAuthorizedPosts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtVideoAuthorizeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser id |
+| `auth_code` | `body` | `string` | Yes | No | The authorization code for the Spark Ads post. Note: Replace "+" in your authorization code with "%2B". Otherwise, you may get an invalid authorization code error. For example, you can replace the "+" in the code "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn+IH+UXr3f4=" and specify "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn%2BIH%2BUXr3f4=". |
+| `original_post_auth_code` | `body` | `string` | No | No | If this post is a duet or stitch from another post or it mentions another video, you also need to get the authorization code for the original post. Use this field to specify the authorization code for the original post. Note: Currently, the post can only mention at most one video. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.sparkAdsUsingAuthorizedPosts.ttVideoInfo
+
+`GET` `/open_api/v1.3/tt_video/info/`
+
+Generated from TikTok documentation 1738376324021250
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `sparkAdsUsingAuthorizedPosts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtVideoInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `auth_code` | `query` | `string` | Yes | No | The authorization code for the Spark Ads post. Note: Replace "+" in your authorization code with "%2B". Otherwise, you may get an invalid authorization code error. For example, you can replace the "+" in the code "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn+IH+UXr3f4=" and specify "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn%2BIH%2BUXr3f4=". |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.sparkAdsUsingAuthorizedPosts.ttVideoList
+
+`GET` `/open_api/v1.3/tt_video/list/`
+
+Generated from TikTok documentation 1738376465972226
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `sparkAdsUsingAuthorizedPosts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | The Advertiser ID. |
+| `item_types` | `query` | `Array<"VIDEO" \| "CAROUSEL">` | No | No | The types of Spark Ads posts to filter. Enum values:`VIDEO`: video post. `CAROUSEL`: photo post. Default value: `["VIDEO", "CAROUSEL"]`. |
+| `keyword` | `query` | `string` | No | No | The text or TikTok post ID as a keyword to search TikTok posts by. If you want to search for TikTok posts based on text, provide a text string with a maximum length of 500 characters. This search type supports searching in multiple languages and fuzzy matches. Example: "summer". If you want to search for TikTok posts based on `item_id`, provide a numeric string with a minimum length of 19 characters. This search type supports exact matches. Example: "1234567891234567891" |
+| `page` | `query` | `number` | No | No | The current page number. The default value is `1`. The value must be ≥ 1. |
+| `page_size` | `query` | `number` | No | No | The page size. The default value: `20`. The value must be in the range of 1-50. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.sparkAdsUsingAuthorizedPosts.ttVideoUnbind
+
+`POST` `/open_api/v1.3/tt_video/unbind/`
+
+Generated from TikTok documentation 1738376509936641
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `sparkAdsUsingAuthorizedPosts.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `TtVideoUnbindResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | The advertiser ID |
+| `item_id` | `body` | `string` | Yes | No | The ID of the Spark Ads post |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

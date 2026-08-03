@@ -1,0 +1,228 @@
+---
+title: "TikTok Business Catalog Feeds endpoints"
+description: "6 generated TikTok Business endpoint contracts for Catalog Feeds."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 126
+  label: "Catalog Feeds"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogFeeds.catalogFeedCreate
+
+`POST` `/open_api/v1.3/catalog/feed/create/`
+
+Generated from TikTok documentation 1740665161957377
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogFeeds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_name` | `body` | `string` | Yes | No | Name of the feed. |
+| `update_mode` | `body` | `"OVERWRITE" \| "INCREMENTAL"` | Yes | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated. |
+| `schedule_param` | `body` | `CatalogFeedCreateParamsScheduleParam` | No | No | Schedule data. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogFeeds.catalogFeedDelete
+
+`POST` `/open_api/v1.3/catalog/feed/delete/`
+
+Generated from TikTok documentation 1740665210863617
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogFeeds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | Yes | No | Feed ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogFeeds.catalogFeedGet
+
+`GET` `/open_api/v1.3/catalog/feed/get/`
+
+Generated from TikTok documentation 1740665183073281
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogFeeds.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `query` | `string` | No | No | ID of the feed that you want to get. If not specified, all feeds for the catalog will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogFeeds.catalogFeedLog
+
+`GET` `/open_api/v1.3/catalog/feed/log/`
+
+Generated from TikTok documentation 1740665225631810
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogFeeds.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedLogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `query` | `string` | Yes | No | ID of the feed that you want to get log for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogFeeds.catalogFeedSwitch
+
+`POST` `/open_api/v1.3/catalog/feed/switch/`
+
+Generated from TikTok documentation 1750349624999937
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogFeeds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedSwitchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | Yes | No | ID of the feed that you want to update the schedule status for. |
+| `status` | `body` | `"ON" \| "OFF"` | Yes | No | Use this field to update the feed schedule status. Enum values: `ON`, `OFF`. Note: You can only pass in via this field a status different from the current one. For instance, you cannot set status as `ON` for a feed whose schedule status is already `ON`. If you want to update status from `OFF` to `ON`, you need to ensure the three parameters `uri`, `interval_type` , and `timezone` have been set for the feed. Otherwise, the update will fail. If you want to specify the three parameters `uri`, `interval_type` , and `timezone` for an existing feed, use [/catalog/feed/update/](https://ads.tiktok.com/marketing_api/docs?id=1740665197662210). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogFeeds.catalogFeedUpdate
+
+`POST` `/open_api/v1.3/catalog/feed/update/`
+
+Generated from TikTok documentation 1740665197662210
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogFeeds.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogFeedUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `body` | `string` | Yes | No | Feed ID. |
+| `update_mode` | `body` | `"OVERWRITE" \| "INCREMENTAL" \| "SUPPLEMENT"` | Yes | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated.`SUPPLEMENT`: In this mode, new products will be created, and only the specified parameters for the existing products will be updated. |
+| `schedule_param` | `body` | `CatalogFeedUpdateParamsScheduleParam` | No | No | Schedule data. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

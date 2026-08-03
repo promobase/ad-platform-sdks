@@ -1,0 +1,46 @@
+---
+title: "Google Ads Ad Group Label endpoints"
+description: "1 generated Google Ads endpoint contract for Ad Group Label."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 113
+  label: "Ad Group Label"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.adGroupLabel.mutateAdGroupLabels
+
+`POST` `/v25/customers/{customer_id=*}/adGroupLabels:mutate`
+
+AdGroupLabelService.MutateAdGroupLabels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adGroupLabel.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateAdGroupLabelsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateAdGroupLabelsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

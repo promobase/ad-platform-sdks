@@ -1,0 +1,877 @@
+---
+title: "TikTok Business GMV Max endpoints"
+description: "23 generated TikTok Business endpoint contracts for GMV Max."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 143
+  label: "GMV Max"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.gMVMax.campaignGmvMaxCreate
+
+`POST` `/open_api/v1.3/campaign/gmv_max/create/`
+
+Generated from TikTok documentation 1822000988713089
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `body` | `string` | Yes | No | Request ID that supports idempotency to prevent you from sending the same request twice. If you retry requests with the same request ID multiple times within the 10-second cache time, then only one request will succeed. If a duplicate request with the expired request ID is received after the cache time, the server will treat it as a new request and process it accordingly. The ID is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer. Example: `"123456789"`. |
+| `store_id` | `body` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. To ensure that the ad account has exclusive GMV Max authorization for the TikTok Shop that you want to promote, call [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `advertiser_id` within `exclusive_authorized_advertiser_info` is the same as the ad account that you want to use to create GMV Max Campaigns.If the returned `advertiser_id` is not the same as the ad account that you want to use to create GMV Max Campaigns, use [/gmv_max/exclusive_authorization/create/](https://business-api.tiktok.com/portal/docs?id=1822001200356354) to grant the ad account exclusive GMV Max authorization for the TikTok Shop. |
+| `shopping_ads_type` | `body` | `"PRODUCT" \| "LIVE"` | Yes | No | The type of the GMV Max Campaign. Enum values:`PRODUCT`: Product GMV Max Campaign.`LIVE`: Live GMV Max Campaign. To learn about how to create such campaigns, see [Create Product GMV Max Campaigns](https://business-api.tiktok.com/portal/docs?id=1822009220448257) and [Create LIVE GMV Max Campaigns](https://business-api.tiktok.com/portal/docs?id=1822009242546258). |
+| `product_specific_type` | `body` | `"ALL" \| "CUSTOMIZED_PRODUCTS"` | No | No | Valid only when `shopping_ads_type` is `PRODUCT`. Different dimensions to choose products. Enum values:`ALL`: Allow TikTok to dynamically choose from all products within the TikTok Shop.`CUSTOMIZED_PRODUCTS`: Specify a customized number of products within the TikTok Shop. To confirm whether you can promote all products in the TikTok Shop, call [/gmv_max/store/shop_ad_usage_check/](https://business-api.tiktok.com/portal/docs?id=1822001084174338) and check the returned `promote_all_products_allowed`. |
+| `item_group_ids` | `body` | `Array<string>` | No | No | Required when `shopping_ads_type` is `PRODUCT` and `product_specific_type` is `CUSTOMIZED_PRODUCTS`. Product SPU (standard product unit) IDs. Max size: 50. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `optimization_goal` | `body` | `string` | Yes | No | Optimization goal. Enum value:`VALUE`: Gross revenue. |
+| `deep_bid_type` | `body` | `string` | Yes | No | Bid strategy. Enum value:`VO_MIN_ROAS`: Minimum ROAS. Bid with an ROI target. |
+| `roas_bid` | `body` | `number` | No | No | Required only when `deep_bid_type` is `VO_MIN_ROAS`. ROI target, kept to up to one decimal place. Examples: 3.2, 3. To obtain the recommended ROI target, use [/gmv_max/bid/recommend/](https://business-api.tiktok.com/portal/docs?id=1822001024720897) and check the returned `roas_bid`. |
+| `budget` | `body` | `number` | Yes | No | Daily budget. To obtain the recommended budget, use [/gmv_max/bid/recommend/](https://business-api.tiktok.com/portal/docs?id=1822001024720897) and check the returned `budget`. |
+| `promotion_days` | `body` | `CampaignGmvMaxCreateParamsPromotionDays` | No | No | The promotion days setting details. Note: To customize the percentage and the maximum times the budget can increase per day within your promotion days settings, use `budget_increase_percentage` and `increase_limit`within this object. |
+| `auto_budget` | `body` | `CampaignGmvMaxCreateParamsAutoBudget` | No | No | The details of the automatic budget settings during non-promotion days. |
+| `auto_budget_enabled` | `body` | `boolean` | No | No | Whether to enable automatic budget increase. When your achieved ROI reaches at least 90% of the target and 80% or more of your budget has been used, your daily campaign budget may automatically increase by up to 10 times to capture more sales. Your budget will reset to its original amount each day. When `is_enabled` within the object `promotion_days` is `true` and`auto_budget_enabled` is `false`, your ROI target will decrease and your daily budget will automatically increase during TikTok Shop promotion days (when `auto_schedule_enabled` is `true`) and custom promotion days as defined by `custom_schedule_list`. Your daily budget will reset to its original amount every day. During standard days, your ROI target and budget won't change.When `is_enabled` within the object `promotion_days` is `true` and`auto_budget_enabled` is `true`, auto budget increase will be turned on during TikTok Shop promotion days (when `auto_schedule_enabled` is `true`), custom promotion days as defined by `custom_schedule_list`, and standard days. Your daily budget will reset to its original amount every day. During TikTok Shop promotion days and custom promotion days as defined by `custom_schedule_list`, your ROI target will decrease. During standard days, your ROI target won't change.When `is_enabled` within the object `promotion_days` is `false` and`auto_budget_enabled` is `true`, your ROI won't change, your daily campaign budget may automatically increase up to 10 times to optimize gross revenue. Your daily budget will reset to its original amount every day. However, if you specify `auto_budget_enabled` and `auto_budget` at the same time, `auto_budget_enabled` will be ignored. Supported values: `true`, `false`. Default value: `false`. Note: When you use this parameter, the automatic budget increase settings for GMV Max Campaigns are fixed in terms of percentage and maximum frequency. If you want to customize the percentage and the maximum times the budget can increase per day during non-promotion days, use `auto_budget` instead. |
+| `schedule_type` | `body` | `"SCHEDULE_FROM_NOW" \| "SCHEDULE_START_END"` | Yes | No | Schedule type. Enum values:`SCHEDULE_FROM_NOW`: To run the campaign continuously after the scheduled start time.`SCHEDULE_START_END`: To run the campaign between the scheduled start time and end time. |
+| `schedule_start_time` | `body` | `string` | Yes | No | Campaign delivery start time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). The start time can be up to 12 hours earlier than the current time, but cannot be later than `2028-01-01 00:00:00`. |
+| `schedule_end_time` | `body` | `string` | No | No | Required when `schedule_type` is `SCHEDULE_START_END`. Not supported when `schedule_type` is `SCHEDULE_FROM_NOW`. Campaign delivery end time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). The end time cannot be later than `2038-01-01 00:00:00`. |
+| `product_video_specific_type` | `body` | `"AUTO_SELECTION" \| "CUSTOM_SELECTION"` | No | No | Required when `shopping_ads_type` is `PRODUCT`. The video selection mode. Enum values:`AUTO_SELECTION`: To autoselect videos. You need to specify `identity_list` simultaneously.`CUSTOM_SELECTION`: To manually select videos. You need to specify `item_list` simultaneously. |
+| `identity_list` | `body` | `Array<CampaignGmvMaxCreateParamsIdentityList>` | No | No | Required when `shopping_ads_type` is `LIVE`.Optional when `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `AUTO_SELECTION`. The list of identities (TikTok accounts) to associate with the GMV Max Campaign. When `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `AUTO_SELECTION`, specify 0-20 identities as the source of video creatives via this field.To obtain a list of identities available for a Product GMV Max Campaign using the same TikTok Shop, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `product_gmv_max_available` as `true`.When no identities are specified through `identity_list`, the product images will be used as ad creatives.When `shopping_ads_type` is `LIVE`, specify one identity as the LIVE source via this field. To obtain an identity that is available for LIVE GMV Max Campaigns, call [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `live_gmv_max_available` as `true`. |
+| `affiliate_posts_enabled` | `body` | `boolean` | No | No | This field is valid and defaults to `true` when the following conditions are both met:`shopping_ads_type` is `PRODUCT``product_video_specific_type` is `AUTO_SELECTION`Whether to enable affiliate posts for your Product GMV Max Campaign. Affiliate posts are TikTok posts created by affiliates (creators participating in the TikTok Shop Affiliate Program) and authorized for use in TikTok Shop Ads. Learn more [about affiliate creatives for TikTok Shop Ads](https://ads.tiktok.com/help/article/about-affiliate-creatives-for-tiktok-shop-ads). Supported values: `true`, `false`. |
+| `item_list` | `body` | `Array<CampaignGmvMaxCreateParamsItemList>` | No | No | Required when `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `CUSTOM_SELECTION`. The list of authorized TikTok posts or customized TikTok posts to associate with the Product GMV Max campaign.Authorized TikTok posts are existing posts featuring your selected products from your TikTok accounts or authorized using video codes.If you want to manually select authorized TikTok posts only for the Product GMV Max campaign, include their details using `item_list` and do not specify `custom_anchor_video_list`.Customized TikTok posts are created by adding customized product links to your videos. You can use two types of customized posts: campaign-level and shop-level.Campaign-level customized posts are generated specifically for a campaign by adding customized product links to selected videos at the campaign level. These posts are exclusive to the Product GMV Max campaign in which they are created.To manually select campaign-level customized posts for a Product GMV Max campaign, provide the video details in the `item_list` parameter and specify the `custom_anchor_video_list` parameter simultaneously.Shop-level customized posts are generated for a specific TikTok Shop by adding customized product links to selected videos at the shop level. These posts are automatically included in a Product GMV Max campaign if their linked products are part of that active campaign.To manually select shop-level customized TikTok posts for a Product GMV Max campaign, provide their details in the `item_list` parameter, but do not specify the `custom_anchor_video_list` parameter.To retrieve shop-level customized TikTok posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) and leave the `campaign_id` filter unspecified. Max size: 50. To obtain a list of TikTok posts available for a Product GMV Max Campaign using the same TikTok Shop, use [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129). Important: The campaign-level customized posts feature will be deprecated in the upcoming API version. To ensure a seamless integration, create shop-level customized posts using [/gmv_max/creation/custom_anchor_video_list/create/](https://business-api.tiktok.com/portal/docs/create-shop-level-customized-tiktok-posts/v1.3) and retrieve the details of videos used in customized posts using [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) and [/gmv_max/creation/shop_video/video_anchors/](https://business-api.tiktok.com/portal/docs/get-product-linkage-details-of-videos-in-customized-posts/v1.3). |
+| `custom_anchor_video_list` | `body` | `Array<CampaignGmvMaxCreateParamsCustomAnchorVideoList>` | No | No | The list of customized TikTok posts to associate with the Product GMV Max campaign. Customized TikTok posts are posts created during campaign setup by adding customized product links for your products (`spu_id_list` within `custom_anchor_video_list`) to specified videos (`item_id` within `custom_anchor_video_list`). These posts will be exclusive to this Product GMV Max campaign.For manual selection: When `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `CUSTOM_SELECTION`, specify the videos to be used in customized posts using this field.For auto selection: When `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `AUTO_SELECTION`, specify the videos to be auto-selected for customized posts using this field. Max size: 200. Important: This field will be deprecated along with the campaign-level customized posts feature in the next API version. To ensure a seamless integration, create shop-level customized posts using [/gmv_max/creation/custom_anchor_video_list/create/](https://business-api.tiktok.com/portal/docs/create-shop-level-customized-tiktok-posts/v1.3) and retrieve the details of videos used in customized posts using [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) and [/gmv_max/creation/shop_video/video_anchors/](https://business-api.tiktok.com/portal/docs/get-product-linkage-details-of-videos-in-customized-posts/v1.3). Note: Although you can add a maximum number of 200 customized posts during campaign creation, one Product GMV Max campaign can eventually include up to 2,000 customized posts. If you want to specify more than 200 customized posts for a Product GMV Max Campaign, you can update the `custom_anchor_video_list` of the campaign incrementally using [/campaign/gmv_max/update/](https://business-api.tiktok.com/portal/docs?id=1822001009002497), with updates limited to 200 additional posts per request. |
+| `campaign_name` | `body` | `string` | Yes | No | The name of the GMV Max Campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxCreativeUpdate
+
+`POST` `/open_api/v1.3/campaign/gmv_max/creative/update/`
+
+Generated from TikTok documentation 1861260625563202
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxCreativeUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | Campaign ID. Note:The campaign must be in an active status. To retrieve active GMV Max Campaigns in your ad account, use [/gmv_max/report/get/](https://business-api.tiktok.com/portal/docs?id=1824721673497601) with `filtering` set to `&#123;"campaign_statuses":["STATUS_DELIVERY_OK"]&#125;`.If the campaign is a Product GMV Max Campaign, the `product_video_specific_type` of the campaign must be `AUTO_SELECTION`. |
+| `action` | `body` | `"REMOVE" \| "ADD" \| "EXCLUDED"` | Yes | No | The type of action to perform. Enum values:`REMOVE`: To remove creatives from a GMV Max Campaign.`ADD`: To add previously removed creatives back into a GMV Max Campaign. Note:Once the action is performed, wait 20 minutes before verifying the updated statuses using [/gmv_max/report/get/](https://business-api.tiktok.com/portal/docs?id=1824721673497601).If a creative is successfully removed from a Product GMV Max Campaign, its `creative_delivery_status` in [/gmv_max/report/get/](https://business-api.tiktok.com/portal/docs?id=1824721673497601) will be `EXCLUDED`. |
+| `item_list` | `body` | `Array<CampaignGmvMaxCreativeUpdateParamsItemList>` | Yes | No | The list of TikTok posts (videos) to be operated on. Max size: 400. Note:This endpoint allows for the removal of up to 10,000 posts from a GMV Max Campaign, with a limit of 400 posts per request.For example, if you need to exclude 800 posts, send a first request with 400 posts in this field, followed by a second request with the remaining 400. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxInfo
+
+`GET` `/open_api/v1.3/campaign/gmv_max/info/`
+
+Generated from TikTok documentation 1822000968821762
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `query` | `string` | Yes | No | The ID of a GMV Max Campaign. To create a GMV Max Campaign and obtain the campaign ID, use [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089).To filter existing GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxSessionCreate
+
+`POST` `/open_api/v1.3/campaign/gmv_max/session/create/`
+
+Generated from TikTok documentation 1835246967275522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxSessionCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of the Product GMV Max Campaign. To create a Product GMV Max Campaign and obtain the campaign ID, use [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089) and set `shopping_ads_type` to `PRODUCT`.To filter existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `store_id` | `body` | `string` | Yes | No | The ID of the TikTok Shop. To obtain the ID of the TikTok Shop that is associated with a GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762). |
+| `session` | `body` | `CampaignGmvMaxSessionCreateParamsSession` | Yes | No | Details about the max delivery mode for the campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxSessionDelete
+
+`POST` `/open_api/v1.3/campaign/gmv_max/session/delete/`
+
+Generated from TikTok documentation 1835246983475217
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxSessionDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `session_id` | `body` | `string` | Yes | No | The ID of the max delivery session for a product or creative boost session for a video in the Product GMV Max Campaign. To obtain the ID list of active max delivery sessions within a Product GMV Max Campaign, use [/campaign/gmv_max/session/list/](https://business-api.tiktok.com/portal/docs?id=1835246996436162) and select sessions with `bid_type` as `NO_BID`.To obtain the ID list of active creative boost sessions within a Product GMV Max Campaign, use [/campaign/gmv_max/session/list/](https://business-api.tiktok.com/portal/docs?id=1835246996436162) and select sessions with `bid_type` as `CREATIVE_NO_BID`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxSessionGet
+
+`GET` `/open_api/v1.3/campaign/gmv_max/session/get/`
+
+Generated from TikTok documentation 1835247031331842
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxSessionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `session_ids` | `query` | `Array<string>` | Yes | No | An ID list of the max delivery or creative boost sessions for products in a Product GMV Max Campaign. Max size: 20. To obtain the ID list of active max delivery sessions within a Product GMV Max Campaign, use [/campaign/gmv_max/session/list/](https://business-api.tiktok.com/portal/docs?id=1835246996436162) and select sessions with `bid_type` as `NO_BID`.To obtain the ID list of active creative boost sessions within a Product GMV Max Campaign, use [/campaign/gmv_max/session/list/](https://business-api.tiktok.com/portal/docs?id=1835246996436162) and select sessions with `bid_type` as `CREATIVE_NO_BID`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxSessionList
+
+`GET` `/open_api/v1.3/campaign/gmv_max/session/list/`
+
+Generated from TikTok documentation 1835246996436162
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxSessionListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `query` | `string` | Yes | No | The ID of the Product GMV Max Campaign. To create a Product GMV Max Campaign and obtain the campaign ID, use [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089) and set `shopping_ads_type` to `PRODUCT`.To filter existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxSessionUpdate
+
+`POST` `/open_api/v1.3/campaign/gmv_max/session/update/`
+
+Generated from TikTok documentation 1835247009119233
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxSessionUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of the Product GMV Max Campaign. To create a Product GMV Max Campaign and obtain the campaign ID, use [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089) and set `shopping_ads_type` to `PRODUCT`.To filter existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `store_id` | `body` | `string` | Yes | No | The ID of the TikTok Shop. To obtain the ID of the TikTok Shop that is associated with a GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762). |
+| `session_id` | `body` | `string` | Yes | No | The ID of the max delivery session for a product in the Product GMV Max Campaign. To obtain the ID list of active max delivery sessions within a Product GMV Max Campaign, use [/campaign/gmv_max/session/list/](https://business-api.tiktok.com/portal/docs?id=1835246996436162) and select sessions with `bid_type` as `NO_BID`. |
+| `session` | `body` | `CampaignGmvMaxSessionUpdateParamsSession` | Yes | No | Details about the max delivery mode for the campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.campaignGmvMaxUpdate
+
+`POST` `/open_api/v1.3/campaign/gmv_max/update/`
+
+Generated from TikTok documentation 1822001009002497
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CampaignGmvMaxUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. To ensure that the ad account has exclusive GMV Max authorization for the TikTok Shop that you want to promote, call [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `advertiser_id` within `exclusive_authorized_advertiser_info` is the same as the ad account that you want to use to create GMV Max Campaigns.If the returned `advertiser_id` is not the same as the ad account that you want to use to create GMV Max Campaigns, use [/gmv_max/exclusive_authorization/create/](https://business-api.tiktok.com/portal/docs?id=1822001200356354) to grant the ad account exclusive GMV Max authorization for the TikTok Shop. |
+| `campaign_id` | `body` | `string` | Yes | No | The ID of a GMV Max Campaign. To create a GMV Max Campaign and obtain the campaign ID, use [/campaign/gmv_max/create/](https://business-api.tiktok.com/portal/docs?id=1822000988713089).To filter existing GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177). |
+| `roas_bid` | `body` | `number` | No | No | Valid only when `deep_bid_type` of the campaign is `VO_MIN_ROAS`. ROI target, kept to up to one decimal place. Examples: 3.2, 3. To obtain the recommended ROI target, use [/gmv_max/bid/recommend/](https://business-api.tiktok.com/portal/docs?id=1822001024720897) and check the returned `roas_bid`. |
+| `budget` | `body` | `number` | No | No | Daily budget. To obtain the recommended budget, use [/gmv_max/bid/recommend/](https://business-api.tiktok.com/portal/docs?id=1822001024720897) and check the returned `budget`. |
+| `promotion_days` | `body` | `CampaignGmvMaxUpdateParamsPromotionDays` | No | No | The promotion days setting details. Note: To customize the percentage and the maximum times the budget can increase per day within your promotion days settings, use `budget_increase_percentage` and `increase_limit`within this object. |
+| `auto_budget` | `body` | `CampaignGmvMaxUpdateParamsAutoBudget` | No | No | The details of the automatic budget settings during non-promotion days. |
+| `auto_budget_enabled` | `body` | `boolean` | No | No | Whether to enable automatic budget increase. When your achieved ROI reaches at least 90% of the target and 80% or more of your budget has been used, your daily campaign budget may automatically increase by up to 10 times to capture more sales. Your budget will reset to its original amount each day. When `is_enabled` within the object `promotion_days` is `true` and`auto_budget_enabled` is `false`, your ROI target will decrease and your daily budget will automatically increase during TikTok Shop promotion days (when `auto_schedule_enabled` is `true`) and custom promotion days as defined by `custom_schedule_list`. Your daily budget will reset to its original amount every day. During standard days, your ROI target and budget won't change.When `is_enabled` within the object `promotion_days` is `true` and`auto_budget_enabled` is `true`, auto budget increase will be turned on during TikTok Shop promotion days (when `auto_schedule_enabled` is `true`), custom promotion days as defined by `custom_schedule_list`,and standard days. Your daily budget will reset to its original amount every day. During TikTok Shop promotion days and custom promotion days as defined by `custom_schedule_list`, your ROI target will decrease. During standard days, your ROI target won't change.When `is_enabled` within the object `promotion_days` is `false` and`auto_budget_enabled` is `true`, your ROI won't change, your daily campaign budget may automatically increase up to 10 times to optimize gross revenue. Your daily budget will reset to its original amount every day.However, if you specify `auto_budget_enabled` and `auto_budget` at the same time, `auto_budget_enabled` will be ignored. Supported values: `true`, `false`. Note: When you use this parameter, the automatic budget increase settings for GMV Max Campaigns are fixed in terms of percentage and maximum frequency. If you want to customize the percentage and the maximum times the budget can increase per day during non-promotion days, use `auto_budget` instead. |
+| `item_group_ids` | `body` | `Array<string>` | No | No | Valid when `shopping_ads_type` is `PRODUCT` and `product_specific_type` is `CUSTOMIZED_PRODUCTS`. Product SPU (standard product unit) IDs. Max size: 50. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `schedule_type` | `body` | `"SCHEDULE_FROM_NOW" \| "SCHEDULE_START_END"` | No | No | Schedule type. Enum values:`SCHEDULE_FROM_NOW`: To run the campaign continuously after the scheduled start time.`SCHEDULE_START_END`: To run the campaign between the scheduled start time and end time. |
+| `schedule_end_time` | `body` | `string` | No | No | Required when `schedule_type` is `SCHEDULE_START_END`. Not supported when `schedule_type` is `SCHEDULE_FROM_NOW`. Campaign delivery end time, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `affiliate_posts_enabled` | `body` | `boolean` | No | No | Valid only when the following conditions are both met:`shopping_ads_type` is `PRODUCT``product_video_specific_type` is `AUTO_SELECTION`Whether to enable affiliate posts for your Product GMV Max Campaign. Affiliate posts are TikTok posts created by affiliates (creators participating in the TikTok Shop Affiliate Program) and authorized for use in TikTok Shop Ads. Learn more [about affiliate creatives for TikTok Shop Ads](https://ads.tiktok.com/help/article/about-affiliate-creatives-for-tiktok-shop-ads). Supported values: `true`, `false`. |
+| `item_list` | `body` | `Array<CampaignGmvMaxUpdateParamsItemList>` | No | No | Valid when `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `CUSTOM_SELECTION`. The list of authorized TikTok posts or customized TikTok posts to associate with the Product GMV Max campaign.Authorized TikTok posts are existing posts featuring your selected products from your TikTok accounts or authorized using video codes.If you want to manually select authorized TikTok posts only for the Product GMV Max campaign, include their details using `item_list` and do not specify `custom_anchor_video_list`.Customized TikTok posts are posts built by adding customized product links to videos. Two types are supported: campaign-level customized posts and shop-level customized posts.Campaign-level customized TikTok posts are newly created posts for the campaign, built by adding customized product links to your selected videos at the campaign level. These posts will be exclusive to this Product GMV Max campaign.If you want to manually select campaign-level customized TikTok posts for the Product GMV Max campaign, include details of the videos to be used in customized posts using `item_list` and specify `custom_anchor_video_list` simultaneously.Shop-level customized TikTok posts are newly created posts for the TikTok Shop, built by adding customized product links to your selected videos at the TikTok Shop level. These posts will be automatically added to this Product GMV Max campaign if the linked products are included in the campaign.If you want to manually select shop-level customized TikTok posts for the Product GMV Max campaign, include their details using `item_list` and do not specify `custom_anchor_video_list`.To obtain shop-level customized TikTok posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) with the `campaign_id` filter unspecified. Max size: 50. To obtain a list of TikTok posts available for a Product GMV Max Campaign using the same TikTok Shop, use [/gmv_max/video/get/](https://business-api.tiktok.com/portal/docs?id=1822001168512129). Important: The campaign-level customized posts feature will be deprecated in the next API version. To ensure a seamless integration, create shop-level customized posts using [/gmv_max/creation/custom_anchor_video_list/create/](https://business-api.tiktok.com/portal/docs/create-shop-level-customized-tiktok-posts/v1.3) and retrieve the details of videos used in customized posts using [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) and [/gmv_max/creation/shop_video/video_anchors/](https://business-api.tiktok.com/portal/docs/get-product-linkage-details-of-videos-in-customized-posts/v1.3). |
+| `custom_anchor_video_list` | `body` | `Array<CampaignGmvMaxUpdateParamsCustomAnchorVideoList>` | No | No | The list of customized TikTok posts to associate with the Product GMV Max campaign. Customized TikTok posts are posts created during campaign setup by adding customized product links for your products (`spu_id_list` within `custom_anchor_video_list`) to specified videos (`item_id` within `custom_anchor_video_list`). These posts will be exclusive to this Product GMV Max campaign.For manual selection: When `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `CUSTOM_SELECTION`, specify the videos to be used in customized posts using this field.For auto selection: When `shopping_ads_type` is `PRODUCT` and `product_video_specific_type` is `AUTO_SELECTION`, specify the videos to be auto-selected for customized posts using this field. Max size: 2,000. Important: This field will be deprecated along with the campaign-level customized posts feature in the next API version. To ensure a seamless integration, create shop-level customized posts using [/gmv_max/creation/custom_anchor_video_list/create/](https://business-api.tiktok.com/portal/docs/create-shop-level-customized-tiktok-posts/v1.3) and retrieve the details of videos used in customized posts using [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3) and [/gmv_max/creation/shop_video/video_anchors/](https://business-api.tiktok.com/portal/docs/get-product-linkage-details-of-videos-in-customized-posts/v1.3). Note: If you want to specify more than 200 customized posts for a Product GMV Max Campaign, you can update the `custom_anchor_video_list` of the campaign incrementally, with updates limited to 200 additional posts per request. For example, if you created the campaign with 200 customized posts and want to increase the post count to 400, specify 400 customized posts including the original 200 and the additional 200 ones through this field. If you want to remove certain customized posts from the Product GMV Max Campaign, make sure to remove the posts from both `custom_anchor_video_list` and `item_list` simultaneously. |
+| `campaign_name` | `body` | `string` | No | No | The name of the GMV Max Campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxBidRecommend
+
+`GET` `/open_api/v1.3/gmv_max/bid/recommend/`
+
+Generated from TikTok documentation 1822001024720897
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxBidRecommendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `shopping_ads_type` | `query` | `"PRODUCT" \| "LIVE"` | Yes | No | The type of the GMV Max Campaign. Enum values:`PRODUCT`: Product GMV Max Campaign.`LIVE`: Live GMV Max Campaign. |
+| `optimization_goal` | `query` | `string` | Yes | No | Optimization goal. Enum value:`VALUE`: Gross revenue. |
+| `item_group_ids` | `query` | `Array<string>` | No | No | Valid only when `shopping_ads_type` is `PRODUCT`. The list of SPU (standard product unit) IDs for specific products to be promoted in a Product GMV Max Campaign. If you want to promote all products from the TikTok Shop in the Product GMV Max Campaign, you don't need to pass this field.If you want to promote specific products from the TikTok Shop in the Product GMV Max Campaign, specify these products via this field. Max size: 50. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `identity_id` | `query` | `string` | No | No | Required and valid only when `shopping_ads_type` is `LIVE` The LIVE source identity that you want to use in a LIVE GMV Max Campaign. To obtain a list of identities for LIVE GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with`live_gmv_max_available` as `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCampaignGet
+
+`GET` `/open_api/v1.3/gmv_max/campaign/get/`
+
+Generated from TikTok documentation 1826463372290177
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCampaignGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `fields` | `query` | `Array<string>` | No | No | Fields that you want to get. If this field is not specified, all fields are returned by default. For allowed fields, see the fields under `list` in the response. |
+| `filtering` | `query` | `GmvMaxCampaignGetParamsFiltering` | Yes | No | Filters on the data. Example: `filtering=&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListCreate
+
+`POST` `/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/create/`
+
+Generated from TikTok documentation 1866513154013585
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCreationCustomAnchorVideoListCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `body` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `custom_anchor_video_list` | `body` | `Array<GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoList>` | Yes | No | The details of your videos and the products you want to link them to. By linking videos to a product at the TikTok Shop level, you can generate shop-level customized TikTok posts. The system will automatically add these shop-level customized TikTok posts to your Product GMV Max Campaign (with `shopping_ads_type` set to `PRODUCT`) if you use the Autoselect creative mode (with `product_video_specific_type` as `AUTO_SELECTION`) and your campaign includes the linked product. Max size: 200. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListDelete
+
+`POST` `/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/delete/`
+
+Generated from TikTok documentation 1866513159202306
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCreationCustomAnchorVideoListDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `body` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `custom_anchor_video_list` | `body` | `Array<GmvMaxCreationCustomAnchorVideoListDeleteParamsCustomAnchorVideoList>` | Yes | No | The details of the videos and the products you want to unlink from them. Max size: 200. |
+| `campaign_id` | `body` | `string` | No | No | Required when the specified TikTok videos (`item_id`) have been used in a campaign to create campaign-level customized posts. The ID of a Product GMV Max Campaign. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListGet
+
+`POST` `/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/get/`
+
+Generated from TikTok documentation 1866513156712449
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCreationCustomAnchorVideoListGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `body` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `creative_source` | `body` | `string` | Yes | No | Creative source type. Enum value:`CUSTOMIZED`: customized post. |
+| `spu_id_list` | `body` | `Array<string>` | No | No | A list of Product SPU (standard product unit) IDs to filter the results by. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `sort_field` | `body` | `"GMV" \| "POST_TIME" \| "VIDEO_VIEWS" \| "VIDEO_LIKES" \| "CLICK_THROUGH_RATE" \| "PRODUCT_CLICKS"` | No | No | The sorting field. Enum values:`GMV`: GMV.`POST_TIME`: Post time.`VIDEO_VIEWS`: Video views.`VIDEO_LIKES`: Video likes.`CLICK_THROUGH_RATE`: Click-through Rate (CTR).`PRODUCT_CLICKS`: Product clicks. Default value: `GMV`. |
+| `sort_type` | `body` | `"ASC" \| "DESC"` | No | No | The sorting order. Enum values:`ASC`: ascending.`DESC`: descending. |
+| `keyword` | `body` | `string` | No | No | A search keyword to filter posts (videos). You can specify a post ID or caption.To search by post caption (`text`), provide a text string. This search type supports multiple-language searches and fuzzy matches. Example: `summer`.To search by post ID (`item_id`), provide a numeric string with at least 19 characters. This search type supports exact matches. Example: `1234567891234567891`. |
+| `need_auth_code_video` | `body` | `boolean` | No | No | Whether to include posts associated with `AUTH_CODE` identities in the results. Supported values: `true`, `false`. Default value: `false`. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `identity_list` | `body` | `Array<GmvMaxCreationCustomAnchorVideoListGetParamsIdentityList>` | No | No | A list of `TT_USER`, `BC_AUTH_TT`, or `TTS_TT` identities to filter the results by. To obtain a list of identities available for Product GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `product_gmv_max_available` as `true`. Max size: 20. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `campaign_id` | `body` | `string` | No | No | The ID of a Product GMV Max Campaign to filter the returns by. You can use this field to filter campaign-level customized posts. If this field is not specified, the results will only include shop-level customized posts. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+| `page` | `body` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `body` | `number` | No | No | Page size. Value range: 1-50. Default value:10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCreationShopVideoVideoAnchors
+
+`POST` `/open_api/v1.3/gmv_max/creation/shop_video/video_anchors/`
+
+Generated from TikTok documentation 1866513161692161
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCreationShopVideoVideoAnchorsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `body` | `string` | Yes | No | The ID of a TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | The ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). To obtain the ID, check the `store_authorized_bc_id` for the `store_id` returned from [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041). |
+| `item_ids` | `body` | `Array<string>` | Yes | No | The list of TikTok videos for which you want to retrieve product linkage information. To retrieve TikTok videos used in customized posts, use [/gmv_max/creation/custom_anchor_video_list/get/](https://business-api.tiktok.com/portal/docs/get-customized-tiktok-posts/v1.3). Max size: 20. |
+| `campaign_id` | `body` | `string` | No | No | Required when the specified TikTok videos have been used in a campaign to create campaign-level customized posts. The ID of a Product GMV Max Campaign. To retrieve existing Product GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177) and set `filtering` to `&#123;"gmv_max_promotion_types":["PRODUCT_GMV_MAX"]&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxCustomAnchorVideoListGet
+
+`GET` `/open_api/v1.3/gmv_max/custom_anchor_video_list/get/`
+
+Generated from TikTok documentation 1830215925061633
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxCustomAnchorVideoListGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `query` | `string` | Yes | No | The ID of a GMV Max Campaign. To filter existing GMV Max Campaigns within your ad account, use [/gmv_max/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1826463372290177). Important: Starting April 30th, 2026, this parameter will be required to enhance security. To ensure a smooth API integration, we recommend that you update your integration to specify this parameter in all future calls. |
+| `campaign_custom_anchor_video_id` | `query` | `string` | Yes | No | The ID of the collection of customized posts created in a Product GMV Max Campaign. To obtain the customized post collection associated with a Product GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762) and check the returned `campaign_custom_anchor_video_id`. |
+| `custom_anchor_video_list` | `query` | `Array<GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoList>` | Yes | No | The list of videos with customized product links (custom anchor videos) to filter the results by. Max size: 20. To obtain the customized posts associated with a Product GMV Max Campaign, use [/campaign/gmv_max/info/](https://business-api.tiktok.com/portal/docs?id=1822000968821762) and check the returned `custom_anchor_video_list`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxExclusiveAuthorizationCreate
+
+`POST` `/open_api/v1.3/gmv_max/exclusive_authorization/create/`
+
+Generated from TikTok documentation 1822001200356354
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `gMVMax.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxExclusiveAuthorizationCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `body` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `body` | `string` | Yes | No | ID of the Business Center that owns the TikTok Shop (`store_id`). To confirm that a Business Center owns a TikTok Shop, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and check whether the returned `is_owner_bc` for the ID in `store_authorized_bc_id` is `true`. |
+| `advertiser_id` | `body` | `string` | Yes | No | The ID of the ad account that you want to exclusively authorize to create GMV Max Campaigns for the TikTok Shop. To obtain the list of ad accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxExclusiveAuthorizationGet
+
+`GET` `/open_api/v1.3/gmv_max/exclusive_authorization/get/`
+
+Generated from TikTok documentation 1822001184635905
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxExclusiveAuthorizationGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `query` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `advertiser_id` | `query` | `string` | Yes | No | ID of the ad account that you want to check the GMV Max exclusive authorization status for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxIdentityGet
+
+`GET` `/open_api/v1.3/gmv_max/identity/get/`
+
+Generated from TikTok documentation 1822001101474882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxIdentityGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `query` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxOccupiedCustomShopAdsList
+
+`GET` `/open_api/v1.3/gmv_max/occupied_custom_shop_ads/list/`
+
+Generated from TikTok documentation 1822001136924674
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxOccupiedCustomShopAdsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `occupied_asset_type` | `query` | `"IDENTITY_TT_USER" \| "TT_USER" \| "IDENTITY_BC_AUTH_TT" \| "BC_AUTH_TT" \| "IDENTITY_TTS_TT" \| "TTS_TT" \| "SPU"` | Yes | No | The type of asset that you want to check for occupancy in enabled Video Shopping Ads, Product Shopping Ads, or Live Shopping Ads. Enum values: `IDENTITY_TT_USER`: TikTok User (`TT_USER`) identity.`IDENTITY_BC_AUTH_TT`: TikTok Account User in Business Center (`BC_AUTH_TT`) identity.`IDENTITY_TTS_TT`: TikTok Account User for TikTok Shop (`TTS_TT`) identity.`SPU`: SPU. |
+| `asset_ids` | `query` | `Array<string>` | Yes | No | The asset IDs. Max size: 1. When `occupied_asset_type` is `IDENTITY_TT_USER`, specify one `TT_USER` identity ID via this field.When `occupied_asset_type` is `IDENTITY_BC_AUTH_TT`, specify one `BC_AUTH_TT` identity ID via this field.When `occupied_asset_type` is `IDENTITY_TTS_TT`, specify one `TTS_TT` identity ID via this field. When `occupied_asset_type` is `SPU`, specify the SPU ID of a product within the TikTok Shop via this field. To obtain a list of identities, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882).To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and check the returned `item_group_id`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxStoreList
+
+`GET` `/open_api/v1.3/gmv_max/store/list/`
+
+Generated from TikTok documentation 1822001044479041
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxStoreListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxStoreShopAdUsageCheck
+
+`GET` `/open_api/v1.3/gmv_max/store/shop_ad_usage_check/`
+
+Generated from TikTok documentation 1822001084174338
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxStoreShopAdUsageCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.gMVMax.gmvMaxVideoGet
+
+`GET` `/open_api/v1.3/gmv_max/video/get/`
+
+Generated from TikTok documentation 1822001168512129
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `gMVMax.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `GmvMaxVideoGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | Yes | No | The ID of the TikTok Shop. To obtain a TikTok Shop that is available for GMV Max Campaigns, use [/gmv_max/store/list/](https://business-api.tiktok.com/portal/docs?id=1822001044479041) and confirm that the returned `is_gmv_max_available` is `true`. |
+| `store_authorized_bc_id` | `query` | `string` | Yes | No | ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `spu_id_list` | `query` | `Array<string>` | No | No | A list of Product SPU (standard product unit) IDs to filter the results by. If you want to promote all products from the TikTok Shop in the Product GMV Max Campaign using authorized posts, you don't need to pass `spu_id_list` and `custom_posts_eligible`.If you want to promote specific products from the TikTok Shop in the Product GMV Max Campaign using authorized posts, specify these products via `spu_id_list` and do not specify `custom_posts_eligible`.If you want to promote a specific product from the TikTok Shop in the Product GMV Max Campaign using customized posts, specify the product via `spu_id_list` and set `custom_posts_eligible` to `true`. Max size:When `custom_posts_eligible` is `false` or not specified: 50.When `custom_posts_eligible` is `true`: 1. To obtain the list of SPU IDs for products within a TikTok Shop, use [/store/product/get/](https://business-api.tiktok.com/portal/docs?id=1793482248880130). Set `ad_creation_eligible` to `GMV_MAX` and select `item_group_id` values where `status` is `AVAILABLE` and `gmv_max_ads_status` is `UNOCCUPIED`. |
+| `custom_posts_eligible` | `query` | `boolean` | No | No | Whether to query videos that can be used in customized posts promoting a specific product. If you set this field to `true`, you need to specify one product using `spu_id_list` simultaneously. Supported values:`true`,`false`. Default value: `false`. |
+| `sort_field` | `query` | `"GMV" \| "POST_TIME" \| "VIDEO_VIEWS" \| "VIDEO_LIKES" \| "CLICK_THROUGH_RATE" \| "PRODUCT_CLICKS"` | No | No | Valid only when `custom_posts_eligible` is `false` or not provided. The sorting field for videos available for authorized posts. Enum values:`GMV`: GMV.`POST_TIME`: Post time.`VIDEO_VIEWS`: Video views.`VIDEO_LIKES`: Video likes.`CLICK_THROUGH_RATE`: Click-through Rate (CTR).`PRODUCT_CLICKS`: Product clicks.Default value: `GMV`. |
+| `sort_type` | `query` | `"ASC" \| "DESC"` | No | No | The sorting order for videos available for authorized posts or customized posts. Enum values:`ASC`: ascending.`DESC`: descending.Default value: `DESC`. If `custom_posts_eligible` is `false` or not specified, you can sort the videos available for authorized posts by specifying both `sort_field` and `sort_type`.If `custom_posts_eligible` is `true`, you don't need to specify `sort_field`. In this case, videos available for customized posts are sorted by default in descending order of post time, with the latest posts appearing first. If you prefer to sort posts in ascending order (earliest posts first), set `sort_type` to `ASC`. |
+| `keyword` | `query` | `string` | No | No | A search keyword to filter posts (videos). You can specify a post ID or caption.To search by post caption (`text`), provide a text string. This search type supports multiple-language searches and fuzzy matches. Example: `summer`. To search by post ID (`item_id`), provide a numeric string with at least 19 characters. This search type supports exact matches. Example: `1234567891234567891`. |
+| `need_auth_code_video` | `query` | `boolean` | No | No | Whether to include posts associated with `AUTH_CODE` identities in the results. Supported values: `true`, `false`. Default value: `false`. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `identity_list` | `query` | `Array<GmvMaxVideoGetParamsIdentityList>` | No | No | A list of `TT_USER`, `BC_AUTH_TT`, or `TTS_TT` identities to filter the results by. To obtain a list of identities available for Product GMV Max Campaigns, use [/gmv_max/identity/get/](https://business-api.tiktok.com/portal/docs?id=1822001101474882) and select identities with `product_gmv_max_available` as `true`. Max size: 20. Note: If `need_auth_code_video` is `false` or not passed and `identity_list` is not specified, you will retrieve an empty post list. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-50. Default value:10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

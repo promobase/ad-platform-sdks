@@ -1,0 +1,853 @@
+---
+title: "Google Ads models: Label Operation – List Plannable Products Response"
+description: "100 generated Google Ads model contracts, from LabelOperation through ListPlannableProductsResponse."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1013
+  label: "Label Operation – List Plannable Products Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## LabelOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `Label` | No | No | — |
+| `update` | `update` | `Label` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## LabelStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## LabelStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LandingPageSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADVERTISER`, `AUTOMATIC`
+
+## LandingPageSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LandingPageView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `unexpanded_final_url` | `unexpanded_final_url` | `string` | No | No | — |
+
+## LanguageCodeError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LANGUAGE_CODE_NOT_FOUND`, `INVALID_LANGUAGE_CODE`
+
+## LanguageCodeErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LanguageConstant
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `code` | `code` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `targetable` | `targetable` | `boolean` | No | No | — |
+
+## LanguageDistribution
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `proportion` | `proportion` | `number` | No | No | — |
+
+## LanguageInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `language_constant` | `language_constant` | `string` | No | No | — |
+
+## LeadFormAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `call_to_action_type` | `call_to_action_type` | `LeadFormCallToActionType` | No | No | — |
+| `call_to_action_description` | `call_to_action_description` | `string` | No | No | — |
+| `headline` | `headline` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `privacy_policy_url` | `privacy_policy_url` | `string` | No | No | — |
+| `post_submit_headline` | `post_submit_headline` | `string` | No | No | — |
+| `post_submit_description` | `post_submit_description` | `string` | No | No | — |
+| `fields` | `fields` | `Array<unknown>` | No | No | — |
+| `custom_question_fields` | `custom_question_fields` | `Array<unknown>` | No | No | — |
+| `delivery_methods` | `delivery_methods` | `Array<unknown>` | No | No | — |
+| `post_submit_call_to_action_type` | `post_submit_call_to_action_type` | `LeadFormPostSubmitCallToActionType` | No | No | — |
+| `background_image_asset` | `background_image_asset` | `string` | No | No | — |
+| `desired_intent` | `desired_intent` | `LeadFormDesiredIntent` | No | No | — |
+| `custom_disclosure` | `custom_disclosure` | `string` | No | No | — |
+
+## LeadFormAssetParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `unknown` | No | No | — |
+| `set_submit_lead_form_asset_campaign_goal` | `set_submit_lead_form_asset_campaign_goal` | `boolean` | No | No | — |
+
+## LeadFormAssetRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LeadFormCallToActionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LEARN_MORE`, `GET_QUOTE`, `APPLY_NOW`, `SIGN_UP`, `CONTACT_US`, `SUBSCRIBE`, `DOWNLOAD`, `BOOK_NOW`, `GET_OFFER`, `REGISTER`, `GET_INFO`, `REQUEST_DEMO`, `JOIN_NOW`, `GET_STARTED`
+
+## LeadFormCallToActionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LeadFormCustomQuestionField
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_question_text` | `custom_question_text` | `string` | No | No | — |
+| `single_choice_answers` | `single_choice_answers` | `unknown` | No | No | — |
+| `has_location_answer` | `has_location_answer` | `boolean` | No | No | — |
+
+## LeadFormDeliveryMethod
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook` | `webhook` | `unknown` | No | No | — |
+
+## LeadFormDesiredIntent
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LOW_INTENT`, `HIGH_INTENT`
+
+## LeadFormDesiredIntentEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LeadFormField
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `input_type` | `input_type` | `LeadFormFieldUserInputType` | No | No | — |
+| `single_choice_answers` | `single_choice_answers` | `unknown` | No | No | — |
+| `has_location_answer` | `has_location_answer` | `boolean` | No | No | — |
+
+## LeadFormFieldUserInputType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FULL_NAME`, `EMAIL`, `PHONE_NUMBER`, `POSTAL_CODE`, `STREET_ADDRESS`, `CITY`, `REGION`, `COUNTRY`, `WORK_EMAIL`, `COMPANY_NAME`, `WORK_PHONE`, `JOB_TITLE`, `GOVERNMENT_ISSUED_ID_CPF_BR`, `GOVERNMENT_ISSUED_ID_DNI_AR`, `GOVERNMENT_ISSUED_ID_DNI_PE`, `GOVERNMENT_ISSUED_ID_RUT_CL`, `GOVERNMENT_ISSUED_ID_CC_CO`, `GOVERNMENT_ISSUED_ID_CI_EC`, `GOVERNMENT_ISSUED_ID_RFC_MX`, `FIRST_NAME`, `LAST_NAME`, `VEHICLE_MODEL`, `VEHICLE_TYPE`, `PREFERRED_DEALERSHIP`, `VEHICLE_PURCHASE_TIMELINE`, `VEHICLE_OWNERSHIP`, `VEHICLE_PAYMENT_TYPE`, `VEHICLE_CONDITION`, `COMPANY_SIZE`, `ANNUAL_SALES`, `YEARS_IN_BUSINESS`, `JOB_DEPARTMENT`, `JOB_ROLE`, `OVER_18_AGE`, `OVER_19_AGE`, `OVER_20_AGE`, `OVER_21_AGE`, `OVER_22_AGE`, `OVER_23_AGE`, `OVER_24_AGE`, `OVER_25_AGE`, `OVER_26_AGE`, `OVER_27_AGE`, `OVER_28_AGE`, `OVER_29_AGE`, `OVER_30_AGE`, `OVER_31_AGE`, `OVER_32_AGE`, `OVER_33_AGE`, `OVER_34_AGE`, `OVER_35_AGE`, `OVER_36_AGE`, `OVER_37_AGE`, `OVER_38_AGE`, `OVER_39_AGE`, `OVER_40_AGE`, `OVER_41_AGE`, `OVER_42_AGE`, `OVER_43_AGE`, `OVER_44_AGE`, `OVER_45_AGE`, `OVER_46_AGE`, `OVER_47_AGE`, `OVER_48_AGE`, `OVER_49_AGE`, `OVER_50_AGE`, `OVER_51_AGE`, `OVER_52_AGE`, `OVER_53_AGE`, `OVER_54_AGE`, `OVER_55_AGE`, `OVER_56_AGE`, `OVER_57_AGE`, `OVER_58_AGE`, `OVER_59_AGE`, `OVER_60_AGE`, `OVER_61_AGE`, `OVER_62_AGE`, `OVER_63_AGE`, `OVER_64_AGE`, `OVER_65_AGE`, `EDUCATION_PROGRAM`, `EDUCATION_COURSE`, `PRODUCT`, `SERVICE`, `OFFER`, `CATEGORY`, `PREFERRED_CONTACT_METHOD`, `PREFERRED_LOCATION`, `PREFERRED_CONTACT_TIME`, `PURCHASE_TIMELINE`, `YEARS_OF_EXPERIENCE`, `JOB_INDUSTRY`, `LEVEL_OF_EDUCATION`, `PROPERTY_TYPE`, `REALTOR_HELP_GOAL`, `PROPERTY_COMMUNITY`, `PRICE_RANGE`, `NUMBER_OF_BEDROOMS`, `FURNISHED_PROPERTY`, `PETS_ALLOWED_PROPERTY`, `NEXT_PLANNED_PURCHASE`, `EVENT_SIGNUP_INTEREST`, `PREFERRED_SHOPPING_PLACES`, `FAVORITE_BRAND`, `TRANSPORTATION_COMMERCIAL_LICENSE_TYPE`, `EVENT_BOOKING_INTEREST`, `DESTINATION_COUNTRY`, `DESTINATION_CITY`, `DEPARTURE_COUNTRY`, `DEPARTURE_CITY`, `DEPARTURE_DATE`, `RETURN_DATE`, `NUMBER_OF_TRAVELERS`, `TRAVEL_BUDGET`, `TRAVEL_ACCOMMODATION`
+
+## LeadFormFieldUserInputTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LeadFormPostSubmitCallToActionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `VISIT_SITE`, `DOWNLOAD`, `LEARN_MORE`, `SHOP_NOW`
+
+## LeadFormPostSubmitCallToActionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LeadFormSingleChoiceAnswers
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answers` | `answers` | `Array<string>` | No | No | — |
+
+## LeadFormSubmissionData
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `lead_form_submission_fields` | `lead_form_submission_fields` | `Array<unknown>` | No | No | — |
+| `custom_lead_form_submission_fields` | `custom_lead_form_submission_fields` | `Array<unknown>` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `gclid` | `gclid` | `string` | No | No | — |
+| `submission_date_time` | `submission_date_time` | `string` | No | No | — |
+
+## LeadFormSubmissionField
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field_type` | `field_type` | `LeadFormFieldUserInputType` | No | No | — |
+| `field_value` | `field_value` | `string` | No | No | — |
+
+## LeadStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW`, `ACTIVE`, `BOOKED`, `DECLINED`, `EXPIRED`, `DISABLED`, `CONSUMER_DECLINED`, `WIPED_OUT`
+
+## LeadType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MESSAGE`, `PHONE_CALL`, `BOOKING`
+
+## LegacyAppInstallAdAppStore
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APPLE_APP_STORE`, `GOOGLE_PLAY`, `WINDOWS_STORE`, `WINDOWS_PHONE_STORE`, `CN_APP_STORE`
+
+## LegacyAppInstallAdAppStoreEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LegacyAppInstallAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_store` | `app_store` | `LegacyAppInstallAdAppStore` | No | No | — |
+| `headline` | `headline` | `string` | No | No | — |
+| `description1` | `description1` | `string` | No | No | — |
+| `description2` | `description2` | `string` | No | No | — |
+
+## LegacyResponsiveDisplayAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `short_headline` | `short_headline` | `string` | No | No | — |
+| `long_headline` | `long_headline` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `allow_flexible_color` | `allow_flexible_color` | `boolean` | No | No | — |
+| `accent_color` | `accent_color` | `string` | No | No | — |
+| `main_color` | `main_color` | `string` | No | No | — |
+| `call_to_action_text` | `call_to_action_text` | `string` | No | No | — |
+| `logo_image` | `logo_image` | `string` | No | No | — |
+| `square_logo_image` | `square_logo_image` | `string` | No | No | — |
+| `marketing_image` | `marketing_image` | `string` | No | No | — |
+| `square_marketing_image` | `square_marketing_image` | `string` | No | No | — |
+| `format_setting` | `format_setting` | `DisplayAdFormatSetting` | No | No | — |
+| `price_prefix` | `price_prefix` | `string` | No | No | — |
+| `promo_text` | `promo_text` | `string` | No | No | — |
+
+## LicenseVerificationArtifact
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `license_type` | `license_type` | `string` | No | No | — |
+| `license_number` | `license_number` | `string` | No | No | — |
+| `licensee_first_name` | `licensee_first_name` | `string` | No | No | — |
+| `licensee_last_name` | `licensee_last_name` | `string` | No | No | — |
+| `rejection_reason` | `rejection_reason` | `LocalServicesLicenseRejectionReason` | No | No | — |
+| `license_document_readonly` | `license_document_readonly` | `LocalServicesDocumentReadOnly` | No | No | — |
+| `expiration_date_time` | `expiration_date_time` | `string` | No | No | — |
+
+## LifeEvent
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `parent` | `parent` | `string` | No | No | — |
+| `launched_to_all` | `launched_to_all` | `boolean` | No | No | — |
+| `availabilities` | `availabilities` | `Array<CriterionCategoryAvailability>` | No | No | — |
+
+## LifeEventInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `life_event_id` | `life_event_id` | `string` | No | No | — |
+
+## LifeEventSegment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `life_event` | `life_event` | `string` | No | No | — |
+
+## LineupAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `inventory_country` | `inventory_country` | `unknown` | No | No | — |
+| `median_monthly_inventory` | `median_monthly_inventory` | `string` | No | No | — |
+| `channel_count_lower_bound` | `channel_count_lower_bound` | `string` | No | No | — |
+| `channel_count_upper_bound` | `channel_count_upper_bound` | `string` | No | No | — |
+| `sample_channels` | `sample_channels` | `Array<unknown>` | No | No | — |
+
+## LinkedAccountType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `THIRD_PARTY_APP_ANALYTICS`
+
+## LinkedAccountTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## LinkedProductType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DATA_PARTNER`, `GOOGLE_ADS`, `HOTEL_CENTER`, `MERCHANT_CENTER`, `ADVERTISING_PARTNER`
+
+## LinkedProductTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListAccessibleCustomersRequest
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListAccessibleCustomersResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_names` | `resource_names` | `Array<string>` | No | No | — |
+
+## ListAudienceInsightsAttributesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `dimensions` | `dimensions` | `Array<AudienceInsightsDimension>` | No | No | — |
+| `query_text` | `query_text` | `string` | No | No | — |
+| `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
+| `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
+| `location_country_filters` | `location_country_filters` | `Array<LocationInfo>` | No | No | — |
+| `youtube_reach_location` | `youtube_reach_location` | `LocationInfo` | No | No | — |
+| `knowledge_graph_entity_search_options` | `knowledge_graph_entity_search_options` | `unknown` | No | No | — |
+
+## ListAudienceInsightsAttributesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
+
+## ListBatchJobResultsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `page_size` | `page_size` | `integer` | No | No | — |
+| `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
+
+## ListBatchJobResultsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `next_page_token` | `next_page_token` | `string` | No | No | — |
+
+## ListBenchmarksAvailableDatesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_info` | `application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListBenchmarksAvailableDatesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `supported_dates` | `supported_dates` | `DateRange` | No | No | — |
+
+## ListBenchmarksLocationsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_info` | `application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListBenchmarksLocationsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarks_locations` | `benchmarks_locations` | `Array<unknown>` | No | No | — |
+
+## ListBenchmarksProductsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_info` | `application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListBenchmarksProductsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarks_products` | `benchmarks_products` | `Array<unknown>` | No | No | — |
+
+## ListBenchmarksSourcesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarks_sources` | `benchmarks_sources` | `Array<BenchmarksSourceType>` | No | No | — |
+| `application_info` | `application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListBenchmarksSourcesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarks_sources` | `benchmarks_sources` | `Array<unknown>` | No | No | — |
+
+## ListCampaignDraftAsyncErrorsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `page_size` | `page_size` | `integer` | No | No | — |
+
+## ListCampaignDraftAsyncErrorsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<unknown>` | No | No | — |
+| `next_page_token` | `next_page_token` | `string` | No | No | — |
+
+## ListExperimentAsyncErrorsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `page_size` | `page_size` | `integer` | No | No | — |
+
+## ListExperimentAsyncErrorsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<unknown>` | No | No | — |
+| `next_page_token` | `next_page_token` | `string` | No | No | — |
+
+## ListingDimensionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hotel_id` | `hotel_id` | `unknown` | No | No | — |
+| `hotel_class` | `hotel_class` | `unknown` | No | No | — |
+| `hotel_country_region` | `hotel_country_region` | `unknown` | No | No | — |
+| `hotel_state` | `hotel_state` | `unknown` | No | No | — |
+| `hotel_city` | `hotel_city` | `unknown` | No | No | — |
+| `product_category` | `product_category` | `unknown` | No | No | — |
+| `product_brand` | `product_brand` | `unknown` | No | No | — |
+| `product_channel` | `product_channel` | `unknown` | No | No | — |
+| `product_channel_exclusivity` | `product_channel_exclusivity` | `unknown` | No | No | — |
+| `product_condition` | `product_condition` | `unknown` | No | No | — |
+| `product_custom_attribute` | `product_custom_attribute` | `unknown` | No | No | — |
+| `product_item_id` | `product_item_id` | `unknown` | No | No | — |
+| `product_type` | `product_type` | `unknown` | No | No | — |
+| `product_grouping` | `product_grouping` | `unknown` | No | No | — |
+| `product_labels` | `product_labels` | `unknown` | No | No | — |
+| `product_legacy_condition` | `product_legacy_condition` | `unknown` | No | No | — |
+| `product_type_full` | `product_type_full` | `unknown` | No | No | — |
+| `activity_id` | `activity_id` | `unknown` | No | No | — |
+| `activity_rating` | `activity_rating` | `unknown` | No | No | — |
+| `activity_country` | `activity_country` | `unknown` | No | No | — |
+| `activity_state` | `activity_state` | `unknown` | No | No | — |
+| `activity_city` | `activity_city` | `unknown` | No | No | — |
+| `unknown_listing_dimension` | `unknown_listing_dimension` | `unknown` | No | No | — |
+
+## ListingDimensionPath
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimensions` | `dimensions` | `Array<unknown>` | No | No | — |
+
+## ListingGroupFilterCustomAttributeIndex
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INDEX0`, `INDEX1`, `INDEX2`, `INDEX3`, `INDEX4`
+
+## ListingGroupFilterCustomAttributeIndexEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterDimension
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_category` | `product_category` | `unknown` | No | No | — |
+| `product_brand` | `product_brand` | `unknown` | No | No | — |
+| `product_channel` | `product_channel` | `unknown` | No | No | — |
+| `product_condition` | `product_condition` | `unknown` | No | No | — |
+| `product_custom_attribute` | `product_custom_attribute` | `unknown` | No | No | — |
+| `product_item_id` | `product_item_id` | `unknown` | No | No | — |
+| `product_type` | `product_type` | `unknown` | No | No | — |
+| `webpage` | `webpage` | `unknown` | No | No | — |
+| `retail_filter_bundle` | `retail_filter_bundle` | `unknown` | No | No | — |
+
+## ListingGroupFilterDimension_ProductChannel
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel` | `channel` | `ListingGroupFilterProductChannel` | No | No | — |
+
+## ListingGroupFilterDimension_ProductCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `condition` | `condition` | `ListingGroupFilterProductCondition` | No | No | — |
+
+## ListingGroupFilterDimension_RetailFilterBundle
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+
+## ListingGroupFilterDimensionPath
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimensions` | `dimensions` | `Array<unknown>` | No | No | — |
+
+## ListingGroupFilterListingSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SHOPPING`, `WEBPAGE`, `RETAIL`
+
+## ListingGroupFilterListingSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterProductCategoryLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LEVEL1`, `LEVEL2`, `LEVEL3`, `LEVEL4`, `LEVEL5`
+
+## ListingGroupFilterProductCategoryLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterProductChannel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ONLINE`, `LOCAL`
+
+## ListingGroupFilterProductChannelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterProductCondition
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW`, `REFURBISHED`, `USED`
+
+## ListingGroupFilterProductConditionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterProductTypeLevel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LEVEL1`, `LEVEL2`, `LEVEL3`, `LEVEL4`, `LEVEL5`
+
+## ListingGroupFilterProductTypeLevelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupFilterType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SUBDIVISION`, `UNIT_INCLUDED`, `UNIT_EXCLUDED`
+
+## ListingGroupFilterTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingGroupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `ListingGroupType` | No | No | — |
+| `case_value` | `case_value` | `unknown` | No | No | — |
+| `parent_ad_group_criterion` | `parent_ad_group_criterion` | `string` | No | No | — |
+| `path` | `path` | `unknown` | No | No | — |
+
+## ListingGroupType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `SUBDIVISION`, `UNIT`
+
+## ListingGroupTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListingScopeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimensions` | `dimensions` | `Array<unknown>` | No | No | — |
+
+## ListingType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `VEHICLES`
+
+## ListingTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListInsightsEligibleDatesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListInsightsEligibleDatesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_months` | `data_months` | `Array<string>` | No | No | — |
+| `last_thirty_days` | `last_thirty_days` | `DateRange` | No | No | — |
+
+## ListInvoicesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `billing_setup` | `billing_setup` | `string` | No | No | — |
+| `issue_year` | `issue_year` | `string` | No | No | — |
+| `issue_month` | `issue_month` | `MonthOfYear` | No | No | — |
+| `include_granular_level_invoice_details` | `include_granular_level_invoice_details` | `boolean` | No | No | — |
+
+## ListInvoicesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invoices` | `invoices` | `Array<Invoice>` | No | No | — |
+
+## ListOperationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `REQUIRED_FIELD_MISSING`, `DUPLICATE_VALUES`
+
+## ListOperationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ListPaymentsAccountsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+
+## ListPaymentsAccountsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `payments_accounts` | `payments_accounts` | `Array<PaymentsAccount>` | No | No | — |
+
+## ListPlannableLocationsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reach_application_info` | `reach_application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListPlannableLocationsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_locations` | `plannable_locations` | `Array<unknown>` | No | No | — |
+
+## ListPlannableProductsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `plannable_location_id` | `plannable_location_id` | `string` | No | No | — |
+| `reach_application_info` | `reach_application_info` | `AdditionalApplicationInfo` | No | No | — |
+
+## ListPlannableProductsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_metadata` | `product_metadata` | `Array<unknown>` | No | No | — |

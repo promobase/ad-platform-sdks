@@ -1,0 +1,332 @@
+---
+title: "TikTok Business Reach Frequency endpoints"
+description: "7 generated TikTok Business endpoint contracts for Reach Frequency."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 154
+  label: "Reach Frequency"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.reachFrequency.adgroupRfCreate
+
+`POST` `/open_api/v1.3/adgroup/rf/create/`
+
+Generated from TikTok documentation 1738235338194945
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reachFrequency.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdgroupRfCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `body` | `string` | Yes | No | Request ID with which you can create ad groups with duplicate names. It also supports idempotency to prevent you from sending the same request twice. It is different from the `request_id` returned in the response parameters, which is used to uniquely identify an HTTP request. The value should be a string representation of a 64-bit integer number. Example: `"123456789"` |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `body` | `string` | Yes | No | The campaign the ad group belongs to. |
+| `share_disabled` | `body` | `boolean` | No | No | Whether sharing to third-party platforms is disabled for ads in this ad group. Default value: `False`. |
+| `adgroup_name` | `body` | `string` | Yes | No | Name of the ad group. It must not exceed 100 characters or contain any emojis. |
+| `promotion_type` | `body` | `"APP_ANDROID" \| "APP_IOS" \| "WEBSITE" \| "WEBSITE_OR_DISPLAY" \| "RF_REACH"` | Yes | No | Promotion type and you can decide where you'd like to promote your products using this field. Enum values: `APP_ANDROID`, `APP_IOS`, `WEBSITE`, `WEBSITE_OR_DISPLAY`. If `objective_type` is `RF_REACH`, set this field to `WEBSITE_OR_DISPLAY`. |
+| `optimization_event` | `body` | `string` | No | No | Conversion event for the ad group. It is required when the promoted object is an App with tracking urls. For the supported app events, see [Conversion events](https://ads.tiktok.com/marketing_api/docs?id=1739361474981889). You can use the [/app/external_action/](https://ads.tiktok.com/marketing_api/docs?id=1740859338750977) endpoint to find out the supported events for your app. |
+| `app_id` | `body` | `string` | No | No | ID of the promoted mobile application. |
+| `comment_disabled` | `body` | `boolean` | No | No | Whether to prohibit users from commenting on your ads on TikTok. Default value: `False`. |
+| `audience_ids` | `body` | `Array<string>` | No | No | IDs of the audiences that you want to target. For an audience to be targeted or excluded in R&F ads, you must set `audience_sub_type` to `REACH_FREQUENCY` when creating or updating the audience. Note: You cannot use Lookalike Audience in R&F ads. Otherwise, an error will occur. |
+| `excluded_audience_ids` | `body` | `Array<string>` | No | No | IDs of the audiences that you want to exclude. For an audience to be targeted or excluded in R&F ads, you must set `audience_sub_type` to `REACH_FREQUENCY` when creating or updating the audience. Note: You cannot use Lookalike Audience in R&F ads. Otherwise, an error will occur. |
+| `age_groups` | `body` | `Array<string>` | No | No | Age groups you want to target. If your targeting locations include Israel or Brazil, `AGE_13_17` cannot be used. For enum values, see [Enumeration - Age Group](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). In certain scenarios, creation of ad groups that target the age group 13-17 (`AGE_13_17`) in the US will not be allowed. See [New age restrictions for ads on TikTok](https://business-api.tiktok.com/portal/docs?id=1788755983247362) to learn more. If you use targeting options that are not supported for the age group 13-17 in the US and leave the `age_groups` field unspecified or set it as `[]`, an error will occur. You need to explicitly specify the exact age groups that you want to target, such as `AGE_18_24`, in the field to avoid any errors. |
+| `gender` | `body` | `string` | No | No | Audience gender. For more details, see [Enumeration - Audience Gender](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `languages` | `body` | `Array<string>` | No | No | Codes of the languages that you want to target. For the list of languages codes supported, see [Enumeration - Language Code](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `location_ids` | `body` | `Array<string>` | Yes | No | IDs of the targeted locations. The location can be at the country or region level, the Province, DMA (Designated Market Area) or Metropolitan level, or the city level. Location targeting supports a single country or region only. If you want to target multiple locations, they must from the same country or region. You can find the supported countries and regions in [About Reach & Frequency](https://ads.tiktok.com/marketing_api/docs?id=1744571201117186). |
+| `is_hfss` | `body` | `boolean` | No | No | Whether the promoted content is HFSS foods (foods that are high in fat, salt, or sugar). Please note that the European market prohibits the promotion of HFSS foods to underage users. |
+| `operating_systems` | `body` | `Array<"ANDROID" \| "IOS" \| "PC">` | No | No | Device operating systems that you want to target. Enum values: `ANDROID`, `IOS`, `PC`. |
+| `network_types` | `body` | `Array<string>` | No | No | Device connection types that you want to target. Default value: `unlimited`. For enum values, see [Enumeration - Connection Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `device_model_ids` | `body` | `Array<string>` | No | No | IDs of the device models that you want to target. Currently only brand-level model IDs are supported. When this field is specified, `device_price_ranges` must not be specified. For enum values of device model IDs on different levels, please see [Device Models](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369). Note: Only active devices (`is_active` = `True` in the response of [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369)) can be used to create ads. |
+| `device_price_ranges` | `body` | `Array<number>` | No | No | Targeting device price range. 10000 means 1000+. The numbers must be in multiples of 50. Important: The upper limit you set will be added by 50 and the resulting new number will be used as the actual upper limit for device targeting. The actual upper limit is shown in the ad group settings in TikTok Ads Manager. If you set and get the price range of [0, 250], it actually means [0, 300]. |
+| `carrier_ids` | `body` | `Array<string>` | No | No | Carriers that you want to target. A carrier is valid only when the `in_use` field for the carrier is `true`. The carriers must be consistent with the location(s) that you want to target. Use [Get Carriers](https://ads.tiktok.com/marketing_api/docs?id=1737168013095938) to get carrier IDs. |
+| `interest_category_ids` | `body` | `Array<string>` | No | No | List of interest categories that you want to target. Use [/tool/interest_category/](https://ads.tiktok.com/marketing_api/docs?id=1737174348712961) endpoint to get the complete list of interest categories. |
+| `rf_purchased_type` | `body` | `"FIXED_SHOW" \| "FIXED_REACH" \| "FIXED_BUDGET"` | Yes | No | Buying type. Allowed values: `FIXED_SHOW`: Purchase to achieve a fixed amount of impressions.`FIXED_REACH`: Purchase to reach a fixed number of users.`FIXED_BUDGET`: Purchase with a fixed budget. |
+| `budget` | `body` | `number` | Yes | No | Budget. Please fill in this number based on the data returned via the ad inventory estimate API. See [Create a Reach & Frequency campaign - Step 4](https://ads.tiktok.com/marketing_api/docs?id=1744571205201922) for how to specify the field. |
+| `purchased_impression` | `body` | `number` | Yes | No | Impressions to be purchased, in the unit of 1,000. Please fill in this number based on the data returned via the ad inventory estimate API. See [Create a Reach & Frequency campaign - Step 4](https://ads.tiktok.com/marketing_api/docs?id=1744571205201922) for how to specify the field. |
+| `purchased_reach` | `body` | `number` | Yes | No | Purchased user reach, in the unit of 1,000. Please fill in this number based on the data returned via the ad inventory estimate API. See [Create a Reach & Frequency campaign - Step 4](https://ads.tiktok.com/marketing_api/docs?id=1744571205201922) for how to specify the field. |
+| `schedule_start_time` | `body` | `string` | Yes | No | Schedule start time (UTC+0), in the format of `YYYY-MM-DD HH:MM:SS`. The time interval between `schedule_start_time` and `schedule_end_time` must not exceed 90 days. The value of this field must be at `YYYY-MM-DD HH:00:00` for the time zone where the ad will be delivered. For instance, if an advertiser in the UTC-5 time zone wants to create an R&F ad group that starts delivery on November 1st, 2023, this field must be set to `"2023-11-01 05:00:00"`. |
+| `schedule_end_time` | `body` | `string` | Yes | No | Schedule end time (UTC+0), in the format of `YYYY-MM-DD HH:MM:SS`. The time interval between `schedule_start_time` and `schedule_end_time` must not exceed 90 days. The value of this field must be at `YYYY-MM-DD HH:59:59` for the time zone where the ad will be delivered. For instance, if an advertiser in the UTC-5 time zone wants to create an R&F ad group that ends delivery on November 10th, 2023, this field must be set to `"2023-11-10 04:59:59"`. |
+| `frequency` | `body` | `number` | Yes | No | `frequency`, together with `frequency_schedule`, controls how often people see your ad (only available for `REACH` ads). For example, `frequency` = 2 & `frequency_schedule` = 3 means "show ads no more than twice every 3 days". The following conditions should be met:1 ≤ `frequency` ≤ `frequency_schedule`.1 ≤ `frequency_schedule` ≤ min (`schedule_end_time` - `schedule_start_time`, 30).The frequency cap determined by `frequency` and `frequency_schedule` does not exceed four times a day. |
+| `frequency_schedule` | `body` | `number` | Yes | No | `frequency_schedule`, together with `frequency`, controls how often people see your ad (only available for `REACH` ads). See `frequency` field for more. |
+| `optimization_goal` | `body` | `"REACH" \| "VIDEO_VIEW" \| "CLICK" \| "POST_ENGAGEMENT" \| "INSTALL" \| "PULSE" \| "SIX_SECONDS"` | Yes | No | The measurable results you'd like to drive with your ads. It must be aligned with the value for `objective_type` on the campaign level. Enum values: `REACH`, `VIDEO_VIEW`, `CLICK`, `POST_ENGAGEMENT`, `INSTALL`. Note:For TikTok Pulse ad groups where `rf_campaign_type` is set to `PULSE` in [/campaign/create/](https://business-api.tiktok.com/portal/docs/create-a-campaign/v1.3) at the campaign level, if you want to use the 6s view-through rate (View+) optimization goal, set optimization_goal to `REACH` and `cpv_video_duration` to `SIX_SECONDS`.The 6s view-through rate (View+) optimization goal in TikTok Pulse ad groups is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `cpv_video_duration` | `body` | `"SIX_SECONDS" \| "PULSE" \| "REACH"` | No | No | Required when `optimization_goal` is `VIDEO_VIEW` or when you want to use the 6s view-through rate (View+) optimization goal. The target video view duration. Enum value: `SIX_SECONDS`. Note: For TikTok Pulse campaigns where `rf_campaign_type` is set to `PULSE` in [/campaign/create/](https://business-api.tiktok.com/portal/docs/create-a-campaign/v1.3) at the campaign level, if you want to use the 6s view-through rate (View+) optimization goal, set `optimization_goal` to `REACH` and `cpv_video_duration` to `SIX_SECONDS`. |
+| `brand_safety_type` | `body` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY"` | No | No | Brand safety type for Reach and Frequency ads. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives, supported markets, and the general introduction of pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `body` | `"IAS" \| "OPEN_SLATE"` | No | No | Brand safety partner for Reach and Frequency ads. Required when `brand_safety_type` is `THIRD_PARTY`. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. Once set, this field cannot be modified. |
+| `category_exclusion_ids` | `body` | `Array<string>` | No | No | Valid when `brand_safety_type` is set to `STANDARD_INVENTORY` or `LIMITED_INVENTORY`. Content exclusion category IDs. You can use [/tool/content_exclusion/get/](https://business-api.tiktok.com/portal/docs?id=1769738074686465) to get a list of content category IDs (`excluded_category_list`) that can be excluded from being displayed next to your ads. |
+| `video_download_disabled` | `body` | `boolean` | No | No | Whether users can download your video ads on TikTok(cannot be updated once created). Default value: `false`. |
+| `feed_type` | `body` | `"STANDARD_FEED" \| "TOP_FEED"` | No | No | Feed type option. Enum values: `STANDARD_FEED`, `TOP_FEED`. `STANDARD_FEED` refers to large inventory with normal CPM price while `TOP_FEED`refers to limited inventory with higher CPM price. |
+| `delivery_mode` | `body` | `"STANDARD" \| "REACH" \| "SIX_SECONDS" \| "SCHEDULE" \| "SEQUENCE" \| "VIEW_OPTIMIZE" \| "OPTIMIZE"` | No | No | The strategy for sequencing and scheduling your ad delivery. Enum values:`STANDARD`: Standard delivery. Your ads will be distributed evenly and are expected to achieve similar traffic size.This value is not available for the 6s view-through rate (View+) optimization goal with `optimization_goal` as `REACH` and `cpv_video_duration` as `SIX_SECONDS`.`SCHEDULE`: Scheduled delivery. Set specific time periods to deliver each ad in. If you use this value, you need to pass the object array `schedules` at the same time.`SEQUENCE`: Sequenced delivery. Set a specific sequence to deliver your ads in. If you use this value, you need to pass the field `expected_orders` at the same time.`VIEW_OPTIMIZE`: View optimized delivery. Your ads are distributed to maximize view-through rate (VTR), with more impressions allocated to ads predicted to achieve higher VTR.This value is only available for the 6s view-through rate (View+) optimization goal with `optimization_goal` as `REACH` and `cpv_video_duration` as `SIX_SECONDS`.`OPTIMIZE` (Deprecated): Optimized delivery that delivers ads to achieve the best performance. |
+| `schedule_infos` | `body` | `Array<AdgroupRfCreateParamsScheduleInfos>` | No | No | Ad delivery information. When `delivery_mode` is set to `SEQUENCE`, the number of objects in this array represents the number of ads that you will specify the sequence for. |
+| `contextual_tag_ids` | `body` | `Array<string>` | No | No | Not supported when `brand_safety_type` is set to `THIRD_PARTY`.Not supported when `feed_type` is set to `TOP_FEED`. Contextual tag IDs. You can use [/tool/contextual_tag/get/](https://ads.tiktok.com/marketing_api/docs?id=1747747118654465) to get available contextual tags. Note: If you set `rf_campaign_type` to `PULSE` in [/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1739318962329602), you must include the contextual tags of `PREMIUM` type when creating an ad group. See [TikTok Pulse](https://business-api.tiktok.com/portal/docs?id=1744571201117186#item-link-TikTok%20Pulse) to learn more about how to use TikTok Pulse. Currently, you can run Max Pulse targeting `AE` (United Arab Emirates), `AU` (Australia), `BR` (Brazil), `CA` (Canada), `DE` (Germany), `ES` (Spain), `FR` (France), `GB` (United Kingdom), `IT` (Italy), `MX` (Mexico), `SA` (Saudi Arabia), `TR` (Turkey), and `US` (United States), and Category Lineups targeting `US`(the United States), `CA`(Canada), `BR`(Brazil), `AU`(Australia), `GB`(the United Kingdom), `FR`(France), `IT`(Italy), `ES`(Spain), `DE`(Germany). Both features are allowlist only. If you want to use them in the above markets, please contact your TikTok representative. This is an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.adgroupRfEstimatedInfo
+
+`GET` `/open_api/v1.3/adgroup/rf/estimated/info/`
+
+Generated from TikTok documentation 1740489551354881
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reachFrequency.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdgroupRfEstimatedInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser id |
+| `adgroup_ids` | `query` | `Array<string>` | Yes | No | Ad group ids |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.adgroupRfUpdate
+
+`POST` `/open_api/v1.3/adgroup/rf/update/`
+
+Generated from TikTok documentation 1738235402874882
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reachFrequency.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AdgroupRfUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `adgroup_id` | `body` | `string` | Yes | No | ID of the ad group to be modified. The `objective_type` of the campaign it belongs to must be `RF_REACH`. |
+| `share_disabled` | `body` | `boolean` | No | No | Whether sharing to third-party platforms is disabled for ads in this ad group |
+| `adgroup_name` | `body` | `string` | No | No | Name of the ad group. It must not exceed 100 characters or contain any emojis. |
+| `comment_disabled` | `body` | `boolean` | No | No | Whether to prohibit users from posting comments to your ads on TikTok. |
+| `audience_ids` | `body` | `Array<string>` | No | No | IDs of the audiences that you want to target. For an audience to be targeted or excluded in R&F ads, you must set `audience_sub_type` to `REACH_FREQUENCY` when creating or updating the audience. Note: You cannot use Lookalike Audience in R&F ads. Otherwise, an error will occur. |
+| `excluded_audience_ids` | `body` | `Array<string>` | No | No | IDs of the audiences that you want to exclude. For an audience to be targeted or excluded in R&F ads, you must set `audience_sub_type` to `REACH_FREQUENCY` when creating or updating the audience. Note: You cannot use Lookalike Audience in R&F ads. Otherwise, an error will occur. |
+| `age_groups` | `body` | `Array<string>` | No | No | Audience age range. If your targeting locations include Israel or Brazil, `AGE_13_17` cannot be used. For enum values, see [Appendix - Enumeration - Audience Age Range](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). In certain scenarios, creation of ad groups that target the age group 13-17 (`AGE_13_17`) in the US will not be allowed. See [New age restrictions for ads on TikTok](https://business-api.tiktok.com/portal/docs?id=1788755983247362) to learn more. If you use targeting options that are not supported for the age group 13-17 in the US and leave the `age_groups` field unspecified or set it as `[]`, an error will occur. You need to explicitly specify the exact age groups that you want to target, such as `AGE_18_24`, in the field to avoid any errors. |
+| `gender` | `body` | `string` | No | No | Target gender. For enum values, see [Appendix - Enumeration - Audience Gender](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `languages` | `body` | `Array<string>` | No | No | Audience language. Available values: see [Appendix - Enumeration - Audience Language](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `location_ids` | `body` | `Array<string>` | No | No | IDs of the targeted locations. The location can be at the country or region level, the Province, DMA (Designated Market Area) or Metropolitan level, or the city level. Location targeting supports a single country or region only. If you want to target multiple locations, they must be from the same country or region. You can find the supported countries and regions from [Reach & Frequency](https://ads.tiktok.com/marketing_api/docs?id=1738235311704065). |
+| `is_hfss` | `body` | `boolean` | No | No | Whether the promoted content is HFSS foods (foods that are high in fat, salt, or sugar). Please note that the European market prohibits the promotion of HFSS foods to underage users. |
+| `operating_systems` | `body` | `Array<string>` | No | No | Operating system. See [Appendix - Enumeration - Audience Operating System](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `network_types` | `body` | `Array<string>` | No | No | Device connection types that you want to target. Default value: `unlimited`. For enum values, see [Enumeration - Connection Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `device_model_ids` | `body` | `Array<string>` | No | No | IDs of the device models that you want to target. Currently only brand-level model IDs are supported. When this field is specified, `device_price_ranges` must not be specified. For enum values of device model IDs on different levels, please see [Device Models](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369). Note: Only active devices (`is_active` = `True` in the response of [/tool/device_model/](https://ads.tiktok.com/marketing_api/docs?id=1737172880570369)) can be used to create ads. |
+| `device_price_ranges` | `body` | `Array<number>` | No | No | Targeting device price range. 10000 means 1000+. The numbers must be in multiples of 50. Important: The upper limit you set will be added by 50 and the resulting new number will be used as the actual upper limit for device targeting. The actual upper limit is shown in the ad group settings in TikTok Ads Manager. If you set and get the price range of [0, 250], it actually means [0, 300]. |
+| `carrier_ids` | `body` | `Array<string>` | No | No | Carriers that you want to target. A carrier is valid only when the `in_use` field for the carrier is `true`. The carriers must be consistent with the location(s) that you want to target. For enum values (`carrier_id`), see [Appendix - Carriers](https://ads.tiktok.com/marketing_api/docs?id=1737168013095938). |
+| `interest_category_ids` | `body` | `Array<string>` | No | No | Interest classification. If the interest is specified, users that do not meet interest target will be excluded during delivery. Do not specify if you wish to target everyone. Use [/tool/target_recommend_tags/](https://ads.tiktok.com/marketing_api/docs?id=1736275204260866) to get a list of recommended interest categories based on your targeting regions and your industries. Use [/tool/interest_category/](https://ads.tiktok.com/marketing_api/docs?id=1737174348712961) endpoint to get the complete list of interest categories. |
+| `rf_purchased_type` | `body` | `"FIXED_SHOW" \| "FIXED_REACH" \| "FIXED_BUDGE"` | No | No | Buying type. Allowed values: `FIXED_SHOW`: Purchase to achieve a fixed amount of impressions.`FIXED_REACH`: Purchase to reach a fixed number of users.`FIXED_BUDGE`: Purchase with a fixed budget. |
+| `budget` | `body` | `number` | No | No | Budget. Please fill in this number based on the data returned via the ad inventory estimate API. |
+| `purchased_impression` | `body` | `number` | No | No | Impressions to be purchased, in the unit of 1,000. Please fill in this number based on the data returned via the ad inventory estimate API. |
+| `purchased_reach` | `body` | `number` | No | No | Number of users reached to be purchased, in the unit of 1,000. Please fill in this number based on the results of inventory estimation. |
+| `schedule_start_time` | `body` | `string` | No | No | Schedule start time (UTC+0), in the format of `YYYY-MM-DD HH:MM:SS`. The time interval between `schedule_start_time` and `schedule_end_time` must not exceed 90 days. The value of this field must be at `YYYY-MM-DD HH:00:00` for the time zone where the ad will be delivered. For instance, if an advertiser in the UTC-5 time zone wants to create an R&F ad group that starts delivery on November 1st, 2023, this field must be set to `"2023-11-01 05:00:00"`. |
+| `schedule_end_time` | `body` | `string` | No | No | Schedule end time (UTC+0), in the format of `YYYY-MM-DD HH:MM:SS`. The time interval between `schedule_start_time` and `schedule_end_time` must not exceed 90 days. The value of this field must be at `YYYY-MM-DD HH:59:59` for the time zone where the ad will be delivered. For instance, if an advertiser in the UTC-5 time zone wants to create an R&F ad group that ends delivery on November 10th, 2023, this field must be set to `"2023-11-10 04:59:59"`. |
+| `frequency` | `body` | `number` | No | No | `frequency`, together with `frequency_schedule`, controls how often people see your ad (only available for `REACH` ads). For example, `frequency` = 2 & `frequency_schedule` = 3 means "show ads no more than twice every 3 days". The following conditions should be met:1 ≤ `frequency` ≤ `frequency_schedule`.1 ≤ `frequency_schedule` ≤ min (`schedule_end_time` - `schedule_start_time`, 30).The frequency cap determined by `frequency` and `frequency_schedule` does not exceed four times a day. |
+| `frequency_schedule` | `body` | `number` | No | No | `frequency_schedule`, together with `frequency`, controls how often people see your ad (only available for `REACH` ads). See `frequency` field for more. |
+| `feed_type` | `body` | `"STANDARD_FEED" \| "TOP_FEED"` | No | No | Feed type option. Enum: `STANDARD_FEED`, `TOP_FEED`. `STANDARD_FEED` refers to large inventory with normal CPM price while `TOP_FEED`refers to limited inventory with higher CPM price. |
+| `delivery_mode` | `body` | `"STANDARD" \| "REACH" \| "SIX_SECONDS" \| "SCHEDULE" \| "SEQUENCE" \| "VIEW_OPTIMIZE" \| "OPTIMIZE"` | No | No | The strategy for sequencing and scheduling your ad delivery. Enum values:`STANDARD`: Standard delivery. Your ads will be distributed evenly and are expected to achieve similar traffic size.This value is not available for the 6s view-through rate (View+) optimization goal with `optimization_goal` as `REACH` and `cpv_video_duration` as `SIX_SECONDS`.`SCHEDULE`: Scheduled delivery. Set specific time periods to deliver each ad in. If you use this value, you need to pass the object array `schedules` at the same time.`SEQUENCE`: Sequenced delivery. Set a specific sequence to deliver your ads in. If you use this value, you need to pass the field `expected_orders` at the same time.`VIEW_OPTIMIZE`: View optimized delivery. Your ads are distributed to maximize view-through rate (VTR), with more impressions allocated to ads predicted to achieve higher VTR.This value is only available for the 6s view-through rate (View+) optimization goal with `optimization_goal` as `REACH` and `cpv_video_duration` as `SIX_SECONDS`.`OPTIMIZE`: Optimized delivery that delivers ads to achieve the best performance. |
+| `schedule_infos` | `body` | `Array<AdgroupRfUpdateParamsScheduleInfos>` | No | No | Ad delivery information. When `delivery_mode` is set to `SEQUENCE`, the number of objects in this array represents the number of ads that you will specify the sequence for. |
+| `contextual_tag_ids` | `body` | `Array<string>` | No | No | Contextual tag IDs. You can use [/tool/contextual_tag/get/](https://ads.tiktok.com/marketing_api/docs?id=1747747118654465) to get available contextual tags. Note: This is an allowlist-only feature. If you would like to access it, please contact your TikTok representative. Only supports `RF_REACH` as objectives (`objective_type`) at the campaign level. Not supported when `brand_safety_type` is set to `THIRD_PARTY`.Not supported when `feed_type` is set to `TOP_FEED`.If you set `rf_campaign_type` to `PULSE` in [/campaign/create/](https://ads.tiktok.com/marketing_api/docs?id=1739318962329602), then you must enter contextual tags of `PREMIUM` type in this field. |
+| `brand_safety_type` | `body` | `"EXPANDED_INVENTORY" \| "NO_BRAND_SAFETY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY"` | No | No | To learn about the eligibility for updating this field, see [Eligibility for updating pre-bid brand safety filtering settings](). Brand safety type. Enum values: `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Updating Brand Safety settings, including `brand_safety_type`, `category_exclusion_ids`, and `vertical_sensitivity_id`, is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives, supported markets, and the general introduction of pre-bid Brand Safety filtering. |
+| `category_exclusion_ids` | `body` | `Array<string>` | No | No | This field can only be updated when any of the following conditions is met: `schedule_start_time` of the ad group has not been reached. `schedule_start_time` of the ad group has been reached, but the `operation_status` is `DISABLE` and the cost is 0. To retrieve the `schedule_start_time` and `operation_status` of an ad group, use [/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1739314558673922). Content exclusion category IDs. You can use [/tool/content_exclusion/get/](https://business-api.tiktok.com/portal/docs?id=1769738074686465) to get a list of content category IDs (`excluded_category_list`) that can be excluded from being displayed next to your ads. Note: Updating Brand Safety settings, including `brand_safety_type`, `category_exclusion_ids`, and `vertical_sensitivity_id`, is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.rfContractQuery
+
+`GET` `/open_api/v1.3/rf/contract/query/`
+
+Generated from TikTok documentation 1740489855138818
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reachFrequency.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `RfContractQueryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `included_date` | `query` | `string` | Yes | No | A certain date within the contract validity, or the start/end time of an ad group. Format: "2020-09-18". |
+| `rf_campaign_type` | `query` | `"STANDARD" \| "PULSE"` | No | No | Use this field to specify whether you want to query TikTok Pulse contract. Enum values: `STANDARD` (Reach & Frequency), `PULSE`(TikTok Pulse). Note: This is an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.rfDeliveryTimezone
+
+`GET` `/open_api/v1.3/rf/delivery/timezone/`
+
+Generated from TikTok documentation 1740490147129345
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reachFrequency.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `RfDeliveryTimezoneResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `region_codes` | `query` | `Array<string>` | Yes | No | Country codes to be queried. Example:`US` . See [Appendix - Location Code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010) |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.rfInventoryEstimate
+
+`GET` `/open_api/v1.3/rf/inventory/estimate/`
+
+Generated from TikTok documentation 1738235487941633
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reachFrequency.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `RfInventoryEstimateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `audience_info` | `query` | `RfInventoryEstimateParamsAudienceInfo` | Yes | No | Audience targeting rules |
+| `schedule_start_time` | `query` | `string` | Yes | No | Start time (UTC+0): format "YYYY-MM-DD HH:MM:SS". The HH:MM:SS value must be equal to 00:00:00 for the target region. For example, 2020-10-24 05:00:00 is equal to 2020-10-24 00:00:00 in the UTC-5 time zone. Note: If the targeting locations (`location_ids`) you specify observe Daylight Saving Time, ignore Daylight Saving Time and pass in Standard Time. For example, if you want to start the schedule for the Netherlands at `2022-04-02 00:00:00` local time (Daylight Saving Time has started, UTC+2 timezone), you need to regard the time zone of the Netherlands as Standard Time Zone (UTC+1) and specify this field as `2022-04-02 23:00:00`. |
+| `schedule_end_time` | `query` | `string` | Yes | No | End time (UTC+0): format "YYYY-MM-DD HH:MM:SS". The HH:MM:SS value must be equal to 23:59:59 for the target region. For example, 2020-11-11 04:59:59 is equal to 2020-11-10 23:59:59 in the UTC-5 time zone. The time interval between `schedule_end_time` and `schedule_start_time` must not exceed 30 days. Note: If the targeting locations (`location_ids`) you specify observe Daylight Saving Time, ignore Daylight Saving Time and pass in Standard Time. For example, if you want to end the schedule for the Netherlands at `2022-11-02 23:59:59` local time (Daylight Saving Time has started, UTC+2 timezone) , you need to regard the time zone of the Netherlands as Standard Time Zone (UTC+1) and specify this field as `2022-11-02 22:59:59`. |
+| `frequency` | `query` | `number` | Yes | No | Frequency. This parameter, together with the `frequency_schedule` parameter, determines the upper limit for how frequently an ad is shown to users (only for R&F ads). For example, if `frequency` = 2 and `frequency_schedule` = 3, it means the ad will be displayed at most twice every 3 days. The following conditions should be met:1 ≤ `frequency` ≤ `frequency_schedule`1 ≤ `frequency_schedule` ≤ min(`schedule_end_time` - `schedule_start_time`, 30). The frequency cap determined by `frequency` and `frequency_schedule` does not exceed four times a day. |
+| `frequency_schedule` | `query` | `number` | Yes | No | Frequency cycle (in days). This parameter, together with the `frequency` parameter, determines the upper limit for how frequently an ad is displayed to users (only for R&F ads). Please see the description for the `frequency` field. |
+| `objective_type` | `query` | `string` | Yes | No | The advertising objective. Enum values: `RF_REACH`. |
+| `cpv_video_duration` | `query` | `"SIX_SECONDS" \| "TWO_SECONDS"` | No | No | The target video view duration. Enum values: `SIX_SECONDS`, `TWO_SECONDS`. |
+| `feed_type` | `query` | `"STANDARD_FEED" \| "TOP_FEED"` | No | No | Feed type option. Enum values: `STANDARD_FEED`, `TOP_FEED`. `STANDARD_FEED` refers to large inventory with normal CPM price while `TOP_FEED`refers to limited inventory with higher CPM price. |
+| `rf_purchased_type` | `query` | `"FIXED_SHOW" \| "FIXED_REACH" \| "FIXED_BUDGET"` | No | No | Buying type. Allowed values: `FIXED_SHOW`: Purchase to achieve a fixed amount of impressions.`FIXED_REACH`: Purchase to reach a fixed number of users.`FIXED_BUDGET`: Purchase with a fixed budget. |
+| `budget` | `query` | `number` | No | No | Budget. Required when `rf_purchased_type` = `FIXED_BUDGET`. Based on the budget amount that you specify, we will return the estimated values for other fields. |
+| `purchased_impression` | `query` | `number` | No | No | Impressions to be purchased, in the unit of 1,000. Required when `rf_purchased_type` = `FIXED_SHOW`. Based on the impression amount that you specify, we will return the estimated values for other fields. |
+| `purchased_reach` | `query` | `number` | No | No | Number of users reached to be purchased, in the unit of 1,000. Required when `rf_purchased_type` = `FIXED_REACH`. Based on the reach amount that you specify, we will return the estimated values for other fields. |
+| `rf_campaign_type` | `query` | `"STANDARD" \| "PULSE"` | No | No | When `objective_type` is specified as `RF_REACH`, use this field to set the campaign as a TikTok Pulse campaign, then you can get available premium contextual tags. Enum values: `STANDARD` (Reach & Frequency campaign), `PULSE` (TikTok Pulse campaign). If you set this field as `PULSE`, only one location ID (`location_id`) will be returned. Note: Do not pass in this field when `objective_type` is not specified as `RF_REACH`.You need to pass the `location_id` value returned in this endpoint to `location_ids` when you use [/adgroup/rf/create/](https://ads.tiktok.com/marketing_api/docs?id=1738235338194945) to create a TikTok Pulse ad group. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.reachFrequency.rfOrderCancel
+
+`POST` `/open_api/v1.3/rf/order/cancel/`
+
+Generated from TikTok documentation 1740489099367425
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reachFrequency.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `RfOrderCancelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `adgroup_ids` | `body` | `Array<string>` | Yes | No | ID of the ad group to be withdrawn (ID must correspond to R&F ad group). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

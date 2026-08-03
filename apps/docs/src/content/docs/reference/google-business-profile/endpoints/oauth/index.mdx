@@ -1,0 +1,73 @@
+---
+title: "Google Business Profile Oauth endpoints"
+description: "2 generated Google Business Profile endpoint contracts for Oauth."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+v4"
+sidebar:
+  order: 103
+  label: "Oauth"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{oauth,resources,types}.ts). Do not edit by hand. */}
+
+## exchangeOAuthCode
+
+`POST` `https://oauth2.googleapis.com/token`
+
+exchange O Auth Code
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `inline` |
+| Idempotency | `unsafe` |
+| Capabilities | `oauth` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `oauth` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## refreshOAuthToken
+
+`POST` `https://oauth2.googleapis.com/token`
+
+refresh O Auth Token
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `inline` |
+| Idempotency | `unsafe` |
+| Capabilities | `oauth` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `oauth` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

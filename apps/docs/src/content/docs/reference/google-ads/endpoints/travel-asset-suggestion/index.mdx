@@ -1,0 +1,46 @@
+---
+title: "Google Ads Travel Asset Suggestion endpoints"
+description: "1 generated Google Ads endpoint contract for Travel Asset Suggestion."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 205
+  label: "Travel Asset Suggestion"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.travelAssetSuggestion.suggestTravelAssets
+
+`POST` `/v25/customers/{customer_id=*}:suggestTravelAssets`
+
+TravelAssetSuggestionService.SuggestTravelAssets
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `travelAssetSuggestion.read` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `SuggestTravelAssetsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `SuggestTravelAssetsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

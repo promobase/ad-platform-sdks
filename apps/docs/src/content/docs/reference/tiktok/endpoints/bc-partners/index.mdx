@@ -1,0 +1,195 @@
+---
+title: "TikTok Business BC Partners endpoints"
+description: "5 generated TikTok Business endpoint contracts for BC Partners."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 117
+  label: "BC Partners"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCPartners.bcPartnerAdd
+
+`POST` `/open_api/v1.3/bc/partner/add/`
+
+Generated from TikTok documentation 1739662756510721
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPartners.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPartnerAddResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | ID of your Business Center. |
+| `partner_id` | `body` | `string` | Yes | No | ID of the Business Center to add as a partner Business Center. |
+| `asset_type` | `body` | `string` | No | No | The type of asset to share with the partner Business Center. Enum value: `ADVERTISER` (ad account). |
+| `asset_ids` | `body` | `Array<string>` | No | No | The list of asset IDs to share with the partner Business Center. Max size: 50. |
+| `advertiser_role` | `body` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Valid only when `asset_type` is `ADVERTISER`. Ad account role assigned to the partner Business Center. Enum values:`ADMIN`: Admin. Manage ad account finances, settings, and permissions. Create and edit ad campaigns and view performance data.`OPERATOR`: Operator. Manage finances for ad accounts, create and edit ad campaigns, and view performance data.`ANALYST`: Analyst. View ads and performance data.Default value when `asset_type` is `ADVERTISER`: `ANALYST`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPartners.bcPartnerAssetDelete
+
+`POST` `/open_api/v1.3/bc/partner/asset/delete/`
+
+Generated from TikTok documentation 1739662800930817
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPartners.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPartnerAssetDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `partner_id` | `body` | `string` | Yes | No | Partner Business Center ID |
+| `asset_type` | `body` | `"ADVERTISER" \| "TT_ACCOUNT" \| "BC_AUTH_TT" \| "TIKTOK_SHOP" \| "CATALOG" \| "LEAD" \| "PIXEL" \| "STOREFRANT"` | Yes | No | Asset type. Enum values:`ADVERTISER`: ad account (advertiser account).`TT_ACCOUNT`: TikTok account. This asset type corresponds to the identity type `BC_AUTH_TT`. Learn more from [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097).`TIKTOK_SHOP`: TikTok Shop.`CATALOG`: catalog.`LEAD`: Leads.`PIXEL`: Pixel.`STOREFRANT` Deprecated |
+| `asset_ids` | `body` | `Array<string>` | Yes | No | List of asset IDs that you want to cancel the sharing of. If `asset_type` is `ADVERTISER`, this field is the list of advertiser IDs.If `asset_type` is `TT_ACCOUNT`, this field is the list of IDs of TikTok accounts in a Business Center.If `asset_type` is `TIKTOK_SHOP`, this field is the list of TikTok Shop IDs.If `asset_type` is `CATALOG`, this field is the list of catalog IDs.If `asset_type` is `LEAD`, this field is the list of form library IDs. Currently, only one form library ID is allowed.To obtain more details about form libraries that you have access to, use [/page/library/get/](https://business-api.tiktok.com/portal/docs?id=1740029915327489).If `asset_type` is `PIXEL`, this field is the list of Pixel IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPartners.bcPartnerAssetGet
+
+`GET` `/open_api/v1.3/bc/partner/asset/get/`
+
+Generated from TikTok documentation 1739662828320769
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPartners.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPartnerAssetGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID |
+| `partner_id` | `query` | `string` | Yes | No | Partner Business Center ID |
+| `asset_type` | `query` | `"ADVERTISER" \| "CATALOG"` | Yes | No | Asset type. Enum values: `ADVERTISER`, `CATALOG`. |
+| `share_type` | `query` | `"SHARED" \| "SHARING"` | Yes | No | Share type. Enum values: `SHARED`: Assets that are shared with you by a partner`SHARING`: Assets that you share with a partner |
+| `filtering` | `query` | `BcPartnerAssetGetParamsFiltering` | No | No | Filtering by keyword |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1 |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10 |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPartners.bcPartnerDelete
+
+`POST` `/open_api/v1.3/bc/partner/delete/`
+
+Generated from TikTok documentation 1739662779301890
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCPartners.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPartnerDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `partner_id` | `body` | `string` | Yes | No | Partner Business Center ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCPartners.bcPartnerGet
+
+`GET` `/open_api/v1.3/bc/partner/get/`
+
+Generated from TikTok documentation 1739662727395330
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCPartners.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcPartnerGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `page` | `query` | `number` | No | No | Current page number. |
+| `page_size` | `query` | `number` | No | No | Page size. |
+| `filtering` | `query` | `BcPartnerGetParamsFiltering` | No | No | Filtering by names. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

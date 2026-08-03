@@ -1,0 +1,46 @@
+---
+title: "Google Ads Ad Group endpoints"
+description: "1 generated Google Ads endpoint contract for Ad Group."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 103
+  label: "Ad Group"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.adGroup.mutateAdGroups
+
+`POST` `/v25/customers/{customer_id=*}/adGroups:mutate`
+
+AdGroupService.MutateAdGroups
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adGroup.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `MutateAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `MutateAdGroupsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

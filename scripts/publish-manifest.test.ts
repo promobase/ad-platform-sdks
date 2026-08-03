@@ -3,7 +3,12 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { preparePackage, restorePackage, workspaceSpecifierToRange } from "./publish-manifest.mjs";
+import {
+  preparePackage,
+  readWorkspaceVersions,
+  restorePackage,
+  workspaceSpecifierToRange,
+} from "./publish-manifest.mjs";
 
 const testDirs: string[] = [];
 
@@ -36,6 +41,26 @@ describe("publish manifest", () => {
     restorePackage(packageDir);
     expect(readFileSync(join(packageDir, "package.json"), "utf8")).toBe(original);
   });
+
+  test("discovers package and private app workspace patterns", () => {
+    const { root } = createFixture();
+    const appDir = join(root, "apps", "docs");
+    mkdirSync(appDir, { recursive: true });
+    writeFileSync(
+      join(root, "package.json"),
+      `${JSON.stringify({ private: true, workspaces: ["apps/*", "packages/*"] }, null, 2)}\n`,
+    );
+    writeFileSync(
+      join(appDir, "package.json"),
+      `${JSON.stringify({ name: "@fixture/docs", version: "0.0.1", private: true }, null, 2)}\n`,
+    );
+
+    expect(Object.fromEntries(readWorkspaceVersions(root))).toEqual({
+      "@fixture/docs": "0.0.1",
+      "@fixture/dependency": "1.2.3",
+      "@fixture/consumer": "1.0.0",
+    });
+  });
 });
 
 function createFixture() {
@@ -64,5 +89,5 @@ function createFixture() {
     2,
   )}\n`;
   writeFileSync(join(packageDir, "package.json"), original);
-  return { packageDir, original };
+  return { root, packageDir, original };
 }

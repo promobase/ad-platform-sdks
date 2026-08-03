@@ -1,0 +1,1085 @@
+---
+title: "Google Ads models: Device Enum – Feed Mapping Error Enum"
+description: "100 generated Google Ads model contracts, from DeviceEnum through FeedMappingErrorEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1009
+  label: "Device Enum – Feed Mapping Error Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## DeviceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DeviceInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `Device` | No | No | — |
+
+## DimensionOverlapResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension` | `dimension` | `AudienceInsightsDimension` | No | No | — |
+| `items` | `items` | `Array<unknown>` | No | No | — |
+
+## DismissRecommendationOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## DismissRecommendationRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+
+## DismissRecommendationResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## DismissRecommendationResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## DisplayAdFormatSetting
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ALL_FORMATS`, `NON_NATIVE`, `NATIVE`
+
+## DisplayAdFormatSettingEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DisplayExpansionOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DisplayKeywordView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## DisplayUploadAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `display_upload_product_type` | `display_upload_product_type` | `DisplayUploadProductType` | No | No | — |
+| `media_bundle` | `media_bundle` | `unknown` | No | No | — |
+
+## DisplayUploadProductType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HTML5_UPLOAD_AD`, `DYNAMIC_HTML5_EDUCATION_AD`, `DYNAMIC_HTML5_FLIGHT_AD`, `DYNAMIC_HTML5_HOTEL_RENTAL_AD`, `DYNAMIC_HTML5_JOB_AD`, `DYNAMIC_HTML5_LOCAL_AD`, `DYNAMIC_HTML5_REAL_ESTATE_AD`, `DYNAMIC_HTML5_CUSTOM_AD`, `DYNAMIC_HTML5_TRAVEL_AD`, `DYNAMIC_HTML5_HOTEL_AD`
+
+## DisplayUploadProductTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DistanceBucket
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WITHIN_700M`, `WITHIN_1KM`, `WITHIN_5KM`, `WITHIN_10KM`, `WITHIN_15KM`, `WITHIN_20KM`, `WITHIN_25KM`, `WITHIN_30KM`, `WITHIN_35KM`, `WITHIN_40KM`, `WITHIN_45KM`, `WITHIN_50KM`, `WITHIN_55KM`, `WITHIN_60KM`, `WITHIN_65KM`, `BEYOND_65KM`, `WITHIN_0_7MILES`, `WITHIN_1MILE`, `WITHIN_5MILES`, `WITHIN_10MILES`, `WITHIN_15MILES`, `WITHIN_20MILES`, `WITHIN_25MILES`, `WITHIN_30MILES`, `WITHIN_35MILES`, `WITHIN_40MILES`, `BEYOND_40MILES`
+
+## DistanceBucketEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DistanceView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `distance_bucket` | `distance_bucket` | `DistanceBucket` | No | No | — |
+| `metric_system` | `metric_system` | `boolean` | No | No | — |
+
+## DistinctError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_ELEMENT`, `DUPLICATE_TYPE`
+
+## DistinctErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DomainCategory
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `domain` | `domain` | `string` | No | No | — |
+| `coverage_fraction` | `coverage_fraction` | `number` | No | No | — |
+| `category_rank` | `category_rank` | `string` | No | No | — |
+| `has_children` | `has_children` | `boolean` | No | No | — |
+| `recommended_cpc_bid_micros` | `recommended_cpc_bid_micros` | `string` | No | No | — |
+
+## DynamicBusinessProfileLocationGroupFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_filters` | `label_filters` | `Array<string>` | No | No | — |
+| `business_name_filter` | `business_name_filter` | `unknown` | No | No | — |
+| `listing_id_filters` | `listing_id_filters` | `Array<string>` | No | No | — |
+
+## DynamicCustomAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `id2` | `id2` | `string` | No | No | — |
+| `item_title` | `item_title` | `string` | No | No | — |
+| `item_subtitle` | `item_subtitle` | `string` | No | No | — |
+| `item_description` | `item_description` | `string` | No | No | — |
+| `item_address` | `item_address` | `string` | No | No | — |
+| `item_category` | `item_category` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `formatted_sale_price` | `formatted_sale_price` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+| `similar_ids` | `similar_ids` | `Array<string>` | No | No | — |
+
+## DynamicEducationAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `program_id` | `program_id` | `string` | No | No | — |
+| `location_id` | `location_id` | `string` | No | No | — |
+| `program_name` | `program_name` | `string` | No | No | — |
+| `subject` | `subject` | `string` | No | No | — |
+| `program_description` | `program_description` | `string` | No | No | — |
+| `school_name` | `school_name` | `string` | No | No | — |
+| `address` | `address` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `similar_program_ids` | `similar_program_ids` | `Array<string>` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+| `thumbnail_image_url` | `thumbnail_image_url` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+
+## DynamicFlightsAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destination_id` | `destination_id` | `string` | No | No | — |
+| `origin_id` | `origin_id` | `string` | No | No | — |
+| `flight_description` | `flight_description` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `destination_name` | `destination_name` | `string` | No | No | — |
+| `origin_name` | `origin_name` | `string` | No | No | — |
+| `flight_price` | `flight_price` | `string` | No | No | — |
+| `flight_sale_price` | `flight_sale_price` | `string` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `formatted_sale_price` | `formatted_sale_price` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+| `similar_destination_ids` | `similar_destination_ids` | `Array<string>` | No | No | — |
+| `custom_mapping` | `custom_mapping` | `string` | No | No | — |
+
+## DynamicHotelsAndRentalsAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property_id` | `property_id` | `string` | No | No | — |
+| `property_name` | `property_name` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `destination_name` | `destination_name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `star_rating` | `star_rating` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `address` | `address` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `formatted_sale_price` | `formatted_sale_price` | `string` | No | No | — |
+| `similar_property_ids` | `similar_property_ids` | `Array<string>` | No | No | — |
+
+## DynamicImageExtensionOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## DynamicJobsAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `job_id` | `job_id` | `string` | No | No | — |
+| `location_id` | `location_id` | `string` | No | No | — |
+| `job_title` | `job_title` | `string` | No | No | — |
+| `job_subtitle` | `job_subtitle` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `job_category` | `job_category` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `address` | `address` | `string` | No | No | — |
+| `salary` | `salary` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `similar_job_ids` | `similar_job_ids` | `Array<string>` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+
+## DynamicLocalAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deal_id` | `deal_id` | `string` | No | No | — |
+| `deal_name` | `deal_name` | `string` | No | No | — |
+| `subtitle` | `subtitle` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `address` | `address` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `formatted_sale_price` | `formatted_sale_price` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `similar_deal_ids` | `similar_deal_ids` | `Array<string>` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+
+## DynamicRealEstateAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `listing_id` | `listing_id` | `string` | No | No | — |
+| `listing_name` | `listing_name` | `string` | No | No | — |
+| `city_name` | `city_name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `address` | `address` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `property_type` | `property_type` | `string` | No | No | — |
+| `listing_type` | `listing_type` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+| `similar_listing_ids` | `similar_listing_ids` | `Array<string>` | No | No | — |
+
+## DynamicSearchAdsSearchTermView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `search_term` | `search_term` | `string` | No | No | — |
+| `headline` | `headline` | `string` | No | No | — |
+| `landing_page` | `landing_page` | `string` | No | No | — |
+| `page_url` | `page_url` | `string` | No | No | — |
+| `has_negative_keyword` | `has_negative_keyword` | `boolean` | No | No | — |
+| `has_matching_keyword` | `has_matching_keyword` | `boolean` | No | No | — |
+| `has_negative_url` | `has_negative_url` | `boolean` | No | No | — |
+
+## DynamicSearchAdsSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domain_name` | `domain_name` | `string` | No | No | — |
+| `language_code` | `language_code` | `string` | No | No | — |
+| `use_supplied_urls_only` | `use_supplied_urls_only` | `boolean` | No | No | — |
+
+## DynamicTravelAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destination_id` | `destination_id` | `string` | No | No | — |
+| `origin_id` | `origin_id` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `destination_name` | `destination_name` | `string` | No | No | — |
+| `destination_address` | `destination_address` | `string` | No | No | — |
+| `origin_name` | `origin_name` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `formatted_price` | `formatted_price` | `string` | No | No | — |
+| `formatted_sale_price` | `formatted_sale_price` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `contextual_keywords` | `contextual_keywords` | `Array<string>` | No | No | — |
+| `similar_destination_ids` | `similar_destination_ids` | `Array<string>` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `android_app_link` | `android_app_link` | `string` | No | No | — |
+| `ios_app_link` | `ios_app_link` | `string` | No | No | — |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | — |
+
+## EffectiveFrequencyBreakdown
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `effective_frequency` | `effective_frequency` | `integer` | No | No | — |
+| `on_target_reach` | `on_target_reach` | `string` | No | No | — |
+| `total_reach` | `total_reach` | `string` | No | No | — |
+| `effective_coview_reach` | `effective_coview_reach` | `string` | No | No | — |
+| `on_target_effective_coview_reach` | `on_target_effective_coview_reach` | `string` | No | No | — |
+
+## EffectiveFrequencyLimit
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `effective_frequency_breakdown_limit` | `effective_frequency_breakdown_limit` | `integer` | No | No | — |
+
+## EnablementResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `enablement_error` | `enablement_error` | `unknown` | No | No | — |
+
+## EnableOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `auto_populate_brand_assets` | `auto_populate_brand_assets` | `boolean` | No | No | — |
+| `brand_assets` | `brand_assets` | `unknown` | No | No | — |
+| `final_uri_domain` | `final_uri_domain` | `string` | No | No | — |
+| `main_color` | `main_color` | `string` | No | No | — |
+| `accent_color` | `accent_color` | `string` | No | No | — |
+| `font_family` | `font_family` | `string` | No | No | — |
+
+## EnablePMaxBrandGuidelinesRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+
+## EnablePMaxBrandGuidelinesResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+
+## EndExperimentRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `experiment` | `experiment` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## EnhancedCpc
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## EnhancedCpcOptInRecommendation
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## EnumError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENUM_VALUE_NOT_PERMITTED`
+
+## EnumErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ErrorCode
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_error` | `request_error` | `unknown` | No | No | — |
+| `bidding_strategy_error` | `bidding_strategy_error` | `unknown` | No | No | — |
+| `url_field_error` | `url_field_error` | `unknown` | No | No | — |
+| `list_operation_error` | `list_operation_error` | `unknown` | No | No | — |
+| `query_error` | `query_error` | `unknown` | No | No | — |
+| `mutate_error` | `mutate_error` | `unknown` | No | No | — |
+| `field_mask_error` | `field_mask_error` | `unknown` | No | No | — |
+| `authorization_error` | `authorization_error` | `unknown` | No | No | — |
+| `internal_error` | `internal_error` | `unknown` | No | No | — |
+| `quota_error` | `quota_error` | `unknown` | No | No | — |
+| `ad_error` | `ad_error` | `unknown` | No | No | — |
+| `ad_group_error` | `ad_group_error` | `unknown` | No | No | — |
+| `campaign_budget_error` | `campaign_budget_error` | `unknown` | No | No | — |
+| `campaign_error` | `campaign_error` | `unknown` | No | No | — |
+| `video_campaign_error` | `video_campaign_error` | `unknown` | No | No | — |
+| `authentication_error` | `authentication_error` | `unknown` | No | No | — |
+| `action_error` | `action_error` | `unknown` | No | No | — |
+| `ad_group_criterion_customizer_error` | `ad_group_criterion_customizer_error` | `unknown` | No | No | — |
+| `ad_group_criterion_error` | `ad_group_criterion_error` | `unknown` | No | No | — |
+| `ad_group_customizer_error` | `ad_group_customizer_error` | `unknown` | No | No | — |
+| `ad_customizer_error` | `ad_customizer_error` | `unknown` | No | No | — |
+| `ad_group_ad_error` | `ad_group_ad_error` | `unknown` | No | No | — |
+| `ad_sharing_error` | `ad_sharing_error` | `unknown` | No | No | — |
+| `adx_error` | `adx_error` | `unknown` | No | No | — |
+| `asset_error` | `asset_error` | `unknown` | No | No | — |
+| `asset_group_asset_error` | `asset_group_asset_error` | `unknown` | No | No | — |
+| `asset_group_listing_group_filter_error` | `asset_group_listing_group_filter_error` | `unknown` | No | No | — |
+| `asset_group_error` | `asset_group_error` | `unknown` | No | No | — |
+| `asset_set_asset_error` | `asset_set_asset_error` | `unknown` | No | No | — |
+| `asset_set_link_error` | `asset_set_link_error` | `unknown` | No | No | — |
+| `asset_set_error` | `asset_set_error` | `unknown` | No | No | — |
+| `bidding_error` | `bidding_error` | `unknown` | No | No | — |
+| `campaign_criterion_error` | `campaign_criterion_error` | `unknown` | No | No | — |
+| `campaign_conversion_goal_error` | `campaign_conversion_goal_error` | `unknown` | No | No | — |
+| `campaign_customizer_error` | `campaign_customizer_error` | `unknown` | No | No | — |
+| `collection_size_error` | `collection_size_error` | `unknown` | No | No | — |
+| `conversion_goal_campaign_config_error` | `conversion_goal_campaign_config_error` | `unknown` | No | No | — |
+| `country_code_error` | `country_code_error` | `unknown` | No | No | — |
+| `criterion_error` | `criterion_error` | `unknown` | No | No | — |
+| `custom_conversion_goal_error` | `custom_conversion_goal_error` | `unknown` | No | No | — |
+| `customer_customizer_error` | `customer_customizer_error` | `unknown` | No | No | — |
+| `customer_error` | `customer_error` | `unknown` | No | No | — |
+| `customizer_attribute_error` | `customizer_attribute_error` | `unknown` | No | No | — |
+| `date_error` | `date_error` | `unknown` | No | No | — |
+| `date_range_error` | `date_range_error` | `unknown` | No | No | — |
+| `distinct_error` | `distinct_error` | `unknown` | No | No | — |
+| `feed_attribute_reference_error` | `feed_attribute_reference_error` | `unknown` | No | No | — |
+| `final_url_expansion_asset_view_error` | `final_url_expansion_asset_view_error` | `unknown` | No | No | — |
+| `function_error` | `function_error` | `unknown` | No | No | — |
+| `function_parsing_error` | `function_parsing_error` | `unknown` | No | No | — |
+| `id_error` | `id_error` | `unknown` | No | No | — |
+| `image_error` | `image_error` | `unknown` | No | No | — |
+| `language_code_error` | `language_code_error` | `unknown` | No | No | — |
+| `media_bundle_error` | `media_bundle_error` | `unknown` | No | No | — |
+| `media_upload_error` | `media_upload_error` | `unknown` | No | No | — |
+| `media_file_error` | `media_file_error` | `unknown` | No | No | — |
+| `merchant_center_error` | `merchant_center_error` | `unknown` | No | No | — |
+| `multiplier_error` | `multiplier_error` | `unknown` | No | No | — |
+| `new_resource_creation_error` | `new_resource_creation_error` | `unknown` | No | No | — |
+| `not_empty_error` | `not_empty_error` | `unknown` | No | No | — |
+| `null_error` | `null_error` | `unknown` | No | No | — |
+| `operator_error` | `operator_error` | `unknown` | No | No | — |
+| `range_error` | `range_error` | `unknown` | No | No | — |
+| `recommendation_error` | `recommendation_error` | `unknown` | No | No | — |
+| `recommendation_subscription_error` | `recommendation_subscription_error` | `unknown` | No | No | — |
+| `region_code_error` | `region_code_error` | `unknown` | No | No | — |
+| `setting_error` | `setting_error` | `unknown` | No | No | — |
+| `string_format_error` | `string_format_error` | `unknown` | No | No | — |
+| `string_length_error` | `string_length_error` | `unknown` | No | No | — |
+| `operation_access_denied_error` | `operation_access_denied_error` | `unknown` | No | No | — |
+| `resource_access_denied_error` | `resource_access_denied_error` | `unknown` | No | No | — |
+| `resource_count_limit_exceeded_error` | `resource_count_limit_exceeded_error` | `unknown` | No | No | — |
+| `youtube_video_registration_error` | `youtube_video_registration_error` | `unknown` | No | No | — |
+| `ad_group_bid_modifier_error` | `ad_group_bid_modifier_error` | `unknown` | No | No | — |
+| `context_error` | `context_error` | `unknown` | No | No | — |
+| `field_error` | `field_error` | `unknown` | No | No | — |
+| `shared_set_error` | `shared_set_error` | `unknown` | No | No | — |
+| `shared_criterion_error` | `shared_criterion_error` | `unknown` | No | No | — |
+| `campaign_shared_set_error` | `campaign_shared_set_error` | `unknown` | No | No | — |
+| `conversion_action_error` | `conversion_action_error` | `unknown` | No | No | — |
+| `conversion_adjustment_upload_error` | `conversion_adjustment_upload_error` | `unknown` | No | No | — |
+| `conversion_custom_variable_error` | `conversion_custom_variable_error` | `unknown` | No | No | — |
+| `conversion_upload_error` | `conversion_upload_error` | `unknown` | No | No | — |
+| `conversion_value_rule_error` | `conversion_value_rule_error` | `unknown` | No | No | — |
+| `conversion_value_rule_set_error` | `conversion_value_rule_set_error` | `unknown` | No | No | — |
+| `header_error` | `header_error` | `unknown` | No | No | — |
+| `database_error` | `database_error` | `unknown` | No | No | — |
+| `policy_finding_error` | `policy_finding_error` | `unknown` | No | No | — |
+| `enum_error` | `enum_error` | `unknown` | No | No | — |
+| `keyword_plan_error` | `keyword_plan_error` | `unknown` | No | No | — |
+| `keyword_plan_campaign_error` | `keyword_plan_campaign_error` | `unknown` | No | No | — |
+| `keyword_plan_campaign_keyword_error` | `keyword_plan_campaign_keyword_error` | `unknown` | No | No | — |
+| `keyword_plan_ad_group_error` | `keyword_plan_ad_group_error` | `unknown` | No | No | — |
+| `keyword_plan_ad_group_keyword_error` | `keyword_plan_ad_group_keyword_error` | `unknown` | No | No | — |
+| `keyword_plan_idea_error` | `keyword_plan_idea_error` | `unknown` | No | No | — |
+| `account_budget_proposal_error` | `account_budget_proposal_error` | `unknown` | No | No | — |
+| `user_list_error` | `user_list_error` | `unknown` | No | No | — |
+| `change_event_error` | `change_event_error` | `unknown` | No | No | — |
+| `change_status_error` | `change_status_error` | `unknown` | No | No | — |
+| `feed_error` | `feed_error` | `unknown` | No | No | — |
+| `geo_target_constant_suggestion_error` | `geo_target_constant_suggestion_error` | `unknown` | No | No | — |
+| `campaign_draft_error` | `campaign_draft_error` | `unknown` | No | No | — |
+| `feed_item_error` | `feed_item_error` | `unknown` | No | No | — |
+| `label_error` | `label_error` | `unknown` | No | No | — |
+| `billing_setup_error` | `billing_setup_error` | `unknown` | No | No | — |
+| `customer_client_link_error` | `customer_client_link_error` | `unknown` | No | No | — |
+| `customer_manager_link_error` | `customer_manager_link_error` | `unknown` | No | No | — |
+| `feed_mapping_error` | `feed_mapping_error` | `unknown` | No | No | — |
+| `customer_feed_error` | `customer_feed_error` | `unknown` | No | No | — |
+| `ad_group_feed_error` | `ad_group_feed_error` | `unknown` | No | No | — |
+| `campaign_feed_error` | `campaign_feed_error` | `unknown` | No | No | — |
+| `custom_interest_error` | `custom_interest_error` | `unknown` | No | No | — |
+| `campaign_experiment_error` | `campaign_experiment_error` | `unknown` | No | No | — |
+| `extension_feed_item_error` | `extension_feed_item_error` | `unknown` | No | No | — |
+| `ad_parameter_error` | `ad_parameter_error` | `unknown` | No | No | — |
+| `feed_item_validation_error` | `feed_item_validation_error` | `unknown` | No | No | — |
+| `extension_setting_error` | `extension_setting_error` | `unknown` | No | No | — |
+| `feed_item_set_error` | `feed_item_set_error` | `unknown` | No | No | — |
+| `feed_item_set_link_error` | `feed_item_set_link_error` | `unknown` | No | No | — |
+| `feed_item_target_error` | `feed_item_target_error` | `unknown` | No | No | — |
+| `policy_violation_error` | `policy_violation_error` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `click_view_error` | `click_view_error` | `unknown` | No | No | — |
+| `policy_validation_parameter_error` | `policy_validation_parameter_error` | `unknown` | No | No | — |
+| `size_limit_error` | `size_limit_error` | `unknown` | No | No | — |
+| `offline_user_data_job_error` | `offline_user_data_job_error` | `unknown` | No | No | — |
+| `not_allowlisted_error` | `not_allowlisted_error` | `unknown` | No | No | — |
+| `manager_link_error` | `manager_link_error` | `unknown` | No | No | — |
+| `currency_code_error` | `currency_code_error` | `unknown` | No | No | — |
+| `experiment_error` | `experiment_error` | `unknown` | No | No | — |
+| `access_invitation_error` | `access_invitation_error` | `unknown` | No | No | — |
+| `reach_plan_error` | `reach_plan_error` | `unknown` | No | No | — |
+| `invoice_error` | `invoice_error` | `unknown` | No | No | — |
+| `payments_account_error` | `payments_account_error` | `unknown` | No | No | — |
+| `time_zone_error` | `time_zone_error` | `unknown` | No | No | — |
+| `asset_link_error` | `asset_link_error` | `unknown` | No | No | — |
+| `user_data_error` | `user_data_error` | `unknown` | No | No | — |
+| `batch_job_error` | `batch_job_error` | `unknown` | No | No | — |
+| `account_link_error` | `account_link_error` | `unknown` | No | No | — |
+| `third_party_app_analytics_link_error` | `third_party_app_analytics_link_error` | `unknown` | No | No | — |
+| `customer_user_access_error` | `customer_user_access_error` | `unknown` | No | No | — |
+| `custom_audience_error` | `custom_audience_error` | `unknown` | No | No | — |
+| `audience_error` | `audience_error` | `unknown` | No | No | — |
+| `search_term_insight_error` | `search_term_insight_error` | `unknown` | No | No | — |
+| `smart_campaign_error` | `smart_campaign_error` | `unknown` | No | No | — |
+| `experiment_arm_error` | `experiment_arm_error` | `unknown` | No | No | — |
+| `audience_insights_error` | `audience_insights_error` | `unknown` | No | No | — |
+| `product_link_error` | `product_link_error` | `unknown` | No | No | — |
+| `data_link_error` | `data_link_error` | `unknown` | No | No | — |
+| `customer_sk_ad_network_conversion_value_schema_error` | `customer_sk_ad_network_conversion_value_schema_error` | `unknown` | No | No | — |
+| `currency_error` | `currency_error` | `unknown` | No | No | — |
+| `asset_group_signal_error` | `asset_group_signal_error` | `unknown` | No | No | — |
+| `product_link_invitation_error` | `product_link_invitation_error` | `unknown` | No | No | — |
+| `identity_verification_error` | `identity_verification_error` | `unknown` | No | No | — |
+| `user_list_customer_type_error` | `user_list_customer_type_error` | `unknown` | No | No | — |
+| `shopping_product_error` | `shopping_product_error` | `unknown` | No | No | — |
+| `automatically_created_asset_removal_error` | `automatically_created_asset_removal_error` | `unknown` | No | No | — |
+| `shareable_preview_error` | `shareable_preview_error` | `unknown` | No | No | — |
+| `campaign_goal_config_error` | `campaign_goal_config_error` | `unknown` | No | No | — |
+| `goal_error` | `goal_error` | `unknown` | No | No | — |
+| `brand_guidelines_migration_error` | `brand_guidelines_migration_error` | `unknown` | No | No | — |
+| `asset_generation_error` | `asset_generation_error` | `unknown` | No | No | — |
+| `benchmarks_error` | `benchmarks_error` | `unknown` | No | No | — |
+| `incentive_error` | `incentive_error` | `unknown` | No | No | — |
+| `content_creator_insights_error` | `content_creator_insights_error` | `unknown` | No | No | — |
+| `video_reservation_error` | `video_reservation_error` | `unknown` | No | No | — |
+| `multi_party_auth_review_error` | `multi_party_auth_review_error` | `unknown` | No | No | — |
+
+## ErrorDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `unpublished_error_code` | `unpublished_error_code` | `string` | No | No | — |
+| `policy_violation_details` | `policy_violation_details` | `unknown` | No | No | — |
+| `policy_finding_details` | `policy_finding_details` | `unknown` | No | No | — |
+| `quota_error_details` | `quota_error_details` | `unknown` | No | No | — |
+| `resource_count_details` | `resource_count_details` | `unknown` | No | No | — |
+| `budget_per_day_minimum_error_details` | `budget_per_day_minimum_error_details` | `unknown` | No | No | — |
+| `reservation_error_details` | `reservation_error_details` | `unknown` | No | No | — |
+| `incompatible_clo_goal_error_details` | `incompatible_clo_goal_error_details` | `unknown` | No | No | — |
+
+## ErrorLocation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field_path_elements` | `field_path_elements` | `Array<unknown>` | No | No | — |
+
+## EuPoliticalAdvertisingStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CONTAINS_EU_POLITICAL_ADVERTISING`, `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING`
+
+## EuPoliticalAdvertisingStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Event
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mapped_event_name` | `mapped_event_name` | `string` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `event_revenue_range` | `event_revenue_range` | `unknown` | No | No | — |
+| `event_revenue_value` | `event_revenue_value` | `number` | No | No | — |
+| `event_occurrence_range` | `event_occurrence_range` | `unknown` | No | No | — |
+| `event_counter` | `event_counter` | `string` | No | No | — |
+
+## EventAttribute
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event` | `event` | `string` | No | No | — |
+| `event_date_time` | `event_date_time` | `string` | No | No | — |
+| `item_attribute` | `item_attribute` | `Array<unknown>` | No | No | — |
+
+## EventItemAttribute
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | — |
+
+## EventOccurrenceRange
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_event_count` | `min_event_count` | `string` | No | No | — |
+| `max_event_count` | `max_event_count` | `string` | No | No | — |
+
+## ExclusionSegment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list` | `user_list` | `unknown` | No | No | — |
+
+## ExpandedDynamicSearchAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `description2` | `description2` | `string` | No | No | — |
+
+## ExpandedLandingPageView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `expanded_final_url` | `expanded_final_url` | `string` | No | No | — |
+
+## ExpandedTextAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headline_part1` | `headline_part1` | `string` | No | No | — |
+| `headline_part2` | `headline_part2` | `string` | No | No | — |
+| `headline_part3` | `headline_part3` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `description2` | `description2` | `string` | No | No | — |
+| `path1` | `path1` | `string` | No | No | — |
+| `path2` | `path2` | `string` | No | No | — |
+
+## Experiment
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `experiment_id` | `experiment_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `suffix` | `suffix` | `string` | No | No | — |
+| `type` | `type` | `ExperimentType` | No | No | — |
+| `status` | `status` | `ExperimentStatus` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `goals` | `goals` | `Array<MetricGoal>` | No | No | — |
+| `long_running_operation` | `long_running_operation` | `string` | No | No | — |
+| `promote_status` | `promote_status` | `AsyncActionStatus` | No | No | — |
+| `sync_enabled` | `sync_enabled` | `boolean` | No | No | — |
+| `video_experiment` | `video_experiment` | `VideoExperimentInfo` | No | No | — |
+| `optimize_assets_experiment` | `optimize_assets_experiment` | `OptimizeAssetsExperimentInfo` | No | No | — |
+
+## ExperimentalPerformanceMaxCampaignSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_amount_micros` | `budget_amount_micros` | `string` | No | No | — |
+| `target_roas` | `target_roas` | `number` | No | No | — |
+| `target_cpa_micros` | `target_cpa_micros` | `string` | No | No | — |
+| `bidding_strategy_type` | `bidding_strategy_type` | `BiddingStrategyType` | No | No | — |
+
+## ExperimentArm
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `experiment` | `experiment` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `control` | `control` | `boolean` | No | No | — |
+| `traffic_split` | `traffic_split` | `string` | No | No | — |
+| `campaigns` | `campaigns` | `Array<string>` | No | No | — |
+| `in_design_campaigns` | `in_design_campaigns` | `Array<string>` | No | No | — |
+| `asset_testing_info` | `asset_testing_info` | `unknown` | No | No | — |
+| `asset_groups` | `asset_groups` | `Array<unknown>` | No | No | — |
+| `performance_max_experiment_arm_info` | `performance_max_experiment_arm_info` | `unknown` | No | No | — |
+
+## ExperimentArmError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXPERIMENT_ARM_COUNT_LIMIT_EXCEEDED`, `INVALID_CAMPAIGN_STATUS`, `DUPLICATE_EXPERIMENT_ARM_NAME`, `CANNOT_SET_TREATMENT_ARM_CAMPAIGN`, `CANNOT_MODIFY_CAMPAIGN_IDS`, `CANNOT_MODIFY_CAMPAIGN_WITHOUT_SUFFIX_SET`, `CANNOT_MUTATE_TRAFFIC_SPLIT_AFTER_START`, `CANNOT_ADD_CAMPAIGN_WITH_SHARED_BUDGET`, `CANNOT_ADD_CAMPAIGN_WITH_CUSTOM_BUDGET`, `CANNOT_ADD_CAMPAIGNS_WITH_DYNAMIC_ASSETS_ENABLED`, `UNSUPPORTED_CAMPAIGN_ADVERTISING_CHANNEL_SUB_TYPE`, `CANNOT_ADD_BASE_CAMPAIGN_WITH_DATE_RANGE`, `BIDDING_STRATEGY_NOT_SUPPORTED_IN_EXPERIMENTS`, `TRAFFIC_SPLIT_NOT_SUPPORTED_FOR_CHANNEL_TYPE`, `BUDGET_MUST_NOT_BE_SHARED`, `ADOPT_AI_MAX_CAMPAIGN_MISSING_PERFORMANCE_SEARCH_ENABLED`, `TOO_MANY_CAMPAIGNS_IN_EXPERIMENT_ARM`, `CANNOT_ADD_CAMPAIGN_WITH_TARGET_ROAS_TOLERANCE_PERCENT_MILLIS`, `CANNOT_HAVE_SAME_CAMPAIGN_CROSS_ARMS_IN_ONE_EXPERIMENT`, `SEARCH_PLUS_CAMPAIGN_NOT_ALLOWED`, `DUPLICATE_ASSET_GROUP_ASSETS_BETWEEN_ARMS`, `DUPLICATE_ASSET_GROUP_ASSETS_IN_ONE_ARM`
+
+## ExperimentArmErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentArmOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `ExperimentArm` | No | No | — |
+| `update` | `update` | `ExperimentArm` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## ExperimentAssetDetailOperation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADD`, `REMOVE`
+
+## ExperimentAssetDetailOperationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_SET_START_DATE_IN_PAST`, `END_DATE_BEFORE_START_DATE`, `START_DATE_TOO_FAR_IN_FUTURE`, `DUPLICATE_EXPERIMENT_NAME`, `CANNOT_MODIFY_REMOVED_EXPERIMENT`, `START_DATE_ALREADY_PASSED`, `CANNOT_SET_END_DATE_IN_PAST`, `CANNOT_SET_STATUS_TO_REMOVED`, `CANNOT_MODIFY_PAST_END_DATE`, `INVALID_STATUS`, `INVALID_CAMPAIGN_CHANNEL_TYPE`, `OVERLAPPING_MEMBERS_AND_DATE_RANGE`, `INVALID_TRIAL_ARM_TRAFFIC_SPLIT`, `TRAFFIC_SPLIT_OVERLAPPING`, `SUM_TRIAL_ARM_TRAFFIC_UNEQUALS_TO_TRIAL_TRAFFIC_SPLIT_DENOMINATOR`, `CANNOT_MODIFY_TRAFFIC_SPLIT_AFTER_START`, `EXPERIMENT_NOT_FOUND`, `EXPERIMENT_NOT_YET_STARTED`, `CANNOT_HAVE_MULTIPLE_CONTROL_ARMS`, `IN_DESIGN_CAMPAIGNS_NOT_SET`, `CANNOT_SET_STATUS_TO_GRADUATED`, `CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_SHARED_BUDGET`, `CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_CUSTOM_BUDGET`, `STATUS_TRANSITION_INVALID`, `DUPLICATE_EXPERIMENT_CAMPAIGN_NAME`, `CANNOT_REMOVE_IN_CREATION_EXPERIMENT`, `CANNOT_ADD_CAMPAIGN_WITH_DEPRECATED_AD_TYPES`, `CANNOT_ENABLE_SYNC_FOR_UNSUPPORTED_EXPERIMENT_TYPE`, `INVALID_DURATION_FOR_AN_EXPERIMENT`, `MISSING_EU_POLITICAL_ADVERTISING_SELF_DECLARATION`, `MISSING_EXPERIMENT_ARMS`, `MISSING_VIDEO_EXPERIMENT_SUBTYPE`
+
+## ExperimentErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentMetric
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CLICKS`, `IMPRESSIONS`, `COST`, `CONVERSIONS_PER_INTERACTION_RATE`, `COST_PER_CONVERSION`, `CONVERSIONS_VALUE_PER_COST`, `AVERAGE_CPC`, `CTR`, `INCREMENTAL_CONVERSIONS`, `COMPLETED_VIDEO_VIEWS`, `CUSTOM_ALGORITHMS`, `CONVERSIONS`, `CONVERSION_VALUE`
+
+## ExperimentMetricDirection
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NO_CHANGE`, `INCREASE`, `DECREASE`, `NO_CHANGE_OR_INCREASE`, `NO_CHANGE_OR_DECREASE`
+
+## ExperimentMetricDirectionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentMetricEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `Experiment` | No | No | — |
+| `update` | `update` | `Experiment` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## ExperimentStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`, `HALTED`, `PROMOTED`, `SETUP`, `INITIATED`, `GRADUATED`
+
+## ExperimentStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExperimentType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DISPLAY_AND_VIDEO_360`, `AD_VARIATION`, `YOUTUBE_CUSTOM`, `DISPLAY_CUSTOM`, `SEARCH_CUSTOM`, `DISPLAY_AUTOMATED_BIDDING_STRATEGY`, `SEARCH_AUTOMATED_BIDDING_STRATEGY`, `SHOPPING_AUTOMATED_BIDDING_STRATEGY`, `SMART_MATCHING`, `HOTEL_CUSTOM`, `OPTIMIZE_ASSETS`, `ADOPT_AI_MAX`, `ADOPT_BROAD_MATCH_KEYWORDS`, `PMAX_REPLACEMENT_SHOPPING`, `COMPARE_CAMPAIGNS`, `PMAX_TEXT_CUSTOMIZATION_FINAL_URL_EXPANSION`
+
+## ExperimentTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExtendedDemographicInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `extended_demographic_id` | `extended_demographic_id` | `string` | No | No | — |
+
+## ExtensionFeedItemError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `VALUE_OUT_OF_RANGE`, `URL_LIST_TOO_LONG`, `CANNOT_HAVE_RESTRICTION_ON_EMPTY_GEO_TARGETING`, `CANNOT_SET_WITH_FINAL_URLS`, `CANNOT_SET_WITHOUT_FINAL_URLS`, `INVALID_PHONE_NUMBER`, `PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY`, `CARRIER_SPECIFIC_SHORT_NUMBER_NOT_ALLOWED`, `PREMIUM_RATE_NUMBER_NOT_ALLOWED`, `DISALLOWED_NUMBER_TYPE`, `INVALID_DOMESTIC_PHONE_NUMBER_FORMAT`, `VANITY_PHONE_NUMBER_NOT_ALLOWED`, `INVALID_CALL_CONVERSION_ACTION`, `CUSTOMER_NOT_ON_ALLOWLIST_FOR_CALLTRACKING`, `CALLTRACKING_NOT_SUPPORTED_FOR_COUNTRY`, `CUSTOMER_CONSENT_FOR_CALL_RECORDING_REQUIRED`, `INVALID_APP_ID`, `QUOTES_IN_REVIEW_EXTENSION_SNIPPET`, `HYPHENS_IN_REVIEW_EXTENSION_SNIPPET`, `REVIEW_EXTENSION_SOURCE_INELIGIBLE`, `SOURCE_NAME_IN_REVIEW_EXTENSION_TEXT`, `INCONSISTENT_CURRENCY_CODES`, `PRICE_EXTENSION_HAS_DUPLICATED_HEADERS`, `PRICE_ITEM_HAS_DUPLICATED_HEADER_AND_DESCRIPTION`, `PRICE_EXTENSION_HAS_TOO_FEW_ITEMS`, `PRICE_EXTENSION_HAS_TOO_MANY_ITEMS`, `UNSUPPORTED_VALUE`, `UNSUPPORTED_VALUE_IN_SELECTED_LANGUAGE`, `INVALID_DEVICE_PREFERENCE`, `INVALID_SCHEDULE_END`, `DATE_TIME_MUST_BE_IN_ACCOUNT_TIME_ZONE`, `INVALID_SNIPPETS_HEADER`, `CANNOT_OPERATE_ON_REMOVED_FEED_ITEM`, `PHONE_NUMBER_NOT_SUPPORTED_WITH_CALLTRACKING_FOR_COUNTRY`, `CONFLICTING_CALL_CONVERSION_SETTINGS`, `EXTENSION_TYPE_MISMATCH`, `EXTENSION_SUBTYPE_REQUIRED`, `EXTENSION_TYPE_UNSUPPORTED`, `CANNOT_OPERATE_ON_FEED_WITH_MULTIPLE_MAPPINGS`, `CANNOT_OPERATE_ON_FEED_WITH_KEY_ATTRIBUTES`, `INVALID_PRICE_FORMAT`, `PROMOTION_INVALID_TIME`, `TOO_MANY_DECIMAL_PLACES_SPECIFIED`, `CONCRETE_EXTENSION_TYPE_REQUIRED`, `SCHEDULE_END_NOT_AFTER_START`
+
+## ExtensionFeedItemErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExtensionSettingError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EXTENSIONS_REQUIRED`, `FEED_TYPE_EXTENSION_TYPE_MISMATCH`, `INVALID_FEED_TYPE`, `INVALID_FEED_TYPE_FOR_CUSTOMER_EXTENSION_SETTING`, `CANNOT_CHANGE_FEED_ITEM_ON_CREATE`, `CANNOT_UPDATE_NEWLY_CREATED_EXTENSION`, `NO_EXISTING_AD_GROUP_EXTENSION_SETTING_FOR_TYPE`, `NO_EXISTING_CAMPAIGN_EXTENSION_SETTING_FOR_TYPE`, `NO_EXISTING_CUSTOMER_EXTENSION_SETTING_FOR_TYPE`, `AD_GROUP_EXTENSION_SETTING_ALREADY_EXISTS`, `CAMPAIGN_EXTENSION_SETTING_ALREADY_EXISTS`, `CUSTOMER_EXTENSION_SETTING_ALREADY_EXISTS`, `AD_GROUP_FEED_ALREADY_EXISTS_FOR_PLACEHOLDER_TYPE`, `CAMPAIGN_FEED_ALREADY_EXISTS_FOR_PLACEHOLDER_TYPE`, `CUSTOMER_FEED_ALREADY_EXISTS_FOR_PLACEHOLDER_TYPE`, `VALUE_OUT_OF_RANGE`, `CANNOT_SET_FIELD_WITH_FINAL_URLS`, `FINAL_URLS_NOT_SET`, `INVALID_PHONE_NUMBER`, `PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY`, `CARRIER_SPECIFIC_SHORT_NUMBER_NOT_ALLOWED`, `PREMIUM_RATE_NUMBER_NOT_ALLOWED`, `DISALLOWED_NUMBER_TYPE`, `INVALID_DOMESTIC_PHONE_NUMBER_FORMAT`, `VANITY_PHONE_NUMBER_NOT_ALLOWED`, `INVALID_COUNTRY_CODE`, `INVALID_CALL_CONVERSION_TYPE_ID`, `CUSTOMER_NOT_IN_ALLOWLIST_FOR_CALLTRACKING`, `CALLTRACKING_NOT_SUPPORTED_FOR_COUNTRY`, `INVALID_APP_ID`, `QUOTES_IN_REVIEW_EXTENSION_SNIPPET`, `HYPHENS_IN_REVIEW_EXTENSION_SNIPPET`, `REVIEW_EXTENSION_SOURCE_NOT_ELIGIBLE`, `SOURCE_NAME_IN_REVIEW_EXTENSION_TEXT`, `MISSING_FIELD`, `INCONSISTENT_CURRENCY_CODES`, `PRICE_EXTENSION_HAS_DUPLICATED_HEADERS`, `PRICE_ITEM_HAS_DUPLICATED_HEADER_AND_DESCRIPTION`, `PRICE_EXTENSION_HAS_TOO_FEW_ITEMS`, `PRICE_EXTENSION_HAS_TOO_MANY_ITEMS`, `UNSUPPORTED_VALUE`, `INVALID_DEVICE_PREFERENCE`, `INVALID_SCHEDULE_END`, `DATE_TIME_MUST_BE_IN_ACCOUNT_TIME_ZONE`, `OVERLAPPING_SCHEDULES_NOT_ALLOWED`, `SCHEDULE_END_NOT_AFTER_START`, `TOO_MANY_SCHEDULES_PER_DAY`, `DUPLICATE_EXTENSION_FEED_ITEM_EDIT`, `INVALID_SNIPPETS_HEADER`, `PHONE_NUMBER_NOT_SUPPORTED_WITH_CALLTRACKING_FOR_COUNTRY`, `CAMPAIGN_TARGETING_MISMATCH`, `CANNOT_OPERATE_ON_REMOVED_FEED`, `EXTENSION_TYPE_REQUIRED`, `INCOMPATIBLE_UNDERLYING_MATCHING_FUNCTION`, `START_DATE_AFTER_END_DATE`, `INVALID_PRICE_FORMAT`, `PROMOTION_INVALID_TIME`, `PROMOTION_CANNOT_SET_PERCENT_DISCOUNT_AND_MONEY_DISCOUNT`, `PROMOTION_CANNOT_SET_PROMOTION_CODE_AND_ORDERS_OVER_AMOUNT`, `TOO_MANY_DECIMAL_PLACES_SPECIFIED`, `INVALID_LANGUAGE_CODE`, `UNSUPPORTED_LANGUAGE`, `CUSTOMER_CONSENT_FOR_CALL_RECORDING_REQUIRED`, `EXTENSION_SETTING_UPDATE_IS_A_NOOP`, `DISALLOWED_TEXT`
+
+## ExtensionSettingErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ExternalAttributionData
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `external_attribution_credit` | `external_attribution_credit` | `number` | No | No | — |
+| `external_attribution_model` | `external_attribution_model` | `string` | No | No | — |
+
+## ExternalConversionSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WEBPAGE`, `ANALYTICS`, `UPLOAD`, `AD_CALL_METRICS`, `WEBSITE_CALL_METRICS`, `STORE_VISITS`, `ANDROID_IN_APP`, `IOS_IN_APP`, `IOS_FIRST_OPEN`, `APP_UNSPECIFIED`, `ANDROID_FIRST_OPEN`, `UPLOAD_CALLS`, `FIREBASE`, `CLICK_TO_CALL`, `SALESFORCE`, `STORE_SALES_CRM`, `STORE_SALES_PAYMENT_NETWORK`, `GOOGLE_PLAY`, `THIRD_PARTY_APP_ANALYTICS`, `GOOGLE_ATTRIBUTION`, `STORE_SALES_DIRECT_UPLOAD`, `STORE_SALES`, `SEARCH_ADS_360`, `GOOGLE_HOSTED`, `FLOODLIGHT`, `ANALYTICS_SEARCH_ADS_360`, `FIREBASE_SEARCH_ADS_360`, `DISPLAY_AND_VIDEO_360_FLOODLIGHT`
+
+## ExternalConversionSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FacebookMessengerBusinessMessageInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_name` | `page_name` | `string` | No | No | — |
+
+## FeedAttributeReferenceError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_REFERENCE_REMOVED_FEED`, `INVALID_FEED_NAME`, `INVALID_FEED_ATTRIBUTE_NAME`
+
+## FeedAttributeReferenceErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ATTRIBUTE_NAMES_NOT_UNIQUE`, `ATTRIBUTES_DO_NOT_MATCH_EXISTING_ATTRIBUTES`, `CANNOT_SPECIFY_USER_ORIGIN_FOR_SYSTEM_FEED`, `CANNOT_SPECIFY_GOOGLE_ORIGIN_FOR_NON_SYSTEM_FEED`, `CANNOT_SPECIFY_FEED_ATTRIBUTES_FOR_SYSTEM_FEED`, `CANNOT_UPDATE_FEED_ATTRIBUTES_WITH_ORIGIN_GOOGLE`, `FEED_REMOVED`, `INVALID_ORIGIN_VALUE`, `FEED_ORIGIN_IS_NOT_USER`, `INVALID_AUTH_TOKEN_FOR_EMAIL`, `INVALID_EMAIL`, `DUPLICATE_FEED_NAME`, `INVALID_FEED_NAME`, `MISSING_OAUTH_INFO`, `NEW_ATTRIBUTE_CANNOT_BE_PART_OF_UNIQUE_KEY`, `TOO_MANY_ATTRIBUTES`, `INVALID_BUSINESS_ACCOUNT`, `BUSINESS_ACCOUNT_CANNOT_ACCESS_LOCATION_ACCOUNT`, `INVALID_AFFILIATE_CHAIN_ID`, `DUPLICATE_SYSTEM_FEED`, `GMB_ACCESS_ERROR`, `CANNOT_HAVE_LOCATION_AND_AFFILIATE_LOCATION_FEEDS`, `LEGACY_EXTENSION_TYPE_READ_ONLY`
+
+## FeedErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedItemError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CANNOT_CONVERT_ATTRIBUTE_VALUE_FROM_STRING`, `CANNOT_OPERATE_ON_REMOVED_FEED_ITEM`, `DATE_TIME_MUST_BE_IN_ACCOUNT_TIME_ZONE`, `KEY_ATTRIBUTES_NOT_FOUND`, `INVALID_URL`, `MISSING_KEY_ATTRIBUTES`, `KEY_ATTRIBUTES_NOT_UNIQUE`, `CANNOT_MODIFY_KEY_ATTRIBUTE_VALUE`, `SIZE_TOO_LARGE_FOR_MULTI_VALUE_ATTRIBUTE`, `LEGACY_FEED_TYPE_READ_ONLY`
+
+## FeedItemErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedItemSetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FEED_ITEM_SET_REMOVED`, `CANNOT_CLEAR_DYNAMIC_FILTER`, `CANNOT_CREATE_DYNAMIC_FILTER`, `INVALID_FEED_TYPE`, `DUPLICATE_NAME`, `WRONG_DYNAMIC_FILTER_FOR_FEED_TYPE`, `DYNAMIC_FILTER_INVALID_CHAIN_IDS`
+
+## FeedItemSetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedItemSetLinkError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `FEED_ID_MISMATCH`, `NO_MUTATE_ALLOWED_FOR_DYNAMIC_SET`
+
+## FeedItemSetLinkErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedItemTargetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MUST_SET_TARGET_ONEOF_ON_CREATE`, `FEED_ITEM_TARGET_ALREADY_EXISTS`, `FEED_ITEM_SCHEDULES_CANNOT_OVERLAP`, `TARGET_LIMIT_EXCEEDED_FOR_GIVEN_TYPE`, `TOO_MANY_SCHEDULES_PER_DAY`, `CANNOT_HAVE_ENABLED_CAMPAIGN_AND_ENABLED_AD_GROUP_TARGETS`, `DUPLICATE_AD_SCHEDULE`, `DUPLICATE_KEYWORD`
+
+## FeedItemTargetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedItemValidationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `STRING_TOO_SHORT`, `STRING_TOO_LONG`, `VALUE_NOT_SPECIFIED`, `INVALID_DOMESTIC_PHONE_NUMBER_FORMAT`, `INVALID_PHONE_NUMBER`, `PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY`, `PREMIUM_RATE_NUMBER_NOT_ALLOWED`, `DISALLOWED_NUMBER_TYPE`, `VALUE_OUT_OF_RANGE`, `CALLTRACKING_NOT_SUPPORTED_FOR_COUNTRY`, `CUSTOMER_NOT_IN_ALLOWLIST_FOR_CALLTRACKING`, `INVALID_COUNTRY_CODE`, `INVALID_APP_ID`, `MISSING_ATTRIBUTES_FOR_FIELDS`, `INVALID_TYPE_ID`, `INVALID_EMAIL_ADDRESS`, `INVALID_HTTPS_URL`, `MISSING_DELIVERY_ADDRESS`, `START_DATE_AFTER_END_DATE`, `MISSING_FEED_ITEM_START_TIME`, `MISSING_FEED_ITEM_END_TIME`, `MISSING_FEED_ITEM_ID`, `VANITY_PHONE_NUMBER_NOT_ALLOWED`, `INVALID_REVIEW_EXTENSION_SNIPPET`, `INVALID_NUMBER_FORMAT`, `INVALID_DATE_FORMAT`, `INVALID_PRICE_FORMAT`, `UNKNOWN_PLACEHOLDER_FIELD`, `MISSING_ENHANCED_SITELINK_DESCRIPTION_LINE`, `REVIEW_EXTENSION_SOURCE_INELIGIBLE`, `HYPHENS_IN_REVIEW_EXTENSION_SNIPPET`, `DOUBLE_QUOTES_IN_REVIEW_EXTENSION_SNIPPET`, `QUOTES_IN_REVIEW_EXTENSION_SNIPPET`, `INVALID_FORM_ENCODED_PARAMS`, `INVALID_URL_PARAMETER_NAME`, `NO_GEOCODING_RESULT`, `SOURCE_NAME_IN_REVIEW_EXTENSION_TEXT`, `CARRIER_SPECIFIC_SHORT_NUMBER_NOT_ALLOWED`, `INVALID_PLACEHOLDER_FIELD_ID`, `INVALID_URL_TAG`, `LIST_TOO_LONG`, `INVALID_ATTRIBUTES_COMBINATION`, `DUPLICATE_VALUES`, `INVALID_CALL_CONVERSION_ACTION_ID`, `CANNOT_SET_WITHOUT_FINAL_URLS`, `APP_ID_DOESNT_EXIST_IN_APP_STORE`, `INVALID_FINAL_URL`, `INVALID_TRACKING_URL`, `INVALID_FINAL_URL_FOR_APP_DOWNLOAD_URL`, `LIST_TOO_SHORT`, `INVALID_USER_ACTION`, `INVALID_TYPE_NAME`, `INVALID_EVENT_CHANGE_STATUS`, `INVALID_SNIPPETS_HEADER`, `INVALID_ANDROID_APP_LINK`, `NUMBER_TYPE_WITH_CALLTRACKING_NOT_SUPPORTED_FOR_COUNTRY`, `RESERVED_KEYWORD_OTHER`, `DUPLICATE_OPTION_LABELS`, `DUPLICATE_OPTION_PREFILLS`, `UNEQUAL_LIST_LENGTHS`, `INCONSISTENT_CURRENCY_CODES`, `PRICE_EXTENSION_HAS_DUPLICATED_HEADERS`, `ITEM_HAS_DUPLICATED_HEADER_AND_DESCRIPTION`, `PRICE_EXTENSION_HAS_TOO_FEW_ITEMS`, `UNSUPPORTED_VALUE`, `INVALID_FINAL_MOBILE_URL`, `INVALID_KEYWORDLESS_AD_RULE_LABEL`, `VALUE_TRACK_PARAMETER_NOT_SUPPORTED`, `UNSUPPORTED_VALUE_IN_SELECTED_LANGUAGE`, `INVALID_IOS_APP_LINK`, `MISSING_IOS_APP_LINK_OR_IOS_APP_STORE_ID`, `PROMOTION_INVALID_TIME`, `PROMOTION_CANNOT_SET_PERCENT_OFF_AND_MONEY_AMOUNT_OFF`, `PROMOTION_CANNOT_SET_PROMOTION_CODE_AND_ORDERS_OVER_AMOUNT`, `TOO_MANY_DECIMAL_PLACES_SPECIFIED`, `AD_CUSTOMIZERS_NOT_ALLOWED`, `INVALID_LANGUAGE_CODE`, `UNSUPPORTED_LANGUAGE`, `IF_FUNCTION_NOT_ALLOWED`, `INVALID_FINAL_URL_SUFFIX`, `INVALID_TAG_IN_FINAL_URL_SUFFIX`, `INVALID_FINAL_URL_SUFFIX_FORMAT`, `CUSTOMER_CONSENT_FOR_CALL_RECORDING_REQUIRED`, `ONLY_ONE_DELIVERY_OPTION_IS_ALLOWED`, `NO_DELIVERY_OPTION_IS_SET`, `INVALID_CONVERSION_REPORTING_STATE`, `IMAGE_SIZE_WRONG`, `EMAIL_DELIVERY_NOT_AVAILABLE_IN_COUNTRY`, `AUTO_REPLY_NOT_AVAILABLE_IN_COUNTRY`, `INVALID_LATITUDE_VALUE`, `INVALID_LONGITUDE_VALUE`, `TOO_MANY_LABELS`, `INVALID_IMAGE_URL`, `MISSING_LATITUDE_VALUE`, `MISSING_LONGITUDE_VALUE`, `ADDRESS_NOT_FOUND`, `ADDRESS_NOT_TARGETABLE`, `INVALID_ASSET_ID`, `INCOMPATIBLE_ASSET_TYPE`, `IMAGE_ERROR_UNEXPECTED_SIZE`, `IMAGE_ERROR_ASPECT_RATIO_NOT_ALLOWED`, `IMAGE_ERROR_FILE_TOO_LARGE`, `IMAGE_ERROR_FORMAT_NOT_ALLOWED`, `IMAGE_ERROR_CONSTRAINTS_VIOLATED`, `IMAGE_ERROR_SERVER_ERROR`
+
+## FeedItemValidationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## FeedMappingError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_PLACEHOLDER_FIELD`, `INVALID_CRITERION_FIELD`, `INVALID_PLACEHOLDER_TYPE`, `INVALID_CRITERION_TYPE`, `NO_ATTRIBUTE_FIELD_MAPPINGS`, `FEED_ATTRIBUTE_TYPE_MISMATCH`, `CANNOT_OPERATE_ON_MAPPINGS_FOR_SYSTEM_GENERATED_FEED`, `MULTIPLE_MAPPINGS_FOR_PLACEHOLDER_TYPE`, `MULTIPLE_MAPPINGS_FOR_CRITERION_TYPE`, `MULTIPLE_MAPPINGS_FOR_PLACEHOLDER_FIELD`, `MULTIPLE_MAPPINGS_FOR_CRITERION_FIELD`, `UNEXPECTED_ATTRIBUTE_FIELD_MAPPINGS`, `LOCATION_PLACEHOLDER_ONLY_FOR_PLACES_FEEDS`, `CANNOT_MODIFY_MAPPINGS_FOR_TYPED_FEED`, `INVALID_PLACEHOLDER_TYPE_FOR_NON_SYSTEM_GENERATED_FEED`, `INVALID_PLACEHOLDER_TYPE_FOR_SYSTEM_GENERATED_FEED_TYPE`, `ATTRIBUTE_FIELD_MAPPING_MISSING_FIELD`, `LEGACY_FEED_TYPE_READ_ONLY`
+
+## FeedMappingErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

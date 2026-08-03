@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "platform": "youtube",
+  "version": "v3",
+  "endpointCount": 33,
+  "modelCount": 207,
+  "capabilityCount": 16,
+  "endpointPages": [
+    "endpoints/captions",
+    "endpoints/channels",
+    "endpoints/comment-threads",
+    "endpoints/comments",
+    "endpoints/playlist-items",
+    "endpoints/playlists",
+    "endpoints/search",
+    "endpoints/thumbnails",
+    "endpoints/videos"
+  ],
+  "modelPages": [
+    "models/abuse-report-to-live-chat-moderator-snippet",
+    "models/live-chat-new-sponsor-details-to-video-stats-snippet",
+    "models/video-stats-statistics-to-watch-settings"
+  ]
+}

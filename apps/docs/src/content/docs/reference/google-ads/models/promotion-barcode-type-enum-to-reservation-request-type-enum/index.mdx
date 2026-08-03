@@ -1,0 +1,842 @@
+---
+title: "Google Ads models: Promotion Barcode Type Enum – Reservation Request Type Enum"
+description: "100 generated Google Ads model contracts, from PromotionBarcodeTypeEnum through ReservationRequestTypeEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1020
+  label: "Promotion Barcode Type Enum – Reservation Request Type Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## PromotionBarcodeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PromotionExtensionDiscountModifier
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `UP_TO`
+
+## PromotionExtensionDiscountModifierEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PromotionExtensionOccasion
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW_YEARS`, `CHINESE_NEW_YEAR`, `VALENTINES_DAY`, `EASTER`, `MOTHERS_DAY`, `FATHERS_DAY`, `LABOR_DAY`, `BACK_TO_SCHOOL`, `HALLOWEEN`, `BLACK_FRIDAY`, `CYBER_MONDAY`, `CHRISTMAS`, `BOXING_DAY`, `INDEPENDENCE_DAY`, `NATIONAL_DAY`, `END_OF_SEASON`, `WINTER_SALE`, `SUMMER_SALE`, `FALL_SALE`, `SPRING_SALE`, `RAMADAN`, `EID_AL_FITR`, `EID_AL_ADHA`, `SINGLES_DAY`, `WOMENS_DAY`, `HOLI`, `PARENTS_DAY`, `ST_NICHOLAS_DAY`, `CARNIVAL`, `EPIPHANY`, `ROSH_HASHANAH`, `PASSOVER`, `HANUKKAH`, `DIWALI`, `NAVRATRI`, `SONGKRAN`, `YEAR_END_GIFT`
+
+## PromotionExtensionOccasionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## PromotionQrCodeInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `qr_code_content` | `qr_code_content` | `string` | No | No | — |
+
+## ProvideLeadFeedbackRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `survey_answer` | `survey_answer` | `SurveyAnswer` | No | No | — |
+| `survey_satisfied` | `survey_satisfied` | `unknown` | No | No | — |
+| `survey_dissatisfied` | `survey_dissatisfied` | `unknown` | No | No | — |
+
+## ProvideLeadFeedbackResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `credit_issuance_decision` | `credit_issuance_decision` | `CreditIssuanceDecision` | No | No | — |
+
+## ProximityInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_point` | `geo_point` | `unknown` | No | No | — |
+| `radius` | `radius` | `number` | No | No | — |
+| `radius_units` | `radius_units` | `ProximityRadiusUnits` | No | No | — |
+| `address` | `address` | `unknown` | No | No | — |
+
+## ProximityRadiusUnits
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MILES`, `KILOMETERS`
+
+## ProximityRadiusUnitsEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## QualifyingQuestion
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `qualifying_question_id` | `qualifying_question_id` | `string` | No | No | — |
+| `locale` | `locale` | `string` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+
+## QualityInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `quality_score` | `quality_score` | `integer` | No | No | — |
+| `creative_quality_score` | `creative_quality_score` | `QualityScoreBucket` | No | No | — |
+| `post_click_quality_score` | `post_click_quality_score` | `QualityScoreBucket` | No | No | — |
+| `search_predicted_ctr` | `search_predicted_ctr` | `QualityScoreBucket` | No | No | — |
+
+## QualityScoreBucket
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BELOW_AVERAGE`, `AVERAGE`, `ABOVE_AVERAGE`
+
+## QualityScoreBucketEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## QueryError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `QUERY_ERROR`, `BAD_ENUM_CONSTANT`, `BAD_ESCAPE_SEQUENCE`, `BAD_FIELD_NAME`, `BAD_LIMIT_VALUE`, `BAD_NUMBER`, `BAD_OPERATOR`, `BAD_PARAMETER_NAME`, `BAD_PARAMETER_VALUE`, `BAD_RESOURCE_TYPE_IN_FROM_CLAUSE`, `BAD_SYMBOL`, `BAD_VALUE`, `DATE_RANGE_TOO_WIDE`, `DATE_RANGE_TOO_NARROW`, `EXPECTED_AND`, `EXPECTED_BY`, `EXPECTED_DIMENSION_FIELD_IN_SELECT_CLAUSE`, `EXPECTED_FILTERS_ON_DATE_RANGE`, `EXPECTED_FROM`, `EXPECTED_LIST`, `EXPECTED_REFERENCED_FIELD_IN_SELECT_CLAUSE`, `EXPECTED_SELECT`, `EXPECTED_SINGLE_VALUE`, `EXPECTED_VALUE_WITH_BETWEEN_OPERATOR`, `INVALID_DATE_FORMAT`, `MISALIGNED_DATE_FOR_FILTER`, `INVALID_STRING_VALUE`, `INVALID_VALUE_WITH_BETWEEN_OPERATOR`, `INVALID_VALUE_WITH_DURING_OPERATOR`, `INVALID_VALUE_WITH_LIKE_OPERATOR`, `OPERATOR_FIELD_MISMATCH`, `PROHIBITED_EMPTY_LIST_IN_CONDITION`, `PROHIBITED_ENUM_CONSTANT`, `PROHIBITED_FIELD_COMBINATION_IN_SELECT_CLAUSE`, `PROHIBITED_FIELD_IN_ORDER_BY_CLAUSE`, `PROHIBITED_FIELD_IN_SELECT_CLAUSE`, `PROHIBITED_FIELD_IN_WHERE_CLAUSE`, `PROHIBITED_RESOURCE_TYPE_IN_FROM_CLAUSE`, `PROHIBITED_RESOURCE_TYPE_IN_SELECT_CLAUSE`, `PROHIBITED_RESOURCE_TYPE_IN_WHERE_CLAUSE`, `PROHIBITED_METRIC_IN_SELECT_OR_WHERE_CLAUSE`, `PROHIBITED_SEGMENT_IN_SELECT_OR_WHERE_CLAUSE`, `PROHIBITED_SEGMENT_WITH_METRIC_IN_SELECT_OR_WHERE_CLAUSE`, `PROHIBITED_FIELD_OR_SEGMENT_WITH_METRIC`, `LIMIT_VALUE_TOO_LOW`, `PROHIBITED_NEWLINE_IN_STRING`, `PROHIBITED_VALUE_COMBINATION_IN_LIST`, `PROHIBITED_VALUE_COMBINATION_WITH_BETWEEN_OPERATOR`, `STRING_NOT_TERMINATED`, `TOO_MANY_SEGMENTS`, `UNEXPECTED_END_OF_QUERY`, `UNEXPECTED_FROM_CLAUSE`, `UNRECOGNIZED_FIELD`, `UNEXPECTED_INPUT`, `REQUESTED_METRICS_FOR_MANAGER`, `FILTER_HAS_TOO_MANY_VALUES`, `REQUIRED_SEGMENT_FIELD_MISSING`
+
+## QueryErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## QuotaError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `RESOURCE_EXHAUSTED`, `ACCESS_PROHIBITED`, `RESOURCE_TEMPORARILY_EXHAUSTED`, `EXCESSIVE_SHORT_TERM_QUERY_RESOURCE_CONSUMPTION`, `EXCESSIVE_LONG_TERM_QUERY_RESOURCE_CONSUMPTION`, `PAYMENTS_PROFILE_ACTIVATION_RATE_LIMIT_EXCEEDED`
+
+## QuotaErrorDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rate_scope` | `rate_scope` | `unknown` | No | No | — |
+| `rate_name` | `rate_name` | `string` | No | No | — |
+| `retry_delay` | `retry_delay` | `unknown` | No | No | — |
+
+## QuotaErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## QuotaRateScope
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ACCOUNT`, `DEVELOPER`
+
+## QuoteCampaignsOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<unknown>` | No | No | — |
+| `quote_signature` | `quote_signature` | `string` | No | No | — |
+
+## QuoteCampaignsOperation_Campaign
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+
+## QuoteCampaignsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operation` | `operation` | `QuoteCampaignsOperation` | No | No | — |
+
+## QuoteCampaignsResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result` | `result` | `QuoteCampaignsResult` | No | No | — |
+
+## QuoteCampaignsResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `quotes` | `quotes` | `Array<CampaignReservationQuote>` | No | No | — |
+| `quote_signature` | `quote_signature` | `string` | No | No | — |
+
+## RaiseTargetCpaBidTooLowParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_multiplier` | `target_multiplier` | `number` | No | No | — |
+
+## RaiseTargetCpaBidTooLowRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_target_multiplier` | `recommended_target_multiplier` | `number` | No | No | — |
+| `average_target_cpa_micros` | `average_target_cpa_micros` | `string` | No | No | — |
+
+## RaiseTargetCpaParameters
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_cpa_multiplier` | `target_cpa_multiplier` | `number` | No | No | — |
+
+## RaiseTargetCpaRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `target_adjustment` | `target_adjustment` | `unknown` | No | No | — |
+| `app_bidding_goal` | `app_bidding_goal` | `AppBiddingGoal` | No | No | — |
+
+## RangeError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TOO_LOW`, `TOO_HIGH`
+
+## RangeErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RateMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `average_cpm` | `average_cpm` | `number` | No | No | — |
+| `average_active_view_cpm` | `average_active_view_cpm` | `number` | No | No | — |
+| `trueview_average_cpv` | `trueview_average_cpv` | `number` | No | No | — |
+| `average_cpc` | `average_cpc` | `number` | No | No | — |
+| `average_cpi` | `average_cpi` | `number` | No | No | — |
+| `average_cpe` | `average_cpe` | `number` | No | No | — |
+| `interaction_rate` | `interaction_rate` | `number` | No | No | — |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | — |
+| `active_view_viewability` | `active_view_viewability` | `number` | No | No | — |
+| `trueview_view_rate` | `trueview_view_rate` | `number` | No | No | — |
+| `click_through_rate` | `click_through_rate` | `number` | No | No | — |
+| `video_completion_p25_rate` | `video_completion_p25_rate` | `number` | No | No | — |
+| `video_completion_p50_rate` | `video_completion_p50_rate` | `number` | No | No | — |
+| `video_completion_p75_rate` | `video_completion_p75_rate` | `number` | No | No | — |
+| `video_completion_p100_rate` | `video_completion_p100_rate` | `number` | No | No | — |
+
+## ReachCurve
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reach_forecasts` | `reach_forecasts` | `Array<unknown>` | No | No | — |
+
+## ReachForecast
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `forecast` | `forecast` | `unknown` | No | No | — |
+| `planned_product_reach_forecasts` | `planned_product_reach_forecasts` | `Array<unknown>` | No | No | — |
+
+## ReachPlanAgeRange
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AGE_RANGE_18_24`, `AGE_RANGE_18_34`, `AGE_RANGE_18_44`, `AGE_RANGE_18_49`, `AGE_RANGE_18_54`, `AGE_RANGE_18_64`, `AGE_RANGE_18_65_UP`, `AGE_RANGE_21_34`, `AGE_RANGE_21_44`, `AGE_RANGE_21_49`, `AGE_RANGE_21_54`, `AGE_RANGE_21_64`, `AGE_RANGE_21_65_UP`, `AGE_RANGE_25_34`, `AGE_RANGE_25_44`, `AGE_RANGE_25_49`, `AGE_RANGE_25_54`, `AGE_RANGE_25_64`, `AGE_RANGE_25_65_UP`, `AGE_RANGE_35_44`, `AGE_RANGE_35_49`, `AGE_RANGE_35_54`, `AGE_RANGE_35_64`, `AGE_RANGE_35_65_UP`, `AGE_RANGE_45_54`, `AGE_RANGE_45_64`, `AGE_RANGE_45_65_UP`, `AGE_RANGE_50_65_UP`, `AGE_RANGE_55_64`, `AGE_RANGE_55_65_UP`, `AGE_RANGE_65_UP`
+
+## ReachPlanAgeRangeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanBuyingMethod
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AUCTION`, `RESERVATION`
+
+## ReachPlanBuyingMethodEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanConversionRateModel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER_HISTORY`, `INVENTORY_AGGRESSIVE`, `INVENTORY_CONSERVATIVE`, `INVENTORY_MEDIAN`
+
+## ReachPlanConversionRateModelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanCostModel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CPM`, `CPV`, `CPC`, `CPA`
+
+## ReachPlanCostModelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NOT_FORECASTABLE_MISSING_RATE`, `NOT_FORECASTABLE_NOT_ENOUGH_INVENTORY`, `NOT_FORECASTABLE_ACCOUNT_NOT_ENABLED`
+
+## ReachPlanErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanMarketingObjective
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AWARENESS`, `CONSIDERATION`, `ACTION`
+
+## ReachPlanMarketingObjectiveEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanNetwork
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `YOUTUBE`, `GOOGLE_VIDEO_PARTNERS`, `YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS`
+
+## ReachPlanNetworkEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanPlannableUserListStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PLANNABLE`, `UNPLANNABLE`
+
+## ReachPlanPlannableUserListStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReachPlanSurface
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DISCOVER_FEED`, `GMAIL`, `IN_FEED`, `IN_STREAM_BUMPER`, `IN_STREAM_NON_SKIPPABLE`, `IN_STREAM_SKIPPABLE`, `SHORTS`, `GOOGLE_DISPLAY_NETWORK`, `IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS`
+
+## ReachPlanSurfaceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RealTimeBiddingSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `opt_in` | `opt_in` | `boolean` | No | No | — |
+
+## Reason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MERCHANT_CENTER_ACCOUNT_HAS_NO_SUBMITTED_PRODUCTS`, `MERCHANT_CENTER_ACCOUNT_HAS_NO_SUBMITTED_PRODUCTS_IN_FEED`, `ADS_ACCOUNT_EXCLUDES_OFFERS_FROM_CAMPAIGN`, `ALL_PRODUCTS_ARE_EXCLUDED_FROM_CAMPAIGN`
+
+## Recommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `type` | `type` | `RecommendationType` | No | No | — |
+| `impact` | `impact` | `unknown` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `ad_group` | `ad_group` | `string` | No | No | — |
+| `dismissed` | `dismissed` | `boolean` | No | No | — |
+| `campaigns` | `campaigns` | `Array<string>` | No | No | — |
+| `campaign_budget_recommendation` | `campaign_budget_recommendation` | `unknown` | No | No | — |
+| `forecasting_campaign_budget_recommendation` | `forecasting_campaign_budget_recommendation` | `unknown` | No | No | — |
+| `keyword_recommendation` | `keyword_recommendation` | `unknown` | No | No | — |
+| `text_ad_recommendation` | `text_ad_recommendation` | `unknown` | No | No | — |
+| `target_cpa_opt_in_recommendation` | `target_cpa_opt_in_recommendation` | `unknown` | No | No | — |
+| `maximize_conversions_opt_in_recommendation` | `maximize_conversions_opt_in_recommendation` | `unknown` | No | No | — |
+| `enhanced_cpc_opt_in_recommendation` | `enhanced_cpc_opt_in_recommendation` | `unknown` | No | No | — |
+| `search_partners_opt_in_recommendation` | `search_partners_opt_in_recommendation` | `unknown` | No | No | — |
+| `maximize_clicks_opt_in_recommendation` | `maximize_clicks_opt_in_recommendation` | `unknown` | No | No | — |
+| `optimize_ad_rotation_recommendation` | `optimize_ad_rotation_recommendation` | `unknown` | No | No | — |
+| `keyword_match_type_recommendation` | `keyword_match_type_recommendation` | `unknown` | No | No | — |
+| `move_unused_budget_recommendation` | `move_unused_budget_recommendation` | `unknown` | No | No | — |
+| `target_roas_opt_in_recommendation` | `target_roas_opt_in_recommendation` | `unknown` | No | No | — |
+| `responsive_search_ad_recommendation` | `responsive_search_ad_recommendation` | `unknown` | No | No | — |
+| `marginal_roi_campaign_budget_recommendation` | `marginal_roi_campaign_budget_recommendation` | `unknown` | No | No | — |
+| `use_broad_match_keyword_recommendation` | `use_broad_match_keyword_recommendation` | `unknown` | No | No | — |
+| `responsive_search_ad_asset_recommendation` | `responsive_search_ad_asset_recommendation` | `unknown` | No | No | — |
+| `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
+| `responsive_search_ad_improve_ad_strength_recommendation` | `responsive_search_ad_improve_ad_strength_recommendation` | `unknown` | No | No | — |
+| `display_expansion_opt_in_recommendation` | `display_expansion_opt_in_recommendation` | `unknown` | No | No | — |
+| `upgrade_local_campaign_to_performance_max_recommendation` | `upgrade_local_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
+| `raise_target_cpa_bid_too_low_recommendation` | `raise_target_cpa_bid_too_low_recommendation` | `unknown` | No | No | — |
+| `forecasting_set_target_roas_recommendation` | `forecasting_set_target_roas_recommendation` | `unknown` | No | No | — |
+| `callout_asset_recommendation` | `callout_asset_recommendation` | `unknown` | No | No | — |
+| `sitelink_asset_recommendation` | `sitelink_asset_recommendation` | `unknown` | No | No | — |
+| `call_asset_recommendation` | `call_asset_recommendation` | `unknown` | No | No | — |
+| `shopping_add_age_group_recommendation` | `shopping_add_age_group_recommendation` | `unknown` | No | No | — |
+| `shopping_add_color_recommendation` | `shopping_add_color_recommendation` | `unknown` | No | No | — |
+| `shopping_add_gender_recommendation` | `shopping_add_gender_recommendation` | `unknown` | No | No | — |
+| `shopping_add_gtin_recommendation` | `shopping_add_gtin_recommendation` | `unknown` | No | No | — |
+| `shopping_add_more_identifiers_recommendation` | `shopping_add_more_identifiers_recommendation` | `unknown` | No | No | — |
+| `shopping_add_size_recommendation` | `shopping_add_size_recommendation` | `unknown` | No | No | — |
+| `shopping_add_products_to_campaign_recommendation` | `shopping_add_products_to_campaign_recommendation` | `unknown` | No | No | — |
+| `shopping_fix_disapproved_products_recommendation` | `shopping_fix_disapproved_products_recommendation` | `unknown` | No | No | — |
+| `shopping_target_all_offers_recommendation` | `shopping_target_all_offers_recommendation` | `unknown` | No | No | — |
+| `shopping_fix_suspended_merchant_center_account_recommendation` | `shopping_fix_suspended_merchant_center_account_recommendation` | `unknown` | No | No | — |
+| `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `unknown` | No | No | — |
+| `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `unknown` | No | No | — |
+| `dynamic_image_extension_opt_in_recommendation` | `dynamic_image_extension_opt_in_recommendation` | `unknown` | No | No | — |
+| `raise_target_cpa_recommendation` | `raise_target_cpa_recommendation` | `unknown` | No | No | — |
+| `lower_target_roas_recommendation` | `lower_target_roas_recommendation` | `unknown` | No | No | — |
+| `performance_max_opt_in_recommendation` | `performance_max_opt_in_recommendation` | `unknown` | No | No | — |
+| `improve_performance_max_ad_strength_recommendation` | `improve_performance_max_ad_strength_recommendation` | `unknown` | No | No | — |
+| `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
+| `forecasting_set_target_cpa_recommendation` | `forecasting_set_target_cpa_recommendation` | `unknown` | No | No | — |
+| `set_target_cpa_recommendation` | `set_target_cpa_recommendation` | `unknown` | No | No | — |
+| `set_target_roas_recommendation` | `set_target_roas_recommendation` | `unknown` | No | No | — |
+| `maximize_conversion_value_opt_in_recommendation` | `maximize_conversion_value_opt_in_recommendation` | `unknown` | No | No | — |
+| `improve_google_tag_coverage_recommendation` | `improve_google_tag_coverage_recommendation` | `unknown` | No | No | — |
+| `performance_max_final_url_opt_in_recommendation` | `performance_max_final_url_opt_in_recommendation` | `unknown` | No | No | — |
+| `refresh_customer_match_list_recommendation` | `refresh_customer_match_list_recommendation` | `unknown` | No | No | — |
+| `custom_audience_opt_in_recommendation` | `custom_audience_opt_in_recommendation` | `unknown` | No | No | — |
+| `lead_form_asset_recommendation` | `lead_form_asset_recommendation` | `unknown` | No | No | — |
+| `improve_demand_gen_ad_strength_recommendation` | `improve_demand_gen_ad_strength_recommendation` | `unknown` | No | No | — |
+
+## Recommendation_CampaignBudget
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `current_amount_micros` | `current_amount_micros` | `string` | No | No | — |
+| `recommended_new_amount_micros` | `recommended_new_amount_micros` | `string` | No | No | — |
+| `new_start_date` | `new_start_date` | `string` | No | No | — |
+
+## RecommendationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BUDGET_AMOUNT_TOO_SMALL`, `BUDGET_AMOUNT_TOO_LARGE`, `INVALID_BUDGET_AMOUNT`, `POLICY_ERROR`, `INVALID_BID_AMOUNT`, `ADGROUP_KEYWORD_LIMIT`, `RECOMMENDATION_ALREADY_APPLIED`, `RECOMMENDATION_INVALIDATED`, `TOO_MANY_OPERATIONS`, `NO_OPERATIONS`, `DIFFERENT_TYPES_NOT_SUPPORTED`, `DUPLICATE_RESOURCE_NAME`, `RECOMMENDATION_ALREADY_DISMISSED`, `INVALID_APPLY_REQUEST`, `RECOMMENDATION_TYPE_APPLY_NOT_SUPPORTED`, `INVALID_MULTIPLIER`, `ADVERTISING_CHANNEL_TYPE_GENERATE_NOT_SUPPORTED`, `RECOMMENDATION_TYPE_GENERATE_NOT_SUPPORTED`, `RECOMMENDATION_TYPES_CANNOT_BE_EMPTY`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_BIDDING_INFO`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_BIDDING_STRATEGY_TYPE`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_ASSET_GROUP_INFO`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_ASSET_GROUP_INFO_WITH_FINAL_URL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_COUNTRY_CODES_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_INVALID_COUNTRY_CODE_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_LANGUAGE_CODES_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_EITHER_POSITIVE_OR_NEGATIVE_LOCATION_IDS_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_AD_GROUP_INFO_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_REQUIRES_KEYWORDS_FOR_SEARCH_CHANNEL`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_WITH_CHANNEL_TYPE_SEARCH_AND_BIDDING_STRATEGY_TYPE_TARGET_IMPRESSION_SHARE_REQUIRES_LOCATION`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_WITH_CHANNEL_TYPE_SEARCH_AND_BIDDING_STRATEGY_TYPE_TARGET_IMPRESSION_SHARE_REQUIRES_TARGET_IMPRESSION_SHARE_MICROS`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_TARGET_IMPRESSION_SHARE_MICROS_BETWEEN_1_AND_1000000`, `CAMPAIGN_BUDGET_RECOMMENDATION_TYPE_WITH_CHANNEL_TYPE_SEARCH_AND_BIDDING_STRATEGY_TYPE_TARGET_IMPRESSION_SHARE_REQUIRES_TARGET_IMPRESSION_SHARE_INFO`, `MERCHANT_CENTER_ACCOUNT_ID_NOT_SUPPORTED_ADVERTISING_CHANNEL_TYPE`
+
+## RecommendationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RecommendationImpact
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `base_metrics` | `base_metrics` | `unknown` | No | No | — |
+| `potential_metrics` | `potential_metrics` | `unknown` | No | No | — |
+
+## RecommendationMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `impressions` | `impressions` | `number` | No | No | — |
+| `clicks` | `clicks` | `number` | No | No | — |
+| `cost_micros` | `cost_micros` | `string` | No | No | — |
+| `conversions` | `conversions` | `number` | No | No | — |
+| `conversions_value` | `conversions_value` | `number` | No | No | — |
+| `video_views` | `video_views` | `number` | No | No | — |
+
+## RecommendationSubscription
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `type` | `type` | `RecommendationType` | No | No | — |
+| `create_date_time` | `create_date_time` | `string` | No | No | — |
+| `modify_date_time` | `modify_date_time` | `string` | No | No | — |
+| `status` | `status` | `RecommendationSubscriptionStatus` | No | No | — |
+
+## RecommendationSubscriptionError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`
+
+## RecommendationSubscriptionErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RecommendationSubscriptionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `RecommendationSubscription` | No | No | — |
+| `update` | `update` | `RecommendationSubscription` | No | No | — |
+
+## RecommendationSubscriptionStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`
+
+## RecommendationSubscriptionStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RecommendationType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CAMPAIGN_BUDGET`, `KEYWORD`, `TEXT_AD`, `TARGET_CPA_OPT_IN`, `MAXIMIZE_CONVERSIONS_OPT_IN`, `ENHANCED_CPC_OPT_IN`, `SEARCH_PARTNERS_OPT_IN`, `MAXIMIZE_CLICKS_OPT_IN`, `OPTIMIZE_AD_ROTATION`, `KEYWORD_MATCH_TYPE`, `MOVE_UNUSED_BUDGET`, `FORECASTING_CAMPAIGN_BUDGET`, `TARGET_ROAS_OPT_IN`, `RESPONSIVE_SEARCH_AD`, `MARGINAL_ROI_CAMPAIGN_BUDGET`, `USE_BROAD_MATCH_KEYWORD`, `RESPONSIVE_SEARCH_AD_ASSET`, `UPGRADE_SMART_SHOPPING_CAMPAIGN_TO_PERFORMANCE_MAX`, `RESPONSIVE_SEARCH_AD_IMPROVE_AD_STRENGTH`, `DISPLAY_EXPANSION_OPT_IN`, `UPGRADE_LOCAL_CAMPAIGN_TO_PERFORMANCE_MAX`, `RAISE_TARGET_CPA_BID_TOO_LOW`, `FORECASTING_SET_TARGET_ROAS`, `CALLOUT_ASSET`, `SITELINK_ASSET`, `CALL_ASSET`, `SHOPPING_ADD_AGE_GROUP`, `SHOPPING_ADD_COLOR`, `SHOPPING_ADD_GENDER`, `SHOPPING_ADD_GTIN`, `SHOPPING_ADD_MORE_IDENTIFIERS`, `SHOPPING_ADD_SIZE`, `SHOPPING_ADD_PRODUCTS_TO_CAMPAIGN`, `SHOPPING_FIX_DISAPPROVED_PRODUCTS`, `SHOPPING_TARGET_ALL_OFFERS`, `SHOPPING_FIX_SUSPENDED_MERCHANT_CENTER_ACCOUNT`, `SHOPPING_FIX_MERCHANT_CENTER_ACCOUNT_SUSPENSION_WARNING`, `SHOPPING_MIGRATE_REGULAR_SHOPPING_CAMPAIGN_OFFERS_TO_PERFORMANCE_MAX`, `DYNAMIC_IMAGE_EXTENSION_OPT_IN`, `RAISE_TARGET_CPA`, `LOWER_TARGET_ROAS`, `PERFORMANCE_MAX_OPT_IN`, `IMPROVE_PERFORMANCE_MAX_AD_STRENGTH`, `MIGRATE_DYNAMIC_SEARCH_ADS_CAMPAIGN_TO_PERFORMANCE_MAX`, `FORECASTING_SET_TARGET_CPA`, `SET_TARGET_CPA`, `SET_TARGET_ROAS`, `MAXIMIZE_CONVERSION_VALUE_OPT_IN`, `IMPROVE_GOOGLE_TAG_COVERAGE`, `PERFORMANCE_MAX_FINAL_URL_OPT_IN`, `REFRESH_CUSTOMER_MATCH_LIST`, `CUSTOM_AUDIENCE_OPT_IN`, `LEAD_FORM_ASSET`, `IMPROVE_DEMAND_GEN_AD_STRENGTH`
+
+## RecommendationTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RefreshCustomerMatchListRecommendation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_list_id` | `user_list_id` | `string` | No | No | — |
+| `user_list_name` | `user_list_name` | `string` | No | No | — |
+| `days_since_last_refresh` | `days_since_last_refresh` | `string` | No | No | — |
+| `top_spending_account` | `top_spending_account` | `Array<unknown>` | No | No | — |
+| `targeting_accounts_count` | `targeting_accounts_count` | `string` | No | No | — |
+| `owner_account` | `owner_account` | `unknown` | No | No | — |
+
+## RegenerateShareableLinkIdRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RegenerateShareableLinkIdResponse
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RegionCodeError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_REGION_CODE`
+
+## RegionCodeErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RegulatoryCostSummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `regulatory_fee_type` | `regulatory_fee_type` | `RegulatoryFeeType` | No | No | — |
+| `amount_micros` | `amount_micros` | `string` | No | No | — |
+
+## RegulatoryFeeType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `AUSTRIA_DST_FEE`, `TURKIYE_REGULATORY_OPERATING_COST`, `UK_DST_FEE`, `SPAIN_REGULATORY_OPERATING_COST`, `FRANCE_REGULATORY_OPERATING_COST`, `ITALY_REGULATORY_OPERATING_COST`, `INDIA_REGULATORY_OPERATING_COST`, `POLAND_REGULATORY_OPERATING_COST`, `OPERATING_CHARGES`, `CANADA_DST_FEE`
+
+## RegulatoryFeeTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## RemarketingAction
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `tag_snippets` | `tag_snippets` | `Array<TagSnippet>` | No | No | — |
+
+## RemarketingActionOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `RemarketingAction` | No | No | — |
+| `update` | `update` | `RemarketingAction` | No | No | — |
+
+## RemarketingSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `google_global_site_tag` | `google_global_site_tag` | `string` | No | No | — |
+
+## RemoveAutomaticallyCreatedAssetsRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
+| `assets_with_field_type` | `assets_with_field_type` | `Array<unknown>` | No | No | — |
+
+## RemoveCampaignAutomaticallyCreatedAssetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+
+## RemoveCampaignAutomaticallyCreatedAssetRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+
+## RemoveCampaignAutomaticallyCreatedAssetResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## RemoveDataLinkRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RemoveDataLinkResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RemoveProductLinkInvitationRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RemoveProductLinkInvitationResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RemoveProductLinkRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `validate_only` | `validate_only` | `boolean` | No | No | — |
+
+## RemoveProductLinkResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## RemoveYouTubeVideoUploadRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `resource_names` | `resource_names` | `Array<string>` | No | No | — |
+
+## RemoveYouTubeVideoUploadResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_names` | `resource_names` | `Array<string>` | No | No | — |
+
+## RequestError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `RESOURCE_NAME_MISSING`, `RESOURCE_NAME_MALFORMED`, `BAD_RESOURCE_ID`, `INVALID_CUSTOMER_ID`, `OPERATION_REQUIRED`, `RESOURCE_NOT_FOUND`, `INVALID_PAGE_TOKEN`, `EXPIRED_PAGE_TOKEN`, `INVALID_PAGE_SIZE`, `PAGE_SIZE_NOT_SUPPORTED`, `REQUIRED_FIELD_MISSING`, `IMMUTABLE_FIELD`, `TOO_MANY_MUTATE_OPERATIONS`, `TOO_MANY_ACTION_OPERATIONS`, `CANNOT_BE_EXECUTED_BY_MANAGER_ACCOUNT`, `CANNOT_MODIFY_FOREIGN_FIELD`, `INVALID_ENUM_VALUE`, `DEVELOPER_TOKEN_PARAMETER_MISSING`, `LOGIN_CUSTOMER_ID_PARAMETER_MISSING`, `VALIDATE_ONLY_REQUEST_HAS_PAGE_TOKEN`, `CANNOT_RETURN_SUMMARY_ROW_FOR_REQUEST_WITHOUT_METRICS`, `CANNOT_RETURN_SUMMARY_ROW_FOR_VALIDATE_ONLY_REQUESTS`, `INCONSISTENT_RETURN_SUMMARY_ROW_VALUE`, `TOTAL_RESULTS_COUNT_NOT_ORIGINALLY_REQUESTED`, `RPC_DEADLINE_TOO_SHORT`, `UNSUPPORTED_VERSION`, `CLOUD_PROJECT_NOT_FOUND`
+
+## RequestErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Requirement
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `spend` | `spend` | `unknown` | No | No | — |
+
+## ResellerConstraint
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ReservationAdCategorySelfDisclosure
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gambling` | `gambling` | `boolean` | No | No | — |
+| `alcohol` | `alcohol` | `boolean` | No | No | — |
+| `politics` | `politics` | `boolean` | No | No | — |
+
+## ReservationErrorDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `quotes` | `quotes` | `Array<CampaignReservationQuote>` | No | No | — |
+| `quote_signature` | `quote_signature` | `string` | No | No | — |
+
+## ReservationRequestType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `BOOK`, `HOLD`
+
+## ReservationRequestTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

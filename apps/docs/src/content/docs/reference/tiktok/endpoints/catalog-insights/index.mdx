@@ -1,0 +1,120 @@
+---
+title: "TikTok Business Catalog Insights endpoints"
+description: "3 generated TikTok Business endpoint contracts for Catalog Insights."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 127
+  label: "Catalog Insights"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogInsights.catalogInsightCategoryGet
+
+`GET` `/open_api/v1.3/catalog/insight/category/get/`
+
+Generated from TikTok documentation 1805640900563969
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogInsights.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogInsightCategoryGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filtering` | `query` | `CatalogInsightCategoryGetParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogInsights.catalogInsightFilterGet
+
+`GET` `/open_api/v1.3/catalog/insight/filter/get/`
+
+Generated from TikTok documentation 1805640864553985
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogInsights.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogInsightFilterGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filter_type` | `query` | `"CATEGORY_ID" \| "BRAND" \| "AVAILABILITY"` | Yes | No | The type of filter options. Enum values: `CATEGORY_ID`: Product category ID. `BRAND`: Product brand name. `AVAILABILITY`: Product availability status. |
+| `page` | `query` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-200. Note: The `page` and `page_size` parameters are provided to allow you to retrieve paginated results in smaller batches, if needed. However, note that this endpoint does not include pagination information in the response. If you don't want to retrieve paginated results, set `page_size` to 50 to obtain the complete set of results in a single response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogInsights.catalogInsightProductGet
+
+`GET` `/open_api/v1.3/catalog/insight/product/get/`
+
+Generated from TikTok documentation 1805640886872066
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogInsights.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogInsightProductGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filtering` | `query` | `CatalogInsightProductGetParamsFiltering` | No | No | Filtering conditions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

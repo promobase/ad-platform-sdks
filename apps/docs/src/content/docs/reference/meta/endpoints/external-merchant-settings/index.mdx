@@ -1,0 +1,46 @@
+---
+title: "Meta External Merchant Settings endpoints"
+description: "1 generated Meta endpoint contract for External Merchant Settings."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 251
+  label: "External Merchant Settings"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.externalMerchantSettings.get
+
+`GET` `/{id}`
+
+GET ExternalMerchantSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `externalMerchantSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ExternalMerchantSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

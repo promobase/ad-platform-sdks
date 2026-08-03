@@ -1,0 +1,88 @@
+---
+title: "TikTok Business TikTok Store endpoints"
+description: "2 generated TikTok Business endpoint contracts for TikTok Store."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 164
+  label: "TikTok Store"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.tikTokStore.storeList
+
+`GET` `/open_api/v1.3/store/list/`
+
+Generated from TikTok documentation 1752267762718722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokStore.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `StoreListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `store_id` | `query` | `string` | No | No | ID of the first-party store (TikTok Shop) that you want to filter by. If not specified, the results for all available `store_id` under the specified advertiser account will be returned. Note: To get the TikTok Shop ID, you can use [/bc/asset/get/](https://ads.tiktok.com/marketing_api/docs?id=1739432717798401):When in the response `asset_type` is `TIKTOK_SHOP`, the returned `asset_id` is the TikTok Shop ID. |
+| `store_type` | `query` | `string` | No | No | Store type that you want to filter by. Enum values: `TIKTOK_SHOP` (TikTok Shop) . If not specified, the results for all stores under the specified advertiser account will be returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.tikTokStore.storeProductGet
+
+`GET` `/open_api/v1.3/store/product/get/`
+
+Generated from TikTok documentation 1793482248880130
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `tikTokStore.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `StoreProductGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `store_id` | `query` | `string` | Yes | No | TikTok Shop ID. To obtain the ID list of TikTok Shops associated with an ad account, use [/store/list/](https://business-api.tiktok.com/portal/docs?id=1752267762718722). |
+| `filtering` | `query` | `StoreProductGetParamsFiltering` | No | No | Filtering conditions. |
+| `advertiser_id` | `query` | `string` | No | No | Required when `ad_creation_eligible` is passed. Advertiser ID. |
+| `sort_field` | `query` | `string` | No | No | Field to sort by. Enum values: `min_price`: the returned `min_price` field.`historical_sales`: the returned `historical_sales` field. |
+| `sort_type` | `query` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`: ascending. `DESC`: descending. |
+| `page` | `query` | `number` | No | No | Current number of pages. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: 1-100. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

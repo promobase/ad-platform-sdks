@@ -1,0 +1,79 @@
+---
+title: "Google Ads Local Services Lead endpoints"
+description: "2 generated Google Ads endpoint contracts for Local Services Lead."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 188
+  label: "Local Services Lead"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## googleAds.localServicesLead.appendLeadConversation
+
+`POST` `/v25/customers/{customer_id=*}/localServices:appendLeadConversation`
+
+LocalServicesLeadService.AppendLeadConversation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `localServicesLead.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `AppendLeadConversationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `AppendLeadConversationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## googleAds.localServicesLead.provideLeadFeedback
+
+`POST` `/v25/{resource_name=customers/*/localServicesLeads/*}:provideLeadFeedback`
+
+LocalServicesLeadService.ProvideLeadFeedback
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `localServicesLead.manage` |
+| Required scopes | `https://www.googleapis.com/auth/adwords` |
+| Rate-limit bucket | `google-ads-api` |
+| Output | `ProvideLeadFeedbackResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request` | `body` | `ProvideLeadFeedbackRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

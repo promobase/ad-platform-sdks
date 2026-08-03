@@ -1,0 +1,151 @@
+---
+title: "TikTok Business Verification endpoints"
+description: "4 generated TikTok Business endpoint contracts for Verification."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 168
+  label: "Verification"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.verification.accountVerificationFiletype
+
+`GET` `/open_api/v1.3/account/verification/filetype/`
+
+Generated from TikTok documentation 1870687810081794
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `verification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AccountVerificationFiletypeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_type` | `query` | `"BUSINESS" \| "INDIVIDUAL"` | Yes | No | The type of verification you want to perform. Enum values:`BUSINESS`: business verification.`INDIVIDUAL`: individual identity verification. |
+| `region_iso_code` | `query` | `string` | Yes | No | The country or region code for your business (Business Center account or ad account), in ISO 3166 format. Example: `US`. To retrieve the country or region code of your Business Center account, use [/bc/get/](https://business-api.tiktok.com/portal/docs/get-business-centers/v1.3) and check the returned `registered_area` parameter.To retrieve the country or region code of your ad account, use [/advertiser/info/](https://business-api.tiktok.com/portal/docs/get-ad-account-details/v1.3) and check the returned `country` parameter. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.verification.accountVerificationStatus
+
+`GET` `/open_api/v1.3/account/verification/status/`
+
+Generated from TikTok documentation 1870687815670786
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `verification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AccountVerificationStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set. The ID of the ad account that you want to check the verification status for. To retrieve the list of ad accounts that you can access, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs/get-assets/v1.3) and set `asset_type` to `ADVERTISER`. |
+| `bc_id` | `query` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set. The ID of the Business Center account that you want to check the verification status for. To retrieve the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs/get-business-centers/v1.3). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.verification.accountVerificationSubmit
+
+`POST` `/open_api/v1.3/account/verification/submit/`
+
+Generated from TikTok documentation 1870687936881281
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AccountVerificationSubmitResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set. The ID of the ad account that you want to submit a verification request for.If you are submitting your own verification document, you need to hold admin or operator access to the ad account. You can verify this access by using [/bc/asset/get/](https://business-api.tiktok.com/portal/docs/get-assets/v1.3), passing `ADVERTISER` as the `asset_type`, and ensuring the `advertiser_role` returns `ADMIN` or `OPERATOR`.If you are reusing a verification document from others, you need to have the proper permissions:To reuse a verification document from another ad account, you need to have admin or operator access to the ad account. Verify this via [/bc/asset/get/](https://business-api.tiktok.com/portal/docs/get-assets/v1.3) (pass `ADVERTISER` as `asset_type` and ensure `advertiser_role` is `ADMIN` or `OPERATOR`).To reuse a verification document from another Business Center account, you need to have admin access to the Business Center account. Verify this via [/bc/get/](https://business-api.tiktok.com/portal/docs/get-business-centers/v1.3) and ensure the `user_role` returns `ADMIN`. |
+| `bc_id` | `body` | `string` | No | No | Either `advertiser_id` or `bc_id` has to be set. The ID of the Business Center account that you want to submit a verification request for. You need to have admin access to the Business Center account. If you want to a verification document from another Business Center account, you need to have admin access to the Business Center account. Verify this via [/bc/get/](https://business-api.tiktok.com/portal/docs/get-business-centers/v1.3) and ensure the `user_role` returns `ADMIN`. |
+| `business_form` | `body` | `AccountVerificationSubmitParamsBusinessForm` | No | No | Either `business_form` or `individual_form` has to be set. Details of your business verification information. Specify this field if you want to submit a business verification request. |
+| `individual_form` | `body` | `AccountVerificationSubmitParamsIndividualForm` | No | No | Either `business_form` or `individual_form` has to be set. Details of your individual identity verification information. Specify this field when you want to submit an individual identity verification request. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.verification.accountVerificationUpload
+
+`POST` `/open_api/v1.3/account/verification/upload/`
+
+Generated from TikTok documentation 1870687812502530
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `AccountVerificationUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_file1` | `body` | `unknown` | Yes | No | A verification document. You can specify either a business verification document or a personal identification document. For a personal identification verification request which usually requires two images (front and back), you can provide the front image via `image_file1` and the back image via `image_file2`. File size: within 10 MB. Supported formats: JPEG, PNG, and JPG. |
+| `image_file2` | `body` | `unknown` | No | No | An additional verification document. You can specify either a business verification document or a personal identification document. For a personal identification verification request which usually requires two images (front and back), you can provide the front image via `image_file1` and the back image via `image_file2`. File size: within 10 MB. Supported formats: JPEG, PNG, and JPG. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

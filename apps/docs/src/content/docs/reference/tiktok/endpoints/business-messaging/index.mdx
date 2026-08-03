@@ -1,0 +1,624 @@
+---
+title: "TikTok Business Business Messaging endpoints"
+description: "17 generated TikTok Business endpoint contracts for Business Messaging."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 122
+  label: "Business Messaging"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.businessMessaging.businessMessageAutoMessageCreate
+
+`POST` `/open_api/v1.3/business/message/auto_message/create/`
+
+Generated from TikTok documentation 1832184584869890
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `body` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you. To learn about how to manage the welcome message, see [Manage the welcome message for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184264385538).`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. To learn about how to manage suggested questions, see [Manage the suggested questions for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184277518338).`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. To learn about how to manage chat prompts, see [Manage the chat prompts for a Business Account](https://business-api.tiktok.com/portal/docs?id=1832184291198977). |
+| `welcome_message` | `body` | `BusinessMessageAutoMessageCreateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+| `suggested_question` | `body` | `BusinessMessageAutoMessageCreateParamsSuggestedQuestion` | No | No | Required when `auto_message_type` is `SUGGESTED_QUESTION`. Information about the suggested question. You can only create one suggested question per call. For each Business Account, you can customize up to three suggested questions. If you try to create more than three suggested questions, an error will occur. To create multiple suggested questions, call `/business/message/auto_message/create/` multiple times. Note: Duplicate suggested questions are not supported. |
+| `chat_prompt` | `body` | `BusinessMessageAutoMessageCreateParamsChatPrompt` | No | No | Required when `auto_message_type` is `CHAT_PROMPT`. Information about the chat prompt. You can only create one chat prompt per call. For each Business Account, you can customize up to six chat prompts. If you try to create more than six chat prompts, an error will occur. To create multiple chat prompts, call `/business/message/auto_message/create/` multiple times. If you set up multiple chat prompts for your Business Account, the chat prompt that was created earliest will appear as the first prompt above the input box. To sort the chat prompts, use [/business/message/auto_message/sort/](https://business-api.tiktok.com/portal/docs?id=1832184641212433). Note: Duplicate chat prompts are not supported. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageAutoMessageDelete
+
+`POST` `/open_api/v1.3/business/message/auto_message/delete/`
+
+Generated from TikTok documentation 1832184630106386
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `body` | `"SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: The welcome message for a Business Account cannot be deleted. You can only turn off the welcome message via [/business/message/auto_message/status/update/](https://business-api.tiktok.com/portal/docs?id=1832184596566017). |
+| `auto_message_id` | `body` | `string` | Yes | No | The ID of the automatic message. To retrieve the automatic messages for a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageAutoMessageGet
+
+`POST` `/open_api/v1.3/business/message/auto_message/get/`
+
+Generated from TikTok documentation 1832184619749377
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `body` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you. Each Business Account can have up to one welcome message.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. Each Business Account can have up to three suggested questions.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Each Business Account can have up to six chat prompts. |
+| `auto_message_id` | `body` | `string` | No | No | The ID of the automatic message. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageAutoMessageSort
+
+`POST` `/open_api/v1.3/business/message/auto_message/sort/`
+
+Generated from TikTok documentation 1832184641212433
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageSortResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `body` | `string` | Yes | No | The type of automatic message. Enum value: `CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. |
+| `auto_message_ids` | `body` | `Array<string>` | Yes | No | The IDs of the chat prompts in the desired order. The first ID in the ID list will be the first prompt button that is displayed above the input box. To retrieve the existing chat prompts of a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageAutoMessageStatusUpdate
+
+`POST` `/open_api/v1.3/business/message/auto_message/status/update/`
+
+Generated from TikTok documentation 1832184607786242
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageStatusUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_type` | `body` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. Note: If you use this value, all the existing suggestion questions will be disabled.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: If you use this value, all the existing chat prompts will be disabled. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | Yes | No | The operation to perform on the type of automatic message. Enum values: `ENABLE`: To turn on the type of automatic message.`DISABLE`: To turn off the type of automatic message. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageAutoMessageUpdate
+
+`POST` `/open_api/v1.3/business/message/auto_message/update/`
+
+Generated from TikTok documentation 1832184596566017
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageAutoMessageUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `auto_message_id` | `body` | `string` | Yes | No | The ID of the automatic message. To retrieve the automatic messages for a Business Account, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377). |
+| `auto_message_type` | `body` | `"WELCOME_MESSAGE" \| "SUGGESTED_QUESTION" \| "CHAT_PROMPT" \| "REVIEWING"` | Yes | No | The type of automatic message. Enum values: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to a user when they start a direct message conversation with you.`SUGGESTED_QUESTION`: suggested question. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.`CHAT_PROMPT`: chat prompt. A chat prompt is an interactive button displayed above the input box. When users tap a chat prompt, the system will automatically generate a corresponding question for users to start the conversation. Note: An automatic message that is pending review cannot be updated. To check the review status of an automatic message, use [/business/message/auto_message/get/](https://business-api.tiktok.com/portal/docs?id=1832184619749377) and ensure the returned `audit_status` for the automatic message is not `REVIEWING`. |
+| `welcome_message` | `body` | `BusinessMessageAutoMessageUpdateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+| `suggested_question` | `body` | `BusinessMessageAutoMessageUpdateParamsSuggestedQuestion` | No | No | Required when `auto_message_type` is `SUGGESTED_QUESTION`. Information about the suggested question. You can only update one suggested question per call. To update multiple suggested questions, call `/business/message/auto_message/update/` multiple times. |
+| `chat_prompt` | `body` | `BusinessMessageAutoMessageUpdateParamsChatPrompt` | No | No | Required when `auto_message_type` is `CHAT_PROMPT`. Information about the chat prompt. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageCapabilitiesGet
+
+`GET` `/open_api/v1.3/business/message/capabilities/get/`
+
+Generated from TikTok documentation 1836061597865986
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessMessaging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageCapabilitiesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `capability_types` | `query` | `Array<string>` | Yes | No | A list of capability types that you want to query for the Business Account. Enum value:`IMAGE_SEND`: The Business Account can send images and/or receive images in the specified conversation. |
+| `conversation_id` | `query` | `string` | No | No | Required when the value of `capability_types` includes `IMAGE_SEND`. Conversation ID. To get a list of conversation IDs, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). Note: If you receive a `"Param conversation_id is invalid."` error, it may be due to encoding issues. Try replacing any "+" characters with "%2B" to resolve potential encoding issues. |
+| `conversation_type` | `query` | `string` | No | No | Required when the value of `capability_types` includes `IMAGE_SEND`. Conversation type. Currently, the only allowed values are:`STRANGER`: Conversations with users who have sent a message to the Business Account of the business, but the business has not yet accepted the message request and responded to the message.`SINGLE`: One-on-one conversations with users who have sent a message to the Business Account of the business, and the business has previously responded to the user. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageContentList
+
+`GET` `/open_api/v1.3/business/message/content/list/`
+
+Generated from TikTok documentation 1832184425841170
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessMessaging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageContentListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_id` | `query` | `string` | Yes | No | Conversation ID. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). Note: If you receive a `"Param conversation_id is invalid."` error, it may be due to encoding issues. Try replacing any "+" characters with "%2B" to resolve potential encoding issues. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageConversationList
+
+`GET` `/open_api/v1.3/business/message/conversation/list/`
+
+Generated from TikTok documentation 1832184415059970
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessMessaging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageConversationListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_type` | `query` | `string` | Yes | No | Conversation type. Currently, the only allowed values are: `STRANGER`: Conversations with users who have sent a message to the Business Account of the business, but the business has not yet accepted the message request and responded to the message. `SINGLE`: One-on-one conversations with users who have sent a message to the Business Account of the business, and the business has previously responded to the user. |
+| `limit` | `query` | `number` | No | No | The maximum number of conversations to return for this request. Value range: 1-100. Default value: 100. |
+| `cursor` | `query` | `number` | No | No | Cursor for pagination. If the response parameter `has_more` is `true`, pass the returned `cursor` value in this parameter in the subsequent request to receive the next page of conversations. Default value: 0. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageDirectReplyGet
+
+`GET` `/open_api/v1.3/business/message/direct_reply/get/`
+
+Generated from TikTok documentation 1843697576682497
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessMessaging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageDirectReplyGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `direct_reply_type` | `query` | `string` | Yes | No | The type of direct reply. Enum value: `COMMENT_TO_MESSAGE`: Comment-to-Message. Once you enable this feature, the TikTok system will identify high-intent comments, enabling you to send customized replies to assist these users more effectively. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageDirectReplyUpdate
+
+`POST` `/open_api/v1.3/business/message/direct_reply/update/`
+
+Generated from TikTok documentation 1843697551083522
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageDirectReplyUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `direct_reply_type` | `body` | `string` | Yes | No | The type of direct reply. Enum value: `COMMENT_TO_MESSAGE`: Comment-to-Message. Once you enable this feature, the TikTok system will identify high-intent comments, enabling you to send customized replies to assist these users more effectively. |
+| `operation_status` | `body` | `"ENABLE" \| "DISABLE"` | Yes | No | The operation to perform. Enum values:`ENABLE`: To enable the Comment-to-Message feature.`DISABLE`: To disable the Comment-to-Message feature. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageMediaDownload
+
+`POST` `/open_api/v1.3/business/message/media/download/`
+
+Generated from TikTok documentation 1832184455450626
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageMediaDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `conversation_id` | `body` | `string` | Yes | No | Conversation ID. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). |
+| `message_id` | `body` | `string` | Yes | No | Message ID. To get a message ID, use [/business/message/content/list/](https://business-api.tiktok.com/portal/docs?id=1832184425841170). |
+| `media_id` | `body` | `string` | Yes | No | Media ID. To get a media ID, use [/business/message/content/list/](https://business-api.tiktok.com/portal/docs?id=1832184425841170). |
+| `media_type` | `body` | `"IMAGE" \| "VIDEO"` | Yes | No | Multimedia type. Enum values:`IMAGE`: image.`VIDEO`: video. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageMediaUpload
+
+`POST` `/open_api/v1.3/business/message/media/upload/`
+
+Generated from TikTok documentation 1832184437720193
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageMediaUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `file` | `body` | `unknown` | Yes | No | Multimedia File. File size limit: 3MB. Supported image file format: JPG and PNG. |
+| `media_type` | `body` | `string` | Yes | No | Multimedia type. Currently, we only support `IMAGE` as the multimedia type. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessMessageSend
+
+`POST` `/open_api/v1.3/business/message/send/`
+
+Generated from TikTok documentation 1832184403754242
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessMessageSendResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `body` | `string` | Yes | No | Application specific unique identifier for the TikTok Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1832184175482945#item-link-Obtain%20a%20short-term%20access%20token) to this field. |
+| `recipient_type` | `body` | `string` | No | No | Required when `direct_reply` is not specified.Not supported when `direct_reply` is specified. |
+| `recipient` | `body` | `string` | No | No | Required when `direct_reply` is not specified.Not supported when `direct_reply` is specified. Recipient. When `recipient_type` is `CONVERSATION`, you need to specify `conversation_id` in this field. To get the conversation ID, use [/business/message/conversation/list/](https://business-api.tiktok.com/portal/docs?id=1832184415059970). |
+| `message_type` | `body` | `"TEXT" \| "IMAGE" \| "SHARE_POST" \| "TEMPLATE" \| "SENDER_ACTION"` | Yes | No | The type of the message. Enum values: `TEXT`: text message. `IMAGE`: image message.`SHARE_POST`: TikTok post message.`TEMPLATE`: message template. `SENDER_ACTION`: Sender action. Note that for this type, the returned message ID is an empty string (`""`) because no actual message is sent. |
+| `text` | `body` | `BusinessMessageSendParamsText` | No | No | Required when `message_type` is `TEXT`. Text information. A message cannot include both a text and an image. |
+| `image` | `body` | `BusinessMessageSendParamsImage` | No | No | Required when `message_type` is `IMAGE`. Image information. A message cannot include both a text and an image. Sending and receiving image attachments via API are only available when both the sender and receiver are in countries that support image attachments in direct messages. Image sharing is not available in all markets. |
+| `share_post` | `body` | `BusinessMessageSendParamsSharePost` | No | No | Required when `message_type` is `SHARE_POST`. Information about the post to be shared. |
+| `template` | `body` | `BusinessMessageSendParamsTemplate` | No | No | Required when `message_type` is `TEMPLATE`. Details about the message template to send. |
+| `sender_action` | `body` | `string` | No | No | Required when `message_type` is `SENDER_ACTION`. The sender's action in the messaging session. `TYPING`: The sender is preparing a reply. This displays a “Typing” icon in the messaging window, which will automatically disappear after five seconds.`MARK_READ`: The sender marks all messages in the session as read, displaying a “Seen” icon for those messages. |
+| `referenced_message_info` | `body` | `BusinessMessageSendParamsReferencedMessageInfo` | No | No | Required when you want to send a reply to a message. Information about the original message to reply to. |
+| `direct_reply` | `body` | `BusinessMessageSendParamsDirectReply` | No | No | Required when you are sending a direct reply. Details of the direct reply. Note: To send a direct reply, ensure that Comment-to-Message is enabled for the Business Account. To obtain the Comment-to-Message setting for a Business Account, use [/business/message/direct_reply/get/](https://business-api.tiktok.com/portal/docs?id=1843697576682497).The Comment-to-Message feature is only available for Business Accounts registered in Vietnam, Indonesia, and Thailand.Once you enable Comment-to-Message for a Business Account, the Business Account can only reply to comments published by TikTok accounts that are registered in the APAC, LATAM, and METAP regions. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessWebhookDelete2
+
+`POST` `/open_api/v1.3/business/webhook/delete/`
+
+Generated from TikTok documentation 1832184497985537
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `string` | Yes | No | The type of Webhook event configuration that you want to delete. Enum value: `DIRECT_MESSAGE`: Business Messaging events.To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1832190670631937#item-link-Webhook%20schema). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessWebhookList2
+
+`GET` `/open_api/v1.3/business/webhook/list/`
+
+Generated from TikTok documentation 1832184488625234
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessMessaging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `query` | `string` | Yes | No | The type of Webhook event that you subscribe to. Enum value: `DIRECT_MESSAGE`: Business Messaging events.To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1832190670631937#item-link-Webhook%20schema). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.businessMessaging.businessWebhookUpdate2
+
+`POST` `/open_api/v1.3/business/webhook/update/`
+
+Generated from TikTok documentation 1832184470423554
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessMessaging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BusinessWebhookUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `event_type` | `body` | `string` | Yes | No | The type of Webhook event that you want to subscribe to. Enum value: `DIRECT_MESSAGE`: Business Messaging events.To learn more about the schema and sample payload of the events within this event category, see [Webhook schema](https://business-api.tiktok.com/portal/docs?id=1832190670631937#item-link-Webhook%20schema). |
+| `callback_url` | `body` | `string` | Yes | No | The callback URL. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

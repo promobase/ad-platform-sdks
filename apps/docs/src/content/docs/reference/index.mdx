@@ -1,0 +1,24 @@
+---
+title: API reference
+description: Generated endpoint and model contracts from the canonical SDK intermediate representation.
+sidebar:
+  order: 100
+---
+
+This reference is emitted from the same canonical SDK IR that generates Effect schemas and endpoint
+descriptors. Provider code generation replaces each platform subtree, so the documentation cannot
+drift into a separately maintained endpoint inventory.
+
+| Platform | Endpoints | Models | Capabilities |
+| --- | ---: | ---: | ---: |
+| [Meta](/reference/meta) | 1,451 | 1,488 | 395 |
+| [TikTok Business](/reference/tiktok) | 531 | 2,408 | 130 |
+| [Google Ads](/reference/google-ads) | 169 | 2,577 | 120 |
+| [Google Business Profile](/reference/google-business-profile) | 11 | 0 | 8 |
+| [LinkedIn](/reference/linkedin) | 18 | 0 | 8 |
+| [X](/reference/x) | 14 | 527 | 5 |
+| [YouTube](/reference/youtube) | 33 | 207 | 16 |
+
+Every endpoint entry includes method, path, execution semantics, idempotency, capabilities, scopes,
+parameters, output, pagination metadata, and declared errors. Counts are checked against generated
+Effect manifests in CI.

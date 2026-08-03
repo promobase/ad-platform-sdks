@@ -1,0 +1,55 @@
+---
+title: "Meta Ad Campaign Placement endpoints"
+description: "1 generated Meta endpoint contract for Ad Campaign Placement."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 114
+  label: "Ad Campaign Placement"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adCampaignPlacement.genGet
+
+`GET` `/{id}`
+
+GET AdCampaignPlacement
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCampaignPlacement.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCampaignPlacementGetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_id` | `query` | `string` | Yes | No | — |
+| `billing_event` | `query` | `string` | Yes | No | — |
+| `buying_type` | `query` | `string` | Yes | No | — |
+| `destination_type` | `query` | `string` | No | No | — |
+| `has_dynamic_creative` | `query` | `boolean` | No | No | — |
+| `metadata` | `query` | `boolean` | No | No | — |
+| `objective` | `query` | `string` | Yes | No | — |
+| `optimization_goal` | `query` | `string` | Yes | No | — |
+| `promoted_object` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

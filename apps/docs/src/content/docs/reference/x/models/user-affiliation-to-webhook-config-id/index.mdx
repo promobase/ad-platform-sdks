@@ -1,0 +1,254 @@
+---
+title: "X models: User Affiliation – Webhook Config Id"
+description: "27 generated X model contracts, from UserAffiliation through WebhookConfigId."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 1005
+  label: "User Affiliation – Webhook Config Id"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## UserAffiliation
+
+`object` model on the `json` wire format.
+
+Metadata about a user's affiliation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `badge_url` | `badge_url` | `string` | No | Yes | URL of the affiliation badge image shown on the User's profile. |
+| `description` | `description` | `string` | No | Yes | Description of the affiliation. |
+| `url` | `url` | `string` | No | Yes | URL associated with the affiliation. |
+| `user_id` | `user_id` | `Array<string>` | No | Yes | A list of unique identifiers of the accounts this User is affiliated with. |
+
+## UserComplianceData
+
+`scalar` model on the `json` wire format.
+
+**Value:** `UserProtectComplianceSchema \| UserUnprotectComplianceSchema \| UserDeleteComplianceSchema \| UserUndeleteComplianceSchema \| UserSuspendComplianceSchema \| UserUnsuspendComplianceSchema \| UserWithheldComplianceSchema \| UserScrubGeoSchema \| UserProfileModificationComplianceSchema`
+
+## UserComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `user` | `user` | `json` | Yes | No | — |
+
+## UserConnectionStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<"blocking" \| "follow_request_received" \| "follow_request_sent" \| "followed_by" \| "following" \| "muting">`
+
+## UserDeleteComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_delete` | `user_delete` | `UserComplianceSchema` | Yes | No | — |
+
+## UserEntities
+
+`object` model on the `json` wire format.
+
+A list of metadata found in the User's profile description.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `json` | No | Yes | Entities found in the User's bio. |
+| `url` | `url` | `json` | No | Yes | Entities for the User's profile website URL. |
+
+## UserId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## UserProfileModificationComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_profile_modification` | `user_profile_modification` | `UserProfileModificationObjectSchema` | Yes | No | — |
+
+## UserProfileModificationObjectSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `new_value` | `new_value` | `string` | Yes | No | — |
+| `profile_field` | `profile_field` | `string` | Yes | No | — |
+| `user` | `user` | `json` | Yes | No | — |
+
+## UserProtectComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_protect` | `user_protect` | `UserComplianceSchema` | Yes | No | — |
+
+## UserPublicMetrics
+
+`object` model on the `json` wire format.
+
+A list of metrics for this User.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `followers_count` | `followers_count` | `integer` | Yes | No | Number of Users who follow this User. |
+| `following_count` | `following_count` | `integer` | Yes | No | Number of Users this User follows. |
+| `like_count` | `like_count` | `integer` | No | Yes | Number of Posts this User has liked. |
+| `listed_count` | `listed_count` | `integer` | Yes | No | Number of Lists that include this User. |
+| `media_count` | `media_count` | `integer` | No | Yes | Number of media items posted by this User. |
+| `post_count` | `post_count` | `integer` | Yes | No | Number of Posts (including Reposts) created by this User. |
+
+## UserScrubGeoObjectSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `up_to_tweet_id` | `up_to_tweet_id` | `PostId` | Yes | No | — |
+| `user` | `user` | `json` | Yes | No | — |
+
+## UserScrubGeoSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrub_geo` | `scrub_geo` | `UserScrubGeoObjectSchema` | Yes | No | — |
+
+## UserSubscription
+
+`object` model on the `json` wire format.
+
+The subscription relationship between this User and you.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscribes_to_you` | `subscribes_to_you` | `boolean` | Yes | No | Indicates if this User subscribes to you. |
+
+## UserSuspendComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_suspend` | `user_suspend` | `UserComplianceSchema` | Yes | No | — |
+
+## UserTakedownComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `user` | `user` | `json` | Yes | No | — |
+| `withheld_in_countries` | `withheld_in_countries` | `Array<CountryCode>` | Yes | No | — |
+
+## UserUndeleteComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_undelete` | `user_undelete` | `UserComplianceSchema` | Yes | No | — |
+
+## UserUnprotectComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_unprotect` | `user_unprotect` | `UserComplianceSchema` | Yes | No | — |
+
+## UserUnsuspendComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_unsuspend` | `user_unsuspend` | `UserComplianceSchema` | Yes | No | — |
+
+## UserWithheld
+
+`object` model on the `json` wire format.
+
+Withholding details for withheld content.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_codes` | `country_codes` | `Array<string>` | No | Yes | A list of countries (as ISO 3166-1 alpha-2 codes) where this content is withheld. |
+| `scope` | `scope` | `"user"` | No | Yes | The scope of the withholding. Only present, with the value "user", when the entire User is withheld. |
+
+## UserWithheldComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_withheld` | `user_withheld` | `UserTakedownComplianceSchema` | Yes | No | — |
+
+## ValidateAccountActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ValidateAccountActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ValidateAccountActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscribed` | `subscribed` | `boolean` | Yes | No | Whether the user has an active subscription. |
+
+## ValidateWebhooksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ValidateWebhooksResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## ValidateWebhooksResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `valid` | `valid` | `boolean` | Yes | No | Indicates whether the CRC validation check was triggered. |
+
+## WebhookConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `valid` | `valid` | `boolean` | No | No | — |
+
+## WebhookConfigId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`

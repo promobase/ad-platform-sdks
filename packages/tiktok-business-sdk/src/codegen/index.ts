@@ -74,6 +74,7 @@ async function main() {
   );
   await writeEffectArtifacts({
     outputDir: join(OUTPUT_DIR, "effect"),
+    docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
     ir: tiktokCanonicalIr(endpoints),
   });
 

@@ -12,6 +12,7 @@ import {
   emitEndpointDescriptors,
   type SdkIr,
   validateSdkIr,
+  writeNimbusReference,
 } from "../src/index.ts";
 
 const fixture = {
@@ -157,4 +158,40 @@ test("generated entrypoint exposes the unified Effect and Promise client", async
       await readFile(join(secondOutputDir, artifact), "utf8"),
     );
   }
+});
+
+test("Nimbus reference generation is deterministic and covers endpoints and models", async () => {
+  const ir = await Effect.runPromise(decodeSdkIr(fixture));
+  const outputDir = await mkdtemp(join(tmpdir(), "openpromo-docs-"));
+  const secondOutputDir = await mkdtemp(join(tmpdir(), "openpromo-docs-"));
+  const manifest = await writeNimbusReference({ outputDir, ir });
+  await writeNimbusReference({ outputDir: secondOutputDir, ir });
+
+  expect(manifest).toMatchObject({
+    platform: "youtube",
+    endpointCount: 1,
+    modelCount: 1,
+    capabilityCount: 1,
+    endpointPages: ["endpoints/posts"],
+    modelPages: ["models/video"],
+  });
+  for (const artifact of [
+    "index.mdx",
+    "endpoints/posts/index.mdx",
+    "models/video/index.mdx",
+    "reference-manifest.json",
+  ]) {
+    expect(await readFile(join(outputDir, "youtube", artifact), "utf8")).toBe(
+      await readFile(join(secondOutputDir, "youtube", artifact), "utf8"),
+    );
+  }
+  expect(
+    await readFile(join(outputDir, "youtube", "endpoints", "posts", "index.mdx"), "utf8"),
+  ).toContain('label: "Posts"');
+  expect(
+    await readFile(join(outputDir, "youtube", "endpoints", "posts", "index.mdx"), "utf8"),
+  ).toContain("youtube.posts.metrics.get");
+  expect(
+    await readFile(join(outputDir, "youtube", "models", "video", "index.mdx"), "utf8"),
+  ).toContain("published_at");
 });

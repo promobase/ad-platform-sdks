@@ -1,0 +1,231 @@
+---
+title: "TikTok Business Catalog Product Sets endpoints"
+description: "6 generated TikTok Business endpoint contracts for Catalog Product Sets."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 129
+  label: "Catalog Product Sets"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.catalogProductSets.catalogSetCreate
+
+`POST` `/open_api/v1.3/catalog/set/create/`
+
+Generated from TikTok documentation 1740572891104257
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProductSets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | The catalog ID. |
+| `product_set_name` | `body` | `string` | Yes | No | The product set name. Length limit: 128 characters. |
+| `conditions` | `body` | `CatalogSetCreateParamsConditions` | Yes | No | The filter conditions. Note: If you pass multiple conditions through this object, we recommend limiting the combined total number of values in the conditions to a maximum of 1,024. Otherwise, a timeout is likely to occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProductSets.catalogSetDelete
+
+`POST` `/open_api/v1.3/catalog/set/delete/`
+
+Generated from TikTok documentation 1740573143966722
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProductSets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | The product catalog ID. |
+| `product_set_ids` | `body` | `Array<string>` | Yes | No | The IDs of the product sets that you want to delete. You can include 1 to 10 IDs in the list. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProductSets.catalogSetGet
+
+`GET` `/open_api/v1.3/catalog/set/get/`
+
+Generated from TikTok documentation 1740570556295169
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogProductSets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `query` | `string` | Yes | No | The ID of the catalog that you want to get product sets from. To obtain the list of catalogs that you can access, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `CATALOG`. |
+| `product_set_id` | `query` | `string` | No | No | The ID of the product set that you want to get. If this field is not passed, the system will return the complete list of product sets associated with the catalog (`catalog_id`).If this field is passed, the system will only return the specified product set. |
+| `return_product_count` | `query` | `boolean` | No | No | Whether to return the response parameter `product_count`. Supported values: `true`, `false`. Default value: `true`. Note: For product sets with too many products, returning `product_count` might trigger timeout errors. To avoid timeout issues in such cases, set this field to `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProductSets.catalogSetProductGet
+
+`GET` `/open_api/v1.3/catalog/set/product/get/`
+
+Generated from TikTok documentation 1740571478441986
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogProductSets.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetProductGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `query` | `string` | Yes | No | The ID of the catalog that you want to get product sets from. |
+| `product_set_id` | `query` | `string` | Yes | No | The ID of the product set that you want to get. |
+| `page` | `query` | `number` | No | No | The number of the current page. The default value is 1. |
+| `page_size` | `query` | `number` | No | No | The page size. The default size is 20. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProductSets.catalogSetUpdate
+
+`POST` `/open_api/v1.3/catalog/set/update/`
+
+Generated from TikTok documentation 1740572974725122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProductSets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `body` | `string` | Yes | No | The catalog ID. |
+| `product_set_id` | `body` | `string` | Yes | No | The product set ID. |
+| `product_set_name` | `body` | `string` | No | No | You need to pass at least `product_set_name` or `conditions` or both. The product set name. Length limit: 128 characters. |
+| `conditions` | `body` | `CatalogSetUpdateParamsConditions` | No | No | You need to pass at least `product_set_name` or `conditions` or both. The filter conditions. Note: If you pass multiple conditions through this object, we recommend limiting the combined total number of values in the conditions to a maximum of 1,024. Otherwise, a timeout is likely to occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.catalogProductSets.catalogSetUpload
+
+`POST` `/open_api/v1.3/catalog/set/upload/`
+
+Generated from TikTok documentation 1846770644217858
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `catalogProductSets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CatalogSetUploadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. To retrieve the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `body` | `string` | Yes | No | Catalog ID. To retrieve the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). For E-commerce catalogs, `catalog_type` will be `ECOM`. |
+| `product_set_name` | `body` | `string` | Yes | No | The product set name. Length limit: 28 characters. Note: Duplicate product set names are not supported. To retrieve the names of existing product sets created in a catalog, use [/catalog/set/get/](https://business-api.tiktok.com/portal/docs?id=1740570556295169) and check the returned `product_set_name`. |
+| `file` | `body` | `unknown` | Yes | No | A file containing product SKU IDs. To obtain the list of SKU IDs for products within an E-commerce catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402) and check the returned `sku_id`. Recommended settings：Maximum row count: 5,000.Format：.csv only.Use [the CSV template file](https://bytedance.sg.larkoffice.com/sheets/GlkOsKz7RhRhfLtN0gblmYcjgjd) for uploading. |
+| `file_signature` | `body` | `string` | Yes | No | The MD5 hash of the file that is used for server verification to confirm file integrity. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

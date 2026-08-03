@@ -25,7 +25,11 @@ const selected = new Set([
   "POST /2/media/upload/{id}/finalize",
 ]);
 
-await writeEffectArtifacts({ outputDir, ir: buildIr(document) });
+await writeEffectArtifacts({
+  outputDir,
+  docsOutputDir: join(root, "apps/docs/src/content/docs/reference"),
+  ir: buildIr(document),
+});
 
 function buildIr(openapi) {
   const models = Object.entries(openapi.components?.schemas ?? {})

@@ -1,0 +1,124 @@
+---
+title: "Meta Page Call To Action endpoints"
+description: "3 generated Meta endpoint contracts for Page Call To Action."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 318
+  label: "Page Call To Action"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.pageCallToAction.delete
+
+`DELETE` `/{id}`
+
+DELETE PageCallToAction
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pageCallToAction.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.pageCallToAction.get
+
+`GET` `/{id}`
+
+GET PageCallToAction
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pageCallToAction.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PageCallToActionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.pageCallToAction.update
+
+`POST` `/{id}`
+
+POST PageCallToAction
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pageCallToAction.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PageCallToActionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `android_app_id` | `body` | `integer` | No | No | — |
+| `android_destination_type` | `body` | `unknown` | No | No | — |
+| `android_package_name` | `body` | `string` | No | No | — |
+| `android_url` | `body` | `string` | No | No | — |
+| `email_address` | `body` | `string` | No | No | — |
+| `intl_number_with_plus` | `body` | `string` | No | No | — |
+| `iphone_app_id` | `body` | `integer` | No | No | — |
+| `iphone_destination_type` | `body` | `unknown` | No | No | — |
+| `iphone_url` | `body` | `string` | No | No | — |
+| `type` | `body` | `unknown` | No | No | — |
+| `web_destination_type` | `body` | `unknown` | No | No | — |
+| `web_url` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

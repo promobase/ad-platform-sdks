@@ -1,0 +1,46 @@
+---
+title: "Meta Ad Campaign Group Budget Schedules endpoints"
+description: "1 generated Meta endpoint contract for Ad Campaign Group Budget Schedules."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 113
+  label: "Ad Campaign Group Budget Schedules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adCampaignGroupBudgetSchedules.genPost
+
+`POST` `/{id}/budget_schedules`
+
+POST AdCampaignGroupBudgetSchedules budget_schedules
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCampaignGroupBudgetSchedules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdCampaignGroupBudgetSchedulesPostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

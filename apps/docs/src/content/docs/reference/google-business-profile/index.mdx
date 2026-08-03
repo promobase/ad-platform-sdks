@@ -1,0 +1,53 @@
+---
+title: "Google Business Profile SDK reference"
+description: "Generated reference for 11 Google Business Profile endpoints and 0 models."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+v4"
+sidebar:
+  order: 40
+  label: "Google Business Profile"
+---
+
+{/* Generated from canonical SdkIr (handwritten: src/{oauth,resources,types}.ts). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/google-business-profile
+```
+
+```ts
+import { createEffectClient } from "@openpromo/google-business-profile/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Google Business Profile |
+| API version | `v1+v4` |
+| Source | `handwritten: src/{oauth,resources,types}.ts` |
+| Endpoints | 11 |
+| Models | 0 |
+| Capabilities | 8 |
+
+## Endpoints
+
+- [Account](/reference/google-business-profile/endpoints/account)
+- [Local post](/reference/google-business-profile/endpoints/local-post)
+- [Location](/reference/google-business-profile/endpoints/location)
+- [Oauth](/reference/google-business-profile/endpoints/oauth)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `account.read` | List Business Profile accounts | `https://www.googleapis.com/auth/business.manage` |
+| `local-post.delete` | Delete local posts | `https://www.googleapis.com/auth/business.manage` |
+| `local-post.metrics.read` | Read local post insights | `https://www.googleapis.com/auth/business.manage` |
+| `local-post.publish` | Create and update local posts | `https://www.googleapis.com/auth/business.manage` |
+| `local-post.read` | Read local posts | `https://www.googleapis.com/auth/business.manage` |
+| `location.metrics.read` | Read location performance metrics | `https://www.googleapis.com/auth/business.manage` |
+| `location.read` | List Business Profile locations | `https://www.googleapis.com/auth/business.manage` |
+| `oauth` | Complete Google OAuth flows | None declared |

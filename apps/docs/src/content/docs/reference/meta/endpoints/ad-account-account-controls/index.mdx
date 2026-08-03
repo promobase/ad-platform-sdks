@@ -1,0 +1,46 @@
+---
+title: "Meta Ad Account Account Controls endpoints"
+description: "1 generated Meta endpoint contract for Ad Account Account Controls."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 103
+  label: "Ad Account Account Controls"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.adAccountAccountControls.genPost
+
+`POST` `/{id}/account_controls`
+
+POST AdAccountAccountControls account_controls
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adAccountAccountControls.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdAccountAccountControlsPostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

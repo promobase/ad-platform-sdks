@@ -1,0 +1,1255 @@
+---
+title: "TikTok Business models: Catalog Video Package Update Params – Creative Status Get Params"
+description: "100 generated TikTok Business model contracts, from CatalogVideoPackageUpdateParams through CreativeStatusGetParams."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1011
+  label: "Catalog Video Package Update Params – Creative Status Get Params"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## CatalogVideoPackageUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `shopping_ads_video_package_id` | `string` | Yes | No | ID of the video package that you want to update. |
+| `video_package_name` | `video_package_name` | `string` | Yes | No | Video package name. |
+
+## CatalogVideoPackageUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | Response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | The log id of a request, which uniquely identifies the request. |
+
+## ChangelogGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `filtering` | `filtering` | `ChangelogGetParamsFiltering` | No | No | Filtering conditions. |
+| `lang` | `lang` | `string` | No | No | The language of the activity log. Default value: `en`. To find out the enum values, see Enum values for lang. |
+| `sort_field` | `sort_field` | `string` | No | No | Field to sort by. Enum value: `operation_time`: To sort by the time when the activity occurred, which corresponds to the `time` parameter within the returned object array `changelog_list`.Default value: `operation_time`. |
+| `sort_type` | `sort_type` | `string` | No | No | Sorting order. Enum values:`DESC`: Descending.When `sort_field` is `operation_time` or not passed, this value means to sort from the most recent to earliest activity.`ASC`: Ascending.When `sort_field` is `operation_time` or not passed, this value means to sort from the earliest to the most recent activity. Default value: `DESC`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## ChangelogGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start_date` | `start_date` | `string` | No | No | Query start date, in the format of `YYYY-MM-DD` (UTC+0). You need to specify both `start_date` and `end_date` or neither. If both `start_date` and `end_date` are not specified, the activity log for the past seven days will be returned. Recommended date range: six months. Example: `2025-01-01`. |
+| `end_date` | `end_date` | `string` | No | No | Query end date, in the format of `YYYY-MM-DD` (UTC+0). You need to specify both `start_date` and `end_date` or neither. If both `start_date` and `end_date` are not specified, the activity log for the past seven days will be returned. Recommended date range: six months. Example: `2025-01-01`. |
+| `activity_type` | `activity_type` | `"ALL" \| "USER" \| "ACCOUNT" \| "ASSET" \| "BUSINESS"` | No | No | Activity type to query. Enum values: `ALL`: All types of changes.`USER`: User. Changes mainly related to members and organization, including but not limited to the following scenarios:Invitation of a member to the Business CenterAcceptance of the invitation to join the Business CenterRemoval of a member from the Business Center`ACCOUNT`: Account. Changes mainly related to creation and access management of ad accounts, including but not limited to the following scenarios: Creating an ad accountAssigning a member access to an ad accountRevoking a member's access to an ad account Sharing access to an ad account with a partnerRevoking a partner's access to an ad account`ASSET`: Asset. Changes mainly related to assets, including but not limited to the following scenarios:Creating or deleting a catalogRequesting to add or approving the request to add a TikTok ShopAssigning a member access to an assetRevoking a member's access to an asset`BUSINESS`: Business. Changes mainly related to the Business Center, including but not limited to the following scenarios: Creating the Business Center Changing the setting of the Business Center, including name and company name Default value: `ALL`. |
+
+## ChangelogGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `changelog_list` | `changelog_list` | `Array<ChangelogGetResponseChangelogList>` | No | No | Change log information. |
+| `page_info` | `page_info` | `ChangelogGetResponsePageInfo` | No | No | Page information. |
+
+## ChangelogGetResponseChangelogList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | No | No | The time of the activity, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2025-01-01 00:00:01`. |
+| `activity_type` | `activity_type` | `"USER" \| "ACCOUNT" \| "ASSET" \| "BUSINESS"` | No | No | Activity type. Enum values: `USER`: User. Changes mainly related to members and organization, including but not limited to the following scenarios:Invitation of a member to the Business CenterAcceptance of the invitation to join the Business CenterRemoval of a member from the Business Center`ACCOUNT`: Account. Changes mainly related to creation and access management of ad accounts, including but not limited to the following scenarios: Creating an ad accountAssigning a member access to an ad accountRevoking a member's access to an ad account Sharing access to an ad account with a partnerRevoking a partner's access to an ad account`ASSET`: Asset. Changes mainly related to assets, including but not limited to the following scenarios:Creating or deleting a catalogRequesting to add or approving the request to add a TikTok ShopAssigning a member access to an assetRevoking a member's access to an asset`BUSINESS`: Business. Changes mainly related to the Business Center, including but not limited to the following scenarios: Creating the Business Center Changing the setting of the Business Center, including name and company name |
+| `operator_id` | `operator_id` | `string` | No | No | The user ID of the operator. |
+| `activity_log` | `activity_log` | `string` | No | No | Activity log details. |
+
+## ChangelogGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## ChangelogTaskCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID. |
+
+## ChangelogTaskCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `string` | No | No | Task status values: `PROCESSING` `SUCCESS``FAILED` |
+
+## ChangelogTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `start_time` | `start_time` | `string` | No | No | Query start time, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2025-09-01 00:00:00`. |
+| `end_time` | `end_time` | `string` | No | No | Query end time, in the format of `YYYY-MM-DD HH:MM:SS` Example: `2025-09-01 00:00:00`. Note: The largest time gap allowed is 30 days, so please specify a date within 30 days after the start_time as end_time. |
+| `timezone` | `timezone` | `string` | No | No | Timezone of returned value, refer to [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089) for optional values. |
+| `module` | `module` | `string` | No | No | Module to be queried, optional values: `BIDDING_AND_OPTIMIZATION` `BUDGET``STATUS``TARGETING` |
+| `object_ids` | `object_ids` | `Array<string>` | No | No | Query object ID |
+| `object_type` | `object_type` | `string` | No | No | Query object type, optional values: `AD`,`ADGROUP`,`ADVERTISER`,`CAMPAIGN`,`INSTANT_FORM` |
+| `operation_types` | `operation_types` | `Array<string>` | No | No | Operation type, optional values: `CREATE`, `AUDIT`, `STATUS`, `UPDATE`, `DELETE`, `DOWNLOAD_LEADS`, `SUBSCRIBE_FORM`, `UNSUBSCRIBE_FORM` |
+| `order_fields` | `order_fields` | `Array<string>` | No | No | Order by fields |
+
+## ChangelogTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID |
+
+## ChangelogTaskDownloadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID |
+
+## ChangelogTaskDownloadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"PROCESSING" \| "SUCCESS" \| "FAILED"` | No | No | Task status. Enum values: `PROCESSING` `SUCCESS``FAILED` |
+| `changelog` | `changelog` | `string` | No | No | CSV file data of the log |
+
+## CommentDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `ad_id` | `ad_id` | `string` | Yes | No | Ad ID |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | Yes | No | TikTok Video ID |
+| `comment_id` | `comment_id` | `string` | Yes | No | ID of the comment you want delete |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "TT_USER"` | Yes | No | Type of the identity that are linked to the user. Enum values: `CUSTOMIZED_USER` (Custom User), `TT_USER` (TikTok User). For details about identity types, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID |
+
+## CommentDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CommentListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `comment_type` | `comment_type` | `Array<"ALL" \| "COMMENT" \| "REPLY">` | No | No | Comment type. Enum values: `ALL`, `COMMENT`, `REPLY`. Default value: `["ALL"]` |
+| `search_field` | `search_field` | `string` | Yes | No | Field to search by. Enum value: `ADGROUP_ID`: To filter by an ad group ID. |
+| `search_value` | `search_value` | `string` | Yes | No | Value to search. When `search_field` is `ADGROUP_ID`, specify an ad group ID via this field.To obtain the list of ad groups within your ad account, use [/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1739314558673922). Example: `1234567891234567`. |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "LIKES" \| "REPLIES"` | No | No | Field to sort by. Enum values: `CREATE_TIME`, `LIKES`, `REPLIES`. Default value: `CREATE_TIME`. |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`, `DESC`. Default value: `DESC`. |
+| `start_time` | `start_time` | `string` | Yes | No | Start date of the time range that you want to get comments, in the format of `YYYY-MM-DD`. |
+| `end_time` | `end_time` | `string` | Yes | No | End date of the time range that you want to get comments, in the format of `YYYY-MM-DD`. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-100. Default value: `10`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+
+## CommentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<CommentListResponseComments>` | No | No | List of comments. |
+| `page_info` | `page_info` | `CommentListResponsePageInfo` | No | No | Page information. |
+
+## CommentListResponseComments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Comment ID. |
+| `app` | `app` | `string` | No | No | App ID. |
+| `content` | `content` | `string` | No | No | Comment content. |
+| `likes` | `likes` | `number` | No | No | Number of likes. |
+| `replies` | `replies` | `number` | No | No | Number of replies. |
+| `comment_type` | `comment_type` | `string` | No | No | Comment type. It can be `COMMENT`, which is an original comment, or `REPLY`, which is a reply to an original comment. |
+| `original_comment_id` | `original_comment_id` | `string` | No | No | ID of the original comment. A value will be returned only when `comment_type` is `REPLY`. |
+| `comment_status` | `comment_status` | `"HIDDEN" \| "PUBLIC"` | No | No | Comment status. Enum values: `HIDDEN`, `PUBLIC`. |
+| `hit_blockedword` | `hit_blockedword` | `boolean` | No | No | Whether the comment contains blocked words. |
+| `ad_text` | `ad_text` | `string` | No | No | Ad title. |
+| `create_time` | `create_time` | `string` | No | No | The time when the comment is created. |
+| `campaign_id` | `campaign_id` | `string` | No | No | ID of the campaign that contains the ad that the comment is added to. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Name of the campaign that contains the ad that the comment is added to. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | ID of the ad group that contains the ad that the comment is added to. |
+| `adgroup_name` | `adgroup_name` | `string` | No | No | Name of the ad group that contains the ad that the comment is added to. |
+| `ad_id` | `ad_id` | `string` | No | No | ID of the ad that the comment is added to. |
+| `ad_name` | `ad_name` | `string` | No | No | Name of the ad that the comment is added to. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | TikTok video ID. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity type. `CUSTOMIZED_USER` (Customized User), `TT_USER` (TikTok Business Account User). For details about identities, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `is_pinned` | `is_pinned` | `boolean` | No | No | Whether the comment is pinned. |
+| `can_delete` | `can_delete` | `boolean` | No | No | Whether the comment can be deleted. |
+| `is_auth_ttba` | `is_auth_ttba` | `boolean` | No | No | Whether the user is linked to a TikTok Business Account. |
+| `is_auth_comment_manage_scope` | `is_auth_comment_manage_scope` | `boolean` | No | No | Whether the user has the comment management permission. |
+| `video_play_url` | `video_play_url` | `string` | No | No | Video play URL. |
+| `video_cover_url` | `video_cover_url` | `string` | No | No | Video cover URL. |
+| `user_avatar_url` | `user_avatar_url` | `string` | No | No | URL to the users' avatar. |
+| `user_name` | `user_name` | `string` | No | No | Unique user name. |
+| `user_id` | `user_id` | `string` | No | No | The ID of the TikTok user who made the comment. Example: `"6123456789123456789"`. |
+
+## CommentListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## CommentPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `ad_id` | `ad_id` | `string` | Yes | No | Ad ID |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | Yes | No | TikTok video ID |
+| `comment_id` | `comment_id` | `string` | Yes | No | ID of the comment that you want reply to |
+| `comment_type` | `comment_type` | `string` | Yes | No | Comment type. Currently, only `REPLY` is supported. |
+| `text` | `text` | `string` | Yes | No | Comment text. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "TT_USER"` | Yes | No | Type of the identity that are linked to the user. Enum values: `CUSTOMIZED_USER` (Custom User), `TT_USER` (TikTok User). For details about identity types, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID |
+
+## CommentPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | ID of the comment or reply that has just been created. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | ID of the TikTok video |
+| `text` | `text` | `string` | No | No | Comment or reply text that you just created |
+| `create_time` | `create_time` | `string` | No | No | Time when your comment or reply was created (UTC+0), in the format of `YYYY-MM-DD HH:MM:SS`. |
+| `reply_to_comment_id` | `reply_to_comment_id` | `string` | No | No | ID of the comment that you replied to |
+
+## CommentReferenceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `comment_id` | `comment_id` | `string` | Yes | No | Comment ID. |
+| `comment_type` | `comment_type` | `string` | Yes | No | Comment type. It can be `COMMENT`, which is an original comment, or `REPLY`, which is a reply to an original comment. |
+| `original_comment_id` | `original_comment_id` | `string` | No | No | ID of the original comment. A value will be returned only when `comment_type` is REPLY`. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-1000. Default value: `10`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+
+## CommentReferenceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<CommentReferenceResponseComments>` | No | No | List of comments. |
+| `page_info` | `page_info` | `CommentReferenceResponsePageInfo` | No | No | Page information. |
+
+## CommentReferenceResponseComments
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comment_id` | `comment_id` | `string` | No | No | Comment ID. |
+| `content` | `content` | `string` | No | No | Comment content. |
+| `comment_type` | `comment_type` | `string` | No | No | Comment type. It can be `COMMENT`, which is an original comment, or `REPLY`, which is a reply to an original comment. |
+| `comment_status` | `comment_status` | `"HIDDEN" \| "PUBLIC"` | No | No | Comment status. Enum values: `HIDDEN`, `PUBLIC`. |
+| `hit_blockedword` | `hit_blockedword` | `boolean` | No | No | Whether the comment contains blocked words. |
+| `create_time` | `create_time` | `string` | No | No | The time when the comment is created. |
+| `user_name` | `user_name` | `string` | No | No | User who made the comment. |
+| `user_id` | `user_id` | `string` | No | No | The ID of the TikTok user who made the comment. Example: `"6123456789123456789"`. |
+| `user_avatar_url` | `user_avatar_url` | `string` | No | No | URL to the users' avatar. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | TikTok video ID. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity type. `CUSTOMIZED_USER` (Customized User), `TT_USER` (TikTok Business Account User). For details about identities, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `is_pinned` | `is_pinned` | `boolean` | No | No | Whether the comment is pinned. |
+| `can_delete` | `can_delete` | `boolean` | No | No | Whether the comment can be deleted. |
+| `is_auth_ttba` | `is_auth_ttba` | `boolean` | No | No | Whether the user is linked to a TikTok Business Account. |
+| `is_auth_comment_manage_scope` | `is_auth_comment_manage_scope` | `boolean` | No | No | Whether the user has the comment management permission. |
+| `reply_user_info` | `reply_user_info` | `string` | No | No | Information about the user who posted the original comment. Valid only for replies (second-level or lower comments). Returns null for first-level comments. |
+
+## CommentReferenceResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## CommentStatusUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `comment_ids` | `comment_ids` | `Array<string>` | Yes | No | Comment ID |
+| `operation` | `operation` | `"HIDDEN" \| "PUBLIC"` | Yes | No | Operation type. Enum values: `HIDDEN` (change comments to hidden), `PUBLIC` (make comments public). |
+
+## CommentStatusUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | The return message. For Details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `code` | `code` | `number` | No | No | The return code. For details, see [Appendix-Return Code](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | Unique ID of the request |
+
+## CommentTaskCheckParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID |
+
+## CommentTaskCheckResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID |
+| `status` | `status` | `"RUNNING" \| "SUCCEED" \| "FAILED"` | No | No | Task status. Enum values: `RUNNING`, `SUCCEED`, `FAILED`. |
+
+## CommentTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `comment_status` | `comment_status` | `Array<"ALL" \| "PUBLIC" \| "HIDDEN">` | No | No | Comment status. Enum values: `ALL`, `PUBLIC`, `HIDDEN`. Default: `["ALL"]` |
+| `comment_type` | `comment_type` | `Array<"ALL" \| "COMMENT" \| "REPLY">` | No | No | Comment type. Enum values: `ALL`, `COMMENT`, `REPLY`. Default: `["ALL"]` |
+| `search_field` | `search_field` | `string` | No | No | Field to search by. Enum values: `ADGROUP_ID` |
+| `search_value` | `search_value` | `string` | No | No | Value to search |
+| `comment_ids` | `comment_ids` | `Array<string>` | No | No | IDs of the comments that you want to export |
+| `sort_field` | `sort_field` | `"CREATE_TIME" \| "LIKES" \| "REPLIES"` | No | No | Field to sort by. Enum values: `CREATE_TIME`, `LIKES`, `REPLIES` |
+| `sort_type` | `sort_type` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values: `ASC`,`DESC` |
+| `start_time` | `start_time` | `string` | No | No | Start date of the time range that you want to get results, in the format of `YYYY-MM-DD`. |
+| `end_time` | `end_time` | `string` | No | No | End date of the time range that you want to get results, in the format of `YYYY-MM-DD`. |
+| `lang` | `lang` | `"EN" \| "JA" \| "ZH"` | No | No | Language of the headers. Enum values: `EN`, `JA`, `ZH`. Default: `EN`. |
+
+## CommentTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID |
+
+## CommentTaskDownloadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID |
+
+## CommentTaskDownloadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `csv` | `csv` | `string` | No | No | CSV comments content. |
+
+## CreativeAdsPreviewCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Note: You need to have Operator or Admin permission for the ad account. To check your permission for an ad account, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). The returned `advertiser_role` should be `ADMIN` or `OPERATOR`. |
+| `preview_type` | `preview_type` | `string` | Yes | No | Preview type. To preview ads by ads creation parameters, use `ADS_CREATION`. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Advertising objective. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). Note: Currently the supported objectives are: `REACH`,`TRAFFIC`, `VIDEO_VIEWS`, `ENGAGEMENT`, `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`, and `RF_REACH`. |
+| `is_smart_performance_campaign` | `is_smart_performance_campaign` | `boolean` | No | No | Whether the campaign is a Smart+ Campaign. Default value: `false`. Note: This field can only be set to `false` when any of the following conditions is met:`ad_fomat` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`.`placement` is set to `PLACEMENT_PANGLE` or `ALL`. `objective_type` is set to `TRAFFIC`, `REACH`, `VIDEO_VIEWS`, or `PRODUCT_SALES`. |
+| `placement` | `placement` | `string` | No | No | The app where you want to deliver your ads. When `ad_format` is set to `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, specify this field as `PLACEMENT_TIKTOK`, or do not pass this field. Enum values: `PLACEMENT_TIKTOK`: Supported only when `objective_type` is `REACH`,`TRAFFIC`, `VIDEO_VIEWS`, `ENGAGEMENT`, `APP_PROMOTION`, `LEAD_GENERATION`, `WEB_CONVERSIONS`, or `PRODUCT_SALES`.`PLACEMENT_PANGLE`: Supported only when `objective_type` is `TRAFFIC`, `LEAD_GENERATION` (only when `promotion_type` is `LEAD_GENERATION`), `APP_PROMOTION`, or `WEB_CONVERSIONS`. `PLACEMENT_GLOBAL_APP_BUNDLE`: Suppported only when `objective_type` is `REACH`.`ALL`: Supported only when `objective_type` is `TRAFFIC`, `LEAD_GENERATION` (only when `promotion_type` is `LEAD_GENERATION`), `APP_PROMOTION`, or `WEB_CONVERSIONS`. |
+| `tiktok_subplacement` | `tiktok_subplacement` | `"LEMON8" \| "UNSET"` | No | No | Valid only when the following conditions are both met:`objective_type` is `REACH`.`placement` is `PLACEMENT_TIKTOK`. The subplacements within TikTok for your ads, allowing you to choose where your ads will appear. Enum values:`LEMON8`: Lemon8, a community app for lifestyle content, focusing on real-life experiences, tips, guides, and product reviews. By including Lemon8 as a subplacement, your ads will appear in its For You feed, Search feed, and Immersive Video feed. [Learn more about Lemon8](https://ads.tiktok.com/help/article/about-lemon8-in-tiktok-ads-manager). `UNSET`: Unset. |
+| `preview_format` | `preview_format` | `string` | No | No | Based on the `placement` you've selected, the allowed preview formats are different.When `placement` is `PLACEMENT_TIKTOK`, the allowed preview formats are: `IN_FEED`: In-feed. Ads will be placed in the For You feed and might also be placed in Profile Page and Following feeds.`SEARCH_RESULTS`: Search result. `SEARCH_FEED`: Search feed. `TIKTOK_LITE`: TikTok Lite, a streamlined version of TikTok that features a smaller app size and faster video loading speed. The TikTok Lite subplacement is currently available for Japan or South Korea as targeting locations.`PRODUCT_SEARCH`: Search (Shopping Center). Show your products in the Shop Tab search results, as well as general search results in the TikTok App. Learn more about [Shop Tab placements for Shop Ads](https://ads.tiktok.com/help/article/about-onsite-shopping-placements).`PRODUCT_SHOP_CENTER`: Recommendations (Shopping Center). Show your products to people who are likely to buy them in a Recommended for you section. When `placement` is `PLACEMENT_TIKTOK` and `tiktok_subplacement` is `LEMON8`, the allowed preview formats are:`IN_FEED`: In-feed. The ad will be displayed in a full-screen format, providing an immersive and undistracted viewing experience.`IN_FEED_TWO_COLUMNS`: In feed (two columns). The ad will be displayed in a two-column layout within the For You feed, allowing multiple content pieces to be displayed side by side. When `placement` is `PLACEMENT_GLOBAL_APP_BUNDLE`, the allowed preview formats are:`APP_OPEN`: App Open. The ad will be displayed when the Capcut app is opened, marking the beginning of each user session. This premium full-screen placement ensures visibility as the first screen users see.`IN_FEED`: In-feed. The ad will be displayed in a full-screen format, providing an immersive and undistracted viewing experience.`IN_FEED_TWO_COLUMNS`: In feed (two columns). The ad will be displayed in a two-column layout within the For You feed, allowing multiple content pieces to be displayed side by side. Default value: `IN_FEED`. Note: The values `SEARCH_FEED` and `TIKTOK_LITE` are valid only when the following conditions are met: `objective_type` is `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`.`placement` is `PLACEMENT_TIKTOK`.The values `PRODUCT_SEARCH` and `PRODUCT_SHOP_CENTER` are only available for Video Shopping Ads and Product Shopping Ads. When `placement` is `PLACEMENT_PANGLE`, this field is not supported. |
+| `shopping_ads_type` | `shopping_ads_type` | `"VIDEO" \| "LIVE" \| "PRODUCT_SHOPPING_ADS"` | No | No | Required when `objective_type` is `PRODUCT_SALES` and `catalog_id` is not specified. Shopping ads type. Enum values: `VIDEO`: Video Shopping Ads. `LIVE`: Live Shopping Ads.`PRODUCT_SHOPPING_ADS`: Product Shopping Ads. When `ad_format` is set to `CATALOG_CAROUSEL`, specify this field as `VIDEO`, or do not pass this field. |
+| `product_source` | `product_source` | `"STORE" \| "SHOWCASE"` | No | No | Required only for Video Shopping Ads and Product Shopping Ads. Product source where you want to get products for promotion. Enum values: `STORE` (TikTok Shop),`SHOWCASE`(TikTok Showcase). For Video Shopping Ads, you can set this field to `STORE` or `SHOWCASE`.For Product Shopping Ads, set this field to `STORE`. |
+| `store_id` | `store_id` | `string` | No | No | Required in any of the following scenarios:`shopping_ads_type` is `VIDEO` and `product_source` is `STORE`.`shopping_ads_type` is `PRODUCT_SHOPPING_ADS` and `product_source` is `STORE`. Optional when `shopping_ads_type` is `LIVE`. ID of the TikTok Shop. To get the TikTok Shop ID, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `TIKTOK_SHOP`. The returned `asset_id` will be the TikTok Shop ID. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | No | No | Required when `store_id` is passed. ID of the Business Center that is authorized to access the TikTok Shop (`store_id`). |
+| `showcase_products` | `showcase_products` | `Array<CreativeAdsPreviewCreateParamsShowcaseProducts>` | No | No | Required when `shopping_ads_type` is `VIDEO` and `product_source` is `SHOWCASE`. See [Create Video Shopping Ads with products from Showcase](https://business-api.tiktok.com/portal/docs?id=1759232259360770) to learn more. The list of Showcase products that you want to use in your ad. Max size: 20. You can get the available Showcase products via [/showcase/product/get/](https://business-api.tiktok.com/portal/docs?id=1759233576199169). |
+| `promotion_type` | `promotion_type` | `"APP_ANDROID" \| "APP_IOS" \| "WEBSITE" \| "LEAD_GENERATION" \| "LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE" \| "LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE" \| "LEAD_GEN_CLICK_TO_CALL"` | No | No | Promotion type. You can decide where you'd like to promote your products using this field. Enum values: `APP_ANDROID`: Android application.`APP_IOS`: iOS application.`WEBSITE`: landing page.`LEAD_GENERATION`: Instant Form or Website.`LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`: TikTok direct messages.`LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`: instant messaging apps. `LEAD_GEN_CLICK_TO_CALL`: phone call. Note: The following enum values are valid only when `objective_type` is `LEAD_GENERATION`: `LEAD_GENERATION``LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE` `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE` `LEAD_GEN_CLICK_TO_CALL` |
+| `identity_id` | `identity_id` | `string` | Yes | No | Identity ID. If you are not using Spark Ads, `identity_id` and `identity_type` (`CUSTOMIZED_USER`) can be used for better management of ad information. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | Yes | No | Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. Use `CUSTOMIZED_USER` for custom identity and use `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT` in Spark Ads. For details about identities, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). When `ad_format` is `CATALOG_CAROUSEL`, you can only set this field to `CUSTOMIZED_USER`. If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, Spark Ads must be used and `identity_type` must be `TT_USER` or `BC_AUTH_TT`. When `promotion_type` is not `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, both Spark Ads & non-Spark Ads are supported, so `identity_type` can be set to any of the enum values. If `objective_type` is `ENGAGEMENT`, only Spark Ads are supported and `identity_type` must be `AUTH_CODE`, `TT_USER` or `BC_AUTH_TT`. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `ad_format` | `ad_format` | `string` | Yes | No | Ad format. For single video ads, set this field to `SINGLE_VIDEO`. For single image ads, set this field to `SINGLE_IMAGE`. Supported only on Pangle.For TikTok Standard Carousel ads, set this field to `CAROUSEL_ADS`. To use this ad format, you need to set `objective_type` to `REACH`, `WEB_CONVERSIONS`, `APP_PROMOTION`, `LEAD_GENERATION` or `TRAFFIC`. For TikTok Catalog Carousel ads, set this field to `CATALOG_CAROUSEL`. See [here](https://business-api.tiktok.com/portal/docs?id=1766217791987713) to learn about the steps of creating TikTok Carousel Ads. For Live Shopping Ads, set this field to `LIVE_CONTENT`. |
+| `video_id` | `video_id` | `string` | No | No | Video ID. Required when `ad_format` is `SINGLE_VIDEO`. Not supported when `ad_format` is `SINGLE_IMAGE`, `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. To create video [Spark Ads](https://ads.tiktok.com/marketing_api/docs?id=1739470744631298) using Spark Ads Push or create video Non-Spark Ads, use `video_id`. You can find video IDs using [/file/video/ad/search/](https://ads.tiktok.com/marketing_api/docs?id=1740050472224769). To create video Spark Ads using Spark Ads Pull, use `tiktok_item_id` to specify the TikTok post ID. |
+| `image_ids` | `image_ids` | `Array<string>` | No | No | Required in any of the following scenarios: `ad_format` is `SINGLE_IMAGE`. `ad_format` is `CAROUSEL_ADS` and you want to create Standard Carousel Spark Ads via Spark Ads Push or Standard Carousel Non-Spark Ads. `ad_format` is `CATALOG_CAROUSEL`, `catalog_enabled` is set to `true`, and an Auto-Model catalog is specified through `catalog_id`. A list of image IDs (images used in an ad or as a video cover). When `ad_format` is set to `CAROUSEL_ADS`, the size range for this field is [1, 35], and the sequence of the image IDs specified via this field is the order in which the images are shown in the Carousel Ads. See [Create Carousel Ads](https://ads.tiktok.com/marketing_api/docs?id=1766217791987713) to learn about the requirements for images that can be used in TikTok Carousel Ads. When `ad_format` is set to `CATALOG_CAROUSEL` and `catalog_enabled` is set to `true`, the value of this field will be used as the summary photo in the Automotive Ads for Models (only one value is allowed). To learn about the requirements for the summary photo that can be used in Automotive Ads for Models, see [Automotive Ads for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994).When `ad_format` is set to `SINGLE_IMAGE`, you can only assign one image ID to this field. To learn about the requirements for images that can be used in single image ads, see [Create single image ads](https://business-api.tiktok.com/portal/docs?id=1777633230937090). |
+| `end_card_cta` | `end_card_cta` | `"SEARCH_INVENTORY" \| "LEARN_MORE" \| "SHOP_NOW" \| "SIGN_UP" \| "CONTACT_US" \| "BOOK_NOW" \| "READ_MORE" \| "VIEW_MORE" \| "ORDER_NOW"` | No | No | Required when the following conditions are met:`objective_type` is `LEAD_GENERATION`.`catalog_enabled` is `true`.An Auto-Model catalog is specified through `catalog_id`.`ad_format` is `CATALOG_CAROUSEL`. Call-to-action for the end card (`image_ids`) of an [Automotive Carousel Ad for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994#item-link-Ad%20format%20as%20Catalog%20Carousel). Enum values:`SEARCH_INVENTORY` (Recommended): Search inventory.`LEARN_MORE`: Learn more.`SHOP_NOW`: Shop now.`SIGN_UP`: Sign up.`CONTACT_US`: Contact us.`BOOK_NOW`: Book now.`READ_MORE`: Read more.`VIEW_MORE`: View now.`ORDER_NOW`: Order now. |
+| `music_id` | `music_id` | `string` | No | No | Required in any of the following scenarios:`ad_format` is `CAROUSEL_ADS` and you create Standard Carousel Spark Ads via Spark Ads Push or Standard Carousel Non-Spark Ads. `ad_format` is `CATALOG_CAROUSEL`. The ID of the piece of music that you want to use in the TikTok Carousel Ad. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | Required when `identity_type` is `AUTH_CODE` or `BC_AUTH_TT` and you want to create Spark Ads through Spark Ads Pull.Not supported when `identity_type` is `CUSTOMIZED_USER`. The ID of the TikTok post to be used as Spark Ad. To learn more about Spark Ads, see [Create Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). Pass in the `item_id` you get from the response of the [/tt_video/info/](https://ads.tiktok.com/marketing_api/docs?id=1738376324021250) or [/identity/video/get/](https://ads.tiktok.com/marketing_api/docs?id=1740218475032577) endpoint. Note: By using Spark Ads, you confirm that you have the rights to use the music in the videos for commercial purposes. |
+| `carousel_image_index` | `carousel_image_index` | `number` | No | No | Valid only when you set `ad_format` to `CATALOG_CAROUSEL`, and a list of additional images has been configured for the specified products. The index that specifies the additional images to be used in the VSA Carousel ad. If this field is not passed, the main images of catalog products will be used in the VSA Carousel ad. Value range: [0, 9]. The number you set via this field represents the position of the product image within the additional image list (`additional_image_urls`) for each catalog product. For instance, `carousel_image_index` = 1 means that you will use all the images specified via the second image URL in each `additional_image_urls` value as images in the Carousel Ad. You can retrieve the additional images configured for a product via `additional_image_urls` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). If you set a number greater than the total number of additional Image URLs specified for the product, this field will be ignored, and the main image (`image_url`) for the product will be used. You can retrieve the main image for a product via `image_url` returned by [/catalog/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1740564136678402). |
+| `ad_text` | `ad_text` | `string` | No | No | An ad text. It is shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. If you don't know how to create effective ad texts, you can try the [Smart Text](https://ads.tiktok.com/marketing_api/docs?id=1739084248002626) feature, which generates ad text recommendations based on the industry and language. This field is required if your ad is non-Spark Ads. Ad text must be 1-100 characters long and cannot contain emoji.Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `call_to_action` | `call_to_action` | `string` | No | No | Call-to-action text. For TikTok ads, either this field or `call_to_action_id` must be specified. If both are specified, this field will be ignored. For enum values, see [Enumeration - Call-to-Action](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). For live shopping ads, the call to action must be `WATCH_LIVE`. NoteIf `objective_type` is `REACH`or `VIDEO_VIEW`, and `landing_page_url` or `page_id` has been specified, then either `call_to_action` or `call_to_action_id` is required. If `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS`, or `TRAFFIC`, then either `call_to_action` or `call_to_action_id` is required.If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GENERATION`, either `call_to_action` or `call_to_action_id` is required. When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, `call_to_action` is required and must be set to `SEND_MESSAGE`. When `promotion_type` is `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`, `call_to_action` is required and cannot be set to `CALL_NOW`. When `promotion_type` is `LEAD_GEN_CLICK_TO_CALL`, `call_to_action` is required. If `objective_type` is `PRODUCT_SALES`, `call_to_action` is required. |
+| `call_to_action_id` | `call_to_action_id` | `string` | No | No | The ID of the CTA portfolio that you want to use in your ads. A CTA portfolio is a group of auto-optimized CTAs. If both this field and `call_to_action` are specified, `call_to_action` will be ignored. For details about auto-optimized CTAs, see [CTA recommendations &gt; Dynamic CTAs](https://ads.tiktok.com/marketing_api/docs?id=1740307296329730). NoteIf `objective_type` is `REACH`or `VIDEO_VIEW`, and `landing_page_url` or `page_id` has been specified, then either `call_to_action` or `call_to_action_id` is required. If `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS`, or `TRAFFIC`, then either `call_to_action` or `call_to_action_id` is required. If `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`, `call_to_action_id` is not supported.If `objective_type` is `LEAD_GENERATION`: When `promotion_type` is `LEAD_GENERATION`, either `call_to_action` or `call_to_action_id` is required. When `promotion_type` is `LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE`, `LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE`, or `LEAD_GEN_CLICK_TO_CALL`, `call_to_action_id` is not supported. |
+| `card_id` | `card_id` | `string` | No | No | Creative portfolio ID. Pass the ID of one of the following creative portfolio types:Display Card. Website info card.Product Card.Product Tiles.Countdown Sticker. Gift Code Sticker.Gesture.Superlike. To create a creative portfolio, use [/creative/portfolio/create/](https://business-api.tiktok.com/portal/docs?id=1739091950439426). To learn about how to get the ID of a Display Card, Website info card, Product Card, or Product Tiles portfolio, see [Cards](https://business-api.tiktok.com/portal/docs?id=1749019652141058).To learn about how to get the ID of a Countdown Sticker or Giftcode Sticker portfolio, see [Stickers](https://business-api.tiktok.com/portal/docs?id=1749019667506177).To learn about how to get the ID of a Gesture or Superlike portfolio, see [Premium Add-ons](https://business-api.tiktok.com/portal/docs?id=1749019676181505). Note: You can use this field in the following scenarios. When `objective_type`= `REACH`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `TRAFFIC`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `VIDEO_VIEWS`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `ENGAGEMENT`, you can only specify a Countdown Sticker portfolio through this field.When `objective_type`= `APP_PROMOTION`, `promotion_type`= `WEBSITE`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`= `LEAD_GENERATION`, you can only specify a Display Card portfolio through this field. When `objective_type`=`WEB_CONVERSIONS`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`.When `objective_type`=`PRODUCT_SALES`, `placements`= `PLACEMENT_TIKTOK`, and `ad_format` = `SINGLE_VIDEO`. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Landing page URL. NoteIf `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS` or `TRAFFIC`, and `promotion_type` is `WEBSITE`, then either `page_id` or `landing_page_url` is required.If `objective_type` is `APP_PROMOTION` or `TRAFFIC`, and `promotion_type` is `APP_ANDROID`/`APP_IOS` , then neither `page_id` nor `landing_page_url` can be used. |
+| `page_id` | `page_id` | `string` | No | No | Used to preview TikTok Instant Page. NoteIf `objective_type` is `APP_PROMOTION`, `WEB_CONVERSIONS` or `TRAFFIC`, and `promotion_type` is `WEBSITE`, then either `page_id` or `landing_page_url` is required.If `objective_type` is `APP_PROMOTION`, or `TRAFFIC`, and `promotion_type` is `APP_ANDROID`/`APP_IOS` , then neither `page_id` nor `landing_page_url` can be used. If `ad_format` is `CATALOG_CAROUSEL`, this field is not supported. |
+| `catalog_id` | `catalog_id` | `string` | No | No | Product catalog ID. Products whose links are shown in the ad are from this catalog. When `ad_format` is `CATALOG_CAROUSEL`, this field is required. Note: You need to have Ad promotion or Catalog management permission for the catalog. To check your permission for a catalog, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). The returned `catalog_role` should be `ADMIN` or `AD_PROMOTE`. |
+| `product_specific_type` | `product_specific_type` | `"ALL" \| "PRODUCT_SET" \| "CUSTOMIZED_PRODUCTS"` | No | No | Different dimensions to choose products. When `ad_format` is `CATALOG_CAROUSEL`, this field is required. The Carousel images will be dynamically chosen from the images for the specified catalog products, and the specified product range needs to include at least two products. Enum values: `ALL`: Allow TikTok to dynamically choose from all catalog products.`PRODUCT_SET`: Specify a product set. TikTok will dynamically choose products from this set.`CUSTOMIZED_PRODUCTS`:Specify up to 20 products from your catalog. If this field is set to `ALL`, you don't need to input `sku_ids` or `item_group_ids` or `product_set_id`. If this field is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`.If this field is set to `CUSTOMIZED_PRODUCTS`, you need to pass in `sku_ids` or `vehicle_ids`. Note:When `shopping_ads_type` is `PRODUCT_SHOPPING_ADS` and `product_source` is `STORE`, you can set this field to `ALL` or `CUSTOMIZED_PRODUCTS`. If this field is set to `ALL`, you don't need to input `sku_ids`,`vehicle_ids`, `item_group_ids`, and `product_set_id`. If this field is set to `CUSTOMIZED_PRODUCTS`, `item_group_ids` is required. When `shopping_ads_type` is `VIDEO` and `product_source` is `STORE`, specify the products through `item_group_ids`. When `shopping_ads_type` is `VIDEO` and `product_source` is `SHOWCASE`, specify the products through `showcase_products`.When `shopping_ads_type` is `LIVE`, you don't need to specify the products. |
+| `item_group_ids` | `item_group_ids` | `Array<string>` | No | No | If `catalog_id` is specified and `product_specific_type` is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`.Required in any of the following scenarios:`shopping_ads_type` is `VIDEO` and `product_source` is `STORE`. `shopping_ads_type` is `PRODUCT_SHOPPING_ADS`,`product_source` is `STORE`, and `product_specific_type` is `CUSTOMIZED_PRODUCTS`. Product SPU IDs. |
+| `product_set_id` | `product_set_id` | `string` | No | No | If `catalog_id` is specified and `product_specific_type` is set to `PRODUCT_SET`, you need to pass in either `item_group_ids` or `product_set_id`. The ID of the product set. |
+| `sku_ids` | `sku_ids` | `Array<string>` | No | No | Required when the following conditions are both met:An E-commerce catalog is specified through `catalog_id`.`product_specific_type` is set to `CUSTOMIZED_PRODUCTS`. IDs of the SKUs. Max size: 20. |
+| `hotel_ids` | `hotel_ids` | `Array<string>` | No | No | IDs of hotels. Max size: 20. |
+| `flight_ids` | `flight_ids` | `Array<string>` | No | No | IDs of flights. Max size: 20. |
+| `destination_ids` | `destination_ids` | `Array<string>` | No | No | IDs of destinations. Max size:20. |
+| `vehicle_ids` | `vehicle_ids` | `Array<string>` | No | No | Required when the following conditions are both met:An Auto-Model catalog is specified through `catalog_id`.`product_specific_type` is set to `CUSTOMIZED_PRODUCTS`. IDs of vehicles. Max size: 20. |
+| `auto_disclaimer_types` | `auto_disclaimer_types` | `Array<"EMISSION" \| "DISCOUNT">` | No | No | Valid only when the following conditions are met:`objective_type` is `LEAD_GENERATION`.`catalog_enabled` is true.An Auto-Model catalog is specified through `catalog_id`.`ad_format` is `CATALOG_CAROUSEL`. The type of disclaimer to show in the [Automotive Carousel Ads for Models](https://business-api.tiktok.com/portal/docs?id=1829635758164994#item-link-Ad%20format%20as%20Catalog%20Carousel). Enum values:`EMISSION`: Emission disclaimer.`DISCOUNT`: Discount or offer disclaimer. Max size: 1. |
+| `catalog_authorized_bc_id` | `catalog_authorized_bc_id` | `string` | No | No | Same as `bc_id`. Please use this field when previewing catalog items. |
+| `dynamic_format` | `dynamic_format` | `"UNSET" \| "DYNAMIC_CREATIVE"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Dynamic format. Enum values: `UNSET`: Unset.`DYNAMIC_CREATIVE`: smart creative. To display different videos, product cards and destinations to each person based on purchase intent, maximizing conversions. |
+| `vertical_video_strategy` | `vertical_video_strategy` | `"SINGLE_VIDEO" \| "CATALOG_VIDEOS" \| "LIVE_STREAM" \| "UNSET" \| "DYNAMIC_CREATIVE"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Video strategy. Enum values:`SINGLE_VIDEO`: Use a video creative to promote your products.`CATALOG_VIDEOS`: Generate a dynamic video based on information from the product catalog.`LIVE_STREAM`: Use livestream to promote your products. Supported only for Live Shopping Ads with ad format as Real-time LIVE.`UNSET`: Unset.It must be `UNSET` if `dynamic_format` = `DYNAMIC_CREATIVE`. |
+| `shopping_ads_video_template_id` | `shopping_ads_video_template_id` | `string` | No | No | Product video package ID. Use the [/catalog/video/get/](https://ads.tiktok.com/marketing_api/docs?id=1740574099715073) endpoint to get video package IDs. |
+| `shopping_ads_fallback_type` | `shopping_ads_fallback_type` | `"DEFAULT" \| "CUSTOM" \| "SHOPPING_ADS"` | No | No | In the Shopping Ads retargeting scenario, the fallback website type when the deeplink fails to be triggered. Enum values:`DEFAULT`: Unset.`CUSTOM`: Custom link. Fall back to the web page link you provide. You need to pass in `landing_page_url` at the same time. `SHOPPING_ADS`: Product link. Fall back to the web page link you've provided for each product in the catalog. The `SHOPPING_ADS` value is not supported when the following conditions are met: `shopping_ads_type` is set to `VIDEO` (Video Shopping Ads) `product_source` is set to `CATALOG``ad_format` is set to `SINGLE_VIDEO` and `vertical_video_strategy` is set to `SINGLE_VIDEO` or `ad_format` is set to `CATALOG_CAROUSEL` To learn about the supported scenarios for fallback types, see the "[Deeplink - Availability - Fallback type](https://business-api.tiktok.com/portal/docs?id=1779541971843073#item-link-Fallback type)" section. |
+| `dynamic_destination` | `dynamic_destination` | `"DLP" \| "UNSET"` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Dynamic destination strategy. Enum values:`DLP`: Dynamic Landing Page. Displaying different destinations including a custom website or Instant Product Page to each person based on their profile, behavior, and intent to maximize ad conversion. `UNSET`: Unset. |
+| `instant_product_page_used` | `instant_product_page_used` | `boolean` | No | No | Not supported when `ad_format` is `CAROUSEL_ADS` or `CATALOG_CAROUSEL`. Whether to use TikTok Instant Product Page, an auto-generated TikTok instant page that displays a range of products and provides a native experience landing page. When `dynamic_destination `= `DLP`, you don't need this parameter. When `dynamic_destination` = `UNSET`, you can set this field to `true` to use TikTok Instant Product Page, and you don't need to pass in `page_id`. |
+
+## CreativeAdsPreviewCreateParamsShowcaseProducts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_group_id` | `item_group_id` | `string` | No | No | Required when `showcase_products` is passed. SPU ID of the product. |
+| `store_id` | `store_id` | `string` | No | No | Required when `showcase_products` is passed. The ID of the TikTok Shop that the product (`item_group_id`) belongs to. |
+
+## CreativeAdsPreviewCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preview_link` | `preview_link` | `string` | No | No | Preview link. Validity period: 30 days when `preview_type` is `ADS_CREATION` or `AD`.24 hours when `preview_type` is `CARD`, `PAGE`, `SINGLE_VIDEO` or `SINGLE_IMAGE`. |
+| `iframe` | `iframe` | `string` | No | No | iframe code snippet with the preview link. You can embed the iframe code to your HTML file. |
+| `tips` | `tips` | `Array<string>` | No | No | Adjustment advice. Modify the materials according to the prompts to obtain a better display effect. |
+| `placement` | `placement` | `string` | No | No | Incorrect placement. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929). If it is a general prompt message (applicable to all placements), then this field will not be returned. |
+| `messages` | `messages` | `Array<string>` | No | No | Messages. |
+
+## CreativeAssetDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | A list of video IDs. At most 50 IDs can be included in the list. |
+| `image_ids` | `image_ids` | `Array<string>` | No | No | A list of image IDs. At most 50 IDs can be included in the list. |
+
+## CreativeAssetDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failed_video_ids` | `failed_video_ids` | `Array<string>` | No | No | A list of unsuccessfully deleted video IDs. |
+| `failed_image_ids` | `failed_image_ids` | `Array<string>` | No | No | A list of unsuccessfully deleted image IDs. |
+
+## CreativeAssetShareParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Operator advertiser ID. |
+| `asset_type` | `asset_type` | `"VIDEO" \| "IMAGE" \| "MUSIC"` | No | No | Type of creative assets that you want to share. Enum values: `VIDEO`, `IMAGE`, `MUSIC` Default value: `VIDEO` |
+| `material_ids` | `material_ids` | `Array<string>` | Yes | No | Material ID. Max size: 20 After successful sharing, the name of the shared creative materials will be copied in the shared advertiser account. Note: Currently, the sharing will only fail when there is a creative material with the same name as the material you want to share under the shared advertiser account. |
+| `shared_advertiser_ids` | `shared_advertiser_ids` | `Array<string>` | Yes | No | IDs of advertisers that you want to share creative materials with. Max size: 10. |
+
+## CreativeAssetShareResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failed_infos` | `failed_infos` | `CreativeAssetShareResponseFailedInfos` | No | No | Information about the failed sharing. Note: Currently, the sharing will only fail when there is a creative material with the same name as the material you want to share under the shared advertiser account. |
+
+## CreativeAssetShareResponseFailedInfos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | Advertiser ID that you fail to share creative materials with. |
+| `value` | `value` | `Array<string>` | No | No | Material IDs that you fail to share. |
+
+## CreativeAutoMessageCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `auto_message_type` | `auto_message_type` | `string` | Yes | No | The type of automatic message to greet people with when they start a conversation with you. Enum value: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to welcome people to the conversation after they tap on your ad. |
+| `welcome_message` | `welcome_message` | `CreativeAutoMessageCreateParamsWelcomeMessage` | No | No | Required when `auto_message_type` is `WELCOME_MESSAGE`. Information about the welcome message. |
+
+## CreativeAutoMessageCreateParamsWelcomeMessage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | Required when `welcome_message` is passed. The name of the welcome message. You can specify a unique name to distinguish between different welcome messages within the welcome message library of your ad account. |
+| `content` | `content` | `string` | No | No | Required when `welcome_message` is passed. The greeting within the welcome message. Length limit: 200 characters. Example: `Hi, thanks for contacting us. How can we help you?` |
+| `suggested_questions` | `suggested_questions` | `Array<CreativeAutoMessageCreateParamsWelcomeMessageSuggestedQuestions>` | No | No | Required when `welcome_message` is passed. A list of suggested questions for customers to tap. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer. Size range: 1-3. |
+
+## CreativeAutoMessageCreateParamsWelcomeMessageSuggestedQuestions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `question` | `question` | `string` | No | No | Required when `welcome_message` is passed. A frequently asked question to help users start a conversation. Length limit: 70 characters. |
+| `answer` | `answer` | `string` | No | No | Required when `welcome_message` is passed. The preset answer that will be automatically sent when a user selects the question. Length limit: 500 characters. |
+
+## CreativeAutoMessageCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreativeAutoMessageGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `auto_message_type` | `auto_message_type` | `string` | Yes | No | The type of automatic message to greet people with when they start a conversation with you. Enum value: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to welcome people to the conversation after they tap on your ad. |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. When `auto_message_type` is `WELCOME_MESSAGE`, you can specify the ID of a welcome message via this field to filter the results. If this field is not passed, all messages that belong to the specified automatic message type will be returned. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+## CreativeAutoMessageGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CreativeAutoMessageGetResponseList>` | No | No | The list of automatic messages within the ad account. |
+| `page_info` | `page_info` | `CreativeAutoMessageGetResponsePageInfo` | No | No | Pagination information. Note: If `auto_message_id` is specified in the request, `page_info` will not be returned. |
+
+## CreativeAutoMessageGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_message_id` | `auto_message_id` | `string` | No | No | The ID of the automatic message. |
+| `auto_message_type` | `auto_message_type` | `string` | No | No | The type of automatic message to greet people with when they start a conversation with you. Enum value: `WELCOME_MESSAGE`: welcome message. A welcome message is a message that is automatically sent to welcome people to the conversation after they tap on your ad. |
+| `welcome_message` | `welcome_message` | `string` | No | No | Information about the welcome message. |
+| `title` | `title` | `string` | No | No | The name of the welcome message. You can use the name to distinguish between different welcome messages within the welcome message library of your ad account. |
+| `content` | `content` | `string` | No | No | The greeting within the welcome message. Example: `Hi, thanks for contacting us. How can we help you?` |
+| `suggested_questions` | `suggested_questions` | `Array<CreativeAutoMessageGetResponseListSuggestedQuestions>` | No | No | A list of suggested questions for customers to tap. A suggested question is a frequently asked question displayed at the beginning of a chat. When the user selects a suggested question, the user will automatically receive the corresponding preset answer.Suggested questions. |
+| `audit_status` | `audit_status` | `"AUDITING" \| "PASS" \| "REJECTED"` | No | No | The review status of the automatic message. Enum values: `AUDITING`: The automatic message is pending review.`PASS`: The automatic message has been approved.`REJECTED`: The automatic message has been rejected. |
+| `create_time` | `create_time` | `string` | No | No | The time when the automatic message was created, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2025-01-01 00:00:01`. |
+
+## CreativeAutoMessageGetResponseListSuggestedQuestions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `question` | `question` | `string` | No | No | A frequently asked question to help users start a conversation. |
+| `answer` | `answer` | `string` | No | No | The preset answer that will be automatically sent when a user selects the question. |
+
+## CreativeAutoMessageGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CreativeCtaRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `new_version` | `new_version` | `boolean` | No | No | Whether to use the new version of the endpoint that supports retrieval of Dynamic CTAs based on your ad settings. Supported values: `true`, `false`. Default value: `false`. |
+| `asset_type` | `asset_type` | `string` | No | No | Required when `new_version` is `false` or not passed. Ignored when `new_version` is `true`. The asset type. Enum values： `CTA_NORMAL`: Standard Recommended CTAs.`CTA_AUTO_OPTIMIZED`: Dynamic CTAs. |
+| `content_type` | `content_type` | `"APP_DOWNLOAD" \| "LANDING_PAGE" \| "OTHER" \| "MESSAGE" \| "SOCIAL_MEDIA_APP_MESSAGE" \| "PHONE_CALL"` | No | No | Required when `new_version` is `false` or not passed. Ignored when `new_version` is `true`. The ads content type. Enum values:`APP_DOWNLOAD``LANDING_PAGE``OTHER``MESSAGE` : a Lead Generation ad with promotion type as TikTok direct message.`SOCIAL_MEDIA_APP_MESSAGE` : a Lead Generation ad with promotion type as social media app. `PHONE_CALL`: a Lead Generation ad with promotion type as phone call. |
+| `objective_type` | `objective_type` | `string` | No | No | Required when `new_version` is `true`.Not supported when `new_version` is `false` or not passed. Advertising objective. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `promotion_type` | `string` | No | No | Required when `new_version` is `true`.Not supported when `new_version` is `false` or not passed. Promotion type (Optimization location). For enum values, see [Enumeration - Promotion Type](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Promotion%20Type). |
+| `language` | `language` | `string` | No | No | Valid only when `new_version` is `true`. The code of language for the recommended CTAs. To obtain the list of available language codes, use [/tool/language/](https://ads.tiktok.com/marketing_api/docs?id=1737188554152962). Default value: `en`. For example, if you set this field to `fr`, the returned `asset_content` will be in French. |
+| `app_id` | `app_id` | `string` | No | No | Valid only when `new_version` is `true`. The application ID of the promoted app. To obtain the list of apps within your ad account, use [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786). Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `placements` | `placements` | `Array<"PLACEMENT_TIKTOK" \| "PLACEMENT_PANGLE" \| "PLACEMENT_GLOBAL_APP_BUNDLE">` | No | No | Valid only when `new_version` is `true`. The apps where you want to deliver your ads. Enum values: `PLACEMENT_TIKTOK`: TikTok.`PLACEMENT_PANGLE`: Pangle. `PLACEMENT_GLOBAL_APP_BUNDLE`: Global App Bundle. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | Valid only when `new_version` is `true`. Codes of the regions that you want to target. For enum values, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `US`. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `optimization_goal` | `optimization_goal` | `string` | No | No | Valid only when `new_version` is `true`. The measurable results you'd like to drive with your ads. For a complete list of enum values, see [Enumeration - Optimization Goal](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Optimization%20Goal). Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `ad_texts` | `ad_texts` | `Array<string>` | No | No | Valid only when `new_version` is `true`. A list of ad texts. Each ad text is shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. Ad text must be 1-100 characters long and cannot contain emoji.Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. Recommended size: 1. If you don't know how to create effective ad texts, you can try the [Smart Text](https://ads.tiktok.com/marketing_api/docs?id=1739084248002626) feature, which generates ad text recommendations based on the industry and language. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Valid only when `new_version` is `true`. The landing page that users will be redirected to. Note: Due to limited historical data for generating customized results, you might receive the same recommended CTAs even if you provide a different value for this field. |
+
+## CreativeCtaRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommend_assets` | `recommend_assets` | `Array<CreativeCtaRecommendResponseRecommendAssets>` | No | No | The recommended assets. |
+
+## CreativeCtaRecommendResponseRecommendAssets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_ids` | `asset_ids` | `Array<string>` | No | No | The asset IDs of recommended CTAs |
+| `asset_content` | `asset_content` | `string` | No | No | The CTA text. For example, `"Learn More"`. |
+
+## CreativeFatigueGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `ad_id` | `ad_id` | `string` | Yes | No | The ID of the ad that you want to get Creative Fatigue detection results for. |
+| `filtering` | `filtering` | `CreativeFatigueGetParamsFiltering` | Yes | No | Filtering conditions. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: [1, 500]. |
+
+## CreativeFatigueGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start_date` | `start_date` | `string` | Yes | No | Query start date (closed interval), in the format of `YYYY-MM-DD` (advertiser account time zone). You can only specify a date within the last 60 days. |
+| `end_date` | `end_date` | `string` | Yes | No | Query end date (open interval), in the format of `YYYY-MM-DD` (advertiser account time zone). You can only specify a date within the last 60 days. |
+
+## CreativeFatigueGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CreativeFatigueGetResponseList>` | No | No | Information about the Creative Fatigue detection results. |
+| `page_info` | `page_info` | `CreativeFatigueGetResponsePageInfo` | No | No | Pagination information. |
+
+## CreativeFatigueGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | ID of the ad group that the ad (`ad_id`) belongs to. |
+| `ad_id` | `ad_id` | `string` | No | No | ID of the ad. |
+| `date` | `date` | `string` | No | No | The date for which the values of the `metrics` are retrieved. |
+| `metrics` | `metrics` | `CreativeFatigueGetResponseListMetrics` | No | No | Information about data of the metrics on the date (`date`). |
+
+## CreativeFatigueGetResponseListMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `has_fatigue` | `has_fatigue` | `boolean` | No | No | Whether Creative Fatigue is detected. |
+| `fatigue_index` | `fatigue_index` | `number` | No | No | The "Fatigue Index" is a comprehensive metric that considers day-over-day changes in CPA, cost, the new users reach rate, and other performance metrics. A higher index value indicates a greater degree of fatigue. |
+| `dnu` | `dnu` | `number` | No | No | DNU. The number of daily new users that the ad attracts. |
+| `dnu_ratio` | `dnu_ratio` | `number` | No | No | DNU ratio. This metric is calculated by dividing the number of daily new users attracted by the ad on a specific date by the maximum number of daily new users that the ad attracted in the last 60 days. |
+| `spend` | `spend` | `number` | No | No | Total cost, which is the estimated total amount of money you've spent on the ad, in the default currency for the ad account. |
+| `cost_per_conversion` | `cost_per_conversion` | `number` | No | No | This metric returns actual value when the ad is within a non-iOS 14 Dedicated Campaign, and returns `0.0` when the ad is within an iOS 14 Dedicated Campaign. You can check whether a campaign is an iOS 14 Dedicated Campaign via the value of `campaign_type` returned by [/campaign/get/](https://ads.tiktok.com/marketing_api/docs?id=1739315828649986). CPA, which is the average amount of money spent on a conversion from the ad, in the default currency for the ad account. The total count is calculated based on the time each ad impression occurred. |
+| `skan_cost_per_conversion` | `skan_cost_per_conversion` | `number` | No | No | This metric returns actual value when the ad is within an iOS 14 Dedicated Campaign, and returns `0.0` when the ad is within a non-iOS 14 Dedicated Campaign. You can check whether a campaign is an iOS 14 Dedicated Campaign via the value of `campaign_type` returned by [/campaign/get/](https://ads.tiktok.com/marketing_api/docs?id=1739315828649986). CPA (SKAN), the average amount of money spent on a conversion from the ad, in the default currency for the ad account. The total count is based on when the events are returned through the SKAdNetwork API. There may be a delay between the actual conversion time and when the conversion is reported. |
+
+## CreativeFatigueGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Current page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## CreativeImageEditParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `image_id` | `image_id` | `string` | Yes | No | Image ID. |
+| `edit_method` | `edit_method` | `string` | No | No | Editing method. Supported methods: `fix_size`, `only_gauss_pad`, and `gauss_padding_reserve_score`. Default value: `fix_size`. See the "Image editing methods" section to learn about the differences between the editing methods. |
+| `width` | `width` | `number` | Yes | No | Width of edited image. |
+| `height` | `height` | `number` | Yes | No | Height of edited image. |
+| `image_name` | `image_name` | `string` | No | No | Image name after editing. If the name is not set, this will be automatically generated. |
+
+## CreativeImageEditResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Image ID that is used to create ads. |
+| `material_id` | `material_id` | `string` | No | No | Material ID. |
+| `displayable` | `displayable` | `boolean` | No | No | Whether it can be displayed on the platform. |
+| `width` | `width` | `number` | No | No | Image width. |
+| `format` | `format` | `string` | No | No | Image format. |
+| `image_url` | `image_url` | `string` | No | No | Image URL, valid for an hour and needs to be re-acquired after expiration. |
+| `height` | `height` | `number` | No | No | Image height. |
+| `signature` | `signature` | `string` | No | No | MD5 of Picture. |
+| `size` | `size` | `number` | No | No | Image size, in Bytes. |
+| `file_name` | `file_name` | `string` | No | No | Image name. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. UTC time, format: 2020-06-10T07:39:14Z |
+| `modify_time` | `modify_time` | `string` | No | No | Modification time. UTC time, format: 2020-06-10T07:39:14Z |
+
+## CreativePortfolioCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The advertiser ID |
+| `creative_portfolio_type` | `creative_portfolio_type` | `"CTA" \| "CARD" \| "WEB_INFO_CARD" \| "DOWNLOAD_CARD" \| "INVENTORY_CARD" \| "PRODUCT_CARD" \| "PRODUCT_TILE" \| "STICKER" \| "PREMIUM_BADGE" \| "GESTURE" \| "SUPER_LIKE"` | No | No | Type of the portfolio. Enum values: `CTA`: call-to-action text.`CARD`: card (Display Card). `WEB_INFO_CARD`: Website info card.`DOWNLOAD_CARD`: Download Card.`INVENTORY_CARD`: Inventory Card. `PRODUCT_CARD`: Product Card. `PRODUCT_TILE`: Product Tiles.`STICKER`: Countdown Sticker or Gift Code Sticker. `PREMIUM_BADGE`: Pop-up Showcase.`GESTURE`: Gesture.`SUPER_LIKE`: Superlike. A Superlike engages the audience with a surprise visual element after they like a video ad. With Superlke, heart-shaped and customized icons float across the screen when the audience likes or double-taps on the ads. Default value: `CTA`. Note: You can only create one creative portfolio of any type at a time.Website info cards can only be used for auction ads with the `objective_type` as `WEB_CONVERSIONS` or `TRAFFIC` (with `promotion_type` set to `WEBSITE`).You can only use the Inventory Card portfolio in Automotive Ads.Product Cards can only be used in Video Shopping Ads.Product Tiles can only be used in Video Shopping Ads with product source as catalog.Before creating a Product Tiles portfolio, ensure that you have a catalog containing at least four products that have passed the review. To verify whether you have a catalog with enough eligible products for the Product Tile portfolio, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402) and confirm that the `audit_status` of at least four products is `approved`.Using a Product Tiles portfolio to create ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Countdown Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F (`RF_REACH`) ads. If you want to use Countdown Stickers in Lead Generation ads, you can only set the Optimization location as Website at the ad group level. To learn about how to create such ads, see [Create a Lead Generation ad with optimization location as Website](https://business-api.tiktok.com/portal/docs?id=1774482976097281). Reminder Countdown Sticker (`sticker_type` as `REMINDER_COUNTDOWN` or `LIVE_REMINDER_COUNTDOWN`) is an allowlist-only feature for Traffic (`TRAFFIC`), App promotion (`APP_PROMOTION`), Website conversions (`WEB_CONVERSIONS`) ads. If you would like to access it for ads with these objectives, please contact your TikTok representative. Gift Code Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F ads with the advertising objective(`objective_type`) as Reach (`RF_REACH`).Gestures can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Gesture portfolios in campaigns with the advertising objective `APP_PROMOTION`, `TRAFFIC`, or `WEB_CONVERSIONS` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.Superlikes can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `ENGAGEMENT` (with `optimization_goal` as `PAGE_VISIT`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Superlike portfolios in campaigns with the advertising objective `APP_PROMOTION` or `TRAFFIC` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+| `portfolio_content` | `portfolio_content` | `Array<CreativePortfolioCreateParamsPortfolioContent>` | No | No | The content of the portfolio. |
+
+## CreativePortfolioCreateParamsPortfolioContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_content` | `asset_content` | `string` | No | No | Required when `creative_portfolio_type` is `CTA`. A call-to-action text. For example, `"Learn More"`. |
+| `asset_ids` | `asset_ids` | `Array<string>` | No | No | Required when `creative_portfolio_type` is `CTA`. A list of CTAs. For example, `[201781, 201535]`. To create a CTA portfolio, you need to get a group of auto-optimized CTAs by using `/creative/cta/recommend/`. Fetch the data in the response and include it as values to this field. Note: Auto-optimized CTAs can only be used in the advertiser accounts that they were created for. |
+| `card_type` | `card_type` | `string` | No | No | Required when `creative_portfolio_type` is `CARD`. Card type. Enum value: `IMAGE` (Display Card). |
+| `gesture_type` | `gesture_type` | `"CLICK" \| "STRAIGHT_SLIDE" \| "CURVED_SLIDE"` | No | No | Required when `creative_portfolio_type` is `GESTURE`. Gesture type. Enum values: `CLICK`: Click Gesture. `STRAIGHT_SLIDE`: Straight Slide Gesture. `CURVED_SLIDE`: Curved Slide Gesture. |
+| `image_id` | `image_id` | `string` | No | No | Required when `creative_portfolio_type` is `CARD`, `WEB_INFO_CARD`, `INVENTORY_CARD`, or `SUPER_LIKE`. Image ID. The image for a Display Card (`CARD`) must be 750 pixels in width and 421 pixels in height.The recommended dimensions for a Website info card (`WEB_INFO_CARD`) are 800 pixels in width and 800 pixels in height.The image for an Inventory Card (`INVENTORY_CARD`) must be 800 pixels in width and 600 pixels in height.For Superlike (`SUPER_LIKE`), specify the image of a customized icon that floats across the screen together with heart-shaped icons when the audience likes or double-taps on the ads. The image needs to meet the following specification requirements:Recommended dimensions: 200 pixels in width and 200 pixels in height.Image format: JPG, JPEG, or PNG.File size: within 50KB. You can get the image ID via [/file/image/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1739067433456642) or [/file/image/ad/search/](https://ads.tiktok.com/marketing_api/docs?id=1740052016789506). |
+| `pop_up_window_image_id` | `pop_up_window_image_id` | `string` | No | No | Required when `creative_portfolio_type` is `GESTURE`. Optional when `creative_portfolio_type` is `SUPER_LIKE`. The ID of the pop-up window image in the Superlike or the gesture pop-up card in the Gesture. When `creative_portfolio_type` is `GESTURE`, this field represents the gesture pop-up card that will appear after the viewer follows the gesture. When `creative_portfolio_type` is `SUPER_LIKE`, this field represents the pop-up window that will appear after the Superlike finishes floating across the screen and will take the audience to the ad landing page when they click on it. Supported specifications: Recommended dimensions: 620 pixels in width and 788 pixels in height. Image format: JPG, JPEG, PNG, or GIF.File size: within 3MB. To upload an image and obtain the image ID, use [/file/image/ad/upload/](https://business-api.tiktok.com/portal/docs?id=1739067433456642). |
+| `title` | `title` | `string` | No | No | Required when `creative_portfolio_type` is `WEB_INFO_CARD`. The title of the card. Length limit: 25 characters. |
+| `selling_points` | `selling_points` | `Array<string>` | No | No | Required when `creative_portfolio_type` is `WEB_INFO_CARD`. The reasons why your products are worth buying. Max size: 5. Length limit for each selling point as a string within the string array: 25 characters. |
+| `call_to_action_text` | `call_to_action_text` | `string` | No | No | Required when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Interactive guide text for the Gesture or Pop-out Showcase. When `creative_portfolio_type` is `GESTURE`, this field represents the interactive guide text for the Gesture. Example text for different Gesture types: For a Click Gesture: `Click here for more details` For a Straight Slide Gesture: `Slide in a straight line` For a Curved Slide Gesture: `Slide along the curve` When `creative_portfolio_type` is `PREMIUM_BADGE`, this field represents the interactive guide text for the Pop-out Showcase. Example text: `Click here for details` Length limit: 27 characters. Each English letter counts as one character while each Chinese, Japanese, or Korean word counts as two. Emojis and special characters `&#123;`, `&#125;`, `@`, and `#` are not supported. Do not include bar codes, stock codes, or any social media information. |
+| `badge_show_time` | `badge_show_time` | `number` | No | No | Required when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. The time when the Gesture icon within the Gesture or the Premium Badge within the Pop-out Showcase will appear in your video, in seconds. The first three seconds and the last five seconds of the video cannot be used as the start of the pop-up. Example: 5. |
+| `badge_position` | `badge_position` | `CreativePortfolioCreateParamsPortfolioContentBadgePosition` | No | No | Required when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Information about the position of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `badge_image_info` | `badge_image_info` | `CreativePortfolioCreateParamsPortfolioContentBadgeImageInfo` | No | No | Required when `creative_portfolio_type` is `PREMIUM_BADGE`. Information about the badge image in the Pop-out Showcase. |
+| `slide_length` | `slide_length` | `number` | No | No | Required when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE`. The length of the Straight Slide Gesture. |
+| `slide_dimension` | `slide_dimension` | `CreativePortfolioCreateParamsPortfolioContentSlideDimension` | No | No | Required when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `CURVED_SLIDE`. The dimensions of the Curved Slide Gesture. |
+| `interactive_music_id` | `interactive_music_id` | `string` | No | No | Required when `creative_portfolio_type` is `GESTURE`. The URL of the background music for the Gesture. Specification requirements: File size: within 1 MB. File format: MP3. Recommended duration: six seconds. Example: `https://sf16-sg-default.akamaized.net/obj/tiktok-obj/0123456789.mp3`. To ensure a smooth ad experience, use the video ad background music as the Gesture background music. To upload a music file to the creative library and obtain the music URL (`url`), use [/file/music/upload/](https://business-api.tiktok.com/portal/docs?id=1740052650395650). |
+| `layouts` | `layouts` | `Array<"TYPE_1" \| "TYPE_2">` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. The layout type of the Download Card. Enum values: `TYPE_1`: Type 1, showing app description in the Download Card. `TYPE_2` : Type 2, not showing app description in the Download Card. You can pass in one or two layout types, and when you pass in both `TYPE_1` and `TYPE_2` in this field, you will create one Type 1 Download Card and one Type 2 Download Card. |
+| `description` | `description` | `string` | No | No | Required in any of the following scenarios:`creative_portfolio_type` is `DOWNLOAD_CARD` and the value of `layouts` includes `TYPE_1`. `creative_portfolio_type` is `INVENTORY_CARD`. Description of the app that you want to promote in the Download Card or text of the Inventory Card. For an Inventory Card (`INVENTORY_CARD`), the length limit is 40 characters. |
+| `tags` | `tags` | `Array<"CATEGORIES" \| "FILESIZE" \| "RATING" \| "RANKING" \| "COMMENT_VOLUME">` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. Tags for the Download Card. Enum values: `CATEGORIES`：Showing the category of the app you want to promote in the Download Card. `FILESIZE`：Showing the file size of the app you want to promote in the Download Card. `RATING`：Showing the rating of the app you want to promote in the Download Card. `RANKING`：Showing the ranking of the app you want to promote in the Download Card. `COMMENT_VOLUME`：Showing the number of comments for the app you want to promote in the Download Card. Note: You can pass in multiple tags at one time, but when you pass in more than two tags, only two tags will show in the Download Card according to the following tag priority: `CATEGORIES` &gt; `FILESIZE` &gt; `RATING` &gt; `RANKING`&gt;`COMMENT_VOLUME`. For Type 1 Download Card, you need to pass in at least one tag. For Type 2 Download Card, you need to pass in at least two tags. |
+| `category_label` | `category_label` | `string` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD` and the value of `tags` includes `CATEGORIES`. Category name of the app you want to promote in the Download Card. See [Enumerations-Creative Management-Category Labels](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for the enum values, and you need to pass the value as string. |
+| `app_id` | `app_id` | `string` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. ID of the app that you want to promote in the Download Card. It's the App ID from Events Manager. |
+| `profile_image` | `profile_image` | `string` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. Profile image URL. |
+| `call_to_action` | `call_to_action` | `string` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. Call-to-action text in the Download Card. |
+| `mobile_app_id` | `mobile_app_id` | `string` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. Mobile App ID, used to extract tag information from Google Play or App Store. For an iOS app, please find the ID number in the app’s App Store URL as the string of numbers directly after `id`. For instance, in `https://apps.apple.com/us/app/hyperpure/id1203646221` the ID would be `1203646221`. For an Android app, please find the package name in the app’s Google Play store URL after `id`. For instance, in `https://play.google.com/store/apps/details?id=com.innersloth.spacemafia` the ID would be `com.innersloth.spacemafia`. |
+| `country_code` | `country_code` | `Array<string>` | No | No | Required when `creative_portfolio_type` is `DOWNLOAD_CARD`. Country or location code of the region you want to target. For enum values, see [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+| `sticker_param` | `sticker_param` | `CreativePortfolioCreateParamsPortfolioContentStickerParam` | No | No | Required when `creative_portfolio_type` is `STICKER`. Details of the Countdown Sticker or Gift Code Sticker you want to create. You can see an example of Countdown Sticker in [Countdown Sticker](https://ads.tiktok.com/help/article?aid=10007423) and an example of Gift Code Sticker in [Gift Code Sticker](https://ads.tiktok.com/help/article/tiktok-interactive-add-on-gift-code-sticker?lang=en). Note: You can only create one Countdown Sticker or Gift Code Sticker at a time. |
+| `product_source` | `product_source` | `"UNSET" \| "CATALOG" \| "STORE" \| "SHOWCASE"` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE`. When `creative_portfolio_type` is `PRODUCT_TILE`, this field can only be set to `CATALOG`. Product source where you want to get products for promotion. Enum values: `UNSET`, `CATALOG`(Catalog), `STORE` (TikTok Shop), `SHOWCASE` (TikTok Showcase). If you set this field as `STORE`, you need to pass in `item_group_ids` at the same time. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad group level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `identity_id` | `identity_id` | `string` | No | No | Required when `creative_portfolio_type`is `PRODUCT_CARD` or `PRODUCT_TILE`. Identity ID. |
+| `identity_type` | `identity_type` | `"CUSTOMIZED_USER" \| "AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | No | No | Required when `creative_portfolio_type`is `PRODUCT_CARD` or `PRODUCT_TILE`. When `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is `STORE`, the supported values for this field are `AUTH_CODE`, `TT_USER`, and `BC_AUTH_TT`. Identity type. Enum values: `CUSTOMIZED_USER`, `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. For details about identities, see [Identities](https://ads.tiktok.com/marketing_api/docs?id=1738958351620097). |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE` and `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+| `catalog_id` | `catalog_id` | `string` | No | No | Required when `creative_portfolio_type`is `PRODUCT_CARD` and `product_source` is `CATALOG`, or when `creative_portfolio_type` is set to `PRODUCT_TILE`. Catalog ID. Note: You can use [/store/list/](https://ads.tiktok.com/marketing_api/docs?id=1752267762718722) to get the `catalog_id`, `store_id` and `store_authorized_bc_id` for available stores under an ad account. If you have created a Product Card and want to use it during ad creation, ensure that at the ad group level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `catalog_authorized_bc_id` | `catalog_authorized_bc_id` | `string` | No | No | Required when `creative_portfolio_type`is `PRODUCT_CARD` and `product_source` is set as `CATALOG`, or when `creative_portfolio_type` is set to `PRODUCT_TILE`. ID of the Business Center that is authorized to access the catalog (`catalog_id`). Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad group level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `store_id` | `store_id` | `string` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `STORE`. Not supported when `creative_portfolio_type` is set to `PRODUCT_TILE`. ID of the TikTok Shop. Note: To get the TikTok Shop ID, you can use [/bc/asset/get/](https://ads.tiktok.com/marketing_api/docs?id=1739432717798401): When in the response `asset_type` is `TIKTOK_SHOP`, the returned `asset_id` is the TikTok Shop ID. If you have created a Product Card and want to use it during ad creation, ensure that at the ad group level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `store_authorized_bc_id` | `store_authorized_bc_id` | `string` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `STORE`. Not supported when `creative_portfolio_type` is set to `PRODUCT_TILE`. ID of the Business Center that is authorized to access the store (`store_id`). Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad group level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `product_specific_type` | `product_specific_type` | `"ALL" \| "PRODUCT_SET" \| "CUSTOMIZED_PRODUCTS"` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `CATALOG`, or when `creative_portfolio_type` is set to `PRODUCT_TILE`. The way that you specify the products. Enum values: `ALL`: All products. Allow TikTok to dynamically choose from all catalog products. You don't need to specify any of `sku_ids`, `item_group_ids` and `product_set_id` at the same time.`PRODUCT_SET`: Product set. Select a product set. TikTok will dynamically choose products from this set. You need to specify `item_group_ids` or `product_set_id` at the same time. `CUSTOMIZED_PRODUCTS`: Specific products. Select up to 20 products from your catalog. You need to specify `sku_ids` at the same time. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `product_set_id` | `product_set_id` | `string` | No | No | When `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE` and `product_specific_type` is `PRODUCT_SET`, you need to pass in either `product_set_id` or `item_group_ids`. ID of the Product Set. You can call [/catalog/set/get/](https://ads.tiktok.com/marketing_api/docs?id=1740570556295169) to get a list of Product Sets in a catalog under your Business Center. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `item_group_ids` | `item_group_ids` | `Array<string>` | No | No | Required when `creative_portfolio_type`is `PRODUCT_CARD` and `product_source` is set as `STORE`. When `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE` and `product_specific_type` is `PRODUCT_SET`, you need to pass in either `product_set_id` or `item_group_ids`. Product SPU IDs. Max size: 20. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `sku_ids` | `sku_ids` | `Array<string>` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE` and `product_specific_type` is set as `CUSTOMIZED_PRODUCTS`. Product SKU IDs. Max size: 20. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. Otherwise, when the ad is delivered, the product thumbnail in the Product Card may not be of the promoted product. |
+| `dynamic_format` | `dynamic_format` | `"UNSET" \| "DYNAMIC_CREATIVE"` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `CATALOG`. Not supported when `creative_portfolio_type` is set to `PRODUCT_TILE`. When `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `STORE`, you cannot set `dynamic_format` as `DYNAMIC_CREATIVE`. You can choose not to pass in the field or set it as `UNSET`. Whether to enable Dynamic Format. Dynamic Format combines video creative, product cards, and landing pages into different variations based on a shopper's purchase intent, maximizing conversions for you. Enum values: `UNSET`, `DYNAMIC_CREATIVE` (Use Dynamic Format to create creatives). Note: `dynamic_format` cannot be enabled for retargeting ads (i.e. when `shopping_ads_retargeting_type` in the ad group is not `OFF`). When `dynamic_format` is `DYNAMIC_CREATIVE`, we will automatically create cards. This means that you won't need to pass all card related fields (`card_show_price`, `card_tags`, `card_image_index`). If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. |
+| `vertical_video_strategy` | `vertical_video_strategy` | `"UNSET" \| "SINGLE_VIDEO" \| "CATALOG_VIDEOS" \| "DYNAMIC_CREATIVE"` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `CATALOG`. Not supported when `creative_portfolio_type` is set to `PRODUCT_TILE`. When `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `STORE`, you can choose not to pass in the field or set it as `SINGLE_VIDEO`. The video type that you use for Product Sales scenarios. Enum values: `UNSET` (unset), `SINGLE_VIDEO` (single video), `CATALOG_VIDEOS` (catalog video). It must be `UNSET` if `dynamic_format` is `DYNAMIC_CREATIVE`. Note: If you have created a Product Card and want to use it during ad creation, ensure that at the ad level you pass to the same field the value that is used for creating the Product Card. |
+| `ad_text` | `ad_text` | `string` | No | No | Valid when `creative_portfolio_type` is `PRODUCT_CARD`. An ad text. It is shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. If you don't know how to create effective ad texts, you can try the [Smart Text](https://ads.tiktok.com/marketing_api/docs?id=1739084248002626) feature, which generates ad text recommendations based on the industry and language. Note: Ad text must be 1-100 characters long and cannot contain emoji. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `card_show_price` | `card_show_price` | `boolean` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD`. Whether to show the price of products on the Product Card or not. |
+| `card_tags` | `card_tags` | `Array<"BRAND" \| "DESC">` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD`. The product tags that you want to show on the Product Card. Enum values: `BRAND` (Brand Name), `DESC` (Description). |
+| `card_image_index` | `card_image_index` | `number` | No | No | Valid when `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE`. You can use this field to specify the image used in the Product Card or Product Tiles. The number you set via this field will be used as index to query the Image URLs you have passed through `additional_image_urls` in [/catalog/product/upload/](https://ads.tiktok.com/marketing_api/docs?id=1740497429681153). For instance, `card_image_index` is 1 means that you will use the image via the second image URL in `additional_image_urls`. |
+| `showcase_products` | `showcase_products` | `Array<CreativePortfolioCreateParamsPortfolioContentShowcaseProducts>` | No | No | Required when `creative_portfolio_type` is `PRODUCT_CARD` and `product_source` is set as `SHOWCASE`. See [Create Video Shopping Ads with products from Showcase](https://ads.tiktok.com/marketing_api/docs?id=1759232259360770) to learn more. The list of Showcase products that you want to use in your ad. Max size: 20. You can get the available Showcase products via [/showcase/product/get/](https://ads.tiktok.com/marketing_api/docs?id=1759233576199169). |
+
+## CreativePortfolioCreateParamsPortfolioContentBadgeImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | Required when `badge_image_info` is specified. ID of the badge image in the Pop-out Showcase. Specification requirements: Dimensions: 448 pixels in width and 448 pixels in height. Image format: JPG, JPEG, or PNG. File size: within 1 MB. |
+
+## CreativePortfolioCreateParamsPortfolioContentBadgePosition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `position_x` | `position_x` | `number` | No | No | Required when `badge_position` is specified. Relative X-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. Value range: 0-1. |
+| `position_y` | `position_y` | `number` | No | No | Required when `badge_position` is specified. Relative Y-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. Value range: 0-1. |
+| `angle` | `angle` | `number` | No | No | Required when `badge_position` is specified and any of the following conditions is met: `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE` or `CURVED_SLIDE`. `creative_portfolio_type` is `PREMIUM_BADGE`. The angle of the Straight Slide Gesture or Curved Slide Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. Value range: When `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE` or `CURVED_SLIDE`, the recommended angle is a value within the range 30-150 or 210-330. When `creative_portfolio_type` is `PREMIUM_BADGE`: 0-360. |
+
+## CreativePortfolioCreateParamsPortfolioContentShowcaseProducts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_group_id` | `item_group_id` | `string` | No | No | SPU ID of the product. |
+| `store_id` | `store_id` | `string` | No | No | The ID of the store that the product (`item_group_id`) belongs to. Note that the only supported store type is TikTok Shop. |
+| `catalog_id` | `catalog_id` | `string` | No | No | The ID of the catalog that the product (`item_group_id`) belongs to. |
+
+## CreativePortfolioCreateParamsPortfolioContentSlideDimension
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension_width` | `dimension_width` | `number` | No | No | Required when `slide_dimension` is specified. The width of the Curved Slide Gesture. |
+| `dimension_height` | `dimension_height` | `number` | No | No | Required when `slide_dimension` is specified. The height of the Curved Slide Gesture. |
+
+## CreativePortfolioCreateParamsPortfolioContentStickerParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sticker_type` | `sticker_type` | `"COUNTDOWN" \| "REMINDER_COUNTDOWN" \| "LIVE_REMINDER_COUNTDOWN" \| "GIFTCODE"` | No | No | Sticker type. Default value: `COUNTDOWN`. Enum values: `COUNTDOWN`: A Countdown Sticker with no reminder.`REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a non-LIVE event.`LIVE_REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a LIVE event.`GIFTCODE`: A Gift Code Sticker that aims to gain new customers and engage existing customers by providing virtual gifts or coupon redemption codes. |
+| `title` | `title` | `string` | No | No | Required when `creative_portfolio_type` is set to `STICKER`. Sticker title. For a Countdown Sticker, the maximum length is 54, in UTF-8 bytes, and the hashtag symbol (#) is not supported.For a Gift Code Sticker, the maximum length is 20 in UTF-8 bytes. |
+| `giftcode` | `giftcode` | `string` | No | No | Required when `sticker_type` is set to `GIFTCODE`. Not supported when `sticker_type` is not set to `GIFTCODE`. Gift code. The maximum length is 10 in UTF-8 bytes. |
+| `cutoff_time` | `cutoff_time` | `string` | No | No | Required when `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`. Not supported when `sticker_type` is set to `GIFTCODE`. Countdown deadline (when `sticker_type` is `COUNTDOWN` or `REMINDER_COUNTDOWN`) or LIVE start time (when `sticker_type` is `LIVE_REMINDER_COUNTDOWN`) for the Countdown Sticker, in the format of "2022-10-30 00:00:00" (UTC+0 Time). Note: The time you pass in via this field is regarded as UTC+0 time by default and you cannot modify the default time zone. |
+| `color` | `color` | `string` | No | No | Required when `creative_portfolio_type` is set to `STICKER`. Background color of the sticker. For a Countdown Sticker, the supported enum values are `ORANGE`(orange), `BLACK`(black), `RED`(red), and `BLUE`(blue).For a Gift Code Sticker, the supported enum values are `BLACK`(black) and `BLUE`(blue). |
+| `display_angle` | `display_angle` | `number` | No | No | Required when `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`. Not supported when `sticker_type` is set to `GIFTCODE`. Sticker display angle. Value range: `[-180, +180]`. `+90` means to rotate the sticker clockwise by 90 degrees. |
+| `predefined_placement` | `predefined_placement` | `string` | No | No | When `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y` and `size`. When `sticker_type` is set to `GIFTCODE`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y`. Use this field to predefine: the x-axis and y-axis coordinates for a Gift Code StickerOR the x-axis and y-axis coordinates, and the size for a Countdown Sticker. For instance, if you set `predefined_placement` to `55x143x0.9`, then for the Countdown Sticker, the x-axis coordinate will be 55, the y-axis coordinate will be 143, and the size will be 90%.Similarly, if you set `predefined_placement` to `86x179`, then for the Gift Code Sticker, the x-axis coordinate will be 86, and the y-axis coordinate will be 179. To learn about the enum values of this field, see the section "Predefined placements". Note: If you specify the `predefined_placement` for a Countdown Sticker and also provide values for `position_x`, `position_y`, and `size` parameters simultaneously, the values of `position_x`, `position_y`, and `size` will be ignored.If you specify the `predefined_placement` parameter for a Gift Code Sticker and also provide values for `position_x`and `position_y` parameters simultaneously, the values of `position_x` and `position_y` will be ignored. |
+| `position_x` | `position_x` | `number` | No | No | When `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y` and `size`. When `sticker_type` is set to `GIFTCODE`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y`. The x-axis coordinate relative to the top-left corner of the screen. For Countdown Sticker: The value range of this field varies depending on the sticker size: When `size` is set to `0.6`, the value range is [50, 301].When `size` is set to `0.7`, the value range is [50, 253].When `size` is set to `0.8`, the value range is [50, 205].When `size` is set to `0.9`, the value range is [50, 157].When `size` is set to `1`, the value range is [50, 109].When` size` is set to `1.1`, the value range is [50, 61].For Gift Code Sticker: The value range is [79, 145].Note: If you pass in both `predefined_placement` and `position_x` for a Countdown Sticker or Gift Code sticker, `position_x` will be ignored. |
+| `position_y` | `position_y` | `number` | No | No | When `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y` and `size`. When `sticker_type` is set to `GIFTCODE`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y`. The y-axis coordinate relative to the top-left corner of the screen. For Countdown Sticker: The value range of this field varies depending on the sticker size: When `size` is set to `0.6`, the value range is [141, 639].When `size` is set to `0.7`, the value range is [141, 606].When `size` is set to `0.8`, the value range is [141, 573].When `size` is set to `0.9`, the value range is [141, 540].When `size` is set to `1`, the value range is [141, 506].When` size` is set to `1.1`, the value range is [141, 473].For Gift Code Sticker: The value range is [169, 683]. Note: If you pass in both `predefined_placement` and `position_y` for a Countdown Sticker or Gift Code sticker, `position_y` will be ignored. |
+| `size` | `size` | `string` | No | No | When `sticker_type` is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`, you need to pass in the field `predefined_placement`, or the fields `position_x`, `position_y` and `size`. When `sticker_type` is set to `GIFTCODE`, the field size is not supported. Sticker size by percentage. Enum values: `0.6`(60%), `0.7`(70%), `0.8`(80%), `0.9`(90%), `1`(100%), `1.1`(110%). Note: If you pass in both `predefined_placement` and `size` for a Countdown Sticker, `size` will be ignored. |
+| `opacity` | `opacity` | `string` | No | No | Required when sticker_type is set to `COUNTDOWN`, `REMINDER_COUNTDOWN`, or `LIVE_REMINDER_COUNTDOWN`.Not supported when `sticker_type` is set to `GIFTCODE`. Sticker opacity. Enum values: `0.7`, `0.8`, `0.9`, `1`. The lower the value, the more transparent the sticker will be. |
+| `reminder_time` | `reminder_time` | `string` | No | No | The time set for the reminder. Required when `sticker_type` is `REMINDER_COUNTDOWN` or `LIVE_REMINDER_COUNTDOWN`. For non-LIVE stickers (when `sticker_type`= `REMINDER_COUNTDOWN`), the enum values are:`ONE_MINUTE_EARLIER`: send the reminder one minute before the non-LIVE event.`ONE_HOUR_EARLIER `: send the reminder one hour before the non-LIVE event.`ONE_DAY_EARLIER`: send the reminder one day before the non-LIVE event. For LIVE stickers (when `sticker_type` is `LIVE_REMINDER_COUNTDOWN`), the enum values are: `ONE_MINUTE_AFTER`: send the reminder one minute after the LIVE event starts.`FIVE_MINUTES_AFTER`: send the reminder five minutes after the LIVE event starts.`TEN_MINUTES_AFTER`: send the reminder ten minutes after the LIVE event starts. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Required when `sticker_type` is `REMINDER_COUNTDOWN`. The landing page URL you will be redirected to when you click the reminder after the countdown for a non-LIVE event ends. |
+| `live_tiktok_user_id` | `live_tiktok_user_id` | `string` | No | No | Required when `sticker_type` is `LIVE_REMINDER_COUNTDOWN`. TikTok user ID of the LIVE event host. After specifying this field, you will be redirected to the host's LIVE room when you click the reminder for a LIVE event. |
+
+## CreativePortfolioCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_portfolio_id` | `creative_portfolio_id` | `string` | No | No | ID of the creative portfolio that has just been created |
+
+## CreativePortfolioDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `creative_portfolio_ids` | `creative_portfolio_ids` | `Array<string>` | Yes | No | List of creative portfolio IDs to delete. Max size: 100. To obtain creative portfolio IDs within an ad account, use [/creative/portfolio/list/](https://business-api.tiktok.com/portal/docs?id=1766324010279938). Note: You cannot use this field to delete Product Card portfolios, Product Tile portfolios, or CTA (Call-to-action) portfolios. If any creative portfolio ID is invalid, the entire deletion process will fail. Invalid portfolio IDs include: Portfolio IDs that do not exist.Portfolio IDs that have already been deleted. |
+
+## CreativePortfolioDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreativePortfolioGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `creative_portfolio_id` | `creative_portfolio_id` | `string` | Yes | No | ID of the creative portfolio that you want to get. You can find the portfolio id (`creative_portfolio_id`) in the response of [/creative/portfolio/create/](https://ads.tiktok.com/marketing_api/docs?id=1739091950439426). |
+
+## CreativePortfolioGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_portfolio_id` | `creative_portfolio_id` | `string` | No | No | Creative portfolio ID. |
+| `creative_portfolio_type` | `creative_portfolio_type` | `"CTA" \| "CARD" \| "WEB_INFO_CARD" \| "DOWNLOAD_CARD" \| "INVENTORY_CARD" \| "PRODUCT_CARD" \| "PRODUCT_TILE" \| "STICKER" \| "PREMIUM_BADGE" \| "GESTURE" \| "SUPER_LIKE" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "WEBSITE" \| "REACH" \| "VIDEO_VIEW" \| "APP_PROMOTION" \| "LEAD_GENERATION" \| "PRODUCT_SALES" \| "RF_REACH" \| "REMINDER_COUNTDOWN" \| "LIVE_REMINDER_COUNTDOWN" \| "VIDEO_VIEWS" \| "ENGAGED_VIEW" \| "ENGAGEMENT" \| "PAGE_VISIT"` | No | No | Creative portfolio type. Enum values: `CTA`: call-to-action text.`CARD`: card (Display Card). `WEB_INFO_CARD`: Website info card. `DOWNLOAD_CARD`: Download Card.`INVENTORY_CARD`: Inventory Card. `PRODUCT_CARD`: Product Card. `PRODUCT_TILE`: Product Tiles.`STICKER`: Countdown Sticker or Gift Code Sticker. `PREMIUM_BADGE`: Pop-up Showcase.`GESTURE`: Gesture.`SUPER_LIKE`: Superlike. A Superlike engages the audience with a surprise visual element after they like a video ad. With Superlke, heart-shaped and customized icons float across the screen when the audience likes or double-taps on the ads. Note: Website info cards can only be used for auction ads with the `objective_type` as `WEB_CONVERSIONS` or `TRAFFIC` (with `promotion_type` set to `WEBSITE`).You can only use the Inventory Card portfolio in Automotive Ads.Product Cards can only be used in Video Shopping Ads.Product Tiles can only be used in Video Shopping Ads with product source as catalog.Using a Product Tiles portfolio to create ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.Countdown Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F (`RF_REACH`) ads.Reminder Countdown Sticker (`sticker_type` as `REMINDER_COUNTDOWN` or `LIVE_REMINDER_COUNTDOWN`) is an allowlist-only feature for Traffic (`TRAFFIC`), App promotion (`APP_PROMOTION`), Website conversions (`WEB_CONVERSIONS`) ads. If you would like to access it for ads with these objectives, please contact your TikTok representative. Gift Code Sticker can only be used for auction ads with the advertising objective (`objective_type`) as Reach (`REACH`), Traffic (`TRAFFIC`), Video views(`VIDEO_VIEW`), App promotion (`APP_PROMOTION`), Lead generation(`LEAD_GENERATION`), Website conversions (`WEB_CONVERSIONS`), or Product sales (`PRODUCT_SALES`), as well as for R&F ads with the advertising objective(`objective_type`) as Reach (`RF_REACH`).Gestures can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Gesture portfolios in campaigns with the advertising objective `APP_PROMOTION`, `TRAFFIC`, or `WEB_CONVERSIONS` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.Superlikes can only be used for auction ads with the `objective_type` (advertising objective) as `REACH`, `TRAFFIC`, `VIDEO_VIEWS` (with `optimization_goal` as `ENGAGED_VIEW`), `ENGAGEMENT` (with `optimization_goal` as `PAGE_VISIT`), `APP_PROMOTION`, `WEB_CONVERSIONS`, as well as for R&F ads with the advertising objective (`objective_type`) as Reach (`RF_REACH`). Using Superlike portfolios in campaigns with the advertising objective `APP_PROMOTION` or `TRAFFIC` are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+| `portfolio_content` | `portfolio_content` | `Array<CreativePortfolioGetResponsePortfolioContent>` | No | No | The content of the creative portfolio. |
+
+## CreativePortfolioGetResponsePortfolioContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_content` | `asset_content` | `string` | No | No | A call-to-action text. For example, `"Learn More"`. |
+| `asset_ids` | `asset_ids` | `Array<string>` | No | No | A list of CTAs. For example, `[201781, 201535]`. |
+| `card_type` | `card_type` | `string` | No | No | Card type. Enum value: `IMAGE`(Display Card). |
+| `gesture_type` | `gesture_type` | `"CLICK" \| "STRAIGHT_SLIDE" \| "CURVED_SLIDE"` | No | No | Returned when `creative_portfolio_type` is `GESTURE`. Gesture type. Enum values: `CLICK`: Click Gesture. `STRAIGHT_SLIDE`: Straight Slide Gesture. `CURVED_SLIDE`: Curved Slide Gesture. |
+| `image_id` | `image_id` | `string` | No | No | Returned only when `creative_portfolio_type` is `CARD`, `WEB_INFO_CARD`, `INVENTORY_CARD`, or `SUPER_LIKE`. Image ID. |
+| `pop_up_window_image_id` | `pop_up_window_image_id` | `string` | No | No | Returned in any of the following scenarios: `creative_portfolio_type` is `GESTURE`. `creative_portfolio_type` is `SUPER_LIKE` and a `pop_up_window_image_id` is specified during portfolio creation.. The gesture pop-up card in the Gesture or the ID of the pop-up window image in the Superlike. When `creative_portfolio_type` is `GESTURE`, this field represents the gesture pop-up card that will appear after the viewer follows the gesture. When `creative_portfolio_type` is `SUPER_LIKE`, this field represents the pop-up window that will appear after the Superlike finishes floating across the screen and will take the audience to the ad landing page when they click on it. |
+| `title` | `title` | `string` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The title of the card. |
+| `selling_points` | `selling_points` | `Array<string>` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The reasons why your products are worth buying. |
+| `content_url` | `content_url` | `string` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The website URL of your landing page. Note:Specifying the `content_url` in a website info card via API is currently not supported. You can only retrieve the `content_url` of website info cards created via the TikTok Ads Manager.For website info cards created via API, the value of this field will be an empty string (`""`). |
+| `thumbnail_id` | `thumbnail_id` | `string` | No | No | Returned only when `creative_portfolio_type` is `DOWNLOAD_CARD`, `PRODUCT_CARD`, `PRODUCT_TILE`, or `PREMIUM_BADGE`. Thumbnail ID. |
+| `call_to_action_text` | `call_to_action_text` | `string` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Interactive guide text for the Gesture or Pop-out Showcase. |
+| `badge_show_time` | `badge_show_time` | `number` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. The time when the Gesture icon within the Gesture or the Premium Badge within the Pop-out Showcase will appear in your video, in seconds. |
+| `badge_position` | `badge_position` | `CreativePortfolioGetResponsePortfolioContentBadgePosition` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Information about the position of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `badge_image_info` | `badge_image_info` | `CreativePortfolioGetResponsePortfolioContentBadgeImageInfo` | No | No | Returned when `creative_portfolio_type` is `PREMIUM_BADGE`. Information about the badge image in the Pop-out Showcase. |
+| `slide_length` | `slide_length` | `number` | No | No | Returned when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE`. The length of the Straight Slide Gesture. |
+| `slide_dimension` | `slide_dimension` | `CreativePortfolioGetResponsePortfolioContentSlideDimension` | No | No | Returned when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `CURVED_SLIDE`. The dimensions of the Curved Slide Gesture. |
+| `interactive_music_id` | `interactive_music_id` | `string` | No | No | Returned when `creative_portfolio_type` is `GESTURE`. The URL of the background music for the Gesture. |
+| `layouts` | `layouts` | `Array<"TYPE_1" \| "TYPE_2">` | No | No | Returned when `creative_portfolio_type`= `DOWNLOAD_CARD`. The layout type of the Download Card. Enum values: `TYPE_1`: Type 1, showing app description in the Download Card. `TYPE_2` : Type 2, not showing app description in the Download Card. When both `TYPE_1` and `TYPE_2` have been passed in this field, one Type 1 Download card and one Type 2 Download card will be created . |
+| `description` | `description` | `string` | No | No | Returned in any of the following scenarios:`creative_portfolio_type` is `DOWNLOAD_CARD` and the value of `layouts` includes `TYPE_1`. `creative_portfolio_type` is `INVENTORY_CARD`. Description of the app that you want to promote in the Download Card or text of the Inventory Card. |
+| `tags` | `tags` | `Array<"CATEGORIES" \| "FILESIZE" \| "RATING" \| "RANKING" \| "COMMENT_VOLUME">` | No | No | Returned when `creative_portfolio_type`= `DOWNLOAD_CARD`. Tags for the Download Card. Enum values: `CATEGORIES`：Showing the category of the app you want to promote in the Download Card. `FILESIZE`：Showing the file size of the app you want to promote in the Download Card. `RATING`：Showing the rating of the app you want to promote in the Download Card. `RANKING`：Showing the ranking of the app you want to promote in the Download Card. `COMMENT_VOLUME`：Showing the number of comments for the app you want to promote in the Download Card. |
+| `category_label` | `category_label` | `string` | No | No | Returned when `creative_portfolio_type`= `DOWNLOAD_CARD` and `category_label` is specified during card creation. Category name of the app you want to promote in the Download Card. |
+| `app_id` | `app_id` | `string` | No | No | Returned when `creative_portfolio_type`= `DOWNLOAD_CARD`. ID of the app that you want to promote in the Download Card. It's the App ID from Events Manager. |
+| `sticker_param` | `sticker_param` | `CreativePortfolioGetResponsePortfolioContentStickerParam` | No | No | Details of the Countdown Sticker or Gift Code Sticker you want to create. You can see an example of Countdown Sticker in [Countdown Sticker](https://ads.tiktok.com/help/article?aid=10007423) and an example of Gift Code Sticker in [Gift Code Sticker](https://ads.tiktok.com/help/article/tiktok-interactive-add-on-gift-code-sticker?lang=zh). Returned only when `creative_portfolio_type`=`STICKER`. Note: You can only create one Countdown Sticker or Gift Code Sticker at a time. |
+| `card_show_price` | `card_show_price` | `boolean` | No | No | Whether to show the price of products on the Product Card or not. |
+| `card_tags` | `card_tags` | `Array<"BRAND" \| "DESC">` | No | No | The product tags that are shown on the Product Card. Enum values: `BRAND` (Brand Name), `DESC` (Description). |
+| `card_image_index` | `card_image_index` | `number` | No | No | Used to specify the image used in the Product Card or Product Tiles. The number set via this field is used as index to query the Image URLs you have passed through `additional_image_urls` in [/catalog/product/upload/](https://ads.tiktok.com/marketing_api/docs?id=1740497429681153). For instance, `card_image_index` = 1 means that you will use the image via the second image URL in `additional_image_urls`. |
+
+## CreativePortfolioGetResponsePortfolioContentBadgeImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | ID of the badge image in the Pop-out Showcase. |
+
+## CreativePortfolioGetResponsePortfolioContentBadgePosition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `position_x` | `position_x` | `number` | No | No | Relative X-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `position_y` | `position_y` | `number` | No | No | Relative Y-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `angle` | `angle` | `number` | No | No | Returned when `badge_position` is specified and any of the following conditions is met: `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE` or `CURVED_SLIDE`. `creative_portfolio_type` is `PREMIUM_BADGE`. The angle of the Straight Slide Gesture or Curved Slide Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+
+## CreativePortfolioGetResponsePortfolioContentSlideDimension
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension_width` | `dimension_width` | `number` | No | No | The width of the Curved Slide Gesture. |
+| `dimension_height` | `dimension_height` | `number` | No | No | The height of the Curved Slide Gesture. |
+
+## CreativePortfolioGetResponsePortfolioContentStickerParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sticker_type` | `sticker_type` | `"COUNTDOWN" \| "REMINDER_COUNTDOWN" \| "LIVE_REMINDER_COUNTDOWN" \| "GIFTCODE"` | No | No | Sticker type. Enum values: `COUNTDOWN`: A Countdown Sticker with no reminder.`REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a non-LIVE event.`LIVE_REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a LIVE event. `GIFTCODE`: A Gift Code Sticker that aims to gain new customers and engage existing customers by providing virtual gifts or coupon redemption codes. |
+| `title` | `title` | `string` | No | No | Sticker title. For a Countdown Sticker, the maximum length is 54, in UTF-8 bytes, and the hashtag symbol (#) is not supported.For a Gift Code Sticker, the maximum length is 20 in UTF-8 bytes. |
+| `giftcode` | `giftcode` | `string` | No | No | Gift code. This field is only applicable for Gift Code Stickers. The maximum length is 10 in UTF-8 bytes (10 letters and numbers). |
+| `cutoff_time` | `cutoff_time` | `string` | No | No | Countdown deadline (when `sticker_type`= `COUNTDOWN` or `REMINDER_COUNTDOWN`) or LIVE start time (when `sticker_type`=`LIVE_REMINDER_COUNTDOWN`) for the Countdown Sticker, in the format of "2022-10-30 00:00:00" (UTC+0 Time). Note: The time your pass in via this field is regarded as UTC+0 time by default and you cannot modify the default time zone. |
+| `color` | `color` | `string` | No | No | Background color of the sticker. For a Countdown Sticker, the supported enum values are `ORANGE`(orange), `BLACK`(black), `RED`(red), and`BLUE`(blue).For a Giftcode Sticker created through the API, only `BLACK` and `BLUE` will be returned. However, `ORANGE` and `RED` may be returned for a Gift Code Sticker created on TTAM when orange and red were supported for Gift Code Stickers. |
+| `display_angle` | `display_angle` | `number` | No | No | Sticker display angle. Value range: `[-180, +180]`. `+90` means to rotate the sticker clockwise by 90 degrees. Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `display_angle` setting was supported for Gift Code Stickers. |
+| `predefined_placement` | `predefined_placement` | `string` | No | No | If the portfolio is a Gift Code Sticker and the predefined placement of the sticker corresponds to an enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns x-axis and y-axis coordinates. If the portfolio is a Countdown Sticker and the predefined placement of the sticker corresponds to an enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns x-axis and y-axis coordinates, and size. For example: If the x-axis coordinate, y-axis coordinate and size of the Countdown Sticker are 196, 148, and 0.8, respectively, which corresponds to the enum value `196x148x0.8` in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field will be returned as `196x148x0.8`. Note: If the sticker does not correspond to any enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns `null`. |
+| `position_x` | `position_x` | `number` | No | No | The x-axis coordinate relative to the top-left corner of the screen. |
+| `position_y` | `position_y` | `number` | No | No | The y-axis coordinate relative to the top-left corner of the screen. |
+| `size` | `size` | `string` | No | No | Sticker size by percentage. Enum values: `0.6`(60%), `0.7`(70%), `0.8`(80%), `0.9`(90%), `1`(100%), `1.1`(110%). Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `size` setting was supported for Gift Code Stickers. |
+| `opacity` | `opacity` | `string` | No | No | Sticker opacity. Enum values: `0.7`, `0.8`, `0.9`, `1`. The lower the value, the more transparent the sticker will be. Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `opacity` setting was supported for Gift Code Stickers. |
+| `reminder_time` | `reminder_time` | `string` | No | No | The time set for the reminder. Returns value when `sticker_type`= `REMINDER_COUNTDOWN` or `LIVE_REMINDER_COUNTDOWN`. For non-LIVE stickers (when `sticker_type`= `REMINDER_COUNTDOWN`), the enum values are:`ONE_MINUTE_EARLIER`: send the reminder one minute before the non-LIVE event.`ONE_HOUR_EARLIER `: send the reminder one hour before the non-LIVE event.`ONE_DAY_EARLIER`: send the reminder one day before the non-LIVE event. For LIVE stickers (when `sticker_type`= `LIVE_REMINDER_COUNTDOWN`), the enum values are: `ONE_MINUTE_AFTER`: send the reminder one minute after the LIVE event starts.`FIVE_MINUTES_AFTER`: send the reminder five minutes after the LIVE event starts.`TEN_MINUTES_AFTER`: send the reminder ten minutes after the LIVE event starts. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | The landing page URL you will be redirected to when you click the reminder after the countdown for an non-LIVE event ends. Returns value when `sticker_type` is `REMINDER_COUNTDOWN`. |
+| `live_tiktok_user_id` | `live_tiktok_user_id` | `string` | No | No | TikTok user ID of the LIVE event host. After specifying this field, you will be redirected to the host's LIVE room when you click the reminder for a LIVE event. Returns value when `sticker_type` is `LIVE_REMINDER_COUNTDOWN`. |
+
+## CreativePortfolioListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `filtering` | `filtering` | `CreativePortfolioListParamsFiltering` | No | No | Filtering conditions. If not specified, you can retrieve all types of creative portfolios excluding CTA portfolios under the specified advertiser account. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 20. Value range: [1, 100]. |
+
+## CreativePortfolioListParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_portfolio_types` | `creative_portfolio_types` | `Array<"CARD" \| "WEB_INFO_CARD" \| "DOWNLOAD_CARD" \| "INVENTORY_CARD" \| "PRODUCT_CARD" \| "PRODUCT_TILE" \| "COUNTDOWN_STICKER" \| "REMINDER_COUNTDOWN_STICKER" \| "LIVE_REMINDER_COUNTDOWN_STICKER" \| "GIFTCODE_STICKER" \| "PREMIUM_BADGE" \| "GESTURE" \| "SUPER_LIKE">` | No | No | The types of creative portfolios that you want to filter the results by. Enum values: `CARD`: Display Card portfolio. `WEB_INFO_CARD`: Website info card portfolio. `DOWNLOAD_CARD`: Download Card portfolio.`INVENTORY_CARD`: Inventory Card.`PRODUCT_CARD`: Product Card portfolio.`PRODUCT_TILE`: Product Tiles portfolio.`COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with no reminder. `REMINDER_COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with reminder for a non-LIVE event.`LIVE_REMINDER_COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with reminder for a LIVE event. `GIFTCODE_STICKER`: Gift Code Sticker portfolio.`PREMIUM_BADGE`: Pop-up Showcase portfolio (premium badge portfolio).`GESTURE`: Gesture portfolio.`SUPER_LIKE`: Superlike portfolio. |
+| `creative_portfolio_ids` | `creative_portfolio_ids` | `Array<string>` | No | No | The list of creative portfolio IDs that you want to filter the results by. Max size: 100. To create a creative portfolio and obtain a creative portfolio ID, use [/creative/portfolio/create/](https://business-api.tiktok.com/portal/docs?id=1739091950439426). Note: CTA portfolio ID and type filtering are not supported. You cannot use `creative_portfolio_types` to filter Product Card portfolios and Product Tiles portfolios. To filter these two types of portfolios, specify the portfolio IDs in `creative_portfolio_ids`. |
+
+## CreativePortfolioListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_portfolios` | `creative_portfolios` | `Array<CreativePortfolioListResponseCreativePortfolios>` | No | No | Information about the creative portfolios within the specified ad account. |
+| `page_info` | `page_info` | `CreativePortfolioListResponsePageInfo` | No | No | Pagination information. |
+
+## CreativePortfolioListResponseCreativePortfolios
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_portfolio_id` | `creative_portfolio_id` | `string` | No | No | ID of the creative portfolio. |
+| `creative_portfolio_type` | `creative_portfolio_type` | `"CARD" \| "WEB_INFO_CARD" \| "DOWNLOAD_CARD" \| "INVENTORY_CARD" \| "PRODUCT_CARD" \| "PRODUCT_TILE" \| "COUNTDOWN_STICKER" \| "REMINDER_COUNTDOWN_STICKER" \| "LIVE_REMINDER_COUNTDOWN_STICKER" \| "GIFTCODE_STICKER" \| "PREMIUM_BADGE" \| "GESTURE" \| "SUPER_LIKE"` | No | No | Type of the creative portfolio. Enum values: `CARD`: Display Card portfolio. `WEB_INFO_CARD`: Website info card portfolio. `DOWNLOAD_CARD`: Download Card portfolio.`INVENTORY_CARD`: Inventory Card.`PRODUCT_CARD`: Product Card portfolio.`PRODUCT_TILE`: Product Tiles portfolio.`COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with no reminder. `REMINDER_COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with reminder for a non-LIVE event.`LIVE_REMINDER_COUNTDOWN_STICKER`: portfolio of a Countdown Sticker with reminder for a LIVE event. `GIFTCODE_STICKER`: Gift Code Sticker portfolio.`PREMIUM_BADGE`: Pop-up Showcase portfolio (premium badge portfolio).`GESTURE`: Gesture portfolio.`SUPER_LIKE`: Superlike. A Superlike engages the audience with a surprise visual element after they like a video ad. With Superlke, heart-shaped and customized icons float across the screen when the audience likes or double-taps on the ads. |
+| `creative_portfolio_preview_url` | `creative_portfolio_preview_url` | `string` | No | No | Preview link for the creative portfolio. The link won't expire. Note: When `creative_portfolio_type` is `SUPER_LIKE`, the value of this field will be the default image of a heart-shaped icon in Superlikes. The preview links of Product Tiles and Inventory Card portfolios are not available. Therefore, when `creative_portfolio_type` is `PRODUCT_TILE` or `INVENTORY_CARD`, the value of this field will be an empty string (`""`). |
+| `card_type` | `card_type` | `string` | No | No | Returned only when `creative_portfolio_type` is `CARD`. Card type. Enum value: `IMAGE` (Display Card). |
+| `gesture_type` | `gesture_type` | `"CLICK" \| "STRAIGHT_SLIDE" \| "CURVED_SLIDE"` | No | No | Returned when `creative_portfolio_type` is `GESTURE`. Gesture type. Enum values: `CLICK`: Click Gesture. `STRAIGHT_SLIDE`: Straight Slide Gesture. `CURVED_SLIDE`: Curved Slide Gesture. |
+| `image_id` | `image_id` | `string` | No | No | Returned only when `creative_portfolio_type` is `CARD`, `WEB_INFO_CARD`, `INVENTORY_CARD`, or `SUPER_LIKE`. Image ID. |
+| `pop_up_window_image_id` | `pop_up_window_image_id` | `string` | No | No | Returned in any of the following scenarios: `creative_portfolio_type` is `GESTURE`. `creative_portfolio_type` is `SUPER_LIKE` and a `pop_up_window_image_id` is specified during portfolio creation.. The gesture pop-up card in the Gesture or the ID of the pop-up window image in the Superlike. When `creative_portfolio_type` is `GESTURE`, this field represents the gesture pop-up card that will appear after the viewer follows the gesture. When `creative_portfolio_type` is `SUPER_LIKE`, this field represents the pop-up window that will appear after the Superlike finishes floating across the screen and will take the audience to the ad landing page when they click on it. |
+| `title` | `title` | `string` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The title of the card. |
+| `selling_points` | `selling_points` | `Array<string>` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The reasons why your products are worth buying. |
+| `content_url` | `content_url` | `string` | No | No | Returned only when `creative_portfolio_type` is `WEB_INFO_CARD`. The website URL of your landing page. Note:Specifying the `content_url` in a website info card via API is currently not supported. You can only retrieve the `content_url` of website info cards created via the TikTok Ads Manager.For website info cards created via API, the value of this field will be an empty string (`""`). |
+| `thumbnail_id` | `thumbnail_id` | `string` | No | No | Returned only when `creative_portfolio_type` is `DOWNLOAD_CARD`, `PRODUCT_CARD`, `PRODUCT_TILE`, or `PREMIUM_BADGE`. Thumbnail ID. |
+| `call_to_action_text` | `call_to_action_text` | `string` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Interactive guide text for the Gesture or Pop-out Showcase. |
+| `badge_show_time` | `badge_show_time` | `number` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. The time when the Gesture icon within the Gesture or the Premium Badge within the Pop-out Showcase will appear in your video, in seconds. |
+| `badge_position` | `badge_position` | `CreativePortfolioListResponseCreativePortfoliosBadgePosition` | No | No | Returned when `creative_portfolio_type` is `GESTURE` or `PREMIUM_BADGE`. Information about the position of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `badge_image_info` | `badge_image_info` | `CreativePortfolioListResponseCreativePortfoliosBadgeImageInfo` | No | No | Returned when `creative_portfolio_type` is `PREMIUM_BADGE`. Information about the badge image in the Pop-out Showcase. |
+| `slide_length` | `slide_length` | `number` | No | No | Returned when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE`. The length of the Straight Slide Gesture. |
+| `slide_dimension` | `slide_dimension` | `CreativePortfolioListResponseCreativePortfoliosSlideDimension` | No | No | Returned when `creative_portfolio_type` is `GESTURE` and `gesture_type` is `CURVED_SLIDE`. The dimensions of the Curved Slide Gesture. |
+| `interactive_music_id` | `interactive_music_id` | `string` | No | No | Returned when `creative_portfolio_type` is `GESTURE`. The URL of the background music for the Gesture. |
+| `layouts` | `layouts` | `Array<"TYPE_1" \| "TYPE_2">` | No | No | Returned when `creative_portfolio_type`= `DOWNLOAD_CARD`. The layout type of the Download Card. Enum values: `TYPE_1`: Type 1, showing app description in the Download Card. `TYPE_2` : Type 2, not showing app description in the Download Card. When both `TYPE_1` and `TYPE_2` have been passed in this field, one Type 1 Download card and one Type 2 Download card will be created . |
+| `description` | `description` | `string` | No | No | Returned in any of the following scenarios:`creative_portfolio_type` is `DOWNLOAD_CARD` and the value of `layouts` includes `TYPE_1`. `creative_portfolio_type` is `INVENTORY_CARD`. Description of the app that you want to promote in the Download Card. |
+| `tags` | `tags` | `Array<"CATEGORIES" \| "FILESIZE" \| "RATING" \| "RANKING" \| "COMMENT_VOLUME">` | No | No | Returned when `creative_portfolio_type` is `DOWNLOAD_CARD`. Tags for the Download Card. Enum values: `CATEGORIES`：Showing the category of the app you want to promote in the Download Card. `FILESIZE`：Showing the file size of the app you want to promote in the Download Card. `RATING`：Showing the rating of the app you want to promote in the Download Card. `RANKING`：Showing the ranking of the app you want to promote in the Download Card. `COMMENT_VOLUME`：Showing the number of comments for the app you want to promote in the Download Card. |
+| `category_label` | `category_label` | `string` | No | No | Returned when `creative_portfolio_type` is `DOWNLOAD_CARD` and `category_label` is specified during card creation. Category name of the app you want to promote in the Download Card. |
+| `app_id` | `app_id` | `string` | No | No | Returned when `creative_portfolio_type` is `DOWNLOAD_CARD`. ID of the app that you want to promote in the Download Card. It's the App ID from Events Manager. |
+| `sticker_param` | `sticker_param` | `CreativePortfolioListResponseCreativePortfoliosStickerParam` | No | No | Returned only when `creative_portfolio_type` is `COUNTDOWN_STICKER`, `REMINDER_COUNTDOWN_STICKER`, `LIVE_REMINDER_COUNTDOWN_STICKER`, or `GIFTCODE_STICKER`. Details of the Countdown Sticker or Gift Code Sticker you want to create. You can see an example of Countdown Sticker in [Countdown Sticker](https://ads.tiktok.com/help/article?aid=10007423) and an example of Gift Code Sticker in [Gift Code Sticker](https://ads.tiktok.com/help/article/tiktok-interactive-add-on-gift-code-sticker?lang=zh). Note: You can only create one Countdown Sticker or Gift Code Sticker at a time. |
+| `card_show_price` | `card_show_price` | `boolean` | No | No | Returned only when `creative_portfolio_type` is `PRODUCT_CARD`. Whether to show the price of products on the Product Card or not. |
+| `card_tags` | `card_tags` | `Array<"BRAND" \| "DESC">` | No | No | Returned only when `creative_portfolio_type` is `PRODUCT_CARD`. The product tags that are shown on the Product Card. Enum values: `BRAND` (Brand Name), `DESC` (Description). |
+| `card_image_index` | `card_image_index` | `number` | No | No | Returned only when `creative_portfolio_type` is `PRODUCT_CARD` or `PRODUCT_TILE`. Used to specify the image used in the Product Card or Product Tiles. The number set via this field is used as index to query the Image URLs you have passed through `additional_image_urls` in [/catalog/product/upload/](https://ads.tiktok.com/marketing_api/docs?id=1740497429681153). For instance, `card_image_index` = 1 means that you will use the image via the second image URL in `additional_image_urls`. |
+
+## CreativePortfolioListResponseCreativePortfoliosBadgeImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | No | No | ID of the badge image in the Pop-out Showcase. |
+
+## CreativePortfolioListResponseCreativePortfoliosBadgePosition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `position_x` | `position_x` | `number` | No | No | Relative X-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `position_y` | `position_y` | `number` | No | No | Relative Y-axis value of the top-left corner of the Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+| `angle` | `angle` | `number` | No | No | Returned when `badge_position` is specified and any of the following conditions is met: `creative_portfolio_type` is `GESTURE` and `gesture_type` is `STRAIGHT_SLIDE` or `CURVED_SLIDE`. `creative_portfolio_type` is `PREMIUM_BADGE`. The angle of the Straight Slide Gesture or Curved Slide Gesture icon within a Gesture or the Premium Badge within a Pop-out Showcase. |
+
+## CreativePortfolioListResponseCreativePortfoliosSlideDimension
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimension_width` | `dimension_width` | `number` | No | No | The width of the Curved Slide Gesture. |
+| `dimension_height` | `dimension_height` | `number` | No | No | The height of the Curved Slide Gesture. |
+
+## CreativePortfolioListResponseCreativePortfoliosStickerParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sticker_type` | `sticker_type` | `"COUNTDOWN" \| "REMINDER_COUNTDOWN" \| "LIVE_REMINDER_COUNTDOWN" \| "GIFTCODE"` | No | No | Sticker type. Enum values: `COUNTDOWN`: A Countdown Sticker with no reminder.`REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a non-LIVE event.`LIVE_REMINDER_COUNTDOWN`: A Countdown Sticker with reminder for a LIVE event. `GIFTCODE`: A Gift Code Sticker that aims to gain new customers and engage existing customers by providing virtual gifts or coupon redemption codes. |
+| `title` | `title` | `string` | No | No | Sticker title. For a Countdown Sticker, the maximum length is 54, in UTF-8 bytes, and the hashtag symbol (#) is not supported.For a Gift Code Sticker, the maximum length is 20 in UTF-8 bytes. |
+| `giftcode` | `giftcode` | `string` | No | No | Gift code. This field is only applicable for Gift Code Stickers. The maximum length is 10 in UTF-8 bytes (10 letters and numbers). Note: This field is returned only when `creative_portfolio_type` is `GIFTCODE_STICKER`. |
+| `cutoff_time` | `cutoff_time` | `string` | No | No | Countdown deadline (when `sticker_type` is `COUNTDOWN` or `REMINDER_COUNTDOWN`) or LIVE start time (when `sticker_type` is `LIVE_REMINDER_COUNTDOWN`) for the Countdown Sticker, in the format of "2022-10-30 00:00:00" (UTC+0 Time). Note: The time your pass in via this field is regarded as UTC+0 time by default and you cannot modify the default time zone.This field is returned only when `creative_portfolio_type` is `COUNTDOWN_STICKER`, `REMINDER_COUNTDOWN_STICKER`, or `LIVE_REMINDER_COUNTDOWN_STICKER`. |
+| `color` | `color` | `string` | No | No | Background color of the sticker. For a Countdown Sticker, the supported enum values are `ORANGE`(orange), `BLACK`(black), `RED`(red), and`BLUE`(blue).For a Giftcode Sticker created through the API, only `BLACK` and `BLUE` will be returned. However, `ORANGE` and `RED` may be returned for a Gift Code Sticker created on TTAM when orange and red were supported for Gift Code Stickers. |
+| `display_angle` | `display_angle` | `number` | No | No | Sticker display angle. Value range: `[-180, +180]`. `+90` means to rotate the sticker clockwise by 90 degrees. Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `display_angle` setting was supported for Gift Code Stickers. |
+| `predefined_placement` | `predefined_placement` | `string` | No | No | If the portfolio is a Gift Code Sticker and the predefined placement of the sticker corresponds to an enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns x-axis and y-axis coordinates. If the portfolio is a Countdown Sticker and the predefined placement of the sticker corresponds to an enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns x-axis and y-axis coordinates, and size. For example: If the x-axis coordinate, y-axis coordinate and size of the Countdown Sticker are 196, 148, and 0.8, respectively, which corresponds to the enum value `196x148x0.8` in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field will be returned as `196x148x0.8`. Note: If the sticker does not correspond to any enum value in [Predefined placements](https://business-api.tiktok.com/portal/docs?id=1739091950439426#item-link-Predefined%20placements), this field returns `null`. |
+| `position_x` | `position_x` | `number` | No | No | The x-axis coordinate relative to the top-left corner of the screen. |
+| `position_y` | `position_y` | `number` | No | No | The y-axis coordinate relative to the top-left corner of the screen. |
+| `size` | `size` | `string` | No | No | Sticker size by percentage. Enum values: `0.6`(60%), `0.7`(70%), `0.8`(80%), `0.9`(90%), `1`(100%), `1.1`(110%). Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `size` setting was supported for Gift Code Stickers. |
+| `opacity` | `opacity` | `string` | No | No | Sticker opacity. Enum values: `0.7`, `0.8`, `0.9`, `1`. The lower the value, the more transparent the sticker will be. Note: This field is not returned for a Gift Code Sticker created through the API. However, it may be returned for a Gift Code Sticker created on TTAM when the `opacity` setting was supported for Gift Code Stickers. |
+| `reminder_time` | `reminder_time` | `string` | No | No | The time set for the reminder. This field returns a non-null value when `creative_portfolio_type` is `REMINDER_COUNTDOWN_STICKER` or `LIVE_REMINDER_COUNTDOWN_STICKER`. For non-LIVE stickers (when `sticker_type`= `REMINDER_COUNTDOWN`), the enum values are:`ONE_MINUTE_EARLIER`: send the reminder one minute before the non-LIVE event.`ONE_HOUR_EARLIER `: send the reminder one hour before the non-LIVE event.`ONE_DAY_EARLIER`: send the reminder one day before the non-LIVE event. For LIVE stickers (when `sticker_type`= `LIVE_REMINDER_COUNTDOWN`), the enum values are: `ONE_MINUTE_AFTER`: send the reminder one minute after the LIVE event starts.`FIVE_MINUTES_AFTER`: send the reminder five minutes after the LIVE event starts.`TEN_MINUTES_AFTER`: send the reminder ten minutes after the LIVE event starts. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | The landing page URL you will be redirected to when you click the reminder after the countdown for an non-LIVE event ends. This field returns a non-null value when `creative_portfolio_type` is `REMINDER_COUNTDOWN_STICKER`. |
+| `live_tiktok_user_id` | `live_tiktok_user_id` | `string` | No | No | TikTok user ID of the LIVE event host. After specifying this field, you will be redirected to the host's LIVE room when you click the reminder for a LIVE event. This field returns a non-null value when `creative_portfolio_type` is `LIVE_REMINDER_COUNTDOWN_STICKER`. |
+
+## CreativePortfolioListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Paging size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CreativeQuickOptimizationCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `video_id` | `video_id` | `string` | Yes | No | Video ID |
+| `logo` | `logo` | `string` | No | No | Logo image ID, which will be shown in the optimized video |
+| `title` | `title` | `string` | No | No | Title, which will be shown in the optimized video. Limit: 2-20 characters. |
+| `description` | `description` | `string` | No | No | Description, which will be shown in the optimized video |
+| `callback_info` | `callback_info` | `CreativeQuickOptimizationCreateParamsCallbackInfo` | No | No | Callback information |
+
+## CreativeQuickOptimizationCreateParamsCallbackInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callback_url` | `callback_url` | `string` | No | No | Callback address. Required when you set `callback_info`. |
+| `callback_extra_info` | `callback_extra_info` | `string` | No | No | Extra callback information, which will be returned when call back. |
+
+## CreativeQuickOptimizationCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | No | No | Task ID |
+
+## CreativeSmartTextGenerateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `adgroup_id` | `adgroup_id` | `string` | Yes | No | Ad group ID |
+| `param_type` | `param_type` | `"RECOMMENDED" \| "CUSTOMIZED"` | No | No | How parameters are passed in. Enum values: `RECOMMENDED`, `CUSTOMIZED`. Default value: `CUSTOMIZED`. `RECOMMENDED`: Use the parameters predicted by the system. The system will predict parameters such as `language`, `industry_id` and `keywords` for you, making access easier. `CUSTOMIZED`: Customize the relevant parameters. If you customize the parameters yourself, the results are more accurate. |
+| `language` | `language` | `"EN" \| "JA" \| "RU" \| "VI"` | No | No | Language。Enum values: `EN`,`JA`,`RU`,`VI`. This field is required when `param_type` = `CUSTOMIZED`. |
+| `industry_id` | `industry_id` | `string` | No | No | Industry ID. For details, see [Appendix - Industries](https://ads.tiktok.com/marketing_api/docs?id=1739357589575681). |
+| `keywords` | `keywords` | `Array<string>` | No | No | Keywords. This field is required when `param_type` = `CUSTOMIZED`. |
+| `limit` | `limit` | `number` | No | No | The number of texts to be generated, in the range of [1, 20]. The default value is 10. |
+
+## CreativeSmartTextGenerateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `generate_id` | `generate_id` | `string` | No | No | The ID of the generated text. |
+| `industry_id` | `industry_id` | `string` | No | No | The ID of the industry that has been specified or estimated. |
+| `language` | `language` | `"EN" \| "JA" \| "RU" \| "VI"` | No | No | The language that has been specified or estimated. Enum values: `EN`,`JA`,`RU`,`VI` . |
+| `texts` | `texts` | `Array<string>` | No | No | The text that is automatically generated. |
+
+## CreativeSmartVideoCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `videos` | `videos` | `Array<CreativeSmartVideoCreateParamsVideos>` | Yes | No | Video list. Number of videos |
+| `images` | `images` | `Array<CreativeSmartVideoCreateParamsImages>` | Yes | No | Image list. Number of images |
+| `texts` | `texts` | `Array<CreativeSmartVideoCreateParamsTexts>` | No | No | Text list. |
+| `layout` | `layout` | `"VERTICAL" \| "HORIZONTAL"` | Yes | No | Horizontal screen or vertical screen. Enum values: `VERTICAL`，`HORIZONTAL`. |
+| `style` | `style` | `"PEACEFUL" \| "DYNAMIC" \| "CUSTOM"` | Yes | No | Background Music style. Enum values: `PEACEFUL`，`DYNAMIC`，`CUSTOM`. |
+| `music_id` | `music_id` | `string` | No | No | Music ID. Required when `style` is `CUSTOM`. |
+| `duration` | `duration` | `number` | No | No | Duration of generated video. Max duration is 60s. |
+| `frame` | `frame` | `Array<CreativeSmartVideoCreateParamsFrame>` | No | No | Keyframe. |
+| `callback_info` | `callback_info` | `CreativeSmartVideoCreateParamsCallbackInfo` | No | No | Callback information. |
+
+## CreativeSmartVideoCreateParamsCallbackInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callback_url` | `callback_url` | `string` | No | No | Callback address. Required when you set `callback_info`. |
+| `callback_extra_info` | `callback_extra_info` | `string` | No | No | Additional callback information. |
+
+## CreativeSmartVideoCreateParamsFrame
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frame_type` | `frame_type` | `string` | No | No | Frame type. Currently we only support `FINAL_FRAME` (Closing frame). |
+| `material_type` | `material_type` | `"VIDEO" \| "IMAGE" \| "TEMPLATE"` | No | No | Material type. Enum values: `VIDEO`, `IMAGE`, `TEMPLATE`. |
+| `video_id` | `video_id` | `string` | No | No | Video ID. Required when `material_type` is `VIDEO`. |
+| `image_id` | `image_id` | `string` | No | No | Image ID. Required when `material_type` is `IMAGE`. |
+| `template_type` | `template_type` | `string` | No | No | Generated template. Required when `material_type` is `TEMPLATE`. For enum values, see [Enumeration-Creative Management-Frame Template Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `logo` | `logo` | `string` | No | No | Logo Image ID. Required when `material_type` is `TEMPLATE`. |
+| `call_to_action` | `call_to_action` | `string` | No | No | Instructions. Required when `material_type` is `TEMPLATE`. Recommended length is less than 20 characters. You can improve the click rate of your ad by adding a call to action in the final frame of your ad. |
+| `slogan` | `slogan` | `string` | No | No | Slogan. Required when `material_type` is `TEMPLATE`. Recommended length is less than 40 characters. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. Required when `material_type` is `TEMPLATE`. Recommended length is less than 40 characters. Note: When you specify `template_type` as `end_frame_vertical_3`，`end_frame_vertical_5`，`end_frame_horizontal_3`，or `end_frame_horizontal_5`, `brand_name` will be ignored because these four templates does not show brand names. |
+
+## CreativeSmartVideoCreateParamsImages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_id` | `image_id` | `string` | Yes | No | Image ID. |
+| `tag` | `tag` | `string` | No | No | Material tag. For enum values, see [Enumeration-Creative Management-Material Tag](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+## CreativeSmartVideoCreateParamsTexts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | Yes | No | Text. |
+| `tag` | `tag` | `string` | No | No | Material tag. For enum values, see [Enumeration-Creative Management-Material Tag](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+## CreativeSmartVideoCreateParamsVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | Yes | No | Video ID. |
+| `tag` | `tag` | `string` | No | No | Material tag. For enum values, see [Enumeration-Creative Management-Material Tag](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+
+## CreativeSmartVideoCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreativeStatusGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `task_id` | `string` | Yes | No | Task ID. |

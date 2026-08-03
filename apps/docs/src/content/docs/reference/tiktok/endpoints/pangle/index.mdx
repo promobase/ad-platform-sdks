@@ -1,0 +1,115 @@
+---
+title: "TikTok Business Pangle endpoints"
+description: "3 generated TikTok Business endpoint contracts for Pangle."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 152
+  label: "Pangle"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.pangle.pangleAudiencePackageGet
+
+`GET` `/open_api/v1.3/pangle_audience_package/get/`
+
+Generated from TikTok documentation 1740040177229826
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pangle.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PangleAudiencePackageGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.pangle.pangleBlockListGet
+
+`GET` `/open_api/v1.3/pangle_block_list/get/`
+
+Generated from TikTok documentation 1740039957181441
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pangle.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PangleBlockListGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.pangle.pangleBlockListUpdate
+
+`POST` `/open_api/v1.3/pangle_block_list/update/`
+
+Generated from TikTok documentation 1740040139110466
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pangle.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `PangleBlockListUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `add_app_list` | `body` | `Array<string>` | No | No | Apps to add in the block list. iTunes ID for iOS app and package name for Android apps. |
+| `delete_app_list` | `body` | `Array<string>` | No | No | Apps to delete in the block list. iTunes ID for iOS app and package name for Android apps. |
+| `clear_old_app` | `body` | `boolean` | No | No | Whether to clear the original App block list, default value: `False`. If `False`, the corresponding App will be deleted and added based on the original list; if `True`, the original list will be cleared and the corresponding App will be added. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

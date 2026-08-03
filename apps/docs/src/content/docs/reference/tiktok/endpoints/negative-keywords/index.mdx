@@ -1,0 +1,195 @@
+---
+title: "TikTok Business Negative Keywords endpoints"
+description: "5 generated TikTok Business endpoint contracts for Negative Keywords."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 150
+  label: "Negative Keywords"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.negativeKeywords.searchAdNegativeKeywordAdd
+
+`POST` `/open_api/v1.3/search_ad/negative_keyword/add/`
+
+Generated from TikTok documentation 1775104895291393
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchAdNegativeKeywordAddResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `object_type` | `body` | `"CAMPAIGN" \| "ADGROUP"` | Yes | No | Object type. Object type. Use this field to specify whether you want to create negative keywords for a campaign or ad group. Enum values: `CAMPAIGN`: campaign.`ADGROUP`: ad group. |
+| `object_ids` | `body` | `Array<string>` | Yes | No | Object IDs. Use this field to pass in campaign IDs or ad group IDs that you want to create negative keywords for. Max size: 50. Specify this field according to `object_type`: If `object_type` is `CAMPAIGN`, assign campaign IDs to this field. If `object_type` is `ADGROUP`, assign ad group IDs to this field. |
+| `replace` | `body` | `boolean` | No | No | Whether to replace all the existing negative keywords for the campaign or ad group with the keywords that you specify via `keywords`. Enum values: `true`: To replace all the existing negative keywords. `false`: To add new negative keywords. Default value: `false`. |
+| `keywords` | `body` | `Array<SearchAdNegativeKeywordAddParamsKeywords>` | Yes | No | The list of negative keywords you want to create. Max size: 1,000. Note: For each ad group, you can configure a maximum of 10,000 negative keywords. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.negativeKeywords.searchAdNegativeKeywordDelete
+
+`POST` `/open_api/v1.3/search_ad/negative_keyword/delete/`
+
+Generated from TikTok documentation 1775104910010369
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchAdNegativeKeywordDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `object_type` | `body` | `"CAMPAIGN" \| "ADGROUP"` | Yes | No | Object type. Use this field to specify whether you want to delete negative keywords for a campaign or ad group. Enum values: `CAMPAIGN`: campaign.`ADGROUP`: ad group. |
+| `object_id` | `body` | `string` | Yes | No | Object ID. Use this field to pass in a campaign ID or ad group ID that you want to delete negative keywords for. Specify this field according to `object_type`: If `object_type` is `CAMPAIGN`, assign to this field a campaign ID. If `object_type` is `ADGROUP`, assign to this field an ad group ID. |
+| `keyword_ids` | `body` | `Array<string>` | Yes | No | ID of the negative keywords that you want to delete. Max size: 1,000. To obtain negative keyword IDs, use [/search_ad/negative_word/get/](https://business-api.tiktok.com/portal/docs?id=1775104887052289). Note: If any of the negative keyword IDs that you specify does not exist, an error will occur. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.negativeKeywords.searchAdNegativeKeywordDownload
+
+`GET` `/open_api/v1.3/search_ad/negative_keyword/download/`
+
+Generated from TikTok documentation 1775104916876290
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `negativeKeywords.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchAdNegativeKeywordDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `object_type` | `query` | `"CAMPAIGN" \| "ADGROUP"` | Yes | No | Object type. Use this field to specify whether you want to download the list of negative keywords for a campaign or ad group. Enum values: `CAMPAIGN`: campaign.`ADGROUP`: ad group. |
+| `object_id` | `query` | `string` | Yes | No | Object ID. Use this field to pass in a campaign ID or ad group ID that you want to download the list of negative keywords for. Specify this field according to `object_type`: If `object_type` is `CAMPAIGN`, assign to this field a campaign ID. If `object_type` is `ADGROUP`, assign to this field an ad group ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.negativeKeywords.searchAdNegativeKeywordGet
+
+`GET` `/open_api/v1.3/search_ad/negative_keyword/get/`
+
+Generated from TikTok documentation 1775104887052289
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `negativeKeywords.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchAdNegativeKeywordGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `object_type` | `query` | `"CAMPAIGN" \| "ADGROUP"` | Yes | No | Object type. Use this field to specify whether you want to get the list of negative keywords for a campaign or ad group. Enum values: `CAMPAIGN`: campaign.`ADGROUP`: ad group. |
+| `object_id` | `query` | `string` | Yes | No | Object ID. Use this field to pass in a campaign ID or ad group ID that you want to get the list of negative keywords for. Specify this field according to `object_type`: If `object_type` is `CAMPAIGN`, assign a campaign ID to this field. If `object_type` is `ADGROUP`, assign an ad group ID to this field. |
+| `page` | `query` | `number` | No | No | The number of pages you want to include the results in. Default value: 1. Value range: ≥ 1 |
+| `page_size` | `query` | `number` | No | No | Page size. Default value: 10. Value range: [1,50]. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.negativeKeywords.searchAdNegativeKeywordUpdate
+
+`POST` `/open_api/v1.3/search_ad/negative_keyword/update/`
+
+Generated from TikTok documentation 1775104902283266
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SearchAdNegativeKeywordUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `object_type` | `body` | `"CAMPAIGN" \| "ADGROUP"` | Yes | No | Object type. Use this field to specify whether you want to update the negative keywords for a campaign or ad group. Enum values: `CAMPAIGN`: campaign.`ADGROUP`: ad group. |
+| `object_id` | `body` | `string` | Yes | No | Object ID. Object ID. Use this field to pass in a campaign ID or ad group ID that you want to update the negative keyword for. Specify this field according to `object_type`: If `object_type` is `CAMPAIGN`, assign to this field a campaign ID. If `object_type` is `ADGROUP`, assign to this field an ad group ID. |
+| `old_keyword_id` | `body` | `string` | Yes | No | The ID of the negative keyword that you want to update. To obtain the ID of a negative keyword, use [/search_ad/negative_word/get/](https://business-api.tiktok.com/portal/docs?id=1775104887052289). Note: If the negative keyword ID that you specify does not exist, an error will occur. |
+| `keyword` | `body` | `SearchAdNegativeKeywordUpdateParamsKeyword` | Yes | No | Information about the update to the original keyword. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,23 @@
+---
+title: Powering OpenPromo
+description: Ownership boundaries for using these SDKs in a multi-tenant marketing product.
+sidebar:
+  order: 70
+  label: OpenPromo integration
+---
+
+The SDKs own provider protocol mechanics: authentication inputs, request/response contracts,
+pagination, retry classification, rate-limit signals, publishing primitives, inbox primitives, and
+normalized post metrics.
+
+OpenPromo—or any product built on the SDKs—should own the durable control plane:
+
+- encrypted workspace credentials and refresh-token rotation;
+- connection lifecycle and account selection;
+- approvals, policy, budgets, billing, and audit logs;
+- durable retries, idempotency records, scheduling, and operation polling;
+- persistence of posts, conversations, raw metrics, and normalized reporting data.
+
+Adopt read-only account, content, inbox, and metrics calls first and compare stored provider
+fixtures. Migrate writes after idempotency and reconciliation are proven. Keep provider payloads
+alongside normalized records so new fields can be backfilled without re-fetching historical data.

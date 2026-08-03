@@ -1,0 +1,677 @@
+---
+title: "Google Ads models: Video – Zalo Business Message Info"
+description: "77 generated Google Ads model contracts, from Video through ZaloBusinessMessageInfo."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1025
+  label: "Video – Zalo Business Message Info"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## Video
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+| `duration_millis` | `duration_millis` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## VideoAdFormatControl
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `format_restriction` | `format_restriction` | `VideoAdFormatRestriction` | No | No | — |
+| `non_skippable_in_stream_restrictions` | `non_skippable_in_stream_restrictions` | `unknown` | No | No | — |
+
+## VideoAdFormatRestriction
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NON_SKIPPABLE_IN_STREAM`
+
+## VideoAdFormatRestrictionEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoAdGroupSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_ad_sequence` | `video_ad_sequence` | `unknown` | No | No | — |
+
+## VideoAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video` | `video` | `unknown` | No | No | — |
+| `in_stream` | `in_stream` | `unknown` | No | No | — |
+| `bumper` | `bumper` | `unknown` | No | No | — |
+| `out_stream` | `out_stream` | `unknown` | No | No | — |
+| `non_skippable` | `non_skippable` | `unknown` | No | No | — |
+| `in_feed` | `in_feed` | `unknown` | No | No | — |
+| `audio` | `audio` | `unknown` | No | No | — |
+
+## VideoAdInventoryControl
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allow_in_stream` | `allow_in_stream` | `boolean` | No | No | — |
+| `allow_in_feed` | `allow_in_feed` | `boolean` | No | No | — |
+| `allow_shorts` | `allow_shorts` | `boolean` | No | No | — |
+| `allow_non_skippable_in_stream` | `allow_non_skippable_in_stream` | `boolean` | No | No | — |
+
+## VideoAdSequence
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `steps` | `steps` | `Array<unknown>` | No | No | — |
+| `minimum_duration` | `minimum_duration` | `VideoAdSequenceMinimumDuration` | No | No | — |
+
+## VideoAdSequenceInteractionType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PAID_VIEW`, `SKIP`, `IMPRESSION`, `ENGAGED_IMPRESSION`
+
+## VideoAdSequenceInteractionTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoAdSequenceMinimumDuration
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `WEEK`, `MONTH`
+
+## VideoAdSequenceMinimumDurationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoAdSequenceStep
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_ad_sequence_step_id` | `video_ad_sequence_step_id` | `string` | No | No | — |
+| `asset_id` | `asset_id` | `string` | No | No | — |
+| `ad_group_type` | `ad_group_type` | `AdGroupType` | No | No | — |
+| `previous_step_id` | `previous_step_id` | `string` | No | No | — |
+| `previous_step_interaction_type` | `previous_step_interaction_type` | `VideoAdSequenceInteractionType` | No | No | — |
+
+## VideoAdSequenceStepSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `step_id` | `step_id` | `string` | No | No | — |
+
+## VideoBumperInStreamAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+| `action_button_label` | `action_button_label` | `string` | No | No | — |
+| `action_headline` | `action_headline` | `string` | No | No | — |
+
+## VideoCampaignError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `MUTATE_REQUIRES_RESERVATION`
+
+## VideoCampaignErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoCampaignSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_ad_sequence` | `video_ad_sequence` | `unknown` | No | No | — |
+| `reservation_ad_category_self_disclosure` | `reservation_ad_category_self_disclosure` | `unknown` | No | No | — |
+| `booking_details` | `booking_details` | `unknown` | No | No | — |
+| `video_ad_inventory_control` | `video_ad_inventory_control` | `unknown` | No | No | — |
+| `video_ad_format_control` | `video_ad_format_control` | `unknown` | No | No | — |
+
+## VideoCustomer
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `third_party_integration_partners` | `third_party_integration_partners` | `CustomerThirdPartyIntegrationPartners` | No | No | — |
+
+## VideoEnhancement
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `duration_millis` | `duration_millis` | `string` | No | No | — |
+| `source` | `source` | `VideoEnhancementSource` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## VideoEnhancementSource
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ADVERTISER`, `ENHANCED_BY_GOOGLE_ADS`
+
+## VideoEnhancementSourceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoExperimentInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_experiment_subtype` | `video_experiment_subtype` | `VideoExperimentSubtype` | No | No | — |
+
+## VideoExperimentSubtype
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DEMAND_GEN_ASSET`, `ASSET`, `ASSET_UPLIFT`
+
+## VideoExperimentSubtypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoLineupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_lineup_id` | `video_lineup_id` | `string` | No | No | — |
+
+## VideoNonSkippableInStreamAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+| `action_button_label` | `action_button_label` | `string` | No | No | — |
+| `action_headline` | `action_headline` | `string` | No | No | — |
+
+## VideoOutstreamAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headline` | `headline` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+
+## VideoReservationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NEW_QUOTE_REQUIRED`, `CAMPAIGN_END_TIME_TOO_DISTANT`, `BUDGET_TOO_SMALL`, `CAMPAIGN_DURATION_TOO_SHORT`, `CAMPAIGN_NOT_ENABLED`, `NOT_ENOUGH_AVAILABLE_INVENTORY`, `TARGETING_TOO_NARROW`, `UNSUPPORTED_AD_GROUP_TYPE`, `UNSUPPORTED_BID_MODIFIER`, `CANNOT_CHANGE_PRICING_MODEL`, `INCOMPATIBLE_TARGETING`, `UNSUPPORTED_FEATURE`, `MISSING_ELECTION_CERTIFICATE`, `CAMPAIGN_ENDED`, `UNSUPPORTED_BUDGET_PERIOD`, `EXACTLY_ONE_ENABLED_ADGROUP_REQUIRED`, `FREQUENCY_CAP_TOO_NARROW`, `TARGETED_PACK_NEEDS_DEAL`, `DEAL_CURRENCY_MISMATCH`, `CANNOT_HOLD_CONTRACT`, `CUSTOMER_NOT_ENABLED`, `CUSTOMER_NOT_ALLOWED`, `INVALID_ACCOUNT_TYPE`, `ACCOUNT_IS_MANAGER`, `SEASONAL_LINEUP_BOOKING_WINDOW_NOT_OPEN`, `SEASONAL_LINEUP_END_DATE_OFF_SEASON`, `SEASONAL_LINEUP_GEO_TARGETING_TOO_NARROW`, `NO_MARKET_RATE_CARD_OR_BASE_RATE`, `STALE_QUOTE`, `LINEUP_NOT_ALLOWED`, `UNSUPPORTED_BIDDING_STRATEGY`, `UNSUPPORTED_POSITIVE_GEO_TARGET_TYPE`, `VALIDATE_ONLY_REQUIRED`, `TOO_MANY_CAMPAIGNS`
+
+## VideoReservationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoResponsiveAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `long_headlines` | `long_headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `call_to_actions` | `call_to_actions` | `Array<unknown>` | No | No | — |
+| `videos` | `videos` | `Array<unknown>` | No | No | — |
+| `business_name` | `business_name` | `unknown` | No | No | — |
+| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
+| `companion_banners` | `companion_banners` | `Array<unknown>` | No | No | — |
+| `breadcrumb1` | `breadcrumb1` | `string` | No | No | — |
+| `breadcrumb2` | `breadcrumb2` | `string` | No | No | — |
+
+## VideoThumbnail
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DEFAULT_THUMBNAIL`, `THUMBNAIL_1`, `THUMBNAIL_2`, `THUMBNAIL_3`
+
+## VideoThumbnailEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## VideoTrueViewInStreamAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_button_label` | `action_button_label` | `string` | No | No | — |
+| `action_headline` | `action_headline` | `string` | No | No | — |
+| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+
+## WebhookDelivery
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_webhook_url` | `advertiser_webhook_url` | `string` | No | No | — |
+| `google_secret` | `google_secret` | `string` | No | No | — |
+| `payload_schema_version` | `payload_schema_version` | `string` | No | No | — |
+
+## Webpage
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<unknown>` | No | No | — |
+
+## WebpageCondition
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_label` | `custom_label` | `string` | No | No | — |
+| `url_contains` | `url_contains` | `string` | No | No | — |
+
+## WebpageConditionInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operand` | `operand` | `WebpageConditionOperand` | No | No | — |
+| `operator` | `operator` | `WebpageConditionOperator` | No | No | — |
+| `argument` | `argument` | `string` | No | No | — |
+
+## WebpageConditionOperand
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `URL`, `CATEGORY`, `PAGE_TITLE`, `PAGE_CONTENT`, `CUSTOM_LABEL`
+
+## WebpageConditionOperandEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## WebpageConditionOperator
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `EQUALS`, `CONTAINS`
+
+## WebpageConditionOperatorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## WebpageInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `criterion_name` | `criterion_name` | `string` | No | No | — |
+| `conditions` | `conditions` | `Array<unknown>` | No | No | — |
+| `coverage_percentage` | `coverage_percentage` | `number` | No | No | — |
+| `sample` | `sample` | `unknown` | No | No | — |
+
+## WebpageListInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shared_set` | `shared_set` | `string` | No | No | — |
+
+## WebpageSampleInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sample_urls` | `sample_urls` | `Array<string>` | No | No | — |
+
+## WebpageView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## WebsiteList
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `websites` | `websites` | `Array<string>` | No | No | — |
+
+## WhatsappBusinessMessageInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_code` | `country_code` | `string` | No | No | — |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+
+## YearMonth
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `year` | `year` | `string` | No | No | — |
+| `month` | `month` | `MonthOfYear` | No | No | — |
+
+## YearMonthRange
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `start` | `start` | `unknown` | No | No | — |
+| `end` | `end` | `unknown` | No | No | — |
+
+## YouTubeAudioAdInfo
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## YouTubeChannelAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscriber_count` | `subscriber_count` | `string` | No | No | — |
+
+## YouTubeChannelInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+
+## YouTubeChannelInsights
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `display_name` | `display_name` | `string` | No | No | — |
+| `youtube_channel` | `youtube_channel` | `YouTubeChannelInfo` | No | No | — |
+| `channel_url` | `channel_url` | `string` | No | No | — |
+| `channel_description` | `channel_description` | `string` | No | No | — |
+| `handle` | `handle` | `string` | No | No | — |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | — |
+| `publish_date` | `publish_date` | `string` | No | No | — |
+| `country_location` | `country_location` | `LocationInfo` | No | No | — |
+| `channel_metrics` | `channel_metrics` | `unknown` | No | No | — |
+| `data_sharing_consent_given` | `data_sharing_consent_given` | `boolean` | No | No | — |
+| `channel_audience_attributes` | `channel_audience_attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
+| `channel_attributes` | `channel_attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
+| `top_videos` | `top_videos` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
+| `language_distributions` | `language_distributions` | `Array<unknown>` | No | No | — |
+| `channel_type` | `channel_type` | `string` | No | No | — |
+| `relevance_score` | `relevance_score` | `number` | No | No | — |
+
+## YouTubeChannels
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_channels` | `youtube_channels` | `Array<YouTubeChannelInfo>` | No | No | — |
+
+## YouTubeCreatorInsights
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_name` | `creator_name` | `string` | No | No | — |
+| `creator_channels` | `creator_channels` | `Array<unknown>` | No | No | — |
+
+## YoutubeLinkMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_channel_id` | `brand_channel_id` | `string` | No | No | — |
+
+## YouTubeLivePreviewResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_preview_url` | `youtube_preview_url` | `string` | No | No | — |
+| `youtube_tv_preview_url` | `youtube_tv_preview_url` | `string` | No | No | — |
+
+## YouTubeMetrics
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscriber_count` | `subscriber_count` | `string` | No | No | — |
+| `views_count` | `views_count` | `string` | No | No | — |
+| `video_count` | `video_count` | `string` | No | No | — |
+| `likes_count` | `likes_count` | `string` | No | No | — |
+| `shares_count` | `shares_count` | `string` | No | No | — |
+| `comments_count` | `comments_count` | `string` | No | No | — |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | — |
+| `average_views_per_video` | `average_views_per_video` | `number` | No | No | — |
+| `average_likes_per_video` | `average_likes_per_video` | `number` | No | No | — |
+| `average_shares_per_video` | `average_shares_per_video` | `number` | No | No | — |
+| `average_comments_per_video` | `average_comments_per_video` | `number` | No | No | — |
+| `shorts_views_count` | `shorts_views_count` | `string` | No | No | — |
+| `shorts_video_count` | `shorts_video_count` | `string` | No | No | — |
+| `is_active_shorts_creator` | `is_active_shorts_creator` | `boolean` | No | No | — |
+| `is_active_live_stream_creator` | `is_active_live_stream_creator` | `boolean` | No | No | — |
+| `partnership_opportunities` | `partnership_opportunities` | `Array<PartnershipOpportunity>` | No | No | — |
+
+## YouTubeSelectLineUp
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lineup_id` | `lineup_id` | `string` | No | No | — |
+| `lineup_name` | `lineup_name` | `string` | No | No | — |
+
+## YouTubeSelectLineUpTargeting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_select_lineups` | `youtube_select_lineups` | `Array<unknown>` | No | No | — |
+| `default_youtube_select_lineup` | `default_youtube_select_lineup` | `unknown` | No | No | — |
+
+## YouTubeSelectSettings
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lineup_id` | `lineup_id` | `string` | No | No | — |
+
+## YoutubeVideoAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_video_id` | `youtube_video_id` | `string` | No | No | — |
+| `youtube_video_title` | `youtube_video_title` | `string` | No | No | — |
+
+## YouTubeVideoAttributeMetadata
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | — |
+| `video_url` | `video_url` | `string` | No | No | — |
+| `views_count` | `views_count` | `string` | No | No | — |
+| `likes_count` | `likes_count` | `string` | No | No | — |
+| `comments_count` | `comments_count` | `string` | No | No | — |
+| `video_properties` | `video_properties` | `Array<YouTubeVideoProperty>` | No | No | — |
+| `publish_date` | `publish_date` | `string` | No | No | — |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+| `channel_name` | `channel_name` | `string` | No | No | — |
+| `channel_url` | `channel_url` | `string` | No | No | — |
+
+## YoutubeVideoIdentifier
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+| `video_id` | `video_id` | `string` | No | No | — |
+
+## YouTubeVideoInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | — |
+
+## YouTubeVideoListAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+
+## YouTubeVideoPrivacy
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PUBLIC`, `UNLISTED`
+
+## YouTubeVideoPrivacyEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## YouTubeVideoProperty
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LIVE_STREAM`, `SHORTS`
+
+## YouTubeVideoPropertyEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## YoutubeVideoRegistrationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `VIDEO_NOT_FOUND`, `VIDEO_NOT_ACCESSIBLE`, `VIDEO_NOT_ELIGIBLE`
+
+## YoutubeVideoRegistrationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## YouTubeVideoUpload
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `video_upload_id` | `video_upload_id` | `string` | No | No | — |
+| `channel_id` | `channel_id` | `string` | No | No | — |
+| `video_id` | `video_id` | `string` | No | No | — |
+| `state` | `state` | `YouTubeVideoUploadState` | No | No | — |
+| `video_title` | `video_title` | `string` | No | No | — |
+| `video_description` | `video_description` | `string` | No | No | — |
+| `video_privacy` | `video_privacy` | `YouTubeVideoPrivacy` | No | No | — |
+
+## YouTubeVideoUploadState
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PENDING`, `UPLOADED`, `PROCESSED`, `FAILED`, `REJECTED`, `UNAVAILABLE`
+
+## YouTubeVideoUploadStateEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## ZaloBusinessMessageInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `oa_id` | `oa_id` | `string` | No | No | — |
+| `custom_name` | `custom_name` | `string` | No | No | — |

@@ -1,0 +1,199 @@
+---
+title: "TikTok Business Custom Conversions endpoints"
+description: "5 generated TikTok Business endpoint contracts for Custom Conversions."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 137
+  label: "Custom Conversions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.customConversions.customConversionCreate
+
+`POST` `/open_api/v1.3/custom_conversion/create/`
+
+Generated from TikTok documentation 1842225226006530
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `customConversions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CustomConversionCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `name` | `body` | `string` | Yes | No | The name of the Custom Conversion. The name must start with a letter and can include letters, numbers, spaces, underscores, or hyphens. Length limit: 50 characters and cannot contain emoji. Note:Do not specify the name of a standard event.Duplicate names for Custom Conversion within an ad account are not allowed. |
+| `description` | `body` | `string` | No | No | The description of the Custom Conversion. Length limit: 500 characters and cannot contain emoji. |
+| `event_source_type` | `body` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `body` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.This app can only be used with the TikTok App Events SDK. The SDK creates a direct first-party connection from your app to TikTok, reducing signal loss and providing more accurate measurement. Learn [how to install the SDK](https://business-api.tiktok.com/portal/docs?id=1739584951798785).To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `optimization_event` | `body` | `string` | No | No | Required in any of the following scenarios:When `event_source_type` is `PIXEL`.When `event_source_type` is `APP` and you are creating a custom conversion using a standard event.When `event_source_type` is `APP` and you are creating a custom conversion using a Custom Event, and the app is allowlisted for mapping Custom Events to Standard Events.Not supported when the following conditions are all met:`event_source_type` is `APP`.You are creating a custom conversion using a Custom Event.The app is not allowlisted for mapping Custom Events to Standard Events. The Standard Event to associate with the Custom Conversion. For enum values, see List of values for `optimization_event`. Note: Mapping Custom Events to Standard Events while creating custom conversions using an app event source and a custom event is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `custom_event_type` | `body` | `string` | No | No | Valid only when the Custom Event has been configured for the App or Pixel (`event_source_id`). The Custom Event to associate with the Custom Conversion. When you specify a Custom Event for the Custom Conversion, you need to specify the Standard Event to map the event to through `optimization_event` simultaneously. Custom Events are actions that TikTok partners can define themselves beyond the predefined Standard Events list. To learn more about Custom Events, see [About Custom Events in TikTok Ads Manager](https://ads.tiktok.com/help/article/custom-events). To obtain the Custom Events that are configured for a Pixel, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `custom_event_type`. Note: When creating custom conversions using an app event source and a custom event, ensure that postbacks of the specified App Custom Event (`custom_event_type`) have been received before this custom conversion can be created. Otherwise, an error will occur. |
+| `rules` | `body` | `Array<CustomConversionCreateParamsRules>` | Yes | No | Details of the conversion rules for the Custom Conversion. Only actions that meet these conditions will count as Custom Conversions. Size range: 1-10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.customConversions.customConversionDelete
+
+`POST` `/open_api/v1.3/custom_conversion/delete/`
+
+Generated from TikTok documentation 1842225270315074
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `customConversions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CustomConversionDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `body` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.customConversions.customConversionGet
+
+`GET` `/open_api/v1.3/custom_conversion/get/`
+
+Generated from TikTok documentation 1842225206555074
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `customConversions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CustomConversionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `query` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+| `event_source_type` | `query` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `query` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.customConversions.customConversionList
+
+`GET` `/open_api/v1.3/custom_conversion/list/`
+
+Generated from TikTok documentation 1842225174460673
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `customConversions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CustomConversionListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `event_source_type` | `query` | `"PIXEL" \| "APP"` | Yes | No | Event source type. Enum values:`PIXEL`: Pixel.`APP`: App. |
+| `event_source_id` | `query` | `string` | Yes | No | Event source ID. When `event_source_type` is `PIXEL`, specify a Pixel ID.To obtain IDs of Pixels within your ad account, use [/pixel/list/](https://business-api.tiktok.com/portal/docs?id=1740858697598978) and check the returned `pixel_id`.When `event_source_type` is `APP`, specify the app platform ID of a Self Attribution Network (SAN) App.To obtain app platform IDs of SAN Apps within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). Confirm that the returned `self_attribution_enabled` for the App is `true` and check the returned `app_platform_id`. |
+| `search_keyword` | `query` | `string` | No | No | The keyword to search for Custom Conversions by. You can search by Custom Conversion name or Custom Conversion ID. When you search by Custom Conversion name, fuzzy matches are supported.When you search by Custom Conversion ID, exact matches are supported. |
+| `sort_field` | `query` | `"CREATE_TIME" \| "TOTAL_COUNT"` | No | No | Sorting field. Enum values:`CREATE_TIME`: The time when the Custom Conversion was created.`TOTAL_COUNT`: The total conversion count for the Custom Conversion.Default value: `CREATE_TIME`. |
+| `sort_type` | `query` | `"DESC" \| "ASC"` | No | No | Sorting type. Enum values:`DESC`: descending.`ASC`: ascending.Default value: `DESC`. |
+| `page` | `query` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `query` | `number` | No | No | Page size. Value range: 1-1,000. Default value: 10. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.customConversions.customConversionUpdate
+
+`POST` `/open_api/v1.3/custom_conversion/update/`
+
+Generated from TikTok documentation 1842225247176705
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `customConversions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `CustomConversionUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID. |
+| `custom_conversion_id` | `body` | `string` | Yes | No | The ID of the Custom Conversion. To obtain the list of Custom Conversions associated with a Pixel or an App, use [/custom_conversion/list/](https://business-api.tiktok.com/portal/docs?id=1842225174460673). |
+| `name` | `body` | `string` | No | No | The new name of the Custom Conversion. The name must start with a letter and can include letters, numbers, spaces, underscores, or hyphens. Length limit: 50 characters and cannot contain emoji. Note:Do not specify the name of a standard event.Duplicate names for Custom Conversion within an ad account are not allowed. |
+| `description` | `body` | `string` | No | No | The new description of the Custom Conversion. Length limit: 500 characters and cannot contain emoji. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

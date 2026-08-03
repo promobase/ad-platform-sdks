@@ -1,0 +1,159 @@
+---
+title: "TikTok Business BC Members endpoints"
+description: "4 generated TikTok Business endpoint contracts for BC Members."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 116
+  label: "BC Members"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.bCMembers.bcMemberDelete
+
+`POST` `/open_api/v1.3/bc/member/delete/`
+
+Generated from TikTok documentation 1739939482851329
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCMembers.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcMemberDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `user_id` | `body` | `string` | No | No | Required when you want to remove existing members. User ID. To obtain the user IDs of existing members in a Business Center, use [/bc/member/get/](https://business-api.tiktok.com/portal/docs?id=1739939404802049) and check the returned `user_id`. |
+| `user_email` | `body` | `string` | No | No | Required when you want to revoke the member invitation for a user. User email. To obtain the user emails of invited members for a Business Center, use [/bc/member/get/](https://business-api.tiktok.com/portal/docs?id=1739939404802049) and check the returned `user_email`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCMembers.bcMemberGet
+
+`GET` `/open_api/v1.3/bc/member/get/`
+
+Generated from TikTok documentation 1739939404802049
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bCMembers.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcMemberGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `query` | `string` | Yes | No | Business Center ID |
+| `page` | `query` | `number` | No | No | Current page. |
+| `page_size` | `query` | `number` | No | No | Page size. The maximum page size is 20. |
+| `filtering` | `query` | `BcMemberGetParamsFiltering` | No | No | Filtering conditions |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCMembers.bcMemberInvite
+
+`POST` `/open_api/v1.3/bc/member/invite/`
+
+Generated from TikTok documentation 1739939455765505
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCMembers.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcMemberInviteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID. |
+| `emails` | `body` | `Array<string>` | Yes | No | A list of user emails. User emails that have been invited earlier will be ignored. Max size: 50. |
+| `user_role` | `body` | `"ADMIN" \| "STANDARD"` | Yes | No | Basic role within the Business Center. Enum values: `ADMIN`: Admins have full access to all features in Business Center. `STANDARD`: Standard members can only work on accounts or assets they've been assigned to. |
+| `asset_ids` | `body` | `Array<string>` | No | No | List of ad account IDs assigned to the invited users. Max size: 50. To obtain ad accounts within a Business Center, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `ADVERTISER`. |
+| `advertiser_role` | `body` | `"ADMIN" \| "OPERATOR" \| "ANALYST"` | No | No | Ad account role assigned to the invited users. Enum values:`ADMIN`: Admin. Manage ad account finances, settings, and permissions. Create and edit ad campaigns and view performance data.`OPERATOR`: Operator. Manage finances for ad accounts, create and edit ad campaigns, and view performance data.`ANALYST`: Analyst. View ads and performance data. |
+| `ext_user_role` | `body` | `BcMemberInviteParamsExtUserRole` | No | No | Advanced role within the Business Center. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.bCMembers.bcMemberUpdate
+
+`POST` `/open_api/v1.3/bc/member/update/`
+
+Generated from TikTok documentation 1739696704424961
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bCMembers.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `BcMemberUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `body` | `string` | Yes | No | Business Center ID |
+| `user_id` | `body` | `string` | Yes | No | User ID of the Business Center's member. |
+| `user_role` | `body` | `"ADMIN" \| "STANDARD"` | No | No | New basic role for the user in this Business Center. Enum values: `ADMIN`: Admins can manage the Business Center's members and assets. `STANDARD`: Standard members can only work on the ad accounts they've been assigned to. |
+| `user_name` | `body` | `string` | No | No | New name of the user |
+| `ext_user_role` | `body` | `BcMemberUpdateParamsExtUserRole` | No | No | Advanced role of the user in the Business Center other than basic role, this is optional. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,46 @@
+---
+title: "Meta FB Image Copyright Match endpoints"
+description: "1 generated Meta endpoint contract for FB Image Copyright Match."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 254
+  label: "FB Image Copyright Match"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.fBImageCopyrightMatch.get
+
+`GET` `/{id}`
+
+GET FBImageCopyrightMatch
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `fBImageCopyrightMatch.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `FBImageCopyrightMatchFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

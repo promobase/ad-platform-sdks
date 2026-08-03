@@ -1,0 +1,264 @@
+---
+title: "TikTok Business Discovery endpoints"
+description: "7 generated TikTok Business endpoint contracts for Discovery."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 139
+  label: "Discovery"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.discovery.discoveryCmlTrendingList
+
+`GET` `/open_api/v1.3/discovery/cml/trending_list/`
+
+Generated from TikTok documentation 1825119063013505
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryCmlTrendingListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `genre` | `query` | `string` | No | No | The specific genre to filter the results by. Default value: `ALL`. For enum values, see List of values for `genre`. |
+| `country_code` | `query` | `string` | No | No | The code of the location to filter the results by. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+| `date_range` | `query` | `string` | No | No | The timeframe in which the tracks have been popular. Enum values:`1DAY`: last one day.`7DAY`: last seven days.`30DAY`: last 30 days.`90DAY`: last 90 days.Default value: `7DAY`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryCmlVideoList
+
+`GET` `/open_api/v1.3/discovery/cml/video_list/`
+
+Generated from TikTok documentation 1825119068941314
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryCmlVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `commercial_music_id` | `query` | `string` | Yes | No | The ID of the track. |
+| `country_code` | `query` | `string` | No | No | The code of the location to filter the results by. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryDetail
+
+`GET` `/open_api/v1.3/discovery/detail/`
+
+Generated from TikTok documentation 1825119047070721
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryDetailResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `query` | `string` | Yes | No | The type of discovery item. Currently, we only support `HASHTAG`. |
+| `hashtag_id` | `query` | `string` | Yes | No | Hashtag ID. Pass in a hashtag ID that is returned via the [/discovery/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119032526849) endpoint. If the hashtag you provide isn't included in the list returned by the `/discovery/trending_list/` endpoint, you will receive an empty list in response. Example: `4268426520694`. |
+| `country_code` | `query` | `string` | Yes | No | Location code. Specify the same `country_code` as the one you input in the `/discovery/trending_list/` endpoint. If the `country_code` you provide is not associated with the hashtag, we will return an error. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. Example: `DE`. |
+| `date_range` | `query` | `string` | Yes | No | The timeframe in which the items have been popular. Specify the same `date_range` as the one you input in the `/discovery/trending_list/` endpoint. If the `date_range` you provide is not associated with the hashtag, we will return an error. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryTrendingList
+
+`GET` `/open_api/v1.3/discovery/trending_list/`
+
+Generated from TikTok documentation 1825119032526849
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryTrendingListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `query` | `string` | Yes | No | The type of discovery item. Currently, we only support `HASHTAG`. |
+| `country_code` | `query` | `string` | No | No | Location code. Default value: `US`. See [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010) for the supported values. |
+| `category_name` | `query` | `string` | No | No | The name of the hashtag industry category. To learn about the enum values, see Hashtag industry category names. You can pass either a level-1 category name or a level-2 category name. Default value: `ALL`. Example: `FOOD_AND_BEVERAGE`. If you pass `category_name` and `industry_id` at the same time, `industry_id` will be ignored. |
+| `date_range` | `query` | `string` | No | No | The timeframe in which the items have been popular. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. Default value: `7DAY`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryTrendingSearch
+
+`GET` `/open_api/v1.3/discovery/trending/search/`
+
+Generated from TikTok documentation 1832798345014338
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryTrendingSearchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `is_personalized` | `query` | `boolean` | No | No | Whether to return personalized search keywords for the Business Account. Supported values: `true`: To return trending search keywords that are personalized for the Business Account. `false`: To return trending search keywords that are not personalized for the Business Account. Default value: `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryTrendingSearchKeyword
+
+`GET` `/open_api/v1.3/discovery/trending/search/keyword/`
+
+Generated from TikTok documentation 1832798361818114
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryTrendingSearchKeywordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_id` | `query` | `string` | Yes | No | Application specific unique identifier for the Business Account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Get%20a%20TikTok%20account%20access%20token) to this field. |
+| `query` | `query` | `string` | Yes | No | A search query. You can specify products, services, or brands as the search query. Length limit: 255 characters. |
+| `is_personalized` | `query` | `boolean` | No | No | Whether to return personalized search keywords for the Business Account. Supported values: `true`: To return trending search keywords that are personalized for the Business Account. `false`: To return trending search keywords that are not personalized for the Business Account. Default value: `false`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.discovery.discoveryVideoList
+
+`GET` `/open_api/v1.3/discovery/video_list/`
+
+Generated from TikTok documentation 1825119056527362
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `discovery.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `DiscoveryVideoListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. Pass one of the advertiser IDs returned via `advertiser_ids` from [/oauth2/access_token/](https://business-api.tiktok.com/portal/docs?id=1738373164380162). |
+| `discovery_type` | `query` | `string` | Yes | No | The type of discovery item. Enum values:`HASHTAG`: hashtag-related videos. |
+| `hashtag_ids` | `query` | `Array<string>` | Yes | No | A list of hashtag IDs. Max size: 10. Pass one or more popular hashtag IDs obtained via `hashtag_id` from [/discovery/trending_list/](https://business-api.tiktok.com/portal/docs?id=1825119032526849). Example: `["4268426520694"]`. |
+| `country_code` | `query` | `string` | No | No | Location code. Default value: `US`. Pass one of the location codes returned via `top_country_list` from `/discovery/trending_list/`. |
+| `date_range` | `query` | `string` | No | No | The timeframe in which the videos have been popular. Enum values:`1DAY`: last 1 day.`7DAY`: last 7 days.`30DAY`: last 30 days.`120DAY`: last 120 days. Default value: `7DAY`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

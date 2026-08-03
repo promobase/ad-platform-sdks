@@ -1,0 +1,979 @@
+---
+title: "X models: Post Referenced Posts – User"
+description: "100 generated X model contracts, from PostReferencedPosts through User."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 1004
+  label: "Post Referenced Posts – User"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## PostReferencedPosts
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## PostScopes
+
+`object` model on the `json` wire format.
+
+The scopes for this Post.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `followers` | `followers` | `boolean` | Yes | No | Indicates whether visibility of this Post is limited to the author's followers. |
+
+## PostSuggestedSourceLinks
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## PostSuggestedSourceLinksWithCounts
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## PostTakedownComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `quote_tweet_id` | `quote_tweet_id` | `PostId` | No | No | — |
+| `tweet` | `tweet` | `json` | Yes | No | — |
+| `withheld_in_countries` | `withheld_in_countries` | `Array<CountryCode>` | Yes | No | — |
+
+## PostUndropComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `undrop` | `undrop` | `PostComplianceSchema` | Yes | No | — |
+
+## PostUnviewable
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application` | `application` | `string` | Yes | No | If the label is being applied or removed. Possible values are ‘apply’ or ‘remove’. |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `tweet` | `tweet` | `json` | Yes | No | — |
+
+## PostUnviewableSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `public_tweet_unviewable` | `public_tweet_unviewable` | `PostUnviewable` | Yes | No | — |
+
+## PostWithheld
+
+`object` model on the `json` wire format.
+
+Withholding details for withheld content.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `copyright` | `copyright` | `boolean` | Yes | No | Indicates whether this content is withheld due to a copyright claim. |
+| `country_codes` | `country_codes` | `Array<string>` | Yes | No | Uppercase ISO 3166-1 alpha-2 country codes where this content is withheld. |
+| `scope` | `scope` | `"post" \| "user"` | No | Yes | Whether the withholding applies to a Post or a User. |
+
+## PostWithheldComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `withheld` | `withheld` | `PostTakedownComplianceSchema` | Yes | No | — |
+
+## Problem
+
+`scalar` model on the `json` wire format.
+
+**Value:** `ResourceNotFoundProblem \| InvalidRequestProblem \| NotAuthorizedForResourceProblem \| NotAuthorizedForFieldProblem \| FieldUnauthorizedProblem \| FieldHydrationFailureProblem \| ResourceUnavailableProblem \| DisallowedResourceProblem \| InternalErrorProblem`
+
+## ProfileUpdateActivityResponsePayload
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `after` | `after` | `string` | No | No | — |
+| `before` | `before` | `string` | No | No | — |
+
+## PublicKey
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identity_public_key_signature` | `identity_public_key_signature` | `string` | No | No | — |
+| `juicebox_config` | `juicebox_config` | `json` | No | No | — |
+| `public_key` | `public_key` | `string` | No | No | — |
+| `public_key_version` | `public_key_version` | `string` | No | No | — |
+| `signing_public_key` | `signing_public_key` | `string` | No | No | — |
+
+## PublicKeyId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## RemoveListsMemberByUserIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `RemoveListsMemberByUserIdResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## RemoveListsMemberByUserIdResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_member` | `is_member` | `boolean` | Yes | No | Indicates whether the user is a member of the List. |
+
+## RepostPostRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tweet_id` | `tweet_id` | `string` | Yes | No | — |
+
+## RepostPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `RepostPostResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## RepostPostResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rest_id` | `rest_id` | `string` | Yes | No | The ID of the reposted Post. |
+| `retweeted` | `retweeted` | `boolean` | Yes | No | Indicates whether the user reposted the Post. |
+
+## ResourceNotFoundProblem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | `detail` | `string` | Yes | No | — |
+| `parameter` | `parameter` | `string` | No | No | — |
+| `resource_id` | `resource_id` | `string` | No | No | — |
+| `resource_type` | `resource_type` | `string` | Yes | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `type` | `type` | `"https://api.x.com/2/problems/resource-not-found"` | Yes | No | — |
+| `value` | `value` | `string` | No | No | — |
+
+## ResourceUnavailableProblem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | `detail` | `string` | Yes | No | — |
+| `resource_id` | `resource_id` | `string` | No | No | — |
+| `resource_type` | `resource_type` | `string` | Yes | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `type` | `type` | `"https://api.x.com/2/problems/resource-unavailable"` | Yes | No | — |
+
+## RuleId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## RulesCount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_project_client_apps` | `all_project_client_apps` | `RulesCountAllProjectClientApps` | No | No | — |
+| `cap_per_client_app` | `cap_per_client_app` | `string` | No | No | — |
+| `cap_per_project` | `cap_per_project` | `string` | No | No | — |
+| `client_app_rules_count` | `client_app_rules_count` | `RulesCountClientAppRulesCount` | No | No | — |
+| `project_rules_count` | `project_rules_count` | `string` | No | No | — |
+
+## RulesCountAllProjectClientApps
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## RulesCountClientAppRulesCount
+
+`object` model on the `json` wire format.
+
+A count of filtered-stream rules for a single client application.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_app_id` | `client_app_id` | `string` | No | Yes | Unique identifier of the client application. |
+| `rule_count` | `rule_count` | `integer` | Yes | No | Number of rules configured for the client application. |
+
+## RuleTag
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## SearchCommunitiesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Community>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchCommunityNotesWrittenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Note>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchEligiblePostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchNewsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<News>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchPostsAllResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchPostsRecentResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Post>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchSpacesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Space>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SearchUsersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<User>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## SendBroadcastChatRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reply_to` | `reply_to` | `string` | No | No | Message id to reply to, returned as timestamp when sent. |
+| `text` | `text` | `string` | Yes | No | The chat message text. |
+
+## SendBroadcastChatResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `SendBroadcastChatResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## SendBroadcastChatResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `success` | `success` | `boolean` | Yes | No | Whether the chat message was sent. |
+| `timestamp` | `timestamp` | `string` | Yes | No | Server timestamp of the message, in nanoseconds. |
+
+## SendChatMessageRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversation_token` | `conversation_token` | `string` | No | No | Optional conversation token. |
+| `encoded_message_create_event` | `encoded_message_create_event` | `string` | Yes | No | Base64-encoded Thrift MessageCreateEvent containing encrypted message contents. |
+| `encoded_message_event_signature` | `encoded_message_event_signature` | `string` | No | No | Base64-encoded Thrift MessageEventSignature for message verification. |
+| `message_id` | `message_id` | `string` | Yes | No | Unique identifier for this message. |
+
+## SendChatMessageResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `SendChatMessageResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## SendChatMessageResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `encoded_message_event` | `encoded_message_event` | `string` | Yes | No | Base64-encoded Thrift message event for the sent message. |
+
+## SendChatTypingIndicatorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `SendChatTypingIndicatorResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## SendChatTypingIndicatorResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `success` | `success` | `boolean` | Yes | No | Whether the typing indicator was sent. |
+
+## Space
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string<date-time>` | No | No | — |
+| `creator_id` | `creator_id` | `string` | No | No | — |
+| `ended_at` | `ended_at` | `string<date-time>` | No | No | — |
+| `host_ids` | `host_ids` | `SpaceHostIds` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `invited_user_ids` | `invited_user_ids` | `SpaceInvitedUserIds` | No | No | — |
+| `is_ticketed` | `is_ticketed` | `boolean` | No | No | — |
+| `lang` | `lang` | `string` | No | No | — |
+| `participant_count` | `participant_count` | `integer` | No | No | — |
+| `scheduled_start` | `scheduled_start` | `string<date-time>` | No | No | — |
+| `speaker_ids` | `speaker_ids` | `SpaceSpeakerIds` | No | No | — |
+| `started_at` | `started_at` | `string<date-time>` | No | No | — |
+| `state` | `state` | `string` | No | No | — |
+| `subscriber_count` | `subscriber_count` | `integer` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `topic_ids` | `topic_ids` | `SpaceTopicIds` | No | No | — |
+| `updated_at` | `updated_at` | `string<date-time>` | No | No | — |
+
+## SpaceHostIds
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SpaceInvitedUserIds
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SpaceSpeakerIds
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SpaceTopicIds
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## StreamLabelsComplianceResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `json \| json`
+
+## StreamLikesComplianceResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `json \| json`
+
+## StreamLikesFirehoseResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `LikeWithPostAuthor` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamLikesSample10Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `LikeWithPostAuthor` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsComplianceResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `json \| json`
+
+## StreamPostsFirehoseEnResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsFirehoseJaResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsFirehoseKoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsFirehosePtResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsFirehoseResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsResponse
+
+`object` model on the `json` wire format.
+
+A Tweet or error that can be returned by the streaming Tweet API. The values returned with a successful streamed Tweet includes the user provided rules that the Tweet matched.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+| `matching_rules` | `matching_rules` | `Array<json>` | No | No | The list of rules which matched the Tweet |
+
+## StreamPostsSample10Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamPostsSampleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Post` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `includes` | `includes` | `Expansions` | No | No | — |
+
+## StreamUsersComplianceResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `json \| json`
+
+## Topic
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## Trend
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `trend_name` | `trend_name` | `string` | No | No | — |
+| `tweet_count` | `tweet_count` | `integer` | No | No | — |
+
+## UnblockUsersDmsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnblockUsersDmsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnblockUsersDmsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blocked` | `blocked` | `boolean` | Yes | No | Indicates whether the target user is DM-blocked. |
+
+## UnfollowListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnfollowListResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnfollowListResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `following` | `following` | `boolean` | Yes | No | Indicates whether the user is following the List. |
+
+## UnfollowUserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnfollowUserResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnfollowUserResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `following` | `following` | `boolean` | Yes | No | Whether the user is followed. |
+
+## UnlikeComplianceSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `string<date-time>` | Yes | No | Event time. |
+| `favorite` | `favorite` | `json` | Yes | No | — |
+
+## UnlikePostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnlikePostResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnlikePostResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `liked` | `liked` | `boolean` | Yes | No | Whether the Post is liked. |
+
+## UnmuteBroadcastChatUserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnmuteBroadcastChatUserResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnmuteBroadcastChatUserResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `muted` | `muted` | `boolean` | Yes | No | Whether the user is muted in this broadcast chat. |
+
+## UnmuteUserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnmuteUserResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnmuteUserResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `muting` | `muting` | `boolean` | Yes | No | Whether the user is muted. |
+
+## UnpinListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnpinListResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnpinListResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinned` | `pinned` | `boolean` | Yes | No | Indicates whether the List is pinned by the authenticated user. |
+
+## UnrepostPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UnrepostPostResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UnrepostPostResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `retweeted` | `retweeted` | `boolean` | Yes | No | Whether the Post is reposted. |
+
+## UpdateActivitySubscriptionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined tag. |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook to deliver the subscription events to. |
+
+## UpdateActivitySubscriptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UpdateActivitySubscriptionResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UpdateActivitySubscriptionResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscription` | `subscription` | `UpdateActivitySubscriptionResponseDataSubscription` | No | No | — |
+| `total_subscriptions` | `total_subscriptions` | `integer` | No | No | Total active subscriptions for the instance. |
+
+## UpdateActivitySubscriptionResponseDataSubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | No | No | Subscription creation time. |
+| `event_type` | `event_type` | `string` | No | No | Activity event type in dot notation. |
+| `filter` | `filter` | `UpdateActivitySubscriptionResponseDataSubscriptionFilter` | No | No | Subscription filter. |
+| `subscription_id` | `subscription_id` | `string` | No | No | Unique identifier of the subscription. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined tag. |
+| `updated_at` | `updated_at` | `string` | No | No | Subscription last-update time. |
+| `webhook_id` | `webhook_id` | `string` | No | No | Webhook receiving the subscription events. |
+
+## UpdateActivitySubscriptionResponseDataSubscriptionFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `direction` | `direction` | `string` | No | No | Optional direction filter for directional events. Not present for mute.* or block.* events. |
+| `keyword` | `keyword` | `string` | No | No | Optional keyword filter. |
+| `user_id` | `user_id` | `string` | No | No | User the subscription is scoped to. |
+
+## UpdateListsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | New description for the List (up to 100 characters). |
+| `name` | `name` | `string` | No | No | New name for the List (1-25 characters). |
+| `private` | `private` | `boolean` | No | No | Whether the List is private. |
+
+## UpdateListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UpdateListsResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UpdateListsResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `updated` | `updated` | `boolean` | Yes | No | Indicates whether the List was updated. |
+
+## UpdateRulesAdd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined label for the rule. |
+| `value` | `value` | `string` | Yes | No | Rule filter expression. |
+
+## UpdateRulesDelete
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `ids` | `Array<string>` | No | No | Rule ids (Snowflake external ids) to delete. |
+| `values` | `values` | `Array<string>` | No | No | Rule values to delete. |
+
+## UpdateRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `add` | `add` | `Array<UpdateRulesAdd>` | No | No | Rules to add. |
+| `delete` | `delete` | `UpdateRulesDelete` | No | No | Rules to delete by id or by value. |
+
+## UpdateRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<UpdateRulesResponseData>` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+| `meta` | `meta` | `json` | No | No | — |
+
+## UpdateRulesResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of the rule. |
+| `tag` | `tag` | `string` | No | No | Optional caller-defined label for the rule. |
+| `value` | `value` | `string` | No | No | The rule's filter expression. |
+
+## UpdateScheduledBroadcastRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | Enable replay. |
+| `chat_option` | `chat_option` | `string` | No | No | Chat permission option (numeric string). |
+| `description` | `description` | `string` | No | No | Description. |
+| `is_locked` | `is_locked` | `boolean` | No | No | Lock the broadcast. |
+| `locale` | `locale` | `string` | No | No | Locale. |
+| `manual_publish` | `manual_publish` | `boolean` | No | No | If true, do not auto-publish at start; call POST .../live when ready. |
+| `roll_forward` | `roll_forward` | `boolean` | No | No | When true, shift the head of a recurring series. |
+| `scheduled_broadcast_id` | `scheduled_broadcast_id` | `string` | Yes | No | Numeric scheduler id from create/list/get. |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | Yes | No | End time, ms since Unix epoch (decimal string). |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | Yes | No | Start time, ms since Unix epoch (decimal string). |
+| `source_id` | `source_id` | `string` | No | No | Ingest / source id. |
+| `thumbnail_media_id` | `thumbnail_media_id` | `string` | No | No | Pre-live slate media id (numeric string). |
+| `title` | `title` | `string` | No | No | Title / status text. |
+
+## UpdateScheduledBroadcastResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `UpdateScheduledBroadcastResponseData` | No | No | — |
+| `errors` | `errors` | `Array<Problem>` | No | No | — |
+
+## UpdateScheduledBroadcastResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_for_replay` | `available_for_replay` | `boolean` | No | No | Whether replay is enabled. |
+| `broadcast_id` | `broadcast_id` | `string` | No | No | Alphanumeric UBS broadcast id (path `:id` for get/update/delete/live). |
+| `chat_option` | `chat_option` | `string` | No | No | Optional chat permission option. |
+| `description` | `description` | `string` | No | No | Optional description. |
+| `locale` | `locale` | `string` | No | No | Optional locale. |
+| `manual_publish` | `manual_publish` | `boolean` | No | No | When true, coordinator will not auto-publish; call POST .../live when ready. |
+| `recurring_schedule_id` | `recurring_schedule_id` | `string` | No | No | Set when this occurrence belongs to a recurrence. |
+| `scheduled_broadcast_id` | `scheduled_broadcast_id` | `string` | No | No | Numeric scheduler id. Required in the update request body. |
+| `scheduled_end_ms` | `scheduled_end_ms` | `string` | No | No | Scheduled end, milliseconds since Unix epoch (decimal string). |
+| `scheduled_start_ms` | `scheduled_start_ms` | `string` | No | No | Scheduled start, milliseconds since Unix epoch (decimal string). |
+| `source_id` | `source_id` | `string` | No | No | Bound ingest / source id (`rtmp_stream_key`). |
+| `state` | `state` | `string` | No | No | Scheduler state (Created, Scheduled, Running, …). |
+| `telecast_id` | `telecast_id` | `string` | No | No | Optional telecast association. |
+| `thumbnail_media_id` | `thumbnail_media_id` | `string` | No | No | Optional pre-live slate media id. |
+| `title` | `title` | `string` | No | No | Broadcast title / status text. |
+
+## Usage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cap_reset_day` | `cap_reset_day` | `integer` | No | No | — |
+| `daily_client_app_usage` | `daily_client_app_usage` | `UsageDailyClientAppUsage` | No | No | — |
+| `daily_project_usage` | `daily_project_usage` | `UsageDailyProjectUsage` | No | No | — |
+| `project_cap` | `project_cap` | `string` | No | No | — |
+| `project_id` | `project_id` | `string` | No | No | — |
+| `project_usage` | `project_usage` | `string` | No | No | — |
+
+## UsageDailyClientAppUsage
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<json>`
+
+## UsageDailyProjectUsage
+
+`object` model on the `json` wire format.
+
+Project-level daily Post usage for the caller's project.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `project_id` | `project_id` | `string` | No | Yes | Unique identifier of the project. |
+| `usage` | `usage` | `Array<json>` | No | Yes | Daily usage entries for the project. |
+
+## User
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affiliation` | `affiliation` | `UserAffiliation` | No | No | — |
+| `confirmed_email` | `confirmed_email` | `string` | No | No | — |
+| `connection_status` | `connection_status` | `UserConnectionStatus` | No | No | — |
+| `created_at` | `created_at` | `string<date-time>` | No | No | Creation time of this User. |
+| `description` | `description` | `string` | No | No | The text of this User's profile description (also known as bio), if the User provided one. |
+| `entities` | `entities` | `UserEntities` | No | No | — |
+| `id` | `id` | `string` | No | No | Unique identifier of this User. |
+| `is_identity_verified` | `is_identity_verified` | `boolean` | No | No | Indicates if this User has completed identity verification. |
+| `location` | `location` | `string` | No | No | The location specified in the User's profile, if the User provided one. As this is a freeform value, it may not indicate a valid location. |
+| `most_recent_post_id` | `most_recent_post_id` | `string` | No | No | Unique identifier of this User's most recent Post. |
+| `name` | `name` | `string` | No | No | The friendly name of this User, as shown on their profile. |
+| `parody` | `parody` | `boolean` | No | No | Indicates if this User is a parody account. |
+| `pinned_post_id` | `pinned_post_id` | `string` | No | No | Unique identifier of this User's pinned Post. |
+| `profile_banner_url` | `profile_banner_url` | `string` | No | No | The URL to the profile banner for this User. |
+| `profile_image_url` | `profile_image_url` | `string` | No | No | The URL to the profile image for this User. |
+| `protected` | `protected` | `boolean` | No | No | Indicates if this User has chosen to protect their Posts (in other words, if this User's Posts are private). |
+| `public_metrics` | `public_metrics` | `UserPublicMetrics` | No | No | — |
+| `receives_your_dm` | `receives_your_dm` | `boolean` | No | No | Indicates if you can send a DM to this User. |
+| `subscribes_to_you` | `subscribes_to_you` | `boolean` | No | No | Indicates if this User subscribes to you. |
+| `subscription` | `subscription` | `UserSubscription` | No | No | — |
+| `subscription_type` | `subscription_type` | `string` | No | No | The X Blue subscription type of the user, e.g.: Basic, Premium, PremiumPlus or None. |
+| `url` | `url` | `string` | No | No | The URL specified in the User's profile. |
+| `username` | `username` | `string` | No | No | The X handle (screen name) of this User. |
+| `verified` | `verified` | `boolean` | No | No | Indicates if this User is a verified X User. |
+| `verified_followers_count` | `verified_followers_count` | `integer` | No | No | The number of verified followers of this User. |
+| `verified_type` | `verified_type` | `string` | No | No | The X Blue verified type of the user, e.g.: blue, government, business or none. |
+| `withheld` | `withheld` | `UserWithheld` | No | No | — |

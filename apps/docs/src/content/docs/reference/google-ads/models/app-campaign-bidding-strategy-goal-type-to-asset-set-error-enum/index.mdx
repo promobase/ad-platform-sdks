@@ -1,0 +1,875 @@
+---
+title: "Google Ads models: App Campaign Bidding Strategy Goal Type – Asset Set Error Enum"
+description: "100 generated Google Ads model contracts, from AppCampaignBiddingStrategyGoalType through AssetSetErrorEnum."
+generated: true
+platform: "google-ads"
+sourceVersion: "v25"
+sidebar:
+  order: 1002
+  label: "App Campaign Bidding Strategy Goal Type – Asset Set Error Enum"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (protobuf: packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25). Do not edit by hand. */}
+
+## AppCampaignBiddingStrategyGoalType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPTIMIZE_INSTALLS_TARGET_INSTALL_COST`, `OPTIMIZE_IN_APP_CONVERSIONS_TARGET_INSTALL_COST`, `OPTIMIZE_IN_APP_CONVERSIONS_TARGET_CONVERSION_COST`, `OPTIMIZE_RETURN_ON_ADVERTISING_SPEND`, `OPTIMIZE_PRE_REGISTRATION_CONVERSION_VOLUME`, `OPTIMIZE_INSTALLS_WITHOUT_TARGET_INSTALL_COST`, `OPTIMIZE_IN_APP_CONVERSIONS_WITHOUT_TARGET_CPA`, `OPTIMIZE_TOTAL_VALUE_WITHOUT_TARGET_ROAS`
+
+## AppCampaignBiddingStrategyGoalTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AppCampaignSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidding_strategy_goal_type` | `bidding_strategy_goal_type` | `AppCampaignBiddingStrategyGoalType` | No | No | — |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_store` | `app_store` | `AppCampaignAppStore` | No | No | — |
+
+## AppDeepLinkAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_deep_link_uri` | `app_deep_link_uri` | `string` | No | No | — |
+
+## AppendLeadConversationRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `conversations` | `conversations` | `Array<unknown>` | No | No | — |
+
+## AppendLeadConversationResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<unknown>` | No | No | — |
+
+## AppEngagementAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `images` | `images` | `Array<unknown>` | No | No | — |
+| `videos` | `videos` | `Array<unknown>` | No | No | — |
+
+## ApplicationInstance
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DEVELOPMENT_AND_TESTING`, `PRODUCTION`
+
+## ApplicationInstanceEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AppliedIncentive
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `coupon_code` | `coupon_code` | `string` | No | No | — |
+| `incentive_state` | `incentive_state` | `IncentiveState` | No | No | — |
+| `redemption_date_time` | `redemption_date_time` | `string` | No | No | — |
+| `fulfillment_expiration_date_time` | `fulfillment_expiration_date_time` | `string` | No | No | — |
+| `reward_grant_date_time` | `reward_grant_date_time` | `string` | No | No | — |
+| `reward_expiration_date_time` | `reward_expiration_date_time` | `string` | No | No | — |
+| `currency_code` | `currency_code` | `string` | No | No | — |
+| `reward_amount_micros` | `reward_amount_micros` | `string` | No | No | — |
+| `granted_amount_micros` | `granted_amount_micros` | `string` | No | No | — |
+| `required_min_spend_micros` | `required_min_spend_micros` | `string` | No | No | — |
+| `current_spend_towards_fulfillment_micros` | `current_spend_towards_fulfillment_micros` | `string` | No | No | — |
+| `reward_balance_remaining_micros` | `reward_balance_remaining_micros` | `string` | No | No | — |
+
+## ApplyIncentiveRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `selected_incentive_id` | `selected_incentive_id` | `string` | No | No | — |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `country_code` | `country_code` | `string` | No | No | — |
+
+## ApplyIncentiveResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coupon_code` | `coupon_code` | `string` | No | No | — |
+| `creation_time` | `creation_time` | `string` | No | No | — |
+
+## ApplyRecommendationOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
+| `text_ad` | `text_ad` | `unknown` | No | No | — |
+| `keyword` | `keyword` | `unknown` | No | No | — |
+| `target_cpa_opt_in` | `target_cpa_opt_in` | `unknown` | No | No | — |
+| `target_roas_opt_in` | `target_roas_opt_in` | `unknown` | No | No | — |
+| `callout_extension` | `callout_extension` | `unknown` | No | No | — |
+| `call_extension` | `call_extension` | `unknown` | No | No | — |
+| `sitelink_extension` | `sitelink_extension` | `unknown` | No | No | — |
+| `move_unused_budget` | `move_unused_budget` | `unknown` | No | No | — |
+| `responsive_search_ad` | `responsive_search_ad` | `unknown` | No | No | — |
+| `use_broad_match_keyword` | `use_broad_match_keyword` | `unknown` | No | No | — |
+| `responsive_search_ad_asset` | `responsive_search_ad_asset` | `unknown` | No | No | — |
+| `responsive_search_ad_improve_ad_strength` | `responsive_search_ad_improve_ad_strength` | `unknown` | No | No | — |
+| `raise_target_cpa_bid_too_low` | `raise_target_cpa_bid_too_low` | `unknown` | No | No | — |
+| `forecasting_set_target_roas` | `forecasting_set_target_roas` | `unknown` | No | No | — |
+| `callout_asset` | `callout_asset` | `unknown` | No | No | — |
+| `call_asset` | `call_asset` | `unknown` | No | No | — |
+| `sitelink_asset` | `sitelink_asset` | `unknown` | No | No | — |
+| `raise_target_cpa` | `raise_target_cpa` | `unknown` | No | No | — |
+| `lower_target_roas` | `lower_target_roas` | `unknown` | No | No | — |
+| `forecasting_set_target_cpa` | `forecasting_set_target_cpa` | `unknown` | No | No | — |
+| `set_target_cpa` | `set_target_cpa` | `unknown` | No | No | — |
+| `set_target_roas` | `set_target_roas` | `unknown` | No | No | — |
+| `lead_form_asset` | `lead_form_asset` | `unknown` | No | No | — |
+
+## ApplyRecommendationRequest
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_id` | `customer_id` | `string` | No | No | — |
+| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `partial_failure` | `partial_failure` | `boolean` | No | No | — |
+
+## ApplyRecommendationResponse
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+
+## ApplyRecommendationResult
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+
+## ApplyScope
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER`, `CAMPAIGN`
+
+## AppPaymentModelInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `AppPaymentModelType` | No | No | — |
+
+## AppPaymentModelType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PAID`
+
+## AppPaymentModelTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AppPreRegistrationAdInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `images` | `images` | `Array<unknown>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+
+## AppTopCombinationView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `ad_group_top_combinations` | `ad_group_top_combinations` | `Array<unknown>` | No | No | — |
+
+## AppUrlOperatingSystemType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `IOS`, `ANDROID`
+
+## AppUrlOperatingSystemTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## Asset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `type` | `type` | `AssetType` | No | No | — |
+| `final_urls` | `final_urls` | `Array<string>` | No | No | — |
+| `final_mobile_urls` | `final_mobile_urls` | `Array<string>` | No | No | — |
+| `tracking_url_template` | `tracking_url_template` | `string` | No | No | — |
+| `url_custom_parameters` | `url_custom_parameters` | `Array<CustomParameter>` | No | No | — |
+| `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |
+| `source` | `source` | `AssetSource` | No | No | — |
+| `policy_summary` | `policy_summary` | `unknown` | No | No | — |
+| `field_type_policy_summaries` | `field_type_policy_summaries` | `Array<unknown>` | No | No | — |
+| `orientation` | `orientation` | `AssetOrientation` | No | No | — |
+| `synthetic_content_info` | `synthetic_content_info` | `SyntheticContentInfo` | No | No | — |
+| `youtube_video_asset` | `youtube_video_asset` | `YoutubeVideoAsset` | No | No | — |
+| `media_bundle_asset` | `media_bundle_asset` | `MediaBundleAsset` | No | No | — |
+| `image_asset` | `image_asset` | `ImageAsset` | No | No | — |
+| `text_asset` | `text_asset` | `TextAsset` | No | No | — |
+| `lead_form_asset` | `lead_form_asset` | `LeadFormAsset` | No | No | — |
+| `book_on_google_asset` | `book_on_google_asset` | `BookOnGoogleAsset` | No | No | — |
+| `promotion_asset` | `promotion_asset` | `PromotionAsset` | No | No | — |
+| `callout_asset` | `callout_asset` | `CalloutAsset` | No | No | — |
+| `structured_snippet_asset` | `structured_snippet_asset` | `StructuredSnippetAsset` | No | No | — |
+| `sitelink_asset` | `sitelink_asset` | `SitelinkAsset` | No | No | — |
+| `page_feed_asset` | `page_feed_asset` | `PageFeedAsset` | No | No | — |
+| `dynamic_education_asset` | `dynamic_education_asset` | `DynamicEducationAsset` | No | No | — |
+| `mobile_app_asset` | `mobile_app_asset` | `MobileAppAsset` | No | No | — |
+| `hotel_callout_asset` | `hotel_callout_asset` | `HotelCalloutAsset` | No | No | — |
+| `call_asset` | `call_asset` | `CallAsset` | No | No | — |
+| `price_asset` | `price_asset` | `PriceAsset` | No | No | — |
+| `call_to_action_asset` | `call_to_action_asset` | `CallToActionAsset` | No | No | — |
+| `dynamic_real_estate_asset` | `dynamic_real_estate_asset` | `DynamicRealEstateAsset` | No | No | — |
+| `dynamic_custom_asset` | `dynamic_custom_asset` | `DynamicCustomAsset` | No | No | — |
+| `dynamic_hotels_and_rentals_asset` | `dynamic_hotels_and_rentals_asset` | `DynamicHotelsAndRentalsAsset` | No | No | — |
+| `dynamic_flights_asset` | `dynamic_flights_asset` | `DynamicFlightsAsset` | No | No | — |
+| `demand_gen_carousel_card_asset` | `demand_gen_carousel_card_asset` | `DemandGenCarouselCardAsset` | No | No | — |
+| `dynamic_travel_asset` | `dynamic_travel_asset` | `DynamicTravelAsset` | No | No | — |
+| `dynamic_local_asset` | `dynamic_local_asset` | `DynamicLocalAsset` | No | No | — |
+| `dynamic_jobs_asset` | `dynamic_jobs_asset` | `DynamicJobsAsset` | No | No | — |
+| `location_asset` | `location_asset` | `LocationAsset` | No | No | — |
+| `hotel_property_asset` | `hotel_property_asset` | `HotelPropertyAsset` | No | No | — |
+| `business_message_asset` | `business_message_asset` | `BusinessMessageAsset` | No | No | — |
+| `app_deep_link_asset` | `app_deep_link_asset` | `AppDeepLinkAsset` | No | No | — |
+| `youtube_video_list_asset` | `youtube_video_list_asset` | `YouTubeVideoListAsset` | No | No | — |
+
+## AssetAutomationSetting
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_automation_type` | `asset_automation_type` | `AssetAutomationType` | No | No | — |
+| `asset_automation_status` | `asset_automation_status` | `AssetAutomationStatus` | No | No | — |
+
+## AssetAutomationStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `OPTED_IN`, `OPTED_OUT`
+
+## AssetAutomationStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetAutomationType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TEXT_ASSET_AUTOMATION`, `GENERATE_VERTICAL_YOUTUBE_VIDEOS`, `GENERATE_SHORTER_YOUTUBE_VIDEOS`, `GENERATE_LANDING_PAGE_PREVIEW`, `GENERATE_LANDING_PAGE_TEXT`, `GENERATE_ENHANCED_YOUTUBE_VIDEOS`, `GENERATE_IMAGE_ENHANCEMENT`, `GENERATE_IMAGE_EXTRACTION`, `GENERATE_DESIGN_VERSIONS_FOR_IMAGES`, `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`, `GENERATE_VIDEOS_FROM_OTHER_ASSETS`, `GENERATE_ANIMATED_IMAGES_FROM_OTHER_ASSETS`
+
+## AssetAutomationTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetCoverage
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_strength_action_items` | `ad_strength_action_items` | `Array<unknown>` | No | No | — |
+
+## AssetCoverageVideoAspectRatioRequirement
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HORIZONTAL`, `SQUARE`, `VERTICAL`
+
+## AssetCoverageVideoAspectRatioRequirementEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetDetail
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+| `asset_detail_operation` | `asset_detail_operation` | `ExperimentAssetDetailOperation` | No | No | — |
+
+## AssetDisapproved
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offline_evaluation_error_reasons` | `offline_evaluation_error_reasons` | `Array<AssetOfflineEvaluationErrorReasons>` | No | No | — |
+
+## AssetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `CUSTOMER_NOT_ON_ALLOWLIST_FOR_ASSET_TYPE`, `DUPLICATE_ASSET`, `DUPLICATE_ASSET_NAME`, `ASSET_DATA_IS_MISSING`, `CANNOT_MODIFY_ASSET_NAME`, `FIELD_INCOMPATIBLE_WITH_ASSET_TYPE`, `INVALID_CALL_TO_ACTION_TEXT`, `LEAD_FORM_INVALID_FIELDS_COMBINATION`, `LEAD_FORM_MISSING_AGREEMENT`, `INVALID_ASSET_STATUS`, `FIELD_CANNOT_BE_MODIFIED_FOR_ASSET_TYPE`, `SCHEDULES_CANNOT_OVERLAP`, `PROMOTION_CANNOT_SET_PERCENT_OFF_AND_MONEY_AMOUNT_OFF`, `PROMOTION_CANNOT_SET_PROMOTION_CODE_AND_ORDERS_OVER_AMOUNT`, `TOO_MANY_DECIMAL_PLACES_SPECIFIED`, `DUPLICATE_ASSETS_WITH_DIFFERENT_FIELD_VALUE`, `CALL_CARRIER_SPECIFIC_SHORT_NUMBER_NOT_ALLOWED`, `CALL_CUSTOMER_CONSENT_FOR_CALL_RECORDING_REQUIRED`, `CALL_DISALLOWED_NUMBER_TYPE`, `CALL_INVALID_CONVERSION_ACTION`, `CALL_INVALID_COUNTRY_CODE`, `CALL_INVALID_DOMESTIC_PHONE_NUMBER_FORMAT`, `CALL_INVALID_PHONE_NUMBER`, `CALL_PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY`, `CALL_PREMIUM_RATE_NUMBER_NOT_ALLOWED`, `CALL_VANITY_PHONE_NUMBER_NOT_ALLOWED`, `PRICE_HEADER_SAME_AS_DESCRIPTION`, `MOBILE_APP_INVALID_APP_ID`, `MOBILE_APP_INVALID_FINAL_URL_FOR_APP_DOWNLOAD_URL`, `NAME_REQUIRED_FOR_ASSET_TYPE`, `LEAD_FORM_LEGACY_QUALIFYING_QUESTIONS_DISALLOWED`, `NAME_CONFLICT_FOR_ASSET_TYPE`, `CANNOT_MODIFY_ASSET_SOURCE`, `CANNOT_MODIFY_AUTOMATICALLY_CREATED_ASSET`, `LEAD_FORM_LOCATION_ANSWER_TYPE_DISALLOWED`, `PAGE_FEED_INVALID_LABEL_TEXT`, `CUSTOMER_NOT_ON_ALLOWLIST_FOR_WHATSAPP_MESSAGE_ASSETS`, `CUSTOMER_NOT_ON_ALLOWLIST_FOR_APP_DEEP_LINK_ASSETS`, `PROMOTION_BARCODE_CANNOT_CONTAIN_LINKS`, `PROMOTION_BARCODE_INVALID_FORMAT`, `UNSUPPORTED_BARCODE_TYPE`, `PROMOTION_QR_CODE_CANNOT_CONTAIN_LINKS`, `PROMOTION_QR_CODE_INVALID_FORMAT`, `CUSTOMER_NOT_ON_ALLOWLIST_FOR_MESSAGE_ASSETS`
+
+## AssetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetFieldType
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `HEADLINE`, `DESCRIPTION`, `MANDATORY_AD_TEXT`, `MARKETING_IMAGE`, `MEDIA_BUNDLE`, `YOUTUBE_VIDEO`, `BOOK_ON_GOOGLE`, `LEAD_FORM`, `PROMOTION`, `CALLOUT`, `STRUCTURED_SNIPPET`, `SITELINK`, `MOBILE_APP`, `HOTEL_CALLOUT`, `CALL`, `PRICE`, `LONG_HEADLINE`, `BUSINESS_NAME`, `SQUARE_MARKETING_IMAGE`, `PORTRAIT_MARKETING_IMAGE`, `LOGO`, `LANDSCAPE_LOGO`, `VIDEO`, `CALL_TO_ACTION_SELECTION`, `AD_IMAGE`, `BUSINESS_LOGO`, `HOTEL_PROPERTY`, `DEMAND_GEN_CAROUSEL_CARD`, `BUSINESS_MESSAGE`, `TALL_PORTRAIT_MARKETING_IMAGE`, `RELATED_YOUTUBE_VIDEOS`, `LANDING_PAGE_PREVIEW`, `LONG_DESCRIPTION`, `CALL_TO_ACTION`, `CLASSIC_DISPLAY_IMAGE`
+
+## AssetFieldTypeEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetFieldTypePolicySummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_field_type` | `asset_field_type` | `AssetFieldType` | No | No | — |
+| `asset_source` | `asset_source` | `AssetSource` | No | No | — |
+| `policy_summary_info` | `policy_summary_info` | `unknown` | No | No | — |
+
+## AssetFieldTypeView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+
+## AssetGenerationError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `NO_ASSETS_GENERATED`, `FINAL_URL_REQUIRED`, `GENERATION_CONTEXT_MISSING_FINAL_URL`, `FINAL_URL_SENSITIVE`, `FINAL_URL_UNSUPPORTED_LANGUAGE`, `FINAL_URL_UNAVAILABLE`, `CAMPAIGN_TYPE_REQUIRED`, `UNSUPPORTED_CAMPAIGN_TYPE`, `UNSUPPORTED_FIELD_TYPE`, `UNSUPPORTED_FIELD_TYPE_FOR_CAMPAIGN_TYPE`, `FREEFORM_PROMPT_UNSUPPORTED_LANGUAGE`, `FREEFORM_PROMPT_SENSITIVE`, `INPUT_IMAGE_FILE_SIZE_TOO_LARGE`, `INPUT_IMAGE_EMPTY`, `GENERATION_TYPE_REQUIRED`, `TOO_MANY_KEYWORDS`, `KEYWORD_INVALID_LENGTH`, `NO_VALID_KEYWORDS`, `FREEFORM_PROMPT_INVALID_LENGTH`, `FREEFORM_PROMPT_REFERENCES_CHILDREN`, `FREEFORM_PROMPT_REFERENCES_SPECIFIC_PEOPLE`, `FREEFORM_PROMPT_VIOLATES_ADS_POLICY`, `FREEFORM_PROMPT_BRAND_CONTENT`, `INPUT_IMAGE_DEPICTS_CHILDREN`, `INPUT_IMAGE_CONTAINS_BRAND_CONTENT`, `INPUT_IMAGE_SENSITIVE`, `INPUT_IMAGE_VIOLATES_POLICY`, `ALL_OUTPUT_IMAGES_FILTERED_OUT_CHILDREN_DEPICTION`, `ALL_OUTPUT_IMAGES_FILTERED_OUT_SPECIFIC_PEOPLE`, `ALL_OUTPUT_IMAGES_FILTERED_OUT`, `INPUT_IMAGE_REQUIRED`, `INPUT_IMAGE_UNSUPPORTED_IMAGE_TYPE`, `CONTEXT_ASSET_GROUP_NOT_FOUND`, `CONTEXT_AD_GROUP_AD_NOT_FOUND`, `CONTEXT_CAMPAIGN_NOT_FOUND`
+
+## AssetGenerationErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGenerationExistingContext
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `existing_asset_group` | `existing_asset_group` | `string` | No | No | — |
+| `existing_ad_group_ad` | `existing_ad_group_ad` | `string` | No | No | — |
+
+## AssetGroup
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `campaign` | `campaign` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `final_urls` | `final_urls` | `Array<string>` | No | No | — |
+| `final_mobile_urls` | `final_mobile_urls` | `Array<string>` | No | No | — |
+| `status` | `status` | `AssetGroupStatus` | No | No | — |
+| `primary_status` | `primary_status` | `AssetGroupPrimaryStatus` | No | No | — |
+| `primary_status_reasons` | `primary_status_reasons` | `Array<AssetGroupPrimaryStatusReason>` | No | No | — |
+| `path1` | `path1` | `string` | No | No | — |
+| `path2` | `path2` | `string` | No | No | — |
+| `ad_strength` | `ad_strength` | `AdStrength` | No | No | — |
+| `asset_coverage` | `asset_coverage` | `unknown` | No | No | — |
+| `google_local_services_info` | `google_local_services_info` | `unknown` | No | No | — |
+
+## AssetGroupAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+| `status` | `status` | `AssetLinkStatus` | No | No | — |
+| `primary_status` | `primary_status` | `AssetLinkPrimaryStatus` | No | No | — |
+| `primary_status_reasons` | `primary_status_reasons` | `Array<AssetLinkPrimaryStatusReason>` | No | No | — |
+| `primary_status_details` | `primary_status_details` | `Array<AssetLinkPrimaryStatusDetails>` | No | No | — |
+| `policy_summary` | `policy_summary` | `PolicySummary` | No | No | — |
+| `source` | `source` | `AssetSource` | No | No | — |
+
+## AssetGroupAssetCombinationData
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_combination_served_assets` | `asset_combination_served_assets` | `Array<AssetUsage>` | No | No | — |
+
+## AssetGroupAssetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_RESOURCE`, `EXPANDABLE_TAGS_NOT_ALLOWED_IN_DESCRIPTION`, `AD_CUSTOMIZER_NOT_SUPPORTED`, `HOTEL_PROPERTY_ASSET_NOT_LINKED_TO_CAMPAIGN`
+
+## AssetGroupAssetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupAssetInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+| `field_type` | `field_type` | `AssetFieldType` | No | No | — |
+
+## AssetGroupAssetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `AssetGroupAsset` | No | No | — |
+| `update` | `update` | `AssetGroupAsset` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AssetGroupError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_NAME`, `CANNOT_ADD_ASSET_GROUP_FOR_CAMPAIGN_TYPE`, `NOT_ENOUGH_HEADLINE_ASSET`, `NOT_ENOUGH_LONG_HEADLINE_ASSET`, `NOT_ENOUGH_DESCRIPTION_ASSET`, `NOT_ENOUGH_BUSINESS_NAME_ASSET`, `NOT_ENOUGH_MARKETING_IMAGE_ASSET`, `NOT_ENOUGH_SQUARE_MARKETING_IMAGE_ASSET`, `NOT_ENOUGH_LOGO_ASSET`, `FINAL_URL_SHOPPING_MERCHANT_HOME_PAGE_URL_DOMAINS_DIFFER`, `PATH1_REQUIRED_WHEN_PATH2_IS_SET`, `SHORT_DESCRIPTION_REQUIRED`, `FINAL_URL_REQUIRED`, `FINAL_URL_CONTAINS_INVALID_DOMAIN_NAME`, `AD_CUSTOMIZER_NOT_SUPPORTED`, `CANNOT_MUTATE_ASSET_GROUP_FOR_REMOVED_CAMPAIGN`, `CANNOT_REMOVE_ALL_ASSET_GROUPS_FROM_CAMPAIGN`
+
+## AssetGroupErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupInfo
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `asset_group_assets` | `asset_group_assets` | `Array<unknown>` | No | No | — |
+
+## AssetGroupListingGroupFilter
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `type` | `type` | `ListingGroupFilterType` | No | No | — |
+| `listing_source` | `listing_source` | `ListingGroupFilterListingSource` | No | No | — |
+| `case_value` | `case_value` | `unknown` | No | No | — |
+| `parent_listing_group_filter` | `parent_listing_group_filter` | `string` | No | No | — |
+| `path` | `path` | `unknown` | No | No | — |
+
+## AssetGroupListingGroupFilterError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TREE_TOO_DEEP`, `UNIT_CANNOT_HAVE_CHILDREN`, `SUBDIVISION_MUST_HAVE_EVERYTHING_ELSE_CHILD`, `DIFFERENT_DIMENSION_TYPE_BETWEEN_SIBLINGS`, `SAME_DIMENSION_VALUE_BETWEEN_SIBLINGS`, `SAME_DIMENSION_TYPE_BETWEEN_ANCESTORS`, `MULTIPLE_ROOTS`, `INVALID_DIMENSION_VALUE`, `MUST_REFINE_HIERARCHICAL_PARENT_TYPE`, `INVALID_PRODUCT_BIDDING_CATEGORY`, `CHANGING_CASE_VALUE_WITH_CHILDREN`, `SUBDIVISION_HAS_CHILDREN`, `CANNOT_REFINE_HIERARCHICAL_EVERYTHING_ELSE`, `DIMENSION_TYPE_NOT_ALLOWED`, `DUPLICATE_WEBPAGE_FILTER_UNDER_ASSET_GROUP`, `LISTING_SOURCE_NOT_ALLOWED`, `FILTER_EXCLUSION_NOT_ALLOWED`, `MULTIPLE_LISTING_SOURCES`, `MULTIPLE_WEBPAGE_CONDITION_TYPES_NOT_ALLOWED`, `MULTIPLE_WEBPAGE_TYPES_PER_ASSET_GROUP`, `PAGE_FEED_FILTER_HAS_PARENT`, `MULTIPLE_OPERATIONS_ON_ONE_NODE`, `TREE_WAS_INVALID_BEFORE_MUTATION`, `RETAIL_INVALID_SHARED_SET_TYPE`
+
+## AssetGroupListingGroupFilterErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupListingGroupFilterOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `AssetGroupListingGroupFilter` | No | No | — |
+| `update` | `update` | `AssetGroupListingGroupFilter` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AssetGroupOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `AssetGroup` | No | No | — |
+| `update` | `update` | `AssetGroup` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AssetGroupPrimaryStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ELIGIBLE`, `PAUSED`, `REMOVED`, `NOT_ELIGIBLE`, `LIMITED`, `PENDING`
+
+## AssetGroupPrimaryStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupPrimaryStatusReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ASSET_GROUP_PAUSED`, `ASSET_GROUP_REMOVED`, `CAMPAIGN_REMOVED`, `CAMPAIGN_PAUSED`, `CAMPAIGN_PENDING`, `CAMPAIGN_ENDED`, `ASSET_GROUP_LIMITED`, `ASSET_GROUP_DISAPPROVED`, `ASSET_GROUP_UNDER_REVIEW`
+
+## AssetGroupPrimaryStatusReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupProductGroupView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `asset_group_listing_group_filter` | `asset_group_listing_group_filter` | `string` | No | No | — |
+
+## AssetGroupSignal
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_group` | `asset_group` | `string` | No | No | — |
+| `approval_status` | `approval_status` | `AssetGroupSignalApprovalStatus` | No | No | — |
+| `disapproval_reasons` | `disapproval_reasons` | `Array<string>` | No | No | — |
+| `audience` | `audience` | `AudienceInfo` | No | No | — |
+| `search_theme` | `search_theme` | `SearchThemeInfo` | No | No | — |
+| `local_services_id` | `local_services_id` | `LocalServiceIdInfo` | No | No | — |
+| `vertical_ads_item_group_rule_list` | `vertical_ads_item_group_rule_list` | `VerticalAdsItemGroupRuleListInfo` | No | No | — |
+
+## AssetGroupSignalApprovalStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `APPROVED`, `LIMITED`, `DISAPPROVED`, `UNDER_REVIEW`
+
+## AssetGroupSignalApprovalStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupSignalError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `TOO_MANY_WORDS`, `SEARCH_THEME_POLICY_VIOLATION`, `AUDIENCE_WITH_WRONG_ASSET_GROUP_ID`, `CANNOT_REMOVE_ALL_SIGNALS`
+
+## AssetGroupSignalErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupSignalOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<PolicyViolationKey>` | No | No | — |
+| `create` | `create` | `AssetGroupSignal` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AssetGroupStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `PAUSED`, `REMOVED`
+
+## AssetGroupStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetGroupTopCombinationView
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_group_top_combinations` | `asset_group_top_combinations` | `Array<unknown>` | No | No | — |
+
+## AssetInteractionTarget
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset` | `asset` | `string` | No | No | — |
+| `interaction_on_this_asset` | `interaction_on_this_asset` | `boolean` | No | No | — |
+
+## AssetLinkError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PINNING_UNSUPPORTED`, `UNSUPPORTED_FIELD_TYPE`, `FIELD_TYPE_INCOMPATIBLE_WITH_ASSET_TYPE`, `FIELD_TYPE_INCOMPATIBLE_WITH_CAMPAIGN_TYPE`, `INCOMPATIBLE_ADVERTISING_CHANNEL_TYPE`, `IMAGE_NOT_WITHIN_SPECIFIED_DIMENSION_RANGE`, `INVALID_PINNED_FIELD`, `MEDIA_BUNDLE_ASSET_FILE_SIZE_TOO_LARGE`, `NOT_ENOUGH_AVAILABLE_ASSET_LINKS_FOR_VALID_COMBINATION`, `NOT_ENOUGH_AVAILABLE_ASSET_LINKS_WITH_FALLBACK`, `NOT_ENOUGH_AVAILABLE_ASSET_LINKS_WITH_FALLBACK_FOR_VALID_COMBINATION`, `YOUTUBE_VIDEO_REMOVED`, `YOUTUBE_VIDEO_TOO_LONG`, `YOUTUBE_VIDEO_TOO_SHORT`, `EXCLUDED_PARENT_FIELD_TYPE`, `INVALID_STATUS`, `YOUTUBE_VIDEO_DURATION_NOT_DEFINED`, `CANNOT_CREATE_AUTOMATICALLY_CREATED_LINKS`, `CANNOT_LINK_TO_AUTOMATICALLY_CREATED_ASSET`, `CANNOT_MODIFY_ASSET_LINK_SOURCE`, `CANNOT_LINK_LOCATION_LEAD_FORM_WITHOUT_LOCATION_ASSET`, `CUSTOMER_NOT_VERIFIED`, `UNSUPPORTED_CALL_TO_ACTION`, `BRAND_ASSETS_NOT_LINKED_AT_ASSET_GROUP_LEVEL`, `BRAND_ASSETS_NOT_LINKED_AT_CAMPAIGN_LEVEL`
+
+## AssetLinkErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetLinkPrimaryStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ELIGIBLE`, `PAUSED`, `REMOVED`, `PENDING`, `LIMITED`, `NOT_ELIGIBLE`
+
+## AssetLinkPrimaryStatusDetails
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | `reason` | `AssetLinkPrimaryStatusReason` | No | No | — |
+| `status` | `status` | `AssetLinkPrimaryStatus` | No | No | — |
+| `asset_disapproved` | `asset_disapproved` | `unknown` | No | No | — |
+
+## AssetLinkPrimaryStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetLinkPrimaryStatusReason
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ASSET_LINK_PAUSED`, `ASSET_LINK_REMOVED`, `ASSET_DISAPPROVED`, `ASSET_UNDER_REVIEW`, `ASSET_APPROVED_LABELED`
+
+## AssetLinkPrimaryStatusReasonEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetLinkStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`, `PAUSED`
+
+## AssetLinkStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetOfflineEvaluationErrorReasons
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PRICE_ASSET_DESCRIPTION_REPEATS_ROW_HEADER`, `PRICE_ASSET_REPETITIVE_HEADERS`, `PRICE_ASSET_HEADER_INCOMPATIBLE_WITH_PRICE_TYPE`, `PRICE_ASSET_DESCRIPTION_INCOMPATIBLE_WITH_ITEM_HEADER`, `PRICE_ASSET_DESCRIPTION_HAS_PRICE_QUALIFIER`, `PRICE_ASSET_UNSUPPORTED_LANGUAGE`, `PRICE_ASSET_OTHER_ERROR`
+
+## AssetOfflineEvaluationErrorReasonsEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `create` | `create` | `Asset` | No | No | — |
+| `update` | `update` | `Asset` | No | No | — |
+
+## AssetOrientation
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `LANDSCAPE`, `PORTRAIT`, `SQUARE`
+
+## AssetOrientationEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetPerformanceLabel
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `PENDING`, `LEARNING`, `LOW`, `GOOD`, `BEST`, `NOT_APPLICABLE`
+
+## AssetPerformanceLabelEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetPolicySummary
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policy_topic_entries` | `policy_topic_entries` | `Array<PolicyTopicEntry>` | No | No | — |
+| `review_status` | `review_status` | `PolicyReviewStatus` | No | No | — |
+| `approval_status` | `approval_status` | `PolicyApprovalStatus` | No | No | — |
+
+## AssetSet
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `type` | `type` | `AssetSetType` | No | No | — |
+| `status` | `status` | `AssetSetStatus` | No | No | — |
+| `merchant_center_feed` | `merchant_center_feed` | `unknown` | No | No | — |
+| `location_group_parent_asset_set_id` | `location_group_parent_asset_set_id` | `string` | No | No | — |
+| `hotel_property_data` | `hotel_property_data` | `unknown` | No | No | — |
+| `travel_feed_data` | `travel_feed_data` | `unknown` | No | No | — |
+| `location_set` | `location_set` | `LocationSet` | No | No | — |
+| `business_profile_location_group` | `business_profile_location_group` | `BusinessProfileLocationGroup` | No | No | — |
+| `chain_location_group` | `chain_location_group` | `ChainLocationGroup` | No | No | — |
+
+## AssetSetAsset
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resource_name` | `resource_name` | `string` | No | No | — |
+| `asset_set` | `asset_set` | `string` | No | No | — |
+| `asset` | `asset` | `string` | No | No | — |
+| `status` | `status` | `AssetSetAssetStatus` | No | No | — |
+
+## AssetSetAssetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `INVALID_ASSET_TYPE`, `INVALID_ASSET_SET_TYPE`, `DUPLICATE_EXTERNAL_KEY`, `PARENT_LINKAGE_DOES_NOT_EXIST`
+
+## AssetSetAssetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetSetAssetOperation
+
+`object` model on the `protobuf` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `AssetSetAsset` | No | No | — |
+| `remove` | `remove` | `string` | No | No | — |
+
+## AssetSetAssetStatus
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `ENABLED`, `REMOVED`
+
+## AssetSetAssetStatusEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.
+
+## AssetSetError
+
+`enum` model on the `protobuf` wire format.
+
+**Values:** `UNSPECIFIED`, `UNKNOWN`, `DUPLICATE_ASSET_SET_NAME`, `INVALID_PARENT_ASSET_SET_TYPE`, `ASSET_SET_SOURCE_INCOMPATIBLE_WITH_PARENT_ASSET_SET`, `ASSET_SET_TYPE_CANNOT_BE_LINKED_TO_CUSTOMER`, `INVALID_CHAIN_IDS`, `LOCATION_SYNC_ASSET_SET_DOES_NOT_SUPPORT_RELATIONSHIP_TYPE`, `NOT_UNIQUE_ENABLED_LOCATION_SYNC_TYPED_ASSET_SET`, `INVALID_PLACE_IDS`, `OAUTH_INFO_INVALID`, `OAUTH_INFO_MISSING`, `CANNOT_DELETE_AS_ENABLED_LINKAGES_EXIST`
+
+## AssetSetErrorEnum
+
+`object` model on the `protobuf` wire format.
+
+No fields are declared.

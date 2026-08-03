@@ -273,5 +273,6 @@ const ir: SdkIr = {
 
 await writeEffectArtifacts({
   outputDir: new URL("../src/generated/effect", import.meta.url).pathname,
+  docsOutputDir: new URL("../../../apps/docs/src/content/docs/reference", import.meta.url).pathname,
   ir,
 });

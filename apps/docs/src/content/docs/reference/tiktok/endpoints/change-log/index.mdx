@@ -1,0 +1,122 @@
+---
+title: "TikTok Business Change Log endpoints"
+description: "3 generated TikTok Business endpoint contracts for Change Log."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 133
+  label: "Change Log"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.changeLog.changelogTaskCheck
+
+`GET` `/open_api/v1.3/changelog/task/check/`
+
+Generated from TikTok documentation 1739916077352961
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `changeLog.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ChangelogTaskCheckResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID. |
+| `task_id` | `query` | `string` | Yes | No | Task ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.changeLog.changelogTaskCreate
+
+`POST` `/open_api/v1.3/changelog/task/create/`
+
+Generated from TikTok documentation 1738811219460097
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `changeLog.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ChangelogTaskCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `body` | `string` | Yes | No | Advertiser ID |
+| `start_time` | `body` | `string` | No | No | Query start time, in the format of `YYYY-MM-DD HH:MM:SS`. Example: `2025-09-01 00:00:00`. |
+| `end_time` | `body` | `string` | No | No | Query end time, in the format of `YYYY-MM-DD HH:MM:SS` Example: `2025-09-01 00:00:00`. Note: The largest time gap allowed is 30 days, so please specify a date within 30 days after the start_time as end_time. |
+| `timezone` | `body` | `string` | No | No | Timezone of returned value, refer to [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089) for optional values. |
+| `module` | `body` | `string` | No | No | Module to be queried, optional values: `BIDDING_AND_OPTIMIZATION` `BUDGET``STATUS``TARGETING` |
+| `object_ids` | `body` | `Array<string>` | No | No | Query object ID |
+| `object_type` | `body` | `string` | No | No | Query object type, optional values: `AD`,`ADGROUP`,`ADVERTISER`,`CAMPAIGN`,`INSTANT_FORM` |
+| `operation_types` | `body` | `Array<string>` | No | No | Operation type, optional values: `CREATE`, `AUDIT`, `STATUS`, `UPDATE`, `DELETE`, `DOWNLOAD_LEADS`, `SUBSCRIBE_FORM`, `UNSUBSCRIBE_FORM` |
+| `order_fields` | `body` | `Array<string>` | No | No | Order by fields |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.changeLog.changelogTaskDownload
+
+`GET` `/open_api/v1.3/changelog/task/download/`
+
+Generated from TikTok documentation 1739924165710849
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `changeLog.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `ChangelogTaskDownloadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `query` | `string` | Yes | No | Advertiser ID |
+| `task_id` | `query` | `string` | Yes | No | Task ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

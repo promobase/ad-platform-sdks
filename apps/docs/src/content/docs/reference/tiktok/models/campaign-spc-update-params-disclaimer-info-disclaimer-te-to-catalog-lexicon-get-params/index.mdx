@@ -1,0 +1,1161 @@
+---
+title: "TikTok Business models: Campaign Spc Update Params Disclaimer Info Disclaimer Text – Catalog Lexicon Get Params"
+description: "100 generated TikTok Business model contracts, from CampaignSpcUpdateParamsDisclaimerInfoDisclaimerText through CatalogLexiconGetParams."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1009
+  label: "Campaign Spc Update Params Disclaimer Info Disclaimer Text – Catalog Lexicon Get Params"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## CampaignSpcUpdateParamsDisclaimerInfoDisclaimerText
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | The disclaimer text. Length limit: 90 characters. |
+
+## CampaignSpcUpdateParamsLandingPageUrls
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Required when `landing_page_urls` is passed. Landing page URL. |
+| `video_id` | `video_id` | `string` | No | No | Required when updating a non-Spark Ad campaign to multiple landing page mode.You don't need this field when updating a campaign to single landing page mode. Video ID. Pass the `video_id` that you specified in the `video_info` object. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | Required when updating a Spark Ad campaign to multiple landing page mode. You don't need this field when updating a campaign to single landing page mode. The ID of the TikTok post to be used as an ad (Spark Ad). Pass the `tiktok_item_id` that you specified in the `media_info` object. |
+
+## CampaignSpcUpdateParamsMediaInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_info` | `media_info` | `CampaignSpcUpdateParamsMediaInfoListMediaInfo` | No | No | Material information. |
+
+## CampaignSpcUpdateParamsMediaInfoListMediaInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_info` | `video_info` | `CampaignSpcUpdateParamsMediaInfoListMediaInfoVideoInfo` | No | No | Valid for the following types of ads:Non-Spark Ad Single Video ads. Spark Ad Single Video ads through Spark Ads Push. Video information. |
+| `image_info` | `image_info` | `Array<CampaignSpcUpdateParamsMediaInfoListMediaInfoImageInfo>` | No | No | Valid for the following types of ads:Non-Spark Ad Single Video ads. You need to specify a video cover.Spark Ad Single Video ads through Spark Ads Push. You need to specify a video cover.Non-Spark Ad Standard Carousel ads, which are only supported for Smart+ Web Campaigns. You need to specify one to 35 carousel images.Spark Ad Standard Carousel ads through Spark Ads Push, which are only supported for Smart+ Web Campaigns. You need to specify one to 35 carousel images. Not supported for Catalog Carousel ads. Image information. |
+| `music_info` | `music_info` | `CampaignSpcUpdateParamsMediaInfoListMediaInfoMusicInfo` | No | No | Valid for the following scenarios:When you create Standard Carousel Ads, including:Non-Spark Ad Standard Carousel adsSpark Ad Standard Carousel ads through Spark Ads PushSpark Ad Standard Carousel ads through Spark Ads PullWhen `objective_type` is `WEB_CONVERSIONS` and `catalog_creative_toggle` is `true`. The system will automatically generate catalog carousel ads. Music information. |
+| `aigc_disclosure_type` | `aigc_disclosure_type` | `"SELF_DISCLOSURE" \| "NOT_DECLARED"` | No | No | Valid only when `identity_type` is `CUSTOMIZED_USER`. Whether to turn on the AIGC (Artificial Intelligence Generated Content) self-disclosure toggle to indicate the ad contains AI-genlark://client/chat/6956489210853343233erated content. After the toggle is turned on, your ad will carry an "Advertiser labeled as Al-generated" label when viewed in full. Enum values: `SELF_DISCLOSURE`: To turn on the toggle to declare that the ad contains AI-generated content. `NOT_DECLARED`: To not declare that the ad contains AI-generated content.Default value: `NOT_DECLARED`. To learn about the supported advertising objectives and ad formats for the toggle and the detailed steps for using the toggle, see [AIGC self-disclosure toggle](https://business-api.tiktok.com/portal/docs?id=1799186631031809). Note: You can only update this field when you update the video (`video_id`). |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | Valid when you create Spark Ads through Spark Ads Pull, including: Spark Ad Single Video ads through Spark Ads Pull. You need to specify a TikTok video post.Spark Ad Standard Carousel ads through Spark Ads Pull. You need to specify a TikTok photo post. The ID of the TikTok post to be used as an ad (Spark Ad). Pass in the `item_id` you get from the response of the [/tt_video/info/](https://ads.tiktok.com/marketing_api/docs?id=1738376324021250) and [/identity/video/get/](https://ads.tiktok.com/marketing_api/docs?id=1740218475032577) endpoints. When you pass in `tiktok_item_id`, you don't need to pass in the objects `image_info`, `video_info`, and `title_list`. Note: By using Spark Ads, you confirm that you have the rights to use the music in the videos for commercial purposes. |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT" \| "APP_PROMOTION" \| "WEB_CONVERSIONS"` | No | No | Identity type for Spark Ads. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. For details about identities, see [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097). Note: If this field is set to `TT_USER`, `BC_AUTH_TT`, or `AUTH_CODE` and `objective_type` is `APP_PROMOTION` or `WEB_CONVERSIONS`, you need to specify a dynamic CTA via `call_to_action_id`. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID for Spark Ads. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Required when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+
+## CampaignSpcUpdateParamsMediaInfoListMediaInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `web_uri` | `web_uri` | `string` | No | No | Required when `image_info` is passed. Image ID. To upload an image and obtain the image ID, use [/file/image/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1739067433456642).To search for images within your ad account, use [/file/image/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740052016789506). The image to be used in Single Video ads should meet the following requirement: The aspect ratio of the image is the same as the video.The images to be used in Standard Carousel Ads should meet the following requirements at the same time:Specifications:File Type: JPG, JPEG, or PNG.Image Resolution: a maximum of 1242 x 2340 pixels or 2340 x 1242 pixels.Aspect Ratio: a maximum of 9:20 or 20:9.File Size: within 50 MB.The value of the parameter `is_carousel_usable` returned from [/file/image/ad/search/](https://business-api.tiktok.com/portal/docs?id=1740052016789506) for the image is `true`. |
+
+## CampaignSpcUpdateParamsMediaInfoListMediaInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | Required when `music_info` is passed. The ID of the piece of music to use in the Carousel Ads. To obtain a valid music ID for Standard Carousel Ads, you can do any of the following:Filter the pieces of music for Standard Carousel Ads under an ad account by specifying `music_scene` as `CAROUSEL_ADS` in [/file/music/get/](https://business-api.tiktok.com/portal/docs?id=1740053909509122).Upload a piece of customized music for Standard Carousel Ads to an ad account through any of the following methods:Specifying `music_scene` as `CAROUSEL_ADS` and passing `music_file` and `music_signature` in [/file/music/upload/](https://business-api.tiktok.com/portal/docs?id=1740052650395650).Specifying `music_scene` as `CAROUSEL_ADS`, specifying `upload_type` as `UPLOAD_BY_FILE_ID`, and passing `file_id` in [/file/music/upload/](https://business-api.tiktok.com/portal/docs?id=1740052650395650).To obtain a valid music ID for Catalog Carousel Ads, you can do any of the following:Filter the pieces of music for Catalog Carousel Ads under an ad account by specifying `music_scene` as `CATALOG_CAROUSEL` in [/file/music/get/](https://business-api.tiktok.com/portal/docs?id=1740053909509122).Upload a piece of customized music for Catalog Carousel Ads to an ad account through any of the following methods:Specifying `music_scene` as `CATALOG_CAROUSEL` and passing `music_file` and `music_signature` in [/file/music/upload/](https://business-api.tiktok.com/portal/docs?id=1740052650395650).Specifying `music_scene` as `CATALOG_CAROUSEL`, specifying `upload_type` as `UPLOAD_BY_FILE_ID`, and passing `file_id` in [/file/music/upload/](https://business-api.tiktok.com/portal/docs?id=1740052650395650). |
+
+## CampaignSpcUpdateParamsMediaInfoListMediaInfoVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Required when `video_info` is passed. Video ID. You can get the video ID when you upload a video using the [/file/video/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449) endpoint. Note: To ensure a smooth integration journey, we recommend that you use [/file/video/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449) (`upload_type` = `UPLOAD_BY_VIDEO_ID`) to bind video ID with your advertiser ID. |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+
+## CampaignSpcUpdateParamsPageList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_id` | `page_id` | `string` | No | No | Page ID. To obtain pages within your ad account, use [/page/get/](https://business-api.tiktok.com/portal/docs?id=1820826387779586).To create instant pages, use [Instant Page Editor SDK](https://business-api.tiktok.com/portal/docs?id=1740307202170881). |
+
+## CampaignSpcUpdateParamsProductInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promo_info_list` | `promo_info_list` | `Array<CampaignSpcUpdateParamsProductInfoPromoInfoList>` | No | No | Valid only in [regular Smart+ Web Campaigns](https://business-api.tiktok.com/portal/docs?id=1814122471133186#item-link-Create%20a%20regular%20Smart+%20Web%20Campaign). Details of promo codes and offers. Promo codes and offers can help boost your ad performance. Make sure your codes and offers are active, accurate, and ready to use at checkout. Max size: 10. Note:This field supports full replacement. If you want to update this field, specify all fields for each object within `promo_info_list`. Any changes to parameters within `promo_info_list` or updates to the `promo_code` will result in a new ad review for the Smart+ Campaign. |
+
+## CampaignSpcUpdateParamsProductInfoPromoInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `discount_type` | `discount_type` | `"PERCENTAGE" \| "CASH"` | No | No | Required when `promo_info_list` is specified. Discount type. Enum values:`PERCENTAGE`: Percentage off discount.`CASH`: Cash off discount. |
+| `discount_value` | `discount_value` | `number` | No | No | Required when `promo_info_list` is specified. Discount value. When `discount_type` is `PERCENTAGE`, specify an integer between 1-100.When `discount_type` is `CASH`, specify a float greater than 0. |
+| `discount_currency` | `discount_currency` | `string` | No | No | Required when `discount_type` is `CASH`. Discount currency. For enum values, see List of values for `discount_currency` or `minimum_purchase_currency`. |
+| `promo_code` | `promo_code` | `string` | No | No | The promo code. For promo codes that require shoppers to enter a code at checkout, specify the code through this field.For offers that apply automatically, omit this field. Length limit: 30 characters long and cannot contain emoji. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. Note: Promo codes exclusive to TikTok often perform best. |
+| `minimum_purchase_type` | `minimum_purchase_type` | `"QUANTITY" \| "SUBTOTAL"` | No | No | Minimum purchase type. Enum values:`QUANTITY`: Minimum quantity.`SUBTOTAL`: Minimum subtotal. |
+| `minimum_purchase_value` | `minimum_purchase_value` | `number` | No | No | Required when `minimum_purchase_type` is specified. Minimum purchase value. When `minimum_purchase_type` is `QUANTITY`, specify an integer that is 0 or greater. When `minimum_purchase_type` is `SUBTOTAL`, specify a float greater than 0. |
+| `minimum_purchase_currency` | `minimum_purchase_currency` | `string` | No | No | Required when `minimum_purchase_type` is `SUBTOTAL`. Minimum purchase currency. For enum values, see List of values for `discount_currency` or `minimum_purchase_currency`. |
+| `valid_start_time` | `valid_start_time` | `string` | No | No | Valid start time (UTC+0) for the promo code or offer, in the format of `YYYY-MM-DD HH:MM:SS`. |
+| `valid_end_time` | `valid_end_time` | `string` | No | No | Valid end time (UTC+0) for the promo code or offer, in the format of `YYYY-MM-DD HH:MM:SS`. The `valid_end_time` should be later than the current time.If you specify `valid_end_time`, provide `valid_start_time` at the same time. |
+
+## CampaignSpcUpdateParamsTitleList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | Required when `title_list` is passed. Ad title (ad text). |
+
+## CampaignSpcUpdateParamsUtmParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | The supported UTM parameters are:`utm_source`: The app, site, etc., that brings traffic to your website. For example: TikTok.`utm_medium`: The advertising or marketing medium. For example: cpm, cpc, banner, and video.`utm_content`: The creative content used for promotion. For example: ad name, CTA text, asset, and color.`utm_campaign`: The individual campaign name, slogan, or promo code. For example: BlackFridayProm. Note that UTM parameters are case-sensitive. Length limit when you specify a custom parameter: 100 characters. |
+| `value` | `value` | `string` | No | No | The value of the URL parameter. You can specify a custom value or the name of a macro. The supported macros are:`__CAMPAIGN_NAME__`: This will be replaced by your campaign name.`__CAMPAIGN_ID__`: This will be replaced by your campaign ID.`__AID_NAME__`: This will be replaced by your ad group name.`__AID__`: This will be replaced by your ad group ID.`__CID_NAME__`: This will be replaced by your ad name.`__CID__`: This will be replaced by your ad ID.`__PLACEMENT__`: This will be replaced by your placement. Length limit when you specify a custom value: 600 characters. |
+
+## CampaignSpcUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | No | No | The status of the campaign. Enum values:`ENABLE` : The campaign is enabled.`DISABLE` : The campaign is disabled. |
+| `campaign_secondary_status` | `campaign_secondary_status` | `string` | No | No | Campaign status (Secondary status). For the supported campaign secondary statuses for a certain primary status, see [Supported secondary statuses for a primary status](https://ads.tiktok.com/marketing_api/docs?id=1757239620352002). It is equal to `secondary_status` in [/campaign/get/](https://ads.tiktok.com/marketing_api/docs?id=1739315828649986). |
+| `is_smart_performance_campaign` | `is_smart_performance_campaign` | `boolean` | No | No | Whether the campaign is an automated campaign type. Supported values: `true`: The campaign is either a Smart+ Campaign or a Smart Performance Web Campaign. `false`: The campaign is a standard campaign type. Note: If `is_smart_performance_campaign` is `true` and `objective_type` is `WEB_CONVERSIONS`, you can confirm whether the web campaign is a Smart+ Web Campaign or Smart Performance Web Campaign by checking the returned `spc_type`. |
+| `objective_type` | `objective_type` | `string` | No | No | Advertising objective. Currently, we support `APP_PROMOTION`, `WEB_CONVERSIONS`, and `LEAD_GENERATION`. |
+| `spc_type` | `spc_type` | `"WEB_ALL_IN_ONE" \| "UNSET"` | No | No | The web campaign type. Enum values: `WEB_ALL_IN_ONE`: Smart+ Web Campaign, where the supported optimization goals include Conversion, Value, Click and Landing page view.`UNSET`: Smart Performance Web Campaign, where the supported optimization goals are limited to Conversion, Value, and Click. |
+| `web_all_in_one_catalog_status` | `web_all_in_one_catalog_status` | `"OPEN" \| "UNSET"` | No | No | The status of catalog in the Smart+ Web Campaign. Enum values: `OPEN`: enabled.`UNSET`: disabled. |
+| `app_promotion_type` | `app_promotion_type` | `string` | No | No | App promotion type. Currently, we only support `APP_INSTALL`. |
+| `virtual_objective_type` | `virtual_objective_type` | `string` | No | No | The new objective type. Enum value: `SALES`. Use this field to create a campaign with the Sales objective, the combined objective for Website Conversions and Product Sales objectives. Learn more about [the Sales objective](https://business-api.tiktok.com/portal/docs?id=). |
+| `sales_destination` | `sales_destination` | `"WEBSITE" \| "WEB_AND_APP"` | No | No | Sales destination, the destination where you want to drive your sales. Enum values: `WEBSITE`: Website. Drive sales on your website.`WEB_AND_APP`: Website and app. Drive sales on both your website and your app. |
+| `campaign_type` | `campaign_type` | `string` | No | No | Campaign Type. Currently, we support `REGULAR_CAMPAIGN` and `IOS14_CAMPAIGN`. |
+| `campaign_app_profile_page_state` | `campaign_app_profile_page_state` | `"INVALID" \| "UNSET" \| "ON" \| "OFF"` | No | No | Indicates the status of the App Profile Page. Enum values: `INVALID`, `UNSET`, `ON`, `OFF`. |
+| `is_advanced_dedicated_campaign` | `is_advanced_dedicated_campaign` | `boolean` | No | No | Whether the campaign is an Advanced Dedicated Campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. Enum values: `true`, `false`. |
+| `disable_skan_campaign` | `disable_skan_campaign` | `boolean` | No | No | Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns. Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition). `false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. |
+| `bid_align_type` | `bid_align_type` | `"SAN" \| "SKAN"` | No | No | The attribution type for the Dedicated Campaign. The type determines which attribution network the target CPA (`conversion_bid_price`) or ROAS (`roas_bid`) is based on. Enum values: `SAN`: SAN. `SKAN`: SKAN. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Ad categories. Enum values: `HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internships, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. |
+| `adgroup_secondary_status` | `adgroup_secondary_status` | `string` | No | No | Ad group status (Secondary status). For the supported adgroup secondary statuses for a certain primary status, see [Supported secondary statuses for a primary status](https://ads.tiktok.com/marketing_api/docs?id=1757239620352002). It is equal to `secondary_status` in [/adgroup/get/](https://ads.tiktok.com/marketing_api/docs?id=1739315828649986). |
+| `product_source` | `product_source` | `string` | No | No | Product source where you want to get products for promotion. Enum value: `CATALOG` (catalog). |
+| `catalog_id` | `catalog_id` | `string` | No | No | The ID of the catalog to use in the Smart+ Catalog Ads. |
+| `catalog_authorized_bc_id` | `catalog_authorized_bc_id` | `string` | No | No | The ID of the Business Center that the catalog (`catalog_id`) belongs to. |
+| `product_specific_type` | `product_specific_type` | `"ALL" \| "PRODUCT_SET" \| "CUSTOMIZED_PRODUCTS"` | No | No | Different dimensions to choose products. Enum values: `ALL`: Allow TikTok to dynamically choose from all products. `PRODUCT_SET`: Specify a product set. TikTok will dynamically choose products from this set.`CUSTOMIZED_PRODUCTS`: Specify a customized number of products. |
+| `product_set_id` | `product_set_id` | `string` | No | No | The ID of a product set. |
+| `product_ids` | `product_ids` | `Array<string>` | No | No | The product IDs of the catalog products. |
+| `promotion_type` | `promotion_type` | `string` | No | No | Promotion type (Optimization location) and you can decide where you'd like to promote your products using this field. For value definitions, see [Enumerations - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Promotion%20Type). |
+| `app_id` | `app_id` | `string` | No | No | The App ID of the app to promote. You can get `app_id` by using the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `app_type` | `app_type` | `string` | No | No | The type of the promoted app. Currently, we support `APP_ANDROID` and `APP_IOS`. |
+| `promotion_website_type` | `promotion_website_type` | `string` | No | No | TikTok Instant Page type. Currently, we only support `TIKTOK_NATIVE_PAGE`(To use TikTok Instant Page). |
+| `promotion_target_type` | `promotion_target_type` | `"INSTANT_PAGE" \| "EXTERNAL_WEBSITE"` | No | No | The optimization location for Lead Generation objective. Enum values:`INSTANT_PAGE`: Instant Form. To create a fast-loading in-app TikTok Instant Form to collect more leads.`EXTERNAL_WEBSITE`: Website Form. To use a landing page that has the Website Form or the TikTok Instant Page that redirects to the website with the Website Form to collect more leads. |
+| `optimization_goal` | `optimization_goal` | `string` | No | No | The measurable results that you'd like to drive your ads with. For enum values, see [Enumeration - Optimization Goal](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Optimization%20Goal). |
+| `pixel_id` | `pixel_id` | `string` | No | No | Pixel ID. |
+| `optimization_event` | `optimization_event` | `string` | No | No | Conversion event for the ad group. See [Conversion events](https://ads.tiktok.com/marketing_api/docs?id=1739361474981889) for more. |
+| `app_config` | `app_config` | `Array<CampaignSpcUpdateResponseAppConfig>` | No | No | Returned when `sales_destination` is `WEB_AND_APP`. Details of the app or apps to promote. |
+| `deep_funnel_optimization_status` | `deep_funnel_optimization_status` | `"ON" \| "OFF"` | No | No | The status of deep funnel optimization. With deep funnel optimization, you can select a secondary event alongside the primary optimization event, which can help improve campaign effectiveness. Enum values: `ON`: enabled. `OFF`: disabled. |
+| `deep_funnel_event_source` | `deep_funnel_event_source` | `"PIXEL" \| "OFFLINE" \| "CRM"` | No | No | Returned when `deep_funnel_optimization_status` is `ON`. The event source type. Enum values: `PIXEL`: Pixel. `OFFLINE`: Offline Event Set. `CRM`: CRM Event Set. |
+| `deep_funnel_event_source_id` | `deep_funnel_event_source_id` | `string` | No | No | Returned when `deep_funnel_optimization_status` is `ON`. Event Source ID. When `deep_funnel_event_source` is `PIXEL` , this field represents a Pixel ID.When `deep_funnel_event_source` is `OFFLINE`, this field represents an Offline Event Set ID. When `deep_funnel_event_source` is `CRM`, this field represents a CRM Event Set ID. |
+| `deep_funnel_optimization_event` | `deep_funnel_optimization_event` | `string` | No | No | Returned when `deep_funnel_optimization_status` is `ON`. Deep funnel optimization event. Example: `SHOPPING`. |
+| `bid_type` | `bid_type` | `string` | No | No | Bidding strategy. For enum values and their descriptions, see [Enumeration - Bidding Strategy](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Bidding%20Strategy). |
+| `bid_price` | `bid_price` | `number` | No | No | The target cost per click. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. |
+| `conversion_bid_price` | `conversion_bid_price` | `number` | No | No | The target cost per conversion or cost per landing page view. The system will aim to get the most results while keeping the average cost per result around or lower than the specified amount. |
+| `deep_bid_type` | `deep_bid_type` | `string` | No | No | Bidding strategy for in-app events. For enum values and their descriptions, see [Enumeration - Deep Event Bidding Strategy](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Deep%20Event%20Bidding%20Strategy). |
+| `roas_bid` | `roas_bid` | `number` | No | No | Target ROAS for Value-Based Optimization. |
+| `incentive_offer_type` | `incentive_offer_type` | `"INELIGIBLE" \| "COST_CAP_AND_MIN_ROAS"` | No | No | The type of incentive offer applicable to the Smart+ Campaign. If your campaign meets the eligibility criteria, but underperforms against certain CPA or Minimum ROAS thresholds you will be reimbursed with part of the gap with ad credits within the same ad account. To learn more about the incentive offer eligibility criteria and the calculation of incentive amount, see [Smart+ Incentive Offer (Cost Cap/Minimum ROAS/Target ROAS)](https://ads.tiktok.com/help/article/incentive-offer). Enum values:`INELIGIBLE`: The campaign is ineligible for any incentive offer.`COST_CAP_AND_MIN_ROAS`: Ads groups within the campaign that use the Cost Cap or Minimum ROAS/Target ROAS bidding strategy are eligible for the incentive offer. |
+| `vbo_window` | `vbo_window` | `"SEVEN_DAYS" \| "ZERO_DAY"` | No | No | The time window of the specified bidding strategy for [VBO IAA](https://business-api.tiktok.com/portal/docs?id=1739381743067137) (Value-Based Optimization for in-app advertising) or [VBO IAP](https://business-api.tiktok.com/portal/docs?id=1739381743067137) (Value-Based Optimization for in-app purchase). Enum values: `SEVEN_DAYS`: The first seven days (day 7). `ZERO_DAY`: The current day (day 0). |
+| `click_attribution_window` | `click_attribution_window` | `"OFF" \| "ONE_DAY" \| "SEVEN_DAYS" \| "FOURTEEN_DAYS" \| "TWENTY_EIGHT_DAYS"` | No | No | Click-through window. This attribution window is the time between when a person clicks your ad and then takes an action. Enum values: `OFF`: Off. `ONE_DAY`: 1-day click.`SEVEN_DAYS`: 7-day click. `FOURTEEN_DAYS`: 14-day click. `TWENTY_EIGHT_DAYS`: 28-day click. |
+| `engaged_view_attribution_window` | `engaged_view_attribution_window` | `"ONE_DAY" \| "SEVEN_DAYS" \| "FOURTEEN_DAYS" \| "TWENTY_EIGHT_DAYS"` | No | No | Engaged view-through window. This attribution window is the time after someone watches at least 6 seconds of your video ad that a conversion is counted. Enum values: `ONE_DAY`: 1-day engaged view.`SEVEN_DAYS`: 7-day engaged view.`FOURTEEN_DAYS`: 14-day engaged view.`TWENTY_EIGHT_DAYS`: 28-day engaged view. |
+| `view_attribution_window` | `view_attribution_window` | `"OFF" \| "ONE_DAY" \| "SEVEN_DAYS"` | No | No | View-through window. This attribution window is the time between when a person views your ad and then takes an action. Enum values: `OFF`: Off.`ONE_DAY`: 1-day view.`SEVEN_DAYS`: 7-day view. |
+| `attribution_event_count` | `attribution_event_count` | `"UNSET" \| "EVERY" \| "ONCE"` | No | No | Event count (Statistic type). The way that people's actions are counted after only viewing or clicking an ad. Enum values: `UNSET`: Unset. `EVERY`: Every. To count multiple events from someone as separate conversions. `ONCE`: Once. To count multiple events from someone as 1 conversion. |
+| `billing_event` | `billing_event` | `string` | No | No | Bid method. See [Enumerations - Bid method](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for optional values. |
+| `location_ids` | `location_ids` | `Array<string>` | No | No | IDs of the locations that you want to target. Use [Get locations](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) to get available locations. |
+| `languages` | `languages` | `Array<string>` | No | No | Codes of the languages that you want to target. For the list of language codes supported, see [Enumerations - Language Code](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Language%20Code). |
+| `gender` | `gender` | `"GENDER_FEMALE" \| "GENDER_MALE" \| "GENDER_UNLIMITED"` | No | No | Gender that you want to target. Enum values: `GENDER_FEMALE`, `GENDER_MALE`, `GENDER_UNLIMITED`. |
+| `spc_audience_age` | `spc_audience_age` | `"LEAD_GENERATION" \| "APP_PROMOTION" \| "WEB_CONVERSIONS"` | No | No | The age group that the campaign targets. Enum value: `18+`, `25+`. For campaigns with the `LEAD_GENERATION` objective (Smart+ Lead Generation Campaigns), the value of this field can be either `18+` or `25+`. For campaigns with the `APP_PROMOTION` objective (Smart+ App Campaigns) or `WEB_CONVERSIONS` objective (Smart+ Web Campaigns or Smart Performance Web Campaigns), the value of this field can only be `18+`. Note: Currently, creating Smart+ Lead Generation Campaigns via API is not supported. To filter existing Smart+ Lead Generation Campaigns with the `LEAD_GENERATION` objective within your ad account, call [/campaign/get/](https://business-api.tiktok.com/portal/docs?id=1739315828649986) and set `filtering` to `&#123;"objective_type":"LEAD_GENERATION", "is_smart_performance_campaign": true&#125;`. |
+| `exclude_age_under_eighteen` | `exclude_age_under_eighteen` | `boolean` | No | No | Whether to exclude the group aged under eighteen. |
+| `excluded_audience_ids` | `excluded_audience_ids` | `Array<string>` | No | No | List of audience IDs to be excluded. |
+| `placement_type` | `placement_type` | `string` | No | No | The placement strategy that decides where your ads will be shown. Currently, we support `PLACEMENT_TYPE_NORMAL` and `PLACEMENT_TYPE_AUTOMATIC`. |
+| `placements` | `placements` | `Array<string>` | No | No | The apps where you want to deliver your ads. Currently, we support `PLACEMENT_TIKTOK` and `PLACEMENT_PANGLE`. |
+| `comment_disabled` | `comment_disabled` | `boolean` | No | No | Whether to allow comments on your ads on TikTok. |
+| `share_disabled` | `share_disabled` | `boolean` | No | No | Whether sharing to third-party platforms is disabled for ads in this ad group. |
+| `video_download_disabled` | `video_download_disabled` | `boolean` | No | No | Whether users can download your video ads on TikTok. |
+| `blocked_pangle_app_ids` | `blocked_pangle_app_ids` | `Array<string>` | No | No | Pangle app block ID list. |
+| `brand_safety_type` | `brand_safety_type` | `"EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "NO_BRAND_SAFETY"` | No | No | Inventory filter tier for the Smart+ Campaign. Enum values: `EXPANDED_INVENTORY`: Expanded inventory. Your ads will not appear next to explicitly inappropriate content, but they may appear next to content that features mature themes.`STANDARD_INVENTORY`: Standard inventory. Your ads will appear next to content that is appropriate for most brands.`LIMITED_INVENTORY`: Limited inventory. Your ads will not appear next to content that contains mature themes.`NO_BRAND_SAFETY`: Full inventory without using any brand safety solution, which means your ads may appear next to some content featuring mature themes. Note: The setting is automatically applied based on your [Brand Safety Hub](https://business-api.tiktok.com/portal/docs?id=1739381752981505#item-link-Brand%20Safety%20Hub) configurations. To retrieve the details of such settings for your ad account, use [/tiktok_inventory_filters/get/](https://business-api.tiktok.com/portal/docs?id=1830112550443073). |
+| `category_exclusion_ids` | `category_exclusion_ids` | `Array<string>` | No | No | The ID list of content categories that you want to avoid showing the Smart+ Campaign next to. To obtain the details of these content categories based on category IDs, use [/tool/content_exclusion/info/](https://business-api.tiktok.com/portal/docs?id=1769738105333826). Note: The setting is automatically applied based on your [Brand Safety Hub](https://business-api.tiktok.com/portal/docs?id=1739381752981505#item-link-Brand%20Safety%20Hub) configurations. To retrieve the details of such settings for your ad account, use [/tiktok_inventory_filters/get/](https://business-api.tiktok.com/portal/docs?id=1830112550443073). |
+| `budget_mode` | `budget_mode` | `string` | No | No | Budget mode. See [Enumerations-Budget Mode](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Budget%20Mode). |
+| `budget_auto_adjust_strategy` | `budget_auto_adjust_strategy` | `string` | No | No | Returned only when `budget_mode` is `BUDGET_MODE_DYNAMIC_DAILY_BUDGET`. The campaign budget strategy for automatic daily campaign budget. Enum values: `AUTO_BUDGET_INCREASE`: To enable automatic budget increase. Allow your budget to automatically increase when your ads are performing well and target CPA, Day 0 target ROAS, and budget requirements are met. When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, the specified `budget` will be the initial daily budget. Your daily budget will be allowed to automatically increase by 20%, up to 10 times per day, when your budget utilization reaches 90% or more. Your daily budget will reset to your original daily budget each day.`UNSET`: To disable automatic budget increase. |
+| `budget` | `budget` | `number` | No | No | Fixed campaign budget or initial campaign budget.When `budget_auto_adjust_strategy` is `UNSET`, this field represents your fixed campaign budget.When `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`, this field represents your initial campaign budget. To retrieve the current campaign budget, check the returned `current_budget`. |
+| `current_budget` | `current_budget` | `number` | No | No | Returned only when `budget_auto_adjust_strategy` is `AUTO_BUDGET_INCREASE`. Current campaign budget for a campaign with automatic budget increase enabled. |
+| `scheduled_budget` | `scheduled_budget` | `number` | No | No | Scheduled campaign budget for the next day. A value not equal to 0 means the scheduled budget is set and the value represents the budget; a value of 0 means the scheduled budget is not set. |
+| `schedule_type` | `schedule_type` | `string` | No | No | Schedule type. Currently, we support `SCHEDULE_START_END` and `SCHEDULE_FROM_NOW`. |
+| `schedule_start_time` | `schedule_start_time` | `string` | No | No | Ad delivery start time, in the format of`YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `schedule_end_time` | `schedule_end_time` | `string` | No | No | Ad delivery end time, in the format of`YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `dayparting` | `dayparting` | `string` | No | No | Ad delivery arrangement, in the format of a string that consists of 48 x 7 characters. Each character is mapped to a 30-minute timeframe from Monday to Sunday. Each character can be set to either 0 or 1. 1 represents delivery in the 30-minute timeframe, and 0 stands for non-delivery in the 30-minute timeframe. The first character is mapped to 0:01-0:30 of Monday; The second character is mapped to 0:31-1:00 of Monday, and the last character represents 23:31-0:00 Sunday. Note: Not specified, all-0, or all-1 are considered as full-time delivery. |
+| `skip_learning_phase` | `skip_learning_phase` | `boolean` | No | No | Whether to skip the learning phase. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID when you are not using Spark Ads. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity type when you are not using Spark Ads. Enum value: `CUSTOMIZED_USER`. |
+| `app_download_url` | `app_download_url` | `string` | No | No | App download link. |
+| `app_name` | `app_name` | `string` | No | No | The display name of the app download ad. |
+| `media_info_list` | `media_info_list` | `Array<CampaignSpcUpdateResponseMediaInfoList>` | No | No | List of media information. |
+| `dark_post_status` | `dark_post_status` | `"ON" \| "OFF"` | No | No | The status of the "Ads-only mode" for your creatives. Enum values:`ON`: Enable the ads-only mode to limit your posts to paid traffic.`OFF`: Disable the ads-only mode. The post will appear on your TikTok profile and will be eligible to receive organic traffic. |
+| `catalog_creative_toggle` | `catalog_creative_toggle` | `boolean` | No | No | Whether to enable auto-selection of creatives from your catalog. Supported values: `true`, `false`. If you set this field to `true`, the system will use catalog creatives to automatically generate ads in diverse formats such as catalog video, catalog carousel, and single video. |
+| `title_list` | `title_list` | `Array<CampaignSpcUpdateResponseTitleList>` | No | No | List of ad titles (also called ad texts). Ad titles are shown to your audience as part of your ad creative, to deliver the message you intend to communicate to them. |
+| `call_to_action_id` | `call_to_action_id` | `string` | No | No | The ID of the CTA portfolio that you want to use in your ads. |
+| `call_to_action_list` | `call_to_action_list` | `Array<CampaignSpcUpdateResponseCallToActionList>` | No | No | Call-to-action list. |
+| `product_info` | `product_info` | `CampaignSpcUpdateResponseProductInfo` | No | No | Additional product information. This information will be used to create ad variations to help achieve advertising goals such as standing out, building trust, or boosting performance. |
+| `card_list` | `card_list` | `Array<CampaignSpcUpdateResponseCardList>` | No | No | Creative portfolio ID list. |
+| `automatic_add_on_enabled` | `automatic_add_on_enabled` | `boolean` | No | No | Whether to enable auto-selection of interactive add-ons. Supported values: `true`, `false`. If you set this field to `true`, the system will automatically apply the most suitable interactive add-ons to your ads. |
+| `page_list` | `page_list` | `Array<CampaignSpcUpdateResponsePageList>` | No | No | Page ID list. |
+| `deeplink` | `deeplink` | `string` | No | No | The specific location where you want your audience to go if they have your app installed. |
+| `deeplink_type` | `deeplink_type` | `string` | No | No | The deeplink type. |
+| `landing_page_urls` | `landing_page_urls` | `Array<CampaignSpcUpdateResponseLandingPageUrls>` | No | No | Landing page URL list. |
+| `utm_params` | `utm_params` | `Array<CampaignSpcUpdateResponseUtmParams>` | No | No | A list of URL parameters. URL parameters are snippets of code that can be added to the end of the URLs to help you track clicks across different channels and understand how visitors interact with a website through third-party analytics platforms. They consist of key-value pairs that are specified through `key` and `value`. |
+| `disclaimer_info` | `disclaimer_info` | `CampaignSpcUpdateResponseDisclaimerInfo` | No | No | Details of the disclaimer. |
+| `tracking_app_id` | `tracking_app_id` | `string` | No | No | The ID of the app that is measured. |
+| `impression_tracking_url` | `impression_tracking_url` | `string` | No | No | Default Impression Tracking URL. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Click Tracking URL. |
+| `app_tracking_info_list` | `app_tracking_info_list` | `Array<CampaignSpcUpdateResponseAppTrackingInfoList>` | No | No | Details of Third-party tracking settings. |
+| `create_time` | `create_time` | `string` | No | No | The time when the campaign was created, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). |
+| `modify_time` | `modify_time` | `string` | No | No | The time when the campaign was modified, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). |
+
+## CampaignSpcUpdateResponseAppConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | The App ID of the app to promote. |
+
+## CampaignSpcUpdateResponseAppTrackingInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_type` | `app_type` | `"APP_ANDROID" \| "APP_IOS"` | No | No | Returned when `app_tracking_info_list` is specified. App type. Enum values:`APP_ANDROID`: Android App.`APP_IOS`: iOS App. |
+| `app_id` | `app_id` | `string` | No | No | Returned when `app_tracking_info_list` is specified. The App ID of the App. When `app_type` is `APP_ANDROID`, this field represents the App ID for an Android App.When `app_type` is `APP_IOS`, this field represents the App ID for an iOS App. |
+| `impression_tracking_url` | `impression_tracking_url` | `string` | No | No | Impression tracking URL. When `app_type` is `APP_ANDROID`, this field represents an impression tracking URL for Android.When `app_type` is `APP_IOS`, this field represents an impression tracking URL for iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Click tracking URL. When `app_type` is `APP_ANDROID`, this field represents a click tracking URL for Android.When `app_type` is `APP_IOS`, this field represents a click tracking URL for iOS. |
+
+## CampaignSpcUpdateResponseCallToActionList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `call_to_action` | `call_to_action` | `string` | No | No | Call-to-action text. For enum values, see [Enumeration - Call-to-action](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Call-to-action). |
+
+## CampaignSpcUpdateResponseCardList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `card_id` | `card_id` | `string` | No | No | Creative portfolio ID. |
+
+## CampaignSpcUpdateResponseDisclaimerInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `disclaimer_type` | `disclaimer_type` | `"TEXT_LINK" \| "TEXT_ONLY"` | No | No | The type of disclaimer that you want to add to the ad. Enum values:`TEXT_LINK`: clickable disclaimers.`TEXT_ONLY`: text-only disclaimers. |
+| `disclaimer_text` | `disclaimer_text` | `CampaignSpcUpdateResponseDisclaimerInfoDisclaimerText` | No | No | Returned when `disclaimer_type` is `TEXT_ONLY`. The text-only disclaimer that you want to add to the ad. |
+| `disclaimer_clickable_texts` | `disclaimer_clickable_texts` | `Array<CampaignSpcUpdateResponseDisclaimerInfoDisclaimerClickableTexts>` | No | No | Returned when `disclaimer_type` is `TEXT_LINK`. The clickable disclaimer or clickable disclaimers that you want to add to the ad. |
+
+## CampaignSpcUpdateResponseDisclaimerInfoDisclaimerClickableTexts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | The disclaimer text. Length limit: 40 characters. |
+| `url` | `url` | `string` | No | No | The URL for the clickable disclaimer. When users tap each text, they will be redirected to the URL and see more disclaimer details. |
+
+## CampaignSpcUpdateResponseDisclaimerInfoDisclaimerText
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | No | No | The disclaimer text. Length limit: 90 characters. |
+
+## CampaignSpcUpdateResponseLandingPageUrls
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Landing page URL. |
+| `video_id` | `video_id` | `string` | No | No | Returned when the campaign is in multiple landing page mode. Video ID. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | Returned when the campaign is in multiple landing page mode. The ID of the TikTok post to be used as an ad (Spark Ad). |
+
+## CampaignSpcUpdateResponseMediaInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_info` | `media_info` | `CampaignSpcUpdateResponseMediaInfoListMediaInfo` | No | No | Material information. |
+
+## CampaignSpcUpdateResponseMediaInfoListMediaInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_info` | `video_info` | `CampaignSpcUpdateResponseMediaInfoListMediaInfoVideoInfo` | No | No | Video information. |
+| `image_info` | `image_info` | `Array<CampaignSpcUpdateResponseMediaInfoListMediaInfoImageInfo>` | No | No | Image information. |
+| `music_info` | `music_info` | `CampaignSpcUpdateResponseMediaInfoListMediaInfoMusicInfo` | No | No | Music information. |
+| `aigc_disclosure_type` | `aigc_disclosure_type` | `"SELF_DISCLOSURE" \| "NOT_DECLARED"` | No | No | Whether to turn on the AIGC (Artificial Intelligence Generated Content) self-disclosure toggle to indicate the ad contains AI-generated content. After the toggle is turned on, your ad will carry an "Advertiser labeled as Al-generated" label when viewed in full. Enum values: `SELF_DISCLOSURE`: To turn on the toggle to declare that the ad contains AI-generated content. `NOT_DECLARED`: To not declare that the ad contains AI-generated content. |
+| `tiktok_item_id` | `tiktok_item_id` | `string` | No | No | The ID of the TikTok post to be used as an ad (Spark Ad). |
+| `identity_type` | `identity_type` | `"AUTH_CODE" \| "TT_USER" \| "BC_AUTH_TT"` | No | No | Identity type when you use Spark Ads. Enum values: `AUTH_CODE`, `TT_USER`, `BC_AUTH_TT`. For details about identities, see [Identities](https://business-api.tiktok.com/portal/docs?id=1738958351620097). |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID when you use Spark Ads. |
+| `identity_authorized_bc_id` | `identity_authorized_bc_id` | `string` | No | No | Returned when `identity_type` is `BC_AUTH_TT`. ID of the Business Center that a TikTok Account User in Business Center identity is associated with. |
+
+## CampaignSpcUpdateResponseMediaInfoListMediaInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `web_uri` | `web_uri` | `string` | No | No | Image ID. |
+
+## CampaignSpcUpdateResponseMediaInfoListMediaInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_id` | `music_id` | `string` | No | No | The ID of the piece of music to use in the Carousel Ads. |
+
+## CampaignSpcUpdateResponseMediaInfoListMediaInfoVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID. |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+
+## CampaignSpcUpdateResponsePageList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_id` | `page_id` | `string` | No | No | Page ID. |
+
+## CampaignSpcUpdateResponseProductInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `promo_info_list` | `promo_info_list` | `Array<CampaignSpcUpdateResponseProductInfoPromoInfoList>` | No | No | Valid only in [regular Smart+ Web Campaigns](https://business-api.tiktok.com/portal/docs?id=1814122471133186#item-link-Create%20a%20regular%20Smart+%20Web%20Campaign). Details of promo codes and offers. Promo codes and offers can help boost your ad performance. Make sure your codes and offers are active, accurate, and ready to use at checkout. |
+
+## CampaignSpcUpdateResponseProductInfoPromoInfoList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `discount_type` | `discount_type` | `"PERCENTAGE" \| "CASH"` | No | No | Returned when `promo_info_list` is specified. Discount type. Enum values:`PERCENTAGE`: Percentage off discount.`CASH`: Cash off discount. |
+| `discount_value` | `discount_value` | `string` | No | No | Returned when `promo_info_list` is specified. Discount value. When `discount_type` is `PERCENTAGE`, this field will be an integer between 1-100. When `discount_type` is `CASH`, this field will be a float greater than 0. |
+| `discount_currency` | `discount_currency` | `string` | No | No | Returned when `discount_type` is `CASH`. Discount currency. For enum values, see List of values for `discount_currency` or `minimum_purchase_currency`. |
+| `minimum_purchase_type` | `minimum_purchase_type` | `"QUANTITY" \| "SUBTOTAL"` | No | No | Minimum purchase type. Enum values:`QUANTITY`: Minimum quantity.`SUBTOTAL`: Minimum subtotal. |
+| `minimum_purchase_value` | `minimum_purchase_value` | `number` | No | No | Returned when `minimum_purchase_type` is specified. Minimum purchase value. When `minimum_purchase_type` is `QUANTITY`, this field will be an integer that is 0 or greater.When `minimum_purchase_type` is `SUBTOTAL`, this field will be a float greater than 0. |
+| `minimum_purchase_currency` | `minimum_purchase_currency` | `string` | No | No | Returned when `minimum_purchase_type` is `SUBTOTAL`. Minimum purchase currency. For enum values, see List of values for `discount_currency` or `minimum_purchase_currency`. |
+| `valid_start_time` | `valid_start_time` | `string` | No | No | Valid start time (UTC+0) for the promo code or offer, in the format of `YYYY-MM-DD HH:MM:SS`. |
+| `valid_end_time` | `valid_end_time` | `string` | No | No | Valid end time (UTC+0) for the promo code or offer, in the format of `YYYY-MM-DD HH:MM:SS`. |
+
+## CampaignSpcUpdateResponseTitleList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | Ad title (ad text). |
+
+## CampaignSpcUpdateResponseUtmParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | The URL parameter. The parameter can be a custom parameter or a UTM parameter. The supported UTM parameters are:`utm_source`: The app, site, etc., that brings traffic to your website. For example: TikTok.`utm_medium`: The advertising or marketing medium. For example: cpm, cpc, banner, and video.`utm_content`: The creative content used for promotion. For example: ad name, CTA text, asset, and color.`utm_campaign`: The individual campaign name, slogan, or promo code. For example: BlackFridayProm. Note that UTM parameters are case-sensitive. |
+| `value` | `value` | `string` | No | No | The value of the URL parameter. The value can be a custom value or the name of a macro. The supported macros are:`__CAMPAIGN_NAME__`: This will be replaced by your campaign name.`__CAMPAIGN_ID__`: This will be replaced by your campaign ID.`__AID_NAME__`: This will be replaced by your ad group name.`__AID__`: This will be replaced by your ad group ID.`__CID_NAME__`: This will be replaced by your ad name.`__CID__`: This will be replaced by your ad ID.`__PLACEMENT__`: This will be replaced by your placement. |
+
+## CampaignStatusUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | — |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | Yes | No | — |
+| `operation_status` | `operation_status` | `string` | Yes | No | — |
+| `postback_window_mode` | `postback_window_mode` | `string` | No | No | — |
+
+## CampaignStatusUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | A list of modified campaign ids |
+| `status` | `status` | `string` | No | No | The operation that was executed, optional values include: `DELETE`,`DISABLE`,`ENABLE` |
+| `campaign_list` | `campaign_list` | `Array<CampaignStatusUpdateResponseCampaignList>` | No | No | Information about the list of specified campaigns. |
+
+## CampaignStatusUpdateResponseCampaignList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID. |
+| `status` | `status` | `"DELETE" \| "DISABLE" \| "ENABLE"` | No | No | The current status of the campaign (`campaign_id`). Enum values: `DELETE` (deleted), `DISABLE` (paused), `ENABLE` (enabled). |
+| `postback_window_mode` | `postback_window_mode` | `"POSTBACK_WINDOW_MODE1" \| "POSTBACK_WINDOW_MODE2" \| "POSTBACK_WINDOW_MODE3"` | No | No | The mode that determines which SKAN 4.0 postback you want to secure. Enum values: `POSTBACK_WINDOW_MODE1`: This option secures the first postback, which corresponds to the 0-2 day attribution window. The data can take up to 4 days to return, and the campaign will wait for 4 days to release the campaign quota. `POSTBACK_WINDOW_MODE2`: This mode secures the first two postbacks, which correspond to the 3-7 day attribution window. The data can take up to 13 days to return, and the campaign will wait for 13 days to release the campaign quota.`POSTBACK_WINDOW_MODE3`: This mode secures all three postbacks, which correspond to the 8-35 day attribution window. The data can take up to 41 days to return, and the campaign will wait for 41 days to release the campaign quota. |
+
+## CampaignUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | Campaign ID |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. Length limit: 512 characters. Emoji is not supported. Each word in Chinese or Japanese counts as two characters, while each letter in English counts as one character. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. By selecting a housing, employment, or credit category for your campaign, you certify not to use TikTok to discriminate based on protected characteristics in ads relating to housing, employment, or credit and to adhere to [TikTok's special ad category policy](https://ads.tiktok.com/help/article/housing-employment-credit-hec-ad-policy?redirected=2). Once you use this field to indicate that your campaign is promoting opportunities in any of the ad categories, the targeting options at the ad group level will be limited to help you comply with anti-discrimination laws in these categories. See [Targeting requirements for ad groups in a campaign with special ad categories](https://business-api.tiktok.com/portal/docs?id=1739381236849665#item-link-Targeting%20requirements%20for%20ad%20groups%20in%20a%20campaign%20with%20special%20ad%20categories) to learn about the requirements. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: Using special ad categories in Shopping Ads with campaign product source as Catalog and in Shopping Ads with campaign product source as non-Catalog are currently separate allowlist-only features. If you would like to access them, please contact your TikTok representative.This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. If you have selected special ad categories for a campaign, you can remove the special ad categories, but you cannot change them or enable the special ad categories for an existing campaign if the special ad categories are currently disabled. |
+| `budget` | `budget` | `number` | No | No | Campaign budget. To learn about the minimum budget and how to set budget modes, see [Budget](https://ads.tiktok.com/marketing_api/docs?id=1739381246298114). To directly see the daily budget value range for a currency, see [Currency-Daily budget value range](https://ads.tiktok.com/marketing_api/docs?id=1737585839634433). Note: The new budget should be at least 105% of the current spend. You can run [a synchronous report](https://ads.tiktok.com/marketing_api/docs?id=1740302848100353) or [an asynchronous report](https://ads.tiktok.com/marketing_api/docs?id=1740302766489602) to get the spend data via the Basic data metric `spend` . |
+| `po_number` | `po_number` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+
+## CampaignUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID. |
+| `create_time` | `create_time` | `string` | No | No | Time at which the campaign was created. |
+| `modify_time` | `modify_time` | `string` | No | No | Time at which the campaign was Modified. |
+| `objective_type` | `objective_type` | `string` | No | No | Advertising objective. For enum values, see [Enumeration-Advertising Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `app_promotion_type` | `app_promotion_type` | `"APP_INSTALL" \| "APP_RETARGETING" \| "APP_PREREGISTRATION" \| "APP_POSTS_PROMOTION"` | No | No | App promotion type. Enum values: `APP_INSTALL`: App install. Get new users to install your app.`APP_RETARGETING`: App retargeting. Re-engage existing users to take action in your app. `APP_PREREGISTRATION`: App pre-registration. Get new users to pre-register before your app launches.`APP_POSTS_PROMOTION`: App posts promotion. Promote TikTok posts to increase app awareness and measure conversions. Note: Currently, creating App posts promotion campaigns via API is not supported. You can only update or retrieve such campaigns via API. |
+| `virtual_objective_type` | `virtual_objective_type` | `string` | No | No | The new objective type. Enum value: `SALES`. Use this field to create a campaign with the Sales objective, the combined objective for Website Conversions and Product Sales objectives. Learn more about [the Sales objective](https://business-api.tiktok.com/portal/docs?id=). |
+| `sales_destination` | `sales_destination` | `"TIKTOK_SHOP" \| "WEBSITE" \| "APP" \| "WEB_AND_APP"` | No | No | Sales destination, the destination where you want to drive your sales. Enum values: `TIKTOK_SHOP`: TikTok Shop. Drive sales on your TikTok Shop.`WEBSITE`: Website. Drive sales on your website.`APP`: App. Drive sales on your app (product catalog required).`WEB_AND_APP`: Website and app. Drive sales on both your website and your app. |
+| `is_search_campaign` | `is_search_campaign` | `boolean` | No | No | Whether the campaign is a Search Ads Campaign. With Search Ads Campaigns, you can select keywords and serve ads within TikTok's search result page. Supported values: `true`, `false`. |
+| `is_smart_performance_campaign` | `is_smart_performance_campaign` | `boolean` | No | No | Whether the campaign is an automated campaign type. Supported values: `true`: The campaign is either a Smart+ Campaign or a Smart Performance Web Campaign. `false`: The campaign is a standard campaign type. Note: If `is_smart_performance_campaign` is `true` and `objective_type` is `WEB_CONVERSIONS`, you can confirm whether the web campaign is a Smart+ Web Campaign or Smart Performance Web Campaign by checking the returned `spc_type` from [/campaign/spc/get/](https://business-api.tiktok.com/portal/docs?id=1767334299811842). |
+| `campaign_type` | `campaign_type` | `"REGULAR_CAMPAIGN" \| "IOS14_CAMPAIGN"` | No | No | Campaign Type, which indicates the campaign is a regular campaign or iOS 14 campaign. Enum values: `REGULAR_CAMPAIGN`, `IOS14_CAMPAIGN`. |
+| `app_id` | `app_id` | `string` | No | No | The Application ID of the promoted app. You can get `app_id` by using the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `is_advanced_dedicated_campaign` | `is_advanced_dedicated_campaign` | `boolean` | No | No | Whether the campaign is an Advanced Dedicated Campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. Enum values: `true`, `false`. |
+| `disable_skan_campaign` | `disable_skan_campaign` | `boolean` | No | No | Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns. Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition). `false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. |
+| `bid_align_type` | `bid_align_type` | `"SAN" \| "SKAN"` | No | No | The attribution type for the Dedicated Campaign. The type determines which attribution network the target CPA (`conversion_bid_price`) or ROAS (`roas_bid`) at the ad group level is based on. Enum values: `SAN`: SAN. `SKAN`: SKAN. |
+| `campaign_app_profile_page_state` | `campaign_app_profile_page_state` | `"INVALID" \| "UNSET" \| "ON" \| "OFF"` | No | No | Indicates the status of App Profile Page. Enum values: `INVALID`, `UNSET`, `ON`, `OFF`. |
+| `rf_campaign_type` | `rf_campaign_type` | `"STANDARD" \| "PULSE"` | No | No | When `objective_type` is specified as `RF_REACH`, this field shows whether the campaign has been set as a TikTok Pulse campaign. Enum values: `STANDARD` (Reach & Frequency campaign), `PULSE` (TikTok Pulse campaign). |
+| `campaign_product_source` | `campaign_product_source` | `"CATALOG" \| "STORE"` | No | No | Returned only when `objective_type` for the campaign is `PRODUCT_SALES` and the product source is configured for the campaign. Product source of the campaign. Enum values: `CATALOG` : Catalog.`STORE`: TikTok Shop, or TikTok Showcase. |
+| `catalog_enabled` | `catalog_enabled` | `boolean` | No | No | Whether to use your catalog to automatically advertise relevant products or services to people based on their unique interests, intent and actions. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. |
+| `budget_optimize_on` | `budget_optimize_on` | `boolean` | No | No | Returned only for campaigns with Campaign Budget Optimization (CBO) enabled. Whether CBO is enabled. Enum values: `true` (enabled). For details about CBO, see [Campaign Budget Optimization](https://ads.tiktok.com/marketing_api/docs?id=1739381757818881). |
+| `bid_type` | `bid_type` | `string` | No | No | Bidding strategy on the campaign level. |
+| `deep_bid_type` | `deep_bid_type` | `string` | No | No | Bidding strategy for in-app events. For enum values and their descriptions, see [Enumeration - Deep-level Bidding Strategy](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `roas_bid` | `roas_bid` | `number` | No | No | ROAS goal for Value Optimization. |
+| `optimization_goal` | `optimization_goal` | `string` | No | No | Optimization goal. |
+| `budget_mode` | `budget_mode` | `"BUDGET_MODE_INFINITE" \| "BUDGET_MODE_TOTAL" \| "BUDGET_MODE_DAY" \| "BUDGET_MODE_DYNAMIC_DAILY_BUDGET"` | No | No | Budget mode. Enum values:`BUDGET_MODE_INFINITE`: Unlimited budget.`BUDGET_MODE_TOTAL`: Lifetime budget.`BUDGET_MODE_DAY` : Daily budget.`BUDGET_MODE_DYNAMIC_DAILY_BUDGET`: Dynamic daily budget. It is the average daily budget over a week. Daily costs will not exceed 125% of the average daily budget. Weekly costs will not exceed the average daily budget * 7. |
+| `budget` | `budget` | `number` | No | No | Campaign budget. |
+| `rta_id` | `rta_id` | `string` | No | No | Realtime API (RTA) ID, the RTA strategy identifier. |
+| `rta_bid_enabled` | `rta_bid_enabled` | `boolean` | No | No | Whether to use RTA bid. Supported values: `true`: enabled. `false`: not enabled. |
+| `rta_product_selection_enabled` | `rta_product_selection_enabled` | `boolean` | No | No | Whether to use RTA to automatically select products. Enum values: `true`: enabled.`false`: not enabled. |
+| `operation_status` | `operation_status` | `"ENABLE" \| "DISABLE"` | No | No | Operation status. Enum values:`ENABLE` : The campaign is enabled (in 'ON' status).`DISABLE`: The campaign is disabled (in 'OFF' status). |
+| `secondary_status` | `secondary_status` | `string` | No | No | Campaign status (Secondary status). |
+| `postback_window_mode` | `postback_window_mode` | `"POSTBACK_WINDOW_MODE1" \| "POSTBACK_WINDOW_MODE2" \| "POSTBACK_WINDOW_MODE3"` | No | No | The mode that determines which SKAN 4.0 postback you want to secure. Enum values: `POSTBACK_WINDOW_MODE1`: This option secures the first postback, which corresponds to the 0-2 day attribution window. The data can take up to 4 days to return, and the campaign will wait for 4 days to release the campaign quota. `POSTBACK_WINDOW_MODE2`: This mode secures the first two postbacks, which correspond to the 3-7 day attribution window. The data can take up to 13 days to return, and the campaign will wait for 13 days to release the campaign quota.`POSTBACK_WINDOW_MODE3`: This mode secures all three postbacks, which correspond to the 8-35 day attribution window. The data can take up to 41 days to return, and the campaign will wait for 41 days to release the campaign quota. Note: If you have set up Mobile Measurement Partner (MMP) Tracking with Adjust, Airbridge, Appsflyer, Branch, Kochava, or Singular for your App and your MMP SDK version is updated to a SKAN 4.0 supported SDK, you can transition your App to SKAN 4.0 on Events Manager. To learn about how to set up MMP tracking for your App, see [How to Set Up App Attribution in TikTok Ads Manager](https://ads.tiktok.com/help/article/set-up-app-attribution-tiktok-ads-manager?lang=en). To learn more about how to transition your App to SKAN 4.0, see [About SKAN 4.0 and TikTok](https://ads.tiktok.com/help/article/about-skan-4-0-and-tiktok?lang=en) and [How to transition to SKAN 4.0](https://ads.tiktok.com/help/article/how-to-transition-to-skan-4-0). |
+| `is_new_structure` | `is_new_structure` | `boolean` | No | No | Whether the campaign is a new structure (for the same campaign, the structure of campaign, ad groups and ads are the same). |
+| `objective` | `objective` | `"APP" \| "LANDING_PAGE"` | No | No | Campaign type (application or landing page). Enum values: `APP`(application), `LANDING_PAGE`(Landing page). |
+| `po_number` | `po_number` | `string` | No | No | PO (purchase order) number. PO numbers are useful for invoice tracking and reconciliation. [Learn more about PO numbers on monthly invoices](https://ads.tiktok.com/help/article/update-po-number-on-monthly-invoices). |
+
+## CatalogAvailableCountryGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+
+## CatalogAvailableCountryGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | List of codes representing countries and regions that ads for this catalog can be delivered to. To find out the corresponding region for a country or region code, refer to [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+
+## CatalogCapitalizeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | ID of the Business Center that you want to migrate the catalog to. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | ID of the ad account that the catalog belongs to. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | ID of the catalog that you want to migrate. |
+
+## CatalogCapitalizeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Return code. For the complete list of response codes and descriptions, see [Appendix - Return codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | Return message. For details, see [Appendix-Return codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | The log id of a request, which uniquely identifies the request. |
+
+## CatalogCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `name` | `name` | `string` | Yes | No | Catalog name. Length limit: 128 characters. |
+| `catalog_type` | `catalog_type` | `"ECOM" \| "HOTEL" \| "FLIGHT" \| "DESTINATION" \| "ENTERTAINMENT" \| "AUTO_VEHICLE" \| "AUTO_MODEL" \| "MINI_SERIES"` | Yes | No | Catalog type. Enum values: `ECOM`: E-commerce catalog. `HOTEL`: hotel catalog.`FLIGHT`: flight catalog. `DESTINATION`: destination catalog. `ENTERTAINMENT`: entertainment catalog.`AUTO_VEHICLE`: Auto-Inventory catalog.`AUTO_MODEL`: Auto-Model catalog.`MINI_SERIES`: mini series catalog.Note: The entertainment catalog is currently an allowlist-only feature and is invitation-only because this catalog type is under Alpha Testing. If you would like to access it, please contact your TikTok representative. However, acceptance into the Alpha Test is not guaranteed.The mini series catalog is currently an allowlist-only feature and is invitation-only because the catalog type is under testing. If you would like to access it, please contact your TikTok representative. However, acceptance into the test is not guaranteed. |
+| `catalog_conf` | `catalog_conf` | `CatalogCreateParamsCatalogConf` | Yes | No | Catalog configuration information. |
+
+## CatalogCreateParamsCatalogConf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | Yes | No | The region code of the primary targeting region. To get a list of available countries and regions, use [/catalog/available_country/get/](https://ads.tiktok.com/marketing_api/docs?id=1740491257516034). Select a region code from the region codes returned in `region_codes`. When `catalog_type` is `AUTO_VEHICLE` or `AUTO_MODEL`, see List of region codes and currencies for Auto-Inventory and Auto-Model catalogs to find out the supported `region_code` values. To find out the corresponding region for a region code, refer to [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). Example: `US`. Note: Once set, this field cannot be updated. |
+| `currency` | `currency` | `string` | Yes | No | Currency for the primary targeting region. For supported currencies, seethe Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). When `catalog_type` is `AUTO_VEHICLE` or `AUTO_MODEL`, see List of region codes and currencies for Auto-Inventory and Auto-Model catalogs to find out the corresponding `currency` value for the specified `region_code` value. Example: `USD`. Note: Once set, this field cannot be updated. |
+| `channel` | `channel` | `"PARTNER" \| "CLIENT"` | No | No | Channel for creating the catalog. Enum values: `PARTNER`: Partners.`CLIENT`: Direct advertisers. Note: Once set, this field cannot be updated. |
+| `additional_config_list` | `additional_config_list` | `Array<CatalogCreateParamsCatalogConfAdditionalConfigList>` | No | No | Valid only when `catalog_type` is `MINI_SERIES`. Details of additional targeting regions. No max size. Note: Once set, this field cannot be updated.If you want to target multiple regions through mini series catalogs, specify the additional targeting regions through `additional_config_list` during catalog creation. Then upload short drama series that target multiple regions. |
+
+## CatalogCreateParamsCatalogConfAdditionalConfigList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | No | No | Required when `additional_config_list` is specified. The region code of the additional targeting region. To get a list of available countries and regions, use [/catalog/available_country/get/](https://business-api.tiktok.com/portal/docs?id=1740491257516034). Select a region code from the region codes returned in `region_codes`. To find out the corresponding region for a region code, refer to [Appendix - Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `GB`. Note: Once set, this field cannot be updated.Duplicate region codes are not supported. |
+| `currency` | `currency` | `string` | No | No | Required when `additional_config_list` is specified. Currency for the additional targeting region. For supported currencies, see the Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). Example: `GBP`. Note: Once set, this field cannot be updated.You can only specify up to one currency for each additional targeting region. |
+
+## CatalogCreateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | ID of the Business Center that the catalog belongs to. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+
+## CatalogDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogEventsourceBindGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+
+## CatalogEventsourceBindGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `number` | No | No | Catalog ID. |
+| `event_sources` | `event_sources` | `Array<CatalogEventsourceBindGetResponseEventSources>` | No | No | Event sources. Each event source is an object. |
+
+## CatalogEventsourceBindGetResponseEventSources
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_source_name` | `event_source_name` | `string` | No | No | Event source name. |
+| `app_id` | `app_id` | `string` | No | No | Mobile application ID. |
+| `pixel_code` | `pixel_code` | `string` | No | No | Pixel code. |
+
+## CatalogEventsourceBindParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `app_id` | `app_id` | `string` | No | No | Mobile application ID. You can find the mobile app ID by navigating to Assets &gt; Events &gt; App Events in TikTok Ads Manager. You need to specify at least the mobile app ID (`app_id`) or website Pixel code (`pixel_code`). You can specify both if you want to bind both events to the same catalog. |
+| `pixel_code` | `pixel_code` | `string` | No | No | Website Pixel code. You can find the pixel code by navigating to Assets &gt; Events &gt; Website Events in TikTok Ads Manager. You need to specify at least the mobile app ID (`app_id`) or website Pixel code (`pixel_code`). You can specify both if you want to bind both events to the same catalog. |
+
+## CatalogEventsourceBindResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | The response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | The response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+
+## CatalogEventsourceUnbindParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `app_id` | `app_id` | `string` | No | No | Mobile application ID. You can find the mobile app ID by navigating to Assets &gt; Events &gt; App Events in TikTok Ads Manager. |
+| `pixel_code` | `pixel_code` | `string` | No | No | Website Pixel code. You can find the pixel code by navigating to Assets&gt; Events &gt; Website Events in TikTok Ads Manager. |
+
+## CatalogEventsourceUnbindResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | The response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | The response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+
+## CatalogFeedCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_name` | `feed_name` | `string` | Yes | No | Name of the feed. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL"` | Yes | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated. |
+| `schedule_param` | `schedule_param` | `CatalogFeedCreateParamsScheduleParam` | No | No | Schedule data. |
+
+## CatalogFeedCreateParamsScheduleParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source` | `source` | `CatalogFeedCreateParamsScheduleParamSource` | No | No | Feed source. |
+| `interval_type` | `interval_type` | `"HOURLY" \| "DAILY" \| "MONTHLY"` | No | No | Required if you pass in `uri` or `timezone`. Schedule interval. Enum values: `HOURLY`, `DAILY`, `MONTHLY`. |
+| `interval_count` | `interval_count` | `number` | No | No | Number of intervals between two consecutive feed runs. If `interval_type` is `HOURLY`, the allowed values are 1-23. If `interval_type` is `DAILY`, the allowed values are 1-30. If `interval_type` is `MONTHLY`, the allowed values are 1-12. |
+| `timezone` | `timezone` | `string` | No | No | Required if you pass in `uri` or `interval_type`. Time zone of the schedule. Example: `Africa/Accra`. For the list of time zones, see [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `day_of_month` | `day_of_month` | `number` | No | No | For monthly schedules, the day of the month to fetch feed. |
+| `hour` | `hour` | `number` | No | No | Hour of the day to fetch feed. If the interval type is hourly, this is the hour of the first schedule. If the interval type is daily or monthly, this is the hour of the schedule. Value range: 0-23. Default value: 0. |
+| `minute` | `minute` | `number` | No | No | Minute of the day to fetch feed. If the interval type is hourly, this is the minute of the first schedule.If the interval type is daily or monthly, this is the minute of the schedule. Value range: 0-59. Default value: 0. |
+
+## CatalogFeedCreateParamsScheduleParamSource
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Required if you pass in `interval_type` or `timezone`. Data Feed URL, the URL where your file is hosted. It should start with http, https, ftp or sftp. Files can be up to 8 GB and in the CSV, TSV, or XML (RSS/ATOM) format. Note: If your additional image URL contains commas (,), URL-encode them by replacing with %2C before adding them to this field. For example, for URLs such as `https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp`and `https://img.example.com/product_800x600,q85,webp.jpg`, you need to set this field to `["https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp","https://img.example.com/product_800x600%2Cq85%2Cwebp.jpg"]`. |
+| `username` | `username` | `string` | No | No | If the feed is password protected, you need to specify a user name for authentication. |
+| `password` | `password` | `string` | No | No | If the feed is password protected, you need to specify a password for authentication. |
+
+## CatalogFeedCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. |
+| `feed_name` | `feed_name` | `string` | No | No | Feed name. |
+| `status` | `status` | `"ON" \| "OFF"` | No | No | The schedule status of the feed. Enum values: `ON`: The schedule for the feed is with the "ON" status.`OFF`: The schedule for the feed is with the "OFF" status, or there is no schedule for the feed. |
+| `last_update_param` | `last_update_param` | `CatalogFeedCreateResponseLastUpdateParam` | No | No | Information about the last update. |
+| `next_update_time` | `next_update_time` | `string` | No | No | Date and time for the next feed run. Example: "2021-05-23 16:33:23". |
+| `number_of_products` | `number_of_products` | `number` | No | No | Number of products in the feed. |
+
+## CatalogFeedCreateResponseLastUpdateParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Data Feed URL, the URL where your file is hosted. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL"` | No | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated. |
+| `timezone` | `timezone` | `string` | No | No | Time zone of the schedule. Example: `Africa/Accra`. For the list of time zones, see [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `interval_type` | `interval_type` | `"HOURLY" \| "DAILY" \| "MONTHLY"` | No | No | Schedule interval. Enum values: `HOURLY`, `DAILY`, `MONTHLY`. |
+| `interval_count` | `interval_count` | `number` | No | No | Number of intervals between two consecutive feed runs. If `interval_type` is `HOURLY`, the allowed values are 1-23. If `interval_type` is `DAILY`, the allowed values are 1-30. If `interval_type` is `MONTHLY`, the allowed values are 1-12. |
+| `day_of_month` | `day_of_month` | `number` | No | No | For monthly schedules, the day of the month to fetch feed. |
+| `hour` | `hour` | `number` | No | No | Hour of the day to fetch feed. If the interval type is hourly, this is the hour of the first schedule. If the interval type is daily or monthly, this is the hour of the schedule. |
+| `minute` | `minute` | `number` | No | No | Minute of the day to fetch feed. If the interval type is hourly, this is the minute of the first schedule.If the interval type is daily or monthly, this is the minute of the schedule. |
+
+## CatalogFeedDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | Yes | No | Feed ID. |
+
+## CatalogFeedDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `number` | No | No | Feed ID. |
+
+## CatalogFeedGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | ID of the feed that you want to get. If not specified, all feeds for the catalog will be returned. |
+
+## CatalogFeedGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_list` | `feed_list` | `Array<CatalogFeedGetResponseFeedList>` | No | No | Feed list. |
+
+## CatalogFeedGetResponseFeedList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. |
+| `feed_name` | `feed_name` | `string` | No | No | Feed name. |
+| `status` | `status` | `"ON" \| "OFF"` | No | No | The schedule status of the feed. Enum values: `ON`: The schedule for the feed is with the "ON" status.`OFF`: The schedule for the feed is with the "OFF" status, or there is no schedule for the feed. |
+| `last_update_param` | `last_update_param` | `CatalogFeedGetResponseFeedListLastUpdateParam` | No | No | Information about the last update. |
+| `next_update_time` | `next_update_time` | `string` | No | No | Date and time (UTC + 0 time) for the next feed run. Example: "2021-05-23 16:33:23". |
+| `number_of_products` | `number_of_products` | `number` | No | No | Number of products in the feed. |
+
+## CatalogFeedGetResponseFeedListLastUpdateParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Data Feed URL, the URL where your file is hosted. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL"` | No | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated. |
+| `timezone` | `timezone` | `string` | No | No | Time zone of the schedule. Example: `Africa/Accra`. For the list of time zones, see [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `interval_type` | `interval_type` | `"HOURLY" \| "DAILY" \| "MONTHLY"` | No | No | Schedule interval. Enum values: `HOURLY`, `DAILY`, `MONTHLY`. |
+| `interval_count` | `interval_count` | `number` | No | No | Number of intervals between two consecutive feed runs. If `interval_type` is `HOURLY`, the allowed values are 1-23. If `interval_type` is `DAILY`, the allowed values are 1-30. If `interval_type` is `MONTHLY`, the allowed values are 1-12. |
+| `day_of_month` | `day_of_month` | `number` | No | No | For monthly schedules, the day of the month to fetch feed. |
+| `hour` | `hour` | `number` | No | No | Hour of the day to fetch feed. If the interval type is hourly, this is the hour of the first schedule. If the interval type is daily or monthly, this is the hour of the schedule. Value range: 0-23. Default value: 0. |
+| `minute` | `minute` | `number` | No | No | Minute of the day to fetch feed. If the interval type is hourly, this is the minute of the first schedule.If the interval type is daily or monthly, this is the minute of the schedule. Value range: 0-59. Default value: 0. |
+
+## CatalogFeedLogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | Yes | No | ID of the feed that you want to get log for. |
+
+## CatalogFeedLogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_logs` | `feed_logs` | `Array<CatalogFeedLogResponseFeedLogs>` | No | No | Log entry list. |
+
+## CatalogFeedLogResponseFeedLogs
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `update_status` | `update_status` | `CatalogFeedLogResponseFeedLogsUpdateStatus` | No | No | Update data. |
+| `update_time` | `update_time` | `CatalogFeedLogResponseFeedLogsUpdateTime` | No | No | Update time data. |
+
+## CatalogFeedLogResponseFeedLogsUpdateStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `add_count` | `add_count` | `number` | No | No | Number of products that were added. |
+| `error_count` | `error_count` | `number` | No | No | Number of products that failed to add, update, or remove. |
+| `remove_count` | `remove_count` | `number` | No | No | Number of products that were removed. |
+| `process_status` | `process_status` | `"PROCESSING" \| "SUCCESS" \| "FAILED" \| "WAITING"` | No | No | Status of the update operation. Enum values: `PROCESSING`, `SUCCESS`, `FAILED`, `WAITING`. |
+| `update_count` | `update_count` | `number` | No | No | Number of products that were updated. |
+| `warn_count` | `warn_count` | `number` | No | No | Number of warnings received. |
+
+## CatalogFeedLogResponseFeedLogsUpdateTime
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end_time` | `end_time` | `string` | No | No | Date and time when the update operation ended. For example, "2021-05-23 16:33:30". |
+| `start_time` | `start_time` | `string` | No | No | Date and time when the update operation started. For example, "2021-05-23 16:33:30". |
+
+## CatalogFeedSwitchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | Yes | No | ID of the feed that you want to update the schedule status for. |
+| `status` | `status` | `"ON" \| "OFF"` | Yes | No | Use this field to update the feed schedule status. Enum values: `ON`, `OFF`. Note: You can only pass in via this field a status different from the current one. For instance, you cannot set status as `ON` for a feed whose schedule status is already `ON`. If you want to update status from `OFF` to `ON`, you need to ensure the three parameters `uri`, `interval_type` , and `timezone` have been set for the feed. Otherwise, the update will fail. If you want to specify the three parameters `uri`, `interval_type` , and `timezone` for an existing feed, use [/catalog/feed/update/](https://ads.tiktok.com/marketing_api/docs?id=1740665197662210). |
+
+## CatalogFeedSwitchResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogFeedUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | Yes | No | Feed ID. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL" \| "SUPPLEMENT"` | Yes | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated.`SUPPLEMENT`: In this mode, new products will be created, and only the specified parameters for the existing products will be updated. |
+| `schedule_param` | `schedule_param` | `CatalogFeedUpdateParamsScheduleParam` | No | No | Schedule data. |
+
+## CatalogFeedUpdateParamsScheduleParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source` | `source` | `CatalogFeedUpdateParamsScheduleParamSource` | No | No | Feed source. |
+| `interval_type` | `interval_type` | `"HOURLY" \| "DAILY" \| "MONTHLY"` | No | No | Required if you pass in `uri` or `timezone`. Schedule interval. Enum values: `HOURLY`, `DAILY`, `MONTHLY`. |
+| `interval_count` | `interval_count` | `number` | No | No | Number of intervals between two consecutive feed runs. If `interval_type` is `HOURLY`, the allowed values are 1-23.If `interval_type` is `DAILY`, the allowed values are 1-30. If `interval_type` is `MONTHLY`, the allowed values are 1-12. |
+| `timezone` | `timezone` | `string` | No | No | Required if you pass in `uri` or `interval_type`. Time zone of the schedule. Example: `Africa/Accra`. For the list of time zones, see [Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `day_of_month` | `day_of_month` | `number` | No | No | For monthly schedules, the day of the month to fetch feed. |
+| `hour` | `hour` | `number` | No | No | Hour of the day to fetch feed. If the interval type is hourly, this is the hour of the first schedule.If the interval type is daily or monthly, this is the hour of the schedule. Value range: 0-23. Default value: 0. |
+| `minute` | `minute` | `number` | No | No | Minute of the day to fetch feed. If the interval type is hourly, this is the minute of the first schedule. If the interval type is daily or monthly, this is the minute of the schedule. Value range: 0-59. Default value: 0. |
+
+## CatalogFeedUpdateParamsScheduleParamSource
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Required if you pass in `interval_type` or `timezone`. Data Feed URL, the URL where your file is hosted. It should start with http, https, ftp or sftp. Files can be up to 8 GB and in the CSV, TSV, or XML (RSS/ATOM) format. |
+| `username` | `username` | `string` | No | No | If the feed is password protected, you need to specify a user name for authentication. |
+| `password` | `password` | `string` | No | No | If the feed is password protected, you need to specify a password for authentication. |
+
+## CatalogFeedUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. |
+| `feed_name` | `feed_name` | `string` | No | No | Feed name. |
+| `status` | `status` | `"ON" \| "OFF"` | No | No | The schedule status of the feed. Enum values: `ON`: The schedule for the feed is with the "ON" status.`OFF`: The schedule for the feed is with the "OFF" status, or there is no schedule for the feed. |
+| `last_update_param` | `last_update_param` | `CatalogFeedUpdateResponseLastUpdateParam` | No | No | Information about the last update. |
+| `next_update_time` | `next_update_time` | `string` | No | No | Date and time for the next feed run. Example: "2021-05-23 16:33:23". |
+| `number_of_products` | `number_of_products` | `number` | No | No | Number of products in the feed. |
+
+## CatalogFeedUpdateResponseLastUpdateParam
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Data Feed URL, the URL where your file is hosted. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL" \| "SUPPLEMENT"` | No | No | The update mode. Enum values: `OVERWRITE`: In this mode, a full replacement will be performed to the catalog. Products not present in the feed will be removed. New products will be created. Existing products will be updated.`INCREMENTAL`: In this mode, new products will be created, and existing products will be updated.`SUPPLEMENT`: In this mode, new products will be created, and only the specified parameters for the existing products will be updated. |
+| `timezone` | `timezone` | `string` | No | No | Time zone of the schedule. Example: `Africa/Accra`. For the list of time zones, see [Appendix-Time Zone](https://ads.tiktok.com/marketing_api/docs?id=1737586324313089). |
+| `interval_type` | `interval_type` | `"HOURLY" \| "DAILY" \| "MONTHLY"` | No | No | Schedule interval. Enum values: `HOURLY`, `DAILY`, `MONTHLY`. |
+| `interval_count` | `interval_count` | `number` | No | No | Number of intervals between two consecutive feed runs. If `interval_type` is `HOURLY`, the allowed values are 1-23. If `interval_type` is `DAILY`, the allowed values are 1-30. If `interval_type` is `MONTHLY`, the allowed values are 1-12. |
+| `day_of_month` | `day_of_month` | `number` | No | No | For monthly schedules, the day of the month to fetch feed. |
+| `hour` | `hour` | `number` | No | No | Hour of the day to fetch feed. If the interval type is hourly, this is the hour of the first schedule. If the interval type is daily or monthly, this is the hour of the schedule. |
+| `minute` | `minute` | `number` | No | No | Minute of the day to fetch feed. If the interval type is hourly, this is the minute of the first schedule.If the interval type is daily or monthly, this is the minute of the schedule. |
+
+## CatalogGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog ID. If not specified, all catalogs will be returned. |
+| `page` | `page` | `number` | No | No | Current number of pages. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: 1-1,000. |
+
+## CatalogGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CatalogGetResponseList>` | No | No | Catalog list. |
+| `page_info` | `page_info` | `CatalogGetResponsePageInfo` | No | No | Pagination information. |
+
+## CatalogGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog ID. |
+| `catalog_name` | `catalog_name` | `string` | No | No | Catalog name. |
+| `catalog_type` | `catalog_type` | `"ECOM" \| "HOTEL" \| "FLIGHT" \| "DESTINATION" \| "ENTERTAINMENT" \| "AUTO_VEHICLE" \| "AUTO_MODEL" \| "MINI_SERIES"` | No | No | Catalog type. Enum values: `ECOM`: E-commerce catalog. `HOTEL`: hotel catalog.`FLIGHT`: flight catalog.`DESTINATION`: destination catalog. `ENTERTAINMENT`: entertainment catalog.`AUTO_VEHICLE`: Auto-Inventory catalog.`AUTO_MODEL`: Auto-Model catalog.`MINI_SERIES`: mini series catalog. |
+| `ad_creation_eligible` | `ad_creation_eligible` | `"NOT_AVAILABLE" \| "AVAILABLE"` | No | No | Whether the catalog can be used in ads when it contains the number of available products required for the ad format. Enum values:`NOT_AVAILABLE`: The catalog cannot be used in ads.`AVAILABLE`: The catalog can be used in ads when it contains the number of available products required for the ad format. |
+| `create_time` | `create_time` | `string` | No | No | Creation time. |
+| `update_time` | `update_time` | `string` | No | No | Update time. |
+| `bc_info` | `bc_info` | `CatalogGetResponseListBcInfo` | No | No | Information about Business Center. |
+| `catalog_conf` | `catalog_conf` | `CatalogGetResponseListCatalogConf` | No | No | Catalog configuration information. |
+
+## CatalogGetResponseListBcInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | No | No | Business Center ID. |
+| `bc_name` | `bc_name` | `string` | No | No | Business Center name. |
+| `picture_url` | `picture_url` | `string` | No | No | URL of the profile image. An empty value is returned if the Business Center doesn't have a profile image. |
+
+## CatalogGetResponseListCatalogConf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | The region code of the primary targeting region. To find out the corresponding region for a region code, refer to [Appendix - Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `US`. |
+| `currency` | `currency` | `string` | No | No | Currency for the primary targeting region. For supported currencies, see the Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). Example: `USD`. |
+| `channel` | `channel` | `"PARTNER" \| "CLIENT"` | No | No | Channel for creating the catalog. Enum values:`PARTNER`: Partners.`CLIENT`: Direct advertisers. |
+| `additional_config_list` | `additional_config_list` | `Array<CatalogGetResponseListCatalogConfAdditionalConfigList>` | No | No | Returned only when `catalog_type` is `MINI_SERIES`. Details of additional targeting regions. |
+
+## CatalogGetResponseListCatalogConfAdditionalConfigList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | No | No | The region code of the additional targeting region. To find out the corresponding region for a region code, refer to [Appendix - Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `GB`. |
+| `currency` | `currency` | `string` | No | No | Currency for the additional targeting region. For supported currencies, see the Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). Example: `GBP`. |
+
+## CatalogGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CatalogInsightCategoryGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filtering` | `filtering` | `CatalogInsightCategoryGetParamsFiltering` | No | No | Filtering conditions. |
+
+## CatalogInsightCategoryGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_ids` | `category_ids` | `Array<string>` | No | No | When `filtering` is specified, this field is required. A list of product category IDs to filter the results by. Max size: 50. To get filtered insights, call `/catalog/insight/filter/get/` first to obtain the top 50 trending product categories on TikTok. Then, select the desired category IDs from the `category_id` field in the response and pass them to this field. |
+
+## CatalogInsightCategoryGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_insights` | `category_insights` | `Array<CatalogInsightCategoryGetResponseCategoryInsights>` | No | No | The list of the top 50 trending product categories on TikTok, sorted in descending order by popularity. For instance, the first item in the list is ranked 1st, indicating the most popular product category, and the second item is ranked 2nd, indicating the second most popular product category. |
+
+## CatalogInsightCategoryGetResponseCategoryInsights
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | The TikTok product category ID assigned to the product, consisting of three levels separated by the number sign (#), in the format of `"level_id_1#level_id_2#level_id_3"`. Example: `601152#842248#601302`. |
+| `level_info` | `level_info` | `CatalogInsightCategoryGetResponseCategoryInsightsLevelInfo` | No | No | Details of the levels that the category belongs to. |
+| `total_product_count` | `total_product_count` | `number` | No | No | The number of products in the catalog (`catalog_id`) that match the product category (`category_id`). |
+| `product_availability_rate` | `product_availability_rate` | `number` | No | No | The total percentage of matching products in this category that are currently in stock in the catalog. If the value is too low, you can use [/catalog/product/update/](https://business-api.tiktok.com/portal/docs?id=1740562287852546) to update the `availability` of the relevant products to `IN_STOCK`. |
+
+## CatalogInsightCategoryGetResponseCategoryInsightsLevelInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `level_id_1` | `level_id_1` | `string` | No | No | The ID of the level-1 TikTok product category. |
+| `level_name_1` | `level_name_1` | `string` | No | No | The name of the level-1 TikTok product category. |
+| `level_id_2` | `level_id_2` | `string` | No | No | The ID of the level-2 TikTok product category. |
+| `level_name_3` | `level_name_3` | `string` | No | No | The name of the level-2 TikTok product category. |
+| `level_id_3` | `level_id_3` | `string` | No | No | The ID of the level-3 TikTok product category. |
+
+## CatalogInsightFilterGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filter_type` | `filter_type` | `"CATEGORY_ID" \| "BRAND" \| "AVAILABILITY"` | Yes | No | The type of filter options. Enum values: `CATEGORY_ID`: Product category ID. `BRAND`: Product brand name. `AVAILABILITY`: Product availability status. |
+| `page` | `page` | `number` | No | No | Current page number. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default value: 10. Value range: 1-200. Note: The `page` and `page_size` parameters are provided to allow you to retrieve paginated results in smaller batches, if needed. However, note that this endpoint does not include pagination information in the response. If you don't want to retrieve paginated results, set `page_size` to 50 to obtain the complete set of results in a single response. |
+
+## CatalogInsightFilterGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brands` | `brands` | `Array<string>` | No | No | Returned only when `filter_type` is set to `BRAND` in the request. The brand names by which you can filter products within the catalog. |
+| `availabilities` | `availabilities` | `Array<string>` | No | No | Returned only when `filter_type` is set to `AVAILABILITY` in the request. The availability statuses by which you can filter products within the catalog. |
+| `categories` | `categories` | `Array<CatalogInsightFilterGetResponseCategories>` | No | No | Returned only when `filter_type` is set to `CATEGORY_ID` in the request. Information about the categories by which you can filter products within the catalog. |
+
+## CatalogInsightFilterGetResponseCategories
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | The TikTok product category ID assigned to the product, consisting of three levels separated by the number sign (#), in the format of `"level_id_1#level_id_2#level_id_3"`. Example: `601152#842248#601302`. |
+| `level_info` | `level_info` | `CatalogInsightFilterGetResponseCategoriesLevelInfo` | No | No | Details of the levels that the category belongs to. |
+
+## CatalogInsightFilterGetResponseCategoriesLevelInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `level_id_1` | `level_id_1` | `string` | No | No | The ID of the level-1 TikTok product category. |
+| `level_name_1` | `level_name_1` | `string` | No | No | The name of the level-1 TikTok product category. |
+| `level_id_2` | `level_id_2` | `string` | No | No | The ID of the level-2 TikTok product category. |
+| `level_name_2` | `level_name_2` | `string` | No | No | The name of the level-2 TikTok product category. |
+| `level_id_3` | `level_id_3` | `string` | No | No | The ID of the level-3 TikTok product category. |
+| `level_name_3` | `level_name_3` | `string` | No | No | The name of the level-3 TikTok product category. |
+
+## CatalogInsightProductGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. The catalog needs to be an E-commerce catalog that contains at least 20 products. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. To verify that the catalog contains at least 20 products, use [/catalog/overview/](https://business-api.tiktok.com/portal/docs?id=1740492470201345) and check whether the sum of the values of the returned `approved`, `rejected`, and `processing` fields is equal to or greater than 20. |
+| `filtering` | `filtering` | `CatalogInsightProductGetParamsFiltering` | No | No | Filtering conditions. |
+
+## CatalogInsightProductGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_ids` | `category_ids` | `Array<string>` | No | No | When `filtering` is specified, you need to provide at least one of `category_ids`, `brands`, and `availabilities`. A list of TikTok product category IDs to filter the results by. Max size: 50. Provide one or more category IDs obtained from the `category_id` field in the response of [/catalog/insight/filter/get/](https://business-api.tiktok.com/portal/docs?id=1805640864553985). |
+| `brands` | `brands` | `Array<string>` | No | No | When `filtering` is specified, you need to provide at least one of `category_ids`, `brands`, and `availabilities`. A list of product brand names to filter the results by. Max size: 50. Provide one or more brand names obtained from the `brands` field in the response of [/catalog/insight/filter/get/](https://business-api.tiktok.com/portal/docs?id=1805640864553985). |
+| `availabilities` | `availabilities` | `Array<"IN_STOCK" \| "AVAILABLE_FOR_ORDER" \| "PREORDER" \| "OUT_OF_STOCK" \| "DISCONTINUED">` | No | No | When `filtering` is specified, you need to provide at least one of `category_ids`, `brands`, and `availabilities`. Product availability statuses to filter the results by. Enum values: `IN_STOCK`: in stock. `AVAILABLE_FOR_ORDER`: available for order.`PREORDER`: available for pre-order.`OUT_OF_STOCK`: out of stock.`DISCONTINUED`: discontinued. Provide one or more availability statuses obtained from the `availabilities` field in the response of [/catalog/insight/filter/get/](https://business-api.tiktok.com/portal/docs?id=1805640864553985). |
+
+## CatalogInsightProductGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_insights` | `product_insights` | `Array<CatalogInsightProductGetResponseProductInsights>` | No | No | The list of up to 50 trending products within the E-commerce catalog, sorted in descending order by popularity. For instance, the first item in the list is ranked 1st, indicating the most popular product, and the second item is ranked 2nd, indicating the second most popular product. |
+
+## CatalogInsightProductGetResponseProductInsights
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_id` | `product_id` | `string` | No | No | The system-generated product ID. |
+| `image_url` | `image_url` | `string` | No | No | The URL for the product image. |
+| `title` | `title` | `string` | No | No | The title of the product. |
+| `description` | `description` | `string` | No | No | A short description of the product. |
+| `sku_id` | `sku_id` | `string` | No | No | Advertiser-defined unique SKU ID for the Product. |
+| `category_info` | `category_info` | `CatalogInsightProductGetResponseProductInsightsCategoryInfo` | No | No | Information about the TikTok product category assigned to the product. |
+| `brand` | `brand` | `string` | No | No | Brand name for the product. |
+| `price` | `price` | `CatalogInsightProductGetResponseProductInsightsPrice` | No | No | Price information. |
+| `availability` | `availability` | `"IN_STOCK" \| "AVAILABLE_FOR_ORDER" \| "PREORDER" \| "OUT_OF_STOCK" \| "DISCONTINUED"` | No | No | The current availability of the product in your store. Enum values: `IN_STOCK`: in stock. `AVAILABLE_FOR_ORDER`: available for order.`PREORDER`: available for pre-order.`OUT_OF_STOCK`: out of stock.`DISCONTINUED`: discontinued. |
+
+## CatalogInsightProductGetResponseProductInsightsCategoryInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `string` | No | No | The TikTok product category ID assigned to the product, consisting of three levels separated by the number sign (#), in the format of `"level_id_1#level_id_2#level_id_3"`. Example: `601152#842248#601302`. |
+| `level_info` | `level_info` | `CatalogInsightProductGetResponseProductInsightsCategoryInfoLevelInfo` | No | No | Details of the levels that the category belongs to. |
+
+## CatalogInsightProductGetResponseProductInsightsCategoryInfoLevelInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `level_id_1` | `level_id_1` | `string` | No | No | The ID of the level-1 TikTok product category. |
+| `level_name_1` | `level_name_1` | `string` | No | No | The name of the level-1 TikTok product category. |
+| `level_id_2` | `level_id_2` | `string` | No | No | The ID of the level-2 TikTok product category. |
+| `level_name_2` | `level_name_2` | `string` | No | No | The name of the level-2 TikTok product category. |
+| `level_id_3` | `level_id_3` | `string` | No | No | The ID of the level-3 TikTok product category. |
+| `level_name_3` | `level_name_3` | `string` | No | No | The name of the level-3 TikTok product category. |
+
+## CatalogInsightProductGetResponseProductInsightsPrice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `price` | `price` | `number` | No | No | The base price of the product. |
+| `currency` | `currency` | `string` | No | No | Unit of currency. If this field is not specified, the unit of currency for the catalog's target country will be used by default. |
+| `sale_price` | `sale_price` | `number` | No | No | The discounted price of the product if it's on sale. |
+| `sale_price_effective_date` | `sale_price_effective_date` | `Array<string>` | No | No | The start and end date and time of sale. |
+
+## CatalogLexiconGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |

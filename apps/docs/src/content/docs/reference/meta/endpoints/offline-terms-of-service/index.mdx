@@ -1,0 +1,46 @@
+---
+title: "Meta Offline Terms Of Service endpoints"
+description: "1 generated Meta endpoint contract for Offline Terms Of Service."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 308
+  label: "Offline Terms Of Service"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.offlineTermsOfService.get
+
+`GET` `/{id}`
+
+GET OfflineTermsOfService
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `offlineTermsOfService.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `OfflineTermsOfServiceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

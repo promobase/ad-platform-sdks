@@ -1,0 +1,353 @@
+---
+title: "Meta Album endpoints"
+description: "8 generated Meta endpoint contracts for Album."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 162
+  label: "Album"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.album.comments
+
+`GET` `/{id}/comments`
+
+GET Album comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `album.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `filter` | `query` | `unknown` | No | No | — |
+| `live_filter` | `query` | `unknown` | No | No | — |
+| `order` | `query` | `unknown` | No | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.comments2
+
+`POST` `/{id}/comments`
+
+POST Album comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `album.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `attachment_id` | `body` | `string` | No | No | — |
+| `attachment_share_url` | `body` | `string` | No | No | — |
+| `attachment_url` | `body` | `string` | No | No | — |
+| `comment_privacy_value` | `body` | `unknown` | No | No | — |
+| `facepile_mentioned_ids` | `body` | `Array<string>` | No | No | — |
+| `feedback_source` | `body` | `string` | No | No | — |
+| `is_offline` | `body` | `boolean` | No | No | — |
+| `message` | `body` | `string` | No | No | — |
+| `nectar_module` | `body` | `string` | No | No | — |
+| `object_id` | `body` | `string` | No | No | — |
+| `parent_comment_id` | `body` | `Record<string, unknown>` | No | No | — |
+| `text` | `body` | `string` | No | No | — |
+| `tracking` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.get
+
+`GET` `/{id}`
+
+GET Album
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `album.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AlbumFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.likes
+
+`GET` `/{id}/likes`
+
+GET Album likes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `album.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProfileFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.likes2
+
+`POST` `/{id}/likes`
+
+POST Album likes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `album.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AlbumFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `attribution_id_v2` | `body` | `string` | No | No | — |
+| `feedback_source` | `body` | `string` | No | No | — |
+| `nectar_module` | `body` | `string` | No | No | — |
+| `notify` | `body` | `boolean` | No | No | — |
+| `tracking` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.photos
+
+`GET` `/{id}/photos`
+
+GET Album photos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `album.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PhotoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.photos2
+
+`POST` `/{id}/photos`
+
+POST Album photos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `album.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PhotoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `aid` | `body` | `string` | No | No | — |
+| `allow_spherical_photo` | `body` | `boolean` | No | No | — |
+| `alt_text_custom` | `body` | `string` | No | No | — |
+| `android_key_hash` | `body` | `string` | No | No | — |
+| `application_id` | `body` | `string` | No | No | — |
+| `attempt` | `body` | `integer` | No | No | — |
+| `audience_exp` | `body` | `boolean` | No | No | — |
+| `backdated_time` | `body` | `string<date-time>` | No | No | — |
+| `backdated_time_granularity` | `body` | `unknown` | No | No | — |
+| `caption` | `body` | `string` | No | No | — |
+| `composer_session_id` | `body` | `string` | No | No | — |
+| `direct_share_status` | `body` | `integer` | No | No | — |
+| `feed_targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `filter_type` | `body` | `integer` | No | No | — |
+| `full_res_is_coming_later` | `body` | `boolean` | No | No | — |
+| `initial_view_heading_override_degrees` | `body` | `integer` | No | No | — |
+| `initial_view_pitch_override_degrees` | `body` | `integer` | No | No | — |
+| `initial_view_vertical_fov_override_degrees` | `body` | `integer` | No | No | — |
+| `ios_bundle_id` | `body` | `string` | No | No | — |
+| `is_explicit_location` | `body` | `boolean` | No | No | — |
+| `is_explicit_place` | `body` | `boolean` | No | No | — |
+| `manual_privacy` | `body` | `boolean` | No | No | — |
+| `message` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `no_story` | `body` | `boolean` | No | No | — |
+| `offline_id` | `body` | `integer` | No | No | — |
+| `og_action_type_id` | `body` | `string` | No | No | — |
+| `og_icon_id` | `body` | `string` | No | No | — |
+| `og_object_id` | `body` | `string` | No | No | — |
+| `og_phrase` | `body` | `string` | No | No | — |
+| `og_set_profile_badge` | `body` | `boolean` | No | No | — |
+| `og_suggestion_mechanism` | `body` | `string` | No | No | — |
+| `place` | `body` | `Record<string, unknown>` | No | No | — |
+| `privacy` | `body` | `string` | No | No | — |
+| `profile_id` | `body` | `integer` | No | No | — |
+| `provenance_info` | `body` | `Record<string, unknown>` | No | No | — |
+| `provenance_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `proxied_app_id` | `body` | `string` | No | No | — |
+| `published` | `body` | `boolean` | No | No | — |
+| `qn` | `body` | `string` | No | No | — |
+| `spherical_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `sponsor_id` | `body` | `string` | No | No | — |
+| `sponsor_relationship` | `body` | `integer` | No | No | — |
+| `tags` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `target_id` | `body` | `integer` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `time_since_original_post` | `body` | `integer` | No | No | — |
+| `uid` | `body` | `integer` | No | No | — |
+| `unpublished_content_type` | `body` | `unknown` | No | No | — |
+| `url` | `body` | `string` | No | No | — |
+| `user_selected_tags` | `body` | `boolean` | No | No | — |
+| `vault_image_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.album.picture
+
+`GET` `/{id}/picture`
+
+GET Album picture
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `album.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProfilePictureSourceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `redirect` | `query` | `boolean` | No | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,766 @@
+---
+title: "Meta SDK reference"
+description: "Generated reference for 1451 Meta endpoints and 1488 models."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 10
+  label: "Meta"
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/meta
+```
+
+```ts
+import { createEffectClient } from "@openpromo/meta/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Meta |
+| API version | `graph` |
+| Source | `vendor-json: packages/meta-business-sdk/api_specs` |
+| Endpoints | 1451 |
+| Models | 1488 |
+| Capabilities | 395 |
+
+## Endpoints
+
+- [Ad](/reference/meta/endpoints/ad)
+- [Ad Account: Account Controls – Impacting Ad Studies](/reference/meta/endpoints/ad-account-account-controls-to-impacting-ad-studies)
+- [Ad Account: Insights – Video Ads2](/reference/meta/endpoints/ad-account-insights-to-video-ads2)
+- [Ad Account Account Controls](/reference/meta/endpoints/ad-account-account-controls)
+- [Ad Account Agency Fee Config](/reference/meta/endpoints/ad-account-agency-fee-config)
+- [Ad Account Creation Request](/reference/meta/endpoints/ad-account-creation-request)
+- [Ad Account Feature Preferences](/reference/meta/endpoints/ad-account-feature-preferences)
+- [Ad Account User Settings](/reference/meta/endpoints/ad-account-user-settings)
+- [Ad Async Request](/reference/meta/endpoints/ad-async-request)
+- [Ad Async Request Set](/reference/meta/endpoints/ad-async-request-set)
+- [Ad Campaign](/reference/meta/endpoints/ad-campaign)
+- [Ad Campaign Budget Schedules](/reference/meta/endpoints/ad-campaign-budget-schedules)
+- [Ad Campaign Group](/reference/meta/endpoints/ad-campaign-group)
+- [Ad Campaign Group Budget Schedules](/reference/meta/endpoints/ad-campaign-group-budget-schedules)
+- [Ad Campaign Placement](/reference/meta/endpoints/ad-campaign-placement)
+- [Ad Column Sizes](/reference/meta/endpoints/ad-column-sizes)
+- [Ad Creation Package Config](/reference/meta/endpoints/ad-creation-package-config)
+- [Ad Creative](/reference/meta/endpoints/ad-creative)
+- [Ad Custom Derived Metrics](/reference/meta/endpoints/ad-custom-derived-metrics)
+- [Ad Draft](/reference/meta/endpoints/ad-draft)
+- [Ad Export Preset](/reference/meta/endpoints/ad-export-preset)
+- [Ad Image](/reference/meta/endpoints/ad-image)
+- [Ad Label](/reference/meta/endpoints/ad-label)
+- [Ad Light Ad group](/reference/meta/endpoints/ad-light-adgroup)
+- [Ad Light Campaign](/reference/meta/endpoints/ad-light-campaign)
+- [Ad Light Campaign Group](/reference/meta/endpoints/ad-light-campaign-group)
+- [Ad Monetization Property](/reference/meta/endpoints/ad-monetization-property)
+- [Ad Place Page Set](/reference/meta/endpoints/ad-place-page-set)
+- [Ad Placement](/reference/meta/endpoints/ad-placement)
+- [Ad Proposal](/reference/meta/endpoints/ad-proposal)
+- [Ad Report Run](/reference/meta/endpoints/ad-report-run)
+- [Ad Rule](/reference/meta/endpoints/ad-rule)
+- [Ad Rule Evaluation Spec](/reference/meta/endpoints/ad-rule-evaluation-spec)
+- [Ad Rule Execution Spec](/reference/meta/endpoints/ad-rule-execution-spec)
+- [Ad Saved Keywords](/reference/meta/endpoints/ad-saved-keywords)
+- [Ad Saved Location](/reference/meta/endpoints/ad-saved-location)
+- [Ad Saved Report](/reference/meta/endpoints/ad-saved-report)
+- [Ad Set](/reference/meta/endpoints/ad-set)
+- [Ad Study](/reference/meta/endpoints/ad-study)
+- [Ad Study Cell](/reference/meta/endpoints/ad-study-cell)
+- [Ad Study Objective](/reference/meta/endpoints/ad-study-objective)
+- [Ad Topline](/reference/meta/endpoints/ad-topline)
+- [Ad Topline Detail](/reference/meta/endpoints/ad-topline-detail)
+- [Ad Video](/reference/meta/endpoints/ad-video)
+- [Ad group](/reference/meta/endpoints/adgroup)
+- [Ad group Facebook Feedback](/reference/meta/endpoints/adgroup-facebook-feedback)
+- [Ads Conversion Goal](/reference/meta/endpoints/ads-conversion-goal)
+- [Ads Creation Saved State](/reference/meta/endpoints/ads-creation-saved-state)
+- [Ads Mcme Conversion](/reference/meta/endpoints/ads-mcme-conversion)
+- [Ads Naming Template](/reference/meta/endpoints/ads-naming-template)
+- [Ads Pivot Rules](/reference/meta/endpoints/ads-pivot-rules)
+- [Ads Pixel](/reference/meta/endpoints/ads-pixel)
+- [Ads Pixel Capability Override](/reference/meta/endpoints/ads-pixel-capability-override)
+- [Ads Quick Views](/reference/meta/endpoints/ads-quick-views)
+- [Ads Report Builder Export Core](/reference/meta/endpoints/ads-report-builder-export-core)
+- [Ads Report Builder MMM Report](/reference/meta/endpoints/ads-report-builder-mmm-report)
+- [Ads Report Builder MMM Report Scheduler](/reference/meta/endpoints/ads-report-builder-mmm-report-scheduler)
+- [Ads Report Builder Saved Report](/reference/meta/endpoints/ads-report-builder-saved-report)
+- [Ads Start Your Day Widget](/reference/meta/endpoints/ads-start-your-day-widget)
+- [Ads User Settings](/reference/meta/endpoints/ads-user-settings)
+- [Ads Value Adjustment Rule Collection](/reference/meta/endpoints/ads-value-adjustment-rule-collection)
+- [Adv A Instance](/reference/meta/endpoints/adv-a-instance)
+- [Album](/reference/meta/endpoints/album)
+- [ALM Ad Account Info](/reference/meta/endpoints/alm-ad-account-info)
+- [ALM End Advertiser Info](/reference/meta/endpoints/alm-end-advertiser-info)
+- [ALM Event](/reference/meta/endpoints/alm-event)
+- [Analytics Segment](/reference/meta/endpoints/analytics-segment)
+- [Analytics User Config](/reference/meta/endpoints/analytics-user-config)
+- [App Event Config](/reference/meta/endpoints/app-event-config)
+- [App Links](/reference/meta/endpoints/app-links)
+- [App Request](/reference/meta/endpoints/app-request)
+- [Application](/reference/meta/endpoints/application)
+- [Ar Ads Data Container](/reference/meta/endpoints/ar-ads-data-container)
+- [AR Effect](/reference/meta/endpoints/ar-effect)
+- [Audio Asset](/reference/meta/endpoints/audio-asset)
+- [Audio Copyright](/reference/meta/endpoints/audio-copyright)
+- [Audio Isrc](/reference/meta/endpoints/audio-isrc)
+- [Audio Sub Label](/reference/meta/endpoints/audio-sub-label)
+- [Automotive Model](/reference/meta/endpoints/automotive-model)
+- [Avatar](/reference/meta/endpoints/avatar)
+- [BCP Campaign](/reference/meta/endpoints/bcp-campaign)
+- [Bid Schedule](/reference/meta/endpoints/bid-schedule)
+- [Blind Pig](/reference/meta/endpoints/blind-pig)
+- [Brand Request](/reference/meta/endpoints/brand-request)
+- [Brand Safety Downloadable](/reference/meta/endpoints/brand-safety-downloadable)
+- [Business: Access Token – Owned Businesses](/reference/meta/endpoints/business-access-token-to-owned-businesses)
+- [Business: Owned Businesses2 – Videos](/reference/meta/endpoints/business-owned-businesses2-to-videos)
+- [Business Agreement](/reference/meta/endpoints/business-agreement)
+- [Business Asset Group](/reference/meta/endpoints/business-asset-group)
+- [Business Asset Sharing Agreement](/reference/meta/endpoints/business-asset-sharing-agreement)
+- [Business Creative Folder](/reference/meta/endpoints/business-creative-folder)
+- [Business Franchise Config](/reference/meta/endpoints/business-franchise-config)
+- [Business Image](/reference/meta/endpoints/business-image)
+- [Business Object Transfer Ownership Agreement](/reference/meta/endpoints/business-object-transfer-ownership-agreement)
+- [Business Owned Object On Behalf Of Request](/reference/meta/endpoints/business-owned-object-on-behalf-of-request)
+- [Business Project](/reference/meta/endpoints/business-project)
+- [Business Request](/reference/meta/endpoints/business-request)
+- [Business Role Request](/reference/meta/endpoints/business-role-request)
+- [Business Tag](/reference/meta/endpoints/business-tag)
+- [Business User](/reference/meta/endpoints/business-user)
+- [Business Video](/reference/meta/endpoints/business-video)
+- [Calibrator Existing Rule](/reference/meta/endpoints/calibrator-existing-rule)
+- [Call Ads Phone Data](/reference/meta/endpoints/call-ads-phone-data)
+- [Campaign](/reference/meta/endpoints/campaign)
+- [Canvas](/reference/meta/endpoints/canvas)
+- [Canvas Dynamic Setting](/reference/meta/endpoints/canvas-dynamic-setting)
+- [Canvas Template](/reference/meta/endpoints/canvas-template)
+- [Catalog Content Version Config](/reference/meta/endpoints/catalog-content-version-config)
+- [Catalog Item Override](/reference/meta/endpoints/catalog-item-override)
+- [Catalog Smart Pixel Settings](/reference/meta/endpoints/catalog-smart-pixel-settings)
+- [Catalog Website Onboarding Settings](/reference/meta/endpoints/catalog-website-onboarding-settings)
+- [Catalog Website Settings](/reference/meta/endpoints/catalog-website-settings)
+- [China Business Onboarding Vetting Request](/reference/meta/endpoints/china-business-onboarding-vetting-request)
+- [Cloud Game](/reference/meta/endpoints/cloud-game)
+- [Collaborative Ads Share Settings](/reference/meta/endpoints/collaborative-ads-share-settings)
+- [Comment](/reference/meta/endpoints/comment)
+- [Commerce Merchant Settings](/reference/meta/endpoints/commerce-merchant-settings)
+- [Commerce Order](/reference/meta/endpoints/commerce-order)
+- [Content Block List](/reference/meta/endpoints/content-block-list)
+- [Copyright Media Misuse](/reference/meta/endpoints/copyright-media-misuse)
+- [Copyright Ownership Transfer](/reference/meta/endpoints/copyright-ownership-transfer)
+- [CPAS Ad Creation Template](/reference/meta/endpoints/cpas-ad-creation-template)
+- [CPAS Advertiser Partnership Recommendation](/reference/meta/endpoints/cpas-advertiser-partnership-recommendation)
+- [CPAS Business Setup Config](/reference/meta/endpoints/cpas-business-setup-config)
+- [CPAS Collaboration Request](/reference/meta/endpoints/cpas-collaboration-request)
+- [CPAS Lsb Image Bank](/reference/meta/endpoints/cpas-lsb-image-bank)
+- [CPAS Merchant Config](/reference/meta/endpoints/cpas-merchant-config)
+- [CPAS Parent Catalog Settings](/reference/meta/endpoints/cpas-parent-catalog-settings)
+- [Creator Asset Creative](/reference/meta/endpoints/creator-asset-creative)
+- [Credit Card](/reference/meta/endpoints/credit-card)
+- [CRM Address](/reference/meta/endpoints/crm-address)
+- [CTX Partner App Welcome Message Flow](/reference/meta/endpoints/ctx-partner-app-welcome-message-flow)
+- [Custom Audience](/reference/meta/endpoints/custom-audience)
+- [Custom Conversion](/reference/meta/endpoints/custom-conversion)
+- [Destination](/reference/meta/endpoints/destination)
+- [Dynamic AR Metadata](/reference/meta/endpoints/dynamic-ar-metadata)
+- [Dynamic Item Display Bundle](/reference/meta/endpoints/dynamic-item-display-bundle)
+- [Dynamic Item Display Bundle Folder](/reference/meta/endpoints/dynamic-item-display-bundle-folder)
+- [Dynamic Price Config By Date](/reference/meta/endpoints/dynamic-price-config-by-date)
+- [Dynamic Video Metadata](/reference/meta/endpoints/dynamic-video-metadata)
+- [Education Experience](/reference/meta/endpoints/education-experience)
+- [Event](/reference/meta/endpoints/event)
+- [Event External Ticket Info](/reference/meta/endpoints/event-external-ticket-info)
+- [Event Registration Setting](/reference/meta/endpoints/event-registration-setting)
+- [Event Source Group](/reference/meta/endpoints/event-source-group)
+- [Event Ticket Setting](/reference/meta/endpoints/event-ticket-setting)
+- [Event Ticket Tier](/reference/meta/endpoints/event-ticket-tier)
+- [Extended Credit](/reference/meta/endpoints/extended-credit)
+- [Extended Credit Allocation Config](/reference/meta/endpoints/extended-credit-allocation-config)
+- [Extended Credit Application](/reference/meta/endpoints/extended-credit-application)
+- [Extended Credit Invoice Group](/reference/meta/endpoints/extended-credit-invoice-group)
+- [External Merchant Settings](/reference/meta/endpoints/external-merchant-settings)
+- [FAME Kumo](/reference/meta/endpoints/fame-kumo)
+- [Fantasy Game](/reference/meta/endpoints/fantasy-game)
+- [FB Image Copyright Match](/reference/meta/endpoints/fb-image-copyright-match)
+- [Flight](/reference/meta/endpoints/flight)
+- [Franchise Program](/reference/meta/endpoints/franchise-program)
+- [Franchise Program Member](/reference/meta/endpoints/franchise-program-member)
+- [Fundraiser Person To Charity](/reference/meta/endpoints/fundraiser-person-to-charity)
+- [Geo Gating Policy](/reference/meta/endpoints/geo-gating-policy)
+- [Group](/reference/meta/endpoints/group)
+- [High Demand Period](/reference/meta/endpoints/high-demand-period)
+- [Home Listing](/reference/meta/endpoints/home-listing)
+- [Hotel](/reference/meta/endpoints/hotel)
+- [Hotel Room](/reference/meta/endpoints/hotel-room)
+- [Hours](/reference/meta/endpoints/hours)
+- [IG Access Token For IG Only API](/reference/meta/endpoints/ig-access-token-for-ig-only-api)
+- [IG Boost Media Ad](/reference/meta/endpoints/ig-boost-media-ad)
+- [IG Comment](/reference/meta/endpoints/ig-comment)
+- [IG Media](/reference/meta/endpoints/ig-media)
+- [IG Media Boost Eligibility Info](/reference/meta/endpoints/ig-media-boost-eligibility-info)
+- [IG Media For IG Only API](/reference/meta/endpoints/ig-media-for-ig-only-api)
+- [IG Refresh Access Token For IG Only API](/reference/meta/endpoints/ig-refresh-access-token-for-ig-only-api)
+- [IG Upcoming Event](/reference/meta/endpoints/ig-upcoming-event)
+- [IG User](/reference/meta/endpoints/ig-user)
+- [IG User Export For CAM](/reference/meta/endpoints/ig-user-export-for-cam)
+- [IG User For IG Only API](/reference/meta/endpoints/ig-user-for-ig-only-api)
+- [IGBC Ads Permission](/reference/meta/endpoints/igbc-ads-permission)
+- [Image Copyright](/reference/meta/endpoints/image-copyright)
+- [Image Copyright Dispute](/reference/meta/endpoints/image-copyright-dispute)
+- [Image Reference Match](/reference/meta/endpoints/image-reference-match)
+- [Instagram Business Asset](/reference/meta/endpoints/instagram-business-asset)
+- [Instagram User](/reference/meta/endpoints/instagram-user)
+- [Job Opening](/reference/meta/endpoints/job-opening)
+- [Lead](/reference/meta/endpoints/lead)
+- [Lead Gen Data Draft](/reference/meta/endpoints/lead-gen-data-draft)
+- [Lead Gen Direct CRM Integration Config](/reference/meta/endpoints/lead-gen-direct-crm-integration-config)
+- [Leadgen Form](/reference/meta/endpoints/leadgen-form)
+- [Life Event](/reference/meta/endpoints/life-event)
+- [Link](/reference/meta/endpoints/link)
+- [Live Video](/reference/meta/endpoints/live-video)
+- [Live Video Ad Campaign Config](/reference/meta/endpoints/live-video-ad-campaign-config)
+- [Live Video Error](/reference/meta/endpoints/live-video-error)
+- [Live Video Input Stream](/reference/meta/endpoints/live-video-input-stream)
+- [Local Service Business](/reference/meta/endpoints/local-service-business)
+- [Mailing Address](/reference/meta/endpoints/mailing-address)
+- [Management Site Link](/reference/meta/endpoints/management-site-link)
+- [Measurement Report](/reference/meta/endpoints/measurement-report)
+- [Media Copyright Attribution](/reference/meta/endpoints/media-copyright-attribution)
+- [Media Copyright Update Record](/reference/meta/endpoints/media-copyright-update-record)
+- [Media Fingerprint](/reference/meta/endpoints/media-fingerprint)
+- [Messenger Ads Partial Automated Step List](/reference/meta/endpoints/messenger-ads-partial-automated-step-list)
+- [Messenger Business Template](/reference/meta/endpoints/messenger-business-template)
+- [Music Video Copyright](/reference/meta/endpoints/music-video-copyright)
+- [Music Work Copyright](/reference/meta/endpoints/music-work-copyright)
+- [Offline Conversion Data Set](/reference/meta/endpoints/offline-conversion-data-set)
+- [Offline Conversion Data Set Upload](/reference/meta/endpoints/offline-conversion-data-set-upload)
+- [Offline Product Item](/reference/meta/endpoints/offline-product-item)
+- [Offline Terms Of Service](/reference/meta/endpoints/offline-terms-of-service)
+- [Offsite Pixel](/reference/meta/endpoints/offsite-pixel)
+- [Offsite Signal Container Business Object](/reference/meta/endpoints/offsite-signal-container-business-object)
+- [Omega Customer Trx](/reference/meta/endpoints/omega-customer-trx)
+- [Open Bridge Configuration](/reference/meta/endpoints/open-bridge-configuration)
+- [Open Graph Context](/reference/meta/endpoints/open-graph-context)
+- [Organization](/reference/meta/endpoints/organization)
+- [Owned Domain](/reference/meta/endpoints/owned-domain)
+- [Page: Ab Tests – Messenger Profile2](/reference/meta/endpoints/page-ab-tests-to-messenger-profile2)
+- [Page: Messenger Profile3 – Welcome Message Flows3](/reference/meta/endpoints/page-messenger-profile3-to-welcome-message-flows3)
+- [Page Call To Action](/reference/meta/endpoints/page-call-to-action)
+- [Page Insights Async Export Run](/reference/meta/endpoints/page-insights-async-export-run)
+- [Page Leads Access Config](/reference/meta/endpoints/page-leads-access-config)
+- [Page Post](/reference/meta/endpoints/page-post)
+- [Page Post Experiment](/reference/meta/endpoints/page-post-experiment)
+- [Page Upcoming Change](/reference/meta/endpoints/page-upcoming-change)
+- [Page User Message Thread Label](/reference/meta/endpoints/page-user-message-thread-label)
+- [Partner Account Linking](/reference/meta/endpoints/partner-account-linking)
+- [Partner Center Export File](/reference/meta/endpoints/partner-center-export-file)
+- [Partner Integration Linked](/reference/meta/endpoints/partner-integration-linked)
+- [Partner Study](/reference/meta/endpoints/partner-study)
+- [Payment Engine Payment](/reference/meta/endpoints/payment-engine-payment)
+- [Payment Subscription](/reference/meta/endpoints/payment-subscription)
+- [Persona](/reference/meta/endpoints/persona)
+- [Personal Ads Persona](/reference/meta/endpoints/personal-ads-persona)
+- [Photo](/reference/meta/endpoints/photo)
+- [Place](/reference/meta/endpoints/place)
+- [Place Tag](/reference/meta/endpoints/place-tag)
+- [Place Topic](/reference/meta/endpoints/place-topic)
+- [Playable Content](/reference/meta/endpoints/playable-content)
+- [Post](/reference/meta/endpoints/post)
+- [Private Lift Study Instance](/reference/meta/endpoints/private-lift-study-instance)
+- [Product Catalog](/reference/meta/endpoints/product-catalog)
+- [Product Catalog Check Batch Request Status](/reference/meta/endpoints/product-catalog-check-batch-request-status)
+- [Product Catalog Data Sources](/reference/meta/endpoints/product-catalog-data-sources)
+- [Product Catalog Localization Settings](/reference/meta/endpoints/product-catalog-localization-settings)
+- [Product Delivery Preference](/reference/meta/endpoints/product-delivery-preference)
+- [Product Feed](/reference/meta/endpoints/product-feed)
+- [Product Feed Rule](/reference/meta/endpoints/product-feed-rule)
+- [Product Feed Rules](/reference/meta/endpoints/product-feed-rules)
+- [Product Feed Schedule](/reference/meta/endpoints/product-feed-schedule)
+- [Product Feed Upload](/reference/meta/endpoints/product-feed-upload)
+- [Product Feed Upload Error](/reference/meta/endpoints/product-feed-upload-error)
+- [Product Feed Upload Error Sample](/reference/meta/endpoints/product-feed-upload-error-sample)
+- [Product Group](/reference/meta/endpoints/product-group)
+- [Product Image](/reference/meta/endpoints/product-image)
+- [Product Item](/reference/meta/endpoints/product-item)
+- [Product Item Local Info](/reference/meta/endpoints/product-item-local-info)
+- [Product Item Offer](/reference/meta/endpoints/product-item-offer)
+- [Product Set](/reference/meta/endpoints/product-set)
+- [Profile](/reference/meta/endpoints/profile)
+- [Publisher Block List](/reference/meta/endpoints/publisher-block-list)
+- [Reach Frequency Prediction](/reference/meta/endpoints/reach-frequency-prediction)
+- [Research Poll Study](/reference/meta/endpoints/research-poll-study)
+- [Rights Manager Data Export](/reference/meta/endpoints/rights-manager-data-export)
+- [Robot](/reference/meta/endpoints/robot)
+- [RTB Dynamic Post](/reference/meta/endpoints/rtb-dynamic-post)
+- [Saved Audience](/reference/meta/endpoints/saved-audience)
+- [Saved Message Response](/reference/meta/endpoints/saved-message-response)
+- [Shadow IG Hashtag](/reference/meta/endpoints/shadow-ig-hashtag)
+- [Shadow IG Media Builder](/reference/meta/endpoints/shadow-ig-media-builder)
+- [Shadow IG Scheduled Media](/reference/meta/endpoints/shadow-ig-scheduled-media)
+- [Shop](/reference/meta/endpoints/shop)
+- [Signals IWL Extractor](/reference/meta/endpoints/signals-iwl-extractor)
+- [Site Link](/reference/meta/endpoints/site-link)
+- [Sliced Event Source Group](/reference/meta/endpoints/sliced-event-source-group)
+- [Status](/reference/meta/endpoints/status)
+- [Store Catalog Settings](/reference/meta/endpoints/store-catalog-settings)
+- [Store Location](/reference/meta/endpoints/store-location)
+- [Stories](/reference/meta/endpoints/stories)
+- [System User](/reference/meta/endpoints/system-user)
+- [Third Party Measurement Report Dataset](/reference/meta/endpoints/third-party-measurement-report-dataset)
+- [Third Party Partner Lift Request](/reference/meta/endpoints/third-party-partner-lift-request)
+- [Third Party Partner Panel Request](/reference/meta/endpoints/third-party-partner-panel-request)
+- [Third Party Partner Panel Scheduled](/reference/meta/endpoints/third-party-partner-panel-scheduled)
+- [Third Party Partner Viewability Request](/reference/meta/endpoints/third-party-partner-viewability-request)
+- [Transactable Item](/reference/meta/endpoints/transactable-item)
+- [Unified Thread](/reference/meta/endpoints/unified-thread)
+- [URL](/reference/meta/endpoints/url)
+- [User](/reference/meta/endpoints/user)
+- [User Context](/reference/meta/endpoints/user-context)
+- [User Page One Time Opt In Token Settings](/reference/meta/endpoints/user-page-one-time-opt-in-token-settings)
+- [Vehicle](/reference/meta/endpoints/vehicle)
+- [Vehicle Offer](/reference/meta/endpoints/vehicle-offer)
+- [Video Copyright](/reference/meta/endpoints/video-copyright)
+- [Video Copyright Match](/reference/meta/endpoints/video-copyright-match)
+- [Video Copyright Rule](/reference/meta/endpoints/video-copyright-rule)
+- [Video List](/reference/meta/endpoints/video-list)
+- [Video Poll](/reference/meta/endpoints/video-poll)
+- [Video Text Question](/reference/meta/endpoints/video-text-question)
+- [Wearable Device Public Key](/reference/meta/endpoints/wearable-device-public-key)
+- [Website Creative Asset Source](/reference/meta/endpoints/website-creative-asset-source)
+- [Website Creative Asset Suggestions](/reference/meta/endpoints/website-creative-asset-suggestions)
+- [Website Creative Info](/reference/meta/endpoints/website-creative-info)
+- [WhatsApp Business Account](/reference/meta/endpoints/whats-app-business-account)
+- [WhatsApp Business Pre Verified Phone Number](/reference/meta/endpoints/whats-app-business-pre-verified-phone-number)
+- [WhatsApp Business Profile](/reference/meta/endpoints/whats-app-business-profile)
+- [Whitehat FBDL Run](/reference/meta/endpoints/whitehat-fbdl-run)
+- [Wifi Information](/reference/meta/endpoints/wifi-information)
+- [With Asset3 D](/reference/meta/endpoints/with-asset3-d)
+- [Woodhenge Purchased PAYG Receipt](/reference/meta/endpoints/woodhenge-purchased-payg-receipt)
+- [Woodhenge Supporter](/reference/meta/endpoints/woodhenge-supporter)
+- [Work Experience](/reference/meta/endpoints/work-experience)
+- [Work Skill](/reference/meta/endpoints/work-skill)
+
+## Models
+
+- [AB Test Post Test Actions Fields – Ad Asset Feed Spec Caption Fields](/reference/meta/models/ab-test-post-test-actions-fields-to-ad-asset-feed-spec-caption-fields)
+- [Ad Asset Feed Spec Carousel Child Attachment Fields – Ad Creative Insights Fields](/reference/meta/models/ad-asset-feed-spec-carousel-child-attachment-fields-to-ad-creative-insights-fields)
+- [Ad Creative Instagram Branded Content Fields – Ad Limit Setting Fields](/reference/meta/models/ad-creative-instagram-branded-content-fields-to-ad-limit-setting-fields)
+- [Ad Monetization Property Fields – Ads Pivot Rules Fields](/reference/meta/models/ad-monetization-property-fields-to-ads-pivot-rules-fields)
+- [Ads Pixel Automatic Matching Fields – Attribution Spec Fields](/reference/meta/models/ads-pixel-automatic-matching-fields-to-attribution-spec-fields)
+- [Audience Funnel Fields – Campaign Smart Promotion Type](/reference/meta/models/audience-funnel-fields-to-campaign-smart-promotion-type)
+- [Campaign Special Ad Categories – Custom Audience Claim Objective](/reference/meta/models/campaign-special-ad-categories-to-custom-audience-claim-objective)
+- [Custom Audience Content Type – Geo Gating Policy Fields](/reference/meta/models/custom-audience-content-type-to-geo-gating-policy-fields)
+- [Group Fields – Lead Fields](/reference/meta/models/group-fields-to-lead-fields)
+- [Lead Gen Appointment Booking Info Fields – Offline Conversion Data Set Upload Order](/reference/meta/models/lead-gen-appointment-booking-info-fields-to-offline-conversion-data-set-upload-order)
+- [Offline Conversion Data Set Upload Sort By – Partner Center Export File Fields](/reference/meta/models/offline-conversion-data-set-upload-sort-by-to-partner-center-export-file-fields)
+- [Partner Integration Linked Fields – Product Feed Quoted Fields Mode](/reference/meta/models/partner-integration-linked-fields-to-product-feed-quoted-fields-mode)
+- [Product Feed Rule Fields – Scim Company User Phone Number Fields](/reference/meta/models/product-feed-rule-fields-to-scim-company-user-phone-number-fields)
+- [Security Settings Fields – User Payment Methods Info Fields](/reference/meta/models/security-settings-fields-to-user-payment-methods-info-fields)
+- [User Payment Mobile Pricepoints Fields – Work User Frontline Fields](/reference/meta/models/user-payment-mobile-pricepoints-fields-to-work-user-frontline-fields)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `ad.manage` | Manage Meta Ad | None declared |
+| `ad.read` | Read Meta Ad | None declared |
+| `adAccount.manage` | Manage Meta AdAccount | None declared |
+| `adAccount.read` | Read Meta AdAccount | None declared |
+| `adAccountAccountControls.manage` | Manage Meta AdAccountAccountControls | None declared |
+| `adAccountAgencyFeeConfig.read` | Read Meta AdAccountAgencyFeeConfig | None declared |
+| `adAccountCreationRequest.read` | Read Meta AdAccountCreationRequest | None declared |
+| `adAccountFeaturePreferences.manage` | Manage Meta AdAccountFeaturePreferences | None declared |
+| `adAccountUserSettings.read` | Read Meta AdAccountUserSettings | None declared |
+| `adAsyncRequest.manage` | Manage Meta AdAsyncRequest | None declared |
+| `adAsyncRequest.read` | Read Meta AdAsyncRequest | None declared |
+| `adAsyncRequestSet.manage` | Manage Meta AdAsyncRequestSet | None declared |
+| `adAsyncRequestSet.read` | Read Meta AdAsyncRequestSet | None declared |
+| `adCampaign.manage` | Manage Meta AdCampaign | None declared |
+| `adCampaignBudgetSchedules.manage` | Manage Meta AdCampaignBudgetSchedules | None declared |
+| `adCampaignGroup.manage` | Manage Meta AdCampaignGroup | None declared |
+| `adCampaignGroupBudgetSchedules.manage` | Manage Meta AdCampaignGroupBudgetSchedules | None declared |
+| `adCampaignPlacement.read` | Read Meta AdCampaignPlacement | None declared |
+| `adColumnSizes.read` | Read Meta AdColumnSizes | None declared |
+| `adCreationPackageConfig.read` | Read Meta AdCreationPackageConfig | None declared |
+| `adCreative.manage` | Manage Meta AdCreative | None declared |
+| `adCreative.read` | Read Meta AdCreative | None declared |
+| `adCustomDerivedMetrics.read` | Read Meta AdCustomDerivedMetrics | None declared |
+| `adDraft.read` | Read Meta AdDraft | None declared |
+| `adExportPreset.read` | Read Meta AdExportPreset | None declared |
+| `adgroup.manage` | Manage Meta Adgroup | None declared |
+| `adgroupFacebookFeedback.read` | Read Meta AdgroupFacebookFeedback | None declared |
+| `adImage.read` | Read Meta AdImage | None declared |
+| `adLabel.manage` | Manage Meta AdLabel | None declared |
+| `adLabel.read` | Read Meta AdLabel | None declared |
+| `adLightAdgroup.read` | Read Meta AdLightAdgroup | None declared |
+| `adLightCampaign.read` | Read Meta AdLightCampaign | None declared |
+| `adLightCampaignGroup.read` | Read Meta AdLightCampaignGroup | None declared |
+| `adMonetizationProperty.manage` | Manage Meta AdMonetizationProperty | None declared |
+| `adMonetizationProperty.read` | Read Meta AdMonetizationProperty | None declared |
+| `adPlacement.read` | Read Meta AdPlacement | None declared |
+| `adPlacePageSet.read` | Read Meta AdPlacePageSet | None declared |
+| `adProposal.read` | Read Meta AdProposal | None declared |
+| `adReportRun.read` | Read Meta AdReportRun | None declared |
+| `adRule.manage` | Manage Meta AdRule | None declared |
+| `adRule.read` | Read Meta AdRule | None declared |
+| `adRuleEvaluationSpec.read` | Read Meta AdRuleEvaluationSpec | None declared |
+| `adRuleExecutionSpec.read` | Read Meta AdRuleExecutionSpec | None declared |
+| `adSavedKeywords.read` | Read Meta AdSavedKeywords | None declared |
+| `adSavedLocation.read` | Read Meta AdSavedLocation | None declared |
+| `adSavedReport.read` | Read Meta AdSavedReport | None declared |
+| `adsConversionGoal.read` | Read Meta AdsConversionGoal | None declared |
+| `adsCreationSavedState.read` | Read Meta AdsCreationSavedState | None declared |
+| `adSet.manage` | Manage Meta AdSet | None declared |
+| `adSet.read` | Read Meta AdSet | None declared |
+| `adsMcmeConversion.read` | Read Meta AdsMcmeConversion | None declared |
+| `adsNamingTemplate.read` | Read Meta AdsNamingTemplate | None declared |
+| `adsPivotRules.read` | Read Meta AdsPivotRules | None declared |
+| `adsPixel.manage` | Manage Meta AdsPixel | None declared |
+| `adsPixel.read` | Read Meta AdsPixel | None declared |
+| `adsPixelCapabilityOverride.read` | Read Meta AdsPixelCapabilityOverride | None declared |
+| `adsQuickViews.read` | Read Meta AdsQuickViews | None declared |
+| `adsReportBuilderExportCore.read` | Read Meta AdsReportBuilderExportCore | None declared |
+| `adsReportBuilderMMMReport.read` | Read Meta AdsReportBuilderMMMReport | None declared |
+| `adsReportBuilderMMMReportScheduler.read` | Read Meta AdsReportBuilderMMMReportScheduler | None declared |
+| `adsReportBuilderSavedReport.read` | Read Meta AdsReportBuilderSavedReport | None declared |
+| `adsStartYourDayWidget.read` | Read Meta AdsStartYourDayWidget | None declared |
+| `adStudy.manage` | Manage Meta AdStudy | None declared |
+| `adStudy.read` | Read Meta AdStudy | None declared |
+| `adStudyCell.manage` | Manage Meta AdStudyCell | None declared |
+| `adStudyCell.read` | Read Meta AdStudyCell | None declared |
+| `adStudyObjective.manage` | Manage Meta AdStudyObjective | None declared |
+| `adStudyObjective.read` | Read Meta AdStudyObjective | None declared |
+| `adsUserSettings.read` | Read Meta AdsUserSettings | None declared |
+| `adsValueAdjustmentRuleCollection.manage` | Manage Meta AdsValueAdjustmentRuleCollection | None declared |
+| `adsValueAdjustmentRuleCollection.read` | Read Meta AdsValueAdjustmentRuleCollection | None declared |
+| `adTopline.read` | Read Meta AdTopline | None declared |
+| `adToplineDetail.read` | Read Meta AdToplineDetail | None declared |
+| `advAInstance.read` | Read Meta AdvAInstance | None declared |
+| `adVideo.manage` | Manage Meta AdVideo | None declared |
+| `adVideo.read` | Read Meta AdVideo | None declared |
+| `album.manage` | Manage Meta Album | None declared |
+| `album.read` | Read Meta Album | None declared |
+| `aLMAdAccountInfo.read` | Read Meta ALMAdAccountInfo | None declared |
+| `aLMEndAdvertiserInfo.read` | Read Meta ALMEndAdvertiserInfo | None declared |
+| `aLMEvent.read` | Read Meta ALMEvent | None declared |
+| `analyticsSegment.read` | Read Meta AnalyticsSegment | None declared |
+| `analyticsUserConfig.read` | Read Meta AnalyticsUserConfig | None declared |
+| `appEventConfig.read` | Read Meta AppEventConfig | None declared |
+| `application.manage` | Manage Meta Application | None declared |
+| `application.read` | Read Meta Application | None declared |
+| `appLinks.read` | Read Meta AppLinks | None declared |
+| `appRequest.manage` | Manage Meta AppRequest | None declared |
+| `appRequest.read` | Read Meta AppRequest | None declared |
+| `arAdsDataContainer.read` | Read Meta ArAdsDataContainer | None declared |
+| `aREffect.read` | Read Meta AREffect | None declared |
+| `audioAsset.read` | Read Meta AudioAsset | None declared |
+| `audioCopyright.read` | Read Meta AudioCopyright | None declared |
+| `audioIsrc.read` | Read Meta AudioIsrc | None declared |
+| `audioSubLabel.read` | Read Meta AudioSubLabel | None declared |
+| `automotiveModel.read` | Read Meta AutomotiveModel | None declared |
+| `avatar.read` | Read Meta Avatar | None declared |
+| `bCPCampaign.read` | Read Meta BCPCampaign | None declared |
+| `bidSchedule.read` | Read Meta BidSchedule | None declared |
+| `blindPig.read` | Read Meta BlindPig | None declared |
+| `brandRequest.read` | Read Meta BrandRequest | None declared |
+| `brandSafetyDownloadable.read` | Read Meta BrandSafetyDownloadable | None declared |
+| `business.manage` | Manage Meta Business | None declared |
+| `business.read` | Read Meta Business | None declared |
+| `businessAgreement.manage` | Manage Meta BusinessAgreement | None declared |
+| `businessAgreement.read` | Read Meta BusinessAgreement | None declared |
+| `businessAssetGroup.manage` | Manage Meta BusinessAssetGroup | None declared |
+| `businessAssetGroup.read` | Read Meta BusinessAssetGroup | None declared |
+| `businessAssetSharingAgreement.manage` | Manage Meta BusinessAssetSharingAgreement | None declared |
+| `businessAssetSharingAgreement.read` | Read Meta BusinessAssetSharingAgreement | None declared |
+| `businessCreativeFolder.read` | Read Meta BusinessCreativeFolder | None declared |
+| `businessFranchiseConfig.read` | Read Meta BusinessFranchiseConfig | None declared |
+| `businessImage.read` | Read Meta BusinessImage | None declared |
+| `businessObjectTransferOwnershipAgreement.read` | Read Meta BusinessObjectTransferOwnershipAgreement | None declared |
+| `businessOwnedObjectOnBehalfOfRequest.read` | Read Meta BusinessOwnedObjectOnBehalfOfRequest | None declared |
+| `businessProject.read` | Read Meta BusinessProject | None declared |
+| `businessRequest.read` | Read Meta BusinessRequest | None declared |
+| `businessRoleRequest.manage` | Manage Meta BusinessRoleRequest | None declared |
+| `businessRoleRequest.read` | Read Meta BusinessRoleRequest | None declared |
+| `businessTag.read` | Read Meta BusinessTag | None declared |
+| `businessUser.manage` | Manage Meta BusinessUser | None declared |
+| `businessUser.read` | Read Meta BusinessUser | None declared |
+| `businessVideo.read` | Read Meta BusinessVideo | None declared |
+| `calibratorExistingRule.read` | Read Meta CalibratorExistingRule | None declared |
+| `callAdsPhoneData.read` | Read Meta CallAdsPhoneData | None declared |
+| `campaign.manage` | Manage Meta Campaign | None declared |
+| `campaign.read` | Read Meta Campaign | None declared |
+| `canvas.manage` | Manage Meta Canvas | None declared |
+| `canvas.read` | Read Meta Canvas | None declared |
+| `canvasDynamicSetting.read` | Read Meta CanvasDynamicSetting | None declared |
+| `canvasTemplate.read` | Read Meta CanvasTemplate | None declared |
+| `catalogContentVersionConfig.read` | Read Meta CatalogContentVersionConfig | None declared |
+| `catalogItemOverride.read` | Read Meta CatalogItemOverride | None declared |
+| `catalogSmartPixelSettings.read` | Read Meta CatalogSmartPixelSettings | None declared |
+| `catalogWebsiteOnboardingSettings.read` | Read Meta CatalogWebsiteOnboardingSettings | None declared |
+| `catalogWebsiteSettings.read` | Read Meta CatalogWebsiteSettings | None declared |
+| `chinaBusinessOnboardingVettingRequest.read` | Read Meta ChinaBusinessOnboardingVettingRequest | None declared |
+| `cloudGame.read` | Read Meta CloudGame | None declared |
+| `collaborativeAdsShareSettings.read` | Read Meta CollaborativeAdsShareSettings | None declared |
+| `comment.manage` | Manage Meta Comment | None declared |
+| `comment.read` | Read Meta Comment | None declared |
+| `commerceMerchantSettings.manage` | Manage Meta CommerceMerchantSettings | None declared |
+| `commerceMerchantSettings.read` | Read Meta CommerceMerchantSettings | None declared |
+| `commerceOrder.manage` | Manage Meta CommerceOrder | None declared |
+| `commerceOrder.read` | Read Meta CommerceOrder | None declared |
+| `contentBlockList.read` | Read Meta ContentBlockList | None declared |
+| `copyrightMediaMisuse.read` | Read Meta CopyrightMediaMisuse | None declared |
+| `copyrightOwnershipTransfer.read` | Read Meta CopyrightOwnershipTransfer | None declared |
+| `cPASAdCreationTemplate.read` | Read Meta CPASAdCreationTemplate | None declared |
+| `cPASAdvertiserPartnershipRecommendation.read` | Read Meta CPASAdvertiserPartnershipRecommendation | None declared |
+| `cPASBusinessSetupConfig.read` | Read Meta CPASBusinessSetupConfig | None declared |
+| `cPASCollaborationRequest.read` | Read Meta CPASCollaborationRequest | None declared |
+| `cPASLsbImageBank.manage` | Manage Meta CPASLsbImageBank | None declared |
+| `cPASLsbImageBank.read` | Read Meta CPASLsbImageBank | None declared |
+| `cPASMerchantConfig.read` | Read Meta CPASMerchantConfig | None declared |
+| `cPASParentCatalogSettings.read` | Read Meta CPASParentCatalogSettings | None declared |
+| `creatorAssetCreative.read` | Read Meta CreatorAssetCreative | None declared |
+| `creditCard.read` | Read Meta CreditCard | None declared |
+| `cRMAddress.read` | Read Meta CRMAddress | None declared |
+| `cTXPartnerAppWelcomeMessageFlow.read` | Read Meta CTXPartnerAppWelcomeMessageFlow | None declared |
+| `customAudience.manage` | Manage Meta CustomAudience | None declared |
+| `customAudience.read` | Read Meta CustomAudience | None declared |
+| `customConversion.manage` | Manage Meta CustomConversion | None declared |
+| `customConversion.read` | Read Meta CustomConversion | None declared |
+| `destination.read` | Read Meta Destination | None declared |
+| `dynamicARMetadata.read` | Read Meta DynamicARMetadata | None declared |
+| `dynamicItemDisplayBundle.read` | Read Meta DynamicItemDisplayBundle | None declared |
+| `dynamicItemDisplayBundleFolder.read` | Read Meta DynamicItemDisplayBundleFolder | None declared |
+| `dynamicPriceConfigByDate.read` | Read Meta DynamicPriceConfigByDate | None declared |
+| `dynamicVideoMetadata.read` | Read Meta DynamicVideoMetadata | None declared |
+| `educationExperience.read` | Read Meta EducationExperience | None declared |
+| `event.manage` | Manage Meta Event | None declared |
+| `event.read` | Read Meta Event | None declared |
+| `eventExternalTicketInfo.read` | Read Meta EventExternalTicketInfo | None declared |
+| `eventRegistrationSetting.read` | Read Meta EventRegistrationSetting | None declared |
+| `eventSourceGroup.manage` | Manage Meta EventSourceGroup | None declared |
+| `eventSourceGroup.read` | Read Meta EventSourceGroup | None declared |
+| `eventTicketSetting.read` | Read Meta EventTicketSetting | None declared |
+| `eventTicketTier.read` | Read Meta EventTicketTier | None declared |
+| `extendedCredit.manage` | Manage Meta ExtendedCredit | None declared |
+| `extendedCredit.read` | Read Meta ExtendedCredit | None declared |
+| `extendedCreditAllocationConfig.manage` | Manage Meta ExtendedCreditAllocationConfig | None declared |
+| `extendedCreditAllocationConfig.read` | Read Meta ExtendedCreditAllocationConfig | None declared |
+| `extendedCreditApplication.read` | Read Meta ExtendedCreditApplication | None declared |
+| `extendedCreditInvoiceGroup.manage` | Manage Meta ExtendedCreditInvoiceGroup | None declared |
+| `extendedCreditInvoiceGroup.read` | Read Meta ExtendedCreditInvoiceGroup | None declared |
+| `externalMerchantSettings.read` | Read Meta ExternalMerchantSettings | None declared |
+| `fAMEKumo.read` | Read Meta FAMEKumo | None declared |
+| `fantasyGame.read` | Read Meta FantasyGame | None declared |
+| `fBImageCopyrightMatch.read` | Read Meta FBImageCopyrightMatch | None declared |
+| `flight.manage` | Manage Meta Flight | None declared |
+| `flight.read` | Read Meta Flight | None declared |
+| `franchiseProgram.read` | Read Meta FranchiseProgram | None declared |
+| `franchiseProgramMember.read` | Read Meta FranchiseProgramMember | None declared |
+| `fundraiserPersonToCharity.manage` | Manage Meta FundraiserPersonToCharity | None declared |
+| `fundraiserPersonToCharity.read` | Read Meta FundraiserPersonToCharity | None declared |
+| `geoGatingPolicy.read` | Read Meta GeoGatingPolicy | None declared |
+| `group.manage` | Manage Meta Group | None declared |
+| `group.read` | Read Meta Group | None declared |
+| `highDemandPeriod.manage` | Manage Meta HighDemandPeriod | None declared |
+| `highDemandPeriod.read` | Read Meta HighDemandPeriod | None declared |
+| `homeListing.manage` | Manage Meta HomeListing | None declared |
+| `homeListing.read` | Read Meta HomeListing | None declared |
+| `hotel.manage` | Manage Meta Hotel | None declared |
+| `hotel.read` | Read Meta Hotel | None declared |
+| `hotelRoom.read` | Read Meta HotelRoom | None declared |
+| `hours.read` | Read Meta Hours | None declared |
+| `iGAccessTokenForIGOnlyAPI.read` | Read Meta IGAccessTokenForIGOnlyAPI | None declared |
+| `iGBCAdsPermission.read` | Read Meta IGBCAdsPermission | None declared |
+| `iGBoostMediaAd.read` | Read Meta IGBoostMediaAd | None declared |
+| `iGComment.manage` | Manage Meta IGComment | None declared |
+| `iGComment.read` | Read Meta IGComment | None declared |
+| `iGMedia.manage` | Manage Meta IGMedia | None declared |
+| `iGMedia.read` | Read Meta IGMedia | None declared |
+| `iGMediaBoostEligibilityInfo.read` | Read Meta IGMediaBoostEligibilityInfo | None declared |
+| `iGMediaForIGOnlyAPI.manage` | Manage Meta IGMediaForIGOnlyAPI | None declared |
+| `iGMediaForIGOnlyAPI.read` | Read Meta IGMediaForIGOnlyAPI | None declared |
+| `iGRefreshAccessTokenForIGOnlyAPI.read` | Read Meta IGRefreshAccessTokenForIGOnlyAPI | None declared |
+| `iGUpcomingEvent.manage` | Manage Meta IGUpcomingEvent | None declared |
+| `iGUpcomingEvent.read` | Read Meta IGUpcomingEvent | None declared |
+| `iGUser.manage` | Manage Meta IGUser | None declared |
+| `iGUser.read` | Read Meta IGUser | None declared |
+| `iGUserExportForCAM.read` | Read Meta IGUserExportForCAM | None declared |
+| `iGUserForIGOnlyAPI.manage` | Manage Meta IGUserForIGOnlyAPI | None declared |
+| `iGUserForIGOnlyAPI.read` | Read Meta IGUserForIGOnlyAPI | None declared |
+| `imageCopyright.manage` | Manage Meta ImageCopyright | None declared |
+| `imageCopyright.read` | Read Meta ImageCopyright | None declared |
+| `imageCopyrightDispute.read` | Read Meta ImageCopyrightDispute | None declared |
+| `imageReferenceMatch.read` | Read Meta ImageReferenceMatch | None declared |
+| `instagramBusinessAsset.manage` | Manage Meta InstagramBusinessAsset | None declared |
+| `instagramBusinessAsset.read` | Read Meta InstagramBusinessAsset | None declared |
+| `instagramUser.read` | Read Meta InstagramUser | None declared |
+| `jobOpening.read` | Read Meta JobOpening | None declared |
+| `lead.manage` | Manage Meta Lead | None declared |
+| `lead.read` | Read Meta Lead | None declared |
+| `leadGenDataDraft.read` | Read Meta LeadGenDataDraft | None declared |
+| `leadGenDirectCRMIntegrationConfig.read` | Read Meta LeadGenDirectCRMIntegrationConfig | None declared |
+| `leadgenForm.manage` | Manage Meta LeadgenForm | None declared |
+| `leadgenForm.read` | Read Meta LeadgenForm | None declared |
+| `lifeEvent.read` | Read Meta LifeEvent | None declared |
+| `link.manage` | Manage Meta Link | None declared |
+| `link.read` | Read Meta Link | None declared |
+| `liveVideo.manage` | Manage Meta LiveVideo | None declared |
+| `liveVideo.read` | Read Meta LiveVideo | None declared |
+| `liveVideoAdCampaignConfig.read` | Read Meta LiveVideoAdCampaignConfig | None declared |
+| `liveVideoError.read` | Read Meta LiveVideoError | None declared |
+| `liveVideoInputStream.read` | Read Meta LiveVideoInputStream | None declared |
+| `localServiceBusiness.read` | Read Meta LocalServiceBusiness | None declared |
+| `mailingAddress.read` | Read Meta MailingAddress | None declared |
+| `managementSiteLink.read` | Read Meta ManagementSiteLink | None declared |
+| `measurementReport.read` | Read Meta MeasurementReport | None declared |
+| `mediaCopyrightAttribution.read` | Read Meta MediaCopyrightAttribution | None declared |
+| `mediaCopyrightUpdateRecord.read` | Read Meta MediaCopyrightUpdateRecord | None declared |
+| `mediaFingerprint.manage` | Manage Meta MediaFingerprint | None declared |
+| `mediaFingerprint.read` | Read Meta MediaFingerprint | None declared |
+| `messengerAdsPartialAutomatedStepList.read` | Read Meta MessengerAdsPartialAutomatedStepList | None declared |
+| `messengerBusinessTemplate.manage` | Manage Meta MessengerBusinessTemplate | None declared |
+| `messengerBusinessTemplate.read` | Read Meta MessengerBusinessTemplate | None declared |
+| `musicVideoCopyright.read` | Read Meta MusicVideoCopyright | None declared |
+| `musicWorkCopyright.read` | Read Meta MusicWorkCopyright | None declared |
+| `offlineConversionDataSet.read` | Read Meta OfflineConversionDataSet | None declared |
+| `offlineConversionDataSetUpload.read` | Read Meta OfflineConversionDataSetUpload | None declared |
+| `offlineProductItem.read` | Read Meta OfflineProductItem | None declared |
+| `offlineTermsOfService.read` | Read Meta OfflineTermsOfService | None declared |
+| `offsitePixel.read` | Read Meta OffsitePixel | None declared |
+| `offsiteSignalContainerBusinessObject.read` | Read Meta OffsiteSignalContainerBusinessObject | None declared |
+| `omegaCustomerTrx.read` | Read Meta OmegaCustomerTrx | None declared |
+| `openBridgeConfiguration.manage` | Manage Meta OpenBridgeConfiguration | None declared |
+| `openBridgeConfiguration.read` | Read Meta OpenBridgeConfiguration | None declared |
+| `openGraphContext.read` | Read Meta OpenGraphContext | None declared |
+| `organization.read` | Read Meta Organization | None declared |
+| `ownedDomain.read` | Read Meta OwnedDomain | None declared |
+| `page.manage` | Manage Meta Page | None declared |
+| `page.read` | Read Meta Page | None declared |
+| `pageCallToAction.manage` | Manage Meta PageCallToAction | None declared |
+| `pageCallToAction.read` | Read Meta PageCallToAction | None declared |
+| `pageInsightsAsyncExportRun.read` | Read Meta PageInsightsAsyncExportRun | None declared |
+| `pageLeadsAccessConfig.read` | Read Meta PageLeadsAccessConfig | None declared |
+| `pagePost.manage` | Manage Meta PagePost | None declared |
+| `pagePost.read` | Read Meta PagePost | None declared |
+| `pagePostExperiment.manage` | Manage Meta PagePostExperiment | None declared |
+| `pagePostExperiment.read` | Read Meta PagePostExperiment | None declared |
+| `pageUpcomingChange.read` | Read Meta PageUpcomingChange | None declared |
+| `pageUserMessageThreadLabel.manage` | Manage Meta PageUserMessageThreadLabel | None declared |
+| `pageUserMessageThreadLabel.read` | Read Meta PageUserMessageThreadLabel | None declared |
+| `partnerAccountLinking.read` | Read Meta PartnerAccountLinking | None declared |
+| `partnerCenterExportFile.read` | Read Meta PartnerCenterExportFile | None declared |
+| `partnerIntegrationLinked.read` | Read Meta PartnerIntegrationLinked | None declared |
+| `partnerStudy.read` | Read Meta PartnerStudy | None declared |
+| `paymentEnginePayment.manage` | Manage Meta PaymentEnginePayment | None declared |
+| `paymentEnginePayment.read` | Read Meta PaymentEnginePayment | None declared |
+| `paymentSubscription.read` | Read Meta PaymentSubscription | None declared |
+| `persona.manage` | Manage Meta Persona | None declared |
+| `persona.read` | Read Meta Persona | None declared |
+| `personalAdsPersona.read` | Read Meta PersonalAdsPersona | None declared |
+| `photo.manage` | Manage Meta Photo | None declared |
+| `photo.read` | Read Meta Photo | None declared |
+| `place.read` | Read Meta Place | None declared |
+| `placeTag.read` | Read Meta PlaceTag | None declared |
+| `placeTopic.read` | Read Meta PlaceTopic | None declared |
+| `playableContent.read` | Read Meta PlayableContent | None declared |
+| `post.manage` | Manage Meta Post | None declared |
+| `post.read` | Read Meta Post | None declared |
+| `privateLiftStudyInstance.manage` | Manage Meta PrivateLiftStudyInstance | None declared |
+| `privateLiftStudyInstance.read` | Read Meta PrivateLiftStudyInstance | None declared |
+| `productCatalog.manage` | Manage Meta ProductCatalog | None declared |
+| `productCatalog.read` | Read Meta ProductCatalog | None declared |
+| `productCatalogCheckBatchRequestStatus.read` | Read Meta ProductCatalogCheckBatchRequestStatus | None declared |
+| `productCatalogDataSources.read` | Read Meta ProductCatalogDataSources | None declared |
+| `productCatalogLocalizationSettings.read` | Read Meta ProductCatalogLocalizationSettings | None declared |
+| `productDeliveryPreference.read` | Read Meta ProductDeliveryPreference | None declared |
+| `productFeed.manage` | Manage Meta ProductFeed | None declared |
+| `productFeed.read` | Read Meta ProductFeed | None declared |
+| `productFeedRule.manage` | Manage Meta ProductFeedRule | None declared |
+| `productFeedRule.read` | Read Meta ProductFeedRule | None declared |
+| `productFeedRules.read` | Read Meta ProductFeedRules | None declared |
+| `productFeedSchedule.read` | Read Meta ProductFeedSchedule | None declared |
+| `productFeedUpload.manage` | Manage Meta ProductFeedUpload | None declared |
+| `productFeedUpload.read` | Read Meta ProductFeedUpload | None declared |
+| `productFeedUploadError.read` | Read Meta ProductFeedUploadError | None declared |
+| `productFeedUploadErrorSample.read` | Read Meta ProductFeedUploadErrorSample | None declared |
+| `productGroup.manage` | Manage Meta ProductGroup | None declared |
+| `productGroup.read` | Read Meta ProductGroup | None declared |
+| `productImage.read` | Read Meta ProductImage | None declared |
+| `productItem.manage` | Manage Meta ProductItem | None declared |
+| `productItem.read` | Read Meta ProductItem | None declared |
+| `productItemLocalInfo.read` | Read Meta ProductItemLocalInfo | None declared |
+| `productItemOffer.read` | Read Meta ProductItemOffer | None declared |
+| `productSet.manage` | Manage Meta ProductSet | None declared |
+| `productSet.read` | Read Meta ProductSet | None declared |
+| `profile.read` | Read Meta Profile | None declared |
+| `publisherBlockList.manage` | Manage Meta PublisherBlockList | None declared |
+| `publisherBlockList.read` | Read Meta PublisherBlockList | None declared |
+| `reachFrequencyPrediction.read` | Read Meta ReachFrequencyPrediction | None declared |
+| `researchPollStudy.read` | Read Meta ResearchPollStudy | None declared |
+| `rightsManagerDataExport.read` | Read Meta RightsManagerDataExport | None declared |
+| `robot.read` | Read Meta Robot | None declared |
+| `rTBDynamicPost.read` | Read Meta RTBDynamicPost | None declared |
+| `savedAudience.read` | Read Meta SavedAudience | None declared |
+| `savedMessageResponse.read` | Read Meta SavedMessageResponse | None declared |
+| `shadowIGHashtag.read` | Read Meta ShadowIGHashtag | None declared |
+| `shadowIGMediaBuilder.read` | Read Meta ShadowIGMediaBuilder | None declared |
+| `shadowIGScheduledMedia.read` | Read Meta ShadowIGScheduledMedia | None declared |
+| `shop.read` | Read Meta Shop | None declared |
+| `signalsIWLExtractor.read` | Read Meta SignalsIWLExtractor | None declared |
+| `siteLink.read` | Read Meta SiteLink | None declared |
+| `slicedEventSourceGroup.read` | Read Meta SlicedEventSourceGroup | None declared |
+| `status.manage` | Manage Meta Status | None declared |
+| `status.read` | Read Meta Status | None declared |
+| `storeCatalogSettings.manage` | Manage Meta StoreCatalogSettings | None declared |
+| `storeCatalogSettings.read` | Read Meta StoreCatalogSettings | None declared |
+| `storeLocation.read` | Read Meta StoreLocation | None declared |
+| `stories.read` | Read Meta Stories | None declared |
+| `systemUser.read` | Read Meta SystemUser | None declared |
+| `thirdPartyMeasurementReportDataset.read` | Read Meta ThirdPartyMeasurementReportDataset | None declared |
+| `thirdPartyPartnerLiftRequest.read` | Read Meta ThirdPartyPartnerLiftRequest | None declared |
+| `thirdPartyPartnerPanelRequest.read` | Read Meta ThirdPartyPartnerPanelRequest | None declared |
+| `thirdPartyPartnerPanelScheduled.read` | Read Meta ThirdPartyPartnerPanelScheduled | None declared |
+| `thirdPartyPartnerViewabilityRequest.read` | Read Meta ThirdPartyPartnerViewabilityRequest | None declared |
+| `transactableItem.read` | Read Meta TransactableItem | None declared |
+| `unifiedThread.read` | Read Meta UnifiedThread | None declared |
+| `uRL.manage` | Manage Meta URL | None declared |
+| `uRL.read` | Read Meta URL | None declared |
+| `user.manage` | Manage Meta User | None declared |
+| `user.read` | Read Meta User | None declared |
+| `userContext.read` | Read Meta UserContext | None declared |
+| `userPageOneTimeOptInTokenSettings.read` | Read Meta UserPageOneTimeOptInTokenSettings | None declared |
+| `vehicle.manage` | Manage Meta Vehicle | None declared |
+| `vehicle.read` | Read Meta Vehicle | None declared |
+| `vehicleOffer.read` | Read Meta VehicleOffer | None declared |
+| `videoCopyright.manage` | Manage Meta VideoCopyright | None declared |
+| `videoCopyright.read` | Read Meta VideoCopyright | None declared |
+| `videoCopyrightMatch.read` | Read Meta VideoCopyrightMatch | None declared |
+| `videoCopyrightRule.read` | Read Meta VideoCopyrightRule | None declared |
+| `videoList.read` | Read Meta VideoList | None declared |
+| `videoPoll.manage` | Manage Meta VideoPoll | None declared |
+| `videoPoll.read` | Read Meta VideoPoll | None declared |
+| `videoTextQuestion.read` | Read Meta VideoTextQuestion | None declared |
+| `wearableDevicePublicKey.read` | Read Meta WearableDevicePublicKey | None declared |
+| `websiteCreativeAssetSource.read` | Read Meta WebsiteCreativeAssetSource | None declared |
+| `websiteCreativeAssetSuggestions.read` | Read Meta WebsiteCreativeAssetSuggestions | None declared |
+| `websiteCreativeInfo.read` | Read Meta WebsiteCreativeInfo | None declared |
+| `whatsAppBusinessAccount.manage` | Manage Meta WhatsAppBusinessAccount | None declared |
+| `whatsAppBusinessAccount.read` | Read Meta WhatsAppBusinessAccount | None declared |
+| `whatsAppBusinessPreVerifiedPhoneNumber.manage` | Manage Meta WhatsAppBusinessPreVerifiedPhoneNumber | None declared |
+| `whatsAppBusinessPreVerifiedPhoneNumber.read` | Read Meta WhatsAppBusinessPreVerifiedPhoneNumber | None declared |
+| `whatsAppBusinessProfile.manage` | Manage Meta WhatsAppBusinessProfile | None declared |
+| `whatsAppBusinessProfile.read` | Read Meta WhatsAppBusinessProfile | None declared |
+| `whitehatFBDLRun.read` | Read Meta WhitehatFBDLRun | None declared |
+| `wifiInformation.read` | Read Meta WifiInformation | None declared |
+| `withAsset3D.read` | Read Meta WithAsset3D | None declared |
+| `woodhengePurchasedPAYGReceipt.read` | Read Meta WoodhengePurchasedPAYGReceipt | None declared |
+| `woodhengeSupporter.read` | Read Meta WoodhengeSupporter | None declared |
+| `workExperience.read` | Read Meta WorkExperience | None declared |
+| `workSkill.read` | Read Meta WorkSkill | None declared |

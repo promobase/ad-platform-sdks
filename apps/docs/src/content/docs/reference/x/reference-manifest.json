@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "platform": "x",
+  "version": "2.167",
+  "endpointCount": 14,
+  "modelCount": 527,
+  "capabilityCount": 5,
+  "endpointPages": ["endpoints/media", "endpoints/posts", "endpoints/users"],
+  "modelPages": [
+    "models/activity-event-id-to-create-direct-messages-conversation-message-attachments",
+    "models/create-direct-messages-conversation-request-to-dm-event-attachments",
+    "models/dm-event-entities-to-get-users-owned-lists-response",
+    "models/get-users-pinned-lists-response-to-post-public-metrics",
+    "models/post-referenced-posts-to-user",
+    "models/user-affiliation-to-webhook-config-id"
+  ]
+}

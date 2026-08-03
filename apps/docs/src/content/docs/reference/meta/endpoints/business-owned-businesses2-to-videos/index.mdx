@@ -1,0 +1,1377 @@
+---
+title: "Meta Business: Owned Businesses2 – Videos endpoints"
+description: "37 generated Meta endpoint contracts for Business: Owned Businesses2 – Videos."
+generated: true
+platform: "meta"
+sourceVersion: "graph"
+sidebar:
+  order: 186
+  label: "Business: Owned Businesses2 – Videos"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## meta.business.ownedBusinesses2
+
+`GET` `/{id}/owned_businesses`
+
+GET Business owned_businesses
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `child_business_external_id` | `query` | `string` | No | No | — |
+| `client_user_id` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedBusinesses3
+
+`POST` `/{id}/owned_businesses`
+
+POST Business owned_businesses
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `child_business_external_id` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+| `page_permitted_tasks` | `body` | `Array<unknown>` | No | No | — |
+| `sales_rep_email` | `body` | `string` | No | No | — |
+| `shared_page_id` | `body` | `string` | No | No | — |
+| `should_generate_name` | `body` | `boolean` | No | No | — |
+| `survey_business_type` | `body` | `unknown` | No | No | — |
+| `survey_num_assets` | `body` | `integer` | No | No | — |
+| `survey_num_people` | `body` | `integer` | No | No | — |
+| `timezone_id` | `body` | `unknown` | No | No | — |
+| `vertical` | `body` | `unknown` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedInstagramAccounts
+
+`GET` `/{id}/owned_instagram_accounts`
+
+GET Business owned_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `IGUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedInstagramAssets
+
+`GET` `/{id}/owned_instagram_assets`
+
+GET Business owned_instagram_assets
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `InstagramBusinessAssetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedOffsiteSignalContainerBusinessObjects
+
+`GET` `/{id}/owned_offsite_signal_container_business_objects`
+
+GET Business owned_offsite_signal_container_business_objects
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `OffsiteSignalContainerBusinessObjectFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedPages
+
+`GET` `/{id}/owned_pages`
+
+GET Business owned_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedPages2
+
+`POST` `/{id}/owned_pages`
+
+POST Business owned_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `code` | `body` | `string` | No | No | — |
+| `entry_point` | `body` | `string` | No | No | — |
+| `page_id` | `body` | `integer` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedPixels
+
+`GET` `/{id}/owned_pixels`
+
+GET Business owned_pixels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdsPixelFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedProductCatalogs
+
+`GET` `/{id}/owned_product_catalogs`
+
+GET Business owned_product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProductCatalogFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedProductCatalogs2
+
+`POST` `/{id}/owned_product_catalogs`
+
+POST Business owned_product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProductCatalogFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `additional_vertical_option` | `body` | `unknown` | No | No | — |
+| `business_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `catalog_segment_filter` | `body` | `Record<string, unknown>` | No | No | — |
+| `catalog_segment_product_set_id` | `body` | `string` | No | No | — |
+| `da_display_settings` | `body` | `Record<string, unknown>` | No | No | — |
+| `destination_catalog_settings` | `body` | `Record<string, unknown>` | No | No | — |
+| `flight_catalog_settings` | `body` | `Record<string, unknown>` | No | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+| `parent_catalog_id` | `body` | `string` | No | No | — |
+| `partner_integration` | `body` | `Record<string, unknown>` | No | No | — |
+| `store_catalog_settings` | `body` | `Record<string, unknown>` | No | No | — |
+| `vertical` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.ownedWhatsappBusinessAccounts
+
+`GET` `/{id}/owned_whatsapp_business_accounts`
+
+GET Business owned_whatsapp_business_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `WhatsAppBusinessAccountFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pages
+
+`DELETE` `/{id}/pages`
+
+DELETE Business pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `page_id` | `query` | `integer` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.partnerAccountLinking
+
+`GET` `/{id}/partner_account_linking`
+
+GET Business partner_account_linking
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `PartnerAccountLinkingFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.partnerPremiumOptions
+
+`POST` `/{id}/partner_premium_options`
+
+POST Business partner_premium_options
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `catalog_segment_id` | `body` | `string` | No | No | — |
+| `enable_basket_insight` | `body` | `boolean` | Yes | No | — |
+| `enable_extended_audience_retargeting` | `body` | `boolean` | Yes | No | — |
+| `partner_business_id` | `body` | `string` | Yes | No | — |
+| `retailer_custom_audience_config` | `body` | `Record<string, unknown>` | Yes | No | — |
+| `vendor_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.passbackAttributionMetadataConfigs
+
+`GET` `/{id}/passback_attribution_metadata_configs`
+
+GET Business passback_attribution_metadata_configs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingClientAdAccounts
+
+`GET` `/{id}/pending_client_ad_accounts`
+
+GET Business pending_client_ad_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessAdAccountRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingClientApps
+
+`GET` `/{id}/pending_client_apps`
+
+GET Business pending_client_apps
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessApplicationRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingClientPages
+
+`GET` `/{id}/pending_client_pages`
+
+GET Business pending_client_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessPageRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingOwnedAdAccounts
+
+`GET` `/{id}/pending_owned_ad_accounts`
+
+GET Business pending_owned_ad_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessAdAccountRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingOwnedPages
+
+`GET` `/{id}/pending_owned_pages`
+
+GET Business pending_owned_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessPageRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingSharedOffsiteSignalContainerBusinessObjects
+
+`GET` `/{id}/pending_shared_offsite_signal_container_business_objects`
+
+GET Business pending_shared_offsite_signal_container_business_objects
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `OffsiteSignalContainerBusinessObjectFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pendingUsers
+
+`GET` `/{id}/pending_users`
+
+GET Business pending_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessRoleRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `email` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.picture
+
+`GET` `/{id}/picture`
+
+GET Business picture
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ProfilePictureSourceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `height` | `query` | `integer` | No | No | — |
+| `redirect` | `query` | `boolean` | No | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+| `width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.pixelTos
+
+`POST` `/{id}/pixel_tos`
+
+POST Business pixel_tos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.preverifiedNumbers
+
+`GET` `/{id}/preverified_numbers`
+
+GET Business preverified_numbers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `WhatsAppBusinessPreVerifiedPhoneNumberFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `code_verification_status` | `query` | `unknown` | No | No | — |
+| `phone_number` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.receivedAudienceSharingRequests
+
+`GET` `/{id}/received_audience_sharing_requests`
+
+GET Business received_audience_sharing_requests
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessAssetSharingAgreementFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `initiator_id` | `query` | `string` | No | No | — |
+| `request_status` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.resellerGuidances
+
+`GET` `/{id}/reseller_guidances`
+
+GET Business reseller_guidances
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ResellerGuidanceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.selfCertifiedWhatsappBusinessSubmissions
+
+`GET` `/{id}/self_certified_whatsapp_business_submissions`
+
+GET Business self_certified_whatsapp_business_submissions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `WhatsAppBusinessPartnerClientVerificationSubmissionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `end_business_id` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.selfCertifyWhatsappBusiness
+
+`POST` `/{id}/self_certify_whatsapp_business`
+
+POST Business self_certify_whatsapp_business
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `average_monthly_revenue_spend_with_partner` | `body` | `Record<string, unknown>` | No | No | — |
+| `business_documents` | `body` | `Array<unknown>` | Yes | No | — |
+| `business_vertical` | `body` | `unknown` | No | No | — |
+| `end_business_address` | `body` | `Record<string, unknown>` | No | No | — |
+| `end_business_id` | `body` | `string` | Yes | No | — |
+| `end_business_legal_name` | `body` | `string` | No | No | — |
+| `end_business_trade_names` | `body` | `Array<string>` | No | No | — |
+| `end_business_website` | `body` | `string` | No | No | — |
+| `num_billing_cycles_with_partner` | `body` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.sharePreverifiedNumbers
+
+`DELETE` `/{id}/share_preverified_numbers`
+
+DELETE Business share_preverified_numbers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `partner_business_id` | `query` | `string` | Yes | No | — |
+| `preverified_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.sharePreverifiedNumbers2
+
+`POST` `/{id}/share_preverified_numbers`
+
+POST Business share_preverified_numbers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `partner_business_id` | `body` | `string` | Yes | No | — |
+| `preverified_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.systemUserAccessTokens
+
+`POST` `/{id}/system_user_access_tokens`
+
+POST Business system_user_access_tokens
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset` | `body` | `Array<integer>` | No | No | — |
+| `fetch_only` | `body` | `boolean` | No | No | — |
+| `scope` | `body` | `Array<PermissionFields>` | No | No | — |
+| `set_token_expires_in_60_days` | `body` | `boolean` | No | No | — |
+| `system_user_id` | `body` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.systemUsers
+
+`GET` `/{id}/system_users`
+
+GET Business system_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `SystemUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.systemUsers2
+
+`POST` `/{id}/system_users`
+
+POST Business system_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `SystemUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+| `role` | `body` | `unknown` | No | No | — |
+| `system_user_id` | `body` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.thirdPartyMeasurementReportDataset
+
+`GET` `/{id}/third_party_measurement_report_dataset`
+
+GET Business third_party_measurement_report_dataset
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `ThirdPartyMeasurementReportDatasetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.update
+
+`POST` `/{id}`
+
+POST Business
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `BusinessFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `entry_point` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `primary_page` | `body` | `string` | No | No | — |
+| `timezone_id` | `body` | `integer` | No | No | — |
+| `two_factor_type` | `body` | `BusinessTwoFactorType` | No | No | — |
+| `vertical` | `body` | `BusinessVertical` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## meta.business.videos
+
+`POST` `/{id}/videos`
+
+POST Business videos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `meta-graph-api` |
+| Output | `AdVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ad_placements_validation_only` | `body` | `boolean` | No | No | — |
+| `application_id` | `body` | `string` | No | No | — |
+| `asked_fun_fact_prompt_id` | `body` | `integer` | No | No | — |
+| `audio_story_wave_animation_handle` | `body` | `string` | No | No | — |
+| `chunk_session_id` | `body` | `string` | No | No | — |
+| `composer_entry_picker` | `body` | `string` | No | No | — |
+| `composer_entry_point` | `body` | `string` | No | No | — |
+| `composer_entry_time` | `body` | `integer` | No | No | — |
+| `composer_session_events_log` | `body` | `string` | No | No | — |
+| `composer_session_id` | `body` | `string` | No | No | — |
+| `composer_source_surface` | `body` | `string` | No | No | — |
+| `composer_type` | `body` | `string` | No | No | — |
+| `container_type` | `body` | `unknown` | No | No | — |
+| `content_category` | `body` | `unknown` | No | No | — |
+| `creative_folder_id` | `body` | `string` | Yes | No | — |
+| `creative_tools` | `body` | `string` | No | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `edit_description_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `embeddable` | `body` | `boolean` | No | No | — |
+| `end_offset` | `body` | `integer` | No | No | — |
+| `fbuploader_video_file_chunk` | `body` | `string` | No | No | — |
+| `file_size` | `body` | `integer` | No | No | — |
+| `file_url` | `body` | `string` | No | No | — |
+| `fisheye_video_cropped` | `body` | `boolean` | No | No | — |
+| `formatting` | `body` | `unknown` | No | No | — |
+| `fov` | `body` | `integer` | No | No | — |
+| `front_z_rotation` | `body` | `number` | No | No | — |
+| `fun_fact_prompt_id` | `body` | `string` | No | No | — |
+| `fun_fact_toastee_id` | `body` | `integer` | No | No | — |
+| `guide` | `body` | `Array<Array<integer>>` | No | No | — |
+| `guide_enabled` | `body` | `boolean` | No | No | — |
+| `initial_heading` | `body` | `integer` | No | No | — |
+| `initial_pitch` | `body` | `integer` | No | No | — |
+| `instant_game_entry_point_data` | `body` | `string` | No | No | — |
+| `is_boost_intended` | `body` | `boolean` | No | No | — |
+| `is_group_linking_post` | `body` | `boolean` | No | No | — |
+| `is_partnership_ad` | `body` | `boolean` | No | No | — |
+| `is_voice_clip` | `body` | `boolean` | No | No | — |
+| `location_source_id` | `body` | `string` | No | No | — |
+| `og_action_type_id` | `body` | `string` | No | No | — |
+| `og_icon_id` | `body` | `string` | No | No | — |
+| `og_object_id` | `body` | `string` | No | No | — |
+| `og_phrase` | `body` | `string` | No | No | — |
+| `og_suggestion_mechanism` | `body` | `string` | No | No | — |
+| `original_fov` | `body` | `integer` | No | No | — |
+| `original_projection_type` | `body` | `unknown` | No | No | — |
+| `partnership_ad_ad_code` | `body` | `string` | No | No | — |
+| `publish_event_id` | `body` | `integer` | No | No | — |
+| `referenced_sticker_id` | `body` | `string` | No | No | — |
+| `replace_video_id` | `body` | `string` | No | No | — |
+| `selected_audio_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `slideshow_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `source` | `body` | `string` | No | No | — |
+| `source_instagram_media_id` | `body` | `string` | No | No | — |
+| `spherical` | `body` | `boolean` | No | No | — |
+| `start_offset` | `body` | `integer` | No | No | — |
+| `swap_mode` | `body` | `unknown` | No | No | — |
+| `text_format_metadata` | `body` | `string` | No | No | — |
+| `thumb` | `body` | `unknown` | No | No | — |
+| `time_since_original_post` | `body` | `integer` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+| `transcode_setting_properties` | `body` | `string` | No | No | — |
+| `unpublished_content_type` | `body` | `unknown` | No | No | — |
+| `upload_phase` | `body` | `unknown` | No | No | — |
+| `upload_session_id` | `body` | `string` | No | No | — |
+| `upload_setting_properties` | `body` | `string` | No | No | — |
+| `validation_ad_placements` | `body` | `Array<unknown>` | No | No | — |
+| `video_file_chunk` | `body` | `string` | No | No | — |
+| `video_id_original` | `body` | `string` | No | No | — |
+| `video_start_time_ms` | `body` | `integer` | No | No | — |
+| `waterfall_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

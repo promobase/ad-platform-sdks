@@ -1,0 +1,122 @@
+---
+title: "TikTok Business Subscription endpoints"
+description: "3 generated TikTok Business endpoint contracts for Subscription."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 160
+  label: "Subscription"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.subscription.subscriptionGet
+
+`GET` `/open_api/v1.3/subscription/get/`
+
+Generated from TikTok documentation 1739093832125442
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `subscription.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SubscriptionGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `query` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `query` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `subscribe_entity` | `query` | `"REPORT_DATA_CHANGE" \| "AD_ACCOUNT_SUSPENSION" \| "LEAD" \| "AD_GROUP" \| "AD" \| "TCM_VIDEOS" \| "CREATIVE_FATIGUE" \| "API_SERVICE_STATUS"` | No | No | The object that you want to subscribe to. Enum values: `REPORT_DATA_CHANGE`: the data change in any of the reporting metrics `spend`, `impressions`, `clicks`, and `video_play_actions` for one or more ad accounts. `AD_ACCOUNT_SUSPENSION`: the suspension statuses of ad accounts.`LEAD`: leads.`AD_GROUP`: the review status of an ad group.`AD`: the review status of an ad.`TCM_VIDEOS`: the linking of a TikTok video to a TTO campaign.`CREATIVE_FATIGUE`: the fatigue status of an ad, ads within an ad group, or ads within an advertiser account.`API_SERVICE_STATUS`: the status of API service. |
+| `page` | `query` | `number` | No | No | The current page number. Default value: `1`. Value range: ≥ 1. |
+| `page_size` | `query` | `number` | No | No | The page size. Default value:`10`. Value range: 1-1000 |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.subscription.subscriptionSubscribe
+
+`POST` `/open_api/v1.3/subscription/subscribe/`
+
+Generated from TikTok documentation 1739092028876801
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `subscription.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SubscriptionSubscribeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `subscribe_entity` | `body` | `"REPORT_DATA_CHANGE" \| "AD_ACCOUNT_SUSPENSION" \| "LEAD" \| "AD_GROUP" \| "AD" \| "TCM_VIDEOS" \| "CREATIVE_FATIGUE" \| "API_SERVICE_STATUS"` | Yes | No | The object that you want to subscribe to. Enum values: `REPORT_DATA_CHANGE`: the data change in any of the reporting metrics `spend`, `impressions`, `clicks`, and `video_play_actions` for one or more ad accounts. You need to specify `advertiser_ids` simultaneously. To find the detailed description for these reporting metrics, see [Basic reports &gt; Supported metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553). Note: To use the `REPORT_DATA_CHANGE` value, ensure that you have enabled the Reporting &gt; Consolidated Report permission for your developer app.`AD_ACCOUNT_SUSPENSION`: the suspension statuses of ad accounts.`LEAD`: leads.TikTok is committed to providing "at least once delivery" for webhooks. Consequently, it’s possible that webhook endpoints may receive duplicate events. To mitigate potential issues, incorporate safeguards against processing duplicate events by designing your event handling to be idempotent.`AD_GROUP`: the review status of an ad group.`AD`: the review status of an ad.`TCM_VIDEOS`: the linking of a TikTok video to a TTO campaign.`CREATIVE_FATIGUE`: the fatigue status of an ad, ads within an ad group, or ads within an advertiser account.`API_SERVICE_STATUS`: the status of API service. |
+| `callback_url` | `body` | `string` | Yes | No | The callback URL. |
+| `subscription_detail` | `body` | `SubscriptionSubscribeParamsSubscriptionDetail` | Yes | No | Details about the subscription. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.subscription.subscriptionUnsubscribe
+
+`POST` `/open_api/v1.3/subscription/unsubscribe/`
+
+Generated from TikTok documentation 1739094758789122
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `subscription.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `SubscriptionUnsubscribeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `body` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `body` | `string` | Yes | No | Secret of your developer application. You can find the Secret by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `subscription_id` | `body` | `string` | Yes | No | The subscription ID. You can get the IDs of subscriptions under an app via `subscription_id` returned by [/subscription/get/](https://ads.tiktok.com/marketing_api/docs?id=1739093832125442). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

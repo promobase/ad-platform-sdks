@@ -1,0 +1,1220 @@
+---
+title: "TikTok Business models: Catalog Lexicon Get Response – Catalog Video Package Get Response"
+description: "100 generated TikTok Business model contracts, from CatalogLexiconGetResponse through CatalogVideoPackageGetResponse."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1010
+  label: "Catalog Lexicon Get Response – Catalog Video Package Get Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## CatalogLexiconGetResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogLocationCurrencyGetParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogLocationCurrencyGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CatalogLocationCurrencyGetResponseList>` | No | No | List. |
+
+## CatalogLocationCurrencyGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `string` | No | No | Country or region code. Example: `"DE"`. To find out the corresponding region for a country or region code, refer to [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+| `currency` | `currency` | `Array<string>` | No | No | List of currency codes that are supported for the location. To find out the corresponding currency for a currency code, refer to [Appendix - Currency](https://ads.tiktok.com/marketing_api/docs?id=1737585839634433). |
+
+## CatalogOverviewParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+
+## CatalogOverviewResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `approved` | `approved` | `number` | No | No | Number of approved products in the catalog. |
+| `rejected` | `rejected` | `number` | No | No | Number of rejected products in the catalog. |
+| `processing` | `processing` | `number` | No | No | Number of processing products in the catalog. |
+| `organic_approved` | `organic_approved` | `number` | No | No | Number of approved products bound with TikTok Shopping. |
+| `organic_rejected` | `organic_rejected` | `number` | No | No | Number of rejected products bound with TikTok Shopping. |
+| `organic_processing` | `organic_processing` | `number` | No | No | Number of processing products bound with TikTok Shopping. |
+
+## CatalogProductDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To obtain the list of catalogs that you can access, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `CATALOG`. |
+| `sku_ids` | `sku_ids` | `Array<string>` | No | No | Required for products in an E-commerce catalog. SKU IDs of E-commerce products that you want to delete. Max size: 1,000. Length limit: 100 characters for each SKU ID and cannot contain emojis. To obtain SKU IDs for products in an E-commerce catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The SKU IDs will be available from the response parameter `sku_id`. Note: Duplicate SKU IDs are not supported. |
+| `hotel_ids` | `hotel_ids` | `Array<string>` | No | No | Required for products in a hotel catalog. Hotel IDs of products that you want to delete. Max size: 1,000. Length limit: 100 characters for each hotel ID. To obtain hotel IDs for products in a hotel catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The hotel IDs will be available from the response parameter `hotel_id`. Note: Duplicate hotel IDs are not supported. |
+| `flight_ids` | `flight_ids` | `Array<string>` | No | No | Required for products in a flight catalog. Flight IDs of products that you want to delete. Max size: 1,000. Length limit: 150 characters for each flight ID. To obtain flight IDs for products in a flight catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The flight IDs will be available from the response parameter `flight_id`. Note: Duplicate flight IDs are not supported. |
+| `destination_ids` | `destination_ids` | `Array<string>` | No | No | Required for products in a destination catalog. Destination IDs of products that you want to delete. Max size: 1,000. Length limit: 100 characters for each destination ID. To obtain destination IDs for products in a destination catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The destination IDs will be available from the response parameter `destination_id`. Note: Duplicate destination IDs are not supported. |
+| `vehicle_ids` | `vehicle_ids` | `Array<string>` | No | No | Required for products in an Auto-Inventory or Auto-Model catalog. IDs of vehicles that you want to delete. Max size: 1,000. Length limit: 100 characters for each vehicle ID and cannot contain emojis. To obtain vehicle IDs for products in an Auto-Inventory or Auto-Model catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The vehicle IDs will be available from the response parameter `vehicle_id`. Note: Duplicate vehicle IDs are not supported. |
+| `series_ids` | `series_ids` | `Array<string>` | No | No | Required for products in a mini series catalog. IDs of the short drama series that you want to delete. Max size: 1,000. Length limit: 100 characters for each short drama series ID. To obtain short drama series IDs for products in a mini series catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). The short drama series IDs will be available from the response parameter `series_id`. Note: Duplicate short drama series IDs are not supported. |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. If the value of this field is empty, the default catalog will be processed. |
+
+## CatalogProductDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogProductFileParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. |
+| `file_url` | `file_url` | `string` | Yes | No | The download address of the CSV file. The number of product lines in the file should be less than 20 million. Currently, the API only allows CSV file type Catalog Feeds. CSV Catalog Feed templates are available for different types of catalogs as below:[Template for E-commerce catalogs](https://bytedance.feishu.cn/sheets/shtcnZ3VnFbOO64OiFNZRhlz8Db)[Template for hotel catalogs](https://bytedance.feishu.cn/sheets/FJNUsA17Xhp540t41Kecq8ZInCf)When your CSV file contains alias fields, the system will automatically map these fields to their corresponding existing fields. To learn more about the alias fields and their related existing fields, see Alias fields for hotel catalogs.[Template for flight catalogs](https://bytedance.feishu.cn/sheets/SII0sykCGhEObgtJaENcPSDpnyc)When your CSV file contains alias fields, the system will automatically map these fields to their corresponding existing fields. To learn more about the alias fields and their related existing fields, see Alias fields for flight catalogs.[Template for destination catalogs](https://bytedance.feishu.cn/sheets/OvJIsVlNfhl30ttKs7MciksInPh)[Template for entertainment catalogs](https://bytedance.feishu.cn/sheets/MrBAsQuGchn0pQtRRiyc47lynyg)[Template for Auto-Inventory catalogs](https://bytedance.sg.larkoffice.com/sheets/QuGIs2PgjhXLtOtDLaBceZnVnVg)[Template for Auto-Model catalogs](https://bytedance.sg.larkoffice.com/sheets/RjwhsCwlIhepPHtOq1SlD868g8b)[Template for mini series catalogs](https://bytedance.sg.larkoffice.com/sheets/SmHxs8C4oh0mKWtenOslDZ0Sg6b)To learn about the detailed introduction of each catalog product parameter, see [`products` object array parameters](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-products%20object%20array%20parameters). To understand how a field and its corresponding value in JSON format are represented in the CSV template, see [Comparison of Catalog Product Parameters in JSON Format & CSV Template](https://bytedance.sg.larkoffice.com/sheets/F7CGsxjuahfnAYt7GzTlR5X5ghb?sheet=gJ73Xi).Product images (`image_link`) must be 500 x 500 pixels or larger in size. Otherwise, the product will not be approved. For details, see [Product Image Requirements](https://ads.tiktok.com/marketing_api/docs?id=1739578479392770). Note: To upload short drama series that target multiple regions to a short drama catalog, call [/catalog/product/file/](https://business-api.tiktok.com/portal/docs?id=1740496787164161) multiple times with the same `series_id` and different `country` settings. After the uploads, access the consolidated targeting settings for the same short drama series through `target_config` and `additional_product_list` in [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402). For example, separate uploads with `country` set to `US` (same as the primary targeting region for the short drama catalog) and `VN` (same as one of the additional targeting regions) results in `list.target_config.region_code` as `US` and `list.additional_product_list.region_code` as `VN` in `/catalog/product/get/`.If your additional image URL contains commas (,), URL-encode them by replacing with %2C before adding them to this field. For example, for URLs such as `https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp`and `https://img.example.com/product_800x600,q85,webp.jpg`, you need to set this field to `["https://img.example.com/product.jpg?width=800&height=600&quality=85&format=webp","https://img.example.com/product_800x600%2Cq85%2Cwebp.jpg"]`. |
+| `update_mode` | `update_mode` | `"OVERWRITE" \| "INCREMENTAL"` | No | No | Update mode. The mode is one-time only and only applies to the current request. Enum values: `OVERWRITE`: In this mode, all the products in the catalog will be replaced by the products in the file you specify.`INCREMENTAL`: In this mode, the products in the file you specify will be added to the catalog. Note that if you upload a product already in the catalog with a duplicate SKU ID via the file, the data for the product in the catalog will be replaced.Default value: `INCREMENTAL`. Note: If you pass in `feed_id`, the update mode you specify via this field will not affect the update mode of the feed. |
+
+## CatalogProductFileResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_log_id` | `feed_log_id` | `string` | No | No | Catalog handling log ID. |
+
+## CatalogProductGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `page` | `page` | `number` | No | No | Current page number. Note: Only 10,000 results can be returned at most. You need to ensure that `page` multiplied by `page_size` is no more than 10,000. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Default is 10. The maximum supported size is 500. |
+| `product_ids` | `product_ids` | `Array<string>` | No | No | IDs of the products that you want to get. You can specify up to 1,000 product IDs. Note: `product_ids` and `sku_ids` cannot be specified at the same time. For mini series catalogs, the only supported filter is `product_ids`. |
+| `sku_ids` | `sku_ids` | `Array<string>` | No | No | IDs of the SKUs that you want to get information for. Max size: 1000. Length limit: 100 characters for each SKU ID and cannot contain emojis. Note:Duplicate SKU IDs are not supported. `product_ids` and `sku_ids` cannot be specified at the same time. |
+| `product_set_ids` | `product_set_ids` | `Array<string>` | No | No | IDs of the product sets that you want to get. Max size: 100. |
+| `order` | `order` | `CatalogProductGetParamsOrder` | No | No | Ordering settings. When `product_ids` or `sku_ids` is specified, this field will be ignored. |
+| `conditions` | `conditions` | `CatalogProductGetParamsConditions` | No | No | Filtering conditions. When you specify a filtering condition, all data fields in this object are required except `case_senstive`. When `product_ids` or `sku_ids` is specified, this field will be ignored. |
+
+## CatalogProductGetParamsConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `and / or` | `and / or` | `Array<CatalogProductGetParamsConditionsAndOr>` | No | No | Logic operator for the conditions. Either `and` or `or`. |
+
+## CatalogProductGetParamsConditionsAndOr
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | No | No | Data field to filter by. For the supported fields, see the Supported fields section below. |
+| `operator` | `operator` | `"EQ" \| "NE" \| "GT" \| "GTE" \| "LT" \| "LTE" \| "RNG" \| "WILDCARD" \| "NOT_WILDCARD" \| "PREFIX" \| "EXIST" \| "IN" \| "NOT_IN"` | No | No | Filter operator. Enum values: `EQ`, `NE`, `GT`, `GTE`, `LT`, `LTE`, `RNG`, `WILDCARD`, `NOT_WILDCARD`, `PREFIX`, `EXIST`, `IN`, `NOT_IN`. |
+| `values` | `values` | `Array<string>` | No | No | Filter values. Multiple values are allowed when `operator` is `RNG`, `IN`, or `NOT_IN`. |
+| `case_senstive` | `case_senstive` | `boolean` | No | No | Whether it is case-sensitive. |
+
+## CatalogProductGetParamsOrder
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `order_condition` | `order_condition` | `string` | No | No | Order-by condition. Currently, the only supported value is `PRODUCT_AVAILABILITY`. Do not pass in this field and `custom_order` at the same time. |
+| `custom_order` | `custom_order` | `Array<CatalogProductGetParamsOrderCustomOrder>` | No | No | Custom ordering / sorting conditions. Do not pass in this field and `order_condition` at the same time. |
+
+## CatalogProductGetParamsOrderCustomOrder
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | No | No | Data field that you want to order your products by. For supported ordering-by fields, see the Supported fields section below. |
+| `type` | `type` | `"ASC" \| "DES"` | No | No | Ordering / sorting type. Enum values: `ASC` (ascending order), `DES` (descending). |
+
+## CatalogProductGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CatalogProductGetResponseList>` | No | No | Product list. |
+| `page_info` | `page_info` | `CatalogProductGetResponsePageInfo` | No | No | Pagination information. |
+
+## CatalogProductGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audit` | `audit` | `CatalogProductGetResponseListAudit` | No | No | Audit information. |
+| `ad_creation_eligible` | `ad_creation_eligible` | `"AVAILABLE" \| "NOT_AVAILABLE" \| "ACTIVATED" \| "IN_STOCK" \| "AVAILABLE_FOR_ORDER" \| "PREORDER"` | No | No | Returned only for E-commerce catalog products. Whether the E-commerce catalog product can be used to create ads. Enum values: `AVAILABLE`, `NOT_AVAILABLE`. The `ad_creation_eligible` of an E-commerce catalog product will be `AVAILABLE` only when the following conditions are met: `audit_status` is `approved`. `active_status` is `ACTIVATED`. `availability` is `IN_STOCK`, `AVAILABLE_FOR_ORDER`, or `PREORDER`. |
+| `active_status` | `active_status` | `"ACTIVATED" \| "DEACTIVATED"` | No | No | Whether the product is activated. Enum values: `ACTIVATED`, `DEACTIVATED`. This field represents the advertiser-controlled online or offline status of the product. However, it does not necessarily imply that the product can be used to create ads. |
+| `sku_id` | `sku_id` | `string` | No | No | Advertiser-defined product ID. |
+| `product_id` | `product_id` | `string` | No | No | Product ID. |
+| `title` | `title` | `string` | No | No | Product title. |
+| `description` | `description` | `string` | No | No | Product description. |
+| `availability` | `availability` | `string` | No | No | Inventory status. For E-commerce catalog products, the enum values are: `IN_STOCK`: in stock. `AVAILABLE_FOR_ORDER`: available for order. `PREORDER`: available for pre-order.`OUT_OF_STOCK`: out of stock. `DISCONTINUED`: discontinued.For hotel catalog products, the enum values are:`IN_STOCK`: available for booking. `OUT_OF_STOCK`: unavailable for booking.For entertainment catalog products, the enum values are:`AVAILABLE``SUBSCRIBERS_ONLY` `ON_DEMAND``NOT_AVAILABLE`For Auto-Inventory catalog products, the enum values are:`AVAILABLE`: available for order.`NOT_AVAILABLE`: Not available for order. |
+| `image_url` | `image_url` | `string` | No | No | The URL for the product image. |
+| `video_url` | `video_url` | `string` | No | No | Ad video link. |
+| `brand` | `brand` | `string` | No | No | Brand information. |
+| `additional_image_urls` | `additional_image_urls` | `Array<string>` | No | No | Additional image URLs for the product. |
+| `item_group_id` | `item_group_id` | `string` | No | No | Product SPU ID. |
+| `google_product_category` | `google_product_category` | `string` | No | No | Category information. |
+| `global_trade_item_number` | `global_trade_item_number` | `string` | No | No | The Global Trade Item Number (GTIN) for the product. |
+| `manufacturer_part_number` | `manufacturer_part_number` | `string` | No | No | The Manufacturer Part Number (MPN) for the product. |
+| `hotel_id` | `hotel_id` | `string` | No | No | A unique ID for the hotel. |
+| `name` | `name` | `string` | No | No | The name of the hotel. |
+| `hotel_category` | `hotel_category` | `Array<string>` | No | No | The categories of the hotel. For enum values, see [List of values for `hotel_category`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List of values for hotel_category). |
+| `hotel_retailer_id` | `hotel_retailer_id` | `string` | No | No | A unique ID for the hotel retailer. |
+| `address` | `address` | `CatalogProductGetResponseListAddress` | No | No | Address information. |
+| `neighborhood` | `neighborhood` | `string` | No | No | The neighborhood where the hotel or destination is located. Example: `Bangkok Old Town`. |
+| `postal_code` | `postal_code` | `string` | No | No | The postal code or zip code of the hotel. |
+| `latitude` | `latitude` | `number` | No | No | The latitude of the hotel, destination, or the dealership's location. Example: 37.484100 |
+| `longitude` | `longitude` | `number` | No | No | The latitude of the hotel, destination, or the dealership's location. Example: -122.148252 |
+| `series_id` | `series_id` | `string` | No | No | A unique self-defined ID for the short drama series. |
+| `series_name` | `series_name` | `string` | No | No | The name of the short drama series. |
+| `target_config` | `target_config` | `CatalogProductGetResponseListTargetConfig` | No | No | Details of the primary targeting region for the short drama series. |
+| `recharge` | `recharge` | `Array<CatalogProductGetResponseListRecharge>` | No | No | Information about the recharge for the short drama series. |
+| `margin_level` | `margin_level` | `string` | No | No | The percentage of the base price (`price`) for a hotel room that the hotel charges as deposit. For instance, a value of 10 means the hotel charges 10 percent of the base price for a hotel room as deposit. |
+| `loyalty_program` | `loyalty_program` | `string` | No | No | The loyalty program offered by the hotel. For enum values, see [List of values for `loyalty_program`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List of values for loyalty_program). |
+| `guest_ratings` | `guest_ratings` | `Array<CatalogProductGetResponseListGuestRatings>` | No | No | Information about guest ratings for the hotel. |
+| `star_rating` | `star_rating` | `number` | No | No | Hotel star rating that is assigned by professional organizations or travel review agencies based on a set of criteria. The highest possible rating is usually 5 stars. Uploading it might help increase Page View Rate. |
+| `room_type` | `room_type` | `Array<string>` | No | No | The hotel room types. For enum values, see [List of values for `room_type`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List of values for room_type). |
+| `priority` | `priority` | `number` | No | No | The priority of the hotel or flight. Value range: 0-5. A higher value indicates a higher priority. |
+| `flight_id` | `flight_id` | `string` | No | No | A unique ID for the flight. The ID will be automatically generated by the system. |
+| `origin_airport` | `origin_airport` | `string` | No | No | The origin airport of the flight, in the format of a three-letter IATA (International Air Transport Association) code. Example: `AAR`. |
+| `destination_airport` | `destination_airport` | `string` | No | No | The destination airport of the flight, in the format of a three-letter IATA code. Example: `ABD`. |
+| `origin_city` | `origin_city` | `string` | No | No | The name of the origin city. |
+| `destination_city` | `destination_city` | `string` | No | No | The name of the destination city. |
+| `cabin_class` | `cabin_class` | `"FIRST_CLASS" \| "FIRST_CLASS_SUITE" \| "BUSINESS_CLASS" \| "BUSINESS_CLASS_SUITE" \| "COMFORT_CLASS" \| "ECONOMY_CLASS" \| "BASIC_ECONOMY" \| "STANDARD_ECONOMY" \| "PREMIUM_ECONOMY" \| "LIE_FLAT_SEAT" \| "CHARTER_CLASS" \| "ELITE_CLASS" \| "QUIET_CLASS"` | No | No | The cabin class of the flight. Enum values:`FIRST_CLASS`: First Class. Premium service with luxurious amenities and private spaces.`FIRST_CLASS_SUITE`: First Class Suite. Private suites offering luxury and exclusivity.`BUSINESS_CLASS`: Business Class. Enhanced comfort and amenities for business and leisure travelers.`BUSINESS_CLASS_SUITE`: Business Class Suite. Spacious and private cabins in business class.`COMFORT_CLASS`: Comfort Class. Improved seating and service between premium and economy.`ECONOMY_CLASS`: Economy Class. Standard travel option with basic amenities at an affordable price.`BASIC_ECONOMY`: Basic Economy. Budget-friendly option with limited services and restrictions.`STANDARD_ECONOMY`: Standard Economy. Typical economy service with basic features and pricing.`PREMIUM_ECONOMY`: Premium Economy. Extra legroom and better in-flight services compared to standard economy.`LIE_FLAT_SEAT`: Lie Flat Seat. Fully reclining seats for optimal comfort on long flights.`CHARTER_CLASS`: Charter Class. Custom private aircraft hire for tailored travel experiences.`ELITE_CLASS`: Elite Class. Top-tier service combining the best features of first and business classes.`QUIET_CLASS`: Quiet Class. Noise-reduced area for a serene travel experience. |
+| `airline_company` | `airline_company` | `"AEROFLOT" \| "AIR_FRANCE_KLM_GROUP" \| "ALASKA_AIRLINES" \| "ANA" \| "AMERICAN_AIRLINES" \| "BRITISH_AIRWAYS" \| "CATHAY_PACIFIC" \| "CHINA_SOUTHERN_AIRLINES" \| "CHINA_EASTERN_AIRLINES" \| "DELTA_AIR_LINES" \| "EMIRATES" \| "JAPAN_AIRLINES" \| "JETBLUE_AIRWAYS" \| "KLM_ROYAL_DUTCH_AIRLINES" \| "LUFTHANSA_GROUP" \| "QANTAS_AIRWAYS" \| "QATAR_AIRWAYS" \| "SINGAPORE_AIRLINES" \| "SOUTHWEST_AIRLINES" \| "TURKISH_AIRLINES" \| "UNITED_AIRLINES" \| "VIRGIN_ATLANTIC"` | No | No | The name of the airline company operating the flight. Enum values:`AEROFLOT`: Aeroflot.`AIR_FRANCE_KLM_GROUP`: Air France-KLM Group.`ALASKA_AIRLINES`: Alaska Airlines.`ANA`: ANA.`AMERICAN_AIRLINES`: American Airlines.`BRITISH_AIRWAYS`: British Airways.`CATHAY_PACIFIC`: Cathay Pacific.`CHINA_SOUTHERN_AIRLINES`: China Southern Airlines.`CHINA_EASTERN_AIRLINES`: China Eastern Airlines.`DELTA_AIR_LINES`: Delta Air Lines.`EMIRATES`: Emirates.`JAPAN_AIRLINES`: Japan Airlines.`JETBLUE_AIRWAYS`: JetBlue Airways.`KLM_ROYAL_DUTCH_AIRLINES`: KLM Royal Dutch Airlines.`LUFTHANSA_GROUP`: Lufthansa Group.`QANTAS_AIRWAYS`: Qantas Airways.`QATAR_AIRWAYS`: Qatar Airways.`SINGAPORE_AIRLINES`: Singapore Airlines.`SOUTHWEST_AIRLINES`: Southwest Airlines.`TURKISH_AIRLINES`: Turkish Airlines.`UNITED_AIRLINES`: United Airlines.`VIRGIN_ATLANTIC`: Virgin Atlantic. |
+| `destination_id` | `destination_id` | `string` | No | No | A unique ID for the destination. |
+| `destination_name` | `destination_name` | `string` | No | No | The name of the destination. |
+| `types` | `types` | `Array<string>` | No | No | The type or types of destination. |
+| `media_title_id` | `media_title_id` | `string` | No | No | A unique ID for the media title item. A media title item is a media product that is available for distribution or consumption, such as a movie, TV show, music, or sports game. |
+| `timeline` | `timeline` | `"COMING_SOON" \| "ONLINE" \| "EXPIRE_SOON"` | No | No | The timeline for the media title item. Enum values: `COMING_SOON`: The media title item is not available now, but will be released soon. `ONLINE`: The media title item is currently available for purchase or view.`EXPIRE_SOON`: The media title item will no longer be available for purchase or view soon. |
+| `category` | `category` | `"MOVIE" \| "MUSIC" \| "TV_SHOW" \| "TV_SERIES" \| "SPORTS_GAME" \| "LIVE_EVENT"` | No | No | The category of the media title item. Enum values: `MOVIE`: movie.`MUSIC`: music. `TV_SHOW`: TV show. `TV_SERIES`: TV series.`SPORTS_GAME`: sports game. `LIVE_EVENT`: live event. |
+| `genres` | `genres` | `Array<string>` | No | No | The genres of the media title item. To find out the allowed values for this field, refer to the " List of values for `genres` " section below. |
+| `qid` | `qid` | `string` | No | No | QID (or Q number), the unique identifier of the media title item on Wikidata, which consists of the letter "Q" followed by one or more digits. |
+| `vehicle_id` | `vehicle_id` | `string` | No | No | A unique ID for the vehicle. |
+| `state_of_vehicle` | `state_of_vehicle` | `"NEW" \| "USED" \| "CPO"` | No | No | The state of the vehicle. Enum values:`NEW`: new.`USED`: used.`CPO`: CPO (certified pre-owned). CPO vehicles are used vehicles that have undergone thorough inspection and are typically newer, have lower mileage, and come with additional warranty coverage compared to regular used cars.Example: `USED`. |
+| `vehicle_type` | `vehicle_type` | `"BOAT" \| "CAR_TRUCK" \| "COMMERCIAL" \| "MOTORCYCLE" \| "POWERSPORT" \| "RV_CAMPER" \| "TRAILER" \| "OTHER"` | No | No | The type of the vehicle. Enum values:`BOAT`: boat.`CAR_TRUCK`: car or truck.`COMMERCIAL`: A vehicle used for commercial purposes, such as a delivery truck.`MOTORCYCLE`: motorcycle.`POWERSPORT`: powersport. Recreational vehicles that are designed for outdoor activities and adventure, such as a snowmobile.`RV_CAMPER`: recreational vehicle or camper designed for travel and camping purposes.`TRAILER`: trailer.`OTHER`: Any other vehicle type not covered above. |
+| `make` | `make` | `string` | No | No | The make (brand) of the vehicle. |
+| `model` | `model` | `string` | No | No | The model of the vehicle. |
+| `trim` | `trim` | `string` | No | No | The trim of the vehicle. The trim represents the distinctive specification package of the vehicle, tailored specifically to that model. |
+| `year` | `year` | `number` | No | No | The year when the vehicle was launched, in the format of `YYYY`. |
+| `vin` | `vin` | `string` | No | No | The VIN (Vehicle Identification Number) of the vehicle. |
+| `mileage` | `mileage` | `CatalogProductGetResponseListMileage` | No | No | The mileage of the vehicle. |
+| `body_style` | `body_style` | `"CONVERTIBLE" \| "COUPE" \| "CROSSOVER" \| "HATCHBACK" \| "MINIVAN" \| "SMALL_CAR" \| "SEDAN" \| "SUV" \| "TRUCK" \| "VAN" \| "WAGON" \| "OTHER"` | No | No | The body style of the vehicle. Enum values:`CONVERTIBLE`: convertible.`COUPE`: coupe.`CROSSOVER`: crossover.`HATCHBACK`: hatchback.`MINIVAN`: minivan.`SMALL_CAR`: small car.`SEDAN`: sedan.`SUV`: SUV.`TRUCK`: truck.`VAN`: van.`WAGON`: wagon.`OTHER`: other. |
+| `exterior_color` | `exterior_color` | `string` | No | No | The exterior color of the vehicle. |
+| `interior_color` | `interior_color` | `string` | No | No | The interior color of the vehicle. |
+| `transmission` | `transmission` | `"AUTOMATIC" \| "MANUAL"` | No | No | The transmission type of the vehicle. Enum values:`AUTOMATIC`: automatic.`MANUAL`: manual. |
+| `drivetrain` | `drivetrain` | `"AWD" \| "FWD" \| "RWD" \| "OTHER"` | No | No | The drivetrain type of the vehicle. Enum values:`4X2`: four-wheel drive vehicle with two wheel drive (2WD). The drivetrain delivers power to either the front wheels or the rear wheels.`4X4`: four-wheel drive vehicle with four wheel drive. The drivetrain delivers power to all four wheels.`AWD`: all-wheel drive. The drivetrain delivers power to all wheels continuously.`FWD`: front-wheel drive. The drivetrain delivers power to the front wheels only.`RWD`: rear-wheel drive. The drivetrain delivers power to the rear wheels only.`OTHER`: any other drivetrain type not covered above, such as electric vehicles with unique drivetrain styles. |
+| `fuel_type` | `fuel_type` | `"DIESEL" \| "ELECTRIC" \| "FLEX" \| "GASOLINE" \| "HYBRID" \| "OTHER"` | No | No | The fuel type of the vehicle. Enum values:`DIESEL`: diesel.`ELECTRIC`: electric.`FLEX`: flex fuel, a blend of gasoline and ethanol.`GASOLINE`: gasoline.`HYBRID`: hybrid.`OTHER`: other. |
+| `dealer` | `dealer` | `CatalogProductGetResponseListDealer` | No | No | Detailed information about the dealership. |
+| `date_first_on_lot` | `date_first_on_lot` | `string` | No | No | The date when the vehicle physically arrives at the dealership's lot, in the format of `YYYY-MM-DD`. |
+| `days_on_lot` | `days_on_lot` | `number` | No | No | The number of days the vehicle has been on the dealership's lot. |
+| `profession` | `profession` | `CatalogProductGetResponseListProfession` | No | No | Product other information. |
+| `price` | `price` | `CatalogProductGetResponseListPrice` | No | No | Price information. |
+| `landing_page` | `landing_page` | `CatalogProductGetResponseListLandingPage` | No | No | Landing page information. |
+| `extra_info` | `extra_info` | `CatalogProductGetResponseListExtraInfo` | No | No | Additional information. |
+| `image_status` | `image_status` | `"PROCESSING" \| "SUCCESS" \| "FAIL" \| "FILTERED" \| "NOT_SUPPORTED" \| "NO_FOUND"` | No | No | Storage status of the product image. Enum values:`PROCESSING`: The image is being stored. `SUCCESS`: The image is stored successfully. `FAIL`: The image is not stored successfully. `FILTERED`: The image was stored successfully but cannot be used because it does not meet the size requirements (must be equal to or larger than 500 px). For such images, the product audit status (`audit_status`) will stay at `processing` until you upload a new image.`NOT_SUPPORTED`: The image format is not supported.`NO_FOUND`: Cannot find the resource via the URL. Please ensure the URL is valid, and the file is publicly accessible. |
+| `additional_product_list` | `additional_product_list` | `Array<CatalogProductGetResponseListAdditionalProductList>` | No | No | Returned when you have configured additional targeting regions for the short drama series. A list of additional targeting region settings for the short drama series of the same `series_id`. |
+
+## CatalogProductGetResponseListAdditionalProductList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audit` | `audit` | `CatalogProductGetResponseListAdditionalProductListAudit` | No | No | Audit information. |
+| `rejected_info` | `rejected_info` | `Array<CatalogProductGetResponseListAdditionalProductListRejectedInfo>` | No | No | Returned only when `audit_status` is `rejected`. List of rejection reasons. |
+| `active_status` | `active_status` | `"ACTIVATED" \| "DEACTIVATED"` | No | No | Whether the product is activated. Enum values: `ACTIVATED`, `DEACTIVATED`. This field represents the advertiser-controlled online or offline status of the product. However, it does not necessarily imply that the product can be used to create ads. |
+| `image_status` | `image_status` | `"PROCESSING" \| "SUCCESS" \| "FAIL" \| "FILTERED" \| "NOT_SUPPORTED" \| "NO_FOUND"` | No | No | Storage status of the product image. Enum values:`PROCESSING`: The image is being stored.`SUCCESS`: The image is stored successfully.`FAIL`: The image is not stored successfully.`FILTERED`: The image was stored successfully but cannot be used because it does not meet the size requirements (must be equal to or larger than 500 px). For such images, the product audit status (`audit_status`) will stay at `processing` until you upload a new image.`NOT_SUPPORTED`: The image format is not supported.`NO_FOUND`: Cannot find the resource via the URL. Please ensure the URL is valid, and the file is publicly accessible. |
+| `product_id` | `product_id` | `string` | No | No | Product ID. |
+| `series_id` | `series_id` | `string` | No | No | A unique self-defined ID for the short drama series. |
+| `series_name` | `series_name` | `string` | No | No | The name of the short drama series. |
+| `target_config` | `target_config` | `CatalogProductGetResponseListAdditionalProductListTargetConfig` | No | No | Details of the additional targeting region for the short drama series. |
+| `image_url` | `image_url` | `string` | No | No | The URL for the short drama series poster image. |
+| `recharge` | `recharge` | `Array<CatalogProductGetResponseListAdditionalProductListRecharge>` | No | No | Information about the recharge for the short drama series. |
+| `profession` | `profession` | `CatalogProductGetResponseListAdditionalProductListProfession` | No | No | Product other information. |
+| `video_url` | `video_url` | `string` | No | No | Ad video link. |
+| `additional_image_urls` | `additional_image_urls` | `Array<string>` | No | No | Additional image URLs for the product. Note: The value of this field will be null. |
+| `global_trade_item_number` | `global_trade_item_number` | `string` | No | No | The Global Trade Item Number (GTIN) for the product. Note: The value of this field will be null. |
+| `manufacturer_part_number` | `manufacturer_part_number` | `string` | No | No | The Manufacturer Part Number (MPN) for the product. Note: The value of this field will be null. |
+| `landing_page` | `landing_page` | `CatalogProductGetResponseListAdditionalProductListLandingPage` | No | No | Landing page information. Note: The value of this field will be null. |
+| `extra_info` | `extra_info` | `CatalogProductGetResponseListAdditionalProductListExtraInfo` | No | No | Additional information. Note: The value of this field will be null. |
+
+## CatalogProductGetResponseListAdditionalProductListAudit
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audit_status` | `audit_status` | `string` | No | No | Ad audit status. It indicates if the ad promoting the product can be deployed. Enum values: `approved`, `rejected`, `processing`. |
+
+## CatalogProductGetResponseListAdditionalProductListExtraInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Additional information about the products you want to include. |
+
+## CatalogProductGetResponseListAdditionalProductListLandingPage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | URL of the landing page where you can view or purchase the product. |
+
+## CatalogProductGetResponseListAdditionalProductListProfession
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `company_type` | `company_type` | `"COPYRIGHT_HOLDER" \| "DISTRIBUTOR"` | No | No | The company type for the short drama series. Enum values:`COPYRIGHT_HOLDER`: copyright holder.`DISTRIBUTOR`: distributor. |
+| `copyright_holder_name` | `copyright_holder_name` | `string` | No | No | The name of the copyright holder company. |
+| `app_id` | `app_id` | `string` | No | No | The App ID of the app to promote in your ads. To obtain a list of App IDs within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). |
+| `minis_id` | `minis_id` | `string` | No | No | Mini program ID. |
+| `total_episodes` | `total_episodes` | `number` | No | No | The number of episodes in the short drama series. |
+| `initial_paid_episodes` | `initial_paid_episodes` | `number` | No | No | The episode number at which viewers are required to pay to continue watching the short drama series. |
+| `per_episode_duration` | `per_episode_duration` | `number` | No | No | The average duration of each episode in minutes. |
+| `spoken_language` | `spoken_language` | `string` | No | No | The language that actors in the original short drama series speak. Enum values:`ar`: Arabic.`de`: German.`cs`: Czech.`en`: English.`es`: Spanish.`fr`: French.`he`: Hebrew.`hi`: Hindi.`id`: Indonesian.`it`: Italian.`ja`: Japanese.`ko`: Korean.`ms`: Malay.`pl`: Polish.`pt`: Portuguese.`ro`: Romanian.`ru`: Russian.`ta`: Tamil.`th`: Thai.`tr`: Turkish.`vi`: Vietnamese.`zh`: Simplified Chinese.`zh-hant`: Traditional Chinese. |
+| `subtitle_language` | `subtitle_language` | `string` | No | No | The language used for the subtitles in the short drama series. Enum values:`ar`: Arabic.`de`: German.`cs`: Czech.`en`: English.`es`: Spanish.`fr`: French.`he`: Hebrew.`hi`: Hindi.`id`: Indonesian.`it`: Italian.`ja`: Japanese.`ko`: Korean.`ms`: Malay.`pl`: Polish.`pt`: Portuguese.`ro`: Romanian.`ru`: Russian.`ta`: Tamil.`th`: Thai.`tr`: Turkish.`vi`: Vietnamese.`zh`: Simplified Chinese.`zh-hant`: Traditional Chinese. |
+| `production_type` | `production_type` | `"LOCAL" \| "TRANSLATION"` | No | No | Production type, whether the short drama series is locally produced or translated for export. Enum values:`LOCAL`: Local drama. The short drama features local actors, and the language for actors, narration, and subtitles is the local official language.`TRANSLATION`: Translated drama. The short drama is packaged for international distribution with added subtitles, narration, and dubbing in another language. |
+| `target_audience` | `target_audience` | `"MALE" \| "FEMALE" \| "NEUTRAL"` | No | No | The target audience for the short drama series. Enum values:`MALE`: Male. The short drama is primarily targeted at male audiences, often centered around a male protagonist or narrated from a male perspective. Themes typically include the accumulation of power, wealth, and prestige, the enhancement of abilities, and strategic planning.`FEMALE`: Female. The short drama is primarily targeted at female audiences, often centered around a female protagonist or narrated from a female perspective. These dramas usually contain elements of romance and love.`NEUTRAL`: Neutral. The short drama doesn't have a specific gender target audience. |
+| `characters` | `characters` | `Array<string>` | No | No | The list of characters in the short drama series. For enum values, see [List of values for `characters`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20characters). |
+| `genres` | `genres` | `Array<string>` | No | No | The genres of the short drama series as indicated by the main storyline or plot. For enum values, see [List of values for mini series `genres`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20mini%20series%20genres). |
+| `historical_context` | `historical_context` | `Array<string>` | No | No | The historical background or setting of the short drama series. For enum values, see [List of values for `historical_context`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20historical_context). |
+| `actors` | `actors` | `Array<string>` | No | No | The names of the actors in the short drama series. |
+
+## CatalogProductGetResponseListAdditionalProductListRecharge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"BY_TIERS" \| "SUBSCRIPTION" \| "BY_EPISODES"` | No | No | Recharge type for the short drama series. Enum values:`BY_TIERS`: Recharge by tiers.`SUBSCRIPTION`: Recharge by subscription fee for a time period.`BY_EPISODES`: Recharge by episodes. |
+| `purchase_unit` | `purchase_unit` | `Array<string>` | No | No | Units for the recharge. When `recharge_type` is `BY_TIERS`, the enum values are:`TIER 1`: tier 1.`TIER_2`: tier 2.`TIER 3`: tier 3.`TIER 4`: tier 4.`TIER 5`: tier 5.When `recharge_type` is `SUBSCRIPTION`, the enum values are:`WEEKLY`: weekly.`MONTHLY`: monthly.`QUARTERLY`: quarterly.`YEARLY`: yearly.When `recharge_type` is `BY_EPISODES`, specify one or more numeric strings that represent numbers no more than the total episode count. |
+| `cost` | `cost` | `string` | No | No | The prices for the tiers, subscription periods, or episodes. |
+
+## CatalogProductGetResponseListAdditionalProductListRejectedInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | `reason` | `string` | No | No | Rejection reason. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions about how to revise to be approved. |
+| `affected_placement` | `affected_placement` | `Array<string>` | No | No | List of placements affected by the rejection. |
+| `affected_country` | `affected_country` | `Array<string>` | No | No | List of countries or regions affected by the rejection. |
+
+## CatalogProductGetResponseListAdditionalProductListTargetConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | No | No | The region code of the additional targeting region for the short drama series. Example: `US`. |
+| `currency` | `currency` | `string` | No | No | Currency for the additional targeting region for the short drama series. For supported currencies, see the Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). Example: `USD`. |
+
+## CatalogProductGetResponseListAddress
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `string` | No | No | The address of the hotel, destination, or the dealership. |
+| `secondary_address` | `secondary_address` | `string` | No | No | The secondary street address of the hotel |
+| `tertiary_address` | `tertiary_address` | `string` | No | No | The tertiary street address of the hotel. |
+| `city` | `city` | `string` | No | No | The city where the hotel, destination, or the dealership is located. |
+| `region` | `region` | `string` | No | No | The region (state/province) where the hotel, destination, or the dealership is located. |
+| `country` | `country` | `string` | No | No | The country where the hotel or destination is located. |
+| `postal_code` | `postal_code` | `string` | No | No | The postal code for the dealership's address. |
+
+## CatalogProductGetResponseListAudit
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audit_status` | `audit_status` | `string` | No | No | Ad audit status. It indicates if the ad promoting the product can be deployed. Enum values: `approved`, `rejected`, `processing`. |
+| `rejected_info` | `rejected_info` | `Array<CatalogProductGetResponseListAuditRejectedInfo>` | No | No | Returned only when `audit_status` is `rejected`. List of rejection reasons. |
+
+## CatalogProductGetResponseListAuditRejectedInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | `reason` | `string` | No | No | Rejection reason. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions about how to revise to be approved. |
+| `affected_placement` | `affected_placement` | `Array<string>` | No | No | List of placements affected by the rejection. |
+| `affected_country` | `affected_country` | `Array<string>` | No | No | List of countries or regions affected by the rejection. |
+
+## CatalogProductGetResponseListDealer
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dealer_id` | `dealer_id` | `string` | No | No | A unique ID for the dealership. |
+| `dealer_name` | `dealer_name` | `string` | No | No | The name of the dealership. |
+| `dealer_phone` | `dealer_phone` | `string` | No | No | The phone number of the dealership. |
+| `stock_number` | `stock_number` | `string` | No | No | The stock number assigned to the vehicle by the dealership. The stock number is usually assigned when the vehicle physically arrives at the dealership's lot. |
+
+## CatalogProductGetResponseListExtraInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Additional information about the products you want to include. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Additional information about the products you want to include. |
+| `internal_label_0` | `internal_label_0` | `string` | No | No | An internal label assigned to the hotel or flight. You can use internal labels to filter items while creating product sets. These labels are exclusively visible to you. Length Limit: 100 characters. If you are using custom labels (`custom_label_0` to `custom_label_4`) for filtering items during product set creation, consider switching to internal labels. Unlike custom labels, internal labels can be added or modified as needed without the need for submitting items for review each time, avoiding potential interruptions in ad delivery. |
+| `internal_label_1` | `internal_label_1` | `string` | No | No | An internal label assigned to the hotel or flight. You can use internal labels to filter items while creating product sets. These labels are exclusively visible to you. Length Limit: 100 characters. If you are using custom labels (`custom_label_0` to `custom_label_4`) for filtering items during product set creation, consider switching to internal labels. Unlike custom labels, internal labels can be added or modified as needed without the need for submitting items for review each time, avoiding potential interruptions in ad delivery. |
+
+## CatalogProductGetResponseListGuestRatings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rating_system` | `rating_system` | `string` | No | No | The rating system for the hotel. |
+| `max_score` | `max_score` | `number` | No | No | The highest score that the hotel has received. |
+| `score` | `score` | `number` | No | No | The average score of the hotel. |
+| `number_of_reviewers` | `number_of_reviewers` | `number` | No | No | The number of guests who have reviewed the hotel. |
+
+## CatalogProductGetResponseListLandingPage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | URL of the landing page where you can view or purchase the product. |
+| `ios_url` | `ios_url` | `string` | No | No | Custom scheme for iOS apps as URL. For iOS, provide both iPhone & iPad app information if they are different from the regular iOS app. |
+| `ios_app_store_id` | `ios_app_store_id` | `string` | No | No | App Store ID for the iOS app. |
+| `ios_app_name` | `ios_app_name` | `string` | No | No | The iOS App name to display. |
+| `iphone_app_store_id` | `iphone_app_store_id` | `string` | No | No | App Store ID for the iPhone app. |
+| `iphone_app_name` | `iphone_app_name` | `string` | No | No | The iphone App name to display. |
+| `ipad_app_store_id` | `ipad_app_store_id` | `string` | No | No | App Store ID for the iPad app. |
+| `ipad_app_name` | `ipad_app_name` | `string` | No | No | The iPad App name to display. |
+| `android_url` | `android_url` | `string` | No | No | Custom scheme for Android apps as URL. |
+| `android_package` | `android_package` | `string` | No | No | The Android package name. |
+| `android_app_name` | `android_app_name` | `string` | No | No | The Android App name to display. |
+
+## CatalogProductGetResponseListMileage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `number` | No | No | Mileage value. |
+| `unit` | `unit` | `"MILE" \| "KILOMETER"` | No | No | Mileage unit. Enum values:`MILE`: mile.`KILOMETER`: kilometer. |
+
+## CatalogProductGetResponseListPrice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `price` | `price` | `number` | No | No | The base price. For destination catalog products, this field represents the average or lowest price for the destination. The `description` field may provide information on whether this is the average price or the lowest price. |
+| `currency` | `currency` | `string` | No | No | Unit of currency that must match the unit of currency of catalog's target country. If you do not provide it, we will use the default unit of currency of the catalog's target country. |
+| `sale_price` | `sale_price` | `number` | No | No | The discounted price. |
+| `sale_price_effective_date` | `sale_price_effective_date` | `Array<string>` | No | No | Start and end date and time of sale. |
+
+## CatalogProductGetResponseListProfession
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_group` | `age_group` | `"NEW_BORN" \| "INFANT" \| "TODDLER" \| "KIDS" \| "ADULT"` | No | No | Age group of products. Enum values:`NEW_BORN`, `INFANT`, `TODDLER`, `KIDS`, `ADULT`. Example: `ADULT`. |
+| `color` | `color` | `string` | No | No | Color of products. |
+| `condition` | `condition` | `string` | No | No | Current status of products. For E-commerce catalog products, the enum values are `NEW`, `REFURBISHED`, and `USED`. For entertainment catalog products, the enum values are `NEW` and `USED`.For Auto-Inventory catalog products, the enum values are: `EXCELLENT`: excellent.`GOOD`: good.`FAIR`: fair.`POOR`: poor.`OTHER`: other. |
+| `gender` | `gender` | `"MALE" \| "FEMALE" \| "UNISEX"` | No | No | The targeted gender for the product. The accuracy of this field is important to ensure products are delivered to the intended gender group. Enum values: `MALE`, `FEMALE`, `UNISEX`. |
+| `material` | `material` | `string` | No | No | Materials used in products, such as cotton, denim or leather. |
+| `pattern` | `pattern` | `string` | No | No | Pattern or graphic printing on a product. |
+| `product_category` | `product_category` | `string` | No | No | The category that the product belongs to. Only the first three levels are required. |
+| `shipping` | `shipping` | `string` | No | No | The type of shipping for the product. Recommended format: `COUNTRY:STATE:SHIPPING_TYPE: PRICE`. Use ";" to separate different regions. Example: `US:CA:Ground:9.99 USD`. |
+| `shipping_weight` | `shipping_weight` | `string` | No | No | The shipping weight of the product. The allowed units are `lb`, `oz`, `g`, `kg`. Example: 1 oz, 1 kg. |
+| `size` | `size` | `string` | No | No | Size of the item. |
+| `tax` | `tax` | `string` | No | No | Product tax. |
+| `offer_type` | `offer_type` | `string` | No | No | The type of offer. |
+| `term_length` | `term_length` | `string` | No | No | The duration for which the offer applies. |
+| `offer_term_qualifier` | `offer_term_qualifier` | `string` | No | No | The unit for term of the offer. |
+| `amount_price` | `amount_price` | `string` | No | No | The amount of the offer. |
+| `amount_percentage` | `amount_percentage` | `string` | No | No | The percentage for the APR in a finance offer. |
+| `amount_qualifier` | `amount_qualifier` | `string` | No | No | The qualifier for the `amount_price` or `amount_percentage`. |
+| `downpayment` | `downpayment` | `string` | No | No | The downpayment at the time of purchase or lease. |
+| `downpayment_qualifier` | `downpayment_qualifier` | `string` | No | No | Qualifier for the downpayment. |
+| `offer_disclaimer` | `offer_disclaimer` | `string` | No | No | The full text of the offer disclaimer to appear in the in-app pop-up. |
+| `offer_disclaimer_url` | `offer_disclaimer_url` | `string` | No | No | A URL that directs users to additional information related to the offer disclaimer, in the format of `http://xxx` or `https://xxx`. |
+| `emission_disclaimer` | `emission_disclaimer` | `string` | No | No | The text of the emission disclaimer to appear within the in-app pop-up. |
+| `emission_disclaimer_url` | `emission_disclaimer_url` | `string` | No | No | A URL that directs users to additional information related to the emission disclaimer, in the format of `http://xxx` or `https://xxx`. |
+| `emission_overlay_disclaimer` | `emission_overlay_disclaimer` | `string` | No | No | The short text of the disclaimer to appear on-screen in the disclaimer banner. |
+| `emission_image_link` | `emission_image_link` | `string` | No | No | The link to an image showing the emission level, in the format of `http://xxx` or `https://xxx`. |
+| `company_type` | `company_type` | `"COPYRIGHT_HOLDER" \| "DISTRIBUTOR"` | No | No | The company type for the short drama series. Enum values:`COPYRIGHT_HOLDER`: copyright holder.`DISTRIBUTOR`: distributor. |
+| `copyright_holder_name` | `copyright_holder_name` | `string` | No | No | The name of the copyright holder company. |
+| `app_id` | `app_id` | `string` | No | No | The App ID of the app to promote in your ads. To obtain a list of App IDs within your ad account, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786). |
+| `minis_id` | `minis_id` | `string` | No | No | Mini program ID. |
+| `total_episodes` | `total_episodes` | `number` | No | No | The number of episodes in the short drama series. |
+| `initial_paid_episodes` | `initial_paid_episodes` | `number` | No | No | The episode number at which viewers are required to pay to continue watching the short drama series. |
+| `per_episode_duration` | `per_episode_duration` | `number` | No | No | The average duration of each episode in minutes. |
+| `spoken_language` | `spoken_language` | `string` | No | No | The language that actors in the original short drama series speak. Enum values:`ar`: Arabic.`de`: German.`cs`: Czech.`en`: English.`es`: Spanish.`fr`: French.`he`: Hebrew.`hi`: Hindi.`id`: Indonesian.`it`: Italian.`ja`: Japanese.`ko`: Korean.`ms`: Malay.`pl`: Polish.`pt`: Portuguese.`ro`: Romanian.`ru`: Russian.`ta`: Tamil.`th`: Thai.`tr`: Turkish.`vi`: Vietnamese.`zh`: Simplified Chinese.`zh-hant`: Traditional Chinese. |
+| `subtitle_language` | `subtitle_language` | `string` | No | No | The language used for the subtitles in the short drama series. Enum values:`ar`: Arabic.`de`: German.`cs`: Czech.`en`: English.`es`: Spanish.`fr`: French.`he`: Hebrew.`hi`: Hindi.`id`: Indonesian.`it`: Italian.`ja`: Japanese.`ko`: Korean.`ms`: Malay.`pl`: Polish.`pt`: Portuguese.`ro`: Romanian.`ru`: Russian.`ta`: Tamil.`th`: Thai.`tr`: Turkish.`vi`: Vietnamese.`zh`: Simplified Chinese.`zh-hant`: Traditional Chinese. |
+| `production_type` | `production_type` | `"LOCAL" \| "TRANSLATION"` | No | No | Production type, whether the short drama series is locally produced or translated for export. Enum values:`LOCAL`: Local drama. The short drama features local actors, and the language for actors, narration, and subtitles is the local official language.`TRANSLATION`: Translated drama. The short drama is packaged for international distribution with added subtitles, narration, and dubbing in another language. |
+| `target_audience` | `target_audience` | `"MALE" \| "FEMALE" \| "NEUTRAL"` | No | No | The target audience for the short drama series. Enum values:`MALE`: Male. The short drama is primarily targeted at male audiences, often centered around a male protagonist or narrated from a male perspective. Themes typically include the accumulation of power, wealth, and prestige, the enhancement of abilities, and strategic planning.`FEMALE`: Female. The short drama is primarily targeted at female audiences, often centered around a female protagonist or narrated from a female perspective. These dramas usually contain elements of romance and love.`NEUTRAL`: Neutral. The short drama doesn't have a specific gender target audience. |
+| `characters` | `characters` | `Array<string>` | No | No | The list of characters in the short drama series. For enum values, see [List of values for `characters`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20characters). |
+| `genres` | `genres` | `Array<string>` | No | No | The genres of the short drama series as indicated by the main storyline or plot. For enum values, see [List of values for mini series `genres`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20mini%20series%20genres). |
+| `historical_context` | `historical_context` | `Array<string>` | No | No | The historical background or setting of the short drama series. For enum values, see [List of values for `historical_context`](https://business-api.tiktok.com/portal/docs?id=1740497429681153#item-link-List%20of%20values%20for%20historical_context). |
+| `actors` | `actors` | `Array<string>` | No | No | The names of the actors in the short drama series. |
+
+## CatalogProductGetResponseListRecharge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `"BY_TIERS" \| "SUBSCRIPTION" \| "BY_EPISODES"` | No | No | Recharge type for the short drama series. Enum values:`BY_TIERS`: Recharge by tiers.`SUBSCRIPTION`: Recharge by subscription fee for a time period.`BY_EPISODES`: Recharge by episodes. |
+| `purchase_unit` | `purchase_unit` | `Array<string>` | No | No | Units for the recharge. When `recharge_type` is `BY_TIERS`, the enum values are:`TIER 1`: tier 1.`TIER_2`: tier 2.`TIER 3`: tier 3.`TIER 4`: tier 4.`TIER 5`: tier 5.When `recharge_type` is `SUBSCRIPTION`, the enum values are:`WEEKLY`: weekly.`MONTHLY`: monthly.`QUARTERLY`: quarterly.`YEARLY`: yearly.When `recharge_type` is `BY_EPISODES`, specify one or more numeric strings that represent numbers no more than the total episode count. |
+| `cost` | `cost` | `string` | No | No | The prices for the tiers, subscription periods, or episodes. |
+
+## CatalogProductGetResponseListTargetConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_code` | `region_code` | `string` | No | No | The region code of the primary targeting region for the short drama series. Example: `US`. |
+| `currency` | `currency` | `string` | No | No | Currency for the primary targeting region for the short drama series. For supported currencies, see the Code column in [Budget verification ratio and precision of each currency](https://business-api.tiktok.com/portal/docs?id=1737585839634433#item-link-Budget%20verification%20ratio%20and%20precision%20of%20each%20currency). Example: `USD`. |
+
+## CatalogProductGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CatalogProductLogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_log_id` | `feed_log_id` | `string` | Yes | No | Product handling ID. |
+| `language` | `language` | `string` | No | No | Supported languages.`en`: English`zh-CN`: Chinese`ja-JP`: Japanese`de`: German`es`: Spanish`fr`: French`hi-IN`: Hindi (India)`id`: Indonesian`it`: Italian`ko`: Korean`ms`: Malay `ru`: Russian`th`: Thai`tr`: Turkish`vi`: Vietnamese Default value: `en`. |
+
+## CatalogProductLogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_feed_log` | `product_feed_log` | `CatalogProductLogResponseProductFeedLog` | No | No | Product handling results. |
+
+## CatalogProductLogResponseProductFeedLog
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | Feeds ID. |
+| `add_count` | `add_count` | `number` | No | No | Total number of new items. |
+| `update_count` | `update_count` | `number` | No | No | Total number of items modified. |
+| `delete_count` | `delete_count` | `number` | No | No | Total number of items deleted. |
+| `error_count` | `error_count` | `number` | No | No | Number of errors. |
+| `warn_count` | `warn_count` | `number` | No | No | Number of warnings. |
+| `process_status` | `process_status` | `"WAITING" \| "PROCESSING" \| "SUCCESS" \| "FAILED"` | No | No | Processing status. Enum values:`WAITING`: On hold and waiting for other tasks to complete. `PROCESSING`: In progress. `SUCCESS`: Succeeded.`FAILED`: Failed. |
+| `update_mode` | `update_mode` | `number` | No | No | Update mode. Enum values:`INCREASE`: incremental.`REPLACE`: full replacement. |
+| `start_time` | `start_time` | `string` | No | No | Start time. |
+| `end_time` | `end_time` | `string` | No | No | End time. |
+| `feed_log_data` | `feed_log_data` | `CatalogProductLogResponseProductFeedLogFeedLogData` | No | No | Detailed processing information. |
+
+## CatalogProductLogResponseProductFeedLogFeedLogData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_path` | `download_path` | `string` | No | No | File download address with all error/warning messages, key is language, value is file address. |
+| `error_affected_products` | `error_affected_products` | `Array<CatalogProductLogResponseProductFeedLogFeedLogDataErrorAffectedProducts>` | No | No | Error message. |
+| `warn_affected_products` | `warn_affected_products` | `Array<CatalogProductLogResponseProductFeedLogFeedLogDataWarnAffectedProducts>` | No | No | Warning message. |
+
+## CatalogProductLogResponseProductFeedLogFeedLogDataErrorAffectedProducts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affected_product_count` | `affected_product_count` | `number` | No | No | Number of products affected. |
+| `affected_product_item_list` | `affected_product_item_list` | `Array<CatalogProductLogResponseProductFeedLogFeedLogDataErrorAffectedProductsAffectedProductItemList>` | No | No | List of affected items, showing only the first five items. |
+| `field` | `field` | `string` | No | No | The field with issue. |
+| `issue` | `issue` | `string` | No | No | Issue details. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions for solving the issue. |
+
+## CatalogProductLogResponseProductFeedLogFeedLogDataErrorAffectedProductsAffectedProductItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | Index that identifies the position of the product among the products you uploaded. For example, an index of `2` represents the first product you uploaded through [/catalog/product/file/](https://business-api.tiktok.com/portal/docs?id=1740496787164161) or [/catalog/product/upload/](https://business-api.tiktok.com/portal/docs?id=1740497429681153). |
+| `title` | `title` | `string` | No | No | Returned only for products in E-commerce catalogs, entertainment catalogs, Auto-Inventory catalogs, Auto-Model catalogs, or mini series catalogs. The title of the E-commerce, entertainment, Auto-Inventory catalogs, or Auto-Model product, or the name of the short drama series. |
+| `sku_id` | `sku_id` | `string` | No | No | Returned only for products in E-commerce catalogs. A unique ID for the product, such as a SKU. |
+| `hotel_id` | `hotel_id` | `string` | No | No | Returned only for products in hotel catalogs. A unique ID for the hotel. |
+| `name` | `name` | `string` | No | No | Returned only for products in hotel catalogs or destination catalogs. The name of the hotel or the destination. |
+| `flight_id` | `flight_id` | `string` | No | No | Returned only for products in flight catalogs. The unique ID specified for the flight. |
+| `airline_company` | `airline_company` | `string` | No | No | Returned only for products in flight catalogs. The name of the airline company operating the flight. |
+| `media_title_id` | `media_title_id` | `string` | No | No | Returned only for products in entertainment catalogs. A unique ID for the media title item. |
+| `vehicle_id` | `vehicle_id` | `string` | No | No | Returned only for products in Auto-Inventory or Auto-Model catalogs. A unique ID for the vehicle. |
+| `series_id` | `series_id` | `string` | No | No | Returned only for products in mini series catalogs. A unique self-defined ID for the short drama series. |
+| `make` | `make` | `string` | No | No | Returned only for products in Auto-Inventory or Auto-Model catalogs. The make (brand) of the vehicle. |
+| `product_url` | `product_url` | `string` | No | No | Product link. |
+| `description` | `description` | `string` | No | No | Product description. |
+| `value` | `value` | `string` | No | No | Field value. |
+
+## CatalogProductLogResponseProductFeedLogFeedLogDataWarnAffectedProducts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affected_product_count` | `affected_product_count` | `number` | No | No | Number of products affected. |
+| `affected_product_item_list` | `affected_product_item_list` | `Array<CatalogProductLogResponseProductFeedLogFeedLogDataWarnAffectedProductsAffectedProductItemList>` | No | No | List of affected items, showing only the first five items. |
+| `field` | `field` | `string` | No | No | The field with issue. |
+| `issue` | `issue` | `string` | No | No | Issue details. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions for solving the issue. |
+
+## CatalogProductLogResponseProductFeedLogFeedLogDataWarnAffectedProductsAffectedProductItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | Index that identifies the position of the product among the products you uploaded. For example, an index of `2` represents the first product you uploaded through [/catalog/product/file/](https://business-api.tiktok.com/portal/docs?id=1740496787164161) or [/catalog/product/upload/](https://business-api.tiktok.com/portal/docs?id=1740497429681153). |
+| `title` | `title` | `string` | No | No | Returned only for products in E-commerce catalogs, entertainment catalogs, Auto-Inventory catalogs, Auto-Model catalogs, or mini series catalogs. The title of the E-commerce, entertainment, Auto-Inventory catalogs, or Auto-Model product, or the name of the short drama series. |
+| `sku_id` | `sku_id` | `string` | No | No | Returned only for products in E-commerce catalogs. A unique ID for the product, such as a SKU. |
+| `hotel_id` | `hotel_id` | `string` | No | No | Returned only for products in hotel catalogs. A unique ID for the hotel. |
+| `name` | `name` | `string` | No | No | Returned only for products in hotel catalogs or destination catalogs. The name of the hotel or the destination. |
+| `flight_id` | `flight_id` | `string` | No | No | Returned only for products in flight catalogs. The unique ID specified for the flight. |
+| `airline_company` | `airline_company` | `string` | No | No | Returned only for products in flight catalogs. The name of the airline company operating the flight. |
+| `media_title_id` | `media_title_id` | `string` | No | No | Returned only for products in entertainment catalogs. A unique ID for the media title item. |
+| `description` | `description` | `string` | No | No | Product description. |
+| `vehicle_id` | `vehicle_id` | `string` | No | No | Returned only for products in Auto-Inventory or Auto-Model catalogs. A unique ID for the vehicle. |
+| `series_id` | `series_id` | `string` | No | No | Returned only for products in mini series catalogs. A unique self-defined ID for the short drama series. |
+| `make` | `make` | `string` | No | No | Returned only for products in Auto-Inventory or Auto-Model catalogs. The make (brand) of the vehicle. |
+| `product_url` | `product_url` | `string` | No | No | Product link. |
+| `value` | `value` | `string` | No | No | Field value. |
+
+## CatalogProductUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | Catalog feeds ID. |
+| `products` | `products` | `Array<string>` | Yes | No | List of products. For the data fields in this array, see the "`products` object array parameters" section below. |
+
+## CatalogProductUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_log_id` | `feed_log_id` | `string` | No | No | Catalog handling log ID. |
+
+## CatalogProductUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | Catalog feeds ID. |
+| `products` | `products` | `Array<string>` | Yes | No | List of products. For the data fields in this array, see the "`products` object array parameters" section below. |
+
+## CatalogProductUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_log_id` | `feed_log_id` | `string` | No | No | Catalog handling log ID. |
+
+## CatalogSetCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | The catalog ID. |
+| `product_set_name` | `product_set_name` | `string` | Yes | No | The product set name. Length limit: 128 characters. |
+| `conditions` | `conditions` | `CatalogSetCreateParamsConditions` | Yes | No | The filter conditions. Note: If you pass multiple conditions through this object, we recommend limiting the combined total number of values in the conditions to a maximum of 1,024. Otherwise, a timeout is likely to occur. |
+
+## CatalogSetCreateParamsConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `and/or` | `and/or` | `Array<CatalogSetCreateParamsConditionsAndOr>` | Yes | No | The logical operator that will be applied to the filter conditions. You must specify either `and` or `or`. `and` stands for the AND logical operator. `or` stands for the OR logical operator. |
+
+## CatalogSetCreateParamsConditionsAndOr
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | The field that the filter will be applied to. For enum values, see [Product set operators and fields – Filter fields](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `operation` | `operation` | `string` | Yes | No | The filter operator. For enum values, see [Product set operators and fields – Operators](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `value` | `value` | `Array<string>` | Yes | No | The expected value. Depending on the operator you specify via `operation`, this field can be a single value or multiple values in a list. See [Product set operators and fields – Operators](https://business-api.tiktok.com/portal/docs?id=1740673108747265) to learn about the type of value you need to specify. Note: If you pass multiple values through this field, the maximum allowed number of values is 1,024. |
+
+## CatalogSetCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_set_id` | `product_set_id` | `string` | No | No | The product set ID. |
+| `product_set_name` | `product_set_name` | `string` | No | No | The product set name. |
+| `product_count` | `product_count` | `number` | No | No | The number of products in the product set. |
+
+## CatalogSetDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | The product catalog ID. |
+| `product_set_ids` | `product_set_ids` | `Array<string>` | Yes | No | The IDs of the product sets that you want to delete. You can include 1 to 10 IDs in the list. |
+
+## CatalogSetDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_set_ids` | `product_set_ids` | `Array<string>` | No | No | The IDs of the product sets that have been deleted. |
+
+## CatalogSetGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you can access, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | The ID of the catalog that you want to get product sets from. To obtain the list of catalogs that you can access, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401) and set `asset_type` to `CATALOG`. |
+| `product_set_id` | `product_set_id` | `string` | No | No | The ID of the product set that you want to get. If this field is not passed, the system will return the complete list of product sets associated with the catalog (`catalog_id`).If this field is passed, the system will only return the specified product set. |
+| `return_product_count` | `return_product_count` | `boolean` | No | No | Whether to return the response parameter `product_count`. Supported values: `true`, `false`. Default value: `true`. Note: For product sets with too many products, returning `product_count` might trigger timeout errors. To avoid timeout issues in such cases, set this field to `false`. |
+
+## CatalogSetGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<CatalogSetGetResponseList>` | No | No | A list of product sets. |
+
+## CatalogSetGetResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_count` | `product_count` | `number` | No | No | Returned only when `return_product_count` is `true` or not passed in the request. Number of products in this product set. |
+| `product_set_id` | `product_set_id` | `string` | No | No | The product set ID. |
+| `catalog_id` | `catalog_id` | `string` | No | No | The catalog ID. |
+| `product_set_name` | `product_set_name` | `string` | No | No | The name of the product set. |
+| `conditions` | `conditions` | `CatalogSetGetResponseListConditions` | No | No | The filter conditions. |
+
+## CatalogSetGetResponseListConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `and/or` | `and/or` | `Array<CatalogSetGetResponseListConditionsAndOr>` | No | No | The logical operator that will be applied to multiple filter conditions. You must specify either `and` or `or`. `and` stands for the AND logical operator. `or` stands for the OR logical operator. |
+
+## CatalogSetGetResponseListConditionsAndOr
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | No | No | The field that the filter will be applied to. For enum values, see [Appendix - Product Set - Filter fields](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `operation` | `operation` | `string` | No | No | The filter operator. For enum values, see [Appendix - Product Set - Operators](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `value` | `value` | `Array<string>` | No | No | The expected value. |
+
+## CatalogSetProductGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | The ID of the catalog that you want to get product sets from. |
+| `product_set_id` | `product_set_id` | `string` | Yes | No | The ID of the product set that you want to get. |
+| `page` | `page` | `number` | No | No | The number of the current page. The default value is 1. |
+| `page_size` | `page_size` | `number` | No | No | The page size. The default size is 20. |
+
+## CatalogSetProductGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_set_id` | `product_set_id` | `string` | No | No | The product set ID. |
+| `catalog_id` | `catalog_id` | `string` | No | No | The catalog ID. |
+| `product_count` | `product_count` | `string` | No | No | The number of products in the product set. |
+| `products` | `products` | `Array<CatalogSetProductGetResponseProducts>` | No | No | A list of products. |
+| `page_info` | `page_info` | `CatalogSetProductGetResponsePageInfo` | No | No | Pagination information. |
+
+## CatalogSetProductGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## CatalogSetProductGetResponseProducts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_id` | `product_id` | `number` | No | No | The product ID. |
+| `product_name` | `product_name` | `string` | No | No | The product name. |
+| `sku_id` | `sku_id` | `string` | No | No | Returned only for E-commerce catalog products. A unique ID for the E-commerce product. |
+| `hotel_id` | `hotel_id` | `string` | No | No | Returned only for hotel catalog products. A unique ID for the hotel. |
+| `flight_id` | `flight_id` | `string` | No | No | Returned only for flight catalog products. A unique ID for the flight. |
+| `destination_id` | `destination_id` | `string` | No | No | Returned only for destination catalog products. A unique ID for the destination. |
+| `vehicle_id` | `vehicle_id` | `string` | No | No | Returned only for products in an Auto-Inventory or Auto-Model catalog. A unique ID for the vehicle. |
+
+## CatalogSetUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | The catalog ID. |
+| `product_set_id` | `product_set_id` | `string` | Yes | No | The product set ID. |
+| `product_set_name` | `product_set_name` | `string` | No | No | You need to pass at least `product_set_name` or `conditions` or both. The product set name. Length limit: 128 characters. |
+| `conditions` | `conditions` | `CatalogSetUpdateParamsConditions` | No | No | You need to pass at least `product_set_name` or `conditions` or both. The filter conditions. Note: If you pass multiple conditions through this object, we recommend limiting the combined total number of values in the conditions to a maximum of 1,024. Otherwise, a timeout is likely to occur. |
+
+## CatalogSetUpdateParamsConditions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `and/or` | `and/or` | `Array<CatalogSetUpdateParamsConditionsAndOr>` | No | No | Required when `conditions` is passed. The logical operator that will be applied to the filter conditions. You must specify either `and` or `or`. `and` stands for the AND logical operator. `or` stands for the OR logical operator. |
+
+## CatalogSetUpdateParamsConditionsAndOr
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | No | No | Required when `conditions` is passed. The field that the filter will be applied to. For enum values, see [Product set operators and fields – Filter fields](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `operation` | `operation` | `string` | No | No | Required when `conditions` is passed. The filter operator. For enum values, see [Product set operators and fields – Operators](https://ads.tiktok.com/marketing_api/docs?id=1740673108747265). |
+| `value` | `value` | `Array<string>` | No | No | Required when `conditions` is passed. The expected value. Depending on the operator you specify via `operation`, this field can be a single value or multiple values in a list. See [Product set operators and fields – Operators](https://business-api.tiktok.com/portal/docs?id=1740673108747265) to learn about the type of value you need to specify. Note: If you pass multiple values through this field, the maximum allowed number of values is 1,024. |
+
+## CatalogSetUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_set_id` | `product_set_id` | `string` | No | No | The product set ID. |
+| `product_set_name` | `product_set_name` | `string` | No | No | The product set name. |
+| `product_count` | `product_count` | `number` | No | No | The number of products in the product set. |
+
+## CatalogSetUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To retrieve the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To retrieve the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610). For E-commerce catalogs, `catalog_type` will be `ECOM`. |
+| `product_set_name` | `product_set_name` | `string` | Yes | No | The product set name. Length limit: 28 characters. Note: Duplicate product set names are not supported. To retrieve the names of existing product sets created in a catalog, use [/catalog/set/get/](https://business-api.tiktok.com/portal/docs?id=1740570556295169) and check the returned `product_set_name`. |
+| `file` | `file` | `unknown` | Yes | No | A file containing product SKU IDs. To obtain the list of SKU IDs for products within an E-commerce catalog, use [/catalog/product/get/](https://business-api.tiktok.com/portal/docs?id=1740564136678402) and check the returned `sku_id`. Recommended settings：Maximum row count: 5,000.Format：.csv only.Use [the CSV template file](https://bytedance.sg.larkoffice.com/sheets/GlkOsKz7RhRhfLtN0gblmYcjgjd) for uploading. |
+| `file_signature` | `file_signature` | `string` | Yes | No | The MD5 hash of the file that is used for server verification to confirm file integrity. |
+
+## CatalogSetUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_set_id` | `product_set_id` | `string` | No | No | The product set ID. |
+| `product_set_name` | `product_set_name` | `string` | No | No | The product set name. |
+
+## CatalogTemplatePreviewCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_ids` | `catalog_ids` | `Array<string>` | Yes | No | Catalog IDs. |
+
+## CatalogTemplatePreviewCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `iframe` | `iframe` | `string` | No | No | An iframe code snippet that includes the preview link. Click the link to preview the video or embed the iframe code to your HTML file. |
+
+## CatalogTemplateUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_ids` | `catalog_ids` | `Array<string>` | Yes | No | List of catalog IDs that you want to associate this catalog with. |
+| `file` | `file` | `unknown` | Yes | No | Template file in ZIP. |
+
+## CatalogTemplateUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | The response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | The response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `template_id` | `template_id` | `string` | No | No | Template ID. |
+| `catalog_upload_success` | `catalog_upload_success` | `Array<number>` | No | No | List of catalog IDs that have been successfully associated with this template. |
+| `request_id` | `request_id` | `string` | No | No | The log id of a request, which uniquely identifies the request. |
+
+## CatalogUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `name` | `name` | `string` | Yes | No | New catalog name. Length limit: 128 characters. |
+
+## CatalogUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogVideoDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management permission for the catalog. To obtain the catalogs for which you have Catalog Management permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN`. |
+| `catalog_video_ids` | `catalog_video_ids` | `Array<string>` | Yes | No | The ID list of catalog videos that you want to delete. Max size: 1. To obtain the catalog videos within a catalog, use [/catalog/video/get/](https://business-api.tiktok.com/portal/docs?id=1803655082498050). Note: If catalog videos have already been synced to the creative libraries of ad accounts, deleting those videos from the associated catalog will not remove them from the creative libraries. |
+
+## CatalogVideoDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CatalogVideoFileParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management permission for the catalog. To obtain the catalogs for which you have Catalog Management permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN`. |
+| `file_url` | `file_url` | `string` | Yes | No | The download URL of the CSV file. The CSV catalog video template is accessible via [catalog_video_template](https://bytedance.sg.larkoffice.com/sheets/PcBjsyYxahFGMqteR3jl3lv8gKh). To find a detailed description of each catalog video parameter, see Catalog video parameters. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | The IDs of the ad accounts that you want to sync the videos to. Once synced, the videos will be available in the creative library of those ad accounts. If you don't want to sync the catalog videos to any ad accounts, do not pass this field. Max size: 100. The ad account and the catalog (`catalog_id`) must be within the same Business Center (`bc_id`) and you need to have Admin or Operator permission for the ad account. Ineligible ad accounts will be ignored. To obtain the ad accounts for which you have Admin or Operator permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `ADVERTISER` to retrieve `asset_id` values with `advertiser_role` as `ADMIN` or `OPERATOR`. |
+
+## CatalogVideoFileResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_log_id` | `feed_log_id` | `string` | No | No | Catalog video handling log ID. To check the processing status and final results of the upload, use [/catalog/video/log/](https://business-api.tiktok.com/portal/docs?id=1803655061642242). |
+
+## CatalogVideoGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management or Ad Promotion permission for the catalog. To obtain the catalogs for which you have Catalog Management or Ad Promotion permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN` or `AD_PROMOTE`. |
+| `catalog_video_ids` | `catalog_video_ids` | `Array<string>` | No | No | The ID list of catalog videos that you want to filter. Max size: 50. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. Note: If you specify a value for `catalog_video_ids`, the pagination parameters `page` and `page_size` will be ignored. |
+
+## CatalogVideoGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videos` | `videos` | `Array<CatalogVideoGetResponseVideos>` | No | No | The list of catalog videos. |
+| `page_info` | `page_info` | `CatalogVideoGetResponsePageInfo` | No | No | Pagination information. |
+
+## CatalogVideoGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## CatalogVideoGetResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_video_id` | `catalog_video_id` | `string` | No | No | The ID of the catalog video. Example: `1234567891234567891_1234567891234567891_12345678912345_12345678-a12b-34cd-ef56-7gh89i1j2k3l `. |
+| `video_name` | `video_name` | `string` | No | No | The name of the video. |
+| `video_link` | `video_link` | `string` | No | No | The URL of the video file. |
+| `sku_id_list` | `sku_id_list` | `Array<string>` | No | No | The list of SKU IDs associated with the video. |
+| `category` | `category` | `string` | No | No | The product category for the video. |
+| `brand` | `brand` | `string` | No | No | The brand name for the video. |
+| `creator` | `creator` | `string` | No | No | The creator of the video. |
+| `video_type` | `video_type` | `string` | No | No | The type of the video. |
+| `description` | `description` | `string` | No | No | A short description of the video. |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | URL of the landing page where you can view and purchase the products that are associated with the video. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Additional information about the video. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Additional information about the video. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Additional information about the video. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Additional information about the video. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Additional information about the video. |
+| `video_id` | `video_id` | `string` | No | No | The video ID generated after the video extraction is complete. |
+| `video_signature` | `video_signature` | `string` | No | No | The MD5 hash of the video. Example: `123abcdefg4a56e789012c3cefa4d567`. |
+| `status` | `status` | `"PENDING" \| "SUCCESS" \| "FAILED"` | No | No | Video extraction status. Enum values: `PENDING`: Video extraction is in progress.`SUCCESS`: Video extraction succeeded. `FAILED`: Video extraction failed. |
+| `create_time` | `create_time` | `string` | No | No | The time when the video upload was completed, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: `2024-01-01 00:00:00`. Note: When `status` is `PENDING` or `FAILED`, the value of this field will be an empty string (`""`). |
+| `active_status` | `active_status` | `"ACTIVATED" \| "DEACTIVATED"` | No | No | The user-controlled activation status of the video. Enum values: `ACTIVATED`: The video is activated and can be used for ad delivery.`DEACTIVATED`: The video is deactivated and cannot be used for ad delivery. Deactivated videos may affect the delivery of associated ads in active campaigns. |
+| `preview_url` | `preview_url` | `string` | No | No | Returned only when `status` is `SUCCESS`. The video preview link, which is valid for six hours and needs to be re-acquired after expiration. |
+
+## CatalogVideoLogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. To obtain the list of Business Centers that you have access to, use [/bc/get/](https://business-api.tiktok.com/portal/docs?id=1737115687501826). |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. To obtain the list of E-commerce catalogs within a Business Center, use [/catalog/get/](https://business-api.tiktok.com/portal/docs?id=1740315452868610) and retrieve `catalog_id` values with `catalog_type` as `ECOM`. You need to have Catalog Management or Ad Promotion permission for the catalog. To obtain the catalogs for which you have Catalog Management or Ad Promotion permission, use [/bc/asset/get/](https://business-api.tiktok.com/portal/docs?id=1739432717798401). Set `asset_type` to `CATALOG` to retrieve `asset_id` values with `catalog_role` as `ADMIN` or `AD_PROMOTE`. |
+| `feed_log_id` | `feed_log_id` | `string` | Yes | No | Catalog video handling log ID. To upload catalog videos and obtain the log ID, use [/catalog/video/file/](https://business-api.tiktok.com/portal/docs?id=1803655037415489). |
+| `language` | `language` | `string` | No | No | Supported languages. Enum values:`en`: English`zh-CN`: Chinese`ja-JP`: Japanese`de`: German`es`: Spanish`fr`: French`hi-IN`: Hindi (India)`id`: Indonesian`it`: Italian`ko`: Korean`ms`: Malay `ru`: Russian`th`: Thai`tr`: Turkish`vi`: Vietnamese Default value: `en`. |
+
+## CatalogVideoLogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_feed_log` | `video_feed_log` | `CatalogVideoLogResponseVideoFeedLog` | No | No | Video handling results. |
+| `feed_log_data` | `feed_log_data` | `CatalogVideoLogResponseFeedLogData` | No | No | Detailed processing information. |
+
+## CatalogVideoLogResponseFeedLogData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_path` | `download_path` | `string` | No | No | File download address with all error and warning messages. The key is language, and the value is file address. |
+| `error_affected_videos` | `error_affected_videos` | `Array<CatalogVideoLogResponseFeedLogDataErrorAffectedVideos>` | No | No | Error message. |
+| `warn_affected_videos` | `warn_affected_videos` | `Array<CatalogVideoLogResponseFeedLogDataWarnAffectedVideos>` | No | No | Warning message. |
+
+## CatalogVideoLogResponseFeedLogDataErrorAffectedVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affected_video_count` | `affected_video_count` | `number` | No | No | Number of videos affected. |
+| `affected_video_item_list` | `affected_video_item_list` | `Array<CatalogVideoLogResponseFeedLogDataErrorAffectedVideosAffectedVideoItemList>` | No | No | List of affected videos, showing only the first five items. |
+| `field` | `field` | `string` | No | No | The field with issue. |
+| `issue` | `issue` | `string` | No | No | Issue details. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions for solving the issue. |
+
+## CatalogVideoLogResponseFeedLogDataErrorAffectedVideosAffectedVideoItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | Index that identifies the position of the video among the videos you uploaded. For example, an index of `2` represents the first video you uploaded through [/catalog/video/file/](https://business-api.tiktok.com/portal/docs?id=1803655037415489), listed in the second row of the CSV file after the header row. |
+| `video_name` | `video_name` | `string` | No | No | The name of the video. |
+| `video_link` | `video_link` | `string` | No | No | The URL of the video file. Example: https://www.tiktok.com/tiktok_t_shirt.mp4 |
+| `sku_id_list` | `sku_id_list` | `string` | No | No | The SKU ID list of E-commerce catalog products to associate the video (`video_link`) with. Example: `"SKU_ID_1, SKU_ID_2"`. |
+| `description` | `description` | `string` | No | No | A short description of the video. |
+| `category` | `category` | `string` | No | No | The product category for the video. Example: Apparel & Accessories&gt; Clothing&gt; Shirts. |
+
+## CatalogVideoLogResponseFeedLogDataWarnAffectedVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affected_video_count` | `affected_video_count` | `number` | No | No | Number of products affected. |
+| `affected_video_item_list` | `affected_video_item_list` | `Array<CatalogVideoLogResponseFeedLogDataWarnAffectedVideosAffectedVideoItemList>` | No | No | List of affected items, showing only the first five items. |
+| `field` | `field` | `string` | No | No | The field with issue. |
+| `issue` | `issue` | `string` | No | No | Issue details. |
+| `suggestion` | `suggestion` | `string` | No | No | Suggestions for solving the issue. |
+
+## CatalogVideoLogResponseFeedLogDataWarnAffectedVideosAffectedVideoItemList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | Index that identifies the position of the video among the videos you uploaded. For example, an index of `2` represents the first video you uploaded through [/catalog/video/file/](https://business-api.tiktok.com/portal/docs?id=1803655037415489), listed in the second row of the CSV file after the header row. |
+| `video_name` | `video_name` | `string` | No | No | The name of the video. |
+| `video_link` | `video_link` | `string` | No | No | The URL of the video file. Example: https://www.tiktok.com/tiktok_t_shirt.mp4 |
+| `sku_id_list` | `sku_id_list` | `string` | No | No | The SKU ID list of E-commerce catalog products to associate the video (`video_link`) with. Example: `"SKU_ID_1, SKU_ID_2"`. |
+| `description` | `description` | `string` | No | No | A short description of the video. |
+| `category` | `category` | `string` | No | No | The product category for the video. Example: Apparel & Accessories&gt; Clothing&gt; Shirts. |
+
+## CatalogVideoLogResponseVideoFeedLog
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog ID. |
+| `feed_id` | `feed_id` | `string` | No | No | Feed ID. |
+| `add_count` | `add_count` | `number` | No | No | Total number of new videos. |
+| `update_count` | `update_count` | `number` | No | No | Total number of videos modified. Note: The value of this field will always be 0. |
+| `delete_count` | `delete_count` | `number` | No | No | Total number of videos deleted. |
+| `error_count` | `error_count` | `number` | No | No | Number of errors. |
+| `warn_count` | `warn_count` | `number` | No | No | Number of warnings. |
+| `process_status` | `process_status` | `"PROCESSING" \| "SUCCESS" \| "FAILED" \| "WAITING"` | No | No | Processing status. Enum values:`PROCESSING`, `SUCCESS`,`FAILED`, `WAITING`. |
+| `start_time` | `start_time` | `string` | No | No | Start time of the video handling task, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: 2024-01-01 00:00:00. |
+| `end_time` | `end_time` | `string` | No | No | End time of the video handling task, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0). Example: 2024-01-01 00:00:00. |
+
+## CatalogVideoPackageCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `video_package_type` | `video_package_type` | `string` | Yes | No | Video package type. Currently, only `GREEN_SCREEEN` is supported. |
+| `videos` | `videos` | `Array<CatalogVideoPackageCreateParamsVideos>` | No | No | List of videos that will be used to create the video pakcage. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+| `music_id` | `music_id` | `string` | No | No | Music ID. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+| `template_id` | `template_id` | `string` | No | No | Template ID. This field is required when when `video_package_type` is `GREEEN_SCREEN` |
+| `video_package_name` | `video_package_name` | `string` | No | No | Name of the video package that you are about to create. If not specified, a name will be automatically generated in the format of `[VIDEO_TYPE]_[CREATE_TIME]`. For example, GreenScreenVideo_20210720_17:20. UTC+0 time will be used in generating video package names. |
+
+## CatalogVideoPackageCreateParamsVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+| `is_green_screen_video` | `is_green_screen_video` | `boolean` | No | No | Whether this is a green screen video. In the list of videos, you need to and can only have one green screen video. This field is required when `video_package_type` is `GREEEN_SCREEN`. |
+
+## CatalogVideoPackageCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shopping_ads_video_package_id` | `shopping_ads_video_package_id` | `string` | No | No | ID of the video package that has just been created. |
+
+## CatalogVideoPackageDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `shopping_ads_video_package_id` | `string` | Yes | No | ID of the video package that you want to update. |
+
+## CatalogVideoPackageDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Response code. For the complete list of response codes and descriptions, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `message` | `message` | `string` | No | No | Response message. For details, see [Appendix - Return Codes](https://ads.tiktok.com/marketing_api/docs?id=1737172488964097). |
+| `request_id` | `request_id` | `string` | No | No | The log id of a request, which uniquely identifies the request. |
+
+## CatalogVideoPackageGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bc_id` | `bc_id` | `string` | Yes | No | Business Center ID. |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog ID. |
+| `shopping_ads_video_package_id` | `shopping_ads_video_package_id` | `string` | No | No | Catalog video package ID. |
+
+## CatalogVideoPackageGetResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
