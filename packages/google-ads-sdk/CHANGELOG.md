@@ -1,5 +1,18 @@
 # @openpromo/google-ads
 
+## 0.3.0
+
+### Minor Changes
+
+- [#22](https://github.com/promobase/ad-platform-sdks/pull/22) [`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea) Thanks [@rayli09](https://github.com/rayli09)! - Add a canonical SDK codegen IR, generated Effect Schema contracts and endpoint descriptors,
+  Effect-native transport services and typed errors, matching Promise clients, and descriptor-backed
+  AI SDK, Code Mode, CLI, and MCP projections across every platform integration.
+
+### Patch Changes
+
+- Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
+  - @openpromo/sdk-runtime@0.4.0
+
 ## 0.2.1
 
 ### Patch Changes
