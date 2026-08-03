@@ -1,0 +1,13 @@
+{
+  "platform": "google-business-profile",
+  "source": {
+    "kind": "handwritten",
+    "location": "src/{oauth,resources,types}.ts"
+  },
+  "version": "v1+v4",
+  "counts": {
+    "models": 0,
+    "endpoints": 11,
+    "capabilities": 8
+  }
+}

@@ -28,7 +28,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "cd ../.. && bunx fern-api@5.89.3 generate --local --group x-local --no-prompt --force && bun scripts/patch-fern-x-sdk.mjs",
+    "codegen": "cd ../.. && bunx fern-api@5.89.3 generate --local --group x-local --no-prompt --force && bun scripts/patch-fern-x-sdk.mjs && bun scripts/generate-x-effect.mjs",
     "codegen:check": "cd ../.. && bunx fern-api@5.89.3 check",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
@@ -81,7 +81,20 @@
       "types": "./dist/generated/api/resources/users/exports.d.ts",
       "import": "./dist/generated/api/resources/users/exports.js",
       "default": "./dist/generated/api/resources/users/exports.js"
+    },
+    "./effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
     }
+  },
+  "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
+    "effect": "^3.22.1"
+  },
+  "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

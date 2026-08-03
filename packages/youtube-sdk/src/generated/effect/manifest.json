@@ -1,0 +1,14 @@
+{
+  "platform": "youtube",
+  "source": {
+    "kind": "discovery",
+    "location": "google-discovery/youtube-v3.json",
+    "revision": "20260729"
+  },
+  "version": "v3",
+  "counts": {
+    "models": 207,
+    "endpoints": 33,
+    "capabilities": 16
+  }
+}

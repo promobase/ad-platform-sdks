@@ -64,6 +64,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -87,6 +88,12 @@
       "types": "./dist/ai/index.d.ts",
       "import": "./dist/ai/index.js",
       "default": "./dist/ai/index.js"
+    },
+    "./effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
     }
   },
   "engines": {

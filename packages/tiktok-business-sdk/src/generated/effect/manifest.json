@@ -1,0 +1,13 @@
+{
+  "platform": "tiktok",
+  "source": {
+    "kind": "documentation",
+    "location": "https://business-api.tiktok.com/gateway/api/doc/client"
+  },
+  "version": "business-api",
+  "counts": {
+    "models": 2408,
+    "endpoints": 531,
+    "capabilities": 130
+  }
+}

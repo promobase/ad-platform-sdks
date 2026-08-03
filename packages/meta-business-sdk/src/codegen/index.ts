@@ -1,9 +1,12 @@
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
+
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
 import { type EmitContext, emitEnumType, emitObjectFile, specNameToFileName } from "./emitter.ts";
 import { type EnumMap, extractAllEnums } from "./enum-extractor.ts";
+import { metaCanonicalIr } from "./ir.ts";
 import { applyPatches, parseSpecs } from "./parser.ts";
 import { enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
 
@@ -115,6 +118,11 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const enumsFilePath = join(outputDir, "enums.ts");
   await writeFile(enumsFilePath, enumLines.join("\n"), "utf-8");
   console.log(`[codegen] Emitted ${enumCount} enum types into enums.ts`);
+
+  await writeEffectArtifacts({
+    outputDir: join(outputDir, "effect"),
+    ir: metaCanonicalIr(specs, extractedEnums),
+  });
 
   // 10. Emit client-factory.ts
   console.log("[codegen] Emitting client-factory.ts...");

@@ -37,7 +37,7 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
-    "test": "bun test tests/",
+    "test": "bun test tests/command.test.ts && bun test tests/operations.test.ts",
     "mcp:serve": "bun run src/mcp.ts",
     "prepublishOnly": "bun run clean && bun run build",
     "prepack": "node ../../scripts/publish-manifest.mjs prepare",
@@ -48,6 +48,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@openpromo/ad-platforms": "workspace:*",
     "@openpromo/google-ads": "workspace:*",
@@ -62,7 +63,8 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "effect": "^3.22.1"
   },
   "exports": {
     ".": {

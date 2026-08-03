@@ -1,7 +1,10 @@
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
+
 import { emitBarrel, emitCategory, groupByCategory } from "./emitter.ts";
+import { tiktokCanonicalIr } from "./ir.ts";
 import { parseAllDocs } from "./parser.ts";
 import { scrapeAllDocs } from "./scraper.ts";
 
@@ -69,6 +72,10 @@ async function main() {
     )}\n`,
     "utf-8",
   );
+  await writeEffectArtifacts({
+    outputDir: join(OUTPUT_DIR, "effect"),
+    ir: tiktokCanonicalIr(endpoints),
+  });
 
   // Summary
   console.log(

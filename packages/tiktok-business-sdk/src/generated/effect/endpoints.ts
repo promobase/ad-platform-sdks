@@ -1,0 +1,15831 @@
+// This file is generated. Do not edit by hand.
+import { defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
+import { Schema } from "effect";
+import * as Models from "./schemas.ts";
+
+export const tiktok_verification_accountVerificationFiletype = defineEndpointDescriptor({
+  id: "tiktok.verification.accountVerificationFiletype",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/account/verification/filetype/",
+  summary: "Get available verification document types for a region",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["verification.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_type","wireName":"business_type","location":"query","required":true,"nullable":false},
+    {"name":"region_iso_code","wireName":"region_iso_code","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_type: Schema.Union(Schema.Literal("BUSINESS"), Schema.Literal("INDIVIDUAL")),
+    region_iso_code: Schema.String,
+  }),
+  outputSchema: Models.AccountVerificationFiletypeResponse,
+});
+
+export const tiktok_verification_accountVerificationStatus = defineEndpointDescriptor({
+  id: "tiktok.verification.accountVerificationStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/account/verification/status/",
+  summary: "Check the verification status of your account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["verification.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    bc_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.AccountVerificationStatusResponse,
+});
+
+export const tiktok_verification_accountVerificationSubmit = defineEndpointDescriptor({
+  id: "tiktok.verification.accountVerificationSubmit",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/account/verification/submit/",
+  summary: "Submit a verification request for your account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["verification.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":false,"nullable":false},
+    {"name":"business_form","wireName":"business_form","location":"body","required":false,"nullable":false},
+    {"name":"individual_form","wireName":"individual_form","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    bc_id: Schema.optional(Schema.String),
+    business_form: Schema.optional(Models.AccountVerificationSubmitParamsBusinessForm),
+    individual_form: Schema.optional(Models.AccountVerificationSubmitParamsIndividualForm),
+  }),
+  outputSchema: Models.AccountVerificationSubmitResponse,
+});
+
+export const tiktok_verification_accountVerificationUpload = defineEndpointDescriptor({
+  id: "tiktok.verification.accountVerificationUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/account/verification/upload/",
+  summary: "Upload verification documents",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["verification.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"image_file1","wireName":"image_file1","location":"body","required":true,"nullable":false},
+    {"name":"image_file2","wireName":"image_file2","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    image_file1: Schema.Unknown,
+    image_file2: Schema.optional(Schema.Unknown),
+  }),
+  outputSchema: Models.AccountVerificationUploadResponse,
+});
+
+export const tiktok_smartCreative_adAcoCreate = defineEndpointDescriptor({
+  id: "tiktok.smartCreative.adAcoCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/aco/create/",
+  summary: "Create Smart Creative ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["smartCreative.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"media_info_list","wireName":"media_info_list","location":"body","required":true,"nullable":false},
+    {"name":"title_list","wireName":"title_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_list","wireName":"deeplink_list","location":"body","required":false,"nullable":false},
+    {"name":"display_name_list","wireName":"display_name_list","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"card_list","wireName":"card_list","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_urls","wireName":"landing_page_urls","location":"body","required":false,"nullable":false},
+    {"name":"common_material","wireName":"common_material","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    media_info_list: Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsMediaInfoList)),
+    title_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsTitleList))),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsCallToActionList))),
+    deeplink_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsDeeplinkList))),
+    display_name_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsDisplayNameList))),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsPageList))),
+    card_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsCardList))),
+    landing_page_urls: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoCreateParamsLandingPageUrls))),
+    common_material: Schema.optional(Models.AdAcoCreateParamsCommonMaterial),
+  }),
+  outputSchema: Models.AdAcoCreateResponse,
+});
+
+export const tiktok_smartCreative_adAcoGet = defineEndpointDescriptor({
+  id: "tiktok.smartCreative.adAcoGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/ad/aco/get/",
+  summary: "Get Smart Creative materials",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["smartCreative.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"exclude_field_types_in_response","wireName":"exclude_field_types_in_response","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    adgroup_ids: Schema.Array(Schema.String),
+    advertiser_id: Schema.String,
+    exclude_field_types_in_response: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdAcoGetResponse,
+});
+
+export const tiktok_smartCreative_adAcoMaterialStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.smartCreative.adAcoMaterialStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/aco/material_status/update/",
+  summary: "Update the statuses of Smart Creative materials",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["smartCreative.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_group_id","wireName":"ad_group_id","location":"body","required":true,"nullable":false},
+    {"name":"material_ids","wireName":"material_ids","location":"body","required":true,"nullable":false},
+    {"name":"material_status","wireName":"material_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_group_id: Schema.String,
+    material_ids: Schema.Array(Schema.String),
+    material_status: Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE")),
+  }),
+  outputSchema: Models.AdAcoMaterialStatusUpdateResponse,
+});
+
+export const tiktok_smartCreative_adAcoUpdate = defineEndpointDescriptor({
+  id: "tiktok.smartCreative.adAcoUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/aco/update/",
+  summary: "Update Smart Creative materials",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["smartCreative.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"patch_update","wireName":"patch_update","location":"body","required":false,"nullable":false},
+    {"name":"media_info_list","wireName":"media_info_list","location":"body","required":false,"nullable":false},
+    {"name":"title_list","wireName":"title_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_list","wireName":"deeplink_list","location":"body","required":false,"nullable":false},
+    {"name":"display_name_list","wireName":"display_name_list","location":"body","required":false,"nullable":false},
+    {"name":"avatar_icon_list","wireName":"avatar_icon_list","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"card_list","wireName":"card_list","location":"body","required":false,"nullable":false},
+    {"name":"common_material","wireName":"common_material","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    patch_update: Schema.optional(Schema.Boolean),
+    media_info_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsMediaInfoList))),
+    title_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsTitleList))),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsCallToActionList))),
+    deeplink_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsDeeplinkList))),
+    display_name_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsDisplayNameList))),
+    avatar_icon_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsAvatarIconList))),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsPageList))),
+    card_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAcoUpdateParamsCardList))),
+    common_material: Schema.optional(Models.AdAcoUpdateParamsCommonMaterial),
+  }),
+  outputSchema: Models.AdAcoUpdateResponse,
+});
+
+export const tiktok_adGroups_adAudienceSizeEstimate = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adAudienceSizeEstimate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/audience_size/estimate/",
+  summary: "Estimate audience size",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"placement_type","wireName":"placement_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":false,"nullable":false},
+    {"name":"ios14_targeting","wireName":"ios14_targeting","location":"body","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"product_source","wireName":"product_source","location":"body","required":false,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_type","wireName":"shopping_ads_retargeting_type","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_actions_days","wireName":"shopping_ads_retargeting_actions_days","location":"body","required":false,"nullable":false},
+    {"name":"included_custom_actions","wireName":"included_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"excluded_custom_actions","wireName":"excluded_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"audience_rule","wireName":"audience_rule","location":"body","required":false,"nullable":false},
+    {"name":"audience_type","wireName":"audience_type","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":false,"nullable":false},
+    {"name":"zipcode_ids","wireName":"zipcode_ids","location":"body","required":false,"nullable":false},
+    {"name":"isp_ids","wireName":"isp_ids","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_keyword_ids","wireName":"interest_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"purchase_intention_keyword_ids","wireName":"purchase_intention_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"min_ios_version","wireName":"min_ios_version","location":"body","required":false,"nullable":false},
+    {"name":"min_android_version","wireName":"min_android_version","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"household_income","wireName":"household_income","location":"body","required":false,"nullable":false},
+    {"name":"spending_power","wireName":"spending_power","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"included_pangle_audience_package_ids","wireName":"included_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_pangle_audience_package_ids","wireName":"excluded_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"blocked_pangle_app_ids","wireName":"blocked_pangle_app_ids","location":"body","required":false,"nullable":false},
+    {"name":"targeting_expansion","wireName":"targeting_expansion","location":"body","required":false,"nullable":false},
+    {"name":"auto_targeting_enabled","wireName":"auto_targeting_enabled","location":"body","required":false,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    placement_type: Schema.optional(Schema.Union(Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TYPE_NORMAL"))),
+    placements: Schema.optional(Schema.Array(Schema.String)),
+    app_id: Schema.optional(Schema.String),
+    pixel_id: Schema.optional(Schema.String),
+    ios14_targeting: Schema.optional(Schema.String),
+    objective_type: Schema.String,
+    optimization_goal: Schema.String,
+    promotion_type: Schema.optional(Schema.String),
+    product_source: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("CATALOG"), Schema.Literal("STORE"))),
+    catalog_id: Schema.optional(Schema.String),
+    product_set_id: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    shopping_ads_retargeting_type: Schema.optional(Schema.Union(Schema.Literal("LAB1"), Schema.Literal("LAB2"), Schema.Literal("LAB3"), Schema.Literal("OFF"))),
+    shopping_ads_retargeting_actions_days: Schema.optional(Schema.Number),
+    included_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAudienceSizeEstimateParamsIncludedCustomActions))),
+    excluded_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAudienceSizeEstimateParamsExcludedCustomActions))),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    audience_rule: Schema.optional(Schema.String),
+    audience_type: Schema.optional(Schema.String),
+    location_ids: Schema.optional(Schema.Array(Schema.String)),
+    zipcode_ids: Schema.optional(Schema.Array(Schema.String)),
+    isp_ids: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    purchase_intention_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdAudienceSizeEstimateParamsActions))),
+    operating_systems: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"), Schema.Literal("APP_PROMOTION"), Schema.Literal("TRAFFIC"), Schema.Literal("APP_IOS"), Schema.Literal("APP_ANDROID")))),
+    min_ios_version: Schema.optional(Schema.String),
+    min_android_version: Schema.optional(Schema.String),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    household_income: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("TOP5"), Schema.Literal("TOP10"), Schema.Literal("TOP10_25"), Schema.Literal("TOP25_50")))),
+    spending_power: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("HIGH"), Schema.Literal("PRODUCT_SALES"), Schema.Literal("RF_REACH"), Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TIKTOK"))),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    included_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    blocked_pangle_app_ids: Schema.optional(Schema.Array(Schema.String)),
+    targeting_expansion: Schema.optional(Models.AdAudienceSizeEstimateParamsTargetingExpansion),
+    auto_targeting_enabled: Schema.optional(Schema.Boolean),
+    contextual_tag_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdAudienceSizeEstimateResponse,
+});
+
+export const tiktok_ads_adCreate = defineEndpointDescriptor({
+  id: "tiktok.ads.adCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/create/",
+  summary: "Create ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["ads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"creatives","wireName":"creatives","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    creatives: Schema.Array(Schema.suspend(() => Models.AdCreateParamsCreatives)),
+  }),
+  outputSchema: Models.AdCreateResponse,
+});
+
+export const tiktok_ads_adGet = defineEndpointDescriptor({
+  id: "tiktok.ads.adGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/ad/get/",
+  summary: "Get ads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["ads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"exclude_field_types_in_response","wireName":"exclude_field_types_in_response","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    exclude_field_types_in_response: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.AdGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.AdGetResponse,
+});
+
+export const tiktok_adReview_adgroupAppeal = defineEndpointDescriptor({
+  id: "tiktok.adReview.adgroupAppeal",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/appeal/",
+  summary: "Appeal a rejection",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adReview.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_id","wireName":"ad_id","location":"body","required":false,"nullable":false},
+    {"name":"appeal_reason","wireName":"appeal_reason","location":"body","required":false,"nullable":false},
+    {"name":"attachment_list","wireName":"attachment_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    ad_id: Schema.optional(Schema.String),
+    appeal_reason: Schema.optional(Schema.String),
+    attachment_list: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdgroupAppealResponse,
+});
+
+export const tiktok_adGroups_adgroupBudgetUpdate = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupBudgetUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/budget/update/",
+  summary: "Update the budgets of ad groups",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"scheduled_budget","wireName":"scheduled_budget","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    budget: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupBudgetUpdateParamsBudget))),
+    scheduled_budget: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupBudgetUpdateParamsScheduledBudget))),
+  }),
+  outputSchema: Models.AdgroupBudgetUpdateResponse,
+});
+
+export const tiktok_adGroups_adgroupCreate = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/create/",
+  summary: "Create an ad group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_type","wireName":"shopping_ads_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":false,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"product_source","wireName":"product_source","location":"body","required":false,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":false,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"promotion_target_type","wireName":"promotion_target_type","location":"body","required":false,"nullable":false},
+    {"name":"messaging_app_type","wireName":"messaging_app_type","location":"body","required":false,"nullable":false},
+    {"name":"messaging_app_account_id","wireName":"messaging_app_account_id","location":"body","required":false,"nullable":false},
+    {"name":"phone_region_code","wireName":"phone_region_code","location":"body","required":false,"nullable":false},
+    {"name":"phone_region_calling_code","wireName":"phone_region_calling_code","location":"body","required":false,"nullable":false},
+    {"name":"phone_number","wireName":"phone_number","location":"body","required":false,"nullable":false},
+    {"name":"promotion_website_type","wireName":"promotion_website_type","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":false,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":false,"nullable":false},
+    {"name":"app_config","wireName":"app_config","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_status","wireName":"deep_funnel_optimization_status","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source","wireName":"deep_funnel_event_source","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source_id","wireName":"deep_funnel_event_source_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_event","wireName":"deep_funnel_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"placement_type","wireName":"placement_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":false,"nullable":false},
+    {"name":"tiktok_subplacements","wireName":"tiktok_subplacements","location":"body","required":false,"nullable":false},
+    {"name":"search_result_enabled","wireName":"search_result_enabled","location":"body","required":false,"nullable":false},
+    {"name":"automated_keywords_enabled","wireName":"automated_keywords_enabled","location":"body","required":false,"nullable":false},
+    {"name":"search_keywords","wireName":"search_keywords","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"video_download_disabled","wireName":"video_download_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"blocked_pangle_app_ids","wireName":"blocked_pangle_app_ids","location":"body","required":false,"nullable":false},
+    {"name":"saved_audience_id","wireName":"saved_audience_id","location":"body","required":false,"nullable":false},
+    {"name":"auto_targeting_enabled","wireName":"auto_targeting_enabled","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_type","wireName":"shopping_ads_retargeting_type","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_actions_days","wireName":"shopping_ads_retargeting_actions_days","location":"body","required":false,"nullable":false},
+    {"name":"included_custom_actions","wireName":"included_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"excluded_custom_actions","wireName":"excluded_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_custom_audience_relation","wireName":"shopping_ads_retargeting_custom_audience_relation","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":false,"nullable":false},
+    {"name":"zipcode_ids","wireName":"zipcode_ids","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"spending_power","wireName":"spending_power","location":"body","required":false,"nullable":false},
+    {"name":"household_income","wireName":"household_income","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"smart_audience_enabled","wireName":"smart_audience_enabled","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_keyword_ids","wireName":"interest_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"purchase_intention_keyword_ids","wireName":"purchase_intention_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
+    {"name":"smart_interest_behavior_enabled","wireName":"smart_interest_behavior_enabled","location":"body","required":false,"nullable":false},
+    {"name":"included_pangle_audience_package_ids","wireName":"included_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_pangle_audience_package_ids","wireName":"excluded_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"min_android_version","wireName":"min_android_version","location":"body","required":false,"nullable":false},
+    {"name":"ios14_targeting","wireName":"ios14_targeting","location":"body","required":false,"nullable":false},
+    {"name":"min_ios_version","wireName":"min_ios_version","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"isp_ids","wireName":"isp_ids","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false},
+    {"name":"targeting_expansion","wireName":"targeting_expansion","location":"body","required":false,"nullable":false},
+    {"name":"audience_type","wireName":"audience_type","location":"body","required":false,"nullable":false},
+    {"name":"audience_rule","wireName":"audience_rule","location":"body","required":false,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_partner","wireName":"brand_safety_partner","location":"body","required":false,"nullable":false},
+    {"name":"category_exclusion_ids","wireName":"category_exclusion_ids","location":"body","required":false,"nullable":false},
+    {"name":"vertical_sensitivity_id","wireName":"vertical_sensitivity_id","location":"body","required":false,"nullable":false},
+    {"name":"budget_mode","wireName":"budget_mode","location":"body","required":true,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":true,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"secondary_optimization_event","wireName":"secondary_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"message_event_set_id","wireName":"message_event_set_id","location":"body","required":false,"nullable":false},
+    {"name":"frequency","wireName":"frequency","location":"body","required":false,"nullable":false},
+    {"name":"frequency_schedule","wireName":"frequency_schedule","location":"body","required":false,"nullable":false},
+    {"name":"bid_type","wireName":"bid_type","location":"body","required":false,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"deep_bid_type","wireName":"deep_bid_type","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"vbo_window","wireName":"vbo_window","location":"body","required":false,"nullable":false},
+    {"name":"bid_display_mode","wireName":"bid_display_mode","location":"body","required":false,"nullable":false},
+    {"name":"next_day_retention","wireName":"next_day_retention","location":"body","required":false,"nullable":false},
+    {"name":"click_attribution_window","wireName":"click_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"engaged_view_attribution_window","wireName":"engaged_view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"view_attribution_window","wireName":"view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"attribution_event_count","wireName":"attribution_event_count","location":"body","required":false,"nullable":false},
+    {"name":"billing_event","wireName":"billing_event","location":"body","required":true,"nullable":false},
+    {"name":"pacing","wireName":"pacing","location":"body","required":true,"nullable":false},
+    {"name":"statistic_type","wireName":"statistic_type","location":"body","required":false,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"is_lhf_compliance","wireName":"is_lhf_compliance","location":"body","required":false,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"creative_material_mode","wireName":"creative_material_mode","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_app_profile_page_state","wireName":"adgroup_app_profile_page_state","location":"body","required":false,"nullable":false},
+    {"name":"conversion_window (deprecated)","wireName":"conversion_window (deprecated)","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    adgroup_name: Schema.String,
+    request_id: Schema.optional(Schema.String),
+    shopping_ads_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("LIVE"), Schema.Literal("PRODUCT_SHOPPING_ADS"))),
+    identity_id: Schema.optional(Schema.String),
+    identity_type: Schema.optional(Schema.Union(Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT"))),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    product_source: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("CATALOG"), Schema.Literal("STORE"), Schema.Literal("SHOWCASE"))),
+    catalog_id: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    store_id: Schema.optional(Schema.String),
+    store_authorized_bc_id: Schema.optional(Schema.String),
+    promotion_type: Schema.optional(Schema.String),
+    promotion_target_type: Schema.optional(Schema.Union(Schema.Literal("INSTANT_PAGE"), Schema.Literal("EXTERNAL_WEBSITE"), Schema.Literal("CLICK"))),
+    messaging_app_type: Schema.optional(Schema.Union(Schema.Literal("MESSENGER"), Schema.Literal("WHATSAPP"), Schema.Literal("ZALO"), Schema.Literal("LINE"), Schema.Literal("IM_URL"))),
+    messaging_app_account_id: Schema.optional(Schema.String),
+    phone_region_code: Schema.optional(Schema.String),
+    phone_region_calling_code: Schema.optional(Schema.String),
+    phone_number: Schema.optional(Schema.String),
+    promotion_website_type: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("TIKTOK_NATIVE_PAGE"))),
+    app_id: Schema.optional(Schema.String),
+    pixel_id: Schema.optional(Schema.String),
+    optimization_event: Schema.optional(Schema.String),
+    custom_conversion_id: Schema.optional(Schema.String),
+    app_config: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupCreateParamsAppConfig))),
+    deep_funnel_optimization_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    deep_funnel_event_source: Schema.optional(Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("OFFLINE"), Schema.Literal("CRM"))),
+    deep_funnel_event_source_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_event: Schema.optional(Schema.String),
+    placement_type: Schema.optional(Schema.Union(Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TYPE_NORMAL"))),
+    placements: Schema.optional(Schema.Array(Schema.String)),
+    tiktok_subplacements: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("IN_FEED"), Schema.Literal("SEARCH_FEED"), Schema.Literal("TIKTOK_LITE"), Schema.Literal("LEMON8")))),
+    search_result_enabled: Schema.optional(Schema.Boolean),
+    automated_keywords_enabled: Schema.optional(Schema.Boolean),
+    search_keywords: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupCreateParamsSearchKeywords))),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    video_download_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    blocked_pangle_app_ids: Schema.optional(Schema.Array(Schema.String)),
+    saved_audience_id: Schema.optional(Schema.String),
+    auto_targeting_enabled: Schema.optional(Schema.Boolean),
+    shopping_ads_retargeting_type: Schema.optional(Schema.Union(Schema.Literal("LAB1"), Schema.Literal("LAB2"), Schema.Literal("LAB3"), Schema.Literal("OFF"))),
+    shopping_ads_retargeting_actions_days: Schema.optional(Schema.Number),
+    included_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupCreateParamsIncludedCustomActions))),
+    excluded_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupCreateParamsExcludedCustomActions))),
+    shopping_ads_retargeting_custom_audience_relation: Schema.optional(Schema.Union(Schema.Literal("OR"), Schema.Literal("AND"))),
+    location_ids: Schema.optional(Schema.Array(Schema.String)),
+    zipcode_ids: Schema.optional(Schema.Array(Schema.String)),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    spending_power: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("HIGH"), Schema.Literal("PRODUCT_SALES"), Schema.Literal("RF_REACH"), Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TIKTOK"))),
+    household_income: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("TOP5"), Schema.Literal("TOP10"), Schema.Literal("TOP10_25"), Schema.Literal("TOP25_50")))),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    smart_audience_enabled: Schema.optional(Schema.Boolean),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    purchase_intention_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupCreateParamsActions))),
+    smart_interest_behavior_enabled: Schema.optional(Schema.Boolean),
+    included_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    operating_systems: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"), Schema.Literal("APP_PROMOTION"), Schema.Literal("TRAFFIC"), Schema.Literal("APP_IOS"), Schema.Literal("APP_ANDROID")))),
+    min_android_version: Schema.optional(Schema.String),
+    ios14_targeting: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("IOS14_MINUS"), Schema.Literal("IOS14_PLUS"), Schema.Literal("ALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("APP_IOS"), Schema.Literal("VIDEO"), Schema.Literal("CATALOG"), Schema.Literal("OFF"))),
+    min_ios_version: Schema.optional(Schema.String),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    isp_ids: Schema.optional(Schema.Array(Schema.String)),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+    targeting_expansion: Schema.optional(Models.AdgroupCreateParamsTargetingExpansion),
+    audience_type: Schema.optional(Schema.String),
+    audience_rule: Schema.optional(Schema.String),
+    contextual_tag_ids: Schema.optional(Schema.Array(Schema.String)),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("THIRD_PARTY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("PRODUCT_SALES"))),
+    brand_safety_partner: Schema.optional(Schema.Union(Schema.Literal("IAS"), Schema.Literal("OPEN_SLATE"))),
+    category_exclusion_ids: Schema.optional(Schema.Array(Schema.String)),
+    vertical_sensitivity_id: Schema.optional(Schema.String),
+    budget_mode: Schema.Union(Schema.Literal("BUDGET_MODE_TOTAL"), Schema.Literal("BUDGET_MODE_DYNAMIC_DAILY_BUDGET")),
+    budget: Schema.Number,
+    schedule_type: Schema.String,
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    optimization_goal: Schema.String,
+    secondary_optimization_event: Schema.optional(Schema.String),
+    message_event_set_id: Schema.optional(Schema.String),
+    frequency: Schema.optional(Schema.Number),
+    frequency_schedule: Schema.optional(Schema.Number),
+    bid_type: Schema.optional(Schema.String),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    deep_bid_type: Schema.optional(Schema.Union(Schema.Literal("VO_MIN_ROAS"), Schema.Literal("VO_HIGHEST_VALUE"))),
+    roas_bid: Schema.optional(Schema.Number),
+    vbo_window: Schema.optional(Schema.Union(Schema.Literal("SEVEN_DAYS"), Schema.Literal("ZERO_DAY"))),
+    bid_display_mode: Schema.optional(Schema.String),
+    next_day_retention: Schema.optional(Schema.Number),
+    click_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"), Schema.Literal("FOURTEEN_DAYS"), Schema.Literal("TWENTY_EIGHT_DAYS"))),
+    engaged_view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"))),
+    view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"))),
+    attribution_event_count: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("EVERY"), Schema.Literal("ONCE"))),
+    billing_event: Schema.String,
+    pacing: Schema.String,
+    statistic_type: Schema.optional(Schema.String),
+    is_hfss: Schema.optional(Schema.Boolean),
+    is_lhf_compliance: Schema.optional(Schema.Boolean),
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    creative_material_mode: Schema.optional(Schema.String),
+    adgroup_app_profile_page_state: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"), Schema.Literal("IOS14_PLUS"), Schema.Literal("IN_APP_EVENT"), Schema.Literal("BID_TYPE_CUSTOM"))),
+    "conversion_window (deprecated)": Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.AdgroupCreateResponse,
+});
+
+export const tiktok_adGroups_adgroupGet = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/adgroup/get/",
+  summary: "Get ad groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"exclude_field_types_in_response","wireName":"exclude_field_types_in_response","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    exclude_field_types_in_response: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.AdgroupGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.AdgroupGetResponse,
+});
+
+export const tiktok_adGroups_adgroupQuota = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupQuota",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/adgroup/quota/",
+  summary: "Get the dynamic quota on active ad groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.AdgroupQuotaResponse,
+});
+
+export const tiktok_adReview_adgroupReviewInfo = defineEndpointDescriptor({
+  id: "tiktok.adReview.adgroupReviewInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/adgroup/review_info/",
+  summary: "Get review info of ad groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adReview.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+    lang: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.AdgroupReviewInfoResponse,
+});
+
+export const tiktok_reachFrequency_adgroupRfCreate = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.adgroupRfCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/rf/create/",
+  summary: "Create an R&F ad group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":true,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":true,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":true,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"rf_purchased_type","wireName":"rf_purchased_type","location":"body","required":true,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":true,"nullable":false},
+    {"name":"purchased_impression","wireName":"purchased_impression","location":"body","required":true,"nullable":false},
+    {"name":"purchased_reach","wireName":"purchased_reach","location":"body","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":true,"nullable":false},
+    {"name":"frequency","wireName":"frequency","location":"body","required":true,"nullable":false},
+    {"name":"frequency_schedule","wireName":"frequency_schedule","location":"body","required":true,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"cpv_video_duration","wireName":"cpv_video_duration","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_partner","wireName":"brand_safety_partner","location":"body","required":false,"nullable":false},
+    {"name":"category_exclusion_ids","wireName":"category_exclusion_ids","location":"body","required":false,"nullable":false},
+    {"name":"video_download_disabled","wireName":"video_download_disabled","location":"body","required":false,"nullable":false},
+    {"name":"feed_type","wireName":"feed_type","location":"body","required":false,"nullable":false},
+    {"name":"delivery_mode","wireName":"delivery_mode","location":"body","required":false,"nullable":false},
+    {"name":"schedule_infos","wireName":"schedule_infos","location":"body","required":false,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    request_id: Schema.String,
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    share_disabled: Schema.optional(Schema.Boolean),
+    adgroup_name: Schema.String,
+    promotion_type: Schema.Union(Schema.Literal("APP_ANDROID"), Schema.Literal("APP_IOS"), Schema.Literal("WEBSITE"), Schema.Literal("WEBSITE_OR_DISPLAY"), Schema.Literal("RF_REACH")),
+    optimization_event: Schema.optional(Schema.String),
+    app_id: Schema.optional(Schema.String),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.String),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    location_ids: Schema.Array(Schema.String),
+    is_hfss: Schema.optional(Schema.Boolean),
+    operating_systems: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"), Schema.Literal("PC")))),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    rf_purchased_type: Schema.Union(Schema.Literal("FIXED_SHOW"), Schema.Literal("FIXED_REACH"), Schema.Literal("FIXED_BUDGET")),
+    budget: Schema.Number,
+    purchased_impression: Schema.Number,
+    purchased_reach: Schema.Number,
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.String,
+    frequency: Schema.Number,
+    frequency_schedule: Schema.Number,
+    optimization_goal: Schema.Union(Schema.Literal("REACH"), Schema.Literal("VIDEO_VIEW"), Schema.Literal("CLICK"), Schema.Literal("POST_ENGAGEMENT"), Schema.Literal("INSTALL"), Schema.Literal("PULSE"), Schema.Literal("SIX_SECONDS")),
+    cpv_video_duration: Schema.optional(Schema.Union(Schema.Literal("SIX_SECONDS"), Schema.Literal("PULSE"), Schema.Literal("REACH"))),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("THIRD_PARTY"))),
+    brand_safety_partner: Schema.optional(Schema.Union(Schema.Literal("IAS"), Schema.Literal("OPEN_SLATE"))),
+    category_exclusion_ids: Schema.optional(Schema.Array(Schema.String)),
+    video_download_disabled: Schema.optional(Schema.Boolean),
+    feed_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD_FEED"), Schema.Literal("TOP_FEED"))),
+    delivery_mode: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("REACH"), Schema.Literal("SIX_SECONDS"), Schema.Literal("SCHEDULE"), Schema.Literal("SEQUENCE"), Schema.Literal("VIEW_OPTIMIZE"), Schema.Literal("OPTIMIZE"))),
+    schedule_infos: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupRfCreateParamsScheduleInfos))),
+    contextual_tag_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdgroupRfCreateResponse,
+});
+
+export const tiktok_reachFrequency_adgroupRfEstimatedInfo = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.adgroupRfEstimatedInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/adgroup/rf/estimated/info/",
+  summary: "Get estimated info of R&F ad groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.AdgroupRfEstimatedInfoResponse,
+});
+
+export const tiktok_reachFrequency_adgroupRfUpdate = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.adgroupRfUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/rf/update/",
+  summary: "Update an R&F ad group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":false,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"rf_purchased_type","wireName":"rf_purchased_type","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"purchased_impression","wireName":"purchased_impression","location":"body","required":false,"nullable":false},
+    {"name":"purchased_reach","wireName":"purchased_reach","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"frequency","wireName":"frequency","location":"body","required":false,"nullable":false},
+    {"name":"frequency_schedule","wireName":"frequency_schedule","location":"body","required":false,"nullable":false},
+    {"name":"feed_type","wireName":"feed_type","location":"body","required":false,"nullable":false},
+    {"name":"delivery_mode","wireName":"delivery_mode","location":"body","required":false,"nullable":false},
+    {"name":"schedule_infos","wireName":"schedule_infos","location":"body","required":false,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"category_exclusion_ids","wireName":"category_exclusion_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    share_disabled: Schema.optional(Schema.Boolean),
+    adgroup_name: Schema.optional(Schema.String),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.String),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    location_ids: Schema.optional(Schema.Array(Schema.String)),
+    is_hfss: Schema.optional(Schema.Boolean),
+    operating_systems: Schema.optional(Schema.Array(Schema.String)),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    rf_purchased_type: Schema.optional(Schema.Union(Schema.Literal("FIXED_SHOW"), Schema.Literal("FIXED_REACH"), Schema.Literal("FIXED_BUDGE"))),
+    budget: Schema.optional(Schema.Number),
+    purchased_impression: Schema.optional(Schema.Number),
+    purchased_reach: Schema.optional(Schema.Number),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    frequency: Schema.optional(Schema.Number),
+    frequency_schedule: Schema.optional(Schema.Number),
+    feed_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD_FEED"), Schema.Literal("TOP_FEED"))),
+    delivery_mode: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("REACH"), Schema.Literal("SIX_SECONDS"), Schema.Literal("SCHEDULE"), Schema.Literal("SEQUENCE"), Schema.Literal("VIEW_OPTIMIZE"), Schema.Literal("OPTIMIZE"))),
+    schedule_infos: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupRfUpdateParamsScheduleInfos))),
+    contextual_tag_ids: Schema.optional(Schema.Array(Schema.String)),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"))),
+    category_exclusion_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdgroupRfUpdateResponse,
+});
+
+export const tiktok_adGroups_adgroupStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/status/update/",
+  summary: "Update the statuses of ad groups",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false},
+    {"name":"allow_partial_success","wireName":"allow_partial_success","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+    operation_status: Schema.Union(Schema.Literal("DISABLE"), Schema.Literal("ENABLE"), Schema.Literal("DELETE")),
+    allow_partial_success: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.AdgroupStatusUpdateResponse,
+});
+
+export const tiktok_adGroups_adgroupUpdate = defineEndpointDescriptor({
+  id: "tiktok.adGroups.adgroupUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/adgroup/update/",
+  summary: "Update an ad group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_status","wireName":"deep_funnel_optimization_status","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source","wireName":"deep_funnel_event_source","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source_id","wireName":"deep_funnel_event_source_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_event","wireName":"deep_funnel_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"blocked_pangle_app_ids","wireName":"blocked_pangle_app_ids","location":"body","required":false,"nullable":false},
+    {"name":"search_result_enabled","wireName":"search_result_enabled","location":"body","required":false,"nullable":false},
+    {"name":"automated_keywords_enabled","wireName":"automated_keywords_enabled","location":"body","required":false,"nullable":false},
+    {"name":"search_keywords","wireName":"search_keywords","location":"body","required":false,"nullable":false},
+    {"name":"audience_type","wireName":"audience_type","location":"body","required":false,"nullable":false},
+    {"name":"audience_rule","wireName":"audience_rule","location":"body","required":false,"nullable":false},
+    {"name":"saved_audience_id","wireName":"saved_audience_id","location":"body","required":false,"nullable":false},
+    {"name":"auto_targeting_enabled","wireName":"auto_targeting_enabled","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_type","wireName":"shopping_ads_retargeting_type","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_actions_days","wireName":"shopping_ads_retargeting_actions_days","location":"body","required":false,"nullable":false},
+    {"name":"included_custom_actions","wireName":"included_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"excluded_custom_actions","wireName":"excluded_custom_actions","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_retargeting_custom_audience_relation","wireName":"shopping_ads_retargeting_custom_audience_relation","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":false,"nullable":false},
+    {"name":"zipcode_ids","wireName":"zipcode_ids","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"exclude_age_under_eighteen","wireName":"exclude_age_under_eighteen","location":"body","required":false,"nullable":false},
+    {"name":"spending_power","wireName":"spending_power","location":"body","required":false,"nullable":false},
+    {"name":"household_income","wireName":"household_income","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"smart_audience_enabled","wireName":"smart_audience_enabled","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_keyword_ids","wireName":"interest_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"purchase_intention_keyword_ids","wireName":"purchase_intention_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
+    {"name":"smart_interest_behavior_enabled","wireName":"smart_interest_behavior_enabled","location":"body","required":false,"nullable":false},
+    {"name":"included_pangle_audience_package_ids","wireName":"included_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_pangle_audience_package_ids","wireName":"excluded_pangle_audience_package_ids","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"min_android_version","wireName":"min_android_version","location":"body","required":false,"nullable":false},
+    {"name":"ios14_targeting","wireName":"ios14_targeting","location":"body","required":false,"nullable":false},
+    {"name":"min_ios_version","wireName":"min_ios_version","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"isp_ids","wireName":"isp_ids","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false},
+    {"name":"targeting_expansion","wireName":"targeting_expansion","location":"body","required":false,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"category_exclusion_ids","wireName":"category_exclusion_ids","location":"body","required":false,"nullable":false},
+    {"name":"vertical_sensitivity_id","wireName":"vertical_sensitivity_id","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"frequency","wireName":"frequency","location":"body","required":false,"nullable":false},
+    {"name":"frequency_schedule","wireName":"frequency_schedule","location":"body","required":false,"nullable":false},
+    {"name":"secondary_optimization_event","wireName":"secondary_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"bid_type","wireName":"bid_type","location":"body","required":false,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"deep_bid_type","wireName":"deep_bid_type","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"deep_cpa_bid","wireName":"deep_cpa_bid","location":"body","required":false,"nullable":false},
+    {"name":"next_day_retention","wireName":"next_day_retention","location":"body","required":false,"nullable":false},
+    {"name":"pacing","wireName":"pacing","location":"body","required":false,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"is_lhf_compliance","wireName":"is_lhf_compliance","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    adgroup_id: Schema.String,
+    advertiser_id: Schema.String,
+    adgroup_name: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    deep_funnel_event_source: Schema.optional(Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("OFFLINE"), Schema.Literal("CRM"))),
+    deep_funnel_event_source_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_event: Schema.optional(Schema.String),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    blocked_pangle_app_ids: Schema.optional(Schema.Array(Schema.String)),
+    search_result_enabled: Schema.optional(Schema.Boolean),
+    automated_keywords_enabled: Schema.optional(Schema.Boolean),
+    search_keywords: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupUpdateParamsSearchKeywords))),
+    audience_type: Schema.optional(Schema.String),
+    audience_rule: Schema.optional(Schema.String),
+    saved_audience_id: Schema.optional(Schema.String),
+    auto_targeting_enabled: Schema.optional(Schema.Boolean),
+    shopping_ads_retargeting_type: Schema.optional(Schema.Union(Schema.Literal("LAB1"), Schema.Literal("LAB2"), Schema.Literal("LAB3"), Schema.Literal("OFF"))),
+    shopping_ads_retargeting_actions_days: Schema.optional(Schema.Number),
+    included_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupUpdateParamsIncludedCustomActions))),
+    excluded_custom_actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupUpdateParamsExcludedCustomActions))),
+    shopping_ads_retargeting_custom_audience_relation: Schema.optional(Schema.Union(Schema.Literal("OR"), Schema.Literal("AND"))),
+    location_ids: Schema.optional(Schema.Array(Schema.String)),
+    zipcode_ids: Schema.optional(Schema.Array(Schema.String)),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    exclude_age_under_eighteen: Schema.optional(Schema.Boolean),
+    spending_power: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("HIGH"), Schema.Literal("PRODUCT_SALES"), Schema.Literal("RF_REACH"), Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TIKTOK"))),
+    household_income: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("TOP5"), Schema.Literal("TOP10"), Schema.Literal("TOP10_25"), Schema.Literal("TOP25_50")))),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    smart_audience_enabled: Schema.optional(Schema.Boolean),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    purchase_intention_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdgroupUpdateParamsActions))),
+    smart_interest_behavior_enabled: Schema.optional(Schema.Boolean),
+    included_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_pangle_audience_package_ids: Schema.optional(Schema.Array(Schema.String)),
+    operating_systems: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"), Schema.Literal("APP_PROMOTION"), Schema.Literal("TRAFFIC"), Schema.Literal("APP_IOS"), Schema.Literal("APP_ANDROID")))),
+    min_android_version: Schema.optional(Schema.String),
+    ios14_targeting: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("IOS14_MINUS"), Schema.Literal("IOS14_PLUS"), Schema.Literal("ALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("APP_IOS"), Schema.Literal("VIDEO"), Schema.Literal("CATALOG"), Schema.Literal("OFF"))),
+    min_ios_version: Schema.optional(Schema.String),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    isp_ids: Schema.optional(Schema.Array(Schema.String)),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+    targeting_expansion: Schema.optional(Models.AdgroupUpdateParamsTargetingExpansion),
+    contextual_tag_ids: Schema.optional(Schema.Array(Schema.String)),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("PRODUCT_SALES"))),
+    category_exclusion_ids: Schema.optional(Schema.Array(Schema.String)),
+    vertical_sensitivity_id: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    schedule_type: Schema.optional(Schema.String),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    frequency: Schema.optional(Schema.Number),
+    frequency_schedule: Schema.optional(Schema.Number),
+    secondary_optimization_event: Schema.optional(Schema.String),
+    bid_type: Schema.optional(Schema.String),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    deep_bid_type: Schema.optional(Schema.String),
+    roas_bid: Schema.optional(Schema.Number),
+    deep_cpa_bid: Schema.optional(Schema.Number),
+    next_day_retention: Schema.optional(Schema.Number),
+    pacing: Schema.optional(Schema.String),
+    is_hfss: Schema.optional(Schema.Boolean),
+    is_lhf_compliance: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.AdgroupUpdateResponse,
+});
+
+export const tiktok_adReview_adReviewInfo = defineEndpointDescriptor({
+  id: "tiktok.adReview.adReviewInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/ad/review_info/",
+  summary: "Get review info of ads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adReview.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"ad_ids","wireName":"ad_ids","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_ids: Schema.Array(Schema.String),
+    lang: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.AdReviewInfoResponse,
+});
+
+export const tiktok_ads_adStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.ads.adStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/status/update/",
+  summary: "Update the statuses of ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["ads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"ad_ids","wireName":"ad_ids","location":"body","required":false,"nullable":false},
+    {"name":"aco_ad_ids","wireName":"aco_ad_ids","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    ad_ids: Schema.optional(Schema.Array(Schema.String)),
+    aco_ad_ids: Schema.optional(Schema.Array(Schema.String)),
+    advertiser_id: Schema.String,
+    operation_status: Schema.Union(Schema.Literal("DELETE"), Schema.Literal("ENABLE")),
+  }),
+  outputSchema: Models.AdStatusUpdateResponse,
+});
+
+export const tiktok_ads_adUpdate = defineEndpointDescriptor({
+  id: "tiktok.ads.adUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/ad/update/",
+  summary: "Update ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["ads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"patch_update","wireName":"patch_update","location":"body","required":false,"nullable":false},
+    {"name":"creatives","wireName":"creatives","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    patch_update: Schema.optional(Schema.Boolean),
+    creatives: Schema.Array(Schema.suspend(() => Models.AdUpdateParamsCreatives)),
+  }),
+  outputSchema: Models.AdUpdateResponse,
+});
+
+export const tiktok_bCPayments_advertiserBalanceGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.advertiserBalanceGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/advertiser/balance/get/",
+  summary: "Get the balance and budget of ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.AdvertiserBalanceGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.AdvertiserBalanceGetResponse,
+});
+
+export const tiktok_adAccounts_advertiserInfo = defineEndpointDescriptor({
+  id: "tiktok.adAccounts.advertiserInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/advertiser/info/",
+  summary: "Get ad account details",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adAccounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_ids: Schema.Array(Schema.String),
+    fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AdvertiserInfoResponse,
+});
+
+export const tiktok_bCPayments_advertiserTransactionGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.advertiserTransactionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/advertiser/transaction/get/",
+  summary: "Get the transaction records of ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.AdvertiserTransactionGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.AdvertiserTransactionGetResponse,
+});
+
+export const tiktok_bCAssets_advertiserUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.advertiserUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/advertiser/update/",
+  summary: "Update an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_name","wireName":"advertiser_name","location":"body","required":false,"nullable":false},
+    {"name":"company","wireName":"company","location":"body","required":false,"nullable":false},
+    {"name":"contact_name","wireName":"contact_name","location":"body","required":false,"nullable":false},
+    {"name":"contact_email","wireName":"contact_email","location":"body","required":false,"nullable":false},
+    {"name":"contact_number","wireName":"contact_number","location":"body","required":false,"nullable":false},
+    {"name":"promotion_link","wireName":"promotion_link","location":"body","required":false,"nullable":false},
+    {"name":"license_no","wireName":"license_no","location":"body","required":false,"nullable":false},
+    {"name":"license_image_id","wireName":"license_image_id","location":"body","required":false,"nullable":false},
+    {"name":"qualification_images","wireName":"qualification_images","location":"body","required":false,"nullable":false},
+    {"name":"address","wireName":"address","location":"body","required":false,"nullable":false},
+    {"name":"tax_map","wireName":"tax_map","location":"body","required":false,"nullable":false},
+    {"name":"need_submit_certificate","wireName":"need_submit_certificate","location":"body","required":false,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":false,"nullable":false},
+    {"name":"budget_update_type","wireName":"budget_update_type","location":"body","required":false,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_budgets","wireName":"advertiser_budgets","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    advertiser_name: Schema.optional(Schema.String),
+    company: Schema.optional(Schema.String),
+    contact_name: Schema.optional(Schema.String),
+    contact_email: Schema.optional(Schema.String),
+    contact_number: Schema.optional(Schema.String),
+    promotion_link: Schema.optional(Schema.String),
+    license_no: Schema.optional(Schema.String),
+    license_image_id: Schema.optional(Schema.String),
+    qualification_images: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdvertiserUpdateParamsQualificationImages))),
+    address: Schema.optional(Schema.String),
+    tax_map: Schema.optional(Schema.String),
+    need_submit_certificate: Schema.optional(Schema.Boolean),
+    bc_id: Schema.optional(Schema.String),
+    budget_update_type: Schema.optional(Schema.Union(Schema.Literal("UPDATE"), Schema.Literal("RESET"), Schema.Literal("CUSTOM_BUDGET"), Schema.Literal("INCREMENTAL_UPDATE"), Schema.Literal("ONE_CLICK_SET"))),
+    request_id: Schema.optional(Schema.String),
+    advertiser_budgets: Schema.optional(Schema.Array(Schema.suspend(() => Models.AdvertiserUpdateParamsAdvertiserBudgets))),
+  }),
+  outputSchema: Models.AdvertiserUpdateResponse,
+});
+
+export const tiktok_events10_appBatch = defineEndpointDescriptor({
+  id: "tiktok.events10.appBatch",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/app/batch/",
+  summary: "Report App Events in bulk",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tiktok_app_id","wireName":"tiktok_app_id","location":"body","required":true,"nullable":false},
+    {"name":"batch","wireName":"batch","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tiktok_app_id: Schema.String,
+    batch: Schema.Array(Schema.suspend(() => Models.AppBatchParamsBatch)),
+  }),
+  outputSchema: Models.AppBatchResponse,
+});
+
+export const tiktok_events10_appCreate = defineEndpointDescriptor({
+  id: "tiktok.events10.appCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/app/create/",
+  summary: "Create an app",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"download_url","wireName":"download_url","location":"body","required":true,"nullable":false},
+    {"name":"partner","wireName":"partner","location":"body","required":false,"nullable":false},
+    {"name":"tracking_url","wireName":"tracking_url","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    download_url: Schema.String,
+    partner: Schema.optional(Schema.String),
+    tracking_url: Schema.optional(Models.AppCreateParamsTrackingUrl),
+  }),
+  outputSchema: Models.AppCreateResponse,
+});
+
+export const tiktok_events10_appInfo = defineEndpointDescriptor({
+  id: "tiktok.events10.appInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/app/info/",
+  summary: "Get info of an app",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+  }),
+  outputSchema: Models.AppInfoResponse,
+});
+
+export const tiktok_events10_appList = defineEndpointDescriptor({
+  id: "tiktok.events10.appList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/app/list/",
+  summary: "Get the app list",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_platform_ids","wireName":"app_platform_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_platform_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AppListResponse,
+});
+
+export const tiktok_events10_appOptimizationEvent = defineEndpointDescriptor({
+  id: "tiktok.events10.appOptimizationEvent",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/app/optimization_event/",
+  summary: "Get App Conversion Events",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"placement_type","wireName":"placement_type","location":"query","required":false,"nullable":false},
+    {"name":"placement","wireName":"placement","location":"query","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":true,"nullable":false},
+    {"name":"objective","wireName":"objective","location":"query","required":true,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"query","required":false,"nullable":false},
+    {"name":"available_only","wireName":"available_only","location":"query","required":false,"nullable":false},
+    {"name":"is_skan","wireName":"is_skan","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+    placement_type: Schema.optional(Schema.Union(Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TYPE_NORMAL"))),
+    placement: Schema.optional(Schema.Array(Schema.String)),
+    optimization_goal: Schema.String,
+    objective: Schema.String,
+    app_promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_INSTALL"), Schema.Literal("APP_RETARGETING"))),
+    available_only: Schema.optional(Schema.Boolean),
+    is_skan: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.AppOptimizationEventResponse,
+});
+
+export const tiktok_events10_appOptimizationEventRetargeting = defineEndpointDescriptor({
+  id: "tiktok.events10.appOptimizationEventRetargeting",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/app/optimization_event/retargeting/",
+  summary: "Get App Retargeting Events ",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+  }),
+  outputSchema: Models.AppOptimizationEventRetargetingResponse,
+});
+
+export const tiktok_events10_appTrack = defineEndpointDescriptor({
+  id: "tiktok.events10.appTrack",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/app/track/",
+  summary: "Report an App Event",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tiktok_app_id","wireName":"tiktok_app_id","location":"body","required":true,"nullable":false},
+    {"name":"event","wireName":"event","location":"body","required":false,"nullable":false},
+    {"name":"timestamp","wireName":"timestamp","location":"body","required":false,"nullable":false},
+    {"name":"context","wireName":"context","location":"body","required":true,"nullable":false},
+    {"name":"properties","wireName":"properties","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tiktok_app_id: Schema.String,
+    event: Schema.optional(Schema.String),
+    timestamp: Schema.optional(Schema.String),
+    context: Schema.String,
+    properties: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.AppTrackResponse,
+});
+
+export const tiktok_events10_appUpdate = defineEndpointDescriptor({
+  id: "tiktok.events10.appUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/app/update/",
+  summary: "Update an app",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"download_url","wireName":"download_url","location":"body","required":false,"nullable":false},
+    {"name":"platform","wireName":"platform","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"partner","wireName":"partner","location":"body","required":false,"nullable":false},
+    {"name":"tracking_url","wireName":"tracking_url","location":"body","required":false,"nullable":false},
+    {"name":"enable_retargeting","wireName":"enable_retargeting","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    download_url: Schema.optional(Schema.String),
+    platform: Schema.optional(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"))),
+    app_id: Schema.String,
+    partner: Schema.optional(Schema.String),
+    tracking_url: Schema.optional(Models.AppUpdateParamsTrackingUrl),
+    enable_retargeting: Schema.optional(Schema.Union(Schema.Literal("RETARGETING"), Schema.Literal("NON_RETARGETING"))),
+  }),
+  outputSchema: Models.AppUpdateResponse,
+});
+
+export const tiktok_bCAssets_assetBindQuota = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.assetBindQuota",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/asset/bind/quota/",
+  summary: "Get binding info of an asset",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    asset_id: Schema.String,
+    asset_type: Schema.String,
+  }),
+  outputSchema: Models.AssetBindQuotaResponse,
+});
+
+export const tiktok_audience_audienceInsightInfo = defineEndpointDescriptor({
+  id: "tiktok.audience.audienceInsightInfo",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/audience/insight/info/",
+  summary: "Get details of potential audiences",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":false,"nullable":false},
+    {"name":"locations","wireName":"locations","location":"body","required":false,"nullable":false},
+    {"name":"dimensions","wireName":"dimensions","location":"body","required":true,"nullable":false},
+    {"name":"selected_audience","wireName":"selected_audience","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_id: Schema.optional(Schema.String),
+    locations: Schema.optional(Schema.Array(Schema.suspend(() => Models.AudienceInsightInfoParamsLocations))),
+    dimensions: Schema.Array(Schema.String),
+    selected_audience: Schema.optional(Models.AudienceInsightInfoParamsSelectedAudience),
+  }),
+  outputSchema: Models.AudienceInsightInfoResponse,
+});
+
+export const tiktok_audience_audienceInsightOverlap = defineEndpointDescriptor({
+  id: "tiktok.audience.audienceInsightOverlap",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/audience/insight/overlap/",
+  summary: "Get details of audience overlap",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"benchmark_custom_audience_id","wireName":"benchmark_custom_audience_id","location":"query","required":true,"nullable":false},
+    {"name":"comparison_custom_audience_ids","wireName":"comparison_custom_audience_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    benchmark_custom_audience_id: Schema.String,
+    comparison_custom_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.AudienceInsightOverlapResponse,
+});
+
+export const tiktok_bCPayments_bcAccountBudgetChangelogGetN = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcAccountBudgetChangelogGetN",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/account/budget/changelog/get//",
+  summary: "Get the budget change history of an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.BcAccountBudgetChangelogGetNParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAccountBudgetChangelogGetNResponse,
+});
+
+export const tiktok_bCPayments_bcAccountCostGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcAccountCostGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/account/cost/get/",
+  summary: "Get the cost records of a BC and ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.BcAccountCostGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAccountCostGetResponse,
+});
+
+export const tiktok_bCPayments_bcAccountTransactionGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcAccountTransactionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/account/transaction/get/",
+  summary: "Get the transaction records of a BC or ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"transaction_level","wireName":"transaction_level","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    transaction_level: Schema.optional(Schema.Union(Schema.Literal("BC"), Schema.Literal("ADVERTISER"), Schema.Literal("PAYMENT_PORTFOLIO"))),
+    filtering: Schema.optional(Models.BcAccountTransactionGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAccountTransactionGetResponse,
+});
+
+export const tiktok_bCReporting_bcAdvertiserAttribute = defineEndpointDescriptor({
+  id: "tiktok.bCReporting.bcAdvertiserAttribute",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/advertiser/attribute/",
+  summary: "Get currencies and registration areas for ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCReporting.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+  }),
+  outputSchema: Models.BcAdvertiserAttributeResponse,
+});
+
+export const tiktok_bCAssets_bcAdvertiserCreate = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAdvertiserCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/advertiser/create/",
+  summary: "Create an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"tied_to_billing_group","wireName":"tied_to_billing_group","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_info","wireName":"advertiser_info","location":"body","required":true,"nullable":false},
+    {"name":"customer_info","wireName":"customer_info","location":"body","required":true,"nullable":false},
+    {"name":"qualification_info","wireName":"qualification_info","location":"body","required":false,"nullable":false},
+    {"name":"contact_info","wireName":"contact_info","location":"body","required":false,"nullable":false},
+    {"name":"billing_info","wireName":"billing_info","location":"body","required":false,"nullable":false},
+    {"name":"billing_group_info","wireName":"billing_group_info","location":"body","required":false,"nullable":false},
+    {"name":"payment_info","wireName":"payment_info","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    tied_to_billing_group: Schema.optional(Schema.Boolean),
+    advertiser_info: Models.BcAdvertiserCreateParamsAdvertiserInfo,
+    customer_info: Models.BcAdvertiserCreateParamsCustomerInfo,
+    qualification_info: Schema.optional(Models.BcAdvertiserCreateParamsQualificationInfo),
+    contact_info: Schema.optional(Models.BcAdvertiserCreateParamsContactInfo),
+    billing_info: Schema.optional(Models.BcAdvertiserCreateParamsBillingInfo),
+    billing_group_info: Schema.optional(Models.BcAdvertiserCreateParamsBillingGroupInfo),
+    payment_info: Schema.optional(Models.BcAdvertiserCreateParamsPaymentInfo),
+  }),
+  outputSchema: Models.BcAdvertiserCreateResponse,
+});
+
+export const tiktok_bCAssets_bcAdvertiserDisable = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAdvertiserDisable",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/advertiser/disable/",
+  summary: "Disable an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    advertiser_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BcAdvertiserDisableResponse,
+});
+
+export const tiktok_bCAssets_bcAdvertiserQualificationGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAdvertiserQualificationGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/advertiser/qualification/get/",
+  summary: "Get qualifications within a Business Center",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.BcAdvertiserQualificationGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAdvertiserQualificationGetResponse,
+});
+
+export const tiktok_bCAssets_bcAdvertiserUnionpayInfoCheck = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAdvertiserUnionpayInfoCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/advertiser/unionpay_info/check/",
+  summary: "Check the UnionPay verification requirement for a business license",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"license_no","wireName":"license_no","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    license_no: Schema.String,
+  }),
+  outputSchema: Models.BcAdvertiserUnionpayInfoCheckResponse,
+});
+
+export const tiktok_bCAssets_bcAdvertiserUnionpayInfoSubmit = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAdvertiserUnionpayInfoSubmit",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/advertiser/unionpay_info/submit/",
+  summary: "Submit UnionPay verification for a business license",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"representative_name","wireName":"representative_name","location":"body","required":true,"nullable":false},
+    {"name":"representative_document_type","wireName":"representative_document_type","location":"body","required":false,"nullable":false},
+    {"name":"representative_id","wireName":"representative_id","location":"body","required":true,"nullable":false},
+    {"name":"unionpay_account","wireName":"unionpay_account","location":"body","required":true,"nullable":false},
+    {"name":"representative_phone_number","wireName":"representative_phone_number","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    advertiser_id: Schema.String,
+    representative_name: Schema.String,
+    representative_document_type: Schema.optional(Schema.Union(Schema.Literal("ID_CARD"), Schema.Literal("PASSPORT"), Schema.Literal("HK_MACAO_EXIT_ENTRY_PERMIT"), Schema.Literal("TAIWAN_MAINLAND_TRAVEL_PERMIT"), Schema.Literal("HK_MACAO_MAINLAND_TRAVEL_PERMIT"))),
+    representative_id: Schema.String,
+    unionpay_account: Schema.String,
+    representative_phone_number: Schema.String,
+  }),
+  outputSchema: Models.BcAdvertiserUnionpayInfoSubmitResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAccountAuthorization = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAccountAuthorization",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/account/authorization/",
+  summary: "Obtain a TikTok account ad delivery authorization URL",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"is_ads_only_mode","wireName":"is_ads_only_mode","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    is_ads_only_mode: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.BcAssetAccountAuthorizationResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAdminDelete = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAdminDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/admin/delete/",
+  summary: "Delete assets from a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_ids","wireName":"asset_ids","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_ids: Schema.Array(Schema.String),
+    asset_type: Schema.Union(Schema.Literal("LEAD"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT")),
+  }),
+  outputSchema: Models.BcAssetAdminDeleteResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAdminGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAdminGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset/admin/get/",
+  summary: "Get assets as admin",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG"), Schema.Literal("TIKTOK_SHOP"), Schema.Literal("PIXEL"), Schema.Literal("LEAD"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    filtering: Schema.optional(Models.BcAssetAdminGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAssetAdminGetResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAdvertiserAssign = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAdvertiserAssign",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/advertiser/assign/",
+  summary: "Link a TikTok account to an ad account in Business Center",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":false,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_type: Schema.optional(Schema.Union(Schema.Literal("TT_ACCOUNT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT"))),
+    asset_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.BcAssetAdvertiserAssignResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAdvertiserAssigned = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAdvertiserAssigned",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset/advertiser/assigned/",
+  summary: "Get ad accounts linked to a TikTok account in Business Center",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("TT_ACCOUNT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAssetAdvertiserAssignedResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAdvertiserUnassign = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAdvertiserUnassign",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/advertiser/unassign/",
+  summary: "Unlink a TikTok account from an ad account in Business Center",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("TT_ACCOUNT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.BcAssetAdvertiserUnassignResponse,
+});
+
+export const tiktok_bCAssets_bcAssetAssign = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetAssign",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/assign/",
+  summary: "Assign an asset",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_role","wireName":"advertiser_role","location":"body","required":false,"nullable":false},
+    {"name":"catalog_role","wireName":"catalog_role","location":"body","required":false,"nullable":false},
+    {"name":"form_library_role","wireName":"form_library_role","location":"body","required":false,"nullable":false},
+    {"name":"tt_account_roles","wireName":"tt_account_roles","location":"body","required":false,"nullable":false},
+    {"name":"business_account_roles","wireName":"business_account_roles","location":"body","required":false,"nullable":false},
+    {"name":"store_role","wireName":"store_role","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    user_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG"), Schema.Literal("TIKTOK_SHOP"), Schema.Literal("LEAD"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    asset_id: Schema.String,
+    advertiser_role: Schema.optional(Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("OPERATOR"), Schema.Literal("ANALYST"))),
+    catalog_role: Schema.optional(Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("AD_PROMOTE"))),
+    form_library_role: Schema.optional(Schema.String),
+    tt_account_roles: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("POST"), Schema.Literal("LIVE"), Schema.Literal("DIRECT_MESSAGE")))),
+    business_account_roles: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("BUSINESS_ACCOUNT_ADMIN"), Schema.Literal("BUSINESS_ACCOUNT_OPERATOR"), Schema.Literal("BUSINESS_ACCOUNT_ANALYST")))),
+    store_role: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BcAssetAssignResponse,
+});
+
+export const tiktok_bCAssets_bcAssetGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset/get/",
+  summary: "Get assets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG"), Schema.Literal("TIKTOK_SHOP"), Schema.Literal("PIXEL"), Schema.Literal("LEAD"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    filtering: Schema.optional(Models.BcAssetGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAssetGetResponse,
+});
+
+export const tiktok_bCAssetGroups_bcAssetGroupCreate = defineEndpointDescriptor({
+  id: "tiktok.bCAssetGroups.bcAssetGroupCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset_group/create/",
+  summary: "Create an Asset Group ",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssetGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.BcAssetGroupCreateResponse,
+});
+
+export const tiktok_bCAssetGroups_bcAssetGroupDelete = defineEndpointDescriptor({
+  id: "tiktok.bCAssetGroups.bcAssetGroupDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset_group/delete/",
+  summary: "Delete Asset Groups ",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssetGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.BcAssetGroupDeleteResponse,
+});
+
+export const tiktok_bCAssetGroups_bcAssetGroupGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssetGroups.bcAssetGroupGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset_group/get/",
+  summary: "Get the details of an Asset Group",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssetGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.BcAssetGroupGetResponse,
+});
+
+export const tiktok_bCAssetGroups_bcAssetGroupList = defineEndpointDescriptor({
+  id: "tiktok.bCAssetGroups.bcAssetGroupList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset_group/list/",
+  summary: "Get all Asset Groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssetGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.BcAssetGroupListResponse,
+});
+
+export const tiktok_bCAssetGroups_bcAssetGroupUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCAssetGroups.bcAssetGroupUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset_group/update/",
+  summary: "Update an Asset Group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssetGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.BcAssetGroupUpdateResponse,
+});
+
+export const tiktok_bCAssets_bcAssetMemberGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetMemberGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset/member/get/",
+  summary: "Get members by an asset",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG"), Schema.Literal("LEAD"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    asset_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    filtering: Schema.optional(Models.BcAssetMemberGetParamsFiltering),
+  }),
+  outputSchema: Models.BcAssetMemberGetResponse,
+});
+
+export const tiktok_bCAssets_bcAssetPartnerGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetPartnerGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/asset/partner/get/",
+  summary: "Get partners by an asset",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG")),
+    asset_id: Schema.String,
+    filtering: Schema.optional(Models.BcAssetPartnerGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcAssetPartnerGetResponse,
+});
+
+export const tiktok_bCAssets_bcAssetUnassign = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcAssetUnassign",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/asset/unassign/",
+  summary: "Unassign an asset",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":true,"nullable":false},
+    {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    user_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG"), Schema.Literal("LEAD"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("MANAGED_BUSINESS_ACCOUNT")),
+    asset_id: Schema.String,
+  }),
+  outputSchema: Models.BcAssetUnassignResponse,
+});
+
+export const tiktok_bCPayments_bcBalanceGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcBalanceGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/balance/get/",
+  summary: "Get the balance of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    payment_portfolio_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BcBalanceGetResponse,
+});
+
+export const tiktok_bCBillingGroups_bcBillingGroupAdvertiserList = defineEndpointDescriptor({
+  id: "tiktok.bCBillingGroups.bcBillingGroupAdvertiserList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/billing_group/advertiser/list/",
+  summary: "Get the advertiser list of a Billing Group",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCBillingGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"billing_group_id","wireName":"billing_group_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    billing_group_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcBillingGroupAdvertiserListResponse,
+});
+
+export const tiktok_bCBillingGroups_bcBillingGroupCreate = defineEndpointDescriptor({
+  id: "tiktok.bCBillingGroups.bcBillingGroupCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/billing_group/create/",
+  summary: "Create a Billing Group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCBillingGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"billing_group_name","wireName":"billing_group_name","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"billing_group_emails","wireName":"billing_group_emails","location":"body","required":false,"nullable":false},
+    {"name":"is_primary","wireName":"is_primary","location":"body","required":false,"nullable":false},
+    {"name":"billing_group_type","wireName":"billing_group_type","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    billing_group_name: Schema.String,
+    advertiser_ids: Schema.Array(Schema.String),
+    billing_group_emails: Schema.optional(Schema.Array(Schema.String)),
+    is_primary: Schema.optional(Schema.Boolean),
+    billing_group_type: Schema.optional(Schema.Union(Schema.Literal("AUCTION"), Schema.Literal("RESERVATION"))),
+  }),
+  outputSchema: Models.BcBillingGroupCreateResponse,
+});
+
+export const tiktok_bCBillingGroups_bcBillingGroupGet = defineEndpointDescriptor({
+  id: "tiktok.bCBillingGroups.bcBillingGroupGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/billing_group/get/",
+  summary: "Get Billing Groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCBillingGroups.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.BcBillingGroupGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcBillingGroupGetResponse,
+});
+
+export const tiktok_bCBillingGroups_bcBillingGroupUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCBillingGroups.bcBillingGroupUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/billing_group/update/",
+  summary: "Update a Billing Group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCBillingGroups.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"billing_group_id","wireName":"billing_group_id","location":"body","required":true,"nullable":false},
+    {"name":"new_billing_group_name","wireName":"new_billing_group_name","location":"body","required":false,"nullable":false},
+    {"name":"new_billing_group_emails","wireName":"new_billing_group_emails","location":"body","required":false,"nullable":false},
+    {"name":"add_advertiser_ids","wireName":"add_advertiser_ids","location":"body","required":false,"nullable":false},
+    {"name":"delete_advertiser_ids","wireName":"delete_advertiser_ids","location":"body","required":false,"nullable":false},
+    {"name":"is_primary","wireName":"is_primary","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    billing_group_id: Schema.String,
+    new_billing_group_name: Schema.optional(Schema.String),
+    new_billing_group_emails: Schema.optional(Schema.Array(Schema.String)),
+    add_advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+    delete_advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+    is_primary: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.BcBillingGroupUpdateResponse,
+});
+
+export const tiktok_bCManagement_bcGet = defineEndpointDescriptor({
+  id: "tiktok.bCManagement.bcGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/get/",
+  summary: "Get Business Centers",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcGetResponse,
+});
+
+export const tiktok_bCAssets_bcImageUpload = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcImageUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/image/upload/",
+  summary: "Upload a business certificate",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"image_file","wireName":"image_file","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    image_file: Schema.Unknown,
+  }),
+  outputSchema: Models.BcImageUploadResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceDownload = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/invoice/download/",
+  summary: "Download synchronously",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"invoice_id","wireName":"invoice_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    invoice_id: Schema.String,
+  }),
+  outputSchema: Models.BcInvoiceDownloadResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceGet = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/invoice/get/",
+  summary: "Get the invoices of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"invoice_id","wireName":"invoice_id","location":"query","required":false,"nullable":false},
+    {"name":"invoice_title","wireName":"invoice_title","location":"query","required":false,"nullable":false},
+    {"name":"invoice_types","wireName":"invoice_types","location":"query","required":true,"nullable":false},
+    {"name":"pay_statuses","wireName":"pay_statuses","location":"query","required":false,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"query","required":false,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    invoice_id: Schema.optional(Schema.String),
+    invoice_title: Schema.optional(Schema.String),
+    invoice_types: Schema.Array(Schema.Union(Schema.Literal("RECON"), Schema.Literal("CREDIT"), Schema.Literal("AUTO_PAY"))),
+    pay_statuses: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("UNPAID"), Schema.Literal("PAID"), Schema.Literal("PARTIAL_PAID"), Schema.Literal("NO_NEED")))),
+    start_time: Schema.optional(Schema.String),
+    end_time: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcInvoiceGetResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/invoice/task/create/",
+  summary: "Create an asynchronous download task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"download_type","wireName":"download_type","location":"body","required":true,"nullable":false},
+    {"name":"invoice_id","wireName":"invoice_id","location":"body","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    download_type: Schema.Union(Schema.Literal("INVOICE_LIST"), Schema.Literal("INVOICE_BATCH"), Schema.Literal("BILLING_REPORT")),
+    invoice_id: Schema.optional(Schema.String),
+    filtering: Schema.optional(Models.BcInvoiceTaskCreateParamsFiltering),
+  }),
+  outputSchema: Models.BcInvoiceTaskCreateResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceTaskGet = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceTaskGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/invoice/task/get/",
+  summary: "Get asynchronous download tasks",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.BcInvoiceTaskGetResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceTaskList = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceTaskList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/invoice/task/list/",
+  summary: "Get asynchronous download task list",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcInvoiceTaskListResponse,
+});
+
+export const tiktok_bCInvoices_bcInvoiceUnpaidGet = defineEndpointDescriptor({
+  id: "tiktok.bCInvoices.bcInvoiceUnpaidGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/invoice/unpaid/get/",
+  summary: "Get the unpaid amount of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCInvoices.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"invoice_type","wireName":"invoice_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    invoice_type: Schema.String,
+  }),
+  outputSchema: Models.BcInvoiceUnpaidGetResponse,
+});
+
+export const tiktok_bCMembers_bcMemberDelete = defineEndpointDescriptor({
+  id: "tiktok.bCMembers.bcMemberDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/member/delete/",
+  summary: "Delete a member from a BC or revoke a member invitation",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCMembers.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"user_id","wireName":"user_id","location":"body","required":false,"nullable":false},
+    {"name":"user_email","wireName":"user_email","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    user_id: Schema.optional(Schema.String),
+    user_email: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BcMemberDeleteResponse,
+});
+
+export const tiktok_bCMembers_bcMemberGet = defineEndpointDescriptor({
+  id: "tiktok.bCMembers.bcMemberGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/member/get/",
+  summary: "Get the members of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCMembers.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    filtering: Schema.optional(Models.BcMemberGetParamsFiltering),
+  }),
+  outputSchema: Models.BcMemberGetResponse,
+});
+
+export const tiktok_bCMembers_bcMemberInvite = defineEndpointDescriptor({
+  id: "tiktok.bCMembers.bcMemberInvite",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/member/invite/",
+  summary: "Invite members to a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCMembers.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"emails","wireName":"emails","location":"body","required":true,"nullable":false},
+    {"name":"user_role","wireName":"user_role","location":"body","required":true,"nullable":false},
+    {"name":"asset_ids","wireName":"asset_ids","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_role","wireName":"advertiser_role","location":"body","required":false,"nullable":false},
+    {"name":"ext_user_role","wireName":"ext_user_role","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    emails: Schema.Array(Schema.String),
+    user_role: Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("STANDARD")),
+    asset_ids: Schema.optional(Schema.Array(Schema.String)),
+    advertiser_role: Schema.optional(Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("OPERATOR"), Schema.Literal("ANALYST"))),
+    ext_user_role: Schema.optional(Models.BcMemberInviteParamsExtUserRole),
+  }),
+  outputSchema: Models.BcMemberInviteResponse,
+});
+
+export const tiktok_bCMembers_bcMemberUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCMembers.bcMemberUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/member/update/",
+  summary: "Update info of a BC member",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCMembers.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
+    {"name":"user_role","wireName":"user_role","location":"body","required":false,"nullable":false},
+    {"name":"user_name","wireName":"user_name","location":"body","required":false,"nullable":false},
+    {"name":"ext_user_role","wireName":"ext_user_role","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    user_id: Schema.String,
+    user_role: Schema.optional(Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("STANDARD"))),
+    user_name: Schema.optional(Schema.String),
+    ext_user_role: Schema.optional(Models.BcMemberUpdateParamsExtUserRole),
+  }),
+  outputSchema: Models.BcMemberUpdateResponse,
+});
+
+export const tiktok_bCAssets_bcOaCreate = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcOaCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/oa/create/",
+  summary: "Create an Organization Account in a Business Center",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"display_name","wireName":"display_name","location":"body","required":true,"nullable":false},
+    {"name":"handle","wireName":"handle","location":"body","required":false,"nullable":false},
+    {"name":"profile_image","wireName":"profile_image","location":"body","required":false,"nullable":false},
+    {"name":"operating_region_code","wireName":"operating_region_code","location":"body","required":true,"nullable":false},
+    {"name":"qualification_info","wireName":"qualification_info","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    display_name: Schema.String,
+    handle: Schema.optional(Schema.String),
+    profile_image: Schema.optional(Schema.Unknown),
+    operating_region_code: Schema.String,
+    qualification_info: Schema.optional(Models.BcOaCreateParamsQualificationInfo),
+  }),
+  outputSchema: Models.BcOaCreateResponse,
+});
+
+export const tiktok_bCPartners_bcPartnerAdd = defineEndpointDescriptor({
+  id: "tiktok.bCPartners.bcPartnerAdd",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/partner/add/",
+  summary: "Add a partner to a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPartners.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":false,"nullable":false},
+    {"name":"asset_ids","wireName":"asset_ids","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_role","wireName":"advertiser_role","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    partner_id: Schema.String,
+    asset_type: Schema.optional(Schema.String),
+    asset_ids: Schema.optional(Schema.Array(Schema.String)),
+    advertiser_role: Schema.optional(Schema.Union(Schema.Literal("ADMIN"), Schema.Literal("OPERATOR"), Schema.Literal("ANALYST"))),
+  }),
+  outputSchema: Models.BcPartnerAddResponse,
+});
+
+export const tiktok_bCPartners_bcPartnerAssetDelete = defineEndpointDescriptor({
+  id: "tiktok.bCPartners.bcPartnerAssetDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/partner/asset/delete/",
+  summary: "Cancel the sharing of assets",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPartners.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":true,"nullable":false},
+    {"name":"asset_ids","wireName":"asset_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    partner_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("TT_ACCOUNT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("TIKTOK_SHOP"), Schema.Literal("CATALOG"), Schema.Literal("LEAD"), Schema.Literal("PIXEL"), Schema.Literal("STOREFRANT")),
+    asset_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BcPartnerAssetDeleteResponse,
+});
+
+export const tiktok_bCPartners_bcPartnerAssetGet = defineEndpointDescriptor({
+  id: "tiktok.bCPartners.bcPartnerAssetGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/partner/asset/get/",
+  summary: "Get the assets of a partner",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPartners.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"partner_id","wireName":"partner_id","location":"query","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
+    {"name":"share_type","wireName":"share_type","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    partner_id: Schema.String,
+    asset_type: Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("CATALOG")),
+    share_type: Schema.Union(Schema.Literal("SHARED"), Schema.Literal("SHARING")),
+    filtering: Schema.optional(Models.BcPartnerAssetGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcPartnerAssetGetResponse,
+});
+
+export const tiktok_bCPartners_bcPartnerDelete = defineEndpointDescriptor({
+  id: "tiktok.bCPartners.bcPartnerDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/partner/delete/",
+  summary: "Delete a partner from a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPartners.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    partner_id: Schema.String,
+  }),
+  outputSchema: Models.BcPartnerDeleteResponse,
+});
+
+export const tiktok_bCPartners_bcPartnerGet = defineEndpointDescriptor({
+  id: "tiktok.bCPartners.bcPartnerGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/partner/get/",
+  summary: "Get the partners of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPartners.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    filtering: Schema.optional(Models.BcPartnerGetParamsFiltering),
+  }),
+  outputSchema: Models.BcPartnerGetResponse,
+});
+
+export const tiktok_bCAssets_bcPixelLinkGet = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcPixelLinkGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/pixel/link/get/",
+  summary: "Get ad accounts linked to a pixel",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    pixel_code: Schema.String,
+  }),
+  outputSchema: Models.BcPixelLinkGetResponse,
+});
+
+export const tiktok_bCAssets_bcPixelLinkUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcPixelLinkUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/pixel/link/update/",
+  summary: "Link a pixel to ad accounts / Unlink",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"relation_status","wireName":"relation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    pixel_code: Schema.String,
+    advertiser_ids: Schema.Array(Schema.String),
+    relation_status: Schema.Union(Schema.Literal("LINK"), Schema.Literal("UNLINK")),
+  }),
+  outputSchema: Models.BcPixelLinkUpdateResponse,
+});
+
+export const tiktok_bCAssets_bcPixelTransfer = defineEndpointDescriptor({
+  id: "tiktok.bCAssets.bcPixelTransfer",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/pixel/transfer/",
+  summary: "Transfer a pixel from advertiser to BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCAssets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    pixel_code: Schema.String,
+  }),
+  outputSchema: Models.BcPixelTransferResponse,
+});
+
+export const tiktok_bCPayments_bcTransactionGet = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcTransactionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/bc/transaction/get/",
+  summary: "Get the transaction records of a BC",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"start_date","wireName":"start_date","location":"query","required":false,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.BcTransactionGetParamsFiltering),
+    start_date: Schema.optional(Schema.String),
+    end_date: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BcTransactionGetResponse,
+});
+
+export const tiktok_bCPayments_bcTransfer = defineEndpointDescriptor({
+  id: "tiktok.bCPayments.bcTransfer",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/bc/transfer/",
+  summary: "Process a payment",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPayments.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"transfer_level","wireName":"transfer_level","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"body","required":false,"nullable":false},
+    {"name":"transfer_type","wireName":"transfer_type","location":"body","required":true,"nullable":false},
+    {"name":"amount_info","wireName":"amount_info","location":"body","required":false,"nullable":false},
+    {"name":"cash_amount","wireName":"cash_amount","location":"body","required":false,"nullable":false},
+    {"name":"grant_amount","wireName":"grant_amount","location":"body","required":false,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    transfer_level: Schema.optional(Schema.Union(Schema.Literal("ADVERTISER"), Schema.Literal("BC"))),
+    advertiser_id: Schema.optional(Schema.String),
+    payment_portfolio_id: Schema.optional(Schema.String),
+    transfer_type: Schema.Union(Schema.Literal("RECHARGE"), Schema.Literal("REFUND")),
+    amount_info: Schema.optional(Models.BcTransferParamsAmountInfo),
+    cash_amount: Schema.optional(Schema.Number),
+    grant_amount: Schema.optional(Schema.Number),
+    request_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BcTransferResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordCheck = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/blockedword/check/",
+  summary: "Check the statuses of words",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"blocked_words","wireName":"blocked_words","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    blocked_words: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BlockedwordCheckResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordCreate = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/blockedword/create/",
+  summary: "Create blocked words",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"blocked_words","wireName":"blocked_words","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    blocked_words: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BlockedwordCreateResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordDelete = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/blockedword/delete/",
+  summary: "Delete blocked words",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"blocked_words","wireName":"blocked_words","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    blocked_words: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BlockedwordDeleteResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordList = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/blockedword/list/",
+  summary: "Get blocked words",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"page_info","wireName":"page_info","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    page_info: Schema.optional(Models.BlockedwordListParamsPageInfo),
+  }),
+  outputSchema: Models.BlockedwordListResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/blockedword/task/check/",
+  summary: "Check the status of an export task (blocked words)",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.BlockedwordTaskCheckResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/blockedword/task/create/",
+  summary: "Create an export task (blocked words)",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"blocked_words","wireName":"blocked_words","location":"body","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    blocked_words: Schema.optional(Schema.Array(Schema.String)),
+    lang: Schema.optional(Schema.Union(Schema.Literal("EN"), Schema.Literal("JA"), Schema.Literal("ZH"))),
+  }),
+  outputSchema: Models.BlockedwordTaskCreateResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordTaskDownload = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordTaskDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/blockedword/task/download/",
+  summary: "Download exported data",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.BlockedwordTaskDownloadResponse,
+});
+
+export const tiktok_adCommentsBlockedWords_blockedwordUpdate = defineEndpointDescriptor({
+  id: "tiktok.adCommentsBlockedWords.blockedwordUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/blockedword/update/",
+  summary: "Update a blocked word",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adCommentsBlockedWords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"old_word","wireName":"old_word","location":"body","required":true,"nullable":false},
+    {"name":"new_word","wireName":"new_word","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    old_word: Schema.String,
+    new_word: Schema.String,
+  }),
+  outputSchema: Models.BlockedwordUpdateResponse,
+});
+
+export const tiktok_accounts_businessBenchmark = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessBenchmark",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/benchmark/",
+  summary: "Get benchmarks for a business category",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"business_category","wireName":"business_category","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    business_category: Schema.String,
+  }),
+  outputSchema: Models.BusinessBenchmarkResponse,
+});
+
+export const tiktok_accounts_businessCommentCreate = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/create/",
+  summary: "Create a new comment on an owned video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"text","wireName":"text","location":"body","required":false,"nullable":false},
+    {"name":"image_uri","wireName":"image_uri","location":"body","required":false,"nullable":false},
+    {"name":"image_width","wireName":"image_width","location":"body","required":false,"nullable":false},
+    {"name":"image_height","wireName":"image_height","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_id: Schema.String,
+    text: Schema.optional(Schema.String),
+    image_uri: Schema.optional(Schema.String),
+    image_width: Schema.optional(Schema.Number),
+    image_height: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessCommentCreateResponse,
+});
+
+export const tiktok_accounts_businessCommentDelete = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/delete/",
+  summary: "Delete an existing comment on an owned video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    comment_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessCommentDeleteResponse,
+});
+
+export const tiktok_accounts_businessCommentHide = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentHide",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/hide/",
+  summary: "Hide/unhide an existing comment on an owned video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    comment_id: Schema.String,
+    video_id: Schema.String,
+    action: Schema.Union(Schema.Literal("HIDE"), Schema.Literal("UNHIDE")),
+  }),
+  outputSchema: Models.BusinessCommentHideResponse,
+});
+
+export const tiktok_accounts_businessCommentImageUpload = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentImageUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/image/upload/",
+  summary: "Upload a comment image",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"image_file","wireName":"image_file","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    image_file: Schema.Unknown,
+  }),
+  outputSchema: Models.BusinessCommentImageUploadResponse,
+});
+
+export const tiktok_accounts_businessCommentLike = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentLike",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/like/",
+  summary: "Like/unlike an existing comment on an owned video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    comment_id: Schema.String,
+    action: Schema.Union(Schema.Literal("LIKE"), Schema.Literal("UNLIKE")),
+  }),
+  outputSchema: Models.BusinessCommentLikeResponse,
+});
+
+export const tiktok_accounts_businessCommentList = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/comment/list/",
+  summary: "Get comments on an owned video",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_ids","wireName":"comment_ids","location":"query","required":false,"nullable":false},
+    {"name":"include_replies","wireName":"include_replies","location":"query","required":false,"nullable":false},
+    {"name":"status","wireName":"status","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_order","wireName":"sort_order","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_id: Schema.String,
+    comment_ids: Schema.optional(Schema.Array(Schema.String)),
+    include_replies: Schema.optional(Schema.Boolean),
+    status: Schema.optional(Schema.String),
+    sort_field: Schema.optional(Schema.String),
+    sort_order: Schema.optional(Schema.String),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessCommentListResponse,
+});
+
+export const tiktok_accounts_businessCommentReplyCreate = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentReplyCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/reply/create/",
+  summary: "Reply to an existing comment on an owned video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"reply_image_url","wireName":"reply_image_url","location":"body","required":false,"nullable":false},
+    {"name":"text","wireName":"text","location":"body","required":false,"nullable":false},
+    {"name":"image_uri","wireName":"image_uri","location":"body","required":false,"nullable":false},
+    {"name":"image_width","wireName":"image_width","location":"body","required":false,"nullable":false},
+    {"name":"image_height","wireName":"image_height","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_id: Schema.String,
+    comment_id: Schema.String,
+    reply_image_url: Schema.optional(Schema.String),
+    text: Schema.optional(Schema.String),
+    image_uri: Schema.optional(Schema.String),
+    image_width: Schema.optional(Schema.Number),
+    image_height: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessCommentReplyCreateResponse,
+});
+
+export const tiktok_mentions_businessCommentReplyCreate2 = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessCommentReplyCreate2",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/comment/reply/create/",
+  summary: "Reply to a mention in comments",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mentions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"text","wireName":"text","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_id: Schema.String,
+    comment_id: Schema.String,
+    text: Schema.String,
+  }),
+  outputSchema: Models.BusinessCommentReplyCreateResponse,
+});
+
+export const tiktok_accounts_businessCommentReplyList = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessCommentReplyList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/comment/reply/list/",
+  summary: "Get all replies to a comment",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"query","required":true,"nullable":false},
+    {"name":"status","wireName":"status","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_order","wireName":"sort_order","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_id: Schema.String,
+    comment_id: Schema.String,
+    status: Schema.optional(Schema.Union(Schema.Literal("PUBLIC"), Schema.Literal("ALL"))),
+    sort_field: Schema.optional(Schema.String),
+    sort_order: Schema.optional(Schema.String),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessCommentReplyListResponse,
+});
+
+export const tiktok_accounts_businessGet = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/get/",
+  summary: "Get profile data of a TikTok account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"start_date","wireName":"start_date","location":"query","required":false,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"query","required":false,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    start_date: Schema.optional(Schema.String),
+    end_date: Schema.optional(Schema.String),
+    fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessGetResponse,
+});
+
+export const tiktok_accounts_businessHashtagSuggestion = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessHashtagSuggestion",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/hashtag/suggestion/",
+  summary: "Get recommended hashtags for TikTok accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"query","required":true,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    keyword: Schema.String,
+    language: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BusinessHashtagSuggestionResponse,
+});
+
+export const tiktok_mentions_businessMentionCommentGet = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionCommentGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/comment/get/",
+  summary: "Get the details of a comment mention from webhooks",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"query","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    comment_id: Schema.String,
+    item_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessMentionCommentGetResponse,
+});
+
+export const tiktok_mentions_businessMentionCommentList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionCommentList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/comment/list/",
+  summary: "Get top 1000 comment mentions on posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"number_of_days","wireName":"number_of_days","location":"query","required":false,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("VIDEO_LIKES"), Schema.Literal("COMMENT_CREATE_TIME"), Schema.Literal("COMMENT_LIKES"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    number_of_days: Schema.optional(Schema.Number),
+    regions: Schema.optional(Schema.Array(Schema.String)),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessMentionCommentListResponse,
+});
+
+export const tiktok_mentions_businessMentionHashtagAdd = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionHashtagAdd",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/mention/hashtag/add/",
+  summary: "Enable brand hashtags for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mentions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"username","wireName":"username","location":"body","required":true,"nullable":false},
+    {"name":"hashtags","wireName":"hashtags","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    username: Schema.String,
+    hashtags: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BusinessMentionHashtagAddResponse,
+});
+
+export const tiktok_mentions_businessMentionHashtagManageList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionHashtagManageList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/hashtag/manage/list/",
+  summary: "Get enabled hashtags for a Business Account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"username","wireName":"username","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    username: Schema.String,
+  }),
+  outputSchema: Models.BusinessMentionHashtagManageListResponse,
+});
+
+export const tiktok_mentions_businessMentionHashtagRemove = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionHashtagRemove",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/mention/hashtag/remove/",
+  summary: "Delete an enabled brand hashtag for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mentions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"username","wireName":"username","location":"body","required":true,"nullable":false},
+    {"name":"hashtag","wireName":"hashtag","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    username: Schema.String,
+    hashtag: Schema.String,
+  }),
+  outputSchema: Models.BusinessMentionHashtagRemoveResponse,
+});
+
+export const tiktok_mentions_businessMentionHashtagVerifyList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionHashtagVerifyList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/hashtag/verify/list/",
+  summary: "Get valid brand mention hashtags for a Business Account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"username","wireName":"username","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    username: Schema.String,
+  }),
+  outputSchema: Models.BusinessMentionHashtagVerifyListResponse,
+});
+
+export const tiktok_mentions_businessMentionHashtagVideoList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionHashtagVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/hashtag/video/list/",
+  summary: "Get mention content for top 1000 brand hashtag posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"hashtag","wireName":"hashtag","location":"query","required":false,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_order","wireName":"sort_order","location":"query","required":false,"nullable":false},
+    {"name":"number_of_days","wireName":"number_of_days","location":"query","required":false,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    hashtag: Schema.optional(Schema.String),
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("LIKES"), Schema.Literal("COMMENTS"), Schema.Literal("SHARES"))),
+    sort_order: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    number_of_days: Schema.optional(Schema.Number),
+    regions: Schema.optional(Schema.Array(Schema.String)),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessMentionHashtagVideoListResponse,
+});
+
+export const tiktok_mentions_businessMentionTopHashtagList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionTopHashtagList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/top_hashtag/list/",
+  summary: "Get frequent hashtags used in top 1000 mentioned posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    regions: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessMentionTopHashtagListResponse,
+});
+
+export const tiktok_mentions_businessMentionTopWordList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionTopWordList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/top_word/list/",
+  summary: "Get frequent keywords used in top 1000 mentioned posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    regions: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessMentionTopWordListResponse,
+});
+
+export const tiktok_mentions_businessMentionVideoGet = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionVideoGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/video/get/",
+  summary: "Get the details of a mentioned post from mentions webhook",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    item_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessMentionVideoGetResponse,
+});
+
+export const tiktok_mentions_businessMentionVideoList = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessMentionVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/mention/video/list/",
+  summary: "Get top 1000 mentioned posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"number_of_days","wireName":"number_of_days","location":"query","required":false,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("LIKES"), Schema.Literal("COMMENTS"), Schema.Literal("SHARES"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    number_of_days: Schema.optional(Schema.Number),
+    regions: Schema.optional(Schema.Array(Schema.String)),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessMentionVideoListResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageCreate = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/create/",
+  summary: "Create an automatic message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"welcome_message","wireName":"welcome_message","location":"body","required":false,"nullable":false},
+    {"name":"suggested_question","wireName":"suggested_question","location":"body","required":false,"nullable":false},
+    {"name":"chat_prompt","wireName":"chat_prompt","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_type: Schema.Union(Schema.Literal("WELCOME_MESSAGE"), Schema.Literal("SUGGESTED_QUESTION"), Schema.Literal("CHAT_PROMPT")),
+    welcome_message: Schema.optional(Models.BusinessMessageAutoMessageCreateParamsWelcomeMessage),
+    suggested_question: Schema.optional(Models.BusinessMessageAutoMessageCreateParamsSuggestedQuestion),
+    chat_prompt: Schema.optional(Models.BusinessMessageAutoMessageCreateParamsChatPrompt),
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageCreateResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageDelete = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/delete/",
+  summary: "Delete the automatic message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_id","wireName":"auto_message_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_type: Schema.Union(Schema.Literal("SUGGESTED_QUESTION"), Schema.Literal("CHAT_PROMPT")),
+    auto_message_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageDeleteResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageGet = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageGet",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/get/",
+  summary: "Get the automatic messages for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_id","wireName":"auto_message_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_type: Schema.Union(Schema.Literal("WELCOME_MESSAGE"), Schema.Literal("SUGGESTED_QUESTION"), Schema.Literal("CHAT_PROMPT")),
+    auto_message_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageGetResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageSort = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageSort",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/sort/",
+  summary: "Sort the automatic message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_ids","wireName":"auto_message_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_type: Schema.String,
+    auto_message_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageSortResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/status/update/",
+  summary: "Turn on or turn off an automatic message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_type: Schema.Union(Schema.Literal("WELCOME_MESSAGE"), Schema.Literal("SUGGESTED_QUESTION"), Schema.Literal("CHAT_PROMPT")),
+    operation_status: Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE")),
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageStatusUpdateResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageAutoMessageUpdate = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageAutoMessageUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/auto_message/update/",
+  summary: "Update the automatic message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_id","wireName":"auto_message_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"welcome_message","wireName":"welcome_message","location":"body","required":false,"nullable":false},
+    {"name":"suggested_question","wireName":"suggested_question","location":"body","required":false,"nullable":false},
+    {"name":"chat_prompt","wireName":"chat_prompt","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    auto_message_id: Schema.String,
+    auto_message_type: Schema.Union(Schema.Literal("WELCOME_MESSAGE"), Schema.Literal("SUGGESTED_QUESTION"), Schema.Literal("CHAT_PROMPT"), Schema.Literal("REVIEWING")),
+    welcome_message: Schema.optional(Models.BusinessMessageAutoMessageUpdateParamsWelcomeMessage),
+    suggested_question: Schema.optional(Models.BusinessMessageAutoMessageUpdateParamsSuggestedQuestion),
+    chat_prompt: Schema.optional(Models.BusinessMessageAutoMessageUpdateParamsChatPrompt),
+  }),
+  outputSchema: Models.BusinessMessageAutoMessageUpdateResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageCapabilitiesGet = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageCapabilitiesGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/message/capabilities/get/",
+  summary: "Check the capability of a Business Account for a conversation",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"capability_types","wireName":"capability_types","location":"query","required":true,"nullable":false},
+    {"name":"conversation_id","wireName":"conversation_id","location":"query","required":false,"nullable":false},
+    {"name":"conversation_type","wireName":"conversation_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    capability_types: Schema.Array(Schema.String),
+    conversation_id: Schema.optional(Schema.String),
+    conversation_type: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.BusinessMessageCapabilitiesGetResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageContentList = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageContentList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/message/content/list/",
+  summary: "Get a list of messages",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"conversation_id","wireName":"conversation_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    conversation_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessMessageContentListResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageConversationList = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageConversationList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/message/conversation/list/",
+  summary: "Get a list of conversations",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"conversation_type","wireName":"conversation_type","location":"query","required":true,"nullable":false},
+    {"name":"limit","wireName":"limit","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    conversation_type: Schema.String,
+    limit: Schema.optional(Schema.Number),
+    cursor: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessMessageConversationListResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageDirectReplyGet = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageDirectReplyGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/message/direct_reply/get/",
+  summary: "Get the Comment-to-Message setting of a Business Account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"direct_reply_type","wireName":"direct_reply_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    direct_reply_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessMessageDirectReplyGetResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageDirectReplyUpdate = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageDirectReplyUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/direct_reply/update/",
+  summary: "Enable or disable Comment-to-Message for a Business Account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"direct_reply_type","wireName":"direct_reply_type","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    direct_reply_type: Schema.String,
+    operation_status: Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE")),
+  }),
+  outputSchema: Models.BusinessMessageDirectReplyUpdateResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageMediaDownload = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageMediaDownload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/media/download/",
+  summary: "Download an image or a video from a message",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"conversation_id","wireName":"conversation_id","location":"body","required":true,"nullable":false},
+    {"name":"message_id","wireName":"message_id","location":"body","required":true,"nullable":false},
+    {"name":"media_id","wireName":"media_id","location":"body","required":true,"nullable":false},
+    {"name":"media_type","wireName":"media_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    conversation_id: Schema.String,
+    message_id: Schema.String,
+    media_id: Schema.String,
+    media_type: Schema.Union(Schema.Literal("IMAGE"), Schema.Literal("VIDEO")),
+  }),
+  outputSchema: Models.BusinessMessageMediaDownloadResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageMediaUpload = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageMediaUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/media/upload/",
+  summary: "Upload an image",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":true,"nullable":false},
+    {"name":"media_type","wireName":"media_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    file: Schema.Unknown,
+    media_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessMessageMediaUploadResponse,
+});
+
+export const tiktok_businessMessaging_businessMessageSend = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessMessageSend",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/message/send/",
+  summary: "Send a message to a conversation",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"recipient_type","wireName":"recipient_type","location":"body","required":false,"nullable":false},
+    {"name":"recipient","wireName":"recipient","location":"body","required":false,"nullable":false},
+    {"name":"message_type","wireName":"message_type","location":"body","required":true,"nullable":false},
+    {"name":"text","wireName":"text","location":"body","required":false,"nullable":false},
+    {"name":"image","wireName":"image","location":"body","required":false,"nullable":false},
+    {"name":"share_post","wireName":"share_post","location":"body","required":false,"nullable":false},
+    {"name":"template","wireName":"template","location":"body","required":false,"nullable":false},
+    {"name":"sender_action","wireName":"sender_action","location":"body","required":false,"nullable":false},
+    {"name":"referenced_message_info","wireName":"referenced_message_info","location":"body","required":false,"nullable":false},
+    {"name":"direct_reply","wireName":"direct_reply","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    recipient_type: Schema.optional(Schema.String),
+    recipient: Schema.optional(Schema.String),
+    message_type: Schema.Union(Schema.Literal("TEXT"), Schema.Literal("IMAGE"), Schema.Literal("SHARE_POST"), Schema.Literal("TEMPLATE"), Schema.Literal("SENDER_ACTION")),
+    text: Schema.optional(Models.BusinessMessageSendParamsText),
+    image: Schema.optional(Models.BusinessMessageSendParamsImage),
+    share_post: Schema.optional(Models.BusinessMessageSendParamsSharePost),
+    template: Schema.optional(Models.BusinessMessageSendParamsTemplate),
+    sender_action: Schema.optional(Schema.String),
+    referenced_message_info: Schema.optional(Models.BusinessMessageSendParamsReferencedMessageInfo),
+    direct_reply: Schema.optional(Models.BusinessMessageSendParamsDirectReply),
+  }),
+  outputSchema: Models.BusinessMessageSendResponse,
+});
+
+export const tiktok_accounts_businessPhotoPublish = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPhotoPublish",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/photo/publish/",
+  summary: "Publish a photo post to an owned account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"photo_images","wireName":"photo_images","location":"body","required":true,"nullable":false},
+    {"name":"photo_cover_index","wireName":"photo_cover_index","location":"body","required":false,"nullable":false},
+    {"name":"post_info","wireName":"post_info","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    photo_images: Schema.Array(Schema.String),
+    photo_cover_index: Schema.optional(Schema.Number),
+    post_info: Models.BusinessPhotoPublishParamsPostInfo,
+  }),
+  outputSchema: Models.BusinessPhotoPublishResponse,
+});
+
+export const tiktok_accounts_businessPostAuthorize = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPostAuthorize",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/post/authorize/",
+  summary: "Extend the authorization validity period of a TikTok post",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false},
+    {"name":"authorization_days","wireName":"authorization_days","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    item_id: Schema.String,
+    authorization_days: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessPostAuthorizeResponse,
+});
+
+export const tiktok_accounts_businessPostAuthorizeDelete = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPostAuthorizeDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/post/authorize/delete/",
+  summary: "Delete the authorization code of a TikTok post",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    item_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessPostAuthorizeDeleteResponse,
+});
+
+export const tiktok_accounts_businessPostAuthorizeSetting = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPostAuthorizeSetting",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/post/authorize/setting/",
+  summary: "Enable or disable the ad authorization setting for a TikTok post",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false},
+    {"name":"is_ad_promotable","wireName":"is_ad_promotable","location":"body","required":true,"nullable":false},
+    {"name":"authorization_days","wireName":"authorization_days","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    item_id: Schema.String,
+    is_ad_promotable: Schema.Boolean,
+    authorization_days: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessPostAuthorizeSettingResponse,
+});
+
+export const tiktok_accounts_businessPostAuthorizeStatus = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPostAuthorizeStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/post/authorize/status/",
+  summary: "Get the authorization status of a TikTok post",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    item_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessPostAuthorizeStatusResponse,
+});
+
+export const tiktok_accounts_businessPropertyAdd = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPropertyAdd",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/property/add/",
+  summary: "Add a URL property to an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"url_property_meta","wireName":"url_property_meta","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    url_property_meta: Models.BusinessPropertyAddParamsUrlPropertyMeta,
+  }),
+  outputSchema: Models.BusinessPropertyAddResponse,
+});
+
+export const tiktok_accounts_businessPropertyDelete = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPropertyDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/property/delete/",
+  summary: "Delete the verified ownership of a URL property",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"url_property_meta","wireName":"url_property_meta","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    url_property_meta: Models.BusinessPropertyDeleteParamsUrlPropertyMeta,
+  }),
+  outputSchema: Models.BusinessPropertyDeleteResponse,
+});
+
+export const tiktok_accounts_businessPropertyList = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPropertyList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/property/list/",
+  summary: "Get the list of added URL properties under an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+  }),
+  outputSchema: Models.BusinessPropertyListResponse,
+});
+
+export const tiktok_accounts_businessPropertyVerify = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPropertyVerify",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/property/verify/",
+  summary: "Check the URL property verification result",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"url_property_meta","wireName":"url_property_meta","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    url_property_meta: Models.BusinessPropertyVerifyParamsUrlPropertyMeta,
+  }),
+  outputSchema: Models.BusinessPropertyVerifyResponse,
+});
+
+export const tiktok_accounts_businessPublishLocation = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPublishLocation",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/publish/location/",
+  summary: "Get the location tags for a TikTok account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"search_query","wireName":"search_query","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    search_query: Schema.String,
+  }),
+  outputSchema: Models.BusinessPublishLocationResponse,
+});
+
+export const tiktok_accounts_businessPublishStatus = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessPublishStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/publish/status/",
+  summary: "Get the publishing status of a TikTok post",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"publish_id","wireName":"publish_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    publish_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessPublishStatusResponse,
+});
+
+export const tiktok_accounts_businessVideoList = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/video/list/",
+  summary: "Get post data of a TikTok account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"filters","wireName":"filters","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"max_count","wireName":"max_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    filters: Schema.optional(Models.BusinessVideoListParamsFilters),
+    cursor: Schema.optional(Schema.Number),
+    max_count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.BusinessVideoListResponse,
+});
+
+export const tiktok_accounts_businessVideoPublish = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessVideoPublish",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/video/publish/",
+  summary: "Publish a public video post to an owned account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
+    {"name":"video_url","wireName":"video_url","location":"body","required":true,"nullable":false},
+    {"name":"custom_thumbnail_url","wireName":"custom_thumbnail_url","location":"body","required":false,"nullable":false},
+    {"name":"post_info","wireName":"post_info","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_url: Schema.String,
+    custom_thumbnail_url: Schema.optional(Schema.String),
+    post_info: Models.BusinessVideoPublishParamsPostInfo,
+  }),
+  outputSchema: Models.BusinessVideoPublishResponse,
+});
+
+export const tiktok_sparkAdsRecommendation_businessVideoRecommend = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsRecommendation.businessVideoRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/video/recommend/",
+  summary: "Get Spark Ads video recommendations for a Business Account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsRecommendation.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
+    {"name":"exclude_video_ids","wireName":"exclude_video_ids","location":"query","required":false,"nullable":false},
+    {"name":"time","wireName":"time","location":"query","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    video_ids: Schema.optional(Schema.Array(Schema.String)),
+    exclude_video_ids: Schema.optional(Schema.Array(Schema.String)),
+    time: Schema.optional(Schema.Union(Schema.Literal("PAST_ONE_MONTH"), Schema.Literal("PAST_THREE_MONTHS"), Schema.Literal("PAST_SIX_MONTHS"))),
+    objective_type: Schema.optional(Schema.Union(Schema.Literal("REACH"), Schema.Literal("TRAFFIC"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("ENGAGEMENT"), Schema.Literal("APP_PROMOTION"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("PRODUCT_SALES"))),
+  }),
+  outputSchema: Models.BusinessVideoRecommendResponse,
+});
+
+export const tiktok_accounts_businessVideoSettings = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessVideoSettings",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/video/settings/",
+  summary: "Get the post privacy settings of a TikTok account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+  }),
+  outputSchema: Models.BusinessVideoSettingsResponse,
+});
+
+export const tiktok_accounts_businessWebhookDelete = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessWebhookDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/delete/",
+  summary: "Delete a TikTok account Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false},
+    {"name":"item_list","wireName":"item_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("COMMENT")),
+    item_list: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessWebhookDeleteResponse,
+});
+
+export const tiktok_businessMessaging_businessWebhookDelete2 = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessWebhookDelete2",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/delete/",
+  summary: " Delete a Business Messaging Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookDeleteResponse,
+});
+
+export const tiktok_mentions_businessWebhookDelete3 = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessWebhookDelete3",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/delete/",
+  summary: "Delete a Mentions Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mentions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookDeleteResponse,
+});
+
+export const tiktok_accounts_businessWebhookList = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessWebhookList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/webhook/list/",
+  summary: "Get TikTok account Webhook configurations",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["accounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("COMMENT")),
+  }),
+  outputSchema: Models.BusinessWebhookListResponse,
+});
+
+export const tiktok_businessMessaging_businessWebhookList2 = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessWebhookList2",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/webhook/list/",
+  summary: "Get a Business Messaging Webhook configuration",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookListResponse,
+});
+
+export const tiktok_mentions_businessWebhookList3 = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessWebhookList3",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/business/webhook/list/",
+  summary: "Get a Mentions Webhook configuration",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mentions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookListResponse,
+});
+
+export const tiktok_accounts_businessWebhookUpdate = defineEndpointDescriptor({
+  id: "tiktok.accounts.businessWebhookUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/update/",
+  summary: "Create or update a TikTok account Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false},
+    {"name":"callback_url","wireName":"callback_url","location":"body","required":true,"nullable":false},
+    {"name":"item_list","wireName":"item_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("COMMENT")),
+    callback_url: Schema.String,
+    item_list: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.BusinessWebhookUpdateResponse,
+});
+
+export const tiktok_businessMessaging_businessWebhookUpdate2 = defineEndpointDescriptor({
+  id: "tiktok.businessMessaging.businessWebhookUpdate2",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/update/",
+  summary: "Create a Business Messaging Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["businessMessaging.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false},
+    {"name":"callback_url","wireName":"callback_url","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+    callback_url: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookUpdateResponse,
+});
+
+export const tiktok_mentions_businessWebhookUpdate3 = defineEndpointDescriptor({
+  id: "tiktok.mentions.businessWebhookUpdate3",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/business/webhook/update/",
+  summary: "Create a Mentions Webhook configuration",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mentions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"body","required":true,"nullable":false},
+    {"name":"callback_url","wireName":"callback_url","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    event_type: Schema.String,
+    callback_url: Schema.String,
+  }),
+  outputSchema: Models.BusinessWebhookUpdateResponse,
+});
+
+export const tiktok_campaign_campaignCopyTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignCopyTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/copy/task/check/",
+  summary: "Get the results of an asynchronous copy task for a Manual Campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["campaign.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.CampaignCopyTaskCheckResponse,
+});
+
+export const tiktok_campaign_campaignCopyTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignCopyTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/copy/task/create/",
+  summary: "Create an asynchronous copy task for a Manual Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["campaign.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"virtual_objective_type","wireName":"virtual_objective_type","location":"body","required":false,"nullable":false},
+    {"name":"sales_destination","wireName":"sales_destination","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false},
+    {"name":"is_advanced_dedicated_campaign","wireName":"is_advanced_dedicated_campaign","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"rta_id","wireName":"rta_id","location":"body","required":false,"nullable":false},
+    {"name":"po_number","wireName":"po_number","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"deep_copy_mode","wireName":"deep_copy_mode","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_list","wireName":"adgroup_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    request_id: Schema.String,
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    virtual_objective_type: Schema.optional(Schema.String),
+    sales_destination: Schema.optional(Schema.Union(Schema.Literal("TIKTOK_SHOP"), Schema.Literal("WEBSITE"), Schema.Literal("APP"))),
+    campaign_name: Schema.optional(Schema.String),
+    is_advanced_dedicated_campaign: Schema.optional(Schema.Boolean),
+    budget: Schema.optional(Schema.Number),
+    rta_id: Schema.optional(Schema.String),
+    po_number: Schema.optional(Schema.String),
+    schedule_type: Schema.optional(Schema.Union(Schema.Literal("SCHEDULE_START_END"), Schema.Literal("SCHEDULE_FROM_NOW"))),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    deep_copy_mode: Schema.optional(Schema.Union(Schema.Literal("DEFAULT"), Schema.Literal("CUSTOM"))),
+    adgroup_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignCopyTaskCreateParamsAdgroupList))),
+  }),
+  outputSchema: Models.CampaignCopyTaskCreateResponse,
+});
+
+export const tiktok_campaign_campaignCreate = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/create/",
+  summary: "Create a campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["campaign.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"virtual_objective_type","wireName":"virtual_objective_type","location":"body","required":false,"nullable":false},
+    {"name":"sales_destination","wireName":"sales_destination","location":"body","required":false,"nullable":false},
+    {"name":"is_search_campaign","wireName":"is_search_campaign","location":"body","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"is_advanced_dedicated_campaign","wireName":"is_advanced_dedicated_campaign","location":"body","required":false,"nullable":false},
+    {"name":"disable_skan_campaign","wireName":"disable_skan_campaign","location":"body","required":false,"nullable":false},
+    {"name":"campaign_app_profile_page_state","wireName":"campaign_app_profile_page_state","location":"body","required":false,"nullable":false},
+    {"name":"rf_campaign_type","wireName":"rf_campaign_type","location":"body","required":false,"nullable":false},
+    {"name":"campaign_product_source","wireName":"campaign_product_source","location":"body","required":false,"nullable":false},
+    {"name":"catalog_enabled","wireName":"catalog_enabled","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":false,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"body","required":false,"nullable":false},
+    {"name":"budget_optimize_on","wireName":"budget_optimize_on","location":"body","required":false,"nullable":false},
+    {"name":"budget_mode","wireName":"budget_mode","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"rta_id","wireName":"rta_id","location":"body","required":false,"nullable":false},
+    {"name":"rta_bid_enabled","wireName":"rta_bid_enabled","location":"body","required":false,"nullable":false},
+    {"name":"rta_product_selection_enabled","wireName":"rta_product_selection_enabled","location":"body","required":false,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"postback_window_mode","wireName":"postback_window_mode","location":"body","required":false,"nullable":false},
+    {"name":"po_number","wireName":"po_number","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    app_promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_INSTALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("APP_PREREGISTRATION"))),
+    virtual_objective_type: Schema.optional(Schema.String),
+    sales_destination: Schema.optional(Schema.Union(Schema.Literal("TIKTOK_SHOP"), Schema.Literal("WEBSITE"), Schema.Literal("APP"), Schema.Literal("WEB_AND_APP"))),
+    is_search_campaign: Schema.optional(Schema.Boolean),
+    campaign_type: Schema.optional(Schema.String),
+    app_id: Schema.optional(Schema.String),
+    is_advanced_dedicated_campaign: Schema.optional(Schema.Boolean),
+    disable_skan_campaign: Schema.optional(Schema.Boolean),
+    campaign_app_profile_page_state: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    rf_campaign_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("PULSE"), Schema.Literal("PREMIUM"), Schema.Literal("TOP_FEED"))),
+    campaign_product_source: Schema.optional(Schema.Union(Schema.Literal("CATALOG"), Schema.Literal("STORE"), Schema.Literal("PRODUCT_SALES"), Schema.Literal("SHOWCASE"))),
+    catalog_enabled: Schema.optional(Schema.Boolean),
+    campaign_name: Schema.String,
+    request_id: Schema.optional(Schema.String),
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    budget_optimize_on: Schema.optional(Schema.Boolean),
+    budget_mode: Schema.optional(Schema.Union(Schema.Literal("BUDGET_MODE_TOTAL"), Schema.Literal("BUDGET_MODE_DYNAMIC_DAILY_BUDGET"))),
+    budget: Schema.optional(Schema.Number),
+    rta_id: Schema.optional(Schema.String),
+    rta_bid_enabled: Schema.optional(Schema.Boolean),
+    rta_product_selection_enabled: Schema.optional(Schema.Boolean),
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    postback_window_mode: Schema.optional(Schema.Union(Schema.Literal("POSTBACK_WINDOW_MODE1"), Schema.Literal("POSTBACK_WINDOW_MODE2"), Schema.Literal("POSTBACK_WINDOW_MODE3"), Schema.Literal("ENABLE"))),
+    po_number: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignCreateResponse,
+});
+
+export const tiktok_campaign_campaignGet = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/get/",
+  summary: "Get campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["campaign.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"exclude_field_types_in_response","wireName":"exclude_field_types_in_response","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    exclude_field_types_in_response: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.CampaignGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CampaignGetResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxCreate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/create/",
+  summary: "Create a GMV Max Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"shopping_ads_type","wireName":"shopping_ads_type","location":"body","required":true,"nullable":false},
+    {"name":"product_specific_type","wireName":"product_specific_type","location":"body","required":false,"nullable":false},
+    {"name":"item_group_ids","wireName":"item_group_ids","location":"body","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"deep_bid_type","wireName":"deep_bid_type","location":"body","required":true,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":true,"nullable":false},
+    {"name":"promotion_days","wireName":"promotion_days","location":"body","required":false,"nullable":false},
+    {"name":"auto_budget","wireName":"auto_budget","location":"body","required":false,"nullable":false},
+    {"name":"auto_budget_enabled","wireName":"auto_budget_enabled","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"product_video_specific_type","wireName":"product_video_specific_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_list","wireName":"identity_list","location":"body","required":false,"nullable":false},
+    {"name":"affiliate_posts_enabled","wireName":"affiliate_posts_enabled","location":"body","required":false,"nullable":false},
+    {"name":"item_list","wireName":"item_list","location":"body","required":false,"nullable":false},
+    {"name":"custom_anchor_video_list","wireName":"custom_anchor_video_list","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    request_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    advertiser_id: Schema.String,
+    shopping_ads_type: Schema.Union(Schema.Literal("PRODUCT"), Schema.Literal("LIVE")),
+    product_specific_type: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("CUSTOMIZED_PRODUCTS"))),
+    item_group_ids: Schema.optional(Schema.Array(Schema.String)),
+    optimization_goal: Schema.String,
+    deep_bid_type: Schema.String,
+    roas_bid: Schema.optional(Schema.Number),
+    budget: Schema.Number,
+    promotion_days: Schema.optional(Models.CampaignGmvMaxCreateParamsPromotionDays),
+    auto_budget: Schema.optional(Models.CampaignGmvMaxCreateParamsAutoBudget),
+    auto_budget_enabled: Schema.optional(Schema.Boolean),
+    schedule_type: Schema.Union(Schema.Literal("SCHEDULE_FROM_NOW"), Schema.Literal("SCHEDULE_START_END")),
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.optional(Schema.String),
+    product_video_specific_type: Schema.optional(Schema.Union(Schema.Literal("AUTO_SELECTION"), Schema.Literal("CUSTOM_SELECTION"))),
+    identity_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxCreateParamsIdentityList))),
+    affiliate_posts_enabled: Schema.optional(Schema.Boolean),
+    item_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxCreateParamsItemList))),
+    custom_anchor_video_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxCreateParamsCustomAnchorVideoList))),
+    campaign_name: Schema.String,
+  }),
+  outputSchema: Models.CampaignGmvMaxCreateResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxCreativeUpdate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxCreativeUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/creative/update/",
+  summary: "Remove or add back creatives in a GMV Max Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false},
+    {"name":"item_list","wireName":"item_list","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    action: Schema.Union(Schema.Literal("REMOVE"), Schema.Literal("ADD"), Schema.Literal("EXCLUDED")),
+    item_list: Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxCreativeUpdateParamsItemList)),
+  }),
+  outputSchema: Models.CampaignGmvMaxCreativeUpdateResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxInfo = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/gmv_max/info/",
+  summary: "Get the details of a GMV Max Campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+  }),
+  outputSchema: Models.CampaignGmvMaxInfoResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxSessionCreate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxSessionCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/session/create/",
+  summary: "Create a max delivery or creative boost session",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"session","wireName":"session","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    store_id: Schema.String,
+    session: Models.CampaignGmvMaxSessionCreateParamsSession,
+  }),
+  outputSchema: Models.CampaignGmvMaxSessionCreateResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxSessionDelete = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxSessionDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/session/delete/",
+  summary: "Delete a max delivery or creative boost session",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"session_id","wireName":"session_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    session_id: Schema.String,
+  }),
+  outputSchema: Models.CampaignGmvMaxSessionDeleteResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxSessionGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxSessionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/gmv_max/session/get/",
+  summary: "Get details of max delivery or creative boost sessions",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"session_ids","wireName":"session_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    session_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CampaignGmvMaxSessionGetResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxSessionList = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxSessionList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/gmv_max/session/list/",
+  summary: "Get max delivery or creative boost sessions within a campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+  }),
+  outputSchema: Models.CampaignGmvMaxSessionListResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxSessionUpdate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxSessionUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/session/update/",
+  summary: "Update a max delivery or creative boost session",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"session_id","wireName":"session_id","location":"body","required":true,"nullable":false},
+    {"name":"session","wireName":"session","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    store_id: Schema.String,
+    session_id: Schema.String,
+    session: Models.CampaignGmvMaxSessionUpdateParamsSession,
+  }),
+  outputSchema: Models.CampaignGmvMaxSessionUpdateResponse,
+});
+
+export const tiktok_gMVMax_campaignGmvMaxUpdate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.campaignGmvMaxUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/gmv_max/update/",
+  summary: "Update a GMV Max Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"promotion_days","wireName":"promotion_days","location":"body","required":false,"nullable":false},
+    {"name":"auto_budget","wireName":"auto_budget","location":"body","required":false,"nullable":false},
+    {"name":"auto_budget_enabled","wireName":"auto_budget_enabled","location":"body","required":false,"nullable":false},
+    {"name":"item_group_ids","wireName":"item_group_ids","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"affiliate_posts_enabled","wireName":"affiliate_posts_enabled","location":"body","required":false,"nullable":false},
+    {"name":"item_list","wireName":"item_list","location":"body","required":false,"nullable":false},
+    {"name":"custom_anchor_video_list","wireName":"custom_anchor_video_list","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    roas_bid: Schema.optional(Schema.Number),
+    budget: Schema.optional(Schema.Number),
+    promotion_days: Schema.optional(Models.CampaignGmvMaxUpdateParamsPromotionDays),
+    auto_budget: Schema.optional(Models.CampaignGmvMaxUpdateParamsAutoBudget),
+    auto_budget_enabled: Schema.optional(Schema.Boolean),
+    item_group_ids: Schema.optional(Schema.Array(Schema.String)),
+    schedule_type: Schema.optional(Schema.Union(Schema.Literal("SCHEDULE_FROM_NOW"), Schema.Literal("SCHEDULE_START_END"))),
+    schedule_end_time: Schema.optional(Schema.String),
+    affiliate_posts_enabled: Schema.optional(Schema.Boolean),
+    item_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxUpdateParamsItemList))),
+    custom_anchor_video_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignGmvMaxUpdateParamsCustomAnchorVideoList))),
+    campaign_name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignGmvMaxUpdateResponse,
+});
+
+export const tiktok_tools_campaignLabelGet = defineEndpointDescriptor({
+  id: "tiktok.tools.campaignLabelGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign_label/get/",
+  summary: "Get the campaign labels of an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_label_ids","wireName":"campaign_label_ids","location":"query","required":false,"nullable":false},
+    {"name":"campaign_label_names","wireName":"campaign_label_names","location":"query","required":false,"nullable":false},
+    {"name":"campaign_label_types","wireName":"campaign_label_types","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_label_ids: Schema.optional(Schema.Array(Schema.String)),
+    campaign_label_names: Schema.optional(Schema.Array(Schema.String)),
+    campaign_label_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("GENERAL"), Schema.Literal("MARKETING_EVENT")))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CampaignLabelGetResponse,
+});
+
+export const tiktok_campaign_campaignQuotaGet = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignQuotaGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/quota/get/",
+  summary: "(Deprecated) Get the quota for an iOS 14 Dedicated Campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["campaign.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+    campaign_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignQuotaGetResponse,
+});
+
+export const tiktok_campaign_campaignQuotaInfo = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignQuotaInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/quota/info/",
+  summary: "Get the quota for a SKAN Dedicated Campaign per ad network",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["campaign.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":false,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"query","required":false,"nullable":false},
+    {"name":"has_advertiser_quota","wireName":"has_advertiser_quota","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+    campaign_id: Schema.optional(Schema.String),
+    adgroup_id: Schema.optional(Schema.String),
+    has_advertiser_quota: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.CampaignQuotaInfoResponse,
+});
+
+export const tiktok_toBeDeprecatedLegacySmart_campaignSpcCreate = defineEndpointDescriptor({
+  id: "tiktok.toBeDeprecatedLegacySmart.campaignSpcCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/spc/create/",
+  summary: "(To be deprecated) Create a Legacy Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["toBeDeprecatedLegacySmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"spc_type","wireName":"spc_type","location":"body","required":false,"nullable":false},
+    {"name":"web_all_in_one_catalog_status","wireName":"web_all_in_one_catalog_status","location":"body","required":false,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"virtual_objective_type","wireName":"virtual_objective_type","location":"body","required":false,"nullable":false},
+    {"name":"sales_destination","wireName":"sales_destination","location":"body","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"body","required":false,"nullable":false},
+    {"name":"campaign_app_profile_page_state","wireName":"campaign_app_profile_page_state","location":"body","required":false,"nullable":false},
+    {"name":"is_advanced_dedicated_campaign","wireName":"is_advanced_dedicated_campaign","location":"body","required":false,"nullable":false},
+    {"name":"disable_skan_campaign","wireName":"disable_skan_campaign","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":true,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"body","required":false,"nullable":false},
+    {"name":"product_source","wireName":"product_source","location":"body","required":false,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"product_specific_type","wireName":"product_specific_type","location":"body","required":false,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"body","required":false,"nullable":false},
+    {"name":"product_ids","wireName":"product_ids","location":"body","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"promotion_website_type","wireName":"promotion_website_type","location":"body","required":false,"nullable":false},
+    {"name":"promotion_target_type","wireName":"promotion_target_type","location":"body","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":false,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"app_config","wireName":"app_config","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_status","wireName":"deep_funnel_optimization_status","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source","wireName":"deep_funnel_event_source","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source_id","wireName":"deep_funnel_event_source_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_event","wireName":"deep_funnel_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"bid_type","wireName":"bid_type","location":"body","required":false,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"deep_bid_type","wireName":"deep_bid_type","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"vbo_window","wireName":"vbo_window","location":"body","required":false,"nullable":false},
+    {"name":"click_attribution_window","wireName":"click_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"engaged_view_attribution_window","wireName":"engaged_view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"view_attribution_window","wireName":"view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"attribution_event_count","wireName":"attribution_event_count","location":"body","required":false,"nullable":false},
+    {"name":"billing_event","wireName":"billing_event","location":"body","required":true,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":true,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"spc_audience_age","wireName":"spc_audience_age","location":"body","required":false,"nullable":false},
+    {"name":"exclude_age_under_eighteen","wireName":"exclude_age_under_eighteen","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"placement_type","wireName":"placement_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"video_download_disabled","wireName":"video_download_disabled","location":"body","required":false,"nullable":false},
+    {"name":"blocked_pangle_app_ids","wireName":"blocked_pangle_app_ids","location":"body","required":false,"nullable":false},
+    {"name":"budget_mode","wireName":"budget_mode","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":true,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":false,"nullable":false},
+    {"name":"media_info_list","wireName":"media_info_list","location":"body","required":true,"nullable":false},
+    {"name":"dark_post_status","wireName":"dark_post_status","location":"body","required":false,"nullable":false},
+    {"name":"catalog_creative_toggle","wireName":"catalog_creative_toggle","location":"body","required":false,"nullable":false},
+    {"name":"title_list","wireName":"title_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_id","wireName":"call_to_action_id","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"product_info","wireName":"product_info","location":"body","required":false,"nullable":false},
+    {"name":"card_list","wireName":"card_list","location":"body","required":false,"nullable":false},
+    {"name":"automatic_add_on_enabled","wireName":"automatic_add_on_enabled","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink","wireName":"deeplink","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_type","wireName":"deeplink_type","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_urls","wireName":"landing_page_urls","location":"body","required":false,"nullable":false},
+    {"name":"utm_params","wireName":"utm_params","location":"body","required":false,"nullable":false},
+    {"name":"disclaimer_info","wireName":"disclaimer_info","location":"body","required":false,"nullable":false},
+    {"name":"tracking_app_id","wireName":"tracking_app_id","location":"body","required":false,"nullable":false},
+    {"name":"impression_tracking_url","wireName":"impression_tracking_url","location":"body","required":false,"nullable":false},
+    {"name":"click_tracking_url","wireName":"click_tracking_url","location":"body","required":false,"nullable":false},
+    {"name":"app_tracking_info_list","wireName":"app_tracking_info_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    objective_type: Schema.String,
+    spc_type: Schema.optional(Schema.Union(Schema.Literal("WEB_ALL_IN_ONE"), Schema.Literal("UNSET"))),
+    web_all_in_one_catalog_status: Schema.optional(Schema.Union(Schema.Literal("OPEN"), Schema.Literal("UNSET"))),
+    app_promotion_type: Schema.optional(Schema.String),
+    virtual_objective_type: Schema.optional(Schema.String),
+    sales_destination: Schema.optional(Schema.Union(Schema.Literal("WEBSITE"), Schema.Literal("WEB_AND_APP"))),
+    campaign_type: Schema.optional(Schema.Union(Schema.Literal("REGULAR_CAMPAIGN"), Schema.Literal("IOS14_CAMPAIGN"))),
+    campaign_app_profile_page_state: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    is_advanced_dedicated_campaign: Schema.optional(Schema.Boolean),
+    disable_skan_campaign: Schema.optional(Schema.Boolean),
+    campaign_name: Schema.String,
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    product_source: Schema.optional(Schema.String),
+    catalog_id: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    product_specific_type: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("PRODUCT_SET"), Schema.Literal("CUSTOMIZED_PRODUCTS"))),
+    product_set_id: Schema.optional(Schema.String),
+    product_ids: Schema.optional(Schema.Array(Schema.String)),
+    promotion_type: Schema.String,
+    app_id: Schema.optional(Schema.String),
+    promotion_website_type: Schema.optional(Schema.String),
+    promotion_target_type: Schema.optional(Schema.Union(Schema.Literal("INSTANT_PAGE"), Schema.Literal("EXTERNAL_WEBSITE"))),
+    optimization_goal: Schema.String,
+    pixel_id: Schema.optional(Schema.String),
+    optimization_event: Schema.optional(Schema.String),
+    app_config: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsAppConfig))),
+    deep_funnel_optimization_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    deep_funnel_event_source: Schema.optional(Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("OFFLINE"), Schema.Literal("CRM"))),
+    deep_funnel_event_source_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_event: Schema.optional(Schema.String),
+    bid_type: Schema.optional(Schema.Union(Schema.Literal("BID_TYPE_NO_BID"), Schema.Literal("BID_TYPE_CUSTOM"))),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    deep_bid_type: Schema.optional(Schema.String),
+    roas_bid: Schema.optional(Schema.Number),
+    vbo_window: Schema.optional(Schema.Union(Schema.Literal("SEVEN_DAYS"), Schema.Literal("ZERO_DAY"))),
+    click_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"), Schema.Literal("FOURTEEN_DAYS"), Schema.Literal("TWENTY_EIGHT_DAYS"))),
+    engaged_view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"), Schema.Literal("FOURTEEN_DAYS"), Schema.Literal("TWENTY_EIGHT_DAYS"))),
+    view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"))),
+    attribution_event_count: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("EVERY"), Schema.Literal("ONCE"))),
+    billing_event: Schema.String,
+    location_ids: Schema.Array(Schema.String),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    spc_audience_age: Schema.optional(Schema.String),
+    exclude_age_under_eighteen: Schema.optional(Schema.Boolean),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    placement_type: Schema.optional(Schema.String),
+    placements: Schema.optional(Schema.Array(Schema.String)),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    video_download_disabled: Schema.optional(Schema.Boolean),
+    blocked_pangle_app_ids: Schema.optional(Schema.Array(Schema.String)),
+    budget_mode: Schema.optional(Schema.String),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.Number,
+    schedule_type: Schema.String,
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    identity_type: Schema.optional(Schema.String),
+    identity_id: Schema.optional(Schema.String),
+    media_info_list: Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsMediaInfoList)),
+    dark_post_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    catalog_creative_toggle: Schema.optional(Schema.Boolean),
+    title_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsTitleList))),
+    call_to_action_id: Schema.optional(Schema.String),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsCallToActionList))),
+    product_info: Schema.optional(Models.CampaignSpcCreateParamsProductInfo),
+    card_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsCardList))),
+    automatic_add_on_enabled: Schema.optional(Schema.Boolean),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsPageList))),
+    deeplink: Schema.optional(Schema.String),
+    deeplink_type: Schema.optional(Schema.String),
+    landing_page_urls: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsLandingPageUrls))),
+    utm_params: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsUtmParams))),
+    disclaimer_info: Schema.optional(Models.CampaignSpcCreateParamsDisclaimerInfo),
+    tracking_app_id: Schema.optional(Schema.String),
+    impression_tracking_url: Schema.optional(Schema.String),
+    click_tracking_url: Schema.optional(Schema.String),
+    app_tracking_info_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcCreateParamsAppTrackingInfoList))),
+  }),
+  outputSchema: Models.CampaignSpcCreateResponse,
+});
+
+export const tiktok_toBeDeprecatedLegacySmart_campaignSpcGet = defineEndpointDescriptor({
+  id: "tiktok.toBeDeprecatedLegacySmart.campaignSpcGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/spc/get/",
+  summary: "(To be deprecated) Get Legacy Smart+ Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["toBeDeprecatedLegacySmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CampaignSpcGetResponse,
+});
+
+export const tiktok_toBeDeprecatedLegacySmart_campaignSpcMaterialStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.toBeDeprecatedLegacySmart.campaignSpcMaterialStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/spc/material_status/update/",
+  summary: "(To be deprecated) Disable or enable creatives in a Legacy Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["toBeDeprecatedLegacySmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_material_ids","wireName":"ad_material_ids","location":"body","required":true,"nullable":false},
+    {"name":"material_status","wireName":"material_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    ad_material_ids: Schema.Array(Schema.String),
+    material_status: Schema.Union(Schema.Literal("DISABLE"), Schema.Literal("ENABLE")),
+  }),
+  outputSchema: Models.CampaignSpcMaterialStatusUpdateResponse,
+});
+
+export const tiktok_toBeDeprecatedLegacySmart_campaignSpcQuotaGet = defineEndpointDescriptor({
+  id: "tiktok.toBeDeprecatedLegacySmart.campaignSpcQuotaGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/campaign/spc/quota/get/",
+  summary: "(To be deprecated) Get the dynamic quota on Legacy Smart+ Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["toBeDeprecatedLegacySmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.CampaignSpcQuotaGetResponse,
+});
+
+export const tiktok_toBeDeprecatedLegacySmart_campaignSpcUpdate = defineEndpointDescriptor({
+  id: "tiktok.toBeDeprecatedLegacySmart.campaignSpcUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/spc/update/",
+  summary: "(To be deprecated) Update a Legacy Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["toBeDeprecatedLegacySmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"body","required":false,"nullable":false},
+    {"name":"product_specific_type","wireName":"product_specific_type","location":"body","required":false,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"body","required":false,"nullable":false},
+    {"name":"product_ids","wireName":"product_ids","location":"body","required":false,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"spc_audience_age","wireName":"spc_audience_age","location":"body","required":false,"nullable":false},
+    {"name":"exclude_age_under_eighteen","wireName":"exclude_age_under_eighteen","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"blocked_pangle_app_ids","wireName":"blocked_pangle_app_ids","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":false,"nullable":false},
+    {"name":"media_info_list","wireName":"media_info_list","location":"body","required":false,"nullable":false},
+    {"name":"dark_post_status","wireName":"dark_post_status","location":"body","required":false,"nullable":false},
+    {"name":"catalog_creative_toggle","wireName":"catalog_creative_toggle","location":"body","required":false,"nullable":false},
+    {"name":"title_list","wireName":"title_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_id","wireName":"call_to_action_id","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"product_info","wireName":"product_info","location":"body","required":false,"nullable":false},
+    {"name":"card_list","wireName":"card_list","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_type","wireName":"deeplink_type","location":"body","required":false,"nullable":false},
+    {"name":"deeplink","wireName":"deeplink","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_urls","wireName":"landing_page_urls","location":"body","required":false,"nullable":false},
+    {"name":"utm_params","wireName":"utm_params","location":"body","required":false,"nullable":false},
+    {"name":"disclaimer_info","wireName":"disclaimer_info","location":"body","required":false,"nullable":false},
+    {"name":"tracking_app_id","wireName":"tracking_app_id","location":"body","required":false,"nullable":false},
+    {"name":"impression_tracking_url","wireName":"impression_tracking_url","location":"body","required":false,"nullable":false},
+    {"name":"click_tracking_url","wireName":"click_tracking_url","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    campaign_name: Schema.optional(Schema.String),
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    product_specific_type: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("PRODUCT_SET"), Schema.Literal("CUSTOMIZED_PRODUCTS"))),
+    product_set_id: Schema.optional(Schema.String),
+    product_ids: Schema.optional(Schema.Array(Schema.String)),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    roas_bid: Schema.optional(Schema.Number),
+    location_ids: Schema.optional(Schema.Array(Schema.String)),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    spc_audience_age: Schema.optional(Schema.String),
+    exclude_age_under_eighteen: Schema.optional(Schema.Boolean),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    blocked_pangle_app_ids: Schema.optional(Schema.Array(Schema.String)),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    schedule_type: Schema.optional(Schema.String),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    identity_id: Schema.optional(Schema.String),
+    media_info_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsMediaInfoList))),
+    dark_post_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    catalog_creative_toggle: Schema.optional(Schema.Boolean),
+    title_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsTitleList))),
+    call_to_action_id: Schema.optional(Schema.String),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsCallToActionList))),
+    product_info: Schema.optional(Models.CampaignSpcUpdateParamsProductInfo),
+    card_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsCardList))),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsPageList))),
+    deeplink_type: Schema.optional(Schema.String),
+    deeplink: Schema.optional(Schema.String),
+    landing_page_urls: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsLandingPageUrls))),
+    utm_params: Schema.optional(Schema.Array(Schema.suspend(() => Models.CampaignSpcUpdateParamsUtmParams))),
+    disclaimer_info: Schema.optional(Models.CampaignSpcUpdateParamsDisclaimerInfo),
+    tracking_app_id: Schema.optional(Schema.String),
+    impression_tracking_url: Schema.optional(Schema.String),
+    click_tracking_url: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignSpcUpdateResponse,
+});
+
+export const tiktok_campaign_campaignStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/status/update/",
+  summary: "Update the operation statuses of campaigns",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["campaign.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_ids","wireName":"campaign_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false},
+    {"name":"postback_window_mode","wireName":"postback_window_mode","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_ids: Schema.Array(Schema.String),
+    operation_status: Schema.String,
+    postback_window_mode: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignStatusUpdateResponse,
+});
+
+export const tiktok_campaign_campaignUpdate = defineEndpointDescriptor({
+  id: "tiktok.campaign.campaignUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/campaign/update/",
+  summary: "Update a campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["campaign.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"po_number","wireName":"po_number","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    campaign_name: Schema.optional(Schema.String),
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    budget: Schema.optional(Schema.Number),
+    po_number: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CampaignUpdateResponse,
+});
+
+export const tiktok_catalogManagement_catalogAvailableCountryGet = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogAvailableCountryGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/available_country/get/",
+  summary: "Get available regions",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogAvailableCountryGetResponse,
+});
+
+export const tiktok_catalogManagement_catalogCapitalize = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogCapitalize",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/capitalize/",
+  summary: "Migrate a catalog to a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    advertiser_id: Schema.String,
+    catalog_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogCapitalizeResponse,
+});
+
+export const tiktok_catalogManagement_catalogCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/create/",
+  summary: "Create a catalog",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
+    {"name":"catalog_type","wireName":"catalog_type","location":"body","required":true,"nullable":false},
+    {"name":"catalog_conf","wireName":"catalog_conf","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    name: Schema.String,
+    catalog_type: Schema.Union(Schema.Literal("ECOM"), Schema.Literal("HOTEL"), Schema.Literal("FLIGHT"), Schema.Literal("DESTINATION"), Schema.Literal("ENTERTAINMENT"), Schema.Literal("AUTO_VEHICLE"), Schema.Literal("AUTO_MODEL"), Schema.Literal("MINI_SERIES")),
+    catalog_conf: Models.CatalogCreateParamsCatalogConf,
+  }),
+  outputSchema: Models.CatalogCreateResponse,
+});
+
+export const tiktok_catalogManagement_catalogDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/delete/",
+  summary: "Delete a catalog",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogDeleteResponse,
+});
+
+export const tiktok_catalogEventSources_catalogEventsourceBind = defineEndpointDescriptor({
+  id: "tiktok.catalogEventSources.catalogEventsourceBind",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/eventsource/bind/",
+  summary: "Bind an event source to a catalog",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogEventSources.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    app_id: Schema.optional(Schema.String),
+    pixel_code: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogEventsourceBindResponse,
+});
+
+export const tiktok_catalogEventSources_catalogEventsourceBindGet = defineEndpointDescriptor({
+  id: "tiktok.catalogEventSources.catalogEventsourceBindGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/eventsource_bind/get/",
+  summary: "Get event source binding info of a catalog",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogEventSources.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogEventsourceBindGetResponse,
+});
+
+export const tiktok_catalogEventSources_catalogEventsourceUnbind = defineEndpointDescriptor({
+  id: "tiktok.catalogEventSources.catalogEventsourceUnbind",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/eventsource/unbind/",
+  summary: "Unbind an event source from a catalog",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogEventSources.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    app_id: Schema.optional(Schema.String),
+    pixel_code: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogEventsourceUnbindResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/feed/create/",
+  summary: "Create a feed",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_name","wireName":"feed_name","location":"body","required":true,"nullable":false},
+    {"name":"update_mode","wireName":"update_mode","location":"body","required":true,"nullable":false},
+    {"name":"schedule_param","wireName":"schedule_param","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_name: Schema.String,
+    update_mode: Schema.Union(Schema.Literal("OVERWRITE"), Schema.Literal("INCREMENTAL")),
+    schedule_param: Schema.optional(Models.CatalogFeedCreateParamsScheduleParam),
+  }),
+  outputSchema: Models.CatalogFeedCreateResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/feed/delete/",
+  summary: "Delete a feed",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogFeedDeleteResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedGet = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/feed/get/",
+  summary: "Get feeds",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogFeedGetResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedLog = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedLog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/feed/log/",
+  summary: "Get the log of a feed",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogFeedLogResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedSwitch = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedSwitch",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/feed/switch/",
+  summary: "Update the schedule status of a feed",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":true,"nullable":false},
+    {"name":"status","wireName":"status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.String,
+    status: Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF")),
+  }),
+  outputSchema: Models.CatalogFeedSwitchResponse,
+});
+
+export const tiktok_catalogFeeds_catalogFeedUpdate = defineEndpointDescriptor({
+  id: "tiktok.catalogFeeds.catalogFeedUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/feed/update/",
+  summary: "Update a feed",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogFeeds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":true,"nullable":false},
+    {"name":"update_mode","wireName":"update_mode","location":"body","required":true,"nullable":false},
+    {"name":"schedule_param","wireName":"schedule_param","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.String,
+    update_mode: Schema.Union(Schema.Literal("OVERWRITE"), Schema.Literal("INCREMENTAL"), Schema.Literal("SUPPLEMENT")),
+    schedule_param: Schema.optional(Models.CatalogFeedUpdateParamsScheduleParam),
+  }),
+  outputSchema: Models.CatalogFeedUpdateResponse,
+});
+
+export const tiktok_catalogManagement_catalogGet = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/get/",
+  summary: "Get catalogs",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CatalogGetResponse,
+});
+
+export const tiktok_catalogInsights_catalogInsightCategoryGet = defineEndpointDescriptor({
+  id: "tiktok.catalogInsights.catalogInsightCategoryGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/insight/category/get/",
+  summary: "Get trending catalog product categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogInsights.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    filtering: Schema.optional(Models.CatalogInsightCategoryGetParamsFiltering),
+  }),
+  outputSchema: Models.CatalogInsightCategoryGetResponse,
+});
+
+export const tiktok_catalogInsights_catalogInsightFilterGet = defineEndpointDescriptor({
+  id: "tiktok.catalogInsights.catalogInsightFilterGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/insight/filter/get/",
+  summary: "Get filters for catalog product insights",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogInsights.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"filter_type","wireName":"filter_type","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    filter_type: Schema.Union(Schema.Literal("CATEGORY_ID"), Schema.Literal("BRAND"), Schema.Literal("AVAILABILITY")),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CatalogInsightFilterGetResponse,
+});
+
+export const tiktok_catalogInsights_catalogInsightProductGet = defineEndpointDescriptor({
+  id: "tiktok.catalogInsights.catalogInsightProductGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/insight/product/get/",
+  summary: "Get trending catalog products",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogInsights.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    filtering: Schema.optional(Models.CatalogInsightProductGetParamsFiltering),
+  }),
+  outputSchema: Models.CatalogInsightProductGetResponse,
+});
+
+export const tiktok_catalogManagement_catalogLexiconGet = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogLexiconGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/lexicon/get/",
+  summary: "Get the lexicon list for a catalog",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogLexiconGetResponse,
+});
+
+export const tiktok_catalogManagement_catalogLocationCurrencyGet = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogLocationCurrencyGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/location_currency/get/",
+  summary: "Get locations and currencies",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [],
+  inputSchema: Schema.Struct({
+
+  }),
+  outputSchema: Models.CatalogLocationCurrencyGetResponse,
+});
+
+export const tiktok_catalogManagement_catalogOverview = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogOverview",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/overview/",
+  summary: "Get the overview of a catalog",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogOverviewResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/product/delete/",
+  summary: "Remove products",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"sku_ids","wireName":"sku_ids","location":"body","required":false,"nullable":false},
+    {"name":"hotel_ids","wireName":"hotel_ids","location":"body","required":false,"nullable":false},
+    {"name":"flight_ids","wireName":"flight_ids","location":"body","required":false,"nullable":false},
+    {"name":"destination_ids","wireName":"destination_ids","location":"body","required":false,"nullable":false},
+    {"name":"vehicle_ids","wireName":"vehicle_ids","location":"body","required":false,"nullable":false},
+    {"name":"series_ids","wireName":"series_ids","location":"body","required":false,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    sku_ids: Schema.optional(Schema.Array(Schema.String)),
+    hotel_ids: Schema.optional(Schema.Array(Schema.String)),
+    flight_ids: Schema.optional(Schema.Array(Schema.String)),
+    destination_ids: Schema.optional(Schema.Array(Schema.String)),
+    vehicle_ids: Schema.optional(Schema.Array(Schema.String)),
+    series_ids: Schema.optional(Schema.Array(Schema.String)),
+    feed_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogProductDeleteResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductFile = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductFile",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/product/file/",
+  summary: "Upload products via a file URL",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":false,"nullable":false},
+    {"name":"file_url","wireName":"file_url","location":"body","required":true,"nullable":false},
+    {"name":"update_mode","wireName":"update_mode","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+    file_url: Schema.String,
+    update_mode: Schema.optional(Schema.Union(Schema.Literal("OVERWRITE"), Schema.Literal("INCREMENTAL"))),
+  }),
+  outputSchema: Models.CatalogProductFileResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductGet = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/product/get/",
+  summary: "Get products",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"product_ids","wireName":"product_ids","location":"query","required":false,"nullable":false},
+    {"name":"sku_ids","wireName":"sku_ids","location":"query","required":false,"nullable":false},
+    {"name":"product_set_ids","wireName":"product_set_ids","location":"query","required":false,"nullable":false},
+    {"name":"order","wireName":"order","location":"query","required":false,"nullable":false},
+    {"name":"conditions","wireName":"conditions","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    product_ids: Schema.optional(Schema.Array(Schema.String)),
+    sku_ids: Schema.optional(Schema.Array(Schema.String)),
+    product_set_ids: Schema.optional(Schema.Array(Schema.String)),
+    order: Schema.optional(Models.CatalogProductGetParamsOrder),
+    conditions: Schema.optional(Models.CatalogProductGetParamsConditions),
+  }),
+  outputSchema: Models.CatalogProductGetResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductLog = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductLog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/product/log/",
+  summary: "Get the product handling log",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"feed_log_id","wireName":"feed_log_id","location":"query","required":true,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_log_id: Schema.String,
+    language: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogProductLogResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductUpdate = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/product/update/",
+  summary: "Update products",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":false,"nullable":false},
+    {"name":"products","wireName":"products","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+    products: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CatalogProductUpdateResponse,
+});
+
+export const tiktok_catalogProducts_catalogProductUpload = defineEndpointDescriptor({
+  id: "tiktok.catalogProducts.catalogProductUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/product/upload/",
+  summary: "Upload products via a JSON schema",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProducts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":false,"nullable":false},
+    {"name":"products","wireName":"products","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+    products: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CatalogProductUploadResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/set/create/",
+  summary: "Create a product set by conditions",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"product_set_name","wireName":"product_set_name","location":"body","required":true,"nullable":false},
+    {"name":"conditions","wireName":"conditions","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_name: Schema.String,
+    conditions: Models.CatalogSetCreateParamsConditions,
+  }),
+  outputSchema: Models.CatalogSetCreateResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/set/delete/",
+  summary: "Delete product sets",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"product_set_ids","wireName":"product_set_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CatalogSetDeleteResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetGet = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/set/get/",
+  summary: "Get product sets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"query","required":false,"nullable":false},
+    {"name":"return_product_count","wireName":"return_product_count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_id: Schema.optional(Schema.String),
+    return_product_count: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.CatalogSetGetResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetProductGet = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetProductGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/set/product/get/",
+  summary: "Get products in a product set",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CatalogSetProductGetResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetUpdate = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/set/update/",
+  summary: "Update a product set",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"body","required":true,"nullable":false},
+    {"name":"product_set_name","wireName":"product_set_name","location":"body","required":false,"nullable":false},
+    {"name":"conditions","wireName":"conditions","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_id: Schema.String,
+    product_set_name: Schema.optional(Schema.String),
+    conditions: Schema.optional(Models.CatalogSetUpdateParamsConditions),
+  }),
+  outputSchema: Models.CatalogSetUpdateResponse,
+});
+
+export const tiktok_catalogProductSets_catalogSetUpload = defineEndpointDescriptor({
+  id: "tiktok.catalogProductSets.catalogSetUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/set/upload/",
+  summary: "Create a product set by file",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogProductSets.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"product_set_name","wireName":"product_set_name","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":true,"nullable":false},
+    {"name":"file_signature","wireName":"file_signature","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    product_set_name: Schema.String,
+    file: Schema.Unknown,
+    file_signature: Schema.String,
+  }),
+  outputSchema: Models.CatalogSetUploadResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogTemplatePreviewCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogTemplatePreviewCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/template_preview/create/",
+  summary: "(Deprecated) Preview video templates",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_ids","wireName":"catalog_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CatalogTemplatePreviewCreateResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogTemplateUpload = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogTemplateUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/template/upload/",
+  summary: "(Deprecated) Upload a video template",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_ids","wireName":"catalog_ids","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_ids: Schema.Array(Schema.String),
+    file: Schema.Unknown,
+  }),
+  outputSchema: Models.CatalogTemplateUploadResponse,
+});
+
+export const tiktok_catalogManagement_catalogUpdate = defineEndpointDescriptor({
+  id: "tiktok.catalogManagement.catalogUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/update/",
+  summary: "Update the name of a catalog",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogManagement.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    name: Schema.String,
+  }),
+  outputSchema: Models.CatalogUpdateResponse,
+});
+
+export const tiktok_catalogVideos_catalogVideoDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogVideos.catalogVideoDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/video/delete/",
+  summary: "Delete uploaded catalog videos",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideos.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_video_ids","wireName":"catalog_video_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    catalog_video_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CatalogVideoDeleteResponse,
+});
+
+export const tiktok_catalogVideos_catalogVideoFile = defineEndpointDescriptor({
+  id: "tiktok.catalogVideos.catalogVideoFile",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/video/file/",
+  summary: "Upload catalog videos via a file URL",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideos.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"file_url","wireName":"file_url","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    file_url: Schema.String,
+    advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.CatalogVideoFileResponse,
+});
+
+export const tiktok_catalogVideos_catalogVideoGet = defineEndpointDescriptor({
+  id: "tiktok.catalogVideos.catalogVideoGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/video/get/",
+  summary: "Get the uploaded catalog videos within a catalog",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogVideos.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_video_ids","wireName":"catalog_video_ids","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    catalog_video_ids: Schema.optional(Schema.Array(Schema.String)),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CatalogVideoGetResponse,
+});
+
+export const tiktok_catalogVideos_catalogVideoLog = defineEndpointDescriptor({
+  id: "tiktok.catalogVideos.catalogVideoLog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/video/log/",
+  summary: "Get the catalog video handling log",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogVideos.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"feed_log_id","wireName":"feed_log_id","location":"query","required":true,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    feed_log_id: Schema.String,
+    language: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogVideoLogResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogVideoPackageCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogVideoPackageCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/video_package/create/",
+  summary: "(Deprecated) Create a video package",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"video_package_type","wireName":"video_package_type","location":"body","required":true,"nullable":false},
+    {"name":"videos","wireName":"videos","location":"body","required":false,"nullable":false},
+    {"name":"music_id","wireName":"music_id","location":"body","required":false,"nullable":false},
+    {"name":"template_id","wireName":"template_id","location":"body","required":false,"nullable":false},
+    {"name":"video_package_name","wireName":"video_package_name","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    video_package_type: Schema.String,
+    videos: Schema.optional(Schema.Array(Schema.suspend(() => Models.CatalogVideoPackageCreateParamsVideos))),
+    music_id: Schema.optional(Schema.String),
+    template_id: Schema.optional(Schema.String),
+    video_package_name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogVideoPackageCreateResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogVideoPackageDelete = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogVideoPackageDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/video_package/delete/",
+  summary: "(Deprecated) Delete a video package",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"shopping_ads_video_package_id","wireName":"shopping_ads_video_package_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    shopping_ads_video_package_id: Schema.String,
+  }),
+  outputSchema: Models.CatalogVideoPackageDeleteResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogVideoPackageGet = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogVideoPackageGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/catalog/video_package/get/",
+  summary: "Get video packages",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"shopping_ads_video_package_id","wireName":"shopping_ads_video_package_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    shopping_ads_video_package_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CatalogVideoPackageGetResponse,
+});
+
+export const tiktok_catalogVideoTemplates_catalogVideoPackageUpdate = defineEndpointDescriptor({
+  id: "tiktok.catalogVideoTemplates.catalogVideoPackageUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/catalog/video_package/update/",
+  summary: "(Deprecated) Update the name of a video package",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogVideoTemplates.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"shopping_ads_video_package_id","wireName":"shopping_ads_video_package_id","location":"body","required":true,"nullable":false},
+    {"name":"video_package_name","wireName":"video_package_name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    shopping_ads_video_package_id: Schema.String,
+    video_package_name: Schema.String,
+  }),
+  outputSchema: Models.CatalogVideoPackageUpdateResponse,
+});
+
+export const tiktok_bCManagement_changelogGet = defineEndpointDescriptor({
+  id: "tiktok.bCManagement.changelogGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/changelog/get/",
+  summary: "Get the activity log of a Business Center",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCManagement.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.ChangelogGetParamsFiltering),
+    lang: Schema.optional(Schema.String),
+    sort_field: Schema.optional(Schema.String),
+    sort_type: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ChangelogGetResponse,
+});
+
+export const tiktok_changeLog_changelogTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.changeLog.changelogTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/changelog/task/check/",
+  summary: "Check the status of a download task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["changeLog.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.ChangelogTaskCheckResponse,
+});
+
+export const tiktok_changeLog_changelogTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.changeLog.changelogTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/changelog/task/create/",
+  summary: "Create a change log download task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["changeLog.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"body","required":false,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"body","required":false,"nullable":false},
+    {"name":"timezone","wireName":"timezone","location":"body","required":false,"nullable":false},
+    {"name":"module","wireName":"module","location":"body","required":false,"nullable":false},
+    {"name":"object_ids","wireName":"object_ids","location":"body","required":false,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"body","required":false,"nullable":false},
+    {"name":"operation_types","wireName":"operation_types","location":"body","required":false,"nullable":false},
+    {"name":"order_fields","wireName":"order_fields","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    start_time: Schema.optional(Schema.String),
+    end_time: Schema.optional(Schema.String),
+    timezone: Schema.optional(Schema.String),
+    module: Schema.optional(Schema.String),
+    object_ids: Schema.optional(Schema.Array(Schema.String)),
+    object_type: Schema.optional(Schema.String),
+    operation_types: Schema.optional(Schema.Array(Schema.String)),
+    order_fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.ChangelogTaskCreateResponse,
+});
+
+export const tiktok_changeLog_changelogTaskDownload = defineEndpointDescriptor({
+  id: "tiktok.changeLog.changelogTaskDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/changelog/task/download/",
+  summary: "Get the downloaded file",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["changeLog.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.ChangelogTaskDownloadResponse,
+});
+
+export const tiktok_adComments_commentDelete = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/comment/delete/",
+  summary: "Delete a comment",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adComments.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_id","wireName":"ad_id","location":"body","required":true,"nullable":false},
+    {"name":"tiktok_item_id","wireName":"tiktok_item_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_id: Schema.String,
+    tiktok_item_id: Schema.String,
+    comment_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("CUSTOMIZED_USER"), Schema.Literal("TT_USER")),
+    identity_id: Schema.String,
+  }),
+  outputSchema: Models.CommentDeleteResponse,
+});
+
+export const tiktok_adComments_commentList = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/comment/list/",
+  summary: "Get comments",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adComments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_type","wireName":"comment_type","location":"query","required":false,"nullable":false},
+    {"name":"search_field","wireName":"search_field","location":"query","required":true,"nullable":false},
+    {"name":"search_value","wireName":"search_value","location":"query","required":true,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"query","required":true,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"query","required":true,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    comment_type: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ALL"), Schema.Literal("COMMENT"), Schema.Literal("REPLY")))),
+    search_field: Schema.String,
+    search_value: Schema.String,
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("LIKES"), Schema.Literal("REPLIES"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    start_time: Schema.String,
+    end_time: Schema.String,
+    page_size: Schema.optional(Schema.Number),
+    page: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CommentListResponse,
+});
+
+export const tiktok_adComments_commentPost = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentPost",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/comment/post/",
+  summary: "Reply to a comment",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adComments.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_id","wireName":"ad_id","location":"body","required":true,"nullable":false},
+    {"name":"tiktok_item_id","wireName":"tiktok_item_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_type","wireName":"comment_type","location":"body","required":true,"nullable":false},
+    {"name":"text","wireName":"text","location":"body","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_id: Schema.String,
+    tiktok_item_id: Schema.String,
+    comment_id: Schema.String,
+    comment_type: Schema.String,
+    text: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("CUSTOMIZED_USER"), Schema.Literal("TT_USER")),
+    identity_id: Schema.String,
+  }),
+  outputSchema: Models.CommentPostResponse,
+});
+
+export const tiktok_adComments_commentReference = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentReference",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/comment/reference/",
+  summary: "Get related comments",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adComments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_id","wireName":"comment_id","location":"query","required":true,"nullable":false},
+    {"name":"comment_type","wireName":"comment_type","location":"query","required":true,"nullable":false},
+    {"name":"original_comment_id","wireName":"original_comment_id","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    comment_id: Schema.String,
+    comment_type: Schema.String,
+    original_comment_id: Schema.optional(Schema.String),
+    page_size: Schema.optional(Schema.Number),
+    page: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CommentReferenceResponse,
+});
+
+export const tiktok_adComments_commentStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/comment/status/update/",
+  summary: "Update the statuses of comments",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adComments.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_ids","wireName":"comment_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation","wireName":"operation","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    comment_ids: Schema.Array(Schema.String),
+    operation: Schema.Union(Schema.Literal("HIDDEN"), Schema.Literal("PUBLIC")),
+  }),
+  outputSchema: Models.CommentStatusUpdateResponse,
+});
+
+export const tiktok_adComments_commentTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/comment/task/check/",
+  summary: "Get the status of a comment export task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adComments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.CommentTaskCheckResponse,
+});
+
+export const tiktok_adComments_commentTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/comment/task/create/",
+  summary: "Create a comment export task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["adComments.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"comment_status","wireName":"comment_status","location":"body","required":false,"nullable":false},
+    {"name":"comment_type","wireName":"comment_type","location":"body","required":false,"nullable":false},
+    {"name":"search_field","wireName":"search_field","location":"body","required":false,"nullable":false},
+    {"name":"search_value","wireName":"search_value","location":"body","required":false,"nullable":false},
+    {"name":"comment_ids","wireName":"comment_ids","location":"body","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"body","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"body","required":false,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"body","required":false,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"body","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    comment_status: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ALL"), Schema.Literal("PUBLIC"), Schema.Literal("HIDDEN")))),
+    comment_type: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ALL"), Schema.Literal("COMMENT"), Schema.Literal("REPLY")))),
+    search_field: Schema.optional(Schema.String),
+    search_value: Schema.optional(Schema.String),
+    comment_ids: Schema.optional(Schema.Array(Schema.String)),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("LIKES"), Schema.Literal("REPLIES"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    start_time: Schema.optional(Schema.String),
+    end_time: Schema.optional(Schema.String),
+    lang: Schema.optional(Schema.Union(Schema.Literal("EN"), Schema.Literal("JA"), Schema.Literal("ZH"))),
+  }),
+  outputSchema: Models.CommentTaskCreateResponse,
+});
+
+export const tiktok_adComments_commentTaskDownload = defineEndpointDescriptor({
+  id: "tiktok.adComments.commentTaskDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/comment/task/download/",
+  summary: "Download exported comments",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adComments.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.CommentTaskDownloadResponse,
+});
+
+export const tiktok_creativeTools_creativeAdsPreviewCreate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeAdsPreviewCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/ads_preview/create/",
+  summary: "Preview an ad or a creative",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"preview_type","wireName":"preview_type","location":"body","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"is_smart_performance_campaign","wireName":"is_smart_performance_campaign","location":"body","required":false,"nullable":false},
+    {"name":"placement","wireName":"placement","location":"body","required":false,"nullable":false},
+    {"name":"tiktok_subplacement","wireName":"tiktok_subplacement","location":"body","required":false,"nullable":false},
+    {"name":"preview_format","wireName":"preview_format","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_type","wireName":"shopping_ads_type","location":"body","required":false,"nullable":false},
+    {"name":"product_source","wireName":"product_source","location":"body","required":false,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":false,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"showcase_products","wireName":"showcase_products","location":"body","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"ad_format","wireName":"ad_format","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":false,"nullable":false},
+    {"name":"image_ids","wireName":"image_ids","location":"body","required":false,"nullable":false},
+    {"name":"end_card_cta","wireName":"end_card_cta","location":"body","required":false,"nullable":false},
+    {"name":"music_id","wireName":"music_id","location":"body","required":false,"nullable":false},
+    {"name":"tiktok_item_id","wireName":"tiktok_item_id","location":"body","required":false,"nullable":false},
+    {"name":"carousel_image_index","wireName":"carousel_image_index","location":"body","required":false,"nullable":false},
+    {"name":"ad_text","wireName":"ad_text","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action","wireName":"call_to_action","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_id","wireName":"call_to_action_id","location":"body","required":false,"nullable":false},
+    {"name":"card_id","wireName":"card_id","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_url","wireName":"landing_page_url","location":"body","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"product_specific_type","wireName":"product_specific_type","location":"body","required":false,"nullable":false},
+    {"name":"item_group_ids","wireName":"item_group_ids","location":"body","required":false,"nullable":false},
+    {"name":"product_set_id","wireName":"product_set_id","location":"body","required":false,"nullable":false},
+    {"name":"sku_ids","wireName":"sku_ids","location":"body","required":false,"nullable":false},
+    {"name":"hotel_ids","wireName":"hotel_ids","location":"body","required":false,"nullable":false},
+    {"name":"flight_ids","wireName":"flight_ids","location":"body","required":false,"nullable":false},
+    {"name":"destination_ids","wireName":"destination_ids","location":"body","required":false,"nullable":false},
+    {"name":"vehicle_ids","wireName":"vehicle_ids","location":"body","required":false,"nullable":false},
+    {"name":"auto_disclaimer_types","wireName":"auto_disclaimer_types","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"dynamic_format","wireName":"dynamic_format","location":"body","required":false,"nullable":false},
+    {"name":"vertical_video_strategy","wireName":"vertical_video_strategy","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_video_template_id","wireName":"shopping_ads_video_template_id","location":"body","required":false,"nullable":false},
+    {"name":"shopping_ads_fallback_type","wireName":"shopping_ads_fallback_type","location":"body","required":false,"nullable":false},
+    {"name":"dynamic_destination","wireName":"dynamic_destination","location":"body","required":false,"nullable":false},
+    {"name":"instant_product_page_used","wireName":"instant_product_page_used","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    preview_type: Schema.String,
+    objective_type: Schema.String,
+    is_smart_performance_campaign: Schema.optional(Schema.Boolean),
+    placement: Schema.optional(Schema.String),
+    tiktok_subplacement: Schema.optional(Schema.Union(Schema.Literal("LEMON8"), Schema.Literal("UNSET"))),
+    preview_format: Schema.optional(Schema.String),
+    shopping_ads_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("LIVE"), Schema.Literal("PRODUCT_SHOPPING_ADS"))),
+    product_source: Schema.optional(Schema.Union(Schema.Literal("STORE"), Schema.Literal("SHOWCASE"))),
+    store_id: Schema.optional(Schema.String),
+    store_authorized_bc_id: Schema.optional(Schema.String),
+    showcase_products: Schema.optional(Schema.Array(Schema.suspend(() => Models.CreativeAdsPreviewCreateParamsShowcaseProducts))),
+    promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_ANDROID"), Schema.Literal("APP_IOS"), Schema.Literal("WEBSITE"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("LEAD_GEN_CLICK_TO_TT_DIRECT_MESSAGE"), Schema.Literal("LEAD_GEN_CLICK_TO_SOCIAL_MEDIA_APP_MESSAGE"), Schema.Literal("LEAD_GEN_CLICK_TO_CALL"))),
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("CUSTOMIZED_USER"), Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    ad_format: Schema.String,
+    video_id: Schema.optional(Schema.String),
+    image_ids: Schema.optional(Schema.Array(Schema.String)),
+    end_card_cta: Schema.optional(Schema.Union(Schema.Literal("SEARCH_INVENTORY"), Schema.Literal("LEARN_MORE"), Schema.Literal("SHOP_NOW"), Schema.Literal("SIGN_UP"), Schema.Literal("CONTACT_US"), Schema.Literal("BOOK_NOW"), Schema.Literal("READ_MORE"), Schema.Literal("VIEW_MORE"), Schema.Literal("ORDER_NOW"))),
+    music_id: Schema.optional(Schema.String),
+    tiktok_item_id: Schema.optional(Schema.String),
+    carousel_image_index: Schema.optional(Schema.Number),
+    ad_text: Schema.optional(Schema.String),
+    call_to_action: Schema.optional(Schema.String),
+    call_to_action_id: Schema.optional(Schema.String),
+    card_id: Schema.optional(Schema.String),
+    landing_page_url: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+    catalog_id: Schema.optional(Schema.String),
+    product_specific_type: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("PRODUCT_SET"), Schema.Literal("CUSTOMIZED_PRODUCTS"))),
+    item_group_ids: Schema.optional(Schema.Array(Schema.String)),
+    product_set_id: Schema.optional(Schema.String),
+    sku_ids: Schema.optional(Schema.Array(Schema.String)),
+    hotel_ids: Schema.optional(Schema.Array(Schema.String)),
+    flight_ids: Schema.optional(Schema.Array(Schema.String)),
+    destination_ids: Schema.optional(Schema.Array(Schema.String)),
+    vehicle_ids: Schema.optional(Schema.Array(Schema.String)),
+    auto_disclaimer_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("EMISSION"), Schema.Literal("DISCOUNT")))),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    dynamic_format: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("DYNAMIC_CREATIVE"))),
+    vertical_video_strategy: Schema.optional(Schema.Union(Schema.Literal("SINGLE_VIDEO"), Schema.Literal("CATALOG_VIDEOS"), Schema.Literal("LIVE_STREAM"), Schema.Literal("UNSET"), Schema.Literal("DYNAMIC_CREATIVE"))),
+    shopping_ads_video_template_id: Schema.optional(Schema.String),
+    shopping_ads_fallback_type: Schema.optional(Schema.Union(Schema.Literal("DEFAULT"), Schema.Literal("CUSTOM"), Schema.Literal("SHOPPING_ADS"))),
+    dynamic_destination: Schema.optional(Schema.Union(Schema.Literal("DLP"), Schema.Literal("UNSET"))),
+    instant_product_page_used: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.CreativeAdsPreviewCreateResponse,
+});
+
+export const tiktok_creativeTools_creativeAssetDelete = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeAssetDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/asset/delete/",
+  summary: "Delete creative assets",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"body","required":false,"nullable":false},
+    {"name":"image_ids","wireName":"image_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    video_ids: Schema.optional(Schema.Array(Schema.String)),
+    image_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.CreativeAssetDeleteResponse,
+});
+
+export const tiktok_creativeTools_creativeAssetShare = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeAssetShare",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/asset/share/",
+  summary: "Share creative assets",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"body","required":false,"nullable":false},
+    {"name":"material_ids","wireName":"material_ids","location":"body","required":true,"nullable":false},
+    {"name":"shared_advertiser_ids","wireName":"shared_advertiser_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    asset_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("IMAGE"), Schema.Literal("MUSIC"))),
+    material_ids: Schema.Array(Schema.String),
+    shared_advertiser_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CreativeAssetShareResponse,
+});
+
+export const tiktok_welcomeMessages_creativeAutoMessageCreate = defineEndpointDescriptor({
+  id: "tiktok.welcomeMessages.creativeAutoMessageCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/auto_message/create/",
+  summary: "Create a welcome message within an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["welcomeMessages.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
+    {"name":"welcome_message","wireName":"welcome_message","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    auto_message_type: Schema.String,
+    welcome_message: Schema.optional(Models.CreativeAutoMessageCreateParamsWelcomeMessage),
+  }),
+  outputSchema: Models.CreativeAutoMessageCreateResponse,
+});
+
+export const tiktok_welcomeMessages_creativeAutoMessageGet = defineEndpointDescriptor({
+  id: "tiktok.welcomeMessages.creativeAutoMessageGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative/auto_message/get/",
+  summary: "Get welcome messages within an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["welcomeMessages.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"auto_message_type","wireName":"auto_message_type","location":"query","required":true,"nullable":false},
+    {"name":"auto_message_id","wireName":"auto_message_id","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    auto_message_type: Schema.String,
+    auto_message_id: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CreativeAutoMessageGetResponse,
+});
+
+export const tiktok_creativeTools_creativeCtaRecommend = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeCtaRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative/cta/recommend/",
+  summary: "Get recommended CTAs",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"new_version","wireName":"new_version","location":"query","required":false,"nullable":false},
+    {"name":"asset_type","wireName":"asset_type","location":"query","required":false,"nullable":false},
+    {"name":"content_type","wireName":"content_type","location":"query","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"query","required":false,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"query","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":false,"nullable":false},
+    {"name":"ad_texts","wireName":"ad_texts","location":"query","required":false,"nullable":false},
+    {"name":"landing_page_url","wireName":"landing_page_url","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    new_version: Schema.optional(Schema.Boolean),
+    asset_type: Schema.optional(Schema.String),
+    content_type: Schema.optional(Schema.Union(Schema.Literal("APP_DOWNLOAD"), Schema.Literal("LANDING_PAGE"), Schema.Literal("OTHER"), Schema.Literal("MESSAGE"), Schema.Literal("SOCIAL_MEDIA_APP_MESSAGE"), Schema.Literal("PHONE_CALL"))),
+    objective_type: Schema.optional(Schema.String),
+    promotion_type: Schema.optional(Schema.String),
+    language: Schema.optional(Schema.String),
+    app_id: Schema.optional(Schema.String),
+    placements: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("PLACEMENT_TIKTOK"), Schema.Literal("PLACEMENT_PANGLE"), Schema.Literal("PLACEMENT_GLOBAL_APP_BUNDLE")))),
+    region_codes: Schema.optional(Schema.Array(Schema.String)),
+    optimization_goal: Schema.optional(Schema.String),
+    ad_texts: Schema.optional(Schema.Array(Schema.String)),
+    landing_page_url: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CreativeCtaRecommendResponse,
+});
+
+export const tiktok_creativeTools_creativeFatigueGet = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeFatigueGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative_fatigue/get/",
+  summary: "Get Creative Fatigue Detection results",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"ad_id","wireName":"ad_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_id: Schema.String,
+    filtering: Models.CreativeFatigueGetParamsFiltering,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CreativeFatigueGetResponse,
+});
+
+export const tiktok_creativeTools_creativeImageEdit = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeImageEdit",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/image/edit/",
+  summary: "Edit an image",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"image_id","wireName":"image_id","location":"body","required":true,"nullable":false},
+    {"name":"edit_method","wireName":"edit_method","location":"body","required":false,"nullable":false},
+    {"name":"width","wireName":"width","location":"body","required":true,"nullable":false},
+    {"name":"height","wireName":"height","location":"body","required":true,"nullable":false},
+    {"name":"image_name","wireName":"image_name","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    image_id: Schema.String,
+    edit_method: Schema.optional(Schema.String),
+    width: Schema.Number,
+    height: Schema.Number,
+    image_name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CreativeImageEditResponse,
+});
+
+export const tiktok_creativePortfolios_creativePortfolioCreate = defineEndpointDescriptor({
+  id: "tiktok.creativePortfolios.creativePortfolioCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/portfolio/create/",
+  summary: "Create a portfolio",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativePortfolios.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"creative_portfolio_type","wireName":"creative_portfolio_type","location":"body","required":false,"nullable":false},
+    {"name":"portfolio_content","wireName":"portfolio_content","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    creative_portfolio_type: Schema.optional(Schema.Union(Schema.Literal("CTA"), Schema.Literal("CARD"), Schema.Literal("WEB_INFO_CARD"), Schema.Literal("DOWNLOAD_CARD"), Schema.Literal("INVENTORY_CARD"), Schema.Literal("PRODUCT_CARD"), Schema.Literal("PRODUCT_TILE"), Schema.Literal("STICKER"), Schema.Literal("PREMIUM_BADGE"), Schema.Literal("GESTURE"), Schema.Literal("SUPER_LIKE"))),
+    portfolio_content: Schema.optional(Schema.Array(Schema.suspend(() => Models.CreativePortfolioCreateParamsPortfolioContent))),
+  }),
+  outputSchema: Models.CreativePortfolioCreateResponse,
+});
+
+export const tiktok_creativePortfolios_creativePortfolioDelete = defineEndpointDescriptor({
+  id: "tiktok.creativePortfolios.creativePortfolioDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/portfolio/delete/",
+  summary: "Delete portfolios",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativePortfolios.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"creative_portfolio_ids","wireName":"creative_portfolio_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    creative_portfolio_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.CreativePortfolioDeleteResponse,
+});
+
+export const tiktok_creativePortfolios_creativePortfolioGet = defineEndpointDescriptor({
+  id: "tiktok.creativePortfolios.creativePortfolioGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative/portfolio/get/",
+  summary: "Get a portfolio by ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativePortfolios.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"creative_portfolio_id","wireName":"creative_portfolio_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    creative_portfolio_id: Schema.String,
+  }),
+  outputSchema: Models.CreativePortfolioGetResponse,
+});
+
+export const tiktok_creativePortfolios_creativePortfolioList = defineEndpointDescriptor({
+  id: "tiktok.creativePortfolios.creativePortfolioList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative/portfolio/list/",
+  summary: "Get portfolios within an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativePortfolios.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.CreativePortfolioListParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CreativePortfolioListResponse,
+});
+
+export const tiktok_creativeTools_creativeQuickOptimizationCreate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeQuickOptimizationCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/quick_optimization/create/",
+  summary: "(Deprecated) Create a Quick Optimization task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"logo","wireName":"logo","location":"body","required":false,"nullable":false},
+    {"name":"title","wireName":"title","location":"body","required":false,"nullable":false},
+    {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
+    {"name":"callback_info","wireName":"callback_info","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    video_id: Schema.String,
+    logo: Schema.optional(Schema.String),
+    title: Schema.optional(Schema.String),
+    description: Schema.optional(Schema.String),
+    callback_info: Schema.optional(Models.CreativeQuickOptimizationCreateParamsCallbackInfo),
+  }),
+  outputSchema: Models.CreativeQuickOptimizationCreateResponse,
+});
+
+export const tiktok_creativeTools_creativeSmartTextGenerate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeSmartTextGenerate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/smart_text/generate/",
+  summary: "Get Smart Text recommendations",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"param_type","wireName":"param_type","location":"body","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"body","required":false,"nullable":false},
+    {"name":"industry_id","wireName":"industry_id","location":"body","required":false,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"body","required":false,"nullable":false},
+    {"name":"limit","wireName":"limit","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    param_type: Schema.optional(Schema.Union(Schema.Literal("RECOMMENDED"), Schema.Literal("CUSTOMIZED"))),
+    language: Schema.optional(Schema.Union(Schema.Literal("EN"), Schema.Literal("JA"), Schema.Literal("RU"), Schema.Literal("VI"))),
+    industry_id: Schema.optional(Schema.String),
+    keywords: Schema.optional(Schema.Array(Schema.String)),
+    limit: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CreativeSmartTextGenerateResponse,
+});
+
+export const tiktok_creativeTools_creativeSmartVideoCreate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeSmartVideoCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/smart_video/create/",
+  summary: "(Deprecated) Create a Smart Video task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"videos","wireName":"videos","location":"body","required":true,"nullable":false},
+    {"name":"images","wireName":"images","location":"body","required":true,"nullable":false},
+    {"name":"texts","wireName":"texts","location":"body","required":false,"nullable":false},
+    {"name":"layout","wireName":"layout","location":"body","required":true,"nullable":false},
+    {"name":"style","wireName":"style","location":"body","required":true,"nullable":false},
+    {"name":"music_id","wireName":"music_id","location":"body","required":false,"nullable":false},
+    {"name":"duration","wireName":"duration","location":"body","required":false,"nullable":false},
+    {"name":"frame","wireName":"frame","location":"body","required":false,"nullable":false},
+    {"name":"callback_info","wireName":"callback_info","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    videos: Schema.Array(Schema.suspend(() => Models.CreativeSmartVideoCreateParamsVideos)),
+    images: Schema.Array(Schema.suspend(() => Models.CreativeSmartVideoCreateParamsImages)),
+    texts: Schema.optional(Schema.Array(Schema.suspend(() => Models.CreativeSmartVideoCreateParamsTexts))),
+    layout: Schema.Union(Schema.Literal("VERTICAL"), Schema.Literal("HORIZONTAL")),
+    style: Schema.Union(Schema.Literal("PEACEFUL"), Schema.Literal("DYNAMIC"), Schema.Literal("CUSTOM")),
+    music_id: Schema.optional(Schema.String),
+    duration: Schema.optional(Schema.Number),
+    frame: Schema.optional(Schema.Array(Schema.suspend(() => Models.CreativeSmartVideoCreateParamsFrame))),
+    callback_info: Schema.optional(Models.CreativeSmartVideoCreateParamsCallbackInfo),
+  }),
+  outputSchema: Models.CreativeSmartVideoCreateResponse,
+});
+
+export const tiktok_creativeTools_creativeStatusGet = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeStatusGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/creative/status/get/",
+  summary: "(Deprecated) Get the status of a task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.CreativeStatusGetResponse,
+});
+
+export const tiktok_creativeTools_creativeVideoSoundtrackCreate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.creativeVideoSoundtrackCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/creative/video_soundtrack/create/",
+  summary: "(Deprecated) Create a Smart Video Soundtrack task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"music_ids","wireName":"music_ids","location":"body","required":false,"nullable":false},
+    {"name":"video_volume","wireName":"video_volume","location":"body","required":false,"nullable":false},
+    {"name":"music_volume","wireName":"music_volume","location":"body","required":false,"nullable":false},
+    {"name":"name_prefix","wireName":"name_prefix","location":"body","required":false,"nullable":false},
+    {"name":"callback_info","wireName":"callback_info","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    video_id: Schema.String,
+    music_ids: Schema.optional(Schema.Array(Schema.String)),
+    video_volume: Schema.optional(Schema.Number),
+    music_volume: Schema.optional(Schema.Number),
+    name_prefix: Schema.optional(Schema.String),
+    callback_info: Schema.optional(Models.CreativeVideoSoundtrackCreateParamsCallbackInfo),
+  }),
+  outputSchema: Models.CreativeVideoSoundtrackCreateResponse,
+});
+
+export const tiktok_events10_crmCreate = defineEndpointDescriptor({
+  id: "tiktok.events10.crmCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/crm/create/",
+  summary: "Create a CRM Event Set",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    name: Schema.String,
+  }),
+  outputSchema: Models.CrmCreateResponse,
+});
+
+export const tiktok_events10_crmList = defineEndpointDescriptor({
+  id: "tiktok.events10.crmList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/crm/list/",
+  summary: "Get CRM Event Sets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"query","required":false,"nullable":false},
+    {"name":"event_set_ids","wireName":"event_set_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    name: Schema.optional(Schema.String),
+    event_set_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.CrmListResponse,
+});
+
+export const tiktok_events10_ctmMessageEventSetGet = defineEndpointDescriptor({
+  id: "tiktok.events10.ctmMessageEventSetGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/ctm/message_event_set/get/",
+  summary: "Get the message event sets for ad creation",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"messaging_app_type","wireName":"messaging_app_type","location":"query","required":true,"nullable":false},
+    {"name":"messaging_app_account_id","wireName":"messaging_app_account_id","location":"query","required":true,"nullable":false},
+    {"name":"message_event_name","wireName":"message_event_name","location":"query","required":false,"nullable":false},
+    {"name":"message_event_set_ids","wireName":"message_event_set_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    messaging_app_type: Schema.Union(Schema.Literal("MESSENGER"), Schema.Literal("WHATSAPP"), Schema.Literal("ZALO")),
+    messaging_app_account_id: Schema.String,
+    message_event_name: Schema.optional(Schema.String),
+    message_event_set_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.CtmMessageEventSetGetResponse,
+});
+
+export const tiktok_customConversions_customConversionCreate = defineEndpointDescriptor({
+  id: "tiktok.customConversions.customConversionCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/custom_conversion/create/",
+  summary: "Create a Custom Conversion",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["customConversions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
+    {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
+    {"name":"event_source_type","wireName":"event_source_type","location":"body","required":true,"nullable":false},
+    {"name":"event_source_id","wireName":"event_source_id","location":"body","required":true,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"custom_event_type","wireName":"custom_event_type","location":"body","required":false,"nullable":false},
+    {"name":"rules","wireName":"rules","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    name: Schema.String,
+    description: Schema.optional(Schema.String),
+    event_source_type: Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("APP")),
+    event_source_id: Schema.String,
+    optimization_event: Schema.optional(Schema.String),
+    custom_event_type: Schema.optional(Schema.String),
+    rules: Schema.Array(Schema.suspend(() => Models.CustomConversionCreateParamsRules)),
+  }),
+  outputSchema: Models.CustomConversionCreateResponse,
+});
+
+export const tiktok_customConversions_customConversionDelete = defineEndpointDescriptor({
+  id: "tiktok.customConversions.customConversionDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/custom_conversion/delete/",
+  summary: "Delete a Custom Conversion",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["customConversions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_conversion_id: Schema.String,
+  }),
+  outputSchema: Models.CustomConversionDeleteResponse,
+});
+
+export const tiktok_customConversions_customConversionGet = defineEndpointDescriptor({
+  id: "tiktok.customConversions.customConversionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/custom_conversion/get/",
+  summary: "Get the details of a Custom Conversion",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["customConversions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"query","required":true,"nullable":false},
+    {"name":"event_source_type","wireName":"event_source_type","location":"query","required":true,"nullable":false},
+    {"name":"event_source_id","wireName":"event_source_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_conversion_id: Schema.String,
+    event_source_type: Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("APP")),
+    event_source_id: Schema.String,
+  }),
+  outputSchema: Models.CustomConversionGetResponse,
+});
+
+export const tiktok_customConversions_customConversionList = defineEndpointDescriptor({
+  id: "tiktok.customConversions.customConversionList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/custom_conversion/list/",
+  summary: "Get Custom Conversions associated with an event source",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["customConversions.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"event_source_type","wireName":"event_source_type","location":"query","required":true,"nullable":false},
+    {"name":"event_source_id","wireName":"event_source_id","location":"query","required":true,"nullable":false},
+    {"name":"search_keyword","wireName":"search_keyword","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    event_source_type: Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("APP")),
+    event_source_id: Schema.String,
+    search_keyword: Schema.optional(Schema.String),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("TOTAL_COUNT"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("DESC"), Schema.Literal("ASC"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.CustomConversionListResponse,
+});
+
+export const tiktok_customConversions_customConversionUpdate = defineEndpointDescriptor({
+  id: "tiktok.customConversions.customConversionUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/custom_conversion/update/",
+  summary: "Update a Custom Conversion",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["customConversions.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":false,"nullable":false},
+    {"name":"description","wireName":"description","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_conversion_id: Schema.String,
+    name: Schema.optional(Schema.String),
+    description: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.CustomConversionUpdateResponse,
+});
+
+export const tiktok_tools_deliveryBidRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.deliveryBidRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/delivery/bid/recommend/",
+  summary: "(To-be-deprecated) Get recommended bids",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.DeliveryBidRecommendResponse,
+});
+
+export const tiktok_tools_deliveryBudgetRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.deliveryBudgetRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/delivery/budget/recommend/",
+  summary: "(To-be-deprecated) Get recommended budgets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.DeliveryBudgetRecommendResponse,
+});
+
+export const tiktok_catalogDiagnostics_diagnosticCatalog = defineEndpointDescriptor({
+  id: "tiktok.catalogDiagnostics.diagnosticCatalog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/diagnostic/catalog/",
+  summary: "Get synchronous catalog product diagnostic information",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogDiagnostics.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    catalog_id: Schema.String,
+    bc_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+    filtering: Schema.optional(Models.DiagnosticCatalogParamsFiltering),
+    lang: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DiagnosticCatalogResponse,
+});
+
+export const tiktok_catalogDiagnostics_diagnosticCatalogEventsourceIssue = defineEndpointDescriptor({
+  id: "tiktok.catalogDiagnostics.diagnosticCatalogEventsourceIssue",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/diagnostic/catalog/eventsource/issue/",
+  summary: "Get catalog event source diagnostic information",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogDiagnostics.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"event_source_type","wireName":"event_source_type","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"query","required":false,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"query","required":false,"nullable":false},
+    {"name":"time_range","wireName":"time_range","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    event_source_type: Schema.Union(Schema.Literal("APP"), Schema.Literal("PIXEL")),
+    app_id: Schema.optional(Schema.String),
+    pixel_code: Schema.optional(Schema.String),
+    event_type: Schema.optional(Schema.Union(Schema.Literal("VIEW_CONTENT"), Schema.Literal("ADD_TO_CART"), Schema.Literal("PURCHASE"))),
+    time_range: Schema.optional(Schema.Union(Schema.Literal("YESTERDAY"), Schema.Literal("LAST_7_DAYS"), Schema.Literal("LAST_30_DAYS"))),
+  }),
+  outputSchema: Models.DiagnosticCatalogEventsourceIssueResponse,
+});
+
+export const tiktok_catalogDiagnostics_diagnosticCatalogEventsourceMetric = defineEndpointDescriptor({
+  id: "tiktok.catalogDiagnostics.diagnosticCatalogEventsourceMetric",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/diagnostic/catalog/eventsource/metric/",
+  summary: "Get catalog event trends and match rate",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogDiagnostics.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"event_source_type","wireName":"event_source_type","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
+    {"name":"pixel_code","wireName":"pixel_code","location":"query","required":false,"nullable":false},
+    {"name":"event_type","wireName":"event_type","location":"query","required":false,"nullable":false},
+    {"name":"time_range","wireName":"time_range","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    catalog_id: Schema.String,
+    event_source_type: Schema.Union(Schema.Literal("APP"), Schema.Literal("PIXEL")),
+    app_id: Schema.optional(Schema.String),
+    pixel_code: Schema.optional(Schema.String),
+    event_type: Schema.optional(Schema.Union(Schema.Literal("VIEW_CONTENT"), Schema.Literal("ADD_TO_CART"), Schema.Literal("PURCHASE"))),
+    time_range: Schema.optional(Schema.Union(Schema.Literal("YESTERDAY"), Schema.Literal("LAST_7_DAYS"), Schema.Literal("LAST_30_DAYS"))),
+  }),
+  outputSchema: Models.DiagnosticCatalogEventsourceMetricResponse,
+});
+
+export const tiktok_catalogDiagnostics_diagnosticCatalogProductTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.catalogDiagnostics.diagnosticCatalogProductTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/diagnostic/catalog/product/task/create/",
+  summary: "Create an asynchronous download task for catalog product diagnostic information",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["catalogDiagnostics.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
+    {"name":"feed_id","wireName":"feed_id","location":"body","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false},
+    {"name":"issue_id","wireName":"issue_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    catalog_id: Schema.String,
+    bc_id: Schema.String,
+    feed_id: Schema.optional(Schema.String),
+    lang: Schema.optional(Schema.String),
+    issue_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DiagnosticCatalogProductTaskCreateResponse,
+});
+
+export const tiktok_catalogDiagnostics_diagnosticCatalogProductTaskGet = defineEndpointDescriptor({
+  id: "tiktok.catalogDiagnostics.diagnosticCatalogProductTaskGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/diagnostic/catalog/product/task/get/",
+  summary: "Download asynchronous catalog product diagnostic information",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["catalogDiagnostics.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    catalog_id: Schema.String,
+    bc_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.DiagnosticCatalogProductTaskGetResponse,
+});
+
+export const tiktok_discovery_discoveryCmlTrendingList = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryCmlTrendingList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/cml/trending_list/",
+  summary: "Get popular tracks from the Commercial Music Library",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"genre","wireName":"genre","location":"query","required":false,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":false,"nullable":false},
+    {"name":"date_range","wireName":"date_range","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    genre: Schema.optional(Schema.String),
+    country_code: Schema.optional(Schema.String),
+    date_range: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DiscoveryCmlTrendingListResponse,
+});
+
+export const tiktok_discovery_discoveryCmlVideoList = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryCmlVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/cml/video_list/",
+  summary: "Get trending videos related to tracks",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"commercial_music_id","wireName":"commercial_music_id","location":"query","required":true,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    commercial_music_id: Schema.String,
+    country_code: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DiscoveryCmlVideoListResponse,
+});
+
+export const tiktok_discovery_discoveryDetail = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryDetail",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/detail/",
+  summary: "Get details of a popular hashtag",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
+    {"name":"hashtag_id","wireName":"hashtag_id","location":"query","required":true,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":true,"nullable":false},
+    {"name":"date_range","wireName":"date_range","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    discovery_type: Schema.String,
+    hashtag_id: Schema.String,
+    country_code: Schema.String,
+    date_range: Schema.String,
+  }),
+  outputSchema: Models.DiscoveryDetailResponse,
+});
+
+export const tiktok_discovery_discoveryTrendingList = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryTrendingList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/trending_list/",
+  summary: "Get popular hashtags",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":false,"nullable":false},
+    {"name":"category_name","wireName":"category_name","location":"query","required":false,"nullable":false},
+    {"name":"date_range","wireName":"date_range","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    discovery_type: Schema.String,
+    country_code: Schema.optional(Schema.String),
+    category_name: Schema.optional(Schema.String),
+    date_range: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DiscoveryTrendingListResponse,
+});
+
+export const tiktok_discovery_discoveryTrendingSearch = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryTrendingSearch",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/trending/search/",
+  summary: "Get trending search keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"is_personalized","wireName":"is_personalized","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    is_personalized: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.DiscoveryTrendingSearchResponse,
+});
+
+export const tiktok_discovery_discoveryTrendingSearchKeyword = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryTrendingSearchKeyword",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/trending/search/keyword/",
+  summary: "Get recommended search keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
+    {"name":"query","wireName":"query","location":"query","required":true,"nullable":false},
+    {"name":"is_personalized","wireName":"is_personalized","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    business_id: Schema.String,
+    query: Schema.String,
+    is_personalized: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.DiscoveryTrendingSearchKeywordResponse,
+});
+
+export const tiktok_discovery_discoveryVideoList = defineEndpointDescriptor({
+  id: "tiktok.discovery.discoveryVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/discovery/video_list/",
+  summary: "Get trending videos related to hashtags",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["discovery.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
+    {"name":"hashtag_ids","wireName":"hashtag_ids","location":"query","required":true,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":false,"nullable":false},
+    {"name":"date_range","wireName":"date_range","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    discovery_type: Schema.String,
+    hashtag_ids: Schema.Array(Schema.String),
+    country_code: Schema.optional(Schema.String),
+    date_range: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DiscoveryVideoListResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceApply = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceApply",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/apply/",
+  summary: "Apply audiences to ad groups",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false},
+    {"name":"action_mode","wireName":"action_mode","location":"body","required":true,"nullable":false},
+    {"name":"usage_mode","wireName":"usage_mode","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+    action_mode: Schema.String,
+    usage_mode: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DmpCustomAudienceApplyResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceApplyLog = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceApplyLog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dmp/custom_audience/apply/log/",
+  summary: "Get the application log of audiences ",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"timezone","wireName":"timezone","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_ids: Schema.Array(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    timezone: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DmpCustomAudienceApplyLogResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceCreate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/create/",
+  summary: "Create an audience by file",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
+    {"name":"audience_sub_type","wireName":"audience_sub_type","location":"body","required":false,"nullable":false},
+    {"name":"file_paths","wireName":"file_paths","location":"body","required":true,"nullable":false},
+    {"name":"calculate_type","wireName":"calculate_type","location":"body","required":true,"nullable":false},
+    {"name":"retention_in_days","wireName":"retention_in_days","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_name: Schema.String,
+    audience_sub_type: Schema.optional(Schema.Union(Schema.Literal("NORMAL"), Schema.Literal("REACH_FREQUENCY"))),
+    file_paths: Schema.Array(Schema.String),
+    calculate_type: Schema.String,
+    retention_in_days: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DmpCustomAudienceCreateResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceDelete = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/delete/",
+  summary: "Delete audiences",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.DmpCustomAudienceDeleteResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceFileUpload = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceFileUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/file/upload/",
+  summary: "Upload an audience file",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":true,"nullable":false},
+    {"name":"file_signature","wireName":"file_signature","location":"body","required":true,"nullable":false},
+    {"name":"calculate_type","wireName":"calculate_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    file: Schema.Unknown,
+    file_signature: Schema.String,
+    calculate_type: Schema.String,
+  }),
+  outputSchema: Models.DmpCustomAudienceFileUploadResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceGet = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dmp/custom_audience/get/",
+  summary: "Get audience details",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":true,"nullable":false},
+    {"name":"history_size","wireName":"history_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_ids: Schema.Array(Schema.String),
+    history_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DmpCustomAudienceGetResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceList = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dmp/custom_audience/list/",
+  summary: "Get all audiences",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DmpCustomAudienceListResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceLookalikeCreate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceLookalikeCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/lookalike/create/",
+  summary: "Create a lookalike audience",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
+    {"name":"audience_sub_type","wireName":"audience_sub_type","location":"body","required":false,"nullable":false},
+    {"name":"lookalike_spec","wireName":"lookalike_spec","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_name: Schema.String,
+    audience_sub_type: Schema.optional(Schema.Union(Schema.Literal("NORMAL"), Schema.Literal("REACH_FREQUENCY"))),
+    lookalike_spec: Models.DmpCustomAudienceLookalikeCreateParamsLookalikeSpec,
+  }),
+  outputSchema: Models.DmpCustomAudienceLookalikeCreateResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceLookalikeUpdate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceLookalikeUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/lookalike/update/",
+  summary: "Refresh a lookalike audience ",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.DmpCustomAudienceLookalikeUpdateResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceRuleCreate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceRuleCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/rule/create/",
+  summary: "Create an audience by rule",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
+    {"name":"audience_type","wireName":"audience_type","location":"body","required":true,"nullable":false},
+    {"name":"audience_sub_type","wireName":"audience_sub_type","location":"body","required":false,"nullable":false},
+    {"name":"retention_in_days","wireName":"retention_in_days","location":"body","required":false,"nullable":false},
+    {"name":"is_auto_refresh","wireName":"is_auto_refresh","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":false,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"rule_spec","wireName":"rule_spec","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_name: Schema.String,
+    audience_type: Schema.Union(Schema.Literal("ENGAGEMENT"), Schema.Literal("ENGAGEMENT_ORGANIC_VIDEO"), Schema.Literal("ENGAGEMENT_LIVE_VIDEO"), Schema.Literal("APP"), Schema.Literal("PIXEL"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("BUSINESS_ACCOUNT"), Schema.Literal("TIKTOK_SHOP"), Schema.Literal("OFFLINE")),
+    audience_sub_type: Schema.optional(Schema.Union(Schema.Literal("NORMAL"), Schema.Literal("REACH_FREQUENCY"))),
+    retention_in_days: Schema.optional(Schema.Number),
+    is_auto_refresh: Schema.optional(Schema.Boolean),
+    identity_id: Schema.optional(Schema.String),
+    identity_type: Schema.optional(Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT"))),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    rule_spec: Models.DmpCustomAudienceRuleCreateParamsRuleSpec,
+  }),
+  outputSchema: Models.DmpCustomAudienceRuleCreateResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceShare = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceShare",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/share/",
+  summary: "Share audiences",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false},
+    {"name":"shared_advertiser_ids","wireName":"shared_advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    custom_audience_ids: Schema.Array(Schema.String),
+    shared_advertiser_ids: Schema.Array(Schema.String),
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.DmpCustomAudienceShareResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceShareCancel = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceShareCancel",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/share/cancel/",
+  summary: "Cancel the sharing of an audience",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
+    {"name":"shared_advertiser_id","wireName":"shared_advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    custom_audience_id: Schema.String,
+    shared_advertiser_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.DmpCustomAudienceShareCancelResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceShareLog = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceShareLog",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dmp/custom_audience/share/log/",
+  summary: "Get the sharing log of an audience",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"custom_audience_id","wireName":"custom_audience_id","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    custom_audience_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.DmpCustomAudienceShareLogResponse,
+});
+
+export const tiktok_audience_dmpCustomAudienceUpdate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpCustomAudienceUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/custom_audience/update/",
+  summary: "Update an audience",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":false,"nullable":false},
+    {"name":"audience_sub_type","wireName":"audience_sub_type","location":"body","required":false,"nullable":false},
+    {"name":"file_paths","wireName":"file_paths","location":"body","required":false,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    custom_audience_id: Schema.String,
+    custom_audience_name: Schema.optional(Schema.String),
+    audience_sub_type: Schema.optional(Schema.Union(Schema.Literal("REACH_FREQUENCY"), Schema.Literal("NORMAL"))),
+    file_paths: Schema.optional(Schema.Array(Schema.String)),
+    action: Schema.optional(Schema.Union(Schema.Literal("APPEND"), Schema.Literal("REMOVE"), Schema.Literal("REPLACE"))),
+  }),
+  outputSchema: Models.DmpCustomAudienceUpdateResponse,
+});
+
+export const tiktok_audience_dmpSavedAudienceCreate = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpSavedAudienceCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/saved_audience/create/",
+  summary: "Create a Saved Audience",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"saved_audience_name","wireName":"saved_audience_name","location":"body","required":true,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":true,"nullable":false},
+    {"name":"gender","wireName":"gender","location":"body","required":false,"nullable":false},
+    {"name":"age_groups","wireName":"age_groups","location":"body","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"excluded_audience_ids","wireName":"excluded_audience_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_category_ids","wireName":"interest_category_ids","location":"body","required":false,"nullable":false},
+    {"name":"interest_keyword_ids","wireName":"interest_keyword_ids","location":"body","required":false,"nullable":false},
+    {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
+    {"name":"operating_systems","wireName":"operating_systems","location":"body","required":false,"nullable":false},
+    {"name":"min_android_version","wireName":"min_android_version","location":"body","required":false,"nullable":false},
+    {"name":"min_ios_version","wireName":"min_ios_version","location":"body","required":false,"nullable":false},
+    {"name":"device_model_ids","wireName":"device_model_ids","location":"body","required":false,"nullable":false},
+    {"name":"network_types","wireName":"network_types","location":"body","required":false,"nullable":false},
+    {"name":"carrier_ids","wireName":"carrier_ids","location":"body","required":false,"nullable":false},
+    {"name":"device_price_ranges","wireName":"device_price_ranges","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    saved_audience_name: Schema.String,
+    location_ids: Schema.Array(Schema.String),
+    gender: Schema.optional(Schema.Union(Schema.Literal("GENDER_FEMALE"), Schema.Literal("GENDER_MALE"), Schema.Literal("GENDER_UNLIMITED"))),
+    age_groups: Schema.optional(Schema.Array(Schema.String)),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    excluded_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_category_ids: Schema.optional(Schema.Array(Schema.String)),
+    interest_keyword_ids: Schema.optional(Schema.Array(Schema.String)),
+    actions: Schema.optional(Schema.Array(Schema.suspend(() => Models.DmpSavedAudienceCreateParamsActions))),
+    operating_systems: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS")))),
+    min_android_version: Schema.optional(Schema.String),
+    min_ios_version: Schema.optional(Schema.String),
+    device_model_ids: Schema.optional(Schema.Array(Schema.String)),
+    network_types: Schema.optional(Schema.Array(Schema.String)),
+    carrier_ids: Schema.optional(Schema.Array(Schema.String)),
+    device_price_ranges: Schema.optional(Schema.Array(Schema.Number)),
+  }),
+  outputSchema: Models.DmpSavedAudienceCreateResponse,
+});
+
+export const tiktok_audience_dmpSavedAudienceDelete = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpSavedAudienceDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dmp/saved_audience/delete/",
+  summary: "Delete Saved Audiences",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"saved_audience_ids","wireName":"saved_audience_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    saved_audience_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.DmpSavedAudienceDeleteResponse,
+});
+
+export const tiktok_audience_dmpSavedAudienceList = defineEndpointDescriptor({
+  id: "tiktok.audience.dmpSavedAudienceList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dmp/saved_audience/list/",
+  summary: "Get details of Saved Audiences",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["audience.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"saved_audience_ids","wireName":"saved_audience_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    saved_audience_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.DmpSavedAudienceListResponse,
+});
+
+export const tiktok_deprecatedDynamicScene_dynamicSceneGet = defineEndpointDescriptor({
+  id: "tiktok.deprecatedDynamicScene.dynamicSceneGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dynamic_scene/get/",
+  summary: "(Deprecated) Get all videos",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["deprecatedDynamicScene.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"material_package_id","wireName":"material_package_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    material_package_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DynamicSceneGetResponse,
+});
+
+export const tiktok_deprecatedDynamicScene_dynamicSceneMaterialSubmit = defineEndpointDescriptor({
+  id: "tiktok.deprecatedDynamicScene.dynamicSceneMaterialSubmit",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dynamic_scene/material/submit/",
+  summary: "(Deprecated) Submit materials",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["deprecatedDynamicScene.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"slots","wireName":"slots","location":"body","required":true,"nullable":false},
+    {"name":"auto_soundtrack","wireName":"auto_soundtrack","location":"body","required":false,"nullable":false},
+    {"name":"music_ids","wireName":"music_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    slots: Schema.Array(Schema.suspend(() => Models.DynamicSceneMaterialSubmitParamsSlots)),
+    auto_soundtrack: Schema.optional(Schema.Boolean),
+    music_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.DynamicSceneMaterialSubmitResponse,
+});
+
+export const tiktok_deprecatedDynamicScene_dynamicSceneReportGet = defineEndpointDescriptor({
+  id: "tiktok.deprecatedDynamicScene.dynamicSceneReportGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dynamic_scene/report/get/",
+  summary: "(Deprecated) Run a report",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["deprecatedDynamicScene.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"data_level","wireName":"data_level","location":"query","required":true,"nullable":false},
+    {"name":"input_ids","wireName":"input_ids","location":"query","required":true,"nullable":false},
+    {"name":"dimensions","wireName":"dimensions","location":"query","required":true,"nullable":false},
+    {"name":"metrics","wireName":"metrics","location":"query","required":false,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"query","required":false,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
+    {"name":"order_field","wireName":"order_field","location":"query","required":false,"nullable":false},
+    {"name":"order_type","wireName":"order_type","location":"query","required":false,"nullable":false},
+    {"name":"filters","wireName":"filters","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    data_level: Schema.String,
+    input_ids: Schema.Array(Schema.String),
+    dimensions: Schema.Array(Schema.String),
+    metrics: Schema.optional(Schema.Array(Schema.String)),
+    start_time: Schema.optional(Schema.String),
+    end_time: Schema.optional(Schema.String),
+    order_field: Schema.optional(Schema.String),
+    order_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    filters: Schema.optional(Schema.Array(Schema.suspend(() => Models.DynamicSceneReportGetParamsFilters))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.DynamicSceneReportGetResponse,
+});
+
+export const tiktok_deprecatedDynamicScene_dynamicSceneTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.deprecatedDynamicScene.dynamicSceneTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/dynamic_scene/task/create/",
+  summary: "(Deprecated) Create an async task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["deprecatedDynamicScene.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"material_package_id","wireName":"material_package_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    material_package_id: Schema.String,
+  }),
+  outputSchema: Models.DynamicSceneTaskCreateResponse,
+});
+
+export const tiktok_deprecatedDynamicScene_dynamicSceneTaskGet = defineEndpointDescriptor({
+  id: "tiktok.deprecatedDynamicScene.dynamicSceneTaskGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/dynamic_scene/task/get/",
+  summary: "(Deprecated) Get the results of an async task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["deprecatedDynamicScene.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.DynamicSceneTaskGetResponse,
+});
+
+export const tiktok_events20_eventTrack = defineEndpointDescriptor({
+  id: "tiktok.events20.eventTrack",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/event/track/",
+  summary: "Report App, Web, Offline, or CRM Events",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events20.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"event_source","wireName":"event_source","location":"body","required":true,"nullable":false},
+    {"name":"event_source_id","wireName":"event_source_id","location":"body","required":true,"nullable":false},
+    {"name":"data","wireName":"data","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    event_source: Schema.String,
+    event_source_id: Schema.String,
+    data: Schema.Array(Schema.suspend(() => Models.EventTrackParamsData)),
+  }),
+  outputSchema: Models.EventTrackResponse,
+});
+
+export const tiktok_files_fileFinishUpload = defineEndpointDescriptor({
+  id: "tiktok.files.fileFinishUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/finish/upload/",
+  summary: "Finish a chunk upload task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["files.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"upload_id","wireName":"upload_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    upload_id: Schema.String,
+  }),
+  outputSchema: Models.FileFinishUploadResponse,
+});
+
+export const tiktok_images_fileImageAdInfo = defineEndpointDescriptor({
+  id: "tiktok.images.fileImageAdInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/image/ad/info/",
+  summary: "Get info about images",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["images.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"image_ids","wireName":"image_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    image_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.FileImageAdInfoResponse,
+});
+
+export const tiktok_images_fileImageAdSearch = defineEndpointDescriptor({
+  id: "tiktok.images.fileImageAdSearch",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/image/ad/search/",
+  summary: "Search for images",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["images.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.FileImageAdSearchParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.FileImageAdSearchResponse,
+});
+
+export const tiktok_images_fileImageAdUpdate = defineEndpointDescriptor({
+  id: "tiktok.images.fileImageAdUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/image/ad/update/",
+  summary: "Update the name of an image",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["images.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":true,"nullable":false},
+    {"name":"image_id","wireName":"image_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    file_name: Schema.String,
+    image_id: Schema.String,
+  }),
+  outputSchema: Models.FileImageAdUpdateResponse,
+});
+
+export const tiktok_images_fileImageAdUpload = defineEndpointDescriptor({
+  id: "tiktok.images.fileImageAdUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/image/ad/upload/",
+  summary: "Upload an image",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["images.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"body","required":true,"nullable":false},
+    {"name":"image_file","wireName":"image_file","location":"body","required":false,"nullable":false},
+    {"name":"image_signature","wireName":"image_signature","location":"body","required":false,"nullable":false},
+    {"name":"image_url","wireName":"image_url","location":"body","required":false,"nullable":false},
+    {"name":"file_id","wireName":"file_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    file_name: Schema.optional(Schema.String),
+    upload_type: Schema.Union(Schema.Literal("UPLOAD_BY_FILE"), Schema.Literal("UPLOAD_BY_URL"), Schema.Literal("UPLOAD_BY_FILE_ID")),
+    image_file: Schema.optional(Schema.Unknown),
+    image_signature: Schema.optional(Schema.String),
+    image_url: Schema.optional(Schema.String),
+    file_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.FileImageAdUploadResponse,
+});
+
+export const tiktok_music_fileMusicGet = defineEndpointDescriptor({
+  id: "tiktok.music.fileMusicGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/music/get/",
+  summary: "Get the music list",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["music.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"music_scene","wireName":"music_scene","location":"query","required":false,"nullable":false},
+    {"name":"search_type","wireName":"search_type","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    music_scene: Schema.optional(Schema.Union(Schema.Literal("CREATIVE_ASSET"), Schema.Literal("CAROUSEL_ADS"), Schema.Literal("CATALOG_CAROUSEL"))),
+    search_type: Schema.optional(Schema.Union(Schema.Literal("SEARCH_BY_KEYWORD"), Schema.Literal("SEARCH_BY_RECOMMEND"))),
+    filtering: Schema.optional(Models.FileMusicGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.FileMusicGetResponse,
+});
+
+export const tiktok_music_fileMusicUpload = defineEndpointDescriptor({
+  id: "tiktok.music.fileMusicUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/music/upload/",
+  summary: "Upload a piece of music",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["music.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"music_scene","wireName":"music_scene","location":"body","required":false,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"body","required":false,"nullable":false},
+    {"name":"material_action","wireName":"material_action","location":"body","required":false,"nullable":false},
+    {"name":"music_file","wireName":"music_file","location":"body","required":false,"nullable":false},
+    {"name":"music_signature","wireName":"music_signature","location":"body","required":false,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
+    {"name":"file_id","wireName":"file_id","location":"body","required":false,"nullable":false},
+    {"name":"material_id","wireName":"material_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    music_scene: Schema.optional(Schema.Union(Schema.Literal("CREATIVE_ASSET"), Schema.Literal("CAROUSEL_ADS"), Schema.Literal("CATALOG_CAROUSEL"))),
+    upload_type: Schema.optional(Schema.Union(Schema.Literal("UPLOAD_BY_FILE"), Schema.Literal("UPLOAD_BY_FILE_ID"))),
+    material_action: Schema.optional(Schema.Union(Schema.Literal("ADD_TO_LIKED"), Schema.Literal("ADD_TO_HISTORY"), Schema.Literal("REMOVE_FROM_LIKED"))),
+    music_file: Schema.optional(Schema.Unknown),
+    music_signature: Schema.optional(Schema.String),
+    file_name: Schema.optional(Schema.String),
+    file_id: Schema.optional(Schema.String),
+    material_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.FileMusicUploadResponse,
+});
+
+export const tiktok_files_fileNameCheck = defineEndpointDescriptor({
+  id: "tiktok.files.fileNameCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/name/check/",
+  summary: "Check the names of files",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["files.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"files","wireName":"files","location":"query","required":false,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"query","required":false,"nullable":false},
+    {"name":"file_type","wireName":"file_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    files: Schema.optional(Schema.Array(Schema.suspend(() => Models.FileNameCheckParamsFiles))),
+    file_name: Schema.optional(Schema.String),
+    file_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("IMAGE"))),
+  }),
+  outputSchema: Models.FileNameCheckResponse,
+});
+
+export const tiktok_files_fileStartUpload = defineEndpointDescriptor({
+  id: "tiktok.files.fileStartUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/start/upload/",
+  summary: "Start a file chunk upload task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["files.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"size","wireName":"size","location":"body","required":true,"nullable":false},
+    {"name":"content_type","wireName":"content_type","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    size: Schema.Number,
+    content_type: Schema.String,
+    name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.FileStartUploadResponse,
+});
+
+export const tiktok_files_fileTemporarilyUpload = defineEndpointDescriptor({
+  id: "tiktok.files.fileTemporarilyUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/temporarily/upload/",
+  summary: "Upload a file",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["files.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"body","required":true,"nullable":false},
+    {"name":"content_type","wireName":"content_type","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":false,"nullable":false},
+    {"name":"url","wireName":"url","location":"body","required":false,"nullable":false},
+    {"name":"signature","wireName":"signature","location":"body","required":false,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    upload_type: Schema.Union(Schema.Literal("FILE"), Schema.Literal("URL")),
+    content_type: Schema.String,
+    file: Schema.optional(Schema.Unknown),
+    url: Schema.optional(Schema.String),
+    signature: Schema.optional(Schema.String),
+    name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.FileTemporarilyUploadResponse,
+});
+
+export const tiktok_files_fileTransferUpload = defineEndpointDescriptor({
+  id: "tiktok.files.fileTransferUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/transfer/upload/",
+  summary: "Transfer a file chunk",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["files.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"upload_id","wireName":"upload_id","location":"body","required":true,"nullable":false},
+    {"name":"signature","wireName":"signature","location":"body","required":true,"nullable":false},
+    {"name":"start_offset","wireName":"start_offset","location":"body","required":true,"nullable":false},
+    {"name":"file","wireName":"file","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    upload_id: Schema.String,
+    signature: Schema.String,
+    start_offset: Schema.Number,
+    file: Schema.Unknown,
+  }),
+  outputSchema: Models.FileTransferUploadResponse,
+});
+
+export const tiktok_video_fileVideoAdInfo = defineEndpointDescriptor({
+  id: "tiktok.video.fileVideoAdInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/video/ad/info/",
+  summary: "Get info about videos",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["video.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    video_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.FileVideoAdInfoResponse,
+});
+
+export const tiktok_video_fileVideoAdSearch = defineEndpointDescriptor({
+  id: "tiktok.video.fileVideoAdSearch",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/video/ad/search/",
+  summary: "Search for videos",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["video.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.FileVideoAdSearchParamsFiltering),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("CREATE_TIME"), Schema.Literal("MODIFY_TIME"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.FileVideoAdSearchResponse,
+});
+
+export const tiktok_video_fileVideoAdUpdate = defineEndpointDescriptor({
+  id: "tiktok.video.fileVideoAdUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/video/ad/update/",
+  summary: "Update the name of a video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["video.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    file_name: Schema.String,
+    video_id: Schema.String,
+  }),
+  outputSchema: Models.FileVideoAdUpdateResponse,
+});
+
+export const tiktok_video_fileVideoAdUpload = defineEndpointDescriptor({
+  id: "tiktok.video.fileVideoAdUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/file/video/ad/upload/",
+  summary: "Upload a video",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["video.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"body","required":false,"nullable":false},
+    {"name":"video_file","wireName":"video_file","location":"body","required":false,"nullable":false},
+    {"name":"video_signature","wireName":"video_signature","location":"body","required":false,"nullable":false},
+    {"name":"video_url","wireName":"video_url","location":"body","required":false,"nullable":false},
+    {"name":"file_id","wireName":"file_id","location":"body","required":false,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":false,"nullable":false},
+    {"name":"is_third_party","wireName":"is_third_party","location":"body","required":false,"nullable":false},
+    {"name":"flaw_detect","wireName":"flaw_detect","location":"body","required":false,"nullable":false},
+    {"name":"auto_fix_enabled","wireName":"auto_fix_enabled","location":"body","required":false,"nullable":false},
+    {"name":"auto_bind_enabled","wireName":"auto_bind_enabled","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    file_name: Schema.optional(Schema.String),
+    upload_type: Schema.optional(Schema.Union(Schema.Literal("UPLOAD_BY_FILE"), Schema.Literal("UPLOAD_BY_URL"), Schema.Literal("UPLOAD_BY_FILE_ID"), Schema.Literal("UPLOAD_BY_VIDEO_ID"))),
+    video_file: Schema.optional(Schema.Unknown),
+    video_signature: Schema.optional(Schema.String),
+    video_url: Schema.optional(Schema.String),
+    file_id: Schema.optional(Schema.String),
+    video_id: Schema.optional(Schema.String),
+    is_third_party: Schema.optional(Schema.Boolean),
+    flaw_detect: Schema.optional(Schema.Boolean),
+    auto_fix_enabled: Schema.optional(Schema.Boolean),
+    auto_bind_enabled: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.FileVideoAdUploadResponse,
+});
+
+export const tiktok_video_fileVideoSuggestcover = defineEndpointDescriptor({
+  id: "tiktok.video.fileVideoSuggestcover",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/file/video/suggestcover/",
+  summary: "Get suggested thumbnails for a video",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["video.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
+    {"name":"poster_number","wireName":"poster_number","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    video_id: Schema.String,
+    poster_number: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.FileVideoSuggestcoverResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxBidRecommend = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxBidRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/bid/recommend/",
+  summary: "Get the recommended GMV Max ROI target and budget",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"shopping_ads_type","wireName":"shopping_ads_type","location":"query","required":true,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":true,"nullable":false},
+    {"name":"item_group_ids","wireName":"item_group_ids","location":"query","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    shopping_ads_type: Schema.Union(Schema.Literal("PRODUCT"), Schema.Literal("LIVE")),
+    optimization_goal: Schema.String,
+    item_group_ids: Schema.optional(Schema.Array(Schema.String)),
+    identity_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.GmvMaxBidRecommendResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCampaignGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCampaignGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/campaign/get/",
+  summary: "Get GMV Max Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Models.GmvMaxCampaignGetParamsFiltering,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.GmvMaxCampaignGetResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListCreate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/create/",
+  summary: "Create shop-level customized TikTok posts",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_anchor_video_list","wireName":"custom_anchor_video_list","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    custom_anchor_video_list: Schema.Array(Schema.suspend(() => Models.GmvMaxCreationCustomAnchorVideoListCreateParamsCustomAnchorVideoList)),
+  }),
+  outputSchema: Models.GmvMaxCreationCustomAnchorVideoListCreateResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListDelete = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/delete/",
+  summary: "Delete customized TikTok posts",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"custom_anchor_video_list","wireName":"custom_anchor_video_list","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    custom_anchor_video_list: Schema.Array(Schema.suspend(() => Models.GmvMaxCreationCustomAnchorVideoListDeleteParamsCustomAnchorVideoList)),
+    campaign_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.GmvMaxCreationCustomAnchorVideoListDeleteResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCreationCustomAnchorVideoListGet",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/gmv_max/creation/custom_anchor_video_list/get/",
+  summary: "Get customized TikTok posts",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"creative_source","wireName":"creative_source","location":"body","required":true,"nullable":false},
+    {"name":"spu_id_list","wireName":"spu_id_list","location":"body","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"body","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"body","required":false,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"body","required":false,"nullable":false},
+    {"name":"need_auth_code_video","wireName":"need_auth_code_video","location":"body","required":false,"nullable":false},
+    {"name":"identity_list","wireName":"identity_list","location":"body","required":false,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"body","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    creative_source: Schema.String,
+    spu_id_list: Schema.optional(Schema.Array(Schema.String)),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("GMV"), Schema.Literal("POST_TIME"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("VIDEO_LIKES"), Schema.Literal("CLICK_THROUGH_RATE"), Schema.Literal("PRODUCT_CLICKS"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    keyword: Schema.optional(Schema.String),
+    need_auth_code_video: Schema.optional(Schema.Boolean),
+    identity_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.GmvMaxCreationCustomAnchorVideoListGetParamsIdentityList))),
+    campaign_id: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.GmvMaxCreationCustomAnchorVideoListGetResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCreationShopVideoVideoAnchors = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCreationShopVideoVideoAnchors",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/gmv_max/creation/shop_video/video_anchors/",
+  summary: "Get product linkage details of videos in customized posts",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"item_ids","wireName":"item_ids","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    item_ids: Schema.Array(Schema.String),
+    campaign_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.GmvMaxCreationShopVideoVideoAnchorsResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxCustomAnchorVideoListGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxCustomAnchorVideoListGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/custom_anchor_video_list/get/",
+  summary: "(To be deprecated) Get details of videos in customized posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_custom_anchor_video_id","wireName":"campaign_custom_anchor_video_id","location":"query","required":true,"nullable":false},
+    {"name":"custom_anchor_video_list","wireName":"custom_anchor_video_list","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    campaign_custom_anchor_video_id: Schema.String,
+    custom_anchor_video_list: Schema.Array(Schema.suspend(() => Models.GmvMaxCustomAnchorVideoListGetParamsCustomAnchorVideoList)),
+  }),
+  outputSchema: Models.GmvMaxCustomAnchorVideoListGetResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxExclusiveAuthorizationCreate = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxExclusiveAuthorizationCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/gmv_max/exclusive_authorization/create/",
+  summary: "Grant an ad account exclusive authorization for a TikTok Shop",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.GmvMaxExclusiveAuthorizationCreateResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxExclusiveAuthorizationGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxExclusiveAuthorizationGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/exclusive_authorization/get/",
+  summary: "Get the TikTok Shop exclusive authorization status of an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.GmvMaxExclusiveAuthorizationGetResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxIdentityGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxIdentityGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/identity/get/",
+  summary: "Get identities for GMV Max Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+  }),
+  outputSchema: Models.GmvMaxIdentityGetResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxOccupiedCustomShopAdsList = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxOccupiedCustomShopAdsList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/occupied_custom_shop_ads/list/",
+  summary: "Check the occupancy of identities or products in Shopping Ads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"occupied_asset_type","wireName":"occupied_asset_type","location":"query","required":true,"nullable":false},
+    {"name":"asset_ids","wireName":"asset_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    occupied_asset_type: Schema.Union(Schema.Literal("IDENTITY_TT_USER"), Schema.Literal("TT_USER"), Schema.Literal("IDENTITY_BC_AUTH_TT"), Schema.Literal("BC_AUTH_TT"), Schema.Literal("IDENTITY_TTS_TT"), Schema.Literal("TTS_TT"), Schema.Literal("SPU")),
+    asset_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.GmvMaxOccupiedCustomShopAdsListResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxStoreList = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxStoreList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/store/list/",
+  summary: "Get TikTok Shops for GMV Max Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.GmvMaxStoreListResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxStoreShopAdUsageCheck = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxStoreShopAdUsageCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/store/shop_ad_usage_check/",
+  summary: "Check the availability of a TikTok Shop for Product GMV Max Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+  }),
+  outputSchema: Models.GmvMaxStoreShopAdUsageCheckResponse,
+});
+
+export const tiktok_gMVMax_gmvMaxVideoGet = defineEndpointDescriptor({
+  id: "tiktok.gMVMax.gmvMaxVideoGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/gmv_max/video/get/",
+  summary: "Get posts for a Product GMV Max Campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["gMVMax.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"query","required":true,"nullable":false},
+    {"name":"spu_id_list","wireName":"spu_id_list","location":"query","required":false,"nullable":false},
+    {"name":"custom_posts_eligible","wireName":"custom_posts_eligible","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"query","required":false,"nullable":false},
+    {"name":"need_auth_code_video","wireName":"need_auth_code_video","location":"query","required":false,"nullable":false},
+    {"name":"identity_list","wireName":"identity_list","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.String,
+    store_authorized_bc_id: Schema.String,
+    spu_id_list: Schema.optional(Schema.Array(Schema.String)),
+    custom_posts_eligible: Schema.optional(Schema.Boolean),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("GMV"), Schema.Literal("POST_TIME"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("VIDEO_LIKES"), Schema.Literal("CLICK_THROUGH_RATE"), Schema.Literal("PRODUCT_CLICKS"))),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    keyword: Schema.optional(Schema.String),
+    need_auth_code_video: Schema.optional(Schema.Boolean),
+    identity_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.GmvMaxVideoGetParamsIdentityList))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.GmvMaxVideoGetResponse,
+});
+
+export const tiktok_identity_identityCreate = defineEndpointDescriptor({
+  id: "tiktok.identity.identityCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/identity/create/",
+  summary: "Create an identity",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["identity.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"display_name","wireName":"display_name","location":"body","required":true,"nullable":false},
+    {"name":"image_uri","wireName":"image_uri","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    display_name: Schema.String,
+    image_uri: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.IdentityCreateResponse,
+});
+
+export const tiktok_identity_identityDelete = defineEndpointDescriptor({
+  id: "tiktok.identity.identityDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/identity/delete/",
+  summary: "Delete an identity",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["identity.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.String,
+  }),
+  outputSchema: Models.IdentityDeleteResponse,
+});
+
+export const tiktok_identity_identityGet = defineEndpointDescriptor({
+  id: "tiktok.identity.identityGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/get/",
+  summary: "Get the identity list",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":false,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_type: Schema.optional(Schema.Union(Schema.Literal("CUSTOMIZED_USER"), Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT"))),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    filtering: Schema.optional(Models.IdentityGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.IdentityGetResponse,
+});
+
+export const tiktok_identity_identityInfo = defineEndpointDescriptor({
+  id: "tiktok.identity.identityInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/info/",
+  summary: "Get info about an identity",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("CUSTOMIZED_USER"), Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.IdentityInfoResponse,
+});
+
+export const tiktok_identity_identityLiveGet = defineEndpointDescriptor({
+  id: "tiktok.identity.identityLiveGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/live/get/",
+  summary: "Get live videos under an identity",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    cursor: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.IdentityLiveGetResponse,
+});
+
+export const tiktok_identity_identityMusicAuthorization = defineEndpointDescriptor({
+  id: "tiktok.identity.identityMusicAuthorization",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/music/authorization/",
+  summary: "Get music authorization info of a video",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"locations","wireName":"locations","location":"query","required":true,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"query","required":true,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    item_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    locations: Schema.Array(Schema.String),
+    start_time: Schema.String,
+    end_time: Schema.String,
+  }),
+  outputSchema: Models.IdentityMusicAuthorizationResponse,
+});
+
+export const tiktok_tools_identityNativeSeriesGet = defineEndpointDescriptor({
+  id: "tiktok.tools.identityNativeSeriesGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/native_series/get/",
+  summary: "Get the available TikTok Series within an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"count","wireName":"count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    cursor: Schema.optional(Schema.Number),
+    count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.IdentityNativeSeriesGetResponse,
+});
+
+export const tiktok_identity_identityVideoGet = defineEndpointDescriptor({
+  id: "tiktok.identity.identityVideoGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/video/get/",
+  summary: "Get posts under an identity",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"item_type","wireName":"item_type","location":"query","required":false,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"query","required":false,"nullable":false},
+    {"name":"exclude_adsonly","wireName":"exclude_adsonly","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"count","wireName":"count","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    item_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("CAROUSEL"))),
+    keyword: Schema.optional(Schema.String),
+    exclude_adsonly: Schema.optional(Schema.Boolean),
+    cursor: Schema.optional(Schema.Number),
+    count: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.IdentityVideoGetResponse,
+});
+
+export const tiktok_identity_identityVideoInfo = defineEndpointDescriptor({
+  id: "tiktok.identity.identityVideoInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/identity/video/info/",
+  summary: "Get info about TikTok posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["identity.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"query","required":false,"nullable":false},
+    {"name":"item_ids","wireName":"item_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("AUTH_CODE"), Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_id: Schema.String,
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    item_id: Schema.optional(Schema.String),
+    item_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.IdentityVideoInfoResponse,
+});
+
+export const tiktok_leads_leadFieldGet = defineEndpointDescriptor({
+  id: "tiktok.leads.leadFieldGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/lead/field/get/",
+  summary: "Get fields of an Instant Form or direct message leads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"lead_source","wireName":"lead_source","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    lead_source: Schema.Union(Schema.Literal("INSTANT_FORM"), Schema.Literal("DIRECT_MESSAGE")),
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.LeadFieldGetResponse,
+});
+
+export const tiktok_leads_leadGet = defineEndpointDescriptor({
+  id: "tiktok.leads.leadGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/lead/get/",
+  summary: "Get an Instant Form lead or a direct message lead",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"lead_source","wireName":"lead_source","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    lead_source: Schema.Union(Schema.Literal("INSTANT_FORM"), Schema.Literal("DIRECT_MESSAGE")),
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.LeadGetResponse,
+});
+
+export const tiktok_tools_minisGet = defineEndpointDescriptor({
+  id: "tiktok.tools.minisGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/minis/get/",
+  summary: "Get the TikTok Minis within an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.MinisGetResponse,
+});
+
+export const tiktok_mediaMixModeling_mmmApiCheck = defineEndpointDescriptor({
+  id: "tiktok.mediaMixModeling.mmmApiCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/mmm/api/check/",
+  summary: "Check the status of an MMM data request",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mediaMixModeling.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"mmm_request_id","wireName":"mmm_request_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    mmm_request_id: Schema.String,
+  }),
+  outputSchema: Models.MmmApiCheckResponse,
+});
+
+export const tiktok_mediaMixModeling_mmmApiCreate = defineEndpointDescriptor({
+  id: "tiktok.mediaMixModeling.mmmApiCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/mmm/api/create/",
+  summary: "Create an MMM data request",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["mediaMixModeling.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"request_info","wireName":"request_info","location":"body","required":true,"nullable":false},
+    {"name":"email","wireName":"email","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_ids: Schema.Array(Schema.String),
+    request_info: Models.MmmApiCreateParamsRequestInfo,
+    email: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.MmmApiCreateResponse,
+});
+
+export const tiktok_mediaMixModeling_mmmApiDownload = defineEndpointDescriptor({
+  id: "tiktok.mediaMixModeling.mmmApiDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/mmm/api/download/",
+  summary: "Obtain the download URL for MMM data",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mediaMixModeling.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"mmm_request_id","wireName":"mmm_request_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    mmm_request_id: Schema.String,
+  }),
+  outputSchema: Models.MmmApiDownloadResponse,
+});
+
+export const tiktok_mediaMixModeling_mmmApiHistory = defineEndpointDescriptor({
+  id: "tiktok.mediaMixModeling.mmmApiHistory",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/mmm/api/history/",
+  summary: "Get the MMM data request history",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["mediaMixModeling.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"from_date","wireName":"from_date","location":"query","required":true,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    from_date: Schema.String,
+    end_date: Schema.String,
+  }),
+  outputSchema: Models.MmmApiHistoryResponse,
+});
+
+export const tiktok_authentication_oauth2AccessToken = defineEndpointDescriptor({
+  id: "tiktok.authentication.oauth2AccessToken",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/oauth2/access_token/",
+  summary: "Obtain a long-term access token",
+  effect: "write",
+  execution: "inline",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["authentication.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"auth_code","wireName":"auth_code","location":"body","required":true,"nullable":false},
+    {"name":"return_advertiser_ids","wireName":"return_advertiser_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    auth_code: Schema.String,
+    return_advertiser_ids: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.Oauth2AccessTokenResponse,
+});
+
+export const tiktok_page_oauth2AccessTokenTipSdkCreate = defineEndpointDescriptor({
+  id: "tiktok.page.oauth2AccessTokenTipSdkCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/oauth2/access_token/tip_sdk/create/",
+  summary: "Create a TIP Editor SDK access token",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["page.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.Oauth2AccessTokenTipSdkCreateResponse,
+});
+
+export const tiktok_page_oauth2AccessTokenTipSdkRenew = defineEndpointDescriptor({
+  id: "tiktok.page.oauth2AccessTokenTipSdkRenew",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/oauth2/access_token/tip_sdk/renew/",
+  summary: "Renew a TIP Editor SDK access token",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["page.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"tip_sdk_access_token","wireName":"tip_sdk_access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    tip_sdk_access_token: Schema.String,
+  }),
+  outputSchema: Models.Oauth2AccessTokenTipSdkRenewResponse,
+});
+
+export const tiktok_page_oauth2AccessTokenTipSdkValidate = defineEndpointDescriptor({
+  id: "tiktok.page.oauth2AccessTokenTipSdkValidate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/oauth2/access_token/tip_sdk/validate/",
+  summary: "Validate a TIP Editor SDK access token",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["page.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"tip_sdk_access_token","wireName":"tip_sdk_access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    tip_sdk_access_token: Schema.String,
+  }),
+  outputSchema: Models.Oauth2AccessTokenTipSdkValidateResponse,
+});
+
+export const tiktok_adAccounts_oauth2AdvertiserGet = defineEndpointDescriptor({
+  id: "tiktok.adAccounts.oauth2AdvertiserGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/oauth2/advertiser/get/",
+  summary: "Get authorized ad accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adAccounts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+  }),
+  outputSchema: Models.Oauth2AdvertiserGetResponse,
+});
+
+export const tiktok_authentication_oauth2RevokeToken = defineEndpointDescriptor({
+  id: "tiktok.authentication.oauth2RevokeToken",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/oauth2/revoke_token/",
+  summary: "Revoke a long-term access token",
+  effect: "write",
+  execution: "inline",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["authentication.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    access_token: Schema.String,
+  }),
+  outputSchema: Models.Oauth2RevokeTokenResponse,
+});
+
+export const tiktok_events10_offlineBatch = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineBatch",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/offline/batch/",
+  summary: "Report Offline Events in bulk",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
+    {"name":"batch","wireName":"batch","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    event_set_id: Schema.String,
+    batch: Schema.optional(Schema.Array(Schema.suspend(() => Models.OfflineBatchParamsBatch))),
+  }),
+  outputSchema: Models.OfflineBatchResponse,
+});
+
+export const tiktok_events10_offlineCreate = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/offline/create/",
+  summary: "Create an Offline Event set",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
+    {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
+    {"name":"auto_tracking","wireName":"auto_tracking","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    name: Schema.String,
+    description: Schema.optional(Schema.String),
+    auto_tracking: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.OfflineCreateResponse,
+});
+
+export const tiktok_events10_offlineDelete = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/offline/delete/",
+  summary: "Delete an Offline Event set",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    event_set_id: Schema.String,
+  }),
+  outputSchema: Models.OfflineDeleteResponse,
+});
+
+export const tiktok_events10_offlineGet = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/offline/get/",
+  summary: "Get Offline Event sets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"event_set_ids","wireName":"event_set_ids","location":"query","required":false,"nullable":false},
+    {"name":"name","wireName":"name","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    event_set_ids: Schema.optional(Schema.Array(Schema.String)),
+    name: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.OfflineGetResponse,
+});
+
+export const tiktok_events10_offlineTrack = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineTrack",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/offline/track/",
+  summary: "Report an Offline Event",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"event","wireName":"event","location":"body","required":true,"nullable":false},
+    {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
+    {"name":"event_id","wireName":"event_id","location":"body","required":false,"nullable":false},
+    {"name":"context","wireName":"context","location":"body","required":true,"nullable":false},
+    {"name":"properties","wireName":"properties","location":"body","required":true,"nullable":false},
+    {"name":"timestamp","wireName":"timestamp","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    event: Schema.String,
+    event_set_id: Schema.String,
+    event_id: Schema.optional(Schema.String),
+    context: Schema.String,
+    properties: Schema.String,
+    timestamp: Schema.String,
+  }),
+  outputSchema: Models.OfflineTrackResponse,
+});
+
+export const tiktok_events10_offlineUpdate = defineEndpointDescriptor({
+  id: "tiktok.events10.offlineUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/offline/update/",
+  summary: "Update an Offline Event set",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
+    {"name":"name","wireName":"name","location":"body","required":false,"nullable":false},
+    {"name":"auto_tracking","wireName":"auto_tracking","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    event_set_id: Schema.String,
+    name: Schema.optional(Schema.String),
+    auto_tracking: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.OfflineUpdateResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleBatchBind = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleBatchBind",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/optimizer/rule/batch_bind/",
+  summary: "Bind/Unbind rules",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"bind_info","wireName":"bind_info","location":"body","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    bind_info: Schema.Array(Schema.suspend(() => Models.OptimizerRuleBatchBindParamsBindInfo)),
+    lang: Schema.optional(Schema.Union(Schema.Literal("ZH"), Schema.Literal("EN"), Schema.Literal("JA"))),
+  }),
+  outputSchema: Models.OptimizerRuleBatchBindResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleCreate = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/optimizer/rule/create/",
+  summary: "Create rules",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"rules","wireName":"rules","location":"body","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    rules: Schema.optional(Schema.Array(Schema.suspend(() => Models.OptimizerRuleCreateParamsRules))),
+    lang: Schema.optional(Schema.Union(Schema.Literal("ZH"), Schema.Literal("EN"), Schema.Literal("JA"))),
+  }),
+  outputSchema: Models.OptimizerRuleCreateResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleGet = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/optimizer/rule/get/",
+  summary: "Get rules by ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"rule_ids","wireName":"rule_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    rule_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.OptimizerRuleGetResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleList = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/optimizer/rule/list/",
+  summary: "Get rules by filters",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"tzone","wireName":"tzone","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.OptimizerRuleListParamsFiltering),
+    tzone: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.OptimizerRuleListResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleResultGet = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleResultGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/optimizer/rule/result/get/",
+  summary: "Get result details",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"result_detail","wireName":"result_detail","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    result_detail: Schema.Array(Schema.suspend(() => Models.OptimizerRuleResultGetParamsResultDetail)),
+    lang: Schema.optional(Schema.Union(Schema.Literal("ZH"), Schema.Literal("EN"), Schema.Literal("JA"))),
+  }),
+  outputSchema: Models.OptimizerRuleResultGetResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleResultList = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleResultList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/optimizer/rule/result/list/",
+  summary: "Get rule results",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.OptimizerRuleResultListParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    lang: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.OptimizerRuleResultListResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleUpdate = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/optimizer/rule/update/",
+  summary: "Update rules",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"rules","wireName":"rules","location":"body","required":false,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    rules: Schema.optional(Schema.Array(Schema.suspend(() => Models.OptimizerRuleUpdateParamsRules))),
+    lang: Schema.optional(Schema.Union(Schema.Literal("ZH"), Schema.Literal("EN"), Schema.Literal("JA"))),
+  }),
+  outputSchema: Models.OptimizerRuleUpdateResponse,
+});
+
+export const tiktok_automatedRules_optimizerRuleUpdateStatus = defineEndpointDescriptor({
+  id: "tiktok.automatedRules.optimizerRuleUpdateStatus",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/optimizer/rule/update/status/",
+  summary: "Update the statuses of rules",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["automatedRules.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"rule_ids","wireName":"rule_ids","location":"body","required":true,"nullable":false},
+    {"name":"operate_type","wireName":"operate_type","location":"body","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    rule_ids: Schema.Array(Schema.String),
+    operate_type: Schema.Union(Schema.Literal("TURN_ON"), Schema.Literal("TURN_OFF"), Schema.Literal("DELETE")),
+    lang: Schema.optional(Schema.Union(Schema.Literal("ZH"), Schema.Literal("EN"), Schema.Literal("JA"))),
+  }),
+  outputSchema: Models.OptimizerRuleUpdateStatusResponse,
+});
+
+export const tiktok_leads_pageFieldGet = defineEndpointDescriptor({
+  id: "tiktok.leads.pageFieldGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/page/field/get/",
+  summary: "Get the fields of an Instant Form",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    page_id: Schema.String,
+  }),
+  outputSchema: Models.PageFieldGetResponse,
+});
+
+export const tiktok_page_pageGet = defineEndpointDescriptor({
+  id: "tiktok.page.pageGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/page/get/",
+  summary: "Get the Page ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["page.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"status","wireName":"status","location":"query","required":false,"nullable":false},
+    {"name":"title","wireName":"title","location":"query","required":false,"nullable":false},
+    {"name":"update_time_range","wireName":"update_time_range","location":"query","required":false,"nullable":false},
+    {"name":"business_type","wireName":"business_type","location":"query","required":false,"nullable":false},
+    {"name":"business_types","wireName":"business_types","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    status: Schema.optional(Schema.Union(Schema.Literal("EDITED"), Schema.Literal("PUBLISHED"))),
+    title: Schema.optional(Schema.String),
+    update_time_range: Schema.optional(Models.PageGetParamsUpdateTimeRange),
+    business_type: Schema.optional(Schema.Union(Schema.Literal("LEAD_GEN"), Schema.Literal("STORE_FRONT"), Schema.Literal("APP_PROFILE_PAGE"), Schema.Literal("TIKTOK_INSTANT_PAGE"), Schema.Literal("SHOP_ADS_PLP"), Schema.Literal("SHOP_ADS_PDP"), Schema.Literal("POP_UP_FORM"))),
+    business_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("LEAD_GEN"), Schema.Literal("STORE_FRONT"), Schema.Literal("APP_PROFILE_PAGE"), Schema.Literal("TIKTOK_INSTANT_PAGE"), Schema.Literal("SHOP_ADS_PLP"), Schema.Literal("SHOP_ADS_PDP"), Schema.Literal("POP_UP_FORM")))),
+  }),
+  outputSchema: Models.PageGetResponse,
+});
+
+export const tiktok_leads_pageLeadMockCreate = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLeadMockCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/page/lead/mock/create/",
+  summary: "Create a test lead",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["leads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"lead_source","wireName":"lead_source","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"body","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    lead_source: Schema.optional(Schema.Union(Schema.Literal("INSTANT_FORM"), Schema.Literal("DIRECT_MESSAGE"))),
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PageLeadMockCreateResponse,
+});
+
+export const tiktok_leads_pageLeadMockDelete = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLeadMockDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/page/lead/mock/delete/",
+  summary: "Delete a test lead",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["leads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"body","required":false,"nullable":false},
+    {"name":"lead_id","wireName":"lead_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    lead_id: Schema.String,
+  }),
+  outputSchema: Models.PageLeadMockDeleteResponse,
+});
+
+export const tiktok_leads_pageLeadMockGet = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLeadMockGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/page/lead/mock/get/",
+  summary: "Get a test lead",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"lead_source","wireName":"lead_source","location":"query","required":false,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    lead_source: Schema.optional(Schema.Union(Schema.Literal("INSTANT_FORM"), Schema.Literal("DIRECT_MESSAGE"))),
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PageLeadMockGetResponse,
+});
+
+export const tiktok_leads_pageLeadTask = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLeadTask",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/page/lead/task/",
+  summary: "Create a lead download task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["leads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"body","required":false,"nullable":false},
+    {"name":"ad_id","wireName":"ad_id","location":"body","required":false,"nullable":false},
+    {"name":"page_id","wireName":"page_id","location":"body","required":false,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    ad_id: Schema.optional(Schema.String),
+    page_id: Schema.optional(Schema.String),
+    task_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PageLeadTaskResponse,
+});
+
+export const tiktok_leads_pageLeadTaskDownload = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLeadTaskDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/page/lead/task/download/",
+  summary: "Download leads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    library_id: Schema.optional(Schema.String),
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.PageLeadTaskDownloadResponse,
+});
+
+export const tiktok_leads_pageLibraryGet = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLibraryGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/page/library/get/",
+  summary: "Get form libraries",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["leads.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PageLibraryGetResponse,
+});
+
+export const tiktok_leads_pageLibraryTransfer = defineEndpointDescriptor({
+  id: "tiktok.leads.pageLibraryTransfer",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/page/library/transfer/",
+  summary: "Migrate leads to a BC",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["leads.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    bc_id: Schema.String,
+  }),
+  outputSchema: Models.PageLibraryTransferResponse,
+});
+
+export const tiktok_pangle_pangleAudiencePackageGet = defineEndpointDescriptor({
+  id: "tiktok.pangle.pangleAudiencePackageGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/pangle_audience_package/get/",
+  summary: "Get the Pangle audience packages",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["pangle.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.PangleAudiencePackageGetResponse,
+});
+
+export const tiktok_pangle_pangleBlockListGet = defineEndpointDescriptor({
+  id: "tiktok.pangle.pangleBlockListGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/pangle_block_list/get/",
+  summary: "Get the Pangle block list",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["pangle.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.PangleBlockListGetResponse,
+});
+
+export const tiktok_pangle_pangleBlockListUpdate = defineEndpointDescriptor({
+  id: "tiktok.pangle.pangleBlockListUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pangle_block_list/update/",
+  summary: "Update the Pangle block list",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["pangle.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"add_app_list","wireName":"add_app_list","location":"body","required":false,"nullable":false},
+    {"name":"delete_app_list","wireName":"delete_app_list","location":"body","required":false,"nullable":false},
+    {"name":"clear_old_app","wireName":"clear_old_app","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    add_app_list: Schema.optional(Schema.Array(Schema.String)),
+    delete_app_list: Schema.optional(Schema.Array(Schema.String)),
+    clear_old_app: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.PangleBlockListUpdateResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserGet = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioAdvertiserGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/payment_portfolio/advertiser/get/",
+  summary: "Get ad accounts linked to a Payment Portfolio",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    payment_portfolio_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PaymentPortfolioAdvertiserGetResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioAdvertiserUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/payment_portfolio/advertiser/update/",
+  summary: "Link ad accounts to a Payment Portfolio",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    payment_portfolio_id: Schema.String,
+    advertiser_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.PaymentPortfolioAdvertiserUpdateResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioCreate = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/payment_portfolio/create/",
+  summary: "Create a Payment Portfolio",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"payment_portfolio_name","wireName":"payment_portfolio_name","location":"body","required":true,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"payment_portfolio_type","wireName":"payment_portfolio_type","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    payment_portfolio_name: Schema.String,
+    advertiser_ids: Schema.Array(Schema.String),
+    payment_portfolio_type: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PaymentPortfolioCreateResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioCreditLineUpdate = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioCreditLineUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/payment_portfolio/credit_line/update/",
+  summary: "Allocate the credit line to Payment Portfolios",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"allocation_details","wireName":"allocation_details","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    allocation_details: Schema.Array(Schema.suspend(() => Models.PaymentPortfolioCreditLineUpdateParamsAllocationDetails)),
+  }),
+  outputSchema: Models.PaymentPortfolioCreditLineUpdateResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioGet = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/payment_portfolio/get/",
+  summary: "Get Payment Portfolios",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    filtering: Schema.optional(Models.PaymentPortfolioGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PaymentPortfolioGetResponse,
+});
+
+export const tiktok_bCPaymentPortfolios_paymentPortfolioUserGet = defineEndpointDescriptor({
+  id: "tiktok.bCPaymentPortfolios.paymentPortfolioUserGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/payment_portfolio/user/get/",
+  summary: "Get authorized users for a Payment Portfolio",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["bCPaymentPortfolios.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    payment_portfolio_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PaymentPortfolioUserGetResponse,
+});
+
+export const tiktok_events10_pixelBatch = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelBatch",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/batch/",
+  summary: "Report Web Events in bulk",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
+    {"name":"batch","wireName":"batch","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    pixel_code: Schema.String,
+    batch: Schema.optional(Schema.Array(Schema.suspend(() => Models.PixelBatchParamsBatch))),
+  }),
+  outputSchema: Models.PixelBatchResponse,
+});
+
+export const tiktok_events10_pixelCreate = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/create/",
+  summary: "Create a pixel",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"pixel_name","wireName":"pixel_name","location":"body","required":true,"nullable":false},
+    {"name":"pixel_category","wireName":"pixel_category","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    pixel_name: Schema.String,
+    pixel_category: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PixelCreateResponse,
+});
+
+export const tiktok_events10_pixelEventCreate = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelEventCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/event/create/",
+  summary: "Create Pixel Events",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"pixel_events","wireName":"pixel_events","location":"body","required":true,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    pixel_events: Schema.Array(Schema.suspend(() => Models.PixelEventCreateParamsPixelEvents)),
+    pixel_id: Schema.String,
+  }),
+  outputSchema: Models.PixelEventCreateResponse,
+});
+
+export const tiktok_events10_pixelEventDelete = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelEventDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/event/delete/",
+  summary: "Delete a Pixel Event",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"event_id","wireName":"event_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    event_id: Schema.String,
+  }),
+  outputSchema: Models.PixelEventDeleteResponse,
+});
+
+export const tiktok_events10_pixelEventStats = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelEventStats",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/pixel/event/stats/",
+  summary: "Get Pixel Event statistics",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"date_range","wireName":"date_range","location":"query","required":true,"nullable":false},
+    {"name":"pixel_ids","wireName":"pixel_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    date_range: Models.PixelEventStatsParamsDateRange,
+    pixel_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.PixelEventStatsResponse,
+});
+
+export const tiktok_events10_pixelEventUpdate = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelEventUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/event/update/",
+  summary: "Update a Pixel Event",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"currency_value","wireName":"currency_value","location":"body","required":false,"nullable":false},
+    {"name":"currency","wireName":"currency","location":"body","required":false,"nullable":false},
+    {"name":"event_id","wireName":"event_id","location":"body","required":true,"nullable":false},
+    {"name":"event_name","wireName":"event_name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    currency_value: Schema.optional(Schema.String),
+    currency: Schema.optional(Schema.String),
+    event_id: Schema.String,
+    event_name: Schema.String,
+  }),
+  outputSchema: Models.PixelEventUpdateResponse,
+});
+
+export const tiktok_events10_pixelInstantPageEvent = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelInstantPageEvent",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/pixel/instant_page/event/",
+  summary: "Get Instant Page events",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":true,"nullable":false},
+    {"name":"is_retargeting","wireName":"is_retargeting","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    optimization_goal: Schema.String,
+    is_retargeting: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.PixelInstantPageEventResponse,
+});
+
+export const tiktok_events10_pixelList = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/pixel/list/",
+  summary: "Get pixels",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["events10.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"code","wireName":"code","location":"query","required":false,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"query","required":false,"nullable":false},
+    {"name":"name","wireName":"name","location":"query","required":false,"nullable":false},
+    {"name":"order_by","wireName":"order_by","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    code: Schema.optional(Schema.String),
+    pixel_id: Schema.optional(Schema.String),
+    name: Schema.optional(Schema.String),
+    order_by: Schema.optional(Schema.String),
+    filtering: Schema.optional(Models.PixelListParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PixelListResponse,
+});
+
+export const tiktok_events10_pixelTrack = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelTrack",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/track/",
+  summary: "Report a Web Event",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
+    {"name":"event","wireName":"event","location":"body","required":true,"nullable":false},
+    {"name":"event_id","wireName":"event_id","location":"body","required":false,"nullable":false},
+    {"name":"timestamp","wireName":"timestamp","location":"body","required":false,"nullable":false},
+    {"name":"context","wireName":"context","location":"body","required":true,"nullable":false},
+    {"name":"properties","wireName":"properties","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    pixel_code: Schema.String,
+    event: Schema.String,
+    event_id: Schema.optional(Schema.String),
+    timestamp: Schema.optional(Schema.String),
+    context: Schema.String,
+    properties: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PixelTrackResponse,
+});
+
+export const tiktok_events10_pixelUpdate = defineEndpointDescriptor({
+  id: "tiktok.events10.pixelUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/pixel/update/",
+  summary: "Update a pixel",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["events10.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"pixel_name","wireName":"pixel_name","location":"body","required":true,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":true,"nullable":false},
+    {"name":"advanced_matching_fields","wireName":"advanced_matching_fields","location":"body","required":false,"nullable":false},
+    {"name":"automatic_advanced_matching_fields","wireName":"automatic_advanced_matching_fields","location":"body","required":false,"nullable":false},
+    {"name":"enable_first_party_cookies","wireName":"enable_first_party_cookies","location":"body","required":false,"nullable":false},
+    {"name":"enable_expanded_data_sharing","wireName":"enable_expanded_data_sharing","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    pixel_name: Schema.String,
+    pixel_id: Schema.String,
+    advanced_matching_fields: Schema.optional(Models.PixelUpdateParamsAdvancedMatchingFields),
+    automatic_advanced_matching_fields: Schema.optional(Models.PixelUpdateParamsAutomaticAdvancedMatchingFields),
+    enable_first_party_cookies: Schema.optional(Schema.Boolean),
+    enable_expanded_data_sharing: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.PixelUpdateResponse,
+});
+
+export const tiktok_playableAds_playableDelete = defineEndpointDescriptor({
+  id: "tiktok.playableAds.playableDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/playable/delete/",
+  summary: "Delete a playable asset",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["playableAds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"playable_id","wireName":"playable_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    playable_id: Schema.String,
+  }),
+  outputSchema: Models.PlayableDeleteResponse,
+});
+
+export const tiktok_playableAds_playableGet = defineEndpointDescriptor({
+  id: "tiktok.playableAds.playableGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/playable/get/",
+  summary: "Get playable assets",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["playableAds.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"playable_id","wireName":"playable_id","location":"query","required":false,"nullable":false},
+    {"name":"playable_name","wireName":"playable_name","location":"query","required":false,"nullable":false},
+    {"name":"playable_url","wireName":"playable_url","location":"query","required":false,"nullable":false},
+    {"name":"status","wireName":"status","location":"query","required":false,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    playable_id: Schema.optional(Schema.String),
+    playable_name: Schema.optional(Schema.String),
+    playable_url: Schema.optional(Schema.String),
+    status: Schema.optional(Schema.Union(Schema.Literal("AUDIT_FAIL"), Schema.Literal("AUDIT_SUCCESS"), Schema.Literal("VALIDATE_FAIL"), Schema.Literal("VALIDATE_SUCCESS"), Schema.Literal("VALIDATING"))),
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("UPLOADED"), Schema.Literal("SAVED"), Schema.Literal("DELETED"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.PlayableGetResponse,
+});
+
+export const tiktok_playableAds_playableSave = defineEndpointDescriptor({
+  id: "tiktok.playableAds.playableSave",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/playable/save/",
+  summary: "Save a playable asset",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["playableAds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"playable_id","wireName":"playable_id","location":"body","required":true,"nullable":false},
+    {"name":"playable_name","wireName":"playable_name","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    playable_id: Schema.String,
+    playable_name: Schema.String,
+  }),
+  outputSchema: Models.PlayableSaveResponse,
+});
+
+export const tiktok_playableAds_playableUpload = defineEndpointDescriptor({
+  id: "tiktok.playableAds.playableUpload",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/playable/upload/",
+  summary: "Upload a playable asset",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["playableAds.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"body","required":false,"nullable":false},
+    {"name":"playable_package","wireName":"playable_package","location":"body","required":false,"nullable":false},
+    {"name":"file_id","wireName":"file_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    upload_type: Schema.optional(Schema.Union(Schema.Literal("UPLOAD_BY_FILE"), Schema.Literal("UPLOAD_BY_FILE_ID"))),
+    playable_package: Schema.optional(Schema.Unknown),
+    file_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.PlayableUploadResponse,
+});
+
+export const tiktok_playableAds_playableValidate = defineEndpointDescriptor({
+  id: "tiktok.playableAds.playableValidate",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/playable/validate/",
+  summary: "Check the status of a playable asset",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["playableAds.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"playable_id","wireName":"playable_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    playable_id: Schema.String,
+  }),
+  outputSchema: Models.PlayableValidateResponse,
+});
+
+export const tiktok_creativeReports_reportAdBenchmarkGet = defineEndpointDescriptor({
+  id: "tiktok.creativeReports.reportAdBenchmarkGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/report/ad_benchmark/get/",
+  summary: "Get ad benchmarks",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeReports.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"compare_time_window","wireName":"compare_time_window","location":"query","required":false,"nullable":false},
+    {"name":"dimensions","wireName":"dimensions","location":"query","required":true,"nullable":false},
+    {"name":"metrics_fields","wireName":"metrics_fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":true,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    compare_time_window: Schema.optional(Schema.String),
+    dimensions: Schema.Array(Schema.Union(Schema.Literal("LOCATION"), Schema.Literal("AD_CATEGORY"), Schema.Literal("EXTERNAL_ACTION"), Schema.Literal("PLACEMENT"))),
+    metrics_fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Models.ReportAdBenchmarkGetParamsFiltering,
+    sort_field: Schema.optional(Schema.String),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DES"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ReportAdBenchmarkGetResponse,
+});
+
+export const tiktok_reporting_reportIntegratedGet = defineEndpointDescriptor({
+  id: "tiktok.reporting.reportIntegratedGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/report/integrated/get/",
+  summary: "Run a synchronous report",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reporting.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":false,"nullable":false},
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":false,"nullable":false},
+    {"name":"service_type","wireName":"service_type","location":"query","required":false,"nullable":false},
+    {"name":"report_type","wireName":"report_type","location":"query","required":true,"nullable":false},
+    {"name":"data_level","wireName":"data_level","location":"query","required":false,"nullable":false},
+    {"name":"dimensions","wireName":"dimensions","location":"query","required":true,"nullable":false},
+    {"name":"metrics","wireName":"metrics","location":"query","required":false,"nullable":false},
+    {"name":"enable_total_metrics","wireName":"enable_total_metrics","location":"query","required":false,"nullable":false},
+    {"name":"start_date","wireName":"start_date","location":"query","required":false,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"query","required":false,"nullable":false},
+    {"name":"query_lifetime","wireName":"query_lifetime","location":"query","required":false,"nullable":false},
+    {"name":"multi_adv_report_in_utc_time","wireName":"multi_adv_report_in_utc_time","location":"query","required":false,"nullable":false},
+    {"name":"order_field","wireName":"order_field","location":"query","required":false,"nullable":false},
+    {"name":"order_type","wireName":"order_type","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"query_mode","wireName":"query_mode","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+    bc_id: Schema.optional(Schema.String),
+    service_type: Schema.optional(Schema.Union(Schema.Literal("AUCTION"), Schema.Literal("RESERVATION"))),
+    report_type: Schema.Union(Schema.Literal("BASIC"), Schema.Literal("AUDIENCE"), Schema.Literal("PLAYABLE_MATERIAL"), Schema.Literal("CATALOG"), Schema.Literal("BC"), Schema.Literal("TT_SHOP")),
+    data_level: Schema.optional(Schema.Union(Schema.Literal("AUCTION_AD"), Schema.Literal("AUCTION_ADGROUP"), Schema.Literal("AUCTION_CAMPAIGN"), Schema.Literal("AUCTION_ADVERTISER"), Schema.Literal("RESERVATION_AD"), Schema.Literal("RESERVATION_ADGROUP"), Schema.Literal("RESERVATION_CAMPAIGN"), Schema.Literal("RESERVATION_ADVERTISER"))),
+    dimensions: Schema.Array(Schema.String),
+    metrics: Schema.optional(Schema.Array(Schema.String)),
+    enable_total_metrics: Schema.optional(Schema.Boolean),
+    start_date: Schema.optional(Schema.String),
+    end_date: Schema.optional(Schema.String),
+    query_lifetime: Schema.optional(Schema.Boolean),
+    multi_adv_report_in_utc_time: Schema.optional(Schema.Boolean),
+    order_field: Schema.optional(Schema.String),
+    order_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    filtering: Schema.optional(Schema.Array(Schema.suspend(() => Models.ReportIntegratedGetParamsFiltering))),
+    query_mode: Schema.optional(Schema.Union(Schema.Literal("REGULAR"), Schema.Literal("CHUNK"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ReportIntegratedGetResponse,
+});
+
+export const tiktok_reporting_reportTaskCancel = defineEndpointDescriptor({
+  id: "tiktok.reporting.reportTaskCancel",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/report/task/cancel/",
+  summary: "Cancel an asynchronous report task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["reporting.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.ReportTaskCancelResponse,
+});
+
+export const tiktok_reporting_reportTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.reporting.reportTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/report/task/check/",
+  summary: "Get the status of an async report task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reporting.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.ReportTaskCheckResponse,
+});
+
+export const tiktok_reporting_reportTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.reporting.reportTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/report/task/create/",
+  summary: "Create an asynchronous report task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["reporting.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":false,"nullable":false},
+    {"name":"service_type","wireName":"service_type","location":"body","required":false,"nullable":false},
+    {"name":"report_type","wireName":"report_type","location":"body","required":true,"nullable":false},
+    {"name":"data_level","wireName":"data_level","location":"body","required":false,"nullable":false},
+    {"name":"dimensions","wireName":"dimensions","location":"body","required":true,"nullable":false},
+    {"name":"metrics","wireName":"metrics","location":"body","required":false,"nullable":false},
+    {"name":"start_date","wireName":"start_date","location":"body","required":false,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"body","required":false,"nullable":false},
+    {"name":"query_lifetime","wireName":"query_lifetime","location":"body","required":false,"nullable":false},
+    {"name":"order_field","wireName":"order_field","location":"body","required":false,"nullable":false},
+    {"name":"order_type","wireName":"order_type","location":"body","required":false,"nullable":false},
+    {"name":"enable_report_title_translation","wireName":"enable_report_title_translation","location":"body","required":false,"nullable":false},
+    {"name":"output_format","wireName":"output_format","location":"body","required":false,"nullable":false},
+    {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.optional(Schema.String),
+    advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+    service_type: Schema.optional(Schema.Union(Schema.Literal("AUCTION"), Schema.Literal("RESERVATION"))),
+    report_type: Schema.Union(Schema.Literal("BASIC"), Schema.Literal("AUDIENCE"), Schema.Literal("PLAYABLE_MATERIAL"), Schema.Literal("CATALOG")),
+    data_level: Schema.optional(Schema.Union(Schema.Literal("AUCTION_AD"), Schema.Literal("AUCTION_ADGROUP"), Schema.Literal("AUCTION_CAMPAIGN"), Schema.Literal("AUCTION_ADVERTISER"), Schema.Literal("RESERVATION_AD"), Schema.Literal("RESERVATION_ADGROUP"), Schema.Literal("RESERVATION_CAMPAIGN"), Schema.Literal("RESERVATION_ADVERTISER"))),
+    dimensions: Schema.Array(Schema.String),
+    metrics: Schema.optional(Schema.Array(Schema.String)),
+    start_date: Schema.optional(Schema.String),
+    end_date: Schema.optional(Schema.String),
+    query_lifetime: Schema.optional(Schema.Boolean),
+    order_field: Schema.optional(Schema.String),
+    order_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    enable_report_title_translation: Schema.optional(Schema.Boolean),
+    output_format: Schema.optional(Schema.Union(Schema.Literal("CSV_STRING"), Schema.Literal("CSV_DOWNLOAD"), Schema.Literal("XLSX_DOWNLOAD"))),
+    file_name: Schema.optional(Schema.String),
+    filtering: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.ReportTaskCreateResponse,
+});
+
+export const tiktok_reporting_reportTaskDownload = defineEndpointDescriptor({
+  id: "tiktok.reporting.reportTaskDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/report/task/download/",
+  summary: "Download the output of an async report task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reporting.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.ReportTaskDownloadResponse,
+});
+
+export const tiktok_creativeReports_reportVideoPerformanceGet = defineEndpointDescriptor({
+  id: "tiktok.creativeReports.reportVideoPerformanceGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/report/video_performance/get/",
+  summary: "Get in-second performance",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeReports.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"report_type","wireName":"report_type","location":"query","required":false,"nullable":false},
+    {"name":"metrics_fields","wireName":"metrics_fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":true,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    report_type: Schema.optional(Schema.Union(Schema.Literal("AD"), Schema.Literal("VIDEO"))),
+    metrics_fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Models.ReportVideoPerformanceGetParamsFiltering,
+    sort_field: Schema.optional(Schema.String),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DES"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ReportVideoPerformanceGetResponse,
+});
+
+export const tiktok_reachFrequency_rfContractQuery = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.rfContractQuery",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/rf/contract/query/",
+  summary: "Query contracts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"included_date","wireName":"included_date","location":"query","required":true,"nullable":false},
+    {"name":"rf_campaign_type","wireName":"rf_campaign_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    included_date: Schema.String,
+    rf_campaign_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("PULSE"))),
+  }),
+  outputSchema: Models.RfContractQueryResponse,
+});
+
+export const tiktok_reachFrequency_rfDeliveryTimezone = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.rfDeliveryTimezone",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/rf/delivery/timezone/",
+  summary: "Get R&F time zones",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    region_codes: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.RfDeliveryTimezoneResponse,
+});
+
+export const tiktok_reachFrequency_rfInventoryEstimate = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.rfInventoryEstimate",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/rf/inventory/estimate/",
+  summary: "Get inventory estimates",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"audience_info","wireName":"audience_info","location":"query","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"query","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"query","required":true,"nullable":false},
+    {"name":"frequency","wireName":"frequency","location":"query","required":true,"nullable":false},
+    {"name":"frequency_schedule","wireName":"frequency_schedule","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"cpv_video_duration","wireName":"cpv_video_duration","location":"query","required":false,"nullable":false},
+    {"name":"feed_type","wireName":"feed_type","location":"query","required":false,"nullable":false},
+    {"name":"rf_purchased_type","wireName":"rf_purchased_type","location":"query","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"query","required":false,"nullable":false},
+    {"name":"purchased_impression","wireName":"purchased_impression","location":"query","required":false,"nullable":false},
+    {"name":"purchased_reach","wireName":"purchased_reach","location":"query","required":false,"nullable":false},
+    {"name":"rf_campaign_type","wireName":"rf_campaign_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    audience_info: Models.RfInventoryEstimateParamsAudienceInfo,
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.String,
+    frequency: Schema.Number,
+    frequency_schedule: Schema.Number,
+    objective_type: Schema.String,
+    cpv_video_duration: Schema.optional(Schema.Union(Schema.Literal("SIX_SECONDS"), Schema.Literal("TWO_SECONDS"))),
+    feed_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD_FEED"), Schema.Literal("TOP_FEED"))),
+    rf_purchased_type: Schema.optional(Schema.Union(Schema.Literal("FIXED_SHOW"), Schema.Literal("FIXED_REACH"), Schema.Literal("FIXED_BUDGET"))),
+    budget: Schema.optional(Schema.Number),
+    purchased_impression: Schema.optional(Schema.Number),
+    purchased_reach: Schema.optional(Schema.Number),
+    rf_campaign_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("PULSE"))),
+  }),
+  outputSchema: Models.RfInventoryEstimateResponse,
+});
+
+export const tiktok_reachFrequency_rfOrderCancel = defineEndpointDescriptor({
+  id: "tiktok.reachFrequency.rfOrderCancel",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/rf/order/cancel/",
+  summary: "Cancel the R&F ad order",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["reachFrequency.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.RfOrderCancelResponse,
+});
+
+export const tiktok_negativeKeywords_searchAdNegativeKeywordAdd = defineEndpointDescriptor({
+  id: "tiktok.negativeKeywords.searchAdNegativeKeywordAdd",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/search_ad/negative_keyword/add/",
+  summary: "Create negative keywords",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["negativeKeywords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
+    {"name":"object_ids","wireName":"object_ids","location":"body","required":true,"nullable":false},
+    {"name":"replace","wireName":"replace","location":"body","required":false,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    object_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("ADGROUP")),
+    object_ids: Schema.Array(Schema.String),
+    replace: Schema.optional(Schema.Boolean),
+    keywords: Schema.Array(Schema.suspend(() => Models.SearchAdNegativeKeywordAddParamsKeywords)),
+  }),
+  outputSchema: Models.SearchAdNegativeKeywordAddResponse,
+});
+
+export const tiktok_negativeKeywords_searchAdNegativeKeywordDelete = defineEndpointDescriptor({
+  id: "tiktok.negativeKeywords.searchAdNegativeKeywordDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/search_ad/negative_keyword/delete/",
+  summary: "Delete negative keywords",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["negativeKeywords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
+    {"name":"object_id","wireName":"object_id","location":"body","required":true,"nullable":false},
+    {"name":"keyword_ids","wireName":"keyword_ids","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    object_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("ADGROUP")),
+    object_id: Schema.String,
+    keyword_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.SearchAdNegativeKeywordDeleteResponse,
+});
+
+export const tiktok_negativeKeywords_searchAdNegativeKeywordDownload = defineEndpointDescriptor({
+  id: "tiktok.negativeKeywords.searchAdNegativeKeywordDownload",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/search_ad/negative_keyword/download/",
+  summary: "Download negative keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["negativeKeywords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"query","required":true,"nullable":false},
+    {"name":"object_id","wireName":"object_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    object_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("ADGROUP")),
+    object_id: Schema.String,
+  }),
+  outputSchema: Models.SearchAdNegativeKeywordDownloadResponse,
+});
+
+export const tiktok_negativeKeywords_searchAdNegativeKeywordGet = defineEndpointDescriptor({
+  id: "tiktok.negativeKeywords.searchAdNegativeKeywordGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/search_ad/negative_keyword/get/",
+  summary: "Get negative keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["negativeKeywords.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"query","required":true,"nullable":false},
+    {"name":"object_id","wireName":"object_id","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    object_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("ADGROUP")),
+    object_id: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.SearchAdNegativeKeywordGetResponse,
+});
+
+export const tiktok_negativeKeywords_searchAdNegativeKeywordUpdate = defineEndpointDescriptor({
+  id: "tiktok.negativeKeywords.searchAdNegativeKeywordUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/search_ad/negative_keyword/update/",
+  summary: "Update a negative keyword",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["negativeKeywords.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
+    {"name":"object_id","wireName":"object_id","location":"body","required":true,"nullable":false},
+    {"name":"old_keyword_id","wireName":"old_keyword_id","location":"body","required":true,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    object_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("ADGROUP")),
+    object_id: Schema.String,
+    old_keyword_id: Schema.String,
+    keyword: Models.SearchAdNegativeKeywordUpdateParamsKeyword,
+  }),
+  outputSchema: Models.SearchAdNegativeKeywordUpdateResponse,
+});
+
+export const tiktok_tools_searchRegion = defineEndpointDescriptor({
+  id: "tiktok.tools.searchRegion",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/search/region/",
+  summary: "Get available locations by advertiser ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    language: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.SearchRegionResponse,
+});
+
+export const tiktok_audience_segmentAudience = defineEndpointDescriptor({
+  id: "tiktok.audience.segmentAudience",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/segment/audience/",
+  summary: "Create/Delete an audience segment",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false},
+    {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":false,"nullable":false},
+    {"name":"delete_audience_id","wireName":"delete_audience_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    action: Schema.String,
+    custom_audience_name: Schema.optional(Schema.String),
+    delete_audience_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.SegmentAudienceResponse,
+});
+
+export const tiktok_audience_segmentMapping = defineEndpointDescriptor({
+  id: "tiktok.audience.segmentMapping",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/segment/mapping/",
+  summary: "Add/Delete audience segment mappings",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["audience.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":false,"nullable":false},
+    {"name":"id_schema","wireName":"id_schema","location":"body","required":true,"nullable":false},
+    {"name":"batch_data","wireName":"batch_data","location":"body","required":true,"nullable":false},
+    {"name":"id","wireName":"id","location":"body","required":false,"nullable":false},
+    {"name":"audience_ids","wireName":"audience_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_ids: Schema.Array(Schema.String),
+    action: Schema.optional(Schema.String),
+    id_schema: Schema.Array(Schema.Union(Schema.Literal("IDFA_MD5"), Schema.Literal("AAID_MD5"), Schema.Literal("IDFA_SHA256"), Schema.Literal("AAID_SHA256"), Schema.Literal("EMAIL_SHA256"), Schema.Literal("PHONE_SHA256"))),
+    batch_data: Schema.String,
+    id: Schema.optional(Schema.String),
+    audience_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.SegmentMappingResponse,
+});
+
+export const tiktok_showcase_showcaseIdentityGet = defineEndpointDescriptor({
+  id: "tiktok.showcase.showcaseIdentityGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/showcase/identity/get/",
+  summary: "Get identities with Showcase permission under an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["showcase.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ShowcaseIdentityGetResponse,
+});
+
+export const tiktok_showcase_showcaseProductGet = defineEndpointDescriptor({
+  id: "tiktok.showcase.showcaseProductGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/showcase/product/get/",
+  summary: "Get the available products in a Showcase",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["showcase.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    region_codes: Schema.Array(Schema.String),
+    filtering: Schema.optional(Models.ShowcaseProductGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ShowcaseProductGetResponse,
+});
+
+export const tiktok_showcase_showcaseRegionGet = defineEndpointDescriptor({
+  id: "tiktok.showcase.showcaseRegionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/showcase/region/get/",
+  summary: "Get the available regions for a Showcase via identity",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["showcase.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    identity_id: Schema.String,
+    identity_type: Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT")),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.ShowcaseRegionGetResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdAppeal = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdAppeal",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/appeal/",
+  summary: "Appeal rejection of an Upgraded Smart+ Ad",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
+    {"name":"appeal_reason","wireName":"appeal_reason","location":"body","required":false,"nullable":false},
+    {"name":"attachment_list","wireName":"attachment_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    smart_plus_ad_id: Schema.String,
+    appeal_reason: Schema.optional(Schema.String),
+    attachment_list: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.SmartPlusAdAppealResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdCreate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/create/",
+  summary: "Create an Upgraded Smart+ Ad",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_name","wireName":"ad_name","location":"body","required":false,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"creative_list","wireName":"creative_list","location":"body","required":false,"nullable":false},
+    {"name":"playable_list","wireName":"playable_list","location":"body","required":false,"nullable":false},
+    {"name":"ad_text_list","wireName":"ad_text_list","location":"body","required":false,"nullable":false},
+    {"name":"auto_message_list","wireName":"auto_message_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"interactive_add_on_list","wireName":"interactive_add_on_list","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_url_list","wireName":"landing_page_url_list","location":"body","required":false,"nullable":false},
+    {"name":"custom_product_page_list","wireName":"custom_product_page_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_list","wireName":"deeplink_list","location":"body","required":false,"nullable":false},
+    {"name":"disclaimer","wireName":"disclaimer","location":"body","required":false,"nullable":false},
+    {"name":"ad_configuration","wireName":"ad_configuration","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    ad_name: Schema.optional(Schema.String),
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    creative_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsCreativeList))),
+    playable_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsPlayableList))),
+    ad_text_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsAdTextList))),
+    auto_message_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsAutoMessageList))),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsCallToActionList))),
+    interactive_add_on_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsInteractiveAddOnList))),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsPageList))),
+    landing_page_url_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsLandingPageUrlList))),
+    custom_product_page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsCustomProductPageList))),
+    deeplink_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdCreateParamsDeeplinkList))),
+    disclaimer: Schema.optional(Models.SmartPlusAdCreateParamsDisclaimer),
+    ad_configuration: Schema.optional(Models.SmartPlusAdCreateParamsAdConfiguration),
+  }),
+  outputSchema: Models.SmartPlusAdCreateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdGet = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/ad/get/",
+  summary: "Get Upgraded Smart+ Ads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.SmartPlusAdGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.SmartPlusAdGetResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdgroupBudgetUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdgroupBudgetUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/adgroup/budget/update/",
+  summary: "Update the budgets of Upgraded Smart+ Ad Groups",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"scheduled_budget","wireName":"scheduled_budget","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    budget: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdgroupBudgetUpdateParamsBudget))),
+    scheduled_budget: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdgroupBudgetUpdateParamsScheduledBudget))),
+  }),
+  outputSchema: Models.SmartPlusAdgroupBudgetUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdgroupCreate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdgroupCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/adgroup/create/",
+  summary: "Create an Upgraded Smart+ Ad Group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":true,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":true,"nullable":false},
+    {"name":"promotion_target_type","wireName":"promotion_target_type","location":"body","required":false,"nullable":false},
+    {"name":"optimization_goal","wireName":"optimization_goal","location":"body","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"gaming_ad_compliance_agreement","wireName":"gaming_ad_compliance_agreement","location":"body","required":false,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"body","required":false,"nullable":false},
+    {"name":"app_config","wireName":"app_config","location":"body","required":false,"nullable":false},
+    {"name":"minis_id","wireName":"minis_id","location":"body","required":false,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_status","wireName":"deep_funnel_optimization_status","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source","wireName":"deep_funnel_event_source","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_event_source_id","wireName":"deep_funnel_event_source_id","location":"body","required":false,"nullable":false},
+    {"name":"deep_funnel_optimization_event","wireName":"deep_funnel_optimization_event","location":"body","required":false,"nullable":false},
+    {"name":"app_attribution_source","wireName":"app_attribution_source","location":"body","required":false,"nullable":false},
+    {"name":"app_data_source","wireName":"app_data_source","location":"body","required":false,"nullable":false},
+    {"name":"identity_id","wireName":"identity_id","location":"body","required":false,"nullable":false},
+    {"name":"identity_type","wireName":"identity_type","location":"body","required":false,"nullable":false},
+    {"name":"identity_authorized_bc_id","wireName":"identity_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"native_series_id","wireName":"native_series_id","location":"body","required":false,"nullable":false},
+    {"name":"messaging_app_type","wireName":"messaging_app_type","location":"body","required":false,"nullable":false},
+    {"name":"zalo_id_type","wireName":"zalo_id_type","location":"body","required":false,"nullable":false},
+    {"name":"messaging_app_account_id","wireName":"messaging_app_account_id","location":"body","required":false,"nullable":false},
+    {"name":"message_event_set_id","wireName":"message_event_set_id","location":"body","required":false,"nullable":false},
+    {"name":"phone_info","wireName":"phone_info","location":"body","required":false,"nullable":false},
+    {"name":"bid_type","wireName":"bid_type","location":"body","required":true,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"deep_bid_type","wireName":"deep_bid_type","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"vbo_window","wireName":"vbo_window","location":"body","required":false,"nullable":false},
+    {"name":"click_attribution_window","wireName":"click_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"engaged_view_attribution_window","wireName":"engaged_view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"view_attribution_window","wireName":"view_attribution_window","location":"body","required":false,"nullable":false},
+    {"name":"attribution_event_count","wireName":"attribution_event_count","location":"body","required":false,"nullable":false},
+    {"name":"billing_event","wireName":"billing_event","location":"body","required":true,"nullable":false},
+    {"name":"targeting_optimization_mode","wireName":"targeting_optimization_mode","location":"body","required":false,"nullable":false},
+    {"name":"suggestion_audience_enabled","wireName":"suggestion_audience_enabled","location":"body","required":false,"nullable":false},
+    {"name":"targeting_spec","wireName":"targeting_spec","location":"body","required":true,"nullable":false},
+    {"name":"budget_mode","wireName":"budget_mode","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"min_budget","wireName":"min_budget","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":true,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":true,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"movie_premiere_date","wireName":"movie_premiere_date","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"is_lhf_compliance","wireName":"is_lhf_compliance","location":"body","required":false,"nullable":false},
+    {"name":"placement_type","wireName":"placement_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":false,"nullable":false},
+    {"name":"tiktok_subplacements","wireName":"tiktok_subplacements","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"video_download_disabled","wireName":"video_download_disabled","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    request_id: Schema.String,
+    campaign_id: Schema.String,
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    adgroup_name: Schema.String,
+    catalog_id: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    promotion_type: Schema.String,
+    promotion_target_type: Schema.optional(Schema.Union(Schema.Literal("INSTANT_PAGE"), Schema.Literal("EXTERNAL_WEBSITE"), Schema.Literal("true"))),
+    optimization_goal: Schema.String,
+    app_id: Schema.optional(Schema.String),
+    gaming_ad_compliance_agreement: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    pixel_id: Schema.optional(Schema.String),
+    app_config: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdgroupCreateParamsAppConfig))),
+    minis_id: Schema.optional(Schema.String),
+    optimization_event: Schema.optional(Schema.String),
+    custom_conversion_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_status: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    deep_funnel_event_source: Schema.optional(Schema.Union(Schema.Literal("PIXEL"), Schema.Literal("OFFLINE"), Schema.Literal("CRM"))),
+    deep_funnel_event_source_id: Schema.optional(Schema.String),
+    deep_funnel_optimization_event: Schema.optional(Schema.String),
+    app_attribution_source: Schema.optional(Schema.Union(Schema.Literal("MMP"), Schema.Literal("SAN"), Schema.Literal("true"))),
+    app_data_source: Schema.optional(Schema.Union(Schema.Literal("MMP"), Schema.Literal("EVENT_SDK"), Schema.Literal("EVENT_API"), Schema.Literal("true"))),
+    identity_id: Schema.optional(Schema.String),
+    identity_type: Schema.optional(Schema.Union(Schema.Literal("TT_USER"), Schema.Literal("BC_AUTH_TT"))),
+    identity_authorized_bc_id: Schema.optional(Schema.String),
+    native_series_id: Schema.optional(Schema.String),
+    messaging_app_type: Schema.optional(Schema.Union(Schema.Literal("MESSENGER"), Schema.Literal("WHATSAPP"), Schema.Literal("ZALO"), Schema.Literal("LINE"), Schema.Literal("IM_URL"))),
+    zalo_id_type: Schema.optional(Schema.Union(Schema.Literal("ZALO_OFFICIAL_ACCOUNT"), Schema.Literal("ZALO_PHONE_ACCOUNT"))),
+    messaging_app_account_id: Schema.optional(Schema.String),
+    message_event_set_id: Schema.optional(Schema.String),
+    phone_info: Schema.optional(Models.SmartPlusAdgroupCreateParamsPhoneInfo),
+    bid_type: Schema.Union(Schema.Literal("BID_TYPE_NO_BID"), Schema.Literal("BID_TYPE_CUSTOM")),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    deep_bid_type: Schema.optional(Schema.Union(Schema.Literal("DEFAULT"), Schema.Literal("AEO"), Schema.Literal("VO_MIN_ROAS"), Schema.Literal("VO_HIGHEST_VALUE"), Schema.Literal("BUDGET_MODE_DYNAMIC_DAILY_BUDGET"))),
+    roas_bid: Schema.optional(Schema.Number),
+    vbo_window: Schema.optional(Schema.Union(Schema.Literal("SEVEN_DAYS"), Schema.Literal("ZERO_DAY"))),
+    click_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"), Schema.Literal("FOURTEEN_DAYS"), Schema.Literal("TWENTY_EIGHT_DAYS"), Schema.Literal("THIRTY_DAYS"))),
+    engaged_view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"), Schema.Literal("FOURTEEN_DAYS"), Schema.Literal("TWENTY_EIGHT_DAYS"))),
+    view_attribution_window: Schema.optional(Schema.Union(Schema.Literal("OFF"), Schema.Literal("ONE_DAY"), Schema.Literal("SEVEN_DAYS"))),
+    attribution_event_count: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("EVERY"), Schema.Literal("ONCE"))),
+    billing_event: Schema.String,
+    targeting_optimization_mode: Schema.optional(Schema.String),
+    suggestion_audience_enabled: Schema.optional(Schema.Boolean),
+    targeting_spec: Models.SmartPlusAdgroupCreateParamsTargetingSpec,
+    budget_mode: Schema.optional(Schema.Union(Schema.Literal("BUDGET_MODE_TOTAL"), Schema.Literal("BUDGET_MODE_DYNAMIC_DAILY_BUDGET"), Schema.Literal("SCHEDULE_START_END"), Schema.Literal("BUDGET_MODE_DAY"), Schema.Literal("false"))),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    min_budget: Schema.optional(Schema.Number),
+    schedule_type: Schema.Union(Schema.Literal("SCHEDULE_FROM_NOW"), Schema.Literal("BUDGET_MODE_DYNAMIC_DAILY_BUDGET"), Schema.Literal("SCHEDULE_START_END")),
+    schedule_start_time: Schema.String,
+    schedule_end_time: Schema.optional(Schema.String),
+    movie_premiere_date: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    is_hfss: Schema.optional(Schema.Boolean),
+    is_lhf_compliance: Schema.optional(Schema.Boolean),
+    placement_type: Schema.optional(Schema.Union(Schema.Literal("PLACEMENT_TYPE_AUTOMATIC"), Schema.Literal("PLACEMENT_TYPE_NORMAL"), Schema.Literal("PLACEMENT_TIKTOK"))),
+    placements: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("PLACEMENT_TIKTOK"), Schema.Literal("PLACEMENT_PANGLE"), Schema.Literal("PLACEMENT_GLOBAL_APP_BUNDLE"), Schema.Literal("TRAFFIC_LANDING_PAGE_VIEW")))),
+    tiktok_subplacements: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("LEMON8"), Schema.Literal("PINE_DRAMA")))),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    video_download_disabled: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.SmartPlusAdgroupCreateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdgroupGet = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdgroupGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/adgroup/get/",
+  summary: "Get Upgraded Smart+ Ad Groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    filtering: Schema.optional(Models.SmartPlusAdgroupGetParamsFiltering),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.SmartPlusAdgroupGetResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdgroupStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdgroupStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/adgroup/status/update/",
+  summary: "Update the operation statuses of Upgraded Smart+ Ad Groups",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_ids: Schema.Array(Schema.String),
+    operation_status: Schema.Union(Schema.Literal("DISABLE"), Schema.Literal("ENABLE"), Schema.Literal("DELETE")),
+  }),
+  outputSchema: Models.SmartPlusAdgroupStatusUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdgroupUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdgroupUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/adgroup/update/",
+  summary: "Update an Upgraded Smart+ Ad Group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
+    {"name":"adgroup_name","wireName":"adgroup_name","location":"body","required":false,"nullable":false},
+    {"name":"bid_price","wireName":"bid_price","location":"body","required":false,"nullable":false},
+    {"name":"conversion_bid_price","wireName":"conversion_bid_price","location":"body","required":false,"nullable":false},
+    {"name":"roas_bid","wireName":"roas_bid","location":"body","required":false,"nullable":false},
+    {"name":"comment_disabled","wireName":"comment_disabled","location":"body","required":false,"nullable":false},
+    {"name":"share_disabled","wireName":"share_disabled","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"is_hfss","wireName":"is_hfss","location":"body","required":false,"nullable":false},
+    {"name":"is_lhf_compliance","wireName":"is_lhf_compliance","location":"body","required":false,"nullable":false},
+    {"name":"targeting_optimization_mode","wireName":"targeting_optimization_mode","location":"body","required":false,"nullable":false},
+    {"name":"suggestion_audience_enabled","wireName":"suggestion_audience_enabled","location":"body","required":false,"nullable":false},
+    {"name":"targeting_spec","wireName":"targeting_spec","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.String,
+    adgroup_name: Schema.optional(Schema.String),
+    bid_price: Schema.optional(Schema.Number),
+    conversion_bid_price: Schema.optional(Schema.Number),
+    roas_bid: Schema.optional(Schema.Number),
+    comment_disabled: Schema.optional(Schema.Boolean),
+    share_disabled: Schema.optional(Schema.Boolean),
+    schedule_type: Schema.optional(Schema.Union(Schema.Literal("SCHEDULE_FROM_NOW"), Schema.Literal("SCHEDULE_START_END"), Schema.Literal("BUDGET_MODE_TOTAL"))),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    is_hfss: Schema.optional(Schema.Boolean),
+    is_lhf_compliance: Schema.optional(Schema.Boolean),
+    targeting_optimization_mode: Schema.optional(Schema.String),
+    suggestion_audience_enabled: Schema.optional(Schema.Boolean),
+    targeting_spec: Schema.optional(Models.SmartPlusAdgroupUpdateParamsTargetingSpec),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.SmartPlusAdgroupUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdMaterialStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdMaterialStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/material_status/update/",
+  summary: "Disable or enable creatives in an Upgraded Smart+ Ad",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_material_ids","wireName":"ad_material_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    smart_plus_ad_id: Schema.String,
+    ad_material_ids: Schema.Array(Schema.String),
+    operation_status: Schema.Union(Schema.Literal("DISABLE"), Schema.Literal("ENABLE")),
+  }),
+  outputSchema: Models.SmartPlusAdMaterialStatusUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdPreview = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdPreview",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/preview/",
+  summary: "Preview Upgraded Smart+ Ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"preview_type","wireName":"preview_type","location":"body","required":true,"nullable":false},
+    {"name":"catalog_enabled","wireName":"catalog_enabled","location":"body","required":false,"nullable":false},
+    {"name":"catalog_id","wireName":"catalog_id","location":"body","required":false,"nullable":false},
+    {"name":"catalog_authorized_bc_id","wireName":"catalog_authorized_bc_id","location":"body","required":false,"nullable":false},
+    {"name":"creative_list","wireName":"creative_list","location":"body","required":true,"nullable":false},
+    {"name":"ad_text_list","wireName":"ad_text_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"ad_configuration","wireName":"ad_configuration","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    preview_type: Schema.String,
+    catalog_enabled: Schema.optional(Schema.Boolean),
+    catalog_id: Schema.optional(Schema.String),
+    catalog_authorized_bc_id: Schema.optional(Schema.String),
+    creative_list: Schema.Array(Schema.suspend(() => Models.SmartPlusAdPreviewParamsCreativeList)),
+    ad_text_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdPreviewParamsAdTextList))),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdPreviewParamsCallToActionList))),
+    ad_configuration: Schema.optional(Models.SmartPlusAdPreviewParamsAdConfiguration),
+  }),
+  outputSchema: Models.SmartPlusAdPreviewResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdReviewInfo = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdReviewInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/ad/review_info/",
+  summary: "Get the review info of Upgraded Smart+ Ads",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"smart_plus_ad_ids","wireName":"smart_plus_ad_ids","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
+    {"name":"extra_info_setting","wireName":"extra_info_setting","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    smart_plus_ad_ids: Schema.Array(Schema.String),
+    lang: Schema.optional(Schema.String),
+    extra_info_setting: Schema.optional(Models.SmartPlusAdReviewInfoParamsExtraInfoSetting),
+  }),
+  outputSchema: Models.SmartPlusAdReviewInfoResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/status/update/",
+  summary: "Update the operation statuses of Upgraded Smart+ Ads",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"smart_plus_ad_ids","wireName":"smart_plus_ad_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    smart_plus_ad_ids: Schema.Array(Schema.String),
+    operation_status: Schema.Union(Schema.Literal("DISABLE"), Schema.Literal("ENABLE"), Schema.Literal("DELETE")),
+  }),
+  outputSchema: Models.SmartPlusAdStatusUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusAdUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusAdUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/ad/update/",
+  summary: "Update an Upgraded Smart+ Ad",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
+    {"name":"ad_name","wireName":"ad_name","location":"body","required":false,"nullable":false},
+    {"name":"creative_list","wireName":"creative_list","location":"body","required":false,"nullable":false},
+    {"name":"playable_list","wireName":"playable_list","location":"body","required":false,"nullable":false},
+    {"name":"ad_text_list","wireName":"ad_text_list","location":"body","required":false,"nullable":false},
+    {"name":"call_to_action_list","wireName":"call_to_action_list","location":"body","required":false,"nullable":false},
+    {"name":"interactive_add_on_list","wireName":"interactive_add_on_list","location":"body","required":false,"nullable":false},
+    {"name":"page_list","wireName":"page_list","location":"body","required":false,"nullable":false},
+    {"name":"landing_page_url_list","wireName":"landing_page_url_list","location":"body","required":false,"nullable":false},
+    {"name":"custom_product_page_list","wireName":"custom_product_page_list","location":"body","required":false,"nullable":false},
+    {"name":"deeplink_list","wireName":"deeplink_list","location":"body","required":false,"nullable":false},
+    {"name":"disclaimer","wireName":"disclaimer","location":"body","required":false,"nullable":false},
+    {"name":"ad_configuration","wireName":"ad_configuration","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    smart_plus_ad_id: Schema.String,
+    ad_name: Schema.optional(Schema.String),
+    creative_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsCreativeList))),
+    playable_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsPlayableList))),
+    ad_text_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsAdTextList))),
+    call_to_action_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsCallToActionList))),
+    interactive_add_on_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsInteractiveAddOnList))),
+    page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsPageList))),
+    landing_page_url_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsLandingPageUrlList))),
+    custom_product_page_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsCustomProductPageList))),
+    deeplink_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusAdUpdateParamsDeeplinkList))),
+    disclaimer: Schema.optional(Models.SmartPlusAdUpdateParamsDisclaimer),
+    ad_configuration: Schema.optional(Models.SmartPlusAdUpdateParamsAdConfiguration),
+  }),
+  outputSchema: Models.SmartPlusAdUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignCopyTaskCheck = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignCopyTaskCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/campaign/copy/task/check/",
+  summary: "Get the results of an asynchronous copy task for an Upgraded Smart+ Campaign",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    task_id: Schema.String,
+  }),
+  outputSchema: Models.SmartPlusCampaignCopyTaskCheckResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignCopyTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignCopyTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/campaign/copy/task/create/",
+  summary: "Create an asynchronous copy task for an Upgraded Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"schedule_type","wireName":"schedule_type","location":"body","required":false,"nullable":false},
+    {"name":"schedule_start_time","wireName":"schedule_start_time","location":"body","required":false,"nullable":false},
+    {"name":"schedule_end_time","wireName":"schedule_end_time","location":"body","required":false,"nullable":false},
+    {"name":"dayparting","wireName":"dayparting","location":"body","required":false,"nullable":false},
+    {"name":"deep_copy_mode","wireName":"deep_copy_mode","location":"body","required":false,"nullable":false},
+    {"name":"adgroup_list","wireName":"adgroup_list","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    request_id: Schema.String,
+    campaign_id: Schema.String,
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    campaign_name: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    schedule_type: Schema.optional(Schema.Union(Schema.Literal("SCHEDULE_START_END"), Schema.Literal("SCHEDULE_FROM_NOW"))),
+    schedule_start_time: Schema.optional(Schema.String),
+    schedule_end_time: Schema.optional(Schema.String),
+    dayparting: Schema.optional(Schema.String),
+    deep_copy_mode: Schema.optional(Schema.Union(Schema.Literal("DEFAULT"), Schema.Literal("CUSTOM"))),
+    adgroup_list: Schema.optional(Schema.Array(Schema.suspend(() => Models.SmartPlusCampaignCopyTaskCreateParamsAdgroupList))),
+  }),
+  outputSchema: Models.SmartPlusCampaignCopyTaskCreateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignCreate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/campaign/create/",
+  summary: "Create an Upgraded Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"sales_destination","wireName":"sales_destination","location":"body","required":false,"nullable":false},
+    {"name":"catalog_enabled","wireName":"catalog_enabled","location":"body","required":false,"nullable":false},
+    {"name":"catalog_type","wireName":"catalog_type","location":"body","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"body","required":false,"nullable":false},
+    {"name":"is_promotional_campaign","wireName":"is_promotional_campaign","location":"body","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
+    {"name":"gaming_ad_compliance_agreement","wireName":"gaming_ad_compliance_agreement","location":"body","required":false,"nullable":false},
+    {"name":"campaign_app_profile_page_state","wireName":"campaign_app_profile_page_state","location":"body","required":false,"nullable":false},
+    {"name":"disable_skan_campaign","wireName":"disable_skan_campaign","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":true,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"body","required":false,"nullable":false},
+    {"name":"budget_optimize_on","wireName":"budget_optimize_on","location":"body","required":false,"nullable":false},
+    {"name":"budget_mode","wireName":"budget_mode","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"postback_window_mode","wireName":"postback_window_mode","location":"body","required":false,"nullable":false},
+    {"name":"po_number","wireName":"po_number","location":"body","required":false,"nullable":false},
+    {"name":"rta_id","wireName":"rta_id","location":"body","required":false,"nullable":false},
+    {"name":"rta_bid_enabled","wireName":"rta_bid_enabled","location":"body","required":false,"nullable":false},
+    {"name":"rta_product_selection_enabled","wireName":"rta_product_selection_enabled","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    request_id: Schema.String,
+    operation_status: Schema.optional(Schema.Union(Schema.Literal("ENABLE"), Schema.Literal("DISABLE"))),
+    objective_type: Schema.String,
+    app_promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_INSTALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("MINIS"))),
+    sales_destination: Schema.optional(Schema.Union(Schema.Literal("WEBSITE"), Schema.Literal("APP"))),
+    catalog_enabled: Schema.optional(Schema.Boolean),
+    catalog_type: Schema.optional(Schema.Union(Schema.Literal("ECOMMERCE"), Schema.Literal("TRAVEL_ENTERTAINMENT"), Schema.Literal("MINI_SERIES"))),
+    campaign_type: Schema.optional(Schema.Union(Schema.Literal("REGULAR_CAMPAIGN"), Schema.Literal("IOS14_CAMPAIGN"))),
+    is_promotional_campaign: Schema.optional(Schema.Boolean),
+    app_id: Schema.optional(Schema.String),
+    gaming_ad_compliance_agreement: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    campaign_app_profile_page_state: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    disable_skan_campaign: Schema.optional(Schema.Boolean),
+    campaign_name: Schema.String,
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    budget_optimize_on: Schema.optional(Schema.Boolean),
+    budget_mode: Schema.optional(Schema.String),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    postback_window_mode: Schema.optional(Schema.Union(Schema.Literal("POSTBACK_WINDOW_MODE1"), Schema.Literal("POSTBACK_WINDOW_MODE2"), Schema.Literal("POSTBACK_WINDOW_MODE3"), Schema.Literal("ENABLE"))),
+    po_number: Schema.optional(Schema.String),
+    rta_id: Schema.optional(Schema.String),
+    rta_bid_enabled: Schema.optional(Schema.Boolean),
+    rta_product_selection_enabled: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.SmartPlusCampaignCreateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignGet = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/campaign/get/",
+  summary: "Get Upgraded Smart+ Campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+    filtering: Schema.optional(Models.SmartPlusCampaignGetParamsFiltering),
+  }),
+  outputSchema: Models.SmartPlusCampaignGetResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignStatusUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignStatusUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/campaign/status/update/",
+  summary: "Update the operation statuses of Upgraded Smart+ Campaigns",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_ids","wireName":"campaign_ids","location":"body","required":true,"nullable":false},
+    {"name":"operation_status","wireName":"operation_status","location":"body","required":true,"nullable":false},
+    {"name":"postback_window_mode","wireName":"postback_window_mode","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_ids: Schema.Array(Schema.String),
+    operation_status: Schema.Union(Schema.Literal("DELETE"), Schema.Literal("ENABLE")),
+    postback_window_mode: Schema.optional(Schema.Union(Schema.Literal("POSTBACK_WINDOW_MODE1"), Schema.Literal("POSTBACK_WINDOW_MODE2"), Schema.Literal("POSTBACK_WINDOW_MODE3"), Schema.Literal("ENABLE"))),
+  }),
+  outputSchema: Models.SmartPlusCampaignStatusUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusCampaignUpdate = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusCampaignUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/smart_plus/campaign/update/",
+  summary: "Update an Upgraded Smart+ Campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":false,"nullable":false},
+    {"name":"budget_auto_adjust_strategy","wireName":"budget_auto_adjust_strategy","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"po_number","wireName":"po_number","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.String,
+    campaign_name: Schema.optional(Schema.String),
+    budget_auto_adjust_strategy: Schema.optional(Schema.String),
+    budget: Schema.optional(Schema.Number),
+    po_number: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.SmartPlusCampaignUpdateResponse,
+});
+
+export const tiktok_upgradedSmart_smartPlusMaterialReviewInfo = defineEndpointDescriptor({
+  id: "tiktok.upgradedSmart.smartPlusMaterialReviewInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/smart_plus/material/review_info/",
+  summary: "Get the review info of Upgraded Smart+ Ad creatives",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["upgradedSmart.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"ad_material_ids","wireName":"ad_material_ids","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
+    {"name":"extra_info_setting","wireName":"extra_info_setting","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    ad_material_ids: Schema.Array(Schema.String),
+    lang: Schema.optional(Schema.String),
+    extra_info_setting: Schema.optional(Models.SmartPlusMaterialReviewInfoParamsExtraInfoSetting),
+  }),
+  outputSchema: Models.SmartPlusMaterialReviewInfoResponse,
+});
+
+export const tiktok_sparkAdsRecommendation_sparkAdRecommend = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsRecommendation.sparkAdRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/spark_ad/recommend/",
+  summary: "Get Spark Ads video recommendations for a TTO account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsRecommendation.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tcm_account_id","wireName":"tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
+    {"name":"exclude_video_ids","wireName":"exclude_video_ids","location":"query","required":false,"nullable":false},
+    {"name":"time","wireName":"time","location":"query","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tcm_account_id: Schema.String,
+    video_ids: Schema.optional(Schema.Array(Schema.String)),
+    exclude_video_ids: Schema.optional(Schema.Array(Schema.String)),
+    time: Schema.optional(Schema.Union(Schema.Literal("PAST_ONE_MONTH"), Schema.Literal("PAST_THREE_MONTHS"), Schema.Literal("PAST_SIX_MONTHS"))),
+    objective_type: Schema.optional(Schema.Union(Schema.Literal("REACH"), Schema.Literal("TRAFFIC"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("APP_PROMOTION"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("PRODUCT_SALES"))),
+  }),
+  outputSchema: Models.SparkAdRecommendResponse,
+});
+
+export const tiktok_superSplitTest_splitTestCreate = defineEndpointDescriptor({
+  id: "tiktok.superSplitTest.splitTestCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/split_test/create/",
+  summary: "Create a split test",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["superSplitTest.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"split_test_level","wireName":"split_test_level","location":"body","required":false,"nullable":false},
+    {"name":"object_ids","wireName":"object_ids","location":"body","required":false,"nullable":false},
+    {"name":"cells","wireName":"cells","location":"body","required":false,"nullable":false},
+    {"name":"test_variable","wireName":"test_variable","location":"body","required":false,"nullable":false},
+    {"name":"key_metric","wireName":"key_metric","location":"body","required":false,"nullable":false},
+    {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"body","required":true,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    split_test_level: Schema.optional(Schema.Union(Schema.Literal("ADGROUP"), Schema.Literal("CAMPAIGN"))),
+    object_ids: Schema.optional(Schema.Array(Schema.String)),
+    cells: Schema.optional(Schema.Array(Schema.suspend(() => Models.SplitTestCreateParamsCells))),
+    test_variable: Schema.optional(Schema.Union(Schema.Literal("BIDDING_OPTIMIZATION"), Schema.Literal("TARGTING"), Schema.Literal("CREATIVE"), Schema.Literal("CUSTOM"))),
+    key_metric: Schema.optional(Schema.Union(Schema.Literal("UNSET"), Schema.Literal("CONVERT_RATE"), Schema.Literal("CLICK_THROUGH_RATE"), Schema.Literal("COST_PER_SHOW"), Schema.Literal("COST_PER_CONVERT"), Schema.Literal("COST_PER_REACH"), Schema.Literal("COST_PER_CLICK"), Schema.Literal("COST_PER_FOCUSED_VIEW"), Schema.Literal("FOCUSED_VIEW_RATE"), Schema.Literal("COMPLETE_PAYMENT_ROAS"), Schema.Literal("COST_PER_LANDING_PAGE_VIEW"), Schema.Literal("LANDING_PAGE_VIEW_RATE"), Schema.Literal("CLICK"), Schema.Literal("REACH"), Schema.Literal("SHOW"), Schema.Literal("CONVERT"), Schema.Literal("COST"))),
+    budget: Schema.optional(Schema.Number),
+    start_time: Schema.String,
+    end_time: Schema.String,
+  }),
+  outputSchema: Models.SplitTestCreateResponse,
+});
+
+export const tiktok_superSplitTest_splitTestEnd = defineEndpointDescriptor({
+  id: "tiktok.superSplitTest.splitTestEnd",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/split_test/end/",
+  summary: "End a split test",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["superSplitTest.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    split_test_group_id: Schema.String,
+  }),
+  outputSchema: Models.SplitTestEndResponse,
+});
+
+export const tiktok_superSplitTest_splitTestPromote = defineEndpointDescriptor({
+  id: "tiktok.superSplitTest.splitTestPromote",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/split_test/promote/",
+  summary: "Run the winning ad group",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["superSplitTest.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false},
+    {"name":"winning_object_id","wireName":"winning_object_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    split_test_group_id: Schema.String,
+    winning_object_id: Schema.String,
+  }),
+  outputSchema: Models.SplitTestPromoteResponse,
+});
+
+export const tiktok_superSplitTest_splitTestResultGet = defineEndpointDescriptor({
+  id: "tiktok.superSplitTest.splitTestResultGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/split_test/result/get/",
+  summary: "Get the results of a split test",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["superSplitTest.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"split_test_group_id","wireName":"split_test_group_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    split_test_group_id: Schema.String,
+  }),
+  outputSchema: Models.SplitTestResultGetResponse,
+});
+
+export const tiktok_superSplitTest_splitTestUpdate = defineEndpointDescriptor({
+  id: "tiktok.superSplitTest.splitTestUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/split_test/update/",
+  summary: "Update the time of a split test",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["superSplitTest.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false},
+    {"name":"start_time","wireName":"start_time","location":"body","required":true,"nullable":false},
+    {"name":"end_time","wireName":"end_time","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    split_test_group_id: Schema.String,
+    start_time: Schema.String,
+    end_time: Schema.String,
+  }),
+  outputSchema: Models.SplitTestUpdateResponse,
+});
+
+export const tiktok_tikTokStore_storeList = defineEndpointDescriptor({
+  id: "tiktok.tikTokStore.storeList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/store/list/",
+  summary: "Get available stores under an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokStore.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":false,"nullable":false},
+    {"name":"store_type","wireName":"store_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    store_id: Schema.optional(Schema.String),
+    store_type: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.StoreListResponse,
+});
+
+export const tiktok_tikTokStore_storeProductGet = defineEndpointDescriptor({
+  id: "tiktok.tikTokStore.storeProductGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/store/product/get/",
+  summary: "Get products within a TikTok Shop",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokStore.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_type","wireName":"sort_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    bc_id: Schema.String,
+    store_id: Schema.String,
+    filtering: Schema.optional(Models.StoreProductGetParamsFiltering),
+    advertiser_id: Schema.optional(Schema.String),
+    sort_field: Schema.optional(Schema.String),
+    sort_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.StoreProductGetResponse,
+});
+
+export const tiktok_subscription_subscriptionGet = defineEndpointDescriptor({
+  id: "tiktok.subscription.subscriptionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/subscription/get/",
+  summary: "Get subscription details of a developer app",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["subscription.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
+    {"name":"subscribe_entity","wireName":"subscribe_entity","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    subscribe_entity: Schema.optional(Schema.Union(Schema.Literal("REPORT_DATA_CHANGE"), Schema.Literal("AD_ACCOUNT_SUSPENSION"), Schema.Literal("LEAD"), Schema.Literal("AD_GROUP"), Schema.Literal("AD"), Schema.Literal("TCM_VIDEOS"), Schema.Literal("CREATIVE_FATIGUE"), Schema.Literal("API_SERVICE_STATUS"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.SubscriptionGetResponse,
+});
+
+export const tiktok_subscription_subscriptionSubscribe = defineEndpointDescriptor({
+  id: "tiktok.subscription.subscriptionSubscribe",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/subscription/subscribe/",
+  summary: "Create a subscription",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["subscription.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"subscribe_entity","wireName":"subscribe_entity","location":"body","required":true,"nullable":false},
+    {"name":"callback_url","wireName":"callback_url","location":"body","required":true,"nullable":false},
+    {"name":"subscription_detail","wireName":"subscription_detail","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    subscribe_entity: Schema.Union(Schema.Literal("REPORT_DATA_CHANGE"), Schema.Literal("AD_ACCOUNT_SUSPENSION"), Schema.Literal("LEAD"), Schema.Literal("AD_GROUP"), Schema.Literal("AD"), Schema.Literal("TCM_VIDEOS"), Schema.Literal("CREATIVE_FATIGUE"), Schema.Literal("API_SERVICE_STATUS")),
+    callback_url: Schema.String,
+    subscription_detail: Models.SubscriptionSubscribeParamsSubscriptionDetail,
+  }),
+  outputSchema: Models.SubscriptionSubscribeResponse,
+});
+
+export const tiktok_subscription_subscriptionUnsubscribe = defineEndpointDescriptor({
+  id: "tiktok.subscription.subscriptionUnsubscribe",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/subscription/unsubscribe/",
+  summary: "Cancel a subscription",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["subscription.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
+    {"name":"subscription_id","wireName":"subscription_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+    subscription_id: Schema.String,
+  }),
+  outputSchema: Models.SubscriptionUnsubscribeResponse,
+});
+
+export const tiktok_tools_targetingSearch = defineEndpointDescriptor({
+  id: "tiktok.tools.targetingSearch",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/targeting/search/",
+  summary: "Search for or list targeting categories and hashtags for interests and behaviors",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"targeting_type","wireName":"targeting_type","location":"query","required":true,"nullable":false},
+    {"name":"sub_targeting_types","wireName":"sub_targeting_types","location":"query","required":false,"nullable":false},
+    {"name":"search_keywords","wireName":"search_keywords","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    targeting_type: Schema.String,
+    sub_targeting_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("GENERAL_INTEREST"), Schema.Literal("ADDITIONAL_INTEREST"), Schema.Literal("PURCHASE_INTENTION"), Schema.Literal("VIDEO_INTERACTION"), Schema.Literal("CREATOR_INTERACTION"), Schema.Literal("HASHTAG_INTERACTION")))),
+    search_keywords: Schema.optional(Schema.Array(Schema.String)),
+    language: Schema.optional(Schema.String),
+    filtering: Schema.optional(Models.TargetingSearchParamsFiltering),
+  }),
+  outputSchema: Models.TargetingSearchResponse,
+});
+
+export const tiktok_tikTokOne_tcmTtVideoApply = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.tcmTtVideoApply",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tcm/tt_video/apply/",
+  summary: "Apply for Spark Ads authorization",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"tcm_account_id","wireName":"tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"authorization_days","wireName":"authorization_days","location":"body","required":false,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    video_id: Schema.String,
+    tcm_account_id: Schema.String,
+    authorization_days: Schema.optional(Schema.Number),
+    action: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TcmTtVideoApplyResponse,
+});
+
+export const tiktok_tikTokOne_tcmTtVideoStatus = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.tcmTtVideoStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tcm/tt_video/status/",
+  summary: "Get the authorization status",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
+    {"name":"tcm_account_id","wireName":"tcm_account_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    video_id: Schema.String,
+    tcm_account_id: Schema.String,
+  }),
+  outputSchema: Models.TcmTtVideoStatusResponse,
+});
+
+export const tiktok_terms_termCheck = defineEndpointDescriptor({
+  id: "tiktok.terms.termCheck",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/term/check/",
+  summary: "Check the status of Terms",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["terms.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"term_type","wireName":"term_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    term_type: Schema.String,
+  }),
+  outputSchema: Models.TermCheckResponse,
+});
+
+export const tiktok_terms_termConfirm = defineEndpointDescriptor({
+  id: "tiktok.terms.termConfirm",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/term/confirm/",
+  summary: "Sign Terms",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["terms.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"term_type","wireName":"term_type","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    term_type: Schema.String,
+  }),
+  outputSchema: Models.TermConfirmResponse,
+});
+
+export const tiktok_terms_termGet = defineEndpointDescriptor({
+  id: "tiktok.terms.termGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/term/get/",
+  summary: "Get Terms",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["terms.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
+    {"name":"term_type","wireName":"term_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    lang: Schema.optional(Schema.Union(Schema.Literal("EN"), Schema.Literal("JA"), Schema.Literal("ZH"))),
+    term_type: Schema.String,
+  }),
+  outputSchema: Models.TermGetResponse,
+});
+
+export const tiktok_brandSafety_tiktokInventoryFiltersGet = defineEndpointDescriptor({
+  id: "tiktok.brandSafety.tiktokInventoryFiltersGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tiktok_inventory_filters/get/",
+  summary: "Get the Brand Safety Hub settings of an ad account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["brandSafety.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.TiktokInventoryFiltersGetResponse,
+});
+
+export const tiktok_brandSafety_tiktokInventoryFiltersUpdate = defineEndpointDescriptor({
+  id: "tiktok.brandSafety.tiktokInventoryFiltersUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tiktok_inventory_filters/update/",
+  summary: "Set or update the Brand Safety Hub settings of an ad account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["brandSafety.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"cover_all_ad_objectives","wireName":"cover_all_ad_objectives","location":"body","required":true,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"category_exclusion_ids","wireName":"category_exclusion_ids","location":"body","required":false,"nullable":false},
+    {"name":"vertical_sensitivity_id","wireName":"vertical_sensitivity_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    cover_all_ad_objectives: Schema.Boolean,
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"))),
+    category_exclusion_ids: Schema.optional(Schema.Array(Schema.String)),
+    vertical_sensitivity_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TiktokInventoryFiltersUpdateResponse,
+});
+
+export const tiktok_tools_toolActionCategory = defineEndpointDescriptor({
+  id: "tiktok.tools.toolActionCategory",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/action_category/",
+  summary: "Get action categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+    language: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.ToolActionCategoryResponse,
+});
+
+export const tiktok_tools_toolAvailableAttributionSource = defineEndpointDescriptor({
+  id: "tiktok.tools.toolAvailableAttributionSource",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/available/attribution_source/",
+  summary: "Get available attribution sources and data sources for an app",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"query","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    app_id: Schema.String,
+    optimization_event: Schema.optional(Schema.String),
+    campaign_type: Schema.optional(Schema.Union(Schema.Literal("REGULAR_CAMPAIGN"), Schema.Literal("IOS14_CAMPAIGN"))),
+  }),
+  outputSchema: Models.ToolAvailableAttributionSourceResponse,
+});
+
+export const tiktok_tools_toolBidRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.toolBidRecommend",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tool/bid/recommend/",
+  summary: "Get a suggested bid",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"body","required":true,"nullable":false},
+    {"name":"external_action","wireName":"external_action","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    campaign_id: Schema.optional(Schema.String),
+    objective_type: Schema.String,
+    location_ids: Schema.Array(Schema.String),
+    external_action: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.ToolBidRecommendResponse,
+});
+
+export const tiktok_tools_toolBrandSafetyPartnerAuthorizeStatus = defineEndpointDescriptor({
+  id: "tiktok.tools.toolBrandSafetyPartnerAuthorizeStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/brand_safety/partner/authorize/status/",
+  summary: "Get the authorization status of a Brand Safety partner",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"partner","wireName":"partner","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    partner: Schema.String,
+  }),
+  outputSchema: Models.ToolBrandSafetyPartnerAuthorizeStatusResponse,
+});
+
+export const tiktok_tools_toolCarrier = defineEndpointDescriptor({
+  id: "tiktok.tools.toolCarrier",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/carrier/",
+  summary: "Get carriers",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ToolCarrierResponse,
+});
+
+export const tiktok_tools_toolContentExclusionGet = defineEndpointDescriptor({
+  id: "tiktok.tools.toolContentExclusionGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/content_exclusion/get/",
+  summary: "Get available content exclusion categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"))),
+  }),
+  outputSchema: Models.ToolContentExclusionGetResponse,
+});
+
+export const tiktok_tools_toolContentExclusionInfo = defineEndpointDescriptor({
+  id: "tiktok.tools.toolContentExclusionInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/content_exclusion/info/",
+  summary: "Get details of content exclusion categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"category_ids","wireName":"category_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    category_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.ToolContentExclusionInfoResponse,
+});
+
+export const tiktok_tools_toolContextualTagGet = defineEndpointDescriptor({
+  id: "tiktok.tools.toolContextualTagGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/contextual_tag/get/",
+  summary: "Get available contextual tags",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"query","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"query","required":false,"nullable":false},
+    {"name":"rf_campaign_type","wireName":"rf_campaign_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    region_codes: Schema.optional(Schema.Array(Schema.String)),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"))),
+    rf_campaign_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("PULSE"))),
+  }),
+  outputSchema: Models.ToolContextualTagGetResponse,
+});
+
+export const tiktok_tools_toolContextualTagInfo = defineEndpointDescriptor({
+  id: "tiktok.tools.toolContextualTagInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/contextual_tag/info/",
+  summary: "Get details of contextual tags",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    contextual_tag_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.ToolContextualTagInfoResponse,
+});
+
+export const tiktok_tools_toolDeviceModel = defineEndpointDescriptor({
+  id: "tiktok.tools.toolDeviceModel",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/device_model/",
+  summary: "Get device models",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ToolDeviceModelResponse,
+});
+
+export const tiktok_adDiagnosis_toolDiagnosisGet = defineEndpointDescriptor({
+  id: "tiktok.adDiagnosis.toolDiagnosisGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/diagnosis/get/",
+  summary: "Get diagnoses for ad groups",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["adDiagnosis.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    filtering: Schema.optional(Models.ToolDiagnosisGetParamsFiltering),
+  }),
+  outputSchema: Models.ToolDiagnosisGetResponse,
+});
+
+export const tiktok_tools_toolDiagnosisSearchHealth = defineEndpointDescriptor({
+  id: "tiktok.tools.toolDiagnosisSearchHealth",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/diagnosis/search/health/",
+  summary: "Get Search Ads Campaign Health diagnoses",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"adgroup_id","wireName":"adgroup_id","location":"query","required":false,"nullable":false},
+    {"name":"ad_ids","wireName":"ad_ids","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    adgroup_id: Schema.optional(Schema.String),
+    ad_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.ToolDiagnosisSearchHealthResponse,
+});
+
+export const tiktok_tools_toolHashtagGet = defineEndpointDescriptor({
+  id: "tiktok.tools.toolHashtagGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/hashtag/get/",
+  summary: "Get targeting hashtags by ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"keyword_ids","wireName":"keyword_ids","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    keyword_ids: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.ToolHashtagGetResponse,
+});
+
+export const tiktok_tools_toolHashtagRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.toolHashtagRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/hashtag/recommend/",
+  summary: "Search for targeting hashtags",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"query","required":true,"nullable":false},
+    {"name":"operator","wireName":"operator","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    keywords: Schema.Array(Schema.String),
+    operator: Schema.optional(Schema.Union(Schema.Literal("AND"), Schema.Literal("OR"))),
+  }),
+  outputSchema: Models.ToolHashtagRecommendResponse,
+});
+
+export const tiktok_tools_toolInterestCategory = defineEndpointDescriptor({
+  id: "tiktok.tools.toolInterestCategory",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/interest_category/",
+  summary: "Get general interest categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"version","wireName":"version","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"query","required":false,"nullable":false},
+    {"name":"special_industries","wireName":"special_industries","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    version: Schema.optional(Schema.Number),
+    language: Schema.optional(Schema.String),
+    placements: Schema.optional(Schema.Array(Schema.String)),
+    special_industries: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("HOUSING"), Schema.Literal("EMPLOYMENT"), Schema.Literal("CREDIT")))),
+  }),
+  outputSchema: Models.ToolInterestCategoryResponse,
+});
+
+export const tiktok_tools_toolInterestKeywordGet = defineEndpointDescriptor({
+  id: "tiktok.tools.toolInterestKeywordGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/interest_keyword/get/",
+  summary: "Get additional interest categories by ID",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"keyword_query","wireName":"keyword_query","location":"query","required":false,"nullable":false},
+    {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    keyword_query: Schema.optional(Schema.Array(Schema.suspend(() => Models.ToolInterestKeywordGetParamsKeywordQuery))),
+    filtering: Schema.optional(Models.ToolInterestKeywordGetParamsFiltering),
+  }),
+  outputSchema: Models.ToolInterestKeywordGetResponse,
+});
+
+export const tiktok_tools_toolInterestKeywordRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.toolInterestKeywordRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/interest_keyword/recommend/",
+  summary: "Search for additional interest categories",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"query","required":false,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"query","required":false,"nullable":false},
+    {"name":"mode","wireName":"mode","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false},
+    {"name":"limit","wireName":"limit","location":"query","required":false,"nullable":false},
+    {"name":"audience_type","wireName":"audience_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    keywords: Schema.optional(Schema.Array(Schema.String)),
+    keyword: Schema.optional(Schema.String),
+    mode: Schema.optional(Schema.Union(Schema.Literal("FUZZ_MATCH"), Schema.Literal("SEMANTIC_RECOMMEND"))),
+    language: Schema.optional(Schema.String),
+    limit: Schema.optional(Schema.Number),
+    audience_type: Schema.optional(Schema.Union(Schema.Literal("GENERAL_INTEREST"), Schema.Literal("PURCHASE_INTENTION"))),
+  }),
+  outputSchema: Models.ToolInterestKeywordRecommendResponse,
+});
+
+export const tiktok_tools_toolLanguage = defineEndpointDescriptor({
+  id: "tiktok.tools.toolLanguage",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/language/",
+  summary: "Get languages",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ToolLanguageResponse,
+});
+
+export const tiktok_tools_toolOpenUrl = defineEndpointDescriptor({
+  id: "tiktok.tools.toolOpenUrl",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/open_url/",
+  summary: "Get a TikTok in-app link",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"url","wireName":"url","location":"query","required":true,"nullable":false},
+    {"name":"url_type","wireName":"url_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    url: Schema.String,
+    url_type: Schema.Union(Schema.Literal("USER_PROFILE"), Schema.Literal("VIDEO"), Schema.Literal("HASHTAG_CHALLENGE"), Schema.Literal("MUSIC"), Schema.Literal("STICKER"), Schema.Literal("STICKER_SHOOTER")),
+  }),
+  outputSchema: Models.ToolOpenUrlResponse,
+});
+
+export const tiktok_tools_toolOsVersion = defineEndpointDescriptor({
+  id: "tiktok.tools.toolOsVersion",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/os_version/",
+  summary: "Get OS versions",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"os_type","wireName":"os_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    os_type: Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS")),
+  }),
+  outputSchema: Models.ToolOsVersionResponse,
+});
+
+export const tiktok_tools_toolPhoneRegionCode = defineEndpointDescriptor({
+  id: "tiktok.tools.toolPhoneRegionCode",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/phone_region_code/",
+  summary: "Get region calling codes and region codes for phone numbers",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ToolPhoneRegionCodeResponse,
+});
+
+export const tiktok_tools_toolRegion = defineEndpointDescriptor({
+  id: "tiktok.tools.toolRegion",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/region/",
+  summary: "Get available locations by different settings",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"query","required":false,"nullable":false},
+    {"name":"level_range","wireName":"level_range","location":"query","required":false,"nullable":false},
+    {"name":"language","wireName":"language","location":"query","required":false,"nullable":false},
+    {"name":"shopping_ads_type","wireName":"shopping_ads_type","location":"query","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"query","required":false,"nullable":false},
+    {"name":"promotion_target_type","wireName":"promotion_target_type","location":"query","required":false,"nullable":false},
+    {"name":"operating_system","wireName":"operating_system","location":"query","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"query","required":false,"nullable":false},
+    {"name":"brand_safety_partner","wireName":"brand_safety_partner","location":"query","required":false,"nullable":false},
+    {"name":"rf_campaign_type","wireName":"rf_campaign_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    placements: Schema.Array(Schema.String),
+    objective_type: Schema.String,
+    app_promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_INSTALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("APP_PREREGISTRATION"), Schema.Literal("MINIS"))),
+    level_range: Schema.optional(Schema.Union(Schema.Literal("ALL"), Schema.Literal("TO_COUNTRY"), Schema.Literal("TO_PROVINCE"), Schema.Literal("TO_CITY"), Schema.Literal("TO_DISTRICT"))),
+    language: Schema.optional(Schema.String),
+    shopping_ads_type: Schema.optional(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("LIVE"), Schema.Literal("PRODUCT_SHOPPING_ADS"))),
+    promotion_type: Schema.optional(Schema.String),
+    promotion_target_type: Schema.optional(Schema.Union(Schema.Literal("INSTANT_PAGE"), Schema.Literal("EXTERNAL_WEBSITE"))),
+    operating_system: Schema.optional(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"))),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("THIRD_PARTY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"))),
+    brand_safety_partner: Schema.optional(Schema.Union(Schema.Literal("IAS"), Schema.Literal("OPEN_SLATE"))),
+    rf_campaign_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD"), Schema.Literal("PULSE"))),
+  }),
+  outputSchema: Models.ToolRegionResponse,
+});
+
+export const tiktok_tools_toolSearchKeywordKeywordIdea = defineEndpointDescriptor({
+  id: "tiktok.tools.toolSearchKeywordKeywordIdea",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/search_keyword/keyword_idea/",
+  summary: "Discover new keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"query","required":true,"nullable":false},
+    {"name":"order_field","wireName":"order_field","location":"query","required":false,"nullable":false},
+    {"name":"order_type","wireName":"order_type","location":"query","required":false,"nullable":false},
+    {"name":"brand_type","wireName":"brand_type","location":"query","required":false,"nullable":false},
+    {"name":"country_codes","wireName":"country_codes","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    keywords: Schema.Array(Schema.String),
+    order_field: Schema.optional(Schema.Union(Schema.Literal("AVG_MONTHLY_SEARCHES"), Schema.Literal("THREE_MONTH_CHANGE"), Schema.Literal("YEAR_OVER_YEAR_CHANGE"), Schema.Literal("COMPETITION"))),
+    order_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    brand_type: Schema.optional(Schema.Union(Schema.Literal("BRAND"), Schema.Literal("NON_BRAND"), Schema.Literal("ALL"))),
+    country_codes: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.ToolSearchKeywordKeywordIdeaResponse,
+});
+
+export const tiktok_tools_toolSearchKeywordRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.toolSearchKeywordRecommend",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/search_keyword/recommend/",
+  summary: "Get recommended search keywords",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"search_queries","wireName":"search_queries","location":"query","required":false,"nullable":false},
+    {"name":"ad_ids","wireName":"ad_ids","location":"query","required":false,"nullable":false},
+    {"name":"landing_page_urls","wireName":"landing_page_urls","location":"query","required":false,"nullable":false},
+    {"name":"regions","wireName":"regions","location":"query","required":true,"nullable":false},
+    {"name":"order_field","wireName":"order_field","location":"query","required":false,"nullable":false},
+    {"name":"order_type","wireName":"order_type","location":"query","required":false,"nullable":false},
+    {"name":"total_size","wireName":"total_size","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    search_queries: Schema.optional(Schema.Array(Schema.String)),
+    ad_ids: Schema.optional(Schema.Array(Schema.String)),
+    landing_page_urls: Schema.optional(Schema.Array(Schema.String)),
+    regions: Schema.Array(Schema.String),
+    order_field: Schema.optional(Schema.Union(Schema.Literal("RELEVANCE"), Schema.Literal("MONTHLY_SEARCHES"))),
+    order_type: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    total_size: Schema.optional(Schema.Number),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.ToolSearchKeywordRecommendResponse,
+});
+
+export const tiktok_tools_toolTargetingCategoryRecommend = defineEndpointDescriptor({
+  id: "tiktok.tools.toolTargetingCategoryRecommend",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tool/targeting_category/recommend/",
+  summary: "Get recommended interest and action categories",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"body","required":true,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    region_codes: Schema.Array(Schema.String),
+    app_id: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.ToolTargetingCategoryRecommendResponse,
+});
+
+export const tiktok_tools_toolTargetingInfo = defineEndpointDescriptor({
+  id: "tiktok.tools.toolTargetingInfo",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tool/targeting/info/",
+  summary: "Obtain details about location targeting tags by ID",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"scene","wireName":"scene","location":"body","required":false,"nullable":false},
+    {"name":"targeting_ids","wireName":"targeting_ids","location":"body","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":false,"nullable":false},
+    {"name":"operating_system","wireName":"operating_system","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_partner","wireName":"brand_safety_partner","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    scene: Schema.optional(Schema.Union(Schema.Literal("GEO"), Schema.Literal("ISP"))),
+    targeting_ids: Schema.Array(Schema.String),
+    objective_type: Schema.optional(Schema.Union(Schema.Literal("REACH"), Schema.Literal("TRAFFIC"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("ENGAGEMENT"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("PRODUCT_SALES"))),
+    promotion_type: Schema.optional(Schema.String),
+    placements: Schema.optional(Schema.Array(Schema.String)),
+    operating_system: Schema.optional(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"))),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("THIRD_PARTY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"))),
+    brand_safety_partner: Schema.optional(Schema.Union(Schema.Literal("IAS"), Schema.Literal("OPEN_SLATE"))),
+  }),
+  outputSchema: Models.ToolTargetingInfoResponse,
+});
+
+export const tiktok_tools_toolTargetingList = defineEndpointDescriptor({
+  id: "tiktok.tools.toolTargetingList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/targeting/list/",
+  summary: "Get internet service providers",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"location_ids","wireName":"location_ids","location":"query","required":true,"nullable":false},
+    {"name":"scene","wireName":"scene","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    location_ids: Schema.Array(Schema.String),
+    scene: Schema.String,
+  }),
+  outputSchema: Models.ToolTargetingListResponse,
+});
+
+export const tiktok_tools_toolTargetingSearch = defineEndpointDescriptor({
+  id: "tiktok.tools.toolTargetingSearch",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tool/targeting/search/",
+  summary: "Search for location targeting tags",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"body","required":false,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"body","required":true,"nullable":false},
+    {"name":"search_type","wireName":"search_type","location":"body","required":true,"nullable":false},
+    {"name":"keywords","wireName":"keywords","location":"body","required":true,"nullable":false},
+    {"name":"geo_types","wireName":"geo_types","location":"body","required":false,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"body","required":false,"nullable":false},
+    {"name":"operating_system","wireName":"operating_system","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"body","required":false,"nullable":false},
+    {"name":"brand_safety_partner","wireName":"brand_safety_partner","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.Union(Schema.Literal("REACH"), Schema.Literal("TRAFFIC"), Schema.Literal("VIDEO_VIEWS"), Schema.Literal("LEAD_GENERATION"), Schema.Literal("ENGAGEMENT"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("PRODUCT_SALES")),
+    promotion_type: Schema.optional(Schema.String),
+    placements: Schema.Array(Schema.String),
+    search_type: Schema.Union(Schema.Literal("FUZZY_SEARCH"), Schema.Literal("BATCH_REGION_SEARCH"), Schema.Literal("BATCH_ZIPCODE_SEARCH")),
+    keywords: Schema.Array(Schema.String),
+    geo_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("COUNTRY"), Schema.Literal("PROVINCE"), Schema.Literal("CITY"), Schema.Literal("DISTRICT"), Schema.Literal("DMA"), Schema.Literal("ZIP_CODE"), Schema.Literal("FUZZY_SEARCH"), Schema.Literal("BATCH_ZIPCODE_SEARCH"), Schema.Literal("BATCH_REGION_SEARCH")))),
+    region_codes: Schema.optional(Schema.Array(Schema.String)),
+    operating_system: Schema.optional(Schema.Union(Schema.Literal("ANDROID"), Schema.Literal("IOS"))),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("NO_BRAND_SAFETY"), Schema.Literal("EXPANDED_INVENTORY"), Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"), Schema.Literal("THIRD_PARTY"), Schema.Literal("APP_PROMOTION"), Schema.Literal("WEB_CONVERSIONS"), Schema.Literal("TRAFFIC"), Schema.Literal("LEAD_GENERATION"))),
+    brand_safety_partner: Schema.optional(Schema.Union(Schema.Literal("IAS"), Schema.Literal("OPEN_SLATE"))),
+  }),
+  outputSchema: Models.ToolTargetingSearchResponse,
+});
+
+export const tiktok_tools_toolTimezone = defineEndpointDescriptor({
+  id: "tiktok.tools.toolTimezone",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/timezone/",
+  summary: "Get time zones",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.ToolTimezoneResponse,
+});
+
+export const tiktok_tools_toolUrlValidate = defineEndpointDescriptor({
+  id: "tiktok.tools.toolUrlValidate",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/url_validate/",
+  summary: "Get the verification results of a URL",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"url","wireName":"url","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    url: Schema.String,
+  }),
+  outputSchema: Models.ToolUrlValidateResponse,
+});
+
+export const tiktok_tools_toolVastOption = defineEndpointDescriptor({
+  id: "tiktok.tools.toolVastOption",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/vast_option/",
+  summary: "(Deprecated) Get available post-bid third-party measurement partners",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"region_codes","wireName":"region_codes","location":"query","required":false,"nullable":false},
+    {"name":"brand_safety_type","wireName":"brand_safety_type","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    region_codes: Schema.optional(Schema.Array(Schema.String)),
+    brand_safety_type: Schema.optional(Schema.Union(Schema.Literal("STANDARD_INVENTORY"), Schema.Literal("LIMITED_INVENTORY"))),
+  }),
+  outputSchema: Models.ToolVastOptionResponse,
+});
+
+export const tiktok_tools_toolVboStatus = defineEndpointDescriptor({
+  id: "tiktok.tools.toolVboStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tool/vbo_status/",
+  summary: "Check Value-Based Optimization eligibility",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
+    {"name":"app_promotion_type","wireName":"app_promotion_type","location":"query","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"query","required":false,"nullable":false},
+    {"name":"is_advanced_dedicated_campaign","wireName":"is_advanced_dedicated_campaign","location":"query","required":false,"nullable":false},
+    {"name":"disable_skan_campaign","wireName":"disable_skan_campaign","location":"query","required":false,"nullable":false},
+    {"name":"bid_align_type","wireName":"bid_align_type","location":"query","required":false,"nullable":false},
+    {"name":"promotion_type","wireName":"promotion_type","location":"query","required":true,"nullable":false},
+    {"name":"placements","wireName":"placements","location":"query","required":true,"nullable":false},
+    {"name":"ios14_quota_type","wireName":"ios14_quota_type","location":"query","required":false,"nullable":false},
+    {"name":"campaign_app_profile_page_state","wireName":"campaign_app_profile_page_state","location":"query","required":false,"nullable":false},
+    {"name":"pixel_id","wireName":"pixel_id","location":"query","required":false,"nullable":false},
+    {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
+    {"name":"optimization_event","wireName":"optimization_event","location":"query","required":false,"nullable":false},
+    {"name":"store_id","wireName":"store_id","location":"query","required":false,"nullable":false},
+    {"name":"is_smart_performance_campaign","wireName":"is_smart_performance_campaign","location":"query","required":false,"nullable":false},
+    {"name":"campaign_automation_type","wireName":"campaign_automation_type","location":"query","required":false,"nullable":false},
+    {"name":"budget_optimize_on","wireName":"budget_optimize_on","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    objective_type: Schema.String,
+    app_promotion_type: Schema.optional(Schema.Union(Schema.Literal("APP_INSTALL"), Schema.Literal("APP_RETARGETING"), Schema.Literal("MINIS"))),
+    campaign_type: Schema.optional(Schema.String),
+    is_advanced_dedicated_campaign: Schema.optional(Schema.Boolean),
+    disable_skan_campaign: Schema.optional(Schema.Boolean),
+    bid_align_type: Schema.optional(Schema.Union(Schema.Literal("SAN"), Schema.Literal("SKAN"))),
+    promotion_type: Schema.String,
+    placements: Schema.Array(Schema.String),
+    ios14_quota_type: Schema.optional(Schema.Union(Schema.Literal("OCCUPIED"), Schema.Literal("UNOCCUPIED"))),
+    campaign_app_profile_page_state: Schema.optional(Schema.Union(Schema.Literal("ON"), Schema.Literal("OFF"))),
+    pixel_id: Schema.optional(Schema.String),
+    app_id: Schema.optional(Schema.String),
+    optimization_event: Schema.optional(Schema.String),
+    store_id: Schema.optional(Schema.String),
+    is_smart_performance_campaign: Schema.optional(Schema.Boolean),
+    campaign_automation_type: Schema.optional(Schema.Union(Schema.Literal("MANUAL"), Schema.Literal("SMART_PLUS"), Schema.Literal("UPGRADED_SMART_PLUS"))),
+    budget_optimize_on: Schema.optional(Schema.Boolean),
+  }),
+  outputSchema: Models.ToolVboStatusResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorAuthorized = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorAuthorized",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/creator/authorized/",
+  summary: "Get Authorized TTO Creator Insights",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
+    {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    fields: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.TtoCreatorAuthorizedResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorAuthorizedVideoList = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorAuthorizedVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/creator/authorized/video/list/",
+  summary: "Get Authorized TTO Media Insights",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
+    {"name":"limit","wireName":"limit","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    video_ids: Schema.optional(Schema.Array(Schema.String)),
+    limit: Schema.optional(Schema.Number),
+    cursor: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoCreatorAuthorizedVideoListResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorCampaignJoin = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorCampaignJoin",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/creator/campaign/join/",
+  summary: "Join a TTO Creator Marketplace campaign as a creator",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
+    {"name":"tto_invite_link","wireName":"tto_invite_link","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    tto_invite_link: Schema.String,
+  }),
+  outputSchema: Models.TtoCreatorCampaignJoinResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorCampaignVideoLink = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorCampaignVideoLink",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/creator/campaign/video/link/",
+  summary: "Link a video to a TTO Creator Marketplace campaign as a creator",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
+    {"name":"tto_invite_link","wireName":"tto_invite_link","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    tto_invite_link: Schema.String,
+    video_id: Schema.String,
+  }),
+  outputSchema: Models.TtoCreatorCampaignVideoLinkResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorLinkRequestConfirm = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorLinkRequestConfirm",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/creator/link/request/confirm/",
+  summary: "Approve or reject a TTO video linking request as a creator",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
+    {"name":"link_request_id","wireName":"link_request_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    link_request_id: Schema.String,
+    action: Schema.Union(Schema.Literal("APPROVE"), Schema.Literal("REJECT")),
+  }),
+  outputSchema: Models.TtoCreatorLinkRequestConfirmResponse,
+});
+
+export const tiktok_tikTokOne_ttoCreatorLinkRequestGet = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoCreatorLinkRequestGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/creator/link/request/get/",
+  summary: "Get TTO video linking requests as a creator",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
+    {"name":"tto_invite_link","wireName":"tto_invite_link","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    creator_id: Schema.String,
+    tto_invite_link: Schema.String,
+  }),
+  outputSchema: Models.TtoCreatorLinkRequestGetResponse,
+});
+
+export const tiktok_tikTokOne_ttoOauth2Info = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoOauth2Info",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/oauth2/info/",
+  summary: "Get the details of a TTO Creator Marketplace account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+  }),
+  outputSchema: Models.TtoOauth2InfoResponse,
+});
+
+export const tiktok_tikTokOne_ttoOauth2Tcm = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoOauth2Tcm",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/oauth2/tcm/",
+  summary: "Get authorized TTO Creator Marketplace accounts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
+    {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    secret: Schema.String,
+  }),
+  outputSchema: Models.TtoOauth2TcmResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmAnchorCreate = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmAnchorCreate",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/anchor/create/",
+  summary: "Create a webpage anchor",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"anchor_type","wireName":"anchor_type","location":"query","required":true,"nullable":false},
+    {"name":"anchor_sub_type","wireName":"anchor_sub_type","location":"query","required":false,"nullable":false},
+    {"name":"category_label_id","wireName":"category_label_id","location":"query","required":false,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":true,"nullable":false},
+    {"name":"call_to_action","wireName":"call_to_action","location":"query","required":true,"nullable":false},
+    {"name":"anchor_title","wireName":"anchor_title","location":"query","required":true,"nullable":false},
+    {"name":"anchor_name","wireName":"anchor_name","location":"query","required":true,"nullable":false},
+    {"name":"upload_type","wireName":"upload_type","location":"query","required":true,"nullable":false},
+    {"name":"thumbnail_file","wireName":"thumbnail_file","location":"query","required":false,"nullable":false},
+    {"name":"thumbnail_url","wireName":"thumbnail_url","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    anchor_type: Schema.String,
+    anchor_sub_type: Schema.optional(Schema.String),
+    category_label_id: Schema.optional(Schema.Number),
+    country_code: Schema.String,
+    call_to_action: Models.TtoTcmAnchorCreateParamsCallToAction,
+    anchor_title: Schema.String,
+    anchor_name: Schema.String,
+    upload_type: Schema.Union(Schema.Literal("UPLOAD_BY_FILE"), Schema.Literal("UPLOAD_BY_URL")),
+    thumbnail_file: Schema.optional(Schema.Unknown),
+    thumbnail_url: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TtoTcmAnchorCreateResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmAnchorDelete = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmAnchorDelete",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/tcm/anchor/delete/",
+  summary: "Delete a draft anchor",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"anchor_id","wireName":"anchor_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    anchor_id: Schema.String,
+  }),
+  outputSchema: Models.TtoTcmAnchorDeleteResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmAnchorGet = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmAnchorGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/anchor/get/",
+  summary: "Get webpage anchors",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"anchor_ids","wireName":"anchor_ids","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    anchor_ids: Schema.optional(Schema.Array(Schema.String)),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmAnchorGetResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmBrandProfileCreate = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmBrandProfileCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/tcm/brand/profile/create/",
+  summary: "Create a Brand Profile for your TTO account",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"brand_name","wireName":"brand_name","location":"body","required":true,"nullable":false},
+    {"name":"brand_industry_id","wireName":"brand_industry_id","location":"body","required":true,"nullable":false},
+    {"name":"brand_website","wireName":"brand_website","location":"body","required":true,"nullable":false},
+    {"name":"logo_url","wireName":"logo_url","location":"body","required":true,"nullable":false},
+    {"name":"tiktok_account_url","wireName":"tiktok_account_url","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    brand_name: Schema.String,
+    brand_industry_id: Schema.String,
+    brand_website: Schema.String,
+    logo_url: Schema.String,
+    tiktok_account_url: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TtoTcmBrandProfileCreateResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmBrandProfileGet = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmBrandProfileGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/brand/profile/get/",
+  summary: "Get the Brand Profiles for your TTO account",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"brand_profile_ids","wireName":"brand_profile_ids","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    brand_profile_ids: Schema.optional(Schema.Array(Schema.String)),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmBrandProfileGetResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCampaign = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCampaign",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/campaign/",
+  summary: "Get TTO Creator Marketplace campaigns",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_ids: Schema.optional(Schema.Array(Schema.String)),
+    campaign_type: Schema.optional(Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("BRAND_LINK"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmCampaignResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCampaignCreate = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCampaignCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/tcm/campaign/create/",
+  summary: "Create or update a TTO Creator Marketplace campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"body","required":false,"nullable":false},
+    {"name":"brand_profile_id","wireName":"brand_profile_id","location":"body","required":false,"nullable":false},
+    {"name":"brand_name","wireName":"brand_name","location":"body","required":false,"nullable":false},
+    {"name":"campaign_name","wireName":"campaign_name","location":"body","required":true,"nullable":false},
+    {"name":"campaign_description","wireName":"campaign_description","location":"body","required":false,"nullable":false},
+    {"name":"anchor_id","wireName":"anchor_id","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":false,"nullable":false},
+    {"name":"default_spark_ads_requested_authorization_days","wireName":"default_spark_ads_requested_authorization_days","location":"body","required":false,"nullable":false},
+    {"name":"handle_names","wireName":"handle_names","location":"body","required":true,"nullable":false},
+    {"name":"send_notification","wireName":"send_notification","location":"body","required":false,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false},
+    {"name":"business_account_handle","wireName":"business_account_handle","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_type: Schema.optional(Schema.String),
+    brand_profile_id: Schema.optional(Schema.String),
+    brand_name: Schema.optional(Schema.String),
+    campaign_name: Schema.String,
+    campaign_description: Schema.optional(Schema.String),
+    anchor_id: Schema.optional(Schema.String),
+    advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+    default_spark_ads_requested_authorization_days: Schema.optional(Schema.Number),
+    handle_names: Schema.Array(Schema.String),
+    send_notification: Schema.optional(Schema.Boolean),
+    campaign_id: Schema.optional(Schema.String),
+    business_account_handle: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TtoTcmCampaignCreateResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCampaignLink = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCampaignLink",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/tcm/campaign/link/",
+  summary: "Send or revoke a TTO video linking request",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
+    {"name":"action","wireName":"action","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_id: Schema.String,
+    video_id: Schema.String,
+    action: Schema.Union(Schema.Literal("LINK"), Schema.Literal("REVOKE")),
+  }),
+  outputSchema: Models.TtoTcmCampaignLinkResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCampaignLinkStatus = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCampaignLinkStatus",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/campaign/link/status/",
+  summary: "Get TTO video linking requests as a brand",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":false,"nullable":false},
+    {"name":"handle_names","wireName":"handle_names","location":"query","required":false,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_ids: Schema.optional(Schema.Array(Schema.String)),
+    handle_names: Schema.optional(Schema.Array(Schema.String)),
+    campaign_type: Schema.optional(Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("BRAND_LINK"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmCampaignLinkStatusResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCampaignUpdate = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCampaignUpdate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tto/tcm/campaign/update/",
+  summary: "Update a TTO Creator Marketplace campaign",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
+    {"name":"campaign_type","wireName":"campaign_type","location":"body","required":true,"nullable":false},
+    {"name":"handle_names","wireName":"handle_names","location":"body","required":false,"nullable":false},
+    {"name":"send_notification","wireName":"send_notification","location":"body","required":false,"nullable":false},
+    {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_id: Schema.String,
+    campaign_type: Schema.Union(Schema.Literal("CAMPAIGN"), Schema.Literal("BRAND_LINK")),
+    handle_names: Schema.optional(Schema.Array(Schema.String)),
+    send_notification: Schema.optional(Schema.Boolean),
+    advertiser_ids: Schema.optional(Schema.Array(Schema.String)),
+  }),
+  outputSchema: Models.TtoTcmCampaignUpdateResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCategoryLabel = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCategoryLabel",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/category/label/",
+  summary: "Get TTO creator ranking or search labels",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"label_type","wireName":"label_type","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    label_type: Schema.Union(Schema.Literal("RANKING"), Schema.Literal("SEARCH")),
+  }),
+  outputSchema: Models.TtoTcmCategoryLabelResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCreatorDiscover = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCreatorDiscover",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/creator/discover/",
+  summary: "Discover TTO creators",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"country_codes","wireName":"country_codes","location":"query","required":true,"nullable":false},
+    {"name":"state_provinces","wireName":"state_provinces","location":"query","required":false,"nullable":false},
+    {"name":"content_label_ids","wireName":"content_label_ids","location":"query","required":false,"nullable":false},
+    {"name":"industry_label_ids","wireName":"industry_label_ids","location":"query","required":false,"nullable":false},
+    {"name":"min_followers","wireName":"min_followers","location":"query","required":false,"nullable":false},
+    {"name":"max_followers","wireName":"max_followers","location":"query","required":false,"nullable":false},
+    {"name":"languages","wireName":"languages","location":"query","required":false,"nullable":false},
+    {"name":"min_creator_price","wireName":"min_creator_price","location":"query","required":false,"nullable":false},
+    {"name":"max_creator_price","wireName":"max_creator_price","location":"query","required":false,"nullable":false},
+    {"name":"creator_price_currency","wireName":"creator_price_currency","location":"query","required":false,"nullable":false},
+    {"name":"min_avg_views","wireName":"min_avg_views","location":"query","required":false,"nullable":false},
+    {"name":"max_avg_views","wireName":"max_avg_views","location":"query","required":false,"nullable":false},
+    {"name":"min_median_views","wireName":"min_median_views","location":"query","required":false,"nullable":false},
+    {"name":"max_median_views","wireName":"max_median_views","location":"query","required":false,"nullable":false},
+    {"name":"min_engagement_rate","wireName":"min_engagement_rate","location":"query","required":false,"nullable":false},
+    {"name":"max_engagement_rate","wireName":"max_engagement_rate","location":"query","required":false,"nullable":false},
+    {"name":"follower_country_codes","wireName":"follower_country_codes","location":"query","required":false,"nullable":false},
+    {"name":"follower_gender_ratio","wireName":"follower_gender_ratio","location":"query","required":false,"nullable":false},
+    {"name":"follower_age","wireName":"follower_age","location":"query","required":false,"nullable":false},
+    {"name":"keyword_search","wireName":"keyword_search","location":"query","required":false,"nullable":false},
+    {"name":"sort_field","wireName":"sort_field","location":"query","required":false,"nullable":false},
+    {"name":"sort_order","wireName":"sort_order","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    country_codes: Schema.Array(Schema.String),
+    state_provinces: Schema.optional(Schema.Array(Schema.String)),
+    content_label_ids: Schema.optional(Schema.Array(Schema.String)),
+    industry_label_ids: Schema.optional(Schema.Array(Schema.String)),
+    min_followers: Schema.optional(Schema.Number),
+    max_followers: Schema.optional(Schema.Number),
+    languages: Schema.optional(Schema.Array(Schema.String)),
+    min_creator_price: Schema.optional(Schema.Number),
+    max_creator_price: Schema.optional(Schema.Number),
+    creator_price_currency: Schema.optional(Schema.String),
+    min_avg_views: Schema.optional(Schema.Number),
+    max_avg_views: Schema.optional(Schema.Number),
+    min_median_views: Schema.optional(Schema.Number),
+    max_median_views: Schema.optional(Schema.Number),
+    min_engagement_rate: Schema.optional(Schema.Number),
+    max_engagement_rate: Schema.optional(Schema.Number),
+    follower_country_codes: Schema.optional(Schema.Array(Schema.String)),
+    follower_gender_ratio: Schema.optional(Schema.Union(Schema.Literal("FEMALE_50"), Schema.Literal("FEMALE_60"), Schema.Literal("FEMALE_70"), Schema.Literal("MALE_50"), Schema.Literal("MALE_60"), Schema.Literal("MALE_70"))),
+    follower_age: Schema.optional(Schema.String),
+    keyword_search: Schema.optional(Schema.String),
+    sort_field: Schema.optional(Schema.Union(Schema.Literal("RELEVANCE"), Schema.Literal("FOLLOWERS"), Schema.Literal("MEDIAN_VIEWS"), Schema.Literal("ENGAGEMENT_RATE"))),
+    sort_order: Schema.optional(Schema.Union(Schema.Literal("ASC"), Schema.Literal("DESC"))),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmCreatorDiscoverResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCreatorPublic = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCreatorPublic",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/creator/public/",
+  summary: "Get TTO Public Account Insights",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"handle_name","wireName":"handle_name","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    handle_name: Schema.String,
+  }),
+  outputSchema: Models.TtoTcmCreatorPublicResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCreatorPublicVideoList = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCreatorPublicVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/creator/public/video/list/",
+  summary: "Get TTO Public Media Insights",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"handle_name","wireName":"handle_name","location":"query","required":true,"nullable":false},
+    {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
+    {"name":"cursor","wireName":"cursor","location":"query","required":false,"nullable":false},
+    {"name":"limit","wireName":"limit","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    handle_name: Schema.String,
+    video_ids: Schema.optional(Schema.Array(Schema.String)),
+    cursor: Schema.optional(Schema.Number),
+    limit: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmCreatorPublicVideoListResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmCreatorStatusGet = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmCreatorStatusGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/creator/status/get/",
+  summary: "Check TTO Creator Status",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"handle_names","wireName":"handle_names","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    handle_names: Schema.Array(Schema.String),
+  }),
+  outputSchema: Models.TtoTcmCreatorStatusGetResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmRank = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmRank",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/rank/",
+  summary: "Get top TTO creator rankings",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"ranking_type","wireName":"ranking_type","location":"query","required":true,"nullable":false},
+    {"name":"time_period","wireName":"time_period","location":"query","required":true,"nullable":false},
+    {"name":"time_period_lookback","wireName":"time_period_lookback","location":"query","required":true,"nullable":false},
+    {"name":"label_id","wireName":"label_id","location":"query","required":true,"nullable":false},
+    {"name":"country_code","wireName":"country_code","location":"query","required":true,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    ranking_type: Schema.Union(Schema.Literal("BRANDED_CONTENT"), Schema.Literal("ORGANIC_CONTENT")),
+    time_period: Schema.Union(Schema.Literal("WEEK"), Schema.Literal("MONTH")),
+    time_period_lookback: Schema.Union(Schema.Literal("ONE"), Schema.Literal("TWO"), Schema.Literal("THREE"), Schema.Literal("MONTH")),
+    label_id: Schema.String,
+    country_code: Schema.String,
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmRankResponse,
+});
+
+export const tiktok_tikTokOne_ttoTcmReport = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttoTcmReport",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tto/tcm/report/",
+  summary: "Report on TTO Creator Marketplace videos",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
+    {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false},
+    {"name":"start_date","wireName":"start_date","location":"query","required":false,"nullable":false},
+    {"name":"end_date","wireName":"end_date","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    tto_tcm_account_id: Schema.String,
+    campaign_id: Schema.String,
+    start_date: Schema.optional(Schema.String),
+    end_date: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtoTcmReportResponse,
+});
+
+export const tiktok_authentication_ttUserOauth2RefreshToken = defineEndpointDescriptor({
+  id: "tiktok.authentication.ttUserOauth2RefreshToken",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/oauth2/refresh_token/",
+  summary: "Renew a short-term access token",
+  effect: "write",
+  execution: "inline",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["authentication.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
+    {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
+    {"name":"grant_type","wireName":"grant_type","location":"body","required":true,"nullable":false},
+    {"name":"refresh_token","wireName":"refresh_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    client_id: Schema.String,
+    client_secret: Schema.String,
+    grant_type: Schema.String,
+    refresh_token: Schema.String,
+  }),
+  outputSchema: Models.TtUserOauth2RefreshTokenResponse,
+});
+
+export const tiktok_authentication_ttUserOauth2Revoke = defineEndpointDescriptor({
+  id: "tiktok.authentication.ttUserOauth2Revoke",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/oauth2/revoke/",
+  summary: "Revoke a short-term access token",
+  effect: "write",
+  execution: "inline",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["authentication.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
+    {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
+    {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    client_id: Schema.String,
+    client_secret: Schema.String,
+    access_token: Schema.String,
+  }),
+  outputSchema: Models.TtUserOauth2RevokeResponse,
+});
+
+export const tiktok_authentication_ttUserOauth2Token = defineEndpointDescriptor({
+  id: "tiktok.authentication.ttUserOauth2Token",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/oauth2/token/",
+  summary: "Obtain a short-term access token",
+  effect: "write",
+  execution: "inline",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["authentication.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
+    {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
+    {"name":"grant_type","wireName":"grant_type","location":"body","required":true,"nullable":false},
+    {"name":"auth_code","wireName":"auth_code","location":"body","required":true,"nullable":false},
+    {"name":"redirect_uri","wireName":"redirect_uri","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    client_id: Schema.String,
+    client_secret: Schema.String,
+    grant_type: Schema.String,
+    auth_code: Schema.String,
+    redirect_uri: Schema.String,
+  }),
+  outputSchema: Models.TtUserOauth2TokenResponse,
+});
+
+export const tiktok_tikTokOne_ttUserOauth2Token2 = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttUserOauth2Token2",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/oauth2/token/",
+  summary: "Get, renew or revoke a Creator access token",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
+    {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
+    {"name":"grant_type","wireName":"grant_type","location":"body","required":true,"nullable":false},
+    {"name":"auth_code","wireName":"auth_code","location":"body","required":true,"nullable":false},
+    {"name":"redirect_uri","wireName":"redirect_uri","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    client_id: Schema.String,
+    client_secret: Schema.String,
+    grant_type: Schema.String,
+    auth_code: Schema.String,
+    redirect_uri: Schema.String,
+  }),
+  outputSchema: Models.TtUserOauth2TokenResponse,
+});
+
+export const tiktok_accounts_ttUserTokenInfoGet = defineEndpointDescriptor({
+  id: "tiktok.accounts.ttUserTokenInfoGet",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/token_info/get/",
+  summary: "Get the authorized TikTok account permission scopes via access token",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["accounts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    access_token: Schema.String,
+  }),
+  outputSchema: Models.TtUserTokenInfoGetResponse,
+});
+
+export const tiktok_tikTokOne_ttUserTokenInfoGet2 = defineEndpointDescriptor({
+  id: "tiktok.tikTokOne.ttUserTokenInfoGet2",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_user/token_info/get/",
+  summary: "Obtain the authorized Creator permissions",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["tikTokOne.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
+    {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    app_id: Schema.String,
+    access_token: Schema.String,
+  }),
+  outputSchema: Models.TtUserTokenInfoGetResponse,
+});
+
+export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoAuthorize = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsUsingAuthorizedPosts.ttVideoAuthorize",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_video/authorize/",
+  summary: "Apply an authorization code",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsUsingAuthorizedPosts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"auth_code","wireName":"auth_code","location":"body","required":true,"nullable":false},
+    {"name":"original_post_auth_code","wireName":"original_post_auth_code","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    auth_code: Schema.String,
+    original_post_auth_code: Schema.optional(Schema.String),
+  }),
+  outputSchema: Models.TtVideoAuthorizeResponse,
+});
+
+export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoInfo = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsUsingAuthorizedPosts.ttVideoInfo",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tt_video/info/",
+  summary: "Get info about a Spark Ad post",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsUsingAuthorizedPosts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"auth_code","wireName":"auth_code","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    auth_code: Schema.String,
+  }),
+  outputSchema: Models.TtVideoInfoResponse,
+});
+
+export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoList = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsUsingAuthorizedPosts.ttVideoList",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/tt_video/list/",
+  summary: "Get Spark Ad posts",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsUsingAuthorizedPosts.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
+    {"name":"item_types","wireName":"item_types","location":"query","required":false,"nullable":false},
+    {"name":"keyword","wireName":"keyword","location":"query","required":false,"nullable":false},
+    {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
+    {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    item_types: Schema.optional(Schema.Array(Schema.Union(Schema.Literal("VIDEO"), Schema.Literal("CAROUSEL")))),
+    keyword: Schema.optional(Schema.String),
+    page: Schema.optional(Schema.Number),
+    page_size: Schema.optional(Schema.Number),
+  }),
+  outputSchema: Models.TtVideoListResponse,
+});
+
+export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoUnbind = defineEndpointDescriptor({
+  id: "tiktok.sparkAdsUsingAuthorizedPosts.ttVideoUnbind",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/tt_video/unbind/",
+  summary: "Unbind a Spark Ad post",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["sparkAdsUsingAuthorizedPosts.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    item_id: Schema.String,
+  }),
+  outputSchema: Models.TtVideoUnbindResponse,
+});
+
+export const tiktok_creativeTools_videoFixTaskCreate = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.videoFixTaskCreate",
+  platform: "tiktok",
+  method: "POST",
+  path: "/open_api/v1.3/video/fix/task/create/",
+  summary: "Create a Smart Fix task",
+  effect: "write",
+  execution: "durable",
+  idempotency: "unsafe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.manage"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
+    {"name":"tasks","wireName":"tasks","location":"body","required":false,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    advertiser_id: Schema.String,
+    tasks: Schema.optional(Schema.Array(Schema.suspend(() => Models.VideoFixTaskCreateParamsTasks))),
+  }),
+  outputSchema: Models.VideoFixTaskCreateResponse,
+});
+
+export const tiktok_creativeTools_videoFixTaskGet = defineEndpointDescriptor({
+  id: "tiktok.creativeTools.videoFixTaskGet",
+  platform: "tiktok",
+  method: "GET",
+  path: "/open_api/v1.3/video/fix/task/get/",
+  summary: "Get the results of a Smart Fix task",
+  effect: "read",
+  execution: "inline",
+  idempotency: "safe",
+  requiredScopes: [],
+  capabilities: ["creativeTools.read"],
+  rateLimitBucket: "tiktok-business-api",
+  parameters: [
+    {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false},
+    {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
+  ],
+  inputSchema: Schema.Struct({
+    task_id: Schema.String,
+    advertiser_id: Schema.String,
+  }),
+  outputSchema: Models.VideoFixTaskGetResponse,
+});
+
+export const endpointDescriptors = [tiktok_verification_accountVerificationFiletype, tiktok_verification_accountVerificationStatus, tiktok_verification_accountVerificationSubmit, tiktok_verification_accountVerificationUpload, tiktok_smartCreative_adAcoCreate, tiktok_smartCreative_adAcoGet, tiktok_smartCreative_adAcoMaterialStatusUpdate, tiktok_smartCreative_adAcoUpdate, tiktok_adGroups_adAudienceSizeEstimate, tiktok_ads_adCreate, tiktok_ads_adGet, tiktok_adReview_adgroupAppeal, tiktok_adGroups_adgroupBudgetUpdate, tiktok_adGroups_adgroupCreate, tiktok_adGroups_adgroupGet, tiktok_adGroups_adgroupQuota, tiktok_adReview_adgroupReviewInfo, tiktok_reachFrequency_adgroupRfCreate, tiktok_reachFrequency_adgroupRfEstimatedInfo, tiktok_reachFrequency_adgroupRfUpdate, tiktok_adGroups_adgroupStatusUpdate, tiktok_adGroups_adgroupUpdate, tiktok_adReview_adReviewInfo, tiktok_ads_adStatusUpdate, tiktok_ads_adUpdate, tiktok_bCPayments_advertiserBalanceGet, tiktok_adAccounts_advertiserInfo, tiktok_bCPayments_advertiserTransactionGet, tiktok_bCAssets_advertiserUpdate, tiktok_events10_appBatch, tiktok_events10_appCreate, tiktok_events10_appInfo, tiktok_events10_appList, tiktok_events10_appOptimizationEvent, tiktok_events10_appOptimizationEventRetargeting, tiktok_events10_appTrack, tiktok_events10_appUpdate, tiktok_bCAssets_assetBindQuota, tiktok_audience_audienceInsightInfo, tiktok_audience_audienceInsightOverlap, tiktok_bCPayments_bcAccountBudgetChangelogGetN, tiktok_bCPayments_bcAccountCostGet, tiktok_bCPayments_bcAccountTransactionGet, tiktok_bCReporting_bcAdvertiserAttribute, tiktok_bCAssets_bcAdvertiserCreate, tiktok_bCAssets_bcAdvertiserDisable, tiktok_bCAssets_bcAdvertiserQualificationGet, tiktok_bCAssets_bcAdvertiserUnionpayInfoCheck, tiktok_bCAssets_bcAdvertiserUnionpayInfoSubmit, tiktok_bCAssets_bcAssetAccountAuthorization, tiktok_bCAssets_bcAssetAdminDelete, tiktok_bCAssets_bcAssetAdminGet, tiktok_bCAssets_bcAssetAdvertiserAssign, tiktok_bCAssets_bcAssetAdvertiserAssigned, tiktok_bCAssets_bcAssetAdvertiserUnassign, tiktok_bCAssets_bcAssetAssign, tiktok_bCAssets_bcAssetGet, tiktok_bCAssetGroups_bcAssetGroupCreate, tiktok_bCAssetGroups_bcAssetGroupDelete, tiktok_bCAssetGroups_bcAssetGroupGet, tiktok_bCAssetGroups_bcAssetGroupList, tiktok_bCAssetGroups_bcAssetGroupUpdate, tiktok_bCAssets_bcAssetMemberGet, tiktok_bCAssets_bcAssetPartnerGet, tiktok_bCAssets_bcAssetUnassign, tiktok_bCPayments_bcBalanceGet, tiktok_bCBillingGroups_bcBillingGroupAdvertiserList, tiktok_bCBillingGroups_bcBillingGroupCreate, tiktok_bCBillingGroups_bcBillingGroupGet, tiktok_bCBillingGroups_bcBillingGroupUpdate, tiktok_bCManagement_bcGet, tiktok_bCAssets_bcImageUpload, tiktok_bCInvoices_bcInvoiceDownload, tiktok_bCInvoices_bcInvoiceGet, tiktok_bCInvoices_bcInvoiceTaskCreate, tiktok_bCInvoices_bcInvoiceTaskGet, tiktok_bCInvoices_bcInvoiceTaskList, tiktok_bCInvoices_bcInvoiceUnpaidGet, tiktok_bCMembers_bcMemberDelete, tiktok_bCMembers_bcMemberGet, tiktok_bCMembers_bcMemberInvite, tiktok_bCMembers_bcMemberUpdate, tiktok_bCAssets_bcOaCreate, tiktok_bCPartners_bcPartnerAdd, tiktok_bCPartners_bcPartnerAssetDelete, tiktok_bCPartners_bcPartnerAssetGet, tiktok_bCPartners_bcPartnerDelete, tiktok_bCPartners_bcPartnerGet, tiktok_bCAssets_bcPixelLinkGet, tiktok_bCAssets_bcPixelLinkUpdate, tiktok_bCAssets_bcPixelTransfer, tiktok_bCPayments_bcTransactionGet, tiktok_bCPayments_bcTransfer, tiktok_adCommentsBlockedWords_blockedwordCheck, tiktok_adCommentsBlockedWords_blockedwordCreate, tiktok_adCommentsBlockedWords_blockedwordDelete, tiktok_adCommentsBlockedWords_blockedwordList, tiktok_adCommentsBlockedWords_blockedwordTaskCheck, tiktok_adCommentsBlockedWords_blockedwordTaskCreate, tiktok_adCommentsBlockedWords_blockedwordTaskDownload, tiktok_adCommentsBlockedWords_blockedwordUpdate, tiktok_accounts_businessBenchmark, tiktok_accounts_businessCommentCreate, tiktok_accounts_businessCommentDelete, tiktok_accounts_businessCommentHide, tiktok_accounts_businessCommentImageUpload, tiktok_accounts_businessCommentLike, tiktok_accounts_businessCommentList, tiktok_accounts_businessCommentReplyCreate, tiktok_mentions_businessCommentReplyCreate2, tiktok_accounts_businessCommentReplyList, tiktok_accounts_businessGet, tiktok_accounts_businessHashtagSuggestion, tiktok_mentions_businessMentionCommentGet, tiktok_mentions_businessMentionCommentList, tiktok_mentions_businessMentionHashtagAdd, tiktok_mentions_businessMentionHashtagManageList, tiktok_mentions_businessMentionHashtagRemove, tiktok_mentions_businessMentionHashtagVerifyList, tiktok_mentions_businessMentionHashtagVideoList, tiktok_mentions_businessMentionTopHashtagList, tiktok_mentions_businessMentionTopWordList, tiktok_mentions_businessMentionVideoGet, tiktok_mentions_businessMentionVideoList, tiktok_businessMessaging_businessMessageAutoMessageCreate, tiktok_businessMessaging_businessMessageAutoMessageDelete, tiktok_businessMessaging_businessMessageAutoMessageGet, tiktok_businessMessaging_businessMessageAutoMessageSort, tiktok_businessMessaging_businessMessageAutoMessageStatusUpdate, tiktok_businessMessaging_businessMessageAutoMessageUpdate, tiktok_businessMessaging_businessMessageCapabilitiesGet, tiktok_businessMessaging_businessMessageContentList, tiktok_businessMessaging_businessMessageConversationList, tiktok_businessMessaging_businessMessageDirectReplyGet, tiktok_businessMessaging_businessMessageDirectReplyUpdate, tiktok_businessMessaging_businessMessageMediaDownload, tiktok_businessMessaging_businessMessageMediaUpload, tiktok_businessMessaging_businessMessageSend, tiktok_accounts_businessPhotoPublish, tiktok_accounts_businessPostAuthorize, tiktok_accounts_businessPostAuthorizeDelete, tiktok_accounts_businessPostAuthorizeSetting, tiktok_accounts_businessPostAuthorizeStatus, tiktok_accounts_businessPropertyAdd, tiktok_accounts_businessPropertyDelete, tiktok_accounts_businessPropertyList, tiktok_accounts_businessPropertyVerify, tiktok_accounts_businessPublishLocation, tiktok_accounts_businessPublishStatus, tiktok_accounts_businessVideoList, tiktok_accounts_businessVideoPublish, tiktok_sparkAdsRecommendation_businessVideoRecommend, tiktok_accounts_businessVideoSettings, tiktok_accounts_businessWebhookDelete, tiktok_businessMessaging_businessWebhookDelete2, tiktok_mentions_businessWebhookDelete3, tiktok_accounts_businessWebhookList, tiktok_businessMessaging_businessWebhookList2, tiktok_mentions_businessWebhookList3, tiktok_accounts_businessWebhookUpdate, tiktok_businessMessaging_businessWebhookUpdate2, tiktok_mentions_businessWebhookUpdate3, tiktok_campaign_campaignCopyTaskCheck, tiktok_campaign_campaignCopyTaskCreate, tiktok_campaign_campaignCreate, tiktok_campaign_campaignGet, tiktok_gMVMax_campaignGmvMaxCreate, tiktok_gMVMax_campaignGmvMaxCreativeUpdate, tiktok_gMVMax_campaignGmvMaxInfo, tiktok_gMVMax_campaignGmvMaxSessionCreate, tiktok_gMVMax_campaignGmvMaxSessionDelete, tiktok_gMVMax_campaignGmvMaxSessionGet, tiktok_gMVMax_campaignGmvMaxSessionList, tiktok_gMVMax_campaignGmvMaxSessionUpdate, tiktok_gMVMax_campaignGmvMaxUpdate, tiktok_tools_campaignLabelGet, tiktok_campaign_campaignQuotaGet, tiktok_campaign_campaignQuotaInfo, tiktok_toBeDeprecatedLegacySmart_campaignSpcCreate, tiktok_toBeDeprecatedLegacySmart_campaignSpcGet, tiktok_toBeDeprecatedLegacySmart_campaignSpcMaterialStatusUpdate, tiktok_toBeDeprecatedLegacySmart_campaignSpcQuotaGet, tiktok_toBeDeprecatedLegacySmart_campaignSpcUpdate, tiktok_campaign_campaignStatusUpdate, tiktok_campaign_campaignUpdate, tiktok_catalogManagement_catalogAvailableCountryGet, tiktok_catalogManagement_catalogCapitalize, tiktok_catalogManagement_catalogCreate, tiktok_catalogManagement_catalogDelete, tiktok_catalogEventSources_catalogEventsourceBind, tiktok_catalogEventSources_catalogEventsourceBindGet, tiktok_catalogEventSources_catalogEventsourceUnbind, tiktok_catalogFeeds_catalogFeedCreate, tiktok_catalogFeeds_catalogFeedDelete, tiktok_catalogFeeds_catalogFeedGet, tiktok_catalogFeeds_catalogFeedLog, tiktok_catalogFeeds_catalogFeedSwitch, tiktok_catalogFeeds_catalogFeedUpdate, tiktok_catalogManagement_catalogGet, tiktok_catalogInsights_catalogInsightCategoryGet, tiktok_catalogInsights_catalogInsightFilterGet, tiktok_catalogInsights_catalogInsightProductGet, tiktok_catalogManagement_catalogLexiconGet, tiktok_catalogManagement_catalogLocationCurrencyGet, tiktok_catalogManagement_catalogOverview, tiktok_catalogProducts_catalogProductDelete, tiktok_catalogProducts_catalogProductFile, tiktok_catalogProducts_catalogProductGet, tiktok_catalogProducts_catalogProductLog, tiktok_catalogProducts_catalogProductUpdate, tiktok_catalogProducts_catalogProductUpload, tiktok_catalogProductSets_catalogSetCreate, tiktok_catalogProductSets_catalogSetDelete, tiktok_catalogProductSets_catalogSetGet, tiktok_catalogProductSets_catalogSetProductGet, tiktok_catalogProductSets_catalogSetUpdate, tiktok_catalogProductSets_catalogSetUpload, tiktok_catalogVideoTemplates_catalogTemplatePreviewCreate, tiktok_catalogVideoTemplates_catalogTemplateUpload, tiktok_catalogManagement_catalogUpdate, tiktok_catalogVideos_catalogVideoDelete, tiktok_catalogVideos_catalogVideoFile, tiktok_catalogVideos_catalogVideoGet, tiktok_catalogVideos_catalogVideoLog, tiktok_catalogVideoTemplates_catalogVideoPackageCreate, tiktok_catalogVideoTemplates_catalogVideoPackageDelete, tiktok_catalogVideoTemplates_catalogVideoPackageGet, tiktok_catalogVideoTemplates_catalogVideoPackageUpdate, tiktok_bCManagement_changelogGet, tiktok_changeLog_changelogTaskCheck, tiktok_changeLog_changelogTaskCreate, tiktok_changeLog_changelogTaskDownload, tiktok_adComments_commentDelete, tiktok_adComments_commentList, tiktok_adComments_commentPost, tiktok_adComments_commentReference, tiktok_adComments_commentStatusUpdate, tiktok_adComments_commentTaskCheck, tiktok_adComments_commentTaskCreate, tiktok_adComments_commentTaskDownload, tiktok_creativeTools_creativeAdsPreviewCreate, tiktok_creativeTools_creativeAssetDelete, tiktok_creativeTools_creativeAssetShare, tiktok_welcomeMessages_creativeAutoMessageCreate, tiktok_welcomeMessages_creativeAutoMessageGet, tiktok_creativeTools_creativeCtaRecommend, tiktok_creativeTools_creativeFatigueGet, tiktok_creativeTools_creativeImageEdit, tiktok_creativePortfolios_creativePortfolioCreate, tiktok_creativePortfolios_creativePortfolioDelete, tiktok_creativePortfolios_creativePortfolioGet, tiktok_creativePortfolios_creativePortfolioList, tiktok_creativeTools_creativeQuickOptimizationCreate, tiktok_creativeTools_creativeSmartTextGenerate, tiktok_creativeTools_creativeSmartVideoCreate, tiktok_creativeTools_creativeStatusGet, tiktok_creativeTools_creativeVideoSoundtrackCreate, tiktok_events10_crmCreate, tiktok_events10_crmList, tiktok_events10_ctmMessageEventSetGet, tiktok_customConversions_customConversionCreate, tiktok_customConversions_customConversionDelete, tiktok_customConversions_customConversionGet, tiktok_customConversions_customConversionList, tiktok_customConversions_customConversionUpdate, tiktok_tools_deliveryBidRecommend, tiktok_tools_deliveryBudgetRecommend, tiktok_catalogDiagnostics_diagnosticCatalog, tiktok_catalogDiagnostics_diagnosticCatalogEventsourceIssue, tiktok_catalogDiagnostics_diagnosticCatalogEventsourceMetric, tiktok_catalogDiagnostics_diagnosticCatalogProductTaskCreate, tiktok_catalogDiagnostics_diagnosticCatalogProductTaskGet, tiktok_discovery_discoveryCmlTrendingList, tiktok_discovery_discoveryCmlVideoList, tiktok_discovery_discoveryDetail, tiktok_discovery_discoveryTrendingList, tiktok_discovery_discoveryTrendingSearch, tiktok_discovery_discoveryTrendingSearchKeyword, tiktok_discovery_discoveryVideoList, tiktok_audience_dmpCustomAudienceApply, tiktok_audience_dmpCustomAudienceApplyLog, tiktok_audience_dmpCustomAudienceCreate, tiktok_audience_dmpCustomAudienceDelete, tiktok_audience_dmpCustomAudienceFileUpload, tiktok_audience_dmpCustomAudienceGet, tiktok_audience_dmpCustomAudienceList, tiktok_audience_dmpCustomAudienceLookalikeCreate, tiktok_audience_dmpCustomAudienceLookalikeUpdate, tiktok_audience_dmpCustomAudienceRuleCreate, tiktok_audience_dmpCustomAudienceShare, tiktok_audience_dmpCustomAudienceShareCancel, tiktok_audience_dmpCustomAudienceShareLog, tiktok_audience_dmpCustomAudienceUpdate, tiktok_audience_dmpSavedAudienceCreate, tiktok_audience_dmpSavedAudienceDelete, tiktok_audience_dmpSavedAudienceList, tiktok_deprecatedDynamicScene_dynamicSceneGet, tiktok_deprecatedDynamicScene_dynamicSceneMaterialSubmit, tiktok_deprecatedDynamicScene_dynamicSceneReportGet, tiktok_deprecatedDynamicScene_dynamicSceneTaskCreate, tiktok_deprecatedDynamicScene_dynamicSceneTaskGet, tiktok_events20_eventTrack, tiktok_files_fileFinishUpload, tiktok_images_fileImageAdInfo, tiktok_images_fileImageAdSearch, tiktok_images_fileImageAdUpdate, tiktok_images_fileImageAdUpload, tiktok_music_fileMusicGet, tiktok_music_fileMusicUpload, tiktok_files_fileNameCheck, tiktok_files_fileStartUpload, tiktok_files_fileTemporarilyUpload, tiktok_files_fileTransferUpload, tiktok_video_fileVideoAdInfo, tiktok_video_fileVideoAdSearch, tiktok_video_fileVideoAdUpdate, tiktok_video_fileVideoAdUpload, tiktok_video_fileVideoSuggestcover, tiktok_gMVMax_gmvMaxBidRecommend, tiktok_gMVMax_gmvMaxCampaignGet, tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListCreate, tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListDelete, tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListGet, tiktok_gMVMax_gmvMaxCreationShopVideoVideoAnchors, tiktok_gMVMax_gmvMaxCustomAnchorVideoListGet, tiktok_gMVMax_gmvMaxExclusiveAuthorizationCreate, tiktok_gMVMax_gmvMaxExclusiveAuthorizationGet, tiktok_gMVMax_gmvMaxIdentityGet, tiktok_gMVMax_gmvMaxOccupiedCustomShopAdsList, tiktok_gMVMax_gmvMaxStoreList, tiktok_gMVMax_gmvMaxStoreShopAdUsageCheck, tiktok_gMVMax_gmvMaxVideoGet, tiktok_identity_identityCreate, tiktok_identity_identityDelete, tiktok_identity_identityGet, tiktok_identity_identityInfo, tiktok_identity_identityLiveGet, tiktok_identity_identityMusicAuthorization, tiktok_tools_identityNativeSeriesGet, tiktok_identity_identityVideoGet, tiktok_identity_identityVideoInfo, tiktok_leads_leadFieldGet, tiktok_leads_leadGet, tiktok_tools_minisGet, tiktok_mediaMixModeling_mmmApiCheck, tiktok_mediaMixModeling_mmmApiCreate, tiktok_mediaMixModeling_mmmApiDownload, tiktok_mediaMixModeling_mmmApiHistory, tiktok_authentication_oauth2AccessToken, tiktok_page_oauth2AccessTokenTipSdkCreate, tiktok_page_oauth2AccessTokenTipSdkRenew, tiktok_page_oauth2AccessTokenTipSdkValidate, tiktok_adAccounts_oauth2AdvertiserGet, tiktok_authentication_oauth2RevokeToken, tiktok_events10_offlineBatch, tiktok_events10_offlineCreate, tiktok_events10_offlineDelete, tiktok_events10_offlineGet, tiktok_events10_offlineTrack, tiktok_events10_offlineUpdate, tiktok_automatedRules_optimizerRuleBatchBind, tiktok_automatedRules_optimizerRuleCreate, tiktok_automatedRules_optimizerRuleGet, tiktok_automatedRules_optimizerRuleList, tiktok_automatedRules_optimizerRuleResultGet, tiktok_automatedRules_optimizerRuleResultList, tiktok_automatedRules_optimizerRuleUpdate, tiktok_automatedRules_optimizerRuleUpdateStatus, tiktok_leads_pageFieldGet, tiktok_page_pageGet, tiktok_leads_pageLeadMockCreate, tiktok_leads_pageLeadMockDelete, tiktok_leads_pageLeadMockGet, tiktok_leads_pageLeadTask, tiktok_leads_pageLeadTaskDownload, tiktok_leads_pageLibraryGet, tiktok_leads_pageLibraryTransfer, tiktok_pangle_pangleAudiencePackageGet, tiktok_pangle_pangleBlockListGet, tiktok_pangle_pangleBlockListUpdate, tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserGet, tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserUpdate, tiktok_bCPaymentPortfolios_paymentPortfolioCreate, tiktok_bCPaymentPortfolios_paymentPortfolioCreditLineUpdate, tiktok_bCPaymentPortfolios_paymentPortfolioGet, tiktok_bCPaymentPortfolios_paymentPortfolioUserGet, tiktok_events10_pixelBatch, tiktok_events10_pixelCreate, tiktok_events10_pixelEventCreate, tiktok_events10_pixelEventDelete, tiktok_events10_pixelEventStats, tiktok_events10_pixelEventUpdate, tiktok_events10_pixelInstantPageEvent, tiktok_events10_pixelList, tiktok_events10_pixelTrack, tiktok_events10_pixelUpdate, tiktok_playableAds_playableDelete, tiktok_playableAds_playableGet, tiktok_playableAds_playableSave, tiktok_playableAds_playableUpload, tiktok_playableAds_playableValidate, tiktok_creativeReports_reportAdBenchmarkGet, tiktok_reporting_reportIntegratedGet, tiktok_reporting_reportTaskCancel, tiktok_reporting_reportTaskCheck, tiktok_reporting_reportTaskCreate, tiktok_reporting_reportTaskDownload, tiktok_creativeReports_reportVideoPerformanceGet, tiktok_reachFrequency_rfContractQuery, tiktok_reachFrequency_rfDeliveryTimezone, tiktok_reachFrequency_rfInventoryEstimate, tiktok_reachFrequency_rfOrderCancel, tiktok_negativeKeywords_searchAdNegativeKeywordAdd, tiktok_negativeKeywords_searchAdNegativeKeywordDelete, tiktok_negativeKeywords_searchAdNegativeKeywordDownload, tiktok_negativeKeywords_searchAdNegativeKeywordGet, tiktok_negativeKeywords_searchAdNegativeKeywordUpdate, tiktok_tools_searchRegion, tiktok_audience_segmentAudience, tiktok_audience_segmentMapping, tiktok_showcase_showcaseIdentityGet, tiktok_showcase_showcaseProductGet, tiktok_showcase_showcaseRegionGet, tiktok_upgradedSmart_smartPlusAdAppeal, tiktok_upgradedSmart_smartPlusAdCreate, tiktok_upgradedSmart_smartPlusAdGet, tiktok_upgradedSmart_smartPlusAdgroupBudgetUpdate, tiktok_upgradedSmart_smartPlusAdgroupCreate, tiktok_upgradedSmart_smartPlusAdgroupGet, tiktok_upgradedSmart_smartPlusAdgroupStatusUpdate, tiktok_upgradedSmart_smartPlusAdgroupUpdate, tiktok_upgradedSmart_smartPlusAdMaterialStatusUpdate, tiktok_upgradedSmart_smartPlusAdPreview, tiktok_upgradedSmart_smartPlusAdReviewInfo, tiktok_upgradedSmart_smartPlusAdStatusUpdate, tiktok_upgradedSmart_smartPlusAdUpdate, tiktok_upgradedSmart_smartPlusCampaignCopyTaskCheck, tiktok_upgradedSmart_smartPlusCampaignCopyTaskCreate, tiktok_upgradedSmart_smartPlusCampaignCreate, tiktok_upgradedSmart_smartPlusCampaignGet, tiktok_upgradedSmart_smartPlusCampaignStatusUpdate, tiktok_upgradedSmart_smartPlusCampaignUpdate, tiktok_upgradedSmart_smartPlusMaterialReviewInfo, tiktok_sparkAdsRecommendation_sparkAdRecommend, tiktok_superSplitTest_splitTestCreate, tiktok_superSplitTest_splitTestEnd, tiktok_superSplitTest_splitTestPromote, tiktok_superSplitTest_splitTestResultGet, tiktok_superSplitTest_splitTestUpdate, tiktok_tikTokStore_storeList, tiktok_tikTokStore_storeProductGet, tiktok_subscription_subscriptionGet, tiktok_subscription_subscriptionSubscribe, tiktok_subscription_subscriptionUnsubscribe, tiktok_tools_targetingSearch, tiktok_tikTokOne_tcmTtVideoApply, tiktok_tikTokOne_tcmTtVideoStatus, tiktok_terms_termCheck, tiktok_terms_termConfirm, tiktok_terms_termGet, tiktok_brandSafety_tiktokInventoryFiltersGet, tiktok_brandSafety_tiktokInventoryFiltersUpdate, tiktok_tools_toolActionCategory, tiktok_tools_toolAvailableAttributionSource, tiktok_tools_toolBidRecommend, tiktok_tools_toolBrandSafetyPartnerAuthorizeStatus, tiktok_tools_toolCarrier, tiktok_tools_toolContentExclusionGet, tiktok_tools_toolContentExclusionInfo, tiktok_tools_toolContextualTagGet, tiktok_tools_toolContextualTagInfo, tiktok_tools_toolDeviceModel, tiktok_adDiagnosis_toolDiagnosisGet, tiktok_tools_toolDiagnosisSearchHealth, tiktok_tools_toolHashtagGet, tiktok_tools_toolHashtagRecommend, tiktok_tools_toolInterestCategory, tiktok_tools_toolInterestKeywordGet, tiktok_tools_toolInterestKeywordRecommend, tiktok_tools_toolLanguage, tiktok_tools_toolOpenUrl, tiktok_tools_toolOsVersion, tiktok_tools_toolPhoneRegionCode, tiktok_tools_toolRegion, tiktok_tools_toolSearchKeywordKeywordIdea, tiktok_tools_toolSearchKeywordRecommend, tiktok_tools_toolTargetingCategoryRecommend, tiktok_tools_toolTargetingInfo, tiktok_tools_toolTargetingList, tiktok_tools_toolTargetingSearch, tiktok_tools_toolTimezone, tiktok_tools_toolUrlValidate, tiktok_tools_toolVastOption, tiktok_tools_toolVboStatus, tiktok_tikTokOne_ttoCreatorAuthorized, tiktok_tikTokOne_ttoCreatorAuthorizedVideoList, tiktok_tikTokOne_ttoCreatorCampaignJoin, tiktok_tikTokOne_ttoCreatorCampaignVideoLink, tiktok_tikTokOne_ttoCreatorLinkRequestConfirm, tiktok_tikTokOne_ttoCreatorLinkRequestGet, tiktok_tikTokOne_ttoOauth2Info, tiktok_tikTokOne_ttoOauth2Tcm, tiktok_tikTokOne_ttoTcmAnchorCreate, tiktok_tikTokOne_ttoTcmAnchorDelete, tiktok_tikTokOne_ttoTcmAnchorGet, tiktok_tikTokOne_ttoTcmBrandProfileCreate, tiktok_tikTokOne_ttoTcmBrandProfileGet, tiktok_tikTokOne_ttoTcmCampaign, tiktok_tikTokOne_ttoTcmCampaignCreate, tiktok_tikTokOne_ttoTcmCampaignLink, tiktok_tikTokOne_ttoTcmCampaignLinkStatus, tiktok_tikTokOne_ttoTcmCampaignUpdate, tiktok_tikTokOne_ttoTcmCategoryLabel, tiktok_tikTokOne_ttoTcmCreatorDiscover, tiktok_tikTokOne_ttoTcmCreatorPublic, tiktok_tikTokOne_ttoTcmCreatorPublicVideoList, tiktok_tikTokOne_ttoTcmCreatorStatusGet, tiktok_tikTokOne_ttoTcmRank, tiktok_tikTokOne_ttoTcmReport, tiktok_authentication_ttUserOauth2RefreshToken, tiktok_authentication_ttUserOauth2Revoke, tiktok_authentication_ttUserOauth2Token, tiktok_tikTokOne_ttUserOauth2Token2, tiktok_accounts_ttUserTokenInfoGet, tiktok_tikTokOne_ttUserTokenInfoGet2, tiktok_sparkAdsUsingAuthorizedPosts_ttVideoAuthorize, tiktok_sparkAdsUsingAuthorizedPosts_ttVideoInfo, tiktok_sparkAdsUsingAuthorizedPosts_ttVideoList, tiktok_sparkAdsUsingAuthorizedPosts_ttVideoUnbind, tiktok_creativeTools_videoFixTaskCreate, tiktok_creativeTools_videoFixTaskGet] as const;

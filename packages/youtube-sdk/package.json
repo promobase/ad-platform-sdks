@@ -57,7 +57,20 @@
       "types": "./dist/generated/index.d.ts",
       "import": "./dist/generated/index.js",
       "default": "./dist/generated/index.js"
+    },
+    "./effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
     }
+  },
+  "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
+    "effect": "^3.22.1"
+  },
+  "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

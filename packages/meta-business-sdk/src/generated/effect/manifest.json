@@ -1,0 +1,13 @@
+{
+  "platform": "meta",
+  "source": {
+    "kind": "vendor-json",
+    "location": "packages/meta-business-sdk/api_specs"
+  },
+  "version": "graph",
+  "counts": {
+    "models": 1488,
+    "endpoints": 1451,
+    "capabilities": 395
+  }
+}

@@ -54,18 +54,19 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
     "@openpromo/meta": "workspace:*",
     "@openpromo/tiktok": "workspace:*",
     "@openpromo/google-ads": "workspace:*",
     "@openpromo/google-business-profile": "workspace:*",
     "@openpromo/linkedin": "workspace:*",
     "@openpromo/x": "workspace:*",
-    "@openpromo/youtube": "workspace:*"
+    "@openpromo/youtube": "workspace:*",
+    "effect": "^3.22.1"
   },
   "peerDependencies": {
     "typescript": ">=5.9.3 <8",
-    "ai": "^6.0.0 || ^7.0.0",
-    "zod": "^4.3.6"
+    "ai": "^6.0.0 || ^7.0.0"
   },
   "peerDependenciesMeta": {
     "ai": {
@@ -105,6 +106,54 @@
       "types": "./dist/operations/codemode.d.ts",
       "import": "./dist/operations/codemode.js",
       "default": "./dist/operations/codemode.js"
+    },
+    "./effect": {
+      "bun": "./src/effect/index.ts",
+      "types": "./dist/effect/index.d.ts",
+      "import": "./dist/effect/index.js",
+      "default": "./dist/effect/index.js"
+    },
+    "./meta/effect": {
+      "bun": "./src/effect/meta.ts",
+      "types": "./dist/effect/meta.d.ts",
+      "import": "./dist/effect/meta.js",
+      "default": "./dist/effect/meta.js"
+    },
+    "./tiktok/effect": {
+      "bun": "./src/effect/tiktok.ts",
+      "types": "./dist/effect/tiktok.d.ts",
+      "import": "./dist/effect/tiktok.js",
+      "default": "./dist/effect/tiktok.js"
+    },
+    "./google-ads/v25/effect": {
+      "bun": "./src/effect/google-ads-v25.ts",
+      "types": "./dist/effect/google-ads-v25.d.ts",
+      "import": "./dist/effect/google-ads-v25.js",
+      "default": "./dist/effect/google-ads-v25.js"
+    },
+    "./google-business-profile/effect": {
+      "bun": "./src/effect/google-business-profile.ts",
+      "types": "./dist/effect/google-business-profile.d.ts",
+      "import": "./dist/effect/google-business-profile.js",
+      "default": "./dist/effect/google-business-profile.js"
+    },
+    "./linkedin/effect": {
+      "bun": "./src/effect/linkedin.ts",
+      "types": "./dist/effect/linkedin.d.ts",
+      "import": "./dist/effect/linkedin.js",
+      "default": "./dist/effect/linkedin.js"
+    },
+    "./x/effect": {
+      "bun": "./src/effect/x.ts",
+      "types": "./dist/effect/x.d.ts",
+      "import": "./dist/effect/x.js",
+      "default": "./dist/effect/x.js"
+    },
+    "./youtube/effect": {
+      "bun": "./src/effect/youtube.ts",
+      "types": "./dist/effect/youtube.d.ts",
+      "import": "./dist/effect/youtube.js",
+      "default": "./dist/effect/youtube.js"
     },
     "./x": {
       "bun": "./src/x.ts",

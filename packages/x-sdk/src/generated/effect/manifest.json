@@ -1,0 +1,14 @@
+{
+  "platform": "x",
+  "source": {
+    "kind": "openapi",
+    "location": "fern/openapi/x-openapi.json",
+    "revision": "2.167"
+  },
+  "version": "2.167",
+  "counts": {
+    "models": 527,
+    "endpoints": 14,
+    "capabilities": 5
+  }
+}
