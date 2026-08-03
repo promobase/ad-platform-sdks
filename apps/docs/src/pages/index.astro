@@ -46,21 +46,28 @@ const platforms = ["Meta", "TikTok", "Google Ads", "Business Profile", "LinkedIn
           >
             <span class="absolute inset-6 rounded-full border border-border" aria-hidden="true"></span>
             <span class="absolute inset-12 rounded-full border border-border" aria-hidden="true"></span>
-            <span class="absolute inset-x-6 top-9 flex flex-col items-center text-center">
-              <span class="relative mt-10 block h-[3.75rem] w-[13.75rem] overflow-hidden transition-transform duration-300 group-hover:scale-[1.03]">
+            <span class="absolute inset-x-6 top-7 flex flex-col items-center text-center">
+              <img
+                src="/openpromo-logo.svg"
+                alt=""
+                width="56"
+                height="56"
+                class="openpromo-mark h-14 w-14 transition-transform duration-300 group-hover:scale-105"
+              />
+              <span class="relative mt-3 block h-12 w-[11.5rem] overflow-hidden transition-transform duration-300 group-hover:scale-[1.03]">
                 <img
                   src="/openpromo-wordmark-light.svg"
                   alt="OpenPromo"
                   width="667"
                   height="175"
-                  class="openpromo-wordmark-light h-[3.75rem] w-auto max-w-none"
+                  class="openpromo-wordmark-light h-12 w-auto max-w-none"
                 />
                 <img
                   src="/openpromo-wordmark-dark.svg"
                   alt=""
                   width="667"
                   height="175"
-                  class="openpromo-wordmark-dark h-[3.75rem] w-auto max-w-none"
+                  class="openpromo-wordmark-dark h-12 w-auto max-w-none"
                 />
               </span>
               <span class="mt-2 block font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground">
@@ -128,8 +135,11 @@ const platforms = ["Meta", "TikTok", "Google Ads", "Business Profile", "LinkedIn
             <span class="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">{platform}</span>
           ))}
         </div>
-        <div class="mt-14 border-t border-border pt-8 text-sm text-muted-foreground">
-          MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
+        <div class="mt-14 flex items-center gap-2 border-t border-border pt-8 text-sm text-muted-foreground">
+          <img src="/openpromo-logo.svg" alt="" width="20" height="20" class="openpromo-mark h-5 w-5" />
+          <span>
+            MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
+          </span>
         </div>
       </section>
     </main>
