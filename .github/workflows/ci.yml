@@ -41,3 +41,35 @@ jobs:
 
       - name: Test workspace
         run: bun run test
+
+  deploy-docs:
+    name: Deploy documentation
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: docs-production
+      cancel-in-progress: false
+    environment:
+      name: docs-production
+      url: https://docs.openpromo.app
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build documentation
+        run: bun run --cwd apps/docs build
+
+      - name: Deploy documentation to Cloudflare
+        run: bun run --cwd apps/docs wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
