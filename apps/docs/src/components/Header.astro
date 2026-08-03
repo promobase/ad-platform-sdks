@@ -34,10 +34,15 @@ const showSections = sections.length >= 2;
 <header class="sticky top-0 z-30 border-b border-border bg-card/80 backdrop-blur-lg">
   <div class="mx-auto flex items-center justify-between h-14 px-4 lg:px-6">
     <div class="flex items-center gap-3">
-      <a href="/" class="group">
-        <span class="flex items-center gap-2 font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
-          <img src="/openpromo-logo.svg" alt="" width="24" height="24" class="h-6 w-6 dark:invert" />
-          {config.title}
+      <a href="/" class="group" aria-label={`${config.title} home`}>
+        <span class="flex items-center gap-2.5 text-foreground group-hover:text-primary transition-colors">
+          <img src="/openpromo-logo.svg" alt="" width="28" height="28" class="h-7 w-7 shrink-0 dark:invert" />
+          <span class="flex items-baseline gap-2">
+            <span class="text-base font-semibold tracking-tight">OpenPromo</span>
+            <span class="hidden rounded-full border border-border px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground sm:inline">
+              SDK docs
+            </span>
+          </span>
         </span>
       </a>
 
