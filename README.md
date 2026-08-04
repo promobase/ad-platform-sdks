@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://openpromo.app">
-  <img src="https://raw.githubusercontent.com/promobase/identity/main/assets/main_logo.svg" width="240" alt="OpenPromo" />
+  <img src="https://raw.githubusercontent.com/promobase/identity/main/assets/logo.svg" width="96" alt="OpenPromo logo" />
 </a>
 
 # OpenPromo Ad Platform SDKs
