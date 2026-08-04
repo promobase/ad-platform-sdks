@@ -15,6 +15,8 @@ export const googleAds_accountBudgetProposal_mutateAccountBudgetProposal = defin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["accountBudgetProposal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -36,6 +38,8 @@ export const googleAds_accountLink_createAccountLink = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["accountLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -57,6 +61,8 @@ export const googleAds_accountLink_mutateAccountLink = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["accountLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -78,6 +84,8 @@ export const googleAds_adGroupAdLabel_mutateAdGroupAdLabels = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupAdLabel.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -99,6 +107,8 @@ export const googleAds_adGroupAd_mutateAdGroupAds = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupAd.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -120,6 +130,8 @@ export const googleAds_adGroupAd_removeAutomaticallyCreatedAssets = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupAd.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -141,6 +153,8 @@ export const googleAds_adGroupAsset_mutateAdGroupAssets = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupAsset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -162,6 +176,8 @@ export const googleAds_adGroupAssetSet_mutateAdGroupAssetSets = defineEndpointDe
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupAssetSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -183,6 +199,8 @@ export const googleAds_adGroupBidModifier_mutateAdGroupBidModifiers = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupBidModifier.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -204,6 +222,8 @@ export const googleAds_adGroupCriterionCustomizer_mutateAdGroupCriterionCustomiz
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupCriterionCustomizer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -225,6 +245,8 @@ export const googleAds_adGroupCriterionLabel_mutateAdGroupCriterionLabels = defi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupCriterionLabel.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -246,6 +268,8 @@ export const googleAds_adGroupCriterion_mutateAdGroupCriteria = defineEndpointDe
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupCriterion.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -267,6 +291,8 @@ export const googleAds_adGroupCustomizer_mutateAdGroupCustomizers = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupCustomizer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -288,6 +314,8 @@ export const googleAds_adGroupLabel_mutateAdGroupLabels = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroupLabel.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -309,6 +337,8 @@ export const googleAds_adGroup_mutateAdGroups = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adGroup.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -330,6 +360,8 @@ export const googleAds_adParameter_mutateAdParameters = defineEndpointDescriptor
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["adParameter.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -351,6 +383,8 @@ export const googleAds_ad_mutateAds = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["ad.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -372,6 +406,8 @@ export const googleAds_assetGeneration_generateImages = defineEndpointDescriptor
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGeneration.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -393,6 +429,8 @@ export const googleAds_assetGeneration_generateText = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGeneration.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -414,6 +452,8 @@ export const googleAds_assetGroupAsset_mutateAssetGroupAssets = defineEndpointDe
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGroupAsset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -435,6 +475,8 @@ export const googleAds_assetGroupListingGroupFilter_mutateAssetGroupListingGroup
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGroupListingGroupFilter.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -456,6 +498,8 @@ export const googleAds_assetGroup_mutateAssetGroups = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGroup.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -477,6 +521,8 @@ export const googleAds_assetGroupSignal_mutateAssetGroupSignals = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetGroupSignal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -498,6 +544,8 @@ export const googleAds_asset_mutateAssets = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["asset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -519,6 +567,8 @@ export const googleAds_assetSetAsset_mutateAssetSetAssets = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetSetAsset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -540,6 +590,8 @@ export const googleAds_assetSet_mutateAssetSets = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["assetSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -561,6 +613,8 @@ export const googleAds_audienceInsights_generateAudienceCompositionInsights = de
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -582,6 +636,8 @@ export const googleAds_audienceInsights_generateAudienceDefinition = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -603,6 +659,8 @@ export const googleAds_audienceInsights_generateAudienceOverlapInsights = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -624,6 +682,8 @@ export const googleAds_audienceInsights_generateInsightsFinderReport = defineEnd
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -645,6 +705,8 @@ export const googleAds_audienceInsights_generateSuggestedTargetingInsights = def
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -666,6 +728,8 @@ export const googleAds_audienceInsights_generateTargetingSuggestionMetrics = def
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -687,6 +751,8 @@ export const googleAds_audienceInsights_listAudienceInsightsAttributes = defineE
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -708,6 +774,8 @@ export const googleAds_audienceInsights_listInsightsEligibleDates = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audienceInsights.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -729,6 +797,8 @@ export const googleAds_audience_mutateAudiences = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["audience.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -750,6 +820,8 @@ export const googleAds_automaticallyCreatedAssetRemoval_removeCampaignAutomatica
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["automaticallyCreatedAssetRemoval.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -771,6 +843,8 @@ export const googleAds_batchJob_addBatchJobOperations = defineEndpointDescriptor
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["batchJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -792,6 +866,8 @@ export const googleAds_batchJob_listBatchJobResults = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["batchJob.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -813,6 +889,8 @@ export const googleAds_batchJob_mutateBatchJob = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["batchJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -834,6 +912,8 @@ export const googleAds_batchJob_runBatchJob = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["batchJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -855,6 +935,8 @@ export const googleAds_benchmarks_generateBenchmarksMetrics = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["benchmarks.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -876,6 +958,8 @@ export const googleAds_benchmarks_listBenchmarksAvailableDates = defineEndpointD
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["benchmarks.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -897,6 +981,8 @@ export const googleAds_benchmarks_listBenchmarksLocations = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["benchmarks.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -918,6 +1004,8 @@ export const googleAds_benchmarks_listBenchmarksProducts = defineEndpointDescrip
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["benchmarks.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -939,6 +1027,8 @@ export const googleAds_benchmarks_listBenchmarksSources = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["benchmarks.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -960,6 +1050,8 @@ export const googleAds_biddingDataExclusion_mutateBiddingDataExclusions = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["biddingDataExclusion.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -981,6 +1073,8 @@ export const googleAds_biddingSeasonalityAdjustment_mutateBiddingSeasonalityAdju
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["biddingSeasonalityAdjustment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1002,6 +1096,8 @@ export const googleAds_biddingStrategy_mutateBiddingStrategies = defineEndpointD
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["biddingStrategy.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1023,6 +1119,8 @@ export const googleAds_billingSetup_mutateBillingSetup = defineEndpointDescripto
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["billingSetup.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1044,6 +1142,8 @@ export const googleAds_brandSuggestion_suggestBrands = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["brandSuggestion.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1065,6 +1165,8 @@ export const googleAds_campaignAsset_mutateCampaignAssets = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignAsset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1086,6 +1188,8 @@ export const googleAds_campaignAssetSet_mutateCampaignAssetSets = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignAssetSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1107,6 +1211,8 @@ export const googleAds_campaignBidModifier_mutateCampaignBidModifiers = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignBidModifier.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1128,6 +1234,8 @@ export const googleAds_campaignBudget_mutateCampaignBudgets = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignBudget.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1149,6 +1257,8 @@ export const googleAds_campaignConversionGoal_mutateCampaignConversionGoals = de
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignConversionGoal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1170,6 +1280,8 @@ export const googleAds_campaignCriterion_mutateCampaignCriteria = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignCriterion.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1191,6 +1303,8 @@ export const googleAds_campaignCustomizer_mutateCampaignCustomizers = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignCustomizer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1212,6 +1326,8 @@ export const googleAds_campaignDraft_listCampaignDraftAsyncErrors = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignDraft.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1233,6 +1349,8 @@ export const googleAds_campaignDraft_mutateCampaignDrafts = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignDraft.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1254,6 +1372,8 @@ export const googleAds_campaignDraft_promoteCampaignDraft = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignDraft.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1275,6 +1395,8 @@ export const googleAds_campaignGoalConfig_mutateCampaignGoalConfigs = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignGoalConfig.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1296,6 +1418,8 @@ export const googleAds_campaignGroup_mutateCampaignGroups = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignGroup.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1317,6 +1441,8 @@ export const googleAds_campaignLabel_mutateCampaignLabels = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignLabel.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1338,6 +1464,8 @@ export const googleAds_campaign_enablePMaxBrandGuidelines = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1359,6 +1487,8 @@ export const googleAds_campaign_mutateCampaigns = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1380,6 +1510,8 @@ export const googleAds_campaignSharedSet_mutateCampaignSharedSets = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["campaignSharedSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1401,6 +1533,8 @@ export const googleAds_contentCreatorInsights_generateCreatorInsights = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["contentCreatorInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1422,6 +1556,8 @@ export const googleAds_contentCreatorInsights_generateTrendingInsights = defineE
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["contentCreatorInsights.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1443,6 +1579,8 @@ export const googleAds_conversionAction_mutateConversionActions = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionAction.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1464,6 +1602,8 @@ export const googleAds_conversionAdjustmentUpload_uploadConversionAdjustments = 
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionAdjustmentUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1485,6 +1625,8 @@ export const googleAds_conversionCustomVariable_mutateConversionCustomVariables 
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionCustomVariable.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1506,6 +1648,8 @@ export const googleAds_conversionGoalCampaignConfig_mutateConversionGoalCampaign
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionGoalCampaignConfig.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1527,6 +1671,8 @@ export const googleAds_conversionUpload_uploadCallConversions = defineEndpointDe
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1548,6 +1694,8 @@ export const googleAds_conversionUpload_uploadClickConversions = defineEndpointD
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1569,6 +1717,8 @@ export const googleAds_conversionValueRule_mutateConversionValueRules = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionValueRule.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1590,6 +1740,8 @@ export const googleAds_conversionValueRuleSet_mutateConversionValueRuleSets = de
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["conversionValueRuleSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1611,6 +1763,8 @@ export const googleAds_customAudience_mutateCustomAudiences = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1632,6 +1786,8 @@ export const googleAds_customConversionGoal_mutateCustomConversionGoals = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customConversionGoal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1653,6 +1809,8 @@ export const googleAds_customerAsset_mutateCustomerAssets = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerAsset.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1674,6 +1832,8 @@ export const googleAds_customerAssetSet_mutateCustomerAssetSets = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerAssetSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1695,6 +1855,8 @@ export const googleAds_customerClientLink_mutateCustomerClientLink = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerClientLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1716,6 +1878,8 @@ export const googleAds_customerConversionGoal_mutateCustomerConversionGoals = de
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerConversionGoal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1737,6 +1901,8 @@ export const googleAds_customerCustomizer_mutateCustomerCustomizers = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerCustomizer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1758,6 +1924,8 @@ export const googleAds_customerLabel_mutateCustomerLabels = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerLabel.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1779,6 +1947,8 @@ export const googleAds_customerManagerLink_moveManagerLink = defineEndpointDescr
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerManagerLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1800,6 +1970,8 @@ export const googleAds_customerManagerLink_mutateCustomerManagerLink = defineEnd
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerManagerLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1821,6 +1993,8 @@ export const googleAds_customerNegativeCriterion_mutateCustomerNegativeCriteria 
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerNegativeCriterion.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1842,6 +2016,8 @@ export const googleAds_customer_createCustomerClient = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1863,6 +2039,8 @@ export const googleAds_customer_listAccessibleCustomers = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customer.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1884,6 +2062,8 @@ export const googleAds_customer_mutateCustomer = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customer.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1905,6 +2085,8 @@ export const googleAds_customerSkAdNetworkConversionValueSchema_mutateCustomerSk
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerSkAdNetworkConversionValueSchema.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1926,6 +2108,8 @@ export const googleAds_customerUserAccessInvitation_mutateCustomerUserAccessInvi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerUserAccessInvitation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1947,6 +2131,8 @@ export const googleAds_customerUserAccess_mutateCustomerUserAccess = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customerUserAccess.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1968,6 +2154,8 @@ export const googleAds_customInterest_mutateCustomInterests = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customInterest.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -1989,6 +2177,8 @@ export const googleAds_customizerAttribute_mutateCustomizerAttributes = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["customizerAttribute.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2010,6 +2200,8 @@ export const googleAds_dataLink_createDataLink = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["dataLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2031,6 +2223,8 @@ export const googleAds_dataLink_removeDataLink = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["dataLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2052,6 +2246,8 @@ export const googleAds_dataLink_updateDataLink = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["dataLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2073,6 +2269,8 @@ export const googleAds_experimentArm_mutateExperimentArms = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experimentArm.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2094,6 +2292,8 @@ export const googleAds_experiment_endExperiment = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2115,6 +2315,8 @@ export const googleAds_experiment_graduateExperiment = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2136,6 +2338,8 @@ export const googleAds_experiment_listExperimentAsyncErrors = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2157,6 +2361,8 @@ export const googleAds_experiment_mutateExperiments = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2178,6 +2384,8 @@ export const googleAds_experiment_promoteExperiment = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2199,6 +2407,8 @@ export const googleAds_experiment_scheduleExperiment = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["experiment.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2220,6 +2430,8 @@ export const googleAds_geoTargetConstant_suggestGeoTargetConstants = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["geoTargetConstant.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2241,6 +2453,8 @@ export const googleAds_goal_mutateGoals = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["goal.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2262,6 +2476,8 @@ export const googleAds_googleAdsField_getGoogleAdsField = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["googleAdsField.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2283,6 +2499,8 @@ export const googleAds_googleAdsField_searchGoogleAdsFields = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["googleAdsField.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2304,6 +2522,8 @@ export const googleAds_googleAds_mutate = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["googleAds.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2325,6 +2545,8 @@ export const googleAds_googleAds_search = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["googleAds.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2346,6 +2568,8 @@ export const googleAds_googleAds_searchStream = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["googleAds.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json","stream"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2367,6 +2591,8 @@ export const googleAds_identityVerification_getIdentityVerification = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["identityVerification.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2388,6 +2614,8 @@ export const googleAds_identityVerification_startIdentityVerification = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["identityVerification.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2409,6 +2637,8 @@ export const googleAds_incentive_applyIncentive = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["incentive.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2430,6 +2660,8 @@ export const googleAds_incentive_fetchIncentive = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["incentive.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2451,6 +2683,8 @@ export const googleAds_invoice_listInvoices = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["invoice.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2472,6 +2706,8 @@ export const googleAds_keywordPlanAdGroupKeyword_mutateKeywordPlanAdGroupKeyword
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanAdGroupKeyword.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2493,6 +2729,8 @@ export const googleAds_keywordPlanAdGroup_mutateKeywordPlanAdGroups = defineEndp
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanAdGroup.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2514,6 +2752,8 @@ export const googleAds_keywordPlanCampaignKeyword_mutateKeywordPlanCampaignKeywo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanCampaignKeyword.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2535,6 +2775,8 @@ export const googleAds_keywordPlanCampaign_mutateKeywordPlanCampaigns = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanCampaign.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2556,6 +2798,8 @@ export const googleAds_keywordPlanIdea_generateAdGroupThemes = defineEndpointDes
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanIdea.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2577,6 +2821,8 @@ export const googleAds_keywordPlanIdea_generateKeywordForecastMetrics = defineEn
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanIdea.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2598,6 +2844,8 @@ export const googleAds_keywordPlanIdea_generateKeywordHistoricalMetrics = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanIdea.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2619,6 +2867,8 @@ export const googleAds_keywordPlanIdea_generateKeywordIdeas = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlanIdea.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2640,6 +2890,8 @@ export const googleAds_keywordPlan_mutateKeywordPlans = defineEndpointDescriptor
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordPlan.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2661,6 +2913,8 @@ export const googleAds_keywordThemeConstant_suggestKeywordThemeConstants = defin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["keywordThemeConstant.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2682,6 +2936,8 @@ export const googleAds_label_mutateLabels = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["label.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2703,6 +2959,8 @@ export const googleAds_localServicesLead_appendLeadConversation = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["localServicesLead.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2724,6 +2982,8 @@ export const googleAds_localServicesLead_provideLeadFeedback = defineEndpointDes
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["localServicesLead.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2745,6 +3005,8 @@ export const googleAds_multiPartyAuthReview_resolveMultiPartyAuthReview = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["multiPartyAuthReview.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2766,6 +3028,8 @@ export const googleAds_offlineUserDataJob_addOfflineUserDataJobOperations = defi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["offlineUserDataJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2787,6 +3051,8 @@ export const googleAds_offlineUserDataJob_createOfflineUserDataJob = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["offlineUserDataJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2808,6 +3074,8 @@ export const googleAds_offlineUserDataJob_runOfflineUserDataJob = defineEndpoint
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["offlineUserDataJob.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2829,6 +3097,8 @@ export const googleAds_paymentsAccount_listPaymentsAccounts = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["paymentsAccount.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2850,6 +3120,8 @@ export const googleAds_productLinkInvitation_createProductLinkInvitation = defin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["productLinkInvitation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2871,6 +3143,8 @@ export const googleAds_productLinkInvitation_removeProductLinkInvitation = defin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["productLinkInvitation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2892,6 +3166,8 @@ export const googleAds_productLinkInvitation_updateProductLinkInvitation = defin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["productLinkInvitation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2913,6 +3189,8 @@ export const googleAds_productLink_createProductLink = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["productLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2934,6 +3212,8 @@ export const googleAds_productLink_removeProductLink = defineEndpointDescriptor(
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["productLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2955,6 +3235,8 @@ export const googleAds_reachPlan_generateConversionRates = defineEndpointDescrip
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2976,6 +3258,8 @@ export const googleAds_reachPlan_generateReachForecast = defineEndpointDescripto
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -2997,6 +3281,8 @@ export const googleAds_reachPlan_listPlannableLocations = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3018,6 +3304,8 @@ export const googleAds_reachPlan_listPlannableProducts = defineEndpointDescripto
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3039,6 +3327,8 @@ export const googleAds_reachPlan_listPlannableUserInterests = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3060,6 +3350,8 @@ export const googleAds_reachPlan_listPlannableUserLists = defineEndpointDescript
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reachPlan.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3081,6 +3373,8 @@ export const googleAds_recommendation_applyRecommendation = defineEndpointDescri
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["recommendation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3102,6 +3396,8 @@ export const googleAds_recommendation_dismissRecommendation = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["recommendation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3123,6 +3419,8 @@ export const googleAds_recommendation_generateRecommendations = defineEndpointDe
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["recommendation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3144,6 +3442,8 @@ export const googleAds_recommendationSubscription_mutateRecommendationSubscripti
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["recommendationSubscription.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3165,6 +3465,8 @@ export const googleAds_remarketingAction_mutateRemarketingActions = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["remarketingAction.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3186,6 +3488,8 @@ export const googleAds_reservation_bookCampaigns = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reservation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3207,6 +3511,8 @@ export const googleAds_reservation_quoteCampaigns = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["reservation.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3228,6 +3534,8 @@ export const googleAds_shareablePreview_generateShareablePreviews = defineEndpoi
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["shareablePreview.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3249,6 +3557,8 @@ export const googleAds_sharedCriterion_mutateSharedCriteria = defineEndpointDesc
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["sharedCriterion.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3270,6 +3580,8 @@ export const googleAds_sharedSet_mutateSharedSets = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["sharedSet.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3291,6 +3603,8 @@ export const googleAds_smartCampaignSetting_getSmartCampaignStatus = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["smartCampaignSetting.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3312,6 +3626,8 @@ export const googleAds_smartCampaignSetting_mutateSmartCampaignSettings = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["smartCampaignSetting.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3333,6 +3649,8 @@ export const googleAds_smartCampaignSuggest_suggestKeywordThemes = defineEndpoin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["smartCampaignSuggest.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3354,6 +3672,8 @@ export const googleAds_smartCampaignSuggest_suggestSmartCampaignAd = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["smartCampaignSuggest.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3375,6 +3695,8 @@ export const googleAds_smartCampaignSuggest_suggestSmartCampaignBudgetOptions = 
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["smartCampaignSuggest.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3396,6 +3718,8 @@ export const googleAds_thirdPartyAppAnalyticsLink_regenerateShareableLinkId = de
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["thirdPartyAppAnalyticsLink.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3417,6 +3741,8 @@ export const googleAds_travelAssetSuggestion_suggestTravelAssets = defineEndpoin
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["travelAssetSuggestion.read"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3438,6 +3764,8 @@ export const googleAds_userData_uploadUserData = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["userData.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3459,6 +3787,8 @@ export const googleAds_userListCustomerType_mutateUserListCustomerTypes = define
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["userListCustomerType.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3480,6 +3810,8 @@ export const googleAds_userList_mutateUserLists = defineEndpointDescriptor({
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["userList.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3501,6 +3833,8 @@ export const googleAds_youTubeVideoUpload_createYouTubeVideoUpload = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["youTubeVideoUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3522,6 +3856,8 @@ export const googleAds_youTubeVideoUpload_removeYouTubeVideoUpload = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["youTubeVideoUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],
@@ -3543,6 +3879,8 @@ export const googleAds_youTubeVideoUpload_updateYouTubeVideoUpload = defineEndpo
   requiredScopes: ["https://www.googleapis.com/auth/adwords"],
   capabilities: ["youTubeVideoUpload.manage"],
   rateLimitBucket: "google-ads-api",
+  authSchemes: ["OAuth2","DeveloperToken"],
+  protocols: ["protobuf-json"],
   parameters: [
     {"name":"request","wireName":"request","location":"body","required":true,"nullable":false}
   ],

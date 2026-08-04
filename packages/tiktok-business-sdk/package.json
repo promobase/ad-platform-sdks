@@ -36,6 +36,7 @@
   "scripts": {
     "codegen": "bun src/codegen/index.ts",
     "codegen:refresh": "bun src/codegen/index.ts --refresh",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/tiktok-business-sdk/src/generated apps/docs/src/content/docs/reference/tiktok",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",

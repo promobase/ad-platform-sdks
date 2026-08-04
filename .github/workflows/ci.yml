@@ -30,6 +30,9 @@ jobs:
       - name: Check documentation contracts
         run: bun run docs:check
 
+      - name: Check generated SDK coverage ledgers
+        run: bun run codegen:check
+
       - name: Typecheck workspace
         run: bun run typecheck
 

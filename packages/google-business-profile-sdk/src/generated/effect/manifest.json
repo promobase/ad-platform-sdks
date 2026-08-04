@@ -1,13 +1,26 @@
 {
   "platform": "google-business-profile",
   "source": {
-    "kind": "handwritten",
-    "location": "src/{oauth,resources,types}.ts"
+    "kind": "discovery",
+    "location": "packages/google-business-profile-sdk/spec/discovery",
+    "revision": "account-management:20260803,business-information:20260803,performance:20260803,verifications:20260803,notifications:20260803,lodging:20260803,place-actions:20260803,q-and-a:20260803,legacy-v4:0",
+    "checksum": "fb90b6fab2ff995d8d6152efb5ebd02e5f896f7dbadb7fe1efe26c9b2ae1267e"
   },
-  "version": "v1+v4",
+  "version": "v1+legacy-v4",
   "counts": {
-    "models": 0,
-    "endpoints": 11,
-    "capabilities": 8
+    "models": 338,
+    "endpoints": 139,
+    "capabilities": 18
+  },
+  "coverage": {
+    "discoveredOperations": 139,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json",
+      "multipart",
+      "resumable"
+    ],
+    "emittedOperations": 139
   }
 }

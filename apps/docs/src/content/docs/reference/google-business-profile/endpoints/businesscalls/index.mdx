@@ -1,0 +1,48 @@
+---
+title: "Google Business Profile Businesscalls endpoints"
+description: "1 generated Google Business Profile endpoint contract for Businesscalls."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 100
+  label: "Businesscalls"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.businesscalls.locations.businesscallsinsights.list
+
+`GET` `https://mybusinessbusinesscalls.googleapis.com/v1/{parent}/businesscallsinsights`
+
+Documented Business Calls endpoint; Google does not currently publish a discovery document for this service.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-calls.read` |
+| Required scopes | `https://www.googleapis.com/auth/business.manage` |
+| Rate-limit bucket | `google-business-profile-business-calls` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | — |
+| `pageSize` | `query` | `integer` | No | No | — |
+| `pageToken` | `query` | `string` | No | No | — |
+| `filter` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

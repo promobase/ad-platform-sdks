@@ -1,0 +1,116 @@
+---
+title: "X Compliance endpoints"
+description: "3 generated X endpoint contracts for Compliance."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 107
+  label: "Compliance"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.compliance.createComplianceJobs
+
+`POST` `/2/compliance/jobs`
+
+Creates a new Compliance Job for the specified job type.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `compliance.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-compliance` |
+| Output | `CreateComplianceJobsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `compliance_job.fields` | `query` | `Array<"created_at" \| "download_expires_at" \| "download_url" \| "id" \| "name" \| "resumable" \| "status" \| "type" \| "upload_expires_at" \| "upload_url">` | No | No | A comma separated list of ComplianceJob fields to display. |
+| `body` | `body` | `CreateComplianceJobsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.compliance.getComplianceJobs
+
+`GET` `/2/compliance/jobs`
+
+Retrieves a list of Compliance Jobs filtered by job type and optional status.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `compliance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-compliance` |
+| Output | `GetComplianceJobsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `query` | `"tweets" \| "users"` | Yes | No | — |
+| `status` | `query` | `"created" \| "in_progress" \| "failed" \| "complete"` | No | No | — |
+| `compliance_job.fields` | `query` | `Array<"created_at" \| "download_expires_at" \| "download_url" \| "id" \| "name" \| "resumable" \| "status" \| "type" \| "upload_expires_at" \| "upload_url">` | No | No | A comma separated list of ComplianceJob fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.compliance.getComplianceJobsById
+
+`GET` `/2/compliance/jobs/{id}`
+
+Retrieves details of a specific Compliance Job by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `compliance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-compliance` |
+| Output | `GetComplianceJobsByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `compliance_job.fields` | `query` | `Array<"created_at" \| "download_expires_at" \| "download_url" \| "id" \| "name" \| "resumable" \| "status" \| "type" \| "upload_expires_at" \| "upload_url">` | No | No | A comma separated list of ComplianceJob fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

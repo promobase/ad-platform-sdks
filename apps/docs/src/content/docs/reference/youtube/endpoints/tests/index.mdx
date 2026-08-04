@@ -1,0 +1,48 @@
+---
+title: "YouTube Tests endpoints"
+description: "1 generated YouTube endpoint contract for Tests."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 125
+  label: "Tests"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.tests.insert
+
+`POST` `youtube/v3/tests`
+
+POST method.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `tests.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `TestItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `externalChannelId` | `query` | `string` | No | No | — |
+| `onBehalfOfContentOwnerChannel` | `query` | `string` | No | No | — |
+| `part` | `query` | `string` | Yes | No | — |
+| `body` | `body` | `TestItem` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

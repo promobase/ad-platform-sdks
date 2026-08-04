@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -72,10 +73,18 @@ async function main() {
     )}\n`,
     "utf-8",
   );
+  const sourceRevision = createHash("sha256")
+    .update(
+      [...docs]
+        .sort((a, b) => a.docId.localeCompare(b.docId))
+        .map((doc) => `${doc.docId}\0${doc.content}`)
+        .join("\0"),
+    )
+    .digest("hex");
   await writeEffectArtifacts({
     outputDir: join(OUTPUT_DIR, "effect"),
     docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
-    ir: tiktokCanonicalIr(endpoints),
+    ir: tiktokCanonicalIr(endpoints, sourceRevision),
   });
 
   // Summary

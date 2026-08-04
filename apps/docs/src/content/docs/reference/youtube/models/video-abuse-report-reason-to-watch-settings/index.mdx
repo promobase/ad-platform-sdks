@@ -1,0 +1,498 @@
+---
+title: "YouTube models: Video Abuse Report Reason – Watch Settings"
+description: "37 generated YouTube model contracts, from VideoAbuseReportReason through WatchSettings."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 1002
+  label: "Video Abuse Report Reason – Watch Settings"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## VideoAbuseReportReason
+
+`object` model on the `json` wire format.
+
+A `__videoAbuseReportReason__` resource identifies a reason that a video could be reported as abusive. Video abuse report reasons are used with `video.ReportAbuse`.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID of this abuse report reason. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string `"youtube#videoAbuseReportReason"`. |
+| `snippet` | `snippet` | `VideoAbuseReportReasonSnippet` | No | No | The `snippet` object contains basic details about the abuse report reason. |
+
+## VideoAbuseReportReasonListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<VideoAbuseReportReason>` | No | No | A list of valid abuse reasons that are used with `video.ReportAbuse`. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string `"youtube#videoAbuseReportReasonListResponse"`. |
+| `visitorId` | `visitorId` | `string` | No | No | The `visitorId` identifies the visitor. |
+
+## VideoAbuseReportReasonSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a video category, such as its localized title.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label` | `label` | `string` | No | No | The localized label belonging to this abuse report reason. |
+| `secondaryReasons` | `secondaryReasons` | `Array<VideoAbuseReportSecondaryReason>` | No | No | The secondary reasons associated with this reason, if any are available. (There might be 0 or more.) |
+
+## VideoAbuseReportSecondaryReason
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | The ID of this abuse report secondary reason. |
+| `label` | `label` | `string` | No | No | The localized label for this abuse report secondary reason. |
+
+## VideoAgeGating
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alcoholContent` | `alcoholContent` | `boolean` | No | No | Indicates whether or not the video has alcoholic beverage content. Only users of legal purchasing age in a particular country, as identified by ICAP, can view the content. |
+| `restricted` | `restricted` | `boolean` | No | No | Age-restricted trailers. For redband trailers and adult-rated video-games. Only users aged 18+ can view the content. The the field is true the content is restricted to viewers aged 18+. Otherwise The field won't be present. |
+| `videoGameRating` | `videoGameRating` | `"anyone" \| "m15Plus" \| "m16Plus" \| "m17Plus"` | No | No | Video game rating, if any. |
+
+## VideoCategory
+
+`object` model on the `json` wire format.
+
+A *videoCategory* resource identifies a category that has been or could be associated with uploaded videos.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the video category. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#videoCategory". |
+| `snippet` | `snippet` | `VideoCategorySnippet` | No | No | The snippet object contains basic details about the video category, including its title. |
+
+## VideoCategoryListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<VideoCategory>` | No | No | A list of video categories that can be associated with YouTube videos. In this map, the video category ID is the map key, and its value is the corresponding videoCategory resource. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#videoCategoryListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## VideoCategorySnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a video category, such as its localized title.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assignable` | `assignable` | `boolean` | No | No | — |
+| `channelId` | `channelId` | `string` | No | No | The YouTube channel that created the video category. |
+| `title` | `title` | `string` | No | No | The video category's title. |
+
+## VideoContentDetails
+
+`object` model on the `json` wire format.
+
+Details about the content of a YouTube Video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `caption` | `caption` | `"true" \| "false"` | No | No | The value of captions indicates whether the video has captions or not. |
+| `contentRating` | `contentRating` | `ContentRating` | No | No | Specifies the ratings that the video received under various rating schemes. |
+| `countryRestriction` | `countryRestriction` | `AccessPolicy` | No | No | The countryRestriction object contains information about the countries where a video is (or is not) viewable. |
+| `definition` | `definition` | `"sd" \| "hd"` | No | No | The value of definition indicates whether the video is available in high definition or only in standard definition. |
+| `dimension` | `dimension` | `string` | No | No | The value of dimension indicates whether the video is available in 3D or in 2D. |
+| `duration` | `duration` | `string` | No | No | The length of the video. The tag value is an ISO 8601 duration in the format PT#M#S, in which the letters PT indicate that the value specifies a period of time, and the letters M and S refer to length in minutes and seconds, respectively. The # characters preceding the M and S letters are both integers that specify the number of minutes (or seconds) of the video. For example, a value of PT15M51S indicates that the video is 15 minutes and 51 seconds long. |
+| `hasCustomThumbnail` | `hasCustomThumbnail` | `boolean` | No | No | Indicates whether the video uploader has provided a custom thumbnail image for the video. This property is only visible to the video uploader. |
+| `licensedContent` | `licensedContent` | `boolean` | No | No | The value of is_license_content indicates whether the video is licensed content. |
+| `projection` | `projection` | `"rectangular" \| "360"` | No | No | Specifies the projection format of the video. |
+| `regionRestriction` | `regionRestriction` | `VideoContentDetailsRegionRestriction` | No | No | The regionRestriction object contains information about the countries where a video is (or is not) viewable. The object will contain either the contentDetails.regionRestriction.allowed property or the contentDetails.regionRestriction.blocked property. |
+
+## VideoContentDetailsRegionRestriction
+
+`object` model on the `json` wire format.
+
+DEPRECATED Region restriction of the video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | A list of region codes that identify countries where the video is viewable. If this property is present and a country is not listed in its value, then the video is blocked from appearing in that country. If this property is present and contains an empty list, the video is blocked in all countries. |
+| `blocked` | `blocked` | `Array<string>` | No | No | A list of region codes that identify countries where the video is blocked. If this property is present and a country is not listed in its value, then the video is viewable in that country. If this property is present and contains an empty list, the video is viewable in all countries. |
+
+## VideoFileDetails
+
+`object` model on the `json` wire format.
+
+Describes original video file properties, including technical details about audio and video streams, but also metadata information like content length, digitization time, or geotagging information.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audioStreams` | `audioStreams` | `Array<VideoFileDetailsAudioStream>` | No | No | A list of audio streams contained in the uploaded video file. Each item in the list contains detailed metadata about an audio stream. |
+| `bitrateBps` | `bitrateBps` | `string` | No | No | The uploaded video file's combined (video and audio) bitrate in bits per second. |
+| `container` | `container` | `string` | No | No | The uploaded video file's container format. |
+| `creationTime` | `creationTime` | `string` | No | No | The date and time when the uploaded video file was created. The value is specified in ISO 8601 format. Currently, the following ISO 8601 formats are supported: - Date only: YYYY-MM-DD - Naive time: YYYY-MM-DDTHH:MM:SS - Time with timezone: YYYY-MM-DDTHH:MM:SS+HH:MM |
+| `durationMs` | `durationMs` | `string` | No | No | The length of the uploaded video in milliseconds. |
+| `fileName` | `fileName` | `string` | No | No | The uploaded file's name. This field is present whether a video file or another type of file was uploaded. |
+| `fileSize` | `fileSize` | `string` | No | No | The uploaded file's size in bytes. This field is present whether a video file or another type of file was uploaded. |
+| `fileType` | `fileType` | `"video" \| "audio" \| "image" \| "archive" \| "document" \| "project" \| "other"` | No | No | The uploaded file's type as detected by YouTube's video processing engine. Currently, YouTube only processes video files, but this field is present whether a video file or another type of file was uploaded. |
+| `videoStreams` | `videoStreams` | `Array<VideoFileDetailsVideoStream>` | No | No | A list of video streams contained in the uploaded video file. Each item in the list contains detailed metadata about a video stream. |
+
+## VideoFileDetailsAudioStream
+
+`object` model on the `json` wire format.
+
+Information about an audio stream.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bitrateBps` | `bitrateBps` | `string` | No | No | The audio stream's bitrate, in bits per second. |
+| `channelCount` | `channelCount` | `integer` | No | No | The number of audio channels that the stream contains. |
+| `codec` | `codec` | `string` | No | No | The audio codec that the stream uses. |
+| `vendor` | `vendor` | `string` | No | No | A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code. |
+
+## VideoFileDetailsVideoStream
+
+`object` model on the `json` wire format.
+
+Information about a video stream.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aspectRatio` | `aspectRatio` | `number` | No | No | The video content's display aspect ratio, which specifies the aspect ratio in which the video should be displayed. |
+| `bitrateBps` | `bitrateBps` | `string` | No | No | The video stream's bitrate, in bits per second. |
+| `codec` | `codec` | `string` | No | No | The video codec that the stream uses. |
+| `frameRateFps` | `frameRateFps` | `number` | No | No | The video stream's frame rate, in frames per second. |
+| `heightPixels` | `heightPixels` | `integer` | No | No | The encoded video content's height in pixels. |
+| `rotation` | `rotation` | `"none" \| "clockwise" \| "upsideDown" \| "counterClockwise" \| "other"` | No | No | The amount that YouTube needs to rotate the original source content to properly display the video. |
+| `vendor` | `vendor` | `string` | No | No | A value that uniquely identifies a video vendor. Typically, the value is a four-letter vendor code. |
+| `widthPixels` | `widthPixels` | `integer` | No | No | The encoded video content's width in pixels. You can calculate the video's encoding aspect ratio as width_pixels / height_pixels. |
+
+## VideoGetRatingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<VideoRating>` | No | No | A list of ratings that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#videoGetRatingResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## VideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Video>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#videoListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## VideoLiveStreamingDetails
+
+`object` model on the `json` wire format.
+
+Details about the live streaming metadata.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activeLiveChatId` | `activeLiveChatId` | `string` | No | No | The ID of the currently active live chat attached to this video. This field is filled only if the video is a currently live broadcast that has live chat. Once the broadcast transitions to complete this field will be removed and the live chat closed down. For persistent broadcasts that live chat id will no longer be tied to this video but rather to the new video being displayed at the persistent page. |
+| `actualEndTime` | `actualEndTime` | `string<date-time>` | No | No | The time that the broadcast actually ended. This value will not be available until the broadcast is over. |
+| `actualStartTime` | `actualStartTime` | `string<date-time>` | No | No | The time that the broadcast actually started. This value will not be available until the broadcast begins. |
+| `concurrentViewers` | `concurrentViewers` | `string` | No | No | The number of viewers currently watching the broadcast. The property and its value will be present if the broadcast has current viewers and the broadcast owner has not hidden the viewcount for the video. Note that YouTube stops tracking the number of concurrent viewers for a broadcast when the broadcast ends. So, this property would not identify the number of viewers watching an archived video of a live broadcast that already ended. |
+| `scheduledEndTime` | `scheduledEndTime` | `string<date-time>` | No | No | The time that the broadcast is scheduled to end. If the value is empty or the property is not present, then the broadcast is scheduled to continue indefinitely. |
+| `scheduledStartTime` | `scheduledStartTime` | `string<date-time>` | No | No | The time that the broadcast is scheduled to begin. |
+
+## VideoLocalization
+
+`object` model on the `json` wire format.
+
+Localized versions of certain video properties (e.g. title).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Localized version of the video's description. |
+| `title` | `title` | `string` | No | No | Localized version of the video's title. |
+
+## VideoMonetizationDetails
+
+`object` model on the `json` wire format.
+
+Details about monetization of a YouTube Video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access` | `access` | `AccessPolicy` | No | No | The value of access indicates whether the video can be monetized or not. |
+
+## VideoPaidProductPlacementDetails
+
+`object` model on the `json` wire format.
+
+Details about paid content, such as paid product placement, sponsorships or endorsement, contained in a YouTube video and a method to inform viewers of paid promotion. This data can only be retrieved by the video owner.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hasPaidProductPlacement` | `hasPaidProductPlacement` | `boolean` | No | No | This boolean represents whether the video contains Paid Product Placement, Studio equivalent: https://screenshot.googleplex.com/4Me79DE6AfT2ktp.png |
+
+## VideoPlayer
+
+`object` model on the `json` wire format.
+
+Player to be used for a video playback.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `embedHeight` | `embedHeight` | `string` | No | No | — |
+| `embedHtml` | `embedHtml` | `string` | No | No | An &lt;iframe&gt; tag that embeds a player that will play the video. |
+| `embedWidth` | `embedWidth` | `string` | No | No | The embed width |
+
+## VideoProcessingDetails
+
+`object` model on the `json` wire format.
+
+Describes processing status and progress and availability of some other Video resource parts.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `editorSuggestionsAvailability` | `editorSuggestionsAvailability` | `string` | No | No | This value indicates whether video editing suggestions, which might improve video quality or the playback experience, are available for the video. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request. |
+| `fileDetailsAvailability` | `fileDetailsAvailability` | `string` | No | No | This value indicates whether file details are available for the uploaded video. You can retrieve a video's file details by requesting the fileDetails part in your videos.list() request. |
+| `processingFailureReason` | `processingFailureReason` | `"uploadFailed" \| "transcodeFailed" \| "streamingFailed" \| "other"` | No | No | The reason that YouTube failed to process the video. This property will only have a value if the processingStatus property's value is failed. |
+| `processingIssuesAvailability` | `processingIssuesAvailability` | `string` | No | No | This value indicates whether the video processing engine has generated suggestions that might improve YouTube's ability to process the the video, warnings that explain video processing problems, or errors that cause video processing problems. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request. |
+| `processingProgress` | `processingProgress` | `VideoProcessingDetailsProcessingProgress` | No | No | The processingProgress object contains information about the progress YouTube has made in processing the video. The values are really only relevant if the video's processing status is processing. |
+| `processingStatus` | `processingStatus` | `"processing" \| "succeeded" \| "failed" \| "terminated"` | No | No | The video's processing status. This value indicates whether YouTube was able to process the video or if the video is still being processed. |
+| `tagSuggestionsAvailability` | `tagSuggestionsAvailability` | `string` | No | No | This value indicates whether keyword (tag) suggestions are available for the video. Tags can be added to a video's metadata to make it easier for other users to find the video. You can retrieve these suggestions by requesting the suggestions part in your videos.list() request. |
+| `thumbnailsAvailability` | `thumbnailsAvailability` | `string` | No | No | This value indicates whether thumbnail images have been generated for the video. |
+
+## VideoProcessingDetailsProcessingProgress
+
+`object` model on the `json` wire format.
+
+Video processing progress and completion time estimate.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partsProcessed` | `partsProcessed` | `string` | No | No | The number of parts of the video that YouTube has already processed. You can estimate the percentage of the video that YouTube has already processed by calculating: 100 * parts_processed / parts_total Note that since the estimated number of parts could increase without a corresponding increase in the number of parts that have already been processed, it is possible that the calculated progress could periodically decrease while YouTube processes a video. |
+| `partsTotal` | `partsTotal` | `string` | No | No | An estimate of the total number of parts that need to be processed for the video. The number may be updated with more precise estimates while YouTube processes the video. |
+| `timeLeftMs` | `timeLeftMs` | `string` | No | No | An estimate of the amount of time, in millseconds, that YouTube needs to finish processing the video. |
+
+## VideoProjectDetails
+
+`object` model on the `json` wire format.
+
+DEPRECATED. b/157517979: This part was never populated after it was added. However, it sees non-zero traffic because there is generated client code in the wild that refers to it [1]. We keep this field and do NOT remove it because otherwise V3 would return an error when this part gets requested [2]. [1] https://developers.google.com/resources/api-libraries/documentation/youtube/v3/csharp/latest/classGoogle_1_1Apis_1_1YouTube_1_1v3_1_1Data_1_1VideoProjectDetails.html [2] http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677
+
+No fields are declared.
+
+## VideoRating
+
+`object` model on the `json` wire format.
+
+Basic details about rating of a video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rating` | `rating` | `"none" \| "like" \| "dislike"` | No | No | Rating of a video. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the video. |
+
+## VideoRecordingDetails
+
+`object` model on the `json` wire format.
+
+Recording information associated with the video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `GeoPoint` | No | No | The geolocation information associated with the video. |
+| `locationDescription` | `locationDescription` | `string` | No | No | The text description of the location where the video was recorded. |
+| `recordingDate` | `recordingDate` | `string<date-time>` | No | No | The date and time when the video was recorded. |
+
+## VideoSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a video, including title, description, uploader, thumbnails and category.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `categoryId` | `string` | No | No | The YouTube video category associated with the video. |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel that the video was uploaded to. |
+| `channelTitle` | `channelTitle` | `string` | No | No | Channel title for the channel that the video belongs to. |
+| `defaultAudioLanguage` | `defaultAudioLanguage` | `string` | No | No | The default_audio_language property specifies the language spoken in the video's default audio track. |
+| `defaultLanguage` | `defaultLanguage` | `string` | No | No | The language of the videos's default snippet. |
+| `description` | `description` | `string` | No | No | The video's description. @mutable youtube.videos.insert youtube.videos.update |
+| `liveBroadcastContent` | `liveBroadcastContent` | `"none" \| "upcoming" \| "live" \| "completed"` | No | No | Indicates if the video is an upcoming/active live broadcast. Or it's "none" if the video is not an upcoming/active live broadcast. |
+| `localized` | `localized` | `VideoLocalization` | No | No | Localized snippet selected with the hl parameter. If no such localization exists, this field is populated with the default snippet. (Read-only) |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time when the video was uploaded. |
+| `tags` | `tags` | `Array<string>` | No | No | A list of keyword tags associated with the video. Tags may contain spaces. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the video. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The video's title. @mutable youtube.videos.insert youtube.videos.update |
+
+## VideoStat
+
+`object` model on the `json` wire format.
+
+A *VideoStat* resource represents a YouTube video's stats.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `VideoStatsContentDetails` | No | No | Output only. The VideoStatsContentDetails object contains information about the video content, including the length of the video. |
+| `etag` | `etag` | `string` | No | No | Output only. Etag of this resource. |
+| `id` | `id` | `string` | No | No | Output only. The ID that YouTube uses to uniquely identify the video. |
+| `kind` | `kind` | `string` | No | No | Output only. Identifies what kind of resource this is. Value: the fixed string "youtube#videoStats". |
+| `snippet` | `snippet` | `VideoStatsSnippet` | No | No | Output only. The VideoStatsSnippet object contains basic details about the video, such publish time. |
+| `statistics` | `statistics` | `VideoStatsStatistics` | No | No | Output only. The VideoStatsStatistics object contains statistics about the video. |
+
+## VideoStatistics
+
+`object` model on the `json` wire format.
+
+Statistics about the video, such as the number of times the video was viewed or liked.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commentCount` | `commentCount` | `string` | No | No | The number of comments for the video. |
+| `dislikeCount` | `dislikeCount` | `string` | No | No | The number of users who have indicated that they disliked the video by giving it a negative rating. |
+| `favoriteCount` | `favoriteCount` | `string` | No | No | The number of users who currently have the video marked as a favorite video. |
+| `likeCount` | `likeCount` | `string` | No | No | The number of users who have indicated that they liked the video by giving it a positive rating. |
+| `viewCount` | `viewCount` | `string` | No | No | The number of times the video has been viewed. |
+
+## VideoStatsContentDetails
+
+`object` model on the `json` wire format.
+
+Details about the content of a YouTube Video. This is a subset of the information in VideoContentDetails specifically for the Videos.stats API.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duration` | `duration` | `string` | No | No | Output only. The length of the video. The property value is a [`google.protobuf.Duration`](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration) object. |
+| `durationMillis` | `durationMillis` | `string` | No | No | — |
+
+## VideoStatsSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a video. This is a subset of the information in VideoSnippet specifically for the Videos.stats API.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `publishTime` | `publishTime` | `string` | No | No | Output only. The date and time that the video was uploaded. The property value is a [`google.protobuf.Timestamp`](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp) object. |
+
+## VideoStatsStatistics
+
+`object` model on the `json` wire format.
+
+Statistics about the video, such as the number of times the video was viewed or liked.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commentCount` | `commentCount` | `string` | No | No | Output only. The number of comments for the video. |
+| `likeCount` | `likeCount` | `string` | No | No | Output only. The number of users who have indicated that they liked the video by giving it a positive rating. |
+| `viewCount` | `viewCount` | `string` | No | No | Output only. The number of times the video has been viewed. |
+
+## VideoStatus
+
+`object` model on the `json` wire format.
+
+Basic details about a video category, such as its localized title. Next Id: 19
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `containsSyntheticMedia` | `containsSyntheticMedia` | `boolean` | No | No | Indicates if the video contains altered or synthetic media. |
+| `embeddable` | `embeddable` | `boolean` | No | No | This value indicates if the video can be embedded on another website. @mutable youtube.videos.insert youtube.videos.update |
+| `failureReason` | `failureReason` | `"conversion" \| "invalidFile" \| "emptyFile" \| "tooSmall" \| "codec" \| "uploadAborted"` | No | No | This value explains why a video failed to upload. This property is only present if the uploadStatus property indicates that the upload failed. |
+| `license` | `license` | `"youtube" \| "creativeCommon"` | No | No | The video's license. @mutable youtube.videos.insert youtube.videos.update |
+| `madeForKids` | `madeForKids` | `boolean` | No | No | — |
+| `privacyStatus` | `privacyStatus` | `"public" \| "unlisted" \| "private"` | No | No | The video's privacy status. |
+| `publicStatsViewable` | `publicStatsViewable` | `boolean` | No | No | This value indicates if the extended video statistics on the watch page can be viewed by everyone. Note that the view count, likes, etc will still be visible if this is disabled. @mutable youtube.videos.insert youtube.videos.update |
+| `publishAt` | `publishAt` | `string<date-time>` | No | No | The date and time when the video is scheduled to publish. It can be set only if the privacy status of the video is private.. |
+| `rejectionReason` | `rejectionReason` | `"copyright" \| "inappropriate" \| "duplicate" \| "termsOfUse" \| "uploaderAccountSuspended" \| "length" \| "claim" \| "uploaderAccountClosed" \| "trademark" \| "legal"` | No | No | This value explains why YouTube rejected an uploaded video. This property is only present if the uploadStatus property indicates that the upload was rejected. |
+| `selfDeclaredMadeForKids` | `selfDeclaredMadeForKids` | `boolean` | No | No | — |
+| `uploadStatus` | `uploadStatus` | `"uploaded" \| "processed" \| "failed" \| "rejected" \| "deleted"` | No | No | The status of the uploaded video. |
+
+## VideoSuggestions
+
+`object` model on the `json` wire format.
+
+Specifies suggestions on how to improve video content, including encoding hints, tag suggestions, and editor suggestions.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `editorSuggestions` | `editorSuggestions` | `Array<"videoAutoLevels" \| "videoStabilize" \| "videoCrop" \| "audioQuietAudioSwap">` | No | No | A list of video editing operations that might improve the video quality or playback experience of the uploaded video. |
+| `processingErrors` | `processingErrors` | `Array<"audioFile" \| "imageFile" \| "projectFile" \| "notAVideoFile" \| "docFile" \| "archiveFile" \| "unsupportedSpatialAudioLayout">` | No | No | A list of errors that will prevent YouTube from successfully processing the uploaded video video. These errors indicate that, regardless of the video's current processing status, eventually, that status will almost certainly be failed. |
+| `processingHints` | `processingHints` | `Array<"nonStreamableMov" \| "sendBestQualityVideo" \| "sphericalVideo" \| "spatialAudio" \| "vrVideo" \| "hdrVideo">` | No | No | A list of suggestions that may improve YouTube's ability to process the video. |
+| `processingWarnings` | `processingWarnings` | `Array<"unknownContainer" \| "unknownVideoCodec" \| "unknownAudioCodec" \| "inconsistentResolution" \| "hasEditlist" \| "problematicVideoCodec" \| "problematicAudioCodec" \| "unsupportedVrStereoMode" \| "unsupportedSphericalProjectionType" \| "unsupportedHdrPixelFormat" \| "unsupportedHdrColorMetadata" \| "problematicHdrLookupTable">` | No | No | A list of reasons why YouTube may have difficulty transcoding the uploaded video or that might result in an erroneous transcoding. These warnings are generated before YouTube actually processes the uploaded video file. In addition, they identify issues that are unlikely to cause the video processing to fail but that might cause problems such as sync issues, video artifacts, or a missing audio track. |
+| `tagSuggestions` | `tagSuggestions` | `Array<VideoSuggestionsTagSuggestion>` | No | No | A list of keyword tags that could be added to the video's metadata to increase the likelihood that users will locate your video when searching or browsing on YouTube. |
+
+## VideoSuggestionsTagSuggestion
+
+`object` model on the `json` wire format.
+
+A single tag suggestion with its relevance information.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryRestricts` | `categoryRestricts` | `Array<string>` | No | No | A set of video categories for which the tag is relevant. You can use this information to display appropriate tag suggestions based on the video category that the video uploader associates with the video. By default, tag suggestions are relevant for all categories if there are no restricts defined for the keyword. |
+| `tag` | `tag` | `string` | No | No | The keyword tag suggested for the video. |
+
+## VideoTopicDetails
+
+`object` model on the `json` wire format.
+
+Freebase topic information related to the video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `relevantTopicIds` | `relevantTopicIds` | `Array<string>` | No | No | Similar to topic_id, except that these topics are merely relevant to the video. These are topics that may be mentioned in, or appear in the video. You can retrieve information about each topic using Freebase Topic API. |
+| `topicCategories` | `topicCategories` | `Array<string>` | No | No | A list of Wikipedia URLs that provide a high-level description of the video's content. |
+| `topicIds` | `topicIds` | `Array<string>` | No | No | A list of Freebase topic IDs that are centrally associated with the video. These are topics that are centrally featured in the video, and it can be said that the video is mainly about each of these. You can retrieve information about each topic using the &lt; a href="http://wiki.freebase.com/wiki/Topic_API"&gt;Freebase Topic API. |
+
+## VideoTrainability
+
+`object` model on the `json` wire format.
+
+Specifies who is allowed to train on the video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#videoTrainability". |
+| `permitted` | `permitted` | `Array<string>` | No | No | Specifies who is allowed to train on the video. Valid values are: - a single string "all" - a single string "none" - a list of allowed parties |
+| `videoId` | `videoId` | `string` | No | No | The ID of the video. |
+
+## WatchSettings
+
+`object` model on the `json` wire format.
+
+Branding properties for the watch. All deprecated.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backgroundColor` | `backgroundColor` | `string` | No | No | The text color for the video watch page's branded area. |
+| `featuredPlaylistId` | `featuredPlaylistId` | `string` | No | No | An ID that uniquely identifies a playlist that displays next to the video player. |
+| `textColor` | `textColor` | `string` | No | No | The background color for the video watch page's branded area. |

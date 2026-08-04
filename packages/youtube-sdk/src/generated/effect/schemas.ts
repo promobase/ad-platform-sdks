@@ -346,6 +346,236 @@ export const ActivitySnippet: Schema.Schema<ActivitySnippet, ActivitySnippetEnco
   type: Schema.optional(Schema.Union(Schema.Literal("typeUnspecified"), Schema.Literal("upload"), Schema.Literal("like"), Schema.Literal("favorite"), Schema.Literal("comment"), Schema.Literal("subscription"), Schema.Literal("playlistItem"), Schema.Literal("recommendation"), Schema.Literal("bulletin"), Schema.Literal("social"), Schema.Literal("channelItem"), Schema.Literal("promotedItem"))),
 });
 
+/** Empty response. */
+export interface AnalyticsEmptyResponse {
+  readonly errors?: AnalyticsErrors;
+}
+export interface AnalyticsEmptyResponseEncoded {
+  readonly errors?: AnalyticsErrorsEncoded;
+}
+export const AnalyticsEmptyResponse: Schema.Schema<AnalyticsEmptyResponse, AnalyticsEmptyResponseEncoded, never> = Schema.Struct({
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+});
+
+/** Describes one specific error. */
+export interface AnalyticsErrorProto {
+  readonly argument?: ReadonlyArray<string>;
+  readonly code?: string;
+  readonly debugInfo?: string;
+  readonly domain?: string;
+  readonly externalErrorMessage?: string;
+  readonly location?: string;
+  readonly locationType?: "PATH" | "OTHER" | "PARAMETER";
+}
+export interface AnalyticsErrorProtoEncoded {
+  readonly argument?: ReadonlyArray<string>;
+  readonly code?: string;
+  readonly debugInfo?: string;
+  readonly domain?: string;
+  readonly externalErrorMessage?: string;
+  readonly location?: string;
+  readonly locationType?: "PATH" | "OTHER" | "PARAMETER";
+}
+export const AnalyticsErrorProto: Schema.Schema<AnalyticsErrorProto, AnalyticsErrorProtoEncoded, never> = Schema.Struct({
+  argument: Schema.optional(Schema.Array(Schema.String)),
+  code: Schema.optional(Schema.String),
+  debugInfo: Schema.optional(Schema.String),
+  domain: Schema.optional(Schema.String),
+  externalErrorMessage: Schema.optional(Schema.String),
+  location: Schema.optional(Schema.String),
+  locationType: Schema.optional(Schema.Union(Schema.Literal("PATH"), Schema.Literal("OTHER"), Schema.Literal("PARAMETER"))),
+});
+
+/** Request Error information. The presence of an error field signals that the operation has failed. */
+export interface AnalyticsErrors {
+  readonly code?: "BAD_REQUEST" | "FORBIDDEN" | "NOT_FOUND" | "CONFLICT" | "GONE" | "PRECONDITION_FAILED" | "INTERNAL_ERROR" | "SERVICE_UNAVAILABLE";
+  readonly error?: ReadonlyArray<AnalyticsErrorProto>;
+  readonly requestId?: string;
+}
+export interface AnalyticsErrorsEncoded {
+  readonly code?: "BAD_REQUEST" | "FORBIDDEN" | "NOT_FOUND" | "CONFLICT" | "GONE" | "PRECONDITION_FAILED" | "INTERNAL_ERROR" | "SERVICE_UNAVAILABLE";
+  readonly error?: ReadonlyArray<AnalyticsErrorProtoEncoded>;
+  readonly requestId?: string;
+}
+export const AnalyticsErrors: Schema.Schema<AnalyticsErrors, AnalyticsErrorsEncoded, never> = Schema.Struct({
+  code: Schema.optional(Schema.Union(Schema.Literal("BAD_REQUEST"), Schema.Literal("FORBIDDEN"), Schema.Literal("NOT_FOUND"), Schema.Literal("CONFLICT"), Schema.Literal("GONE"), Schema.Literal("PRECONDITION_FAILED"), Schema.Literal("INTERNAL_ERROR"), Schema.Literal("SERVICE_UNAVAILABLE"))),
+  error: Schema.optional(Schema.Array(Schema.suspend(() => AnalyticsErrorProto))),
+  requestId: Schema.optional(Schema.String),
+});
+
+/** A group. */
+export interface AnalyticsGroup {
+  readonly contentDetails?: AnalyticsGroupContentDetails;
+  readonly errors?: AnalyticsErrors;
+  readonly etag?: string;
+  readonly id?: string;
+  readonly kind?: string;
+  readonly snippet?: AnalyticsGroupSnippet;
+}
+export interface AnalyticsGroupEncoded {
+  readonly contentDetails?: AnalyticsGroupContentDetailsEncoded;
+  readonly errors?: AnalyticsErrorsEncoded;
+  readonly etag?: string;
+  readonly id?: string;
+  readonly kind?: string;
+  readonly snippet?: AnalyticsGroupSnippetEncoded;
+}
+export const AnalyticsGroup: Schema.Schema<AnalyticsGroup, AnalyticsGroupEncoded, never> = Schema.Struct({
+  contentDetails: Schema.optional(Schema.suspend(() => AnalyticsGroupContentDetails)),
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+  etag: Schema.optional(Schema.String),
+  id: Schema.optional(Schema.String),
+  kind: Schema.optional(Schema.String),
+  snippet: Schema.optional(Schema.suspend(() => AnalyticsGroupSnippet)),
+});
+
+/** A group's content details. */
+export interface AnalyticsGroupContentDetails {
+  readonly itemCount?: string;
+  readonly itemType?: string;
+}
+export interface AnalyticsGroupContentDetailsEncoded {
+  readonly itemCount?: string;
+  readonly itemType?: string;
+}
+export const AnalyticsGroupContentDetails: Schema.Schema<AnalyticsGroupContentDetails, AnalyticsGroupContentDetailsEncoded, never> = Schema.Struct({
+  itemCount: Schema.optional(Schema.String),
+  itemType: Schema.optional(Schema.String),
+});
+
+/** A group item. */
+export interface AnalyticsGroupItem {
+  readonly errors?: AnalyticsErrors;
+  readonly etag?: string;
+  readonly groupId?: string;
+  readonly id?: string;
+  readonly kind?: string;
+  readonly resource?: AnalyticsGroupItemResource;
+}
+export interface AnalyticsGroupItemEncoded {
+  readonly errors?: AnalyticsErrorsEncoded;
+  readonly etag?: string;
+  readonly groupId?: string;
+  readonly id?: string;
+  readonly kind?: string;
+  readonly resource?: AnalyticsGroupItemResourceEncoded;
+}
+export const AnalyticsGroupItem: Schema.Schema<AnalyticsGroupItem, AnalyticsGroupItemEncoded, never> = Schema.Struct({
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+  etag: Schema.optional(Schema.String),
+  groupId: Schema.optional(Schema.String),
+  id: Schema.optional(Schema.String),
+  kind: Schema.optional(Schema.String),
+  resource: Schema.optional(Schema.suspend(() => AnalyticsGroupItemResource)),
+});
+
+export interface AnalyticsGroupItemResource {
+  readonly id?: string;
+  readonly kind?: string;
+}
+export interface AnalyticsGroupItemResourceEncoded {
+  readonly id?: string;
+  readonly kind?: string;
+}
+export const AnalyticsGroupItemResource: Schema.Schema<AnalyticsGroupItemResource, AnalyticsGroupItemResourceEncoded, never> = Schema.Struct({
+  id: Schema.optional(Schema.String),
+  kind: Schema.optional(Schema.String),
+});
+
+/** A group snippet. */
+export interface AnalyticsGroupSnippet {
+  readonly publishedAt?: string;
+  readonly title?: string;
+}
+export interface AnalyticsGroupSnippetEncoded {
+  readonly publishedAt?: string;
+  readonly title?: string;
+}
+export const AnalyticsGroupSnippet: Schema.Schema<AnalyticsGroupSnippet, AnalyticsGroupSnippetEncoded, never> = Schema.Struct({
+  publishedAt: Schema.optional(Schema.String),
+  title: Schema.optional(Schema.String),
+});
+
+/** Response message for GroupsService.ListGroupItems. */
+export interface AnalyticsListGroupItemsResponse {
+  readonly errors?: AnalyticsErrors;
+  readonly etag?: string;
+  readonly items?: ReadonlyArray<AnalyticsGroupItem>;
+  readonly kind?: string;
+}
+export interface AnalyticsListGroupItemsResponseEncoded {
+  readonly errors?: AnalyticsErrorsEncoded;
+  readonly etag?: string;
+  readonly items?: ReadonlyArray<AnalyticsGroupItemEncoded>;
+  readonly kind?: string;
+}
+export const AnalyticsListGroupItemsResponse: Schema.Schema<AnalyticsListGroupItemsResponse, AnalyticsListGroupItemsResponseEncoded, never> = Schema.Struct({
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+  etag: Schema.optional(Schema.String),
+  items: Schema.optional(Schema.Array(Schema.suspend(() => AnalyticsGroupItem))),
+  kind: Schema.optional(Schema.String),
+});
+
+/** Response message for GroupsService.ListGroups. */
+export interface AnalyticsListGroupsResponse {
+  readonly errors?: AnalyticsErrors;
+  readonly etag?: string;
+  readonly items?: ReadonlyArray<AnalyticsGroup>;
+  readonly kind?: string;
+  readonly nextPageToken?: string;
+}
+export interface AnalyticsListGroupsResponseEncoded {
+  readonly errors?: AnalyticsErrorsEncoded;
+  readonly etag?: string;
+  readonly items?: ReadonlyArray<AnalyticsGroupEncoded>;
+  readonly kind?: string;
+  readonly nextPageToken?: string;
+}
+export const AnalyticsListGroupsResponse: Schema.Schema<AnalyticsListGroupsResponse, AnalyticsListGroupsResponseEncoded, never> = Schema.Struct({
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+  etag: Schema.optional(Schema.String),
+  items: Schema.optional(Schema.Array(Schema.suspend(() => AnalyticsGroup))),
+  kind: Schema.optional(Schema.String),
+  nextPageToken: Schema.optional(Schema.String),
+});
+
+/** Response message for TargetedQueriesService.Query. */
+export interface AnalyticsQueryResponse {
+  readonly columnHeaders?: ReadonlyArray<AnalyticsResultTableColumnHeader>;
+  readonly errors?: AnalyticsErrors;
+  readonly kind?: string;
+  readonly rows?: ReadonlyArray<ReadonlyArray<unknown>>;
+}
+export interface AnalyticsQueryResponseEncoded {
+  readonly columnHeaders?: ReadonlyArray<AnalyticsResultTableColumnHeaderEncoded>;
+  readonly errors?: AnalyticsErrorsEncoded;
+  readonly kind?: string;
+  readonly rows?: ReadonlyArray<ReadonlyArray<unknown>>;
+}
+export const AnalyticsQueryResponse: Schema.Schema<AnalyticsQueryResponse, AnalyticsQueryResponseEncoded, never> = Schema.Struct({
+  columnHeaders: Schema.optional(Schema.Array(Schema.suspend(() => AnalyticsResultTableColumnHeader))),
+  errors: Schema.optional(Schema.suspend(() => AnalyticsErrors)),
+  kind: Schema.optional(Schema.String),
+  rows: Schema.optional(Schema.Array(Schema.Array(Schema.Unknown))),
+});
+
+/** The description of a column of the result table. */
+export interface AnalyticsResultTableColumnHeader {
+  readonly columnType?: string;
+  readonly dataType?: string;
+  readonly name?: string;
+}
+export interface AnalyticsResultTableColumnHeaderEncoded {
+  readonly columnType?: string;
+  readonly dataType?: string;
+  readonly name?: string;
+}
+export const AnalyticsResultTableColumnHeader: Schema.Schema<AnalyticsResultTableColumnHeader, AnalyticsResultTableColumnHeaderEncoded, never> = Schema.Struct({
+  columnType: Schema.optional(Schema.String),
+  dataType: Schema.optional(Schema.String),
+  name: Schema.optional(Schema.String),
+});
+
 /** Response for the Videos.stats API. Returns VideoStat information about a batch of videos. VideoStat contains a subset of the information in Video that is relevant to statistics and content details. BatchGetStats is intentionally not atomic to provide a better user experience. BatchGetStatsResponse returns a summary to help users understand the outcome of the operation. */
 export interface BatchGetStatsResponse {
   readonly etag?: string;
@@ -3315,6 +3545,444 @@ export interface RelatedEntityEncoded {
 }
 export const RelatedEntity: Schema.Schema<RelatedEntity, RelatedEntityEncoded, never> = Schema.Struct({
   entity: Schema.optional(Schema.suspend(() => Entity)),
+});
+
+/** A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } */
+export interface ReportingEmpty {
+
+}
+export interface ReportingEmptyEncoded {
+
+}
+export const ReportingEmpty: Schema.Schema<ReportingEmpty, ReportingEmptyEncoded, never> = Schema.Struct({
+
+});
+
+/** gdata */
+export interface ReportingGdataBlobstore2Info {
+  readonly blobGeneration?: string;
+  readonly blobId?: string;
+  readonly downloadExternalReadToken?: string;
+  readonly downloadReadHandle?: string;
+  readonly readToken?: string;
+  readonly uploadFragmentListCreationInfo?: string;
+  readonly uploadMetadataContainer?: string;
+}
+export interface ReportingGdataBlobstore2InfoEncoded {
+  readonly blobGeneration?: string;
+  readonly blobId?: string;
+  readonly downloadExternalReadToken?: string;
+  readonly downloadReadHandle?: string;
+  readonly readToken?: string;
+  readonly uploadFragmentListCreationInfo?: string;
+  readonly uploadMetadataContainer?: string;
+}
+export const ReportingGdataBlobstore2Info: Schema.Schema<ReportingGdataBlobstore2Info, ReportingGdataBlobstore2InfoEncoded, never> = Schema.Struct({
+  blobGeneration: Schema.optional(Schema.String),
+  blobId: Schema.optional(Schema.String),
+  downloadExternalReadToken: Schema.optional(Schema.String),
+  downloadReadHandle: Schema.optional(Schema.String),
+  readToken: Schema.optional(Schema.String),
+  uploadFragmentListCreationInfo: Schema.optional(Schema.String),
+  uploadMetadataContainer: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataCompositeMedia {
+  readonly blobRef?: string;
+  readonly blobstore2Info?: ReportingGdataBlobstore2Info;
+  readonly cosmoBinaryReference?: string;
+  readonly crc32cHash?: number;
+  readonly inline?: string;
+  readonly length?: string;
+  readonly md5Hash?: string;
+  readonly objectId?: ReportingGdataObjectId;
+  readonly path?: string;
+  readonly referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "BIGSTORE_REF" | "COSMO_BINARY_REFERENCE";
+  readonly sha1Hash?: string;
+}
+export interface ReportingGdataCompositeMediaEncoded {
+  readonly blobRef?: string;
+  readonly blobstore2Info?: ReportingGdataBlobstore2InfoEncoded;
+  readonly cosmoBinaryReference?: string;
+  readonly crc32cHash?: number;
+  readonly inline?: string;
+  readonly length?: string;
+  readonly md5Hash?: string;
+  readonly objectId?: ReportingGdataObjectIdEncoded;
+  readonly path?: string;
+  readonly referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "BIGSTORE_REF" | "COSMO_BINARY_REFERENCE";
+  readonly sha1Hash?: string;
+}
+export const ReportingGdataCompositeMedia: Schema.Schema<ReportingGdataCompositeMedia, ReportingGdataCompositeMediaEncoded, never> = Schema.Struct({
+  blobRef: Schema.optional(Schema.String),
+  blobstore2Info: Schema.optional(Schema.suspend(() => ReportingGdataBlobstore2Info)),
+  cosmoBinaryReference: Schema.optional(Schema.String),
+  crc32cHash: Schema.optional(Schema.Int),
+  inline: Schema.optional(Schema.String),
+  length: Schema.optional(Schema.String),
+  md5Hash: Schema.optional(Schema.String),
+  objectId: Schema.optional(Schema.suspend(() => ReportingGdataObjectId)),
+  path: Schema.optional(Schema.String),
+  referenceType: Schema.optional(Schema.Union(Schema.Literal("PATH"), Schema.Literal("BLOB_REF"), Schema.Literal("INLINE"), Schema.Literal("BIGSTORE_REF"), Schema.Literal("COSMO_BINARY_REFERENCE"))),
+  sha1Hash: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataContentTypeInfo {
+  readonly bestGuess?: string;
+  readonly fromBytes?: string;
+  readonly fromFileName?: string;
+  readonly fromFusionId?: string;
+  readonly fromHeader?: string;
+  readonly fromUrlPath?: string;
+  readonly fusionIdDetectionMetadata?: string;
+}
+export interface ReportingGdataContentTypeInfoEncoded {
+  readonly bestGuess?: string;
+  readonly fromBytes?: string;
+  readonly fromFileName?: string;
+  readonly fromFusionId?: string;
+  readonly fromHeader?: string;
+  readonly fromUrlPath?: string;
+  readonly fusionIdDetectionMetadata?: string;
+}
+export const ReportingGdataContentTypeInfo: Schema.Schema<ReportingGdataContentTypeInfo, ReportingGdataContentTypeInfoEncoded, never> = Schema.Struct({
+  bestGuess: Schema.optional(Schema.String),
+  fromBytes: Schema.optional(Schema.String),
+  fromFileName: Schema.optional(Schema.String),
+  fromFusionId: Schema.optional(Schema.String),
+  fromHeader: Schema.optional(Schema.String),
+  fromUrlPath: Schema.optional(Schema.String),
+  fusionIdDetectionMetadata: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataDiffChecksumsResponse {
+  readonly checksumsLocation?: ReportingGdataCompositeMedia;
+  readonly chunkSizeBytes?: string;
+  readonly objectLocation?: ReportingGdataCompositeMedia;
+  readonly objectSizeBytes?: string;
+  readonly objectVersion?: string;
+}
+export interface ReportingGdataDiffChecksumsResponseEncoded {
+  readonly checksumsLocation?: ReportingGdataCompositeMediaEncoded;
+  readonly chunkSizeBytes?: string;
+  readonly objectLocation?: ReportingGdataCompositeMediaEncoded;
+  readonly objectSizeBytes?: string;
+  readonly objectVersion?: string;
+}
+export const ReportingGdataDiffChecksumsResponse: Schema.Schema<ReportingGdataDiffChecksumsResponse, ReportingGdataDiffChecksumsResponseEncoded, never> = Schema.Struct({
+  checksumsLocation: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+  chunkSizeBytes: Schema.optional(Schema.String),
+  objectLocation: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+  objectSizeBytes: Schema.optional(Schema.String),
+  objectVersion: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataDiffDownloadResponse {
+  readonly objectLocation?: ReportingGdataCompositeMedia;
+}
+export interface ReportingGdataDiffDownloadResponseEncoded {
+  readonly objectLocation?: ReportingGdataCompositeMediaEncoded;
+}
+export const ReportingGdataDiffDownloadResponse: Schema.Schema<ReportingGdataDiffDownloadResponse, ReportingGdataDiffDownloadResponseEncoded, never> = Schema.Struct({
+  objectLocation: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+});
+
+/** gdata */
+export interface ReportingGdataDiffUploadRequest {
+  readonly checksumsInfo?: ReportingGdataCompositeMedia;
+  readonly objectInfo?: ReportingGdataCompositeMedia;
+  readonly objectVersion?: string;
+}
+export interface ReportingGdataDiffUploadRequestEncoded {
+  readonly checksumsInfo?: ReportingGdataCompositeMediaEncoded;
+  readonly objectInfo?: ReportingGdataCompositeMediaEncoded;
+  readonly objectVersion?: string;
+}
+export const ReportingGdataDiffUploadRequest: Schema.Schema<ReportingGdataDiffUploadRequest, ReportingGdataDiffUploadRequestEncoded, never> = Schema.Struct({
+  checksumsInfo: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+  objectInfo: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+  objectVersion: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataDiffUploadResponse {
+  readonly objectVersion?: string;
+  readonly originalObject?: ReportingGdataCompositeMedia;
+}
+export interface ReportingGdataDiffUploadResponseEncoded {
+  readonly objectVersion?: string;
+  readonly originalObject?: ReportingGdataCompositeMediaEncoded;
+}
+export const ReportingGdataDiffUploadResponse: Schema.Schema<ReportingGdataDiffUploadResponse, ReportingGdataDiffUploadResponseEncoded, never> = Schema.Struct({
+  objectVersion: Schema.optional(Schema.String),
+  originalObject: Schema.optional(Schema.suspend(() => ReportingGdataCompositeMedia)),
+});
+
+/** gdata */
+export interface ReportingGdataDiffVersionResponse {
+  readonly objectSizeBytes?: string;
+  readonly objectVersion?: string;
+}
+export interface ReportingGdataDiffVersionResponseEncoded {
+  readonly objectSizeBytes?: string;
+  readonly objectVersion?: string;
+}
+export const ReportingGdataDiffVersionResponse: Schema.Schema<ReportingGdataDiffVersionResponse, ReportingGdataDiffVersionResponseEncoded, never> = Schema.Struct({
+  objectSizeBytes: Schema.optional(Schema.String),
+  objectVersion: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataDownloadParameters {
+  readonly allowGzipCompression?: boolean;
+  readonly ignoreRange?: boolean;
+}
+export interface ReportingGdataDownloadParametersEncoded {
+  readonly allowGzipCompression?: boolean;
+  readonly ignoreRange?: boolean;
+}
+export const ReportingGdataDownloadParameters: Schema.Schema<ReportingGdataDownloadParameters, ReportingGdataDownloadParametersEncoded, never> = Schema.Struct({
+  allowGzipCompression: Schema.optional(Schema.Boolean),
+  ignoreRange: Schema.optional(Schema.Boolean),
+});
+
+/** gdata */
+export interface ReportingGdataMedia {
+  readonly algorithm?: string;
+  readonly bigstoreObjectRef?: string;
+  readonly blobRef?: string;
+  readonly blobstore2Info?: ReportingGdataBlobstore2Info;
+  readonly compositeMedia?: ReadonlyArray<ReportingGdataCompositeMedia>;
+  readonly contentType?: string;
+  readonly contentTypeInfo?: ReportingGdataContentTypeInfo;
+  readonly cosmoBinaryReference?: string;
+  readonly crc32cHash?: number;
+  readonly diffChecksumsResponse?: ReportingGdataDiffChecksumsResponse;
+  readonly diffDownloadResponse?: ReportingGdataDiffDownloadResponse;
+  readonly diffUploadRequest?: ReportingGdataDiffUploadRequest;
+  readonly diffUploadResponse?: ReportingGdataDiffUploadResponse;
+  readonly diffVersionResponse?: ReportingGdataDiffVersionResponse;
+  readonly downloadParameters?: ReportingGdataDownloadParameters;
+  readonly filename?: string;
+  readonly hash?: string;
+  readonly hashVerified?: boolean;
+  readonly inline?: string;
+  readonly isPotentialRetry?: boolean;
+  readonly length?: string;
+  readonly md5Hash?: string;
+  readonly mediaId?: string;
+  readonly objectId?: ReportingGdataObjectId;
+  readonly path?: string;
+  readonly referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "GET_MEDIA" | "COMPOSITE_MEDIA" | "BIGSTORE_REF" | "DIFF_VERSION_RESPONSE" | "DIFF_CHECKSUMS_RESPONSE" | "DIFF_DOWNLOAD_RESPONSE" | "DIFF_UPLOAD_REQUEST" | "DIFF_UPLOAD_RESPONSE" | "COSMO_BINARY_REFERENCE" | "ARBITRARY_BYTES";
+  readonly sha1Hash?: string;
+  readonly sha256Hash?: string;
+  readonly sha512Hash?: string;
+  readonly timestamp?: string;
+  readonly token?: string;
+}
+export interface ReportingGdataMediaEncoded {
+  readonly algorithm?: string;
+  readonly bigstoreObjectRef?: string;
+  readonly blobRef?: string;
+  readonly blobstore2Info?: ReportingGdataBlobstore2InfoEncoded;
+  readonly compositeMedia?: ReadonlyArray<ReportingGdataCompositeMediaEncoded>;
+  readonly contentType?: string;
+  readonly contentTypeInfo?: ReportingGdataContentTypeInfoEncoded;
+  readonly cosmoBinaryReference?: string;
+  readonly crc32cHash?: number;
+  readonly diffChecksumsResponse?: ReportingGdataDiffChecksumsResponseEncoded;
+  readonly diffDownloadResponse?: ReportingGdataDiffDownloadResponseEncoded;
+  readonly diffUploadRequest?: ReportingGdataDiffUploadRequestEncoded;
+  readonly diffUploadResponse?: ReportingGdataDiffUploadResponseEncoded;
+  readonly diffVersionResponse?: ReportingGdataDiffVersionResponseEncoded;
+  readonly downloadParameters?: ReportingGdataDownloadParametersEncoded;
+  readonly filename?: string;
+  readonly hash?: string;
+  readonly hashVerified?: boolean;
+  readonly inline?: string;
+  readonly isPotentialRetry?: boolean;
+  readonly length?: string;
+  readonly md5Hash?: string;
+  readonly mediaId?: string;
+  readonly objectId?: ReportingGdataObjectIdEncoded;
+  readonly path?: string;
+  readonly referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "GET_MEDIA" | "COMPOSITE_MEDIA" | "BIGSTORE_REF" | "DIFF_VERSION_RESPONSE" | "DIFF_CHECKSUMS_RESPONSE" | "DIFF_DOWNLOAD_RESPONSE" | "DIFF_UPLOAD_REQUEST" | "DIFF_UPLOAD_RESPONSE" | "COSMO_BINARY_REFERENCE" | "ARBITRARY_BYTES";
+  readonly sha1Hash?: string;
+  readonly sha256Hash?: string;
+  readonly sha512Hash?: string;
+  readonly timestamp?: string;
+  readonly token?: string;
+}
+export const ReportingGdataMedia: Schema.Schema<ReportingGdataMedia, ReportingGdataMediaEncoded, never> = Schema.Struct({
+  algorithm: Schema.optional(Schema.String),
+  bigstoreObjectRef: Schema.optional(Schema.String),
+  blobRef: Schema.optional(Schema.String),
+  blobstore2Info: Schema.optional(Schema.suspend(() => ReportingGdataBlobstore2Info)),
+  compositeMedia: Schema.optional(Schema.Array(Schema.suspend(() => ReportingGdataCompositeMedia))),
+  contentType: Schema.optional(Schema.String),
+  contentTypeInfo: Schema.optional(Schema.suspend(() => ReportingGdataContentTypeInfo)),
+  cosmoBinaryReference: Schema.optional(Schema.String),
+  crc32cHash: Schema.optional(Schema.Int),
+  diffChecksumsResponse: Schema.optional(Schema.suspend(() => ReportingGdataDiffChecksumsResponse)),
+  diffDownloadResponse: Schema.optional(Schema.suspend(() => ReportingGdataDiffDownloadResponse)),
+  diffUploadRequest: Schema.optional(Schema.suspend(() => ReportingGdataDiffUploadRequest)),
+  diffUploadResponse: Schema.optional(Schema.suspend(() => ReportingGdataDiffUploadResponse)),
+  diffVersionResponse: Schema.optional(Schema.suspend(() => ReportingGdataDiffVersionResponse)),
+  downloadParameters: Schema.optional(Schema.suspend(() => ReportingGdataDownloadParameters)),
+  filename: Schema.optional(Schema.String),
+  hash: Schema.optional(Schema.String),
+  hashVerified: Schema.optional(Schema.Boolean),
+  inline: Schema.optional(Schema.String),
+  isPotentialRetry: Schema.optional(Schema.Boolean),
+  length: Schema.optional(Schema.String),
+  md5Hash: Schema.optional(Schema.String),
+  mediaId: Schema.optional(Schema.String),
+  objectId: Schema.optional(Schema.suspend(() => ReportingGdataObjectId)),
+  path: Schema.optional(Schema.String),
+  referenceType: Schema.optional(Schema.Union(Schema.Literal("PATH"), Schema.Literal("BLOB_REF"), Schema.Literal("INLINE"), Schema.Literal("GET_MEDIA"), Schema.Literal("COMPOSITE_MEDIA"), Schema.Literal("BIGSTORE_REF"), Schema.Literal("DIFF_VERSION_RESPONSE"), Schema.Literal("DIFF_CHECKSUMS_RESPONSE"), Schema.Literal("DIFF_DOWNLOAD_RESPONSE"), Schema.Literal("DIFF_UPLOAD_REQUEST"), Schema.Literal("DIFF_UPLOAD_RESPONSE"), Schema.Literal("COSMO_BINARY_REFERENCE"), Schema.Literal("ARBITRARY_BYTES"))),
+  sha1Hash: Schema.optional(Schema.String),
+  sha256Hash: Schema.optional(Schema.String),
+  sha512Hash: Schema.optional(Schema.String),
+  timestamp: Schema.optional(Schema.String),
+  token: Schema.optional(Schema.String),
+});
+
+/** gdata */
+export interface ReportingGdataObjectId {
+  readonly bucketName?: string;
+  readonly generation?: string;
+  readonly objectName?: string;
+}
+export interface ReportingGdataObjectIdEncoded {
+  readonly bucketName?: string;
+  readonly generation?: string;
+  readonly objectName?: string;
+}
+export const ReportingGdataObjectId: Schema.Schema<ReportingGdataObjectId, ReportingGdataObjectIdEncoded, never> = Schema.Struct({
+  bucketName: Schema.optional(Schema.String),
+  generation: Schema.optional(Schema.String),
+  objectName: Schema.optional(Schema.String),
+});
+
+/** A job creating reports of a specific type. */
+export interface ReportingJob {
+  readonly createTime?: string;
+  readonly expireTime?: string;
+  readonly id?: string;
+  readonly name?: string;
+  readonly reportTypeId?: string;
+  readonly systemManaged?: boolean;
+}
+export interface ReportingJobEncoded {
+  readonly createTime?: string;
+  readonly expireTime?: string;
+  readonly id?: string;
+  readonly name?: string;
+  readonly reportTypeId?: string;
+  readonly systemManaged?: boolean;
+}
+export const ReportingJob: Schema.Schema<ReportingJob, ReportingJobEncoded, never> = Schema.Struct({
+  createTime: Schema.optional(Schema.String),
+  expireTime: Schema.optional(Schema.String),
+  id: Schema.optional(Schema.String),
+  name: Schema.optional(Schema.String),
+  reportTypeId: Schema.optional(Schema.String),
+  systemManaged: Schema.optional(Schema.Boolean),
+});
+
+/** Response message for ReportingService.ListJobs. */
+export interface ReportingListJobsResponse {
+  readonly jobs?: ReadonlyArray<ReportingJob>;
+  readonly nextPageToken?: string;
+}
+export interface ReportingListJobsResponseEncoded {
+  readonly jobs?: ReadonlyArray<ReportingJobEncoded>;
+  readonly nextPageToken?: string;
+}
+export const ReportingListJobsResponse: Schema.Schema<ReportingListJobsResponse, ReportingListJobsResponseEncoded, never> = Schema.Struct({
+  jobs: Schema.optional(Schema.Array(Schema.suspend(() => ReportingJob))),
+  nextPageToken: Schema.optional(Schema.String),
+});
+
+/** Response message for ReportingService.ListReports. */
+export interface ReportingListReportsResponse {
+  readonly nextPageToken?: string;
+  readonly reports?: ReadonlyArray<ReportingReport>;
+}
+export interface ReportingListReportsResponseEncoded {
+  readonly nextPageToken?: string;
+  readonly reports?: ReadonlyArray<ReportingReportEncoded>;
+}
+export const ReportingListReportsResponse: Schema.Schema<ReportingListReportsResponse, ReportingListReportsResponseEncoded, never> = Schema.Struct({
+  nextPageToken: Schema.optional(Schema.String),
+  reports: Schema.optional(Schema.Array(Schema.suspend(() => ReportingReport))),
+});
+
+/** Response message for ReportingService.ListReportTypes. */
+export interface ReportingListReportTypesResponse {
+  readonly nextPageToken?: string;
+  readonly reportTypes?: ReadonlyArray<ReportingReportType>;
+}
+export interface ReportingListReportTypesResponseEncoded {
+  readonly nextPageToken?: string;
+  readonly reportTypes?: ReadonlyArray<ReportingReportTypeEncoded>;
+}
+export const ReportingListReportTypesResponse: Schema.Schema<ReportingListReportTypesResponse, ReportingListReportTypesResponseEncoded, never> = Schema.Struct({
+  nextPageToken: Schema.optional(Schema.String),
+  reportTypes: Schema.optional(Schema.Array(Schema.suspend(() => ReportingReportType))),
+});
+
+/** A report's metadata including the URL from which the report itself can be downloaded. */
+export interface ReportingReport {
+  readonly createTime?: string;
+  readonly downloadUrl?: string;
+  readonly endTime?: string;
+  readonly id?: string;
+  readonly jobExpireTime?: string;
+  readonly jobId?: string;
+  readonly startTime?: string;
+}
+export interface ReportingReportEncoded {
+  readonly createTime?: string;
+  readonly downloadUrl?: string;
+  readonly endTime?: string;
+  readonly id?: string;
+  readonly jobExpireTime?: string;
+  readonly jobId?: string;
+  readonly startTime?: string;
+}
+export const ReportingReport: Schema.Schema<ReportingReport, ReportingReportEncoded, never> = Schema.Struct({
+  createTime: Schema.optional(Schema.String),
+  downloadUrl: Schema.optional(Schema.String),
+  endTime: Schema.optional(Schema.String),
+  id: Schema.optional(Schema.String),
+  jobExpireTime: Schema.optional(Schema.String),
+  jobId: Schema.optional(Schema.String),
+  startTime: Schema.optional(Schema.String),
+});
+
+/** A report type. */
+export interface ReportingReportType {
+  readonly deprecateTime?: string;
+  readonly id?: string;
+  readonly name?: string;
+  readonly systemManaged?: boolean;
+}
+export interface ReportingReportTypeEncoded {
+  readonly deprecateTime?: string;
+  readonly id?: string;
+  readonly name?: string;
+  readonly systemManaged?: boolean;
+}
+export const ReportingReportType: Schema.Schema<ReportingReportType, ReportingReportTypeEncoded, never> = Schema.Struct({
+  deprecateTime: Schema.optional(Schema.String),
+  id: Schema.optional(Schema.String),
+  name: Schema.optional(Schema.String),
+  systemManaged: Schema.optional(Schema.Boolean),
 });
 
 /** A resource id is a generic reference that points to another YouTube resource. */

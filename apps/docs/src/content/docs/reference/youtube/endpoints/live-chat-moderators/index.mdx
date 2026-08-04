@@ -1,0 +1,115 @@
+---
+title: "YouTube Live Chat Moderators endpoints"
+description: "3 generated YouTube endpoint contracts for Live Chat Moderators."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 114
+  label: "Live Chat Moderators"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.liveChatModerators.delete
+
+`DELETE` `youtube/v3/liveChat/moderators`
+
+Deletes a chat moderator.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveChatModerators.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.liveChatModerators.insert
+
+`POST` `youtube/v3/liveChat/moderators`
+
+Inserts a new resource into this collection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveChatModerators.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `LiveChatModerator` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `part` | `query` | `string` | Yes | No | The *part* parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet. |
+| `body` | `body` | `LiveChatModerator` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.liveChatModerators.list
+
+`GET` `youtube/v3/liveChat/moderators`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveChatModerators.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `LiveChatModeratorListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `liveChatId` | `query` | `string` | Yes | No | The id of the live chat for which moderators should be returned. |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the liveChatModerator resource parts that the API response will include. Supported values are id and snippet. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

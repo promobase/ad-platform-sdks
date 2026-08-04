@@ -1,0 +1,136 @@
+---
+title: "Google Business Profile Businessprofileperformance endpoints"
+description: "3 generated Google Business Profile endpoint contracts for Businessprofileperformance."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 101
+  label: "Businessprofileperformance"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.businessprofileperformance.locations.fetchMultiDailyMetricsTimeSeries
+
+`GET` `https://businessprofileperformance.googleapis.com/v1/{+location}:fetchMultiDailyMetricsTimeSeries`
+
+Returns the values for each date from a given time range that are associated with the specific daily metrics. Note: Only daily data is available. Hourly metrics are not supported. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `performance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-performance` |
+| Output | `PerformanceFetchMultiDailyMetricsTimeSeriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dailyMetrics` | `query` | `"DAILY_METRIC_UNKNOWN" \| "BUSINESS_IMPRESSIONS_DESKTOP_MAPS" \| "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH" \| "BUSINESS_IMPRESSIONS_MOBILE_MAPS" \| "BUSINESS_IMPRESSIONS_MOBILE_SEARCH" \| "BUSINESS_CONVERSATIONS" \| "BUSINESS_DIRECTION_REQUESTS" \| "CALL_CLICKS" \| "WEBSITE_CLICKS" \| "BUSINESS_BOOKINGS" \| "BUSINESS_FOOD_ORDERS" \| "BUSINESS_FOOD_MENU_CLICKS"` | No | No | Required. The metrics to retrieve time series for. |
+| `dailyRange.endDate.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `dailyRange.endDate.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `dailyRange.endDate.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `dailyRange.startDate.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `dailyRange.startDate.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `dailyRange.startDate.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `location` | `path` | `string` | Yes | No | Required. The location for which the time series should be fetched. Format: locations/&#123;location_id&#125; where location_id is an unobfuscated listing id. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.businessprofileperformance.locations.getDailyMetricsTimeSeries
+
+`GET` `https://businessprofileperformance.googleapis.com/v1/{+name}:getDailyMetricsTimeSeries`
+
+Returns the values for each date from a given time range that are associated with the specific daily metric. Note: Only daily data is available. Hourly metrics are not supported. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:getDailyMetricsTimeSeries?dailyMetric=WEBSITE_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `performance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-performance` |
+| Output | `PerformanceGetDailyMetricsTimeSeriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dailyMetric` | `query` | `"DAILY_METRIC_UNKNOWN" \| "BUSINESS_IMPRESSIONS_DESKTOP_MAPS" \| "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH" \| "BUSINESS_IMPRESSIONS_MOBILE_MAPS" \| "BUSINESS_IMPRESSIONS_MOBILE_SEARCH" \| "BUSINESS_CONVERSATIONS" \| "BUSINESS_DIRECTION_REQUESTS" \| "CALL_CLICKS" \| "WEBSITE_CLICKS" \| "BUSINESS_BOOKINGS" \| "BUSINESS_FOOD_ORDERS" \| "BUSINESS_FOOD_MENU_CLICKS"` | No | No | Required. The metric to retrieve time series. |
+| `dailyRange.endDate.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `dailyRange.endDate.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `dailyRange.endDate.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `dailyRange.startDate.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `dailyRange.startDate.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `dailyRange.startDate.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `dailySubEntityType.dayOfWeek` | `query` | `"DAY_OF_WEEK_UNSPECIFIED" \| "MONDAY" \| "TUESDAY" \| "WEDNESDAY" \| "THURSDAY" \| "FRIDAY" \| "SATURDAY" \| "SUNDAY"` | No | No | Represents the day of the week. Eg: MONDAY. Currently supported DailyMetrics = NONE. |
+| `dailySubEntityType.timeOfDay.hours` | `query` | `integer` | No | No | Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. |
+| `dailySubEntityType.timeOfDay.minutes` | `query` | `integer` | No | No | Minutes of an hour. Must be greater than or equal to 0 and less than or equal to 59. |
+| `dailySubEntityType.timeOfDay.nanos` | `query` | `integer` | No | No | Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and less than or equal to 999,999,999. |
+| `dailySubEntityType.timeOfDay.seconds` | `query` | `integer` | No | No | Seconds of a minute. Must be greater than or equal to 0 and typically must be less than or equal to 59. An API may allow the value 60 if it allows leap-seconds. |
+| `name` | `path` | `string` | Yes | No | Required. The location for which the time series should be fetched. Format: locations/&#123;location_id&#125; where location_id is an unobfuscated listing id. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.businessprofileperformance.locations.searchkeywords.impressions.monthly.list
+
+`GET` `https://businessprofileperformance.googleapis.com/v1/{+parent}/searchkeywords/impressions/monthly`
+
+Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3`
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `performance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-performance` |
+| Output | `PerformanceListSearchKeywordImpressionsMonthlyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `monthlyRange.endMonth.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `monthlyRange.endMonth.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `monthlyRange.endMonth.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `monthlyRange.startMonth.day` | `query` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `monthlyRange.startMonth.month` | `query` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `monthlyRange.startMonth.year` | `query` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+| `pageSize` | `query` | `integer` | No | No | Optional. The number of results requested. The default page size is 100. Page size can be set to a maximum of 100. |
+| `pageToken` | `query` | `string` | No | No | Optional. A token indicating the next paginated result to be returned. |
+| `parent` | `path` | `string` | Yes | No | Required. The location for which the time series should be fetched. Format: locations/&#123;location_id&#125; where location_id is an unobfuscated listing id. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

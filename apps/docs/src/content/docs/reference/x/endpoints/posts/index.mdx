@@ -1,11 +1,11 @@
 ---
 title: "X Posts endpoints"
-description: "4 generated X endpoint contracts for Posts."
+description: "14 generated X endpoint contracts for Posts."
 generated: true
 platform: "x"
 sourceVersion: "2.167"
 sidebar:
-  order: 101
+  order: 114
   label: "Posts"
 tableOfContents: false
 ---
@@ -24,7 +24,7 @@ Create Posts
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `posts.manage` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`tweet.write`<br />`users.read` |
 | Rate-limit bucket | `x-posts` |
 | Output | `CreatePostsResponse` |
 
@@ -57,7 +57,7 @@ Delete Posts
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `posts.manage` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`tweet.write`<br />`users.read` |
 | Rate-limit bucket | `x-posts` |
 | Output | `DeletePostsResponse` |
 
@@ -66,6 +66,43 @@ Delete Posts
 | Name | Location | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `id` | `path` | `PostId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsAnalytics
+
+`GET` `/2/tweets/analytics`
+
+Get Posts Analytics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsAnalyticsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<AnalyticsId>` | Yes | No | — |
+| `start_time` | `query` | `string<date-time>` | Yes | No | — |
+| `end_time` | `query` | `string<date-time>` | Yes | No | — |
+| `granularity` | `query` | `"hourly" \| "weekly" \| "daily" \| "total"` | No | No | — |
+| `analytics.fields` | `query` | `Array<"app_install_attempts" \| "app_opens" \| "bookmarks" \| "detail_expands" \| "email_tweet" \| "engagements" \| "follows" \| "hashtag_clicks" \| "id" \| "impressions" \| "likes" \| "media_views" \| "permalink_clicks" \| "quote_tweets" \| "replies" \| "retweets" \| "shares" \| "timestamp" \| "timestamped_metrics" \| "unfollows" \| "unlikes" \| "url_clicks" \| "user_profile_clicks">` | No | No | A comma separated list of Analytics fields to display. |
 
 **Declared errors**
 
@@ -90,7 +127,7 @@ Get Posts by ID
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `posts.read` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`users.read` |
 | Rate-limit bucket | `x-posts` |
 | Output | `GetPostsByIdResponse` |
 
@@ -129,7 +166,7 @@ Get Posts by IDs
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `posts.read` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`users.read` |
 | Rate-limit bucket | `x-posts` |
 | Output | `GetPostsByIdsResponse` |
 
@@ -138,6 +175,375 @@ Get Posts by IDs
 | Name | Location | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `ids` | `query` | `Array<PostId>` | Yes | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsCountsAll
+
+`GET` `/2/tweets/counts/all`
+
+At most one of `pagination_token`, `next_token` may be provided.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsCountsAllResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `start_time` | `query` | `string<date-time>` | No | No | — |
+| `end_time` | `query` | `string<date-time>` | No | No | — |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `next_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `granularity` | `query` | `"minute" \| "hour" \| "day"` | No | No | — |
+| `search_count.fields` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsCountsRecent
+
+`GET` `/2/tweets/counts/recent`
+
+At most one of `pagination_token`, `next_token` may be provided.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsCountsRecentResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `start_time` | `query` | `string<date-time>` | No | No | Must be within the last 7 days. |
+| `end_time` | `query` | `string<date-time>` | No | No | — |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `next_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `granularity` | `query` | `"minute" \| "hour" \| "day"` | No | No | — |
+| `search_count.fields` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsLikingUsers
+
+`GET` `/2/tweets/{id}/liking_users`
+
+Get Posts Liking Users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `like.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsLikingUsersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `PostId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsQuotedPosts
+
+`GET` `/2/tweets/{id}/quote_tweets`
+
+Get Posts Quoted Posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsQuotedPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `PostId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `exclude` | `query` | `Array<"replies" \| "retweets">` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsRepostedBy
+
+`GET` `/2/tweets/{id}/retweeted_by`
+
+Get Posts Reposted by
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsRepostedByResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `PostId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.getPostsReposts
+
+`GET` `/2/tweets/{id}/retweets`
+
+Get Posts Reposts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `GetPostsRepostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `PostId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.hidePostsReply
+
+`PUT` `/2/tweets/{tweet_id}/hidden`
+
+Hides or unhides a reply to a conversation owned by the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `posts.manage` |
+| Required scopes | `tweet.moderate.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `HidePostsReplyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tweet_id` | `path` | `PostId` | Yes | No | — |
+| `body` | `body` | `HidePostsReplyRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.searchPostsAll
+
+`GET` `/2/tweets/search/all`
+
+At most one of `start_time`, `since_id` may be provided. At most one of `end_time`, `until_id` may be provided. At most one of `pagination_token`, `next_token` may be provided.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-posts` |
+| Output | `SearchPostsAllResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `start_time` | `query` | `string<date-time>` | No | No | — |
+| `end_time` | `query` | `string<date-time>` | No | No | — |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `next_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `sort_order` | `query` | `"recency" \| "relevancy"` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.posts.searchPostsRecent
+
+`GET` `/2/tweets/search/recent`
+
+At most one of `start_time`, `since_id` may be provided. At most one of `end_time`, `until_id` may be provided. At most one of `pagination_token`, `next_token` may be provided.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `posts.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-posts` |
+| Output | `SearchPostsRecentResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `next_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `start_time` | `query` | `string<date-time>` | No | No | Must be within the last 7 days. |
+| `end_time` | `query` | `string<date-time>` | No | No | — |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `sort_order` | `query` | `"recency" \| "relevancy"` | No | No | — |
 | `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
 | `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
 | `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |

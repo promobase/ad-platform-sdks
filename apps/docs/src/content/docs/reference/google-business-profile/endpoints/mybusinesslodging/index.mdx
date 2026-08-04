@@ -1,0 +1,113 @@
+---
+title: "Google Business Profile Mybusinesslodging endpoints"
+description: "3 generated Google Business Profile endpoint contracts for Mybusinesslodging."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 106
+  label: "Mybusinesslodging"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinesslodging.locations.getLodging
+
+`GET` `https://mybusinesslodging.googleapis.com/v1/{+name}`
+
+Returns the Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `lodging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-lodging` |
+| Output | `LodgingLodging` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `locations/&#123;location_id&#125;/lodging` |
+| `readMask` | `query` | `string` | No | No | Required. The specific fields to return. Use "*" to include all fields. Repeated field items cannot be individually specified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinesslodging.locations.lodging.getGoogleUpdated
+
+`GET` `https://mybusinesslodging.googleapis.com/v1/{+name}:getGoogleUpdated`
+
+Returns the Google updated Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `lodging.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-lodging` |
+| Output | `LodgingGetGoogleUpdatedLodgingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `locations/&#123;location_id&#125;/lodging` |
+| `readMask` | `query` | `string` | No | No | Required. The specific fields to return. Use "*" to include all fields. Repeated field items cannot be individually specified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinesslodging.locations.updateLodging
+
+`PATCH` `https://mybusinesslodging.googleapis.com/v1/{+name}`
+
+Updates the Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `lodging.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-lodging` |
+| Output | `LodgingLodging` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `locations/&#123;location_id&#125;/lodging` |
+| `updateMask` | `query` | `string` | No | No | Required. The specific fields to update. Use "*" to update all fields, which may include unsetting empty fields in the request. Repeated field items cannot be individually updated. |
+| `body` | `body` | `LodgingLodging` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

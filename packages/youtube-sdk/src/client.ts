@@ -1,4 +1,5 @@
 import { YouTubeApiError } from "./errors.ts";
+import { createYouTubeAuxiliaryResources } from "./generated/auxiliary.ts";
 import { createYouTubeResources } from "./generated/resources.ts";
 import { createUploads } from "./uploads.ts";
 
@@ -34,6 +35,9 @@ export class YouTubeClient {
 
   readonly uploads = createUploads(this);
   readonly resources = createYouTubeResources(this);
+  readonly auxiliary = createYouTubeAuxiliaryResources(this);
+  readonly analytics = this.auxiliary.analytics;
+  readonly reporting = this.auxiliary.reporting;
 
   constructor(opts: YouTubeClientOptions) {
     if (!opts.accessToken && !opts.apiKey) {
@@ -75,12 +79,26 @@ export class YouTubeClient {
   }
 
   buildUrl(baseUrl: string, path: string, params?: object): string {
-    const url = new URL(path.replace(/^\//, ""), `${baseUrl}/`);
+    let resolvedPath = path;
+    const queryEntries: [string, unknown][] = [];
+    for (const [key, value] of Object.entries(params ?? {}) as [string, unknown][]) {
+      if (value === undefined || value === null) continue;
+      if (resolvedPath.includes(`{+${key}}`)) {
+        resolvedPath = resolvedPath.replaceAll(
+          `{+${key}}`,
+          String(value).split("/").map(encodeURIComponent).join("/"),
+        );
+      } else if (resolvedPath.includes(`{${key}}`)) {
+        resolvedPath = resolvedPath.replaceAll(`{${key}}`, encodeURIComponent(String(value)));
+      } else {
+        queryEntries.push([key, value]);
+      }
+    }
+    const url = new URL(resolvedPath.replace(/^\//, ""), `${baseUrl}/`);
     if (this.apiKey) {
       url.searchParams.set("key", this.apiKey);
     }
-    for (const [key, value] of Object.entries(params ?? {}) as [string, unknown][]) {
-      if (value === undefined || value === null) continue;
+    for (const [key, value] of queryEntries) {
       if (Array.isArray(value)) {
         if (value.length > 0) url.searchParams.set(key, value.join(","));
       } else {

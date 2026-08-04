@@ -1,0 +1,81 @@
+---
+title: "X Trends endpoints"
+description: "2 generated X endpoint contracts for Trends."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 117
+  label: "Trends"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.trends.getTrendsByWoeid
+
+`GET` `/2/trends/by/woeid/{woeid}`
+
+Get Trends by Woeid
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `trends.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-trends` |
+| Output | `GetTrendsByWoeidResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `woeid` | `path` | `integer` | Yes | No | — |
+| `max_trends` | `query` | `integer` | No | No | — |
+| `trend.fields` | `query` | `Array<"trend_name" \| "tweet_count">` | No | No | A comma separated list of Trend fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.trends.getTrendsPersonalizedTrends
+
+`GET` `/2/users/personalized_trends`
+
+Get Trends Personalized Trends
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `trends.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-trends` |
+| Output | `GetTrendsPersonalizedTrendsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `personalized_trend.fields` | `query` | `Array<"category" \| "post_count" \| "trend_name" \| "trending_since">` | No | No | A comma separated list of PersonalizedTrend fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

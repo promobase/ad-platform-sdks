@@ -1,0 +1,1530 @@
+---
+title: "LinkedIn Content apis endpoints"
+description: "54 generated LinkedIn endpoint contracts for Content apis."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 107
+  label: "Content apis"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## content-apis.contentApisUseCasesConversationAdSponsoredConversationsCreateASponsoredConversationPostHttpsBaseUrlConversationAds
+
+`POST` `/https://{baseUrl}/conversationAds`
+
+Successful response will have Status `201 Created` and the ID in the `x-linkedin-id` response header. For example,`urn:li:sponsoredConversation:164380864`
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredConversationsGetASponsoredConversationGetHttpsBaseUrlConversationAdsConversati
+
+`GET` `/https://{baseUrl}/conversationAds/{conversationUrn}`
+
+Sample Response JSONCopy ``` &#123; "id": "urn:li:sponsoredConversation:185204", "parentAccount": "urn:li:sponsoredAccount:520866471" &#125; ```
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredConversationsGetMultipleSponsoredConversationsGetHttpsBaseUrlConversationAdsId
+
+`GET` `/https://{baseUrl}/conversationAds?ids=List({conversation-urn1},{conversation-urn2})'`
+
+Makes a BATCH_GET request to let a list of conversations that are created. Sample Response JSONCopy ``` &#123; "statuses": &#123; "urn:li:sponsoredConversation:704255": 200, "urn:li:sponsoredConversation:703695": 200 &#125;, "results": &#123; "urn:li:sponsoredConversation:704255": &#123; "id": "urn:li:sponsoredConversation:704255", "parentAccount": "urn:li:sponsoredAccount:520866471" &#125;, "urn:li:sponsoredConversation:703695": &#123; "id": "urn:li:sponsoredConversation:703695", "parentAccount": "urn:li:sponsoredAccount:520866471", &#125; &#125;, "errors": &#123;&#125; &#125; ```
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredConversationsUpdateASponsoredConversationPostHttpsBaseUrlConversationAdsConver
+
+`POST` `/https://{baseUrl}/conversationAds/{conversationUrn}`
+
+In the following example, the `firstMessageContent` field is changed to point to the first message of the conversation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsBatchCreateSponsoredMessageContentPostHttpsBaseUrlConversationA
+
+`POST` `/https://{baseUrl}/conversationAds/{conversationAdsId}/sponsoredMessageContents`
+
+Creates Sponsored Message Content in Batches.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationAdsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsBatchDeleteSponsoredMessageContentDeleteHttpsBaseUrlConversatio
+
+`DELETE` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents?ids=List({message-urn1},{message-urn2})'`
+
+Deletes Sponsored Message Content in Batches.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsBatchGetSponsoredMessageContentGetHttpsBaseUrlConversationAdsCo
+
+`GET` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents?ids=List({message-urn1},{message-urn2})`
+
+Retrieves Sponsored Message Content in Batches.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsBatchUpdateSponsoredMessageContentPostHttpsBaseUrlConversationA
+
+`POST` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents?ids=List({message-urn1},{message-urn2})`
+
+Updates Sponsored Message Content in Batches.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsCreateSponsoredMessageContentPostHttpsBaseUrlConversationAdsCon
+
+`POST` `/https://{baseUrl}/conversationAds/{conversationAdsId}/sponsoredMessageContents`
+
+A successful response returns a `201 Created` HTTP status code and the ID in the `x-linkedin-id response` header, e.g. `"urn:li:sponsoredMessageContent:(urn:li:sponsoredConversation:186604,14277)"`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationAdsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsGetAllSponsoredMessageContentGetHttpsBaseUrlConversationAdsConv
+
+`GET` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents`
+
+Retrieves just all the message contents from all the conversations in a conversation Ad.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsGetSponsoredMessageContentGetHttpsBaseUrlConversationAdsConvers
+
+`GET` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents/{messageUrn}`
+
+Retrieves just a single message content from all the conversations in a conversation Ad.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+| `messageUrn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesConversationAdSponsoredMessageContentsUpdateSponsoredMessageContentPostHttpsBaseUrlConversationAdsCon
+
+`POST` `/https://{baseUrl}/conversationAds/{conversationUrn}/sponsoredMessageContents/{messageUrn}`
+
+Updates the message contents from all the conversations in a conversation Ad.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversationUrn` | `path` | `string` | Yes | No | — |
+| `messageUrn` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesCreateAnOrganicCreativePostHttpsBaseUrlCreatives
+
+`POST` `/https://{baseUrl}/creatives`
+
+You can sponsor an existing organic post that has been serving your company page followers and gone viral.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesCreateAnSponsoredCreativePostHttpsBaseUrlCreativesActionCreateInline
+
+`POST` `/https://{baseUrl}/creatives?action=createInline`
+
+This API creates a sponsored content by adding the action as createInline.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesDeleteACreativeDeleteHttpsBaseUrlCreativesCreative20Id
+
+`DELETE` `/https://{baseUrl}/creatives/{creative%20ID}`
+
+A Creative can be deleted. Use DELETE method to delete a creative that meets one of the following conditions. To start the process of deleting other creative, update the status to `PENDING_DELETION`. \* It is in a DRAFT state. \* It is linked to a Campaign in a DRAFT state. \* It is a video ad creative and `processingState` is `PROCESSING_FAILED`. The header X-RestLi-Method must be included in the request and set to `DELETE`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesGetASponsoredCreativeGetHttpsBaseUrlCreativesUrnCreatives
+
+`GET` `/https://{baseUrl}/creatives/{urn_creatives}`
+
+Get a Sponsored Creative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `urn_creatives` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesSearchForCreativeGetHttpsBaseUrlCreativesAccountsListId1Id2Id3CampaignsListId1Id2Id3ContentR
+
+`GET` `/https://{baseUrl}/creatives?accounts=List(id1,id2,id3)&campaigns=List(id1,id2,id3)&contentReferences=List(id1,id2,id3)&creatives=List(id1,id2,id3)&intendedStatuses=List(ARCHIVED,CANCELED,ARCHIVED)&isTestAccount=true&isTotalIncluded=false&leadgenCreativeCallToActionDestinations=List()&q=criteria&sortOrder=ASCENDING`
+
+You can search for creative content in order to get a collection of creatives matching your search parameters. The Creative API currently supports search by `creative id`, `campaign`, `account`, `content reference`, `intendedStatus`, `leadgenCreativeCallToActionDestinations` and test fields. The API supports finding creatives from multiple accounts. The values within each field are displayed with 'or' (ORed) and values across fields are displayed with 'and' (ANDed).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesCreativesUpdateACreativePostHttpsBaseUrlCreativesCreative20Id
+
+`POST` `/https://{baseUrl}/creatives/{creative%20ID}`
+
+You can change the details of following Creatives fields: \* `intendedStatus`: \* `leadgenCallToAction`: field `adFormUrn` - The ad form that is a target destination for the `callToAction` button. It can only be modified when the creative is in DRAFT status. It is read only once it is set for a creative and once it transitions to any non-draft intended status. \* `leadgenCallToAction`: field label `-Label` for the `callToAction` button This API updates a sponsored creative.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdCreateDocumentContentPostPosts
+
+`POST` `/posts`
+
+Create document content
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdFetchMultipleDocumentContentGetPostsIdsListEncoded20postIdEncoded20postId
+
+`GET` `/posts?ids=List({encoded%20postId},{encoded%20postId})`
+
+Fetch multiple document content
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdGetASingleDocumentGetDocumentsDocumentAssetId
+
+`GET` `//documents/{document_asset_id}`
+
+Get a single document
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_asset_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdGetMultipleDocumentsGetRestImagesIdsListDocumentUrn1DocumentUrn2
+
+`GET` `/rest/images?ids=List({document_urn1},{document_urn2})`
+
+Get multiple documents
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_urn1` | `path` | `string` | Yes | No | — |
+| `document_urn2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdInitializeDocumentUploadPostDocumentsActionInitializeUpload
+
+`POST` `/documents?action=initializeUpload`
+
+Initialize Document Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDocumentAdUploadTheDocumentFileSelectADocumentFileInTheBodyForPostmanToUsePutDocumentUploadurl
+
+`PUT` `/{document_uploadurl}`
+
+Upload the Document file (select a document file in the Body for postman to use)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_uploadurl` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDynamicFollowerAdCreateADynamicFollowerAdPostHttpsBaseUrlCreatives
+
+`POST` `/https://{baseUrl}/creatives`
+
+A successful response returns a `201 Created HTTP` status code and the ID in the `x-linkedin-id` response header. For example, `urn:li:sponsoredCreative:164380864` ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDynamicFollowerAdDeleteADynamicFollowerAdDeleteHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`DELETE` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Updates a dynamic follower ad after passing an urn. A successful response returns a `204 No Content`. ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDynamicFollowerAdGetADynamicFollowerAdGetHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`GET` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Retrieves a dynamic follower ad after passing an urn. A successful response returns a `HTTP 200` status code. ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesDynamicFollowerAdUpdateADynamicFollowerAdPostHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`POST` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Updates a dynamic follower ad after passing an urn. A successful response returns a `204 No Content` HTTP status code. ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdCreateImageContentGetHttpsBaseUrlRestPosts
+
+`GET` `/https://{baseUrl}/rest/posts`
+
+This API creates an image content.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdFetchMultipleImageContentGetHttpsBaseUrlRestPostsIdsListEncoded20postIdEncoded20postId
+
+`GET` `/https://{baseUrl}/rest/posts?ids=List({encoded%20postId},{encoded%20postId})`
+
+This API rerieve content from multiple images.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdGetASingleImageGetHttpsBaseUrlRestImagesImageUrn
+
+`GET` `/https://{baseUrl}/rest/images/{image_urn}`
+
+This API rerieve a single image.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_urn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdGetImageContentGetHttpsBaseUrlRestPostsPostId
+
+`GET` `/https://{baseUrl}/rest/posts/{postId}`
+
+This API rerieve the content associated with a single image.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdGetMultipleImagesGetRestImagesIdsListImageUrn1ImageUrn2
+
+`GET` `/rest/images?ids=List({image_urn1},{image_urn2})`
+
+This API rerieve multiple images.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_urn1` | `path` | `string` | Yes | No | — |
+| `image_urn2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdInitializeImageUploadPostImagesActionInitializeUpload
+
+`POST` `/images?action=initializeUpload`
+
+Use the `initializeUpload` action to register the upload. When you initialize, you declare the upcoming upload. Use the upload URL to upload the image.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesImageAdUploadAnImagePutUploadUrl
+
+`PUT` `/{upload_url}`
+
+This is a generic Upload URL call without init.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_url` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesInMailContentBatchGetInMailContentGetHttpsBaseUrlRestInMailContentsIdsEncoded20adInMailContentIdIdsEn
+
+`GET` `/https://{baseUrl}/rest/inMailContents?ids={encoded%20adInMailContentId}&ids={encoded%20adInMailContentId}`
+
+API to retrieve an inMail Content in Batches.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesInMailContentCreateInMailContentPostHttpsBaseUrlRestInMailContents
+
+`POST` `/https://{baseUrl}/rest/inMailContents/`
+
+API to create an inMail Content.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesInMailContentGetInMailContentGetHttpsBaseUrlRestInMailContentsAdInMailContentId
+
+`GET` `/https://{baseUrl}/rest/inMailContents/{adInMailContentId}`
+
+API to retrieve an inMail Content.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adInMailContentId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesInMailContentSendTestInMailPostHttpsBaseUrlRestInMailContentsActionSendTestInMail
+
+`POST` `/https://{baseUrl}/rest/inMailContents?action=sendTestInMail`
+
+API to send/share an inMail Content.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesInMailContentUpdateInMailContentPostHttpsBaseUrlRestInMailContentsAdInMailContentId
+
+`POST` `/https://{baseUrl}/rest/inMailContents/{adInMailContentId}`
+
+API to update an inMail Content.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adInMailContentId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsCreateOrganicPostPostHttpsBaseUrlPosts
+
+`POST` `/https://{baseUrl}/posts`
+
+Simplest form of post creation where an organic post is made ith a sample text at a page.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsDeleteAPostDeleteHttpsBaseUrlPostsEncoded20ugcPostUrnShareUrn
+
+`DELETE` `/https://{baseUrl}/posts/{encoded%20ugcPostUrn\|shareUrn}`
+
+Post deletions are idempotent. Deletion requests for a previously deleted UGC Post will return a `204` code - No Content. ####
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsFindPostByAccountGetHttpsBaseUrlPostsDscAdAccountEncode20dscAdAccountQDscAdAccount
+
+`GET` `/https://{baseUrl}/posts?dscAdAccount={encode%20dscAdAccount}&q=dscAdAccount`
+
+You can retrieve all posts with the specific Sponsored Account and the content types with the following parameters:
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsGetMultiplePostByUrnGetHttpsBaseUrlPostsIdsListEncoded20ugcPostUrnEncoded20ugcPostUrn
+
+`GET` `/https://{baseUrl}/posts?ids=List({encoded%20ugcPostUrn},{encoded%20ugcPostUrn})`
+
+Multiple posts can be retrieved and viewed in a single API call by passing in multiple UGC Posts or share URNs into the `ids` parameter. The UGC Post URNs should be passed in `List` format and should be encoded as shown in the examples below. Note that the `,` in the `List` separating each URN does not need to be encoded.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsGetPostsByUrnGetHttpsBaseUrlPostsEncoded20ugcPostUrnShareUrn
+
+`GET` `/https://{baseUrl}/posts/{encoded%20ugcPostUrn\|shareUrn}`
+
+Creating posts with image requires uploading an image asset to obtain a Image URN (urn:li:image:&#123;id&#125;) for creating the post. See the [Images API](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/images-api?view=li-lms-2022-08) for instructions on how to do this.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesPostsUpdateAPostPostHttpsBaseUrlPostsShared20IdUgcPosts20Id
+
+`POST` `/https://{baseUrl}/posts/{shared%20ID}/{ugcPosts%20ID}`
+
+The following `posts` field are available to update. Refer to [Schema](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/posts-api?view=li-lms-2022-08&tabs=http#post-schema) for complete field details. | Field | Description | | --- | --- | | commentary | String | | contentCallToActionLabel | contentCallToActionLabel text | | contentLandingPage | URL of the landing page | | reshareContext | | | lifecycleState | | | adContext | \* dscName: Update the name of the sponsored content&lt;br&gt;\* dscStatus: Update the status of the sponsored content |
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesSpotlightAdCreateADynamicSpotlightAdPostHttpsBaseUrlCreatives
+
+`POST` `/https://{baseUrl}/creatives`
+
+Creates a Dynamic Spotlight Ad Creative. A successful response returns a `201 Created HTTP` status code and the ID in the `x-linkedin-id` response header. For example, `urn:li:sponsoredCreative:123456789` ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesSpotlightAdDeleteADynamicSpotlightAdDeleteHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`DELETE` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Delete a Dynamic Spotlight Ad Creative \* [http](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/version/spotlight-ads?view=li-lms-2022-08&tabs=http#tabpanel_4_http) \* [curl](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/version/spotlight-ads?view=li-lms-2022-08&tabs=http#tabpanel_4_curl) HTTPCopy ``` DELETE https://api.linkedin.com/rest/creatives/&#123;sponsoredCreative-urn&#125; ``` A successful response returns a `204 No Content`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesSpotlightAdGetADynamicSpotlightAdGetHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`GET` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Retrives a Dynamic Spotlight Ad. Sample Response JSONCopy ``` &#123; "servingHoldReasons": [ "UNDER_REVIEW", "CAMPAIGN_STOPPED" ], "lastModifiedAt": 1648512200000, "lastModifiedBy": "urn:li:member:123", "content": &#123; "spotlight": &#123; "organizationName": "LinkedIn Demo", "showMemberProfilePhoto": true, "landingPage": "http://linkedin.com", "description": "Check out this demo", "logo": "urn:li:image:abc", "headline": "Spotlight Ad Demo", "callToAction": "Join Us Now" &#125; &#125;, "createdAt": 1648512200000, "createdBy": "urn:li:member:123", "isTest": false, "review": &#123; "status": "PENDING" &#125;, "isServing": false, "campaign": "urn:li:sponsoredCampaign:123", "id": "urn:li:sponsoredCreative:123456789", "intendedStatus": "ACTIVE", "account": "urn:li:sponsoredAccount:123" &#125; ``` ##
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesSpotlightAdUpdateADynamicSpotlightAdPostHttpsBaseUrlCreativesSponsoredCreativeUrn
+
+`POST` `/https://{baseUrl}/creatives/{sponsoredCreative-urn}`
+
+Update a Dynamic Spotlight Ad Creative \* [http](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/version/spotlight-ads?view=li-lms-2022-08&tabs=http#tabpanel_3_http) \* [curl](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/version/spotlight-ads?view=li-lms-2022-08&tabs=http#tabpanel_3_curl) HTTPCopy ``` POST https://api.linkedin.com/rest/creatives/&#123;sponsoredCreative-urn&#125; ``` JSONCopy ``` &#123; "patch": &#123; "$set": &#123; "content": &#123; "spotlight": &#123; "callToAction": "New Action", "description": "New Description", "headline": "New Headline", "landingPage": "http://example.com", "organizationName": "New Organization Name", "logo": "urn:li:image:def", "showMemberProfilePhoto": false &#125; &#125; &#125; &#125; &#125; ``` A successful response returns a `204 No Content`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesVideoAdGetASingleVideoGetHttpsBaseUrlImagesImageUrn
+
+`GET` `/https://{baseUrl}/images/{image_urn}`
+
+This API retrieves a single video.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_urn` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesVideoAdGetMultipleVideosGetHttpsBaseUrlImagesIdsListImageUrn1ImageUrn2
+
+`GET` `/https://{baseUrl}/images?ids=List({image_urn1},{image_urn2})`
+
+This API retrieves multiple videos.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_urn1` | `path` | `string` | Yes | No | — |
+| `image_urn2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesVideoAdInitializeVideoUploadPostHttpsBaseUrlVideosActionInitializeUpload
+
+`POST` `/https://{baseUrl}/videos?action=initializeUpload`
+
+Use the `initializeUpload` action to register the upload. When you initialize, you declare the upcoming upload. Use the upload URL from the `uploadInstructions` to upload the video.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## content-apis.contentApisUseCasesVideoAdUploadAVideoPutUploadUrl
+
+`PUT` `/{upload_url}`
+
+This is a generic API to upload the data.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.content.apis` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.content.apis` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_url` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -75,7 +75,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `total_targeted_countries` | `total_targeted_countries` | `integer` | No | No | — |
-| `countries` | `countries` | `Array<unknown>` | No | No | — |
+| `countries` | `countries` | `Array<CountryConstraint>` | No | No | — |
 
 ## CpcBidSimulationPoint
 
@@ -99,7 +99,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<CpcBidSimulationPoint>` | No | No | — |
 
 ## CpvBidSimulationPoint
 
@@ -118,7 +118,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<CpvBidSimulationPoint>` | No | No | — |
 
 ## CreateAccountLinkRequest
 
@@ -272,8 +272,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `channel` | `channel` | `unknown` | No | No | — |
-| `locale` | `locale` | `Array<unknown>` | No | No | — |
+| `channel` | `channel` | `CriterionCategoryChannelAvailability` | No | No | — |
+| `locale` | `locale` | `Array<CriterionCategoryLocaleAvailability>` | No | No | — |
 
 ## CriterionCategoryChannelAvailability
 
@@ -422,7 +422,7 @@ No fields are declared.
 | `name` | `name` | `string` | No | No | — |
 | `type` | `type` | `CustomAudienceType` | No | No | — |
 | `description` | `description` | `string` | No | No | — |
-| `members` | `members` | `Array<unknown>` | No | No | — |
+| `members` | `members` | `Array<CustomAudienceMember>` | No | No | — |
 
 ## CustomAudienceError
 
@@ -474,7 +474,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomAudience` | No | No | — |
 | `update` | `update` | `CustomAudience` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -549,7 +549,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomConversionGoal` | No | No | — |
 | `update` | `update` | `CustomConversionGoal` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -583,9 +583,9 @@ No fields are declared.
 | `has_partners_badge` | `has_partners_badge` | `boolean` | No | No | — |
 | `manager` | `manager` | `boolean` | No | No | — |
 | `test_account` | `test_account` | `boolean` | No | No | — |
-| `call_reporting_setting` | `call_reporting_setting` | `unknown` | No | No | — |
-| `conversion_tracking_setting` | `conversion_tracking_setting` | `unknown` | No | No | — |
-| `remarketing_setting` | `remarketing_setting` | `unknown` | No | No | — |
+| `call_reporting_setting` | `call_reporting_setting` | `CallReportingSetting` | No | No | — |
+| `conversion_tracking_setting` | `conversion_tracking_setting` | `ConversionTrackingSetting` | No | No | — |
+| `remarketing_setting` | `remarketing_setting` | `RemarketingSetting` | No | No | — |
 | `pay_per_conversion_eligibility_failure_reasons` | `pay_per_conversion_eligibility_failure_reasons` | `Array<CustomerPayPerConversionEligibilityFailureReason>` | No | No | — |
 | `optimization_score` | `optimization_score` | `number` | No | No | — |
 | `optimization_score_weight` | `optimization_score_weight` | `number` | No | No | — |
@@ -594,10 +594,10 @@ No fields are declared.
 | `image_asset_auto_migration_done` | `image_asset_auto_migration_done` | `boolean` | No | No | — |
 | `location_asset_auto_migration_done_date_time` | `location_asset_auto_migration_done_date_time` | `string` | No | No | — |
 | `image_asset_auto_migration_done_date_time` | `image_asset_auto_migration_done_date_time` | `string` | No | No | — |
-| `customer_agreement_setting` | `customer_agreement_setting` | `unknown` | No | No | — |
-| `local_services_settings` | `local_services_settings` | `unknown` | No | No | — |
+| `customer_agreement_setting` | `customer_agreement_setting` | `CustomerAgreementSetting` | No | No | — |
+| `local_services_settings` | `local_services_settings` | `LocalServicesSettings` | No | No | — |
 | `video_brand_safety_suitability` | `video_brand_safety_suitability` | `BrandSafetySuitability` | No | No | — |
-| `video_customer` | `video_customer` | `unknown` | No | No | — |
+| `video_customer` | `video_customer` | `VideoCustomer` | No | No | — |
 | `contains_eu_political_advertising` | `contains_eu_political_advertising` | `EuPoliticalAdvertisingStatus` | No | No | — |
 
 ## CustomerAgreementSetting
@@ -629,7 +629,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomerAsset` | No | No | — |
 | `update` | `update` | `CustomerAsset` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -703,7 +703,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomerClientLink` | No | No | — |
 | `update` | `update` | `CustomerClientLink` | No | No | — |
 
@@ -724,7 +724,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `CustomerConversionGoal` | No | No | — |
 
 ## CustomerCustomizer

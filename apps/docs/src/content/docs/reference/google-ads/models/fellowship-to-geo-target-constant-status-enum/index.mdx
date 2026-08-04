@@ -38,7 +38,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `incentive_offer` | `incentive_offer` | `unknown` | No | No | — |
+| `incentive_offer` | `incentive_offer` | `IncentiveOffer` | No | No | — |
 
 ## FieldError
 
@@ -124,7 +124,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `fine_grained_conversion_value` | `fine_grained_conversion_value` | `integer` | No | No | — |
-| `conversion_value_mapping` | `conversion_value_mapping` | `unknown` | No | No | — |
+| `conversion_value_mapping` | `conversion_value_mapping` | `ConversionValueMapping` | No | No | — |
 
 ## FirebaseSettings
 
@@ -144,7 +144,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `goal` | `goal` | `FixedCpmGoal` | No | No | — |
-| `target_frequency_info` | `target_frequency_info` | `unknown` | No | No | — |
+| `target_frequency_info` | `target_frequency_info` | `FixedCpmTargetFrequencyGoalInfo` | No | No | — |
 
 ## FixedCpmGoal
 
@@ -185,7 +185,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `rule` | `rule` | `unknown` | No | No | — |
+| `rule` | `rule` | `UserListRuleInfo` | No | No | — |
 | `lookback_window_days` | `lookback_window_days` | `string` | No | No | — |
 
 ## FlexibleRuleUserListInfo
@@ -195,8 +195,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `inclusive_rule_operator` | `inclusive_rule_operator` | `UserListFlexibleRuleOperator` | No | No | — |
-| `inclusive_operands` | `inclusive_operands` | `Array<unknown>` | No | No | — |
-| `exclusive_operands` | `exclusive_operands` | `Array<unknown>` | No | No | — |
+| `inclusive_operands` | `inclusive_operands` | `Array<FlexibleRuleOperandInfo>` | No | No | — |
+| `exclusive_operands` | `exclusive_operands` | `Array<FlexibleRuleOperandInfo>` | No | No | — |
 
 ## Forecast
 
@@ -209,7 +209,7 @@ No fields are declared.
 | `on_target_impressions` | `on_target_impressions` | `string` | No | No | — |
 | `total_impressions` | `total_impressions` | `string` | No | No | — |
 | `viewable_impressions` | `viewable_impressions` | `string` | No | No | — |
-| `effective_frequency_breakdowns` | `effective_frequency_breakdowns` | `Array<unknown>` | No | No | — |
+| `effective_frequency_breakdowns` | `effective_frequency_breakdowns` | `Array<EffectiveFrequencyBreakdown>` | No | No | — |
 | `on_target_coview_reach` | `on_target_coview_reach` | `string` | No | No | — |
 | `total_coview_reach` | `total_coview_reach` | `string` | No | No | — |
 | `on_target_coview_impressions` | `on_target_coview_impressions` | `string` | No | No | — |
@@ -242,7 +242,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `recommended_target_cpa_micros` | `recommended_target_cpa_micros` | `string` | No | No | — |
-| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `CampaignBudget` | No | No | — |
 
 ## ForecastingSetTargetRoasParameters
 
@@ -260,7 +260,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `recommended_target_roas` | `recommended_target_roas` | `number` | No | No | — |
-| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `CampaignBudget` | No | No | — |
 
 ## ForecastMetricOptions
 
@@ -293,7 +293,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `key` | `key` | `unknown` | No | No | — |
+| `key` | `key` | `FrequencyCapKey` | No | No | — |
 | `cap` | `cap` | `integer` | No | No | — |
 
 ## FrequencyCapEventType
@@ -429,8 +429,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_group_keyword_suggestions` | `ad_group_keyword_suggestions` | `Array<unknown>` | No | No | — |
-| `unusable_ad_groups` | `unusable_ad_groups` | `Array<unknown>` | No | No | — |
+| `ad_group_keyword_suggestions` | `ad_group_keyword_suggestions` | `Array<AdGroupKeywordSuggestion>` | No | No | — |
+| `unusable_ad_groups` | `unusable_ad_groups` | `Array<UnusableAdGroup>` | No | No | — |
 
 ## GenerateAudienceCompositionInsightsRequest
 
@@ -439,8 +439,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `audience` | `audience` | `unknown` | No | No | — |
-| `baseline_audience` | `baseline_audience` | `unknown` | No | No | — |
+| `audience` | `audience` | `InsightsAudience` | No | No | — |
+| `baseline_audience` | `baseline_audience` | `InsightsAudience` | No | No | — |
 | `data_month` | `data_month` | `string` | No | No | — |
 | `dimensions` | `dimensions` | `Array<AudienceInsightsDimension>` | No | No | — |
 | `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
@@ -452,7 +452,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `sections` | `sections` | `Array<unknown>` | No | No | — |
+| `sections` | `sections` | `Array<AudienceCompositionSection>` | No | No | — |
 
 ## GenerateAudienceDefinitionRequest
 
@@ -461,7 +461,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `audience_description` | `audience_description` | `unknown` | No | No | — |
+| `audience_description` | `audience_description` | `InsightsAudienceDescription` | No | No | — |
 | `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
 | `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
 
@@ -494,7 +494,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `primary_attribute_metadata` | `primary_attribute_metadata` | `AudienceInsightsAttributeMetadata` | No | No | — |
-| `dimension_results` | `dimension_results` | `Array<unknown>` | No | No | — |
+| `dimension_results` | `dimension_results` | `Array<DimensionOverlapResult>` | No | No | — |
 
 ## GenerateBenchmarksMetricsRequest
 
@@ -505,9 +505,9 @@ No fields are declared.
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `date_range` | `date_range` | `DateRange` | No | No | — |
 | `location` | `location` | `LocationInfo` | No | No | — |
-| `benchmarks_source` | `benchmarks_source` | `unknown` | No | No | — |
-| `product_filter` | `product_filter` | `unknown` | No | No | — |
-| `breakdown_definition` | `breakdown_definition` | `unknown` | No | No | — |
+| `benchmarks_source` | `benchmarks_source` | `BenchmarksSource` | No | No | — |
+| `product_filter` | `product_filter` | `ProductFilter` | No | No | — |
+| `breakdown_definition` | `breakdown_definition` | `BreakdownDefinition` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
 | `customer_benchmarks_group` | `customer_benchmarks_group` | `string` | No | No | — |
 | `application_info` | `application_info` | `AdditionalApplicationInfo` | No | No | — |
@@ -518,9 +518,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `customer_metrics` | `customer_metrics` | `unknown` | No | No | — |
-| `average_benchmarks_metrics` | `average_benchmarks_metrics` | `unknown` | No | No | — |
-| `breakdown_metrics` | `breakdown_metrics` | `Array<unknown>` | No | No | — |
+| `customer_metrics` | `customer_metrics` | `CustomerMetrics` | No | No | — |
+| `average_benchmarks_metrics` | `average_benchmarks_metrics` | `Metrics` | No | No | — |
+| `breakdown_metrics` | `breakdown_metrics` | `Array<BreakdownMetrics>` | No | No | — |
 
 ## GenerateConversionRatesRequest
 
@@ -538,7 +538,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `conversion_rate_suggestions` | `conversion_rate_suggestions` | `Array<unknown>` | No | No | — |
+| `conversion_rate_suggestions` | `conversion_rate_suggestions` | `Array<ConversionRateSuggestion>` | No | No | — |
 
 ## GenerateCreatorInsightsRequest
 
@@ -552,9 +552,9 @@ No fields are declared.
 | `country_locations` | `country_locations` | `Array<LocationInfo>` | No | No | — |
 | `sub_country_locations` | `sub_country_locations` | `Array<LocationInfo>` | No | No | — |
 | `supplemental_data` | `supplemental_data` | `Array<ContentCreatorInsightsSupplementalData>` | No | No | — |
-| `search_attributes` | `search_attributes` | `unknown` | No | No | — |
-| `search_channels` | `search_channels` | `unknown` | No | No | — |
-| `search_topics` | `search_topics` | `unknown` | No | No | — |
+| `search_attributes` | `search_attributes` | `SearchAttributes` | No | No | — |
+| `search_channels` | `search_channels` | `YouTubeChannels` | No | No | — |
+| `search_topics` | `search_topics` | `SearchTopics` | No | No | — |
 
 ## GenerateCreatorInsightsResponse
 
@@ -562,8 +562,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `creator_insights` | `creator_insights` | `Array<unknown>` | No | No | — |
-| `local_creator_insights` | `local_creator_insights` | `Array<unknown>` | No | No | — |
+| `creator_insights` | `creator_insights` | `Array<YouTubeCreatorInsights>` | No | No | — |
+| `local_creator_insights` | `local_creator_insights` | `Array<YouTubeCreatorInsights>` | No | No | — |
 
 ## GeneratedImage
 
@@ -592,9 +592,9 @@ No fields are declared.
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `asset_field_types` | `asset_field_types` | `Array<AssetFieldType>` | No | No | — |
 | `advertising_channel_type` | `advertising_channel_type` | `AdvertisingChannelType` | No | No | — |
-| `final_url_generation` | `final_url_generation` | `unknown` | No | No | — |
-| `freeform_generation` | `freeform_generation` | `unknown` | No | No | — |
-| `product_recontext_generation` | `product_recontext_generation` | `unknown` | No | No | — |
+| `final_url_generation` | `final_url_generation` | `FinalUrlImageGenerationInput` | No | No | — |
+| `freeform_generation` | `freeform_generation` | `FreeformImageGenerationInput` | No | No | — |
+| `product_recontext_generation` | `product_recontext_generation` | `ProductRecontextGenerationImageInput` | No | No | — |
 
 ## GenerateImagesResponse
 
@@ -602,7 +602,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `generated_images` | `generated_images` | `Array<unknown>` | No | No | — |
+| `generated_images` | `generated_images` | `Array<GeneratedImage>` | No | No | — |
 
 ## GenerateInsightsFinderReportRequest
 
@@ -611,8 +611,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `baseline_audience` | `baseline_audience` | `unknown` | No | No | — |
-| `specific_audience` | `specific_audience` | `unknown` | No | No | — |
+| `baseline_audience` | `baseline_audience` | `InsightsAudience` | No | No | — |
+| `specific_audience` | `specific_audience` | `InsightsAudience` | No | No | — |
 | `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
 | `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
 
@@ -633,7 +633,7 @@ No fields are declared.
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
 | `forecast_period` | `forecast_period` | `DateRange` | No | No | — |
-| `campaign` | `campaign` | `unknown` | No | No | — |
+| `campaign` | `campaign` | `CampaignToForecast` | No | No | — |
 
 ## GenerateKeywordForecastMetricsResponse
 
@@ -641,7 +641,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `campaign_forecast_metrics` | `campaign_forecast_metrics` | `unknown` | No | No | — |
+| `campaign_forecast_metrics` | `campaign_forecast_metrics` | `KeywordForecastMetrics` | No | No | — |
 
 ## GenerateKeywordHistoricalMetricsRequest
 
@@ -664,7 +664,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<GenerateKeywordHistoricalMetricsResult>` | No | No | — |
 | `aggregate_metric_results` | `aggregate_metric_results` | `KeywordPlanAggregateMetricResults` | No | No | — |
 
 ## GenerateKeywordHistoricalMetricsResult
@@ -683,7 +683,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<GenerateKeywordIdeaResult>` | No | No | — |
 | `aggregate_metric_results` | `aggregate_metric_results` | `KeywordPlanAggregateMetricResults` | No | No | — |
 | `next_page_token` | `next_page_token` | `string` | No | No | — |
 | `total_size` | `total_size` | `string` | No | No | — |
@@ -715,10 +715,10 @@ No fields are declared.
 | `keyword_annotation` | `keyword_annotation` | `Array<KeywordPlanKeywordAnnotation>` | No | No | — |
 | `aggregate_metrics` | `aggregate_metrics` | `KeywordPlanAggregateMetrics` | No | No | — |
 | `historical_metrics_options` | `historical_metrics_options` | `HistoricalMetricsOptions` | No | No | — |
-| `keyword_and_url_seed` | `keyword_and_url_seed` | `unknown` | No | No | — |
-| `keyword_seed` | `keyword_seed` | `unknown` | No | No | — |
-| `url_seed` | `url_seed` | `unknown` | No | No | — |
-| `site_seed` | `site_seed` | `unknown` | No | No | — |
+| `keyword_and_url_seed` | `keyword_and_url_seed` | `KeywordAndUrlSeed` | No | No | — |
+| `keyword_seed` | `keyword_seed` | `KeywordSeed` | No | No | — |
+| `url_seed` | `url_seed` | `UrlSeed` | No | No | — |
+| `site_seed` | `site_seed` | `SiteSeed` | No | No | — |
 
 ## GenerateReachForecastRequest
 
@@ -728,13 +728,13 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
-| `campaign_duration` | `campaign_duration` | `unknown` | No | No | — |
-| `cookie_frequency_cap_setting` | `cookie_frequency_cap_setting` | `unknown` | No | No | — |
+| `campaign_duration` | `campaign_duration` | `CampaignDuration` | No | No | — |
+| `cookie_frequency_cap_setting` | `cookie_frequency_cap_setting` | `FrequencyCap` | No | No | — |
 | `min_effective_frequency` | `min_effective_frequency` | `integer` | No | No | — |
-| `effective_frequency_limit` | `effective_frequency_limit` | `unknown` | No | No | — |
-| `targeting` | `targeting` | `unknown` | No | No | — |
-| `planned_products` | `planned_products` | `Array<unknown>` | No | No | — |
-| `forecast_metric_options` | `forecast_metric_options` | `unknown` | No | No | — |
+| `effective_frequency_limit` | `effective_frequency_limit` | `EffectiveFrequencyLimit` | No | No | — |
+| `targeting` | `targeting` | `Targeting` | No | No | — |
+| `planned_products` | `planned_products` | `Array<PlannedProduct>` | No | No | — |
+| `forecast_metric_options` | `forecast_metric_options` | `ForecastMetricOptions` | No | No | — |
 | `customer_reach_group` | `customer_reach_group` | `string` | No | No | — |
 | `reach_application_info` | `reach_application_info` | `AdditionalApplicationInfo` | No | No | — |
 
@@ -744,8 +744,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `on_target_audience_metrics` | `on_target_audience_metrics` | `unknown` | No | No | — |
-| `reach_curve` | `reach_curve` | `unknown` | No | No | — |
+| `on_target_audience_metrics` | `on_target_audience_metrics` | `OnTargetAudienceMetrics` | No | No | — |
+| `reach_curve` | `reach_curve` | `ReachCurve` | No | No | — |
 
 ## GenerateRecommendationsRequest
 
@@ -758,17 +758,17 @@ No fields are declared.
 | `advertising_channel_type` | `advertising_channel_type` | `AdvertisingChannelType` | No | No | — |
 | `campaign_sitelink_count` | `campaign_sitelink_count` | `integer` | No | No | — |
 | `conversion_tracking_status` | `conversion_tracking_status` | `ConversionTrackingStatus` | No | No | — |
-| `bidding_info` | `bidding_info` | `unknown` | No | No | — |
-| `ad_group_info` | `ad_group_info` | `Array<unknown>` | No | No | — |
-| `seed_info` | `seed_info` | `unknown` | No | No | — |
-| `budget_info` | `budget_info` | `unknown` | No | No | — |
+| `bidding_info` | `bidding_info` | `BiddingInfo` | No | No | — |
+| `ad_group_info` | `ad_group_info` | `Array<AdGroupInfo>` | No | No | — |
+| `seed_info` | `seed_info` | `SeedInfo` | No | No | — |
+| `budget_info` | `budget_info` | `BudgetInfo` | No | No | — |
 | `campaign_image_asset_count` | `campaign_image_asset_count` | `integer` | No | No | — |
 | `campaign_call_asset_count` | `campaign_call_asset_count` | `integer` | No | No | — |
 | `country_codes` | `country_codes` | `Array<string>` | No | No | — |
 | `language_codes` | `language_codes` | `Array<string>` | No | No | — |
 | `positive_locations_ids` | `positive_locations_ids` | `Array<string>` | No | No | — |
 | `negative_locations_ids` | `negative_locations_ids` | `Array<string>` | No | No | — |
-| `asset_group_info` | `asset_group_info` | `Array<unknown>` | No | No | — |
+| `asset_group_info` | `asset_group_info` | `Array<AssetGroupInfo>` | No | No | — |
 | `target_partner_search_network` | `target_partner_search_network` | `boolean` | No | No | — |
 | `target_content_network` | `target_content_network` | `boolean` | No | No | — |
 | `merchant_center_account_id` | `merchant_center_account_id` | `string` | No | No | — |
@@ -798,7 +798,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `shareable_previews` | `shareable_previews` | `Array<unknown>` | No | No | — |
+| `shareable_previews` | `shareable_previews` | `Array<ShareablePreview>` | No | No | — |
 
 ## GenerateShareablePreviewsRequest
 
@@ -823,7 +823,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `previews` | `previews` | `Array<unknown>` | No | No | — |
+| `previews` | `previews` | `Array<ShareablePreviewResult>` | No | No | — |
 
 ## GenerateSuggestedTargetingInsightsRequest
 
@@ -834,8 +834,8 @@ No fields are declared.
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
 | `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
-| `audience_definition` | `audience_definition` | `unknown` | No | No | — |
-| `audience_description` | `audience_description` | `unknown` | No | No | — |
+| `audience_definition` | `audience_definition` | `InsightsAudienceDefinition` | No | No | — |
+| `audience_description` | `audience_description` | `InsightsAudienceDescription` | No | No | — |
 
 ## GenerateSuggestedTargetingInsightsResponse
 
@@ -843,7 +843,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `suggestions` | `suggestions` | `Array<unknown>` | No | No | — |
+| `suggestions` | `suggestions` | `Array<TargetingSuggestionMetrics>` | No | No | — |
 
 ## GenerateTargetingSuggestionMetricsRequest
 
@@ -852,7 +852,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `audiences` | `audiences` | `Array<unknown>` | No | No | — |
+| `audiences` | `audiences` | `Array<InsightsAudience>` | No | No | — |
 | `customer_insights_group` | `customer_insights_group` | `string` | No | No | — |
 | `insights_application_info` | `insights_application_info` | `AdditionalApplicationInfo` | No | No | — |
 
@@ -862,7 +862,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `suggestions` | `suggestions` | `Array<unknown>` | No | No | — |
+| `suggestions` | `suggestions` | `Array<TargetingSuggestionMetrics>` | No | No | — |
 
 ## GenerateTextRequest
 
@@ -875,7 +875,7 @@ No fields are declared.
 | `final_url` | `final_url` | `string` | No | No | — |
 | `freeform_prompt` | `freeform_prompt` | `string` | No | No | — |
 | `keywords` | `keywords` | `Array<string>` | No | No | — |
-| `existing_generation_context` | `existing_generation_context` | `unknown` | No | No | — |
+| `existing_generation_context` | `existing_generation_context` | `AssetGenerationExistingContext` | No | No | — |
 | `advertising_channel_type` | `advertising_channel_type` | `AdvertisingChannelType` | No | No | — |
 
 ## GenerateTextResponse
@@ -884,7 +884,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `generated_text` | `generated_text` | `Array<unknown>` | No | No | — |
+| `generated_text` | `generated_text` | `Array<GeneratedText>` | No | No | — |
 
 ## GenerateTrendingInsightsRequest
 
@@ -898,8 +898,8 @@ No fields are declared.
 | `country_location` | `country_location` | `LocationInfo` | No | No | — |
 | `sub_country_locations` | `sub_country_locations` | `Array<LocationInfo>` | No | No | — |
 | `supplemental_data` | `supplemental_data` | `Array<ContentCreatorInsightsSupplementalData>` | No | No | — |
-| `search_audience` | `search_audience` | `unknown` | No | No | — |
-| `search_topics` | `search_topics` | `unknown` | No | No | — |
+| `search_audience` | `search_audience` | `SearchAudience` | No | No | — |
+| `search_topics` | `search_topics` | `SearchTopics` | No | No | — |
 
 ## GenerateTrendingInsightsResponse
 
@@ -907,7 +907,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `trend_insights` | `trend_insights` | `Array<unknown>` | No | No | — |
+| `trend_insights` | `trend_insights` | `Array<TrendInsight>` | No | No | — |
 
 ## GeographicView
 

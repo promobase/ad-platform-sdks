@@ -227,6 +227,9 @@ async function main() {
       shortNames,
       packagePrefix: PACKAGE_PREFIX,
       version: API_VERSION,
+      sourceRevision:
+        Bun.spawnSync(["git", "-C", GOOGLEAPIS, "rev-parse", "HEAD"]).stdout.toString().trim() ||
+        undefined,
     }),
   });
 }

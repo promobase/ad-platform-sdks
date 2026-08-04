@@ -1,0 +1,46 @@
+---
+title: "YouTube Video Abuse Report Reasons endpoints"
+description: "1 generated YouTube endpoint contract for Video Abuse Report Reasons."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 128
+  label: "Video Abuse Report Reasons"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.videoAbuseReportReasons.list
+
+`GET` `youtube/v3/videoAbuseReportReasons`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoAbuseReportReasons.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `VideoAbuseReportReasonListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `query` | `string` | No | No | — |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

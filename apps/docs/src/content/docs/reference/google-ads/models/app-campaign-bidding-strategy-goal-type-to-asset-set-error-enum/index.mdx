@@ -49,7 +49,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `conversations` | `conversations` | `Array<unknown>` | No | No | — |
+| `conversations` | `conversations` | `Array<Conversation>` | No | No | — |
 
 ## AppendLeadConversationResponse
 
@@ -57,7 +57,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `responses` | `responses` | `Array<unknown>` | No | No | — |
+| `responses` | `responses` | `Array<ConversationOrError>` | No | No | — |
 
 ## AppEngagementAdInfo
 
@@ -65,10 +65,10 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `images` | `images` | `Array<unknown>` | No | No | — |
-| `videos` | `videos` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `images` | `images` | `Array<AdImageAsset>` | No | No | — |
+| `videos` | `videos` | `Array<AdVideoAsset>` | No | No | — |
 
 ## ApplicationInstance
 
@@ -128,30 +128,30 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
-| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
-| `text_ad` | `text_ad` | `unknown` | No | No | — |
-| `keyword` | `keyword` | `unknown` | No | No | — |
-| `target_cpa_opt_in` | `target_cpa_opt_in` | `unknown` | No | No | — |
-| `target_roas_opt_in` | `target_roas_opt_in` | `unknown` | No | No | — |
-| `callout_extension` | `callout_extension` | `unknown` | No | No | — |
-| `call_extension` | `call_extension` | `unknown` | No | No | — |
-| `sitelink_extension` | `sitelink_extension` | `unknown` | No | No | — |
-| `move_unused_budget` | `move_unused_budget` | `unknown` | No | No | — |
-| `responsive_search_ad` | `responsive_search_ad` | `unknown` | No | No | — |
-| `use_broad_match_keyword` | `use_broad_match_keyword` | `unknown` | No | No | — |
-| `responsive_search_ad_asset` | `responsive_search_ad_asset` | `unknown` | No | No | — |
-| `responsive_search_ad_improve_ad_strength` | `responsive_search_ad_improve_ad_strength` | `unknown` | No | No | — |
-| `raise_target_cpa_bid_too_low` | `raise_target_cpa_bid_too_low` | `unknown` | No | No | — |
-| `forecasting_set_target_roas` | `forecasting_set_target_roas` | `unknown` | No | No | — |
-| `callout_asset` | `callout_asset` | `unknown` | No | No | — |
-| `call_asset` | `call_asset` | `unknown` | No | No | — |
-| `sitelink_asset` | `sitelink_asset` | `unknown` | No | No | — |
-| `raise_target_cpa` | `raise_target_cpa` | `unknown` | No | No | — |
-| `lower_target_roas` | `lower_target_roas` | `unknown` | No | No | — |
-| `forecasting_set_target_cpa` | `forecasting_set_target_cpa` | `unknown` | No | No | — |
-| `set_target_cpa` | `set_target_cpa` | `unknown` | No | No | — |
-| `set_target_roas` | `set_target_roas` | `unknown` | No | No | — |
-| `lead_form_asset` | `lead_form_asset` | `unknown` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `CampaignBudgetParameters` | No | No | — |
+| `text_ad` | `text_ad` | `TextAdParameters` | No | No | — |
+| `keyword` | `keyword` | `KeywordParameters` | No | No | — |
+| `target_cpa_opt_in` | `target_cpa_opt_in` | `TargetCpaOptInParameters` | No | No | — |
+| `target_roas_opt_in` | `target_roas_opt_in` | `TargetRoasOptInParameters` | No | No | — |
+| `callout_extension` | `callout_extension` | `CalloutExtensionParameters` | No | No | — |
+| `call_extension` | `call_extension` | `CallExtensionParameters` | No | No | — |
+| `sitelink_extension` | `sitelink_extension` | `SitelinkExtensionParameters` | No | No | — |
+| `move_unused_budget` | `move_unused_budget` | `MoveUnusedBudgetParameters` | No | No | — |
+| `responsive_search_ad` | `responsive_search_ad` | `ResponsiveSearchAdParameters` | No | No | — |
+| `use_broad_match_keyword` | `use_broad_match_keyword` | `UseBroadMatchKeywordParameters` | No | No | — |
+| `responsive_search_ad_asset` | `responsive_search_ad_asset` | `ResponsiveSearchAdAssetParameters` | No | No | — |
+| `responsive_search_ad_improve_ad_strength` | `responsive_search_ad_improve_ad_strength` | `ResponsiveSearchAdImproveAdStrengthParameters` | No | No | — |
+| `raise_target_cpa_bid_too_low` | `raise_target_cpa_bid_too_low` | `RaiseTargetCpaBidTooLowParameters` | No | No | — |
+| `forecasting_set_target_roas` | `forecasting_set_target_roas` | `ForecastingSetTargetRoasParameters` | No | No | — |
+| `callout_asset` | `callout_asset` | `CalloutAssetParameters` | No | No | — |
+| `call_asset` | `call_asset` | `CallAssetParameters` | No | No | — |
+| `sitelink_asset` | `sitelink_asset` | `SitelinkAssetParameters` | No | No | — |
+| `raise_target_cpa` | `raise_target_cpa` | `RaiseTargetCpaParameters` | No | No | — |
+| `lower_target_roas` | `lower_target_roas` | `LowerTargetRoasParameters` | No | No | — |
+| `forecasting_set_target_cpa` | `forecasting_set_target_cpa` | `ForecastingSetTargetCpaParameters` | No | No | — |
+| `set_target_cpa` | `set_target_cpa` | `ForecastingSetTargetCpaParameters` | No | No | — |
+| `set_target_roas` | `set_target_roas` | `ForecastingSetTargetRoasParameters` | No | No | — |
+| `lead_form_asset` | `lead_form_asset` | `LeadFormAssetParameters` | No | No | — |
 
 ## ApplyRecommendationRequest
 
@@ -160,7 +160,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ApplyRecommendationOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 
 ## ApplyRecommendationResponse
@@ -169,8 +169,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<ApplyRecommendationResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## ApplyRecommendationResult
 
@@ -212,10 +212,10 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `images` | `images` | `Array<unknown>` | No | No | — |
-| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `images` | `images` | `Array<AdImageAsset>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<AdVideoAsset>` | No | No | — |
 
 ## AppTopCombinationView
 
@@ -224,7 +224,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
-| `ad_group_top_combinations` | `ad_group_top_combinations` | `Array<unknown>` | No | No | — |
+| `ad_group_top_combinations` | `ad_group_top_combinations` | `Array<AdGroupCreativeAssetCombinationData>` | No | No | — |
 
 ## AppUrlOperatingSystemType
 
@@ -254,8 +254,8 @@ No fields are declared.
 | `url_custom_parameters` | `url_custom_parameters` | `Array<CustomParameter>` | No | No | — |
 | `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |
 | `source` | `source` | `AssetSource` | No | No | — |
-| `policy_summary` | `policy_summary` | `unknown` | No | No | — |
-| `field_type_policy_summaries` | `field_type_policy_summaries` | `Array<unknown>` | No | No | — |
+| `policy_summary` | `policy_summary` | `AssetPolicySummary` | No | No | — |
+| `field_type_policy_summaries` | `field_type_policy_summaries` | `Array<AssetFieldTypePolicySummary>` | No | No | — |
 | `orientation` | `orientation` | `AssetOrientation` | No | No | — |
 | `synthetic_content_info` | `synthetic_content_info` | `SyntheticContentInfo` | No | No | — |
 | `youtube_video_asset` | `youtube_video_asset` | `YoutubeVideoAsset` | No | No | — |
@@ -328,7 +328,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_strength_action_items` | `ad_strength_action_items` | `Array<unknown>` | No | No | — |
+| `ad_strength_action_items` | `ad_strength_action_items` | `Array<AdStrengthActionItem>` | No | No | — |
 
 ## AssetCoverageVideoAspectRatioRequirement
 
@@ -392,7 +392,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `asset_field_type` | `asset_field_type` | `AssetFieldType` | No | No | — |
 | `asset_source` | `asset_source` | `AssetSource` | No | No | — |
-| `policy_summary_info` | `policy_summary_info` | `unknown` | No | No | — |
+| `policy_summary_info` | `policy_summary_info` | `AssetPolicySummary` | No | No | — |
 
 ## AssetFieldTypeView
 
@@ -442,8 +442,8 @@ No fields are declared.
 | `path1` | `path1` | `string` | No | No | — |
 | `path2` | `path2` | `string` | No | No | — |
 | `ad_strength` | `ad_strength` | `AdStrength` | No | No | — |
-| `asset_coverage` | `asset_coverage` | `unknown` | No | No | — |
-| `google_local_services_info` | `google_local_services_info` | `unknown` | No | No | — |
+| `asset_coverage` | `asset_coverage` | `AssetCoverage` | No | No | — |
+| `google_local_services_info` | `google_local_services_info` | `GoogleLocalServicesInfo` | No | No | — |
 
 ## AssetGroupAsset
 
@@ -497,7 +497,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AssetGroupAsset` | No | No | — |
 | `update` | `update` | `AssetGroupAsset` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -521,7 +521,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `asset_group` | `asset_group` | `string` | No | No | — |
-| `asset_group_assets` | `asset_group_assets` | `Array<unknown>` | No | No | — |
+| `asset_group_assets` | `asset_group_assets` | `Array<AssetGroupAssetInfo>` | No | No | — |
 
 ## AssetGroupListingGroupFilter
 
@@ -534,9 +534,9 @@ No fields are declared.
 | `id` | `id` | `string` | No | No | — |
 | `type` | `type` | `ListingGroupFilterType` | No | No | — |
 | `listing_source` | `listing_source` | `ListingGroupFilterListingSource` | No | No | — |
-| `case_value` | `case_value` | `unknown` | No | No | — |
+| `case_value` | `case_value` | `ListingGroupFilterDimension` | No | No | — |
 | `parent_listing_group_filter` | `parent_listing_group_filter` | `string` | No | No | — |
-| `path` | `path` | `unknown` | No | No | — |
+| `path` | `path` | `ListingGroupFilterDimensionPath` | No | No | — |
 
 ## AssetGroupListingGroupFilterError
 
@@ -556,7 +556,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AssetGroupListingGroupFilter` | No | No | — |
 | `update` | `update` | `AssetGroupListingGroupFilter` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -567,7 +567,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AssetGroup` | No | No | — |
 | `update` | `update` | `AssetGroup` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -674,7 +674,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
-| `asset_group_top_combinations` | `asset_group_top_combinations` | `Array<unknown>` | No | No | — |
+| `asset_group_top_combinations` | `asset_group_top_combinations` | `Array<AssetGroupAssetCombinationData>` | No | No | — |
 
 ## AssetInteractionTarget
 
@@ -711,7 +711,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `reason` | `reason` | `AssetLinkPrimaryStatusReason` | No | No | — |
 | `status` | `status` | `AssetLinkPrimaryStatus` | No | No | — |
-| `asset_disapproved` | `asset_disapproved` | `unknown` | No | No | — |
+| `asset_disapproved` | `asset_disapproved` | `AssetDisapproved` | No | No | — |
 
 ## AssetLinkPrimaryStatusEnum
 
@@ -761,7 +761,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `Asset` | No | No | — |
 | `update` | `update` | `Asset` | No | No | — |
 
@@ -810,10 +810,10 @@ No fields are declared.
 | `name` | `name` | `string` | No | No | — |
 | `type` | `type` | `AssetSetType` | No | No | — |
 | `status` | `status` | `AssetSetStatus` | No | No | — |
-| `merchant_center_feed` | `merchant_center_feed` | `unknown` | No | No | — |
+| `merchant_center_feed` | `merchant_center_feed` | `MerchantCenterFeed` | No | No | — |
 | `location_group_parent_asset_set_id` | `location_group_parent_asset_set_id` | `string` | No | No | — |
-| `hotel_property_data` | `hotel_property_data` | `unknown` | No | No | — |
-| `travel_feed_data` | `travel_feed_data` | `unknown` | No | No | — |
+| `hotel_property_data` | `hotel_property_data` | `HotelPropertyData` | No | No | — |
+| `travel_feed_data` | `travel_feed_data` | `TravelFeedData` | No | No | — |
 | `location_set` | `location_set` | `LocationSet` | No | No | — |
 | `business_profile_location_group` | `business_profile_location_group` | `BusinessProfileLocationGroup` | No | No | — |
 | `chain_location_group` | `chain_location_group` | `ChainLocationGroup` | No | No | — |

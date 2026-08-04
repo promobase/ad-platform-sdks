@@ -8,6 +8,8 @@ export {
 export * from "./generated/index.ts";
 export { YouTube } from "./namespace.ts";
 export type {
+  YouTubeGenericResumableUploadOptions,
+  YouTubeMediaUploadOperation,
   YouTubeResumableUploadOptions,
   YouTubeUploadBody,
   YouTubeUploadSession,

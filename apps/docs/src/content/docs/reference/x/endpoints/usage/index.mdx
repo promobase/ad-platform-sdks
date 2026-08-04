@@ -1,0 +1,47 @@
+---
+title: "X Usage endpoints"
+description: "1 generated X endpoint contract for Usage."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 118
+  label: "Usage"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.usage.getUsage
+
+`GET` `/2/usage/tweets`
+
+Get Usage
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `usage.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-usage` |
+| Output | `GetUsageResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `days` | `query` | `integer` | No | No | — |
+| `usage.fields` | `query` | `Array<"cap_reset_day" \| "daily_client_app_usage" \| "daily_project_usage" \| "project_cap" \| "project_id" \| "project_usage">` | No | No | A comma separated list of Usage fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

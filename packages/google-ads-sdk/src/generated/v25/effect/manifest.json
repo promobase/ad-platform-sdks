@@ -2,12 +2,23 @@
   "platform": "google-ads",
   "source": {
     "kind": "protobuf",
-    "location": "packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25"
+    "location": "packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/v25",
+    "revision": "3f9c9d72cb20768ca4ac9f12030faaf43b13c231"
   },
   "version": "v25",
   "counts": {
     "models": 2577,
     "endpoints": 169,
     "capabilities": 120
+  },
+  "coverage": {
+    "discoveredOperations": 169,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "protobuf-json",
+      "stream"
+    ],
+    "emittedOperations": 169
   }
 }

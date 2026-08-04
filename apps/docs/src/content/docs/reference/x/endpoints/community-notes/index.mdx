@@ -1,0 +1,190 @@
+---
+title: "X Community notes endpoints"
+description: "5 generated X endpoint contracts for Community notes."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 106
+  label: "Community notes"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.community-notes.createCommunityNotes
+
+`POST` `/2/notes`
+
+Create Community Notes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `community-notes.manage` |
+| Required scopes | `tweet.write` |
+| Rate-limit bucket | `x-community-notes` |
+| Output | `CreateCommunityNotesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateCommunityNotesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.community-notes.deleteCommunityNotes
+
+`DELETE` `/2/notes/{id}`
+
+Deletes a community note.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `community-notes.manage` |
+| Required scopes | `tweet.write` |
+| Rate-limit bucket | `x-community-notes` |
+| Output | `DeleteCommunityNotesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `NoteId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.community-notes.evaluateCommunityNotes
+
+`POST` `/2/notes/evaluate`
+
+Evaluate Community Notes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `community-notes.manage` |
+| Required scopes | `tweet.write` |
+| Rate-limit bucket | `x-community-notes` |
+| Output | `EvaluateCommunityNotesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `EvaluateCommunityNotesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.community-notes.searchCommunityNotesWritten
+
+`GET` `/2/notes/search/notes_written`
+
+Search Community Notes Written
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `community-notes.read` |
+| Required scopes | `tweet.read` |
+| Rate-limit bucket | `x-community-notes` |
+| Output | `SearchCommunityNotesWrittenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `test_mode` | `query` | `boolean` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `note.fields` | `query` | `Array<"id" \| "info" \| "scoring_status" \| "status" \| "test_result">` | No | No | A comma separated list of Note fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.community-notes.searchEligiblePosts
+
+`GET` `/2/notes/search/posts_eligible_for_notes`
+
+Search Eligible Posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `community-notes.read` |
+| Required scopes | `tweet.read` |
+| Rate-limit bucket | `x-community-notes` |
+| Output | `SearchEligiblePostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `test_mode` | `query` | `boolean` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `post_selection` | `query` | `string` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

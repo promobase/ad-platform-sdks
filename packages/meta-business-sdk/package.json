@@ -45,6 +45,7 @@
   ],
   "scripts": {
     "codegen": "bun src/codegen/index.ts",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/meta-business-sdk/src/generated apps/docs/src/content/docs/reference/meta",
     "codegen:enums": "bun scripts/scrape-enums.ts",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",

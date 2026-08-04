@@ -141,7 +141,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `name` | `name` | `string` | No | No | — |
-| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+| `attributes` | `attributes` | `Array<Attribute>` | No | No | — |
 
 ## MetricGoal
 
@@ -283,7 +283,7 @@ No fields are declared.
 | `search_rank_lost_impression_share` | `search_rank_lost_impression_share` | `number` | No | No | — |
 | `search_rank_lost_top_impression_share` | `search_rank_lost_top_impression_share` | `number` | No | No | — |
 | `search_top_impression_share` | `search_top_impression_share` | `number` | No | No | — |
-| `search_volume` | `search_volume` | `unknown` | No | No | — |
+| `search_volume` | `search_volume` | `SearchVolumeRange` | No | No | — |
 | `speed_score` | `speed_score` | `string` | No | No | — |
 | `average_target_cpa_micros` | `average_target_cpa_micros` | `string` | No | No | — |
 | `average_target_roas` | `average_target_roas` | `number` | No | No | — |
@@ -633,7 +633,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `excess_campaign_budget` | `excess_campaign_budget` | `string` | No | No | — |
-| `budget_recommendation` | `budget_recommendation` | `unknown` | No | No | — |
+| `budget_recommendation` | `budget_recommendation` | `CampaignBudgetRecommendation` | No | No | — |
 
 ## MultiPartyAuthOperationType
 
@@ -662,8 +662,8 @@ No fields are declared.
 | `request_user_email` | `request_user_email` | `string` | No | No | — |
 | `operation_type` | `operation_type` | `MultiPartyAuthOperationType` | No | No | — |
 | `target_resource` | `target_resource` | `MultiPartyAuthReviewTargetResource` | No | No | — |
-| `customer_user_access_review` | `customer_user_access_review` | `unknown` | No | No | — |
-| `customer_user_access_invitation_review` | `customer_user_access_invitation_review` | `unknown` | No | No | — |
+| `customer_user_access_review` | `customer_user_access_review` | `CustomerUserAccessReview` | No | No | — |
+| `customer_user_access_invitation_review` | `customer_user_access_invitation_review` | `CustomerUserAccessInvitationReview` | No | No | — |
 
 ## MultiPartyAuthReviewError
 
@@ -720,7 +720,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operation` | `operation` | `unknown` | No | No | — |
+| `operation` | `operation` | `AccountBudgetProposalOperation` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## MutateAccountBudgetProposalResponse
@@ -729,7 +729,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result` | `result` | `unknown` | No | No | — |
+| `result` | `result` | `MutateAccountBudgetProposalResult` | No | No | — |
 
 ## MutateAccountBudgetProposalResult
 
@@ -746,7 +746,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operation` | `operation` | `unknown` | No | No | — |
+| `operation` | `operation` | `AccountLinkOperation` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -756,8 +756,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result` | `result` | `unknown` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `result` | `result` | `MutateAccountLinkResult` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAccountLinkResult
 
@@ -782,7 +782,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupAdLabelOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -792,8 +792,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupAdLabelResult>` | No | No | — |
 
 ## MutateAdGroupAdResult
 
@@ -811,7 +811,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupAdOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -822,8 +822,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupAdResult>` | No | No | — |
 
 ## MutateAdGroupAssetResult
 
@@ -850,7 +850,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupAssetSetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -861,8 +861,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupAssetSetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAdGroupAssetsRequest
 
@@ -871,7 +871,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupAssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -882,8 +882,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupAssetResult>` | No | No | — |
 
 ## MutateAdGroupBidModifierResult
 
@@ -901,7 +901,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupBidModifierOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -912,8 +912,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupBidModifierResult>` | No | No | — |
 
 ## MutateAdGroupCriteriaRequest
 
@@ -922,7 +922,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupCriterionOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -933,8 +933,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupCriterionResult>` | No | No | — |
 
 ## MutateAdGroupCriterionCustomizerResult
 
@@ -952,7 +952,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupCriterionCustomizerOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -963,8 +963,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupCriterionCustomizerResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAdGroupCriterionLabelResult
 
@@ -981,7 +981,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupCriterionLabelOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -991,8 +991,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupCriterionLabelResult>` | No | No | — |
 
 ## MutateAdGroupCriterionResult
 
@@ -1019,7 +1019,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupCustomizerOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -1030,8 +1030,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupCustomizerResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAdGroupLabelResult
 
@@ -1048,7 +1048,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupLabelOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -1058,8 +1058,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupLabelResult>` | No | No | — |
 
 ## MutateAdGroupResult
 
@@ -1077,7 +1077,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdGroupOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -1088,8 +1088,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdGroupResult>` | No | No | — |
 
 ## MutateAdParameterResult
 
@@ -1107,7 +1107,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdParameterOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -1118,8 +1118,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdParameterResult>` | No | No | — |
 
 ## MutateAdResult
 
@@ -1137,7 +1137,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AdOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
@@ -1148,5 +1148,5 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAdResult>` | No | No | — |

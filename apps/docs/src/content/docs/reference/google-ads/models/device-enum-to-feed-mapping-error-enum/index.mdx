@@ -33,7 +33,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `dimension` | `dimension` | `AudienceInsightsDimension` | No | No | — |
-| `items` | `items` | `Array<unknown>` | No | No | — |
+| `items` | `items` | `Array<AudienceOverlapItem>` | No | No | — |
 
 ## DismissRecommendationOperation
 
@@ -50,7 +50,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<DismissRecommendationOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 
 ## DismissRecommendationResponse
@@ -59,8 +59,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<DismissRecommendationResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## DismissRecommendationResult
 
@@ -103,7 +103,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `display_upload_product_type` | `display_upload_product_type` | `DisplayUploadProductType` | No | No | — |
-| `media_bundle` | `media_bundle` | `unknown` | No | No | — |
+| `media_bundle` | `media_bundle` | `AdMediaBundleAsset` | No | No | — |
 
 ## DisplayUploadProductType
 
@@ -174,7 +174,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `label_filters` | `label_filters` | `Array<string>` | No | No | — |
-| `business_name_filter` | `business_name_filter` | `unknown` | No | No | — |
+| `business_name_filter` | `business_name_filter` | `BusinessProfileBusinessNameFilter` | No | No | — |
 | `listing_id_filters` | `listing_id_filters` | `Array<string>` | No | No | — |
 
 ## DynamicCustomAsset
@@ -416,7 +416,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `campaign` | `campaign` | `string` | No | No | — |
-| `enablement_error` | `enablement_error` | `unknown` | No | No | — |
+| `enablement_error` | `enablement_error` | `json` | No | No | — |
 
 ## EnableOperation
 
@@ -426,7 +426,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `campaign` | `campaign` | `string` | No | No | — |
 | `auto_populate_brand_assets` | `auto_populate_brand_assets` | `boolean` | No | No | — |
-| `brand_assets` | `brand_assets` | `unknown` | No | No | — |
+| `brand_assets` | `brand_assets` | `BrandCampaignAssets` | No | No | — |
 | `final_uri_domain` | `final_uri_domain` | `string` | No | No | — |
 | `main_color` | `main_color` | `string` | No | No | — |
 | `accent_color` | `accent_color` | `string` | No | No | — |
@@ -439,7 +439,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<EnableOperation>` | No | No | — |
 
 ## EnablePMaxBrandGuidelinesResponse
 
@@ -447,7 +447,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<EnablementResult>` | No | No | — |
 
 ## EndExperimentRequest
 
@@ -488,173 +488,173 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `request_error` | `request_error` | `unknown` | No | No | — |
-| `bidding_strategy_error` | `bidding_strategy_error` | `unknown` | No | No | — |
-| `url_field_error` | `url_field_error` | `unknown` | No | No | — |
-| `list_operation_error` | `list_operation_error` | `unknown` | No | No | — |
-| `query_error` | `query_error` | `unknown` | No | No | — |
-| `mutate_error` | `mutate_error` | `unknown` | No | No | — |
-| `field_mask_error` | `field_mask_error` | `unknown` | No | No | — |
-| `authorization_error` | `authorization_error` | `unknown` | No | No | — |
-| `internal_error` | `internal_error` | `unknown` | No | No | — |
-| `quota_error` | `quota_error` | `unknown` | No | No | — |
-| `ad_error` | `ad_error` | `unknown` | No | No | — |
-| `ad_group_error` | `ad_group_error` | `unknown` | No | No | — |
-| `campaign_budget_error` | `campaign_budget_error` | `unknown` | No | No | — |
-| `campaign_error` | `campaign_error` | `unknown` | No | No | — |
-| `video_campaign_error` | `video_campaign_error` | `unknown` | No | No | — |
-| `authentication_error` | `authentication_error` | `unknown` | No | No | — |
-| `action_error` | `action_error` | `unknown` | No | No | — |
-| `ad_group_criterion_customizer_error` | `ad_group_criterion_customizer_error` | `unknown` | No | No | — |
-| `ad_group_criterion_error` | `ad_group_criterion_error` | `unknown` | No | No | — |
-| `ad_group_customizer_error` | `ad_group_customizer_error` | `unknown` | No | No | — |
-| `ad_customizer_error` | `ad_customizer_error` | `unknown` | No | No | — |
-| `ad_group_ad_error` | `ad_group_ad_error` | `unknown` | No | No | — |
-| `ad_sharing_error` | `ad_sharing_error` | `unknown` | No | No | — |
-| `adx_error` | `adx_error` | `unknown` | No | No | — |
-| `asset_error` | `asset_error` | `unknown` | No | No | — |
-| `asset_group_asset_error` | `asset_group_asset_error` | `unknown` | No | No | — |
-| `asset_group_listing_group_filter_error` | `asset_group_listing_group_filter_error` | `unknown` | No | No | — |
-| `asset_group_error` | `asset_group_error` | `unknown` | No | No | — |
-| `asset_set_asset_error` | `asset_set_asset_error` | `unknown` | No | No | — |
-| `asset_set_link_error` | `asset_set_link_error` | `unknown` | No | No | — |
-| `asset_set_error` | `asset_set_error` | `unknown` | No | No | — |
-| `bidding_error` | `bidding_error` | `unknown` | No | No | — |
-| `campaign_criterion_error` | `campaign_criterion_error` | `unknown` | No | No | — |
-| `campaign_conversion_goal_error` | `campaign_conversion_goal_error` | `unknown` | No | No | — |
-| `campaign_customizer_error` | `campaign_customizer_error` | `unknown` | No | No | — |
-| `collection_size_error` | `collection_size_error` | `unknown` | No | No | — |
-| `conversion_goal_campaign_config_error` | `conversion_goal_campaign_config_error` | `unknown` | No | No | — |
-| `country_code_error` | `country_code_error` | `unknown` | No | No | — |
-| `criterion_error` | `criterion_error` | `unknown` | No | No | — |
-| `custom_conversion_goal_error` | `custom_conversion_goal_error` | `unknown` | No | No | — |
-| `customer_customizer_error` | `customer_customizer_error` | `unknown` | No | No | — |
-| `customer_error` | `customer_error` | `unknown` | No | No | — |
-| `customizer_attribute_error` | `customizer_attribute_error` | `unknown` | No | No | — |
-| `date_error` | `date_error` | `unknown` | No | No | — |
-| `date_range_error` | `date_range_error` | `unknown` | No | No | — |
-| `distinct_error` | `distinct_error` | `unknown` | No | No | — |
-| `feed_attribute_reference_error` | `feed_attribute_reference_error` | `unknown` | No | No | — |
-| `final_url_expansion_asset_view_error` | `final_url_expansion_asset_view_error` | `unknown` | No | No | — |
-| `function_error` | `function_error` | `unknown` | No | No | — |
-| `function_parsing_error` | `function_parsing_error` | `unknown` | No | No | — |
-| `id_error` | `id_error` | `unknown` | No | No | — |
-| `image_error` | `image_error` | `unknown` | No | No | — |
-| `language_code_error` | `language_code_error` | `unknown` | No | No | — |
-| `media_bundle_error` | `media_bundle_error` | `unknown` | No | No | — |
-| `media_upload_error` | `media_upload_error` | `unknown` | No | No | — |
-| `media_file_error` | `media_file_error` | `unknown` | No | No | — |
-| `merchant_center_error` | `merchant_center_error` | `unknown` | No | No | — |
-| `multiplier_error` | `multiplier_error` | `unknown` | No | No | — |
-| `new_resource_creation_error` | `new_resource_creation_error` | `unknown` | No | No | — |
-| `not_empty_error` | `not_empty_error` | `unknown` | No | No | — |
-| `null_error` | `null_error` | `unknown` | No | No | — |
-| `operator_error` | `operator_error` | `unknown` | No | No | — |
-| `range_error` | `range_error` | `unknown` | No | No | — |
-| `recommendation_error` | `recommendation_error` | `unknown` | No | No | — |
-| `recommendation_subscription_error` | `recommendation_subscription_error` | `unknown` | No | No | — |
-| `region_code_error` | `region_code_error` | `unknown` | No | No | — |
-| `setting_error` | `setting_error` | `unknown` | No | No | — |
-| `string_format_error` | `string_format_error` | `unknown` | No | No | — |
-| `string_length_error` | `string_length_error` | `unknown` | No | No | — |
-| `operation_access_denied_error` | `operation_access_denied_error` | `unknown` | No | No | — |
-| `resource_access_denied_error` | `resource_access_denied_error` | `unknown` | No | No | — |
-| `resource_count_limit_exceeded_error` | `resource_count_limit_exceeded_error` | `unknown` | No | No | — |
-| `youtube_video_registration_error` | `youtube_video_registration_error` | `unknown` | No | No | — |
-| `ad_group_bid_modifier_error` | `ad_group_bid_modifier_error` | `unknown` | No | No | — |
-| `context_error` | `context_error` | `unknown` | No | No | — |
-| `field_error` | `field_error` | `unknown` | No | No | — |
-| `shared_set_error` | `shared_set_error` | `unknown` | No | No | — |
-| `shared_criterion_error` | `shared_criterion_error` | `unknown` | No | No | — |
-| `campaign_shared_set_error` | `campaign_shared_set_error` | `unknown` | No | No | — |
-| `conversion_action_error` | `conversion_action_error` | `unknown` | No | No | — |
-| `conversion_adjustment_upload_error` | `conversion_adjustment_upload_error` | `unknown` | No | No | — |
-| `conversion_custom_variable_error` | `conversion_custom_variable_error` | `unknown` | No | No | — |
-| `conversion_upload_error` | `conversion_upload_error` | `unknown` | No | No | — |
-| `conversion_value_rule_error` | `conversion_value_rule_error` | `unknown` | No | No | — |
-| `conversion_value_rule_set_error` | `conversion_value_rule_set_error` | `unknown` | No | No | — |
-| `header_error` | `header_error` | `unknown` | No | No | — |
-| `database_error` | `database_error` | `unknown` | No | No | — |
-| `policy_finding_error` | `policy_finding_error` | `unknown` | No | No | — |
-| `enum_error` | `enum_error` | `unknown` | No | No | — |
-| `keyword_plan_error` | `keyword_plan_error` | `unknown` | No | No | — |
-| `keyword_plan_campaign_error` | `keyword_plan_campaign_error` | `unknown` | No | No | — |
-| `keyword_plan_campaign_keyword_error` | `keyword_plan_campaign_keyword_error` | `unknown` | No | No | — |
-| `keyword_plan_ad_group_error` | `keyword_plan_ad_group_error` | `unknown` | No | No | — |
-| `keyword_plan_ad_group_keyword_error` | `keyword_plan_ad_group_keyword_error` | `unknown` | No | No | — |
-| `keyword_plan_idea_error` | `keyword_plan_idea_error` | `unknown` | No | No | — |
-| `account_budget_proposal_error` | `account_budget_proposal_error` | `unknown` | No | No | — |
-| `user_list_error` | `user_list_error` | `unknown` | No | No | — |
-| `change_event_error` | `change_event_error` | `unknown` | No | No | — |
-| `change_status_error` | `change_status_error` | `unknown` | No | No | — |
-| `feed_error` | `feed_error` | `unknown` | No | No | — |
-| `geo_target_constant_suggestion_error` | `geo_target_constant_suggestion_error` | `unknown` | No | No | — |
-| `campaign_draft_error` | `campaign_draft_error` | `unknown` | No | No | — |
-| `feed_item_error` | `feed_item_error` | `unknown` | No | No | — |
-| `label_error` | `label_error` | `unknown` | No | No | — |
-| `billing_setup_error` | `billing_setup_error` | `unknown` | No | No | — |
-| `customer_client_link_error` | `customer_client_link_error` | `unknown` | No | No | — |
-| `customer_manager_link_error` | `customer_manager_link_error` | `unknown` | No | No | — |
-| `feed_mapping_error` | `feed_mapping_error` | `unknown` | No | No | — |
-| `customer_feed_error` | `customer_feed_error` | `unknown` | No | No | — |
-| `ad_group_feed_error` | `ad_group_feed_error` | `unknown` | No | No | — |
-| `campaign_feed_error` | `campaign_feed_error` | `unknown` | No | No | — |
-| `custom_interest_error` | `custom_interest_error` | `unknown` | No | No | — |
-| `campaign_experiment_error` | `campaign_experiment_error` | `unknown` | No | No | — |
-| `extension_feed_item_error` | `extension_feed_item_error` | `unknown` | No | No | — |
-| `ad_parameter_error` | `ad_parameter_error` | `unknown` | No | No | — |
-| `feed_item_validation_error` | `feed_item_validation_error` | `unknown` | No | No | — |
-| `extension_setting_error` | `extension_setting_error` | `unknown` | No | No | — |
-| `feed_item_set_error` | `feed_item_set_error` | `unknown` | No | No | — |
-| `feed_item_set_link_error` | `feed_item_set_link_error` | `unknown` | No | No | — |
-| `feed_item_target_error` | `feed_item_target_error` | `unknown` | No | No | — |
-| `policy_violation_error` | `policy_violation_error` | `unknown` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `click_view_error` | `click_view_error` | `unknown` | No | No | — |
-| `policy_validation_parameter_error` | `policy_validation_parameter_error` | `unknown` | No | No | — |
-| `size_limit_error` | `size_limit_error` | `unknown` | No | No | — |
-| `offline_user_data_job_error` | `offline_user_data_job_error` | `unknown` | No | No | — |
-| `not_allowlisted_error` | `not_allowlisted_error` | `unknown` | No | No | — |
-| `manager_link_error` | `manager_link_error` | `unknown` | No | No | — |
-| `currency_code_error` | `currency_code_error` | `unknown` | No | No | — |
-| `experiment_error` | `experiment_error` | `unknown` | No | No | — |
-| `access_invitation_error` | `access_invitation_error` | `unknown` | No | No | — |
-| `reach_plan_error` | `reach_plan_error` | `unknown` | No | No | — |
-| `invoice_error` | `invoice_error` | `unknown` | No | No | — |
-| `payments_account_error` | `payments_account_error` | `unknown` | No | No | — |
-| `time_zone_error` | `time_zone_error` | `unknown` | No | No | — |
-| `asset_link_error` | `asset_link_error` | `unknown` | No | No | — |
-| `user_data_error` | `user_data_error` | `unknown` | No | No | — |
-| `batch_job_error` | `batch_job_error` | `unknown` | No | No | — |
-| `account_link_error` | `account_link_error` | `unknown` | No | No | — |
-| `third_party_app_analytics_link_error` | `third_party_app_analytics_link_error` | `unknown` | No | No | — |
-| `customer_user_access_error` | `customer_user_access_error` | `unknown` | No | No | — |
-| `custom_audience_error` | `custom_audience_error` | `unknown` | No | No | — |
-| `audience_error` | `audience_error` | `unknown` | No | No | — |
-| `search_term_insight_error` | `search_term_insight_error` | `unknown` | No | No | — |
-| `smart_campaign_error` | `smart_campaign_error` | `unknown` | No | No | — |
-| `experiment_arm_error` | `experiment_arm_error` | `unknown` | No | No | — |
-| `audience_insights_error` | `audience_insights_error` | `unknown` | No | No | — |
-| `product_link_error` | `product_link_error` | `unknown` | No | No | — |
-| `data_link_error` | `data_link_error` | `unknown` | No | No | — |
-| `customer_sk_ad_network_conversion_value_schema_error` | `customer_sk_ad_network_conversion_value_schema_error` | `unknown` | No | No | — |
-| `currency_error` | `currency_error` | `unknown` | No | No | — |
-| `asset_group_signal_error` | `asset_group_signal_error` | `unknown` | No | No | — |
-| `product_link_invitation_error` | `product_link_invitation_error` | `unknown` | No | No | — |
-| `identity_verification_error` | `identity_verification_error` | `unknown` | No | No | — |
-| `user_list_customer_type_error` | `user_list_customer_type_error` | `unknown` | No | No | — |
-| `shopping_product_error` | `shopping_product_error` | `unknown` | No | No | — |
-| `automatically_created_asset_removal_error` | `automatically_created_asset_removal_error` | `unknown` | No | No | — |
-| `shareable_preview_error` | `shareable_preview_error` | `unknown` | No | No | — |
-| `campaign_goal_config_error` | `campaign_goal_config_error` | `unknown` | No | No | — |
-| `goal_error` | `goal_error` | `unknown` | No | No | — |
-| `brand_guidelines_migration_error` | `brand_guidelines_migration_error` | `unknown` | No | No | — |
-| `asset_generation_error` | `asset_generation_error` | `unknown` | No | No | — |
-| `benchmarks_error` | `benchmarks_error` | `unknown` | No | No | — |
-| `incentive_error` | `incentive_error` | `unknown` | No | No | — |
-| `content_creator_insights_error` | `content_creator_insights_error` | `unknown` | No | No | — |
-| `video_reservation_error` | `video_reservation_error` | `unknown` | No | No | — |
-| `multi_party_auth_review_error` | `multi_party_auth_review_error` | `unknown` | No | No | — |
+| `request_error` | `request_error` | `RequestError` | No | No | — |
+| `bidding_strategy_error` | `bidding_strategy_error` | `BiddingStrategyError` | No | No | — |
+| `url_field_error` | `url_field_error` | `UrlFieldError` | No | No | — |
+| `list_operation_error` | `list_operation_error` | `ListOperationError` | No | No | — |
+| `query_error` | `query_error` | `QueryError` | No | No | — |
+| `mutate_error` | `mutate_error` | `MutateError` | No | No | — |
+| `field_mask_error` | `field_mask_error` | `FieldMaskError` | No | No | — |
+| `authorization_error` | `authorization_error` | `AuthorizationError` | No | No | — |
+| `internal_error` | `internal_error` | `InternalError` | No | No | — |
+| `quota_error` | `quota_error` | `QuotaError` | No | No | — |
+| `ad_error` | `ad_error` | `AdError` | No | No | — |
+| `ad_group_error` | `ad_group_error` | `AdGroupError` | No | No | — |
+| `campaign_budget_error` | `campaign_budget_error` | `CampaignBudgetError` | No | No | — |
+| `campaign_error` | `campaign_error` | `CampaignError` | No | No | — |
+| `video_campaign_error` | `video_campaign_error` | `VideoCampaignError` | No | No | — |
+| `authentication_error` | `authentication_error` | `AuthenticationError` | No | No | — |
+| `action_error` | `action_error` | `ActionError` | No | No | — |
+| `ad_group_criterion_customizer_error` | `ad_group_criterion_customizer_error` | `AdGroupCriterionCustomizerError` | No | No | — |
+| `ad_group_criterion_error` | `ad_group_criterion_error` | `AdGroupCriterionError` | No | No | — |
+| `ad_group_customizer_error` | `ad_group_customizer_error` | `AdGroupCustomizerError` | No | No | — |
+| `ad_customizer_error` | `ad_customizer_error` | `AdCustomizerError` | No | No | — |
+| `ad_group_ad_error` | `ad_group_ad_error` | `AdGroupAdError` | No | No | — |
+| `ad_sharing_error` | `ad_sharing_error` | `AdSharingError` | No | No | — |
+| `adx_error` | `adx_error` | `AdxError` | No | No | — |
+| `asset_error` | `asset_error` | `AssetError` | No | No | — |
+| `asset_group_asset_error` | `asset_group_asset_error` | `AssetGroupAssetError` | No | No | — |
+| `asset_group_listing_group_filter_error` | `asset_group_listing_group_filter_error` | `AssetGroupListingGroupFilterError` | No | No | — |
+| `asset_group_error` | `asset_group_error` | `AssetGroupError` | No | No | — |
+| `asset_set_asset_error` | `asset_set_asset_error` | `AssetSetAssetError` | No | No | — |
+| `asset_set_link_error` | `asset_set_link_error` | `AssetSetLinkError` | No | No | — |
+| `asset_set_error` | `asset_set_error` | `AssetSetError` | No | No | — |
+| `bidding_error` | `bidding_error` | `BiddingError` | No | No | — |
+| `campaign_criterion_error` | `campaign_criterion_error` | `CampaignCriterionError` | No | No | — |
+| `campaign_conversion_goal_error` | `campaign_conversion_goal_error` | `CampaignConversionGoalError` | No | No | — |
+| `campaign_customizer_error` | `campaign_customizer_error` | `CampaignCustomizerError` | No | No | — |
+| `collection_size_error` | `collection_size_error` | `CollectionSizeError` | No | No | — |
+| `conversion_goal_campaign_config_error` | `conversion_goal_campaign_config_error` | `ConversionGoalCampaignConfigError` | No | No | — |
+| `country_code_error` | `country_code_error` | `CountryCodeError` | No | No | — |
+| `criterion_error` | `criterion_error` | `CriterionError` | No | No | — |
+| `custom_conversion_goal_error` | `custom_conversion_goal_error` | `CustomConversionGoalError` | No | No | — |
+| `customer_customizer_error` | `customer_customizer_error` | `CustomerCustomizerError` | No | No | — |
+| `customer_error` | `customer_error` | `CustomerError` | No | No | — |
+| `customizer_attribute_error` | `customizer_attribute_error` | `CustomizerAttributeError` | No | No | — |
+| `date_error` | `date_error` | `DateError` | No | No | — |
+| `date_range_error` | `date_range_error` | `DateRangeError` | No | No | — |
+| `distinct_error` | `distinct_error` | `DistinctError` | No | No | — |
+| `feed_attribute_reference_error` | `feed_attribute_reference_error` | `FeedAttributeReferenceError` | No | No | — |
+| `final_url_expansion_asset_view_error` | `final_url_expansion_asset_view_error` | `FinalUrlExpansionAssetViewError` | No | No | — |
+| `function_error` | `function_error` | `FunctionError` | No | No | — |
+| `function_parsing_error` | `function_parsing_error` | `FunctionParsingError` | No | No | — |
+| `id_error` | `id_error` | `IdError` | No | No | — |
+| `image_error` | `image_error` | `ImageError` | No | No | — |
+| `language_code_error` | `language_code_error` | `LanguageCodeError` | No | No | — |
+| `media_bundle_error` | `media_bundle_error` | `MediaBundleError` | No | No | — |
+| `media_upload_error` | `media_upload_error` | `MediaUploadError` | No | No | — |
+| `media_file_error` | `media_file_error` | `MediaFileError` | No | No | — |
+| `merchant_center_error` | `merchant_center_error` | `MerchantCenterError` | No | No | — |
+| `multiplier_error` | `multiplier_error` | `MultiplierError` | No | No | — |
+| `new_resource_creation_error` | `new_resource_creation_error` | `NewResourceCreationError` | No | No | — |
+| `not_empty_error` | `not_empty_error` | `NotEmptyError` | No | No | — |
+| `null_error` | `null_error` | `NullError` | No | No | — |
+| `operator_error` | `operator_error` | `OperatorError` | No | No | — |
+| `range_error` | `range_error` | `RangeError` | No | No | — |
+| `recommendation_error` | `recommendation_error` | `RecommendationError` | No | No | — |
+| `recommendation_subscription_error` | `recommendation_subscription_error` | `RecommendationSubscriptionError` | No | No | — |
+| `region_code_error` | `region_code_error` | `RegionCodeError` | No | No | — |
+| `setting_error` | `setting_error` | `SettingError` | No | No | — |
+| `string_format_error` | `string_format_error` | `StringFormatError` | No | No | — |
+| `string_length_error` | `string_length_error` | `StringLengthError` | No | No | — |
+| `operation_access_denied_error` | `operation_access_denied_error` | `OperationAccessDeniedError` | No | No | — |
+| `resource_access_denied_error` | `resource_access_denied_error` | `ResourceAccessDeniedError` | No | No | — |
+| `resource_count_limit_exceeded_error` | `resource_count_limit_exceeded_error` | `ResourceCountLimitExceededError` | No | No | — |
+| `youtube_video_registration_error` | `youtube_video_registration_error` | `YoutubeVideoRegistrationError` | No | No | — |
+| `ad_group_bid_modifier_error` | `ad_group_bid_modifier_error` | `AdGroupBidModifierError` | No | No | — |
+| `context_error` | `context_error` | `ContextError` | No | No | — |
+| `field_error` | `field_error` | `FieldError` | No | No | — |
+| `shared_set_error` | `shared_set_error` | `SharedSetError` | No | No | — |
+| `shared_criterion_error` | `shared_criterion_error` | `SharedCriterionError` | No | No | — |
+| `campaign_shared_set_error` | `campaign_shared_set_error` | `CampaignSharedSetError` | No | No | — |
+| `conversion_action_error` | `conversion_action_error` | `ConversionActionError` | No | No | — |
+| `conversion_adjustment_upload_error` | `conversion_adjustment_upload_error` | `ConversionAdjustmentUploadError` | No | No | — |
+| `conversion_custom_variable_error` | `conversion_custom_variable_error` | `ConversionCustomVariableError` | No | No | — |
+| `conversion_upload_error` | `conversion_upload_error` | `ConversionUploadError` | No | No | — |
+| `conversion_value_rule_error` | `conversion_value_rule_error` | `ConversionValueRuleError` | No | No | — |
+| `conversion_value_rule_set_error` | `conversion_value_rule_set_error` | `ConversionValueRuleSetError` | No | No | — |
+| `header_error` | `header_error` | `HeaderError` | No | No | — |
+| `database_error` | `database_error` | `DatabaseError` | No | No | — |
+| `policy_finding_error` | `policy_finding_error` | `PolicyFindingError` | No | No | — |
+| `enum_error` | `enum_error` | `EnumError` | No | No | — |
+| `keyword_plan_error` | `keyword_plan_error` | `KeywordPlanError` | No | No | — |
+| `keyword_plan_campaign_error` | `keyword_plan_campaign_error` | `KeywordPlanCampaignError` | No | No | — |
+| `keyword_plan_campaign_keyword_error` | `keyword_plan_campaign_keyword_error` | `KeywordPlanCampaignKeywordError` | No | No | — |
+| `keyword_plan_ad_group_error` | `keyword_plan_ad_group_error` | `KeywordPlanAdGroupError` | No | No | — |
+| `keyword_plan_ad_group_keyword_error` | `keyword_plan_ad_group_keyword_error` | `KeywordPlanAdGroupKeywordError` | No | No | — |
+| `keyword_plan_idea_error` | `keyword_plan_idea_error` | `KeywordPlanIdeaError` | No | No | — |
+| `account_budget_proposal_error` | `account_budget_proposal_error` | `AccountBudgetProposalError` | No | No | — |
+| `user_list_error` | `user_list_error` | `UserListError` | No | No | — |
+| `change_event_error` | `change_event_error` | `ChangeEventError` | No | No | — |
+| `change_status_error` | `change_status_error` | `ChangeStatusError` | No | No | — |
+| `feed_error` | `feed_error` | `FeedError` | No | No | — |
+| `geo_target_constant_suggestion_error` | `geo_target_constant_suggestion_error` | `GeoTargetConstantSuggestionError` | No | No | — |
+| `campaign_draft_error` | `campaign_draft_error` | `CampaignDraftError` | No | No | — |
+| `feed_item_error` | `feed_item_error` | `FeedItemError` | No | No | — |
+| `label_error` | `label_error` | `LabelError` | No | No | — |
+| `billing_setup_error` | `billing_setup_error` | `BillingSetupError` | No | No | — |
+| `customer_client_link_error` | `customer_client_link_error` | `CustomerClientLinkError` | No | No | — |
+| `customer_manager_link_error` | `customer_manager_link_error` | `CustomerManagerLinkError` | No | No | — |
+| `feed_mapping_error` | `feed_mapping_error` | `FeedMappingError` | No | No | — |
+| `customer_feed_error` | `customer_feed_error` | `CustomerFeedError` | No | No | — |
+| `ad_group_feed_error` | `ad_group_feed_error` | `AdGroupFeedError` | No | No | — |
+| `campaign_feed_error` | `campaign_feed_error` | `CampaignFeedError` | No | No | — |
+| `custom_interest_error` | `custom_interest_error` | `CustomInterestError` | No | No | — |
+| `campaign_experiment_error` | `campaign_experiment_error` | `CampaignExperimentError` | No | No | — |
+| `extension_feed_item_error` | `extension_feed_item_error` | `ExtensionFeedItemError` | No | No | — |
+| `ad_parameter_error` | `ad_parameter_error` | `AdParameterError` | No | No | — |
+| `feed_item_validation_error` | `feed_item_validation_error` | `FeedItemValidationError` | No | No | — |
+| `extension_setting_error` | `extension_setting_error` | `ExtensionSettingError` | No | No | — |
+| `feed_item_set_error` | `feed_item_set_error` | `FeedItemSetError` | No | No | — |
+| `feed_item_set_link_error` | `feed_item_set_link_error` | `FeedItemSetLinkError` | No | No | — |
+| `feed_item_target_error` | `feed_item_target_error` | `FeedItemTargetError` | No | No | — |
+| `policy_violation_error` | `policy_violation_error` | `PolicyViolationError` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `PartialFailureError` | No | No | — |
+| `click_view_error` | `click_view_error` | `ClickViewError` | No | No | — |
+| `policy_validation_parameter_error` | `policy_validation_parameter_error` | `PolicyValidationParameterError` | No | No | — |
+| `size_limit_error` | `size_limit_error` | `SizeLimitError` | No | No | — |
+| `offline_user_data_job_error` | `offline_user_data_job_error` | `OfflineUserDataJobError` | No | No | — |
+| `not_allowlisted_error` | `not_allowlisted_error` | `NotAllowlistedError` | No | No | — |
+| `manager_link_error` | `manager_link_error` | `ManagerLinkError` | No | No | — |
+| `currency_code_error` | `currency_code_error` | `CurrencyCodeError` | No | No | — |
+| `experiment_error` | `experiment_error` | `ExperimentError` | No | No | — |
+| `access_invitation_error` | `access_invitation_error` | `AccessInvitationError` | No | No | — |
+| `reach_plan_error` | `reach_plan_error` | `ReachPlanError` | No | No | — |
+| `invoice_error` | `invoice_error` | `InvoiceError` | No | No | — |
+| `payments_account_error` | `payments_account_error` | `PaymentsAccountError` | No | No | — |
+| `time_zone_error` | `time_zone_error` | `TimeZoneError` | No | No | — |
+| `asset_link_error` | `asset_link_error` | `AssetLinkError` | No | No | — |
+| `user_data_error` | `user_data_error` | `UserDataError` | No | No | — |
+| `batch_job_error` | `batch_job_error` | `BatchJobError` | No | No | — |
+| `account_link_error` | `account_link_error` | `AccountLinkError` | No | No | — |
+| `third_party_app_analytics_link_error` | `third_party_app_analytics_link_error` | `ThirdPartyAppAnalyticsLinkError` | No | No | — |
+| `customer_user_access_error` | `customer_user_access_error` | `CustomerUserAccessError` | No | No | — |
+| `custom_audience_error` | `custom_audience_error` | `CustomAudienceError` | No | No | — |
+| `audience_error` | `audience_error` | `AudienceError` | No | No | — |
+| `search_term_insight_error` | `search_term_insight_error` | `SearchTermInsightError` | No | No | — |
+| `smart_campaign_error` | `smart_campaign_error` | `SmartCampaignError` | No | No | — |
+| `experiment_arm_error` | `experiment_arm_error` | `ExperimentArmError` | No | No | — |
+| `audience_insights_error` | `audience_insights_error` | `AudienceInsightsError` | No | No | — |
+| `product_link_error` | `product_link_error` | `ProductLinkError` | No | No | — |
+| `data_link_error` | `data_link_error` | `DataLinkError` | No | No | — |
+| `customer_sk_ad_network_conversion_value_schema_error` | `customer_sk_ad_network_conversion_value_schema_error` | `CustomerSkAdNetworkConversionValueSchemaError` | No | No | — |
+| `currency_error` | `currency_error` | `CurrencyError` | No | No | — |
+| `asset_group_signal_error` | `asset_group_signal_error` | `AssetGroupSignalError` | No | No | — |
+| `product_link_invitation_error` | `product_link_invitation_error` | `ProductLinkInvitationError` | No | No | — |
+| `identity_verification_error` | `identity_verification_error` | `IdentityVerificationError` | No | No | — |
+| `user_list_customer_type_error` | `user_list_customer_type_error` | `UserListCustomerTypeError` | No | No | — |
+| `shopping_product_error` | `shopping_product_error` | `ShoppingProductError` | No | No | — |
+| `automatically_created_asset_removal_error` | `automatically_created_asset_removal_error` | `AutomaticallyCreatedAssetRemovalError` | No | No | — |
+| `shareable_preview_error` | `shareable_preview_error` | `ShareablePreviewError` | No | No | — |
+| `campaign_goal_config_error` | `campaign_goal_config_error` | `CampaignGoalConfigError` | No | No | — |
+| `goal_error` | `goal_error` | `GoalError` | No | No | — |
+| `brand_guidelines_migration_error` | `brand_guidelines_migration_error` | `BrandGuidelinesMigrationError` | No | No | — |
+| `asset_generation_error` | `asset_generation_error` | `AssetGenerationError` | No | No | — |
+| `benchmarks_error` | `benchmarks_error` | `BenchmarksError` | No | No | — |
+| `incentive_error` | `incentive_error` | `IncentiveError` | No | No | — |
+| `content_creator_insights_error` | `content_creator_insights_error` | `ContentCreatorInsightsError` | No | No | — |
+| `video_reservation_error` | `video_reservation_error` | `VideoReservationError` | No | No | — |
+| `multi_party_auth_review_error` | `multi_party_auth_review_error` | `MultiPartyAuthReviewError` | No | No | — |
 
 ## ErrorDetails
 
@@ -663,13 +663,13 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `unpublished_error_code` | `unpublished_error_code` | `string` | No | No | — |
-| `policy_violation_details` | `policy_violation_details` | `unknown` | No | No | — |
-| `policy_finding_details` | `policy_finding_details` | `unknown` | No | No | — |
-| `quota_error_details` | `quota_error_details` | `unknown` | No | No | — |
-| `resource_count_details` | `resource_count_details` | `unknown` | No | No | — |
-| `budget_per_day_minimum_error_details` | `budget_per_day_minimum_error_details` | `unknown` | No | No | — |
-| `reservation_error_details` | `reservation_error_details` | `unknown` | No | No | — |
-| `incompatible_clo_goal_error_details` | `incompatible_clo_goal_error_details` | `unknown` | No | No | — |
+| `policy_violation_details` | `policy_violation_details` | `PolicyViolationDetails` | No | No | — |
+| `policy_finding_details` | `policy_finding_details` | `PolicyFindingDetails` | No | No | — |
+| `quota_error_details` | `quota_error_details` | `QuotaErrorDetails` | No | No | — |
+| `resource_count_details` | `resource_count_details` | `ResourceCountDetails` | No | No | — |
+| `budget_per_day_minimum_error_details` | `budget_per_day_minimum_error_details` | `BudgetPerDayMinimumErrorDetails` | No | No | — |
+| `reservation_error_details` | `reservation_error_details` | `ReservationErrorDetails` | No | No | — |
+| `incompatible_clo_goal_error_details` | `incompatible_clo_goal_error_details` | `IncompatibleCloGoalsErrorDetails` | No | No | — |
 
 ## ErrorLocation
 
@@ -677,7 +677,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `field_path_elements` | `field_path_elements` | `Array<unknown>` | No | No | — |
+| `field_path_elements` | `field_path_elements` | `Array<FieldPathElement>` | No | No | — |
 
 ## EuPoliticalAdvertisingStatus
 
@@ -699,9 +699,9 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `mapped_event_name` | `mapped_event_name` | `string` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
-| `event_revenue_range` | `event_revenue_range` | `unknown` | No | No | — |
+| `event_revenue_range` | `event_revenue_range` | `RevenueRange` | No | No | — |
 | `event_revenue_value` | `event_revenue_value` | `number` | No | No | — |
-| `event_occurrence_range` | `event_occurrence_range` | `unknown` | No | No | — |
+| `event_occurrence_range` | `event_occurrence_range` | `EventOccurrenceRange` | No | No | — |
 | `event_counter` | `event_counter` | `string` | No | No | — |
 
 ## EventAttribute
@@ -712,7 +712,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `event` | `event` | `string` | No | No | — |
 | `event_date_time` | `event_date_time` | `string` | No | No | — |
-| `item_attribute` | `item_attribute` | `Array<unknown>` | No | No | — |
+| `item_attribute` | `item_attribute` | `Array<EventItemAttribute>` | No | No | — |
 
 ## EventItemAttribute
 
@@ -737,7 +737,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `user_list` | `user_list` | `unknown` | No | No | — |
+| `user_list` | `user_list` | `UserListSegment` | No | No | — |
 
 ## ExpandedDynamicSearchAdInfo
 
@@ -817,9 +817,9 @@ No fields are declared.
 | `traffic_split` | `traffic_split` | `string` | No | No | — |
 | `campaigns` | `campaigns` | `Array<string>` | No | No | — |
 | `in_design_campaigns` | `in_design_campaigns` | `Array<string>` | No | No | — |
-| `asset_testing_info` | `asset_testing_info` | `unknown` | No | No | — |
-| `asset_groups` | `asset_groups` | `Array<unknown>` | No | No | — |
-| `performance_max_experiment_arm_info` | `performance_max_experiment_arm_info` | `unknown` | No | No | — |
+| `asset_testing_info` | `asset_testing_info` | `AssetTestingInfo` | No | No | — |
+| `asset_groups` | `asset_groups` | `Array<AssetGroupInfo>` | No | No | — |
+| `performance_max_experiment_arm_info` | `performance_max_experiment_arm_info` | `PerformanceMaxExperimentArmInfo` | No | No | — |
 
 ## ExperimentArmError
 
@@ -839,7 +839,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `ExperimentArm` | No | No | — |
 | `update` | `update` | `ExperimentArm` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -898,7 +898,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `Experiment` | No | No | — |
 | `update` | `update` | `Experiment` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |

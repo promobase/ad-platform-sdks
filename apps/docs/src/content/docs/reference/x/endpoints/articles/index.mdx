@@ -1,0 +1,79 @@
+---
+title: "X Articles endpoints"
+description: "2 generated X endpoint contracts for Articles."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 102
+  label: "Articles"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.articles.articleCreateDraft
+
+`POST` `/2/articles/draft`
+
+Creates a new Article draft that can later be published.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `articles.manage` |
+| Required scopes | `tweet.write` |
+| Rate-limit bucket | `x-articles` |
+| Output | `ArticleCreateDraftResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `ArticleCreateDraftRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.articles.articlePublish
+
+`POST` `/2/articles/{article_id}/publish`
+
+Publishes a draft Article, making it publicly visible.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `articles.manage` |
+| Required scopes | `tweet.write` |
+| Rate-limit bucket | `x-articles` |
+| Output | `ArticlePublishResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `article_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

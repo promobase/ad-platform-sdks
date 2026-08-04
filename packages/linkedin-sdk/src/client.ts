@@ -9,11 +9,33 @@ export interface LinkedInClientOptions {
 }
 
 export interface LinkedInRequestOptions {
-  method?: "GET" | "POST" | "DELETE" | "PUT";
-  query?: Record<string, string | number | boolean | undefined>;
+  method?: "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
+  query?: Readonly<Record<string, RestliQueryValue | undefined>>;
   body?: unknown;
+  rawBody?: BodyInit;
   headers?: Record<string, string>;
+  restliMethod?: RestliMethod;
+  queryTunneling?: boolean | "auto";
 }
+
+export type RestliPrimitive = string | number | boolean;
+export type RestliQueryValue =
+  | RestliPrimitive
+  | readonly RestliQueryValue[]
+  | { readonly [key: string]: RestliQueryValue | undefined };
+
+export type RestliMethod =
+  | "BATCH_CREATE"
+  | "BATCH_DELETE"
+  | "BATCH_GET"
+  | "BATCH_PARTIAL_UPDATE"
+  | "BATCH_UPDATE"
+  | "CREATE"
+  | "DELETE"
+  | "FINDER"
+  | "GET"
+  | "PARTIAL_UPDATE"
+  | "UPDATE";
 
 export interface LinkedInResponse<T> {
   data: T;
@@ -39,7 +61,7 @@ export class LinkedInClient {
   }
 
   async request<T>(path: string, opts: LinkedInRequestOptions = {}): Promise<LinkedInResponse<T>> {
-    const method = opts.method ?? "GET";
+    const requestedMethod = opts.method ?? "GET";
     const url = this.buildUrl(path, opts.query);
     const headers: Record<string, string> = {
       Authorization: `Bearer ${this.accessToken}`,
@@ -48,18 +70,38 @@ export class LinkedInClient {
       ...opts.headers,
     };
 
-    if (opts.body !== undefined) {
+    if (opts.restliMethod) headers["X-RestLi-Method"] = opts.restliMethod;
+
+    const shouldTunnel =
+      opts.queryTunneling === true ||
+      (opts.queryTunneling === "auto" &&
+        (url.length > 4_096 || Object.values(opts.query ?? {}).some(isStructuredQueryValue)));
+    if (opts.body !== undefined && opts.rawBody !== undefined) {
+      throw new Error("LinkedIn requests cannot set both body and rawBody");
+    }
+    if (shouldTunnel && opts.rawBody !== undefined) {
+      throw new Error("LinkedIn query tunneling does not support rawBody");
+    }
+    const request = shouldTunnel
+      ? buildTunneledRequest(url, requestedMethod, opts.body, headers)
+      : {
+          url,
+          method: requestedMethod,
+          body: opts.rawBody ?? (opts.body === undefined ? undefined : JSON.stringify(opts.body)),
+        };
+
+    if (opts.body !== undefined && !shouldTunnel) {
       headers["Content-Type"] ??= "application/json";
     }
 
     if (this.debug) {
-      console.log(`[LinkedInSDK] ${method} ${url}`);
+      console.log(`[LinkedInSDK] ${request.method} ${request.url}`);
     }
 
-    const response = await this.fetchImpl(url, {
-      method,
+    const response = await this.fetchImpl(request.url, {
+      method: request.method,
       headers,
-      body: opts.body === undefined ? undefined : JSON.stringify(opts.body),
+      body: request.body,
     });
 
     const text = await response.text();
@@ -101,12 +143,51 @@ export class LinkedInClient {
     if (query) {
       for (const [key, value] of Object.entries(query)) {
         if (value !== undefined) {
-          url.searchParams.set(key, String(value));
+          url.searchParams.set(key, serializeRestliValue(value));
         }
       }
     }
     return url.toString();
   }
+}
+
+function isStructuredQueryValue(value: RestliQueryValue | undefined): boolean {
+  return typeof value === "object" && value !== null;
+}
+
+export function serializeRestliValue(value: RestliQueryValue): string {
+  if (Array.isArray(value)) return `List(${value.map(serializeRestliValue).join(",")})`;
+  if (typeof value === "object" && value !== null) {
+    const fields = Object.entries(value)
+      .filter((entry): entry is [string, RestliQueryValue] => entry[1] !== undefined)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, item]) => `${key}:${serializeRestliValue(item)}`);
+    return `(${fields.join(",")})`;
+  }
+  return String(value);
+}
+
+function buildTunneledRequest(
+  url: string,
+  method: NonNullable<LinkedInRequestOptions["method"]>,
+  body: unknown,
+  headers: Record<string, string>,
+): { url: string; method: "POST"; body: string } {
+  const parsed = new URL(url);
+  const boundary = `linkedin-sdk-${crypto.randomUUID()}`;
+  const parts = [
+    `--${boundary}\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\n${parsed.searchParams.toString()}\r\n`,
+  ];
+  if (body !== undefined) {
+    parts.push(
+      `--${boundary}\r\nContent-Type: application/json\r\n\r\n${JSON.stringify(body)}\r\n`,
+    );
+  }
+  parts.push(`--${boundary}--\r\n`);
+  headers["Content-Type"] = `multipart/mixed; boundary=${boundary}`;
+  headers["X-HTTP-Method-Override"] = method;
+  parsed.search = "";
+  return { url: parsed.toString(), method: "POST", body: parts.join("") };
 }
 
 function parseResponseBody(text: string): unknown {

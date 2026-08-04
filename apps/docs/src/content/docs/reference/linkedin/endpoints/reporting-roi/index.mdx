@@ -1,0 +1,823 @@
+---
+title: "LinkedIn Reporting roi endpoints"
+description: "27 generated LinkedIn endpoint contracts for Reporting roi."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 115
+  label: "Reporting roi"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## reporting-roi.reportingRoiUseCasesAdAnalyticsByConversionCampaignWithCampaignNameTypeStatusCampaignGroupProjectionGetAdAnalyticsQStati
+
+`GET` `/adAnalytics?q=statistics&dateRange=(start:(day:1,month:1,year:2023),end:(day:30,month:3,year:2023))&timeGranularity=ALL&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&pivots=List(CONVERSION,CAMPAIGN)&fields=externalWebsiteConversions,externalWebsitePostClickConversions,externalWebsitePostViewConversions,costInLocalCurrency,externalWebsiteConversions,costInLocalCurrency,dateRange,pivotValues`
+
+This API slice the conversion and the campaign data against nme, type, status and campaign projection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesAdAnalyticsByCreativeCampaignWithCreativeTypeStatusCampaignNameTypeStatusCampaignGroupProjectionGetA
+
+`GET` `/adAnalytics?q=statistics&dateRange=(start:(day:1,month:1,year:2023),end:(day:30,month:3,year:2023))&timeGranularity=ALL&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&pivots=List(CREATIVE,CAMPAIGN)&fields=impressions,clicks,totalEngagements,comments,shares,reactions,approximateUniqueImpressions,externalWebsiteConversions,externalWebsitePostClickConversions,externalWebsitePostViewConversions,conversionValueInLocalCurrency,oneClickLeads`
+
+This API slice the conversion and the campaign data against campaign name, type, status and campaign group projection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesAdAnalyticsByCreativeWithContentProjectionForDifferentCreativeTypesGetAdAnalyticsQAnalyticsDateRange
+
+`GET` `/adAnalytics?q=analytics&dateRange=(start:(day:1,month:1,year:2023),end:(day:30,month:3,year:2023))&timeGranularity=ALL&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&pivot=CREATIVE&fields=pivotValues,impressions,likes,clicks,externalWebsiteConversions`
+
+This API slice the creative data against content projections for different creative types.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesAdAnalyticsByMemberCompanyWithNameWebsiteProjectionGetAdAnalyticsQAnalyticsDateRangeStartDay1Month1Y
+
+`GET` `/adAnalytics?q=analytics&dateRange=(start:(day:1,month:1,year:2023),end:(day:30,month:3,year:2023))&timeGranularity=MONTHLY&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&pivot=MEMBER_COMPANY&fields=impressions,approximateUniqueImpressions,clicks,landingPageClicks,totalEngagements,likes,comments,follows,shares,externalWebsiteConversions,pivotValue,dateRange&projection=(*,elements*(*,approximateUniqueImpressions,%20pivotValue~(vanityName,localizedName,localizedWebsite)))`
+
+This API pull the analytics data by slicing it through the member company with name and website projection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesAdAnalyticsByMemberIndustryWithNameProjectionGetAdAnalyticsQAnalyticsDateRangeStartDay1Month1Year202
+
+`GET` `/adAnalytics?q=analytics&dateRange=(start:(day:1,month:1,year:2023),end:(day:30,month:3,year:2023))&timeGranularity=ALL&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&pivot=MEMBER_INDUSTRY&fields=impressions,clicks,landingPageClicks,totalEngagements,likes,comments,follows,shares,externalWebsiteConversions,pivotValues`
+
+This API pull the analytics data by slicing it through the member insdustry with name projection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesAbmMetricsAccountEngagementBundleGetAdAnalyticsQAnalyticsPivotMemberCompanyDateRangeStar
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_COMPANY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&fields=pivotValues,impressions,totalEngagements`
+
+Account Engagement Bundle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesAbmMetricsAccountPerformanceBundleGetAdAnalyticsQAnalyticsPivotMemberCompanyDateRangeSta
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_COMPANY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&fields=externalWebsiteConversions,pivotValues,impressions,totalEngagements,oneClickLeads`
+
+Account Performance Bundle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveBasicConversionTypeGetAdAnalyticsQStatisticsPivotsListValueCampaignVa
+
+`GET` `/adAnalytics?q=statistics&pivots=List((value:CAMPAIGN),(value:CONVERSION))&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues,externalWebsitePostClickConversions,externalWebsitePostViewConversions`
+
+Basic Conversion Type
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberCompanyGetAdAnalyticsQAnalyticsPivotMemberCompanyD
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_COMPANY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Company
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberCompanySizeGetAdAnalyticsQAnalyticsPivotMemberComp
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_COMPANY_SIZE&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Company Size
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberFunctionGetAdAnalyticsQAnalyticsPivotMemberJobFunc
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_JOB_FUNCTION&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Function
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberIndustryGetAdAnalyticsQAnalyticsPivotMemberIndustr
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_INDUSTRY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Industry
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberJobTitleGetAdAnalyticsQAnalyticsPivotMemberJobTitl
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_JOB_TITLE&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Job Title
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsByMemberSeniorityGetAdAnalyticsQAnalyticsPivotMemberSenior
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_SENIORITY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues`
+
+Conversions by Member Seniority
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesConversionsDeepDiveConversionsThroughFunnelGetAdAnalyticsQStatisticsPivotsListValueConve
+
+`GET` `/adAnalytics?q=statistics&pivots=List((value:CONVERSION),(value:CAMPAIGN),(value:CREATIVE))&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=impressions,clicks,oneClickLeads,externalWebsiteConversions,pivotValues`
+
+Conversions through Funnel
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesRevenueAttributionAdMetricsByAdAccountCampaignGroupCampaignGetAdAnalyticsQStatisticsPivo
+
+`GET` `/adAnalytics?q=statistics&pivots=List(ACCOUNT,CAMPAIGN_GROUP,CAMPAIGN)&dateRange=(start:(day:25,month:5,year:2024),end:(day:24,month:5,year:2025))&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&timeGranularity=ALL&fields=dateRange,pivotValues,impressions,clicks,costInLocalCurrency,externalWebsiteConversions,oneClickLeadFormOpens,oneClickLeads,videoViews,sends,opens,registrations`
+
+Ad Metrics By Ad Account + Campaign Group + Campaign
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesRevenueAttributionAdMetricsByAdAccountGetAdAnalyticsQAnalyticsPivotAccountDateRangeStart
+
+`GET` `/adAnalytics?q=analytics&pivot=ACCOUNT&dateRange=(start:(day:24,month:5,year:2024),end:(day:23,month:5,year:2025))&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&timeGranularity=ALL&fields=dateRange,pivotValues,impressions,clicks,costInLocalCurrency,externalWebsiteConversions,oneClickLeadFormOpens,oneClickLeads,videoViews,sends,opens,registrations`
+
+Ad Metrics By Ad Account
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesRevenueAttributionRevenueMetricsByAdAccountCampaignGroupCampaignGetAdAnalyticsQAttribute
+
+`GET` `/adAnalytics?q=attributedRevenueMetrics&pivots=List(ACCOUNT,CAMPAIGN_GROUP,CAMPAIGN)&dateRange=(start:(day:25,month:5,year:2024),end:(day:24,month:5,year:2025))&account=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&fields=dateRange,pivotValues,revenueAttributionMetrics`
+
+Revenue Metrics By Ad Account + Campaign Group + Campaign
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesRevenueAttributionRevenueMetricsByAdAccountGetAdAnalyticsQAttributedRevenueMetricsPivots
+
+`GET` `/adAnalytics?q=attributedRevenueMetrics&pivots=List(ACCOUNT)&dateRange=(start:(day:24,month:5,year:2024),end:(day:23,month:5,year:2025))&account=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&fields=dateRange,pivotValues,revenueAttributionMetrics`
+
+Revenue Metrics By Ad Account
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsDemographicsMemberCompanyGetAdAnalyticsQAnalyticsPivotMemberCompanyDateRa
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_COMPANY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues,impressions,clicks,totalEngagements,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency`
+
+Demographics - Member Company
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsDemographicsMemberFuntionGetAdAnalyticsQAnalyticsPivotMemberJobFunctionDa
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_JOB_FUNCTION&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues,impressions,clicks,totalEngagements,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency`
+
+Demographics - Member Funtion
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsDemographicsMemberSeniorityGetAdAnalyticsQAnalyticsPivotMemberSeniorityDa
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_SENIORITY&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues,impressions,clicks,totalEngagements,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency`
+
+Demographics - Member Seniority
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsDemographicsMemberTitleGetAdAnalyticsQAnalyticsPivotMemberJobTitleDateRan
+
+`GET` `/adAnalytics?q=analytics&pivot=MEMBER_JOB_TITLE&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=externalWebsiteConversions,pivotValues,impressions,clicks,totalEngagements,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency`
+
+Demographics - Member Title
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsPerformanceByCampaignGetAdAnalyticsQAnalyticsPivotValueCampaignDateRangeS
+
+`GET` `/adAnalytics?q=analytics&pivot=(value:CAMPAIGN)&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=impressions,approximateUniqueImpressions,clicks,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency,externalWebsiteConversions,totalEngagements,pivotValues,videoViews,videoCompletions,sends,opens`
+
+Performance - by Campaign
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsPerformanceByCreativeGetAdAnalyticsQAnalyticsPivotValueCreativeDateRangeS
+
+`GET` `/adAnalytics?q=analytics&pivot=(value:CREATIVE)&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=impressions,approximateUniqueImpressions,clicks,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency,externalWebsiteConversions,totalEngagements,pivotValues,videoViews,videoCompletions,sends,opens`
+
+Performance - by Creative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsPerformanceByObjectiveGetAdAnalyticsQStatisticsPivotsListValueObjectiveTy
+
+`GET` `/adAnalytics?q=statistics&pivots=List((value:OBJECTIVE_TYPE),(value:CAMPAIGN))&dateRange=(start:(day:1,month:1,year:2022),end:(day:31,month:12,year:2022))&timeGranularity=(value:ALL)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&fields=impressions,approximateUniqueImpressions,clicks,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency,externalWebsiteConversions,totalEngagements,pivotValues,videoViews,videoCompletions,sends,opens`
+
+Performance - by Objective
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reporting-roi.reportingRoiUseCasesB2BTemplatesStandardMetricsPerformanceDashboardOverviewGetAdAnalyticsQAnalyticsDateRangeStartYear202
+
+`GET` `/adAnalytics?q=analytics&dateRange=(start:(year:2023,month:4,day:1),end:(year:2023,month:4,day:18))&timeGranularity=(value:DAILY)&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredAccount})&pivot=(value:CAMPAIGN)&fields=impressions,approximateUniqueImpressions,clicks,oneClickLeads,costInLocalCurrency,costInUsd,dateRange,conversionValueInLocalCurrency,externalWebsiteConversions,pivotValues`
+
+Performance - Dashboard Overview
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.reporting.roi` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.reporting.roi` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredAccount` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

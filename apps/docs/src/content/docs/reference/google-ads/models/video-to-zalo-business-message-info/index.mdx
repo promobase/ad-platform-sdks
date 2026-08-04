@@ -31,7 +31,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `format_restriction` | `format_restriction` | `VideoAdFormatRestriction` | No | No | — |
-| `non_skippable_in_stream_restrictions` | `non_skippable_in_stream_restrictions` | `unknown` | No | No | — |
+| `non_skippable_in_stream_restrictions` | `non_skippable_in_stream_restrictions` | `NonSkippableInStreamRestrictions` | No | No | — |
 
 ## VideoAdFormatRestriction
 
@@ -51,7 +51,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `video_ad_sequence` | `video_ad_sequence` | `unknown` | No | No | — |
+| `video_ad_sequence` | `video_ad_sequence` | `VideoAdSequenceStepSetting` | No | No | — |
 
 ## VideoAdInfo
 
@@ -59,13 +59,13 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `video` | `video` | `unknown` | No | No | — |
-| `in_stream` | `in_stream` | `unknown` | No | No | — |
-| `bumper` | `bumper` | `unknown` | No | No | — |
-| `out_stream` | `out_stream` | `unknown` | No | No | — |
-| `non_skippable` | `non_skippable` | `unknown` | No | No | — |
-| `in_feed` | `in_feed` | `unknown` | No | No | — |
-| `audio` | `audio` | `unknown` | No | No | — |
+| `video` | `video` | `AdVideoAsset` | No | No | — |
+| `in_stream` | `in_stream` | `VideoTrueViewInStreamAdInfo` | No | No | — |
+| `bumper` | `bumper` | `VideoBumperInStreamAdInfo` | No | No | — |
+| `out_stream` | `out_stream` | `VideoOutstreamAdInfo` | No | No | — |
+| `non_skippable` | `non_skippable` | `VideoNonSkippableInStreamAdInfo` | No | No | — |
+| `in_feed` | `in_feed` | `InFeedVideoAdInfo` | No | No | — |
+| `audio` | `audio` | `YouTubeAudioAdInfo` | No | No | — |
 
 ## VideoAdInventoryControl
 
@@ -84,7 +84,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `steps` | `steps` | `Array<unknown>` | No | No | — |
+| `steps` | `steps` | `Array<VideoAdSequenceStep>` | No | No | — |
 | `minimum_duration` | `minimum_duration` | `VideoAdSequenceMinimumDuration` | No | No | — |
 
 ## VideoAdSequenceInteractionType
@@ -137,7 +137,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+| `companion_banner` | `companion_banner` | `AdImageAsset` | No | No | — |
 | `action_button_label` | `action_button_label` | `string` | No | No | — |
 | `action_headline` | `action_headline` | `string` | No | No | — |
 
@@ -159,11 +159,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `video_ad_sequence` | `video_ad_sequence` | `unknown` | No | No | — |
-| `reservation_ad_category_self_disclosure` | `reservation_ad_category_self_disclosure` | `unknown` | No | No | — |
-| `booking_details` | `booking_details` | `unknown` | No | No | — |
-| `video_ad_inventory_control` | `video_ad_inventory_control` | `unknown` | No | No | — |
-| `video_ad_format_control` | `video_ad_format_control` | `unknown` | No | No | — |
+| `video_ad_sequence` | `video_ad_sequence` | `VideoAdSequence` | No | No | — |
+| `reservation_ad_category_self_disclosure` | `reservation_ad_category_self_disclosure` | `ReservationAdCategorySelfDisclosure` | No | No | — |
+| `booking_details` | `booking_details` | `BookingDetails` | No | No | — |
+| `video_ad_inventory_control` | `video_ad_inventory_control` | `VideoAdInventoryControl` | No | No | — |
+| `video_ad_format_control` | `video_ad_format_control` | `VideoAdFormatControl` | No | No | — |
 
 ## VideoCustomer
 
@@ -230,7 +230,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+| `companion_banner` | `companion_banner` | `AdImageAsset` | No | No | — |
 | `action_button_label` | `action_button_label` | `string` | No | No | — |
 | `action_headline` | `action_headline` | `string` | No | No | — |
 
@@ -261,14 +261,14 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `long_headlines` | `long_headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `call_to_actions` | `call_to_actions` | `Array<unknown>` | No | No | — |
-| `videos` | `videos` | `Array<unknown>` | No | No | — |
-| `business_name` | `business_name` | `unknown` | No | No | — |
-| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
-| `companion_banners` | `companion_banners` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `long_headlines` | `long_headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `call_to_actions` | `call_to_actions` | `Array<AdTextAsset>` | No | No | — |
+| `videos` | `videos` | `Array<AdVideoAsset>` | No | No | — |
+| `business_name` | `business_name` | `AdTextAsset` | No | No | — |
+| `logo_images` | `logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `companion_banners` | `companion_banners` | `Array<AdImageAsset>` | No | No | — |
 | `breadcrumb1` | `breadcrumb1` | `string` | No | No | — |
 | `breadcrumb2` | `breadcrumb2` | `string` | No | No | — |
 
@@ -292,7 +292,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `action_button_label` | `action_button_label` | `string` | No | No | — |
 | `action_headline` | `action_headline` | `string` | No | No | — |
-| `companion_banner` | `companion_banner` | `unknown` | No | No | — |
+| `companion_banner` | `companion_banner` | `AdImageAsset` | No | No | — |
 
 ## WebhookDelivery
 
@@ -310,7 +310,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `conditions` | `conditions` | `Array<unknown>` | No | No | — |
+| `conditions` | `conditions` | `Array<WebpageCondition>` | No | No | — |
 
 ## WebpageCondition
 
@@ -362,9 +362,9 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `criterion_name` | `criterion_name` | `string` | No | No | — |
-| `conditions` | `conditions` | `Array<unknown>` | No | No | — |
+| `conditions` | `conditions` | `Array<WebpageConditionInfo>` | No | No | — |
 | `coverage_percentage` | `coverage_percentage` | `number` | No | No | — |
-| `sample` | `sample` | `unknown` | No | No | — |
+| `sample` | `sample` | `WebpageSampleInfo` | No | No | — |
 
 ## WebpageListInfo
 
@@ -422,8 +422,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `start` | `start` | `unknown` | No | No | — |
-| `end` | `end` | `unknown` | No | No | — |
+| `start` | `start` | `YearMonth` | No | No | — |
+| `end` | `end` | `YearMonth` | No | No | — |
 
 ## YouTubeAudioAdInfo
 
@@ -461,12 +461,12 @@ No fields are declared.
 | `thumbnail_url` | `thumbnail_url` | `string` | No | No | — |
 | `publish_date` | `publish_date` | `string` | No | No | — |
 | `country_location` | `country_location` | `LocationInfo` | No | No | — |
-| `channel_metrics` | `channel_metrics` | `unknown` | No | No | — |
+| `channel_metrics` | `channel_metrics` | `YouTubeMetrics` | No | No | — |
 | `data_sharing_consent_given` | `data_sharing_consent_given` | `boolean` | No | No | — |
 | `channel_audience_attributes` | `channel_audience_attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
 | `channel_attributes` | `channel_attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
 | `top_videos` | `top_videos` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
-| `language_distributions` | `language_distributions` | `Array<unknown>` | No | No | — |
+| `language_distributions` | `language_distributions` | `Array<LanguageDistribution>` | No | No | — |
 | `channel_type` | `channel_type` | `string` | No | No | — |
 | `relevance_score` | `relevance_score` | `number` | No | No | — |
 
@@ -485,7 +485,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `creator_name` | `creator_name` | `string` | No | No | — |
-| `creator_channels` | `creator_channels` | `Array<unknown>` | No | No | — |
+| `creator_channels` | `creator_channels` | `Array<YouTubeChannelInsights>` | No | No | — |
 
 ## YoutubeLinkMetadata
 
@@ -542,8 +542,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `youtube_select_lineups` | `youtube_select_lineups` | `Array<unknown>` | No | No | — |
-| `default_youtube_select_lineup` | `default_youtube_select_lineup` | `unknown` | No | No | — |
+| `youtube_select_lineups` | `youtube_select_lineups` | `Array<YouTubeSelectLineUp>` | No | No | — |
+| `default_youtube_select_lineup` | `default_youtube_select_lineup` | `YouTubeSelectLineUp` | No | No | — |
 
 ## YouTubeSelectSettings
 
@@ -602,7 +602,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<AdVideoAsset>` | No | No | — |
 
 ## YouTubeVideoPrivacy
 

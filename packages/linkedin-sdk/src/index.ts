@@ -18,15 +18,31 @@ export { createAssets } from "./assets.ts";
 export {
   createLinkedInClient,
   LinkedInClient,
+  serializeRestliValue,
   type LinkedInClientOptions,
   type LinkedInRequestOptions,
   type LinkedInResponse,
+  type RestliMethod,
+  type RestliPrimitive,
+  type RestliQueryValue,
 } from "./client.ts";
 export { createComments, type LinkedInCommentResult } from "./comments.ts";
 export { LinkedInApiError, LinkedInUploadError } from "./errors.ts";
 export { createClient, LinkedIn } from "./namespace.ts";
 export { createLinkedInOAuth } from "./oauth.ts";
 export { createPosts } from "./posts.ts";
+export {
+  createLinkedInGeneratedClient,
+  LinkedInGeneratedClient,
+  LINKEDIN_POSTMAN_API_VERSION,
+  LINKEDIN_POSTMAN_EXCLUDED_REQUEST_COUNT,
+  LINKEDIN_POSTMAN_REQUEST_COUNT,
+  LINKEDIN_POSTMAN_SOURCE_COUNT,
+  linkedinOperations,
+  type LinkedInOperation,
+  type LinkedInOperationId,
+  type LinkedInOperationInput,
+} from "./generated/rest/index.ts";
 export type {
   LinkedInCallToAction,
   LinkedInCallToActionLabel,

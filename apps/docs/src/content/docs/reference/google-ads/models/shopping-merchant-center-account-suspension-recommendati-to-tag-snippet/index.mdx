@@ -18,7 +18,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 
 ## ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation
@@ -27,7 +27,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 
 ## ShoppingOfferAttributeRecommendation
@@ -36,7 +36,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 | `offers_count` | `offers_count` | `string` | No | No | — |
 | `demoted_offers_count` | `demoted_offers_count` | `string` | No | No | — |
@@ -88,7 +88,7 @@ tableOfContents: false
 | `product_type_level5` | `product_type_level5` | `string` | No | No | — |
 | `effective_max_cpc_micros` | `effective_max_cpc_micros` | `string` | No | No | — |
 | `status` | `status` | `ProductStatus` | No | No | — |
-| `issues` | `issues` | `Array<unknown>` | No | No | — |
+| `issues` | `issues` | `Array<ProductIssue>` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
 | `ad_group` | `ad_group` | `string` | No | No | — |
 
@@ -137,7 +137,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `untargeted_offers_count` | `untargeted_offers_count` | `string` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 
@@ -184,7 +184,7 @@ No fields are declared.
 | `description2` | `description2` | `string` | No | No | — |
 | `start_date` | `start_date` | `string` | No | No | — |
 | `end_date` | `end_date` | `string` | No | No | — |
-| `ad_schedule_targets` | `ad_schedule_targets` | `Array<unknown>` | No | No | — |
+| `ad_schedule_targets` | `ad_schedule_targets` | `Array<AdScheduleInfo>` | No | No | — |
 
 ## SitelinkAssetParameters
 
@@ -192,7 +192,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `unknown` | No | No | — |
+| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `AdAssetApplyParameters` | No | No | — |
 
 ## SitelinkAssetRecommendation
 
@@ -200,8 +200,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `recommended_campaign_sitelink_assets` | `recommended_campaign_sitelink_assets` | `Array<unknown>` | No | No | — |
-| `recommended_customer_sitelink_assets` | `recommended_customer_sitelink_assets` | `Array<unknown>` | No | No | — |
+| `recommended_campaign_sitelink_assets` | `recommended_campaign_sitelink_assets` | `Array<Asset>` | No | No | — |
+| `recommended_customer_sitelink_assets` | `recommended_customer_sitelink_assets` | `Array<Asset>` | No | No | — |
 
 ## SitelinkExtensionParameters
 
@@ -223,7 +223,7 @@ No fields are declared.
 | `final_urls` | `final_urls` | `Array<string>` | No | No | — |
 | `final_mobile_urls` | `final_mobile_urls` | `Array<string>` | No | No | — |
 | `tracking_url_template` | `tracking_url_template` | `string` | No | No | — |
-| `url_custom_parameters` | `url_custom_parameters` | `Array<unknown>` | No | No | — |
+| `url_custom_parameters` | `url_custom_parameters` | `Array<CustomParameter>` | No | No | — |
 | `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |
 
 ## SiteSeed
@@ -290,8 +290,8 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `app_id` | `app_id` | `string` | No | No | — |
 | `measurement_window_hours` | `measurement_window_hours` | `integer` | No | No | — |
-| `fine_grained_conversion_value_mappings` | `fine_grained_conversion_value_mappings` | `Array<unknown>` | No | No | — |
-| `postback_mappings` | `postback_mappings` | `Array<unknown>` | No | No | — |
+| `fine_grained_conversion_value_mappings` | `fine_grained_conversion_value_mappings` | `Array<FineGrainedConversionValueMappings>` | No | No | — |
+| `postback_mappings` | `postback_mappings` | `Array<PostbackMapping>` | No | No | — |
 
 ## SkAdNetworkSourceApp
 
@@ -343,8 +343,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
 
 ## SmartCampaignEligibleDetails
 
@@ -429,10 +429,10 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
-| `phone_number` | `phone_number` | `unknown` | No | No | — |
+| `phone_number` | `phone_number` | `PhoneNumber` | No | No | — |
 | `advertising_language_code` | `advertising_language_code` | `string` | No | No | — |
 | `final_url` | `final_url` | `string` | No | No | — |
-| `ad_optimized_business_profile_setting` | `ad_optimized_business_profile_setting` | `unknown` | No | No | — |
+| `ad_optimized_business_profile_setting` | `ad_optimized_business_profile_setting` | `AdOptimizedBusinessProfileSetting` | No | No | — |
 | `business_name` | `business_name` | `string` | No | No | — |
 | `business_profile_location` | `business_profile_location` | `string` | No | No | — |
 
@@ -443,7 +443,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `update` | `update` | `SmartCampaignSetting` | No | No | — |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 
 ## SmartCampaignStatus
 
@@ -467,9 +467,9 @@ No fields are declared.
 | `language_code` | `language_code` | `string` | No | No | — |
 | `ad_schedules` | `ad_schedules` | `Array<AdScheduleInfo>` | No | No | — |
 | `keyword_themes` | `keyword_themes` | `Array<KeywordThemeInfo>` | No | No | — |
-| `business_context` | `business_context` | `unknown` | No | No | — |
+| `business_context` | `business_context` | `BusinessContext` | No | No | — |
 | `business_profile_location` | `business_profile_location` | `string` | No | No | — |
-| `location_list` | `location_list` | `unknown` | No | No | — |
+| `location_list` | `location_list` | `LocationList` | No | No | — |
 | `proximity` | `proximity` | `ProximityInfo` | No | No | — |
 
 ## SourceImage
@@ -486,8 +486,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `award_amount` | `award_amount` | `unknown` | No | No | — |
-| `required_amount` | `required_amount` | `unknown` | No | No | — |
+| `award_amount` | `award_amount` | `json` | No | No | — |
+| `required_amount` | `required_amount` | `json` | No | No | — |
 
 ## SpendingLimitType
 
@@ -527,7 +527,7 @@ No fields are declared.
 | `loyalty_fraction` | `loyalty_fraction` | `number` | No | No | — |
 | `transaction_upload_fraction` | `transaction_upload_fraction` | `number` | No | No | — |
 | `custom_key` | `custom_key` | `string` | No | No | — |
-| `third_party_metadata` | `third_party_metadata` | `unknown` | No | No | — |
+| `third_party_metadata` | `third_party_metadata` | `StoreSalesThirdPartyMetadata` | No | No | — |
 
 ## StoreSalesThirdPartyMetadata
 
@@ -591,7 +591,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `brands` | `brands` | `Array<unknown>` | No | No | — |
+| `brands` | `brands` | `Array<BrandSuggestion>` | No | No | — |
 
 ## SuggestGeoTargetConstantsRequest
 
@@ -601,8 +601,8 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `locale` | `locale` | `string` | No | No | — |
 | `country_code` | `country_code` | `string` | No | No | — |
-| `location_names` | `location_names` | `unknown` | No | No | — |
-| `geo_targets` | `geo_targets` | `unknown` | No | No | — |
+| `location_names` | `location_names` | `LocationNames` | No | No | — |
+| `geo_targets` | `geo_targets` | `GeoTargets` | No | No | — |
 
 ## SuggestGeoTargetConstantsResponse
 
@@ -610,7 +610,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `geo_target_constant_suggestions` | `geo_target_constant_suggestions` | `Array<unknown>` | No | No | — |
+| `geo_target_constant_suggestions` | `geo_target_constant_suggestions` | `Array<GeoTargetConstantSuggestion>` | No | No | — |
 
 ## SuggestKeywordThemeConstantsRequest
 
@@ -637,7 +637,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `suggestion_info` | `suggestion_info` | `unknown` | No | No | — |
+| `suggestion_info` | `suggestion_info` | `SmartCampaignSuggestionInfo` | No | No | — |
 
 ## SuggestKeywordThemesResponse
 
@@ -645,7 +645,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `keyword_themes` | `keyword_themes` | `Array<unknown>` | No | No | — |
+| `keyword_themes` | `keyword_themes` | `Array<KeywordTheme>` | No | No | — |
 
 ## SuggestSmartCampaignAdRequest
 
@@ -654,7 +654,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `suggestion_info` | `suggestion_info` | `unknown` | No | No | — |
+| `suggestion_info` | `suggestion_info` | `SmartCampaignSuggestionInfo` | No | No | — |
 
 ## SuggestSmartCampaignAdResponse
 
@@ -672,7 +672,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
-| `suggestion_info` | `suggestion_info` | `unknown` | No | No | — |
+| `suggestion_info` | `suggestion_info` | `SmartCampaignSuggestionInfo` | No | No | — |
 
 ## SuggestSmartCampaignBudgetOptionsResponse
 
@@ -680,9 +680,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `low` | `low` | `unknown` | No | No | — |
-| `recommended` | `recommended` | `unknown` | No | No | — |
-| `high` | `high` | `unknown` | No | No | — |
+| `low` | `low` | `BudgetOption` | No | No | — |
+| `recommended` | `recommended` | `BudgetOption` | No | No | — |
+| `high` | `high` | `BudgetOption` | No | No | — |
 
 ## SuggestSmartCampaignBudgetOptionsResponse_Metrics
 
@@ -709,7 +709,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `hotel_asset_suggestions` | `hotel_asset_suggestions` | `Array<unknown>` | No | No | — |
+| `hotel_asset_suggestions` | `hotel_asset_suggestions` | `Array<HotelAssetSuggestion>` | No | No | — |
 
 ## SummaryRowSetting
 
@@ -737,8 +737,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `default_targeting` | `default_targeting` | `unknown` | No | No | — |
-| `available_targeting_combinations` | `available_targeting_combinations` | `Array<unknown>` | No | No | — |
+| `default_targeting` | `default_targeting` | `SurfaceTargeting` | No | No | — |
+| `available_targeting_combinations` | `available_targeting_combinations` | `Array<SurfaceTargeting>` | No | No | — |
 
 ## SurveyAnswer
 
@@ -803,8 +803,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `advertiser_attestation` | `advertiser_attestation` | `unknown` | No | No | — |
-| `system_attestation` | `system_attestation` | `unknown` | No | No | — |
+| `advertiser_attestation` | `advertiser_attestation` | `SyntheticContentAttestation` | No | No | — |
+| `system_attestation` | `system_attestation` | `SyntheticContentAttestation` | No | No | — |
 
 ## SyntheticContentSource
 

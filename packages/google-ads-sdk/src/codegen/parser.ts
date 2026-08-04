@@ -60,6 +60,8 @@ export interface MethodAst {
   requestType: string;
   responseType: string;
   httpOption?: HttpOption;
+  requestStream?: boolean;
+  responseStream?: boolean;
 }
 
 export interface ServiceAst {
@@ -230,6 +232,8 @@ function toService(s: protobuf.Service): ServiceAst {
       requestType: m.resolvedRequestType?.fullName.replace(/^\./, "") ?? m.requestType,
       responseType: m.resolvedResponseType?.fullName.replace(/^\./, "") ?? m.responseType,
       httpOption,
+      requestStream: Boolean(m.requestStream),
+      responseStream: Boolean(m.responseStream),
     };
   });
   return {

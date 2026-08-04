@@ -1,0 +1,180 @@
+---
+title: "Google Business Profile Mybusiness: List – Search endpoints"
+description: "5 generated Google Business Profile endpoint contracts for Mybusiness: List – Search."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 103
+  label: "Mybusiness: List – Search"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusiness.categories.list
+
+`GET` `https://mybusiness.googleapis.com/v4/categories`
+
+Returns a list of business categories. Search will match the category name but not the category ID. *Note:* Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant').
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListBusinessCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `query` | `string` | No | No | The BCP 47 code of language. If the language is not available, it will default to English. |
+| `pageSize` | `query` | `integer` | No | No | How many categories to fetch per page. Default is 100, minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of categories will be fetched. |
+| `regionCode` | `query` | `string` | No | No | The ISO 3166-1 alpha-2 country code. |
+| `searchTerm` | `query` | `string` | No | No | Optional filter string from user. |
+| `view` | `query` | `"CATEGORY_VIEW_UNSPECIFIED" \| "BASIC" \| "FULL"` | No | No | Optional. Specifies which parts to the Category resource should be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.chains.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Chain` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The chain's resource name, in the format `chains/&#123;chain_place_id&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.chains.search
+
+`GET` `https://mybusiness.googleapis.com/v4/chains:search`
+
+Searches the chain based on chain name.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4SearchChainsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chainDisplayName` | `query` | `string` | No | No | Search for a chain by its name. Exact/partial/fuzzy/related queries are supported. Examples: "walmart", "wal-mart", "walmmmart", "沃尔玛" |
+| `resultCount` | `query` | `integer` | No | No | The maximum number of matched chains to return from this query. The default is 10. The maximum possible value is 500. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.googleLocations.report
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:report`
+
+Report a GoogleLocation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Resource name of a [GoogleLocation], in the format `googleLocations/&#123;googleLocationId&#125;`. |
+| `body` | `body` | `LegacyV4ReportGoogleLocationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.googleLocations.search
+
+`POST` `https://mybusiness.googleapis.com/v4/googleLocations:search`
+
+Search all of the possible locations that are a match to the specified request.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4SearchGoogleLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `LegacyV4SearchGoogleLocationsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

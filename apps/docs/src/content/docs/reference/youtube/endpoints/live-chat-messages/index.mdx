@@ -1,0 +1,150 @@
+---
+title: "YouTube Live Chat Messages endpoints"
+description: "4 generated YouTube endpoint contracts for Live Chat Messages."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 113
+  label: "Live Chat Messages"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.liveChatMessages.delete
+
+`DELETE` `youtube/v3/liveChat/messages`
+
+Deletes a chat message.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveChatMessages.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.liveChatMessages.insert
+
+`POST` `youtube/v3/liveChat/messages`
+
+Inserts a new resource into this collection.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveChatMessages.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `LiveChatMessage` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `part` | `query` | `string` | Yes | No | The *part* parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet. |
+| `body` | `body` | `LiveChatMessage` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.liveChatMessages.list
+
+`GET` `youtube/v3/liveChat/messages`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveChatMessages.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `LiveChatMessageListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `query` | `string` | No | No | Specifies the localization language in which the system messages should be returned. |
+| `liveChatId` | `query` | `string` | Yes | No | The id of the live chat for which comments should be returned. |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. Not used in the streaming RPC. |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken property identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the liveChatComment resource parts that the API response will include. Supported values are id, snippet, and authorDetails. |
+| `profileImageSize` | `query` | `integer` | No | No | Specifies the size of the profile image that should be returned for each user. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.liveChatMessages.transition
+
+`POST` `youtube/v3/liveChat/messages/transition`
+
+Transition a durable chat event.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveChatMessages.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `LiveChatMessage` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `string` | No | No | The ID that uniquely identify the chat message event to transition. |
+| `status` | `query` | `"statusUnspecified" \| "closed"` | No | No | The status to which the chat event is going to transition. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

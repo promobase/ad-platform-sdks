@@ -8,11 +8,12 @@ This package is generated with Fern from X's official OpenAPI spec:
 - Snapshot: `../../fern/openapi/x-openapi.json`
 - Fern config: `../../fern/generators.yml`
 
-The current SDK intentionally filters the full spec to OpenPromo's publishing migration surface:
+The generated Effect and agent catalog accounts for all 176 operations in the pinned OpenAPI
+snapshot. It includes Posts, Users, Lists, Spaces, Direct Messages, Communities, Compliance,
+streaming connections, webhooks, media uploads, and the other tagged X API resources. The manifest
+records OAuth scopes, authentication schemes, transport protocols, and the source checksum.
 
-- Posts: create, delete, get by ID, get by IDs
-- Users: authenticated user, user by ID, user by username
-- Media: lookup, one-shot upload, chunked initialize/append/finalize, upload status
+X Ads is a separate provider API and is not represented by the core X API OpenAPI snapshot.
 
 ## Generate
 

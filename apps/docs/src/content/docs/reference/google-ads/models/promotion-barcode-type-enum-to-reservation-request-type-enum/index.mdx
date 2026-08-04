@@ -58,8 +58,8 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `survey_answer` | `survey_answer` | `SurveyAnswer` | No | No | — |
-| `survey_satisfied` | `survey_satisfied` | `unknown` | No | No | — |
-| `survey_dissatisfied` | `survey_dissatisfied` | `unknown` | No | No | — |
+| `survey_satisfied` | `survey_satisfied` | `SurveySatisfied` | No | No | — |
+| `survey_dissatisfied` | `survey_dissatisfied` | `SurveyDissatisfied` | No | No | — |
 
 ## ProvideLeadFeedbackResponse
 
@@ -75,10 +75,10 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `geo_point` | `geo_point` | `unknown` | No | No | — |
+| `geo_point` | `geo_point` | `GeoPointInfo` | No | No | — |
 | `radius` | `radius` | `number` | No | No | — |
 | `radius_units` | `radius_units` | `ProximityRadiusUnits` | No | No | — |
-| `address` | `address` | `unknown` | No | No | — |
+| `address` | `address` | `AddressInfo` | No | No | — |
 
 ## ProximityRadiusUnits
 
@@ -150,9 +150,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `rate_scope` | `rate_scope` | `unknown` | No | No | — |
+| `rate_scope` | `rate_scope` | `QuotaRateScope` | No | No | — |
 | `rate_name` | `rate_name` | `string` | No | No | — |
-| `retry_delay` | `retry_delay` | `unknown` | No | No | — |
+| `retry_delay` | `retry_delay` | `string` | No | No | — |
 
 ## QuotaErrorEnum
 
@@ -172,7 +172,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `campaigns` | `campaigns` | `Array<unknown>` | No | No | — |
+| `campaigns` | `campaigns` | `Array<Campaign>` | No | No | — |
 | `quote_signature` | `quote_signature` | `string` | No | No | — |
 
 ## QuoteCampaignsOperation_Campaign
@@ -240,7 +240,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `target_adjustment` | `target_adjustment` | `unknown` | No | No | — |
+| `target_adjustment` | `target_adjustment` | `TargetAdjustmentInfo` | No | No | — |
 | `app_bidding_goal` | `app_bidding_goal` | `AppBiddingGoal` | No | No | — |
 
 ## RangeError
@@ -283,7 +283,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `reach_forecasts` | `reach_forecasts` | `Array<unknown>` | No | No | — |
+| `reach_forecasts` | `reach_forecasts` | `Array<ReachForecast>` | No | No | — |
 
 ## ReachForecast
 
@@ -292,8 +292,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `cost_micros` | `cost_micros` | `string` | No | No | — |
-| `forecast` | `forecast` | `unknown` | No | No | — |
-| `planned_product_reach_forecasts` | `planned_product_reach_forecasts` | `Array<unknown>` | No | No | — |
+| `forecast` | `forecast` | `Forecast` | No | No | — |
+| `planned_product_reach_forecasts` | `planned_product_reach_forecasts` | `Array<PlannedProductReachForecast>` | No | No | — |
 
 ## ReachPlanAgeRange
 
@@ -425,66 +425,66 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `type` | `type` | `RecommendationType` | No | No | — |
-| `impact` | `impact` | `unknown` | No | No | — |
+| `impact` | `impact` | `RecommendationImpact` | No | No | — |
 | `campaign_budget` | `campaign_budget` | `string` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
 | `ad_group` | `ad_group` | `string` | No | No | — |
 | `dismissed` | `dismissed` | `boolean` | No | No | — |
 | `campaigns` | `campaigns` | `Array<string>` | No | No | — |
-| `campaign_budget_recommendation` | `campaign_budget_recommendation` | `unknown` | No | No | — |
-| `forecasting_campaign_budget_recommendation` | `forecasting_campaign_budget_recommendation` | `unknown` | No | No | — |
-| `keyword_recommendation` | `keyword_recommendation` | `unknown` | No | No | — |
-| `text_ad_recommendation` | `text_ad_recommendation` | `unknown` | No | No | — |
-| `target_cpa_opt_in_recommendation` | `target_cpa_opt_in_recommendation` | `unknown` | No | No | — |
-| `maximize_conversions_opt_in_recommendation` | `maximize_conversions_opt_in_recommendation` | `unknown` | No | No | — |
-| `enhanced_cpc_opt_in_recommendation` | `enhanced_cpc_opt_in_recommendation` | `unknown` | No | No | — |
-| `search_partners_opt_in_recommendation` | `search_partners_opt_in_recommendation` | `unknown` | No | No | — |
-| `maximize_clicks_opt_in_recommendation` | `maximize_clicks_opt_in_recommendation` | `unknown` | No | No | — |
-| `optimize_ad_rotation_recommendation` | `optimize_ad_rotation_recommendation` | `unknown` | No | No | — |
-| `keyword_match_type_recommendation` | `keyword_match_type_recommendation` | `unknown` | No | No | — |
-| `move_unused_budget_recommendation` | `move_unused_budget_recommendation` | `unknown` | No | No | — |
-| `target_roas_opt_in_recommendation` | `target_roas_opt_in_recommendation` | `unknown` | No | No | — |
-| `responsive_search_ad_recommendation` | `responsive_search_ad_recommendation` | `unknown` | No | No | — |
-| `marginal_roi_campaign_budget_recommendation` | `marginal_roi_campaign_budget_recommendation` | `unknown` | No | No | — |
-| `use_broad_match_keyword_recommendation` | `use_broad_match_keyword_recommendation` | `unknown` | No | No | — |
-| `responsive_search_ad_asset_recommendation` | `responsive_search_ad_asset_recommendation` | `unknown` | No | No | — |
-| `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
-| `responsive_search_ad_improve_ad_strength_recommendation` | `responsive_search_ad_improve_ad_strength_recommendation` | `unknown` | No | No | — |
-| `display_expansion_opt_in_recommendation` | `display_expansion_opt_in_recommendation` | `unknown` | No | No | — |
-| `upgrade_local_campaign_to_performance_max_recommendation` | `upgrade_local_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
-| `raise_target_cpa_bid_too_low_recommendation` | `raise_target_cpa_bid_too_low_recommendation` | `unknown` | No | No | — |
-| `forecasting_set_target_roas_recommendation` | `forecasting_set_target_roas_recommendation` | `unknown` | No | No | — |
-| `callout_asset_recommendation` | `callout_asset_recommendation` | `unknown` | No | No | — |
-| `sitelink_asset_recommendation` | `sitelink_asset_recommendation` | `unknown` | No | No | — |
-| `call_asset_recommendation` | `call_asset_recommendation` | `unknown` | No | No | — |
-| `shopping_add_age_group_recommendation` | `shopping_add_age_group_recommendation` | `unknown` | No | No | — |
-| `shopping_add_color_recommendation` | `shopping_add_color_recommendation` | `unknown` | No | No | — |
-| `shopping_add_gender_recommendation` | `shopping_add_gender_recommendation` | `unknown` | No | No | — |
-| `shopping_add_gtin_recommendation` | `shopping_add_gtin_recommendation` | `unknown` | No | No | — |
-| `shopping_add_more_identifiers_recommendation` | `shopping_add_more_identifiers_recommendation` | `unknown` | No | No | — |
-| `shopping_add_size_recommendation` | `shopping_add_size_recommendation` | `unknown` | No | No | — |
-| `shopping_add_products_to_campaign_recommendation` | `shopping_add_products_to_campaign_recommendation` | `unknown` | No | No | — |
-| `shopping_fix_disapproved_products_recommendation` | `shopping_fix_disapproved_products_recommendation` | `unknown` | No | No | — |
-| `shopping_target_all_offers_recommendation` | `shopping_target_all_offers_recommendation` | `unknown` | No | No | — |
-| `shopping_fix_suspended_merchant_center_account_recommendation` | `shopping_fix_suspended_merchant_center_account_recommendation` | `unknown` | No | No | — |
-| `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `unknown` | No | No | — |
-| `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `unknown` | No | No | — |
-| `dynamic_image_extension_opt_in_recommendation` | `dynamic_image_extension_opt_in_recommendation` | `unknown` | No | No | — |
-| `raise_target_cpa_recommendation` | `raise_target_cpa_recommendation` | `unknown` | No | No | — |
-| `lower_target_roas_recommendation` | `lower_target_roas_recommendation` | `unknown` | No | No | — |
-| `performance_max_opt_in_recommendation` | `performance_max_opt_in_recommendation` | `unknown` | No | No | — |
-| `improve_performance_max_ad_strength_recommendation` | `improve_performance_max_ad_strength_recommendation` | `unknown` | No | No | — |
-| `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `unknown` | No | No | — |
-| `forecasting_set_target_cpa_recommendation` | `forecasting_set_target_cpa_recommendation` | `unknown` | No | No | — |
-| `set_target_cpa_recommendation` | `set_target_cpa_recommendation` | `unknown` | No | No | — |
-| `set_target_roas_recommendation` | `set_target_roas_recommendation` | `unknown` | No | No | — |
-| `maximize_conversion_value_opt_in_recommendation` | `maximize_conversion_value_opt_in_recommendation` | `unknown` | No | No | — |
-| `improve_google_tag_coverage_recommendation` | `improve_google_tag_coverage_recommendation` | `unknown` | No | No | — |
-| `performance_max_final_url_opt_in_recommendation` | `performance_max_final_url_opt_in_recommendation` | `unknown` | No | No | — |
-| `refresh_customer_match_list_recommendation` | `refresh_customer_match_list_recommendation` | `unknown` | No | No | — |
-| `custom_audience_opt_in_recommendation` | `custom_audience_opt_in_recommendation` | `unknown` | No | No | — |
-| `lead_form_asset_recommendation` | `lead_form_asset_recommendation` | `unknown` | No | No | — |
-| `improve_demand_gen_ad_strength_recommendation` | `improve_demand_gen_ad_strength_recommendation` | `unknown` | No | No | — |
+| `campaign_budget_recommendation` | `campaign_budget_recommendation` | `CampaignBudgetRecommendation` | No | No | — |
+| `forecasting_campaign_budget_recommendation` | `forecasting_campaign_budget_recommendation` | `CampaignBudgetRecommendation` | No | No | — |
+| `keyword_recommendation` | `keyword_recommendation` | `KeywordRecommendation` | No | No | — |
+| `text_ad_recommendation` | `text_ad_recommendation` | `TextAdRecommendation` | No | No | — |
+| `target_cpa_opt_in_recommendation` | `target_cpa_opt_in_recommendation` | `TargetCpaOptInRecommendation` | No | No | — |
+| `maximize_conversions_opt_in_recommendation` | `maximize_conversions_opt_in_recommendation` | `MaximizeConversionsOptInRecommendation` | No | No | — |
+| `enhanced_cpc_opt_in_recommendation` | `enhanced_cpc_opt_in_recommendation` | `EnhancedCpcOptInRecommendation` | No | No | — |
+| `search_partners_opt_in_recommendation` | `search_partners_opt_in_recommendation` | `SearchPartnersOptInRecommendation` | No | No | — |
+| `maximize_clicks_opt_in_recommendation` | `maximize_clicks_opt_in_recommendation` | `MaximizeClicksOptInRecommendation` | No | No | — |
+| `optimize_ad_rotation_recommendation` | `optimize_ad_rotation_recommendation` | `OptimizeAdRotationRecommendation` | No | No | — |
+| `keyword_match_type_recommendation` | `keyword_match_type_recommendation` | `KeywordMatchTypeRecommendation` | No | No | — |
+| `move_unused_budget_recommendation` | `move_unused_budget_recommendation` | `MoveUnusedBudgetRecommendation` | No | No | — |
+| `target_roas_opt_in_recommendation` | `target_roas_opt_in_recommendation` | `TargetRoasOptInRecommendation` | No | No | — |
+| `responsive_search_ad_recommendation` | `responsive_search_ad_recommendation` | `ResponsiveSearchAdRecommendation` | No | No | — |
+| `marginal_roi_campaign_budget_recommendation` | `marginal_roi_campaign_budget_recommendation` | `CampaignBudgetRecommendation` | No | No | — |
+| `use_broad_match_keyword_recommendation` | `use_broad_match_keyword_recommendation` | `UseBroadMatchKeywordRecommendation` | No | No | — |
+| `responsive_search_ad_asset_recommendation` | `responsive_search_ad_asset_recommendation` | `ResponsiveSearchAdAssetRecommendation` | No | No | — |
+| `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `upgrade_smart_shopping_campaign_to_performance_max_recommendation` | `UpgradeSmartShoppingCampaignToPerformanceMaxRecommendation` | No | No | — |
+| `responsive_search_ad_improve_ad_strength_recommendation` | `responsive_search_ad_improve_ad_strength_recommendation` | `ResponsiveSearchAdImproveAdStrengthRecommendation` | No | No | — |
+| `display_expansion_opt_in_recommendation` | `display_expansion_opt_in_recommendation` | `DisplayExpansionOptInRecommendation` | No | No | — |
+| `upgrade_local_campaign_to_performance_max_recommendation` | `upgrade_local_campaign_to_performance_max_recommendation` | `UpgradeLocalCampaignToPerformanceMaxRecommendation` | No | No | — |
+| `raise_target_cpa_bid_too_low_recommendation` | `raise_target_cpa_bid_too_low_recommendation` | `RaiseTargetCpaBidTooLowRecommendation` | No | No | — |
+| `forecasting_set_target_roas_recommendation` | `forecasting_set_target_roas_recommendation` | `ForecastingSetTargetRoasRecommendation` | No | No | — |
+| `callout_asset_recommendation` | `callout_asset_recommendation` | `CalloutAssetRecommendation` | No | No | — |
+| `sitelink_asset_recommendation` | `sitelink_asset_recommendation` | `SitelinkAssetRecommendation` | No | No | — |
+| `call_asset_recommendation` | `call_asset_recommendation` | `CallAssetRecommendation` | No | No | — |
+| `shopping_add_age_group_recommendation` | `shopping_add_age_group_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_color_recommendation` | `shopping_add_color_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_gender_recommendation` | `shopping_add_gender_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_gtin_recommendation` | `shopping_add_gtin_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_more_identifiers_recommendation` | `shopping_add_more_identifiers_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_size_recommendation` | `shopping_add_size_recommendation` | `ShoppingOfferAttributeRecommendation` | No | No | — |
+| `shopping_add_products_to_campaign_recommendation` | `shopping_add_products_to_campaign_recommendation` | `ShoppingAddProductsToCampaignRecommendation` | No | No | — |
+| `shopping_fix_disapproved_products_recommendation` | `shopping_fix_disapproved_products_recommendation` | `ShoppingFixDisapprovedProductsRecommendation` | No | No | — |
+| `shopping_target_all_offers_recommendation` | `shopping_target_all_offers_recommendation` | `ShoppingTargetAllOffersRecommendation` | No | No | — |
+| `shopping_fix_suspended_merchant_center_account_recommendation` | `shopping_fix_suspended_merchant_center_account_recommendation` | `ShoppingMerchantCenterAccountSuspensionRecommendation` | No | No | — |
+| `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `shopping_fix_merchant_center_account_suspension_warning_recommendation` | `ShoppingMerchantCenterAccountSuspensionRecommendation` | No | No | — |
+| `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation` | `ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation` | No | No | — |
+| `dynamic_image_extension_opt_in_recommendation` | `dynamic_image_extension_opt_in_recommendation` | `DynamicImageExtensionOptInRecommendation` | No | No | — |
+| `raise_target_cpa_recommendation` | `raise_target_cpa_recommendation` | `RaiseTargetCpaRecommendation` | No | No | — |
+| `lower_target_roas_recommendation` | `lower_target_roas_recommendation` | `LowerTargetRoasRecommendation` | No | No | — |
+| `performance_max_opt_in_recommendation` | `performance_max_opt_in_recommendation` | `PerformanceMaxOptInRecommendation` | No | No | — |
+| `improve_performance_max_ad_strength_recommendation` | `improve_performance_max_ad_strength_recommendation` | `ImprovePerformanceMaxAdStrengthRecommendation` | No | No | — |
+| `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `migrate_dynamic_search_ads_campaign_to_performance_max_recommendation` | `MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation` | No | No | — |
+| `forecasting_set_target_cpa_recommendation` | `forecasting_set_target_cpa_recommendation` | `ForecastingSetTargetCpaRecommendation` | No | No | — |
+| `set_target_cpa_recommendation` | `set_target_cpa_recommendation` | `ForecastingSetTargetCpaRecommendation` | No | No | — |
+| `set_target_roas_recommendation` | `set_target_roas_recommendation` | `ForecastingSetTargetRoasRecommendation` | No | No | — |
+| `maximize_conversion_value_opt_in_recommendation` | `maximize_conversion_value_opt_in_recommendation` | `MaximizeConversionValueOptInRecommendation` | No | No | — |
+| `improve_google_tag_coverage_recommendation` | `improve_google_tag_coverage_recommendation` | `ImproveGoogleTagCoverageRecommendation` | No | No | — |
+| `performance_max_final_url_opt_in_recommendation` | `performance_max_final_url_opt_in_recommendation` | `PerformanceMaxFinalUrlOptInRecommendation` | No | No | — |
+| `refresh_customer_match_list_recommendation` | `refresh_customer_match_list_recommendation` | `RefreshCustomerMatchListRecommendation` | No | No | — |
+| `custom_audience_opt_in_recommendation` | `custom_audience_opt_in_recommendation` | `CustomAudienceOptInRecommendation` | No | No | — |
+| `lead_form_asset_recommendation` | `lead_form_asset_recommendation` | `LeadFormAssetRecommendation` | No | No | — |
+| `improve_demand_gen_ad_strength_recommendation` | `improve_demand_gen_ad_strength_recommendation` | `ImproveDemandGenAdStrengthRecommendation` | No | No | — |
 
 ## Recommendation_CampaignBudget
 
@@ -514,8 +514,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `base_metrics` | `base_metrics` | `unknown` | No | No | — |
-| `potential_metrics` | `potential_metrics` | `unknown` | No | No | — |
+| `base_metrics` | `base_metrics` | `RecommendationMetrics` | No | No | — |
+| `potential_metrics` | `potential_metrics` | `RecommendationMetrics` | No | No | — |
 
 ## RecommendationMetrics
 
@@ -560,7 +560,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `RecommendationSubscription` | No | No | — |
 | `update` | `update` | `RecommendationSubscription` | No | No | — |
 
@@ -597,9 +597,9 @@ No fields are declared.
 | `user_list_id` | `user_list_id` | `string` | No | No | — |
 | `user_list_name` | `user_list_name` | `string` | No | No | — |
 | `days_since_last_refresh` | `days_since_last_refresh` | `string` | No | No | — |
-| `top_spending_account` | `top_spending_account` | `Array<unknown>` | No | No | — |
+| `top_spending_account` | `top_spending_account` | `Array<AccountInfo>` | No | No | — |
 | `targeting_accounts_count` | `targeting_accounts_count` | `string` | No | No | — |
-| `owner_account` | `owner_account` | `unknown` | No | No | — |
+| `owner_account` | `owner_account` | `AccountInfo` | No | No | — |
 
 ## RegenerateShareableLinkIdRequest
 
@@ -665,7 +665,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `RemarketingAction` | No | No | — |
 | `update` | `update` | `RemarketingAction` | No | No | — |
 
@@ -684,7 +684,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
-| `assets_with_field_type` | `assets_with_field_type` | `Array<unknown>` | No | No | — |
+| `assets_with_field_type` | `assets_with_field_type` | `Array<AssetsWithFieldType>` | No | No | — |
 
 ## RemoveCampaignAutomaticallyCreatedAssetOperation
 
@@ -703,7 +703,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<RemoveCampaignAutomaticallyCreatedAssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 
 ## RemoveCampaignAutomaticallyCreatedAssetResponse
@@ -712,7 +712,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## RemoveDataLinkRequest
 
@@ -801,7 +801,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `spend` | `spend` | `unknown` | No | No | — |
+| `spend` | `spend` | `Spend` | No | No | — |
 
 ## ResellerConstraint
 

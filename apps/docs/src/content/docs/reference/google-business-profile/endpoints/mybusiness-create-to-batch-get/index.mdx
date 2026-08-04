@@ -1,0 +1,2506 @@
+---
+title: "Google Business Profile Mybusiness: Create – Batch Get endpoints"
+description: "75 generated Google Business Profile endpoint contracts for Mybusiness: Create – Batch Get."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 102
+  label: "Mybusiness: Create – Batch Get"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusiness.accounts.admins.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/admins`
+
+Invites the specified user to become an administrator for the specified account. The invitee must accept the invitation in order to be granted access to the account. See AcceptInvitation to programmatically accept an invitation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Admin` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The resource name of the account this admin is created for. |
+| `body` | `body` | `LegacyV4Admin` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.admins.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Removes the specified admin from the specified account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the admin to remove from the account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.admins.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/admins`
+
+Lists the admins for the specified account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListAccountAdminsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the account from which to retrieve a list of admins. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.admins.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the Admin for the specified Account Admin. Only the AdminRole of the Admin can be updated.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Admin` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the admin to update. |
+| `body` | `body` | `LegacyV4Admin` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.create
+
+`POST` `https://mybusiness.googleapis.com/v4/accounts`
+
+Creates an account with the specified name and type under the given parent. - Personal accounts and Organizations cannot be created. - User Groups cannot be created with a Personal account as primary owner. - Location Groups cannot be created with a primary owner of a Personal account if the Personal account is in an Organization. - Location Groups cannot own Location Groups.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Account` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `primaryOwner` | `query` | `string` | No | No | The resource name of the account which will be the primary owner of the account being created. It should be of the form `accounts/&#123;account_id&#125;/`. |
+| `body` | `body` | `LegacyV4Account` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.deleteNotifications
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Clears the pubsub notification settings for the account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name for the notification settings to be cleared. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.generateAccountNumber
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:generateAccountNumber`
+
+Generates an account number for this account. The account number is not provisioned when an account is created. Use this request to create an account number when it is required.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Account` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account to generate an account number for. |
+| `body` | `body` | `LegacyV4GenerateAccountNumberRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Account` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.getNotifications
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns the pubsub notification settings for the account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Notifications` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The notification settings resource name. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.invitations.accept
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:accept`
+
+Accepts the specified invitation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the invitation that is being accepted. |
+| `body` | `body` | `LegacyV4AcceptInvitationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.invitations.decline
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:decline`
+
+Declines the specified invitation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account invitation that is being declined. |
+| `body` | `body` | `LegacyV4DeclineInvitationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.invitations.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/invitations`
+
+Lists pending invitations for the specified account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListInvitationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the account from which the list of invitations is being retrieved. |
+| `targetType` | `query` | `"ALL" \| "ACCOUNTS_ONLY" \| "LOCATIONS_ONLY"` | No | No | Specifies which target types should appear in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.list
+
+`GET` `https://mybusiness.googleapis.com/v4/accounts`
+
+Lists all of the accounts for the authenticated user. This includes all accounts that the user owns, as well as any accounts for which the user has management rights.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListAccountsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | A filter constraining the accounts to return. The response includes only entries that match the filter. If `filter` is empty, then no constraints are applied and all accounts (paginated) are retrieved for the requested account. For example, a request with the filter `type=USER_GROUP` will only return user groups. |
+| `name` | `query` | `string` | No | No | The resource name of the account for which the list of directly accessible accounts is to be retrieved. This only makes sense for Organizations and User Groups. If empty, will return `ListAccounts` for the authenticated user. |
+| `pageSize` | `query` | `integer` | No | No | How many accounts to fetch per page. Default is 20, minimum is 2, and maximum page size is 20. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of accounts is retrieved. The `pageToken` is returned when a call to `accounts.list` returns more results than can fit into the requested page size. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.listRecommendGoogleLocations
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}:recommendGoogleLocations`
+
+List all the GoogleLocations that have been recommended to the specified Business Profile account. Recommendations are provided for personal accounts and location groups only, requests for all other account types will result in an error. The recommendations for location groups are based on the locations in that group. The recommendations for personal accounts are based on all of the locations that the user has access to on Business Profile (which includes locations they can access through location groups), and is a superset of all recommendations generated for the user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListRecommendedGoogleLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Name of the account resource to fetch recommended Google locations for. |
+| `pageSize` | `query` | `integer` | No | No | How many locations to fetch per page. Default is 25, minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of locations is retrieved. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.admins.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/admins`
+
+Invites the specified user to become an administrator for the specified location. The invitee must accept the invitation in order to be granted access to the location. See AcceptInvitation to programmatically accept an invitation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Admin` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The resource name of the location this admin is created for. |
+| `body` | `body` | `LegacyV4Admin` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.admins.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Removes the specified admin as a manager of the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the admin to remove from the location. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.admins.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/admins`
+
+Lists all of the admins for the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListLocationAdminsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the location to list admins of. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.admins.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the Admin for the specified Location Admin. Only the AdminRole of the Admin can be updated.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Admin` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the admin to update. |
+| `body` | `body` | `LegacyV4Admin` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.associate
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:associate`
+
+Associates a location to a place ID. Any previous association is overwritten. This operation is only valid if the location is unverified. The association must be valid, that is, it appears in the list of `FindMatchingLocations`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the location to associate. |
+| `body` | `body` | `LegacyV4AssociateLocationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.batchGet
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}/locations:batchGet`
+
+Gets all of the specified locations in the given account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4BatchGetLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account from which to fetch locations. |
+| `body` | `body` | `LegacyV4BatchGetLocationsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.batchGetReviews
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}/locations:batchGetReviews`
+
+Returns the paginated list of reviews for all specified locations. This operation is only valid if the specified locations are verified. *Note:* Reviews are limited to a batch size of 200 `location_names` per call.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4BatchGetReviewsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account from which to retrieve a list of reviews across multiple locations. |
+| `body` | `body` | `LegacyV4BatchGetReviewsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.clearAssociation
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:clearAssociation`
+
+Clears an association between a location and its place ID. This operation is only valid if the location is unverified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the location to disassociate. |
+| `body` | `body` | `LegacyV4ClearLocationAssociationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/locations`
+
+Creates a new location owned by the specified account, and returns it.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Location` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the account in which to create this location. |
+| `requestId` | `query` | `string` | No | No | A unique request ID for the server to detect duplicated requests. We recommend using UUIDs. Max length is 50 characters. |
+| `validateOnly` | `query` | `boolean` | No | No | If true, the request is validated without actually creating the location. |
+| `body` | `body` | `LegacyV4Location` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Deletes a location. *Note:* If this location cannot be deleted using the API as marked in the LocationState, use the [Business Profile](https://business.google.com/manage/) website. Returns `NOT_FOUND` if the location does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the location to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.fetchVerificationOptions
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:fetchVerificationOptions`
+
+Reports all eligible verification options for a location in a specific language.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4FetchVerificationOptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Resource name of the location to verify. |
+| `body` | `body` | `LegacyV4FetchVerificationOptionsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.findMatches
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:findMatches`
+
+Finds all of the possible locations that are a match to the specified location. This operation is only valid if the location is unverified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4FindMatchingLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the location to find matches for. |
+| `body` | `body` | `LegacyV4FindMatchingLocationsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.followers.getMetadata
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Get the followers settings for a location. NOT_FOUND is returned if either the account or the location doesn't exist. PRECONDITION_FAILED is returned if the location is not verified nor connected to Maps.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4FollowersMetadata` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the location's followers metadata. accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/followers/metadata |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Gets the specified location. Returns `NOT_FOUND` if the location does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Location` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the location to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.getFoodMenus
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns the food menus of a specific location. Only call this if location.location_state.can_have_food_menu is true.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4FoodMenus` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/foodMenus` |
+| `readMask` | `query` | `string` | No | No | Optional. The specific fields to return. If no mask is specified, then it returns the full FoodMenu (same as "*"). Repeated field items can not be individually specified. For example: "name" and "menus" are valid masks, while "menus.sections" is invalid. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.getGoogleUpdated
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}:googleUpdated`
+
+Gets the Google-updated version of the specified location. Returns `NOT_FOUND` if the location does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4GoogleUpdatedLocation` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the location to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.getHealthProviderAttributes
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns the Health provider attributes of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4HealthProviderAttributes` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `query` | `string` | No | No | Optional. The BCP 47 code for the language. If a language code is not provided, it defaults to English. Right now only 'en' is supported. |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/healthProviderAttributes |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.getLodging
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns the Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Lodging` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/lodging` |
+| `readMask` | `query` | `string` | No | No | Optional. The specific fields to return. If no mask is specified, then it returns the full Lodging (same as "*"). Repeated field items cannot be individually specified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.getServiceList
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Get the specified service list of a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ServiceList` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/servicelist` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.insuranceNetworks.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/insuranceNetworks`
+
+Returns a list of all insurance networks supported by Google.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListInsuranceNetworksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `query` | `string` | No | No | Optional. The BCP 47 code for the language. If a language code is not provided, it defaults to English. Right now only 'en' is supported. |
+| `pageSize` | `query` | `integer` | No | No | How many insurance networks to return per page. The default value is 5000. Maximum page size is 10000. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of insurance networks. |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the location whose insurance networks will be listed. The name is in the form: accounts/&#123;account_id&#125;/locations/&#123;location_id&#125; |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/locations`
+
+Lists the locations for the specified account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | A filter constraining the locations to return. The response includes only entries that match the filter. If `filter` is empty, then constraints are applied and all locations (paginated) are retrieved for the requested account. For more information about valid fields and example usage, see [Work with Location Data Guide](https://developers.google.com/my-business/content/location-data#filter_results_when_you_list_locations). |
+| `languageCode` | `query` | `string` | No | No | The BCP 47 code of language to get display location properties in. If this language is not available, they will be provided in the language of the location. If neither is available, they will be provided in English. Deprecated. After August 15th, 2020, this field will no longer be applied. Instead, the language of the location will always be used. |
+| `orderBy` | `query` | `string` | No | No | Sorting order for the request. Multiple fields should be comma-separated, following SQL syntax. The default sorting order is ascending. To specify descending order, a suffix " desc" should be added. Valid fields to order_by are location_name and store_code. For example: "location_name, store_code desc" or "location_name" or "store_code desc" |
+| `pageSize` | `query` | `integer` | No | No | How many locations to fetch per page. Default is 100, minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | If specified, it fetches the next `page` of locations. The page token is returned by previous calls to `ListLocations` when there were more locations than could fit in the requested page size. |
+| `parent` | `path` | `string` | Yes | No | The name of the account to fetch locations from. If the Account is of AccountType PERSONAL, only Locations that are directly owned by the Account are returned, otherwise it will return all accessible locations from the Account, either directly or indirectly. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/localPosts`
+
+Creates a new local post associated with the specified location, and returns it.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4LocalPost` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the location in which to create this local post. |
+| `body` | `body` | `LegacyV4LocalPost` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Deletes a local post. Returns `NOT_FOUND` if the local post does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the local post to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Gets the specified local post. Returns `NOT_FOUND` if the local post does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4LocalPost` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the local post to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/localPosts`
+
+Returns a list of local posts associated with a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListLocalPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `integer` | No | No | How many local posts to return per page. Default of 20. The minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of local posts. |
+| `parent` | `path` | `string` | Yes | No | The name of the location whose local posts will be listed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the specified local post and returns the updated local post.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4LocalPost` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the local post to update. |
+| `updateMask` | `query` | `string` | No | No | The specific fields to update. You must specify each field that is being updated in the mask. |
+| `body` | `body` | `LegacyV4LocalPost` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.localPosts.reportInsights
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}/localPosts:reportInsights`
+
+Returns insights for a set of local posts associated with a single listing. Which metrics and how they are reported are options specified in the request proto. *Note:* Insight reports are limited to 100 `local_post_names` per call.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ReportLocalPostInsightsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the location for which to fetch insights. |
+| `body` | `body` | `LegacyV4ReportLocalPostInsightsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.lodging.getGoogleUpdated
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}:getGoogleUpdated`
+
+Returns the Google updated Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4GetGoogleUpdatedLodgingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/lodging` |
+| `readMask` | `query` | `string` | No | No | Optional. The specific fields to return. If no mask is specified, then it returns the full Lodging (same as "*"). Repeated field items cannot be individually specified. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/media`
+
+Creates a new media item for the location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4MediaItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The resource name of the location where this media item will be created. |
+| `body` | `body` | `LegacyV4MediaItem` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.customers.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns metadata for the requested customer media item.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4MediaItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The resource name of the requested customer media item. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.customers.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/media/customers`
+
+Returns a list of media items associated with a location that have been contributed by customers.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListCustomerMediaItemsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `integer` | No | No | How many media items to return per page. The default value is 100, the maximum supported page size is 200. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of media items. |
+| `parent` | `path` | `string` | Yes | No | The name of the location whose customer media items will be listed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Deletes the specified media item.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the media item to be deleted. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns metadata for the requested media item.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4MediaItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the requested media item. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/media`
+
+Returns a list of media items associated with a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListMediaItemsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `integer` | No | No | How many media items to return per page. The default value is 100, which is also the maximum supported number of media items able to be added to a location with the Google My Business API. Maximum page size is 2500. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of media items. |
+| `parent` | `path` | `string` | Yes | No | The name of the location whose media items will be listed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates metadata of the specified media item. This can only be used to update the Category of a media item, with the exception that the new category cannot be COVER or PROFILE.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4MediaItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the media item to be updated. |
+| `updateMask` | `query` | `string` | No | No | The specific fields to update. If no mask is specified, then this is treated as a full update and all editable fields are set to the values passed in. |
+| `body` | `body` | `LegacyV4MediaItem` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.media.startUpload
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/media:startUpload`
+
+Generates a `MediaItemDataRef` for media item uploading.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4MediaItemDataRef` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The resource name of the location this media item is to be added to. |
+| `body` | `body` | `LegacyV4StartUploadMediaItemDataRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the specified location. Photos are only allowed on a location that has a Google+ page. Returns `NOT_FOUND` if the location does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Location` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeMask` | `query` | `string` | No | No | The IDs of the attributes to update. Only attributes noted in the mask will be updated. If an attribute is present in the mask and not in the location, it will be removed. An empty mask will update all attributes. Whenever this field is set, the update_mask should include attributes as one of the fields to update. |
+| `name` | `path` | `string` | Yes | No | The name of the location to update. |
+| `updateMask` | `query` | `string` | No | No | The specific fields to update. If no mask is specified, then this is treated as a full update and all fields are set to the values passed in, which may include unsetting empty fields in the request. |
+| `validateOnly` | `query` | `boolean` | No | No | If true, the request is validated without actually updating the location. |
+| `body` | `body` | `LegacyV4Location` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.answers.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+parent}/answers:delete`
+
+Deletes the answer written by the current user to a question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the question to delete an answer for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.answers.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/answers`
+
+Returns the paginated list of answers for a specified question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListAnswersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `orderBy` | `query` | `string` | No | No | The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'. |
+| `pageSize` | `query` | `integer` | No | No | How many answers to fetch per page. The default and maximum `page_size` values are 10. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of answers is retrieved. |
+| `parent` | `path` | `string` | Yes | No | The name of the question to fetch answers for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.answers.upsert
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/answers:upsert`
+
+Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Answer` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the question to write an answer for. |
+| `body` | `body` | `LegacyV4UpsertAnswerRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.create
+
+`POST` `https://mybusiness.googleapis.com/v4/{+parent}/questions`
+
+Adds a question for the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Question` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | The name of the location to write a question for. |
+| `body` | `body` | `LegacyV4Question` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.delete
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Deletes a specific question written by the current user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the question to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/questions`
+
+Returns the paginated list of questions and some of its answers for a specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListQuestionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answersPerQuestion` | `query` | `integer` | No | No | How many answers to fetch per question. The default and maximum `answers_per_question` values are 10. |
+| `filter` | `query` | `string` | No | No | A filter constraining the questions to return. The only filter currently supported is "ignore_answered=true" |
+| `orderBy` | `query` | `string` | No | No | The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'. |
+| `pageSize` | `query` | `integer` | No | No | How many questions to fetch per page. The default and maximum `page_size` values are 10. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of questions is retrieved. |
+| `parent` | `path` | `string` | Yes | No | The name of the location to fetch questions for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.questions.patch
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates a specific question written by the current user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Question` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the question to update. |
+| `body` | `body` | `LegacyV4Question` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.reportInsights
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}/locations:reportInsights`
+
+Returns a report containing insights on one or more metrics by location. *Note:* Insight reports are limited to a batch size of 10 `location_names` per call.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ReportLocationInsightsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The account resource name. |
+| `body` | `body` | `LegacyV4ReportLocationInsightsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.reviews.deleteReply
+
+`DELETE` `https://mybusiness.googleapis.com/v4/{+name}/reply`
+
+Deletes the response to the specified review. This operation is only valid if the specified location is verified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Empty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the review reply to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.reviews.get
+
+`GET` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Returns the specified review. This operation is only valid if the specified location is verified. Returns `NOT_FOUND` if the review does not exist, or has been deleted.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Review` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the review to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.reviews.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/reviews`
+
+Returns the paginated list of reviews for the specified location. This operation is only valid if the specified location is verified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListReviewsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `orderBy` | `query` | `string` | No | No | Specifies the field to sort reviews by. If unspecified, the order of reviews returned will default to `update_time desc`. Valid orders to sort by are `rating`, `rating desc` and `update_time desc`. |
+| `pageSize` | `query` | `integer` | No | No | How many reviews to fetch per page. The maximum `page_size` is 50. |
+| `pageToken` | `query` | `string` | No | No | If specified, it fetches the next page of reviews. |
+| `parent` | `path` | `string` | Yes | No | The name of the location to fetch reviews for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.reviews.updateReply
+
+`PUT` `https://mybusiness.googleapis.com/v4/{+name}/reply`
+
+Updates the reply to the specified review. A reply is created if one does not exist. This operation is only valid if the specified location is verified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ReviewReply` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the review to respond to. |
+| `body` | `body` | `LegacyV4ReviewReply` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.transfer
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:transfer`
+
+Moves a location from an account that the user owns to another account that the same user administers. The user must be an owner of the account the location is currently associated with and must also be at least a manager of the destination account. Returns the Location with its new resource name.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Location` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the location to transfer. |
+| `body` | `body` | `LegacyV4TransferLocationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.updateFoodMenus
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the food menus of a specific location. Only call this if location.location_state.can_have_food_menu is true.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4FoodMenus` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/foodMenus` |
+| `updateMask` | `query` | `string` | No | No | Optional. The specific fields to update. If no mask is specified, then this is treated as a full update and all fields are set to the values passed in, which may include unsetting empty fields in the request. Repeated field items can not be individually updated. Note: "name" of FoodMenus is the resource identifier which is not updatable. |
+| `body` | `body` | `LegacyV4FoodMenus` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.updateHealthProviderAttributes
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the Health provider attributes of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4HealthProviderAttributes` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/healthProviderAttributes` |
+| `updateMask` | `query` | `string` | No | No | Optional. The specific fields to update. If no mask is specified, then this is treated as a full update and all fields are set to the values passed in, which may include unsetting empty fields in the request. In V1, there is only the insurance_networks field to update. More attributes will be supported later. |
+| `body` | `body` | `LegacyV4HealthProviderAttributes` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.updateLodging
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the Lodging of a specific location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Lodging` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/lodging` |
+| `updateMask` | `query` | `string` | No | No | Optional. The specific fields to update. If no mask is specified, then this is treated as a full update (same as "*") and all fields are set to the values passed in, which may include unsetting empty fields in the request. Repeated field items cannot be individually updated. |
+| `body` | `body` | `LegacyV4Lodging` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.updateServiceList
+
+`PATCH` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the specified service list of a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ServiceList` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/serviceList` |
+| `updateMask` | `query` | `string` | No | No | Optional. The specific fields to update. If no mask is specified, then this is treated as a full update and all fields are set to the values passed in, which may include unsetting empty fields in the request. Repeated field items can not be individually updated. |
+| `body` | `body` | `LegacyV4ServiceList` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.verifications.complete
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:complete`
+
+Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4CompleteVerificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Resource name of the verification to complete. |
+| `body` | `body` | `LegacyV4CompleteVerificationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.verifications.list
+
+`GET` `https://mybusiness.googleapis.com/v4/{+parent}/verifications`
+
+List verifications of a location, ordered by create time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListVerificationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `integer` | No | No | How many verification to include per page. If not set, return all. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of verifications. |
+| `parent` | `path` | `string` | Yes | No | Resource name of the location that verification requests belong to. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.locations.verify
+
+`POST` `https://mybusiness.googleapis.com/v4/{+name}:verify`
+
+Starts the verification process for a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4VerifyLocationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Resource name of the location to verify. |
+| `body` | `body` | `LegacyV4VerifyLocationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.update
+
+`PUT` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Updates the specified business account. Personal accounts cannot be updated using this method. *Note:* The only editable field for an account is `account_name`. Any other fields passed in (such as `type` or `role`) are ignored.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Account` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The name of the account to update. |
+| `validateOnly` | `query` | `boolean` | No | No | If true, the request is validated without actually updating the account. |
+| `body` | `body` | `LegacyV4Account` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.accounts.updateNotifications
+
+`PUT` `https://mybusiness.googleapis.com/v4/{+name}`
+
+Sets the pubsub notification settings for the account informing Business Profile which topic to send pubsub notifications for: - New reviews for locations administered by the account. - Updated reviews for locations administered by the account. - New `GoogleUpdates` for locations administered by the account. An account will only have one notification settings resource, and only one pubsub topic can be set.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `legacy-v4.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4Notifications` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | The notification settings resource name. |
+| `body` | `body` | `LegacyV4Notifications` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.attributes.list
+
+`GET` `https://mybusiness.googleapis.com/v4/attributes`
+
+Returns the list of available attributes that would be available for a location with the given primary category and country.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4ListAttributeMetadataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `query` | `string` | No | No | The primary category stable ID to find available attributes. |
+| `country` | `query` | `string` | No | No | The ISO 3166-1 alpha-2 country code to find available attributes. |
+| `languageCode` | `query` | `string` | No | No | The BCP 47 code of language to get attribute display names in. If this language is not available, they will be provided in English. |
+| `name` | `query` | `string` | No | No | Resource name of the location to look up available attributes. |
+| `pageSize` | `query` | `integer` | No | No | How many attributes to include per page. Default is 200, minimum is 1. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of attribute metadata is retrieved. The `pageToken` is returned when a call to `attributes.list` returns more results than can fit into the requested page size. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusiness.categories.batchGet
+
+`GET` `https://mybusiness.googleapis.com/v4/categories:batchGet`
+
+Returns a list of business categories for the provided language and GConcept ids.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `legacy-v4.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-legacy-v4` |
+| Output | `LegacyV4BatchGetBusinessCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryIds` | `query` | `Array<string>` | No | No | Required. At least one name must be set. The GConcept ids the localized category names should be returned for. |
+| `languageCode` | `query` | `string` | No | No | Required. The BCP 47 code of language that the category names should be returned in. |
+| `regionCode` | `query` | `string` | No | No | Optional. The ISO 3166-1 alpha-2 country code used to infer non-standard language. |
+| `view` | `query` | `"CATEGORY_VIEW_UNSPECIFIED" \| "BASIC" \| "FULL"` | No | No | Required. Specifies which parts to the Category resource should be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

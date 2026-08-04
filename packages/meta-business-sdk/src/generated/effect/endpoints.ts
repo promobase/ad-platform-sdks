@@ -15,6 +15,8 @@ export const meta_adAccount_accountControls = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36,6 +38,8 @@ export const meta_adAccount_accountControls2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"audience_controls","wireName":"audience_controls","location":"body","required":true,"nullable":false},
@@ -61,6 +65,8 @@ export const meta_adAccountAccountControls_genPost = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccountAccountControls.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -82,6 +88,8 @@ export const meta_adAccount_activities = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"add_children","wireName":"add_children","location":"query","required":false,"nullable":false},
@@ -125,6 +133,8 @@ export const meta_adAccount_adcloudplayables = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -146,6 +156,8 @@ export const meta_adAccount_adcreatives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -167,6 +179,8 @@ export const meta_adAccount_adcreatives2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actor_id","wireName":"actor_id","location":"body","required":false,"nullable":false},
@@ -314,6 +328,8 @@ export const meta_adAccount_adcreativesbylabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_label_ids","wireName":"ad_label_ids","location":"query","required":true,"nullable":false},
@@ -339,6 +355,8 @@ export const meta_adAccount_adimages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"hash","wireName":"hash","location":"query","required":true,"nullable":false},
@@ -364,6 +382,8 @@ export const meta_adAccount_adimages2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"biz_tag_id","wireName":"biz_tag_id","location":"query","required":false,"nullable":false},
@@ -399,6 +419,8 @@ export const meta_adAccount_adimages3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bytes","wireName":"bytes","location":"body","required":false,"nullable":false},
@@ -424,6 +446,8 @@ export const meta_adAccount_adlabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -445,6 +469,8 @@ export const meta_adAccount_adlabels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
@@ -468,6 +494,8 @@ export const meta_adAccount_adPlacePageSets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -489,6 +517,8 @@ export const meta_adAccount_adPlacePageSets2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"location_types","wireName":"location_types","location":"body","required":false,"nullable":false},
@@ -518,6 +548,8 @@ export const meta_adAccount_adPlacePageSetsAsync = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"location_types","wireName":"location_types","location":"body","required":false,"nullable":false},
@@ -547,6 +579,8 @@ export const meta_adAccount_adplayables = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -568,6 +602,8 @@ export const meta_adAccount_adplayables2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
@@ -601,6 +637,8 @@ export const meta_adAccount_adrulesHistory = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"query","required":false,"nullable":false},
@@ -630,6 +668,8 @@ export const meta_adAccount_adrulesLibrary = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -651,6 +691,8 @@ export const meta_adAccount_adrulesLibrary2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":false,"nullable":false},
@@ -686,6 +728,8 @@ export const meta_adAccount_ads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -715,6 +759,8 @@ export const meta_adAccount_ads2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_schedule_end_time","wireName":"ad_schedule_end_time","location":"body","required":false,"nullable":false},
@@ -780,6 +826,8 @@ export const meta_adAccount_adSavedKeywords = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
@@ -803,6 +851,8 @@ export const meta_adAccount_adsbylabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_label_ids","wireName":"ad_label_ids","location":"query","required":true,"nullable":false},
@@ -828,6 +878,8 @@ export const meta_adAccount_adsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -859,6 +911,8 @@ export const meta_adAccount_adsets2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_set_goal","wireName":"ad_set_goal","location":"body","required":false,"nullable":false},
@@ -1032,6 +1086,8 @@ export const meta_adAccount_adsetsbylabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_label_ids","wireName":"ad_label_ids","location":"query","required":true,"nullable":false},
@@ -1057,6 +1113,8 @@ export const meta_adAccount_adspixels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"sort_by","wireName":"sort_by","location":"query","required":false,"nullable":false}
@@ -1080,6 +1138,8 @@ export const meta_adAccount_adspixels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false}
@@ -1103,6 +1163,8 @@ export const meta_adAccount_adsReportingMmmReports = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
@@ -1126,6 +1188,8 @@ export const meta_adAccount_adsReportingMmmSchedulers = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1147,6 +1211,8 @@ export const meta_adAccount_adStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1168,6 +1234,8 @@ export const meta_adAccount_adsVolume = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"page_id","wireName":"page_id","location":"query","required":false,"nullable":false},
@@ -1195,6 +1263,8 @@ export const meta_adAccount_advertisableApplications = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
@@ -1220,6 +1290,8 @@ export const meta_adAccount_advideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false}
@@ -1243,6 +1315,8 @@ export const meta_adAccount_advideos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"max_aspect_ratio","wireName":"max_aspect_ratio","location":"query","required":false,"nullable":false},
@@ -1282,6 +1356,8 @@ export const meta_adAccount_advideos3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"application_id","wireName":"application_id","location":"body","required":false,"nullable":false},
@@ -1441,6 +1517,8 @@ export const meta_adAccount_affectedadsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1462,6 +1540,8 @@ export const meta_adAccount_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -1485,6 +1565,8 @@ export const meta_adAccount_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1506,6 +1588,8 @@ export const meta_adAccount_agencies3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"body","required":true,"nullable":false},
@@ -1531,6 +1615,8 @@ export const meta_adAccountAgencyFeeConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccountAgencyFeeConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1552,6 +1638,8 @@ export const meta_adAccount_applications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1573,6 +1661,8 @@ export const meta_adAccount_assignedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -1596,6 +1686,8 @@ export const meta_adAccount_assignedUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -1619,6 +1711,8 @@ export const meta_adAccount_assignedUsers3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":false,"nullable":false},
@@ -1644,6 +1738,8 @@ export const meta_adAccount_asyncadcreatives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"is_completed","wireName":"is_completed","location":"query","required":false,"nullable":false}
@@ -1667,6 +1763,8 @@ export const meta_adAccount_asyncadcreatives2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creative_spec","wireName":"creative_spec","location":"body","required":true,"nullable":false},
@@ -1696,6 +1794,8 @@ export const meta_adAccount_asyncadrequestsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"is_completed","wireName":"is_completed","location":"query","required":false,"nullable":false}
@@ -1719,6 +1819,8 @@ export const meta_adAccount_asyncadrequestsets2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_specs","wireName":"ad_specs","location":"body","required":true,"nullable":false},
@@ -1748,6 +1850,8 @@ export const meta_adAccount_asyncBatchRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adbatch","wireName":"adbatch","location":"body","required":true,"nullable":false},
@@ -1773,6 +1877,8 @@ export const meta_adAccount_asyncRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"status","wireName":"status","location":"query","required":false,"nullable":false},
@@ -1798,6 +1904,8 @@ export const meta_adAccount_audienceFunnel = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -1819,6 +1927,8 @@ export const meta_adAccount_blockListDrafts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"publisher_urls_file","wireName":"publisher_urls_file","location":"body","required":true,"nullable":false}
@@ -1842,6 +1952,8 @@ export const meta_adAccount_brandSafetyContentFilterLevels = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"brand_safety_content_filter_levels","wireName":"brand_safety_content_filter_levels","location":"body","required":true,"nullable":false},
@@ -1867,6 +1979,8 @@ export const meta_adAccount_broadtargetingcategories = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"custom_categories_only","wireName":"custom_categories_only","location":"query","required":false,"nullable":false}
@@ -1890,6 +2004,8 @@ export const meta_adAccount_businessprojects = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":false,"nullable":false}
@@ -1913,6 +2029,8 @@ export const meta_adAccount_campaigns = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"before_date","wireName":"before_date","location":"query","required":false,"nullable":false},
@@ -1942,6 +2060,8 @@ export const meta_adAccount_campaigns2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -1971,6 +2091,8 @@ export const meta_adAccount_campaigns3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":false,"nullable":false},
@@ -2050,6 +2172,8 @@ export const meta_adAccount_campaignsbylabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_label_ids","wireName":"ad_label_ids","location":"query","required":true,"nullable":false},
@@ -2075,6 +2199,8 @@ export const meta_adAccount_connectedInstagramAccounts = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2096,6 +2222,8 @@ export const meta_adAccount_connectedInstagramAccountsWithIabp = defineEndpointD
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_id","wireName":"business_id","location":"query","required":false,"nullable":false}
@@ -2119,6 +2247,8 @@ export const meta_adAccount_conversionGoals = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2140,6 +2270,8 @@ export const meta_adAccountCreationRequest_adaccounts = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccountCreationRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2161,6 +2293,8 @@ export const meta_adAccountCreationRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccountCreationRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2182,6 +2316,8 @@ export const meta_adAccount_customaudiences = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_id","wireName":"business_id","location":"query","required":false,"nullable":false},
@@ -2213,6 +2349,8 @@ export const meta_adAccount_customaudiences2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allowed_domains","wireName":"allowed_domains","location":"body","required":false,"nullable":false},
@@ -2318,6 +2456,8 @@ export const meta_adAccount_customaudiencestos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2339,6 +2479,8 @@ export const meta_adAccount_customaudiencestos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_id","wireName":"business_id","location":"body","required":false,"nullable":false},
@@ -2364,6 +2506,8 @@ export const meta_adAccount_customconversions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2385,6 +2529,8 @@ export const meta_adAccount_customconversions2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_source_type","wireName":"action_source_type","location":"body","required":false,"nullable":false},
@@ -2422,6 +2568,8 @@ export const meta_adAccount_deliveryEstimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":true,"nullable":false},
@@ -2449,6 +2597,8 @@ export const meta_adAccount_deprecatedtargetingadsets = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -2472,6 +2622,8 @@ export const meta_adAccount_dsaRecommendations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2493,6 +2645,8 @@ export const meta_adAccountFeaturePreferences_genPost = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccountFeaturePreferences.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2514,6 +2668,8 @@ export const meta_adAccount_generatepreviews = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_format","wireName":"ad_format","location":"query","required":true,"nullable":false},
@@ -2567,6 +2723,8 @@ export const meta_adAccount_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2588,6 +2746,8 @@ export const meta_adAccount_impactingAdStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2609,6 +2769,8 @@ export const meta_adAccount_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"query","required":false,"nullable":false},
@@ -2676,6 +2838,8 @@ export const meta_adAccount_insights2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"body","required":false,"nullable":false},
@@ -2743,6 +2907,8 @@ export const meta_adAccount_instagramAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2764,6 +2930,8 @@ export const meta_adAccount_iosFourteenCampaignLimits = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false}
@@ -2787,6 +2955,8 @@ export const meta_adAccount_matchedSearchApplications = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_incomplete_app","wireName":"allow_incomplete_app","location":"query","required":false,"nullable":false},
@@ -2824,6 +2994,8 @@ export const meta_adAccount_maxBid = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2845,6 +3017,8 @@ export const meta_adAccount_mcmeconversions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -2866,6 +3040,8 @@ export const meta_adAccount_messageCampaign = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bid_amount","wireName":"bid_amount","location":"body","required":false,"nullable":false},
@@ -2903,6 +3079,8 @@ export const meta_adAccount_messageDeliveryEstimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bid_amount","wireName":"bid_amount","location":"query","required":false,"nullable":false},
@@ -2942,6 +3120,8 @@ export const meta_adAccount_messages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":false,"nullable":false},
@@ -2973,6 +3153,8 @@ export const meta_adAccount_minimumBudgets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bid_amount","wireName":"bid_amount","location":"query","required":false,"nullable":false}
@@ -2996,6 +3178,8 @@ export const meta_adAccount_onbehalfRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"status","wireName":"status","location":"query","required":false,"nullable":false}
@@ -3019,6 +3203,8 @@ export const meta_adAccount_productAudiences = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allowed_domains","wireName":"allowed_domains","location":"body","required":false,"nullable":false},
@@ -3080,6 +3266,8 @@ export const meta_adAccount_promotePages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3101,6 +3289,8 @@ export const meta_adAccount_publisherBlockLists = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3122,6 +3312,8 @@ export const meta_adAccount_publisherBlockLists2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false}
@@ -3145,6 +3337,8 @@ export const meta_adAccount_reachestimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":false,"nullable":false},
@@ -3180,6 +3374,8 @@ export const meta_adAccount_reachfrequencypredictions = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3201,6 +3397,8 @@ export const meta_adAccount_reachfrequencypredictions2 = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":false,"nullable":false},
@@ -3310,6 +3508,8 @@ export const meta_adAccount_recommendations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3331,6 +3531,8 @@ export const meta_adAccount_recommendations2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asc_fragmentation_parameters","wireName":"asc_fragmentation_parameters","location":"body","required":false,"nullable":false},
@@ -3366,6 +3568,8 @@ export const meta_adAccount_savedAudiences = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_id","wireName":"business_id","location":"query","required":false,"nullable":false},
@@ -3393,6 +3597,8 @@ export const meta_adAccount_subscribedApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false}
@@ -3416,6 +3622,8 @@ export const meta_adAccount_subscribedApps2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3437,6 +3645,8 @@ export const meta_adAccount_subscribedApps3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false}
@@ -3460,6 +3670,8 @@ export const meta_adAccount_targetingbrowse = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"excluded_category","wireName":"excluded_category","location":"query","required":false,"nullable":false},
@@ -3495,6 +3707,8 @@ export const meta_adAccount_targetingsearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_only_fat_head_interests","wireName":"allow_only_fat_head_interests","location":"query","required":false,"nullable":false},
@@ -3546,6 +3760,8 @@ export const meta_adAccount_targetingsentencelines = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"discard_ages","wireName":"discard_ages","location":"query","required":false,"nullable":false},
@@ -3575,6 +3791,8 @@ export const meta_adAccount_targetingsuggestions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_store","wireName":"app_store","location":"query","required":false,"nullable":false},
@@ -3618,6 +3836,8 @@ export const meta_adAccount_targetingvalidation = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"id_list","wireName":"id_list","location":"query","required":false,"nullable":false},
@@ -3647,6 +3867,8 @@ export const meta_adAccount_tracking = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3668,6 +3890,8 @@ export const meta_adAccount_tracking2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tracking_specs","wireName":"tracking_specs","location":"body","required":true,"nullable":false}
@@ -3691,6 +3915,8 @@ export const meta_adAccount_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"agency_client_declaration","wireName":"agency_client_declaration","location":"body","required":false,"nullable":false},
@@ -3748,6 +3974,8 @@ export const meta_adAccount_users = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3769,6 +3997,8 @@ export const meta_adAccountUserSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccountUserSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3790,6 +4020,8 @@ export const meta_adAccount_usersofanyaudience = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"namespace","wireName":"namespace","location":"query","required":false,"nullable":false},
@@ -3817,6 +4049,8 @@ export const meta_adAccount_valueRuleSet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"product_type","wireName":"product_type","location":"query","required":false,"nullable":false},
@@ -3842,6 +4076,8 @@ export const meta_adAccount_valueRuleSet2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"entry_point","wireName":"entry_point","location":"body","required":false,"nullable":false},
@@ -3871,6 +4107,8 @@ export const meta_adAccount_valueRuleSetTranslation = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"source","wireName":"source","location":"body","required":false,"nullable":false}
@@ -3894,6 +4132,8 @@ export const meta_adAccount_videoAds = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -3919,6 +4159,8 @@ export const meta_adAccount_videoAds2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
@@ -3952,6 +4194,8 @@ export const meta_ad_adcreatives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -3973,6 +4217,8 @@ export const meta_ad_adlabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":true,"nullable":false},
@@ -3998,6 +4244,8 @@ export const meta_ad_adrulesGoverned = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pass_evaluation","wireName":"pass_evaluation","location":"query","required":false,"nullable":false}
@@ -4021,6 +4269,8 @@ export const meta_adAsyncRequest_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequest.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4042,6 +4292,8 @@ export const meta_adAsyncRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4063,6 +4315,8 @@ export const meta_adAsyncRequestSet_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequestSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4084,6 +4338,8 @@ export const meta_adAsyncRequestSet_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequestSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4105,6 +4361,8 @@ export const meta_adAsyncRequestSet_requests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequestSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"statuses","wireName":"statuses","location":"query","required":false,"nullable":false}
@@ -4128,6 +4386,8 @@ export const meta_adAsyncRequestSet_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAsyncRequestSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false},
@@ -4155,6 +4415,8 @@ export const meta_adCampaignBudgetSchedules_genPost = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCampaignBudgetSchedules.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4176,6 +4438,8 @@ export const meta_adCampaign_genDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCampaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4197,6 +4461,8 @@ export const meta_adCampaignGroupBudgetSchedules_genPost = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["adCampaignGroupBudgetSchedules.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4218,6 +4484,8 @@ export const meta_adCampaignGroup_genDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCampaignGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4239,6 +4507,8 @@ export const meta_adCampaignPlacement_genGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCampaignPlacement.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"query","required":true,"nullable":false},
@@ -4278,6 +4548,8 @@ export const meta_adColumnSizes_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adColumnSizes.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4299,6 +4571,8 @@ export const meta_ad_copies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -4328,6 +4602,8 @@ export const meta_ad_copies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adset_id","wireName":"adset_id","location":"body","required":false,"nullable":false},
@@ -4357,6 +4633,8 @@ export const meta_adCreationPackageConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreationPackageConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4378,6 +4656,8 @@ export const meta_adCreative_adlabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":true,"nullable":false}
@@ -4401,6 +4681,8 @@ export const meta_adCreative_creativeInsights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4422,6 +4704,8 @@ export const meta_adCreative_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"query","required":false,"nullable":false},
@@ -4451,6 +4735,8 @@ export const meta_adCreative_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"thumbnail_height","wireName":"thumbnail_height","location":"query","required":false,"nullable":false},
@@ -4476,6 +4762,8 @@ export const meta_adCreative_previews = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_format","wireName":"ad_format","location":"query","required":true,"nullable":false},
@@ -4525,6 +4813,8 @@ export const meta_adCreative_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCreative.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":false,"nullable":false},
@@ -4554,6 +4844,8 @@ export const meta_adCustomDerivedMetrics_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adCustomDerivedMetrics.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4575,6 +4867,8 @@ export const meta_ad_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4596,6 +4890,8 @@ export const meta_adDraft_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adDraft.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4617,6 +4913,8 @@ export const meta_adExportPreset_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adExportPreset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4638,6 +4936,8 @@ export const meta_ad_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"am_call_tags","wireName":"am_call_tags","location":"query","required":false,"nullable":false},
@@ -4669,6 +4969,8 @@ export const meta_adgroupFacebookFeedback_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adgroupFacebookFeedback.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"order","wireName":"order","location":"query","required":false,"nullable":false}
@@ -4692,6 +4994,8 @@ export const meta_adgroup_genDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adgroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4713,6 +5017,8 @@ export const meta_adImage_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adImage.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4734,6 +5040,8 @@ export const meta_ad_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"query","required":false,"nullable":false},
@@ -4801,6 +5109,8 @@ export const meta_ad_insights2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"body","required":false,"nullable":false},
@@ -4868,6 +5178,8 @@ export const meta_adLabel_adcreatives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4889,6 +5201,8 @@ export const meta_adLabel_ads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4910,6 +5224,8 @@ export const meta_adLabel_adsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4931,6 +5247,8 @@ export const meta_adLabel_campaigns = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4952,6 +5270,8 @@ export const meta_adLabel_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4973,6 +5293,8 @@ export const meta_adLabel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -4994,6 +5316,8 @@ export const meta_adLabel_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLabel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
@@ -5017,6 +5341,8 @@ export const meta_ad_leads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5038,6 +5364,8 @@ export const meta_adLightAdgroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLightAdgroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5059,6 +5387,8 @@ export const meta_adLightCampaign_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLightCampaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5080,6 +5410,8 @@ export const meta_adLightCampaignGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adLightCampaignGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5101,6 +5433,8 @@ export const meta_adMonetizationProperty_adnetworkanalytics = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["adMonetizationProperty.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"query","required":false,"nullable":false},
@@ -5142,6 +5476,8 @@ export const meta_adMonetizationProperty_adnetworkanalytics2 = defineEndpointDes
   requiredScopes: [],
   capabilities: ["adMonetizationProperty.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"body","required":false,"nullable":false},
@@ -5181,6 +5517,8 @@ export const meta_adMonetizationProperty_adnetworkanalyticsResults = defineEndpo
   requiredScopes: [],
   capabilities: ["adMonetizationProperty.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"query_ids","wireName":"query_ids","location":"query","required":false,"nullable":false}
@@ -5204,6 +5542,8 @@ export const meta_adMonetizationProperty_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adMonetizationProperty.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5225,6 +5565,8 @@ export const meta_adPlacement_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adPlacement.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5246,6 +5588,8 @@ export const meta_adPlacePageSet_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adPlacePageSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5267,6 +5611,8 @@ export const meta_ad_previews = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_format","wireName":"ad_format","location":"query","required":true,"nullable":false},
@@ -5316,6 +5662,8 @@ export const meta_adProposal_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adProposal.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5337,6 +5685,8 @@ export const meta_adReportRun_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adReportRun.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5358,6 +5708,8 @@ export const meta_adReportRun_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adReportRun.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5379,6 +5731,8 @@ export const meta_adRule_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5400,6 +5754,8 @@ export const meta_adRuleEvaluationSpec_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRuleEvaluationSpec.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5421,6 +5777,8 @@ export const meta_adRule_execute = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5442,6 +5800,8 @@ export const meta_adRuleExecutionSpec_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRuleExecutionSpec.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5463,6 +5823,8 @@ export const meta_adRule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5484,6 +5846,8 @@ export const meta_adRule_history = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"query","required":false,"nullable":false},
@@ -5511,6 +5875,8 @@ export const meta_adRule_preview = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5532,6 +5898,8 @@ export const meta_adRule_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"evaluation_spec","wireName":"evaluation_spec","location":"body","required":false,"nullable":false},
@@ -5563,6 +5931,8 @@ export const meta_adSavedKeywords_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSavedKeywords.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5584,6 +5954,8 @@ export const meta_adSavedLocation_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSavedLocation.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5605,6 +5977,8 @@ export const meta_adSavedReport_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSavedReport.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5626,6 +6000,8 @@ export const meta_adsConversionGoal_conversionEvents = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["adsConversionGoal.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5647,6 +6023,8 @@ export const meta_adsConversionGoal_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsConversionGoal.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5668,6 +6046,8 @@ export const meta_adsCreationSavedState_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsCreationSavedState.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5689,6 +6069,8 @@ export const meta_adSet_activities = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"after","wireName":"after","location":"query","required":false,"nullable":false},
@@ -5724,6 +6106,8 @@ export const meta_adSet_adcreatives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5745,6 +6129,8 @@ export const meta_adSet_adlabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"query","required":true,"nullable":false},
@@ -5770,6 +6156,8 @@ export const meta_adSet_adlabels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":true,"nullable":false},
@@ -5795,6 +6183,8 @@ export const meta_adSet_adrulesGoverned = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pass_evaluation","wireName":"pass_evaluation","location":"query","required":false,"nullable":false}
@@ -5818,6 +6208,8 @@ export const meta_adSet_ads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -5847,6 +6239,8 @@ export const meta_adSet_adStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -5868,6 +6262,8 @@ export const meta_adSet_asyncadrequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"statuses","wireName":"statuses","location":"query","required":false,"nullable":false}
@@ -5891,6 +6287,8 @@ export const meta_adSet_budgetSchedules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"time_start","wireName":"time_start","location":"query","required":false,"nullable":false},
@@ -5916,6 +6314,8 @@ export const meta_adSet_budgetSchedules2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"budget_value","wireName":"budget_value","location":"body","required":true,"nullable":false},
@@ -5945,6 +6345,8 @@ export const meta_adSet_copies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -5974,6 +6376,8 @@ export const meta_adSet_copies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false},
@@ -6009,6 +6413,8 @@ export const meta_adSet_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6030,6 +6436,8 @@ export const meta_adSet_deliveryEstimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"optimization_goal","wireName":"optimization_goal","location":"query","required":false,"nullable":false},
@@ -6057,6 +6465,8 @@ export const meta_adSet_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"am_call_tags","wireName":"am_call_tags","location":"query","required":false,"nullable":false},
@@ -6086,6 +6496,8 @@ export const meta_adSet_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"query","required":false,"nullable":false},
@@ -6153,6 +6565,8 @@ export const meta_adSet_insights2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"body","required":false,"nullable":false},
@@ -6220,6 +6634,8 @@ export const meta_adSet_messageDeliveryEstimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bid_amount","wireName":"bid_amount","location":"query","required":false,"nullable":false},
@@ -6259,6 +6675,8 @@ export const meta_adSet_targetingsentencelines = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6280,6 +6698,8 @@ export const meta_adSet_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":false,"nullable":false},
@@ -6439,6 +6859,8 @@ export const meta_adsMcmeConversion_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsMcmeConversion.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6460,6 +6882,8 @@ export const meta_adsNamingTemplate_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsNamingTemplate.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6481,6 +6905,8 @@ export const meta_adsPivotRules_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPivotRules.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6502,6 +6928,8 @@ export const meta_adsPixel_adaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -6525,6 +6953,8 @@ export const meta_adsPixel_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -6548,6 +6978,8 @@ export const meta_adsPixel_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6569,6 +7001,8 @@ export const meta_adsPixel_agencies3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"body","required":true,"nullable":false},
@@ -6594,6 +7028,8 @@ export const meta_adsPixel_ahpConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"applink_autosetup","wireName":"applink_autosetup","location":"body","required":true,"nullable":false}
@@ -6617,6 +7053,8 @@ export const meta_adsPixel_assignedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -6640,6 +7078,8 @@ export const meta_adsPixel_assignedUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":true,"nullable":false},
@@ -6665,6 +7105,8 @@ export const meta_adsPixelCapabilityOverride_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixelCapabilityOverride.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6686,6 +7128,8 @@ export const meta_adsPixel_daChecks = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"checks","wireName":"checks","location":"query","required":false,"nullable":false},
@@ -6711,6 +7155,8 @@ export const meta_adsPixel_events = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"data","wireName":"data","location":"body","required":true,"nullable":false},
@@ -6752,6 +7198,8 @@ export const meta_adsPixel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6773,6 +7221,8 @@ export const meta_adsPixel_offlineEventUploads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
@@ -6804,6 +7254,8 @@ export const meta_adsPixel_openbridgeConfigurations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6825,6 +7277,8 @@ export const meta_adsPixel_shadowtraffichelper = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6846,6 +7300,8 @@ export const meta_adsPixel_sharedAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"query","required":true,"nullable":false},
@@ -6871,6 +7327,8 @@ export const meta_adsPixel_sharedAccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -6894,6 +7352,8 @@ export const meta_adsPixel_sharedAccounts3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":true,"nullable":false},
@@ -6919,6 +7379,8 @@ export const meta_adsPixel_sharedAgencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -6940,6 +7402,8 @@ export const meta_adsPixel_stats = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"agent","wireName":"agent","location":"query","required":false,"nullable":false},
@@ -6973,6 +7437,8 @@ export const meta_adsPixel_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsPixel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"automatic_matching_fields","wireName":"automatic_matching_fields","location":"body","required":false,"nullable":false},
@@ -7010,6 +7476,8 @@ export const meta_adsQuickViews_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsQuickViews.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7031,6 +7499,8 @@ export const meta_adsReportBuilderExportCore_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsReportBuilderExportCore.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7052,6 +7522,8 @@ export const meta_adsReportBuilderMMMReport_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsReportBuilderMMMReport.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7073,6 +7545,8 @@ export const meta_adsReportBuilderMMMReportScheduler_get = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["adsReportBuilderMMMReportScheduler.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7094,6 +7568,8 @@ export const meta_adsReportBuilderSavedReport_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsReportBuilderSavedReport.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7115,6 +7591,8 @@ export const meta_adsStartYourDayWidget_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsStartYourDayWidget.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7136,6 +7614,8 @@ export const meta_adStudyCell_adaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyCell.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7157,6 +7637,8 @@ export const meta_adStudyCell_adsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyCell.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7178,6 +7660,8 @@ export const meta_adStudyCell_campaigns = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyCell.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7199,6 +7683,8 @@ export const meta_adStudyCell_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyCell.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7220,6 +7706,8 @@ export const meta_adStudy_cells = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7241,6 +7729,8 @@ export const meta_adStudyCell_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyCell.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccounts","wireName":"adaccounts","location":"body","required":false,"nullable":false},
@@ -7276,6 +7766,8 @@ export const meta_adStudy_checkpoint = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"checkpoint_data","wireName":"checkpoint_data","location":"body","required":true,"nullable":false},
@@ -7307,6 +7799,8 @@ export const meta_adStudy_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7328,6 +7822,8 @@ export const meta_adStudy_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7349,6 +7845,8 @@ export const meta_adStudy_instances = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7370,6 +7868,8 @@ export const meta_adStudy_instances2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown_key","wireName":"breakdown_key","location":"body","required":true,"nullable":false},
@@ -7395,6 +7895,8 @@ export const meta_adStudyObjective_adspixels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7416,6 +7918,8 @@ export const meta_adStudyObjective_applications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7437,6 +7941,8 @@ export const meta_adStudyObjective_brandRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7458,6 +7964,8 @@ export const meta_adStudyObjective_customconversions = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7479,6 +7987,8 @@ export const meta_adStudyObjective_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdowns","wireName":"breakdowns","location":"query","required":false,"nullable":false},
@@ -7504,6 +8014,8 @@ export const meta_adStudyObjective_offlineConversionDataSets = defineEndpointDes
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7525,6 +8037,8 @@ export const meta_adStudyObjective_partnerPrivateStudies = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7546,6 +8060,8 @@ export const meta_adStudyObjective_partnerstudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7567,6 +8083,8 @@ export const meta_adStudy_objectives = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7588,6 +8106,8 @@ export const meta_adStudyObjective_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudyObjective.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adspixels","wireName":"adspixels","location":"body","required":false,"nullable":false},
@@ -7629,6 +8149,8 @@ export const meta_adStudy_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adStudy.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"cells","wireName":"cells","location":"body","required":false,"nullable":false},
@@ -7676,6 +8198,8 @@ export const meta_adsUserSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adsUserSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7697,6 +8221,8 @@ export const meta_adsValueAdjustmentRuleCollection_deleteRuleSet = defineEndpoin
   requiredScopes: [],
   capabilities: ["adsValueAdjustmentRuleCollection.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"status","wireName":"status","location":"body","required":false,"nullable":false}
@@ -7720,6 +8246,8 @@ export const meta_adsValueAdjustmentRuleCollection_get = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["adsValueAdjustmentRuleCollection.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7741,6 +8269,8 @@ export const meta_adsValueAdjustmentRuleCollection_rules = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["adsValueAdjustmentRuleCollection.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7762,6 +8292,8 @@ export const meta_adsValueAdjustmentRuleCollection_update = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["adsValueAdjustmentRuleCollection.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"entry_point","wireName":"entry_point","location":"body","required":false,"nullable":false},
@@ -7791,6 +8323,8 @@ export const meta_ad_targetingsentencelines = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7812,6 +8346,8 @@ export const meta_adToplineDetail_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adToplineDetail.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7833,6 +8369,8 @@ export const meta_adTopline_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adTopline.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7854,6 +8392,8 @@ export const meta_ad_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ad.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_schedule_end_time","wireName":"ad_schedule_end_time","location":"body","required":false,"nullable":false},
@@ -7913,6 +8453,8 @@ export const meta_advAInstance_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["advAInstance.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7934,6 +8476,8 @@ export const meta_adVideo_boostAdsList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7955,6 +8499,8 @@ export const meta_adVideo_captions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -7976,6 +8522,8 @@ export const meta_adVideo_captions2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"captions_file","wireName":"captions_file","location":"body","required":false,"nullable":false},
@@ -8003,6 +8551,8 @@ export const meta_adVideo_collaborators = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8024,6 +8574,8 @@ export const meta_adVideo_collaborators2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_id","wireName":"target_id","location":"body","required":true,"nullable":false}
@@ -8047,6 +8599,8 @@ export const meta_adVideo_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -8076,6 +8630,8 @@ export const meta_adVideo_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -8123,6 +8679,8 @@ export const meta_adVideo_crosspostSharedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8144,6 +8702,8 @@ export const meta_adVideo_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8165,6 +8725,8 @@ export const meta_adVideo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8186,6 +8748,8 @@ export const meta_adVideo_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8207,6 +8771,8 @@ export const meta_adVideo_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -8238,6 +8804,8 @@ export const meta_adVideo_polls = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8259,6 +8827,8 @@ export const meta_adVideo_polls2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"close_after_voting","wireName":"close_after_voting","location":"body","required":false,"nullable":false},
@@ -8294,6 +8864,8 @@ export const meta_adVideo_pollSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8315,6 +8887,8 @@ export const meta_adVideo_sponsorTags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8336,6 +8910,8 @@ export const meta_adVideo_tags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8357,6 +8933,8 @@ export const meta_adVideo_thumbnails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8378,6 +8956,8 @@ export const meta_adVideo_thumbnails2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"is_preferred","wireName":"is_preferred","location":"body","required":false,"nullable":false},
@@ -8403,6 +8983,8 @@ export const meta_adVideo_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_breaks","wireName":"ad_breaks","location":"body","required":false,"nullable":false},
@@ -8480,6 +9062,8 @@ export const meta_adVideo_videoInsights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metric","wireName":"metric","location":"query","required":false,"nullable":false},
@@ -8509,6 +9093,8 @@ export const meta_album_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -8538,6 +9124,8 @@ export const meta_album_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -8585,6 +9173,8 @@ export const meta_album_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8606,6 +9196,8 @@ export const meta_album_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8627,6 +9219,8 @@ export const meta_album_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -8658,6 +9252,8 @@ export const meta_album_photos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8679,6 +9275,8 @@ export const meta_album_photos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aid","wireName":"aid","location":"body","required":false,"nullable":false},
@@ -8804,6 +9402,8 @@ export const meta_album_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["album.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"redirect","wireName":"redirect","location":"query","required":false,"nullable":false},
@@ -8829,6 +9429,8 @@ export const meta_aLMAdAccountInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["aLMAdAccountInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8850,6 +9452,8 @@ export const meta_aLMEndAdvertiserInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["aLMEndAdvertiserInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8871,6 +9475,8 @@ export const meta_aLMEvent_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["aLMEvent.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8892,6 +9498,8 @@ export const meta_analyticsSegment_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["analyticsSegment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"async_task_id","wireName":"async_task_id","location":"query","required":false,"nullable":false},
@@ -8919,6 +9527,8 @@ export const meta_analyticsUserConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["analyticsUserConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -8940,6 +9550,8 @@ export const meta_appEventConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["appEventConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"event_name","wireName":"event_name","location":"query","required":false,"nullable":false}
@@ -8963,6 +9575,8 @@ export const meta_application_accounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false},
@@ -8988,6 +9602,8 @@ export const meta_application_accounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -9011,6 +9627,8 @@ export const meta_application_accounts3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"installed","wireName":"installed","location":"body","required":false,"nullable":false},
@@ -9046,6 +9664,8 @@ export const meta_application_activities = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"add_to_messaging_customer_base_for_whatsapp","wireName":"add_to_messaging_customer_base_for_whatsapp","location":"body","required":false,"nullable":false},
@@ -9165,6 +9785,8 @@ export const meta_application_adnetworkanalytics = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"query","required":false,"nullable":false},
@@ -9206,6 +9828,8 @@ export const meta_application_adnetworkanalytics2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"body","required":false,"nullable":false},
@@ -9245,6 +9869,8 @@ export const meta_application_adnetworkanalyticsResults = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"query_ids","wireName":"query_ids","location":"query","required":false,"nullable":false}
@@ -9268,6 +9894,8 @@ export const meta_application_adnetworkPlacements = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"request_id","wireName":"request_id","location":"query","required":false,"nullable":false}
@@ -9291,6 +9919,8 @@ export const meta_application_adPlacementGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9312,6 +9942,8 @@ export const meta_application_aemAttribution = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":false,"nullable":false},
@@ -9337,6 +9969,8 @@ export const meta_application_aemConversionConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":false,"nullable":false}
@@ -9360,6 +9994,8 @@ export const meta_application_aemConversionFilter = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":false,"nullable":false},
@@ -9385,6 +10021,8 @@ export const meta_application_aemConversions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aem_conversions","wireName":"aem_conversions","location":"body","required":true,"nullable":false}
@@ -9408,6 +10046,8 @@ export const meta_application_aemSkanReadiness = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
@@ -9441,6 +10081,8 @@ export const meta_application_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9462,6 +10104,8 @@ export const meta_application_aggregateRevenue = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ecpms","wireName":"ecpms","location":"body","required":false,"nullable":false},
@@ -9491,6 +10135,8 @@ export const meta_application_androidDialogConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9512,6 +10158,8 @@ export const meta_application_appassets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9533,6 +10181,8 @@ export const meta_application_appCapiSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9554,6 +10204,8 @@ export const meta_application_appEventTypes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9575,6 +10227,8 @@ export const meta_application_appIndexing = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_version","wireName":"app_version","location":"body","required":true,"nullable":false},
@@ -9608,6 +10262,8 @@ export const meta_application_appIndexingSession = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"device_session_id","wireName":"device_session_id","location":"body","required":true,"nullable":false},
@@ -9633,6 +10289,8 @@ export const meta_application_appInstalledGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"group_id","wireName":"group_id","location":"query","required":false,"nullable":false}
@@ -9656,6 +10314,8 @@ export const meta_application_appPushDeviceToken = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"device_id","wireName":"device_id","location":"body","required":true,"nullable":false},
@@ -9683,6 +10343,8 @@ export const meta_application_assets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset","wireName":"asset","location":"body","required":true,"nullable":false},
@@ -9710,6 +10372,8 @@ export const meta_application_authorizedAdaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":false,"nullable":false}
@@ -9733,6 +10397,8 @@ export const meta_application_buttonAutoDetectionDeviceSelection = defineEndpoin
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"device_id","wireName":"device_id","location":"query","required":false,"nullable":false}
@@ -9756,6 +10422,8 @@ export const meta_application_cloudbridgeSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9777,6 +10445,8 @@ export const meta_application_codelessEventMappings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"mappings","wireName":"mappings","location":"body","required":true,"nullable":false},
@@ -9806,6 +10476,8 @@ export const meta_application_connectedClientBusinesses = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9827,6 +10499,8 @@ export const meta_application_daChecks = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"checks","wireName":"checks","location":"query","required":false,"nullable":false},
@@ -9852,6 +10526,8 @@ export const meta_application_domainReports = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tracking_domains","wireName":"tracking_domains","location":"body","required":true,"nullable":false}
@@ -9875,6 +10551,8 @@ export const meta_application_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false}
@@ -9898,6 +10576,8 @@ export const meta_application_iapPurchases = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"order_id","wireName":"order_id","location":"query","required":true,"nullable":false}
@@ -9921,6 +10601,8 @@ export const meta_application_iosDialogConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9942,6 +10624,8 @@ export const meta_application_linkedDataset = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -9963,6 +10647,8 @@ export const meta_application_mmpAuditing = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
@@ -10034,6 +10720,8 @@ export const meta_application_mobileSdkGk = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"device_id","wireName":"device_id","location":"query","required":false,"nullable":false},
@@ -10065,6 +10753,8 @@ export const meta_application_monetizedDigitalStoreObjects = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10086,6 +10776,8 @@ export const meta_application_monetizedDigitalStoreObjects2 = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"content_id","wireName":"content_id","location":"body","required":true,"nullable":false},
@@ -10111,6 +10803,8 @@ export const meta_application_objects = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10132,6 +10826,8 @@ export const meta_application_objectTypes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10153,6 +10849,8 @@ export const meta_application_occludespopups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"flash","wireName":"flash","location":"body","required":false,"nullable":false},
@@ -10178,6 +10876,8 @@ export const meta_application_permissions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"android_key_hash","wireName":"android_key_hash","location":"query","required":false,"nullable":false},
@@ -10209,6 +10909,8 @@ export const meta_application_products = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"product_ids","wireName":"product_ids","location":"query","required":false,"nullable":false}
@@ -10232,6 +10934,8 @@ export const meta_application_purchases = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10253,6 +10957,8 @@ export const meta_application_roles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10274,6 +10980,8 @@ export const meta_application_serverDomainInfos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10295,6 +11003,8 @@ export const meta_application_sgwDatasetStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"dataset_id","wireName":"dataset_id","location":"query","required":true,"nullable":false}
@@ -10318,6 +11028,8 @@ export const meta_application_sgwInstallDeferralLink = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"client_ip","wireName":"client_ip","location":"query","required":false,"nullable":false},
@@ -10343,6 +11055,8 @@ export const meta_application_subscriptions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -10368,6 +11082,8 @@ export const meta_application_subscriptions2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10389,6 +11105,8 @@ export const meta_application_subscriptions3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"callback_url","wireName":"callback_url","location":"body","required":false,"nullable":false},
@@ -10422,6 +11140,8 @@ export const meta_application_threatPrivacyGroupsMember = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"query","required":false,"nullable":false},
@@ -10449,6 +11169,8 @@ export const meta_application_threatPrivacyGroupsOwner = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"query","required":false,"nullable":false},
@@ -10476,6 +11198,8 @@ export const meta_application_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_cycle_app_secret","wireName":"allow_cycle_app_secret","location":"body","required":false,"nullable":false},
@@ -10557,6 +11281,8 @@ export const meta_application_uploads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"file_length","wireName":"file_length","location":"body","required":false,"nullable":false},
@@ -10586,6 +11312,8 @@ export const meta_application_whatsappBusinessSolution = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["application.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"owner_permissions","wireName":"owner_permissions","location":"body","required":true,"nullable":false},
@@ -10615,6 +11343,8 @@ export const meta_application_whatsappBusinessSolutions = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["application.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"role","wireName":"role","location":"query","required":false,"nullable":false}
@@ -10638,6 +11368,8 @@ export const meta_appLinks_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["appLinks.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10659,6 +11391,8 @@ export const meta_appRequest_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["appRequest.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ids","wireName":"ids","location":"query","required":true,"nullable":false}
@@ -10682,6 +11416,8 @@ export const meta_appRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["appRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10703,6 +11439,8 @@ export const meta_arAdsDataContainer_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["arAdsDataContainer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10724,6 +11462,8 @@ export const meta_aREffect_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["aREffect.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10745,6 +11485,8 @@ export const meta_audioAsset_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audioAsset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10766,6 +11508,8 @@ export const meta_audioCopyright_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audioCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10787,6 +11531,8 @@ export const meta_audioCopyright_updateRecords = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audioCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10808,6 +11554,8 @@ export const meta_audioIsrc_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audioIsrc.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10829,6 +11577,8 @@ export const meta_audioSubLabel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audioSubLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10850,6 +11600,8 @@ export const meta_automotiveModel_channelsToIntegrityStatus = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["automotiveModel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10871,6 +11623,8 @@ export const meta_automotiveModel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["automotiveModel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10892,6 +11646,8 @@ export const meta_automotiveModel_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["automotiveModel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -10917,6 +11673,8 @@ export const meta_automotiveModel_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["automotiveModel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10938,6 +11696,8 @@ export const meta_avatar_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["avatar.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10959,6 +11719,8 @@ export const meta_bCPCampaign_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPCampaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -10980,6 +11742,8 @@ export const meta_bidSchedule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bidSchedule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11001,6 +11765,8 @@ export const meta_blindPig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["blindPig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11022,6 +11788,8 @@ export const meta_brandRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["brandRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11043,6 +11811,8 @@ export const meta_brandSafetyDownloadable_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["brandSafetyDownloadable.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11064,6 +11834,8 @@ export const meta_business_accessToken = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
@@ -11093,6 +11865,8 @@ export const meta_business_adaccount = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_created_from_bm_flag","wireName":"ad_account_created_from_bm_flag","location":"body","required":false,"nullable":false},
@@ -11140,6 +11914,8 @@ export const meta_business_adAccountInfos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"query","required":false,"nullable":false},
@@ -11167,6 +11943,8 @@ export const meta_business_adAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccount_id","wireName":"adaccount_id","location":"query","required":true,"nullable":false}
@@ -11190,6 +11968,8 @@ export const meta_business_adCustomDerivedMetrics = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adhoc_custom_metrics","wireName":"adhoc_custom_metrics","location":"query","required":false,"nullable":false},
@@ -11215,6 +11995,8 @@ export const meta_business_addPhoneNumbers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"phone_number","wireName":"phone_number","location":"body","required":true,"nullable":false}
@@ -11238,6 +12020,8 @@ export const meta_business_adnetworkanalytics = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"query","required":false,"nullable":false},
@@ -11279,6 +12063,8 @@ export const meta_business_adnetworkanalytics2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation_period","wireName":"aggregation_period","location":"body","required":false,"nullable":false},
@@ -11318,6 +12104,8 @@ export const meta_business_adnetworkanalyticsResults = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"query_ids","wireName":"query_ids","location":"query","required":false,"nullable":false}
@@ -11341,6 +12129,8 @@ export const meta_business_adnetworkApplications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
@@ -11364,6 +12154,8 @@ export const meta_business_adReviewRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_ids","wireName":"ad_account_ids","location":"body","required":false,"nullable":false}
@@ -11387,6 +12179,8 @@ export const meta_business_adsDataset = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"id_filter","wireName":"id_filter","location":"query","required":false,"nullable":false},
@@ -11414,6 +12208,8 @@ export const meta_business_adsDataset2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"body","required":false,"nullable":false},
@@ -11443,6 +12239,8 @@ export const meta_business_adspixels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"id_filter","wireName":"id_filter","location":"query","required":false,"nullable":false},
@@ -11470,6 +12268,8 @@ export const meta_business_adspixels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"is_crm","wireName":"is_crm","location":"body","required":false,"nullable":false},
@@ -11495,6 +12295,8 @@ export const meta_business_adsReportingMmmReports = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
@@ -11518,6 +12320,8 @@ export const meta_business_adsReportingMmmSchedulers = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11539,6 +12343,8 @@ export const meta_business_adStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11560,6 +12366,8 @@ export const meta_business_adStudies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"cells","wireName":"cells","location":"body","required":true,"nullable":false},
@@ -11607,6 +12415,8 @@ export const meta_business_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -11630,6 +12440,8 @@ export const meta_business_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11651,6 +12463,8 @@ export const meta_businessAgreement_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAgreement.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11672,6 +12486,8 @@ export const meta_businessAgreement_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAgreement.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":false,"nullable":false},
@@ -11697,6 +12513,8 @@ export const meta_business_anPlacements = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11718,6 +12536,8 @@ export const meta_businessAssetGroup_assignedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -11741,6 +12561,8 @@ export const meta_businessAssetGroup_assignedUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -11764,6 +12586,8 @@ export const meta_businessAssetGroup_assignedUsers3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccount_tasks","wireName":"adaccount_tasks","location":"body","required":false,"nullable":false},
@@ -11795,6 +12619,8 @@ export const meta_businessAssetGroup_containedAdaccounts = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -11818,6 +12644,8 @@ export const meta_businessAssetGroup_containedAdaccounts2 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11839,6 +12667,8 @@ export const meta_businessAssetGroup_containedAdaccounts3 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -11862,6 +12692,8 @@ export const meta_businessAssetGroup_containedApplications = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -11885,6 +12717,8 @@ export const meta_businessAssetGroup_containedApplications2 = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11906,6 +12740,8 @@ export const meta_businessAssetGroup_containedApplications3 = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -11929,6 +12765,8 @@ export const meta_businessAssetGroup_containedCustomConversions = defineEndpoint
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -11952,6 +12790,8 @@ export const meta_businessAssetGroup_containedCustomConversions2 = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -11973,6 +12813,8 @@ export const meta_businessAssetGroup_containedCustomConversions3 = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -11996,6 +12838,8 @@ export const meta_businessAssetGroup_containedInstagramAccounts = defineEndpoint
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -12019,6 +12863,8 @@ export const meta_businessAssetGroup_containedInstagramAccounts2 = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12040,6 +12886,8 @@ export const meta_businessAssetGroup_containedInstagramAccounts3 = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -12063,6 +12911,8 @@ export const meta_businessAssetGroup_containedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -12086,6 +12936,8 @@ export const meta_businessAssetGroup_containedPages2 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12107,6 +12959,8 @@ export const meta_businessAssetGroup_containedPages3 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -12130,6 +12984,8 @@ export const meta_businessAssetGroup_containedPixels = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -12153,6 +13009,8 @@ export const meta_businessAssetGroup_containedPixels2 = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12174,6 +13032,8 @@ export const meta_businessAssetGroup_containedPixels3 = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -12197,6 +13057,8 @@ export const meta_businessAssetGroup_containedProductCatalogs = defineEndpointDe
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false}
@@ -12220,6 +13082,8 @@ export const meta_businessAssetGroup_containedProductCatalogs2 = defineEndpointD
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12241,6 +13105,8 @@ export const meta_businessAssetGroup_containedProductCatalogs3 = defineEndpointD
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false}
@@ -12264,6 +13130,8 @@ export const meta_businessAssetGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12285,6 +13153,8 @@ export const meta_businessAssetGroup_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false}
@@ -12308,6 +13178,8 @@ export const meta_businessAssetSharingAgreement_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessAssetSharingAgreement.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12329,6 +13201,8 @@ export const meta_businessAssetSharingAgreement_update = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["businessAssetSharingAgreement.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"request_response","wireName":"request_response","location":"body","required":false,"nullable":false}
@@ -12352,6 +13226,8 @@ export const meta_business_blockListDrafts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"publisher_urls_file","wireName":"publisher_urls_file","location":"body","required":true,"nullable":false}
@@ -12375,6 +13251,8 @@ export const meta_business_bmReviewRequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_manager_ids","wireName":"business_manager_ids","location":"body","required":true,"nullable":false}
@@ -12398,6 +13276,8 @@ export const meta_business_businessAssetGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12419,6 +13299,8 @@ export const meta_business_businessInvoices = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_date","wireName":"end_date","location":"query","required":false,"nullable":false},
@@ -12454,6 +13336,8 @@ export const meta_business_businessprojects = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12475,6 +13359,8 @@ export const meta_business_businessUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12496,6 +13382,8 @@ export const meta_business_businessUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"email","wireName":"email","location":"body","required":true,"nullable":false},
@@ -12525,6 +13413,8 @@ export const meta_business_claimCustomConversions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":true,"nullable":false}
@@ -12548,6 +13438,8 @@ export const meta_business_clientAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"search_query","wireName":"search_query","location":"query","required":false,"nullable":false}
@@ -12571,6 +13463,8 @@ export const meta_business_clientApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12592,6 +13486,8 @@ export const meta_business_clientApps2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false}
@@ -12615,6 +13511,8 @@ export const meta_business_clientInstagramAssets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12636,6 +13534,8 @@ export const meta_business_clientOffsiteSignalContainerBusinessObjects = defineE
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12657,6 +13557,8 @@ export const meta_business_clientPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12678,6 +13580,8 @@ export const meta_business_clientPages2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"page_id","wireName":"page_id","location":"body","required":true,"nullable":false},
@@ -12703,6 +13607,8 @@ export const meta_business_clientPixels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12724,6 +13630,8 @@ export const meta_business_clientProductCatalogs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12745,6 +13653,8 @@ export const meta_business_clients = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -12768,6 +13678,8 @@ export const meta_business_clients2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12789,6 +13701,8 @@ export const meta_business_clientWhatsappBusinessAccounts = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12810,6 +13724,8 @@ export const meta_business_collaborativeAdsCollaborationRequests = defineEndpoin
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"request_role","wireName":"request_role","location":"query","required":false,"nullable":false},
@@ -12841,6 +13757,8 @@ export const meta_business_collaborativeAdsSuggestedPartners = defineEndpointDes
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12862,6 +13780,8 @@ export const meta_business_commerceMerchantSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12883,6 +13803,8 @@ export const meta_business_cpasBusinessSetupConfig = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12904,6 +13826,8 @@ export const meta_business_cpasBusinessSetupConfig2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"accepted_collab_ads_tos","wireName":"accepted_collab_ads_tos","location":"body","required":false,"nullable":false},
@@ -12933,6 +13857,8 @@ export const meta_business_cpasMerchantConfig = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12954,6 +13880,8 @@ export const meta_businessCreativeFolder_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessCreativeFolder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -12975,6 +13903,8 @@ export const meta_business_creativeFolders = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
@@ -13002,6 +13932,8 @@ export const meta_business_creditcards = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13023,6 +13955,8 @@ export const meta_business_customconversions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_source_type","wireName":"action_source_type","location":"body","required":false,"nullable":false},
@@ -13060,6 +13994,8 @@ export const meta_business_eventSourceGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13081,6 +14017,8 @@ export const meta_business_eventSourceGroups2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"event_sources","wireName":"event_sources","location":"body","required":true,"nullable":false},
@@ -13106,6 +14044,8 @@ export const meta_business_extendedcreditapplications = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"only_show_pending","wireName":"only_show_pending","location":"query","required":false,"nullable":false}
@@ -13129,6 +14069,8 @@ export const meta_business_extendedcredits = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"order_by_is_owned_credential","wireName":"order_by_is_owned_credential","location":"query","required":false,"nullable":false}
@@ -13152,6 +14094,8 @@ export const meta_businessFranchiseConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessFranchiseConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13173,6 +14117,8 @@ export const meta_business_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13194,6 +14140,8 @@ export const meta_businessImage_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessImage.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13215,6 +14163,8 @@ export const meta_business_images = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_placements_validation_only","wireName":"ad_placements_validation_only","location":"body","required":false,"nullable":false},
@@ -13246,6 +14196,8 @@ export const meta_business_initiatedAudienceSharingRequests = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"recipient_id","wireName":"recipient_id","location":"query","required":false,"nullable":false},
@@ -13271,6 +14223,8 @@ export const meta_business_instagramAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"instagram_account","wireName":"instagram_account","location":"query","required":true,"nullable":false}
@@ -13294,6 +14248,8 @@ export const meta_business_instagramAccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13315,6 +14271,8 @@ export const meta_business_instagramBusinessAccounts = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13336,6 +14294,8 @@ export const meta_business_managedBusinesses = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"existing_client_business_id","wireName":"existing_client_business_id","location":"query","required":true,"nullable":false}
@@ -13359,6 +14319,8 @@ export const meta_business_managedBusinesses2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_business_external_id","wireName":"child_business_external_id","location":"body","required":false,"nullable":false},
@@ -13398,6 +14360,8 @@ export const meta_business_managedPartnerAdsFundingSourceDetails = defineEndpoin
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"year_quarter","wireName":"year_quarter","location":"query","required":false,"nullable":false}
@@ -13421,6 +14385,8 @@ export const meta_business_managedPartnerBusinesses = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_business_external_id","wireName":"child_business_external_id","location":"query","required":false,"nullable":false},
@@ -13446,6 +14412,8 @@ export const meta_business_managedPartnerBusinesses2 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_currency","wireName":"ad_account_currency","location":"body","required":false,"nullable":false},
@@ -13509,6 +14477,8 @@ export const meta_business_managedPartnerBusinessSetup = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"active_ad_account_id","wireName":"active_ad_account_id","location":"body","required":false,"nullable":false},
@@ -13544,6 +14514,8 @@ export const meta_businessObjectTransferOwnershipAgreement_get = defineEndpointD
   requiredScopes: [],
   capabilities: ["businessObjectTransferOwnershipAgreement.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13565,6 +14537,8 @@ export const meta_business_onboardPartnersToMmLite = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"solution_id","wireName":"solution_id","location":"body","required":false,"nullable":false}
@@ -13588,6 +14562,8 @@ export const meta_business_openbridgeConfigurations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13609,6 +14585,8 @@ export const meta_business_openbridgeConfigurations2 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"active","wireName":"active","location":"body","required":false,"nullable":false},
@@ -13676,6 +14654,8 @@ export const meta_business_ownedAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_shared_ad_accounts","wireName":"include_shared_ad_accounts","location":"query","required":false,"nullable":false},
@@ -13701,6 +14681,8 @@ export const meta_business_ownedAdAccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccount_id","wireName":"adaccount_id","location":"body","required":true,"nullable":false}
@@ -13724,6 +14706,8 @@ export const meta_business_ownedApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13745,6 +14729,8 @@ export const meta_business_ownedApps2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false}
@@ -13768,6 +14754,8 @@ export const meta_business_ownedBusinesses = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"client_id","wireName":"client_id","location":"query","required":true,"nullable":false}
@@ -13791,6 +14779,8 @@ export const meta_business_ownedBusinesses2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_business_external_id","wireName":"child_business_external_id","location":"query","required":false,"nullable":false},
@@ -13816,6 +14806,8 @@ export const meta_business_ownedBusinesses3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_business_external_id","wireName":"child_business_external_id","location":"body","required":false,"nullable":false},
@@ -13859,6 +14851,8 @@ export const meta_business_ownedInstagramAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13880,6 +14874,8 @@ export const meta_business_ownedInstagramAssets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13901,6 +14897,8 @@ export const meta_businessOwnedObjectOnBehalfOfRequest_get = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["businessOwnedObjectOnBehalfOfRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13922,6 +14920,8 @@ export const meta_business_ownedOffsiteSignalContainerBusinessObjects = defineEn
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13943,6 +14943,8 @@ export const meta_business_ownedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -13964,6 +14966,8 @@ export const meta_business_ownedPages2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"code","wireName":"code","location":"body","required":false,"nullable":false},
@@ -13991,6 +14995,8 @@ export const meta_business_ownedPixels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14012,6 +15018,8 @@ export const meta_business_ownedProductCatalogs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14033,6 +15041,8 @@ export const meta_business_ownedProductCatalogs2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_vertical_option","wireName":"additional_vertical_option","location":"body","required":false,"nullable":false},
@@ -14078,6 +15088,8 @@ export const meta_business_ownedWhatsappBusinessAccounts = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14099,6 +15111,8 @@ export const meta_business_pages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"page_id","wireName":"page_id","location":"query","required":true,"nullable":false}
@@ -14122,6 +15136,8 @@ export const meta_business_partnerAccountLinking = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14143,6 +15159,8 @@ export const meta_business_partnerPremiumOptions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_segment_id","wireName":"catalog_segment_id","location":"body","required":false,"nullable":false},
@@ -14176,6 +15194,8 @@ export const meta_business_passbackAttributionMetadataConfigs = defineEndpointDe
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14197,6 +15217,8 @@ export const meta_business_pendingClientAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14218,6 +15240,8 @@ export const meta_business_pendingClientApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14239,6 +15263,8 @@ export const meta_business_pendingClientPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14260,6 +15286,8 @@ export const meta_business_pendingOwnedAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14281,6 +15309,8 @@ export const meta_business_pendingOwnedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14302,6 +15332,8 @@ export const meta_business_pendingSharedOffsiteSignalContainerBusinessObjects = 
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14323,6 +15355,8 @@ export const meta_business_pendingUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"email","wireName":"email","location":"query","required":false,"nullable":false}
@@ -14346,6 +15380,8 @@ export const meta_business_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"height","wireName":"height","location":"query","required":false,"nullable":false},
@@ -14375,6 +15411,8 @@ export const meta_business_pixelTos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14396,6 +15434,8 @@ export const meta_business_preverifiedNumbers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"code_verification_status","wireName":"code_verification_status","location":"query","required":false,"nullable":false},
@@ -14421,6 +15461,8 @@ export const meta_businessProject_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessProject.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14442,6 +15484,8 @@ export const meta_business_receivedAudienceSharingRequests = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"initiator_id","wireName":"initiator_id","location":"query","required":false,"nullable":false},
@@ -14467,6 +15511,8 @@ export const meta_businessRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14488,6 +15534,8 @@ export const meta_business_resellerGuidances = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14509,6 +15557,8 @@ export const meta_businessRoleRequest_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessRoleRequest.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14530,6 +15580,8 @@ export const meta_businessRoleRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessRoleRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14551,6 +15603,8 @@ export const meta_businessRoleRequest_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessRoleRequest.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"role","wireName":"role","location":"body","required":false,"nullable":false},
@@ -14576,6 +15630,8 @@ export const meta_business_selfCertifiedWhatsappBusinessSubmissions = defineEndp
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_business_id","wireName":"end_business_id","location":"query","required":false,"nullable":false}
@@ -14599,6 +15655,8 @@ export const meta_business_selfCertifyWhatsappBusiness = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"average_monthly_revenue_spend_with_partner","wireName":"average_monthly_revenue_spend_with_partner","location":"body","required":false,"nullable":false},
@@ -14638,6 +15696,8 @@ export const meta_business_sharePreverifiedNumbers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"partner_business_id","wireName":"partner_business_id","location":"query","required":true,"nullable":false},
@@ -14663,6 +15723,8 @@ export const meta_business_sharePreverifiedNumbers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"partner_business_id","wireName":"partner_business_id","location":"body","required":true,"nullable":false},
@@ -14688,6 +15750,8 @@ export const meta_business_systemUserAccessTokens = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asset","wireName":"asset","location":"body","required":false,"nullable":false},
@@ -14719,6 +15783,8 @@ export const meta_business_systemUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14740,6 +15806,8 @@ export const meta_business_systemUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
@@ -14767,6 +15835,8 @@ export const meta_businessTag_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessTag.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14788,6 +15858,8 @@ export const meta_business_thirdPartyMeasurementReportDataset = defineEndpointDe
   requiredScopes: [],
   capabilities: ["business.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14809,6 +15881,8 @@ export const meta_business_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"entry_point","wireName":"entry_point","location":"body","required":false,"nullable":false},
@@ -14842,6 +15916,8 @@ export const meta_businessUser_assignedAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14863,6 +15939,8 @@ export const meta_businessUser_assignedBusinessAssetGroups = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"contained_asset_id","wireName":"contained_asset_id","location":"query","required":false,"nullable":false}
@@ -14886,6 +15964,8 @@ export const meta_businessUser_assignedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pages","wireName":"pages","location":"query","required":false,"nullable":false}
@@ -14909,6 +15989,8 @@ export const meta_businessUser_assignedProductCatalogs = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14930,6 +16012,8 @@ export const meta_businessUser_assignedWhatsappBusinessAccounts = defineEndpoint
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14951,6 +16035,8 @@ export const meta_businessUser_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14972,6 +16058,8 @@ export const meta_businessUser_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -14993,6 +16081,8 @@ export const meta_businessUser_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"clear_pending_email","wireName":"clear_pending_email","location":"body","required":false,"nullable":false},
@@ -15032,6 +16122,8 @@ export const meta_businessVideo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["businessVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15053,6 +16145,8 @@ export const meta_business_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["business.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_placements_validation_only","wireName":"ad_placements_validation_only","location":"body","required":false,"nullable":false},
@@ -15216,6 +16310,8 @@ export const meta_calibratorExistingRule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["calibratorExistingRule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15237,6 +16333,8 @@ export const meta_callAdsPhoneData_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["callAdsPhoneData.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15258,6 +16356,8 @@ export const meta_campaign_adlabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":true,"nullable":false},
@@ -15283,6 +16383,8 @@ export const meta_campaign_adrulesGoverned = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pass_evaluation","wireName":"pass_evaluation","location":"query","required":false,"nullable":false}
@@ -15306,6 +16408,8 @@ export const meta_campaign_ads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -15335,6 +16439,8 @@ export const meta_campaign_adsets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -15364,6 +16470,8 @@ export const meta_campaign_adStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15385,6 +16493,8 @@ export const meta_campaign_budgetSchedules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"time_start","wireName":"time_start","location":"query","required":false,"nullable":false},
@@ -15410,6 +16520,8 @@ export const meta_campaign_budgetSchedules2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"budget_value","wireName":"budget_value","location":"body","required":true,"nullable":false},
@@ -15439,6 +16551,8 @@ export const meta_campaign_copies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -15468,6 +16582,8 @@ export const meta_campaign_copies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"deep_copy","wireName":"deep_copy","location":"body","required":false,"nullable":false},
@@ -15503,6 +16619,8 @@ export const meta_campaign_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15524,6 +16642,8 @@ export const meta_campaign_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"am_call_tags","wireName":"am_call_tags","location":"query","required":false,"nullable":false},
@@ -15553,6 +16673,8 @@ export const meta_campaign_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"query","required":false,"nullable":false},
@@ -15620,6 +16742,8 @@ export const meta_campaign_insights2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_attribution_windows","wireName":"action_attribution_windows","location":"body","required":false,"nullable":false},
@@ -15687,6 +16811,8 @@ export const meta_campaign_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adlabels","wireName":"adlabels","location":"body","required":false,"nullable":false},
@@ -15770,6 +16896,8 @@ export const meta_canvasDynamicSetting_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvasDynamicSetting.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15791,6 +16919,8 @@ export const meta_canvas_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvas.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15812,6 +16942,8 @@ export const meta_canvas_preview = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvas.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15833,6 +16965,8 @@ export const meta_canvas_previews = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvas.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_ids","wireName":"user_ids","location":"query","required":false,"nullable":false}
@@ -15856,6 +16990,8 @@ export const meta_canvasTemplate_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvasTemplate.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15877,6 +17013,8 @@ export const meta_canvas_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["canvas.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"background_color","wireName":"background_color","location":"body","required":false,"nullable":false},
@@ -15916,6 +17054,8 @@ export const meta_catalogContentVersionConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogContentVersionConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15937,6 +17077,8 @@ export const meta_catalogItemOverride_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogItemOverride.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15958,6 +17100,8 @@ export const meta_catalogSmartPixelSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogSmartPixelSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -15979,6 +17123,8 @@ export const meta_catalogWebsiteOnboardingSettings_get = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["catalogWebsiteOnboardingSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16000,6 +17146,8 @@ export const meta_catalogWebsiteSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogWebsiteSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16021,6 +17169,8 @@ export const meta_chinaBusinessOnboardingVettingRequest_get = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["chinaBusinessOnboardingVettingRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16042,6 +17192,8 @@ export const meta_cloudGame_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cloudGame.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16063,6 +17215,8 @@ export const meta_collaborativeAdsShareSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["collaborativeAdsShareSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16084,6 +17238,8 @@ export const meta_comment_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -16113,6 +17269,8 @@ export const meta_comment_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -16160,6 +17318,8 @@ export const meta_comment_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16181,6 +17341,8 @@ export const meta_comment_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16202,6 +17364,8 @@ export const meta_comment_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"query","required":false,"nullable":false},
@@ -16231,6 +17395,8 @@ export const meta_comment_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16252,6 +17418,8 @@ export const meta_comment_likes3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -16281,6 +17449,8 @@ export const meta_comment_reactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -16304,6 +17474,8 @@ export const meta_comment_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["comment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -16335,6 +17507,8 @@ export const meta_commerceMerchantSettings_commerceOrders = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filters","wireName":"filters","location":"query","required":false,"nullable":false},
@@ -16364,6 +17538,8 @@ export const meta_commerceMerchantSettings_commercePayouts = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
@@ -16389,6 +17565,8 @@ export const meta_commerceMerchantSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16410,6 +17588,8 @@ export const meta_commerceMerchantSettings_orderManagementApps = defineEndpointD
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16431,6 +17611,8 @@ export const meta_commerceMerchantSettings_productCatalogs = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16452,6 +17634,8 @@ export const meta_commerceMerchantSettings_returns = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time_created","wireName":"end_time_created","location":"query","required":false,"nullable":false},
@@ -16481,6 +17665,8 @@ export const meta_commerceMerchantSettings_setupStatus = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16502,6 +17688,8 @@ export const meta_commerceMerchantSettings_shippingProfiles = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"handling_time","wireName":"handling_time","location":"body","required":false,"nullable":false},
@@ -16535,6 +17723,8 @@ export const meta_commerceMerchantSettings_shops = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16556,6 +17746,8 @@ export const meta_commerceMerchantSettings_taxSettings = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16577,6 +17769,8 @@ export const meta_commerceMerchantSettings_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceMerchantSettings.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"checkout_config","wireName":"checkout_config","location":"body","required":false,"nullable":false},
@@ -16606,6 +17800,8 @@ export const meta_commerceOrder_cancellations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16627,6 +17823,8 @@ export const meta_commerceOrder_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16648,6 +17846,8 @@ export const meta_commerceOrder_items = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16669,6 +17869,8 @@ export const meta_commerceOrder_payments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16690,6 +17892,8 @@ export const meta_commerceOrder_refunds = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16711,6 +17915,8 @@ export const meta_commerceOrder_shipments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16732,6 +17938,8 @@ export const meta_commerceOrder_shipments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["commerceOrder.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"external_redemption_link","wireName":"external_redemption_link","location":"body","required":false,"nullable":false},
@@ -16773,6 +17981,8 @@ export const meta_contentBlockList_appliedAdAccounts = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["contentBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16794,6 +18004,8 @@ export const meta_contentBlockList_facebookContent = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["contentBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16815,6 +18027,8 @@ export const meta_contentBlockList_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["contentBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16836,6 +18050,8 @@ export const meta_contentBlockList_instagramContent = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["contentBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16857,6 +18073,8 @@ export const meta_copyrightMediaMisuse_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["copyrightMediaMisuse.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16878,6 +18096,8 @@ export const meta_copyrightOwnershipTransfer_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["copyrightOwnershipTransfer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16899,6 +18119,8 @@ export const meta_cPASAdCreationTemplate_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASAdCreationTemplate.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16920,6 +18142,8 @@ export const meta_cPASAdvertiserPartnershipRecommendation_get = defineEndpointDe
   requiredScopes: [],
   capabilities: ["cPASAdvertiserPartnershipRecommendation.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16941,6 +18165,8 @@ export const meta_cPASBusinessSetupConfig_adAccounts = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["cPASBusinessSetupConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16962,6 +18188,8 @@ export const meta_cPASBusinessSetupConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASBusinessSetupConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -16983,6 +18211,8 @@ export const meta_cPASCollaborationRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASCollaborationRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17004,6 +18234,8 @@ export const meta_cPASLsbImageBank_backupImages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASLsbImageBank.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17025,6 +18257,8 @@ export const meta_cPASLsbImageBank_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASLsbImageBank.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17046,6 +18280,8 @@ export const meta_cPASLsbImageBank_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASLsbImageBank.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"backup_image_urls","wireName":"backup_image_urls","location":"body","required":true,"nullable":false}
@@ -17069,6 +18305,8 @@ export const meta_cPASMerchantConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASMerchantConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17090,6 +18328,8 @@ export const meta_cPASParentCatalogSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cPASParentCatalogSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17111,6 +18351,8 @@ export const meta_creatorAssetCreative_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["creatorAssetCreative.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17132,6 +18374,8 @@ export const meta_creditCard_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["creditCard.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17153,6 +18397,8 @@ export const meta_cRMAddress_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["cRMAddress.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17174,6 +18420,8 @@ export const meta_cTXPartnerAppWelcomeMessageFlow_get = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["cTXPartnerAppWelcomeMessageFlow.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17195,6 +18443,8 @@ export const meta_customAudience_adaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccounts","wireName":"adaccounts","location":"query","required":false,"nullable":false}
@@ -17218,6 +18468,8 @@ export const meta_customAudience_adaccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"permissions","wireName":"permissions","location":"query","required":false,"nullable":false}
@@ -17241,6 +18493,8 @@ export const meta_customAudience_adaccounts3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adaccounts","wireName":"adaccounts","location":"body","required":false,"nullable":false},
@@ -17270,6 +18524,8 @@ export const meta_customAudience_ads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"effective_status","wireName":"effective_status","location":"query","required":false,"nullable":false},
@@ -17295,6 +18551,8 @@ export const meta_customAudience_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17316,6 +18574,8 @@ export const meta_customAudience_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"query","required":false,"nullable":false},
@@ -17345,6 +18605,8 @@ export const meta_customAudience_health = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"calculated_date","wireName":"calculated_date","location":"query","required":false,"nullable":false},
@@ -17378,6 +18640,8 @@ export const meta_customAudience_salts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"params","wireName":"params","location":"query","required":false,"nullable":false}
@@ -17401,6 +18665,8 @@ export const meta_customAudience_salts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"salt","wireName":"salt","location":"body","required":true,"nullable":false},
@@ -17428,6 +18694,8 @@ export const meta_customAudience_sessions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"session_id","wireName":"session_id","location":"query","required":false,"nullable":false}
@@ -17451,6 +18719,8 @@ export const meta_customAudience_sharedAccountInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17472,6 +18742,8 @@ export const meta_customAudience_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"acting_account_id","wireName":"acting_account_id","location":"body","required":false,"nullable":false},
@@ -17545,6 +18817,8 @@ export const meta_customAudience_users = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"namespace","wireName":"namespace","location":"query","required":false,"nullable":false},
@@ -17572,6 +18846,8 @@ export const meta_customAudience_users2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"namespace","wireName":"namespace","location":"body","required":false,"nullable":false},
@@ -17599,6 +18875,8 @@ export const meta_customAudience_usersreplace = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customAudience.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"namespace","wireName":"namespace","location":"body","required":false,"nullable":false},
@@ -17626,6 +18904,8 @@ export const meta_customConversion_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customConversion.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17647,6 +18927,8 @@ export const meta_customConversion_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customConversion.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17668,6 +18950,8 @@ export const meta_customConversion_stats = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customConversion.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggregation","wireName":"aggregation","location":"query","required":false,"nullable":false},
@@ -17695,6 +18979,8 @@ export const meta_customConversion_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["customConversion.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"default_conversion_value","wireName":"default_conversion_value","location":"body","required":false,"nullable":false},
@@ -17722,6 +19008,8 @@ export const meta_destination_channelsToIntegrityStatus = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["destination.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17743,6 +19031,8 @@ export const meta_destination_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["destination.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17764,6 +19054,8 @@ export const meta_destination_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["destination.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -17789,6 +19081,8 @@ export const meta_destination_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["destination.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17810,6 +19104,8 @@ export const meta_dynamicARMetadata_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["dynamicARMetadata.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17831,6 +19127,8 @@ export const meta_dynamicItemDisplayBundleFolder_get = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["dynamicItemDisplayBundleFolder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17852,6 +19150,8 @@ export const meta_dynamicItemDisplayBundle_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["dynamicItemDisplayBundle.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17873,6 +19173,8 @@ export const meta_dynamicPriceConfigByDate_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["dynamicPriceConfigByDate.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17894,6 +19196,8 @@ export const meta_dynamicVideoMetadata_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["dynamicVideoMetadata.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17915,6 +19219,8 @@ export const meta_educationExperience_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["educationExperience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17936,6 +19242,8 @@ export const meta_event_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17957,6 +19265,8 @@ export const meta_eventExternalTicketInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventExternalTicketInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17978,6 +19288,8 @@ export const meta_event_feed = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -17999,6 +19311,8 @@ export const meta_event_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18020,6 +19334,8 @@ export const meta_event_liveVideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18041,6 +19357,8 @@ export const meta_event_liveVideos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"content_tags","wireName":"content_tags","location":"body","required":false,"nullable":false},
@@ -18102,6 +19420,8 @@ export const meta_event_photos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18123,6 +19443,8 @@ export const meta_event_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18144,6 +19466,8 @@ export const meta_event_posts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18165,6 +19489,8 @@ export const meta_eventRegistrationSetting_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventRegistrationSetting.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18186,6 +19512,8 @@ export const meta_event_roles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18207,6 +19535,8 @@ export const meta_eventSourceGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventSourceGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18228,6 +19558,8 @@ export const meta_eventSourceGroup_sharedAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventSourceGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18249,6 +19581,8 @@ export const meta_eventSourceGroup_sharedAccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventSourceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"accounts","wireName":"accounts","location":"body","required":true,"nullable":false}
@@ -18272,6 +19606,8 @@ export const meta_eventSourceGroup_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventSourceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"event_sources","wireName":"event_sources","location":"body","required":true,"nullable":false},
@@ -18297,6 +19633,8 @@ export const meta_eventTicketSetting_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventTicketSetting.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18318,6 +19656,8 @@ export const meta_eventTicketTier_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["eventTicketTier.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18339,6 +19679,8 @@ export const meta_event_ticketTiers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18360,6 +19702,8 @@ export const meta_event_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["event.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18381,6 +19725,8 @@ export const meta_extendedCreditAllocationConfig_delete = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["extendedCreditAllocationConfig.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18402,6 +19748,8 @@ export const meta_extendedCreditAllocationConfig_get = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["extendedCreditAllocationConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18423,6 +19771,8 @@ export const meta_extendedCreditAllocationConfig_update = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["extendedCreditAllocationConfig.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"amount","wireName":"amount","location":"body","required":false,"nullable":false}
@@ -18446,6 +19796,8 @@ export const meta_extendedCreditApplication_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["extendedCreditApplication.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18467,6 +19819,8 @@ export const meta_extendedCredit_extendedCreditInvoiceGroups = defineEndpointDes
   requiredScopes: [],
   capabilities: ["extendedCredit.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18488,6 +19842,8 @@ export const meta_extendedCredit_extendedCreditInvoiceGroups2 = defineEndpointDe
   requiredScopes: [],
   capabilities: ["extendedCredit.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"emails","wireName":"emails","location":"body","required":true,"nullable":false},
@@ -18513,6 +19869,8 @@ export const meta_extendedCredit_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["extendedCredit.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18534,6 +19892,8 @@ export const meta_extendedCreditInvoiceGroup_adAccounts = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"query","required":true,"nullable":false}
@@ -18557,6 +19917,8 @@ export const meta_extendedCreditInvoiceGroup_adAccounts2 = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18578,6 +19940,8 @@ export const meta_extendedCreditInvoiceGroup_adAccounts3 = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"body","required":true,"nullable":false}
@@ -18601,6 +19965,8 @@ export const meta_extendedCreditInvoiceGroup_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18622,6 +19988,8 @@ export const meta_extendedCreditInvoiceGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18643,6 +20011,8 @@ export const meta_extendedCreditInvoiceGroup_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["extendedCreditInvoiceGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"emails","wireName":"emails","location":"body","required":false,"nullable":false},
@@ -18668,6 +20038,8 @@ export const meta_extendedCredit_owningCreditAllocationConfigs = defineEndpointD
   requiredScopes: [],
   capabilities: ["extendedCredit.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"receiving_business_id","wireName":"receiving_business_id","location":"query","required":false,"nullable":false}
@@ -18691,6 +20063,8 @@ export const meta_extendedCredit_owningCreditAllocationConfigs2 = defineEndpoint
   requiredScopes: [],
   capabilities: ["extendedCredit.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"amount","wireName":"amount","location":"body","required":false,"nullable":false},
@@ -18722,6 +20096,8 @@ export const meta_extendedCredit_whatsappCreditAttach = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["extendedCredit.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"waba_currency","wireName":"waba_currency","location":"body","required":true,"nullable":false},
@@ -18747,6 +20123,8 @@ export const meta_extendedCredit_whatsappCreditSharing = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["extendedCredit.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"receiving_business_id","wireName":"receiving_business_id","location":"body","required":true,"nullable":false}
@@ -18770,6 +20148,8 @@ export const meta_extendedCredit_whatsappCreditSharingAndAttach = defineEndpoint
   requiredScopes: [],
   capabilities: ["extendedCredit.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"waba_currency","wireName":"waba_currency","location":"body","required":true,"nullable":false},
@@ -18795,6 +20175,8 @@ export const meta_externalMerchantSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["externalMerchantSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18816,6 +20198,8 @@ export const meta_fAMEKumo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["fAMEKumo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18837,6 +20221,8 @@ export const meta_fantasyGame_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["fantasyGame.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18858,6 +20244,8 @@ export const meta_fBImageCopyrightMatch_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["fBImageCopyrightMatch.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18879,6 +20267,8 @@ export const meta_flight_channelsToIntegrityStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["flight.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18900,6 +20290,8 @@ export const meta_flight_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["flight.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -18921,6 +20313,8 @@ export const meta_flight_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["flight.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -18946,6 +20340,8 @@ export const meta_flight_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["flight.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"currency","wireName":"currency","location":"body","required":false,"nullable":false},
@@ -18985,6 +20381,8 @@ export const meta_flight_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["flight.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19006,6 +20404,8 @@ export const meta_franchiseProgram_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["franchiseProgram.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19027,6 +20427,8 @@ export const meta_franchiseProgramMember_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["franchiseProgramMember.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19048,6 +20450,8 @@ export const meta_fundraiserPersonToCharity_donations = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19069,6 +20473,8 @@ export const meta_fundraiserPersonToCharity_endFundraiser = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19090,6 +20496,8 @@ export const meta_fundraiserPersonToCharity_externalDonations = defineEndpointDe
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19111,6 +20519,8 @@ export const meta_fundraiserPersonToCharity_externalDonations2 = defineEndpointD
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"amount_received","wireName":"amount_received","location":"body","required":true,"nullable":false},
@@ -19142,6 +20552,8 @@ export const meta_fundraiserPersonToCharity_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19163,6 +20575,8 @@ export const meta_fundraiserPersonToCharity_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["fundraiserPersonToCharity.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
@@ -19202,6 +20616,8 @@ export const meta_geoGatingPolicy_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["geoGatingPolicy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19223,6 +20639,8 @@ export const meta_group_admins = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"uid","wireName":"uid","location":"query","required":true,"nullable":false}
@@ -19246,6 +20664,8 @@ export const meta_group_admins2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"uid","wireName":"uid","location":"body","required":true,"nullable":false}
@@ -19269,6 +20689,8 @@ export const meta_group_albums = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19290,6 +20712,8 @@ export const meta_group_docs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19311,6 +20735,8 @@ export const meta_group_events = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19332,6 +20758,8 @@ export const meta_group_feed = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -19365,6 +20793,8 @@ export const meta_group_feed2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
@@ -19596,6 +21026,8 @@ export const meta_group_files = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19617,6 +21049,8 @@ export const meta_group_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"icon_size","wireName":"icon_size","location":"query","required":false,"nullable":false}
@@ -19640,6 +21074,8 @@ export const meta_group_groups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19661,6 +21097,8 @@ export const meta_group_groups2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"admin","wireName":"admin","location":"body","required":false,"nullable":false},
@@ -19704,6 +21142,8 @@ export const meta_group_liveVideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"broadcast_status","wireName":"broadcast_status","location":"query","required":false,"nullable":false},
@@ -19729,6 +21169,8 @@ export const meta_group_liveVideos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"content_tags","wireName":"content_tags","location":"body","required":false,"nullable":false},
@@ -19790,6 +21232,8 @@ export const meta_group_members = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"email","wireName":"email","location":"query","required":false,"nullable":false},
@@ -19815,6 +21259,8 @@ export const meta_group_members2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"email","wireName":"email","location":"body","required":false,"nullable":false},
@@ -19846,6 +21292,8 @@ export const meta_group_optedInMembers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -19867,6 +21315,8 @@ export const meta_group_photos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aid","wireName":"aid","location":"body","required":false,"nullable":false},
@@ -19992,6 +21442,8 @@ export const meta_group_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"height","wireName":"height","location":"query","required":false,"nullable":false},
@@ -20021,6 +21473,8 @@ export const meta_group_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"cover","wireName":"cover","location":"body","required":false,"nullable":false},
@@ -20074,6 +21528,8 @@ export const meta_group_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -20097,6 +21553,8 @@ export const meta_group_videos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["group.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"application_id","wireName":"application_id","location":"body","required":false,"nullable":false},
@@ -20260,6 +21718,8 @@ export const meta_highDemandPeriod_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["highDemandPeriod.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20281,6 +21741,8 @@ export const meta_highDemandPeriod_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["highDemandPeriod.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20302,6 +21764,8 @@ export const meta_highDemandPeriod_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["highDemandPeriod.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"budget_value","wireName":"budget_value","location":"body","required":false,"nullable":false},
@@ -20331,6 +21795,8 @@ export const meta_homeListing_channelsToIntegrityStatus = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["homeListing.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20352,6 +21818,8 @@ export const meta_homeListing_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["homeListing.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20373,6 +21841,8 @@ export const meta_homeListing_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["homeListing.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20394,6 +21864,8 @@ export const meta_homeListing_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["homeListing.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -20419,6 +21891,8 @@ export const meta_homeListing_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["homeListing.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":false,"nullable":false},
@@ -20468,6 +21942,8 @@ export const meta_homeListing_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["homeListing.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20489,6 +21965,8 @@ export const meta_hotel_channelsToIntegrityStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20510,6 +21988,8 @@ export const meta_hotel_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20531,6 +22011,8 @@ export const meta_hotel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20552,6 +22034,8 @@ export const meta_hotel_hotelRooms = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20573,6 +22057,8 @@ export const meta_hotel_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -20598,6 +22084,8 @@ export const meta_hotelRoom_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotelRoom.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20619,6 +22107,8 @@ export const meta_hotelRoom_pricingVariables = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotelRoom.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20640,6 +22130,8 @@ export const meta_hotel_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":false,"nullable":false},
@@ -20685,6 +22177,8 @@ export const meta_hotel_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hotel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20706,6 +22200,8 @@ export const meta_hours_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["hours.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20727,6 +22223,8 @@ export const meta_iGAccessTokenForIGOnlyAPI_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGAccessTokenForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"access_token","wireName":"access_token","location":"query","required":true,"nullable":false},
@@ -20754,6 +22252,8 @@ export const meta_iGBCAdsPermission_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGBCAdsPermission.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20775,6 +22275,8 @@ export const meta_iGBoostMediaAd_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGBoostMediaAd.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20796,6 +22298,8 @@ export const meta_iGComment_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGComment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"query","required":false,"nullable":false}
@@ -20819,6 +22323,8 @@ export const meta_iGComment_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGComment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20840,6 +22346,8 @@ export const meta_iGComment_replies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGComment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20861,6 +22369,8 @@ export const meta_iGComment_replies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGComment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"message","wireName":"message","location":"body","required":false,"nullable":false}
@@ -20884,6 +22394,8 @@ export const meta_iGComment_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGComment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"body","required":false,"nullable":false},
@@ -20909,6 +22421,8 @@ export const meta_iGMedia_boostAdsList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20930,6 +22444,8 @@ export const meta_iGMediaBoostEligibilityInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaBoostEligibilityInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20951,6 +22467,8 @@ export const meta_iGMedia_brandedContentPartnerPromote = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -20972,6 +22490,8 @@ export const meta_iGMedia_brandedContentPartnerPromote2 = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"permission","wireName":"permission","location":"body","required":true,"nullable":false},
@@ -20997,6 +22517,8 @@ export const meta_iGMedia_children = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21018,6 +22540,8 @@ export const meta_iGMedia_collaborators = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21039,6 +22563,8 @@ export const meta_iGMedia_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21060,6 +22586,8 @@ export const meta_iGMedia_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"body","required":false,"nullable":false},
@@ -21085,6 +22613,8 @@ export const meta_iGMedia_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21106,6 +22636,8 @@ export const meta_iGMediaForIGOnlyAPI_children = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21127,6 +22659,8 @@ export const meta_iGMediaForIGOnlyAPI_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21148,6 +22682,8 @@ export const meta_iGMediaForIGOnlyAPI_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"message","wireName":"message","location":"body","required":false,"nullable":false}
@@ -21171,6 +22707,8 @@ export const meta_iGMediaForIGOnlyAPI_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21192,6 +22730,8 @@ export const meta_iGMediaForIGOnlyAPI_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -21219,6 +22759,8 @@ export const meta_iGMediaForIGOnlyAPI_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMediaForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"comment_enabled","wireName":"comment_enabled","location":"body","required":true,"nullable":false}
@@ -21242,6 +22784,8 @@ export const meta_iGMedia_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account_id","wireName":"ad_account_id","location":"query","required":false,"nullable":false},
@@ -21277,6 +22821,8 @@ export const meta_iGMedia_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -21304,6 +22850,8 @@ export const meta_iGMedia_partnershipAdCode = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21325,6 +22873,8 @@ export const meta_iGMedia_partnershipAdCode2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21346,6 +22896,8 @@ export const meta_iGMedia_productTags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21367,6 +22919,8 @@ export const meta_iGMedia_productTags2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_index","wireName":"child_index","location":"body","required":false,"nullable":false},
@@ -21392,6 +22946,8 @@ export const meta_iGMedia_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGMedia.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"comment_enabled","wireName":"comment_enabled","location":"body","required":true,"nullable":false}
@@ -21415,6 +22971,8 @@ export const meta_iGRefreshAccessTokenForIGOnlyAPI_get = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["iGRefreshAccessTokenForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"access_token","wireName":"access_token","location":"query","required":true,"nullable":false},
@@ -21440,6 +22998,8 @@ export const meta_iGUpcomingEvent_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUpcomingEvent.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21461,6 +23021,8 @@ export const meta_iGUpcomingEvent_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUpcomingEvent.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"body","required":false,"nullable":false},
@@ -21492,6 +23054,8 @@ export const meta_iGUser_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21513,6 +23077,8 @@ export const meta_iGUser_authorizedAdaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -21536,6 +23102,8 @@ export const meta_iGUser_authorizedAdaccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":true,"nullable":false},
@@ -21561,6 +23129,8 @@ export const meta_iGUser_availableCatalogs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21582,6 +23152,8 @@ export const meta_iGUser_brandedContentAdPermissions = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creator_username","wireName":"creator_username","location":"query","required":false,"nullable":false}
@@ -21605,6 +23177,8 @@ export const meta_iGUser_brandedContentAdPermissions2 = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creator_instagram_account","wireName":"creator_instagram_account","location":"body","required":false,"nullable":false},
@@ -21632,6 +23206,8 @@ export const meta_iGUser_brandedContentAdvertisableMedias = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_code","wireName":"ad_code","location":"query","required":false,"nullable":false},
@@ -21665,6 +23241,8 @@ export const meta_iGUser_brandedContentTagApproval = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_ids","wireName":"user_ids","location":"query","required":true,"nullable":false}
@@ -21688,6 +23266,8 @@ export const meta_iGUser_brandedContentTagApproval2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_ids","wireName":"user_ids","location":"query","required":true,"nullable":false}
@@ -21711,6 +23291,8 @@ export const meta_iGUser_brandedContentTagApproval3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_ids","wireName":"user_ids","location":"body","required":true,"nullable":false}
@@ -21734,6 +23316,8 @@ export const meta_iGUser_businessMessagingFeatureStatus = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"features","wireName":"features","location":"body","required":true,"nullable":false}
@@ -21757,6 +23341,8 @@ export const meta_iGUser_catalogProductSearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -21782,6 +23368,8 @@ export const meta_iGUser_collaborationInvites = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21803,6 +23391,8 @@ export const meta_iGUser_collaborationInvites2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"accept","wireName":"accept","location":"body","required":true,"nullable":false},
@@ -21828,6 +23418,8 @@ export const meta_iGUser_collaborativeMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21849,6 +23441,8 @@ export const meta_iGUser_connectedThreadsUser = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21870,6 +23464,8 @@ export const meta_iGUser_contentPublishingLimit = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false}
@@ -21893,6 +23489,8 @@ export const meta_iGUser_creatorMarketplaceCreators = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creator_age_bucket","wireName":"creator_age_bucket","location":"query","required":false,"nullable":false},
@@ -21968,6 +23566,8 @@ export const meta_iGUser_dataset = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -21989,6 +23589,8 @@ export const meta_iGUser_dataset2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"dataset_name","wireName":"dataset_name","location":"body","required":false,"nullable":false}
@@ -22012,6 +23614,8 @@ export const meta_iGUserExportForCAM_brandedContentMedia = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["iGUserExportForCAM.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22033,6 +23637,8 @@ export const meta_iGUserExportForCAM_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserExportForCAM.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -22064,6 +23670,8 @@ export const meta_iGUserExportForCAM_pastPartnershipAdsMedia = defineEndpointDes
   requiredScopes: [],
   capabilities: ["iGUserExportForCAM.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22085,6 +23693,8 @@ export const meta_iGUserExportForCAM_recentMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserExportForCAM.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22106,6 +23716,8 @@ export const meta_iGUserForIGOnlyAPI_businessMessagingFeatureStatus = defineEndp
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"feature","wireName":"feature","location":"query","required":true,"nullable":false}
@@ -22129,6 +23741,8 @@ export const meta_iGUserForIGOnlyAPI_contentPublishingLimit = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false}
@@ -22152,6 +23766,8 @@ export const meta_iGUserForIGOnlyAPI_conversations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"query","required":false,"nullable":false},
@@ -22181,6 +23797,8 @@ export const meta_iGUserForIGOnlyAPI_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22202,6 +23820,8 @@ export const meta_iGUserForIGOnlyAPI_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -22237,6 +23857,8 @@ export const meta_iGUserForIGOnlyAPI_liveMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22258,6 +23880,8 @@ export const meta_iGUserForIGOnlyAPI_media = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -22283,6 +23907,8 @@ export const meta_iGUserForIGOnlyAPI_media2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"alt_text","wireName":"alt_text","location":"body","required":false,"nullable":false},
@@ -22346,6 +23972,8 @@ export const meta_iGUserForIGOnlyAPI_mediapublish = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creation_id","wireName":"creation_id","location":"body","required":true,"nullable":false}
@@ -22369,6 +23997,8 @@ export const meta_iGUserForIGOnlyAPI_mentions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"body","required":false,"nullable":false},
@@ -22396,6 +24026,8 @@ export const meta_iGUserForIGOnlyAPI_messageattachments = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"message","wireName":"message","location":"body","required":true,"nullable":false}
@@ -22419,6 +24051,8 @@ export const meta_iGUserForIGOnlyAPI_messages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"body","required":false,"nullable":false},
@@ -22458,6 +24092,8 @@ export const meta_iGUserForIGOnlyAPI_messengerProfile = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":true,"nullable":false}
@@ -22481,6 +24117,8 @@ export const meta_iGUserForIGOnlyAPI_messengerProfile2 = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22502,6 +24140,8 @@ export const meta_iGUserForIGOnlyAPI_messengerProfile3 = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ice_breakers","wireName":"ice_breakers","location":"body","required":false,"nullable":false},
@@ -22527,6 +24167,8 @@ export const meta_iGUserForIGOnlyAPI_passthreadcontrol = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metadata","wireName":"metadata","location":"body","required":false,"nullable":false},
@@ -22554,6 +24196,8 @@ export const meta_iGUserForIGOnlyAPI_releasethreadcontrol = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"recipient","wireName":"recipient","location":"body","required":false,"nullable":false}
@@ -22577,6 +24221,8 @@ export const meta_iGUserForIGOnlyAPI_stories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22598,6 +24244,8 @@ export const meta_iGUserForIGOnlyAPI_subscribedApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22619,6 +24267,8 @@ export const meta_iGUserForIGOnlyAPI_subscribedApps2 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22640,6 +24290,8 @@ export const meta_iGUserForIGOnlyAPI_subscribedApps3 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"subscribed_fields","wireName":"subscribed_fields","location":"body","required":true,"nullable":false}
@@ -22663,6 +24315,8 @@ export const meta_iGUserForIGOnlyAPI_tags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"media_type","wireName":"media_type","location":"query","required":false,"nullable":false},
@@ -22690,6 +24344,8 @@ export const meta_iGUserForIGOnlyAPI_welcomeMessageFlows = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"flow_id","wireName":"flow_id","location":"query","required":false,"nullable":false}
@@ -22713,6 +24369,8 @@ export const meta_iGUserForIGOnlyAPI_welcomeMessageFlows2 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
@@ -22738,6 +24396,8 @@ export const meta_iGUserForIGOnlyAPI_welcomeMessageFlows3 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["iGUserForIGOnlyAPI.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"eligible_platforms","wireName":"eligible_platforms","location":"body","required":false,"nullable":false},
@@ -22767,6 +24427,8 @@ export const meta_iGUser_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"query","required":false,"nullable":false}
@@ -22790,6 +24452,8 @@ export const meta_iGUser_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -22825,6 +24489,8 @@ export const meta_iGUser_instagramBackedThreadsUser = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22846,6 +24512,8 @@ export const meta_iGUser_instagramBackedThreadsUser2 = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -22867,6 +24535,8 @@ export const meta_iGUser_liveMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -22892,6 +24562,8 @@ export const meta_iGUser_media = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -22917,6 +24589,8 @@ export const meta_iGUser_media2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"alt_text","wireName":"alt_text","location":"body","required":false,"nullable":false},
@@ -22980,6 +24654,8 @@ export const meta_iGUser_mediaPublish = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creation_id","wireName":"creation_id","location":"body","required":true,"nullable":false}
@@ -23003,6 +24679,8 @@ export const meta_iGUser_mentions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"body","required":false,"nullable":false},
@@ -23030,6 +24708,8 @@ export const meta_iGUser_moderateConversations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actions","wireName":"actions","location":"body","required":true,"nullable":false},
@@ -23055,6 +24735,8 @@ export const meta_iGUser_notificationMessageTokens = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23076,6 +24758,8 @@ export const meta_iGUser_productAppeal = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"product_id","wireName":"product_id","location":"query","required":true,"nullable":false}
@@ -23099,6 +24783,8 @@ export const meta_iGUser_productAppeal2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"appeal_reason","wireName":"appeal_reason","location":"body","required":true,"nullable":false},
@@ -23124,6 +24810,8 @@ export const meta_iGUser_recentlySearchedHashtags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23145,6 +24833,8 @@ export const meta_iGUser_scheduledMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23166,6 +24856,8 @@ export const meta_iGUser_stories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23187,6 +24879,8 @@ export const meta_iGUser_tags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"media_type","wireName":"media_type","location":"query","required":false,"nullable":false},
@@ -23214,6 +24908,8 @@ export const meta_iGUser_upcomingEvents = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23235,6 +24931,8 @@ export const meta_iGUser_upcomingEvents2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"body","required":false,"nullable":false},
@@ -23264,6 +24962,8 @@ export const meta_iGUser_welcomeMessageFlows = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["iGUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
@@ -23289,6 +24989,8 @@ export const meta_imageCopyrightDispute_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["imageCopyrightDispute.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23310,6 +25012,8 @@ export const meta_imageCopyright_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["imageCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23331,6 +25035,8 @@ export const meta_imageCopyright_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["imageCopyright.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"artist","wireName":"artist","location":"body","required":false,"nullable":false},
@@ -23366,6 +25072,8 @@ export const meta_imageReferenceMatch_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["imageReferenceMatch.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23387,6 +25095,8 @@ export const meta_instagramBusinessAsset_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -23410,6 +25120,8 @@ export const meta_instagramBusinessAsset_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23431,6 +25143,8 @@ export const meta_instagramBusinessAsset_agencies3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"body","required":true,"nullable":false},
@@ -23456,6 +25170,8 @@ export const meta_instagramBusinessAsset_assignedUsers = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -23479,6 +25195,8 @@ export const meta_instagramBusinessAsset_assignedUsers2 = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -23502,6 +25220,8 @@ export const meta_instagramBusinessAsset_assignedUsers3 = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":false,"nullable":false},
@@ -23527,6 +25247,8 @@ export const meta_instagramBusinessAsset_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramBusinessAsset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23548,6 +25270,8 @@ export const meta_instagramUser_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"query","required":false,"nullable":false}
@@ -23571,6 +25295,8 @@ export const meta_instagramUser_upcomingEvents = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["instagramUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23592,6 +25318,8 @@ export const meta_jobOpening_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["jobOpening.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23613,6 +25341,8 @@ export const meta_lead_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["lead.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23634,6 +25364,8 @@ export const meta_leadGenDataDraft_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadGenDataDraft.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23655,6 +25387,8 @@ export const meta_leadGenDirectCRMIntegrationConfig_get = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["leadGenDirectCRMIntegrationConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23676,6 +25410,8 @@ export const meta_leadgenForm_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadgenForm.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23697,6 +25433,8 @@ export const meta_leadgenForm_leads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadgenForm.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23718,6 +25456,8 @@ export const meta_leadgenForm_testLeads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadgenForm.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23739,6 +25479,8 @@ export const meta_leadgenForm_testLeads2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadgenForm.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"custom_disclaimer_responses","wireName":"custom_disclaimer_responses","location":"body","required":false,"nullable":false},
@@ -23764,6 +25506,8 @@ export const meta_leadgenForm_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leadgenForm.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"status","wireName":"status","location":"body","required":false,"nullable":false}
@@ -23787,6 +25531,8 @@ export const meta_lead_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["lead.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23808,6 +25554,8 @@ export const meta_lifeEvent_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["lifeEvent.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23829,6 +25577,8 @@ export const meta_lifeEvent_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["lifeEvent.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23850,6 +25600,8 @@ export const meta_link_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["link.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -23897,6 +25649,8 @@ export const meta_link_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["link.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23918,6 +25672,8 @@ export const meta_link_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["link.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23939,6 +25695,8 @@ export const meta_liveVideoAdCampaignConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideoAdCampaignConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -23960,6 +25718,8 @@ export const meta_liveVideo_blockedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"uid","wireName":"uid","location":"query","required":false,"nullable":false}
@@ -23983,6 +25743,8 @@ export const meta_liveVideo_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -24012,6 +25774,8 @@ export const meta_liveVideo_crosspostedBroadcasts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24033,6 +25797,8 @@ export const meta_liveVideo_crosspostSharedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24054,6 +25820,8 @@ export const meta_liveVideo_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24075,6 +25843,8 @@ export const meta_liveVideoError_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideoError.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24096,6 +25866,8 @@ export const meta_liveVideo_errors = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24117,6 +25889,8 @@ export const meta_liveVideo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_token","wireName":"target_token","location":"query","required":false,"nullable":false}
@@ -24140,6 +25914,8 @@ export const meta_liveVideoInputStream_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideoInputStream.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_token","wireName":"target_token","location":"query","required":false,"nullable":false}
@@ -24163,6 +25939,8 @@ export const meta_liveVideo_inputStreams = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24184,6 +25962,8 @@ export const meta_liveVideo_polls = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24205,6 +25985,8 @@ export const meta_liveVideo_polls2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"close_after_voting","wireName":"close_after_voting","location":"body","required":false,"nullable":false},
@@ -24240,6 +26022,8 @@ export const meta_liveVideo_reactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -24263,6 +26047,8 @@ export const meta_liveVideo_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["liveVideo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_bm_crossposting","wireName":"allow_bm_crossposting","location":"body","required":false,"nullable":false},
@@ -24344,6 +26130,8 @@ export const meta_localServiceBusiness_channelsToIntegrityStatus = defineEndpoin
   requiredScopes: [],
   capabilities: ["localServiceBusiness.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24365,6 +26153,8 @@ export const meta_localServiceBusiness_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["localServiceBusiness.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24386,6 +26176,8 @@ export const meta_localServiceBusiness_overrideDetails = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["localServiceBusiness.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -24411,6 +26203,8 @@ export const meta_mailingAddress_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mailingAddress.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24432,6 +26226,8 @@ export const meta_managementSiteLink_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["managementSiteLink.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24453,6 +26249,8 @@ export const meta_measurementReport_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["measurementReport.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24474,6 +26272,8 @@ export const meta_mediaCopyrightAttribution_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaCopyrightAttribution.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24495,6 +26295,8 @@ export const meta_mediaCopyrightUpdateRecord_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaCopyrightUpdateRecord.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24516,6 +26318,8 @@ export const meta_mediaFingerprint_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaFingerprint.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24537,6 +26341,8 @@ export const meta_mediaFingerprint_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaFingerprint.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metadata","wireName":"metadata","location":"body","required":false,"nullable":false},
@@ -24566,6 +26372,8 @@ export const meta_messengerAdsPartialAutomatedStepList_get = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["messengerAdsPartialAutomatedStepList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24587,6 +26395,8 @@ export const meta_messengerAdsPartialAutomatedStepList_steps = defineEndpointDes
   requiredScopes: [],
   capabilities: ["messengerAdsPartialAutomatedStepList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24608,6 +26418,8 @@ export const meta_messengerBusinessTemplate_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["messengerBusinessTemplate.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24629,6 +26441,8 @@ export const meta_messengerBusinessTemplate_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["messengerBusinessTemplate.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"components","wireName":"components","location":"body","required":false,"nullable":false},
@@ -24654,6 +26468,8 @@ export const meta_musicVideoCopyright_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["musicVideoCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24675,6 +26491,8 @@ export const meta_musicWorkCopyright_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["musicWorkCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24696,6 +26514,8 @@ export const meta_offlineConversionDataSet_adaccounts = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -24719,6 +26539,8 @@ export const meta_offlineConversionDataSet_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24740,6 +26562,8 @@ export const meta_offlineConversionDataSet_audiences = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_source","wireName":"action_source","location":"query","required":false,"nullable":false},
@@ -24765,6 +26589,8 @@ export const meta_offlineConversionDataSet_customconversions = defineEndpointDes
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_account","wireName":"ad_account","location":"query","required":false,"nullable":false}
@@ -24788,6 +26614,8 @@ export const meta_offlineConversionDataSet_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24809,6 +26637,8 @@ export const meta_offlineConversionDataSet_serverEventsPermittedBusiness = defin
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24830,6 +26660,8 @@ export const meta_offlineConversionDataSet_sharedAccounts = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_source","wireName":"action_source","location":"query","required":true,"nullable":false},
@@ -24855,6 +26687,8 @@ export const meta_offlineConversionDataSet_sharedAgencies = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action_source","wireName":"action_source","location":"query","required":true,"nullable":false}
@@ -24878,6 +26712,8 @@ export const meta_offlineConversionDataSet_stats = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aggr_time","wireName":"aggr_time","location":"query","required":false,"nullable":false},
@@ -24911,6 +26747,8 @@ export const meta_offlineConversionDataSetUpload_get = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["offlineConversionDataSetUpload.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24932,6 +26770,8 @@ export const meta_offlineConversionDataSetUpload_progress = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["offlineConversionDataSetUpload.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24953,6 +26793,8 @@ export const meta_offlineConversionDataSetUpload_pullSessions = defineEndpointDe
   requiredScopes: [],
   capabilities: ["offlineConversionDataSetUpload.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -24974,6 +26816,8 @@ export const meta_offlineConversionDataSet_uploads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineConversionDataSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
@@ -25005,6 +26849,8 @@ export const meta_offlineProductItem_channelsToIntegrityStatus = defineEndpointD
   requiredScopes: [],
   capabilities: ["offlineProductItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25026,6 +26872,8 @@ export const meta_offlineProductItem_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineProductItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25047,6 +26895,8 @@ export const meta_offlineProductItem_overrideDetails = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["offlineProductItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -25072,6 +26922,8 @@ export const meta_offlineTermsOfService_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offlineTermsOfService.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25093,6 +26945,8 @@ export const meta_offsitePixel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["offsitePixel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"value","wireName":"value","location":"query","required":false,"nullable":false}
@@ -25116,6 +26970,8 @@ export const meta_offsiteSignalContainerBusinessObject_get = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["offsiteSignalContainerBusinessObject.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25137,6 +26993,8 @@ export const meta_offsiteSignalContainerBusinessObject_linkedApplication = defin
   requiredScopes: [],
   capabilities: ["offsiteSignalContainerBusinessObject.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25158,6 +27016,8 @@ export const meta_offsiteSignalContainerBusinessObject_linkedPage = defineEndpoi
   requiredScopes: [],
   capabilities: ["offsiteSignalContainerBusinessObject.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25179,6 +27039,8 @@ export const meta_omegaCustomerTrx_campaigns = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["omegaCustomerTrx.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25200,6 +27062,8 @@ export const meta_omegaCustomerTrx_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["omegaCustomerTrx.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25221,6 +27085,8 @@ export const meta_openBridgeConfiguration_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["openBridgeConfiguration.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25242,6 +27108,8 @@ export const meta_openBridgeConfiguration_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["openBridgeConfiguration.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25263,6 +27131,8 @@ export const meta_openBridgeConfiguration_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["openBridgeConfiguration.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"active","wireName":"active","location":"body","required":false,"nullable":false},
@@ -25328,6 +27198,8 @@ export const meta_openGraphContext_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["openGraphContext.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25349,6 +27221,8 @@ export const meta_organization_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["organization.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25370,6 +27244,8 @@ export const meta_ownedDomain_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ownedDomain.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25391,6 +27267,8 @@ export const meta_page_abTests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25412,6 +27290,8 @@ export const meta_page_abTests2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"control_video_id","wireName":"control_video_id","location":"body","required":true,"nullable":false},
@@ -25447,6 +27327,8 @@ export const meta_page_adsEligibility = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ads_account_id","wireName":"ads_account_id","location":"query","required":false,"nullable":false}
@@ -25470,6 +27352,8 @@ export const meta_page_adsPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"exclude_dynamic_ads","wireName":"exclude_dynamic_ads","location":"query","required":false,"nullable":false},
@@ -25499,6 +27383,8 @@ export const meta_page_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -25522,6 +27408,8 @@ export const meta_page_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25543,6 +27431,8 @@ export const meta_page_agencies3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"body","required":true,"nullable":false},
@@ -25568,6 +27458,8 @@ export const meta_page_albums = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25589,6 +27481,8 @@ export const meta_page_arExperience = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25610,6 +27504,8 @@ export const meta_page_assignedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -25633,6 +27529,8 @@ export const meta_page_assignedUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -25656,6 +27554,8 @@ export const meta_page_assignedUsers3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":false,"nullable":false},
@@ -25681,6 +27581,8 @@ export const meta_page_blocked = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asid","wireName":"asid","location":"query","required":false,"nullable":false},
@@ -25710,6 +27612,8 @@ export const meta_page_blocked2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"uid","wireName":"uid","location":"query","required":false,"nullable":false},
@@ -25735,6 +27639,8 @@ export const meta_page_blocked3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"asid","wireName":"asid","location":"body","required":false,"nullable":false},
@@ -25764,6 +27670,8 @@ export const meta_page_businessMessagingFeatureStatus = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"features","wireName":"features","location":"body","required":true,"nullable":false}
@@ -25787,6 +27695,8 @@ export const meta_page_businessprojects = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":false,"nullable":false}
@@ -25810,6 +27720,8 @@ export const meta_page_callMetrics = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"audio_stats","wireName":"audio_stats","location":"body","required":true,"nullable":false},
@@ -25849,6 +27761,8 @@ export const meta_page_calls = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":true,"nullable":false},
@@ -25886,6 +27800,8 @@ export const meta_pageCallToAction_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageCallToAction.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25907,6 +27823,8 @@ export const meta_pageCallToAction_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageCallToAction.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25928,6 +27846,8 @@ export const meta_page_callToActions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -25949,6 +27869,8 @@ export const meta_pageCallToAction_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageCallToAction.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"android_app_id","wireName":"android_app_id","location":"body","required":false,"nullable":false},
@@ -25994,6 +27916,8 @@ export const meta_page_canvasElements = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26015,6 +27939,8 @@ export const meta_page_canvasElements2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"canvas_button","wireName":"canvas_button","location":"body","required":false,"nullable":false},
@@ -26062,6 +27988,8 @@ export const meta_page_canvases = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"is_hidden","wireName":"is_hidden","location":"query","required":false,"nullable":false},
@@ -26087,6 +28015,8 @@ export const meta_page_canvases2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"background_color","wireName":"background_color","location":"body","required":false,"nullable":false},
@@ -26126,6 +28056,8 @@ export const meta_page_chatPlugin = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26147,6 +28079,8 @@ export const meta_page_commerceMerchantSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26168,6 +28102,8 @@ export const meta_page_commerceOrders = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filters","wireName":"filters","location":"query","required":false,"nullable":false},
@@ -26197,6 +28133,8 @@ export const meta_page_commercePayouts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
@@ -26222,6 +28160,8 @@ export const meta_page_commerceTransactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"query","required":false,"nullable":false},
@@ -26249,6 +28189,8 @@ export const meta_page_conversations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"query","required":false,"nullable":false},
@@ -26278,6 +28220,8 @@ export const meta_page_copyrightManualClaims = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":false,"nullable":false},
@@ -26313,6 +28257,8 @@ export const meta_page_crosspostWhitelistedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26334,6 +28280,8 @@ export const meta_page_ctxOptimizationEligibility = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26355,6 +28303,8 @@ export const meta_page_customLabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26376,6 +28326,8 @@ export const meta_page_customLabels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false},
@@ -26401,6 +28353,8 @@ export const meta_page_customUserSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"params","wireName":"params","location":"query","required":true,"nullable":false},
@@ -26426,6 +28380,8 @@ export const meta_page_customUserSettings2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"psid","wireName":"psid","location":"query","required":true,"nullable":false}
@@ -26449,6 +28405,8 @@ export const meta_page_customUserSettings3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"persistent_menu","wireName":"persistent_menu","location":"body","required":false,"nullable":false},
@@ -26474,6 +28432,8 @@ export const meta_page_dataset = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26495,6 +28455,8 @@ export const meta_page_dataset2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"dataset_name","wireName":"dataset_name","location":"body","required":false,"nullable":false}
@@ -26518,6 +28480,8 @@ export const meta_page_events = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"event_state_filter","wireName":"event_state_filter","location":"query","required":false,"nullable":false},
@@ -26547,6 +28511,8 @@ export const meta_page_extendThreadControl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"duration","wireName":"duration","location":"body","required":false,"nullable":false},
@@ -26572,6 +28538,8 @@ export const meta_page_fantasyGames = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26593,6 +28561,8 @@ export const meta_page_feed = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -26622,6 +28592,8 @@ export const meta_page_feed2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
@@ -26855,6 +28827,8 @@ export const meta_page_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_linking_token","wireName":"account_linking_token","location":"query","required":false,"nullable":false}
@@ -26878,6 +28852,8 @@ export const meta_page_globalBrandChildren = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26899,6 +28875,8 @@ export const meta_page_imageCopyrights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26920,6 +28898,8 @@ export const meta_page_imageCopyrights2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"artist","wireName":"artist","location":"body","required":false,"nullable":false},
@@ -26961,6 +28941,8 @@ export const meta_page_indexedVideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -26982,6 +28964,8 @@ export const meta_page_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdown","wireName":"breakdown","location":"query","required":false,"nullable":false},
@@ -27017,6 +29001,8 @@ export const meta_pageInsightsAsyncExportRun_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageInsightsAsyncExportRun.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27038,6 +29024,8 @@ export const meta_page_instagramAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27059,6 +29047,8 @@ export const meta_page_leadgenForms = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27080,6 +29070,8 @@ export const meta_page_leadgenForms2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_organic_lead_retrieval","wireName":"allow_organic_lead_retrieval","location":"body","required":false,"nullable":false},
@@ -27139,6 +29131,8 @@ export const meta_pageLeadsAccessConfig_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageLeadsAccessConfig.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27160,6 +29154,8 @@ export const meta_page_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_id","wireName":"target_id","location":"query","required":false,"nullable":false}
@@ -27183,6 +29179,8 @@ export const meta_page_liveVideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"broadcast_status","wireName":"broadcast_status","location":"query","required":false,"nullable":false},
@@ -27208,6 +29206,8 @@ export const meta_page_liveVideos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"content_tags","wireName":"content_tags","location":"body","required":false,"nullable":false},
@@ -27277,6 +29277,8 @@ export const meta_page_locations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"location_page_ids","wireName":"location_page_ids","location":"query","required":true,"nullable":false},
@@ -27302,6 +29304,8 @@ export const meta_page_locations2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27323,6 +29327,8 @@ export const meta_page_locations3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"always_open","wireName":"always_open","location":"body","required":false,"nullable":false},
@@ -27392,6 +29398,8 @@ export const meta_page_mediaFingerprints = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"universal_content_id","wireName":"universal_content_id","location":"query","required":false,"nullable":false}
@@ -27415,6 +29423,8 @@ export const meta_page_mediaFingerprints2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fingerprint_content_type","wireName":"fingerprint_content_type","location":"body","required":true,"nullable":false},
@@ -27446,6 +29456,8 @@ export const meta_page_messageAttachments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"message","wireName":"message","location":"body","required":true,"nullable":false},
@@ -27471,6 +29483,8 @@ export const meta_page_messages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"body","required":false,"nullable":false},
@@ -27516,6 +29530,8 @@ export const meta_page_messageTemplates = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"query","required":true,"nullable":false},
@@ -27541,6 +29557,8 @@ export const meta_page_messageTemplates2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"category","wireName":"category","location":"query","required":false,"nullable":false},
@@ -27574,6 +29592,8 @@ export const meta_page_messageTemplates3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"category","wireName":"category","location":"body","required":true,"nullable":false},
@@ -27609,6 +29629,8 @@ export const meta_page_messagingFeatureReview = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27630,6 +29652,8 @@ export const meta_page_messengerCallPermissions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"psid","wireName":"psid","location":"query","required":true,"nullable":false}
@@ -27653,6 +29677,8 @@ export const meta_page_messengerCallSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27674,6 +29700,8 @@ export const meta_page_messengerCallSettings2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"audio_enabled","wireName":"audio_enabled","location":"body","required":false,"nullable":false},
@@ -27705,6 +29733,8 @@ export const meta_page_messengerLeadForms = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27726,6 +29756,8 @@ export const meta_page_messengerLeadForms2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"body","required":false,"nullable":false},
@@ -27769,6 +29801,8 @@ export const meta_page_messengerProfile = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":true,"nullable":false},
@@ -27794,6 +29828,8 @@ export const meta_page_messengerProfile2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"platform","wireName":"platform","location":"query","required":false,"nullable":false}
@@ -27817,6 +29853,8 @@ export const meta_page_messengerProfile3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_linking_url","wireName":"account_linking_url","location":"body","required":false,"nullable":false},
@@ -27854,6 +29892,8 @@ export const meta_page_moderateConversations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actions","wireName":"actions","location":"body","required":true,"nullable":false},
@@ -27879,6 +29919,8 @@ export const meta_page_nlpConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"api_version","wireName":"api_version","location":"body","required":false,"nullable":false},
@@ -27914,6 +29956,8 @@ export const meta_page_notificationMessagesDevSupport = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"developer_action","wireName":"developer_action","location":"body","required":true,"nullable":false},
@@ -27939,6 +29983,8 @@ export const meta_page_notificationMessageTokens = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":false,"nullable":false},
@@ -27974,6 +30020,8 @@ export const meta_page_pageBackedInstagramAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -27995,6 +30043,8 @@ export const meta_page_pageBackedInstagramAccounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28016,6 +30066,8 @@ export const meta_page_pageBackedThreadsAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28037,6 +30089,8 @@ export const meta_page_pageWhatsappNumberVerification = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"verification_code","wireName":"verification_code","location":"body","required":false,"nullable":false},
@@ -28062,6 +30116,8 @@ export const meta_page_passThreadControl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metadata","wireName":"metadata","location":"body","required":false,"nullable":false},
@@ -28089,6 +30145,8 @@ export const meta_page_personas = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28110,6 +30168,8 @@ export const meta_page_personas2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
@@ -28135,6 +30195,8 @@ export const meta_page_photos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"biz_tag_id","wireName":"biz_tag_id","location":"query","required":false,"nullable":false},
@@ -28162,6 +30224,8 @@ export const meta_page_photos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aid","wireName":"aid","location":"body","required":false,"nullable":false},
@@ -28297,6 +30361,8 @@ export const meta_page_photoStories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"photo_id","wireName":"photo_id","location":"body","required":false,"nullable":false}
@@ -28320,6 +30386,8 @@ export const meta_page_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"height","wireName":"height","location":"query","required":false,"nullable":false},
@@ -28349,6 +30417,8 @@ export const meta_page_picture2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"android_key_hash","wireName":"android_key_hash","location":"body","required":false,"nullable":false},
@@ -28422,6 +30492,8 @@ export const meta_pagePost_attachments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28443,6 +30515,8 @@ export const meta_pagePost_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -28472,6 +30546,8 @@ export const meta_pagePost_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -28515,6 +30591,8 @@ export const meta_pagePost_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28536,6 +30614,8 @@ export const meta_pagePost_dynamicPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28557,6 +30637,8 @@ export const meta_pagePostExperiment_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePostExperiment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28578,6 +30660,8 @@ export const meta_pagePostExperiment_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePostExperiment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28599,6 +30683,8 @@ export const meta_pagePostExperiment_videoInsights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePostExperiment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28620,6 +30706,8 @@ export const meta_pagePost_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"primary_fb_page_id","wireName":"primary_fb_page_id","location":"query","required":false,"nullable":false},
@@ -28645,6 +30733,8 @@ export const meta_pagePost_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -28676,6 +30766,8 @@ export const meta_pagePost_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"query","required":false,"nullable":false},
@@ -28703,6 +30795,8 @@ export const meta_pagePost_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28724,6 +30818,8 @@ export const meta_pagePost_likes3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -28753,6 +30849,8 @@ export const meta_pagePost_reactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -28776,6 +30874,8 @@ export const meta_page_posts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -28807,6 +30907,8 @@ export const meta_pagePost_sharedposts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28828,6 +30930,8 @@ export const meta_pagePost_sponsorTags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28849,6 +30953,8 @@ export const meta_pagePost_to = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28870,6 +30976,8 @@ export const meta_pagePost_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pagePost.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attached_media","wireName":"attached_media","location":"body","required":false,"nullable":false},
@@ -28953,6 +31061,8 @@ export const meta_page_productCatalogs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -28974,6 +31084,8 @@ export const meta_page_publishedPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -29003,6 +31115,8 @@ export const meta_page_ratings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29024,6 +31138,8 @@ export const meta_page_releaseThreadControl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"recipient","wireName":"recipient","location":"body","required":true,"nullable":false}
@@ -29047,6 +31163,8 @@ export const meta_page_requestThreadControl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metadata","wireName":"metadata","location":"body","required":false,"nullable":false},
@@ -29072,6 +31190,8 @@ export const meta_page_roles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_deactivated","wireName":"include_deactivated","location":"query","required":false,"nullable":false},
@@ -29097,6 +31217,8 @@ export const meta_page_rtbDynamicPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29118,6 +31240,8 @@ export const meta_page_scheduledLiveVideo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end_time","wireName":"end_time","location":"body","required":false,"nullable":false},
@@ -29147,6 +31271,8 @@ export const meta_page_scheduledPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29168,6 +31294,8 @@ export const meta_page_settings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29189,6 +31317,8 @@ export const meta_page_settings2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"option","wireName":"option","location":"body","required":false,"nullable":false}
@@ -29212,6 +31342,8 @@ export const meta_page_shopSetupStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29233,6 +31365,8 @@ export const meta_page_spaceParticipants = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29254,6 +31388,8 @@ export const meta_page_spaceParticipants2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"recipient","wireName":"recipient","location":"body","required":true,"nullable":false},
@@ -29279,6 +31415,8 @@ export const meta_page_storeLocations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29300,6 +31438,8 @@ export const meta_page_stories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -29327,6 +31467,8 @@ export const meta_page_subscribedApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29348,6 +31490,8 @@ export const meta_page_subscribedApps2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29369,6 +31513,8 @@ export const meta_page_subscribedApps3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"subscribed_fields","wireName":"subscribed_fields","location":"body","required":true,"nullable":false}
@@ -29392,6 +31538,8 @@ export const meta_page_tabs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tab","wireName":"tab","location":"query","required":false,"nullable":false}
@@ -29415,6 +31563,8 @@ export const meta_page_tagged = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29436,6 +31586,8 @@ export const meta_page_takeThreadControl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metadata","wireName":"metadata","location":"body","required":false,"nullable":false},
@@ -29461,6 +31613,8 @@ export const meta_page_threadOwner = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"recipient","wireName":"recipient","location":"query","required":true,"nullable":false}
@@ -29484,6 +31638,8 @@ export const meta_page_threads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"query","required":false,"nullable":false},
@@ -29513,6 +31669,8 @@ export const meta_page_unlinkAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"psid","wireName":"psid","location":"body","required":true,"nullable":false}
@@ -29536,6 +31694,8 @@ export const meta_pageUpcomingChange_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageUpcomingChange.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29557,6 +31717,8 @@ export const meta_page_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"about","wireName":"about","location":"body","required":false,"nullable":false},
@@ -29694,6 +31856,8 @@ export const meta_pageUserMessageThreadLabel_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageUserMessageThreadLabel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29715,6 +31879,8 @@ export const meta_pageUserMessageThreadLabel_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageUserMessageThreadLabel.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29736,6 +31902,8 @@ export const meta_pageUserMessageThreadLabel_label = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageUserMessageThreadLabel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -29759,6 +31927,8 @@ export const meta_pageUserMessageThreadLabel_label2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pageUserMessageThreadLabel.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"body","required":true,"nullable":false}
@@ -29782,6 +31952,8 @@ export const meta_page_videoCopyrightRules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"selected_rule_id","wireName":"selected_rule_id","location":"query","required":false,"nullable":false},
@@ -29807,6 +31979,8 @@ export const meta_page_videoCopyrightRules2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"condition_groups","wireName":"condition_groups","location":"body","required":true,"nullable":false},
@@ -29832,6 +32006,8 @@ export const meta_page_videoCopyrights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id","wireName":"attribution_id","location":"body","required":false,"nullable":false},
@@ -29879,6 +32055,8 @@ export const meta_page_videoLists = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -29900,6 +32078,8 @@ export const meta_page_videoReels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"since","wireName":"since","location":"query","required":false,"nullable":false},
@@ -29925,6 +32105,8 @@ export const meta_page_videoReels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
@@ -29964,6 +32146,8 @@ export const meta_page_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -29987,6 +32171,8 @@ export const meta_page_videos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_breaks","wireName":"ad_breaks","location":"body","required":false,"nullable":false},
@@ -30190,6 +32376,8 @@ export const meta_page_videoStories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":false,"nullable":false},
@@ -30229,6 +32417,8 @@ export const meta_page_visitorPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -30258,6 +32448,8 @@ export const meta_page_welcomeMessageFlows = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"flow_id","wireName":"flow_id","location":"query","required":true,"nullable":false}
@@ -30281,6 +32473,8 @@ export const meta_page_welcomeMessageFlows2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
@@ -30306,6 +32500,8 @@ export const meta_page_welcomeMessageFlows3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"eligible_platforms","wireName":"eligible_platforms","location":"body","required":false,"nullable":false},
@@ -30335,6 +32531,8 @@ export const meta_partnerAccountLinking_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["partnerAccountLinking.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30356,6 +32554,8 @@ export const meta_partnerCenterExportFile_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["partnerCenterExportFile.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30377,6 +32577,8 @@ export const meta_partnerIntegrationLinked_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["partnerIntegrationLinked.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30398,6 +32600,8 @@ export const meta_partnerStudy_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["partnerStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30419,6 +32623,8 @@ export const meta_paymentEnginePayment_dispute = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["paymentEnginePayment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"reason","wireName":"reason","location":"body","required":true,"nullable":false}
@@ -30442,6 +32648,8 @@ export const meta_paymentEnginePayment_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["paymentEnginePayment.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30463,6 +32671,8 @@ export const meta_paymentEnginePayment_refunds = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["paymentEnginePayment.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"amount","wireName":"amount","location":"body","required":true,"nullable":false},
@@ -30490,6 +32700,8 @@ export const meta_paymentSubscription_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["paymentSubscription.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30511,6 +32723,8 @@ export const meta_persona_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["persona.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30532,6 +32746,8 @@ export const meta_persona_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["persona.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30553,6 +32769,8 @@ export const meta_personalAdsPersona_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["personalAdsPersona.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30574,6 +32792,8 @@ export const meta_photo_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -30603,6 +32823,8 @@ export const meta_photo_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -30650,6 +32872,8 @@ export const meta_photo_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30671,6 +32895,8 @@ export const meta_photo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30692,6 +32918,8 @@ export const meta_photo_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -30723,6 +32951,8 @@ export const meta_photo_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30744,6 +32974,8 @@ export const meta_photo_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -30775,6 +33007,8 @@ export const meta_photo_sponsorTags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["photo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30796,6 +33030,8 @@ export const meta_place_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["place.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30817,6 +33053,8 @@ export const meta_placeTag_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["placeTag.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30838,6 +33076,8 @@ export const meta_placeTopic_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["placeTopic.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"icon_size","wireName":"icon_size","location":"query","required":false,"nullable":false}
@@ -30861,6 +33101,8 @@ export const meta_playableContent_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableContent.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30882,6 +33124,8 @@ export const meta_post_attachments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30903,6 +33147,8 @@ export const meta_post_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -30932,6 +33178,8 @@ export const meta_post_comments2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attachment_id","wireName":"attachment_id","location":"body","required":false,"nullable":false},
@@ -30975,6 +33223,8 @@ export const meta_post_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -30996,6 +33246,8 @@ export const meta_post_dynamicPosts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31017,6 +33269,8 @@ export const meta_post_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"primary_fb_page_id","wireName":"primary_fb_page_id","location":"query","required":false,"nullable":false},
@@ -31042,6 +33296,8 @@ export const meta_post_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"date_preset","wireName":"date_preset","location":"query","required":false,"nullable":false},
@@ -31073,6 +33329,8 @@ export const meta_post_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"query","required":false,"nullable":false},
@@ -31100,6 +33358,8 @@ export const meta_post_likes2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -31129,6 +33389,8 @@ export const meta_post_reactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -31152,6 +33414,8 @@ export const meta_post_sharedposts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31173,6 +33437,8 @@ export const meta_post_sponsorTags = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31194,6 +33460,8 @@ export const meta_post_to = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31215,6 +33483,8 @@ export const meta_post_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["post.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attached_media","wireName":"attached_media","location":"body","required":false,"nullable":false},
@@ -31298,6 +33568,8 @@ export const meta_privateLiftStudyInstance_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["privateLiftStudyInstance.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31319,6 +33591,8 @@ export const meta_privateLiftStudyInstance_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["privateLiftStudyInstance.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"operation","wireName":"operation","location":"body","required":false,"nullable":false},
@@ -31344,6 +33618,8 @@ export const meta_productCatalog_agencies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -31367,6 +33643,8 @@ export const meta_productCatalog_agencies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31388,6 +33666,8 @@ export const meta_productCatalog_agencies3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"body","required":true,"nullable":false},
@@ -31421,6 +33701,8 @@ export const meta_productCatalog_assignedUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -31444,6 +33726,8 @@ export const meta_productCatalog_assignedUsers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -31467,6 +33751,8 @@ export const meta_productCatalog_assignedUsers3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":true,"nullable":false},
@@ -31492,6 +33778,8 @@ export const meta_productCatalog_automotiveModels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -31517,6 +33805,8 @@ export const meta_productCatalog_batch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_upsert","wireName":"allow_upsert","location":"body","required":false,"nullable":false},
@@ -31546,6 +33836,8 @@ export const meta_productCatalog_catalogStore = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"body","required":true,"nullable":false}
@@ -31569,6 +33861,8 @@ export const meta_productCatalog_categories = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"categorization_criteria","wireName":"categorization_criteria","location":"query","required":true,"nullable":false},
@@ -31594,6 +33888,8 @@ export const meta_productCatalog_categories2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"data","wireName":"data","location":"body","required":true,"nullable":false}
@@ -31617,6 +33913,8 @@ export const meta_productCatalog_checkBatchRequestStatus = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"error_priority","wireName":"error_priority","location":"query","required":false,"nullable":false},
@@ -31644,6 +33942,8 @@ export const meta_productCatalogCheckBatchRequestStatus_genGet = defineEndpointD
   requiredScopes: [],
   capabilities: ["productCatalogCheckBatchRequestStatus.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"after","wireName":"after","location":"query","required":false,"nullable":false},
@@ -31679,6 +33979,8 @@ export const meta_productCatalog_checkMarketplacePartnerDealsStatus = defineEndp
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"session_id","wireName":"session_id","location":"query","required":true,"nullable":false}
@@ -31702,6 +34004,8 @@ export const meta_productCatalog_checkMarketplacePartnerSellersStatus = defineEn
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"session_id","wireName":"session_id","location":"query","required":true,"nullable":false}
@@ -31725,6 +34029,8 @@ export const meta_productCatalog_collaborativeAdsLsbImageBank = defineEndpointDe
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31746,6 +34052,8 @@ export const meta_productCatalog_collaborativeAdsShareSettings = defineEndpointD
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -31767,6 +34075,8 @@ export const meta_productCatalog_cpasLsbImageBank = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_group_id","wireName":"ad_group_id","location":"body","required":false,"nullable":false},
@@ -31794,6 +34104,8 @@ export const meta_productCatalog_creatorAssetCreatives = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"moderation_status","wireName":"moderation_status","location":"query","required":false,"nullable":false}
@@ -31817,6 +34129,8 @@ export const meta_productCatalog_dataSources = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ingestion_source_type","wireName":"ingestion_source_type","location":"query","required":false,"nullable":false}
@@ -31840,6 +34154,8 @@ export const meta_productCatalogDataSources_genGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalogDataSources.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"after","wireName":"after","location":"query","required":false,"nullable":false},
@@ -31871,6 +34187,8 @@ export const meta_productCatalog_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_delete_catalog_with_live_product_set","wireName":"allow_delete_catalog_with_live_product_set","location":"query","required":false,"nullable":false}
@@ -31894,6 +34212,8 @@ export const meta_productCatalog_destinations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -31919,6 +34239,8 @@ export const meta_productCatalog_diagnostics = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"affected_channels","wireName":"affected_channels","location":"query","required":false,"nullable":false},
@@ -31950,6 +34272,8 @@ export const meta_productCatalog_eventStats = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"breakdowns","wireName":"breakdowns","location":"query","required":false,"nullable":false}
@@ -31973,6 +34297,8 @@ export const meta_productCatalog_externalEventSources = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"external_event_sources","wireName":"external_event_sources","location":"query","required":false,"nullable":false}
@@ -31996,6 +34322,8 @@ export const meta_productCatalog_externalEventSources2 = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -32017,6 +34345,8 @@ export const meta_productCatalog_externalEventSources3 = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"external_event_sources","wireName":"external_event_sources","location":"body","required":false,"nullable":false}
@@ -32040,6 +34370,8 @@ export const meta_productCatalog_flights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -32065,6 +34397,8 @@ export const meta_productCatalog_geolocatedItemsBatch = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_upsert","wireName":"allow_upsert","location":"body","required":false,"nullable":false},
@@ -32092,6 +34426,8 @@ export const meta_productCatalog_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"segment_use_cases","wireName":"segment_use_cases","location":"query","required":false,"nullable":false}
@@ -32115,6 +34451,8 @@ export const meta_productCatalog_homeListings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -32140,6 +34478,8 @@ export const meta_productCatalog_homeListings2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":true,"nullable":false},
@@ -32191,6 +34531,8 @@ export const meta_productCatalog_hotelRoomsBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"handle","wireName":"handle","location":"query","required":true,"nullable":false}
@@ -32214,6 +34556,8 @@ export const meta_productCatalog_hotelRoomsBatch2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"file","wireName":"file","location":"body","required":false,"nullable":false},
@@ -32247,6 +34591,8 @@ export const meta_productCatalog_hotels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -32272,6 +34618,8 @@ export const meta_productCatalog_hotels2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":true,"nullable":false},
@@ -32319,6 +34667,8 @@ export const meta_productCatalog_itemsBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_upsert","wireName":"allow_upsert","location":"body","required":false,"nullable":false},
@@ -32350,6 +34700,8 @@ export const meta_productCatalogLocalizationSettings_get = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["productCatalogLocalizationSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -32371,6 +34723,8 @@ export const meta_productCatalog_localizedItemsBatch = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_upsert","wireName":"allow_upsert","location":"body","required":false,"nullable":false},
@@ -32400,6 +34754,8 @@ export const meta_productCatalog_marketplacePartnerDealsDetails = defineEndpoint
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"requests","wireName":"requests","location":"body","required":true,"nullable":false}
@@ -32423,6 +34779,8 @@ export const meta_productCatalog_marketplacePartnerSellersDetails = defineEndpoi
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"requests","wireName":"requests","location":"body","required":true,"nullable":false}
@@ -32446,6 +34804,8 @@ export const meta_productCatalog_marketplacePartnerSignals = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"conversion_type","wireName":"conversion_type","location":"body","required":false,"nullable":false},
@@ -32483,6 +34843,8 @@ export const meta_productCatalog_mediaTitles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_image_urls","wireName":"additional_image_urls","location":"body","required":false,"nullable":false},
@@ -32570,6 +34932,8 @@ export const meta_productCatalog_pricingVariablesBatch = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"handle","wireName":"handle","location":"query","required":true,"nullable":false}
@@ -32593,6 +34957,8 @@ export const meta_productCatalog_pricingVariablesBatch2 = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"file","wireName":"file","location":"body","required":false,"nullable":false},
@@ -32626,6 +34992,8 @@ export const meta_productCatalog_productFeeds = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -32647,6 +35015,8 @@ export const meta_productCatalog_productFeeds2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"country","wireName":"country","location":"body","required":false,"nullable":false},
@@ -32708,6 +35078,8 @@ export const meta_productCatalog_productGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -32729,6 +35101,8 @@ export const meta_productCatalog_productGroups2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"retailer_id","wireName":"retailer_id","location":"body","required":false,"nullable":false},
@@ -32754,6 +35128,8 @@ export const meta_productCatalog_products = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -32785,6 +35161,8 @@ export const meta_productCatalog_products2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_image_urls","wireName":"additional_image_urls","location":"body","required":false,"nullable":false},
@@ -32968,6 +35346,8 @@ export const meta_productCatalog_productSets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ancestor_id","wireName":"ancestor_id","location":"query","required":false,"nullable":false},
@@ -32997,6 +35377,8 @@ export const meta_productCatalog_productSets2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"body","required":false,"nullable":false},
@@ -33030,6 +35412,8 @@ export const meta_productCatalog_productSetsBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"handle","wireName":"handle","location":"query","required":true,"nullable":false}
@@ -33053,6 +35437,8 @@ export const meta_productCatalog_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_vertical_option","wireName":"additional_vertical_option","location":"body","required":false,"nullable":false},
@@ -33092,6 +35478,8 @@ export const meta_productCatalog_updateGeneratedImageConfig = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"data","wireName":"data","location":"body","required":true,"nullable":false}
@@ -33115,6 +35503,8 @@ export const meta_productCatalog_vehicleOffers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33140,6 +35530,8 @@ export const meta_productCatalog_vehicles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33165,6 +35557,8 @@ export const meta_productCatalog_vehicles2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":true,"nullable":false},
@@ -33246,6 +35640,8 @@ export const meta_productCatalog_versionConfigs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33267,6 +35663,8 @@ export const meta_productCatalog_versionItemsBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productCatalog.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_upsert","wireName":"allow_upsert","location":"body","required":false,"nullable":false},
@@ -33298,6 +35696,8 @@ export const meta_productDeliveryPreference_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productDeliveryPreference.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33319,6 +35719,8 @@ export const meta_productFeed_automotiveModels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33344,6 +35746,8 @@ export const meta_productFeed_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33365,6 +35769,8 @@ export const meta_productFeed_destinations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33390,6 +35796,8 @@ export const meta_productFeed_flights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33415,6 +35823,8 @@ export const meta_productFeed_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33436,6 +35846,8 @@ export const meta_productFeed_homeListings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33461,6 +35873,8 @@ export const meta_productFeed_hotels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33486,6 +35900,8 @@ export const meta_productFeed_products = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -33515,6 +35931,8 @@ export const meta_productFeedRule_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33536,6 +35954,8 @@ export const meta_productFeedRule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedRule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33557,6 +35977,8 @@ export const meta_productFeed_rules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33578,6 +36000,8 @@ export const meta_productFeed_rules2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribute","wireName":"attribute","location":"body","required":true,"nullable":false},
@@ -33605,6 +36029,8 @@ export const meta_productFeedRules_genGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedRules.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33626,6 +36052,8 @@ export const meta_productFeedRule_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedRule.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"params","wireName":"params","location":"body","required":true,"nullable":false}
@@ -33649,6 +36077,8 @@ export const meta_productFeedSchedule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedSchedule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33670,6 +36100,8 @@ export const meta_productFeed_supplementaryFeedAssocs = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"assoc_data","wireName":"assoc_data","location":"body","required":true,"nullable":false}
@@ -33693,6 +36125,8 @@ export const meta_productFeed_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"default_currency","wireName":"default_currency","location":"body","required":false,"nullable":false},
@@ -33732,6 +36166,8 @@ export const meta_productFeedUploadError_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUploadError.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33753,6 +36189,8 @@ export const meta_productFeedUpload_errorReport = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUpload.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33774,6 +36212,8 @@ export const meta_productFeedUpload_errors = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUpload.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"error_priority","wireName":"error_priority","location":"query","required":false,"nullable":false}
@@ -33797,6 +36237,8 @@ export const meta_productFeedUploadErrorSample_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUploadErrorSample.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33818,6 +36260,8 @@ export const meta_productFeedUploadError_samples = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUploadError.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33839,6 +36283,8 @@ export const meta_productFeedUploadError_suggestedRules = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["productFeedUploadError.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33860,6 +36306,8 @@ export const meta_productFeedUpload_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeedUpload.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33881,6 +36329,8 @@ export const meta_productFeed_uploads = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33902,6 +36352,8 @@ export const meta_productFeed_uploads2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"fbe_external_business_id","wireName":"fbe_external_business_id","location":"body","required":false,"nullable":false},
@@ -33935,6 +36387,8 @@ export const meta_productFeed_uploadSchedules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -33956,6 +36410,8 @@ export const meta_productFeed_uploadSchedules2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"upload_schedule","wireName":"upload_schedule","location":"body","required":false,"nullable":false}
@@ -33979,6 +36435,8 @@ export const meta_productFeed_vehicleOffers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34004,6 +36462,8 @@ export const meta_productFeed_vehicles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productFeed.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34029,6 +36489,8 @@ export const meta_productGroup_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"deletion_method","wireName":"deletion_method","location":"query","required":false,"nullable":false}
@@ -34052,6 +36514,8 @@ export const meta_productGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34073,6 +36537,8 @@ export const meta_productGroup_products = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34094,6 +36560,8 @@ export const meta_productGroup_products2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_image_urls","wireName":"additional_image_urls","location":"body","required":false,"nullable":false},
@@ -34261,6 +36729,8 @@ export const meta_productGroup_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productGroup.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"default_product_id","wireName":"default_product_id","location":"body","required":false,"nullable":false},
@@ -34286,6 +36756,8 @@ export const meta_productImage_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productImage.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34307,6 +36779,8 @@ export const meta_productItem_channelsToIntegrityStatus = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["productItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34328,6 +36802,8 @@ export const meta_productItem_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34349,6 +36825,8 @@ export const meta_productItem_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":false,"nullable":false},
@@ -34380,6 +36858,8 @@ export const meta_productItemLocalInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItemLocalInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34401,6 +36881,8 @@ export const meta_productItemOffer_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItemOffer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34422,6 +36904,8 @@ export const meta_productItem_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -34447,6 +36931,8 @@ export const meta_productItem_productSets = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34468,6 +36954,8 @@ export const meta_productItem_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"additional_image_urls","wireName":"additional_image_urls","location":"body","required":false,"nullable":false},
@@ -34647,6 +37135,8 @@ export const meta_productItem_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34668,6 +37158,8 @@ export const meta_productSet_automotiveModels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34693,6 +37185,8 @@ export const meta_productSet_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_live_product_set_deletion","wireName":"allow_live_product_set_deletion","location":"query","required":false,"nullable":false}
@@ -34716,6 +37210,8 @@ export const meta_productSet_destinations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34741,6 +37237,8 @@ export const meta_productSet_flights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34766,6 +37264,8 @@ export const meta_productSet_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34787,6 +37287,8 @@ export const meta_productSet_homeListings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34812,6 +37314,8 @@ export const meta_productSet_hotels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34837,6 +37341,8 @@ export const meta_productSet_products = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34866,6 +37372,8 @@ export const meta_productSet_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"body","required":false,"nullable":false},
@@ -34899,6 +37407,8 @@ export const meta_productSet_vehicleOffers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34924,6 +37434,8 @@ export const meta_productSet_vehicles = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["productSet.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bulk_pagination","wireName":"bulk_pagination","location":"query","required":false,"nullable":false},
@@ -34949,6 +37461,8 @@ export const meta_profile_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["profile.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -34970,6 +37484,8 @@ export const meta_profile_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["profile.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"height","wireName":"height","location":"query","required":false,"nullable":false},
@@ -34999,6 +37515,8 @@ export const meta_publisherBlockList_appendPublisherUrls = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["publisherBlockList.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"publisher_urls","wireName":"publisher_urls","location":"body","required":true,"nullable":false}
@@ -35022,6 +37540,8 @@ export const meta_publisherBlockList_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["publisherBlockList.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35043,6 +37563,8 @@ export const meta_publisherBlockList_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["publisherBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"account_id","wireName":"account_id","location":"query","required":false,"nullable":false},
@@ -35070,6 +37592,8 @@ export const meta_publisherBlockList_pagedWebPublishers = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["publisherBlockList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"draft_id","wireName":"draft_id","location":"query","required":false,"nullable":false}
@@ -35093,6 +37617,8 @@ export const meta_publisherBlockList_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["publisherBlockList.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"spec","wireName":"spec","location":"body","required":true,"nullable":false}
@@ -35116,6 +37642,8 @@ export const meta_reachFrequencyPrediction_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reachFrequencyPrediction.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35137,6 +37665,8 @@ export const meta_researchPollStudy_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["researchPollStudy.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35158,6 +37688,8 @@ export const meta_rightsManagerDataExport_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["rightsManagerDataExport.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35179,6 +37711,8 @@ export const meta_robot_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["robot.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35200,6 +37734,8 @@ export const meta_rTBDynamicPost_comments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["rTBDynamicPost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"filter","wireName":"filter","location":"query","required":false,"nullable":false},
@@ -35229,6 +37765,8 @@ export const meta_rTBDynamicPost_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["rTBDynamicPost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35250,6 +37788,8 @@ export const meta_rTBDynamicPost_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["rTBDynamicPost.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35271,6 +37811,8 @@ export const meta_savedAudience_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["savedAudience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35292,6 +37834,8 @@ export const meta_savedMessageResponse_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["savedMessageResponse.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35313,6 +37857,8 @@ export const meta_shadowIGHashtag_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shadowIGHashtag.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35334,6 +37880,8 @@ export const meta_shadowIGHashtag_recentMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shadowIGHashtag.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"query","required":true,"nullable":false}
@@ -35357,6 +37905,8 @@ export const meta_shadowIGHashtag_topMedia = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shadowIGHashtag.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"query","required":true,"nullable":false}
@@ -35380,6 +37930,8 @@ export const meta_shadowIGMediaBuilder_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shadowIGMediaBuilder.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35401,6 +37953,8 @@ export const meta_shadowIGScheduledMedia_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shadowIGScheduledMedia.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35422,6 +37976,8 @@ export const meta_shop_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["shop.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35443,6 +37999,8 @@ export const meta_signalsIWLExtractor_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["signalsIWLExtractor.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35464,6 +38022,8 @@ export const meta_siteLink_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["siteLink.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35485,6 +38045,8 @@ export const meta_slicedEventSourceGroup_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["slicedEventSourceGroup.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35506,6 +38068,8 @@ export const meta_status_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["status.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35527,6 +38091,8 @@ export const meta_status_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["status.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"attribution_id_v2","wireName":"attribution_id_v2","location":"body","required":false,"nullable":false},
@@ -35558,6 +38124,8 @@ export const meta_storeCatalogSettings_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["storeCatalogSettings.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35579,6 +38147,8 @@ export const meta_storeCatalogSettings_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["storeCatalogSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35600,6 +38170,8 @@ export const meta_storeLocation_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["storeLocation.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35621,6 +38193,8 @@ export const meta_stories_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["stories.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35642,6 +38216,8 @@ export const meta_stories_insights = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["stories.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"metric","wireName":"metric","location":"query","required":false,"nullable":false}
@@ -35665,6 +38241,8 @@ export const meta_systemUser_assignedAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35686,6 +38264,8 @@ export const meta_systemUser_assignedBusinessAssetGroups = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"contained_asset_id","wireName":"contained_asset_id","location":"query","required":false,"nullable":false}
@@ -35709,6 +38289,8 @@ export const meta_systemUser_assignedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pages","wireName":"pages","location":"query","required":false,"nullable":false}
@@ -35732,6 +38314,8 @@ export const meta_systemUser_assignedProductCatalogs = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35753,6 +38337,8 @@ export const meta_systemUser_assignedWhatsappBusinessAccounts = defineEndpointDe
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35774,6 +38360,8 @@ export const meta_systemUser_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["systemUser.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35795,6 +38383,8 @@ export const meta_thirdPartyMeasurementReportDataset_get = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["thirdPartyMeasurementReportDataset.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35816,6 +38406,8 @@ export const meta_thirdPartyPartnerLiftRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["thirdPartyPartnerLiftRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35837,6 +38429,8 @@ export const meta_thirdPartyPartnerPanelRequest_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["thirdPartyPartnerPanelRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35858,6 +38452,8 @@ export const meta_thirdPartyPartnerPanelScheduled_get = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["thirdPartyPartnerPanelScheduled.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35879,6 +38475,8 @@ export const meta_thirdPartyPartnerViewabilityRequest_get = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["thirdPartyPartnerViewabilityRequest.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35900,6 +38498,8 @@ export const meta_transactableItem_channelsToIntegrityStatus = defineEndpointDes
   requiredScopes: [],
   capabilities: ["transactableItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35921,6 +38521,8 @@ export const meta_transactableItem_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["transactableItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35942,6 +38544,8 @@ export const meta_transactableItem_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["transactableItem.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -35967,6 +38571,8 @@ export const meta_unifiedThread_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["unifiedThread.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -35988,6 +38594,8 @@ export const meta_unifiedThread_messages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["unifiedThread.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"source","wireName":"source","location":"query","required":false,"nullable":false}
@@ -36011,6 +38619,8 @@ export const meta_uRL_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["uRL.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36032,6 +38642,8 @@ export const meta_uRL_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["uRL.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"blacklist","wireName":"blacklist","location":"body","required":false,"nullable":false},
@@ -36065,6 +38677,8 @@ export const meta_user_accessTokens = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36086,6 +38700,8 @@ export const meta_user_accessTokens2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_app","wireName":"business_app","location":"body","required":true,"nullable":false},
@@ -36115,6 +38731,8 @@ export const meta_user_accounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"query","required":false,"nullable":false},
@@ -36142,6 +38760,8 @@ export const meta_user_accounts2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"about","wireName":"about","location":"body","required":false,"nullable":false},
@@ -36195,6 +38815,8 @@ export const meta_user_adaccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36216,6 +38838,8 @@ export const meta_user_adStudies = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36237,6 +38861,8 @@ export const meta_user_adStudies2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"cells","wireName":"cells","location":"body","required":false,"nullable":false},
@@ -36284,6 +38910,8 @@ export const meta_user_albums = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36305,6 +38933,8 @@ export const meta_user_applications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business_app","wireName":"business_app","location":"body","required":true,"nullable":false}
@@ -36328,6 +38958,8 @@ export const meta_user_apprequestformerrecipients = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36349,6 +38981,8 @@ export const meta_user_apprequests = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36370,6 +39004,8 @@ export const meta_user_assignedAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36391,6 +39027,8 @@ export const meta_user_assignedApplications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36412,6 +39050,8 @@ export const meta_user_assignedBusinessAssetGroups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"contained_asset_id","wireName":"contained_asset_id","location":"query","required":false,"nullable":false}
@@ -36435,6 +39075,8 @@ export const meta_user_assignedPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"pages","wireName":"pages","location":"query","required":false,"nullable":false}
@@ -36458,6 +39100,8 @@ export const meta_user_assignedProductCatalogs = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36479,6 +39123,8 @@ export const meta_user_assignedWhatsappBusinessAccounts = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36500,6 +39146,8 @@ export const meta_user_businesses = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":false,"nullable":false}
@@ -36523,6 +39171,8 @@ export const meta_user_businesses2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36544,6 +39194,8 @@ export const meta_user_businesses3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"child_business_external_id","wireName":"child_business_external_id","location":"body","required":false,"nullable":false},
@@ -36585,6 +39237,8 @@ export const meta_user_businessUsers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36606,6 +39260,8 @@ export const meta_userContext_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["userContext.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36627,6 +39283,8 @@ export const meta_user_conversations = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"folder","wireName":"folder","location":"query","required":false,"nullable":false},
@@ -36656,6 +39314,8 @@ export const meta_user_customLabels = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36677,6 +39337,8 @@ export const meta_user_delete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -36698,6 +39360,8 @@ export const meta_user_events = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_canceled","wireName":"include_canceled","location":"query","required":false,"nullable":false},
@@ -36723,6 +39387,8 @@ export const meta_user_feed = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -36756,6 +39422,8 @@ export const meta_user_feed2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"actions","wireName":"actions","location":"body","required":false,"nullable":false},
@@ -36987,6 +39655,8 @@ export const meta_user_friends = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"uid","wireName":"uid","location":"query","required":false,"nullable":false}
@@ -37010,6 +39680,8 @@ export const meta_user_fundraisers = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37031,6 +39703,8 @@ export const meta_user_fundraisers2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"charity_id","wireName":"charity_id","location":"body","required":false,"nullable":false},
@@ -37080,6 +39754,8 @@ export const meta_user_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37101,6 +39777,8 @@ export const meta_user_groups = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"admin_only","wireName":"admin_only","location":"query","required":false,"nullable":false},
@@ -37126,6 +39804,8 @@ export const meta_user_idsForApps = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app","wireName":"app","location":"query","required":false,"nullable":false}
@@ -37149,6 +39829,8 @@ export const meta_user_idsForBusiness = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app","wireName":"app","location":"query","required":false,"nullable":false}
@@ -37172,6 +39854,8 @@ export const meta_user_idsForPages = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false}
@@ -37195,6 +39879,8 @@ export const meta_user_likes = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_id","wireName":"target_id","location":"query","required":false,"nullable":false}
@@ -37218,6 +39904,8 @@ export const meta_user_liveVideos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"broadcast_status","wireName":"broadcast_status","location":"query","required":false,"nullable":false},
@@ -37243,6 +39931,8 @@ export const meta_user_liveVideos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"content_tags","wireName":"content_tags","location":"body","required":false,"nullable":false},
@@ -37304,6 +39994,8 @@ export const meta_user_messengerDesktopPerformanceTraces = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37325,6 +40017,8 @@ export const meta_user_messengerKidsAccountsUnreadBadge = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"proxied_app_id","wireName":"proxied_app_id","location":"body","required":true,"nullable":false}
@@ -37348,6 +40042,8 @@ export const meta_user_music = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"target_id","wireName":"target_id","location":"query","required":false,"nullable":false}
@@ -37371,6 +40067,8 @@ export const meta_user_notifications = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"bot_message_payload_elements","wireName":"bot_message_payload_elements","location":"body","required":false,"nullable":false},
@@ -37422,6 +40120,8 @@ export const meta_userPageOneTimeOptInTokenSettings_get = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["userPageOneTimeOptInTokenSettings.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37443,6 +40143,8 @@ export const meta_user_paymentTransactions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37464,6 +40166,8 @@ export const meta_user_permissions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"permission","wireName":"permission","location":"query","required":false,"nullable":false}
@@ -37487,6 +40191,8 @@ export const meta_user_permissions2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"permission","wireName":"permission","location":"query","required":false,"nullable":false},
@@ -37512,6 +40218,8 @@ export const meta_user_personalAdAccounts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -37533,6 +40241,8 @@ export const meta_user_photos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -37556,6 +40266,8 @@ export const meta_user_photos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"aid","wireName":"aid","location":"body","required":false,"nullable":false},
@@ -37683,6 +40395,8 @@ export const meta_user_picture = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"height","wireName":"height","location":"query","required":false,"nullable":false},
@@ -37712,6 +40426,8 @@ export const meta_user_posts = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"include_hidden","wireName":"include_hidden","location":"query","required":false,"nullable":false},
@@ -37745,6 +40461,8 @@ export const meta_user_richMediaDocuments = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"query","wireName":"query","location":"query","required":false,"nullable":false}
@@ -37768,6 +40486,8 @@ export const meta_user_stagingResources = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"file","wireName":"file","location":"body","required":false,"nullable":false}
@@ -37791,6 +40511,8 @@ export const meta_user_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"emoji_color_pref","wireName":"emoji_color_pref","location":"body","required":false,"nullable":false},
@@ -37826,6 +40548,8 @@ export const meta_user_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"type","wireName":"type","location":"query","required":false,"nullable":false}
@@ -37849,6 +40573,8 @@ export const meta_user_videos2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["user.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"application_id","wireName":"application_id","location":"body","required":false,"nullable":false},
@@ -38016,6 +40742,8 @@ export const meta_vehicle_channelsToIntegrityStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicle.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38037,6 +40765,8 @@ export const meta_vehicle_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicle.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38058,6 +40788,8 @@ export const meta_vehicleOffer_channelsToIntegrityStatus = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["vehicleOffer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38079,6 +40811,8 @@ export const meta_vehicleOffer_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicleOffer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38100,6 +40834,8 @@ export const meta_vehicleOffer_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicleOffer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -38125,6 +40861,8 @@ export const meta_vehicleOffer_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicleOffer.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38146,6 +40884,8 @@ export const meta_vehicle_overrideDetails = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicle.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"keys","wireName":"keys","location":"query","required":false,"nullable":false},
@@ -38171,6 +40911,8 @@ export const meta_vehicle_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicle.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"address","wireName":"address","location":"body","required":false,"nullable":false},
@@ -38250,6 +40992,8 @@ export const meta_vehicle_videosMetadata = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["vehicle.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38271,6 +41015,8 @@ export const meta_videoCopyright_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38292,6 +41038,8 @@ export const meta_videoCopyrightMatch_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoCopyrightMatch.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38313,6 +41061,8 @@ export const meta_videoCopyrightRule_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoCopyrightRule.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38334,6 +41084,8 @@ export const meta_videoCopyright_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoCopyright.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"append_excluded_ownership_segments","wireName":"append_excluded_ownership_segments","location":"body","required":false,"nullable":false},
@@ -38377,6 +41129,8 @@ export const meta_videoCopyright_updateRecords = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoCopyright.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38398,6 +41152,8 @@ export const meta_videoList_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38419,6 +41175,8 @@ export const meta_videoList_videos = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoList.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38440,6 +41198,8 @@ export const meta_videoPoll_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoPoll.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38461,6 +41221,8 @@ export const meta_videoPoll_pollOptions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoPoll.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38482,6 +41244,8 @@ export const meta_videoPoll_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoPoll.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":true,"nullable":false},
@@ -38513,6 +41277,8 @@ export const meta_videoTextQuestion_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["videoTextQuestion.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38534,6 +41300,8 @@ export const meta_wearableDevicePublicKey_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["wearableDevicePublicKey.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38555,6 +41323,8 @@ export const meta_websiteCreativeAssetSource_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["websiteCreativeAssetSource.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38576,6 +41346,8 @@ export const meta_websiteCreativeAssetSuggestions_get = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["websiteCreativeAssetSuggestions.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38597,6 +41369,8 @@ export const meta_websiteCreativeInfo_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["websiteCreativeInfo.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38618,6 +41392,8 @@ export const meta_whatsAppBusinessAccount_activities = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38639,6 +41415,8 @@ export const meta_whatsAppBusinessAccount_assignedUsers = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"user","wireName":"user","location":"query","required":true,"nullable":false}
@@ -38662,6 +41440,8 @@ export const meta_whatsAppBusinessAccount_assignedUsers2 = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"business","wireName":"business","location":"query","required":true,"nullable":false}
@@ -38685,6 +41465,8 @@ export const meta_whatsAppBusinessAccount_assignedUsers3 = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":true,"nullable":false},
@@ -38710,6 +41492,8 @@ export const meta_whatsAppBusinessAccount_audiences = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38731,6 +41515,8 @@ export const meta_whatsAppBusinessAccount_businessMessagingFeatureStatus = defin
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"features","wireName":"features","location":"body","required":true,"nullable":false}
@@ -38754,6 +41540,8 @@ export const meta_whatsAppBusinessAccount_callAnalytics = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"country_codes","wireName":"country_codes","location":"query","required":false,"nullable":false},
@@ -38793,6 +41581,8 @@ export const meta_whatsAppBusinessAccount_conversationAnalytics = defineEndpoint
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"conversation_categories","wireName":"conversation_categories","location":"query","required":false,"nullable":false},
@@ -38834,6 +41624,8 @@ export const meta_whatsAppBusinessAccount_dataset = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38855,6 +41647,8 @@ export const meta_whatsAppBusinessAccount_dataset2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"dataset_name","wireName":"dataset_name","location":"body","required":false,"nullable":false}
@@ -38878,6 +41672,8 @@ export const meta_whatsAppBusinessAccount_degreesOfFreedomSpec = defineEndpointD
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38899,6 +41695,8 @@ export const meta_whatsAppBusinessAccount_flows = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38920,6 +41718,8 @@ export const meta_whatsAppBusinessAccount_flows2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"categories","wireName":"categories","location":"body","required":true,"nullable":false},
@@ -38953,6 +41753,8 @@ export const meta_whatsAppBusinessAccount_generatePaymentConfigurationOauthLink 
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"configuration_name","wireName":"configuration_name","location":"body","required":true,"nullable":false},
@@ -38978,6 +41780,8 @@ export const meta_whatsAppBusinessAccount_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -38999,6 +41803,8 @@ export const meta_whatsAppBusinessAccount_groupAnalytics = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end","wireName":"end","location":"query","required":true,"nullable":false},
@@ -39030,6 +41836,8 @@ export const meta_whatsAppBusinessAccount_messageCampaigns = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39051,6 +41859,8 @@ export const meta_whatsAppBusinessAccount_messageSamples = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"interactive","wireName":"interactive","location":"body","required":false,"nullable":false},
@@ -39078,6 +41888,8 @@ export const meta_whatsAppBusinessAccount_messageTemplatePreviews = defineEndpoi
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"add_security_recommendation","wireName":"add_security_recommendation","location":"query","required":false,"nullable":false},
@@ -39111,6 +41923,8 @@ export const meta_whatsAppBusinessAccount_messageTemplates = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"hsm_id","wireName":"hsm_id","location":"query","required":false,"nullable":false},
@@ -39138,6 +41952,8 @@ export const meta_whatsAppBusinessAccount_messageTemplates2 = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"category","wireName":"category","location":"query","required":false,"nullable":false},
@@ -39179,6 +41995,8 @@ export const meta_whatsAppBusinessAccount_messageTemplates3 = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"allow_category_change","wireName":"allow_category_change","location":"body","required":false,"nullable":false},
@@ -39242,6 +42060,8 @@ export const meta_whatsAppBusinessAccount_migrateFlows = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"source_flow_names","wireName":"source_flow_names","location":"body","required":false,"nullable":false},
@@ -39267,6 +42087,8 @@ export const meta_whatsAppBusinessAccount_migrateMessageTemplates = defineEndpoi
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"count","wireName":"count","location":"body","required":false,"nullable":false},
@@ -39296,6 +42118,8 @@ export const meta_whatsAppBusinessAccount_paymentConfiguration = defineEndpointD
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"configuration_name","wireName":"configuration_name","location":"query","required":true,"nullable":false}
@@ -39319,6 +42143,8 @@ export const meta_whatsAppBusinessAccount_paymentConfiguration2 = defineEndpoint
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"configuration_name","wireName":"configuration_name","location":"query","required":true,"nullable":false}
@@ -39342,6 +42168,8 @@ export const meta_whatsAppBusinessAccount_paymentConfiguration3 = defineEndpoint
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"configuration_name","wireName":"configuration_name","location":"body","required":true,"nullable":false},
@@ -39377,6 +42205,8 @@ export const meta_whatsAppBusinessAccount_paymentConfigurations = defineEndpoint
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39398,6 +42228,8 @@ export const meta_whatsAppBusinessAccount_phoneNumbers = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39419,6 +42251,8 @@ export const meta_whatsAppBusinessAccount_phoneNumbers2 = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"cc","wireName":"cc","location":"body","required":false,"nullable":false},
@@ -39450,6 +42284,8 @@ export const meta_whatsAppBusinessAccount_pricingAnalytics = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"country_codes","wireName":"country_codes","location":"query","required":false,"nullable":false},
@@ -39491,6 +42327,8 @@ export const meta_whatsAppBusinessAccount_productCatalogs = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
@@ -39514,6 +42352,8 @@ export const meta_whatsAppBusinessAccount_productCatalogs2 = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39535,6 +42375,8 @@ export const meta_whatsAppBusinessAccount_productCatalogs3 = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false}
@@ -39558,6 +42400,8 @@ export const meta_whatsAppBusinessAccount_schedules = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39579,6 +42423,8 @@ export const meta_whatsAppBusinessAccount_setSolutionMigrationIntent = defineEnd
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"body","required":false,"nullable":false},
@@ -39604,6 +42450,8 @@ export const meta_whatsAppBusinessAccount_solutions = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39625,6 +42473,8 @@ export const meta_whatsAppBusinessAccount_subscribedApps = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39646,6 +42496,8 @@ export const meta_whatsAppBusinessAccount_subscribedApps2 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39667,6 +42519,8 @@ export const meta_whatsAppBusinessAccount_subscribedApps3 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"override_callback_uri","wireName":"override_callback_uri","location":"body","required":false,"nullable":false},
@@ -39692,6 +42546,8 @@ export const meta_whatsAppBusinessAccount_templateAnalytics = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end","wireName":"end","location":"query","required":true,"nullable":false},
@@ -39727,6 +42583,8 @@ export const meta_whatsAppBusinessAccount_templateGroupAnalytics = defineEndpoin
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"end","wireName":"end","location":"query","required":true,"nullable":false},
@@ -39760,6 +42618,8 @@ export const meta_whatsAppBusinessAccount_templateGroups = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39781,6 +42641,8 @@ export const meta_whatsAppBusinessAccount_templateGroups2 = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"description","wireName":"description","location":"body","required":true,"nullable":false},
@@ -39808,6 +42670,8 @@ export const meta_whatsAppBusinessAccount_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"creative_optimizations_enrollment","wireName":"creative_optimizations_enrollment","location":"body","required":false,"nullable":false},
@@ -39841,6 +42705,8 @@ export const meta_whatsAppBusinessAccount_upsertMessageTemplates = defineEndpoin
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"category","wireName":"category","location":"body","required":true,"nullable":false},
@@ -39872,6 +42738,8 @@ export const meta_whatsAppBusinessAccount_welcomeMessageSequences = defineEndpoi
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"sequence_id","wireName":"sequence_id","location":"query","required":true,"nullable":false}
@@ -39895,6 +42763,8 @@ export const meta_whatsAppBusinessAccount_welcomeMessageSequences2 = defineEndpo
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":false,"nullable":false},
@@ -39920,6 +42790,8 @@ export const meta_whatsAppBusinessAccount_welcomeMessageSequences3 = defineEndpo
   requiredScopes: [],
   capabilities: ["whatsAppBusinessAccount.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":false,"nullable":false},
@@ -39947,6 +42819,8 @@ export const meta_whatsAppBusinessPreVerifiedPhoneNumber_delete = defineEndpoint
   requiredScopes: [],
   capabilities: ["whatsAppBusinessPreVerifiedPhoneNumber.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39968,6 +42842,8 @@ export const meta_whatsAppBusinessPreVerifiedPhoneNumber_get = defineEndpointDes
   requiredScopes: [],
   capabilities: ["whatsAppBusinessPreVerifiedPhoneNumber.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -39989,6 +42865,8 @@ export const meta_whatsAppBusinessPreVerifiedPhoneNumber_partners = defineEndpoi
   requiredScopes: [],
   capabilities: ["whatsAppBusinessPreVerifiedPhoneNumber.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40010,6 +42888,8 @@ export const meta_whatsAppBusinessPreVerifiedPhoneNumber_requestCode = defineEnd
   requiredScopes: [],
   capabilities: ["whatsAppBusinessPreVerifiedPhoneNumber.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"code_method","wireName":"code_method","location":"body","required":true,"nullable":false},
@@ -40035,6 +42915,8 @@ export const meta_whatsAppBusinessPreVerifiedPhoneNumber_verifyCode = defineEndp
   requiredScopes: [],
   capabilities: ["whatsAppBusinessPreVerifiedPhoneNumber.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false},
     {"name":"code","wireName":"code","location":"body","required":true,"nullable":false}
@@ -40058,6 +42940,8 @@ export const meta_whatsAppBusinessProfile_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessProfile.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40079,6 +42963,8 @@ export const meta_whatsAppBusinessProfile_update = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whatsAppBusinessProfile.manage"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40100,6 +42986,8 @@ export const meta_whitehatFBDLRun_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["whitehatFBDLRun.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40121,6 +43009,8 @@ export const meta_wifiInformation_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["wifiInformation.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40142,6 +43032,8 @@ export const meta_withAsset3D_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["withAsset3D.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40163,6 +43055,8 @@ export const meta_woodhengePurchasedPAYGReceipt_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["woodhengePurchasedPAYGReceipt.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40184,6 +43078,8 @@ export const meta_woodhengeSupporter_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["woodhengeSupporter.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40205,6 +43101,8 @@ export const meta_workExperience_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["workExperience.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40226,6 +43124,8 @@ export const meta_workSkill_get = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["workSkill.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],
@@ -40247,6 +43147,8 @@ export const meta_workSkill_users = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["workSkill.read"],
   rateLimitBucket: "meta-graph-api",
+  authSchemes: ["AccessToken"],
+  protocols: ["json"],
   parameters: [
     {"name":"id","wireName":"id","location":"path","required":true,"nullable":false}
   ],

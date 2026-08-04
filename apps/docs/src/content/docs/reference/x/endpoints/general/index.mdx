@@ -1,0 +1,40 @@
+---
+title: "X General endpoints"
+description: "1 generated X endpoint contract for General."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 110
+  label: "General"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.general.getOpenApiSpec
+
+`GET` `/2/openapi.json`
+
+Retrieves the full OpenAPI Specification in JSON format. (See https://github.com/OAI/OpenAPI-Specification/blob/master/README.md)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `general.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-general` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

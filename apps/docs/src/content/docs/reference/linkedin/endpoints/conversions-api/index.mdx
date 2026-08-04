@@ -1,0 +1,312 @@
+---
+title: "LinkedIn Conversions api endpoints"
+description: "10 generated LinkedIn endpoint contracts for Conversions api."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 108
+  label: "Conversions api"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow2RetrieveAuthenticatedUserSSponsoredAdAccountsGetAdAccountUsersQAuthentic
+
+`GET` `/adAccountUsers?q=authenticatedUser&fields=role,account,user`
+
+2. Retrieve authenticated user's Sponsored Ad Accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow4FetchExistingConversionRulesForCapiInTheSelectedAdAccountGetConversionsQ
+
+`GET` `/conversions?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&fields=conversionMethod,enabled,type,name,id,attributionType`
+
+Fetch existing conversion rules in the selected ad account with this endpoint and parse the response to filter elements with `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow6aCreateANewConversionRuleWithAutoAssociationToAllCampaignsPostConversion
+
+`POST` `/conversions?autoAssociationType=ALL_CAMPAIGNS`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow6bCreateANewConversionRuleWithAutoAssociationToCampaignsBasedOnConversion
+
+`POST` `/conversions?autoAssociationType=OBJECTIVE_BASED`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow6cCreateANewConversionRuleWithNoCampaignsAssociationPostConversions
+
+`POST` `/conversions`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow7aFetchActiveCampaignsGetAdAccountsSponsoredaccountIdAdCampaignsQSearchSe
+
+`GET` `/adAccounts/{sponsoredaccount_id}/adCampaigns?q=search&search=(status:(values:List(ACTIVE,DRAFT)))&fields=id,name`
+
+Fetch existing conversion rules in the selected ad account with this endpoint and parse the response to filter elements with `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow7cAssociateCampaignsToConversionRulePutCampaignConversionsCampaignUrn3Ali
+
+`PUT` `/campaignConversions/(campaign:urn%3Ali%3AsponsoredCampaign%3A{campaign_id},conversion:urn%3Alla%3AllaPartnerConversion%3A{conversion_id})`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `path` | `string` | Yes | No | — |
+| `conversion_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow7dBatchAssociateMultipleCampaignsToConversionRulePutCampaignConversionsId
+
+`PUT` `/campaignConversions?ids=List((campaign:urn%3Ali%3AsponsoredCampaign%3A{campaign_id},conversion:urn%3Alla%3AllaPartnerConversion%3A{conversion_id}),(campaign:urn%3Ali%3AsponsoredCampaign%3A{campaign_id_2},conversion:urn%3Alla%3AllaPartnerConversion%3A{conversion_id}))`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `path` | `string` | Yes | No | — |
+| `campaign_id_2` | `path` | `string` | Yes | No | — |
+| `conversion_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow8aStreamConversionEventToTheConversionRulePostConversionEvents
+
+`POST` `/conversionEvents`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## conversions-api.conversionsApiConversionEventsStreamingWorkflow8bStreamMultipleConversionEventsToTheConversionRulePostConversionEvents
+
+`POST` `/conversionEvents`
+
+Create one or more conversion rules with this endpoint and set `conversionMethod` to `CONVERSIONS_API` for streaming conversions through API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.conversions.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.conversions.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

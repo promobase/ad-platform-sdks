@@ -1,0 +1,1040 @@
+---
+title: "LinkedIn Community management endpoints"
+description: "36 generated LinkedIn endpoint contracts for Community management."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 105
+  label: "Community management"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## community-management.communityManagementUseCasesMemberPostAnalyticsAggregateAnalyticsForMemberPostsPostMemberCreatorPostAnalyticsQMeQueryType
+
+`POST` `/memberCreatorPostAnalytics?q=me&queryType=REACTION&aggregation=DAILY&dateRange=(start:(day:4,month:5,year:2024),end:(day:6,month:5,year:2024))`
+
+Aggregate Analytics for Member Posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesMemberPostAnalyticsAnalyticsForSpecificMemberPostPostMemberCreatorPostAnalyticsQEntityEntityS
+
+`POST` `/memberCreatorPostAnalytics?q=entity&entity=(share:urn%3Ali%3Ashare%3A{share_id})&queryType=REACTION&aggregation=DAILY&dateRange=(start:(day:4,month:5,year:2024),end:(day:6,month:5,year:2024))`
+
+Analytics for Specific Member Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `share_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesMemberPostAnalyticsAnalyticsForSpecificMemberVideoPostPostMemberCreatorVideoAnalyticsQEntityE
+
+`POST` `/memberCreatorVideoAnalytics?q=entity&entity=(share:urn%3Ali%3Ashare%3A{share_id})&queryType=VIDEO_PLAY&aggregation=TOTAL&dateRange=(start:(day:15,month:5,year:2024),end:(day:16,month:5,year:2024))`
+
+Analytics for Specific Member VIDEO Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `share_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesMemberProfileAnalyticsFollowersCountByDataRangeGetMemberFollowersCountQDateRangeDateRangeStar
+
+`GET` `/memberFollowersCount?q=dateRange&dateRange=(start:(year:2024,month:4,day:20),end:(year:2024,month:5,day:15))`
+
+Followers Count By DataRange
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesMemberProfileAnalyticsTotalFollowersCountGetMemberFollowersCountQMe
+
+`GET` `/memberFollowersCount?q=me`
+
+Total Followers Count
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationAccessControlsFindAMemberSOrganizationAccessControlGetOrganizationAclsQRoleAssign
+
+`GET` `/organizationAcls?q=roleAssignee`
+
+Find a Member's Organization Access Control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationAccessControlsFindOrganizationAccessControlGetOrganizationAclsQOrganizationOrgani
+
+`GET` `/organizationAcls?q=organization&organization=urn%3Ali%3Aorganization%3A{organization_id}`
+
+Find Organization Access Control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationAccessControlsFindOrganizationAdministratorsGetOrganizationAclsQOrganizationOrgan
+
+`GET` `/organizationAcls?q=organization&organization=urn%3Ali%3Aorganization%3A{organization_id}&role=ADMINISTRATOR&state=APPROVED`
+
+Find Organization Administrators
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationFollowersSearchByKeywordGetPeopleTypeaheadQOrganizationFollowersKeywordsChrisOrga
+
+`GET` `/peopleTypeahead?q=organizationFollowers&keywords=chris&organization=urn%3Ali%3Aorganization%3A{organization_id}`
+
+Search By Keyword
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationFollowersSearchByVanityUrlGetVanityUrlQVanityUrlAsOrganizationVanityUrlHttps3AWww
+
+`GET` `/vanityUrl?q=vanityUrlAsOrganization&vanityUrl=https%3A//www.linkedin.com/in/vanityName/&organization=urn%3Ali%3Aorganization%3A{organization_id}`
+
+Search By Vanity URL
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationBrandsBatchGetOnAdministeredOrganizationBrandsGetOrganizationBr
+
+`GET` `/organizationBrands?ids=List({organizationBrand_id},{organizationBrand_id1})`
+
+Batch GET on Administered Organization Brands
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationBrand_id` | `path` | `string` | Yes | No | — |
+| `organizationBrand_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationBrandsBatchGetOnNonAdministeredOrganizationBrandsGetOrganizatio
+
+`GET` `/organizationBrandsLookup?ids=List({organizationBrand_id},{organizationBrand_id1})`
+
+Batch GET on Non-Administered Organization Brands
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationBrand_id` | `path` | `string` | Yes | No | — |
+| `organizationBrand_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationBrandsFindAdministeredOrganizationBrandsByParentOrgGetOrganizat
+
+`GET` `/organizations?q=parentOrganization&parent=urn:li:organization:{organization_id}`
+
+Find Administered Organization Brands by Parent Org
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationBrandsFindOrganizationBrandByVanityNameGetOrganizationBrandsQVa
+
+`GET` `/organizationBrands?q=vanityName&vanityName={vanityName}`
+
+Find Organization Brand by Vanity Name
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `vanityName` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationBrandsRetrieveAnAdministeredOrganizationBrandGetOrganizationBra
+
+`GET` `/organizationBrands/{organizationBrand_id}`
+
+Retrieve an Administered Organization Brand
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationBrand_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsBatchGetByAdministeredOrgIdsGetOrganizationsIdsListOrganizatio
+
+`GET` `/organizations?ids=List({organization_id},{organization_id1})`
+
+Batch GET by Administered Org Ids
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `organization_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsFindNonAdministeredOrganizationGetOrganizationsLookupIdsListOr
+
+`GET` `/organizationsLookup?ids=List({organization_id},{organization_id1})`
+
+Find Non-Administered Organization
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `organization_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsFindOrganizationByEmailDomainGetOrganizationsQEmailDomainEmail
+
+`GET` `/organizations?q=emailDomain&emailDomain={email_domain}`
+
+Find Organization by Email Domain
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email_domain` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsFindOrganizationByVanityNameGetOrganizationsQVanityNameVanityN
+
+`GET` `/organizations?q=vanityName&vanityName={vanityName}`
+
+Find Organization by Vanity Name
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `vanityName` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsLookupByOrganizationPrimaryTypeGetOrganizationsOrganizationIdP
+
+`GET` `/organizations/{organization_id}?projection=(primaryOrganizationType)`
+
+Lookup by Organization Primary Type
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsRetrieveOrganizationByIdGetOrganizationsOrganizationId
+
+`GET` `/organizations/{organization_id}`
+
+Retrieve Organization by ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsRetrieveOrganizationFollowerCountGetNetworkSizesUrnLiOrganizat
+
+`GET` `/networkSizes/urn:li:organization:{organization_id}?edgeType=CompanyFollowedByMember`
+
+Retrieve Organization Follower Count
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesOrganizationLookupOrganizationsRetrieveOrganizationUsingProjectionGetOrganizationsOrganizatio
+
+`GET` `/organizations/{organization_id}?projection=(vanityName,primaryOrganizationType,id)`
+
+Retrieve Organization using projection
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPullWorkflow2CreateAShareWith
+
+`POST` `/shares`
+
+Mention a company name by using the annotations. [Learn more](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/share-api?tabs=http#share-text-and-mentions) by viewing our public documentation. This example uses the LinkedIn organization.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPullWorkflow3RetrieveNotifica
+
+`GET` `/eventSubscriptions?q=subscriberAndEventType&eventType=ORGANIZATION_SOCIAL_ACTION_NOTIFICATIONS`
+
+[Learn more](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-social-action-notifications?tabs=http#pull-organizational-notifications) by viewing our public documentation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPushWorkflow2CreateAShareWith
+
+`POST` `/shares`
+
+Mention a company name by using the annotations. [Learn more](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/share-api?tabs=http#share-text-and-mentions) by viewing our public documentation. This example uses the LinkedIn organization.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPushWorkflow3CreateASubscript
+
+`PUT` `/eventSubscriptions/(developerApplication:urn%3Ali%3AdeveloperApplication%3A{application_id},user:urn%3Ali%3Aperson%3A{person_id},entity:urn%3Ali%3Aorganization%3A{organization_id},eventType:ORGANIZATION_SOCIAL_ACTION_NOTIFICATIONS)`
+
+[Create a subscription](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-social-action-notifications?tabs=http#creating-and-updating-subscriptions) record to include the webhook URL where your app will receive notifications. The subscription request will only succeed if the subscribing member is an administrator of the organization being subscribed to.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_id` | `path` | `string` | Yes | No | — |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `person_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPushWorkflow4RetrieveSubscrip
+
+`GET` `/eventSubscriptions?q=subscriberAndEventType&eventType=ORGANIZATION_SOCIAL_ACTION_NOTIFICATIONS`
+
+Retrieve Subscriptions details such as webhook url and expiration for your application and registered user. [Learn more](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-social-action-notifications?tabs=http#retrieve-subscriptions-by-key) by viewing our public documentation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPushWorkflow5RetrieveSubscrip
+
+`GET` `/eventSubscriptions/(developerApplication:urn%3Ali%3AdeveloperApplication%3A{application_id},user:urn%3Ali%3Aperson%3A{person_id},entity:urn%3Ali%3Aorganization%3A{organization_id},eventType:ORGANIZATION_SOCIAL_ACTION_NOTIFICATIONS)`
+
+Retrieve all the subscriptions details such as webhook url and expiration for the logged in user. [Learn more](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-social-action-notifications?tabs=http#retrieve-subscriptions-for-an-authenticated-member) by viewing our online documentation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_id` | `path` | `string` | Yes | No | — |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `person_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesSocialActionsNotificationsOrganizationSocialActionsNotificationsPushWorkflow6RemoveASubscript
+
+`DELETE` `/eventSubscriptions/(developerApplication:{application_id},user:{person_id},entity:{organization_id},eventType:ORGANIZATION_SOCIAL_ACTION_NOTIFICATIONS)`
+
+[Remove a subscription](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-social-action-notifications?tabs=http#remove-a-subscription) for a your developer application and Organization.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `application_id` | `path` | `string` | Yes | No | — |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `person_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationFollowerStatisticsLifetimeFollowerStatisticsGetOrganizationalEntity
+
+`GET` `/organizationalEntityFollowerStatistics?q=organizationalEntity&organizationalEntity=urn%3Ali%3Aorganization%3A77710671`
+
+Lifetime follower statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationFollowerStatisticsTimeBoundFollowerStatisticsGetOrganizationalEntit
+
+`GET` `/organizationalEntityFollowerStatistics?q=organizationalEntity&organizationalEntity=urn%3Ali%3Aorganization%3A2414183&timeIntervals.timeGranularityType=DAY&timeIntervals.timeRange.start=1634018799000&timeIntervals.timeRange.end=1634623599000`
+
+Time-Bound follower statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationPageStatisticsLifetimePageStatisticsGetOrganizationPageStatisticsQO
+
+`GET` `/organizationPageStatistics?q=organization&organization=urn%3Ali%3Aorganization%3A2414183`
+
+Lifetime Page Statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationPageStatisticsTimeBoundOrganizationPageStatisticsGetOrganizationPag
+
+`GET` `/organizationPageStatistics?q=organization&organization=urn%3Ali%3Aorganization%3A2414183&timeIntervals.timeGranularityType=DAY&timeIntervals.timeRange.start=1634018799000&timeIntervals.timeRange.end=1634623599000`
+
+Time-Bound organization page statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationShareStatisticsLifetimeShareStatisticsGetOrganizationalEntityShareS
+
+`GET` `/organizationalEntityShareStatistics?q=organizationalEntity&organizationalEntity=urn%3Ali%3Aorganization%3A2414183`
+
+Lifetime Share Statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## community-management.communityManagementUseCasesStatisticsApisOrganizationShareStatisticsTimeBoundShareStatisticsGetOrganizationalEntityShare
+
+`GET` `/organizationalEntityShareStatistics?q=organizationalEntity&organizationalEntity=urn%3Ali%3Aorganization%3A2414183&timeIntervals.timeGranularityType=DAY&timeIntervals.timeRange.start=1634018799000&timeIntervals.timeRange.end=1634623599000`
+
+Time Bound Share Statistics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.community.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.community.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

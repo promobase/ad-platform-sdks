@@ -18,9 +18,9 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `manual_cpc_bidding_strategy` | `manual_cpc_bidding_strategy` | `unknown` | No | No | — |
-| `maximize_clicks_bidding_strategy` | `maximize_clicks_bidding_strategy` | `unknown` | No | No | — |
-| `maximize_conversions_bidding_strategy` | `maximize_conversions_bidding_strategy` | `unknown` | No | No | — |
+| `manual_cpc_bidding_strategy` | `manual_cpc_bidding_strategy` | `ManualCpcBiddingStrategy` | No | No | — |
+| `maximize_clicks_bidding_strategy` | `maximize_clicks_bidding_strategy` | `MaximizeClicksBiddingStrategy` | No | No | — |
+| `maximize_conversions_bidding_strategy` | `maximize_conversions_bidding_strategy` | `MaximizeConversionsBiddingStrategy` | No | No | — |
 
 ## CampaignBidModifier
 
@@ -40,7 +40,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignBidModifier` | No | No | — |
 | `update` | `update` | `CampaignBidModifier` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -97,7 +97,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignBudget` | No | No | — |
 | `update` | `update` | `CampaignBudget` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -118,7 +118,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `current_budget_amount_micros` | `current_budget_amount_micros` | `string` | No | No | — |
 | `recommended_budget_amount_micros` | `recommended_budget_amount_micros` | `string` | No | No | — |
-| `budget_options` | `budget_options` | `Array<unknown>` | No | No | — |
+| `budget_options` | `budget_options` | `Array<CampaignBudgetRecommendationOption>` | No | No | — |
 
 ## CampaignBudgetRecommendationOption
 
@@ -127,7 +127,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `budget_amount_micros` | `budget_amount_micros` | `string` | No | No | — |
-| `impact` | `impact` | `unknown` | No | No | — |
+| `impact` | `impact` | `RecommendationImpact` | No | No | — |
 
 ## CampaignConversionGoal
 
@@ -159,7 +159,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `CampaignConversionGoal` | No | No | — |
 
 ## CampaignCriterion
@@ -231,7 +231,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignCriterion` | No | No | — |
 | `update` | `update` | `CampaignCriterion` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -314,7 +314,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignDraft` | No | No | — |
 | `update` | `update` | `CampaignDraft` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -420,7 +420,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignGoalConfig` | No | No | — |
 | `update` | `update` | `CampaignGoalConfig` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -448,7 +448,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignGroup` | No | No | — |
 | `update` | `update` | `CampaignGroup` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -502,7 +502,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `value_settings_override` | `value_settings_override` | `CustomerLifecycleOptimizationValueSettings` | No | No | — |
 | `enable_bid_adjustments_for_loyalty_members` | `enable_bid_adjustments_for_loyalty_members` | `boolean` | No | No | — |
 | `show_targeted_loyalty_member_benefits_in_pla` | `show_targeted_loyalty_member_benefits_in_pla` | `boolean` | No | No | — |
 
@@ -512,7 +512,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `value_settings_override` | `value_settings_override` | `CustomerLifecycleOptimizationValueSettings` | No | No | — |
 | `target_option` | `target_option` | `CustomerLifecycleOptimizationMode` | No | No | — |
 
 ## CampaignOperation
@@ -521,7 +521,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `Campaign` | No | No | — |
 | `update` | `update` | `Campaign` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -567,7 +567,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `value_settings_override` | `value_settings_override` | `unknown` | No | No | — |
+| `value_settings_override` | `value_settings_override` | `CustomerLifecycleOptimizationValueSettings` | No | No | — |
 | `target_option` | `target_option` | `CustomerLifecycleOptimizationMode` | No | No | — |
 
 ## CampaignSearchTermInsight
@@ -695,7 +695,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `brand_lift_integration_partner` | `brand_lift_integration_partner` | `ThirdPartyBrandLiftIntegrationPartner` | No | No | — |
-| `brand_lift_integration_partner_data` | `brand_lift_integration_partner_data` | `unknown` | No | No | — |
+| `brand_lift_integration_partner_data` | `brand_lift_integration_partner_data` | `ThirdPartyIntegrationPartnerData` | No | No | — |
 | `share_cost` | `share_cost` | `boolean` | No | No | — |
 
 ## CampaignThirdPartyBrandSafetyIntegrationPartner
@@ -705,7 +705,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `brand_safety_integration_partner` | `brand_safety_integration_partner` | `ThirdPartyBrandSafetyIntegrationPartner` | No | No | — |
-| `brand_safety_integration_partner_data` | `brand_safety_integration_partner_data` | `unknown` | No | No | — |
+| `brand_safety_integration_partner_data` | `brand_safety_integration_partner_data` | `ThirdPartyIntegrationPartnerData` | No | No | — |
 
 ## CampaignThirdPartyConversionAttributionIntegrationPartner
 
@@ -714,7 +714,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `conversion_attribution_integration_partner` | `conversion_attribution_integration_partner` | `ThirdPartyConversionAttributionIntegrationPartner` | No | No | — |
-| `conversion_attribution_integration_partner_data` | `conversion_attribution_integration_partner_data` | `unknown` | No | No | — |
+| `conversion_attribution_integration_partner_data` | `conversion_attribution_integration_partner_data` | `ThirdPartyIntegrationPartnerData` | No | No | — |
 
 ## CampaignThirdPartyIntegrationPartners
 
@@ -722,11 +722,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `viewability_integration_partners` | `viewability_integration_partners` | `Array<unknown>` | No | No | — |
-| `brand_lift_integration_partners` | `brand_lift_integration_partners` | `Array<unknown>` | No | No | — |
-| `brand_safety_integration_partners` | `brand_safety_integration_partners` | `Array<unknown>` | No | No | — |
-| `reach_integration_partners` | `reach_integration_partners` | `Array<unknown>` | No | No | — |
-| `conversion_attribution_integration_partners` | `conversion_attribution_integration_partners` | `Array<unknown>` | No | No | — |
+| `viewability_integration_partners` | `viewability_integration_partners` | `Array<CampaignThirdPartyViewabilityIntegrationPartner>` | No | No | — |
+| `brand_lift_integration_partners` | `brand_lift_integration_partners` | `Array<CampaignThirdPartyBrandLiftIntegrationPartner>` | No | No | — |
+| `brand_safety_integration_partners` | `brand_safety_integration_partners` | `Array<CampaignThirdPartyBrandSafetyIntegrationPartner>` | No | No | — |
+| `reach_integration_partners` | `reach_integration_partners` | `Array<CampaignThirdPartyReachIntegrationPartner>` | No | No | — |
+| `conversion_attribution_integration_partners` | `conversion_attribution_integration_partners` | `Array<CampaignThirdPartyConversionAttributionIntegrationPartner>` | No | No | — |
 
 ## CampaignThirdPartyReachIntegrationPartner
 
@@ -735,7 +735,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `reach_integration_partner` | `reach_integration_partner` | `ThirdPartyReachIntegrationPartner` | No | No | — |
-| `reach_integration_partner_data` | `reach_integration_partner_data` | `unknown` | No | No | — |
+| `reach_integration_partner_data` | `reach_integration_partner_data` | `ThirdPartyIntegrationPartnerData` | No | No | — |
 | `share_cost` | `share_cost` | `boolean` | No | No | — |
 
 ## CampaignThirdPartyViewabilityIntegrationPartner
@@ -745,7 +745,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `viewability_integration_partner` | `viewability_integration_partner` | `ThirdPartyViewabilityIntegrationPartner` | No | No | — |
-| `viewability_integration_partner_data` | `viewability_integration_partner_data` | `unknown` | No | No | — |
+| `viewability_integration_partner_data` | `viewability_integration_partner_data` | `ThirdPartyIntegrationPartnerData` | No | No | — |
 | `share_cost` | `share_cost` | `boolean` | No | No | — |
 
 ## CampaignToForecast
@@ -756,8 +756,8 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `language_constants` | `language_constants` | `Array<string>` | No | No | — |
 | `geo_target_constants` | `geo_target_constants` | `Array<string>` | No | No | — |
-| `bidding_strategy` | `bidding_strategy` | `unknown` | No | No | — |
-| `ad_groups` | `ad_groups` | `Array<unknown>` | No | No | — |
+| `bidding_strategy` | `bidding_strategy` | `CampaignBiddingStrategy` | No | No | — |
+| `ad_groups` | `ad_groups` | `Array<ForecastAdGroup>` | No | No | — |
 
 ## CarrierConstant
 
@@ -788,7 +788,7 @@ No fields are declared.
 | `feed_country_code` | `feed_country_code` | `string` | No | No | — |
 | `feed_language_code` | `feed_language_code` | `string` | No | No | — |
 | `local_transaction_cost` | `local_transaction_cost` | `number` | No | No | — |
-| `items` | `items` | `Array<unknown>` | No | No | — |
+| `items` | `items` | `Array<Item>` | No | No | — |
 
 ## CartDataSalesView
 
@@ -823,7 +823,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `dynamic_chain_location_group_filters` | `dynamic_chain_location_group_filters` | `Array<unknown>` | No | No | — |
+| `dynamic_chain_location_group_filters` | `dynamic_chain_location_group_filters` | `Array<ChainFilter>` | No | No | — |
 
 ## ChainRelationshipType
 
@@ -844,7 +844,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `relationship_type` | `relationship_type` | `ChainRelationshipType` | No | No | — |
-| `chains` | `chains` | `Array<unknown>` | No | No | — |
+| `chains` | `chains` | `Array<ChainFilter>` | No | No | — |
 
 ## ChangeClientType
 
@@ -864,21 +864,21 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad` | `ad` | `unknown` | No | No | — |
-| `ad_group` | `ad_group` | `unknown` | No | No | — |
-| `ad_group_criterion` | `ad_group_criterion` | `unknown` | No | No | — |
-| `campaign` | `campaign` | `unknown` | No | No | — |
-| `campaign_budget` | `campaign_budget` | `unknown` | No | No | — |
-| `ad_group_bid_modifier` | `ad_group_bid_modifier` | `unknown` | No | No | — |
-| `campaign_criterion` | `campaign_criterion` | `unknown` | No | No | — |
-| `ad_group_ad` | `ad_group_ad` | `unknown` | No | No | — |
-| `asset` | `asset` | `unknown` | No | No | — |
-| `customer_asset` | `customer_asset` | `unknown` | No | No | — |
-| `campaign_asset` | `campaign_asset` | `unknown` | No | No | — |
-| `ad_group_asset` | `ad_group_asset` | `unknown` | No | No | — |
-| `asset_set` | `asset_set` | `unknown` | No | No | — |
-| `asset_set_asset` | `asset_set_asset` | `unknown` | No | No | — |
-| `campaign_asset_set` | `campaign_asset_set` | `unknown` | No | No | — |
+| `ad` | `ad` | `Ad` | No | No | — |
+| `ad_group` | `ad_group` | `AdGroup` | No | No | — |
+| `ad_group_criterion` | `ad_group_criterion` | `AdGroupCriterion` | No | No | — |
+| `campaign` | `campaign` | `Campaign` | No | No | — |
+| `campaign_budget` | `campaign_budget` | `CampaignBudget` | No | No | — |
+| `ad_group_bid_modifier` | `ad_group_bid_modifier` | `AdGroupBidModifier` | No | No | — |
+| `campaign_criterion` | `campaign_criterion` | `CampaignCriterion` | No | No | — |
+| `ad_group_ad` | `ad_group_ad` | `AdGroupAd` | No | No | — |
+| `asset` | `asset` | `Asset` | No | No | — |
+| `customer_asset` | `customer_asset` | `CustomerAsset` | No | No | — |
+| `campaign_asset` | `campaign_asset` | `CampaignAsset` | No | No | — |
+| `ad_group_asset` | `ad_group_asset` | `AdGroupAsset` | No | No | — |
+| `asset_set` | `asset_set` | `AssetSet` | No | No | — |
+| `asset_set_asset` | `asset_set_asset` | `AssetSetAsset` | No | No | — |
+| `campaign_asset_set` | `campaign_asset_set` | `CampaignAssetSet` | No | No | — |
 
 ## ChangeEvent
 
@@ -892,10 +892,10 @@ No fields are declared.
 | `change_resource_name` | `change_resource_name` | `string` | No | No | — |
 | `client_type` | `client_type` | `ChangeClientType` | No | No | — |
 | `user_email` | `user_email` | `string` | No | No | — |
-| `old_resource` | `old_resource` | `unknown` | No | No | — |
-| `new_resource` | `new_resource` | `unknown` | No | No | — |
+| `old_resource` | `old_resource` | `ChangedResource` | No | No | — |
+| `new_resource` | `new_resource` | `ChangedResource` | No | No | — |
 | `resource_change_operation` | `resource_change_operation` | `ResourceChangeOperation` | No | No | — |
-| `changed_fields` | `changed_fields` | `unknown` | No | No | — |
+| `changed_fields` | `changed_fields` | `string` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
 | `ad_group` | `ad_group` | `string` | No | No | — |
 | `asset` | `asset` | `string` | No | No | — |

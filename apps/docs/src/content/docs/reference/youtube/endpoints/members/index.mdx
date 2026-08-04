@@ -1,0 +1,52 @@
+---
+title: "YouTube Members endpoints"
+description: "1 generated YouTube endpoint contract for Members."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 116
+  label: "Members"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.members.list
+
+`GET` `youtube/v3/members`
+
+Retrieves a list of members that match the request criteria for a channel.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `members.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.channel-memberships.creator` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `MemberListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterByMemberChannelId` | `query` | `string` | No | No | Comma separated list of channel IDs. Only data about members that are part of this list will be included in the response. |
+| `hasAccessToLevel` | `query` | `string` | No | No | Filter members in the results set to the ones that have access to a level. |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `mode` | `query` | `"listMembersModeUnknown" \| "updates" \| "all_current"` | No | No | Parameter that specifies which channel members to return. |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the member resource parts that the API response will include. Set the parameter value to snippet. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

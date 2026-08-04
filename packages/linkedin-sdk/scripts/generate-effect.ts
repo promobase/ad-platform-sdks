@@ -1,9 +1,13 @@
+import { createHash } from "node:crypto";
+
 import {
   writeEffectArtifacts,
   type EndpointIr,
   type SdkIr,
   type TypeRefIr,
 } from "@openpromo/sdk-codegen";
+
+import type { LinkedInPostmanSnapshot } from "./postman.ts";
 
 const stringType = { kind: "primitive", name: "string" } as const;
 const numberType = { kind: "primitive", name: "number" } as const;
@@ -26,7 +30,7 @@ const parameter = (
   ...(wireName ? { wireName } : {}),
 });
 
-const capabilities = [
+const curatedCapabilities = [
   ["account.read", "Read organizations available to the authenticated member"],
   ["post.read", "Read LinkedIn posts"],
   ["post.publish", "Publish and update LinkedIn posts"],
@@ -36,12 +40,29 @@ const capabilities = [
   ["post.metrics.read", "Read post and organization analytics"],
   ["oauth", "Complete LinkedIn OAuth flows"],
 ] as const;
+const snapshot = (await Bun.file(
+  new URL("../spec/linkedin-postman.snapshot.json", import.meta.url),
+).json()) as LinkedInPostmanSnapshot;
+const collectionCapabilities = snapshot.sources.map(
+  (source) =>
+    [
+      `api.${source.name
+        .toLowerCase()
+        .replaceAll(/[^a-z0-9]+/g, ".")
+        .replaceAll(/^\.|\.$/g, "")}`,
+      `Call operations documented by LinkedIn's ${source.name} collection`,
+    ] as const,
+);
+const capabilities: readonly (readonly [string, string])[] = [
+  ...curatedCapabilities,
+  ...collectionCapabilities,
+];
 
 function endpoint(
   operationId: string,
   method: EndpointIr["method"],
   path: string,
-  capability: (typeof capabilities)[number][0],
+  capability: string,
   parameters: readonly Parameter[],
   output: TypeRefIr = jsonType,
   options: Partial<
@@ -249,13 +270,69 @@ const endpoints: EndpointIr[] = [
   ),
 ];
 
+const generatedEndpoints = snapshot.operations.map((operation): EndpointIr => {
+  const capability = `api.${operation.collection
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, ".")
+    .replaceAll(/^\.|\.$/g, "")}`;
+  const resource = operation.collection
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-|-$/g, "");
+  const effect =
+    operation.method === "GET"
+      ? "read"
+      : operation.method === "DELETE"
+        ? "delete"
+        : /(?:post|comment|content|creative|event)/i.test(operation.name)
+          ? "publish"
+          : "write";
+  return {
+    id: `linkedin.${operation.id}`,
+    operationId: `${resource}.${operation.id}`,
+    platform: "linkedin",
+    method: operation.method,
+    path: operation.url,
+    parameters: [
+      ...operation.variables.map((name) => parameter(name, "path")),
+      ...(operation.hasBody ? [body()] : []),
+    ],
+    output: jsonType,
+    errors: [
+      { status: 429, retryable: true },
+      { status: 500, retryable: true },
+      { status: 503, retryable: true },
+    ],
+    effect,
+    execution: effect === "read" ? "inline" : "durable",
+    idempotency:
+      operation.method === "GET" || operation.method === "PUT" || operation.method === "DELETE"
+        ? "safe"
+        : "unsafe",
+    requiredScopes: [],
+    capabilities: [capability],
+    rateLimitBucket: capability,
+    ...(operation.restliMethod
+      ? { staticHeaders: { "X-RestLi-Method": operation.restliMethod } }
+      : {}),
+    summary: operation.name,
+    ...(operation.description ? { description: operation.description } : {}),
+  };
+});
+
+endpoints.push(...generatedEndpoints);
+
 const ir: SdkIr = {
   platform: "linkedin",
   source: {
-    kind: "handwritten",
-    location: "src/{account,analytics,assets,comments,oauth,posts}.ts",
+    kind: "vendor-json",
+    location: "spec/linkedin-postman.snapshot.json",
+    revision: snapshot.generatedAt,
+    checksum: createHash("sha256")
+      .update(snapshot.sources.map((source) => source.sha256).join("\0"))
+      .digest("hex"),
   },
-  version: "202602",
+  version: snapshot.apiVersion,
   models: [],
   endpoints,
   capabilities: capabilities.map(([id, summary]) => ({
@@ -269,6 +346,15 @@ const ir: SdkIr = {
       ),
     ],
   })),
+  coverage: {
+    discoveredOperations: endpoints.length + snapshot.excludedOperations.length,
+    excludedOperations: snapshot.excludedOperations.map((operation) => ({
+      operationId: `${operation.collection}: ${operation.name}`,
+      reason: operation.reason,
+    })),
+    unresolvedSchemas: [],
+    protocols: ["json", "multipart", "raw", "restli"],
+  },
 };
 
 await writeEffectArtifacts({
@@ -276,3 +362,43 @@ await writeEffectArtifacts({
   docsOutputDir: new URL("../../../apps/docs/src/content/docs/reference", import.meta.url).pathname,
   ir,
 });
+
+await Bun.write(
+  new URL("../src/generated/effect/index.ts", import.meta.url),
+  `// This file is generated. Do not edit by hand.
+import { createEndpointClient, type AnyEndpointDescriptor, type EndpointClient, type EndpointClientConfig } from "@openpromo/sdk-runtime/effect";
+import { endpointDescriptors } from "./endpoints.ts";
+
+export { capabilities } from "./capabilities.ts";
+export * from "./endpoints.ts";
+export * from "./schemas.ts";
+
+export interface LinkedInEffectClientConfig extends EndpointClientConfig {
+  readonly accessToken?: string;
+  readonly apiVersion?: string;
+}
+
+export function createEffectClient(
+  config: LinkedInEffectClientConfig = {},
+): EndpointClient<typeof endpointDescriptors> {
+  const { accessToken, apiVersion = ${JSON.stringify(snapshot.apiVersion)}, ...runtime } = config;
+  return createEndpointClient(endpointDescriptors, {
+    ...runtime,
+    baseUrl: runtime.baseUrl ?? "https://api.linkedin.com/rest/",
+    headers: (descriptor) => ({
+      ...(accessToken ? { Authorization: \`Bearer \${accessToken}\` } : {}),
+      "LinkedIn-Version": apiVersion,
+      "X-Restli-Protocol-Version": "2.0.0",
+      ...resolveHeaders(runtime.headers, descriptor),
+    }),
+  });
+}
+
+function resolveHeaders(
+  headers: EndpointClientConfig["headers"],
+  descriptor: AnyEndpointDescriptor,
+): Readonly<Record<string, string>> {
+  return typeof headers === "function" ? headers(descriptor) : (headers ?? {});
+}
+`,
+);

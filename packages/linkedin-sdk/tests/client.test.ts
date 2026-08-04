@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { LinkedIn, LinkedInClient } from "../src/index.ts";
+import { LinkedIn, LinkedInClient, serializeRestliValue } from "../src/index.ts";
 
 function jsonResponse(body: unknown, init?: ResponseInit) {
   return new Response(JSON.stringify(body), {
@@ -139,6 +139,77 @@ test("captures JSON API errors", async () => {
   });
 
   await expect(client.request("/posts")).rejects.toThrow("bad request");
+});
+
+test("serializes nested Rest.li 2.0 query values deterministically", () => {
+  expect(
+    serializeRestliValue({
+      type: { values: ["BUSINESS"] },
+      status: { values: ["ACTIVE", "DRAFT"] },
+      test: false,
+    }),
+  ).toBe("(status:(values:List(ACTIVE,DRAFT)),test:false,type:(values:List(BUSINESS)))");
+});
+
+test("sets Rest.li method headers for batch operations", async () => {
+  let requestHeaders: Record<string, string> | undefined;
+  const client = new LinkedInClient({
+    accessToken: "token",
+    fetch: (async (_input: RequestInfo | URL, init?: RequestInit) => {
+      requestHeaders = init?.headers as Record<string, string>;
+      return jsonResponse({ elements: [] });
+    }) as unknown as typeof fetch,
+  });
+
+  await client.request("/dmpSegments/123/users", {
+    method: "POST",
+    restliMethod: "BATCH_CREATE",
+    body: { elements: [] },
+  });
+
+  expect(requestHeaders?.["X-RestLi-Method"]).toBe("BATCH_CREATE");
+});
+
+test("supports Rest.li query tunneling for long requests", async () => {
+  let call: { url: string; init?: RequestInit } | undefined;
+  const client = new LinkedInClient({
+    accessToken: "token",
+    fetch: (async (input: RequestInfo | URL, init?: RequestInit) => {
+      call = { url: String(input), init };
+      return jsonResponse({ elements: [] });
+    }) as unknown as typeof fetch,
+  });
+
+  await client.request("/adAnalytics", {
+    query: { q: "analytics", accounts: ["urn:li:sponsoredAccount:42"] },
+    queryTunneling: true,
+  });
+
+  expect(call?.url).toBe("https://api.linkedin.com/rest/adAnalytics");
+  expect(call?.init?.method).toBe("POST");
+  const headers = call?.init?.headers as Record<string, string> | undefined;
+  expect(headers?.["X-HTTP-Method-Override"]).toBe("GET");
+  expect(headers?.["Content-Type"]).toStartWith("multipart/mixed; boundary=");
+  expect(String(call?.init?.body)).toContain("q=analytics");
+  expect(String(call?.init?.body)).toContain("accounts=List%28urn%3Ali%3AsponsoredAccount%3A42%29");
+});
+
+test("automatically tunnels structured Rest.li queries", async () => {
+  let method: string | undefined;
+  const client = new LinkedInClient({
+    accessToken: "token",
+    fetch: (async (_input: RequestInfo | URL, init?: RequestInit) => {
+      method = init?.method;
+      return jsonResponse({ elements: [] });
+    }) as unknown as typeof fetch,
+  });
+
+  await client.request("/adAccounts", {
+    query: { q: "search", search: { status: { values: ["ACTIVE"] }, test: false } },
+    queryTunneling: "auto",
+  });
+
+  expect(method).toBe("POST");
 });
 
 test("builds organization share statistics queries for specific posts", async () => {

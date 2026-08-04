@@ -49,7 +49,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<PolicyViolationKey>` | No | No | — |
 | `create` | `create` | `AdGroupCriterion` | No | No | — |
 | `update` | `update` | `AdGroupCriterion` | No | No | — |
@@ -210,7 +210,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AdGroup` | No | No | — |
 | `update` | `update` | `AdGroup` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -323,7 +323,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `policy_validation_parameter` | `policy_validation_parameter` | `PolicyValidationParameter` | No | No | — |
 | `update` | `update` | `Ad` | No | No | — |
 
@@ -364,7 +364,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AdParameter` | No | No | — |
 | `update` | `update` | `AdParameter` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -426,7 +426,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `action_item_type` | `action_item_type` | `AdStrengthActionItemType` | No | No | — |
-| `add_asset_details` | `add_asset_details` | `unknown` | No | No | — |
+| `add_asset_details` | `add_asset_details` | `AddAssetDetails` | No | No | — |
 
 ## AdStrengthActionItemType
 
@@ -479,7 +479,7 @@ No fields are declared.
 | `text` | `text` | `string` | No | No | — |
 | `pinned_field` | `pinned_field` | `ServedAssetFieldType` | No | No | — |
 | `asset_performance_label` | `asset_performance_label` | `AssetPerformanceLabel` | No | No | — |
-| `policy_summary_info` | `policy_summary_info` | `unknown` | No | No | — |
+| `policy_summary_info` | `policy_summary_info` | `AdAssetPolicySummary` | No | No | — |
 
 ## AdType
 
@@ -499,9 +499,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `surface_targeting_settings` | `surface_targeting_settings` | `unknown` | No | No | — |
-| `target_frequency_settings` | `target_frequency_settings` | `unknown` | No | No | — |
-| `youtube_select_settings` | `youtube_select_settings` | `unknown` | No | No | — |
+| `surface_targeting_settings` | `surface_targeting_settings` | `SurfaceTargeting` | No | No | — |
+| `target_frequency_settings` | `target_frequency_settings` | `TargetFrequencySettings` | No | No | — |
+| `youtube_select_settings` | `youtube_select_settings` | `YouTubeSelectSettings` | No | No | — |
 
 ## AdvertisingChannelSubType
 
@@ -566,7 +566,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `asset` | `asset` | `string` | No | No | — |
-| `ad_video_asset_info` | `ad_video_asset_info` | `unknown` | No | No | — |
+| `ad_video_asset_info` | `ad_video_asset_info` | `AdVideoAssetInfo` | No | No | — |
 
 ## AdVideoAssetInfo
 
@@ -574,8 +574,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_video_asset_inventory_preferences` | `ad_video_asset_inventory_preferences` | `unknown` | No | No | — |
-| `ad_video_asset_feature_control` | `ad_video_asset_feature_control` | `unknown` | No | No | — |
+| `ad_video_asset_inventory_preferences` | `ad_video_asset_inventory_preferences` | `AdVideoAssetInventoryPreferences` | No | No | — |
+| `ad_video_asset_feature_control` | `ad_video_asset_feature_control` | `AdVideoAssetLinkFeatureControl` | No | No | — |
 
 ## AdVideoAssetInventoryPreferences
 
@@ -613,7 +613,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `age_ranges` | `age_ranges` | `Array<unknown>` | No | No | — |
+| `age_ranges` | `age_ranges` | `Array<AgeSegment>` | No | No | — |
 | `include_undetermined` | `include_undetermined` | `boolean` | No | No | — |
 
 ## AgeRangeInfo
@@ -686,7 +686,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `enable_ai_max` | `enable_ai_max` | `boolean` | No | No | — |
-| `bundling_required` | `bundling_required` | `unknown` | No | No | — |
+| `bundling_required` | `bundling_required` | `AiMaxBundlingRequired` | No | No | — |
 
 ## AndroidPrivacyInteractionType
 
@@ -757,13 +757,13 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `mandatory_ad_text` | `mandatory_ad_text` | `unknown` | No | No | — |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `images` | `images` | `Array<unknown>` | No | No | — |
-| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
-| `html5_media_bundles` | `html5_media_bundles` | `Array<unknown>` | No | No | — |
-| `app_deep_link` | `app_deep_link` | `unknown` | No | No | — |
+| `mandatory_ad_text` | `mandatory_ad_text` | `AdTextAsset` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `images` | `images` | `Array<AdImageAsset>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<AdVideoAsset>` | No | No | — |
+| `html5_media_bundles` | `html5_media_bundles` | `Array<AdMediaBundleAsset>` | No | No | — |
+| `app_deep_link` | `app_deep_link` | `AdAppDeepLinkAsset` | No | No | — |
 
 ## AppBiddingGoal
 

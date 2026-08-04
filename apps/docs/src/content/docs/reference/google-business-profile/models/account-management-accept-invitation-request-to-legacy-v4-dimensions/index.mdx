@@ -1,0 +1,1244 @@
+---
+title: "Google Business Profile models: Account Management Accept Invitation Request – Legacy V4 Dimensions"
+description: "100 generated Google Business Profile model contracts, from AccountManagementAcceptInvitationRequest through LegacyV4Dimensions."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 1000
+  label: "Account Management Accept Invitation Request – Legacy V4 Dimensions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## AccountManagementAcceptInvitationRequest
+
+`object` model on the `json` wire format.
+
+Request message for AccessControl.AcceptInvitation.
+
+No fields are declared.
+
+## AccountManagementAccount
+
+`object` model on the `json` wire format.
+
+An account is a container for your location. If you are the only user who manages locations for your business, you can use your personal Google Account. To share management of locations with multiple users, [create a business account] (https://support.google.com/business/answer/6085339?ref_topic=6085325).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountName` | `accountName` | `string` | No | No | Required. The name of the account. For an account of type `PERSONAL`, this is the first and last name of the user account. |
+| `accountNumber` | `accountNumber` | `string` | No | No | Output only. Account reference number if provisioned. |
+| `name` | `name` | `string` | No | No | Immutable. The resource name, in the format `accounts/&#123;account_id&#125;`. |
+| `organizationInfo` | `organizationInfo` | `AccountManagementOrganizationInfo` | No | No | Output only. Additional info for an organization. This is populated only for an organization account. |
+| `permissionLevel` | `permissionLevel` | `"PERMISSION_LEVEL_UNSPECIFIED" \| "OWNER_LEVEL" \| "MEMBER_LEVEL"` | No | No | Output only. Specifies the permission level the user has for this account. |
+| `primaryOwner` | `primaryOwner` | `string` | No | No | Required. Input only. The resource name of the account which will be the primary owner of the account being created. It should be of the form `accounts/&#123;account_id&#125;`. |
+| `role` | `role` | `"ACCOUNT_ROLE_UNSPECIFIED" \| "PRIMARY_OWNER" \| "OWNER" \| "MANAGER" \| "SITE_MANAGER"` | No | No | Output only. Specifies the AccountRole of this account. |
+| `type` | `type` | `"ACCOUNT_TYPE_UNSPECIFIED" \| "PERSONAL" \| "LOCATION_GROUP" \| "USER_GROUP" \| "ORGANIZATION"` | No | No | Required. Contains the type of account. Accounts of type PERSONAL and ORGANIZATION cannot be created using this API. |
+| `verificationState` | `verificationState` | `"VERIFICATION_STATE_UNSPECIFIED" \| "VERIFIED" \| "UNVERIFIED" \| "VERIFICATION_REQUESTED"` | No | No | Output only. If verified, future locations that are created are automatically connected to Google Maps, and have Google+ pages created, without requiring moderation. |
+| `vettedState` | `vettedState` | `"VETTED_STATE_UNSPECIFIED" \| "NOT_VETTED" \| "VETTED" \| "INVALID"` | No | No | Output only. Indicates whether the account is vetted by Google. A vetted account is able to verify locations via the VETTED_PARTNER method. |
+
+## AccountManagementAdmin
+
+`object` model on the `json` wire format.
+
+An administrator of an Account or a location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `string` | No | No | Immutable. The name of the Account resource that this Admin refers to. Used when calling locations.admins.create to invite a LocationGroup as an admin. If both this field and `admin` are set on `CREATE` requests, this field takes precedence and the email address in `admin` will be ignored. Format: `accounts/&#123;account&#125;`. |
+| `admin` | `admin` | `string` | No | No | Optional. The name of the admin. When making the initial invitation, this is the invitee's email address. On `GET` calls, the user's email address is returned if the invitation is still pending. Otherwise, it contains the user's first and last names. This field is only needed to be set during admin creation. |
+| `name` | `name` | `string` | No | No | Immutable. The resource name. For account admins, this is in the form: `accounts/&#123;account_id&#125;/admins/&#123;admin_id&#125;` For location admins, this is in the form: `locations/&#123;location_id&#125;/admins/&#123;admin_id&#125;` This field will be ignored if set during admin creation. |
+| `pendingInvitation` | `pendingInvitation` | `boolean` | No | No | Output only. Indicates whether this admin has a pending invitation for the specified resource. |
+| `role` | `role` | `"ADMIN_ROLE_UNSPECIFIED" \| "PRIMARY_OWNER" \| "OWNER" \| "MANAGER" \| "SITE_MANAGER"` | No | No | Required. Specifies the role that this admin uses with the specified Account or Location. |
+
+## AccountManagementDeclineInvitationRequest
+
+`object` model on the `json` wire format.
+
+Request message for AccessControl.DeclineInvitation.
+
+No fields are declared.
+
+## AccountManagementEmpty
+
+`object` model on the `json` wire format.
+
+A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo &#123; rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); &#125;
+
+No fields are declared.
+
+## AccountManagementInvitation
+
+`object` model on the `json` wire format.
+
+Represents a pending invitation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | Required. The resource name for the invitation. `accounts/&#123;account_id&#125;/invitations/&#123;invitation_id&#125;`. |
+| `role` | `role` | `"ADMIN_ROLE_UNSPECIFIED" \| "PRIMARY_OWNER" \| "OWNER" \| "MANAGER" \| "SITE_MANAGER"` | No | No | Output only. The invited role on the account. |
+| `targetAccount` | `targetAccount` | `AccountManagementAccount` | No | No | The sparsely populated account this invitation is for. |
+| `targetLocation` | `targetLocation` | `AccountManagementTargetLocation` | No | No | The target location this invitation is for. |
+| `targetType` | `targetType` | `"TARGET_TYPE_UNSPECIFIED" \| "ACCOUNTS_ONLY" \| "LOCATIONS_ONLY"` | No | No | Output only. Specifies which target types should appear in the response. |
+
+## AccountManagementListAccountAdminsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListAccountAdmins.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountAdmins` | `accountAdmins` | `Array<AccountManagementAdmin>` | No | No | A collection of Admin instances. |
+
+## AccountManagementListAccountsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Accounts.ListAccounts.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accounts` | `accounts` | `Array<AccountManagementAccount>` | No | No | A collection of accounts to which the user has access. The personal account of the user doing the query will always be the first item of the result, unless it is filtered out. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of accounts exceeds the requested page size, this field is populated with a token to fetch the next page of accounts on a subsequent call to `accounts.list`. If there are no more accounts, this field is not present in the response. |
+
+## AccountManagementListInvitationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListInvitations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invitations` | `invitations` | `Array<AccountManagementInvitation>` | No | No | A collection of invitations that are pending for the account. The number of invitations listed here cannot exceed 1000. |
+
+## AccountManagementListLocationAdminsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListLocationAdmins.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `admins` | `admins` | `Array<AccountManagementAdmin>` | No | No | A collection of Admins. |
+
+## AccountManagementOrganizationInfo
+
+`object` model on the `json` wire format.
+
+Additional information stored for an organization.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `AccountManagementPostalAddress` | No | No | Output only. The postal address for the account. |
+| `phoneNumber` | `phoneNumber` | `string` | No | No | Output only. The contact number for the organization. |
+| `registeredDomain` | `registeredDomain` | `string` | No | No | Output only. The registered domain for the account. |
+
+## AccountManagementPostalAddress
+
+`object` model on the `json` wire format.
+
+Represents a postal address, such as for postal delivery or payments addresses. With a postal address, a postal service can deliver items to a premise, P.O. box, or similar. A postal address is not intended to model geographical locations like roads, towns, or mountains. In typical usage, an address would be created by user input or from importing existing data, depending on the type of process. Advice on address input or editing: - Use an internationalization-ready address widget such as https://github.com/google/libaddressinput. - Users should not be presented with UI elements for input or editing of fields outside countries where that field is used. For more guidance on how to use this schema, see: https://support.google.com/business/answer/6397478.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addressLines` | `addressLines` | `Array<string>` | No | No | Unstructured address lines describing the lower levels of an address. Because values in `address_lines` do not have type information and may sometimes contain multiple values in a single field (for example, "Austin, TX"), it is important that the line order is clear. The order of address lines should be "envelope order" for the country or region of the address. In places where this can vary (for example, Japan), `address_language` is used to make it explicit (for example, "ja" for large-to-small ordering and "ja-Latn" or "en" for small-to-large). In this way, the most specific line of an address can be selected based on the language. The minimum permitted structural representation of an address consists of a `region_code` with all remaining information placed in the `address_lines`. It would be possible to format such an address very approximately without geocoding, but no semantic reasoning could be made about any of the address components until it was at least partially resolved. Creating an address only containing a `region_code` and `address_lines` and then geocoding is the recommended way to handle completely unstructured addresses (as opposed to guessing which parts of the address should be localities or administrative areas). |
+| `administrativeArea` | `administrativeArea` | `string` | No | No | Optional. Highest administrative subdivision which is used for postal addresses of a country or region. For example, this can be a state, a province, an oblast, or a prefecture. For Spain, this is the province and not the autonomous community (for example, "Barcelona" and not "Catalonia"). Many countries don't use an administrative area in postal addresses. For example, in Switzerland, this should be left unpopulated. |
+| `languageCode` | `languageCode` | `string` | No | No | Optional. BCP-47 language code of the contents of this address (if known). This is often the UI language of the input form or is expected to match one of the languages used in the address' country/region, or their transliterated equivalents. This can affect formatting in certain countries, but is not critical to the correctness of the data and will never affect any validation or other non-formatting related operations. If this value is not known, it should be omitted (rather than specifying a possibly incorrect default). Examples: "zh-Hant", "ja", "ja-Latn", "en". |
+| `locality` | `locality` | `string` | No | No | Optional. Generally refers to the city or town portion of the address. Examples: US city, IT comune, UK post town. In regions of the world where localities are not well defined or do not fit into this structure well, leave `locality` empty and use `address_lines`. |
+| `organization` | `organization` | `string` | No | No | Optional. The name of the organization at the address. |
+| `postalCode` | `postalCode` | `string` | No | No | Optional. Postal code of the address. Not all countries use or require postal codes to be present, but where they are used, they may trigger additional validation with other parts of the address (for example, state or zip code validation in the United States). |
+| `recipients` | `recipients` | `Array<string>` | No | No | Optional. The recipient at the address. This field may, under certain circumstances, contain multiline information. For example, it might contain "care of" information. |
+| `regionCode` | `regionCode` | `string` | No | No | Required. CLDR region code of the country/region of the address. This is never inferred and it is up to the user to ensure the value is correct. See https://cldr.unicode.org/ and https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland. |
+| `revision` | `revision` | `integer` | No | No | The schema revision of the `PostalAddress`. This must be set to 0, which is the latest revision. All new revisions **must** be backward compatible with old revisions. |
+| `sortingCode` | `sortingCode` | `string` | No | No | Optional. Additional, country-specific, sorting code. This is not used in most regions. Where it is used, the value is either a string like "CEDEX", optionally followed by a number (for example, "CEDEX 7"), or just a number alone, representing the "sector code" (Jamaica), "delivery area indicator" (Malawi) or "post office indicator" (Côte d'Ivoire). |
+| `sublocality` | `sublocality` | `string` | No | No | Optional. Sublocality of the address. For example, this can be a neighborhood, borough, or district. |
+
+## AccountManagementTargetLocation
+
+`object` model on the `json` wire format.
+
+Represents a target location for a pending invitation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `string` | No | No | The address of the location to which the user is invited. Not always populated. |
+| `locationName` | `locationName` | `string` | No | No | The name of the location to which the user is invited. |
+| `placeId` | `placeId` | `string` | No | No | Output only. The Place ID of the location to which the user is invited. Not always populated. |
+
+## AccountManagementTransferLocationRequest
+
+`object` model on the `json` wire format.
+
+Request message for AccessControl.TransferLocation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destinationAccount` | `destinationAccount` | `string` | No | No | Required. Name of the account resource to transfer the location to (for example, "accounts/&#123;account&#125;"). |
+
+## BusinessInformationAdWordsLocationExtensions
+
+`object` model on the `json` wire format.
+
+Additional information that is surfaced in AdWords.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adPhone` | `adPhone` | `string` | No | No | Required. An alternate phone number to display on AdWords location extensions instead of the location's primary phone number. |
+
+## BusinessInformationAttribute
+
+`object` model on the `json` wire format.
+
+A location attribute. Attributes provide additional information about a location. The attributes that can be set on a location may vary based on the properties of that location (for example, category). Available attributes are determined by Google and may be added and removed without API changes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | Required. The resource name for this attribute. |
+| `repeatedEnumValue` | `repeatedEnumValue` | `BusinessInformationRepeatedEnumAttributeValue` | No | No | When the attribute value type is REPEATED_ENUM, this contains the attribute value, and the other values fields must be empty. |
+| `uriValues` | `uriValues` | `Array<BusinessInformationUriAttributeValue>` | No | No | When the attribute value type is URL, this field contains the value(s) for this attribute, and the other values fields must be empty. |
+| `values` | `values` | `Array<unknown>` | No | No | The values for this attribute. The type of the values supplied must match that expected for that attribute. This is a repeated field where multiple attribute values may be provided. Attribute types only support one value. |
+| `valueType` | `valueType` | `"ATTRIBUTE_VALUE_TYPE_UNSPECIFIED" \| "BOOL" \| "ENUM" \| "URL" \| "REPEATED_ENUM"` | No | No | Output only. The type of value that this attribute contains. This should be used to determine how to interpret the value. |
+
+## BusinessInformationAttributeMetadata
+
+`object` model on the `json` wire format.
+
+Metadata for an attribute. Contains display information for the attribute, including a localized name and a heading for grouping related attributes together.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deprecated` | `deprecated` | `boolean` | No | No | If true, the attribute is deprecated and should no longer be used. If deprecated, updating this attribute will not result in an error, but updates will not be saved. At some point after being deprecated, the attribute will be removed entirely and it will become an error. |
+| `displayName` | `displayName` | `string` | No | No | The localized display name for the attribute, if available; otherwise, the English display name. |
+| `groupDisplayName` | `groupDisplayName` | `string` | No | No | The localized display name of the group that contains this attribute, if available; otherwise, the English group name. Related attributes are collected into a group and should be displayed together under the heading given here. |
+| `parent` | `parent` | `string` | No | No | The unique identifier for the attribute. |
+| `repeatable` | `repeatable` | `boolean` | No | No | If true, the attribute supports multiple values. If false, only a single value should be provided. |
+| `valueMetadata` | `valueMetadata` | `Array<BusinessInformationAttributeValueMetadata>` | No | No | For some types of attributes (for example, enums), a list of supported values and corresponding display names for those values is provided. |
+| `valueType` | `valueType` | `"ATTRIBUTE_VALUE_TYPE_UNSPECIFIED" \| "BOOL" \| "ENUM" \| "URL" \| "REPEATED_ENUM"` | No | No | The value type for the attribute. Values set and retrieved should be expected to be of this type. |
+
+## BusinessInformationAttributes
+
+`object` model on the `json` wire format.
+
+A container for all the attributes for a given location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Array<BusinessInformationAttribute>` | No | No | A collection of attributes that need to be updated. |
+| `name` | `name` | `string` | No | No | Required. Google identifier for this location in the form of `locations/&#123;location_id&#125;/attributes`. |
+
+## BusinessInformationAttributeValueMetadata
+
+`object` model on the `json` wire format.
+
+Metadata for supported attribute values.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The display name for this value, localized where available; otherwise, in English. The value display name is intended to be used in context with the attribute display name. For example, for a "WiFi" enum attribute, this could contain "Paid" to represent paid Wi-Fi. |
+| `value` | `value` | `unknown` | No | No | The attribute value. |
+
+## BusinessInformationBatchGetCategoriesResponse
+
+`object` model on the `json` wire format.
+
+Response message for BusinessCategories.BatchGetBusinessCategories.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<BusinessInformationCategory>` | No | No | Categories that match the GConcept ids provided in the request. They will not come in the same order as category ids in the request. |
+
+## BusinessInformationBusinessHours
+
+`object` model on the `json` wire format.
+
+Represents the time periods that this location is open for business. Holds a collection of TimePeriod instances.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `periods` | `periods` | `Array<BusinessInformationTimePeriod>` | No | No | Required. A collection of times that this location is open for business. Each period represents a range of hours when the location is open during the week. |
+
+## BusinessInformationCategories
+
+`object` model on the `json` wire format.
+
+A collection of categories that describes the business. During updates, both fields must be set. Clients are prohibited from individually updating the primary or additional categories using the update mask.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additionalCategories` | `additionalCategories` | `Array<BusinessInformationCategory>` | No | No | Optional. Additional categories to describe your business. Categories help your customers find accurate, specific results for services they're interested in. To keep your business information accurate and live, make sure that you use as few categories as possible to describe your overall core business. Choose categories that are as specific as possible, but representative of your main business. |
+| `primaryCategory` | `primaryCategory` | `BusinessInformationCategory` | No | No | Required. Category that best describes the core business this location engages in. |
+
+## BusinessInformationCategory
+
+`object` model on the `json` wire format.
+
+A category describing what this business is (not what it does). For a list of valid category IDs, and the mappings to their human-readable names, see `categories.list`.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Output only. The human-readable name of the category. This is set when reading the location. When modifying the location, `category_id` must be set. |
+| `moreHoursTypes` | `moreHoursTypes` | `Array<BusinessInformationMoreHoursType>` | No | No | Output only. More hours types that are available for this business category. |
+| `name` | `name` | `string` | No | No | Required. A stable ID (provided by Google) for this category. The value must be specified when modifying the category (when creating or updating a location). |
+| `serviceTypes` | `serviceTypes` | `Array<BusinessInformationServiceType>` | No | No | Output only. A list of all the service types that are available for this business category. |
+
+## BusinessInformationChain
+
+`object` model on the `json` wire format.
+
+A chain is a brand that your business's locations can be affiliated with.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chainNames` | `chainNames` | `Array<BusinessInformationChainName>` | No | No | Names of the chain. |
+| `locationCount` | `locationCount` | `integer` | No | No | Number of locations that are part of this chain. |
+| `name` | `name` | `string` | No | No | Required. The chain's resource name, in the format `chains/&#123;chain_id&#125;`. |
+| `websites` | `websites` | `Array<BusinessInformationChainUri>` | No | No | Websites of the chain. |
+
+## BusinessInformationChainName
+
+`object` model on the `json` wire format.
+
+Name to be used when displaying the chain.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The display name for this chain. |
+| `languageCode` | `languageCode` | `string` | No | No | The BCP 47 code of language of the name. |
+
+## BusinessInformationChainUri
+
+`object` model on the `json` wire format.
+
+Url to be used when displaying the chain.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | The uri for this chain. |
+
+## BusinessInformationDate
+
+`object` model on the `json` wire format.
+
+Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `day` | `day` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `month` | `month` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `year` | `year` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+
+## BusinessInformationEmpty
+
+`object` model on the `json` wire format.
+
+A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo &#123; rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); &#125;
+
+No fields are declared.
+
+## BusinessInformationFreeFormServiceItem
+
+`object` model on the `json` wire format.
+
+Represents a free-form service offered by the merchant. These are services that are not exposed as part of our structure service data. The merchant manually enters the names for such services using a geomerchant surface.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `string` | No | No | Required. This field represents the category name (i.e. the category's stable ID). The `category` and `service_type_id` should match the possible combinations provided in the `Category` message. |
+| `label` | `label` | `BusinessInformationLabel` | No | No | Required. Language-tagged labels for the item. We recommend that item names be 140 characters or less, and descriptions 250 characters or less. This field should only be set if the input is a custom service item. Standardized service types should be updated using service_type_id. |
+
+## BusinessInformationGoogleLocation
+
+`object` model on the `json` wire format.
+
+Represents a Location that is present on Google. This can be a location that has been claimed by the user, someone else, or could be unclaimed.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `BusinessInformationLocation` | No | No | The sparsely populated Location information. This field can be re-used in CreateLocation if it is not currently claimed by a user. |
+| `name` | `name` | `string` | No | No | Resource name of this GoogleLocation, in the format `googleLocations/&#123;googleLocationId&#125;`. |
+| `requestAdminRightsUri` | `requestAdminRightsUri` | `string` | No | No | A URL that will redirect the user to the request admin rights UI. This field is only present if the location has already been claimed by any user, including the current user. |
+
+## BusinessInformationGoogleUpdatedLocation
+
+`object` model on the `json` wire format.
+
+Represents the view of a location as it appears to consumers, which includes updates that are currently serving on Google Maps and Search.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diffMask` | `diffMask` | `string` | No | No | The fields where the values in the view as it appears to consumers are different than the merchant's information. To accept these changes, patch the location. To reject, patch with your preferred values. |
+| `location` | `location` | `BusinessInformationLocation` | No | No | The Google-updated version of this location. |
+| `pendingMask` | `pendingMask` | `string` | No | No | The fields where the merchant has provided an update that is currently in flight and hasn't yet been published to Maps and Search. This mask only tracks the status of the merchant's own edits, not external changes. |
+
+## BusinessInformationLabel
+
+`object` model on the `json` wire format.
+
+Label to be used when displaying the price list, section, or item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Optional. Description of the price list, section, or item. |
+| `displayName` | `displayName` | `string` | No | No | Required. Display name for the price list, section, or item. |
+| `languageCode` | `languageCode` | `string` | No | No | Optional. The BCP-47 language code that these strings apply for. Only one set of labels may be set per language. |
+
+## BusinessInformationLatLng
+
+`object` model on the `json` wire format.
+
+An object that represents a latitude/longitude pair. This is expressed as a pair of doubles to represent degrees latitude and degrees longitude. Unless specified otherwise, this object must conform to the WGS84 standard. Values must be within normalized ranges.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `latitude` | `latitude` | `number` | No | No | The latitude in degrees. It must be in the range [-90.0, +90.0]. |
+| `longitude` | `longitude` | `number` | No | No | The longitude in degrees. It must be in the range [-180.0, +180.0]. |
+
+## BusinessInformationListAttributeMetadataResponse
+
+`object` model on the `json` wire format.
+
+Response for AttributesService.ListAttributeMetadata.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeMetadata` | `attributeMetadata` | `Array<BusinessInformationAttributeMetadata>` | No | No | A collection of attribute metadata for the available attributes. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of attributes exceeded the requested page size, this field will be populated with a token to fetch the next page of attributes on a subsequent call to `attributes.list`. If there are no more attributes, this field will not be present in the response. |
+
+## BusinessInformationListCategoriesResponse
+
+`object` model on the `json` wire format.
+
+Response message for BusinessCategories.ListCategories.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<BusinessInformationCategory>` | No | No | The matching categories based on the requested parameters. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of categories exceeded the requested page size, this field will be populated with a token to fetch the next page of categories on a subsequent call to `ListCategories`. |
+
+## BusinessInformationListLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.ListLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locations` | `locations` | `Array<BusinessInformationLocation>` | No | No | The locations. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of locations exceeded the requested page size, this field is populated with a token to fetch the next page of locations on a subsequent call to `ListLocations`. If there are no more locations, this field is not present in the response. |
+| `totalSize` | `totalSize` | `integer` | No | No | The approximate number of Locations in the list irrespective of pagination. This field will only be returned if `filter` is used as a query parameter. |
+
+## BusinessInformationLocation
+
+`object` model on the `json` wire format.
+
+A location. See the [help center article] (https://support.google.com/business/answer/3038177) for a detailed description of these fields, or the category endpoint for a list of valid business categories.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adWordsLocationExtensions` | `adWordsLocationExtensions` | `BusinessInformationAdWordsLocationExtensions` | No | No | Optional. Additional information that is surfaced in AdWords. |
+| `categories` | `categories` | `BusinessInformationCategories` | No | No | Optional. The different categories that describe the business. |
+| `labels` | `labels` | `Array<string>` | No | No | Optional. A collection of free-form strings to allow you to tag your business. These labels are NOT user facing; only you can see them. Must be between 1-255 characters per label. |
+| `languageCode` | `languageCode` | `string` | No | No | Immutable. The language of the location. Set during creation and not updateable. |
+| `latlng` | `latlng` | `BusinessInformationLatLng` | No | No | Optional. User-provided latitude and longitude. When creating a location, this field is ignored if the provided address geocodes successfully. This field is only returned on get requests if the user-provided `latlng` value was accepted during create, or the `latlng` value was updated through the Google Business Profile website. This field can only be updated by approved clients. |
+| `metadata` | `metadata` | `BusinessInformationMetadata` | No | No | Output only. Additional non-user-editable information. |
+| `moreHours` | `moreHours` | `Array<BusinessInformationMoreHours>` | No | No | Optional. More hours for a business's different departments or specific customers. |
+| `name` | `name` | `string` | No | No | Google identifier for this location in the form: `locations/&#123;location_id&#125;`. |
+| `openInfo` | `openInfo` | `BusinessInformationOpenInfo` | No | No | Optional. A flag that indicates whether the location is currently open for business. |
+| `phoneNumbers` | `phoneNumbers` | `BusinessInformationPhoneNumbers` | No | No | Optional. The different phone numbers that customers can use to get in touch with the business. |
+| `profile` | `profile` | `BusinessInformationProfile` | No | No | Optional. Describes your business in your own voice and shares with users the unique story of your business and offerings. This field is required for all categories except lodging categories (e.g., hotels, motels, inns). |
+| `regularHours` | `regularHours` | `BusinessInformationBusinessHours` | No | No | Optional. Operating hours for the business. |
+| `relationshipData` | `relationshipData` | `BusinessInformationRelationshipData` | No | No | Optional. All locations and chain related to this one. |
+| `serviceArea` | `serviceArea` | `BusinessInformationServiceAreaBusiness` | No | No | Optional. Service area businesses provide their service at the customer's location. If this business is a service area business, this field describes the area(s) serviced by the business. |
+| `serviceItems` | `serviceItems` | `Array<BusinessInformationServiceItem>` | No | No | Optional. List of services supported by merchants. A service can be haircut, install water heater, etc. Duplicated service items will be removed automatically. |
+| `specialHours` | `specialHours` | `BusinessInformationSpecialHours` | No | No | Optional. Special hours for the business. This typically includes holiday hours, and other times outside of regular operating hours. These override regular business hours. This field cannot be set without regular hours. |
+| `storeCode` | `storeCode` | `string` | No | No | Optional. External identifier for this location, which must be unique within a given account. This is a means of associating the location with your own records. |
+| `storefrontAddress` | `storefrontAddress` | `BusinessInformationPostalAddress` | No | No | Optional. A precise, accurate address to describe your business location. PO boxes or mailboxes located at remote locations are not acceptable. At this time, you can specify a maximum of five `address_lines` values in the address. This field should only be set for businesses that have a storefront. This field should not be set for locations of type `CUSTOMER_LOCATION_ONLY` but if set, any value provided will be discarded. |
+| `title` | `title` | `string` | No | No | Required. Location name should reflect your business's real-world name, as used consistently on your storefront, website, and stationery, and as known to customers. Any additional information, when relevant, can be included in other fields of the resource (for example, `Address`, `Categories`). Don't add unnecessary information to your name (for example, prefer "Google" over "Google Inc. - Mountain View Corporate Headquarters"). Don't include marketing taglines, store codes, special characters, hours or closed/open status, phone numbers, website URLs, service/product information, location/address or directions, or containment information (for example, "Chase ATM in Duane Reade"). |
+| `websiteUri` | `websiteUri` | `string` | No | No | Optional. A URL for this business. If possible, use a URL that represents this individual business location instead of a generic website/URL that represents all locations, or the brand. |
+
+## BusinessInformationMetadata
+
+`object` model on the `json` wire format.
+
+Additional non-user-editable information about the location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canDelete` | `canDelete` | `boolean` | No | No | Output only. Indicates whether the location can be deleted using the API. |
+| `canHaveBusinessCalls` | `canHaveBusinessCalls` | `boolean` | No | No | Output only. Indicates if the listing is eligible for business calls. |
+| `canHaveFoodMenus` | `canHaveFoodMenus` | `boolean` | No | No | Output only. Indicates if the listing is eligible for food menu. |
+| `canModifyServiceList` | `canModifyServiceList` | `boolean` | No | No | Output only. Indicates if the listing can modify the service list. |
+| `canOperateHealthData` | `canOperateHealthData` | `boolean` | No | No | Output only. Indicates whether the location can operate on Health data. |
+| `canOperateLocalPost` | `canOperateLocalPost` | `boolean` | No | No | Output only. Indicates if the listing can manage local posts. Deprecated: This field is no longer populated and will be removed in a future version. |
+| `canOperateLodgingData` | `canOperateLodgingData` | `boolean` | No | No | Output only. Indicates whether the location can operate on Lodging data. |
+| `duplicateLocation` | `duplicateLocation` | `string` | No | No | Output only. The location resource that this location duplicates. |
+| `hasGoogleUpdated` | `hasGoogleUpdated` | `boolean` | No | No | Output only. Indicates whether the place ID associated with this location has updates that need to be updated or rejected by the client. If this boolean is set, you should call the `getGoogleUpdated` method to look up information that's needs to be verified. |
+| `hasPendingEdits` | `hasPendingEdits` | `boolean` | No | No | Output only. Indicates whether any of this Location's properties are in the edit pending state. |
+| `hasVoiceOfMerchant` | `hasVoiceOfMerchant` | `boolean` | No | No | Output only. Indicates if the listing has Voice of Merchant. If this boolean is false, you should call the locations.getVoiceOfMerchantState API to get details as to why they do not have Voice of Merchant. |
+| `isParticularlyPersonalPlace` | `isParticularlyPersonalPlace` | `boolean` | No | No | Output only. |
+| `mapsUri` | `mapsUri` | `string` | No | No | Output only. A link to the location on Maps. |
+| `newReviewUri` | `newReviewUri` | `string` | No | No | Output only. A link to the page on Google Search where a customer can leave a review for the location. |
+| `placeId` | `placeId` | `string` | No | No | Output only. If this locationappears on Google Maps, this field is populated with the place ID for the location. This ID can be used in various Places APIs. This field can be set during Create calls, but not for Update. |
+
+## BusinessInformationMoney
+
+`object` model on the `json` wire format.
+
+Represents an amount of money with its currency type.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currencyCode` | `currencyCode` | `string` | No | No | The three-letter currency code defined in ISO 4217. |
+| `nanos` | `nanos` | `integer` | No | No | Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000. |
+| `units` | `units` | `string` | No | No | The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. |
+
+## BusinessInformationMoreHours
+
+`object` model on the `json` wire format.
+
+The time periods during which a location is open for certain types of business.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hoursTypeId` | `hoursTypeId` | `string` | No | No | Required. Type of hours. Clients should call &#123;#link businessCategories:BatchGet&#125; to get supported hours types for categories of their locations. |
+| `periods` | `periods` | `Array<BusinessInformationTimePeriod>` | No | No | Required. A collection of times that this location is open. Each period represents a range of hours when the location is open during the week. |
+
+## BusinessInformationMoreHoursType
+
+`object` model on the `json` wire format.
+
+More hours types that a business can offers, in addition to its regular hours.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Output only. The human-readable English display name for the hours type. |
+| `hoursTypeId` | `hoursTypeId` | `string` | No | No | Output only. A stable ID provided by Google for this hours type. |
+| `localizedDisplayName` | `localizedDisplayName` | `string` | No | No | Output only. The human-readable localized display name for the hours type. |
+
+## BusinessInformationOpenInfo
+
+`object` model on the `json` wire format.
+
+Information related to the opening state of the business.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canReopen` | `canReopen` | `boolean` | No | No | Output only. Indicates whether this business is eligible for re-open. |
+| `openingDate` | `openingDate` | `BusinessInformationDate` | No | No | Optional. The date on which the location first opened. If the exact day is not known, month and year only can be provided. The date must be in the past or be no more than one year in the future. |
+| `status` | `status` | `"OPEN_FOR_BUSINESS_UNSPECIFIED" \| "OPEN" \| "CLOSED_PERMANENTLY" \| "CLOSED_TEMPORARILY"` | No | No | Required. Indicates whether or not the Location is currently open for business. All locations are open by default, unless updated to be closed. |
+
+## BusinessInformationPhoneNumbers
+
+`object` model on the `json` wire format.
+
+A collection of phone numbers for the business. During updates, both fields must be set. Clients may not update just the primary or additional phone numbers using the update mask. International phone format is preferred, such as "+1 415 555 0132", see more in (https://developers.google.com/style/phone-numbers#international-phone-numbers).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additionalPhones` | `additionalPhones` | `Array<string>` | No | No | Optional. Up to two phone numbers (mobile or landline, no fax) at which your business can be called, in addition to your primary phone number. |
+| `primaryPhone` | `primaryPhone` | `string` | No | No | Required. A phone number that connects to your individual business location as directly as possible. Use a local phone number instead of a central, call center helpline number whenever possible. |
+
+## BusinessInformationPlaceInfo
+
+`object` model on the `json` wire format.
+
+Defines an area that's represented by a place ID.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placeId` | `placeId` | `string` | No | No | Required. The ID of the place. Must correspond to a region. (https://developers.google.com/places/web-service/supported_types#table3) |
+| `placeName` | `placeName` | `string` | No | No | Required. The localized name of the place. For example, `Scottsdale, AZ`. |
+
+## BusinessInformationPlaces
+
+`object` model on the `json` wire format.
+
+Defines the union of areas represented by a set of places.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placeInfos` | `placeInfos` | `Array<BusinessInformationPlaceInfo>` | No | No | The areas represented by place IDs. Limited to a maximum of 20 places. |
+
+## BusinessInformationPostalAddress
+
+`object` model on the `json` wire format.
+
+Represents a postal address, such as for postal delivery or payments addresses. With a postal address, a postal service can deliver items to a premise, P.O. box, or similar. A postal address is not intended to model geographical locations like roads, towns, or mountains. In typical usage, an address would be created by user input or from importing existing data, depending on the type of process. Advice on address input or editing: - Use an internationalization-ready address widget such as https://github.com/google/libaddressinput. - Users should not be presented with UI elements for input or editing of fields outside countries where that field is used. For more guidance on how to use this schema, see: https://support.google.com/business/answer/6397478.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addressLines` | `addressLines` | `Array<string>` | No | No | Unstructured address lines describing the lower levels of an address. Because values in `address_lines` do not have type information and may sometimes contain multiple values in a single field (for example, "Austin, TX"), it is important that the line order is clear. The order of address lines should be "envelope order" for the country or region of the address. In places where this can vary (for example, Japan), `address_language` is used to make it explicit (for example, "ja" for large-to-small ordering and "ja-Latn" or "en" for small-to-large). In this way, the most specific line of an address can be selected based on the language. The minimum permitted structural representation of an address consists of a `region_code` with all remaining information placed in the `address_lines`. It would be possible to format such an address very approximately without geocoding, but no semantic reasoning could be made about any of the address components until it was at least partially resolved. Creating an address only containing a `region_code` and `address_lines` and then geocoding is the recommended way to handle completely unstructured addresses (as opposed to guessing which parts of the address should be localities or administrative areas). |
+| `administrativeArea` | `administrativeArea` | `string` | No | No | Optional. Highest administrative subdivision which is used for postal addresses of a country or region. For example, this can be a state, a province, an oblast, or a prefecture. For Spain, this is the province and not the autonomous community (for example, "Barcelona" and not "Catalonia"). Many countries don't use an administrative area in postal addresses. For example, in Switzerland, this should be left unpopulated. |
+| `languageCode` | `languageCode` | `string` | No | No | Optional. BCP-47 language code of the contents of this address (if known). This is often the UI language of the input form or is expected to match one of the languages used in the address' country/region, or their transliterated equivalents. This can affect formatting in certain countries, but is not critical to the correctness of the data and will never affect any validation or other non-formatting related operations. If this value is not known, it should be omitted (rather than specifying a possibly incorrect default). Examples: "zh-Hant", "ja", "ja-Latn", "en". |
+| `locality` | `locality` | `string` | No | No | Optional. Generally refers to the city or town portion of the address. Examples: US city, IT comune, UK post town. In regions of the world where localities are not well defined or do not fit into this structure well, leave `locality` empty and use `address_lines`. |
+| `organization` | `organization` | `string` | No | No | Optional. The name of the organization at the address. |
+| `postalCode` | `postalCode` | `string` | No | No | Optional. Postal code of the address. Not all countries use or require postal codes to be present, but where they are used, they may trigger additional validation with other parts of the address (for example, state or zip code validation in the United States). |
+| `recipients` | `recipients` | `Array<string>` | No | No | Optional. The recipient at the address. This field may, under certain circumstances, contain multiline information. For example, it might contain "care of" information. |
+| `regionCode` | `regionCode` | `string` | No | No | Required. CLDR region code of the country/region of the address. This is never inferred and it is up to the user to ensure the value is correct. See https://cldr.unicode.org/ and https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland. |
+| `revision` | `revision` | `integer` | No | No | The schema revision of the `PostalAddress`. This must be set to 0, which is the latest revision. All new revisions **must** be backward compatible with old revisions. |
+| `sortingCode` | `sortingCode` | `string` | No | No | Optional. Additional, country-specific, sorting code. This is not used in most regions. Where it is used, the value is either a string like "CEDEX", optionally followed by a number (for example, "CEDEX 7"), or just a number alone, representing the "sector code" (Jamaica), "delivery area indicator" (Malawi) or "post office indicator" (Côte d'Ivoire). |
+| `sublocality` | `sublocality` | `string` | No | No | Optional. Sublocality of the address. For example, this can be a neighborhood, borough, or district. |
+
+## BusinessInformationProfile
+
+`object` model on the `json` wire format.
+
+All information pertaining to the location's profile.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Required. Description of the location in your own voice, not editable by anyone else. |
+
+## BusinessInformationRelationshipData
+
+`object` model on the `json` wire format.
+
+Information of all parent and children locations related to this one.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `childrenLocations` | `childrenLocations` | `Array<BusinessInformationRelevantLocation>` | No | No | The list of children locations that this location has relations with. |
+| `parentChain` | `parentChain` | `string` | No | No | The resource name of the Chain that this location is member of. How to find Chain ID |
+| `parentLocation` | `parentLocation` | `BusinessInformationRelevantLocation` | No | No | The parent location that this location has relations with. |
+
+## BusinessInformationRelevantLocation
+
+`object` model on the `json` wire format.
+
+Information about another location that is related to current one. The relation can be any one of DEPARTMENT_OF or INDEPENDENT_ESTABLISHMENT_OF, and the location specified here can be on either side (parent/child) of the location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placeId` | `placeId` | `string` | No | No | Required. Specify the location that is on the other side of the relation by its placeID. |
+| `relationType` | `relationType` | `"RELATION_TYPE_UNSPECIFIED" \| "DEPARTMENT_OF" \| "INDEPENDENT_ESTABLISHMENT_IN"` | No | No | Required. The type of the relationship. |
+
+## BusinessInformationRepeatedEnumAttributeValue
+
+`object` model on the `json` wire format.
+
+Values for an attribute with a `value_type` of REPEATED_ENUM. This consists of two lists of value IDs: those that are set (true) and those that are unset (false). Values absent are considered unknown. At least one value must be specified.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `setValues` | `setValues` | `Array<string>` | No | No | Enum values that are set. |
+| `unsetValues` | `unsetValues` | `Array<string>` | No | No | Enum values that are unset. |
+
+## BusinessInformationSearchChainsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.SearchChains.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chains` | `chains` | `Array<BusinessInformationChain>` | No | No | Chains that match the queried chain_display_name in SearchChainsRequest. If there are no matches, this field will be empty. Results are listed in order of relevance. |
+
+## BusinessInformationSearchGoogleLocationsRequest
+
+`object` model on the `json` wire format.
+
+Request message for GoogleLocations.SearchGoogleLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `BusinessInformationLocation` | No | No | Location to search for. If provided, will find locations which match the provided location details, which must include a value for the title. |
+| `pageSize` | `pageSize` | `integer` | No | No | The number of matches to return. The default value is 3, with a maximum of 10. Note that latency may increase if more are requested. There is no pagination. |
+| `query` | `query` | `string` | No | No | Text query to search for. The search results from a query string will be less accurate than if providing an exact location, but can provide more inexact matches. |
+
+## BusinessInformationSearchGoogleLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for GoogleLocations.SearchGoogleLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `googleLocations` | `googleLocations` | `Array<BusinessInformationGoogleLocation>` | No | No | A collection of GoogleLocations that are potential matches to the specified request, listed in order from most to least accuracy. |
+
+## BusinessInformationServiceAreaBusiness
+
+`object` model on the `json` wire format.
+
+Service area businesses provide their service at the customer's location (for example, a locksmith or plumber).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessType` | `businessType` | `"BUSINESS_TYPE_UNSPECIFIED" \| "CUSTOMER_LOCATION_ONLY" \| "CUSTOMER_AND_BUSINESS_LOCATION"` | No | No | Required. Indicates the type of the service area business. |
+| `places` | `places` | `BusinessInformationPlaces` | No | No | The area that this business serves defined through a set of places. |
+| `regionCode` | `regionCode` | `string` | No | No | Immutable. CLDR region code of the country/region that this service area business is based in. See http://cldr.unicode.org/ and http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland. This field is required for CUSTOMER_LOCATION_ONLY businesses, and is ignored otherwise. The region specified here can be different from regions for the areas that this business serves (e.g. service area businesses that provide services in regions other than the one that they are based in). If this location requires verification after creation, the address provided for verification purposes *must* be located within this region, and the business owner or their authorized representative *must* be able to receive postal mail at the provided verification address. |
+
+## BusinessInformationServiceItem
+
+`object` model on the `json` wire format.
+
+A message that describes a single service item. It is used to describe the type of service that the merchant provides. For example, haircut can be a service.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `freeFormServiceItem` | `freeFormServiceItem` | `BusinessInformationFreeFormServiceItem` | No | No | Optional. This field will be set case of free-form services data. |
+| `price` | `price` | `BusinessInformationMoney` | No | No | Optional. Represents the monetary price of the service item. We recommend that currency_code and units should be set when including a price. This will be treated as a fixed price for the service item. |
+| `structuredServiceItem` | `structuredServiceItem` | `BusinessInformationStructuredServiceItem` | No | No | Optional. This field will be set case of structured services data. |
+
+## BusinessInformationServiceType
+
+`object` model on the `json` wire format.
+
+A message describing a service type that the business offers.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Output only. The human-readable display name for the service type. |
+| `serviceTypeId` | `serviceTypeId` | `string` | No | No | Output only. A stable ID (provided by Google) for this service type. |
+
+## BusinessInformationSpecialHourPeriod
+
+`object` model on the `json` wire format.
+
+Represents a single time period when a location's operational hours differ from its normal business hours. A special hour period must represent a range of less than 24 hours. The `open_time` and `start_date` must predate the `close_time` and `end_date`. The `close_time` and `end_date` can extend to 11:59 a.m. on the day after the specified `start_date`. For example, the following inputs are valid: start_date=2015-11-23, open_time=08:00, close_time=18:00 start_date=2015-11-23, end_date=2015-11-23, open_time=08:00, close_time=18:00 start_date=2015-11-23, end_date=2015-11-24, open_time=13:00, close_time=11:59 The following inputs are not valid: start_date=2015-11-23, open_time=13:00, close_time=11:59 start_date=2015-11-23, end_date=2015-11-24, open_time=13:00, close_time=12:00 start_date=2015-11-23, end_date=2015-11-25, open_time=08:00, close_time=18:00
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `closed` | `closed` | `boolean` | No | No | Optional. If true, `end_date`, `open_time`, and `close_time` are ignored, and the date specified in `start_date` is treated as the location being closed for the entire day. |
+| `closeTime` | `closeTime` | `BusinessInformationTimeOfDay` | No | No | Optional. Valid values are 00:00-24:00, where 24:00 represents midnight at the end of the specified day field. Must be specified if `closed` is false. |
+| `endDate` | `endDate` | `BusinessInformationDate` | No | No | Optional. The calendar date this special hour period ends on. If `end_date` field is not set, default to the date specified in `start_date`. If set, this field must be equal to or at most 1 day after `start_date`. |
+| `openTime` | `openTime` | `BusinessInformationTimeOfDay` | No | No | Optional. Valid values are 00:00-24:00 where 24:00 represents midnight at the end of the specified day field. Must be specified if `closed` is false. |
+| `startDate` | `startDate` | `BusinessInformationDate` | No | No | Required. The calendar date this special hour period starts on. |
+
+## BusinessInformationSpecialHours
+
+`object` model on the `json` wire format.
+
+Represents a set of time periods when a location's operational hours differ from its normal business hours.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `specialHourPeriods` | `specialHourPeriods` | `Array<BusinessInformationSpecialHourPeriod>` | No | No | Required. A list of exceptions to the business's regular hours. |
+
+## BusinessInformationStructuredServiceItem
+
+`object` model on the `json` wire format.
+
+Represents a structured service offered by the merchant. For eg: toilet_installation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Optional. Description of structured service item. The character limit is 300. |
+| `serviceTypeId` | `serviceTypeId` | `string` | No | No | Required. The `service_type_id` field is a Google provided unique ID that can be found in `ServiceType`. This information is provided by `BatchGetCategories` rpc service. |
+
+## BusinessInformationTimeOfDay
+
+`object` model on the `json` wire format.
+
+Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are google.type.Date and `google.protobuf.Timestamp`.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hours` | `hours` | `integer` | No | No | Hours of a day in 24 hour format. Must be greater than or equal to 0 and typically must be less than or equal to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. |
+| `minutes` | `minutes` | `integer` | No | No | Minutes of an hour. Must be greater than or equal to 0 and less than or equal to 59. |
+| `nanos` | `nanos` | `integer` | No | No | Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and less than or equal to 999,999,999. |
+| `seconds` | `seconds` | `integer` | No | No | Seconds of a minute. Must be greater than or equal to 0 and typically must be less than or equal to 59. An API may allow the value 60 if it allows leap-seconds. |
+
+## BusinessInformationTimePeriod
+
+`object` model on the `json` wire format.
+
+Represents a span of time that the business is open, starting on the specified open day/time and closing on the specified close day/time. The closing time must occur after the opening time, for example later in the same day, or on a subsequent day.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `closeDay` | `closeDay` | `"DAY_OF_WEEK_UNSPECIFIED" \| "MONDAY" \| "TUESDAY" \| "WEDNESDAY" \| "THURSDAY" \| "FRIDAY" \| "SATURDAY" \| "SUNDAY"` | No | No | Required. Indicates the day of the week this period ends on. |
+| `closeTime` | `closeTime` | `BusinessInformationTimeOfDay` | No | No | Required. Valid values are 00:00-24:00, where 24:00 represents midnight at the end of the specified day field. |
+| `openDay` | `openDay` | `"DAY_OF_WEEK_UNSPECIFIED" \| "MONDAY" \| "TUESDAY" \| "WEDNESDAY" \| "THURSDAY" \| "FRIDAY" \| "SATURDAY" \| "SUNDAY"` | No | No | Required. Indicates the day of the week this period starts on. |
+| `openTime` | `openTime` | `BusinessInformationTimeOfDay` | No | No | Required. Valid values are 00:00-24:00, where 24:00 represents midnight at the end of the specified day field. |
+
+## BusinessInformationUriAttributeValue
+
+`object` model on the `json` wire format.
+
+Values for an attribute with a `value_type` of URL.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | Required. The proposed URI value for this attribute. |
+
+## LegacyV4AcceptInvitationRequest
+
+`object` model on the `json` wire format.
+
+Request message for AccessControl.AcceptInvitation.
+
+No fields are declared.
+
+## LegacyV4Accessibility
+
+`object` model on the `json` wire format.
+
+Physical adaptations made to the property in consideration of varying levels of human physical ability.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mobilityAccessible` | `mobilityAccessible` | `boolean` | No | No | Mobility accessible. Throughout the property there are physical adaptations to ease the stay of a person in a wheelchair, such as auto-opening doors, wide elevators, wide bathrooms or ramps. |
+| `mobilityAccessibleElevator` | `mobilityAccessibleElevator` | `boolean` | No | No | Mobility accessible elevator. A lift that transports people from one level to another and is built to accommodate a wheelchair-using passenger owing to the width of its doors and placement of call buttons. |
+| `mobilityAccessibleElevatorException` | `mobilityAccessibleElevatorException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility accessible elevator exception. |
+| `mobilityAccessibleException` | `mobilityAccessibleException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility accessible exception. |
+| `mobilityAccessibleParking` | `mobilityAccessibleParking` | `boolean` | No | No | Mobility accessible parking. The presence of a marked, designated area of prescribed size in which only registered, labeled vehicles transporting a person with physical challenges may park. |
+| `mobilityAccessibleParkingException` | `mobilityAccessibleParkingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility accessible parking exception. |
+| `mobilityAccessiblePool` | `mobilityAccessiblePool` | `boolean` | No | No | Mobility accessible pool. A swimming pool equipped with a mechanical chair that can be lowered and raised for the purpose of moving physically challenged guests into and out of the pool. May be powered by electricity or water. Also known as pool lift. |
+| `mobilityAccessiblePoolException` | `mobilityAccessiblePoolException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility accessible pool exception. |
+
+## LegacyV4Account
+
+`object` model on the `json` wire format.
+
+An account is a container for your business's locations. If you are the only user who manages locations for your business, you can use your personal Google Account. To share management of locations with multiple users, [create a business account] (https://support.google.com/business/answer/6085339?ref_topic=6085325).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountName` | `accountName` | `string` | No | No | The name of the account. *Note:* For an account with AccountType `PERSONAL`, this is the first and last name of the user account. |
+| `accountNumber` | `accountNumber` | `string` | No | No | Account reference number if provisioned. |
+| `name` | `name` | `string` | No | No | The resource name, in the format `accounts/&#123;account_id&#125;`. |
+| `organizationInfo` | `organizationInfo` | `LegacyV4OrganizationInfo` | No | No | Additional info for an organization. This is populated only for an organization account. |
+| `permissionLevel` | `permissionLevel` | `"PERMISSION_LEVEL_UNSPECIFIED" \| "OWNER_LEVEL" \| "MEMBER_LEVEL"` | No | No | Output only. Specifies the PermissionLevel the caller has for this account. |
+| `role` | `role` | `"ACCOUNT_ROLE_UNSPECIFIED" \| "OWNER" \| "CO_OWNER" \| "MANAGER" \| "COMMUNITY_MANAGER"` | No | No | Output only. Specifies the AccountRole the caller has for this account. |
+| `state` | `state` | `LegacyV4AccountState` | No | No | Output only. Indicates the AccountState of this account. |
+| `type` | `type` | `"ACCOUNT_TYPE_UNSPECIFIED" \| "PERSONAL" \| "LOCATION_GROUP" \| "USER_GROUP" \| "ORGANIZATION"` | No | No | Output only. Specifies the AccountType of this account. |
+
+## LegacyV4AccountState
+
+`object` model on the `json` wire format.
+
+Indicates status of the account, such as whether the account has been verified by Google.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ACCOUNT_STATUS_UNSPECIFIED" \| "VERIFIED" \| "UNVERIFIED" \| "VERIFICATION_REQUESTED"` | No | No | If verified, future locations that are created are automatically connected to Google Maps, and have Google+ pages created, without requiring moderation. |
+
+## LegacyV4Activities
+
+`object` model on the `json` wire format.
+
+Amenities and features related to leisure and play.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `beachAccess` | `beachAccess` | `boolean` | No | No | Beach access. The hotel property is in close proximity to a beach and offers a way to get to that beach. This can include a route to the beach such as stairs down if hotel is on a bluff, or a short trail. Not the same as beachfront (with beach access, the hotel's proximity is close to but not right on the beach). |
+| `beachAccessException` | `beachAccessException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Beach access exception. |
+| `beachFront` | `beachFront` | `boolean` | No | No | Breach front. The hotel property is physically located on the beach alongside an ocean, sea, gulf, or bay. It is not on a lake, river, stream, or pond. The hotel is not separated from the beach by a public road allowing vehicular, pedestrian, or bicycle traffic. |
+| `beachFrontException` | `beachFrontException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Beach front exception. |
+| `bicycleRental` | `bicycleRental` | `boolean` | No | No | Bicycle rental. The hotel owns bicycles that it permits guests to borrow and use. Can be free or for a fee. |
+| `bicycleRentalException` | `bicycleRentalException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bicycle rental exception. |
+| `boutiqueStores` | `boutiqueStores` | `boolean` | No | No | Boutique stores. There are stores selling clothing, jewelry, art and decor either on hotel premises or very close by. Does not refer to the hotel gift shop or convenience store. |
+| `boutiqueStoresException` | `boutiqueStoresException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Boutique stores exception. |
+| `casino` | `casino` | `boolean` | No | No | Casino. A space designated for gambling and gaming featuring croupier-run table and card games, as well as electronic slot machines. May be on hotel premises or located nearby. |
+| `casinoException` | `casinoException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Casino exception. |
+| `freeBicycleRental` | `freeBicycleRental` | `boolean` | No | No | Free bicycle rental. The hotel owns bicycles that it permits guests to borrow and use for free. |
+| `freeBicycleRentalException` | `freeBicycleRentalException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free bicycle rental exception. |
+| `freeWatercraftRental` | `freeWatercraftRental` | `boolean` | No | No | Free watercraft rental. The hotel owns watercraft that it permits guests to borrow and use for free. |
+| `freeWatercraftRentalException` | `freeWatercraftRentalException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free Watercraft rental exception. |
+| `gameRoom` | `gameRoom` | `boolean` | No | No | Game room. There is a room at the hotel containing electronic machines for play such as pinball, prize machines, driving simulators, and other items commonly found at a family fun center or arcade. May also include non-electronic games like pool, foosball, darts, and more. May or may not be designed for children. Also known as arcade, fun room, or family fun center. |
+| `gameRoomException` | `gameRoomException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Game room exception. |
+| `golf` | `golf` | `boolean` | No | No | Golf. There is a golf course on hotel grounds or there is a nearby, independently run golf course that allows use by hotel guests. Can be free or for a fee. |
+| `golfException` | `golfException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Golf exception. |
+| `horsebackRiding` | `horsebackRiding` | `boolean` | No | No | Horseback riding. The hotel has a horse barn onsite or an affiliation with a nearby barn to allow for guests to sit astride a horse and direct it to walk, trot, cantor, gallop and/or jump. Can be in a riding ring, on designated paths, or in the wilderness. May or may not involve instruction. |
+| `horsebackRidingException` | `horsebackRidingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Horseback riding exception. |
+| `nightclub` | `nightclub` | `boolean` | No | No | Nightclub. There is a room at the hotel with a bar, a dance floor, and seating where designated staffers play dance music. There may also be a designated area for the performance of live music, singing and comedy acts. |
+| `nightclubException` | `nightclubException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Nightclub exception. |
+| `privateBeach` | `privateBeach` | `boolean` | No | No | Private beach. The beach which is in close proximity to the hotel is open only to guests. |
+| `privateBeachException` | `privateBeachException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Private beach exception. |
+| `scuba` | `scuba` | `boolean` | No | No | Scuba. The provision for guests to dive under naturally occurring water fitted with a self-contained underwater breathing apparatus (SCUBA) for the purpose of exploring underwater life. Apparatus consists of a tank providing oxygen to the diver through a mask. Requires certification of the diver and supervision. The hotel may have the activity at its own waterfront or have an affiliation with a nearby facility. Required equipment is most often supplied to guests. Can be free or for a fee. Not snorkeling. Not done in a swimming pool. |
+| `scubaException` | `scubaException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Scuba exception. |
+| `snorkeling` | `snorkeling` | `boolean` | No | No | Snorkeling. The provision for guests to participate in a recreational water activity in which swimmers wear a diving mask, a simple, shaped breathing tube and flippers/swim fins for the purpose of exploring below the surface of an ocean, gulf or lake. Does not usually require user certification or professional supervision. Equipment may or may not be available for rent or purchase. Not scuba diving. |
+| `snorkelingException` | `snorkelingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Snorkeling exception. |
+| `tennis` | `tennis` | `boolean` | No | No | Tennis. The hotel has the requisite court(s) on site or has an affiliation with a nearby facility for the purpose of providing guests with the opportunity to play a two-sided court-based game in which players use a stringed racquet to hit a ball across a net to the side of the opposing player. The court can be indoors or outdoors. Instructors, racquets and balls may or may not be provided. |
+| `tennisException` | `tennisException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Tennis exception. |
+| `watercraftRental` | `watercraftRental` | `boolean` | No | No | Watercraft rental. The hotel owns water vessels that it permits guests to borrow and use. Can be free or for a fee. Watercraft may include boats, pedal boats, rowboats, sailboats, powerboats, canoes, kayaks, or personal watercraft (such as a Jet Ski). |
+| `watercraftRentalException` | `watercraftRentalException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Watercraft rental exception. |
+| `waterSkiing` | `waterSkiing` | `boolean` | No | No | Water skiing. The provision of giving guests the opportunity to be pulled across naturally occurring water while standing on skis and holding a tow rope attached to a motorboat. Can occur on hotel premises or at a nearby waterfront. Most often performed in a lake or ocean. |
+| `waterSkiingException` | `waterSkiingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Water skiing exception. |
+
+## LegacyV4AddressInput
+
+`object` model on the `json` wire format.
+
+Input for ADDRESS verification.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mailerContactName` | `mailerContactName` | `string` | No | No | Contact name the mail should be sent to. |
+
+## LegacyV4AddressVerificationData
+
+`object` model on the `json` wire format.
+
+Display data for verifications through postcard.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `LegacyV4PostalAddress` | No | No | Address that a postcard can be sent to. |
+| `businessName` | `businessName` | `string` | No | No | Merchant's business name. |
+
+## LegacyV4Admin
+
+`object` model on the `json` wire format.
+
+An administrator of an Account or a Location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adminName` | `adminName` | `string` | No | No | The name of the admin. When making the initial invitation, this is the invitee's email address. On `GET` calls, the user's email address is returned if the invitation is still pending. Otherwise, it contains the user's first and last names. |
+| `name` | `name` | `string` | No | No | The resource name. For account admins, this is in the form: `accounts/&#123;account_id&#125;/admins/&#123;admin_id&#125;` For location admins, this is in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/admins/&#123;admin_id&#125;` |
+| `pendingInvitation` | `pendingInvitation` | `boolean` | No | No | Output only. Indicates whether this admin has a pending invitation for the specified resource. |
+| `role` | `role` | `"ADMIN_ROLE_UNSPECIFIED" \| "OWNER" \| "CO_OWNER" \| "MANAGER" \| "COMMUNITY_MANAGER"` | No | No | Specifies the AdminRole that this admin uses with the specified Account or Location resource. |
+
+## LegacyV4AdWordsLocationExtensions
+
+`object` model on the `json` wire format.
+
+Additional information that is surfaced in AdWords.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adPhone` | `adPhone` | `string` | No | No | An alternate phone number to display on AdWords location extensions instead of the location's primary phone number. |
+
+## LegacyV4Answer
+
+`object` model on the `json` wire format.
+
+Represents an answer to a question
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `author` | `author` | `LegacyV4Author` | No | No | Output only. The author of the answer. |
+| `createTime` | `createTime` | `string` | No | No | Output only. The timestamp for when the answer was written. |
+| `name` | `name` | `string` | No | No | Output only. The unique name for the answer accounts/*/locations/*/questions/*/answers/* |
+| `text` | `text` | `string` | No | No | The text of the answer. It should contain at least one non-whitespace character. The maximum length is 4096 characters. |
+| `updateTime` | `updateTime` | `string` | No | No | Output only. The timestamp for when the answer was last modified. |
+| `upvoteCount` | `upvoteCount` | `integer` | No | No | Output only. The number of upvotes for the answer. |
+
+## LegacyV4AssociateLocationRequest
+
+`object` model on the `json` wire format.
+
+Request message for Locations.AssociateLocationRequest.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placeId` | `placeId` | `string` | No | No | The association to establish. If not set, it indicates no match. |
+
+## LegacyV4Attribute
+
+`object` model on the `json` wire format.
+
+A location attribute. Attributes provide additional information about a location. The attributes that can be set on a location may vary based on the properties of that location (for example, category). Available attributes are determined by Google and may be added and removed without API changes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeId` | `attributeId` | `string` | No | No | The ID of the attribute. Attribute IDs are provided by Google. |
+| `repeatedEnumValue` | `repeatedEnumValue` | `LegacyV4RepeatedEnumAttributeValue` | No | No | When the attribute value type is REPEATED_ENUM, this contains the attribute value, and the other values fields must be empty. |
+| `urlValues` | `urlValues` | `Array<LegacyV4UrlAttributeValue>` | No | No | When the attribute value type is URL, this field contains the value(s) for this attribute, and the other values fields must be empty. |
+| `values` | `values` | `Array<unknown>` | No | No | The values for this attribute. The type of the values supplied must match that expected for that attribute; see AttributeValueType. This is a repeated field where multiple attribute values may be provided. Attribute types only support one value. |
+| `valueType` | `valueType` | `"ATTRIBUTE_VALUE_TYPE_UNSPECIFIED" \| "BOOL" \| "ENUM" \| "URL" \| "REPEATED_ENUM"` | No | No | Output only. The type of value that this attribute contains. This should be used to determine how to interpret the value. |
+
+## LegacyV4AttributeMetadata
+
+`object` model on the `json` wire format.
+
+Metadata for an attribute. Contains display information for the attribute, including a localized name and a heading for grouping related attributes together.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeId` | `attributeId` | `string` | No | No | The ID of the attribute. |
+| `displayName` | `displayName` | `string` | No | No | The localized display name for the attribute, if available; otherwise, the English display name. |
+| `groupDisplayName` | `groupDisplayName` | `string` | No | No | The localized display name of the group that contains this attribute, if available; otherwise, the English group name. Related attributes are collected into a group and should be displayed together under the heading given here. |
+| `isDeprecated` | `isDeprecated` | `boolean` | No | No | If true, the attribute is deprecated and should no longer be used. If deprecated, updating this attribute will not result in an error, but updates will not be saved. At some point after being deprecated, the attribute will be removed entirely and it will become an error. |
+| `isRepeatable` | `isRepeatable` | `boolean` | No | No | If true, the attribute supports multiple values. If false, only a single value should be provided. |
+| `valueMetadata` | `valueMetadata` | `Array<LegacyV4AttributeValueMetadata>` | No | No | For some types of attributes (for example, enums), a list of supported values and corresponding display names for those values is provided. |
+| `valueType` | `valueType` | `"ATTRIBUTE_VALUE_TYPE_UNSPECIFIED" \| "BOOL" \| "ENUM" \| "URL" \| "REPEATED_ENUM"` | No | No | The value type for the attribute. Values set and retrieved should be expected to be of this type. |
+
+## LegacyV4AttributeValueMetadata
+
+`object` model on the `json` wire format.
+
+Metadata for supported attribute values.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The display name for this value, localized where available; otherwise, in English. The value display name is intended to be used in context with the attribute display name. For example, for a "WiFi" enum attribute, this could contain "Paid" to represent paid Wi-Fi. |
+| `value` | `value` | `unknown` | No | No | The attribute value. |
+
+## LegacyV4Attribution
+
+`object` model on the `json` wire format.
+
+Attribution information for customer media items, such as the contributor's name and profile picture.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `profileName` | `profileName` | `string` | No | No | The user name to attribute the media item to. |
+| `profilePhotoUrl` | `profilePhotoUrl` | `string` | No | No | URL of the attributed user's profile photo thumbnail. |
+| `profileUrl` | `profileUrl` | `string` | No | No | The URL of the attributed user's Google Maps profile page. |
+| `takedownUrl` | `takedownUrl` | `string` | No | No | The URL of the takedown page, where the media item can be reported if it is inappropriate. |
+
+## LegacyV4Author
+
+`object` model on the `json` wire format.
+
+Represents the author of a question or answer
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The display name of the user |
+| `profilePhotoUrl` | `profilePhotoUrl` | `string` | No | No | The profile photo URL of the user. |
+| `type` | `type` | `"AUTHOR_TYPE_UNSPECIFIED" \| "REGULAR_USER" \| "LOCAL_GUIDE" \| "MERCHANT"` | No | No | The type of user the author is. |
+
+## LegacyV4BasicMetricsRequest
+
+`object` model on the `json` wire format.
+
+A request for basic metric insights.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metricRequests` | `metricRequests` | `Array<LegacyV4MetricRequest>` | No | No | A collection of metrics to return values for including the options for how the data should be returned. |
+| `timeRange` | `timeRange` | `LegacyV4TimeRange` | No | No | The range to gather metrics for. The maximum range is 18 months from the request date. In some cases, the data may still be missing for days close to the request date. Missing data will be specified in the `metricValues` in the response. |
+
+## LegacyV4BatchGetBusinessCategoriesResponse
+
+`object` model on the `json` wire format.
+
+Response message for BusinessCategories.BatchGetBusinessCategories.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<LegacyV4Category>` | No | No | Categories that match the GConcept ids provided in the request. They will not come in the same order as category ids in the request. |
+
+## LegacyV4BatchGetLocationsRequest
+
+`object` model on the `json` wire format.
+
+Request message for Locations.BatchGetLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationNames` | `locationNames` | `Array<string>` | No | No | A collection of locations to fetch, specified by their names. |
+
+## LegacyV4BatchGetLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.BatchGetLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locations` | `locations` | `Array<LegacyV4Location>` | No | No | A collection of locations. |
+
+## LegacyV4BatchGetReviewsRequest
+
+`object` model on the `json` wire format.
+
+Request message for Reviews.BatchGetReviews.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ignoreRatingOnlyReviews` | `ignoreRatingOnlyReviews` | `boolean` | No | No | Whether to ignore rating-only reviews. |
+| `locationNames` | `locationNames` | `Array<string>` | No | No | A collection of locations to fetch reviews for, specified by their names. |
+| `orderBy` | `orderBy` | `string` | No | No | Optional. Specifies the field to sort reviews by. If unspecified, the order of reviews returned will default to `update_time desc`. Valid orders to sort by are `rating`, `rating desc` and `update_time desc`. `rating` will return reviews in ascending order. `update_time`(i.e. ascending order) is not supported. |
+| `pageSize` | `pageSize` | `integer` | No | No | How many reviews to fetch per page. The default value is 200. |
+| `pageToken` | `pageToken` | `string` | No | No | If specified, it fetches the next page of reviews. |
+
+## LegacyV4BatchGetReviewsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Reviews.BatchGetReviews.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationReviews` | `locationReviews` | `Array<LegacyV4LocationReview>` | No | No | Reviews with location information. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of reviews exceeded the requested page size, this field is populated with a token to fetch the next page of reviews on a subsequent calls. If there are no more reviews, this field will not be present in the response. |
+
+## LegacyV4Business
+
+`object` model on the `json` wire format.
+
+Features of the property of specific interest to the business traveler.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessCenter` | `businessCenter` | `boolean` | No | No | Business center. A designated room at the hotel with one or more desks and equipped with guest-use computers, printers, fax machines and/or photocopiers. May or may not be open 24/7. May or may not require a key to access. Not a meeting room or conference room. |
+| `businessCenterException` | `businessCenterException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Business center exception. |
+| `meetingRooms` | `meetingRooms` | `boolean` | No | No | Meeting rooms. Rooms at the hotel designated for business-related gatherings. Rooms are usually equipped with tables or desks, office chairs and audio/visual facilities to allow for presentations and conference calls. Also known as conference rooms. |
+| `meetingRoomsCount` | `meetingRoomsCount` | `integer` | No | No | Meeting rooms count. The number of meeting rooms at the property. |
+| `meetingRoomsCountException` | `meetingRoomsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Meeting rooms count exception. |
+| `meetingRoomsException` | `meetingRoomsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Meeting rooms exception. |
+
+## LegacyV4BusinessHours
+
+`object` model on the `json` wire format.
+
+Represents the time periods that this location is open for business. Holds a collection of TimePeriod instances.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `periods` | `periods` | `Array<LegacyV4TimePeriod>` | No | No | A collection of times that this location is open for business. Each period represents a range of hours when the location is open during the week. |
+
+## LegacyV4CallToAction
+
+`object` model on the `json` wire format.
+
+An action that is performed when the user clicks through the post
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionType` | `actionType` | `"ACTION_TYPE_UNSPECIFIED" \| "BOOK" \| "ORDER" \| "SHOP" \| "LEARN_MORE" \| "SIGN_UP" \| "GET_OFFER" \| "CALL"` | No | No | The type of action that will be performed. |
+| `url` | `url` | `string` | No | No | The URL the user will be directed to upon clicking. This field should be left unset for Call CTA. |
+
+## LegacyV4CaloriesFact
+
+`object` model on the `json` wire format.
+
+This message denotes calories information with an upper bound and lower bound range. Lower amount must be specified. Both lower and upper amounts are non-negative numbers.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lowerAmount` | `lowerAmount` | `integer` | No | No | Required. Lower amount of calories |
+| `unit` | `unit` | `"ENERGY_UNIT_UNSPECIFIED" \| "CALORIE" \| "JOULE"` | No | No | Required. Unit of the given calories information. |
+| `upperAmount` | `upperAmount` | `integer` | No | No | Optional. Upper amount of calories |
+
+## LegacyV4Category
+
+`object` model on the `json` wire format.
+
+A category describing what this business is (not what it does). For a list of valid category IDs, and the mappings to their human-readable names, see [categories.list](https://developers.google.com/my-business/reference/rest/v4/categories/list).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `categoryId` | `string` | No | No | @OutputOnly. A stable ID (provided by Google) for this category. The `category_id` must be specified when modifying the category (when creating or updating a location). |
+| `displayName` | `displayName` | `string` | No | No | @OutputOnly. The human-readable name of the category. This is set when reading the location. When modifying the location, `category_id` must be set. |
+| `moreHoursTypes` | `moreHoursTypes` | `Array<LegacyV4MoreHoursType>` | No | No | Output only. More hours types that are available for this business category. |
+| `serviceTypes` | `serviceTypes` | `Array<LegacyV4ServiceType>` | No | No | @OutputOnly. A list of all the service types that are available for this business category. |
+
+## LegacyV4Chain
+
+`object` model on the `json` wire format.
+
+A chain is a brand that your business's locations can be affiliated with.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chainNames` | `chainNames` | `Array<LegacyV4ChainName>` | No | No | Names of the chain. |
+| `locationCount` | `locationCount` | `integer` | No | No | Number of locations that are part of this chain. |
+| `name` | `name` | `string` | No | No | The chain's resource name, in the format `chains/&#123;chain_place_id&#125;`. |
+| `websites` | `websites` | `Array<LegacyV4ChainUrl>` | No | No | Websites of the chain. |
+
+## LegacyV4ChainName
+
+`object` model on the `json` wire format.
+
+Name to be used when displaying the chain.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The display name for this chain. |
+| `languageCode` | `languageCode` | `string` | No | No | The BCP 47 code of language of the name. |
+
+## LegacyV4ChainUrl
+
+`object` model on the `json` wire format.
+
+Url to be used when displaying the chain.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | The url for this chain. |
+
+## LegacyV4ClearLocationAssociationRequest
+
+`object` model on the `json` wire format.
+
+Request message for Locations.ClearLocationAssociationRequest.
+
+No fields are declared.
+
+## LegacyV4CompleteVerificationRequest
+
+`object` model on the `json` wire format.
+
+Request message for Verifications.CompleteVerificationAction.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pin` | `pin` | `string` | No | No | PIN code received by the merchant to complete the verification. |
+
+## LegacyV4CompleteVerificationResponse
+
+`object` model on the `json` wire format.
+
+Response message for Verifications.CompleteVerificationAction.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `verification` | `verification` | `LegacyV4Verification` | No | No | The completed verification. |
+
+## LegacyV4Connectivity
+
+`object` model on the `json` wire format.
+
+The ways in which the property provides guests with the ability to access the internet.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `freeWifi` | `freeWifi` | `boolean` | No | No | Free wifi. The hotel offers guests wifi for free. |
+| `freeWifiException` | `freeWifiException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free wifi exception. |
+| `publicAreaWifiAvailable` | `publicAreaWifiAvailable` | `boolean` | No | No | Public area wifi available. Guests have the ability to wirelessly connect to the internet in the areas of the hotel accessible to anyone. Can be free or for a fee. |
+| `publicAreaWifiAvailableException` | `publicAreaWifiAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Public area wifi available exception. |
+| `publicInternetTerminal` | `publicInternetTerminal` | `boolean` | No | No | Public internet terminal. An area of the hotel supplied with computers and designated for the purpose of providing guests with the ability to access the internet. |
+| `publicInternetTerminalException` | `publicInternetTerminalException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Public internet terminal exception. |
+| `wifiAvailable` | `wifiAvailable` | `boolean` | No | No | Wifi available. The hotel provides the ability for guests to wirelessly connect to the internet. Can be in the public areas of the hotel and/or in the guest rooms. Can be free or for a fee. |
+| `wifiAvailableException` | `wifiAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Wifi available exception. |
+
+## LegacyV4Date
+
+`object` model on the `json` wire format.
+
+Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values * A month and day value, with a zero year, such as an anniversary * A year on its own, with zero month and day values * A year and month value, with a zero day, such as a credit card expiration date Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `day` | `day` | `integer` | No | No | Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. |
+| `month` | `month` | `integer` | No | No | Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. |
+| `year` | `year` | `integer` | No | No | Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. |
+
+## LegacyV4DeclineInvitationRequest
+
+`object` model on the `json` wire format.
+
+Request message for AccessControl.DeclineInvitation.
+
+No fields are declared.
+
+## LegacyV4DimensionalMetricValue
+
+`object` model on the `json` wire format.
+
+A value for a single metric with a given time dimension.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metricOption` | `metricOption` | `"METRIC_OPTION_UNSPECIFIED" \| "AGGREGATED_TOTAL" \| "AGGREGATED_DAILY" \| "BREAKDOWN_DAY_OF_WEEK" \| "BREAKDOWN_HOUR_OF_DAY"` | No | No | The option that requested this dimensional value. |
+| `timeDimension` | `timeDimension` | `LegacyV4TimeDimension` | No | No | The dimension for the value. |
+| `value` | `value` | `string` | No | No | The value. If no value is set, then the requested data is missing. |
+
+## LegacyV4Dimensions
+
+`object` model on the `json` wire format.
+
+Dimensions of the media item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `heightPixels` | `heightPixels` | `integer` | No | No | Height of the media item, in pixels. |
+| `widthPixels` | `widthPixels` | `integer` | No | No | Width of the media item, in pixels. |

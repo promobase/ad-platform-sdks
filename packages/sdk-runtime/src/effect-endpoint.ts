@@ -34,6 +34,9 @@ export interface EndpointDescriptor<
   readonly requiredScopes: readonly string[];
   readonly capabilities: readonly string[];
   readonly rateLimitBucket?: string;
+  readonly authSchemes?: readonly string[];
+  readonly protocols?: readonly string[];
+  readonly staticHeaders?: Readonly<Record<string, string>>;
   readonly parameters: readonly EndpointParameter[];
   readonly inputSchema: InputSchema;
   readonly outputSchema: OutputSchema;

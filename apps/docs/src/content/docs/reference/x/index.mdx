@@ -1,6 +1,6 @@
 ---
 title: "X SDK reference"
-description: "Generated reference for 14 X endpoints and 527 models."
+description: "Generated reference for 176 X endpoints and 527 models."
 generated: true
 platform: "x"
 sourceVersion: "2.167"
@@ -28,15 +28,33 @@ const client = createEffectClient();
 | Platform | X |
 | API version | `2.167` |
 | Source | `openapi: fern/openapi/x-openapi.json` |
-| Endpoints | 14 |
+| Endpoints | 176 |
 | Models | 527 |
-| Capabilities | 5 |
+| Capabilities | 35 |
 
 ## Endpoints
 
+- [Account activity](/reference/x/endpoints/account-activity)
+- [Activity](/reference/x/endpoints/activity)
+- [Articles](/reference/x/endpoints/articles)
+- [Broadcasts](/reference/x/endpoints/broadcasts)
+- [Chat](/reference/x/endpoints/chat)
+- [Communities](/reference/x/endpoints/communities)
+- [Community notes](/reference/x/endpoints/community-notes)
+- [Compliance](/reference/x/endpoints/compliance)
+- [Connections](/reference/x/endpoints/connections)
+- [Direct messages](/reference/x/endpoints/direct-messages)
+- [General](/reference/x/endpoints/general)
+- [Lists](/reference/x/endpoints/lists)
 - [Media](/reference/x/endpoints/media)
+- [News](/reference/x/endpoints/news)
 - [Posts](/reference/x/endpoints/posts)
+- [Spaces](/reference/x/endpoints/spaces)
+- [Stream](/reference/x/endpoints/stream)
+- [Trends](/reference/x/endpoints/trends)
+- [Usage](/reference/x/endpoints/usage)
 - [Users](/reference/x/endpoints/users)
+- [Webhooks](/reference/x/endpoints/webhooks)
 
 ## Models
 
@@ -51,8 +69,38 @@ const client = createEffectClient();
 
 | Capability | Summary | Required scopes |
 | --- | --- | --- |
-| `media.manage` | Manage X media | None declared |
-| `media.read` | Read X media | None declared |
-| `posts.manage` | Manage X posts | None declared |
-| `posts.read` | Read X posts | None declared |
-| `users.read` | Read X users | None declared |
+| `account-activity.manage` | Manage X account-activity | `dm.read`<br />`dm.write`<br />`tweet.read`<br />`users.read` |
+| `account-activity.read` | Read X account-activity | `dm.read`<br />`dm.write`<br />`tweet.read`<br />`users.read` |
+| `activity.manage` | Manage X activity | None declared |
+| `activity.read` | Read X activity | `like.read`<br />`tweet.read` |
+| `articles.manage` | Manage X articles | `tweet.write` |
+| `broadcasts.manage` | Manage X broadcasts | `broadcast.read`<br />`broadcast.write` |
+| `broadcasts.read` | Read X broadcasts | `broadcast.read` |
+| `chat.manage` | Manage X chat | `dm.write`<br />`media.write`<br />`tweet.read`<br />`users.read` |
+| `chat.read` | Read X chat | `dm.read`<br />`media.write`<br />`tweet.read`<br />`users.read` |
+| `communities.read` | Read X communities | `list.read`<br />`tweet.read`<br />`users.read` |
+| `community-notes.manage` | Manage X community-notes | `tweet.write` |
+| `community-notes.read` | Read X community-notes | `tweet.read` |
+| `compliance.manage` | Manage X compliance | None declared |
+| `compliance.read` | Read X compliance | None declared |
+| `connections.manage` | Manage X connections | None declared |
+| `connections.read` | Read X connections | None declared |
+| `direct-messages.manage` | Manage X direct-messages | `dm.read`<br />`dm.write`<br />`tweet.read`<br />`users.read` |
+| `direct-messages.read` | Read X direct-messages | `dm.read`<br />`tweet.read`<br />`users.read` |
+| `general.read` | Read X general | None declared |
+| `lists.manage` | Manage X lists | `list.read`<br />`list.write`<br />`tweet.read`<br />`users.read` |
+| `lists.read` | Read X lists | `list.read`<br />`tweet.read`<br />`users.read` |
+| `media.manage` | Manage X media | `media.write` |
+| `media.read` | Read X media | `media.write`<br />`tweet.read` |
+| `news.read` | Read X news | `tweet.read`<br />`users.read` |
+| `posts.manage` | Manage X posts | `tweet.moderate.write`<br />`tweet.read`<br />`tweet.write`<br />`users.read` |
+| `posts.read` | Read X posts | `like.read`<br />`tweet.read`<br />`users.read` |
+| `spaces.read` | Read X spaces | `space.read`<br />`tweet.read`<br />`users.read` |
+| `stream.manage` | Manage X stream | None declared |
+| `stream.read` | Read X stream | None declared |
+| `trends.read` | Read X trends | `tweet.read`<br />`users.read` |
+| `usage.read` | Read X usage | None declared |
+| `users.manage` | Manage X users | `bookmark.write`<br />`dm.write`<br />`follows.write`<br />`like.write`<br />`list.write`<br />`mute.write`<br />`tweet.read`<br />`tweet.write`<br />`users.read` |
+| `users.read` | Read X users | `block.read`<br />`bookmark.read`<br />`dm.read`<br />`follows.read`<br />`like.read`<br />`list.read`<br />`mute.read`<br />`timeline.read`<br />`tweet.read`<br />`users.read` |
+| `webhooks.manage` | Manage X webhooks | None declared |
+| `webhooks.read` | Read X webhooks | None declared |

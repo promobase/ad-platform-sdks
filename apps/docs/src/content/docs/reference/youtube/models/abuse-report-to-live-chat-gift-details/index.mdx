@@ -1,0 +1,1409 @@
+---
+title: "YouTube models: Abuse Report – Live Chat Gift Details"
+description: "100 generated YouTube model contracts, from AbuseReport through LiveChatGiftDetails."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 1000
+  label: "Abuse Report – Live Chat Gift Details"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## AbuseReport
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `abuseTypes` | `abuseTypes` | `Array<AbuseType>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `relatedEntities` | `relatedEntities` | `Array<RelatedEntity>` | No | No | — |
+| `subject` | `subject` | `Entity` | No | No | — |
+
+## AbuseType
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+
+## AccessPolicy
+
+`object` model on the `json` wire format.
+
+Rights management policy for YouTube resources.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `boolean` | No | No | The value of allowed indicates whether the access to the policy is allowed or denied by default. |
+| `exception` | `exception` | `Array<string>` | No | No | A list of region codes that identify countries where the default policy do not apply. |
+
+## Activity
+
+`object` model on the `json` wire format.
+
+An *activity* resource contains information about an action that a particular channel, or user, has taken on YouTube.The actions reported in activity feeds include rating a video, sharing a video, marking a video as a favorite, commenting on a video, uploading a video, and so forth. Each activity resource identifies the type of action, the channel associated with the action, and the resource(s) associated with the action, such as the video that was rated or uploaded.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `ActivityContentDetails` | No | No | The contentDetails object contains information about the content associated with the activity. For example, if the snippet.type value is videoRated, then the contentDetails object's content identifies the rated video. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the activity. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#activity". |
+| `snippet` | `snippet` | `ActivitySnippet` | No | No | The snippet object contains basic details about the activity, including the activity's type and group ID. |
+
+## ActivityContentDetails
+
+`object` model on the `json` wire format.
+
+Details about the content of an activity: the video that was shared, the channel that was subscribed to, etc.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bulletin` | `bulletin` | `ActivityContentDetailsBulletin` | No | No | The bulletin object contains details about a channel bulletin post. This object is only present if the snippet.type is bulletin. |
+| `channelItem` | `channelItem` | `ActivityContentDetailsChannelItem` | No | No | The channelItem object contains details about a resource which was added to a channel. This property is only present if the snippet.type is channelItem. |
+| `comment` | `comment` | `ActivityContentDetailsComment` | No | No | The comment object contains information about a resource that received a comment. This property is only present if the snippet.type is comment. |
+| `favorite` | `favorite` | `ActivityContentDetailsFavorite` | No | No | The favorite object contains information about a video that was marked as a favorite video. This property is only present if the snippet.type is favorite. |
+| `like` | `like` | `ActivityContentDetailsLike` | No | No | The like object contains information about a resource that received a positive (like) rating. This property is only present if the snippet.type is like. |
+| `playlistItem` | `playlistItem` | `ActivityContentDetailsPlaylistItem` | No | No | The playlistItem object contains information about a new playlist item. This property is only present if the snippet.type is playlistItem. |
+| `promotedItem` | `promotedItem` | `ActivityContentDetailsPromotedItem` | No | No | The promotedItem object contains details about a resource which is being promoted. This property is only present if the snippet.type is promotedItem. |
+| `recommendation` | `recommendation` | `ActivityContentDetailsRecommendation` | No | No | The recommendation object contains information about a recommended resource. This property is only present if the snippet.type is recommendation. |
+| `social` | `social` | `ActivityContentDetailsSocial` | No | No | The social object contains details about a social network post. This property is only present if the snippet.type is social. |
+| `subscription` | `subscription` | `ActivityContentDetailsSubscription` | No | No | The subscription object contains information about a channel that a user subscribed to. This property is only present if the snippet.type is subscription. |
+| `upload` | `upload` | `ActivityContentDetailsUpload` | No | No | The upload object contains information about the uploaded video. This property is only present if the snippet.type is upload. |
+
+## ActivityContentDetailsBulletin
+
+`object` model on the `json` wire format.
+
+Details about a channel bulletin post.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the resource associated with a bulletin post. @mutable youtube.activities.insert |
+
+## ActivityContentDetailsChannelItem
+
+`object` model on the `json` wire format.
+
+Details about a resource which was added to a channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the resource that was added to the channel. |
+
+## ActivityContentDetailsComment
+
+`object` model on the `json` wire format.
+
+Information about a resource that received a comment.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the resource associated with the comment. |
+
+## ActivityContentDetailsFavorite
+
+`object` model on the `json` wire format.
+
+Information about a video that was marked as a favorite video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the resource that was marked as a favorite. |
+
+## ActivityContentDetailsLike
+
+`object` model on the `json` wire format.
+
+Information about a resource that received a positive (like) rating.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the rated resource. |
+
+## ActivityContentDetailsPlaylistItem
+
+`object` model on the `json` wire format.
+
+Information about a new playlist item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `playlistId` | `playlistId` | `string` | No | No | The value that YouTube uses to uniquely identify the playlist. |
+| `playlistItemId` | `playlistItemId` | `string` | No | No | ID of the item within the playlist. |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information about the resource that was added to the playlist. |
+
+## ActivityContentDetailsPromotedItem
+
+`object` model on the `json` wire format.
+
+Details about a resource which is being promoted.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adTag` | `adTag` | `string` | No | No | The URL the client should fetch to request a promoted item. |
+| `clickTrackingUrl` | `clickTrackingUrl` | `string` | No | No | The URL the client should ping to indicate that the user clicked through on this promoted item. |
+| `creativeViewUrl` | `creativeViewUrl` | `string` | No | No | The URL the client should ping to indicate that the user was shown this promoted item. |
+| `ctaType` | `ctaType` | `"ctaTypeUnspecified" \| "visitAdvertiserSite"` | No | No | The type of call-to-action, a message to the user indicating action that can be taken. |
+| `customCtaButtonText` | `customCtaButtonText` | `string` | No | No | The custom call-to-action button text. If specified, it will override the default button text for the cta_type. |
+| `descriptionText` | `descriptionText` | `string` | No | No | The text description to accompany the promoted item. |
+| `destinationUrl` | `destinationUrl` | `string` | No | No | The URL the client should direct the user to, if the user chooses to visit the advertiser's website. |
+| `forecastingUrl` | `forecastingUrl` | `Array<string>` | No | No | The list of forecasting URLs. The client should ping all of these URLs when a promoted item is not available, to indicate that a promoted item could have been shown. |
+| `impressionUrl` | `impressionUrl` | `Array<string>` | No | No | The list of impression URLs. The client should ping all of these URLs to indicate that the user was shown this promoted item. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the promoted video. |
+
+## ActivityContentDetailsRecommendation
+
+`object` model on the `json` wire format.
+
+Information that identifies the recommended resource.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | `reason` | `"reasonUnspecified" \| "videoFavorited" \| "videoLiked" \| "videoWatched"` | No | No | The reason that the resource is recommended to the user. |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the recommended resource. |
+| `seedResourceId` | `seedResourceId` | `ResourceId` | No | No | The seedResourceId object contains information about the resource that caused the recommendation. |
+
+## ActivityContentDetailsSocial
+
+`object` model on the `json` wire format.
+
+Details about a social network post.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `author` | `author` | `string` | No | No | The author of the social network post. |
+| `imageUrl` | `imageUrl` | `string` | No | No | An image of the post's author. |
+| `referenceUrl` | `referenceUrl` | `string` | No | No | The URL of the social network post. |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object encapsulates information that identifies the resource associated with a social network post. |
+| `type` | `type` | `"unspecified" \| "googlePlus" \| "facebook" \| "twitter"` | No | No | The name of the social network. |
+
+## ActivityContentDetailsSubscription
+
+`object` model on the `json` wire format.
+
+Information about a channel that a user subscribed to.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The resourceId object contains information that identifies the resource that the user subscribed to. |
+
+## ActivityContentDetailsUpload
+
+`object` model on the `json` wire format.
+
+Information about the uploaded video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the uploaded video. |
+
+## ActivityListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Activity>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#activityListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## ActivitySnippet
+
+`object` model on the `json` wire format.
+
+Basic details about an activity, including title, description, thumbnails, activity type and group. Next ID: 12
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel associated with the activity. |
+| `channelTitle` | `channelTitle` | `string` | No | No | Channel title for the channel responsible for this activity |
+| `description` | `description` | `string` | No | No | The description of the resource primarily associated with the activity. @mutable youtube.activities.insert |
+| `groupId` | `groupId` | `string` | No | No | The group ID associated with the activity. A group ID identifies user events that are associated with the same user and resource. For example, if a user rates a video and marks the same video as a favorite, the entries for those events would have the same group ID in the user's activity feed. In your user interface, you can avoid repetition by grouping events with the same groupId value. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the video was uploaded. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the resource that is primarily associated with the activity. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The title of the resource primarily associated with the activity. |
+| `type` | `type` | `"typeUnspecified" \| "upload" \| "like" \| "favorite" \| "comment" \| "subscription" \| "playlistItem" \| "recommendation" \| "bulletin" \| "social" \| "channelItem" \| "promotedItem"` | No | No | The type of activity that the resource describes. |
+
+## AnalyticsEmptyResponse
+
+`object` model on the `json` wire format.
+
+Empty response.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | Apiary error details |
+
+## AnalyticsErrorProto
+
+`object` model on the `json` wire format.
+
+Describes one specific error.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `argument` | `argument` | `Array<string>` | No | No | Error arguments, to be used when building user-friendly error messages given the error domain and code. Different error codes require different arguments. |
+| `code` | `code` | `string` | No | No | Error code in the error domain. This should correspond to a value of the enum type whose name is in domain. See the core error domain in error_domain.proto. |
+| `debugInfo` | `debugInfo` | `string` | No | No | Debugging information, which should not be shared externally. |
+| `domain` | `domain` | `string` | No | No | Error domain. RoSy services can define their own domain and error codes. This should normally be the name of an enum type, such as: gdata.CoreErrorDomain |
+| `externalErrorMessage` | `externalErrorMessage` | `string` | No | No | A short explanation for the error, which can be shared outside Google. Please set domain, code and arguments whenever possible instead of this error message so that external APIs can build safe error messages themselves. External messages built in a RoSy interface will most likely refer to information and concepts that are not available externally and should not be exposed. It is safer if external APIs can understand the errors and decide what the error message should look like. |
+| `location` | `location` | `string` | No | No | Location of the error, as specified by the location type. If location_type is PATH, this should be a path to a field that's relative to the request, using FieldPath notation (net/proto2/util/public/field_path.h). Examples: authenticated_user.gaia_id resource.address[2].country |
+| `locationType` | `locationType` | `"PATH" \| "OTHER" \| "PARAMETER"` | No | No | — |
+
+## AnalyticsErrors
+
+`object` model on the `json` wire format.
+
+Request Error information. The presence of an error field signals that the operation has failed.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `"BAD_REQUEST" \| "FORBIDDEN" \| "NOT_FOUND" \| "CONFLICT" \| "GONE" \| "PRECONDITION_FAILED" \| "INTERNAL_ERROR" \| "SERVICE_UNAVAILABLE"` | No | No | Global error code. Deprecated and ignored. Set custom error codes in ErrorProto.domain and ErrorProto.code instead. |
+| `error` | `error` | `Array<AnalyticsErrorProto>` | No | No | Specific error description and codes |
+| `requestId` | `requestId` | `string` | No | No | Request identifier generated by the service, which can be used to identify the error in the logs |
+
+## AnalyticsGroup
+
+`object` model on the `json` wire format.
+
+A group.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `AnalyticsGroupContentDetails` | No | No | The `contentDetails` object contains additional information about the group, such as the number and type of items that it contains. |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | Apiary error details |
+| `etag` | `etag` | `string` | No | No | The Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the group. |
+| `kind` | `kind` | `string` | No | No | Identifies the API resource's type. The value will be `youtube#group`. |
+| `snippet` | `snippet` | `AnalyticsGroupSnippet` | No | No | The `snippet` object contains basic information about the group, including its creation date and name. |
+
+## AnalyticsGroupContentDetails
+
+`object` model on the `json` wire format.
+
+A group's content details.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `itemCount` | `itemCount` | `string` | No | No | The number of items in the group. |
+| `itemType` | `itemType` | `string` | No | No | The type of resources that the group contains. Valid values for this property are: * `youtube#channel` * `youtube#playlist` * `youtube#video` * `youtubePartner#asset` |
+
+## AnalyticsGroupItem
+
+`object` model on the `json` wire format.
+
+A group item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | Apiary error details |
+| `etag` | `etag` | `string` | No | No | The Etag of this resource. |
+| `groupId` | `groupId` | `string` | No | No | The ID that YouTube uses to uniquely identify the group that contains the item. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the `channel`, `video`, `playlist`, or `asset` resource that is included in the group. Note that this ID refers specifically to the inclusion of that resource in a particular group and is different than the channel ID, video ID, playlist ID, or asset ID that uniquely identifies the resource itself. The `resource.id` property's value specifies the unique channel, video, playlist, or asset ID. |
+| `kind` | `kind` | `string` | No | No | Identifies the API resource's type. The value will be `youtube#groupItem`. |
+| `resource` | `resource` | `AnalyticsGroupItemResource` | No | No | The `resource` object contains information that identifies the item being added to the group. |
+
+## AnalyticsGroupItemResource
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | The channel, video, playlist, or asset ID that YouTube uses to uniquely identify the item that is being added to the group. |
+| `kind` | `kind` | `string` | No | No | Identifies the type of resource being added to the group. Valid values for this property are: * `youtube#channel` * `youtube#playlist` * `youtube#video` * `youtubePartner#asset` |
+
+## AnalyticsGroupSnippet
+
+`object` model on the `json` wire format.
+
+A group snippet.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `publishedAt` | `publishedAt` | `string` | No | No | The date and time that the group was created. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format. |
+| `title` | `title` | `string` | No | No | The group name. The value must be a non-empty string. |
+
+## AnalyticsListGroupItemsResponse
+
+`object` model on the `json` wire format.
+
+Response message for GroupsService.ListGroupItems.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | Apiary error details |
+| `etag` | `etag` | `string` | No | No | The Etag of this resource. |
+| `items` | `items` | `Array<AnalyticsGroupItem>` | No | No | A list of groups that match the API request parameters. Each item in the list represents a `groupItem` resource. |
+| `kind` | `kind` | `string` | No | No | Identifies the API resource's type. The value will be `youtube#groupItemListResponse`. |
+
+## AnalyticsListGroupsResponse
+
+`object` model on the `json` wire format.
+
+Response message for GroupsService.ListGroups.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | Apiary error details |
+| `etag` | `etag` | `string` | No | No | The Etag of this resource. |
+| `items` | `items` | `Array<AnalyticsGroup>` | No | No | A list of groups that match the API request parameters. Each item in the list represents a `group` resource. |
+| `kind` | `kind` | `string` | No | No | Identifies the API resource's type. The value will be `youtube#groupListResponse`. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the `pageToken` parameter to retrieve the next page in the result set. |
+
+## AnalyticsQueryResponse
+
+`object` model on the `json` wire format.
+
+Response message for TargetedQueriesService.Query.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `columnHeaders` | `columnHeaders` | `Array<AnalyticsResultTableColumnHeader>` | No | No | This value specifies information about the data returned in the `rows` fields. Each item in the `columnHeaders` list identifies a field returned in the `rows` value, which contains a list of comma-delimited data. The `columnHeaders` list will begin with the dimensions specified in the API request, which will be followed by the metrics specified in the API request. The order of both dimensions and metrics will match the ordering in the API request. For example, if the API request contains the parameters `dimensions=ageGroup,gender&metrics=viewerPercentage`, the API response will return columns in this order: `ageGroup`, `gender`, `viewerPercentage`. |
+| `errors` | `errors` | `AnalyticsErrors` | No | No | When set, indicates that the operation failed. |
+| `kind` | `kind` | `string` | No | No | This value specifies the type of data included in the API response. For the query method, the kind property value will be `youtubeAnalytics#resultTable`. |
+| `rows` | `rows` | `Array<Array<unknown>>` | No | No | The list contains all rows of the result table. Each item in the list is an array that contains comma-delimited data corresponding to a single row of data. The order of the comma-delimited data fields will match the order of the columns listed in the `columnHeaders` field. If no data is available for the given query, the `rows` element will be omitted from the response. The response for a query with the `day` dimension will not contain rows for the most recent days. |
+
+## AnalyticsResultTableColumnHeader
+
+`object` model on the `json` wire format.
+
+The description of a column of the result table.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `columnType` | `columnType` | `string` | No | No | The type of the column (`DIMENSION` or `METRIC`). |
+| `dataType` | `dataType` | `string` | No | No | The type of the data in the column (`STRING`, `INTEGER`, `FLOAT`, etc.). |
+| `name` | `name` | `string` | No | No | The name of the dimension or metric. |
+
+## BatchGetStatsResponse
+
+`object` model on the `json` wire format.
+
+Response for the Videos.stats API. Returns VideoStat information about a batch of videos. VideoStat contains a subset of the information in Video that is relevant to statistics and content details. BatchGetStats is intentionally not atomic to provide a better user experience. BatchGetStatsResponse returns a summary to help users understand the outcome of the operation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `items` | `items` | `Array<VideoStat>` | No | No | The videos' stats information. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#batchGetStatsResponse". |
+| `summary` | `summary` | `BatchGetStatsSummary` | No | No | — |
+
+## BatchGetStatsSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `failedVideoCount` | `failedVideoCount` | `string` | No | No | — |
+| `failedVideoIds` | `failedVideoIds` | `Array<string>` | No | No | — |
+| `requestedVideoCount` | `requestedVideoCount` | `string` | No | No | — |
+| `succeededVideoCount` | `succeededVideoCount` | `string` | No | No | — |
+
+## BrandPartner
+
+`object` model on the `json` wire format.
+
+Details about the brand partner linked to the video for Creator Initiated Linking (CIL). Next ID: 6
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelHandle` | `channelHandle` | `string` | No | No | Required. Channel handle, must begin with "@" |
+| `channelId` | `channelId` | `string` | No | No | Required. External Channel ID, must begin with "UC" |
+
+## Caption
+
+`object` model on the `json` wire format.
+
+A *caption* resource represents a YouTube caption track. A caption track is associated with exactly one YouTube video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the caption track. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#caption". |
+| `snippet` | `snippet` | `CaptionSnippet` | No | No | The snippet object contains basic details about the caption. |
+
+## CaptionListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Caption>` | No | No | A list of captions that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#captionListResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## CaptionSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a caption track, such as its language and name.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audioTrackType` | `audioTrackType` | `"unknown" \| "primary" \| "commentary" \| "descriptive"` | No | No | The type of audio track associated with the caption track. |
+| `failureReason` | `failureReason` | `"unknownFormat" \| "unsupportedFormat" \| "processingFailed"` | No | No | The reason that YouTube failed to process the caption track. This property is only present if the state property's value is failed. |
+| `isAutoSynced` | `isAutoSynced` | `boolean` | No | No | Indicates whether YouTube synchronized the caption track to the audio track in the video. The value will be true if a sync was explicitly requested when the caption track was uploaded. For example, when calling the captions.insert or captions.update methods, you can set the sync parameter to true to instruct YouTube to sync the uploaded track to the video. If the value is false, YouTube uses the time codes in the uploaded caption track to determine when to display captions. |
+| `isCC` | `isCC` | `boolean` | No | No | Indicates whether the track contains closed captions for the deaf and hard of hearing. The default value is false. |
+| `isDraft` | `isDraft` | `boolean` | No | No | Indicates whether the caption track is a draft. If the value is true, then the track is not publicly visible. The default value is false. @mutable youtube.captions.insert youtube.captions.update |
+| `isEasyReader` | `isEasyReader` | `boolean` | No | No | Indicates whether caption track is formatted for "easy reader," meaning it is at a third-grade level for language learners. The default value is false. |
+| `isLarge` | `isLarge` | `boolean` | No | No | Indicates whether the caption track uses large text for the vision-impaired. The default value is false. |
+| `language` | `language` | `string` | No | No | The language of the caption track. The property value is a BCP-47 language tag. |
+| `lastUpdated` | `lastUpdated` | `string<date-time>` | No | No | The date and time when the caption track was last updated. |
+| `name` | `name` | `string` | No | No | The name of the caption track. The name is intended to be visible to the user as an option during playback. |
+| `status` | `status` | `"serving" \| "syncing" \| "failed"` | No | No | The caption track's status. |
+| `trackKind` | `trackKind` | `"standard" \| "ASR" \| "forced"` | No | No | The caption track's type. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the video associated with the caption track. @mutable youtube.captions.insert |
+
+## CdnSettings
+
+`object` model on the `json` wire format.
+
+Brief description of the live stream cdn settings.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `format` | `format` | `string` | No | No | The format of the video stream that you are sending to Youtube. |
+| `frameRate` | `frameRate` | `"30fps" \| "60fps" \| "variable"` | No | No | The frame rate of the inbound video data. |
+| `ingestionInfo` | `ingestionInfo` | `IngestionInfo` | No | No | The ingestionInfo object contains information that YouTube provides that you need to transmit your RTMP or HTTP stream to YouTube. |
+| `ingestionType` | `ingestionType` | `"rtmp" \| "dash" \| "webrtc" \| "hls"` | No | No | The method or protocol used to transmit the video stream. |
+| `resolution` | `resolution` | `"240p" \| "360p" \| "480p" \| "720p" \| "1080p" \| "1440p" \| "2160p" \| "variable"` | No | No | The resolution of the inbound video data. |
+
+## Channel
+
+`object` model on the `json` wire format.
+
+A *channel* resource contains information about a YouTube channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auditDetails` | `auditDetails` | `ChannelAuditDetails` | No | No | The auditionDetails object encapsulates channel data that is relevant for YouTube Partners during the audition process. |
+| `brandingSettings` | `brandingSettings` | `ChannelBrandingSettings` | No | No | The brandingSettings object encapsulates information about the branding of the channel. |
+| `contentDetails` | `contentDetails` | `ChannelContentDetails` | No | No | The contentDetails object encapsulates information about the channel's content. |
+| `contentOwnerDetails` | `contentOwnerDetails` | `ChannelContentOwnerDetails` | No | No | The contentOwnerDetails object encapsulates channel data that is relevant for YouTube Partners linked with the channel. |
+| `conversionPings` | `conversionPings` | `ChannelConversionPings` | No | No | The conversionPings object encapsulates information about conversion pings that need to be respected by the channel. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#channel". |
+| `localizations` | `localizations` | `Record<string, ChannelLocalization>` | No | No | Localizations for different languages |
+| `snippet` | `snippet` | `ChannelSnippet` | No | No | The snippet object contains basic details about the channel, such as its title, description, and thumbnail images. |
+| `statistics` | `statistics` | `ChannelStatistics` | No | No | The statistics object encapsulates statistics for the channel. |
+| `status` | `status` | `ChannelStatus` | No | No | The status object encapsulates information about the privacy status of the channel. |
+| `topicDetails` | `topicDetails` | `ChannelTopicDetails` | No | No | The topicDetails object encapsulates information about Freebase topics associated with the channel. |
+
+## ChannelAuditDetails
+
+`object` model on the `json` wire format.
+
+The auditDetails object encapsulates channel data that is relevant for YouTube Partners during the audit process.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `communityGuidelinesGoodStanding` | `communityGuidelinesGoodStanding` | `boolean` | No | No | Whether or not the channel respects the community guidelines. |
+| `contentIdClaimsGoodStanding` | `contentIdClaimsGoodStanding` | `boolean` | No | No | Whether or not the channel has any unresolved claims. |
+| `copyrightStrikesGoodStanding` | `copyrightStrikesGoodStanding` | `boolean` | No | No | Whether or not the channel has any copyright strikes. |
+
+## ChannelBannerResource
+
+`object` model on the `json` wire format.
+
+A channel banner returned as the response to a channel_banner.insert call.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#channelBannerResource". |
+| `url` | `url` | `string` | No | No | The URL of this banner image. |
+
+## ChannelBrandingSettings
+
+`object` model on the `json` wire format.
+
+Branding properties of a YouTube channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel` | `channel` | `ChannelSettings` | No | No | Branding properties for the channel view. |
+| `hints` | `hints` | `Array<PropertyValue>` | No | No | Additional experimental branding properties. |
+| `image` | `image` | `ImageSettings` | No | No | Branding properties for branding images. |
+| `watch` | `watch` | `WatchSettings` | No | No | Branding properties for the watch page. |
+
+## ChannelContentDetails
+
+`object` model on the `json` wire format.
+
+Details about the content of a channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `relatedPlaylists` | `relatedPlaylists` | `json` | No | No | — |
+
+## ChannelContentOwnerDetails
+
+`object` model on the `json` wire format.
+
+The contentOwnerDetails object encapsulates channel data that is relevant for YouTube Partners linked with the channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentOwner` | `contentOwner` | `string` | No | No | The ID of the content owner linked to the channel. |
+| `timeLinked` | `timeLinked` | `string<date-time>` | No | No | The date and time when the channel was linked to the content owner. |
+
+## ChannelConversionPing
+
+`object` model on the `json` wire format.
+
+Pings that the app shall fire (authenticated by biscotti cookie). Each ping has a context, in which the app must fire the ping, and a url identifying the ping.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `context` | `context` | `"subscribe" \| "unsubscribe" \| "cview"` | No | No | Defines the context of the ping. |
+| `conversionUrl` | `conversionUrl` | `string` | No | No | The url (without the schema) that the player shall send the ping to. It's at caller's descretion to decide which schema to use (http vs https) Example of a returned url: //googleads.g.doubleclick.net/pagead/ viewthroughconversion/962985656/?data=path%3DtHe_path%3Btype%3D cview%3Butuid%3DGISQtTNGYqaYl4sKxoVvKA&labe=default The caller must append biscotti authentication (ms param in case of mobile, for example) to this ping. |
+
+## ChannelConversionPings
+
+`object` model on the `json` wire format.
+
+The conversionPings object encapsulates information about conversion pings that need to be respected by the channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pings` | `pings` | `Array<ChannelConversionPing>` | No | No | Pings that the app shall fire (authenticated by biscotti cookie). Each ping has a context, in which the app must fire the ping, and a url identifying the ping. |
+
+## ChannelListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Channel>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#channelListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## ChannelLocalization
+
+`object` model on the `json` wire format.
+
+Channel localization setting
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | The localized strings for channel's description. |
+| `title` | `title` | `string` | No | No | The localized strings for channel's title. |
+
+## ChannelProfileDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The YouTube channel ID. |
+| `channelUrl` | `channelUrl` | `string` | No | No | The channel's URL. |
+| `displayName` | `displayName` | `string` | No | No | The channel's display name. |
+| `profileImageUrl` | `profileImageUrl` | `string` | No | No | The channels's avatar URL. |
+
+## ChannelSection
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `ChannelSectionContentDetails` | No | No | The contentDetails object contains details about the channel section content, such as a list of playlists or channels featured in the section. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel section. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#channelSection". |
+| `localizations` | `localizations` | `Record<string, ChannelSectionLocalization>` | No | No | Localizations for different languages |
+| `snippet` | `snippet` | `ChannelSectionSnippet` | No | No | The snippet object contains basic details about the channel section, such as its type, style and title. |
+| `targeting` | `targeting` | `ChannelSectionTargeting` | No | No | The targeting object contains basic targeting settings about the channel section. |
+
+## ChannelSectionContentDetails
+
+`object` model on the `json` wire format.
+
+Details about a channelsection, including playlists and channels.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channels` | `channels` | `Array<string>` | No | No | The channel ids for type multiple_channels. |
+| `playlists` | `playlists` | `Array<string>` | No | No | The playlist ids for type single_playlist and multiple_playlists. For singlePlaylist, only one playlistId is allowed. |
+
+## ChannelSectionListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<ChannelSection>` | No | No | A list of ChannelSections that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#channelSectionListResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## ChannelSectionLocalization
+
+`object` model on the `json` wire format.
+
+ChannelSection localization setting
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `title` | `title` | `string` | No | No | The localized strings for channel section's title. |
+
+## ChannelSectionSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a channel section, including title, style and position.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel that published the channel section. |
+| `defaultLanguage` | `defaultLanguage` | `string` | No | No | The language of the channel section's default title and description. |
+| `localized` | `localized` | `ChannelSectionLocalization` | No | No | Localized title, read-only. |
+| `position` | `position` | `integer` | No | No | The position of the channel section in the channel. |
+| `style` | `style` | `"channelsectionStyleUnspecified" \| "horizontalRow" \| "verticalList"` | No | No | The style of the channel section. |
+| `title` | `title` | `string` | No | No | The channel section's title for multiple_playlists and multiple_channels. |
+| `type` | `type` | `"channelsectionTypeUndefined" \| "singlePlaylist" \| "multiplePlaylists" \| "popularUploads" \| "recentUploads" \| "likes" \| "allPlaylists" \| "likedPlaylists" \| "recentPosts" \| "recentActivity" \| "liveEvents" \| "upcomingEvents" \| "completedEvents" \| "multipleChannels" \| "postedVideos" \| "postedPlaylists" \| "subscriptions"` | No | No | The type of the channel section. |
+
+## ChannelSectionTargeting
+
+`object` model on the `json` wire format.
+
+ChannelSection targeting setting.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countries` | `countries` | `Array<string>` | No | No | The country the channel section is targeting. |
+| `languages` | `languages` | `Array<string>` | No | No | The language the channel section is targeting. |
+| `regions` | `regions` | `Array<string>` | No | No | The region the channel section is targeting. |
+
+## ChannelSettings
+
+`object` model on the `json` wire format.
+
+Branding properties for the channel view.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | The country of the channel. |
+| `defaultLanguage` | `defaultLanguage` | `string` | No | No | — |
+| `defaultTab` | `defaultTab` | `string` | No | No | Which content tab users should see when viewing the channel. |
+| `description` | `description` | `string` | No | No | Specifies the channel description. |
+| `featuredChannelsTitle` | `featuredChannelsTitle` | `string` | No | No | Title for the featured channels tab. |
+| `featuredChannelsUrls` | `featuredChannelsUrls` | `Array<string>` | No | No | The list of featured channels. |
+| `keywords` | `keywords` | `string` | No | No | Lists keywords associated with the channel, comma-separated. |
+| `moderateComments` | `moderateComments` | `boolean` | No | No | Whether user-submitted comments left on the channel page need to be approved by the channel owner to be publicly visible. |
+| `profileColor` | `profileColor` | `string` | No | No | A prominent color that can be rendered on this channel page. |
+| `showBrowseView` | `showBrowseView` | `boolean` | No | No | Whether the tab to browse the videos should be displayed. |
+| `showRelatedChannels` | `showRelatedChannels` | `boolean` | No | No | Whether related channels should be proposed. |
+| `title` | `title` | `string` | No | No | Specifies the channel title. |
+| `trackingAnalyticsAccountId` | `trackingAnalyticsAccountId` | `string` | No | No | The ID for a Google Analytics account to track and measure traffic to the channels. |
+| `unsubscribedTrailer` | `unsubscribedTrailer` | `string` | No | No | The trailer of the channel, for users that are not subscribers. |
+
+## ChannelSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a channel, including title, description and thumbnails.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | The country of the channel. |
+| `customUrl` | `customUrl` | `string` | No | No | The custom url of the channel. |
+| `defaultLanguage` | `defaultLanguage` | `string` | No | No | The language of the channel's default title and description. |
+| `description` | `description` | `string` | No | No | The description of the channel. |
+| `localized` | `localized` | `ChannelLocalization` | No | No | Localized title and description, read-only. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the channel was created. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the channel. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. When displaying thumbnails in your application, make sure that your code uses the image URLs exactly as they are returned in API responses. For example, your application should not use the http domain instead of the https domain in a URL returned in an API response. Beginning in July 2018, channel thumbnail URLs will only be available in the https domain, which is how the URLs appear in API responses. After that time, you might see broken images in your application if it tries to load YouTube images from the http domain. Thumbnail images might be empty for newly created channels and might take up to one day to populate. |
+| `title` | `title` | `string` | No | No | The channel's title. |
+
+## ChannelStatistics
+
+`object` model on the `json` wire format.
+
+Statistics about a channel: number of subscribers, number of videos in the channel, etc.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commentCount` | `commentCount` | `string` | No | No | The number of comments for the channel. |
+| `hiddenSubscriberCount` | `hiddenSubscriberCount` | `boolean` | No | No | Whether or not the number of subscribers is shown for this user. |
+| `subscriberCount` | `subscriberCount` | `string` | No | No | The number of subscribers that the channel has. |
+| `videoCount` | `videoCount` | `string` | No | No | The number of videos uploaded to the channel. |
+| `viewCount` | `viewCount` | `string` | No | No | The number of times the channel has been viewed. |
+
+## ChannelStatus
+
+`object` model on the `json` wire format.
+
+JSON template for the status part of a channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `isChannelMonetizationEnabled` | `isChannelMonetizationEnabled` | `boolean` | No | No | Whether the channel is considered ypp monetization enabled. See go/yppornot for more details. |
+| `isLinked` | `isLinked` | `boolean` | No | No | If true, then the user is linked to either a YouTube username or G+ account. Otherwise, the user doesn't have a public YouTube identity. |
+| `longUploadsStatus` | `longUploadsStatus` | `"longUploadsUnspecified" \| "allowed" \| "eligible" \| "disallowed"` | No | No | The long uploads status of this channel. See https://support.google.com/youtube/answer/71673 for more information. |
+| `madeForKids` | `madeForKids` | `boolean` | No | No | — |
+| `privacyStatus` | `privacyStatus` | `"public" \| "unlisted" \| "private"` | No | No | Privacy status of the channel. |
+| `selfDeclaredMadeForKids` | `selfDeclaredMadeForKids` | `boolean` | No | No | — |
+
+## ChannelToAffiliateProgramLinkDetails
+
+`object` model on the `json` wire format.
+
+Information specific to a creator in an affiliate program linked to a YouTube channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `merchantId` | `merchantId` | `string` | No | No | Required. Google Merchant Center ID of the partner. |
+| `programStatus` | `programStatus` | `"affiliateProgramStatusUnspecified" \| "active" \| "inactive"` | No | No | Required. Affiliate program status. |
+| `statusUpdateReason` | `statusUpdateReason` | `string` | No | No | Optional. Reason for the last update of the affiliate program status. |
+| `statusUpdateTime` | `statusUpdateTime` | `string` | No | No | Optional. Timestamp when the affiliate program status was last updated. |
+
+## ChannelTopicDetails
+
+`object` model on the `json` wire format.
+
+Freebase topic information related to the channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topicCategories` | `topicCategories` | `Array<string>` | No | No | A list of Wikipedia URLs that describe the channel's content. |
+| `topicIds` | `topicIds` | `Array<string>` | No | No | A list of Freebase topic IDs associated with the channel. You can retrieve information about each topic using the Freebase Topic API. |
+
+## ChannelToStoreLinkDetails
+
+`object` model on the `json` wire format.
+
+Information specific to a store on a merchandising platform linked to a YouTube channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingDetails` | `billingDetails` | `ChannelToStoreLinkDetailsBillingDetails` | No | No | Information specific to billing (read-only). |
+| `merchantAffiliateProgramDetails` | `merchantAffiliateProgramDetails` | `ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails` | No | No | Information specific to merchant affiliate program (read-only). |
+| `merchantId` | `merchantId` | `string` | No | No | Google Merchant Center id of the store. |
+| `storeName` | `storeName` | `string` | No | No | Name of the store. |
+| `storeUrl` | `storeUrl` | `string` | No | No | Landing page of the store. |
+
+## ChannelToStoreLinkDetailsBillingDetails
+
+`object` model on the `json` wire format.
+
+Information specific to billing.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingStatus` | `billingStatus` | `"billingStatusUnspecified" \| "billingStatusPending" \| "billingStatusActive" \| "billingStatusInactive"` | No | No | The current billing profile status. |
+
+## ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails
+
+`object` model on the `json` wire format.
+
+Information specific to merchant affiliate program.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"merchantAffiliateProgramStatusUnspecified" \| "merchantAffiliateProgramStatusEligible" \| "merchantAffiliateProgramStatusActive" \| "merchantAffiliateProgramStatusPaused"` | No | No | The current merchant affiliate program status. |
+
+## Comment
+
+`object` model on the `json` wire format.
+
+A *comment* represents a single YouTube comment.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the comment. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#comment". |
+| `snippet` | `snippet` | `CommentSnippet` | No | No | The snippet object contains basic details about the comment. |
+
+## CommentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Comment>` | No | No | A list of comments that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#commentListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## CommentSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a comment, such as its author and text.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `authorChannelId` | `authorChannelId` | `CommentSnippetAuthorChannelId` | No | No | — |
+| `authorChannelUrl` | `authorChannelUrl` | `string` | No | No | Link to the author's YouTube channel, if any. |
+| `authorDisplayName` | `authorDisplayName` | `string` | No | No | The name of the user who posted the comment. |
+| `authorProfileImageUrl` | `authorProfileImageUrl` | `string` | No | No | The URL for the avatar of the user who posted the comment. |
+| `canRate` | `canRate` | `boolean` | No | No | Whether the current viewer can rate this comment. |
+| `channelId` | `channelId` | `string` | No | No | The id of the corresponding YouTube channel. In case of a channel comment this is the channel the comment refers to. In case of a video or post comment it's the video/post's channel. |
+| `likeCount` | `likeCount` | `integer` | No | No | The total number of likes this comment has received. |
+| `moderationStatus` | `moderationStatus` | `"published" \| "heldForReview" \| "likelySpam" \| "rejected"` | No | No | The comment's moderation status. Will not be set if the comments were requested through the id filter. |
+| `parentId` | `parentId` | `string` | No | No | The unique id of the top-level comment, only set for replies. |
+| `postId` | `postId` | `string` | No | No | The ID of the post the comment refers to, if any. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time when the comment was originally published. |
+| `textDisplay` | `textDisplay` | `string` | No | No | The comment's text. The format is either plain text or HTML dependent on what has been requested. Even the plain text representation may differ from the text originally posted in that it may replace video links with video titles etc. |
+| `textOriginal` | `textOriginal` | `string` | No | No | The comment's original raw text as initially posted or last updated. The original text will only be returned if it is accessible to the viewer, which is only guaranteed if the viewer is the comment's author. |
+| `updatedAt` | `updatedAt` | `string<date-time>` | No | No | The date and time when the comment was last updated. |
+| `videoId` | `videoId` | `string` | No | No | The ID of the video the comment refers to, if any. |
+| `viewerRating` | `viewerRating` | `"none" \| "like" \| "dislike"` | No | No | The rating the viewer has given to this comment. For the time being this will never return RATE_TYPE_DISLIKE and instead return RATE_TYPE_NONE. This may change in the future. |
+
+## CommentSnippetAuthorChannelId
+
+`object` model on the `json` wire format.
+
+Contains the id of the author's YouTube channel, if any.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | The id of the author's YouTube channel. |
+
+## CommentThread
+
+`object` model on the `json` wire format.
+
+A *comment thread* represents information that applies to a top level comment and all its replies. It can also include the top level comment itself and some of the replies.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the comment thread. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#commentThread". |
+| `replies` | `replies` | `CommentThreadReplies` | No | No | The replies object contains a limited number of replies (if any) to the top level comment found in the snippet. |
+| `snippet` | `snippet` | `CommentThreadSnippet` | No | No | The snippet object contains basic details about the comment thread and also the top level comment. |
+
+## CommentThreadListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<CommentThread>` | No | No | A list of comment threads that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#commentThreadListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## CommentThreadReplies
+
+`object` model on the `json` wire format.
+
+Comments written in (direct or indirect) reply to the top level comment.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `Array<Comment>` | No | No | A limited number of replies. Unless the number of replies returned equals total_reply_count in the snippet the returned replies are only a subset of the total number of replies. |
+
+## CommentThreadSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a comment thread.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canReply` | `canReply` | `boolean` | No | No | Whether the current viewer of the thread can reply to it. This is viewer specific - other viewers may see a different value for this field. |
+| `channelId` | `channelId` | `string` | No | No | The YouTube channel the comments in the thread refer to or the channel with the video the comments refer to. If neither video_id nor post_id is set the comments refer to the channel itself. |
+| `isPublic` | `isPublic` | `boolean` | No | No | Whether the thread (and therefore all its comments) is visible to all YouTube users. |
+| `postId` | `postId` | `string` | No | No | The ID of the post the comments refer to, if any. |
+| `topLevelComment` | `topLevelComment` | `Comment` | No | No | The top level comment of this thread. |
+| `totalReplyCount` | `totalReplyCount` | `integer` | No | No | The total number of replies (not including the top level comment). |
+| `videoId` | `videoId` | `string` | No | No | The ID of the video the comments refer to, if any. |
+
+## ContentRating
+
+`object` model on the `json` wire format.
+
+Ratings schemes. The country-specific ratings are mostly for movies and shows. LINT.IfChange
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `acbRating` | `acbRating` | `"acbUnspecified" \| "acbE" \| "acbP" \| "acbC" \| "acbG" \| "acbPg" \| "acbM" \| "acbMa15plus" \| "acbR18plus" \| "acbUnrated"` | No | No | The video's Australian Classification Board (ACB) or Australian Communications and Media Authority (ACMA) rating. ACMA ratings are used to classify children's television programming. |
+| `agcomRating` | `agcomRating` | `"agcomUnspecified" \| "agcomT" \| "agcomVm14" \| "agcomVm18" \| "agcomUnrated"` | No | No | The video's rating from Italy's Autorità per le Garanzie nelle Comunicazioni (AGCOM). |
+| `anatelRating` | `anatelRating` | `"anatelUnspecified" \| "anatelF" \| "anatelI" \| "anatelI7" \| "anatelI10" \| "anatelI12" \| "anatelR" \| "anatelA" \| "anatelUnrated"` | No | No | The video's Anatel (Asociación Nacional de Televisión) rating for Chilean television. |
+| `bbfcRating` | `bbfcRating` | `"bbfcUnspecified" \| "bbfcU" \| "bbfcPg" \| "bbfc12a" \| "bbfc12" \| "bbfc15" \| "bbfc18" \| "bbfcR18" \| "bbfcUnrated"` | No | No | The video's British Board of Film Classification (BBFC) rating. |
+| `bfvcRating` | `bfvcRating` | `"bfvcUnspecified" \| "bfvcG" \| "bfvcE" \| "bfvc13" \| "bfvc15" \| "bfvc18" \| "bfvc20" \| "bfvcB" \| "bfvcUnrated"` | No | No | The video's rating from Thailand's Board of Film and Video Censors. |
+| `bmukkRating` | `bmukkRating` | `"bmukkUnspecified" \| "bmukkAa" \| "bmukk6" \| "bmukk8" \| "bmukk10" \| "bmukk12" \| "bmukk14" \| "bmukk16" \| "bmukkUnrated"` | No | No | The video's rating from the Austrian Board of Media Classification (Bundesministerium für Unterricht, Kunst und Kultur). |
+| `catvfrRating` | `catvfrRating` | `"catvfrUnspecified" \| "catvfrG" \| "catvfr8plus" \| "catvfr13plus" \| "catvfr16plus" \| "catvfr18plus" \| "catvfrUnrated" \| "catvfrE"` | No | No | The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian French-language broadcasts. For more information, see the Canadian Broadcast Standards Council website. |
+| `catvRating` | `catvRating` | `"catvUnspecified" \| "catvC" \| "catvC8" \| "catvG" \| "catvPg" \| "catv14plus" \| "catv18plus" \| "catvUnrated" \| "catvE"` | No | No | Rating system for Canadian TV - Canadian TV Classification System The video's rating from the Canadian Radio-Television and Telecommunications Commission (CRTC) for Canadian English-language broadcasts. For more information, see the Canadian Broadcast Standards Council website. |
+| `cbfcRating` | `cbfcRating` | `"cbfcUnspecified" \| "cbfcU" \| "cbfcUA" \| "cbfcUA7plus" \| "cbfcUA13plus" \| "cbfcUA16plus" \| "cbfcA" \| "cbfcS" \| "cbfcUnrated"` | No | No | The video's Central Board of Film Certification (CBFC - India) rating. |
+| `cccRating` | `cccRating` | `"cccUnspecified" \| "cccTe" \| "ccc6" \| "ccc14" \| "ccc18" \| "ccc18v" \| "ccc18s" \| "cccUnrated"` | No | No | The video's Consejo de Calificación Cinematográfica (Chile) rating. |
+| `cceRating` | `cceRating` | `"cceUnspecified" \| "cceM4" \| "cceM6" \| "cceM12" \| "cceM16" \| "cceM18" \| "cceUnrated" \| "cceM14"` | No | No | The video's rating from Portugal's Comissão de Classificação de Espect´culos. |
+| `chfilmRating` | `chfilmRating` | `"chfilmUnspecified" \| "chfilm0" \| "chfilm6" \| "chfilm12" \| "chfilm16" \| "chfilm18" \| "chfilmUnrated"` | No | No | The video's rating in Switzerland. |
+| `chvrsRating` | `chvrsRating` | `"chvrsUnspecified" \| "chvrsG" \| "chvrsPg" \| "chvrs14a" \| "chvrs18a" \| "chvrsR" \| "chvrsE" \| "chvrsUnrated"` | No | No | The video's Canadian Home Video Rating System (CHVRS) rating. |
+| `cicfRating` | `cicfRating` | `"cicfUnspecified" \| "cicfE" \| "cicfKtEa" \| "cicfKntEna" \| "cicfUnrated"` | No | No | The video's rating from the Commission de Contrôle des Films (Belgium). |
+| `cnaRating` | `cnaRating` | `"cnaUnspecified" \| "cnaAp" \| "cna12" \| "cna15" \| "cna18" \| "cna18plus" \| "cnaUnrated"` | No | No | The video's rating from Romania's CONSILIUL NATIONAL AL AUDIOVIZUALULUI (CNA). |
+| `cncRating` | `cncRating` | `"cncUnspecified" \| "cncT" \| "cnc10" \| "cnc12" \| "cnc16" \| "cnc18" \| "cncE" \| "cncInterdiction" \| "cncUnrated"` | No | No | Rating system in France - Commission de classification cinematographique |
+| `csaRating` | `csaRating` | `"csaUnspecified" \| "csaT" \| "csa10" \| "csa12" \| "csa16" \| "csa18" \| "csaInterdiction" \| "csaUnrated"` | No | No | The video's rating from France's Conseil supérieur de l’audiovisuel, which rates broadcast content. |
+| `cscfRating` | `cscfRating` | `"cscfUnspecified" \| "cscfAl" \| "cscfA" \| "cscf6" \| "cscf9" \| "cscf12" \| "cscf16" \| "cscf18" \| "cscfUnrated"` | No | No | The video's rating from Luxembourg's Commission de surveillance de la classification des films (CSCF). |
+| `czfilmRating` | `czfilmRating` | `"czfilmUnspecified" \| "czfilmU" \| "czfilm12" \| "czfilm14" \| "czfilm18" \| "czfilmUnrated"` | No | No | The video's rating in the Czech Republic. |
+| `djctqRating` | `djctqRating` | `"djctqUnspecified" \| "djctqL" \| "djctq10" \| "djctq12" \| "djctq14" \| "djctq16" \| "djctq18" \| "djctqEr" \| "djctqL10" \| "djctqL12" \| "djctqL14" \| "djctqL16" \| "djctqL18" \| "djctq1012" \| "djctq1014" \| "djctq1016" \| "djctq1018" \| "djctq1214" \| "djctq1216" \| "djctq1218" \| "djctq1416" \| "djctq1418" \| "djctq1618" \| "djctqUnrated"` | No | No | The video's Departamento de Justiça, Classificação, Qualificação e Títulos (DJCQT - Brazil) rating. |
+| `djctqRatingReasons` | `djctqRatingReasons` | `Array<"djctqRatingReasonUnspecified" \| "djctqViolence" \| "djctqExtremeViolence" \| "djctqSexualContent" \| "djctqNudity" \| "djctqSex" \| "djctqExplicitSex" \| "djctqDrugs" \| "djctqLegalDrugs" \| "djctqIllegalDrugs" \| "djctqInappropriateLanguage" \| "djctqCriminalActs" \| "djctqImpactingContent" \| "djctqFear" \| "djctqMedicalProcedures" \| "djctqSensitiveTopics" \| "djctqFantasyViolence">` | No | No | Reasons that explain why the video received its DJCQT (Brazil) rating. |
+| `ecbmctRating` | `ecbmctRating` | `"ecbmctUnspecified" \| "ecbmctG" \| "ecbmct7a" \| "ecbmct7plus" \| "ecbmct13a" \| "ecbmct13plus" \| "ecbmct15a" \| "ecbmct15plus" \| "ecbmct18plus" \| "ecbmctUnrated"` | No | No | Rating system in Turkey - Evaluation and Classification Board of the Ministry of Culture and Tourism |
+| `eefilmRating` | `eefilmRating` | `"eefilmUnspecified" \| "eefilmPere" \| "eefilmL" \| "eefilmMs6" \| "eefilmK6" \| "eefilmMs12" \| "eefilmK12" \| "eefilmK14" \| "eefilmK16" \| "eefilmUnrated"` | No | No | The video's rating in Estonia. |
+| `egfilmRating` | `egfilmRating` | `"egfilmUnspecified" \| "egfilmGn" \| "egfilm18" \| "egfilmBn" \| "egfilmUnrated"` | No | No | The video's rating in Egypt. |
+| `eirinRating` | `eirinRating` | `"eirinUnspecified" \| "eirinG" \| "eirinPg12" \| "eirinR15plus" \| "eirinR18plus" \| "eirinUnrated"` | No | No | The video's Eirin (映倫) rating. Eirin is the Japanese rating system. |
+| `fcbmRating` | `fcbmRating` | `"fcbmUnspecified" \| "fcbmU" \| "fcbmPg13" \| "fcbmP13" \| "fcbm18" \| "fcbm18sx" \| "fcbm18pa" \| "fcbm18sg" \| "fcbm18pl" \| "fcbmUnrated"` | No | No | The video's rating from Malaysia's Film Censorship Board. |
+| `fcoRating` | `fcoRating` | `"fcoUnspecified" \| "fcoI" \| "fcoIia" \| "fcoIib" \| "fcoIi" \| "fcoIii" \| "fcoUnrated"` | No | No | The video's rating from Hong Kong's Office for Film, Newspaper and Article Administration. |
+| `fmocRating` | `fmocRating` | `"fmocUnspecified" \| "fmocU" \| "fmoc10" \| "fmoc12" \| "fmoc16" \| "fmoc18" \| "fmocE" \| "fmocUnrated"` | No | No | This property has been deprecated. Use the contentDetails.contentRating.cncRating instead. |
+| `fpbRating` | `fpbRating` | `"fpbUnspecified" \| "fpbA" \| "fpbPg" \| "fpb79Pg" \| "fpb1012Pg" \| "fpb13" \| "fpb16" \| "fpb18" \| "fpbX18" \| "fpbXx" \| "fpbUnrated" \| "fpb10"` | No | No | The video's rating from South Africa's Film and Publication Board. |
+| `fpbRatingReasons` | `fpbRatingReasons` | `Array<"fpbRatingReasonUnspecified" \| "fpbBlasphemy" \| "fpbLanguage" \| "fpbNudity" \| "fpbPrejudice" \| "fpbSex" \| "fpbViolence" \| "fpbDrugs" \| "fpbSexualViolence" \| "fpbHorror" \| "fpbCriminalTechniques" \| "fpbImitativeActsTechniques">` | No | No | Reasons that explain why the video received its FPB (South Africa) rating. |
+| `fskRating` | `fskRating` | `"fskUnspecified" \| "fsk0" \| "fsk6" \| "fsk12" \| "fsk16" \| "fsk18" \| "fskUnrated"` | No | No | The video's Freiwillige Selbstkontrolle der Filmwirtschaft (FSK - Germany) rating. |
+| `grfilmRating` | `grfilmRating` | `"grfilmUnspecified" \| "grfilmK" \| "grfilmE" \| "grfilmK12" \| "grfilmK13" \| "grfilmK15" \| "grfilmK17" \| "grfilmK18" \| "grfilmUnrated"` | No | No | The video's rating in Greece. |
+| `icaaRating` | `icaaRating` | `"icaaUnspecified" \| "icaaApta" \| "icaa7" \| "icaa12" \| "icaa13" \| "icaa16" \| "icaa18" \| "icaaX" \| "icaaUnrated"` | No | No | The video's Instituto de la Cinematografía y de las Artes Audiovisuales (ICAA - Spain) rating. |
+| `ifcoRating` | `ifcoRating` | `"ifcoUnspecified" \| "ifcoG" \| "ifcoPg" \| "ifco12" \| "ifco12a" \| "ifco15" \| "ifco15a" \| "ifco16" \| "ifco18" \| "ifcoUnrated"` | No | No | The video's Irish Film Classification Office (IFCO - Ireland) rating. See the IFCO website for more information. |
+| `ilfilmRating` | `ilfilmRating` | `"ilfilmUnspecified" \| "ilfilmAa" \| "ilfilm12" \| "ilfilm14" \| "ilfilm16" \| "ilfilm18" \| "ilfilmUnrated"` | No | No | The video's rating in Israel. |
+| `incaaRating` | `incaaRating` | `"incaaUnspecified" \| "incaaAtp" \| "incaaSam13" \| "incaaSam16" \| "incaaSam18" \| "incaaC" \| "incaaUnrated"` | No | No | The video's INCAA (Instituto Nacional de Cine y Artes Audiovisuales - Argentina) rating. |
+| `kfcbRating` | `kfcbRating` | `"kfcbUnspecified" \| "kfcbG" \| "kfcbPg" \| "kfcb16plus" \| "kfcbR" \| "kfcbUnrated"` | No | No | The video's rating from the Kenya Film Classification Board. |
+| `kijkwijzerRating` | `kijkwijzerRating` | `"kijkwijzerUnspecified" \| "kijkwijzerAl" \| "kijkwijzer6" \| "kijkwijzer9" \| "kijkwijzer12" \| "kijkwijzer16" \| "kijkwijzer18" \| "kijkwijzerUnrated"` | No | No | The video's NICAM/Kijkwijzer rating from the Nederlands Instituut voor de Classificatie van Audiovisuele Media (Netherlands). |
+| `kmrbRating` | `kmrbRating` | `"kmrbUnspecified" \| "kmrbAll" \| "kmrb12plus" \| "kmrb15plus" \| "kmrbTeenr" \| "kmrbR" \| "kmrbUnrated"` | No | No | The video's Korea Media Rating Board (영상물등급위원회) rating. The KMRB rates videos in South Korea. |
+| `lsfRating` | `lsfRating` | `"lsfUnspecified" \| "lsfSu" \| "lsfA" \| "lsfBo" \| "lsf13" \| "lsfR" \| "lsf17" \| "lsfD" \| "lsf21" \| "lsfUnrated"` | No | No | The video's rating from Indonesia's Lembaga Sensor Film. |
+| `mccaaRating` | `mccaaRating` | `"mccaaUnspecified" \| "mccaaU" \| "mccaaPg" \| "mccaa12a" \| "mccaa12" \| "mccaa14" \| "mccaa15" \| "mccaa16" \| "mccaa18" \| "mccaaUnrated"` | No | No | The video's rating from Malta's Film Age-Classification Board. |
+| `mccypRating` | `mccypRating` | `"mccypUnspecified" \| "mccypA" \| "mccyp7" \| "mccyp11" \| "mccyp15" \| "mccypUnrated"` | No | No | The video's rating from the Danish Film Institute's (Det Danske Filminstitut) Media Council for Children and Young People. |
+| `mcstRating` | `mcstRating` | `"mcstUnspecified" \| "mcstP" \| "mcst0" \| "mcstC13" \| "mcstC16" \| "mcst16plus" \| "mcstC18" \| "mcstGPg" \| "mcstUnrated"` | No | No | The video's rating system for Vietnam - MCST |
+| `mdaRating` | `mdaRating` | `"mdaUnspecified" \| "mdaG" \| "mdaPg" \| "mdaPg13" \| "mdaNc16" \| "mdaM18" \| "mdaR21" \| "mdaUnrated"` | No | No | The video's rating from Singapore's Media Development Authority (MDA) and, specifically, it's Board of Film Censors (BFC). |
+| `medietilsynetRating` | `medietilsynetRating` | `"medietilsynetUnspecified" \| "medietilsynetA" \| "medietilsynet6" \| "medietilsynet7" \| "medietilsynet9" \| "medietilsynet11" \| "medietilsynet12" \| "medietilsynet15" \| "medietilsynet18" \| "medietilsynetUnrated"` | No | No | The video's rating from Medietilsynet, the Norwegian Media Authority. |
+| `mekuRating` | `mekuRating` | `"mekuUnspecified" \| "mekuS" \| "meku7" \| "meku12" \| "meku16" \| "meku18" \| "mekuUnrated"` | No | No | The video's rating from Finland's Kansallinen Audiovisuaalinen Instituutti (National Audiovisual Institute). |
+| `menaMpaaRating` | `menaMpaaRating` | `"menaMpaaUnspecified" \| "menaMpaaG" \| "menaMpaaPg" \| "menaMpaaPg13" \| "menaMpaaR" \| "menaMpaaUnrated"` | No | No | The rating system for MENA countries, a clone of MPAA. It is needed to prevent titles go live w/o additional QC check, since some of them can be inappropriate for the countries at all. See b/33408548 for more details. |
+| `mibacRating` | `mibacRating` | `"mibacUnspecified" \| "mibacT" \| "mibacVap" \| "mibacVm6" \| "mibacVm12" \| "mibacVm14" \| "mibacVm16" \| "mibacVm18" \| "mibacUnrated"` | No | No | The video's rating from the Ministero dei Beni e delle Attività Culturali e del Turismo (Italy). |
+| `mocRating` | `mocRating` | `"mocUnspecified" \| "mocE" \| "mocT" \| "moc7" \| "moc12" \| "moc15" \| "moc18" \| "mocX" \| "mocBanned" \| "mocUnrated"` | No | No | The video's Ministerio de Cultura (Colombia) rating. |
+| `moctwRating` | `moctwRating` | `"moctwUnspecified" \| "moctwG" \| "moctwP" \| "moctwPg" \| "moctwR" \| "moctwUnrated" \| "moctwR12" \| "moctwR15"` | No | No | The video's rating from Taiwan's Ministry of Culture (文化部). |
+| `mpaaRating` | `mpaaRating` | `"mpaaUnspecified" \| "mpaaG" \| "mpaaPg" \| "mpaaPg13" \| "mpaaR" \| "mpaaNc17" \| "mpaaX" \| "mpaaUnrated"` | No | No | The video's Motion Picture Association of America (MPAA) rating. |
+| `mpaatRating` | `mpaatRating` | `"mpaatUnspecified" \| "mpaatGb" \| "mpaatRb"` | No | No | The rating system for trailer, DVD, and Ad in the US. See http://movielabs.com/md/ratings/v2.3/html/US_MPAAT_Ratings.html. |
+| `mtrcbRating` | `mtrcbRating` | `"mtrcbUnspecified" \| "mtrcbG" \| "mtrcbPg" \| "mtrcbR13" \| "mtrcbR16" \| "mtrcbR18" \| "mtrcbX" \| "mtrcbUnrated"` | No | No | The video's rating from the Movie and Television Review and Classification Board (Philippines). |
+| `nbcplRating` | `nbcplRating` | `"nbcplUnspecified" \| "nbcplI" \| "nbcplIi" \| "nbcplIii" \| "nbcplIv" \| "nbcpl18plus" \| "nbcplUnrated"` | No | No | The video's rating in Poland. |
+| `nbcRating` | `nbcRating` | `"nbcUnspecified" \| "nbcG" \| "nbcPg" \| "nbc12plus" \| "nbc15plus" \| "nbc18plus" \| "nbc18plusr" \| "nbcPu" \| "nbcUnrated"` | No | No | The video's rating from the Maldives National Bureau of Classification. |
+| `nfrcRating` | `nfrcRating` | `"nfrcUnspecified" \| "nfrcA" \| "nfrcB" \| "nfrcC" \| "nfrcD" \| "nfrcX" \| "nfrcUnrated"` | No | No | The video's rating from the Bulgarian National Film Center. |
+| `nfvcbRating` | `nfvcbRating` | `"nfvcbUnspecified" \| "nfvcbG" \| "nfvcbPg" \| "nfvcb12" \| "nfvcb12a" \| "nfvcb15" \| "nfvcb18" \| "nfvcbRe" \| "nfvcbUnrated"` | No | No | The video's rating from Nigeria's National Film and Video Censors Board. |
+| `nkclvRating` | `nkclvRating` | `"nkclvUnspecified" \| "nkclvU" \| "nkclv7plus" \| "nkclv12plus" \| "nkclv16plus" \| "nkclv18plus" \| "nkclvUnrated"` | No | No | The video's rating from the Nacionãlais Kino centrs (National Film Centre of Latvia). |
+| `nmcRating` | `nmcRating` | `"nmcUnspecified" \| "nmcG" \| "nmcPg" \| "nmcPg13" \| "nmcPg15" \| "nmc15plus" \| "nmc18plus" \| "nmc18tc" \| "nmcUnrated"` | No | No | The National Media Council ratings system for United Arab Emirates. |
+| `oflcRating` | `oflcRating` | `"oflcUnspecified" \| "oflcG" \| "oflcPg" \| "oflcM" \| "oflcR13" \| "oflcR15" \| "oflcR16" \| "oflcR18" \| "oflcUnrated" \| "oflcRp13" \| "oflcRp16" \| "oflcRp18"` | No | No | The video's Office of Film and Literature Classification (OFLC - New Zealand) rating. |
+| `pefilmRating` | `pefilmRating` | `"pefilmUnspecified" \| "pefilmPt" \| "pefilmPg" \| "pefilm14" \| "pefilm18" \| "pefilmUnrated"` | No | No | The video's rating in Peru. |
+| `rcnofRating` | `rcnofRating` | `"rcnofUnspecified" \| "rcnofI" \| "rcnofIi" \| "rcnofIii" \| "rcnofIv" \| "rcnofV" \| "rcnofVi" \| "rcnofUnrated"` | No | No | The video's rating from the Hungarian Nemzeti Filmiroda, the Rating Committee of the National Office of Film. |
+| `resorteviolenciaRating` | `resorteviolenciaRating` | `"resorteviolenciaUnspecified" \| "resorteviolenciaA" \| "resorteviolenciaB" \| "resorteviolenciaC" \| "resorteviolenciaD" \| "resorteviolenciaE" \| "resorteviolenciaUnrated"` | No | No | The video's rating in Venezuela. |
+| `rtcRating` | `rtcRating` | `"rtcUnspecified" \| "rtcAa" \| "rtcA" \| "rtcB" \| "rtcB15" \| "rtcC" \| "rtcD" \| "rtcUnrated"` | No | No | The video's General Directorate of Radio, Television and Cinematography (Mexico) rating. |
+| `rteRating` | `rteRating` | `"rteUnspecified" \| "rteGa" \| "rteCh" \| "rtePs" \| "rteMa" \| "rteUnrated"` | No | No | The video's rating from Ireland's Raidió Teilifís Éireann. |
+| `russiaRating` | `russiaRating` | `"russiaUnspecified" \| "russia0" \| "russia6" \| "russia12" \| "russia16" \| "russia18" \| "russiaUnrated"` | No | No | The video's National Film Registry of the Russian Federation (MKRF - Russia) rating. |
+| `skfilmRating` | `skfilmRating` | `"skfilmUnspecified" \| "skfilmG" \| "skfilmP2" \| "skfilmP5" \| "skfilmP8" \| "skfilmUnrated"` | No | No | The video's rating in Slovakia. |
+| `smaisRating` | `smaisRating` | `"smaisUnspecified" \| "smaisL" \| "smais7" \| "smais12" \| "smais14" \| "smais16" \| "smais18" \| "smaisUnrated"` | No | No | The video's rating in Iceland. |
+| `smsaRating` | `smsaRating` | `"smsaUnspecified" \| "smsaA" \| "smsa7" \| "smsa11" \| "smsa15" \| "smsaUnrated"` | No | No | The video's rating from Statens medieråd (Sweden's National Media Council). |
+| `tvpgRating` | `tvpgRating` | `"tvpgUnspecified" \| "tvpgY" \| "tvpgY7" \| "tvpgY7Fv" \| "tvpgG" \| "tvpgPg" \| "pg14" \| "tvpgMa" \| "tvpgUnrated"` | No | No | The video's TV Parental Guidelines (TVPG) rating. |
+| `ytRating` | `ytRating` | `"ytUnspecified" \| "ytAgeRestricted"` | No | No | A rating that YouTube uses to identify age-restricted content. |
+
+## Cuepoint
+
+`object` model on the `json` wire format.
+
+Note that there may be a 5-second end-point resolution issue. For instance, if a cuepoint comes in for 22:03:27, we may stuff the cuepoint into 22:03:25 or 22:03:30, depending. This is an artifact of HLS.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cueType` | `cueType` | `"cueTypeUnspecified" \| "cueTypeAd"` | No | No | — |
+| `durationSecs` | `durationSecs` | `integer` | No | No | The duration of this cuepoint. |
+| `etag` | `etag` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | The identifier for cuepoint resource. |
+| `insertionOffsetTimeMs` | `insertionOffsetTimeMs` | `string` | No | No | The time when the cuepoint should be inserted by offset to the broadcast actual start time. |
+| `walltimeMs` | `walltimeMs` | `string` | No | No | The wall clock time at which the cuepoint should be inserted. Only one of insertion_offset_time_ms and walltime_ms may be set at a time. |
+
+## CuepointSchedule
+
+`object` model on the `json` wire format.
+
+Schedule to insert cuepoints into a broadcast by ads automator.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enabled` | `enabled` | `boolean` | No | No | This field is semantically required. If it is set false or not set, other fields in this message will be ignored. |
+| `pauseAdsUntil` | `pauseAdsUntil` | `string` | No | No | If set, automatic cuepoint insertion is paused until this timestamp ("No Ad Zone"). The value is specified in ISO 8601 format. |
+| `repeatIntervalSecs` | `repeatIntervalSecs` | `integer` | No | No | Interval frequency in seconds that api uses to insert cuepoints automatically. |
+| `scheduleStrategy` | `scheduleStrategy` | `"scheduleStrategyUnspecified" \| "concurrent" \| "nonConcurrent"` | No | No | The strategy to use when scheduling cuepoints. |
+
+## Entity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `typeId` | `typeId` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## GeoPoint
+
+`object` model on the `json` wire format.
+
+Geographical coordinates of a point, in WGS84.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altitude` | `altitude` | `number` | No | No | Altitude above the reference ellipsoid, in meters. |
+| `latitude` | `latitude` | `number` | No | No | Latitude in degrees. |
+| `longitude` | `longitude` | `number` | No | No | Longitude in degrees. |
+
+## I18nLanguage
+
+`object` model on the `json` wire format.
+
+An *i18nLanguage* resource identifies a UI language currently supported by YouTube.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the i18n language. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#i18nLanguage". |
+| `snippet` | `snippet` | `I18nLanguageSnippet` | No | No | The snippet object contains basic details about the i18n language, such as language code and human-readable name. |
+
+## I18nLanguageListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<I18nLanguage>` | No | No | A list of supported i18n languages. In this map, the i18n language ID is the map key, and its value is the corresponding i18nLanguage resource. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#i18nLanguageListResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## I18nLanguageSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about an i18n language, such as language code and human-readable name.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `hl` | `string` | No | No | A short BCP-47 code that uniquely identifies a language. |
+| `name` | `name` | `string` | No | No | The human-readable name of the language in the language itself. |
+
+## I18nRegion
+
+`object` model on the `json` wire format.
+
+A *i18nRegion* resource identifies a region where YouTube is available.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the i18n region. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#i18nRegion". |
+| `snippet` | `snippet` | `I18nRegionSnippet` | No | No | The snippet object contains basic details about the i18n region, such as region code and human-readable name. |
+
+## I18nRegionListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<I18nRegion>` | No | No | A list of regions where YouTube is available. In this map, the i18n region ID is the map key, and its value is the corresponding i18nRegion resource. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#i18nRegionListResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## I18nRegionSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about an i18n region, such as region code and human-readable name.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gl` | `gl` | `string` | No | No | The region code as a 2-letter ISO country code. |
+| `name` | `name` | `string` | No | No | The human-readable name of the region. |
+
+## ImageSettings
+
+`object` model on the `json` wire format.
+
+Branding properties for images associated with the channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backgroundImageUrl` | `backgroundImageUrl` | `LocalizedProperty` | No | No | The URL for the background image shown on the video watch page. The image should be 1200px by 615px, with a maximum file size of 128k. |
+| `bannerExternalUrl` | `bannerExternalUrl` | `string` | No | No | This is generated when a ChannelBanner.Insert request has succeeded for the given channel. |
+| `bannerImageUrl` | `bannerImageUrl` | `string` | No | No | Banner image. Desktop size (1060x175). |
+| `bannerMobileExtraHdImageUrl` | `bannerMobileExtraHdImageUrl` | `string` | No | No | Banner image. Mobile size high resolution (1440x395). |
+| `bannerMobileHdImageUrl` | `bannerMobileHdImageUrl` | `string` | No | No | Banner image. Mobile size high resolution (1280x360). |
+| `bannerMobileImageUrl` | `bannerMobileImageUrl` | `string` | No | No | Banner image. Mobile size (640x175). |
+| `bannerMobileLowImageUrl` | `bannerMobileLowImageUrl` | `string` | No | No | Banner image. Mobile size low resolution (320x88). |
+| `bannerMobileMediumHdImageUrl` | `bannerMobileMediumHdImageUrl` | `string` | No | No | Banner image. Mobile size medium/high resolution (960x263). |
+| `bannerTabletExtraHdImageUrl` | `bannerTabletExtraHdImageUrl` | `string` | No | No | Banner image. Tablet size extra high resolution (2560x424). |
+| `bannerTabletHdImageUrl` | `bannerTabletHdImageUrl` | `string` | No | No | Banner image. Tablet size high resolution (2276x377). |
+| `bannerTabletImageUrl` | `bannerTabletImageUrl` | `string` | No | No | Banner image. Tablet size (1707x283). |
+| `bannerTabletLowImageUrl` | `bannerTabletLowImageUrl` | `string` | No | No | Banner image. Tablet size low resolution (1138x188). |
+| `bannerTvHighImageUrl` | `bannerTvHighImageUrl` | `string` | No | No | Banner image. TV size high resolution (1920x1080). |
+| `bannerTvImageUrl` | `bannerTvImageUrl` | `string` | No | No | Banner image. TV size extra high resolution (2120x1192). |
+| `bannerTvLowImageUrl` | `bannerTvLowImageUrl` | `string` | No | No | Banner image. TV size low resolution (854x480). |
+| `bannerTvMediumImageUrl` | `bannerTvMediumImageUrl` | `string` | No | No | Banner image. TV size medium resolution (1280x720). |
+| `largeBrandedBannerImageImapScript` | `largeBrandedBannerImageImapScript` | `LocalizedProperty` | No | No | The image map script for the large banner image. |
+| `largeBrandedBannerImageUrl` | `largeBrandedBannerImageUrl` | `LocalizedProperty` | No | No | The URL for the 854px by 70px image that appears below the video player in the expanded video view of the video watch page. |
+| `smallBrandedBannerImageImapScript` | `smallBrandedBannerImageImapScript` | `LocalizedProperty` | No | No | The image map script for the small banner image. |
+| `smallBrandedBannerImageUrl` | `smallBrandedBannerImageUrl` | `LocalizedProperty` | No | No | The URL for the 640px by 70px banner image that appears below the video player in the default view of the video watch page. The URL for the image that appears above the top-left corner of the video player. This is a 25-pixel-high image with a flexible width that cannot exceed 170 pixels. |
+| `trackingImageUrl` | `trackingImageUrl` | `string` | No | No | The URL for a 1px by 1px tracking pixel that can be used to collect statistics for views of the channel or video pages. |
+| `watchIconImageUrl` | `watchIconImageUrl` | `string` | No | No | — |
+
+## IngestionInfo
+
+`object` model on the `json` wire format.
+
+Describes information necessary for ingesting an RTMP, HTTP, or SRT stream.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backupIngestionAddress` | `backupIngestionAddress` | `string` | No | No | The backup ingestion URL that you should use to stream video to YouTube. You have the option of simultaneously streaming the content that you are sending to the ingestionAddress to this URL. |
+| `ingestionAddress` | `ingestionAddress` | `string` | No | No | The primary ingestion URL that you should use to stream video to YouTube. You must stream video to this URL. Depending on which application or tool you use to encode your video stream, you may need to enter the stream URL and stream name separately or you may need to concatenate them in the following format: *STREAM_URL/STREAM_NAME* |
+| `rtmpsBackupIngestionAddress` | `rtmpsBackupIngestionAddress` | `string` | No | No | This ingestion url may be used instead of backupIngestionAddress in order to stream via RTMPS. Not applicable to non-RTMP streams. |
+| `rtmpsIngestionAddress` | `rtmpsIngestionAddress` | `string` | No | No | This ingestion url may be used instead of ingestionAddress in order to stream via RTMPS. Not applicable to non-RTMP streams. |
+| `streamName` | `streamName` | `string` | No | No | The stream name that YouTube assigns to the video stream. |
+
+## InvideoBranding
+
+`object` model on the `json` wire format.
+
+Describes an invideo branding.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `imageBytes` | `imageBytes` | `string` | No | No | The bytes the uploaded image. Only used in api to youtube communication. |
+| `imageUrl` | `imageUrl` | `string` | No | No | The url of the uploaded image. Only used in apiary to api communication. |
+| `position` | `position` | `InvideoPosition` | No | No | The spatial position within the video where the branding watermark will be displayed. |
+| `targetChannelId` | `targetChannelId` | `string` | No | No | The channel to which this branding links. If not present it defaults to the current channel. |
+| `timing` | `timing` | `InvideoTiming` | No | No | The temporal position within the video where watermark will be displayed. |
+
+## InvideoPosition
+
+`object` model on the `json` wire format.
+
+Describes the spatial position of a visual widget inside a video. It is a union of various position types, out of which only will be set one.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cornerPosition` | `cornerPosition` | `"topLeft" \| "topRight" \| "bottomLeft" \| "bottomRight"` | No | No | Describes in which corner of the video the visual widget will appear. |
+| `type` | `type` | `"corner"` | No | No | Defines the position type. |
+
+## InvideoTiming
+
+`object` model on the `json` wire format.
+
+Describes a temporal position of a visual widget inside a video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `durationMs` | `durationMs` | `string` | No | No | Defines the duration in milliseconds for which the promotion should be displayed. If missing, the client should use the default. |
+| `offsetMs` | `offsetMs` | `string` | No | No | Defines the time at which the promotion will appear. Depending on the value of type the value of the offsetMs field will represent a time offset from the start or from the end of the video, expressed in milliseconds. |
+| `type` | `type` | `"offsetFromStart" \| "offsetFromEnd"` | No | No | Describes a timing type. If the value is offsetFromStart, then the offsetMs field represents an offset from the start of the video. If the value is offsetFromEnd, then the offsetMs field represents an offset from the end of the video. |
+
+## LanguageTag
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | No | No | — |
+
+## LevelDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | The name that should be used when referring to this level. |
+
+## LiveBroadcast
+
+`object` model on the `json` wire format.
+
+A *liveBroadcast* resource represents an event that will be streamed, via live video, on YouTube.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `LiveBroadcastContentDetails` | No | No | The contentDetails object contains information about the event's video content, such as whether the content can be shown in an embedded video player or if it will be archived and therefore available for viewing after the event has concluded. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the broadcast. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveBroadcast". |
+| `monetizationDetails` | `monetizationDetails` | `LiveBroadcastMonetizationDetails` | No | No | The monetizationDetails object contains information about the event's monetization details. |
+| `snippet` | `snippet` | `LiveBroadcastSnippet` | No | No | The snippet object contains basic details about the event, including its title, description, start time, and end time. |
+| `statistics` | `statistics` | `LiveBroadcastStatistics` | No | No | The statistics object contains info about the event's current stats. These include concurrent viewers and total chat count. Statistics can change (in either direction) during the lifetime of an event. Statistics are only returned while the event is live. |
+| `status` | `status` | `LiveBroadcastStatus` | No | No | The status object contains information about the event's status. |
+
+## LiveBroadcastContentDetails
+
+`object` model on the `json` wire format.
+
+Detailed settings of a broadcast.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boundStreamId` | `boundStreamId` | `string` | No | No | This value uniquely identifies the live stream bound to the broadcast. |
+| `boundStreamLastUpdateTimeMs` | `boundStreamLastUpdateTimeMs` | `string<date-time>` | No | No | The date and time that the live stream referenced by boundStreamId was last updated. |
+| `closedCaptionsType` | `closedCaptionsType` | `"closedCaptionsTypeUnspecified" \| "closedCaptionsDisabled" \| "closedCaptionsHttpPost" \| "closedCaptionsEmbedded"` | No | No | — |
+| `enableAutoStart` | `enableAutoStart` | `boolean` | No | No | This setting indicates whether auto start is enabled for this broadcast. The default value for this property is false. This setting can only be used by Events. |
+| `enableAutoStop` | `enableAutoStop` | `boolean` | No | No | This setting indicates whether auto stop is enabled for this broadcast. The default value for this property is false. This setting can only be used by Events. |
+| `enableClosedCaptions` | `enableClosedCaptions` | `boolean` | No | No | This setting indicates whether HTTP POST closed captioning is enabled for this broadcast. The ingestion URL of the closed captions is returned through the liveStreams API. This is mutually exclusive with using the closed_captions_type property, and is equivalent to setting closed_captions_type to CLOSED_CAPTIONS_HTTP_POST. |
+| `enableContentEncryption` | `enableContentEncryption` | `boolean` | No | No | This setting indicates whether YouTube should enable content encryption for the broadcast. |
+| `enableDvr` | `enableDvr` | `boolean` | No | No | This setting determines whether viewers can access DVR controls while watching the video. DVR controls enable the viewer to control the video playback experience by pausing, rewinding, or fast forwarding content. The default value for this property is true. *Important:* You must set the value to true and also set the enableArchive property's value to true if you want to make playback available immediately after the broadcast ends. |
+| `enableEmbed` | `enableEmbed` | `boolean` | No | No | This setting indicates whether the broadcast video can be played in an embedded player. If you choose to archive the video (using the enableArchive property), this setting will also apply to the archived video. |
+| `enableLowLatency` | `enableLowLatency` | `boolean` | No | No | Indicates whether this broadcast has low latency enabled. |
+| `latencyPreference` | `latencyPreference` | `"latencyPreferenceUnspecified" \| "normal" \| "low" \| "ultraLow"` | No | No | If both this and enable_low_latency are set, they must match. LATENCY_NORMAL should match enable_low_latency=false LATENCY_LOW should match enable_low_latency=true LATENCY_ULTRA_LOW should have enable_low_latency omitted. |
+| `mesh` | `mesh` | `string` | No | No | The mesh for projecting the video if projection is mesh. The mesh value must be a UTF-8 string containing the base-64 encoding of 3D mesh data that follows the Spherical Video V2 RFC specification for an mshp box, excluding the box size and type but including the following four reserved zero bytes for the version and flags. |
+| `monitorStream` | `monitorStream` | `MonitorStreamInfo` | No | No | The monitorStream object contains information about the monitor stream, which the broadcaster can use to review the event content before the broadcast stream is shown publicly. |
+| `projection` | `projection` | `"projectionUnspecified" \| "rectangular" \| "360" \| "mesh"` | No | No | The projection format of this broadcast. This defaults to rectangular. |
+| `recordFromStart` | `recordFromStart` | `boolean` | No | No | Automatically start recording after the event goes live. The default value for this property is true. *Important:* You must also set the enableDvr property's value to true if you want the playback to be available immediately after the broadcast ends. If you set this property's value to true but do not also set the enableDvr property to true, there may be a delay of around one day before the archived video will be available for playback. |
+| `startWithSlate` | `startWithSlate` | `boolean` | No | No | This setting indicates whether the broadcast should automatically begin with an in-stream slate when you update the broadcast's status to live. After updating the status, you then need to send a liveCuepoints.insert request that sets the cuepoint's eventState to end to remove the in-stream slate and make your broadcast stream visible to viewers. |
+| `stereoLayout` | `stereoLayout` | `"stereoLayoutUnspecified" \| "mono" \| "leftRight" \| "topBottom"` | No | No | The 3D stereo layout of this broadcast. This defaults to mono. |
+
+## LiveBroadcastListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<LiveBroadcast>` | No | No | A list of broadcasts that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveBroadcastListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## LiveBroadcastMonetizationDetails
+
+`object` model on the `json` wire format.
+
+Monetization settings of a broadcast.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cuepointSchedule` | `cuepointSchedule` | `CuepointSchedule` | No | No | — |
+
+## LiveBroadcastSnippet
+
+`object` model on the `json` wire format.
+
+Basic broadcast information.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actualEndTime` | `actualEndTime` | `string<date-time>` | No | No | The date and time that the broadcast actually ended. This information is only available once the broadcast's state is complete. |
+| `actualStartTime` | `actualStartTime` | `string<date-time>` | No | No | The date and time that the broadcast actually started. This information is only available once the broadcast's state is live. |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel that is publishing the broadcast. |
+| `description` | `description` | `string` | No | No | The broadcast's description. As with the title, you can set this field by modifying the broadcast resource or by setting the description field of the corresponding video resource. |
+| `isDefaultBroadcast` | `isDefaultBroadcast` | `boolean` | No | No | Indicates whether this broadcast is the default broadcast. Internal only. |
+| `liveChatId` | `liveChatId` | `string` | No | No | The id of the live chat for this broadcast. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the broadcast was added to YouTube's live broadcast schedule. |
+| `scheduledEndTime` | `scheduledEndTime` | `string<date-time>` | No | No | The date and time that the broadcast is scheduled to end. |
+| `scheduledStartTime` | `scheduledStartTime` | `string<date-time>` | No | No | The date and time that the broadcast is scheduled to start. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the broadcast. For each nested object in this object, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The broadcast's title. Note that the broadcast represents exactly one YouTube video. You can set this field by modifying the broadcast resource or by setting the title field of the corresponding video resource. |
+
+## LiveBroadcastStatistics
+
+`object` model on the `json` wire format.
+
+Statistics about the live broadcast. These represent a snapshot of the values at the time of the request. Statistics are only returned for live broadcasts.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `concurrentViewers` | `concurrentViewers` | `string` | No | No | The number of viewers currently watching the broadcast. The property and its value will be present if the broadcast has current viewers and the broadcast owner has not hidden the viewcount for the video. Note that YouTube stops tracking the number of concurrent viewers for a broadcast when the broadcast ends. So, this property would not identify the number of viewers watching an archived video of a live broadcast that already ended. |
+
+## LiveBroadcastStatus
+
+`object` model on the `json` wire format.
+
+Live broadcast state.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lifeCycleStatus` | `lifeCycleStatus` | `"lifeCycleStatusUnspecified" \| "created" \| "ready" \| "testing" \| "live" \| "complete" \| "revoked" \| "testStarting" \| "liveStarting"` | No | No | The broadcast's status. The status can be updated using the API's liveBroadcasts.transition method. |
+| `liveBroadcastPriority` | `liveBroadcastPriority` | `"liveBroadcastPriorityUnspecified" \| "low" \| "normal" \| "high"` | No | No | Priority of the live broadcast event (internal state). |
+| `madeForKids` | `madeForKids` | `boolean` | No | No | Whether the broadcast is made for kids or not, decided by YouTube instead of the creator. This field is read only. |
+| `privacyStatus` | `privacyStatus` | `"public" \| "unlisted" \| "private"` | No | No | The broadcast's privacy status. Note that the broadcast represents exactly one YouTube video, so the privacy settings are identical to those supported for videos. In addition, you can set this field by modifying the broadcast resource or by setting the privacyStatus field of the corresponding video resource. |
+| `recordingStatus` | `recordingStatus` | `"liveBroadcastRecordingStatusUnspecified" \| "notRecording" \| "recording" \| "recorded"` | No | No | The broadcast's recording status. |
+| `selfDeclaredMadeForKids` | `selfDeclaredMadeForKids` | `boolean` | No | No | This field will be set to True if the creator declares the broadcast to be kids only: go/live-cw-work. |
+
+## LiveChatBan
+
+`object` model on the `json` wire format.
+
+A `__liveChatBan__` resource represents a ban for a YouTube live chat.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the ban. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string `"youtube#liveChatBan"`. |
+| `snippet` | `snippet` | `LiveChatBanSnippet` | No | No | The `snippet` object contains basic details about the ban. |
+
+## LiveChatBanSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `banDurationSeconds` | `banDurationSeconds` | `string` | No | No | The duration of a ban, only filled if the ban has type TEMPORARY. |
+| `bannedUserDetails` | `bannedUserDetails` | `ChannelProfileDetails` | No | No | — |
+| `liveChatId` | `liveChatId` | `string` | No | No | The chat this ban is pertinent to. |
+| `type` | `type` | `"liveChatBanTypeUnspecified" \| "permanent" \| "temporary"` | No | No | The type of ban. |
+
+## LiveChatFanFundingEventDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amountDisplayString` | `amountDisplayString` | `string` | No | No | A rendered string that displays the fund amount and currency to the user. |
+| `amountMicros` | `amountMicros` | `string` | No | No | The amount of the fund. |
+| `currency` | `currency` | `string` | No | No | The currency in which the fund was made. |
+| `userComment` | `userComment` | `string` | No | No | The comment added by the user to this fan funding event. |
+
+## LiveChatGiftDetails
+
+`object` model on the `json` wire format.
+
+Details about the gift event, this is only set if the type is 'giftEvent'.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | The alternative text to be used for accessibility. |
+| `comboCount` | `comboCount` | `integer` | No | No | The number of times the gift has been sent in a row. |
+| `giftDuration` | `giftDuration` | `string` | No | No | The duration of the gift. |
+| `giftName` | `giftName` | `string` | No | No | The name of the gift. |
+| `giftUrl` | `giftUrl` | `string` | No | No | The URL of the gift image. |
+| `hasVisualEffect` | `hasVisualEffect` | `boolean` | No | No | Whether the gift involves a visual effect. |
+| `jewelsAmount` | `jewelsAmount` | `integer` | No | No | The value of the gift in jewels. |
+| `language` | `language` | `string` | No | No | The BCP-47 language code of the gift. |

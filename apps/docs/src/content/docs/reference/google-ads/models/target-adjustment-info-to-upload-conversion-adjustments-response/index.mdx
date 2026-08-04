@@ -47,7 +47,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `options` | `options` | `Array<unknown>` | No | No | — |
+| `options` | `options` | `Array<TargetCpaOptInRecommendationOption>` | No | No | — |
 | `recommended_target_cpa_micros` | `recommended_target_cpa_micros` | `string` | No | No | — |
 
 ## TargetCpaOptInRecommendationGoal
@@ -71,7 +71,7 @@ No fields are declared.
 | `goal` | `goal` | `TargetCpaOptInRecommendationGoal` | No | No | — |
 | `target_cpa_micros` | `target_cpa_micros` | `string` | No | No | — |
 | `required_campaign_budget_amount_micros` | `required_campaign_budget_amount_micros` | `string` | No | No | — |
-| `impact` | `impact` | `unknown` | No | No | — |
+| `impact` | `impact` | `RecommendationImpact` | No | No | — |
 
 ## TargetCpaSimulationPoint
 
@@ -98,7 +98,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<TargetCpaSimulationPoint>` | No | No | — |
 
 ## TargetCpc
 
@@ -114,7 +114,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `target_frequency_goal` | `target_frequency_goal` | `unknown` | No | No | — |
+| `target_frequency_goal` | `target_frequency_goal` | `TargetCpmTargetFrequencyGoal` | No | No | — |
 
 ## TargetCpmTargetFrequencyGoal
 
@@ -207,7 +207,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<TargetImpressionShareSimulationPoint>` | No | No | — |
 
 ## Targeting
 
@@ -220,7 +220,7 @@ No fields are declared.
 | `genders` | `genders` | `Array<GenderInfo>` | No | No | — |
 | `devices` | `devices` | `Array<DeviceInfo>` | No | No | — |
 | `network` | `network` | `ReachPlanNetwork` | No | No | — |
-| `audience_targeting` | `audience_targeting` | `unknown` | No | No | — |
+| `audience_targeting` | `audience_targeting` | `AudienceTargeting` | No | No | — |
 
 ## TargetingDimension
 
@@ -248,8 +248,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `target_restrictions` | `target_restrictions` | `Array<unknown>` | No | No | — |
-| `target_restriction_operations` | `target_restriction_operations` | `Array<unknown>` | No | No | — |
+| `target_restrictions` | `target_restrictions` | `Array<TargetRestriction>` | No | No | — |
+| `target_restriction_operations` | `target_restriction_operations` | `Array<TargetRestrictionOperation>` | No | No | — |
 
 ## TargetingSuggestionMetrics
 
@@ -281,8 +281,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `operator` | `operator` | `unknown` | No | No | — |
-| `value` | `value` | `unknown` | No | No | — |
+| `operator` | `operator` | `Operator` | No | No | — |
+| `value` | `value` | `TargetRestriction` | No | No | — |
 
 ## TargetRoas
 
@@ -334,7 +334,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<TargetRoasSimulationPoint>` | No | No | — |
 
 ## TargetSpend
 
@@ -369,7 +369,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad` | `ad` | `unknown` | No | No | — |
+| `ad` | `ad` | `Ad` | No | No | — |
 | `creation_date` | `creation_date` | `string` | No | No | — |
 | `auto_apply_date` | `auto_apply_date` | `string` | No | No | — |
 
@@ -388,7 +388,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `term_exclusions` | `term_exclusions` | `Array<string>` | No | No | — |
-| `messaging_restrictions` | `messaging_restrictions` | `Array<unknown>` | No | No | — |
+| `messaging_restrictions` | `messaging_restrictions` | `Array<MessagingRestriction>` | No | No | — |
 
 ## TextLabel
 
@@ -611,9 +611,9 @@ No fields are declared.
 | `currency_code` | `currency_code` | `string` | No | No | — |
 | `conversion_action` | `conversion_action` | `string` | No | No | — |
 | `order_id` | `order_id` | `string` | No | No | — |
-| `store_attribute` | `store_attribute` | `unknown` | No | No | — |
+| `store_attribute` | `store_attribute` | `StoreAttribute` | No | No | — |
 | `custom_value` | `custom_value` | `string` | No | No | — |
-| `item_attribute` | `item_attribute` | `unknown` | No | No | — |
+| `item_attribute` | `item_attribute` | `ItemAttribute` | No | No | — |
 
 ## TravelActivityGroupView
 
@@ -664,12 +664,12 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `trend_attribute` | `trend_attribute` | `AudienceInsightsAttributeMetadata` | No | No | — |
-| `trend_metrics` | `trend_metrics` | `unknown` | No | No | — |
+| `trend_metrics` | `trend_metrics` | `TrendInsightMetrics` | No | No | — |
 | `trend` | `trend` | `InsightsTrend` | No | No | — |
-| `trend_data_points` | `trend_data_points` | `Array<unknown>` | No | No | — |
+| `trend_data_points` | `trend_data_points` | `Array<TrendInsightDataPoint>` | No | No | — |
 | `related_videos` | `related_videos` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
-| `related_creators` | `related_creators` | `Array<unknown>` | No | No | — |
-| `related_local_creators` | `related_local_creators` | `Array<unknown>` | No | No | — |
+| `related_creators` | `related_creators` | `Array<YouTubeCreatorInsights>` | No | No | — |
+| `related_local_creators` | `related_local_creators` | `Array<YouTubeCreatorInsights>` | No | No | — |
 
 ## TrendInsightDataPoint
 
@@ -678,7 +678,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `month` | `month` | `string` | No | No | — |
-| `trend_metrics` | `trend_metrics` | `unknown` | No | No | — |
+| `trend_metrics` | `trend_metrics` | `TrendInsightMetrics` | No | No | — |
 
 ## TrendInsightMetrics
 
@@ -780,7 +780,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
 | `you_tube_video_upload` | `you_tube_video_upload` | `YouTubeVideoUpload` | No | No | — |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 
 ## UpdateYouTubeVideoUploadResponse
 
@@ -812,7 +812,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `conversions` | `conversions` | `Array<unknown>` | No | No | — |
+| `conversions` | `conversions` | `Array<CallConversion>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -822,8 +822,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<CallConversionResult>` | No | No | — |
 
 ## UploadClickConversionsRequest
 
@@ -832,7 +832,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `conversions` | `conversions` | `Array<unknown>` | No | No | — |
+| `conversions` | `conversions` | `Array<ClickConversion>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `job_id` | `job_id` | `integer` | No | No | — |
@@ -843,8 +843,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<ClickConversionResult>` | No | No | — |
 | `job_id` | `job_id` | `string` | No | No | — |
 
 ## UploadConversionAdjustmentsRequest
@@ -854,7 +854,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `conversion_adjustments` | `conversion_adjustments` | `Array<unknown>` | No | No | — |
+| `conversion_adjustments` | `conversion_adjustments` | `Array<ConversionAdjustment>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `job_id` | `job_id` | `integer` | No | No | — |
@@ -865,6 +865,6 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<ConversionAdjustmentResult>` | No | No | — |
 | `job_id` | `job_id` | `string` | No | No | — |

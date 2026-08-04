@@ -114,7 +114,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `error` | `error` | `unknown` | No | No | — |
+| `error` | `error` | `OfflineConversionError` | No | No | — |
 | `error_percentage` | `error_percentage` | `number` | No | No | — |
 
 ## OfflineConversionDiagnosticStatus
@@ -173,9 +173,9 @@ No fields are declared.
 | `pending_event_count` | `pending_event_count` | `string` | No | No | — |
 | `pending_rate` | `pending_rate` | `number` | No | No | — |
 | `last_upload_date_time` | `last_upload_date_time` | `string` | No | No | — |
-| `daily_summaries` | `daily_summaries` | `Array<unknown>` | No | No | — |
-| `job_summaries` | `job_summaries` | `Array<unknown>` | No | No | — |
-| `alerts` | `alerts` | `Array<unknown>` | No | No | — |
+| `daily_summaries` | `daily_summaries` | `Array<OfflineConversionSummary>` | No | No | — |
+| `job_summaries` | `job_summaries` | `Array<OfflineConversionSummary>` | No | No | — |
+| `alerts` | `alerts` | `Array<OfflineConversionAlert>` | No | No | — |
 
 ## OfflineConversionUploadConversionActionSummary
 
@@ -192,9 +192,9 @@ No fields are declared.
 | `successful_event_count` | `successful_event_count` | `string` | No | No | — |
 | `pending_event_count` | `pending_event_count` | `string` | No | No | — |
 | `last_upload_date_time` | `last_upload_date_time` | `string` | No | No | — |
-| `daily_summaries` | `daily_summaries` | `Array<unknown>` | No | No | — |
-| `job_summaries` | `job_summaries` | `Array<unknown>` | No | No | — |
-| `alerts` | `alerts` | `Array<unknown>` | No | No | — |
+| `daily_summaries` | `daily_summaries` | `Array<OfflineConversionSummary>` | No | No | — |
+| `job_summaries` | `job_summaries` | `Array<OfflineConversionSummary>` | No | No | — |
+| `alerts` | `alerts` | `Array<OfflineConversionAlert>` | No | No | — |
 
 ## OfflineEventUploadClient
 
@@ -234,7 +234,7 @@ No fields are declared.
 | `type` | `type` | `OfflineUserDataJobType` | No | No | — |
 | `status` | `status` | `OfflineUserDataJobStatus` | No | No | — |
 | `failure_reason` | `failure_reason` | `OfflineUserDataJobFailureReason` | No | No | — |
-| `operation_metadata` | `operation_metadata` | `unknown` | No | No | — |
+| `operation_metadata` | `operation_metadata` | `OfflineUserDataJobMetadata` | No | No | — |
 | `customer_match_user_list_metadata` | `customer_match_user_list_metadata` | `CustomerMatchUserListMetadata` | No | No | — |
 | `store_sales_metadata` | `store_sales_metadata` | `StoreSalesMetadata` | No | No | — |
 
@@ -616,7 +616,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<PercentCpcBidSimulationPoint>` | No | No | — |
 
 ## PerformanceMaxExperimentArmInfo
 
@@ -624,7 +624,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `experimental_performance_max_campaign_settings` | `experimental_performance_max_campaign_settings` | `unknown` | No | No | — |
+| `experimental_performance_max_campaign_settings` | `experimental_performance_max_campaign_settings` | `ExperimentalPerformanceMaxCampaignSettings` | No | No | — |
 
 ## PerformanceMaxFinalUrlOptInRecommendation
 
@@ -757,8 +757,8 @@ No fields are declared.
 | `genders` | `genders` | `Array<GenderInfo>` | No | No | — |
 | `devices` | `devices` | `Array<DeviceInfo>` | No | No | — |
 | `networks` | `networks` | `Array<ReachPlanNetwork>` | No | No | — |
-| `youtube_select_lineup_targeting` | `youtube_select_lineup_targeting` | `unknown` | No | No | — |
-| `surface_targeting` | `surface_targeting` | `unknown` | No | No | — |
+| `youtube_select_lineup_targeting` | `youtube_select_lineup_targeting` | `YouTubeSelectLineUpTargeting` | No | No | — |
+| `surface_targeting` | `surface_targeting` | `SurfaceTargetingCombinations` | No | No | — |
 
 ## PlannableUserInterest
 
@@ -781,7 +781,7 @@ No fields are declared.
 | `display_name` | `display_name` | `string` | No | No | — |
 | `user_list_type` | `user_list_type` | `UserListType` | No | No | — |
 | `plannable_status` | `plannable_status` | `ReachPlanPlannableUserListStatus` | No | No | — |
-| `plannable_user_list_metadata` | `plannable_user_list_metadata` | `unknown` | No | No | — |
+| `plannable_user_list_metadata` | `plannable_user_list_metadata` | `PlannableUserListMetadata` | No | No | — |
 
 ## PlannableUserListMetadata
 
@@ -800,7 +800,7 @@ No fields are declared.
 | `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
 | `budget_micros` | `budget_micros` | `string` | No | No | — |
 | `conversion_rate` | `conversion_rate` | `number` | No | No | — |
-| `advanced_product_targeting` | `advanced_product_targeting` | `unknown` | No | No | — |
+| `advanced_product_targeting` | `advanced_product_targeting` | `AdvancedProductTargeting` | No | No | — |
 
 ## PlannedProductForecast
 
@@ -830,7 +830,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
 | `cost_micros` | `cost_micros` | `string` | No | No | — |
-| `planned_product_forecast` | `planned_product_forecast` | `unknown` | No | No | — |
+| `planned_product_forecast` | `planned_product_forecast` | `PlannedProductForecast` | No | No | — |
 
 ## PmaxCampaignSettings
 
@@ -838,6 +838,6 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `brand_targeting_overrides` | `brand_targeting_overrides` | `unknown` | No | No | — |
-| `local_services_pmax_campaign_settings` | `local_services_pmax_campaign_settings` | `unknown` | No | No | — |
+| `brand_targeting_overrides` | `brand_targeting_overrides` | `BrandTargetingOverrides` | No | No | — |
+| `local_services_pmax_campaign_settings` | `local_services_pmax_campaign_settings` | `LocalServicesPmaxCampaignSettings` | No | No | — |
 | `local_services_enabled` | `local_services_enabled` | `boolean` | No | No | — |

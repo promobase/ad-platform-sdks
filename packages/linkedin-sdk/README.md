@@ -1,8 +1,19 @@
 # @openpromo/linkedin
 
-Type-safe TypeScript SDK for LinkedIn organic publishing and OAuth.
+Type-safe TypeScript SDK for LinkedIn organic publishing, OAuth, and the complete documented
+Marketing API operation surface.
 
 LinkedIn does not currently publish a public OpenAPI/Swagger spec or public per-endpoint Rest.li restspec for the Marketing API surfaces this package wraps. This SDK is hand-authored against the official Microsoft Learn endpoint docs and LinkedIn's Rest.li protocol documentation.
+The low-level catalog is generated from all 11 public collections in LinkedIn's official
+Marketing Solutions Postman workspace. Postman collections describe operations rather than full
+response schemas, so generated inputs and outputs remain honest `unknown` boundaries while the
+curated publishing and analytics clients retain richer types.
+
+The current snapshot emits all 285 callable requests. One additional "Get document content"
+placeholder is recorded as excluded because the provider source contains no URL. A public Postman
+collection does not grant API access: operations are tagged as community, marketing, partner, or
+restricted according to the LinkedIn product approval they require. The generator leaves scopes
+unknown when the collection does not declare them instead of guessing.
 
 The default `LinkedIn-Version` is `202607`. Callers can still supply `apiVersion` explicitly for a
 different supported monthly release.
@@ -77,9 +88,49 @@ const memberStats = await linkedin.analytics.getMemberPostAnalytics({
 });
 ```
 
+## Complete generated API catalog
+
+Use the generated catalog when a high-level helper does not yet cover an operation. Operations have
+stable, searchable IDs and preserve fixed finder/action query strings plus `X-RestLi-Method`
+semantics from the official collection.
+
+```ts
+import {
+  createLinkedInGeneratedClient,
+  LinkedInClient,
+  linkedinOperations,
+} from "@openpromo/linkedin";
+
+const client = new LinkedInClient({ accessToken: process.env.LINKEDIN_ACCESS_TOKEN! });
+const api = createLinkedInGeneratedClient(client);
+
+const candidates = api.search("campaign analytics");
+console.log(candidates.map(({ id, name }) => ({ id, name })));
+
+await api.invoke(candidates[0]!.id, {
+  variables: { sponsoredaccount_id: "123456" },
+  query: { count: 100 },
+});
+```
+
+`LinkedInClient.request` also accepts nested Rest.li query values, fixed Rest.li method headers, and
+opt-in or automatic query tunneling for oversized URLs.
+
+## Refreshing generated sources
+
+```bash
+bun run codegen:refresh # fetch and normalize the official public Postman collections
+bun run codegen         # reproducible generation from the checked-in normalized snapshot
+bun run codegen:check   # verify generated artifacts are current
+```
+
+The checked-in source manifest records included and intentionally excluded workspace entries at
+`spec/postman-sources.json`. Never hand-edit generated files under `src/generated/`.
+
 ## Official References
 
 - [LinkedIn API Clients](https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients) - official protocol-level client guidance; LinkedIn notes these clients do not model specific APIs.
+- [LinkedIn Marketing Solutions Postman workspace](https://www.postman.com/linkedin-developer-apis/linkedin-marketing-solutions-versioned-apis/overview) - canonical operation corpus for generated low-level coverage.
 - [Rest.li Protocol](https://linkedin.github.io/rest.li/spec/protocol) - source for Rest.li 2.0 headers, URL encoding, list notation, and resource methods.
 - [Marketing API Versioning](https://learn.microsoft.com/en-us/linkedin/marketing/versioning) - source for `/rest` base path and `LinkedIn-Version`.
 - [Posts API](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api) - source for text, image, video, partial update, delete, and `x-restli-id` behavior.

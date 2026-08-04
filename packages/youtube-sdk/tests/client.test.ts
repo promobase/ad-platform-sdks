@@ -77,6 +77,26 @@ test("exposes videos.batchGetStats with documented required parameters", async (
   expect(result.summary?.requestedVideoCount).toBe("2");
 });
 
+test("exposes Analytics queries and Reporting job resources", async () => {
+  const calls: string[] = [];
+  const fetchMock = (async (input: RequestInfo | URL) => {
+    calls.push(String(input));
+    return jsonResponse({});
+  }) as unknown as typeof fetch;
+  const youtube = YouTube.createClient({ accessToken: "token", fetch: fetchMock });
+
+  await youtube.analytics.reportsQuery({
+    ids: "channel==MINE",
+    startDate: "2026-08-01",
+    endDate: "2026-08-03",
+    metrics: "views,likes",
+  });
+  await youtube.reporting.jobsGet({ jobId: "job/123" });
+
+  expect(calls[0]).toStartWith("https://youtubeanalytics.googleapis.com/v2/reports?");
+  expect(calls[1]).toBe("https://youtubereporting.googleapis.com/v1/jobs/job%2F123");
+});
+
 test("starts and completes resumable video uploads", async () => {
   const calls: Array<{ url: string; init?: RequestInit }> = [];
   const fetchMock = (async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -100,7 +120,7 @@ test("starts and completes resumable video uploads", async () => {
 
   expect(result.id).toBe("video-id");
   expect(calls[0]?.url).toBe(
-    "https://www.googleapis.com/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable",
+    "https://www.googleapis.com/resumable/upload/youtube/v3/videos?part=snippet%2Cstatus&uploadType=resumable",
   );
   const uploadHeaders = calls[0]?.init?.headers as Record<string, string> | undefined;
   expect(uploadHeaders?.["X-Upload-Content-Type"]).toBe("video/mp4");

@@ -1,0 +1,180 @@
+---
+title: "X Activity endpoints"
+description: "5 generated X endpoint contracts for Activity."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 101
+  label: "Activity"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.activity.createActivitySubscription
+
+`POST` `/2/activity/subscriptions`
+
+Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `activity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-activity` |
+| Output | `CreateActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateActivitySubscriptionRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.activity.deleteActivitySubscription
+
+`DELETE` `/2/activity/subscriptions/{subscription_id}`
+
+Deletes a subscription for an X activity event
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `activity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-activity` |
+| Output | `DeleteActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscription_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.activity.deleteActivitySubscriptionsByIds
+
+`DELETE` `/2/activity/subscriptions`
+
+Deletes multiple subscriptions for X activity events by their IDs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `activity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-activity` |
+| Output | `DeleteActivitySubscriptionsByIdsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.activity.getActivitySubscriptions
+
+`GET` `/2/activity/subscriptions`
+
+Get a list of active subscriptions for XAA
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `activity.read` |
+| Required scopes | `like.read`<br />`tweet.read` |
+| Rate-limit bucket | `x-activity` |
+| Output | `GetActivitySubscriptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.activity.updateActivitySubscription
+
+`PUT` `/2/activity/subscriptions/{subscription_id}`
+
+Updates a subscription for an X activity event
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `activity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-activity` |
+| Output | `UpdateActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscription_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `UpdateActivitySubscriptionRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

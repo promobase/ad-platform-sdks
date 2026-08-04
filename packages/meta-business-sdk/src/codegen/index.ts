@@ -119,10 +119,17 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   await writeFile(enumsFilePath, enumLines.join("\n"), "utf-8");
   console.log(`[codegen] Emitted ${enumCount} enum types into enums.ts`);
 
+  const sourceVersion = (await Bun.file(join(specsDir, "version.txt")).text()).trim();
+  const sourceRevision = Bun.spawnSync(["git", "-C", join(specsDir, "../.."), "rev-parse", "HEAD"])
+    .stdout.toString()
+    .trim();
   await writeEffectArtifacts({
     outputDir: join(outputDir, "effect"),
     docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
-    ir: metaCanonicalIr(specs, extractedEnums),
+    ir: metaCanonicalIr(specs, extractedEnums, {
+      version: sourceVersion,
+      revision: sourceRevision || undefined,
+    }),
   });
 
   // 10. Emit client-factory.ts

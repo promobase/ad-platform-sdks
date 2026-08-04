@@ -108,16 +108,16 @@ No fields are declared.
 | `conversion_value` | `conversion_value` | `number` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
 | `order_id` | `order_id` | `string` | No | No | — |
-| `external_attribution_data` | `external_attribution_data` | `unknown` | No | No | — |
-| `custom_variables` | `custom_variables` | `Array<unknown>` | No | No | — |
-| `cart_data` | `cart_data` | `unknown` | No | No | — |
+| `external_attribution_data` | `external_attribution_data` | `ExternalAttributionData` | No | No | — |
+| `custom_variables` | `custom_variables` | `Array<CustomVariable>` | No | No | — |
+| `cart_data` | `cart_data` | `CartData` | No | No | — |
 | `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
 | `conversion_environment` | `conversion_environment` | `ConversionEnvironment` | No | No | — |
 | `consent` | `consent` | `Consent` | No | No | — |
 | `customer_type` | `customer_type` | `ConversionCustomerType` | No | No | — |
 | `user_ip_address` | `user_ip_address` | `string` | No | No | — |
 | `session_attributes_encoded` | `session_attributes_encoded` | `string` | No | No | — |
-| `session_attributes_key_value_pairs` | `session_attributes_key_value_pairs` | `unknown` | No | No | — |
+| `session_attributes_key_value_pairs` | `session_attributes_key_value_pairs` | `SessionAttributesKeyValuePairs` | No | No | — |
 
 ## ClickConversionResult
 
@@ -191,9 +191,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `low_conversion_value_mapping` | `low_conversion_value_mapping` | `unknown` | No | No | — |
-| `medium_conversion_value_mapping` | `medium_conversion_value_mapping` | `unknown` | No | No | — |
-| `high_conversion_value_mapping` | `high_conversion_value_mapping` | `unknown` | No | No | — |
+| `low_conversion_value_mapping` | `low_conversion_value_mapping` | `ConversionValueMapping` | No | No | — |
+| `medium_conversion_value_mapping` | `medium_conversion_value_mapping` | `ConversionValueMapping` | No | No | — |
+| `high_conversion_value_mapping` | `high_conversion_value_mapping` | `ConversionValueMapping` | No | No | — |
 
 ## CollectionSizeError
 
@@ -367,7 +367,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `local_services_lead_conversation` | `local_services_lead_conversation` | `string` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## ConversationType
 
@@ -393,16 +393,16 @@ No fields are declared.
 | `include_in_conversions_metric` | `include_in_conversions_metric` | `boolean` | No | No | — |
 | `click_through_lookback_window_days` | `click_through_lookback_window_days` | `string` | No | No | — |
 | `view_through_lookback_window_days` | `view_through_lookback_window_days` | `string` | No | No | — |
-| `value_settings` | `value_settings` | `unknown` | No | No | — |
+| `value_settings` | `value_settings` | `ValueSettings` | No | No | — |
 | `counting_type` | `counting_type` | `ConversionActionCountingType` | No | No | — |
-| `attribution_model_settings` | `attribution_model_settings` | `unknown` | No | No | — |
+| `attribution_model_settings` | `attribution_model_settings` | `AttributionModelSettings` | No | No | — |
 | `tag_snippets` | `tag_snippets` | `Array<TagSnippet>` | No | No | — |
 | `phone_call_duration_seconds` | `phone_call_duration_seconds` | `string` | No | No | — |
 | `app_id` | `app_id` | `string` | No | No | — |
 | `mobile_app_vendor` | `mobile_app_vendor` | `MobileAppVendor` | No | No | — |
-| `firebase_settings` | `firebase_settings` | `unknown` | No | No | — |
-| `third_party_app_analytics_settings` | `third_party_app_analytics_settings` | `unknown` | No | No | — |
-| `google_analytics_4_settings` | `google_analytics_4_settings` | `unknown` | No | No | — |
+| `firebase_settings` | `firebase_settings` | `FirebaseSettings` | No | No | — |
+| `third_party_app_analytics_settings` | `third_party_app_analytics_settings` | `ThirdPartyAppAnalyticsSettings` | No | No | — |
+| `google_analytics_4_settings` | `google_analytics_4_settings` | `GoogleAnalytics4Settings` | No | No | — |
 
 ## ConversionActionCategory
 
@@ -446,7 +446,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `ConversionAction` | No | No | — |
 | `update` | `update` | `ConversionAction` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -481,12 +481,12 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `gclid_date_time_pair` | `gclid_date_time_pair` | `unknown` | No | No | — |
+| `gclid_date_time_pair` | `gclid_date_time_pair` | `GclidDateTimePair` | No | No | — |
 | `order_id` | `order_id` | `string` | No | No | — |
 | `conversion_action` | `conversion_action` | `string` | No | No | — |
 | `adjustment_date_time` | `adjustment_date_time` | `string` | No | No | — |
 | `adjustment_type` | `adjustment_type` | `ConversionAdjustmentType` | No | No | — |
-| `restatement_value` | `restatement_value` | `unknown` | No | No | — |
+| `restatement_value` | `restatement_value` | `RestatementValue` | No | No | — |
 | `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
 | `user_agent` | `user_agent` | `string` | No | No | — |
 
@@ -496,7 +496,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `gclid_date_time_pair` | `gclid_date_time_pair` | `unknown` | No | No | — |
+| `gclid_date_time_pair` | `gclid_date_time_pair` | `GclidDateTimePair` | No | No | — |
 | `order_id` | `order_id` | `string` | No | No | — |
 | `conversion_action` | `conversion_action` | `string` | No | No | — |
 | `adjustment_date_time` | `adjustment_date_time` | `string` | No | No | — |
@@ -581,7 +581,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `ConversionCustomVariable` | No | No | — |
 | `update` | `update` | `ConversionCustomVariable` | No | No | — |
 
@@ -638,7 +638,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `ConversionGoalCampaignConfig` | No | No | — |
 
 ## ConversionLagBucket
@@ -685,7 +685,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `conversion_rate_model` | `conversion_rate_model` | `ReachPlanConversionRateModel` | No | No | — |
 | `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
-| `surface_targeting` | `surface_targeting` | `unknown` | No | No | — |
+| `surface_targeting` | `surface_targeting` | `SurfaceTargeting` | No | No | — |
 | `conversion_rate` | `conversion_rate` | `number` | No | No | — |
 
 ## ConversionTrackingSetting
@@ -733,7 +733,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `min_time_post_install_hours` | `min_time_post_install_hours` | `string` | No | No | — |
 | `max_time_post_install_hours` | `max_time_post_install_hours` | `string` | No | No | — |
-| `mapped_events` | `mapped_events` | `Array<unknown>` | No | No | — |
+| `mapped_events` | `mapped_events` | `Array<Event>` | No | No | — |
 
 ## ConversionValueRule
 
@@ -743,11 +743,11 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `id` | `id` | `string` | No | No | — |
-| `action` | `action` | `unknown` | No | No | — |
-| `geo_location_condition` | `geo_location_condition` | `unknown` | No | No | — |
-| `device_condition` | `device_condition` | `unknown` | No | No | — |
-| `audience_condition` | `audience_condition` | `unknown` | No | No | — |
-| `itinerary_condition` | `itinerary_condition` | `unknown` | No | No | — |
+| `action` | `action` | `ValueRuleAction` | No | No | — |
+| `geo_location_condition` | `geo_location_condition` | `ValueRuleGeoLocationCondition` | No | No | — |
+| `device_condition` | `device_condition` | `ValueRuleDeviceCondition` | No | No | — |
+| `audience_condition` | `audience_condition` | `ValueRuleAudienceCondition` | No | No | — |
+| `itinerary_condition` | `itinerary_condition` | `ValueRuleItineraryCondition` | No | No | — |
 | `owner_customer` | `owner_customer` | `string` | No | No | — |
 | `status` | `status` | `ConversionValueRuleStatus` | No | No | — |
 
@@ -769,7 +769,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `ConversionValueRule` | No | No | — |
 | `update` | `update` | `ConversionValueRule` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -820,7 +820,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `ConversionValueRuleSet` | No | No | — |
 | `update` | `update` | `ConversionValueRuleSet` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |

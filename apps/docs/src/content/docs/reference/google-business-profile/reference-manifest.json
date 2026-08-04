@@ -1,15 +1,27 @@
 {
   "schemaVersion": 1,
   "platform": "google-business-profile",
-  "version": "v1+v4",
-  "endpointCount": 11,
-  "modelCount": 0,
-  "capabilityCount": 8,
+  "version": "v1+legacy-v4",
+  "endpointCount": 139,
+  "modelCount": 338,
+  "capabilityCount": 18,
   "endpointPages": [
-    "endpoints/account",
-    "endpoints/local-post",
-    "endpoints/location",
-    "endpoints/oauth"
+    "endpoints/businesscalls",
+    "endpoints/businessprofileperformance",
+    "endpoints/mybusiness-create-to-batch-get",
+    "endpoints/mybusiness-list-to-search",
+    "endpoints/mybusinessaccountmanagement",
+    "endpoints/mybusinessbusinessinformation",
+    "endpoints/mybusinesslodging",
+    "endpoints/mybusinessnotifications",
+    "endpoints/mybusinessplaceactions",
+    "endpoints/mybusinessqanda",
+    "endpoints/mybusinessverifications"
   ],
-  "modelPages": []
+  "modelPages": [
+    "models/account-management-accept-invitation-request-to-legacy-v4-dimensions",
+    "models/legacy-v4-driving-direction-metrics-request-to-legacy-v4-policies",
+    "models/legacy-v4-pools-to-performance-insights-value",
+    "models/performance-list-search-keyword-impressions-monthly-resp-to-verifications-wait-for-voice-of-merchant"
+  ]
 }

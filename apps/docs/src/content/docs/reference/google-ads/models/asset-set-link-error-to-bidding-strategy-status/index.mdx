@@ -42,7 +42,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AssetSet` | No | No | — |
 | `update` | `update` | `AssetSet` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -107,7 +107,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `asset_variation_infos` | `asset_variation_infos` | `Array<unknown>` | No | No | — |
+| `asset_variation_infos` | `asset_variation_infos` | `Array<AssetVariationInfo>` | No | No | — |
 
 ## AssetType
 
@@ -138,7 +138,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `base_ad_group` | `base_ad_group` | `string` | No | No | — |
 | `base_ad` | `base_ad` | `string` | No | No | — |
-| `asset_details` | `asset_details` | `Array<unknown>` | No | No | — |
+| `asset_details` | `asset_details` | `Array<AssetDetail>` | No | No | — |
 
 ## AsyncActionStatus
 
@@ -205,7 +205,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `attribute_metadata` | `attribute_metadata` | `AudienceInsightsAttributeMetadata` | No | No | — |
-| `metrics` | `metrics` | `unknown` | No | No | — |
+| `metrics` | `metrics` | `AudienceCompositionMetrics` | No | No | — |
 
 ## AudienceCompositionAttributeCluster
 
@@ -214,8 +214,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `cluster_display_name` | `cluster_display_name` | `string` | No | No | — |
-| `cluster_metrics` | `cluster_metrics` | `unknown` | No | No | — |
-| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+| `cluster_metrics` | `cluster_metrics` | `AudienceCompositionMetrics` | No | No | — |
+| `attributes` | `attributes` | `Array<AudienceCompositionAttribute>` | No | No | — |
 
 ## AudienceCompositionMetrics
 
@@ -235,8 +235,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `dimension` | `dimension` | `AudienceInsightsDimension` | No | No | — |
-| `top_attributes` | `top_attributes` | `Array<unknown>` | No | No | — |
-| `clustered_attributes` | `clustered_attributes` | `Array<unknown>` | No | No | — |
+| `top_attributes` | `top_attributes` | `Array<AudienceCompositionAttribute>` | No | No | — |
+| `clustered_attributes` | `clustered_attributes` | `Array<AudienceCompositionAttributeCluster>` | No | No | — |
 
 ## AudienceDimension
 
@@ -244,11 +244,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `age` | `age` | `unknown` | No | No | — |
-| `gender` | `gender` | `unknown` | No | No | — |
-| `household_income` | `household_income` | `unknown` | No | No | — |
-| `parental_status` | `parental_status` | `unknown` | No | No | — |
-| `audience_segments` | `audience_segments` | `unknown` | No | No | — |
+| `age` | `age` | `AgeDimension` | No | No | — |
+| `gender` | `gender` | `GenderDimension` | No | No | — |
+| `household_income` | `household_income` | `HouseholdIncomeDimension` | No | No | — |
+| `parental_status` | `parental_status` | `ParentalStatusDimension` | No | No | — |
+| `audience_segments` | `audience_segments` | `AudienceSegmentDimension` | No | No | — |
 
 ## AudienceError
 
@@ -268,7 +268,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `exclusions` | `exclusions` | `Array<unknown>` | No | No | — |
+| `exclusions` | `exclusions` | `Array<ExclusionSegment>` | No | No | — |
 
 ## AudienceInfo
 
@@ -284,19 +284,19 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `age_range` | `age_range` | `unknown` | No | No | — |
-| `gender` | `gender` | `unknown` | No | No | — |
-| `location` | `location` | `unknown` | No | No | — |
-| `user_interest` | `user_interest` | `unknown` | No | No | — |
-| `entity` | `entity` | `unknown` | No | No | — |
-| `category` | `category` | `unknown` | No | No | — |
-| `lineup` | `lineup` | `unknown` | No | No | — |
-| `parental_status` | `parental_status` | `unknown` | No | No | — |
-| `income_range` | `income_range` | `unknown` | No | No | — |
-| `youtube_channel` | `youtube_channel` | `unknown` | No | No | — |
-| `youtube_video` | `youtube_video` | `unknown` | No | No | — |
-| `device` | `device` | `unknown` | No | No | — |
-| `user_list` | `user_list` | `unknown` | No | No | — |
+| `age_range` | `age_range` | `AgeRangeInfo` | No | No | — |
+| `gender` | `gender` | `GenderInfo` | No | No | — |
+| `location` | `location` | `LocationInfo` | No | No | — |
+| `user_interest` | `user_interest` | `UserInterestInfo` | No | No | — |
+| `entity` | `entity` | `AudienceInsightsEntity` | No | No | — |
+| `category` | `category` | `AudienceInsightsCategory` | No | No | — |
+| `lineup` | `lineup` | `AudienceInsightsLineup` | No | No | — |
+| `parental_status` | `parental_status` | `ParentalStatusInfo` | No | No | — |
+| `income_range` | `income_range` | `IncomeRangeInfo` | No | No | — |
+| `youtube_channel` | `youtube_channel` | `YouTubeChannelInfo` | No | No | — |
+| `youtube_video` | `youtube_video` | `YouTubeVideoInfo` | No | No | — |
+| `device` | `device` | `DeviceInfo` | No | No | — |
+| `user_list` | `user_list` | `UserListInfo` | No | No | — |
 
 ## AudienceInsightsAttributeMetadata
 
@@ -305,19 +305,19 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `dimension` | `dimension` | `AudienceInsightsDimension` | No | No | — |
-| `attribute` | `attribute` | `unknown` | No | No | — |
+| `attribute` | `attribute` | `AudienceInsightsAttribute` | No | No | — |
 | `display_name` | `display_name` | `string` | No | No | — |
 | `display_info` | `display_info` | `string` | No | No | — |
 | `potential_youtube_reach` | `potential_youtube_reach` | `string` | No | No | — |
 | `subscriber_share` | `subscriber_share` | `number` | No | No | — |
 | `viewer_share` | `viewer_share` | `number` | No | No | — |
-| `youtube_channel_metadata` | `youtube_channel_metadata` | `unknown` | No | No | — |
-| `youtube_video_metadata` | `youtube_video_metadata` | `unknown` | No | No | — |
-| `lineup_attribute_metadata` | `lineup_attribute_metadata` | `unknown` | No | No | — |
-| `location_attribute_metadata` | `location_attribute_metadata` | `unknown` | No | No | — |
-| `user_interest_attribute_metadata` | `user_interest_attribute_metadata` | `unknown` | No | No | — |
-| `knowledge_graph_attribute_metadata` | `knowledge_graph_attribute_metadata` | `unknown` | No | No | — |
-| `user_list_attribute_metadata` | `user_list_attribute_metadata` | `unknown` | No | No | — |
+| `youtube_channel_metadata` | `youtube_channel_metadata` | `YouTubeChannelAttributeMetadata` | No | No | — |
+| `youtube_video_metadata` | `youtube_video_metadata` | `YouTubeVideoAttributeMetadata` | No | No | — |
+| `lineup_attribute_metadata` | `lineup_attribute_metadata` | `LineupAttributeMetadata` | No | No | — |
+| `location_attribute_metadata` | `location_attribute_metadata` | `LocationAttributeMetadata` | No | No | — |
+| `user_interest_attribute_metadata` | `user_interest_attribute_metadata` | `UserInterestAttributeMetadata` | No | No | — |
+| `knowledge_graph_attribute_metadata` | `knowledge_graph_attribute_metadata` | `KnowledgeGraphAttributeMetadata` | No | No | — |
+| `user_list_attribute_metadata` | `user_list_attribute_metadata` | `UserListAttributeMetadata` | No | No | — |
 
 ## AudienceInsightsAttributeMetadataGroup
 
@@ -325,7 +325,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+| `attributes` | `attributes` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
 
 ## AudienceInsightsCategory
 
@@ -401,7 +401,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `Audience` | No | No | — |
 | `update` | `update` | `Audience` | No | No | — |
 
@@ -432,11 +432,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `user_list` | `user_list` | `unknown` | No | No | — |
-| `user_interest` | `user_interest` | `unknown` | No | No | — |
-| `life_event` | `life_event` | `unknown` | No | No | — |
-| `detailed_demographic` | `detailed_demographic` | `unknown` | No | No | — |
-| `custom_audience` | `custom_audience` | `unknown` | No | No | — |
+| `user_list` | `user_list` | `UserListSegment` | No | No | — |
+| `user_interest` | `user_interest` | `UserInterestSegment` | No | No | — |
+| `life_event` | `life_event` | `LifeEventSegment` | No | No | — |
+| `detailed_demographic` | `detailed_demographic` | `DetailedDemographicSegment` | No | No | — |
+| `custom_audience` | `custom_audience` | `CustomAudienceSegment` | No | No | — |
 
 ## AudienceSegmentDimension
 
@@ -444,7 +444,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `segments` | `segments` | `Array<unknown>` | No | No | — |
+| `segments` | `segments` | `Array<AudienceSegment>` | No | No | — |
 
 ## AudienceSetting
 
@@ -526,7 +526,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `actions` | `actions` | `Array<unknown>` | No | No | — |
+| `actions` | `actions` | `Array<UserListActionInfo>` | No | No | — |
 
 ## BatchJob
 
@@ -537,7 +537,7 @@ No fields are declared.
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `id` | `id` | `string` | No | No | — |
 | `next_add_sequence_token` | `next_add_sequence_token` | `string` | No | No | — |
-| `metadata` | `metadata` | `unknown` | No | No | — |
+| `metadata` | `metadata` | `BatchJobMetadata` | No | No | — |
 | `status` | `status` | `BatchJobStatus` | No | No | — |
 | `long_running_operation` | `long_running_operation` | `string` | No | No | — |
 
@@ -583,8 +583,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `operation_index` | `operation_index` | `string` | No | No | — |
-| `mutate_operation_response` | `mutate_operation_response` | `unknown` | No | No | — |
-| `status` | `status` | `unknown` | No | No | — |
+| `mutate_operation_response` | `mutate_operation_response` | `MutateOperationResponse` | No | No | — |
+| `status` | `status` | `json` | No | No | — |
 
 ## BatchJobStatus
 
@@ -657,7 +657,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `benchmarks_source_type` | `benchmarks_source_type` | `BenchmarksSourceType` | No | No | — |
-| `industry_vertical_info` | `industry_vertical_info` | `unknown` | No | No | — |
+| `industry_vertical_info` | `industry_vertical_info` | `IndustryVerticalInfo` | No | No | — |
 
 ## BenchmarksSourceType
 
@@ -707,7 +707,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `BiddingDataExclusion` | No | No | — |
 | `update` | `update` | `BiddingDataExclusion` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -733,7 +733,7 @@ No fields are declared.
 | `bidding_strategy_type` | `bidding_strategy_type` | `BiddingStrategyType` | No | No | — |
 | `target_cpa_micros` | `target_cpa_micros` | `string` | No | No | — |
 | `target_roas` | `target_roas` | `number` | No | No | — |
-| `target_impression_share_info` | `target_impression_share_info` | `unknown` | No | No | — |
+| `target_impression_share_info` | `target_impression_share_info` | `TargetImpressionShareInfo` | No | No | — |
 
 ## BiddingSeasonalityAdjustment
 
@@ -760,7 +760,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `BiddingSeasonalityAdjustment` | No | No | — |
 | `update` | `update` | `BiddingSeasonalityAdjustment` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -819,7 +819,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `BiddingStrategy` | No | No | — |
 | `update` | `update` | `BiddingStrategy` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |

@@ -1,0 +1,249 @@
+---
+title: "Google Business Profile Mybusinessqanda endpoints"
+description: "7 generated Google Business Profile endpoint contracts for Mybusinessqanda."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 109
+  label: "Mybusinessqanda"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinessqanda.locations.questions.answers.delete
+
+`DELETE` `https://mybusinessqanda.googleapis.com/v1/{+name}/answers:delete`
+
+Deletes the answer written by the current user to a question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `q-and-a.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAEmpty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the question to delete an answer for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.answers.list
+
+`GET` `https://mybusinessqanda.googleapis.com/v1/{+parent}/answers`
+
+Returns the paginated list of answers for a specified question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `q-and-a.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAListAnswersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `orderBy` | `query` | `string` | No | No | Optional. The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'. |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many answers to fetch per page. The default and maximum `page_size` values are 10. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, the next page of answers is retrieved. |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the question to fetch answers for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.answers.upsert
+
+`POST` `https://mybusinessqanda.googleapis.com/v1/{+parent}/answers:upsert`
+
+Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `q-and-a.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAAnswer` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the question to write an answer for. |
+| `body` | `body` | `QAndAUpsertAnswerRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.create
+
+`POST` `https://mybusinessqanda.googleapis.com/v1/{+parent}`
+
+Adds a question for the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `q-and-a.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAQuestion` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the location to write a question for. |
+| `body` | `body` | `QAndAQuestion` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.delete
+
+`DELETE` `https://mybusinessqanda.googleapis.com/v1/{+name}`
+
+Deletes a specific question written by the current user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `q-and-a.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAEmpty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the question to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.list
+
+`GET` `https://mybusinessqanda.googleapis.com/v1/{+parent}`
+
+Returns the paginated list of questions and some of its answers for a specified location. This operation is only valid if the specified location is verified.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `q-and-a.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAListQuestionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answersPerQuestion` | `query` | `integer` | No | No | Optional. How many answers to fetch per question. The default and maximum `answers_per_question` values are 10. |
+| `filter` | `query` | `string` | No | No | Optional. A filter constraining the questions to return. The only filter currently supported is "ignore_answered=true" |
+| `orderBy` | `query` | `string` | No | No | Optional. The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'. |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many questions to fetch per page. The default and maximum `page_size` values are 10. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, the next page of questions is retrieved. |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the location to fetch questions for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessqanda.locations.questions.patch
+
+`PATCH` `https://mybusinessqanda.googleapis.com/v1/{+name}`
+
+Updates a specific question written by the current user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `q-and-a.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-q-and-a` |
+| Output | `QAndAQuestion` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Immutable. The unique name for the question. locations/*/questions/* This field will be ignored if set during question creation. |
+| `updateMask` | `query` | `string` | No | No | Required. The specific fields to update. Only question text can be updated. |
+| `body` | `body` | `QAndAQuestion` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

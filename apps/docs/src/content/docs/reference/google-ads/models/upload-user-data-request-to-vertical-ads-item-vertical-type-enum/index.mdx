@@ -19,7 +19,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<UserDataOperation>` | No | No | — |
 | `customer_match_user_list_metadata` | `customer_match_user_list_metadata` | `CustomerMatchUserListMetadata` | No | No | — |
 
 ## UploadUserDataResponse
@@ -94,10 +94,10 @@ No fields are declared.
 | `average_purchase_count` | `average_purchase_count` | `integer` | No | No | — |
 | `average_purchase_value_micros` | `average_purchase_value_micros` | `string` | No | No | — |
 | `acquisition_date_time` | `acquisition_date_time` | `string` | No | No | — |
-| `shopping_loyalty` | `shopping_loyalty` | `unknown` | No | No | — |
+| `shopping_loyalty` | `shopping_loyalty` | `ShoppingLoyalty` | No | No | — |
 | `lifecycle_stage` | `lifecycle_stage` | `string` | No | No | — |
 | `first_purchase_date_time` | `first_purchase_date_time` | `string` | No | No | — |
-| `event_attribute` | `event_attribute` | `Array<unknown>` | No | No | — |
+| `event_attribute` | `event_attribute` | `Array<EventAttribute>` | No | No | — |
 
 ## UserData
 
@@ -105,10 +105,10 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `user_identifiers` | `user_identifiers` | `Array<unknown>` | No | No | — |
-| `transaction_attribute` | `transaction_attribute` | `unknown` | No | No | — |
-| `user_attribute` | `user_attribute` | `unknown` | No | No | — |
-| `consent` | `consent` | `unknown` | No | No | — |
+| `user_identifiers` | `user_identifiers` | `Array<UserIdentifier>` | No | No | — |
+| `transaction_attribute` | `transaction_attribute` | `TransactionAttribute` | No | No | — |
+| `user_attribute` | `user_attribute` | `UserAttribute` | No | No | — |
+| `consent` | `consent` | `Consent` | No | No | — |
 
 ## UserDataError
 
@@ -142,7 +142,7 @@ No fields are declared.
 | `hashed_phone_number` | `hashed_phone_number` | `string` | No | No | — |
 | `mobile_id` | `mobile_id` | `string` | No | No | — |
 | `third_party_user_id` | `third_party_user_id` | `string` | No | No | — |
-| `address_info` | `address_info` | `unknown` | No | No | — |
+| `address_info` | `address_info` | `OfflineUserAddressInfo` | No | No | — |
 
 ## UserIdentifierSource
 
@@ -395,7 +395,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `operator` | `operator` | `UserListLogicalRuleOperator` | No | No | — |
-| `rule_operands` | `rule_operands` | `Array<unknown>` | No | No | — |
+| `rule_operands` | `rule_operands` | `Array<LogicalUserListOperandInfo>` | No | No | — |
 
 ## UserListLogicalRuleOperator
 
@@ -448,7 +448,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `UserList` | No | No | — |
 | `update` | `update` | `UserList` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -472,7 +472,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `rule_type` | `rule_type` | `UserListRuleType` | No | No | — |
-| `rule_item_groups` | `rule_item_groups` | `Array<unknown>` | No | No | — |
+| `rule_item_groups` | `rule_item_groups` | `Array<UserListRuleItemGroupInfo>` | No | No | — |
 
 ## UserListRuleItemGroupInfo
 
@@ -480,7 +480,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `rule_items` | `rule_items` | `Array<unknown>` | No | No | — |
+| `rule_items` | `rule_items` | `Array<UserListRuleItemInfo>` | No | No | — |
 
 ## UserListRuleItemInfo
 
@@ -489,9 +489,9 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `name` | `name` | `string` | No | No | — |
-| `number_rule_item` | `number_rule_item` | `unknown` | No | No | — |
-| `string_rule_item` | `string_rule_item` | `unknown` | No | No | — |
-| `date_rule_item` | `date_rule_item` | `unknown` | No | No | — |
+| `number_rule_item` | `number_rule_item` | `UserListNumberRuleItemInfo` | No | No | — |
+| `string_rule_item` | `string_rule_item` | `UserListStringRuleItemInfo` | No | No | — |
+| `date_rule_item` | `date_rule_item` | `UserListDateRuleItemInfo` | No | No | — |
 
 ## UserListRuleType
 
@@ -656,9 +656,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `advance_booking_window` | `advance_booking_window` | `unknown` | No | No | — |
-| `travel_length` | `travel_length` | `unknown` | No | No | — |
-| `travel_start_day` | `travel_start_day` | `unknown` | No | No | — |
+| `advance_booking_window` | `advance_booking_window` | `ValueRuleItineraryAdvanceBookingWindow` | No | No | — |
+| `travel_length` | `travel_length` | `ValueRuleItineraryTravelLength` | No | No | — |
+| `travel_start_day` | `travel_start_day` | `ValueRuleItineraryTravelStartDay` | No | No | — |
 
 ## ValueRuleItineraryTravelLength
 

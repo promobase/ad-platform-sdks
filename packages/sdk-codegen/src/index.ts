@@ -3,8 +3,10 @@ export type { WriteEffectArtifactsOptions } from "./artifacts.ts";
 export { writeEffectArtifacts } from "./artifacts.ts";
 export type {
   CapabilityIr,
+  CoverageIr,
   EndpointIr,
   EndpointParameterIr,
+  ExcludedOperationIr,
   FieldIr,
   ModelIr,
   PlatformId,
@@ -14,9 +16,11 @@ export type {
 } from "./ir.ts";
 export {
   CapabilityIrSchema,
+  CoverageIrSchema,
   decodeSdkIr,
   EndpointIrSchema,
   EndpointParameterIrSchema,
+  ExcludedOperationIrSchema,
   FieldIrSchema,
   ModelIrSchema,
   PlatformIdSchema,

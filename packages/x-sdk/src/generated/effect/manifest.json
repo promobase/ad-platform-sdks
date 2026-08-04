@@ -3,12 +3,23 @@
   "source": {
     "kind": "openapi",
     "location": "fern/openapi/x-openapi.json",
-    "revision": "2.167"
+    "revision": "2.167",
+    "checksum": "2e4b6d12c732bbe91728895047e42900f49d55356b9cf1543d3f8b207c8efd9e"
   },
   "version": "2.167",
   "counts": {
     "models": 527,
-    "endpoints": 14,
-    "capabilities": 5
+    "endpoints": 176,
+    "capabilities": 35
+  },
+  "coverage": {
+    "discoveredOperations": 176,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json",
+      "multipart"
+    ],
+    "emittedOperations": 176
   }
 }
