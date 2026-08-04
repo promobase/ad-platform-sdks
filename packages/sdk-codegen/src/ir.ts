@@ -32,6 +32,21 @@ export const SpecSourceSchema = Schema.Struct({
 });
 export type SpecSource = typeof SpecSourceSchema.Type;
 
+export const ExcludedOperationIrSchema = Schema.Struct({
+  operationId: Schema.String,
+  reason: Schema.String,
+  documentation: Schema.optional(Schema.String),
+});
+export type ExcludedOperationIr = typeof ExcludedOperationIrSchema.Type;
+
+export const CoverageIrSchema = Schema.Struct({
+  discoveredOperations: Schema.Number,
+  excludedOperations: Schema.Array(ExcludedOperationIrSchema),
+  unresolvedSchemas: Schema.Array(Schema.String),
+  protocols: Schema.Array(Schema.String),
+});
+export type CoverageIr = typeof CoverageIrSchema.Type;
+
 export type TypeRefIr =
   | {
       readonly kind: "primitive";
@@ -166,6 +181,9 @@ export const EndpointIrSchema = Schema.Struct({
   capabilities: Schema.Array(Schema.String),
   pagination: Schema.optional(PaginationIrSchema),
   rateLimitBucket: Schema.optional(Schema.String),
+  authSchemes: Schema.optional(Schema.Array(Schema.String)),
+  protocols: Schema.optional(Schema.Array(Schema.String)),
+  staticHeaders: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.String })),
   summary: Schema.String,
   description: Schema.optional(Schema.String),
 });
@@ -186,6 +204,7 @@ export const SdkIrSchema = Schema.Struct({
   models: Schema.Array(ModelIrSchema),
   endpoints: Schema.Array(EndpointIrSchema),
   capabilities: Schema.Array(CapabilityIrSchema),
+  coverage: Schema.optional(CoverageIrSchema),
 });
 export type SdkIr = typeof SdkIrSchema.Type;
 
@@ -193,6 +212,21 @@ export const decodeSdkIr = Schema.decodeUnknown(SdkIrSchema);
 
 export function validateSdkIr(ir: SdkIr): readonly string[] {
   const issues: string[] = [];
+  if (ir.coverage) {
+    const accountedOperations = ir.endpoints.length + ir.coverage.excludedOperations.length;
+    if (ir.coverage.discoveredOperations !== accountedOperations) {
+      issues.push(
+        `Coverage mismatch: discovered ${ir.coverage.discoveredOperations}, emitted ${ir.endpoints.length}, excluded ${ir.coverage.excludedOperations.length}`,
+      );
+    }
+    const excludedIds = new Set<string>();
+    for (const exclusion of ir.coverage.excludedOperations) {
+      if (excludedIds.has(exclusion.operationId)) {
+        issues.push(`Duplicate excluded operation id: ${exclusion.operationId}`);
+      }
+      excludedIds.add(exclusion.operationId);
+    }
+  }
   const modelIds = new Set<string>();
   const modelNames = new Set<string>();
   for (const model of ir.models) {

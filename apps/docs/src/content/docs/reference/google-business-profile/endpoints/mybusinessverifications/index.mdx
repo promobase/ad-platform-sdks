@@ -1,0 +1,210 @@
+---
+title: "Google Business Profile Mybusinessverifications endpoints"
+description: "6 generated Google Business Profile endpoint contracts for Mybusinessverifications."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 110
+  label: "Mybusinessverifications"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinessverifications.locations.fetchVerificationOptions
+
+`POST` `https://mybusinessverifications.googleapis.com/v1/{+location}:fetchVerificationOptions`
+
+Reports all eligible verification options for a location in a specific language.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verifications.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsFetchVerificationOptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `path` | `string` | Yes | No | Required. The location to verify. |
+| `body` | `body` | `VerificationsFetchVerificationOptionsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessverifications.locations.getVoiceOfMerchantState
+
+`GET` `https://mybusinessverifications.googleapis.com/v1/{+name}/VoiceOfMerchantState`
+
+Gets the VoiceOfMerchant state.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `verifications.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsVoiceOfMerchantState` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Resource name of the location. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessverifications.locations.verifications.complete
+
+`POST` `https://mybusinessverifications.googleapis.com/v1/{+name}:complete`
+
+Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verifications.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsCompleteVerificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Resource name of the verification to complete. |
+| `body` | `body` | `VerificationsCompleteVerificationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessverifications.locations.verifications.list
+
+`GET` `https://mybusinessverifications.googleapis.com/v1/{+parent}/verifications`
+
+List verifications of a location, ordered by create time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `verifications.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsListVerificationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageSize` | `query` | `integer` | No | No | How many verification to include per page. Minimum is 1, and the default and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | If specified, returns the next page of verifications. |
+| `parent` | `path` | `string` | Yes | No | Required. Resource name of the location that verification requests belong to. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessverifications.locations.verify
+
+`POST` `https://mybusinessverifications.googleapis.com/v1/{+name}:verify`
+
+Starts the verification process for a location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verifications.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsVerifyLocationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Resource name of the location to verify. |
+| `body` | `body` | `VerificationsVerifyLocationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessverifications.verificationTokens.generate
+
+`POST` `https://mybusinessverifications.googleapis.com/v1/verificationTokens:generate`
+
+Generate a token for the provided location data to verify the location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `verifications.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-verifications` |
+| Output | `VerificationsGenerateInstantVerificationTokenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `VerificationsGenerateInstantVerificationTokenRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,84 @@
+---
+title: "X Communities endpoints"
+description: "2 generated X endpoint contracts for Communities."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 105
+  label: "Communities"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.communities.getCommunitiesById
+
+`GET` `/2/communities/{id}`
+
+Get Communities by ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `communities.read` |
+| Required scopes | `list.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-communities` |
+| Output | `GetCommunitiesByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `CommunityId` | Yes | No | — |
+| `community.fields` | `query` | `Array<"access" \| "created_at" \| "description" \| "id" \| "join_policy" \| "member_count" \| "name">` | No | No | A comma separated list of Community fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.communities.searchCommunities
+
+`GET` `/2/communities/search`
+
+Search Communities
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `communities.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-communities` |
+| Output | `SearchCommunitiesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `next_token` | `query` | `string` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `community.fields` | `query` | `Array<"access" \| "created_at" \| "description" \| "id" \| "join_policy" \| "member_count" \| "name">` | No | No | A comma separated list of Community fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

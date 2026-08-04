@@ -26,7 +26,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `consolidated_terms_and_conditions_url` | `consolidated_terms_and_conditions_url` | `string` | No | No | — |
 | `offer_type` | `offer_type` | `OfferType` | No | No | — |
-| `cyo_incentives` | `cyo_incentives` | `unknown` | No | No | — |
+| `cyo_incentives` | `cyo_incentives` | `CyoIncentives` | No | No | — |
 
 ## IncentiveOfferTypeEnum
 
@@ -138,7 +138,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `attributes` | `attributes` | `Array<unknown>` | No | No | — |
+| `attributes` | `attributes` | `Array<AudienceInsightsAttribute>` | No | No | — |
 
 ## InsightsAudienceDefinition
 
@@ -146,8 +146,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `audience` | `audience` | `unknown` | No | No | — |
-| `baseline_audience` | `baseline_audience` | `unknown` | No | No | — |
+| `audience` | `audience` | `InsightsAudience` | No | No | — |
+| `baseline_audience` | `baseline_audience` | `InsightsAudience` | No | No | — |
 | `data_month` | `data_month` | `string` | No | No | — |
 
 ## InsightsAudienceDescription
@@ -159,7 +159,7 @@ No fields are declared.
 | `country_locations` | `country_locations` | `Array<LocationInfo>` | No | No | — |
 | `audience_description` | `audience_description` | `string` | No | No | — |
 | `marketing_objective` | `marketing_objective` | `AudienceInsightsMarketingObjective` | No | No | — |
-| `audience_dimensions` | `audience_dimensions` | `unknown` | No | No | — |
+| `audience_dimensions` | `audience_dimensions` | `AudienceInsightsDimensions` | No | No | — |
 
 ## InsightsKnowledgeGraphEntityCapabilities
 
@@ -284,8 +284,8 @@ No fields are declared.
 | `corrected_invoice` | `corrected_invoice` | `string` | No | No | — |
 | `replaced_invoices` | `replaced_invoices` | `Array<string>` | No | No | — |
 | `pdf_url` | `pdf_url` | `string` | No | No | — |
-| `account_budget_summaries` | `account_budget_summaries` | `Array<unknown>` | No | No | — |
-| `account_summaries` | `account_summaries` | `Array<unknown>` | No | No | — |
+| `account_budget_summaries` | `account_budget_summaries` | `Array<AccountBudgetSummary>` | No | No | — |
+| `account_summaries` | `account_summaries` | `Array<AccountSummary>` | No | No | — |
 
 ## InvoiceError
 
@@ -348,7 +348,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `ad_group_criterion` | `ad_group_criterion` | `string` | No | No | — |
-| `info` | `info` | `unknown` | No | No | — |
+| `info` | `info` | `KeywordInfo` | No | No | — |
 
 ## KeywordAndUrlSeed
 
@@ -365,7 +365,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `concepts` | `concepts` | `Array<unknown>` | No | No | — |
+| `concepts` | `concepts` | `Array<KeywordConcept>` | No | No | — |
 
 ## KeywordConcept
 
@@ -374,7 +374,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `name` | `name` | `string` | No | No | — |
-| `concept_group` | `concept_group` | `unknown` | No | No | — |
+| `concept_group` | `concept_group` | `ConceptGroup` | No | No | — |
 
 ## KeywordForecastMetrics
 
@@ -437,7 +437,7 @@ No fields are declared.
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `id` | `id` | `string` | No | No | — |
 | `name` | `name` | `string` | No | No | — |
-| `forecast_period` | `forecast_period` | `unknown` | No | No | — |
+| `forecast_period` | `forecast_period` | `KeywordPlanForecastPeriod` | No | No | — |
 
 ## KeywordPlanAdGroup
 
@@ -495,7 +495,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `KeywordPlanAdGroupKeyword` | No | No | — |
 | `update` | `update` | `KeywordPlanAdGroupKeyword` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -506,7 +506,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `KeywordPlanAdGroup` | No | No | — |
 | `update` | `update` | `KeywordPlanAdGroup` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -517,7 +517,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `device_searches` | `device_searches` | `Array<unknown>` | No | No | — |
+| `device_searches` | `device_searches` | `Array<KeywordPlanDeviceSearches>` | No | No | — |
 
 ## KeywordPlanAggregateMetrics
 
@@ -552,7 +552,7 @@ No fields are declared.
 | `language_constants` | `language_constants` | `Array<string>` | No | No | — |
 | `keyword_plan_network` | `keyword_plan_network` | `KeywordPlanNetwork` | No | No | — |
 | `cpc_bid_micros` | `cpc_bid_micros` | `string` | No | No | — |
-| `geo_targets` | `geo_targets` | `Array<unknown>` | No | No | — |
+| `geo_targets` | `geo_targets` | `Array<KeywordPlanGeoTarget>` | No | No | — |
 
 ## KeywordPlanCampaignError
 
@@ -597,7 +597,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `KeywordPlanCampaignKeyword` | No | No | — |
 | `update` | `update` | `KeywordPlanCampaignKeyword` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -608,7 +608,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `KeywordPlanCampaign` | No | No | — |
 | `update` | `update` | `KeywordPlanCampaign` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -694,7 +694,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `avg_monthly_searches` | `avg_monthly_searches` | `string` | No | No | — |
-| `monthly_search_volumes` | `monthly_search_volumes` | `Array<unknown>` | No | No | — |
+| `monthly_search_volumes` | `monthly_search_volumes` | `Array<MonthlySearchVolume>` | No | No | — |
 | `competition` | `competition` | `KeywordPlanCompetitionLevel` | No | No | — |
 | `competition_index` | `competition_index` | `string` | No | No | — |
 | `low_top_of_page_bid_micros` | `low_top_of_page_bid_micros` | `string` | No | No | — |
@@ -743,7 +743,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `KeywordPlan` | No | No | — |
 | `update` | `update` | `KeywordPlan` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -755,7 +755,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `keyword` | `keyword` | `KeywordInfo` | No | No | — |
-| `search_terms` | `search_terms` | `Array<unknown>` | No | No | — |
+| `search_terms` | `search_terms` | `Array<SearchTerm>` | No | No | — |
 | `recommended_cpc_bid_micros` | `recommended_cpc_bid_micros` | `string` | No | No | — |
 
 ## KeywordSeed
@@ -810,7 +810,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `entity_capabilities` | `entity_capabilities` | `Array<InsightsKnowledgeGraphEntityCapabilities>` | No | No | — |
-| `related_categories` | `related_categories` | `Array<unknown>` | No | No | — |
+| `related_categories` | `related_categories` | `Array<AudienceInsightsAttributeMetadata>` | No | No | — |
 
 ## KnowledgeGraphEntitySearchOptions
 
@@ -819,7 +819,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `get_all_creator_attributes` | `get_all_creator_attributes` | `boolean` | No | No | — |
-| `search_filter` | `search_filter` | `unknown` | No | No | — |
+| `search_filter` | `search_filter` | `SearchFilter` | No | No | — |
 
 ## Label
 

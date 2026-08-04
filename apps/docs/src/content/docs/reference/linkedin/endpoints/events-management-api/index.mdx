@@ -1,0 +1,175 @@
+---
+title: "LinkedIn Events management api endpoints"
+description: "6 generated LinkedIn endpoint contracts for Events management api."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 109
+  label: "Events management api"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## events-management-api.eventsManagementApiUseCasesCreateOrganizationOwnedEventPostEvents
+
+`POST` `/events`
+
+Create Organization Owned Event
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## events-management-api.eventsManagementApiUseCasesCreatePersonOwnedEventPostEvents
+
+`POST` `/events`
+
+Create Person Owned Event
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## events-management-api.eventsManagementApiUseCasesFindAMemberSOrganizationAccessControlGetOrganizationAclsQRoleAssignee
+
+`GET` `/organizationAcls?q=roleAssignee`
+
+Find a Member's Organization Access Control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## events-management-api.eventsManagementApiUseCasesFindEventsByOrganizerGetEventsQEventsByOrganizerOrganizerUrn3Ali3Aorganization3A7185861Start0
+
+`GET` `/events?q=eventsByOrganizer&organizer=urn%3Ali%3Aorganization%3A7185861&start=0&count=10&excludeCancelled=true&timeBasedFilter=(lifeCycleState%3APAST)&entryCriteria=PUBLIC&sortOrder=END_TIME_DESC`
+
+Find Events by Organizer
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## events-management-api.eventsManagementApiUseCasesFindEventsWithLeadGenFormByOrganizerGetEventsOrganizerUrn3Ali3Aorganization3A7185861Start0Cou
+
+`GET` `/events?organizer=urn%3Ali%3Aorganization%3A7185861&start=0&count=2&q=organizerLeadGenFormEnabledEvents`
+
+Find Events with Lead Gen Form by Organizer
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## events-management-api.eventsManagementApiUseCasesGetEventByIdGetEventsId
+
+`GET` `/events/{id}`
+
+Get Event by ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.events.management.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.events.management.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -62,5 +62,60 @@ export const capabilities = [
       "openid",
       "profile"
     ]
+  },
+  {
+    "id": "api.audience.insights",
+    "summary": "Call operations documented by LinkedIn's Audience Insights collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.audiences",
+    "summary": "Call operations documented by LinkedIn's Audiences collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.campaign.management",
+    "summary": "Call operations documented by LinkedIn's Campaign Management collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.community.management",
+    "summary": "Call operations documented by LinkedIn's Community Management collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.company.intelligence.api",
+    "summary": "Call operations documented by LinkedIn's Company Intelligence API collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.content.apis",
+    "summary": "Call operations documented by LinkedIn's Content APIs collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.conversions.api",
+    "summary": "Call operations documented by LinkedIn's Conversions API collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.events.management.api",
+    "summary": "Call operations documented by LinkedIn's Events Management API collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.lead.sync",
+    "summary": "Call operations documented by LinkedIn's Lead Sync collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.media.planning",
+    "summary": "Call operations documented by LinkedIn's Media Planning collection",
+    "requiredScopes": []
+  },
+  {
+    "id": "api.reporting.roi",
+    "summary": "Call operations documented by LinkedIn's Reporting & ROI collection",
+    "requiredScopes": []
   }
 ] as const;

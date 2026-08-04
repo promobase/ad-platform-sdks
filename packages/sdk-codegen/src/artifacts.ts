@@ -38,6 +38,15 @@ export async function writeEffectArtifacts({
             endpoints: ir.endpoints.length,
             capabilities: ir.capabilities.length,
           },
+          coverage: {
+            ...(ir.coverage ?? {
+              discoveredOperations: ir.endpoints.length,
+              excludedOperations: [],
+              unresolvedSchemas: [],
+              protocols: ["json"],
+            }),
+            emittedOperations: ir.endpoints.length,
+          },
         },
         null,
         2,

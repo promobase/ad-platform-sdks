@@ -1,0 +1,214 @@
+---
+title: "Google Business Profile Mybusinessplaceactions endpoints"
+description: "6 generated Google Business Profile endpoint contracts for Mybusinessplaceactions."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 108
+  label: "Mybusinessplaceactions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinessplaceactions.locations.placeActionLinks.create
+
+`POST` `https://mybusinessplaceactions.googleapis.com/v1/{+parent}/placeActionLinks`
+
+Creates a place action link associated with the specified location, and returns it. The request is considered duplicate if the `parent`, `place_action_link.uri` and `place_action_link.place_action_type` are the same as a previous request.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `place-actions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsPlaceActionLink` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | Required. The resource name of the location where to create this place action link. `locations/&#123;location_id&#125;`. |
+| `body` | `body` | `PlaceActionsPlaceActionLink` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessplaceactions.locations.placeActionLinks.delete
+
+`DELETE` `https://mybusinessplaceactions.googleapis.com/v1/{+name}`
+
+Deletes a place action link from the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `place-actions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsEmpty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The resource name of the place action link to remove from the location. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessplaceactions.locations.placeActionLinks.get
+
+`GET` `https://mybusinessplaceactions.googleapis.com/v1/{+name}`
+
+Gets the specified place action link.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `place-actions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsPlaceActionLink` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the place action link to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessplaceactions.locations.placeActionLinks.list
+
+`GET` `https://mybusinessplaceactions.googleapis.com/v1/{+parent}/placeActionLinks`
+
+Lists the place action links for the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `place-actions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsListPlaceActionLinksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | Optional. A filter constraining the place action links to return. The response includes entries that match the filter. We support only the following filter: 1. place_action_type=XYZ where XYZ is a valid PlaceActionType. |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many place action links to return per page. Default of 10. The minimum is 1. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, returns the next page of place action links. |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the location whose place action links will be listed. `locations/&#123;location_id&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessplaceactions.locations.placeActionLinks.patch
+
+`PATCH` `https://mybusinessplaceactions.googleapis.com/v1/{+name}`
+
+Updates the specified place action link and returns it.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `place-actions.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsPlaceActionLink` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Optional. The resource name, in the format `locations/&#123;location_id&#125;/placeActionLinks/&#123;place_action_link_id&#125;`. The name field will only be considered in UpdatePlaceActionLink and DeletePlaceActionLink requests for updating and deleting links respectively. However, it will be ignored in CreatePlaceActionLink request, where `place_action_link_id` will be assigned by the server on successful creation of a new link and returned as part of the response. |
+| `updateMask` | `query` | `string` | No | No | Required. The specific fields to update. The only editable fields are `uri`, `place_action_type` and `is_preferred`. If the updated link already exists at the same location with the same `place_action_type` and `uri`, fails with an `ALREADY_EXISTS` error. |
+| `body` | `body` | `PlaceActionsPlaceActionLink` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessplaceactions.placeActionTypeMetadata.list
+
+`GET` `https://mybusinessplaceactions.googleapis.com/v1/placeActionTypeMetadata`
+
+Returns the list of available place action types for a location or country.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `place-actions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-place-actions` |
+| Output | `PlaceActionsListPlaceActionTypeMetadataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | Optional. A filter constraining the place action types to return metadata for. The response includes entries that match the filter. We support only the following filters: 1. location=XYZ where XYZ is a string indicating the resource name of a location, in the format `locations/&#123;location_id&#125;`. 2. region_code=XYZ where XYZ is a Unicode CLDR region code to find available action types. If no filter is provided, all place action types are returned. |
+| `languageCode` | `query` | `string` | No | No | Optional. The IETF BCP-47 code of language to get display names in. If this language is not available, they will be provided in English. |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many action types to include per page. Default is 10, minimum is 1. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, the next page of place action type metadata is retrieved. The `pageToken` is returned when a call to `placeActionTypeMetadata.list` returns more results than can fit into the requested page size. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

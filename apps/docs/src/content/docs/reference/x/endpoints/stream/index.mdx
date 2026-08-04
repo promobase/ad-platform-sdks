@@ -1,0 +1,707 @@
+---
+title: "X Stream endpoints"
+description: "18 generated X endpoint contracts for Stream."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 116
+  label: "Stream"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.stream.activityStream
+
+`GET` `/2/activity/stream`
+
+Stream of X Activities
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `ActivityStreamResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the activities will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the activities will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.getRuleCounts
+
+`GET` `/2/tweets/search/stream/rules/counts`
+
+Get Rule Counts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `GetRuleCountsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rules_count.fields` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.getRules
+
+`GET` `/2/tweets/search/stream/rules`
+
+Returns the active filtered-stream rules for the authenticated app. Provide `ids` to fetch specific rules; omit it to list all rules.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `GetRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<string>` | No | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamLabelsCompliance
+
+`GET` `/2/tweets/label/stream`
+
+Streams all labeling events applied to Posts.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamLabelsComplianceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post labels will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post labels will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamLikesCompliance
+
+`GET` `/2/likes/compliance/stream`
+
+Streams all compliance data related to Likes for Users.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamLikesComplianceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Likes Compliance events will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Likes Compliance events will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamLikesFirehose
+
+`GET` `/2/likes/firehose/stream`
+
+Streams all public Likes in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamLikesFirehoseResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+| `like_with_tweet_author.fields` | `query` | `Array<"attachments_media_keys" \| "created_at" \| "id" \| "liked_tweet_author_id" \| "liked_tweet_id" \| "timestamp_ms">` | No | No | A comma separated list of LikeWithTweetAuthor fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "liked_tweet_author_id" \| "liked_tweet_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamLikesSample10
+
+`GET` `/2/likes/sample10/stream`
+
+Streams a 10% sample of public Likes in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamLikesSample10Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Likes will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+| `like_with_tweet_author.fields` | `query` | `Array<"attachments_media_keys" \| "created_at" \| "id" \| "liked_tweet_author_id" \| "liked_tweet_id" \| "timestamp_ms">` | No | No | A comma separated list of LikeWithTweetAuthor fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "liked_tweet_author_id" \| "liked_tweet_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPosts
+
+`GET` `/2/tweets/search/stream`
+
+Streams Posts in real-time matching the active rule set.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsCompliance
+
+`GET` `/2/tweets/compliance/stream`
+
+Streams all compliance data related to Posts.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsComplianceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Post Compliance events will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post Compliance events will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsFirehose
+
+`GET` `/2/tweets/firehose/stream`
+
+Streams all public Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsFirehoseResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsFirehoseEn
+
+`GET` `/2/tweets/firehose/stream/lang/en`
+
+Streams all public English-language Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsFirehoseEnResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsFirehoseJa
+
+`GET` `/2/tweets/firehose/stream/lang/ja`
+
+Streams all public Japanese-language Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsFirehoseJaResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsFirehoseKo
+
+`GET` `/2/tweets/firehose/stream/lang/ko`
+
+Streams all public Korean-language Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsFirehoseKoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsFirehosePt
+
+`GET` `/2/tweets/firehose/stream/lang/pt`
+
+Streams all public Portuguese-language Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsFirehosePtResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsSample
+
+`GET` `/2/tweets/sample/stream`
+
+Streams a 1% sample of public Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsSampleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamPostsSample10
+
+`GET` `/2/tweets/sample10/stream`
+
+Streams a 10% sample of public Posts in real-time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamPostsSample10Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `tweet.fields` | `query` | `Array<"article" \| "attachments" \| "author_id" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "edit_history_tweet_ids" \| "entities" \| "geo" \| "id" \| "in_reply_to_user_id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_request_suggestions" \| "note_tweet" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "referenced_tweets" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Tweet fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_tweet_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "entities.note.mentions.username" \| "referenced_tweets.id" \| "referenced_tweets.id.attachments.media_keys" \| "referenced_tweets.id.author_id">` | No | No | A comma separated list of fields to expand. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `user.fields` | `query` | `Array<"affiliation" \| "confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "most_recent_tweet_id" \| "name" \| "parody" \| "pinned_tweet_id" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.streamUsersCompliance
+
+`GET` `/2/users/compliance/stream`
+
+Streams all compliance data related to Users.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `stream.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `StreamUsersComplianceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backfill_minutes` | `query` | `integer` | No | No | The number of minutes of backfill requested. |
+| `partition` | `query` | `integer` | Yes | No | The partition number. |
+| `start_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the User Compliance events will be provided. |
+| `end_time` | `query` | `string<date-time>` | No | No | YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the User Compliance events will be provided. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.stream.updateRules
+
+`POST` `/2/tweets/search/stream/rules`
+
+Adds or deletes rules from the active rule set for the filtered stream. Exactly one of `add`, `delete`, or `?delete_all=true` must be specified. Use `?dry_run=true` to validate without committing.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `stream.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-stream` |
+| Output | `UpdateRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dry_run` | `query` | `boolean` | No | No | — |
+| `delete_all` | `query` | `boolean` | No | No | — |
+| `body` | `body` | `UpdateRulesRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

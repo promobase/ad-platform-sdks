@@ -30,7 +30,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `CustomerManagerLink` | No | No | — |
 
 ## CustomerMatchUploadKeyType
@@ -52,7 +52,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `user_list` | `user_list` | `string` | No | No | — |
-| `consent` | `consent` | `unknown` | No | No | — |
+| `consent` | `consent` | `Consent` | No | No | — |
 
 ## CustomerMetrics
 
@@ -60,7 +60,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `average_rate_metrics` | `average_rate_metrics` | `unknown` | No | No | — |
+| `average_rate_metrics` | `average_rate_metrics` | `RateMetrics` | No | No | — |
 
 ## CustomerNegativeCriterion
 
@@ -97,7 +97,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `update` | `update` | `Customer` | No | No | — |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 
 ## CustomerPayPerConversionEligibilityFailureReason
 
@@ -128,7 +128,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
-| `schema` | `schema` | `unknown` | No | No | — |
+| `schema` | `schema` | `SkAdNetworkConversionValueSchema` | No | No | — |
 
 ## CustomerSkAdNetworkConversionValueSchemaError
 
@@ -193,11 +193,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `viewability_integration_partners` | `viewability_integration_partners` | `Array<unknown>` | No | No | — |
-| `brand_lift_integration_partners` | `brand_lift_integration_partners` | `Array<unknown>` | No | No | — |
-| `brand_safety_integration_partners` | `brand_safety_integration_partners` | `Array<unknown>` | No | No | — |
-| `reach_integration_partners` | `reach_integration_partners` | `Array<unknown>` | No | No | — |
-| `conversion_attribution_integration_partners` | `conversion_attribution_integration_partners` | `Array<unknown>` | No | No | — |
+| `viewability_integration_partners` | `viewability_integration_partners` | `Array<CustomerThirdPartyViewabilityIntegrationPartner>` | No | No | — |
+| `brand_lift_integration_partners` | `brand_lift_integration_partners` | `Array<CustomerThirdPartyBrandLiftIntegrationPartner>` | No | No | — |
+| `brand_safety_integration_partners` | `brand_safety_integration_partners` | `Array<CustomerThirdPartyBrandSafetyIntegrationPartner>` | No | No | — |
+| `reach_integration_partners` | `reach_integration_partners` | `Array<CustomerThirdPartyReachIntegrationPartner>` | No | No | — |
+| `conversion_attribution_integration_partners` | `conversion_attribution_integration_partners` | `Array<CustomerThirdPartyConversionAttributionIntegrationPartner>` | No | No | — |
 
 ## CustomerThirdPartyReachIntegrationPartner
 
@@ -272,7 +272,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `new_customer_user_access_invitation` | `new_customer_user_access_invitation` | `unknown` | No | No | — |
+| `new_customer_user_access_invitation` | `new_customer_user_access_invitation` | `CustomerUserAccessInvitation` | No | No | — |
 
 ## CustomerUserAccessOperation
 
@@ -280,7 +280,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `CustomerUserAccess` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
 
@@ -291,7 +291,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `old_customer_user_access` | `old_customer_user_access` | `string` | No | No | — |
-| `new_customer_user_access` | `new_customer_user_access` | `unknown` | No | No | — |
+| `new_customer_user_access` | `new_customer_user_access` | `CustomerUserAccess` | No | No | — |
 
 ## CustomIntentInfo
 
@@ -313,7 +313,7 @@ No fields are declared.
 | `name` | `name` | `string` | No | No | — |
 | `type` | `type` | `CustomInterestType` | No | No | — |
 | `description` | `description` | `string` | No | No | — |
-| `members` | `members` | `Array<unknown>` | No | No | — |
+| `members` | `members` | `Array<CustomInterestMember>` | No | No | — |
 
 ## CustomInterestError
 
@@ -354,7 +354,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomInterest` | No | No | — |
 | `update` | `update` | `CustomInterest` | No | No | — |
 
@@ -412,7 +412,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CustomizerAttribute` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
 
@@ -494,9 +494,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `low_offer` | `low_offer` | `unknown` | No | No | — |
-| `medium_offer` | `medium_offer` | `unknown` | No | No | — |
-| `high_offer` | `high_offer` | `unknown` | No | No | — |
+| `low_offer` | `low_offer` | `Incentive` | No | No | — |
+| `medium_offer` | `medium_offer` | `Incentive` | No | No | — |
+| `high_offer` | `high_offer` | `Incentive` | No | No | — |
 
 ## DatabaseError
 
@@ -533,8 +533,8 @@ No fields are declared.
 | `data_link_id` | `data_link_id` | `string` | No | No | — |
 | `type` | `type` | `DataLinkType` | No | No | — |
 | `status` | `status` | `DataLinkStatus` | No | No | — |
-| `youtube_video` | `youtube_video` | `unknown` | No | No | — |
-| `youtube_link_metadata` | `youtube_link_metadata` | `unknown` | No | No | — |
+| `youtube_video` | `youtube_video` | `YoutubeVideoIdentifier` | No | No | — |
+| `youtube_link_metadata` | `youtube_link_metadata` | `YoutubeLinkMetadata` | No | No | — |
 
 ## DataLinkError
 
@@ -631,7 +631,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `channel_controls` | `channel_controls` | `unknown` | No | No | — |
+| `channel_controls` | `channel_controls` | `DemandGenChannelControls` | No | No | — |
 
 ## DemandGenCampaignSettings
 
@@ -648,11 +648,11 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `business_name` | `business_name` | `string` | No | No | — |
-| `logo_image` | `logo_image` | `unknown` | No | No | — |
-| `headline` | `headline` | `unknown` | No | No | — |
-| `description` | `description` | `unknown` | No | No | — |
+| `logo_image` | `logo_image` | `AdImageAsset` | No | No | — |
+| `headline` | `headline` | `AdTextAsset` | No | No | — |
+| `description` | `description` | `AdTextAsset` | No | No | — |
 | `call_to_action_text` | `call_to_action_text` | `string` | No | No | — |
-| `carousel_cards` | `carousel_cards` | `Array<unknown>` | No | No | — |
+| `carousel_cards` | `carousel_cards` | `Array<AdDemandGenCarouselCardAsset>` | No | No | — |
 
 ## DemandGenCarouselCardAsset
 
@@ -686,7 +686,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `channel_config` | `channel_config` | `DemandGenChannelConfig` | No | No | — |
 | `channel_strategy` | `channel_strategy` | `DemandGenChannelStrategy` | No | No | — |
-| `selected_channels` | `selected_channels` | `unknown` | No | No | — |
+| `selected_channels` | `selected_channels` | `DemandGenSelectedChannels` | No | No | — |
 
 ## DemandGenChannelStrategy
 
@@ -706,14 +706,14 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `marketing_images` | `marketing_images` | `Array<unknown>` | No | No | — |
-| `square_marketing_images` | `square_marketing_images` | `Array<unknown>` | No | No | — |
-| `portrait_marketing_images` | `portrait_marketing_images` | `Array<unknown>` | No | No | — |
-| `tall_portrait_marketing_images` | `tall_portrait_marketing_images` | `Array<unknown>` | No | No | — |
-| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
-| `classic_display_images` | `classic_display_images` | `Array<unknown>` | No | No | — |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `marketing_images` | `marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `square_marketing_images` | `square_marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `portrait_marketing_images` | `portrait_marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `tall_portrait_marketing_images` | `tall_portrait_marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `classic_display_images` | `classic_display_images` | `Array<AdImageAsset>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
 | `business_name` | `business_name` | `string` | No | No | — |
 | `call_to_action_text` | `call_to_action_text` | `string` | No | No | — |
 
@@ -723,13 +723,13 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headline` | `headline` | `unknown` | No | No | — |
-| `description` | `description` | `unknown` | No | No | — |
-| `logo_image` | `logo_image` | `unknown` | No | No | — |
+| `headline` | `headline` | `AdTextAsset` | No | No | — |
+| `description` | `description` | `AdTextAsset` | No | No | — |
+| `logo_image` | `logo_image` | `AdImageAsset` | No | No | — |
 | `breadcrumb1` | `breadcrumb1` | `string` | No | No | — |
 | `breadcrumb2` | `breadcrumb2` | `string` | No | No | — |
-| `business_name` | `business_name` | `unknown` | No | No | — |
-| `call_to_action` | `call_to_action` | `unknown` | No | No | — |
+| `business_name` | `business_name` | `AdTextAsset` | No | No | — |
+| `call_to_action` | `call_to_action` | `AdCallToActionAsset` | No | No | — |
 
 ## DemandGenSelectedChannels
 
@@ -751,16 +751,16 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `long_headlines` | `long_headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `videos` | `videos` | `Array<unknown>` | No | No | — |
-| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
-| `companion_banners` | `companion_banners` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `long_headlines` | `long_headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `videos` | `videos` | `Array<AdVideoAsset>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `companion_banners` | `companion_banners` | `Array<AdImageAsset>` | No | No | — |
 | `breadcrumb1` | `breadcrumb1` | `string` | No | No | — |
 | `breadcrumb2` | `breadcrumb2` | `string` | No | No | — |
-| `business_name` | `business_name` | `unknown` | No | No | — |
-| `call_to_actions` | `call_to_actions` | `Array<unknown>` | No | No | — |
+| `business_name` | `business_name` | `AdTextAsset` | No | No | — |
+| `call_to_actions` | `call_to_actions` | `Array<AdCallToActionAsset>` | No | No | — |
 
 ## DestinationMismatch
 

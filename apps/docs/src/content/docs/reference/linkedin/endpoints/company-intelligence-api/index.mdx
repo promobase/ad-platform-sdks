@@ -1,0 +1,191 @@
+---
+title: "LinkedIn Company intelligence api endpoints"
+description: "6 generated LinkedIn endpoint contracts for Company intelligence api."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 106
+  label: "Company intelligence api"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## company-intelligence-api.companyIntelligenceApiFetchAccountIntelligenceDataUsingAdSegmentFilterGetAccountIntelligenceQAccountStart0Count10Account
+
+`GET` `/accountIntelligence?q=account&start=0&count=10&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&filterCriteria=(lookbackWindow:LAST_7_DAYS,adSegments:List(urn%3Ali%3AadSegment%3A{adsegment_id1},urn%3Ali%3AadSegment%3A{adsegement_id2}))`
+
+Fetch account intelligence data using ad segment filter
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adsegement_id2` | `path` | `string` | Yes | No | — |
+| `adsegment_id1` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## company-intelligence-api.companyIntelligenceApiFetchAccountIntelligenceDataUsingCampaignFilterGetAccountIntelligenceQAccountStart0Count10AccountU
+
+`GET` `/accountIntelligence?q=account&start=0&count=10&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&filterCriteria=(lookbackWindow:LAST_30_DAYS,campaign:urn%3Ali%3AsponsoredCampaign%3A{campaign_id})`
+
+Fetch account intelligence data using campaign filter
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## company-intelligence-api.companyIntelligenceApiFetchAccountIntelligenceDataUsingLookbackWindowFilterGetAccountIntelligenceQAccountStart0Count10Ac
+
+`GET` `/accountIntelligence?q=account&start=0&count=10&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&filterCriteria=(lookbackWindow:LAST_7_DAYS)`
+
+Fetch account intelligence data using lookback window filter
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## company-intelligence-api.companyIntelligenceApiFetchAllAdAccountsOfTheAuthenticatedUserGetAdAccountUsersQAuthenticatedUser
+
+`GET` `/adAccountUsers?q=authenticatedUser`
+
+Fetch all ad accounts of the authenticated user
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## company-intelligence-api.companyIntelligenceApiFetchExistingAdSegmentsBasedOnAdAccountGetAdSegmentsQAccountAccountsListUrn3Ali3AsponsoredAccount3
+
+`GET` `/adSegments?q=account&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})`
+
+Fetch existing ad segments based on ad account
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## company-intelligence-api.companyIntelligenceApiSearchForCampaignsUsingSearchCriteriaGetAdAccountsAdAccountsIdAdCampaignsQSearchSearchCampaignGrou
+
+`GET` `/adAccounts/{adAccountsId}/adCampaigns?q=search&search.campaignGroup.values[0]=urn:li:sponsoredCampaignGroup:{campaigngroup_id}`
+
+Search for campaigns using search criteria
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.company.intelligence.api` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.company.intelligence.api` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

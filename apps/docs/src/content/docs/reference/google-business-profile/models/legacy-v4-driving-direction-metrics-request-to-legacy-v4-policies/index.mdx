@@ -1,0 +1,1511 @@
+---
+title: "Google Business Profile models: Legacy V4 Driving Direction Metrics Request – Legacy V4 Policies"
+description: "100 generated Google Business Profile model contracts, from LegacyV4DrivingDirectionMetricsRequest through LegacyV4Policies."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 1001
+  label: "Legacy V4 Driving Direction Metrics Request – Legacy V4 Policies"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## LegacyV4DrivingDirectionMetricsRequest
+
+`object` model on the `json` wire format.
+
+A request for driving direction insights.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `languageCode` | `string` | No | No | The BCP 47 code for the language. If a language code is not provided, it defaults to English. |
+| `numDays` | `numDays` | `"SEVEN" \| "THIRTY" \| "NINETY"` | No | No | The number of days to aggregate data for. Results returned will be available data over the last number of requested days. Valid values are 7, 30, and 90. |
+
+## LegacyV4Duplicate
+
+`object` model on the `json` wire format.
+
+Information about the location that this location duplicates.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access` | `access` | `"ACCESS_UNSPECIFIED" \| "ACCESS_UNKNOWN" \| "ALLOWED" \| "INSUFFICIENT"` | No | No | Indicates whether the user has access to the location it duplicates. |
+| `locationName` | `locationName` | `string` | No | No | The resource name of the location that this duplicates. Only populated if the authenticated user has access rights to that location and that location is not deleted. |
+| `placeId` | `placeId` | `string` | No | No | The place ID of the location that this duplicates. |
+
+## LegacyV4EmailInput
+
+`object` model on the `json` wire format.
+
+Input for EMAIL verification.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `emailAddress` | `emailAddress` | `string` | No | No | Email address where the PIN should be sent to. An email address is accepted only if it is one of the addresses provided by FetchVerificationOptions. If the EmailVerificationData has is_user_name_editable set to true, the client may specify a different user name (local-part) but must match the domain name. |
+
+## LegacyV4EmailVerificationData
+
+`object` model on the `json` wire format.
+
+Display data for verifications through email.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domainName` | `domainName` | `string` | No | No | Domain name in the email address. e.g. "gmail.com" in foo@gmail.com |
+| `isUserNameEditable` | `isUserNameEditable` | `boolean` | No | No | Whether client is allowed to provide a different user name. |
+| `userName` | `userName` | `string` | No | No | User name in the email address. e.g. "foo" in foo@gmail.com |
+
+## LegacyV4Empty
+
+`object` model on the `json` wire format.
+
+A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo &#123; rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); &#125; The JSON representation for `Empty` is empty JSON object `&#123;&#125;`.
+
+No fields are declared.
+
+## LegacyV4EnhancedCleaning
+
+`object` model on the `json` wire format.
+
+Enhanced cleaning measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commercialGradeDisinfectantCleaning` | `commercialGradeDisinfectantCleaning` | `boolean` | No | No | Commercial-grade disinfectant used to clean the property. |
+| `commercialGradeDisinfectantCleaningException` | `commercialGradeDisinfectantCleaningException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Commercial grade disinfectant cleaning exception. |
+| `commonAreasEnhancedCleaning` | `commonAreasEnhancedCleaning` | `boolean` | No | No | Enhanced cleaning of common areas. |
+| `commonAreasEnhancedCleaningException` | `commonAreasEnhancedCleaningException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Common areas enhanced cleaning exception. |
+| `employeesTrainedCleaningProcedures` | `employeesTrainedCleaningProcedures` | `boolean` | No | No | Employees trained in COVID-19 cleaning procedures. |
+| `employeesTrainedCleaningProceduresException` | `employeesTrainedCleaningProceduresException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Employees trained cleaning procedures exception. |
+| `employeesTrainedThoroughHandWashing` | `employeesTrainedThoroughHandWashing` | `boolean` | No | No | Employees trained in thorough hand-washing. |
+| `employeesTrainedThoroughHandWashingException` | `employeesTrainedThoroughHandWashingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Employees trained thorough hand washing exception. |
+| `employeesWearProtectiveEquipment` | `employeesWearProtectiveEquipment` | `boolean` | No | No | Employees wear masks, face shields, and/or gloves. |
+| `employeesWearProtectiveEquipmentException` | `employeesWearProtectiveEquipmentException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Employees wear protective equipment exception. |
+| `guestRoomsEnhancedCleaning` | `guestRoomsEnhancedCleaning` | `boolean` | No | No | Enhanced cleaning of guest rooms. |
+| `guestRoomsEnhancedCleaningException` | `guestRoomsEnhancedCleaningException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Guest rooms enhanced cleaning exception. |
+
+## LegacyV4Families
+
+`object` model on the `json` wire format.
+
+Services and amenities for families and young guests.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `babysitting` | `babysitting` | `boolean` | No | No | Babysitting. Child care that is offered by hotel staffers or coordinated by hotel staffers with local child care professionals. Can be free or for a fee. |
+| `babysittingException` | `babysittingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Babysitting exception. |
+| `kidsActivities` | `kidsActivities` | `boolean` | No | No | Kids activities. Recreational options such as sports, films, crafts and games designed for the enjoyment of children and offered at the hotel. May or may not be supervised. May or may not be at a designated time or place. Cab be free or for a fee. |
+| `kidsActivitiesException` | `kidsActivitiesException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Kids activities exception. |
+| `kidsClub` | `kidsClub` | `boolean` | No | No | Kids club. An organized program of group activities held at the hotel and designed for the enjoyment of children. Facilitated by hotel staff (or staff procured by the hotel) in an area(s) designated for the purpose of entertaining children without their parents. May include games, outings, water sports, team sports, arts and crafts, and films. Usually has set hours. Can be free or for a fee. Also known as Kids Camp or Kids program. |
+| `kidsClubException` | `kidsClubException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Kids club exception. |
+
+## LegacyV4FetchVerificationOptionsRequest
+
+`object` model on the `json` wire format.
+
+Request message for Verifications.FetchVerificationOptions.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `context` | `context` | `LegacyV4ServiceBusinessContext` | No | No | Extra context information for the verification of service businesses. Required for the locations whose business type is CUSTOMER_LOCATION_ONLY. INVALID_ARGUMENT will be thrown if it is set for other business types of locations. |
+| `languageCode` | `languageCode` | `string` | No | No | The BCP 47 language code representing the language that is to be used for the verification process. Available options vary by language. |
+
+## LegacyV4FetchVerificationOptionsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Verifications.FetchVerificationOptions.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `options` | `options` | `Array<LegacyV4VerificationOption>` | No | No | The available verification options. |
+
+## LegacyV4FindMatchingLocationsRequest
+
+`object` model on the `json` wire format.
+
+Request message for Locations.FindMatchingLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `languageCode` | `string` | No | No | The preferred language for the matching location (in BCP-47 format). |
+| `maxCacheDuration` | `maxCacheDuration` | `string` | No | No | Deprecated. This field is ignored for all requests. |
+| `numResults` | `numResults` | `integer` | No | No | The number of matches to return. The default value is 3, with a maximum of 10. Note that latency may increase if more are requested. There is no pagination. |
+
+## LegacyV4FindMatchingLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.FindMatchingLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `matchedLocations` | `matchedLocations` | `Array<LegacyV4MatchedLocation>` | No | No | A collection of locations that are potential matches to the specified location, listed in order from best to least match. If there is an exact match, it will be in the first position. |
+| `matchTime` | `matchTime` | `string` | No | No | When the matching algorithm was last executed for this location. |
+
+## LegacyV4FollowersMetadata
+
+`object` model on the `json` wire format.
+
+Follower metadata for a location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `string` | No | No | Total number of followers for the location. |
+| `name` | `name` | `string` | No | No | The resource name for this. accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/followers/metadata |
+
+## LegacyV4FoodAndDrink
+
+`object` model on the `json` wire format.
+
+Meals, snacks, and beverages available at the property.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bar` | `bar` | `boolean` | No | No | Bar. A designated room, lounge or area of an on-site restaurant with seating at a counter behind which a hotel staffer takes the guest's order and provides the requested alcoholic drink. Can be indoors or outdoors. Also known as Pub. |
+| `barException` | `barException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bar exception. |
+| `breakfastAvailable` | `breakfastAvailable` | `boolean` | No | No | Breakfast available. The morning meal is offered to all guests. Can be free or for a fee. |
+| `breakfastAvailableException` | `breakfastAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Breakfast available exception. |
+| `breakfastBuffet` | `breakfastBuffet` | `boolean` | No | No | Breakfast buffet. Breakfast meal service where guests serve themselves from a variety of dishes/foods that are put out on a table. |
+| `breakfastBuffetException` | `breakfastBuffetException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Breakfast buffet exception. |
+| `buffet` | `buffet` | `boolean` | No | No | Buffet. A type of meal where guests serve themselves from a variety of dishes/foods that are put out on a table. Includes lunch and/or dinner meals. A breakfast-only buffet is not sufficient. |
+| `buffetException` | `buffetException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Buffet exception. |
+| `dinnerBuffet` | `dinnerBuffet` | `boolean` | No | No | Dinner buffet. Dinner meal service where guests serve themselves from a variety of dishes/foods that are put out on a table. |
+| `dinnerBuffetException` | `dinnerBuffetException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dinner buffet exception. |
+| `freeBreakfast` | `freeBreakfast` | `boolean` | No | No | Free breakfast. Breakfast is offered for free to all guests. Does not apply if limited to certain room packages. |
+| `freeBreakfastException` | `freeBreakfastException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free breakfast exception. |
+| `restaurant` | `restaurant` | `boolean` | No | No | Restaurant. A business onsite at the hotel that is open to the public as well as guests, and offers meals and beverages to consume at tables or counters. May or may not include table service. Also known as cafe, buffet, eatery. A "breakfast room" where the hotel serves breakfast only to guests (not the general public) does not count as a restaurant. |
+| `restaurantException` | `restaurantException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Restaurant exception. |
+| `restaurantsCount` | `restaurantsCount` | `integer` | No | No | Restaurants count. The number of restaurants at the hotel. |
+| `restaurantsCountException` | `restaurantsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Restaurants count exception. |
+| `roomService` | `roomService` | `boolean` | No | No | Room service. A hotel staffer delivers meals prepared onsite to a guest's room as per their request. May or may not be available during specific hours. Services should be available to all guests (not based on rate/room booked/reward program, etc). |
+| `roomServiceException` | `roomServiceException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Room service exception. |
+| `tableService` | `tableService` | `boolean` | No | No | Table service. A restaurant in which a staff member is assigned to a guest's table to take their order, deliver and clear away food, and deliver the bill, if applicable. Also known as sit-down restaurant. |
+| `tableServiceException` | `tableServiceException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Table service exception. |
+| `twentyFourHourRoomService` | `twentyFourHourRoomService` | `boolean` | No | No | 24hr room service. Room service is available 24 hours a day. |
+| `twentyFourHourRoomServiceException` | `twentyFourHourRoomServiceException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | 24hr room service exception. |
+| `vendingMachine` | `vendingMachine` | `boolean` | No | No | Vending machine. A glass-fronted mechanized cabinet displaying and dispensing snacks and beverages for purchase by coins, paper money and/or credit cards. |
+| `vendingMachineException` | `vendingMachineException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Vending machine exception. |
+
+## LegacyV4FoodMenu
+
+`object` model on the `json` wire format.
+
+Menu of a business that serves food dishes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cuisines` | `cuisines` | `Array<"CUISINE_UNSPECIFIED" \| "AMERICAN" \| "ASIAN" \| "BRAZILIAN" \| "BREAK_FAST" \| "BRUNCH" \| "CHICKEN" \| "CHINESE" \| "FAMILY" \| "FAST_FOOD" \| "FRENCH" \| "GREEK" \| "GERMAN" \| "HAMBURGER" \| "INDIAN" \| "INDONESIAN" \| "ITALIAN" \| "JAPANESE" \| "KOREAN" \| "LATIN_AMERICAN" \| "MEDITERRANEAN" \| "MEXICAN" \| "PAKISTANI" \| "PIZZA" \| "SEAFOOD" \| "SPANISH" \| "SUSHI" \| "THAI" \| "TURKISH" \| "VEGETARIAN" \| "VIETNAMESE" \| "OTHER_CUISINE">` | No | No | Optional. Cuisine information for the food menu. It is highly recommended to provide this field. |
+| `labels` | `labels` | `Array<LegacyV4MenuLabel>` | No | No | Required. Language-tagged labels for the menu. E.g. "menu", "lunch special". Display names should be 140 characters or less, with descriptions 1,000 characters or less. At least one set of labels is required. |
+| `sections` | `sections` | `Array<LegacyV4FoodMenuSection>` | No | No | Required. Sections of the menu. |
+| `sourceUrl` | `sourceUrl` | `string` | No | No | Optional. Source URL of menu if there is a webpage to go to. |
+
+## LegacyV4FoodMenuItem
+
+`object` model on the `json` wire format.
+
+Item of a Section. It can be the dish itself, or can contain multiple FoodMenuItemOption.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `LegacyV4FoodMenuItemAttributes` | No | No | Required. Detailed attributes of the item. When item options are specified, this is considered as the base attributes and populate to each options. |
+| `labels` | `labels` | `Array<LegacyV4MenuLabel>` | No | No | Required. Language tagged labels for this menu item. Display names should be 140 characters or less, with descriptions 1,000 characters or less. At least one set of labels is required. |
+| `options` | `options` | `Array<LegacyV4FoodMenuItemOption>` | No | No | Optional. This is for an item that comes in multiple different options, and users are required to make choices. E.g. "regular" vs. "large" pizza. When options are specified, labels and attributes at item level will automatically become the first option's labels and attributes. Clients only need to specify other additional food options in this field. |
+
+## LegacyV4FoodMenuItemAttributes
+
+`object` model on the `json` wire format.
+
+Attributes of a food item/dish.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allergen` | `allergen` | `Array<"ALLERGEN_UNSPECIFIED" \| "DAIRY" \| "EGG" \| "FISH" \| "PEANUT" \| "SHELLFISH" \| "SOY" \| "TREE_NUT" \| "WHEAT">` | No | No | Optional. Allergens associated with the food dish. It is highly recommended to provide this field. |
+| `dietaryRestriction` | `dietaryRestriction` | `Array<"DIETARY_RESTRICTION_UNSPECIFIED" \| "HALAL" \| "KOSHER" \| "ORGANIC" \| "VEGAN" \| "VEGETARIAN">` | No | No | Optional. Dietary information of the food dish. It is highly recommended to provide this field. |
+| `ingredients` | `ingredients` | `Array<LegacyV4Ingredient>` | No | No | Optional. Ingredients of the food dish option. |
+| `mediaKeys` | `mediaKeys` | `Array<string>` | No | No | Optional. The media keys of the media associated with the dish. Only photo media is supported. When there are multiple photos associated, the first photo is considered as the preferred photo. |
+| `nutritionFacts` | `nutritionFacts` | `LegacyV4NutritionFacts` | No | No | Optional. Nutrition facts of the food dish option. It is highly recommended to provide this field. |
+| `portionSize` | `portionSize` | `LegacyV4PortionSize` | No | No | Optional. Size of the order, represented in units of items. (e.g. 4 "skewers", 6 "pieces") |
+| `preparationMethods` | `preparationMethods` | `Array<"PREPARATION_METHOD_UNSPECIFIED" \| "BAKED" \| "BARBECUED" \| "BASTED" \| "BLANCHED" \| "BOILED" \| "BRAISED" \| "CODDLED" \| "FERMENTED" \| "FRIED" \| "GRILLED" \| "KNEADED" \| "MARINATED" \| "PAN_FRIED" \| "PICKLED" \| "PRESSURE_COOKED" \| "ROASTED" \| "SAUTEED" \| "SEARED" \| "SIMMERED" \| "SMOKED" \| "STEAMED" \| "STEEPED" \| "STIR_FRIED" \| "OTHER_METHOD">` | No | No | Optional. Methods on how the food dish option is prepared. |
+| `price` | `price` | `LegacyV4Money` | No | No | Required. Price of the food dish. |
+| `servesNumPeople` | `servesNumPeople` | `integer` | No | No | Optional. Number of people can be served by this food dish option. |
+| `spiciness` | `spiciness` | `"SPICINESS_UNSPECIFIED" \| "MILD" \| "MEDIUM" \| "HOT"` | No | No | Optional. Spiciness level of the food dish. |
+
+## LegacyV4FoodMenuItemOption
+
+`object` model on the `json` wire format.
+
+Option of an Item. It requires an explicit user selection.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `LegacyV4FoodMenuItemAttributes` | No | No | Required. Detailed attributes of the item option. Individual unspecified attributes will be inherited from the item-level attibutes as the base. |
+| `labels` | `labels` | `Array<LegacyV4MenuLabel>` | No | No | Required. Language tagged labels for this menu item option. E.g.: "beef pad thai", "veggie pad thai", "small pizza", "large pizza". Display names should be 140 characters or less, with descriptions 1,000 characters or less. At least one set of labels is required. |
+
+## LegacyV4FoodMenus
+
+`object` model on the `json` wire format.
+
+Menus of a business that serve food dishes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `menus` | `menus` | `Array<LegacyV4FoodMenu>` | No | No | Optional. A collection of food menus. |
+| `name` | `name` | `string` | No | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/foodMenus` |
+
+## LegacyV4FoodMenuSection
+
+`object` model on the `json` wire format.
+
+Section of a menu. It can contain multiple items/dishes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<LegacyV4FoodMenuItem>` | No | No | Required. Items of the section. Each Section must have at least an item. |
+| `labels` | `labels` | `Array<LegacyV4MenuLabel>` | No | No | Required. Language tagged labels for this menu section. Display names should be 140 characters or less, with descriptions 1,000 characters or less. At least one set of labels is required. |
+
+## LegacyV4FreeFormServiceItem
+
+`object` model on the `json` wire format.
+
+Represents a free-form service offered by the merchant. These are services that are not exposed as part of our structure service data. The merchant manually enters the names for of such services via a geomerchant surface.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `categoryId` | `string` | No | No | Required. The `category_id` and `service_type_id` should match the possible combinations provided in the `Category` message. |
+| `label` | `label` | `LegacyV4Label` | No | No | Required. Language-tagged labels for the item. We recommend that item names be 140 characters or less, and descriptions 250 characters or less. This field should only be set if the input is a custom service item. Standardized service types should be updated via service_type_id. |
+
+## LegacyV4GenerateAccountNumberRequest
+
+`object` model on the `json` wire format.
+
+Request message for Accounts.GenerateAccountNumber.
+
+No fields are declared.
+
+## LegacyV4GetGoogleUpdatedLodgingResponse
+
+`object` model on the `json` wire format.
+
+Response message for LodgingService.GetGoogleUpdatedLodging
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diffMask` | `diffMask` | `string` | No | No | Required. The fields in the Lodging that have been updated by Google. Repeated field items are not individually specified. |
+| `lodging` | `lodging` | `LegacyV4Lodging` | No | No | Required. The Google updated Lodging. |
+
+## LegacyV4GoogleLocation
+
+`object` model on the `json` wire format.
+
+Represents a Location that is present on Google. This can be a location that has been claimed by the user, someone else, or could be unclaimed.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `LegacyV4Location` | No | No | The sparsely populated Location information. This field can be re-used in CreateLocation if it is not currently claimed by a user. |
+| `name` | `name` | `string` | No | No | Resource name of this GoogleLocation, in the format `googleLocations/&#123;googleLocationId&#125;`. |
+| `requestAdminRightsUrl` | `requestAdminRightsUrl` | `string` | No | No | A URL that will redirect the user to the request admin rights UI. This field is only present if the location has already been claimed by any user, including the current user. |
+
+## LegacyV4GoogleUpdatedLocation
+
+`object` model on the `json` wire format.
+
+Represents a location that was modified by Google.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diffMask` | `diffMask` | `string` | No | No | The fields that Google updated. |
+| `location` | `location` | `LegacyV4Location` | No | No | The Google-updated version of this location. |
+
+## LegacyV4GuestUnitFeatures
+
+`object` model on the `json` wire format.
+
+Features and available amenities in the guest unit.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bungalowOrVilla` | `bungalowOrVilla` | `boolean` | No | No | Bungalow or villa. An independent structure that is part of a hotel or resort that is rented to one party for a vacation stay. The hotel or resort may be completely comprised of bungalows or villas, or they may be one of several guestroom options. Guests in the bungalows or villas most often have the same, if not more, amenities and services offered to guests in other guestroom types. |
+| `bungalowOrVillaException` | `bungalowOrVillaException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bungalow or villa exception. |
+| `connectingUnitAvailable` | `connectingUnitAvailable` | `boolean` | No | No | Connecting unit available. A guestroom type that features access to an adjacent guestroom for the purpose of booking both rooms. Most often used by families who need more than one room to accommodate the number of people in their group. |
+| `connectingUnitAvailableException` | `connectingUnitAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Connecting unit available exception. |
+| `executiveFloor` | `executiveFloor` | `boolean` | No | No | Executive floor. A floor of the hotel where the guestrooms are only bookable by members of the hotel's frequent guest membership program. Benefits of this room class include access to a designated lounge which may or may not feature free breakfast, cocktails or other perks specific to members of the program. |
+| `executiveFloorException` | `executiveFloorException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Executive floor exception. |
+| `maxAdultOccupantsCount` | `maxAdultOccupantsCount` | `integer` | No | No | Max adult occupants count. The total number of adult guests allowed to stay overnight in the guestroom. |
+| `maxAdultOccupantsCountException` | `maxAdultOccupantsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Max adult occupants count exception. |
+| `maxChildOccupantsCount` | `maxChildOccupantsCount` | `integer` | No | No | Max child occupants count. The total number of children allowed to stay overnight in the room. |
+| `maxChildOccupantsCountException` | `maxChildOccupantsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Max child occupants count exception. |
+| `maxOccupantsCount` | `maxOccupantsCount` | `integer` | No | No | Max occupants count. The total number of guests allowed to stay overnight in the guestroom. |
+| `maxOccupantsCountException` | `maxOccupantsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Max occupants count exception. |
+| `privateHome` | `privateHome` | `boolean` | No | No | Private home. A privately owned home (house, townhouse, apartment, cabin, bungalow etc) that may or not serve as the owner's residence, but is rented out in its entirety or by the room(s) to paying guest(s) for vacation stays. Not for lease-based, long-term residency. |
+| `privateHomeException` | `privateHomeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Private home exception. |
+| `suite` | `suite` | `boolean` | No | No | Suite. A guestroom category that implies both a bedroom area and a separate living area. There may or may not be full walls and doors separating the two areas, but regardless, they are very distinct. Does not mean a couch or chair in a bedroom. |
+| `suiteException` | `suiteException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Suite exception. |
+| `tier` | `tier` | `"UNIT_TIER_UNSPECIFIED" \| "STANDARD_UNIT" \| "DELUXE_UNIT"` | No | No | Tier. Classification of the unit based on available features/amenities. A non-standard tier is only permitted if at least one other unit type falls under the standard tier. |
+| `tierException` | `tierException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Tier exception. |
+| `totalLivingAreas` | `totalLivingAreas` | `LegacyV4LivingArea` | No | No | Features available in the living areas in the guest unit. |
+| `views` | `views` | `LegacyV4ViewsFromUnit` | No | No | Views available from the guest unit itself. |
+
+## LegacyV4GuestUnitType
+
+`object` model on the `json` wire format.
+
+A specific type of unit primarily defined by its features.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codes` | `codes` | `Array<string>` | No | No | Required. Unit or room code identifiers for a single GuestUnitType. Each code must be unique within a Lodging instance. |
+| `features` | `features` | `LegacyV4GuestUnitFeatures` | No | No | Features and available amenities of the GuestUnitType. |
+| `label` | `label` | `string` | No | No | Required. Short, English label or name of the GuestUnitType. Target &lt;50 chars. |
+
+## LegacyV4HealthAndSafety
+
+`object` model on the `json` wire format.
+
+Health and safety measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enhancedCleaning` | `enhancedCleaning` | `LegacyV4EnhancedCleaning` | No | No | Enhanced cleaning measures implemented by the hotel during COVID-19. |
+| `increasedFoodSafety` | `increasedFoodSafety` | `LegacyV4IncreasedFoodSafety` | No | No | Increased food safety measures implemented by the hotel during COVID-19. |
+| `minimizedContact` | `minimizedContact` | `LegacyV4MinimizedContact` | No | No | Minimized contact measures implemented by the hotel during COVID-19. |
+| `personalProtection` | `personalProtection` | `LegacyV4PersonalProtection` | No | No | Personal protection measures implemented by the hotel during COVID-19. |
+| `physicalDistancing` | `physicalDistancing` | `LegacyV4PhysicalDistancing` | No | No | Physical distancing measures implemented by the hotel during COVID-19. |
+
+## LegacyV4HealthProviderAttributes
+
+`object` model on the `json` wire format.
+
+The Health provider attributes linked with this location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `insuranceNetworks` | `insuranceNetworks` | `Array<LegacyV4InsuranceNetwork>` | No | No | Optional. A list of insurance networks accpected by this location. |
+| `name` | `name` | `string` | No | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/healthProviderAttributes` |
+
+## LegacyV4Housekeeping
+
+`object` model on the `json` wire format.
+
+Conveniences provided in guest units to facilitate an easier, more comfortable stay.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dailyHousekeeping` | `dailyHousekeeping` | `boolean` | No | No | Daily housekeeping. Guest units are cleaned by hotel staff daily during guest's stay. |
+| `dailyHousekeepingException` | `dailyHousekeepingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Daily housekeeping exception. |
+| `housekeepingAvailable` | `housekeepingAvailable` | `boolean` | No | No | Housekeeping available. Guest units are cleaned by hotel staff during guest's stay. Schedule may vary from daily, weekly, or specific days of the week. |
+| `housekeepingAvailableException` | `housekeepingAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Housekeeping available exception. |
+| `turndownService` | `turndownService` | `boolean` | No | No | Turndown service. Hotel staff enters guest units to prepare the bed for sleep use. May or may not include some light housekeeping. May or may not include an evening snack or candy. Also known as evening service. |
+| `turndownServiceException` | `turndownServiceException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Turndown service exception. |
+
+## LegacyV4IncreasedFoodSafety
+
+`object` model on the `json` wire format.
+
+Increased food safety measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diningAreasAdditionalSanitation` | `diningAreasAdditionalSanitation` | `boolean` | No | No | Additional sanitation in dining areas. |
+| `diningAreasAdditionalSanitationException` | `diningAreasAdditionalSanitationException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dining areas additional sanitation exception. |
+| `disposableFlatware` | `disposableFlatware` | `boolean` | No | No | Disposable flatware. |
+| `disposableFlatwareException` | `disposableFlatwareException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Disposable flatware exception. |
+| `foodPreparationAndServingAdditionalSafety` | `foodPreparationAndServingAdditionalSafety` | `boolean` | No | No | Additional safety measures during food prep and serving. |
+| `foodPreparationAndServingAdditionalSafetyException` | `foodPreparationAndServingAdditionalSafetyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Food preparation and serving additional safety exception. |
+| `individualPackagedMeals` | `individualPackagedMeals` | `boolean` | No | No | Individually-packaged meals. |
+| `individualPackagedMealsException` | `individualPackagedMealsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Individual packaged meals exception. |
+| `singleUseFoodMenus` | `singleUseFoodMenus` | `boolean` | No | No | Single-use menus. |
+| `singleUseFoodMenusException` | `singleUseFoodMenusException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Single use food menus exception. |
+
+## LegacyV4Ingredient
+
+`object` model on the `json` wire format.
+
+This message denotes an ingredient information of a food dish.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `labels` | `labels` | `Array<LegacyV4MenuLabel>` | No | No | Required. Labels to describe ingredient. Display names should be 140 characters or less, with descriptions 1,000 characters or less. At least one set of labels is required. |
+
+## LegacyV4InsuranceNetwork
+
+`object` model on the `json` wire format.
+
+A single insurance network. Next id: 5
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `networkId` | `networkId` | `string` | No | No | Required. The id of this insurance network generated by Google. |
+| `networkNames` | `networkNames` | `Record<string, string>` | No | No | Output only. A map of network display names in requested languages where the language is the key and localized display name is the value. The display name in English is set by default. |
+| `payerNames` | `payerNames` | `Record<string, string>` | No | No | Output only. A map of payer display names in requested languages where the language is the key and localized display name is the value. The display name in English is set by default. |
+| `state` | `state` | `"NETWORK_STATE_UNSPECIFIED" \| "ACCEPTED" \| "PENDING_ADD" \| "PENDING_DELETE" \| "NOT_ACCEPTED"` | No | No | Output only. The state of this insurance network. |
+
+## LegacyV4Invitation
+
+`object` model on the `json` wire format.
+
+Output only. Represents a pending invitation.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | The resource name for the invitation. |
+| `role` | `role` | `"ADMIN_ROLE_UNSPECIFIED" \| "OWNER" \| "CO_OWNER" \| "MANAGER" \| "COMMUNITY_MANAGER"` | No | No | The invited role on the account. |
+| `targetAccount` | `targetAccount` | `LegacyV4Account` | No | No | The sparsely populated account this invitation is for. |
+| `targetLocation` | `targetLocation` | `LegacyV4TargetLocation` | No | No | The target location this invitation is for. |
+
+## LegacyV4Item
+
+`object` model on the `json` wire format.
+
+A single list item. Each variation of an item in the price list should have its own Item with its own price data.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `itemId` | `itemId` | `string` | No | No | Required. ID for the item. Price list, section, and item IDs cannot be duplicated within this Location. |
+| `labels` | `labels` | `Array<LegacyV4Label>` | No | No | Required. Language-tagged labels for the item. We recommend that item names be 140 characters or less, and descriptions 250 characters or less. At least one set of labels is required. |
+| `price` | `price` | `LegacyV4Money` | No | No | Optional. Price of the item. |
+
+## LegacyV4Label
+
+`object` model on the `json` wire format.
+
+Label to be used when displaying the price list, section, or item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Optional. Description of the price list, section, or item. |
+| `displayName` | `displayName` | `string` | No | No | Required. Display name for the price list, section, or item. |
+| `languageCode` | `languageCode` | `string` | No | No | Optional. The BCP-47 language code that these strings apply for. Only one set of labels may be set per language. |
+
+## LegacyV4LanguagesSpoken
+
+`object` model on the `json` wire format.
+
+Languages spoken by at least one staff member.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `arabicSpoken` | `arabicSpoken` | `boolean` | No | No | Arabic. At least one staff member speaks Arabic. |
+| `arabicSpokenException` | `arabicSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Arabic exception. |
+| `cantoneseSpoken` | `cantoneseSpoken` | `boolean` | No | No | Cantonese. At least one staff member speaks Cantonese. |
+| `cantoneseSpokenException` | `cantoneseSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cantonese exception. |
+| `dutchSpoken` | `dutchSpoken` | `boolean` | No | No | Dutch. At least one staff member speaks Dutch. |
+| `dutchSpokenException` | `dutchSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dutch exception. |
+| `englishSpoken` | `englishSpoken` | `boolean` | No | No | English. At least one staff member speaks English. |
+| `englishSpokenException` | `englishSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | English exception. |
+| `filipinoSpoken` | `filipinoSpoken` | `boolean` | No | No | Filipino. At least one staff member speaks Filipino. |
+| `filipinoSpokenException` | `filipinoSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Filipino exception. |
+| `frenchSpoken` | `frenchSpoken` | `boolean` | No | No | French. At least one staff member speaks French. |
+| `frenchSpokenException` | `frenchSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | French exception. |
+| `germanSpoken` | `germanSpoken` | `boolean` | No | No | German. At least one staff member speaks German. |
+| `germanSpokenException` | `germanSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | German exception. |
+| `hindiSpoken` | `hindiSpoken` | `boolean` | No | No | Hindi. At least one staff member speaks Hindi. |
+| `hindiSpokenException` | `hindiSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hindi exception. |
+| `indonesianSpoken` | `indonesianSpoken` | `boolean` | No | No | Indonesian. At least one staff member speaks Indonesian. |
+| `indonesianSpokenException` | `indonesianSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Indonesian exception. |
+| `italianSpoken` | `italianSpoken` | `boolean` | No | No | Italian. At least one staff member speaks Italian. |
+| `italianSpokenException` | `italianSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Italian exception. |
+| `japaneseSpoken` | `japaneseSpoken` | `boolean` | No | No | Japanese. At least one staff member speaks Japanese. |
+| `japaneseSpokenException` | `japaneseSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Japanese exception. |
+| `koreanSpoken` | `koreanSpoken` | `boolean` | No | No | Korean. At least one staff member speaks Korean. |
+| `koreanSpokenException` | `koreanSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Korean exception. |
+| `mandarinSpoken` | `mandarinSpoken` | `boolean` | No | No | Mandarin. At least one staff member speaks Mandarin. |
+| `mandarinSpokenException` | `mandarinSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mandarin exception. |
+| `portugueseSpoken` | `portugueseSpoken` | `boolean` | No | No | Portuguese. At least one staff member speaks Portuguese. |
+| `portugueseSpokenException` | `portugueseSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Portuguese exception. |
+| `russianSpoken` | `russianSpoken` | `boolean` | No | No | Russian. At least one staff member speaks Russian. |
+| `russianSpokenException` | `russianSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Russian exception. |
+| `spanishSpoken` | `spanishSpoken` | `boolean` | No | No | Spanish. At least one staff member speaks Spanish. |
+| `spanishSpokenException` | `spanishSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Spanish exception. |
+| `vietnameseSpoken` | `vietnameseSpoken` | `boolean` | No | No | Vietnamese. At least one staff member speaks Vietnamese. |
+| `vietnameseSpokenException` | `vietnameseSpokenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Vietnamese exception. |
+
+## LegacyV4LatLng
+
+`object` model on the `json` wire format.
+
+An object that represents a latitude/longitude pair. This is expressed as a pair of doubles to represent degrees latitude and degrees longitude. Unless specified otherwise, this must conform to the WGS84 standard. Values must be within normalized ranges.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `latitude` | `latitude` | `number` | No | No | The latitude in degrees. It must be in the range [-90.0, +90.0]. |
+| `longitude` | `longitude` | `number` | No | No | The longitude in degrees. It must be in the range [-180.0, +180.0]. |
+
+## LegacyV4ListAccountAdminsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListAccountAdmins.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `admins` | `admins` | `Array<LegacyV4Admin>` | No | No | A collection of Admin instances. |
+
+## LegacyV4ListAccountsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Accounts.ListAccounts.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accounts` | `accounts` | `Array<LegacyV4Account>` | No | No | A collection of accounts to which the user has access. The personal account of the user doing the query will always be the first item of the result, unless it is filtered out. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of accounts exceeds the requested page size, this field is populated with a token to fetch the next page of accounts on a subsequent call to `accounts.list`. If there are no more accounts, this field is not present in the response. |
+
+## LegacyV4ListAnswersResponse
+
+`object` model on the `json` wire format.
+
+Response message for QuestionsAndAnswers.ListAnswers
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answers` | `answers` | `Array<LegacyV4Answer>` | No | No | The requested answers. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of answers exceeds the requested max page size, this field is populated with a token to fetch the next page of answers on a subsequent call. If there are no more answers, this field is not present in the response. |
+| `totalSize` | `totalSize` | `integer` | No | No | The total number of answers posted for this question across all pages. |
+
+## LegacyV4ListAttributeMetadataResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.ListAttributeMetadata.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Array<LegacyV4AttributeMetadata>` | No | No | A collection of attribute metadata for the available attributes. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of attributes exceeded the requested page size, this field will be populated with a token to fetch the next page of attributes on a subsequent call to `attributes.list`. If there are no more attributes, this field will not be present in the response. |
+
+## LegacyV4ListBusinessCategoriesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<LegacyV4Category>` | No | No | The categories. Categories are BASIC view. They don't contain any ServiceType information. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of categories exceeded the requested page size, this field will be populated with a token to fetch the next page of categories on a subsequent call to `ListBusinessCategories`. |
+| `totalCategoryCount` | `totalCategoryCount` | `integer` | No | No | The total number of categories for the request parameters. |
+
+## LegacyV4ListCustomerMediaItemsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Media.ListCustomerMediaItems.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mediaItems` | `mediaItems` | `Array<LegacyV4MediaItem>` | No | No | The returned list of media items. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If there are more media items than the requested page size, then this field is populated with a token to fetch the next page of media items on a subsequent call to ListCustomerMediaItems. |
+| `totalMediaItemCount` | `totalMediaItemCount` | `integer` | No | No | The total number of media items for this location, irrespective of pagination. This number is approximate, particularly when there are multiple pages of results. |
+
+## LegacyV4ListInsuranceNetworksResponse
+
+`object` model on the `json` wire format.
+
+Response message for InsuranceNetworkService.ListInsuranceNetworks
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `networks` | `networks` | `Array<LegacyV4InsuranceNetwork>` | No | No | A list of insurance networks that are supported by Google. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If there are more insurance networks than the requested page size, then this field is populated with a token to fetch the next page of insurance networks on a subsequent call to ListInsuranceNetworks. |
+
+## LegacyV4ListInvitationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListInvitations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invitations` | `invitations` | `Array<LegacyV4Invitation>` | No | No | A collection of location invitations that are pending for the account. The number of invitations listed here cannot exceed 1000. |
+
+## LegacyV4ListLocalPostsResponse
+
+`object` model on the `json` wire format.
+
+Response message for ListLocalPosts
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `localPosts` | `localPosts` | `Array<LegacyV4LocalPost>` | No | No | The returned list of local posts. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If there are more local posts than the requested page size, then this field is populated with a token to fetch the next page of local posts on a subsequent call to `ListLocalPosts`. |
+
+## LegacyV4ListLocationAdminsResponse
+
+`object` model on the `json` wire format.
+
+Response message for AccessControl.ListLocationAdmins.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `admins` | `admins` | `Array<LegacyV4Admin>` | No | No | A collection of Admin instances. |
+
+## LegacyV4ListLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Locations.ListLocations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locations` | `locations` | `Array<LegacyV4Location>` | No | No | The locations. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of locations exceeded the requested page size, this field is populated with a token to fetch the next page of locations on a subsequent call to `ListLocations`. If there are no more locations, this field is not present in the response. |
+| `totalSize` | `totalSize` | `integer` | No | No | The approximate number of Locations in the list irrespective of pagination. |
+
+## LegacyV4ListMediaItemsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Media.ListMediaItems.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mediaItems` | `mediaItems` | `Array<LegacyV4MediaItem>` | No | No | The returned list of media items. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If there are more media items than the requested page size, then this field is populated with a token to fetch the next page of media items on a subsequent call to ListMediaItems. |
+| `totalMediaItemCount` | `totalMediaItemCount` | `integer` | No | No | The total number of media items for this location, irrespective of pagination. |
+
+## LegacyV4ListQuestionsResponse
+
+`object` model on the `json` wire format.
+
+Response message for QuestionsAndAnswers.ListQuestions
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of questions exceeds the requested max page size, this field is populated with a token to fetch the next page of questions on a subsequent call. If there are no more questions, this field is not present in the response. |
+| `questions` | `questions` | `Array<LegacyV4Question>` | No | No | The requested questions, |
+| `totalSize` | `totalSize` | `integer` | No | No | The total number of questions posted for this location across all pages. |
+
+## LegacyV4ListRecommendedGoogleLocationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for GoogleLocations.ListRecommendedGoogleLocations. It also contains some locations that have been claimed by other Business Profile users since the last time they were recommended to this Business Profile account.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `googleLocations` | `googleLocations` | `Array<LegacyV4GoogleLocation>` | No | No | The locations recommended to a Business Profile account. Each of these represents a GoogleLocation that is present on Maps. The locations are sorted in decreasing order of relevance to the Business Profile account. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | During pagination, if there are more locations available to be fetched in the next page, this field is populated with a token to fetch the next page of locations in a subsequent call. If there are no more locations to be fetched, this field is not present in the response. |
+| `totalSize` | `totalSize` | `integer` | No | No | The total number of recommended locations for this Business Profile account, irrespective of pagination. |
+
+## LegacyV4ListReviewsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Reviews.ListReviews.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `averageRating` | `averageRating` | `number` | No | No | The average star rating of all reviews for this location on a scale of 1 to 5, where 5 is the highest rating. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of reviews exceeded the requested page size, this field is populated with a token to fetch the next page of reviews on a subsequent call to ListReviews. If there are no more reviews, this field is not present in the response. |
+| `reviews` | `reviews` | `Array<LegacyV4Review>` | No | No | The reviews. |
+| `totalReviewCount` | `totalReviewCount` | `integer` | No | No | The total number of reviews for this location. |
+
+## LegacyV4ListVerificationsResponse
+
+`object` model on the `json` wire format.
+
+Response message for Verifications.ListVerifications.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | If the number of verifications exceeded the requested page size, this field will be populated with a token to fetch the next page of verification on a subsequent call. If there are no more attributes, this field will not be present in the response. |
+| `verifications` | `verifications` | `Array<LegacyV4Verification>` | No | No | List of the verifications. |
+
+## LegacyV4LivingArea
+
+`object` model on the `json` wire format.
+
+An individual room, such as kitchen, bathroom, bedroom, within a bookable guest unit.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessibility` | `accessibility` | `LegacyV4LivingAreaAccessibility` | No | No | Accessibility features of the living area. |
+| `eating` | `eating` | `LegacyV4LivingAreaEating` | No | No | Information about eating features in the living area. |
+| `features` | `features` | `LegacyV4LivingAreaFeatures` | No | No | Features in the living area. |
+| `layout` | `layout` | `LegacyV4LivingAreaLayout` | No | No | Information about the layout of the living area. |
+| `sleeping` | `sleeping` | `LegacyV4LivingAreaSleeping` | No | No | Information about sleeping features in the living area. |
+
+## LegacyV4LivingAreaAccessibility
+
+`object` model on the `json` wire format.
+
+Accessibility features of the living area.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adaCompliantUnit` | `adaCompliantUnit` | `boolean` | No | No | ADA compliant unit. A guestroom designed to accommodate the physical challenges of a guest with mobility and/or auditory and/or visual issues, as determined by legislative policy. Usually features enlarged doorways, roll-in showers with seats, bathroom grab bars, and communication equipment for the hearing and sight challenged. |
+| `adaCompliantUnitException` | `adaCompliantUnitException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | ADA compliant unit exception. |
+| `hearingAccessibleDoorbell` | `hearingAccessibleDoorbell` | `boolean` | No | No | Hearing-accessible doorbell. A visual indicator(s) of a knock or ring at the door. |
+| `hearingAccessibleDoorbellException` | `hearingAccessibleDoorbellException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hearing-accessible doorbell exception. |
+| `hearingAccessibleFireAlarm` | `hearingAccessibleFireAlarm` | `boolean` | No | No | Hearing-accessible fire alarm. A device that gives warning of a fire through flashing lights. |
+| `hearingAccessibleFireAlarmException` | `hearingAccessibleFireAlarmException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hearing-accessible fire alarm exception. |
+| `hearingAccessibleUnit` | `hearingAccessibleUnit` | `boolean` | No | No | Hearing-accessible unit. A guestroom designed to accommodate the physical challenges of a guest with auditory issues. |
+| `hearingAccessibleUnitException` | `hearingAccessibleUnitException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hearing-accessible unit exception. |
+| `mobilityAccessibleBathtub` | `mobilityAccessibleBathtub` | `boolean` | No | No | Mobility-accessible bathtub. A bathtub that accomodates the physically challenged with additional railings or hand grips, a transfer seat or lift, and/or a door to enable walking into the tub. |
+| `mobilityAccessibleBathtubException` | `mobilityAccessibleBathtubException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility-accessible bathtub exception. |
+| `mobilityAccessibleShower` | `mobilityAccessibleShower` | `boolean` | No | No | Mobility-accessible shower. A shower with an enlarged door or access point to accommodate a wheelchair or a waterproof seat for the physically challenged. |
+| `mobilityAccessibleShowerException` | `mobilityAccessibleShowerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility-accessible shower exception. |
+| `mobilityAccessibleToilet` | `mobilityAccessibleToilet` | `boolean` | No | No | Mobility-accessible toilet. A toilet with a higher seat, grab bars, and/or a larger area around it to accommodate the physically challenged. |
+| `mobilityAccessibleToiletException` | `mobilityAccessibleToiletException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility-accessible toilet exception. |
+| `mobilityAccessibleUnit` | `mobilityAccessibleUnit` | `boolean` | No | No | Mobility-accessible unit. A guestroom designed to accommodate the physical challenges of a guest with mobility and/or auditory and/or visual issues. Usually features enlarged doorways, roll-in showers with seats, bathroom grab bars, and communication equipment for the hearing and sight challenged. |
+| `mobilityAccessibleUnitException` | `mobilityAccessibleUnitException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobility-accessible unit exception. |
+
+## LegacyV4LivingAreaEating
+
+`object` model on the `json` wire format.
+
+Information about eating features in the living area.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coffeeMaker` | `coffeeMaker` | `boolean` | No | No | Coffee maker. An electric appliance that brews coffee by heating and forcing water through ground coffee. |
+| `coffeeMakerException` | `coffeeMakerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Coffee maker exception. |
+| `cookware` | `cookware` | `boolean` | No | No | Cookware. Kitchen pots, pans and utensils used in connection with the preparation of food. |
+| `cookwareException` | `cookwareException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cookware exception. |
+| `dishwasher` | `dishwasher` | `boolean` | No | No | Dishwasher. A counter-height electrical cabinet containing racks for dirty dishware, cookware and cutlery, and a dispenser for soap built into the pull-down door. The cabinet is attached to the plumbing system to facilitate the automatic cleaning of its contents. |
+| `dishwasherException` | `dishwasherException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dishwasher exception. |
+| `indoorGrill` | `indoorGrill` | `boolean` | No | No | Indoor grill. Metal grates built into an indoor cooktop on which food is cooked over an open flame or electric heat source. |
+| `indoorGrillException` | `indoorGrillException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Indoor grill exception. |
+| `kettle` | `kettle` | `boolean` | No | No | Kettle. A covered container with a handle and a spout used for boiling water. |
+| `kettleException` | `kettleException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Kettle exception. |
+| `kitchenAvailable` | `kitchenAvailable` | `boolean` | No | No | Kitchen available. An area of the guestroom designated for the preparation and storage of food via the presence of a refrigerator, cook top, oven and sink, as well as cutlery, dishes and cookware. Usually includes small appliances such a coffee maker and a microwave. May or may not include an automatic dishwasher. |
+| `kitchenAvailableException` | `kitchenAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Kitchen available exception. |
+| `microwave` | `microwave` | `boolean` | No | No | Microwave. An electric oven that quickly cooks and heats food by microwave energy. Smaller than a standing or wall mounted oven. Usually placed on a kitchen counter, a shelf or tabletop or mounted above a cooktop. |
+| `microwaveException` | `microwaveException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Microwave exception. |
+| `minibar` | `minibar` | `boolean` | No | No | Minibar. A small refrigerated cabinet in the guestroom containing bottles/cans of soft drinks, mini bottles of alcohol, and snacks. The items are most commonly available for a fee. |
+| `minibarException` | `minibarException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Minibar exception. |
+| `outdoorGrill` | `outdoorGrill` | `boolean` | No | No | Outdoor grill. Metal grates on which food is cooked over an open flame or electric heat source. Part of an outdoor apparatus that supports the grates. Also known as barbecue grill or barbecue. |
+| `outdoorGrillException` | `outdoorGrillException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Outdoor grill exception. |
+| `oven` | `oven` | `boolean` | No | No | Oven. A temperature controlled, heated metal cabinet powered by gas or electricity in which food is placed for the purpose of cooking or reheating. |
+| `ovenException` | `ovenException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Oven exception. |
+| `refrigerator` | `refrigerator` | `boolean` | No | No | Refrigerator. A large, climate-controlled electrical cabinet with vertical doors. Built for the purpose of chilling and storing perishable foods. |
+| `refrigeratorException` | `refrigeratorException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Refrigerator exception. |
+| `sink` | `sink` | `boolean` | No | No | Sink. A basin with a faucet attached to a water source and used for the purpose of washing and rinsing. |
+| `sinkException` | `sinkException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Sink exception. |
+| `snackbar` | `snackbar` | `boolean` | No | No | Snackbar. A small cabinet in the guestroom containing snacks. The items are most commonly available for a fee. |
+| `snackbarException` | `snackbarException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Snackbar exception. |
+| `stove` | `stove` | `boolean` | No | No | Stove. A kitchen appliance powered by gas or electricity for the purpose of creating a flame or hot surface on which pots of food can be cooked. Also known as cooktop or hob. |
+| `stoveException` | `stoveException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Stove exception. |
+| `teaStation` | `teaStation` | `boolean` | No | No | Tea station. A small area with the supplies needed to heat water and make tea. |
+| `teaStationException` | `teaStationException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Tea station exception. |
+| `toaster` | `toaster` | `boolean` | No | No | Toaster. A small, temperature controlled electric appliance with rectangular slots at the top that are lined with heated coils for the purpose of browning slices of bread products. |
+| `toasterException` | `toasterException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Toaster exception. |
+
+## LegacyV4LivingAreaFeatures
+
+`object` model on the `json` wire format.
+
+Features in the living area.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `airConditioning` | `airConditioning` | `boolean` | No | No | Air conditioning. An electrical machine used to cool the temperature of the guestroom. |
+| `airConditioningException` | `airConditioningException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Air conditioning exception. |
+| `bathtub` | `bathtub` | `boolean` | No | No | Bathtub. A fixed plumbing feature set on the floor and consisting of a large container that accommodates the body of an adult for the purpose of seated bathing. Includes knobs or fixtures to control the temperature of the water, a faucet through which the water flows, and a drain that can be closed for filling and opened for draining. |
+| `bathtubException` | `bathtubException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bathtub exception. |
+| `bidet` | `bidet` | `boolean` | No | No | Bidet. A plumbing fixture attached to a toilet or a low, fixed sink designed for the purpose of washing after toilet use. |
+| `bidetException` | `bidetException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bidet exception. |
+| `dryer` | `dryer` | `boolean` | No | No | Dryer. An electrical machine designed to dry clothing. |
+| `dryerException` | `dryerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dryer exception. |
+| `electronicRoomKey` | `electronicRoomKey` | `boolean` | No | No | Electronic room key. A card coded by the check-in computer that is read by the lock on the hotel guestroom door to allow for entry. |
+| `electronicRoomKeyException` | `electronicRoomKeyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Electronic room key exception. |
+| `fireplace` | `fireplace` | `boolean` | No | No | Fireplace. A framed opening (aka hearth) at the base of a chimney in which logs or an electrical fire feature are burned to provide a relaxing ambiance or to heat the room. Often made of bricks or stone. |
+| `fireplaceException` | `fireplaceException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Fireplace exception. |
+| `hairdryer` | `hairdryer` | `boolean` | No | No | Hairdryer. A handheld electric appliance that blows temperature-controlled air for the purpose of drying wet hair. Can be mounted to a bathroom wall or a freestanding device stored in the guestroom's bathroom or closet. |
+| `hairdryerException` | `hairdryerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hairdryer exception. |
+| `heating` | `heating` | `boolean` | No | No | Heating. An electrical machine used to warm the temperature of the guestroom. |
+| `heatingException` | `heatingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Heating exception. |
+| `inunitSafe` | `inunitSafe` | `boolean` | No | No | In-unit safe. A strong fireproof cabinet with a programmable lock, used for the protected storage of valuables in a guestroom. Often built into a closet. |
+| `inunitSafeException` | `inunitSafeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | In-unit safe exception. |
+| `inunitWifiAvailable` | `inunitWifiAvailable` | `boolean` | No | No | In-unit Wifi available. Guests can wirelessly connect to the Internet in the guestroom. Can be free or for a fee. |
+| `inunitWifiAvailableException` | `inunitWifiAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | In-unit Wifi available exception. |
+| `ironingEquipment` | `ironingEquipment` | `boolean` | No | No | Ironing equipment. A device, usually with a flat metal base, that is heated to smooth, finish, or press clothes and a flat, padded, cloth-covered surface on which the clothes are worked. |
+| `ironingEquipmentException` | `ironingEquipmentException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Ironing equipment exception. |
+| `payPerViewMovies` | `payPerViewMovies` | `boolean` | No | No | Pay per view movies. Televisions with channels that offer films that can be viewed for a fee, and have an interface to allow the viewer to accept the terms and approve payment. |
+| `payPerViewMoviesException` | `payPerViewMoviesException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Pay per view movies exception. |
+| `privateBathroom` | `privateBathroom` | `boolean` | No | No | Private bathroom. A bathroom designated for the express use of the guests staying in a specific guestroom. |
+| `privateBathroomException` | `privateBathroomException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Private bathroom exception. |
+| `shower` | `shower` | `boolean` | No | No | Shower. A fixed plumbing fixture for standing bathing that features a tall spray spout or faucet through which water flows, a knob or knobs that control the water's temperature, and a drain in the floor. |
+| `showerException` | `showerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Shower exception. |
+| `toilet` | `toilet` | `boolean` | No | No | Toilet. A fixed bathroom feature connected to a sewer or septic system and consisting of a water-flushed bowl with a seat, as well as a device that elicites the water-flushing action. Used for the process and disposal of human waste. |
+| `toiletException` | `toiletException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Toilet exception. |
+| `tv` | `tv` | `boolean` | No | No | TV. A television is available in the guestroom. |
+| `tvCasting` | `tvCasting` | `boolean` | No | No | TV casting. A television equipped with a device through which the video entertainment accessed on a personal computer, phone or tablet can be wirelessly delivered to and viewed on the guestroom's television. |
+| `tvCastingException` | `tvCastingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | TV exception. |
+| `tvException` | `tvException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | TV exception. |
+| `tvStreaming` | `tvStreaming` | `boolean` | No | No | TV streaming. Televisions that embed a range of web-based apps to allow for watching media from those apps. |
+| `tvStreamingException` | `tvStreamingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | TV streaming exception. |
+| `universalPowerAdapters` | `universalPowerAdapters` | `boolean` | No | No | Universal power adapters. A power supply for electronic devices which plugs into a wall for the purpose of converting AC to a single DC voltage. Also know as AC adapter or charger. |
+| `universalPowerAdaptersException` | `universalPowerAdaptersException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Universal power adapters exception. |
+| `washer` | `washer` | `boolean` | No | No | Washer. An electrical machine connected to a running water source designed to launder clothing. |
+| `washerException` | `washerException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Washer exception. |
+
+## LegacyV4LivingAreaLayout
+
+`object` model on the `json` wire format.
+
+Information about the layout of the living area.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `balcony` | `balcony` | `boolean` | No | No | Balcony. An outdoor platform attached to a building and surrounded by a short wall, fence or other safety railing. The balcony is accessed through a door in a guestroom or suite and is for use by the guest staying in that room. May or may not include seating or outdoor furniture. Is not located on the ground floor. Also lanai. |
+| `balconyException` | `balconyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Balcony exception. |
+| `livingAreaSqMeters` | `livingAreaSqMeters` | `number` | No | No | Living area sq meters. The measurement in meters of the area of a guestroom's living space. |
+| `livingAreaSqMetersException` | `livingAreaSqMetersException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Living area sq meters exception. |
+| `loft` | `loft` | `boolean` | No | No | Loft. A three-walled upper area accessed by stairs or a ladder that overlooks the lower area of a room. |
+| `loftException` | `loftException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Loft exception. |
+| `nonSmoking` | `nonSmoking` | `boolean` | No | No | Non smoking. A guestroom in which the smoking of cigarettes, cigars and pipes is prohibited. |
+| `nonSmokingException` | `nonSmokingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Non smoking exception. |
+| `patio` | `patio` | `boolean` | No | No | Patio. A paved, outdoor area with seating attached to and accessed through a ground-floor guestroom for use by the occupants of the guestroom. |
+| `patioException` | `patioException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Patio exception. |
+| `stairs` | `stairs` | `boolean` | No | No | Stairs. There are steps leading from one level or story to another in the unit. |
+| `stairsException` | `stairsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Stairs exception. |
+
+## LegacyV4LivingAreaSleeping
+
+`object` model on the `json` wire format.
+
+Information about sleeping features in the living area.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bedsCount` | `bedsCount` | `integer` | No | No | Beds count. The number of permanent beds present in a guestroom. Does not include rollaway beds, cribs or sofabeds. |
+| `bedsCountException` | `bedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Beds count exception. |
+| `bunkBedsCount` | `bunkBedsCount` | `integer` | No | No | Bunk beds count. The number of furniture pieces in which one framed mattress is fixed directly above another by means of a physical frame. This allows one person(s) to sleep in the bottom bunk and one person(s) to sleep in the top bunk. Also known as double decker bed. |
+| `bunkBedsCountException` | `bunkBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Bunk beds count exception. |
+| `cribsCount` | `cribsCount` | `integer` | No | No | Cribs count. The number of small beds for an infant or toddler that the guestroom can obtain. The bed is surrounded by a high railing to prevent the child from falling or climbing out of the bed |
+| `cribsCountException` | `cribsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cribs count exception. |
+| `doubleBedsCount` | `doubleBedsCount` | `integer` | No | No | Double beds count. The number of medium beds measuring 53"W x 75"L (135cm x 191cm). Also known as full size bed. |
+| `doubleBedsCountException` | `doubleBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Double beds count exception. |
+| `featherPillows` | `featherPillows` | `boolean` | No | No | Feather pillows. The option for guests to obtain bed pillows that are stuffed with the feathers and down of ducks or geese. |
+| `featherPillowsException` | `featherPillowsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Feather pillows exception. |
+| `hypoallergenicBedding` | `hypoallergenicBedding` | `boolean` | No | No | Hypoallergenic bedding. Bedding such as linens, pillows, mattress covers and/or mattresses that are made of materials known to be resistant to allergens such as mold, dust and dander. |
+| `hypoallergenicBeddingException` | `hypoallergenicBeddingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Hypoallergenic bedding exception. |
+| `kingBedsCount` | `kingBedsCount` | `integer` | No | No | King beds count. The number of large beds measuring 76"W x 80"L (193cm x 102cm). Most often meant to accompany two people. Includes California king and super king. |
+| `kingBedsCountException` | `kingBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | King beds count exception. |
+| `memoryFoamPillows` | `memoryFoamPillows` | `boolean` | No | No | Memory foam pillows. The option for guests to obtain bed pillows that are stuffed with a man-made foam that responds to body heat by conforming to the body closely, and then recovers its shape when the pillow cools down. |
+| `memoryFoamPillowsException` | `memoryFoamPillowsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Memory foam pillows exception. |
+| `otherBedsCount` | `otherBedsCount` | `integer` | No | No | Other beds count. The number of beds that are not standard mattress and boxspring setups such as Japanese tatami mats, trundle beds, air mattresses and cots. |
+| `otherBedsCountException` | `otherBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Other beds count exception. |
+| `queenBedsCount` | `queenBedsCount` | `integer` | No | No | Queen beds count. The number of medium-large beds measuring 60"W x 80"L (152cm x 102cm). |
+| `queenBedsCountException` | `queenBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Queen beds count exception. |
+| `rollAwayBedsCount` | `rollAwayBedsCount` | `integer` | No | No | Roll away beds count. The number of mattresses on wheeled frames that can be folded in half and rolled away for easy storage that the guestroom can obtain upon request. |
+| `rollAwayBedsCountException` | `rollAwayBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Roll away beds count exception. |
+| `singleOrTwinBedsCount` | `singleOrTwinBedsCount` | `integer` | No | No | Single or twin count beds. The number of smaller beds measuring 38"W x 75"L (97cm x 191cm) that can accommodate one adult. |
+| `singleOrTwinBedsCountException` | `singleOrTwinBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Single or twin beds count exception. |
+| `sofaBedsCount` | `sofaBedsCount` | `integer` | No | No | Sofa beds count. The number of specially designed sofas that can be made to serve as a bed by lowering its hinged upholstered back to horizontal position or by pulling out a concealed mattress. |
+| `sofaBedsCountException` | `sofaBedsCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Sofa beds count exception. |
+| `syntheticPillows` | `syntheticPillows` | `boolean` | No | No | Synthetic pillows. The option for guests to obtain bed pillows stuffed with polyester material crafted to reproduce the feel of a pillow stuffed with down and feathers. |
+| `syntheticPillowsException` | `syntheticPillowsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Synthetic pillows exception. |
+
+## LegacyV4LocalPost
+
+`object` model on the `json` wire format.
+
+Represents a [local post](https://support.google.com/business/answer/7662907) for a location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alertType` | `alertType` | `"ALERT_TYPE_UNSPECIFIED" \| "COVID_19"` | No | No | The type of alert the post is created for. This field is only applicable for posts of topic_type Alert, and behaves as a sub-type of Alerts. |
+| `callToAction` | `callToAction` | `LegacyV4CallToAction` | No | No | The URL that users are sent to when clicking through the promotion. Ignored for topic type `OFFER`. |
+| `createTime` | `createTime` | `string` | No | No | Output only. Time of the creation of the post. |
+| `event` | `event` | `LegacyV4LocalPostEvent` | No | No | Event information. Required for topic types `EVENT` and `OFFER`. |
+| `languageCode` | `languageCode` | `string` | No | No | The language of the local post. |
+| `media` | `media` | `Array<LegacyV4MediaItem>` | No | No | The media associated with the post. source_url is the only supported data field for a LocalPost MediaItem. |
+| `name` | `name` | `string` | No | No | Output only. Google identifier for this local post in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/localPosts/&#123;local_post_id&#125;` |
+| `offer` | `offer` | `LegacyV4LocalPostOffer` | No | No | Additional data for offer posts. This should only be set when the topic_type is OFFER. |
+| `searchUrl` | `searchUrl` | `string` | No | No | Output only. The link to the local post in Google search. This link can be used to share the post via social media, email, text, etc. |
+| `state` | `state` | `"LOCAL_POST_STATE_UNSPECIFIED" \| "REJECTED" \| "LIVE" \| "PROCESSING"` | No | No | Output only. The state of the post, indicating what part of its lifecycle it is in. |
+| `summary` | `summary` | `string` | No | No | Description/body of the local post. |
+| `topicType` | `topicType` | `"LOCAL_POST_TOPIC_TYPE_UNSPECIFIED" \| "STANDARD" \| "EVENT" \| "OFFER" \| "ALERT"` | No | No | Required. The topic type of the post: standard, event, offer, or alert. |
+| `updateTime` | `updateTime` | `string` | No | No | Output only. Time of the last modification of the post made by the user. |
+
+## LegacyV4LocalPostEvent
+
+`object` model on the `json` wire format.
+
+All the information pertaining to an event featured in a local post.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `schedule` | `schedule` | `LegacyV4TimeInterval` | No | No | Event start and end date/time. |
+| `title` | `title` | `string` | No | No | Name of the event. |
+
+## LegacyV4LocalPostMetrics
+
+`object` model on the `json` wire format.
+
+All the metrics requested for a Local Post.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `localPostName` | `localPostName` | `string` | No | No | — |
+| `metricValues` | `metricValues` | `Array<LegacyV4MetricValue>` | No | No | A list of values for the requested metrics. |
+
+## LegacyV4LocalPostOffer
+
+`object` model on the `json` wire format.
+
+Specific fields for offer posts.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `couponCode` | `couponCode` | `string` | No | No | Optional. Offer code that is usable in store or online. |
+| `redeemOnlineUrl` | `redeemOnlineUrl` | `string` | No | No | Optional. Online link to redeem offer. |
+| `termsConditions` | `termsConditions` | `string` | No | No | Optional. Offer terms and conditions. |
+
+## LegacyV4Location
+
+`object` model on the `json` wire format.
+
+A location. See the [help center article] (https://support.google.com/business/answer/3038177) for a detailed description of these fields, or the category endpoint for a list of valid business categories.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additionalCategories` | `additionalCategories` | `Array<LegacyV4Category>` | No | No | Additional categories to describe your business. Categories help your customers find accurate, specific results for services they're interested in. To keep your business information accurate and live, make sure that you use as few categories as possible to describe your overall core business. Choose categories that are as specific as possible, but representative of your main business. |
+| `additionalPhones` | `additionalPhones` | `Array<string>` | No | No | Up to two phone numbers (mobile or landline, no fax) at which your business can be called, in addition to your primary phone number. |
+| `address` | `address` | `LegacyV4PostalAddress` | No | No | A precise, accurate address to describe your business location. PO boxes or mailboxes located at remote locations are not acceptable. At this time, you can specify a maximum of five `address_lines` values in the address. |
+| `adWordsLocationExtensions` | `adWordsLocationExtensions` | `LegacyV4AdWordsLocationExtensions` | No | No | Additional information that is surfaced in AdWords. |
+| `attributes` | `attributes` | `Array<LegacyV4Attribute>` | No | No | Attributes for this location. |
+| `labels` | `labels` | `Array<string>` | No | No | A collection of free-form strings to allow you to tag your business. These labels are NOT user facing; only you can see them. Limited to 255 characters (per label). |
+| `languageCode` | `languageCode` | `string` | No | No | The language of the location. Set during creation and not updateable. |
+| `latlng` | `latlng` | `LegacyV4LatLng` | No | No | User-provided latitude and longitude. When creating a location, this field is ignored if the provided address geocodes successfully. This field is only returned on get requests if the user-provided `latlng` value was accepted during create, or the `latlng` value was updated through the Business Profile website. This field cannot be updated. |
+| `locationKey` | `locationKey` | `LegacyV4LocationKey` | No | No | A collection of keys that link this business to other Google properties, such as a Google+ page and Google Maps Places. |
+| `locationName` | `locationName` | `string` | No | No | Location name should reflect your business's real-world name, as used consistently on your storefront, website, and stationery, and as known to customers. Any additional information, when relevant, can be included in other fields of the resource (for example, `Address`, `Categories`). Don't add unnecessary information to your name (for example, prefer "Google" over "Google Inc. - Mountain View Corporate Headquarters"). Don't include marketing taglines, store codes, special characters, hours or closed/open status, phone numbers, website URLs, service/product information, location/address or directions, or containment information (for example, "Chase ATM in Duane Reade"). |
+| `locationState` | `locationState` | `LegacyV4LocationState` | No | No | Output only. A set of booleans that reflects the [state of a location.](https://support.google.com/business/answer/3480862) |
+| `metadata` | `metadata` | `LegacyV4Metadata` | No | No | Output Only. Additional non-user-editable information. |
+| `moreHours` | `moreHours` | `Array<LegacyV4MoreHours>` | No | No | More hours for a business's different departments or specific customers. |
+| `name` | `name` | `string` | No | No | Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;` In the context of matches, this field will not be populated. |
+| `openInfo` | `openInfo` | `LegacyV4OpenInfo` | No | No | A flag that indicates whether the location is currently open for business. |
+| `priceLists` | `priceLists` | `Array<LegacyV4PriceList>` | No | No | Price list information for this location. |
+| `primaryCategory` | `primaryCategory` | `LegacyV4Category` | No | No | Category that best describes the core business this location engages in. |
+| `primaryPhone` | `primaryPhone` | `string` | No | No | A phone number that connects to your individual business location as directly as possible. Use a local phone number instead of a central, call center helpline number whenever possible. |
+| `profile` | `profile` | `LegacyV4Profile` | No | No | Describes your business in your own voice and shares with users the unique story of your business and offerings. |
+| `regularHours` | `regularHours` | `LegacyV4BusinessHours` | No | No | Operating hours for the business. |
+| `relationshipData` | `relationshipData` | `LegacyV4RelationshipData` | No | No | All locations and chain related to this one. |
+| `serviceArea` | `serviceArea` | `LegacyV4ServiceAreaBusiness` | No | No | Service area businesses provide their service at the customer's location. If this business is a service area business, this field describes the area(s) serviced by the business. |
+| `specialHours` | `specialHours` | `LegacyV4SpecialHours` | No | No | Special hours for the business. This typically includes holiday hours, and other times outside of regular operating hours. These override regular business hours. |
+| `storeCode` | `storeCode` | `string` | No | No | External identifier for this location, which must be unique inside a given account. This is a means of associating the location with your own records. |
+| `websiteUrl` | `websiteUrl` | `string` | No | No | A URL for this business. If possible, use a URL that represents this individual business location instead of a generic website/URL that represents all locations, or the brand. |
+
+## LegacyV4LocationAssociation
+
+`object` model on the `json` wire format.
+
+How the media item is associated with its location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `"CATEGORY_UNSPECIFIED" \| "COVER" \| "PROFILE" \| "LOGO" \| "EXTERIOR" \| "INTERIOR" \| "PRODUCT" \| "AT_WORK" \| "FOOD_AND_DRINK" \| "MENU" \| "COMMON_AREA" \| "ROOMS" \| "TEAMS" \| "ADDITIONAL"` | No | No | The category that this location photo belongs to. |
+| `priceListItemId` | `priceListItemId` | `string` | No | No | The ID of a price list item that this location photo is associated with. |
+
+## LegacyV4LocationDrivingDirectionMetrics
+
+`object` model on the `json` wire format.
+
+A location indexed with the regions that people usually come from. This is captured by counting how many driving-direction requests to this location are from each region.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationName` | `locationName` | `string` | No | No | The location resource name this metric value belongs to. |
+| `timeZone` | `timeZone` | `string` | No | No | Time zone (IANA timezone IDs, for example, 'Europe/London') of the location. |
+| `topDirectionSources` | `topDirectionSources` | `Array<LegacyV4TopDirectionSources>` | No | No | Driving-direction requests by source region. By convention, these are sorted by count with at most 10 results. |
+
+## LegacyV4LocationKey
+
+`object` model on the `json` wire format.
+
+Alternate/surrogate key references for a location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `explicitNoPlaceId` | `explicitNoPlaceId` | `boolean` | No | No | Output only. A value of true indicates that an unset place ID is deliberate, which is different from no association being made yet. |
+| `placeId` | `placeId` | `string` | No | No | If this location has been verified and is connected to/appears on Google Maps, this field is populated with the place ID for the location. This ID can be used in various Places APIs. If this location is unverified, this field may be populated if the location has been associated with a place that appears on Google Maps. This field can be set during Create calls, but not for Update. The additional `explicit_no_place_id` bool qualifies whether an unset place ID is deliberate or not. |
+| `plusPageId` | `plusPageId` | `string` | No | No | Output only. If this location has a Google+ page associated with it, this is populated with the Google+ page ID for this location. |
+| `requestId` | `requestId` | `string` | No | No | Output only. The `request_id` used to create this location. May be empty if this location was created outside of the Google My Business API or Business Profile Locations. |
+
+## LegacyV4LocationMetrics
+
+`object` model on the `json` wire format.
+
+A series of Metrics and BreakdownMetrics associated with a Location over some time range.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locationName` | `locationName` | `string` | No | No | The location resource name these values belong to. |
+| `metricValues` | `metricValues` | `Array<LegacyV4MetricValue>` | No | No | A list of values for the requested metrics. |
+| `timeZone` | `timeZone` | `string` | No | No | IANA timezone for the location. |
+
+## LegacyV4LocationReview
+
+`object` model on the `json` wire format.
+
+Represents a review with location information.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | Location resource name. |
+| `review` | `review` | `LegacyV4Review` | No | No | A review for the location. |
+
+## LegacyV4LocationState
+
+`object` model on the `json` wire format.
+
+Contains a set of booleans that reflect the [state of a Location.](https://support.google.com/business/answer/3480862)
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canDelete` | `canDelete` | `boolean` | No | No | Output only. Indicates whether the location can be deleted using the Google My Business API. |
+| `canHaveFoodMenus` | `canHaveFoodMenus` | `boolean` | No | No | Output only. Indicates if the listing is eligible for food menu. |
+| `canModifyServiceList` | `canModifyServiceList` | `boolean` | No | No | Output only. Indicates if the listing can modify a ServiceList. |
+| `canOperateHealthData` | `canOperateHealthData` | `boolean` | No | No | Output only. Indicates whether the location can operate on Health data. |
+| `canOperateLodgingData` | `canOperateLodgingData` | `boolean` | No | No | Output only. Indicates whether the location can operate on Lodging data. |
+| `canUpdate` | `canUpdate` | `boolean` | No | No | Output only. Indicates whether the location can be updated. |
+| `hasPendingEdits` | `hasPendingEdits` | `boolean` | No | No | Output only. Indicates whether any of this Location's properties are in the edit pending state. |
+| `hasPendingVerification` | `hasPendingVerification` | `boolean` | No | No | Output only. Indicates whether the location has pending verification requests. |
+| `isDisabled` | `isDisabled` | `boolean` | No | No | Output only. Indicates whether the location is disabled. |
+| `isDisconnected` | `isDisconnected` | `boolean` | No | No | Output only. Indicates whether the location is disconnected from a place on Google Maps. |
+| `isDuplicate` | `isDuplicate` | `boolean` | No | No | Output only. Indicates whether the location is a duplicate of another location. |
+| `isGoogleUpdated` | `isGoogleUpdated` | `boolean` | No | No | Output only. Indicates whether the place ID associated with this location has updates. |
+| `isLocalPostApiDisabled` | `isLocalPostApiDisabled` | `boolean` | No | No | Output only. Indicates whether accounts.locations.localPosts is disabled for this location. |
+| `isPendingReview` | `isPendingReview` | `boolean` | No | No | Output only. Indicates whether the review of the location is pending. |
+| `isPublished` | `isPublished` | `boolean` | No | No | Output only. Indicates whether the location is published. |
+| `isSuspended` | `isSuspended` | `boolean` | No | No | Output only. Indicates whether the location is suspended. Suspended locations are not visible to end users in Google products. If you believe this was a mistake, see the [help center article] (https://support.google.com/business/answer/4569145). |
+| `isVerified` | `isVerified` | `boolean` | No | No | Output only. Indicates whether the location is verified. |
+| `needsReverification` | `needsReverification` | `boolean` | No | No | Output only. Indicates whether the location requires reverification. |
+
+## LegacyV4Lodging
+
+`object` model on the `json` wire format.
+
+Lodging of a location that provides accomodations.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessibility` | `accessibility` | `LegacyV4Accessibility` | No | No | Physical adaptations made to the property in consideration of varying levels of human physical ability. |
+| `activities` | `activities` | `LegacyV4Activities` | No | No | Amenities and features related to leisure and play. |
+| `allUnits` | `allUnits` | `LegacyV4GuestUnitFeatures` | No | No | All units on the property have at least these attributes. |
+| `business` | `business` | `LegacyV4Business` | No | No | Features of the property of specific interest to the business traveler. |
+| `commonLivingArea` | `commonLivingArea` | `LegacyV4LivingArea` | No | No | Features of the shared living areas available in this Lodging. |
+| `connectivity` | `connectivity` | `LegacyV4Connectivity` | No | No | The ways in which the property provides guests with the ability to access the internet. |
+| `families` | `families` | `LegacyV4Families` | No | No | Services and amenities for families and young guests. |
+| `foodAndDrink` | `foodAndDrink` | `LegacyV4FoodAndDrink` | No | No | Meals, snacks, and beverages available at the property. |
+| `guestUnits` | `guestUnits` | `Array<LegacyV4GuestUnitType>` | No | No | Individual GuestUnitTypes that are available in this Lodging. |
+| `healthAndSafety` | `healthAndSafety` | `LegacyV4HealthAndSafety` | No | No | Health and safety measures implemented by the hotel during COVID-19. |
+| `housekeeping` | `housekeeping` | `LegacyV4Housekeeping` | No | No | Conveniences provided in guest units to facilitate an easier, more comfortable stay. |
+| `metadata` | `metadata` | `LegacyV4LodgingMetadata` | No | No | Required. Metadata for the lodging. |
+| `name` | `name` | `string` | No | No | Required. Google identifier for this location in the form: `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/lodging` |
+| `parking` | `parking` | `LegacyV4Parking` | No | No | Parking options at the property. |
+| `pets` | `pets` | `LegacyV4Pets` | No | No | Policies regarding guest-owned animals. |
+| `policies` | `policies` | `LegacyV4Policies` | No | No | Property rules that impact guests. |
+| `pools` | `pools` | `LegacyV4Pools` | No | No | Swimming pool or recreational water facilities available at the hotel. |
+| `property` | `property` | `LegacyV4Property` | No | No | General factual information about the property's physical structure and important dates. |
+| `services` | `services` | `LegacyV4Services` | No | No | Conveniences or help provided by the property to facilitate an easier, more comfortable stay. |
+| `someUnits` | `someUnits` | `LegacyV4GuestUnitFeatures` | No | No | Some units on the property have as much as these attributes. |
+| `transportation` | `transportation` | `LegacyV4Transportation` | No | No | Vehicles or vehicular services facilitated or owned by the property. |
+| `wellness` | `wellness` | `LegacyV4Wellness` | No | No | Guest facilities at the property to promote or maintain health, beauty, and fitness. |
+
+## LegacyV4LodgingMetadata
+
+`object` model on the `json` wire format.
+
+Metadata for the Lodging.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `updateTime` | `updateTime` | `string` | No | No | Required. The latest time at which the Lodging data is asserted to be true in the real world. This is not necessarily the time at which the request is made. |
+
+## LegacyV4MatchedLocation
+
+`object` model on the `json` wire format.
+
+Represents a possible match to a location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `isExactMatch` | `isExactMatch` | `boolean` | No | No | Is this an exact match? |
+| `location` | `location` | `LegacyV4Location` | No | No | The sparsely populated location that is a potential match. Unpopulated fields include, but may not be limited to: name (the matched location cannot be retrieved via `GetLocation` nor `BatchGetLocations`); `store_code`; `service_area` coverage area details; `labels`; `ad_words_location_extensions`; `photos` |
+
+## LegacyV4MediaInsights
+
+`object` model on the `json` wire format.
+
+Insights and statistics for the media item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewCount` | `viewCount` | `string` | No | No | Output only. The number of times the media item has been viewed. |
+
+## LegacyV4MediaItem
+
+`object` model on the `json` wire format.
+
+A single media item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribution` | `attribution` | `LegacyV4Attribution` | No | No | Output only. Attribution information for customer media items. You must display this attribution as provided to your users and must not delete or alter the attribution. |
+| `createTime` | `createTime` | `string` | No | No | Output only. Creation time of this media item. |
+| `dataRef` | `dataRef` | `LegacyV4MediaItemDataRef` | No | No | Input only. A reference to media item binary data as obtained by the `StartUploadMediaItemData` method. When creating a media item, either sourceUrl or dataRef must be set. |
+| `description` | `description` | `string` | No | No | Description for this media item. Descriptions cannot be modified through the Google My Business API, but can be set when creating a new media item that is not a cover photo. |
+| `dimensions` | `dimensions` | `LegacyV4Dimensions` | No | No | Output only. The dimensions (width and height) in pixels. |
+| `googleUrl` | `googleUrl` | `string` | No | No | Output only. Google-hosted URL for this media item. This URL is not static since it may change over time. For video this will be a preview image with an overlaid play icon. |
+| `insights` | `insights` | `LegacyV4MediaInsights` | No | No | Output only. Statistics for this media item. |
+| `locationAssociation` | `locationAssociation` | `LegacyV4LocationAssociation` | No | No | Required when calling `CreatePhoto`. Describes how this media item is connected to its location. Must be either a category (for example, EXTERIOR) or the ID of a price list item. This is required when adding new media to a location with `CreateMediaItem`. For other types of media, for example, photos on local posts, this will not be present. |
+| `mediaFormat` | `mediaFormat` | `"MEDIA_FORMAT_UNSPECIFIED" \| "PHOTO" \| "VIDEO"` | No | No | The format of this media item. Must be set when the media item is created, and is read-only on all other requests. Cannot be updated. |
+| `name` | `name` | `string` | No | No | The resource name for this media item. `accounts/&#123;account_id&#125;/locations/&#123;location_id&#125;/media/&#123;media_key&#125;` |
+| `sourceUrl` | `sourceUrl` | `string` | No | No | A publicly accessible URL where the media item can be retrieved from. When creating one of this or data_ref must be set to specify the source of the media item. If `source_url` was used when creating a media item, it will be populated with that source URL when the media item is retrieved. This field cannot be updated. |
+| `thumbnailUrl` | `thumbnailUrl` | `string` | No | No | Output only. Where provided, the URL of a thumbnail image for this media item. |
+
+## LegacyV4MediaItemDataRef
+
+`object` model on the `json` wire format.
+
+Reference to the photo binary data of a `MediaItem` uploaded through the Google My Business API. Create a data ref using StartUploadMediaItemData, and use this ref when uploading bytes to [UpdateMedia] and subsequently calling CreateMediaItem.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceName` | `resourceName` | `string` | No | No | The unique ID for this media item's binary data. Used to upload the photo data with [UpdateMedia] and when creating a new media item from those bytes with CreateMediaItem. Example of uploading bytes: `curl -X POST -T&#123;path_to_file&#125; "http://mybusiness.googleapis.com/upload/v1/media/&#123;resource_name&#125;?upload_type=media"` For CreateMediaItem calls, set this as the `MediaItem` `data_ref`. |
+
+## LegacyV4MenuLabel
+
+`object` model on the `json` wire format.
+
+Label to be used when displaying the menu and its various sub-components.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Optional. Supplementary information of the component. |
+| `displayName` | `displayName` | `string` | No | No | Required. Display name of the component. |
+| `languageCode` | `languageCode` | `string` | No | No | Optional. The BCP 47 code of language. If the language is not available, it will default to English. |
+
+## LegacyV4Metadata
+
+`object` model on the `json` wire format.
+
+Additional non-user-editable information about the location.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duplicate` | `duplicate` | `LegacyV4Duplicate` | No | No | Information about the location that this location duplicates. Only present when `location_state.is_duplicate` is true. Deprecated: We are no longer supporting detailed information for duplicates. |
+| `mapsUrl` | `mapsUrl` | `string` | No | No | A link to the location on Maps. |
+| `newReviewUrl` | `newReviewUrl` | `string` | No | No | A link to the page on Google Search where a customer can leave a review for the location. |
+
+## LegacyV4MetricRequest
+
+`object` model on the `json` wire format.
+
+A request to return values for one metric and the options for how those values should be returned.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metric` | `metric` | `"METRIC_UNSPECIFIED" \| "ALL" \| "QUERIES_DIRECT" \| "QUERIES_INDIRECT" \| "QUERIES_CHAIN" \| "VIEWS_MAPS" \| "VIEWS_SEARCH" \| "ACTIONS_WEBSITE" \| "ACTIONS_PHONE" \| "ACTIONS_DRIVING_DIRECTIONS" \| "PHOTOS_VIEWS_MERCHANT" \| "PHOTOS_VIEWS_CUSTOMERS" \| "PHOTOS_COUNT_MERCHANT" \| "PHOTOS_COUNT_CUSTOMERS" \| "LOCAL_POST_VIEWS_SEARCH" \| "LOCAL_POST_ACTIONS_CALL_TO_ACTION"` | No | No | The requested metric. |
+| `options` | `options` | `Array<"METRIC_OPTION_UNSPECIFIED" \| "AGGREGATED_TOTAL" \| "AGGREGATED_DAILY" \| "BREAKDOWN_DAY_OF_WEEK" \| "BREAKDOWN_HOUR_OF_DAY">` | No | No | How the values should appear when returned. |
+
+## LegacyV4MetricValue
+
+`object` model on the `json` wire format.
+
+A value for a single Metric from a starting time.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dimensionalValues` | `dimensionalValues` | `Array<LegacyV4DimensionalMetricValue>` | No | No | Dimensional values for this metric. |
+| `metric` | `metric` | `"METRIC_UNSPECIFIED" \| "ALL" \| "QUERIES_DIRECT" \| "QUERIES_INDIRECT" \| "QUERIES_CHAIN" \| "VIEWS_MAPS" \| "VIEWS_SEARCH" \| "ACTIONS_WEBSITE" \| "ACTIONS_PHONE" \| "ACTIONS_DRIVING_DIRECTIONS" \| "PHOTOS_VIEWS_MERCHANT" \| "PHOTOS_VIEWS_CUSTOMERS" \| "PHOTOS_COUNT_MERCHANT" \| "PHOTOS_COUNT_CUSTOMERS" \| "LOCAL_POST_VIEWS_SEARCH" \| "LOCAL_POST_ACTIONS_CALL_TO_ACTION"` | No | No | The metric for which the value applies. |
+| `totalValue` | `totalValue` | `LegacyV4DimensionalMetricValue` | No | No | The total aggregated value for this metric. Set for the AGGREGATED_TOTAL option. |
+
+## LegacyV4MinimizedContact
+
+`object` model on the `json` wire format.
+
+Minimized contact measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contactlessCheckinCheckout` | `contactlessCheckinCheckout` | `boolean` | No | No | No-contact check-in and check-out. |
+| `contactlessCheckinCheckoutException` | `contactlessCheckinCheckoutException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Contactless check-in check-out exception. |
+| `digitalGuestRoomKeys` | `digitalGuestRoomKeys` | `boolean` | No | No | Keyless mobile entry to guest rooms. |
+| `digitalGuestRoomKeysException` | `digitalGuestRoomKeysException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Digital guest room keys exception. |
+| `housekeepingScheduledRequestOnly` | `housekeepingScheduledRequestOnly` | `boolean` | No | No | Housekeeping scheduled by request only. |
+| `housekeepingScheduledRequestOnlyException` | `housekeepingScheduledRequestOnlyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Housekeeping scheduled request only exception. |
+| `noHighTouchItemsCommonAreas` | `noHighTouchItemsCommonAreas` | `boolean` | No | No | High-touch items, such as magazines, removed from common areas. |
+| `noHighTouchItemsCommonAreasException` | `noHighTouchItemsCommonAreasException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | No high touch items common areas exception. |
+| `noHighTouchItemsGuestRooms` | `noHighTouchItemsGuestRooms` | `boolean` | No | No | High-touch items, such as decorative pillows, removed from guest rooms. |
+| `noHighTouchItemsGuestRoomsException` | `noHighTouchItemsGuestRoomsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | No high touch items guest rooms exception. |
+| `plasticKeycardsDisinfected` | `plasticKeycardsDisinfected` | `boolean` | No | No | Plastic key cards are disinfected or discarded. |
+| `plasticKeycardsDisinfectedException` | `plasticKeycardsDisinfectedException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Plastic keycards disinfected exception. |
+| `roomBookingsBuffer` | `roomBookingsBuffer` | `boolean` | No | No | Buffer maintained between room bookings. |
+| `roomBookingsBufferException` | `roomBookingsBufferException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Room bookings buffer exception. |
+
+## LegacyV4Money
+
+`object` model on the `json` wire format.
+
+Represents an amount of money with its currency type.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currencyCode` | `currencyCode` | `string` | No | No | The three-letter currency code defined in ISO 4217. |
+| `nanos` | `nanos` | `integer` | No | No | Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000. |
+| `units` | `units` | `string` | No | No | The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. |
+
+## LegacyV4MoreHours
+
+`object` model on the `json` wire format.
+
+The time periods during which a location is open for certain types of business.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hoursTypeId` | `hoursTypeId` | `string` | No | No | Required. Type of hours. Clients should call &#123;#link businessCategories:BatchGet&#125; to get supported hours types for categories of their locations. |
+| `periods` | `periods` | `Array<LegacyV4TimePeriod>` | No | No | Required. A collection of times that this location is open. Each period represents a range of hours when the location is open during the week. |
+
+## LegacyV4MoreHoursType
+
+`object` model on the `json` wire format.
+
+More hours types that a business can offers, in addition to its regular hours.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Output only. The human-readable English display name for the hours type. |
+| `hoursTypeId` | `hoursTypeId` | `string` | No | No | Output only. A stable ID provided by Google for this hours type. |
+| `localizedDisplayName` | `localizedDisplayName` | `string` | No | No | Output only. The human-readable localized display name for the hours type. |
+
+## LegacyV4Notifications
+
+`object` model on the `json` wire format.
+
+A Google Cloud Pub/Sub topic where notifications can be published when a location is updated or has a new review. There will be only one notification settings resource per-account.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | Output only. The notifications resource name. |
+| `notificationTypes` | `notificationTypes` | `Array<"NOTIFICATION_TYPE_UNSPECIFIED" \| "GOOGLE_UPDATE" \| "NEW_REVIEW" \| "UPDATED_REVIEW" \| "NEW_CUSTOMER_MEDIA" \| "NEW_QUESTION" \| "UPDATED_QUESTION" \| "NEW_ANSWER" \| "UPDATED_ANSWER" \| "UPDATED_LOCATION_STATE">` | No | No | The types of notifications that will be sent to the Cloud Pub/Sub topic. At least one must be specified. To stop receiving notifications entirely, use DeleteNotifications. |
+| `topicName` | `topicName` | `string` | No | No | The Google Cloud Pub/Sub topic that will receive notifications when locations managed by this account are updated. If unset, no notifications will be posted. The account mybusiness-api-pubsub@system.gserviceaccount.com must have at least Publish permissions on the Cloud Pub/Sub topic. |
+
+## LegacyV4NutritionFact
+
+`object` model on the `json` wire format.
+
+This message denotes nutrition information with an upper bound and lower bound range and can be represented by mass unit. Lower amount must be specified. Both lower and upper amounts are non-negative numbers.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lowerAmount` | `lowerAmount` | `number` | No | No | Required. Lower amount of nutrition |
+| `unit` | `unit` | `"MASS_UNIT_UNSPECIFIED" \| "GRAM" \| "MILLIGRAM"` | No | No | Required. Unit of the given nutrition information. |
+| `upperAmount` | `upperAmount` | `number` | No | No | Optional. Upper amount of nutrition |
+
+## LegacyV4NutritionFacts
+
+`object` model on the `json` wire format.
+
+This message represents nutrition facts for a food dish.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `calories` | `calories` | `LegacyV4CaloriesFact` | No | No | Optional. Calories of the dish. |
+| `cholesterol` | `cholesterol` | `LegacyV4NutritionFact` | No | No | Optional. Cholesterol information for a given food dish. |
+| `protein` | `protein` | `LegacyV4NutritionFact` | No | No | Optional. Protein information for a given food dish. |
+| `sodium` | `sodium` | `LegacyV4NutritionFact` | No | No | Optional. Sodium information for a given food dish. |
+| `totalCarbohydrate` | `totalCarbohydrate` | `LegacyV4NutritionFact` | No | No | Optional. Carbohydrate information for a given food dish. |
+| `totalFat` | `totalFat` | `LegacyV4NutritionFact` | No | No | Optional. Fat information for a given food dish. |
+
+## LegacyV4OpenInfo
+
+`object` model on the `json` wire format.
+
+Information related to the opening state of the business.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canReopen` | `canReopen` | `boolean` | No | No | Output only. Indicates whether this business is eligible for re-open. |
+| `openingDate` | `openingDate` | `LegacyV4Date` | No | No | The date on which the location first opened. If the exact day is not known, month and year only can be provided. The date must be in the past or be no more than one year in the future. |
+| `status` | `status` | `"OPEN_FOR_BUSINESS_UNSPECIFIED" \| "OPEN" \| "CLOSED_PERMANENTLY" \| "CLOSED_TEMPORARILY"` | No | No | Indicates whether or not the Location is currently open for business. All locations are open by default, unless updated to be closed. |
+
+## LegacyV4OrganizationInfo
+
+`object` model on the `json` wire format.
+
+Additional Info stored for an organization.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phoneNumber` | `phoneNumber` | `string` | No | No | The contact number for the organization. |
+| `postalAddress` | `postalAddress` | `LegacyV4PostalAddress` | No | No | The postal address for the account. |
+| `registeredDomain` | `registeredDomain` | `string` | No | No | The registered domain for the account. |
+
+## LegacyV4Parking
+
+`object` model on the `json` wire format.
+
+Parking options at the property.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `electricCarChargingStations` | `electricCarChargingStations` | `boolean` | No | No | Electric car charging stations. Electric power stations, usually located outdoors, into which guests plug their electric cars to receive a charge. |
+| `electricCarChargingStationsException` | `electricCarChargingStationsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Electric car charging stations exception. |
+| `freeParking` | `freeParking` | `boolean` | No | No | Free parking. The hotel allows the cars of guests to be parked for free. Parking facility may be an outdoor lot or an indoor garage, but must be onsite. Nearby parking does not apply. Parking may be performed by the guest or by hotel staff. Free parking must be available to all guests (limited conditions does not apply). |
+| `freeParkingException` | `freeParkingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free parking exception. |
+| `freeSelfParking` | `freeSelfParking` | `boolean` | No | No | Free self parking. Guests park their own cars for free. Parking facility may be an outdoor lot or an indoor garage, but must be onsite. Nearby parking does not apply. |
+| `freeSelfParkingException` | `freeSelfParkingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free self parking exception. |
+| `freeValetParking` | `freeValetParking` | `boolean` | No | No | Free valet parking. Hotel staff member parks the cars of guests. Parking with this service is free. |
+| `freeValetParkingException` | `freeValetParkingException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Free valet parking exception. |
+| `parkingAvailable` | `parkingAvailable` | `boolean` | No | No | Parking available. The hotel allows the cars of guests to be parked. Can be free or for a fee. Parking facility may be an outdoor lot or an indoor garage, but must be onsite. Nearby parking does not apply. Parking may be performed by the guest or by hotel staff. |
+| `parkingAvailableException` | `parkingAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Parking available exception. |
+| `selfParkingAvailable` | `selfParkingAvailable` | `boolean` | No | No | Self parking available. Guests park their own cars. Parking facility may be an outdoor lot or an indoor garage, but must be onsite. Nearby parking does not apply. Can be free or for a fee. |
+| `selfParkingAvailableException` | `selfParkingAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Self parking available exception. |
+| `valetParkingAvailable` | `valetParkingAvailable` | `boolean` | No | No | Valet parking available. Hotel staff member parks the cars of guests. Parking with this service can be free or for a fee. |
+| `valetParkingAvailableException` | `valetParkingAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Valet parking available exception. |
+
+## LegacyV4PaymentOptions
+
+`object` model on the `json` wire format.
+
+Forms of payment accepted at the property.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cash` | `cash` | `boolean` | No | No | Cash. The hotel accepts payment by paper/coin currency. |
+| `cashException` | `cashException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cash exception. |
+| `cheque` | `cheque` | `boolean` | No | No | Cheque. The hotel accepts a printed document issued by the guest's bank in the guest's name as a form of payment. |
+| `chequeException` | `chequeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cheque exception. |
+| `creditCard` | `creditCard` | `boolean` | No | No | Credit card. The hotel accepts payment by a card issued by a bank or credit card company. Also known as charge card, debit card, bank card, or charge plate. |
+| `creditCardException` | `creditCardException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Credit card exception. |
+| `debitCard` | `debitCard` | `boolean` | No | No | Debit card. The hotel accepts a bank-issued card that immediately deducts the charged funds from the guest's bank account upon processing. |
+| `debitCardException` | `debitCardException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Debit card exception. |
+| `mobileNfc` | `mobileNfc` | `boolean` | No | No | Mobile nfc. The hotel has the compatible computer hardware terminal that reads and charges a payment app on the guest's smartphone without requiring the two devices to make physical contact. Also known as Apple Pay, Google Pay, Samsung Pay. |
+| `mobileNfcException` | `mobileNfcException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Mobile nfc exception. |
+
+## LegacyV4PersonalProtection
+
+`object` model on the `json` wire format.
+
+Personal protection measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonAreasOfferSanitizingItems` | `commonAreasOfferSanitizingItems` | `boolean` | No | No | Hand-sanitizer and/or sanitizing wipes are offered in common areas. |
+| `commonAreasOfferSanitizingItemsException` | `commonAreasOfferSanitizingItemsException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Common areas offer sanitizing items exception. |
+| `faceMaskRequired` | `faceMaskRequired` | `boolean` | No | No | Masks required on the property. |
+| `faceMaskRequiredException` | `faceMaskRequiredException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Face mask required exception. |
+| `guestRoomHygieneKitsAvailable` | `guestRoomHygieneKitsAvailable` | `boolean` | No | No | In-room hygiene kits with masks, hand sanitizer, and/or antibacterial wipes. |
+| `guestRoomHygieneKitsAvailableException` | `guestRoomHygieneKitsAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Guest room hygiene kits available exception. |
+| `protectiveEquipmentAvailable` | `protectiveEquipmentAvailable` | `boolean` | No | No | Masks and/or gloves available for guests. |
+| `protectiveEquipmentAvailableException` | `protectiveEquipmentAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Protective equipment available exception. |
+
+## LegacyV4Pets
+
+`object` model on the `json` wire format.
+
+Policies regarding guest-owned animals.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catsAllowed` | `catsAllowed` | `boolean` | No | No | Cats allowed. Domesticated felines are permitted at the property and allowed to stay in the guest room of their owner. May or may not require a fee. |
+| `catsAllowedException` | `catsAllowedException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Cats allowed exception. |
+| `dogsAllowed` | `dogsAllowed` | `boolean` | No | No | Dogs allowed. Domesticated canines are permitted at the property and allowed to stay in the guest room of their owner. May or may not require a fee. |
+| `dogsAllowedException` | `dogsAllowedException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Dogs allowed exception. |
+| `petsAllowed` | `petsAllowed` | `boolean` | No | No | Pets allowed. Household animals are allowed at the property and in the specific guest room of their owner. May or may not include dogs, cats, reptiles and/or fish. May or may not require a fee. Service animals are not considered to be pets, so not governed by this policy. |
+| `petsAllowedException` | `petsAllowedException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Pets allowed exception. |
+| `petsAllowedFree` | `petsAllowedFree` | `boolean` | No | No | Pets allowed free. Household animals are allowed at the property and in the specific guest room of their owner for free. May or may not include dogs, cats, reptiles, and/or fish. |
+| `petsAllowedFreeException` | `petsAllowedFreeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Pets allowed free exception. |
+
+## LegacyV4PhoneInput
+
+`object` model on the `json` wire format.
+
+Input for PHONE_CALL/SMS verification.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phoneNumber` | `phoneNumber` | `string` | No | No | The phone number that should be called or be sent SMS to. It must be one of the phone numbers in the eligible options. |
+
+## LegacyV4PhoneVerificationData
+
+`object` model on the `json` wire format.
+
+Display Data for verifications through phone, e.g. phone call, sms.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phoneNumber` | `phoneNumber` | `string` | No | No | Phone number that the PIN will be sent to. |
+
+## LegacyV4PhysicalDistancing
+
+`object` model on the `json` wire format.
+
+Physical distancing measures implemented by the hotel during COVID-19.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonAreasPhysicalDistancingArranged` | `commonAreasPhysicalDistancingArranged` | `boolean` | No | No | Common areas arranged to maintain physical distancing. |
+| `commonAreasPhysicalDistancingArrangedException` | `commonAreasPhysicalDistancingArrangedException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Common areas physical distancing arranged exception. |
+| `physicalDistancingRequired` | `physicalDistancingRequired` | `boolean` | No | No | Physical distancing required. |
+| `physicalDistancingRequiredException` | `physicalDistancingRequiredException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Physical distancing required exception. |
+| `safetyDividers` | `safetyDividers` | `boolean` | No | No | Safety dividers at front desk and other locations. |
+| `safetyDividersException` | `safetyDividersException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Safety dividers exception. |
+| `sharedAreasLimitedOccupancy` | `sharedAreasLimitedOccupancy` | `boolean` | No | No | Guest occupancy limited within shared facilities. |
+| `sharedAreasLimitedOccupancyException` | `sharedAreasLimitedOccupancyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Shared areas limited occupancy exception. |
+| `wellnessAreasHavePrivateSpaces` | `wellnessAreasHavePrivateSpaces` | `boolean` | No | No | Private spaces designated in spa and wellness areas. |
+| `wellnessAreasHavePrivateSpacesException` | `wellnessAreasHavePrivateSpacesException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Wellness areas have private spaces exception. |
+
+## LegacyV4PlaceInfo
+
+`object` model on the `json` wire format.
+
+Defines an area that's represented by a place ID.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | The localized name of the place. For example, `Scottsdale, AZ`. |
+| `placeId` | `placeId` | `string` | No | No | The ID of the place. Must correspond to a [region.] (https://developers.google.com/places/web-service/supported_types#table3) |
+
+## LegacyV4Places
+
+`object` model on the `json` wire format.
+
+Defines the union of areas represented by a set of places.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placeInfos` | `placeInfos` | `Array<LegacyV4PlaceInfo>` | No | No | The areas represented by place IDs. Limited to a maximum of 20 places. |
+
+## LegacyV4PointRadius
+
+`object` model on the `json` wire format.
+
+A radius around a particular point (latitude/longitude).
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `latlng` | `latlng` | `LegacyV4LatLng` | No | No | The latitude/longitude that specifies the center of an area defined by the radius. |
+| `radiusKm` | `radiusKm` | `number` | No | No | The distance in kilometers of the area around the point. |
+
+## LegacyV4Policies
+
+`object` model on the `json` wire format.
+
+Property rules that impact guests.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allInclusiveAvailable` | `allInclusiveAvailable` | `boolean` | No | No | All inclusive available. The hotel offers a rate option that includes the cost of the room, meals, activities, and other amenities that might otherwise be charged separately. |
+| `allInclusiveAvailableException` | `allInclusiveAvailableException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | All inclusive available exception. |
+| `allInclusiveOnly` | `allInclusiveOnly` | `boolean` | No | No | All inclusive only. The only rate option offered by the hotel is a rate that includes the cost of the room, meals, activities and other amenities that might otherwise be charged separately. |
+| `allInclusiveOnlyException` | `allInclusiveOnlyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | All inclusive only exception. |
+| `checkinTime` | `checkinTime` | `LegacyV4TimeOfDay` | No | No | Check-in time. The time of the day at which the hotel begins providing guests access to their unit at the beginning of their stay. |
+| `checkinTimeException` | `checkinTimeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Check-in time exception. |
+| `checkoutTime` | `checkoutTime` | `LegacyV4TimeOfDay` | No | No | Check-out time. The time of the day on the last day of a guest's reserved stay at which the guest must vacate their room and settle their bill. Some hotels may offer late or early check out for a fee. |
+| `checkoutTimeException` | `checkoutTimeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Check-out time exception. |
+| `kidsStayFree` | `kidsStayFree` | `boolean` | No | No | Kids stay free. The children of guests are allowed to stay in the room/suite of a parent or adult without an additional fee. The policy may or may not stipulate a limit of the child's age or the overall number of children allowed. |
+| `kidsStayFreeException` | `kidsStayFreeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Kids stay free exception. |
+| `maxChildAge` | `maxChildAge` | `integer` | No | No | Max child age. The hotel allows children up to a certain age to stay in the room/suite of a parent or adult without an additional fee. |
+| `maxChildAgeException` | `maxChildAgeException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Max child age exception. |
+| `maxKidsStayFreeCount` | `maxKidsStayFreeCount` | `integer` | No | No | Max kids stay free count. The hotel allows a specific, defined number of children to stay in the room/suite of a parent or adult without an additional fee. |
+| `maxKidsStayFreeCountException` | `maxKidsStayFreeCountException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Max kids stay free count exception. |
+| `paymentOptions` | `paymentOptions` | `LegacyV4PaymentOptions` | No | No | Forms of payment accepted at the property. |
+| `smokeFreeProperty` | `smokeFreeProperty` | `boolean` | No | No | Smoke free property. Smoking is not allowed inside the building, on balconies, or in outside spaces. Hotels that offer a designated area for guests to smoke are not considered smoke-free properties. |
+| `smokeFreePropertyException` | `smokeFreePropertyException` | `"EXCEPTION_UNSPECIFIED" \| "UNDER_CONSTRUCTION" \| "DEPENDENT_ON_SEASON" \| "DEPENDENT_ON_DAY_OF_WEEK"` | No | No | Smoke free property exception. |

@@ -1,0 +1,342 @@
+---
+title: "X Direct messages endpoints"
+description: "9 generated X endpoint contracts for Direct messages."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 109
+  label: "Direct messages"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.direct-messages.createDirectMessagesByConversationId
+
+`POST` `/2/dm_conversations/{dm_conversation_id}/messages`
+
+Create Direct Messages by Conversation ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `direct-messages.manage` |
+| Required scopes | `dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `CreateDirectMessagesByConversationIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dm_conversation_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `CreateDirectMessagesByConversationIdRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.createDirectMessagesByParticipantId
+
+`POST` `/2/dm_conversations/with/{participant_id}/messages`
+
+Sends a new direct message to a specific participant by their ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `direct-messages.manage` |
+| Required scopes | `dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `CreateDirectMessagesByParticipantIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `participant_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `CreateDirectMessagesByParticipantIdRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.createDirectMessagesConversation
+
+`POST` `/2/dm_conversations`
+
+Initiates a new direct message conversation with specified participants.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `direct-messages.manage` |
+| Required scopes | `dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `CreateDirectMessagesConversationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateDirectMessagesConversationRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.deleteDirectMessagesEvents
+
+`DELETE` `/2/dm_events/{event_id}`
+
+Deletes a specific direct message event by its ID, if owned by the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `direct-messages.manage` |
+| Required scopes | `dm.read`<br />`dm.write` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `DeleteDirectMessagesEventsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.dmConversationsMediaDownload
+
+`GET` `/2/dm_conversations/media/{dm_id}/{media_id}/{resource_id}`
+
+Downloads media attached to a legacy Direct Message. The requesting user must be a participant in the conversation containing the specified DM event. The response body contains raw binary bytes.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `direct-messages.read` |
+| Required scopes | `dm.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `string` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dm_id` | `path` | `string` | Yes | No | — |
+| `media_id` | `path` | `string` | Yes | No | — |
+| `resource_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.getDirectMessagesEvents
+
+`GET` `/2/dm_events`
+
+Get Direct Messages Events
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `direct-messages.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `GetDirectMessagesEventsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `event_types` | `query` | `Array<"MessageCreate" \| "ParticipantsJoin" \| "ParticipantsLeave">` | No | No | — |
+| `dm_event.fields` | `query` | `Array<"attachments" \| "created_at" \| "dm_conversation_id" \| "entities" \| "event_type" \| "id" \| "text">` | No | No | A comma separated list of DmEvent fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "attachments.media_keys" \| "participant_ids" \| "referenced_posts" \| "sender_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.getDirectMessagesEventsByConversationId
+
+`GET` `/2/dm_conversations/{id}/dm_events`
+
+Get Direct Messages Events by Conversation ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `direct-messages.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `GetDirectMessagesEventsByConversationIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `event_types` | `query` | `Array<"MessageCreate" \| "ParticipantsJoin" \| "ParticipantsLeave">` | No | No | — |
+| `dm_event.fields` | `query` | `Array<"attachments" \| "created_at" \| "dm_conversation_id" \| "entities" \| "event_type" \| "id" \| "text">` | No | No | A comma separated list of DmEvent fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "attachments.media_keys" \| "participant_ids" \| "referenced_posts" \| "sender_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.getDirectMessagesEventsById
+
+`GET` `/2/dm_events/{event_id}`
+
+Get Direct Messages Events by ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `direct-messages.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `GetDirectMessagesEventsByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_id` | `path` | `string` | Yes | No | — |
+| `dm_event.fields` | `query` | `Array<"attachments" \| "created_at" \| "dm_conversation_id" \| "entities" \| "event_type" \| "id" \| "text">` | No | No | A comma separated list of DmEvent fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "attachments.media_keys" \| "participant_ids" \| "referenced_posts" \| "sender_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.direct-messages.getDirectMessagesEventsByParticipantId
+
+`GET` `/2/dm_conversations/with/{participant_id}/dm_events`
+
+Get Direct Messages Events by Participant ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `direct-messages.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-direct-messages` |
+| Output | `GetDirectMessagesEventsByParticipantIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `participant_id` | `path` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `event_types` | `query` | `Array<"MessageCreate" \| "ParticipantsJoin" \| "ParticipantsLeave">` | No | No | — |
+| `dm_event.fields` | `query` | `Array<"attachments" \| "created_at" \| "dm_conversation_id" \| "entities" \| "event_type" \| "id" \| "text">` | No | No | A comma separated list of DmEvent fields to display. |
+| `expansions` | `query` | `Array<"attachments.media_keys" \| "attachments.media_keys" \| "participant_ids" \| "referenced_posts" \| "sender_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

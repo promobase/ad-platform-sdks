@@ -4,10 +4,15 @@ import type { EnumMap } from "./enum-extractor.ts";
 import type { Spec } from "./parser.ts";
 import { enumTypeToTsName, parseGenericType } from "./type-resolver.ts";
 
-export function metaCanonicalIr(specs: ReadonlyMap<string, Spec>, enums: EnumMap): SdkIr {
+export function metaCanonicalIr(
+  specs: ReadonlyMap<string, Spec>,
+  enums: EnumMap,
+  source: { version: string; revision?: string },
+): SdkIr {
   const objectNames = new Set(specs.keys());
   const enumNames = new Set([...enums.keys()].map(enumTypeToTsName));
   const models: SdkIr["models"][number][] = [];
+  const unresolvedSchemas = new Set<string>();
 
   for (const [name, spec] of [...specs].sort(([a], [b]) => a.localeCompare(b))) {
     models.push({
@@ -19,7 +24,7 @@ export function metaCanonicalIr(specs: ReadonlyMap<string, Spec>, enums: EnumMap
         .filter((field) => !field.not_visible)
         .map((field) => ({
           name: field.name,
-          type: metaType(field.type, objectNames, enumNames),
+          type: metaType(field.type, objectNames, enumNames, unresolvedSchemas),
           required: false,
           nullable: false,
         })),
@@ -66,12 +71,12 @@ export function metaCanonicalIr(specs: ReadonlyMap<string, Spec>, enums: EnumMap
           ...api.params.map((parameter) => ({
             name: parameter.name,
             location: api.method === "POST" ? ("body" as const) : ("query" as const),
-            type: metaType(parameter.type, objectNames, enumNames),
+            type: metaType(parameter.type, objectNames, enumNames, unresolvedSchemas),
             required: parameter.required,
             nullable: false,
           })),
         ],
-        output: metaType(api.return, objectNames, enumNames),
+        output: metaType(api.return, objectNames, enumNames, unresolvedSchemas),
         errors: [
           { status: 400, retryable: false },
           { status: 401, retryable: false },
@@ -86,6 +91,10 @@ export function metaCanonicalIr(specs: ReadonlyMap<string, Spec>, enums: EnumMap
         requiredScopes: [],
         capabilities: [capabilityId],
         rateLimitBucket: "meta-graph-api",
+        authSchemes: ["AccessToken"],
+        protocols: api.params.some((parameter) => parameter.type === "file")
+          ? ["json", "multipart"]
+          : ["json"],
         summary: `${api.method} ${specName}${api.endpoint ? ` ${api.endpoint}` : ""}`,
       });
     }
@@ -93,11 +102,21 @@ export function metaCanonicalIr(specs: ReadonlyMap<string, Spec>, enums: EnumMap
 
   return {
     platform: "meta",
-    source: { kind: "vendor-json", location: "packages/meta-business-sdk/api_specs" },
-    version: "graph",
+    source: {
+      kind: "vendor-json",
+      location: "packages/meta-business-sdk/api_specs",
+      revision: source.revision,
+    },
+    version: source.version,
     models,
     endpoints,
     capabilities: [...capabilityMap.values()].sort((a, b) => a.id.localeCompare(b.id)),
+    coverage: {
+      discoveredOperations: endpoints.length,
+      excludedOperations: [],
+      unresolvedSchemas: [...unresolvedSchemas].sort(),
+      protocols: ["json", "multipart"],
+    },
   };
 }
 
@@ -105,6 +124,7 @@ function metaType(
   raw: string,
   objectNames: ReadonlySet<string>,
   enumNames: ReadonlySet<string>,
+  unresolvedSchemas?: Set<string>,
 ): TypeRefIr {
   const type = raw.trim();
   switch (type) {
@@ -132,17 +152,21 @@ function metaType(
   }
   const generic = parseGenericType(type);
   if (generic?.outer === "list") {
-    return { kind: "array", items: metaType(generic.inner[0]!, objectNames, enumNames) };
+    return {
+      kind: "array",
+      items: metaType(generic.inner[0]!, objectNames, enumNames, unresolvedSchemas),
+    };
   }
   if (generic?.outer === "map") {
     return {
       kind: "record",
-      values: metaType(generic.inner[1] ?? "unknown", objectNames, enumNames),
+      values: metaType(generic.inner[1] ?? "unknown", objectNames, enumNames, unresolvedSchemas),
     };
   }
   const enumName = enumTypeToTsName(type);
   if (enumNames.has(enumName)) return { kind: "reference", target: enumName };
   if (objectNames.has(type)) return { kind: "reference", target: `${type}Fields` };
+  unresolvedSchemas?.add(type || "<empty>");
   return { kind: "primitive", name: "unknown" };
 }
 

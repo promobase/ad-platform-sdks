@@ -1,15 +1,15 @@
 ---
 title: "Google Business Profile SDK reference"
-description: "Generated reference for 11 Google Business Profile endpoints and 0 models."
+description: "Generated reference for 139 Google Business Profile endpoints and 338 models."
 generated: true
 platform: "google-business-profile"
-sourceVersion: "v1+v4"
+sourceVersion: "v1+legacy-v4"
 sidebar:
   order: 40
   label: "Google Business Profile"
 ---
 
-{/* Generated from canonical SdkIr (handwritten: src/{oauth,resources,types}.ts). Do not edit by hand. */}
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
 
 Install the platform package and import either its high-level client or its generated Effect client.
 
@@ -26,28 +26,52 @@ const client = createEffectClient();
 | Contract | Value |
 | --- | --- |
 | Platform | Google Business Profile |
-| API version | `v1+v4` |
-| Source | `handwritten: src/{oauth,resources,types}.ts` |
-| Endpoints | 11 |
-| Models | 0 |
-| Capabilities | 8 |
+| API version | `v1+legacy-v4` |
+| Source | `discovery: packages/google-business-profile-sdk/spec/discovery` |
+| Endpoints | 139 |
+| Models | 338 |
+| Capabilities | 18 |
 
 ## Endpoints
 
-- [Account](/reference/google-business-profile/endpoints/account)
-- [Local post](/reference/google-business-profile/endpoints/local-post)
-- [Location](/reference/google-business-profile/endpoints/location)
-- [Oauth](/reference/google-business-profile/endpoints/oauth)
+- [Businesscalls](/reference/google-business-profile/endpoints/businesscalls)
+- [Businessprofileperformance](/reference/google-business-profile/endpoints/businessprofileperformance)
+- [Mybusiness: Create – Batch Get](/reference/google-business-profile/endpoints/mybusiness-create-to-batch-get)
+- [Mybusiness: List – Search](/reference/google-business-profile/endpoints/mybusiness-list-to-search)
+- [Mybusinessaccountmanagement](/reference/google-business-profile/endpoints/mybusinessaccountmanagement)
+- [Mybusinessbusinessinformation](/reference/google-business-profile/endpoints/mybusinessbusinessinformation)
+- [Mybusinesslodging](/reference/google-business-profile/endpoints/mybusinesslodging)
+- [Mybusinessnotifications](/reference/google-business-profile/endpoints/mybusinessnotifications)
+- [Mybusinessplaceactions](/reference/google-business-profile/endpoints/mybusinessplaceactions)
+- [Mybusinessqanda](/reference/google-business-profile/endpoints/mybusinessqanda)
+- [Mybusinessverifications](/reference/google-business-profile/endpoints/mybusinessverifications)
+
+## Models
+
+- [Account Management Accept Invitation Request – Legacy V4 Dimensions](/reference/google-business-profile/models/account-management-accept-invitation-request-to-legacy-v4-dimensions)
+- [Legacy V4 Driving Direction Metrics Request – Legacy V4 Policies](/reference/google-business-profile/models/legacy-v4-driving-direction-metrics-request-to-legacy-v4-policies)
+- [Legacy V4 Pools – Performance Insights Value](/reference/google-business-profile/models/legacy-v4-pools-to-performance-insights-value)
+- [Performance List Search Keyword Impressions Monthly Response – Verifications Wait For Voice Of Merchant](/reference/google-business-profile/models/performance-list-search-keyword-impressions-monthly-resp-to-verifications-wait-for-voice-of-merchant)
 
 ## Capabilities
 
 | Capability | Summary | Required scopes |
 | --- | --- | --- |
-| `account.read` | List Business Profile accounts | `https://www.googleapis.com/auth/business.manage` |
-| `local-post.delete` | Delete local posts | `https://www.googleapis.com/auth/business.manage` |
-| `local-post.metrics.read` | Read local post insights | `https://www.googleapis.com/auth/business.manage` |
-| `local-post.publish` | Create and update local posts | `https://www.googleapis.com/auth/business.manage` |
-| `local-post.read` | Read local posts | `https://www.googleapis.com/auth/business.manage` |
-| `location.metrics.read` | Read location performance metrics | `https://www.googleapis.com/auth/business.manage` |
-| `location.read` | List Business Profile locations | `https://www.googleapis.com/auth/business.manage` |
-| `oauth` | Complete Google OAuth flows | None declared |
+| `account-management.manage` | Manage Google Business Profile account-management | None declared |
+| `account-management.read` | Read Google Business Profile account-management | None declared |
+| `business-calls.read` | Read Google Business Profile business-calls | `https://www.googleapis.com/auth/business.manage` |
+| `business-information.manage` | Manage Google Business Profile business-information | None declared |
+| `business-information.read` | Read Google Business Profile business-information | None declared |
+| `legacy-v4.manage` | Manage Google Business Profile legacy-v4 | None declared |
+| `legacy-v4.read` | Read Google Business Profile legacy-v4 | None declared |
+| `lodging.manage` | Manage Google Business Profile lodging | None declared |
+| `lodging.read` | Read Google Business Profile lodging | None declared |
+| `notifications.manage` | Manage Google Business Profile notifications | None declared |
+| `notifications.read` | Read Google Business Profile notifications | None declared |
+| `performance.read` | Read Google Business Profile performance | None declared |
+| `place-actions.manage` | Manage Google Business Profile place-actions | None declared |
+| `place-actions.read` | Read Google Business Profile place-actions | None declared |
+| `q-and-a.manage` | Manage Google Business Profile q-and-a | None declared |
+| `q-and-a.read` | Read Google Business Profile q-and-a | None declared |
+| `verifications.manage` | Manage Google Business Profile verifications | None declared |
+| `verifications.read` | Read Google Business Profile verifications | None declared |

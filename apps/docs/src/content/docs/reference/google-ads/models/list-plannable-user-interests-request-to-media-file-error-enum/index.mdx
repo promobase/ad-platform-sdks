@@ -30,7 +30,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `plannable_user_interests` | `plannable_user_interests` | `Array<unknown>` | No | No | — |
+| `plannable_user_interests` | `plannable_user_interests` | `Array<PlannableUserInterest>` | No | No | — |
 
 ## ListPlannableUserListsRequest
 
@@ -48,7 +48,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `plannable_user_lists` | `plannable_user_lists` | `Array<unknown>` | No | No | — |
+| `plannable_user_lists` | `plannable_user_lists` | `Array<PlannableUserList>` | No | No | — |
 
 ## LocalAdInfo
 
@@ -56,12 +56,12 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `call_to_actions` | `call_to_actions` | `Array<unknown>` | No | No | — |
-| `marketing_images` | `marketing_images` | `Array<unknown>` | No | No | — |
-| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
-| `videos` | `videos` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `call_to_actions` | `call_to_actions` | `Array<AdTextAsset>` | No | No | — |
+| `marketing_images` | `marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `videos` | `videos` | `Array<AdVideoAsset>` | No | No | — |
 | `path1` | `path1` | `string` | No | No | — |
 | `path2` | `path2` | `string` | No | No | — |
 
@@ -119,7 +119,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `category_bids` | `category_bids` | `Array<unknown>` | No | No | — |
+| `category_bids` | `category_bids` | `Array<CategoryBid>` | No | No | — |
 
 ## LocalServicesCreditStateEnum
 
@@ -146,9 +146,9 @@ No fields are declared.
 | `creation_date_time` | `creation_date_time` | `string` | No | No | — |
 | `status` | `status` | `LocalServicesEmployeeStatus` | No | No | — |
 | `type` | `type` | `LocalServicesEmployeeType` | No | No | — |
-| `university_degrees` | `university_degrees` | `Array<unknown>` | No | No | — |
-| `residencies` | `residencies` | `Array<unknown>` | No | No | — |
-| `fellowships` | `fellowships` | `Array<unknown>` | No | No | — |
+| `university_degrees` | `university_degrees` | `Array<UniversityDegree>` | No | No | — |
+| `residencies` | `residencies` | `Array<Residency>` | No | No | — |
+| `fellowships` | `fellowships` | `Array<Fellowship>` | No | No | — |
 | `job_title` | `job_title` | `string` | No | No | — |
 | `year_started_practicing` | `year_started_practicing` | `integer` | No | No | — |
 | `languages_spoken` | `languages_spoken` | `Array<string>` | No | No | — |
@@ -205,14 +205,14 @@ No fields are declared.
 | `id` | `id` | `string` | No | No | — |
 | `category_id` | `category_id` | `string` | No | No | — |
 | `service_id` | `service_id` | `string` | No | No | — |
-| `contact_details` | `contact_details` | `unknown` | No | No | — |
+| `contact_details` | `contact_details` | `ContactDetails` | No | No | — |
 | `lead_type` | `lead_type` | `LeadType` | No | No | — |
 | `lead_status` | `lead_status` | `LeadStatus` | No | No | — |
 | `creation_date_time` | `creation_date_time` | `string` | No | No | — |
 | `locale` | `locale` | `string` | No | No | — |
-| `note` | `note` | `unknown` | No | No | — |
+| `note` | `note` | `Note` | No | No | — |
 | `lead_charged` | `lead_charged` | `boolean` | No | No | — |
-| `credit_details` | `credit_details` | `unknown` | No | No | — |
+| `credit_details` | `credit_details` | `CreditDetails` | No | No | — |
 | `lead_feedback_submitted` | `lead_feedback_submitted` | `boolean` | No | No | — |
 
 ## LocalServicesLeadConversation
@@ -227,8 +227,8 @@ No fields are declared.
 | `participant_type` | `participant_type` | `ParticipantType` | No | No | — |
 | `lead` | `lead` | `string` | No | No | — |
 | `event_date_time` | `event_date_time` | `string` | No | No | — |
-| `phone_call_details` | `phone_call_details` | `unknown` | No | No | — |
-| `message_details` | `message_details` | `unknown` | No | No | — |
+| `phone_call_details` | `phone_call_details` | `PhoneCallDetails` | No | No | — |
+| `message_details` | `message_details` | `MessageDetails` | No | No | — |
 
 ## LocalServicesLeadConversationTypeEnum
 
@@ -317,8 +317,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `granular_license_statuses` | `granular_license_statuses` | `Array<unknown>` | No | No | — |
-| `granular_insurance_statuses` | `granular_insurance_statuses` | `Array<unknown>` | No | No | — |
+| `granular_license_statuses` | `granular_license_statuses` | `Array<GranularLicenseStatus>` | No | No | — |
+| `granular_insurance_statuses` | `granular_insurance_statuses` | `Array<GranularInsuranceStatus>` | No | No | — |
 
 ## LocalServicesVerificationArtifact
 
@@ -331,10 +331,10 @@ No fields are declared.
 | `creation_date_time` | `creation_date_time` | `string` | No | No | — |
 | `status` | `status` | `LocalServicesVerificationArtifactStatus` | No | No | — |
 | `artifact_type` | `artifact_type` | `LocalServicesVerificationArtifactType` | No | No | — |
-| `background_check_verification_artifact` | `background_check_verification_artifact` | `unknown` | No | No | — |
-| `insurance_verification_artifact` | `insurance_verification_artifact` | `unknown` | No | No | — |
-| `license_verification_artifact` | `license_verification_artifact` | `unknown` | No | No | — |
-| `business_registration_check_verification_artifact` | `business_registration_check_verification_artifact` | `unknown` | No | No | — |
+| `background_check_verification_artifact` | `background_check_verification_artifact` | `BackgroundCheckVerificationArtifact` | No | No | — |
+| `insurance_verification_artifact` | `insurance_verification_artifact` | `InsuranceVerificationArtifact` | No | No | — |
+| `license_verification_artifact` | `license_verification_artifact` | `LicenseVerificationArtifact` | No | No | — |
+| `business_registration_check_verification_artifact` | `business_registration_check_verification_artifact` | `BusinessRegistrationCheckVerificationArtifact` | No | No | — |
 
 ## LocalServicesVerificationArtifactStatus
 
@@ -379,7 +379,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `place_id` | `place_id` | `string` | No | No | — |
-| `business_profile_locations` | `business_profile_locations` | `Array<unknown>` | No | No | — |
+| `business_profile_locations` | `business_profile_locations` | `Array<BusinessProfileLocation>` | No | No | — |
 | `location_ownership_type` | `location_ownership_type` | `LocationOwnershipType` | No | No | — |
 
 ## LocationAttributeMetadata
@@ -388,7 +388,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `country_location` | `country_location` | `unknown` | No | No | — |
+| `country_location` | `country_location` | `LocationInfo` | No | No | — |
 
 ## LocationGroupInfo
 
@@ -466,9 +466,9 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `location_ownership_type` | `location_ownership_type` | `LocationOwnershipType` | No | No | — |
-| `business_profile_location_set` | `business_profile_location_set` | `unknown` | No | No | — |
-| `chain_location_set` | `chain_location_set` | `unknown` | No | No | — |
-| `maps_location_set` | `maps_location_set` | `unknown` | No | No | — |
+| `business_profile_location_set` | `business_profile_location_set` | `BusinessProfileLocationSet` | No | No | — |
+| `chain_location_set` | `chain_location_set` | `ChainSet` | No | No | — |
+| `maps_location_set` | `maps_location_set` | `MapsLocationSet` | No | No | — |
 
 ## LocationSourceType
 
@@ -508,7 +508,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `rules` | `rules` | `Array<unknown>` | No | No | — |
+| `rules` | `rules` | `Array<UserListLogicalRuleInfo>` | No | No | — |
 
 ## LogicalUserListOperandInfo
 
@@ -554,7 +554,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `target_adjustment` | `target_adjustment` | `unknown` | No | No | — |
+| `target_adjustment` | `target_adjustment` | `TargetAdjustmentInfo` | No | No | — |
 
 ## LoyaltyRetentionGoal
 
@@ -562,7 +562,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `value_settings` | `value_settings` | `unknown` | No | No | — |
+| `value_settings` | `value_settings` | `CustomerLifecycleOptimizationValueSettings` | No | No | — |
 
 ## ManagedPlacementView
 
@@ -645,7 +645,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `maps_locations` | `maps_locations` | `Array<unknown>` | No | No | — |
+| `maps_locations` | `maps_locations` | `Array<MapsLocationInfo>` | No | No | — |
 
 ## MarketingObjectiveList
 
@@ -785,10 +785,10 @@ No fields are declared.
 | `source_url` | `source_url` | `string` | No | No | — |
 | `name` | `name` | `string` | No | No | — |
 | `file_size` | `file_size` | `string` | No | No | — |
-| `image` | `image` | `unknown` | No | No | — |
-| `media_bundle` | `media_bundle` | `unknown` | No | No | — |
-| `audio` | `audio` | `unknown` | No | No | — |
-| `video` | `video` | `unknown` | No | No | — |
+| `image` | `image` | `MediaImage` | No | No | — |
+| `media_bundle` | `media_bundle` | `MediaBundle` | No | No | — |
+| `audio` | `audio` | `MediaAudio` | No | No | — |
+| `video` | `video` | `MediaVideo` | No | No | — |
 
 ## MediaFileError
 

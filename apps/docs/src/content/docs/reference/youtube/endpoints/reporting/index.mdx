@@ -1,0 +1,286 @@
+---
+title: "YouTube Reporting endpoints"
+description: "8 generated YouTube endpoint contracts for Reporting."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 121
+  label: "Reporting"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.reporting.jobs.create
+
+`POST` `https://youtubereporting.googleapis.com/v1/jobs`
+
+Creates a job and returns it.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reporting.jobs.manage` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingJob` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+| `body` | `body` | `ReportingJob` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.jobs.delete
+
+`DELETE` `https://youtubereporting.googleapis.com/v1/jobs/{jobId}`
+
+Deletes a job.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reporting.jobs.manage` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingEmpty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `path` | `string` | Yes | No | The ID of the job to delete. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.jobs.get
+
+`GET` `https://youtubereporting.googleapis.com/v1/jobs/{jobId}`
+
+Gets a job.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.jobs.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingJob` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `path` | `string` | Yes | No | The ID of the job to retrieve. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.jobs.list
+
+`GET` `https://youtubereporting.googleapis.com/v1/jobs`
+
+Lists jobs.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.jobs.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingListJobsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageToken` | `query` | `string` | No | No | A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call to the `ListJobs` method. |
+| `includeSystemManaged` | `query` | `boolean` | No | No | If set to true, also system-managed jobs will be returned; otherwise only user-created jobs will be returned. System-managed jobs can neither be modified nor deleted. |
+| `pageSize` | `query` | `integer` | No | No | Requested page size. Server may return fewer jobs than requested. If unspecified, server will pick an appropriate default. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.jobs.reports.get
+
+`GET` `https://youtubereporting.googleapis.com/v1/jobs/{jobId}/reports/{reportId}`
+
+Gets the metadata of a specific report.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.jobs.reports.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingReport` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+| `jobId` | `path` | `string` | Yes | No | The ID of the job. |
+| `reportId` | `path` | `string` | Yes | No | The ID of the report to retrieve. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.jobs.reports.list
+
+`GET` `https://youtubereporting.googleapis.com/v1/jobs/{jobId}/reports`
+
+Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.jobs.reports.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingListReportsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+| `pageToken` | `query` | `string` | No | No | A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in response to the previous call to the `ListReports` method. |
+| `jobId` | `path` | `string` | Yes | No | The ID of the job. |
+| `createdAfter` | `query` | `string` | No | No | If set, only reports created after the specified date/time are returned. |
+| `pageSize` | `query` | `integer` | No | No | Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. |
+| `startTimeAtOrAfter` | `query` | `string` | No | No | If set, only reports whose start time is greater than or equal the specified date/time are returned. |
+| `startTimeBefore` | `query` | `string` | No | No | If set, only reports whose start time is smaller than the specified date/time are returned. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.media.download
+
+`GET` `https://youtubereporting.googleapis.com/v1/media/{+resourceName}`
+
+Method for media download. Download is supported on the URI `/v1/media/&#123;+name&#125;?alt=media`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.media.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingGdataMedia` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resourceName` | `path` | `string` | Yes | No | Name of the media that is being downloaded. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.reporting.reportTypes.list
+
+`GET` `https://youtubereporting.googleapis.com/v1/reportTypes`
+
+Lists report types.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reporting.reportTypes.read` |
+| Required scopes | `https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-reporting-api` |
+| Output | `ReportingListReportTypesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). |
+| `pageToken` | `query` | `string` | No | No | A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call to the `ListReportTypes` method. |
+| `includeSystemManaged` | `query` | `boolean` | No | No | If set to true, also system-managed report types will be returned; otherwise only the report types that can be used to create new reporting jobs will be returned. |
+| `pageSize` | `query` | `integer` | No | No | Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

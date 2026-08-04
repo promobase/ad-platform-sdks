@@ -60,7 +60,7 @@ function emitEndpoint(endpoint: EndpointIr): string {
   requiredScopes: ${JSON.stringify(endpoint.requiredScopes)},
   capabilities: ${JSON.stringify(endpoint.capabilities)},
   rateLimitBucket: ${JSON.stringify(endpoint.rateLimitBucket)},
-  parameters: ${parameters},
+${endpoint.authSchemes ? `  authSchemes: ${JSON.stringify(endpoint.authSchemes)},\n` : ""}${endpoint.protocols ? `  protocols: ${JSON.stringify(endpoint.protocols)},\n` : ""}${endpoint.staticHeaders ? `  staticHeaders: ${JSON.stringify(endpoint.staticHeaders)},\n` : ""}  parameters: ${parameters},
   inputSchema: Schema.Struct({
 ${inputSchemaFields}
   }),

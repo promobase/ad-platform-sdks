@@ -11,6 +11,7 @@ import {
 import type { PlatformError } from "./effect-errors.ts";
 import { makeSdkRuntime, type SdkRuntimeEnvironment } from "./effect-runtime.ts";
 import type { RuntimeRateLimiterService, RuntimeTelemetryService } from "./effect-services.ts";
+import { isNativeRequestBody } from "./request-body.ts";
 
 type AnySchema = Schema.Schema.Any;
 export type EndpointInput<Descriptor extends AnyEndpointDescriptor> =
@@ -192,7 +193,12 @@ export function resolveEndpointRequest(
     if (value === undefined || value === null) continue;
     switch (parameter.location) {
       case "path":
-        path = path.replaceAll(`{${parameter.wireName}}`, encodeURIComponent(String(value)));
+        path =
+          path === `/{${parameter.wireName}}` && /^https?:\/\//.test(String(value))
+            ? String(value)
+            : path
+                .replaceAll(`{${parameter.wireName}}`, encodeURIComponent(String(value)))
+                .replaceAll(`{+${parameter.wireName}}`, encodeReservedPath(String(value)));
         break;
       case "query":
         for (const item of Array.isArray(value) ? value : [value])
@@ -212,14 +218,17 @@ export function resolveEndpointRequest(
   if (/\{[^}]+\}/.test(path)) throw new Error(`Missing path parameter for ${path}`);
   const baseUrl =
     typeof config.baseUrl === "string" ? config.baseUrl : config.baseUrl?.[descriptor.platform];
-  const url = new URL(path, baseUrl === undefined ? undefined : ensureTrailingSlash(baseUrl));
+  const url = new URL(
+    baseUrl === undefined || /^https?:\/\//.test(path) ? path : path.replace(/^\//, ""),
+    baseUrl === undefined ? undefined : ensureTrailingSlash(baseUrl),
+  );
   query.forEach((value, key) => url.searchParams.append(key, value));
-  const headers: Record<string, string> = { ...requestHeaders };
+  const headers: Record<string, string> = { ...descriptor.staticHeaders, ...requestHeaders };
   for (const parameter of descriptor.parameters) {
     if (parameter.location === "header" && input[parameter.name] !== undefined)
       headers[parameter.wireName] = String(input[parameter.name]);
   }
-  if (body !== undefined && !hasHeader(headers, "content-type"))
+  if (body !== undefined && !isNativeRequestBody(body) && !hasHeader(headers, "content-type"))
     headers["content-type"] = "application/json";
   const idempotencyKey =
     typeof input.idempotencyKey === "string" ? input.idempotencyKey : undefined;
@@ -267,6 +276,9 @@ function toArray<T>(value: T | readonly T[] | undefined): readonly T[] {
 }
 function queryValue(value: unknown): string {
   return typeof value === "object" ? JSON.stringify(value) : String(value);
+}
+function encodeReservedPath(value: string): string {
+  return value.split("/").map(encodeURIComponent).join("/");
 }
 function ensureTrailingSlash(value: string): string {
   return value.endsWith("/") ? value : `${value}/`;

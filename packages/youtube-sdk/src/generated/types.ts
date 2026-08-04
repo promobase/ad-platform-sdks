@@ -1658,6 +1658,89 @@ export interface WatchSettings {
   textColor?: string;
 }
 
+export interface YouTubeAbuseReportsInsertParams {
+  part: string[];
+}
+
+export interface YouTubeActivitiesListParams {
+  channelId?: string;
+  home?: boolean;
+  maxResults?: number;
+  mine?: boolean;
+  pageToken?: string;
+  part: string[];
+  publishedAfter?: string;
+  publishedBefore?: string;
+  regionCode?: string;
+}
+
+export interface YouTubeCaptionsListParams {
+  id?: string[];
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+  part: string[];
+  videoId: string;
+}
+
+export interface YouTubeCaptionsDownloadParams {
+  id: string;
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+  tfmt?: string;
+  tlang?: string;
+}
+
+export interface YouTubeCaptionsDeleteParams {
+  id: string;
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeCaptionsInsertParams {
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+  part: string[];
+  sync?: boolean;
+}
+
+export interface YouTubeCaptionsUpdateParams {
+  onBehalfOf?: string;
+  onBehalfOfContentOwner?: string;
+  part: string[];
+  sync?: boolean;
+}
+
+export interface YouTubeChannelBannersInsertParams {
+  channelId?: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+}
+
+export interface YouTubeChannelSectionsListParams {
+  channelId?: string;
+  hl?: string;
+  id?: string[];
+  mine?: boolean;
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubeChannelSectionsInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeChannelSectionsUpdateParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubeChannelSectionsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+}
+
 export interface YouTubeChannelsListParams {
   categoryId?: string;
   forHandle?: string;
@@ -1676,6 +1759,398 @@ export interface YouTubeChannelsListParams {
 export interface YouTubeChannelsUpdateParams {
   onBehalfOfContentOwner?: string;
   part: string[];
+}
+
+export interface YouTubeCommentThreadsListParams {
+  allThreadsRelatedToChannelId?: string;
+  channelId?: string;
+  id?: string[];
+  maxResults?: number;
+  moderationStatus?: "published" | "heldForReview" | "likelySpam" | "rejected";
+  order?: "orderUnspecified" | "time" | "relevance";
+  pageToken?: string;
+  part: string[];
+  postId?: string;
+  searchTerms?: string;
+  textFormat?: "textFormatUnspecified" | "html" | "plainText";
+  videoId?: string;
+}
+
+export interface YouTubeCommentThreadsInsertParams {
+  part: string[];
+}
+
+export interface YouTubeCommentsInsertParams {
+  part: string[];
+}
+
+export interface YouTubeCommentsUpdateParams {
+  part: string[];
+}
+
+export interface YouTubeCommentsSetModerationStatusParams {
+  banAuthor?: boolean;
+  id: string[];
+  moderationStatus: "published" | "heldForReview" | "likelySpam" | "rejected";
+}
+
+export interface YouTubeCommentsDeleteParams {
+  id: string;
+}
+
+export interface YouTubeCommentsMarkAsSpamParams {
+  id: string[];
+}
+
+export interface YouTubeCommentsListParams {
+  id?: string[];
+  maxResults?: number;
+  pageToken?: string;
+  parentId?: string;
+  part: string[];
+  textFormat?: "textFormatUnspecified" | "html" | "plainText";
+}
+
+export interface YouTubeI18nLanguagesListParams {
+  hl?: string;
+  part: string[];
+}
+
+export interface YouTubeI18nRegionsListParams {
+  hl?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveBroadcastsInsertCuepointParams {
+  id?: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part?: string[];
+}
+
+export interface YouTubeLiveBroadcastsInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveBroadcastsUpdateParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveBroadcastsBindParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+  streamId?: string;
+}
+
+export interface YouTubeLiveBroadcastsTransitionParams {
+  broadcastStatus: "statusUnspecified" | "testing" | "live" | "complete";
+  id: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveBroadcastsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+}
+
+export interface YouTubeLiveBroadcastsListParams {
+  broadcastStatus?: "broadcastStatusFilterUnspecified" | "all" | "active" | "upcoming" | "completed";
+  broadcastType?: "broadcastTypeFilterUnspecified" | "all" | "event" | "persistent";
+  id?: string[];
+  maxResults?: number;
+  mine?: boolean;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveChatBansInsertParams {
+  part: string[];
+}
+
+export interface YouTubeLiveChatBansDeleteParams {
+  id: string;
+}
+
+export interface YouTubeLiveChatMessagesInsertParams {
+  part: string[];
+}
+
+export interface YouTubeLiveChatMessagesDeleteParams {
+  id: string;
+}
+
+export interface YouTubeLiveChatMessagesListParams {
+  hl?: string;
+  liveChatId: string;
+  maxResults?: number;
+  pageToken?: string;
+  part: string[];
+  profileImageSize?: number;
+}
+
+export interface YouTubeLiveChatMessagesTransitionParams {
+  id?: string;
+  status?: "statusUnspecified" | "closed";
+}
+
+export interface YouTubeLiveChatModeratorsListParams {
+  liveChatId: string;
+  maxResults?: number;
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveChatModeratorsInsertParams {
+  part: string[];
+}
+
+export interface YouTubeLiveChatModeratorsDeleteParams {
+  id: string;
+}
+
+export interface YouTubeLiveStreamsListParams {
+  id?: string[];
+  maxResults?: number;
+  mine?: boolean;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveStreamsInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveStreamsUpdateParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeLiveStreamsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+}
+
+export interface YouTubeMembersListParams {
+  filterByMemberChannelId?: string;
+  hasAccessToLevel?: string;
+  maxResults?: number;
+  mode?: "listMembersModeUnknown" | "updates" | "all_current";
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeMembershipsLevelsListParams {
+  part: string[];
+}
+
+export interface YouTubePlaylistImagesInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part?: string[];
+}
+
+export interface YouTubePlaylistImagesUpdateParams {
+  onBehalfOfContentOwner?: string;
+  part?: string[];
+}
+
+export interface YouTubePlaylistImagesDeleteParams {
+  id?: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubePlaylistImagesListParams {
+  maxResults?: number;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  pageToken?: string;
+  parent?: string;
+  part?: string[];
+}
+
+export interface YouTubePlaylistItemsListParams {
+  id?: string[];
+  maxResults?: number;
+  onBehalfOfContentOwner?: string;
+  pageToken?: string;
+  part: string[];
+  playlistId?: string;
+  videoId?: string;
+}
+
+export interface YouTubePlaylistItemsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubePlaylistItemsInsertParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistItemsUpdateParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistsListParams {
+  channelId?: string;
+  hl?: string;
+  id?: string[];
+  maxResults?: number;
+  mine?: boolean;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistsInsertParams {
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistsUpdateParams {
+  onBehalfOfContentOwner?: string;
+  part: string[];
+}
+
+export interface YouTubePlaylistsDeleteParams {
+  id: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeSearchListParams {
+  channelId?: string;
+  channelType?: "channelTypeUnspecified" | "any" | "show";
+  eventType?: "none" | "upcoming" | "live" | "completed";
+  forContentOwner?: boolean;
+  forDeveloper?: boolean;
+  forMine?: boolean;
+  location?: string;
+  locationRadius?: string;
+  maxResults?: number;
+  onBehalfOfContentOwner?: string;
+  order?: "searchSortUnspecified" | "date" | "rating" | "viewCount" | "relevance" | "title" | "videoCount";
+  pageToken?: string;
+  part: string[];
+  publishedAfter?: string;
+  publishedBefore?: string;
+  q?: string;
+  regionCode?: string;
+  relevanceLanguage?: string;
+  safeSearch?: "safeSearchSettingUnspecified" | "none" | "moderate" | "strict";
+  topicId?: string;
+  type?: string[];
+  videoCaption?: "videoCaptionUnspecified" | "any" | "closedCaption" | "none";
+  videoCategoryId?: string;
+  videoDefinition?: "any" | "standard" | "high";
+  videoDimension?: "any" | "2d" | "3d";
+  videoDuration?: "videoDurationUnspecified" | "any" | "short" | "medium" | "long";
+  videoEmbeddable?: "videoEmbeddableUnspecified" | "any" | "true";
+  videoLicense?: "any" | "youtube" | "creativeCommon";
+  videoPaidProductPlacement?: "videoPaidProductPlacementUnspecified" | "any" | "true";
+  videoSyndicated?: "videoSyndicatedUnspecified" | "any" | "true";
+  videoType?: "videoTypeUnspecified" | "any" | "movie" | "episode";
+}
+
+export interface YouTubeSubscriptionsListParams {
+  channelId?: string;
+  forChannelId?: string;
+  id?: string[];
+  maxResults?: number;
+  mine?: boolean;
+  myRecentSubscribers?: boolean;
+  mySubscribers?: boolean;
+  onBehalfOfContentOwner?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  order?: "subscriptionOrderUnspecified" | "relevance" | "unread" | "alphabetical";
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeSubscriptionsDeleteParams {
+  id: string;
+}
+
+export interface YouTubeSubscriptionsInsertParams {
+  part: string[];
+}
+
+export interface YouTubeSuperChatEventsListParams {
+  hl?: string;
+  maxResults?: number;
+  pageToken?: string;
+  part: string[];
+}
+
+export interface YouTubeTestsInsertParams {
+  externalChannelId?: string;
+  onBehalfOfContentOwnerChannel?: string;
+  part: string[];
+}
+
+export interface YouTubeThirdPartyLinksInsertParams {
+  externalChannelId?: string;
+  part: string[];
+}
+
+export interface YouTubeThirdPartyLinksUpdateParams {
+  externalChannelId?: string;
+  part: string[];
+}
+
+export interface YouTubeThirdPartyLinksDeleteParams {
+  externalChannelId?: string;
+  linkingToken: string;
+  part?: string[];
+  type: "linkUnspecified" | "channelToStoreLink" | "channelToAffiliateProgramLink";
+}
+
+export interface YouTubeThirdPartyLinksListParams {
+  externalChannelId?: string;
+  linkingToken?: string;
+  part: string[];
+  type?: "linkUnspecified" | "channelToStoreLink" | "channelToAffiliateProgramLink";
+}
+
+export interface YouTubeThumbnailsSetParams {
+  onBehalfOfContentOwner?: string;
+  videoId: string;
+}
+
+export interface YouTubeVideoAbuseReportReasonsListParams {
+  hl?: string;
+  part: string[];
+}
+
+export interface YouTubeVideoCategoriesListParams {
+  hl?: string;
+  id?: string[];
+  part: string[];
+  regionCode?: string;
+}
+
+export interface YouTubeVideoTrainabilityGetParams {
+  id?: string;
 }
 
 export interface YouTubeVideosRateParams {
@@ -1733,181 +2208,341 @@ export interface YouTubeVideosListParams {
   videoCategoryId?: string;
 }
 
-export interface YouTubePlaylistsListParams {
-  channelId?: string;
-  hl?: string;
-  id?: string[];
-  maxResults?: number;
+export interface YouTubeWatermarksSetParams {
+  channelId: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeWatermarksUnsetParams {
+  channelId: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface AnalyticsEmptyResponse {
+  errors?: AnalyticsErrors;
+}
+
+export interface AnalyticsErrorProto {
+  argument?: string[];
+  code?: string;
+  debugInfo?: string;
+  domain?: string;
+  externalErrorMessage?: string;
+  location?: string;
+  locationType?: "PATH" | "OTHER" | "PARAMETER";
+}
+
+export interface AnalyticsErrors {
+  code?: "BAD_REQUEST" | "FORBIDDEN" | "NOT_FOUND" | "CONFLICT" | "GONE" | "PRECONDITION_FAILED" | "INTERNAL_ERROR" | "SERVICE_UNAVAILABLE";
+  error?: AnalyticsErrorProto[];
+  requestId?: string;
+}
+
+export interface AnalyticsGroup {
+  contentDetails?: AnalyticsGroupContentDetails;
+  errors?: AnalyticsErrors;
+  etag?: string;
+  id?: string;
+  kind?: string;
+  snippet?: AnalyticsGroupSnippet;
+}
+
+export interface AnalyticsGroupContentDetails {
+  itemCount?: string;
+  itemType?: string;
+}
+
+export interface AnalyticsGroupItem {
+  errors?: AnalyticsErrors;
+  etag?: string;
+  groupId?: string;
+  id?: string;
+  kind?: string;
+  resource?: AnalyticsGroupItemResource;
+}
+
+export interface AnalyticsGroupItemResource {
+  id?: string;
+  kind?: string;
+}
+
+export interface AnalyticsGroupSnippet {
+  publishedAt?: string;
+  title?: string;
+}
+
+export interface AnalyticsListGroupItemsResponse {
+  errors?: AnalyticsErrors;
+  etag?: string;
+  items?: AnalyticsGroupItem[];
+  kind?: string;
+}
+
+export interface AnalyticsListGroupsResponse {
+  errors?: AnalyticsErrors;
+  etag?: string;
+  items?: AnalyticsGroup[];
+  kind?: string;
+  nextPageToken?: string;
+}
+
+export interface AnalyticsQueryResponse {
+  columnHeaders?: AnalyticsResultTableColumnHeader[];
+  errors?: AnalyticsErrors;
+  kind?: string;
+  rows?: unknown[][];
+}
+
+export interface AnalyticsResultTableColumnHeader {
+  columnType?: string;
+  dataType?: string;
+  name?: string;
+}
+
+export interface YouTubeAnalyticsGroupItemsDeleteParams {
+  id?: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeAnalyticsGroupItemsInsertParams {
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeAnalyticsGroupItemsListParams {
+  groupId?: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeAnalyticsGroupsDeleteParams {
+  id?: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeAnalyticsGroupsInsertParams {
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeAnalyticsGroupsListParams {
+  id?: string;
   mine?: boolean;
   onBehalfOfContentOwner?: string;
-  onBehalfOfContentOwnerChannel?: string;
   pageToken?: string;
-  part: string[];
 }
 
-export interface YouTubePlaylistsInsertParams {
-  onBehalfOfContentOwner?: string;
-  onBehalfOfContentOwnerChannel?: string;
-  part: string[];
-}
-
-export interface YouTubePlaylistsUpdateParams {
-  onBehalfOfContentOwner?: string;
-  part: string[];
-}
-
-export interface YouTubePlaylistsDeleteParams {
-  id: string;
+export interface YouTubeAnalyticsGroupsUpdateParams {
   onBehalfOfContentOwner?: string;
 }
 
-export interface YouTubePlaylistItemsListParams {
-  id?: string[];
+export interface YouTubeAnalyticsReportsQueryParams {
+  currency?: string;
+  dimensions?: string;
+  endDate?: string;
+  filters?: string;
+  ids?: string;
+  includeHistoricalChannelData?: boolean;
   maxResults?: number;
+  metrics?: string;
+  sort?: string;
+  startDate?: string;
+  startIndex?: number;
+}
+
+export interface ReportingEmpty {
+}
+
+export interface ReportingGdataBlobstore2Info {
+  blobGeneration?: string;
+  blobId?: string;
+  downloadExternalReadToken?: string;
+  downloadReadHandle?: string;
+  readToken?: string;
+  uploadFragmentListCreationInfo?: string;
+  uploadMetadataContainer?: string;
+}
+
+export interface ReportingGdataCompositeMedia {
+  blobRef?: string;
+  blobstore2Info?: ReportingGdataBlobstore2Info;
+  cosmoBinaryReference?: string;
+  crc32cHash?: number;
+  inline?: string;
+  length?: string;
+  md5Hash?: string;
+  objectId?: ReportingGdataObjectId;
+  path?: string;
+  referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "BIGSTORE_REF" | "COSMO_BINARY_REFERENCE";
+  sha1Hash?: string;
+}
+
+export interface ReportingGdataContentTypeInfo {
+  bestGuess?: string;
+  fromBytes?: string;
+  fromFileName?: string;
+  fromFusionId?: string;
+  fromHeader?: string;
+  fromUrlPath?: string;
+  fusionIdDetectionMetadata?: string;
+}
+
+export interface ReportingGdataDiffChecksumsResponse {
+  checksumsLocation?: ReportingGdataCompositeMedia;
+  chunkSizeBytes?: string;
+  objectLocation?: ReportingGdataCompositeMedia;
+  objectSizeBytes?: string;
+  objectVersion?: string;
+}
+
+export interface ReportingGdataDiffDownloadResponse {
+  objectLocation?: ReportingGdataCompositeMedia;
+}
+
+export interface ReportingGdataDiffUploadRequest {
+  checksumsInfo?: ReportingGdataCompositeMedia;
+  objectInfo?: ReportingGdataCompositeMedia;
+  objectVersion?: string;
+}
+
+export interface ReportingGdataDiffUploadResponse {
+  objectVersion?: string;
+  originalObject?: ReportingGdataCompositeMedia;
+}
+
+export interface ReportingGdataDiffVersionResponse {
+  objectSizeBytes?: string;
+  objectVersion?: string;
+}
+
+export interface ReportingGdataDownloadParameters {
+  allowGzipCompression?: boolean;
+  ignoreRange?: boolean;
+}
+
+export interface ReportingGdataMedia {
+  algorithm?: string;
+  bigstoreObjectRef?: string;
+  blobRef?: string;
+  blobstore2Info?: ReportingGdataBlobstore2Info;
+  compositeMedia?: ReportingGdataCompositeMedia[];
+  contentType?: string;
+  contentTypeInfo?: ReportingGdataContentTypeInfo;
+  cosmoBinaryReference?: string;
+  crc32cHash?: number;
+  diffChecksumsResponse?: ReportingGdataDiffChecksumsResponse;
+  diffDownloadResponse?: ReportingGdataDiffDownloadResponse;
+  diffUploadRequest?: ReportingGdataDiffUploadRequest;
+  diffUploadResponse?: ReportingGdataDiffUploadResponse;
+  diffVersionResponse?: ReportingGdataDiffVersionResponse;
+  downloadParameters?: ReportingGdataDownloadParameters;
+  filename?: string;
+  hash?: string;
+  hashVerified?: boolean;
+  inline?: string;
+  isPotentialRetry?: boolean;
+  length?: string;
+  md5Hash?: string;
+  mediaId?: string;
+  objectId?: ReportingGdataObjectId;
+  path?: string;
+  referenceType?: "PATH" | "BLOB_REF" | "INLINE" | "GET_MEDIA" | "COMPOSITE_MEDIA" | "BIGSTORE_REF" | "DIFF_VERSION_RESPONSE" | "DIFF_CHECKSUMS_RESPONSE" | "DIFF_DOWNLOAD_RESPONSE" | "DIFF_UPLOAD_REQUEST" | "DIFF_UPLOAD_RESPONSE" | "COSMO_BINARY_REFERENCE" | "ARBITRARY_BYTES";
+  sha1Hash?: string;
+  sha256Hash?: string;
+  sha512Hash?: string;
+  timestamp?: string;
+  token?: string;
+}
+
+export interface ReportingGdataObjectId {
+  bucketName?: string;
+  generation?: string;
+  objectName?: string;
+}
+
+export interface ReportingJob {
+  createTime?: string;
+  expireTime?: string;
+  id?: string;
+  name?: string;
+  reportTypeId?: string;
+  systemManaged?: boolean;
+}
+
+export interface ReportingListJobsResponse {
+  jobs?: ReportingJob[];
+  nextPageToken?: string;
+}
+
+export interface ReportingListReportsResponse {
+  nextPageToken?: string;
+  reports?: ReportingReport[];
+}
+
+export interface ReportingListReportTypesResponse {
+  nextPageToken?: string;
+  reportTypes?: ReportingReportType[];
+}
+
+export interface ReportingReport {
+  createTime?: string;
+  downloadUrl?: string;
+  endTime?: string;
+  id?: string;
+  jobExpireTime?: string;
+  jobId?: string;
+  startTime?: string;
+}
+
+export interface ReportingReportType {
+  deprecateTime?: string;
+  id?: string;
+  name?: string;
+  systemManaged?: boolean;
+}
+
+export interface YouTubeReportingJobsCreateParams {
   onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeReportingJobsDeleteParams {
+  jobId: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeReportingJobsGetParams {
+  jobId: string;
+  onBehalfOfContentOwner?: string;
+}
+
+export interface YouTubeReportingJobsListParams {
+  includeSystemManaged?: boolean;
+  onBehalfOfContentOwner?: string;
+  pageSize?: number;
   pageToken?: string;
-  part: string[];
-  playlistId?: string;
-  videoId?: string;
 }
 
-export interface YouTubePlaylistItemsDeleteParams {
-  id: string;
+export interface YouTubeReportingJobsReportsGetParams {
+  jobId: string;
   onBehalfOfContentOwner?: string;
+  reportId: string;
 }
 
-export interface YouTubePlaylistItemsInsertParams {
+export interface YouTubeReportingJobsReportsListParams {
+  createdAfter?: string;
+  jobId: string;
   onBehalfOfContentOwner?: string;
-  part: string[];
-}
-
-export interface YouTubePlaylistItemsUpdateParams {
-  onBehalfOfContentOwner?: string;
-  part: string[];
-}
-
-export interface YouTubeCommentsInsertParams {
-  part: string[];
-}
-
-export interface YouTubeCommentsUpdateParams {
-  part: string[];
-}
-
-export interface YouTubeCommentsSetModerationStatusParams {
-  banAuthor?: boolean;
-  id: string[];
-  moderationStatus: "published" | "heldForReview" | "likelySpam" | "rejected";
-}
-
-export interface YouTubeCommentsDeleteParams {
-  id: string;
-}
-
-export interface YouTubeCommentsMarkAsSpamParams {
-  id: string[];
-}
-
-export interface YouTubeCommentsListParams {
-  id?: string[];
-  maxResults?: number;
+  pageSize?: number;
   pageToken?: string;
-  parentId?: string;
-  part: string[];
-  textFormat?: "textFormatUnspecified" | "html" | "plainText";
+  startTimeAtOrAfter?: string;
+  startTimeBefore?: string;
 }
 
-export interface YouTubeCommentThreadsListParams {
-  allThreadsRelatedToChannelId?: string;
-  channelId?: string;
-  id?: string[];
-  maxResults?: number;
-  moderationStatus?: "published" | "heldForReview" | "likelySpam" | "rejected";
-  order?: "orderUnspecified" | "time" | "relevance";
+export interface YouTubeReportingMediaDownloadParams {
+  resourceName: string;
+}
+
+export interface YouTubeReportingReportTypesListParams {
+  includeSystemManaged?: boolean;
+  onBehalfOfContentOwner?: string;
+  pageSize?: number;
   pageToken?: string;
-  part: string[];
-  postId?: string;
-  searchTerms?: string;
-  textFormat?: "textFormatUnspecified" | "html" | "plainText";
-  videoId?: string;
-}
-
-export interface YouTubeCommentThreadsInsertParams {
-  part: string[];
-}
-
-export interface YouTubeCaptionsListParams {
-  id?: string[];
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
-  part: string[];
-  videoId: string;
-}
-
-export interface YouTubeCaptionsDownloadParams {
-  id: string;
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
-  tfmt?: string;
-  tlang?: string;
-}
-
-export interface YouTubeCaptionsDeleteParams {
-  id: string;
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
-}
-
-export interface YouTubeCaptionsInsertParams {
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
-  part: string[];
-  sync?: boolean;
-}
-
-export interface YouTubeCaptionsUpdateParams {
-  onBehalfOf?: string;
-  onBehalfOfContentOwner?: string;
-  part: string[];
-  sync?: boolean;
-}
-
-export interface YouTubeThumbnailsSetParams {
-  onBehalfOfContentOwner?: string;
-  videoId: string;
-}
-
-export interface YouTubeSearchListParams {
-  channelId?: string;
-  channelType?: "channelTypeUnspecified" | "any" | "show";
-  eventType?: "none" | "upcoming" | "live" | "completed";
-  forContentOwner?: boolean;
-  forDeveloper?: boolean;
-  forMine?: boolean;
-  location?: string;
-  locationRadius?: string;
-  maxResults?: number;
-  onBehalfOfContentOwner?: string;
-  order?: "searchSortUnspecified" | "date" | "rating" | "viewCount" | "relevance" | "title" | "videoCount";
-  pageToken?: string;
-  part: string[];
-  publishedAfter?: string;
-  publishedBefore?: string;
-  q?: string;
-  regionCode?: string;
-  relevanceLanguage?: string;
-  safeSearch?: "safeSearchSettingUnspecified" | "none" | "moderate" | "strict";
-  topicId?: string;
-  type?: string[];
-  videoCaption?: "videoCaptionUnspecified" | "any" | "closedCaption" | "none";
-  videoCategoryId?: string;
-  videoDefinition?: "any" | "standard" | "high";
-  videoDimension?: "any" | "2d" | "3d";
-  videoDuration?: "videoDurationUnspecified" | "any" | "short" | "medium" | "long";
-  videoEmbeddable?: "videoEmbeddableUnspecified" | "any" | "true";
-  videoLicense?: "any" | "youtube" | "creativeCommon";
-  videoPaidProductPlacement?: "videoPaidProductPlacementUnspecified" | "any" | "true";
-  videoSyndicated?: "videoSyndicatedUnspecified" | "any" | "true";
-  videoType?: "videoTypeUnspecified" | "any" | "movie" | "episode";
 }
 

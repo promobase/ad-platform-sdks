@@ -1,16 +1,27 @@
 {
   "schemaVersion": 1,
   "platform": "linkedin",
-  "version": "202602",
-  "endpointCount": 18,
+  "version": "202607",
+  "endpointCount": 303,
   "modelCount": 0,
-  "capabilityCount": 8,
+  "capabilityCount": 19,
   "endpointPages": [
     "endpoints/account",
+    "endpoints/audience-insights",
+    "endpoints/audiences",
+    "endpoints/campaign-management",
     "endpoints/comment",
+    "endpoints/community-management",
+    "endpoints/company-intelligence-api",
+    "endpoints/content-apis",
+    "endpoints/conversions-api",
+    "endpoints/events-management-api",
+    "endpoints/lead-sync",
     "endpoints/media",
+    "endpoints/media-planning",
     "endpoints/oauth",
-    "endpoints/post"
+    "endpoints/post",
+    "endpoints/reporting-roi"
   ],
   "modelPages": []
 }

@@ -1,15 +1,15 @@
 ---
 title: "LinkedIn SDK reference"
-description: "Generated reference for 18 LinkedIn endpoints and 0 models."
+description: "Generated reference for 303 LinkedIn endpoints and 0 models."
 generated: true
 platform: "linkedin"
-sourceVersion: "202602"
+sourceVersion: "202607"
 sidebar:
   order: 50
   label: "LinkedIn"
 ---
 
-{/* Generated from canonical SdkIr (handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts). Do not edit by hand. */}
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
 
 Install the platform package and import either its high-level client or its generated Effect client.
 
@@ -26,25 +26,47 @@ const client = createEffectClient();
 | Contract | Value |
 | --- | --- |
 | Platform | LinkedIn |
-| API version | `202602` |
-| Source | `handwritten: src/{account,analytics,assets,comments,oauth,posts}.ts` |
-| Endpoints | 18 |
+| API version | `202607` |
+| Source | `vendor-json: spec/linkedin-postman.snapshot.json` |
+| Endpoints | 303 |
 | Models | 0 |
-| Capabilities | 8 |
+| Capabilities | 19 |
 
 ## Endpoints
 
 - [Account](/reference/linkedin/endpoints/account)
+- [Audience insights](/reference/linkedin/endpoints/audience-insights)
+- [Audiences](/reference/linkedin/endpoints/audiences)
+- [Campaign management](/reference/linkedin/endpoints/campaign-management)
 - [Comment](/reference/linkedin/endpoints/comment)
+- [Community management](/reference/linkedin/endpoints/community-management)
+- [Company intelligence api](/reference/linkedin/endpoints/company-intelligence-api)
+- [Content apis](/reference/linkedin/endpoints/content-apis)
+- [Conversions api](/reference/linkedin/endpoints/conversions-api)
+- [Events management api](/reference/linkedin/endpoints/events-management-api)
+- [Lead sync](/reference/linkedin/endpoints/lead-sync)
 - [Media](/reference/linkedin/endpoints/media)
+- [Media planning](/reference/linkedin/endpoints/media-planning)
 - [Oauth](/reference/linkedin/endpoints/oauth)
 - [Post](/reference/linkedin/endpoints/post)
+- [Reporting roi](/reference/linkedin/endpoints/reporting-roi)
 
 ## Capabilities
 
 | Capability | Summary | Required scopes |
 | --- | --- | --- |
 | `account.read` | Read organizations available to the authenticated member | `r_organization_social` |
+| `api.audience.insights` | Call operations documented by LinkedIn's Audience Insights collection | None declared |
+| `api.audiences` | Call operations documented by LinkedIn's Audiences collection | None declared |
+| `api.campaign.management` | Call operations documented by LinkedIn's Campaign Management collection | None declared |
+| `api.community.management` | Call operations documented by LinkedIn's Community Management collection | None declared |
+| `api.company.intelligence.api` | Call operations documented by LinkedIn's Company Intelligence API collection | None declared |
+| `api.content.apis` | Call operations documented by LinkedIn's Content APIs collection | None declared |
+| `api.conversions.api` | Call operations documented by LinkedIn's Conversions API collection | None declared |
+| `api.events.management.api` | Call operations documented by LinkedIn's Events Management API collection | None declared |
+| `api.lead.sync` | Call operations documented by LinkedIn's Lead Sync collection | None declared |
+| `api.media.planning` | Call operations documented by LinkedIn's Media Planning collection | None declared |
+| `api.reporting.roi` | Call operations documented by LinkedIn's Reporting & ROI collection | None declared |
 | `comment.publish` | Publish LinkedIn comments | `w_member_social`<br />`w_organization_social` |
 | `media.upload` | Initialize and upload LinkedIn media | `w_member_social`<br />`w_organization_social` |
 | `oauth` | Complete LinkedIn OAuth flows | `openid`<br />`profile` |

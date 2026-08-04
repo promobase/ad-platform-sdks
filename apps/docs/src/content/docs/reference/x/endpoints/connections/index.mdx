@@ -1,0 +1,143 @@
+---
+title: "X Connections endpoints"
+description: "4 generated X endpoint contracts for Connections."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 108
+  label: "Connections"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.connections.deleteAllConnections
+
+`DELETE` `/2/connections/all`
+
+Terminates all active streaming connections for the authenticated application.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `connections.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-connections` |
+| Output | `DeleteAllConnectionsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.connections.deleteConnectionsByEndpoint
+
+`DELETE` `/2/connections/{endpoint_id}`
+
+Terminates all streaming connections for a specific endpoint ID for the authenticated application.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `connections.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-connections` |
+| Output | `DeleteConnectionsByEndpointResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endpoint_id` | `path` | `"filtered_stream" \| "sample_stream" \| "sample10_stream" \| "firehose_stream" \| "tweets_compliance_stream" \| "users_compliance_stream" \| "tweet_label_stream" \| "firehose_stream_lang_en" \| "firehose_stream_lang_ja" \| "firehose_stream_lang_ko" \| "firehose_stream_lang_pt" \| "likes_firehose_stream" \| "likes_sample10_stream" \| "likes_compliance_stream"` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.connections.deleteConnectionsByUuids
+
+`DELETE` `/2/connections`
+
+Terminates multiple streaming connections by their UUIDs for the authenticated application.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `connections.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-connections` |
+| Output | `DeleteConnectionsByUuidsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `DeleteConnectionsByUuidsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.connections.getConnectionHistory
+
+`GET` `/2/connections`
+
+Returns active and historical streaming connections with disconnect reasons for the authenticated application.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `connections.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-connections` |
+| Output | `GetConnectionHistoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `query` | `"active" \| "inactive" \| "all"` | No | No | — |
+| `endpoints` | `query` | `Array<"filtered_stream" \| "sample_stream" \| "sample10_stream" \| "firehose_stream" \| "tweets_compliance_stream" \| "users_compliance_stream" \| "tweet_label_stream" \| "firehose_stream_lang_en" \| "firehose_stream_lang_ja" \| "firehose_stream_lang_ko" \| "firehose_stream_lang_pt" \| "likes_firehose_stream" \| "likes_sample10_stream" \| "likes_compliance_stream">` | No | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `connection.fields` | `query` | `Array<"client_ip" \| "connected_at" \| "disconnect_reason" \| "disconnected_at" \| "endpoint_name" \| "id">` | No | No | A comma separated list of Connection fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

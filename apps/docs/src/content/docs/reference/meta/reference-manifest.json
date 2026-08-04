@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "platform": "meta",
-  "version": "graph",
+  "version": "v25.0",
   "endpointCount": 1451,
   "modelCount": 1488,
   "capabilityCount": 395,

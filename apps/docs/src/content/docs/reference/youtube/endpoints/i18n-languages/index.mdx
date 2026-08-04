@@ -1,0 +1,46 @@
+---
+title: "YouTube I18n Languages endpoints"
+description: "1 generated YouTube endpoint contract for I18n Languages."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 109
+  label: "I18n Languages"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.i18nLanguages.list
+
+`GET` `youtube/v3/i18nLanguages`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `i18nLanguages.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `I18nLanguageListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `query` | `string` | No | No | — |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

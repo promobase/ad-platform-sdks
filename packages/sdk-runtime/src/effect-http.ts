@@ -1,6 +1,7 @@
 import { Data, Effect, Schedule } from "effect";
 
 import type { RetryConfig } from "./client.ts";
+import { serializeRequestBody } from "./request-body.ts";
 
 export class EffectHttpError extends Data.TaggedError("EffectHttpError")<{
   readonly status: number;
@@ -52,7 +53,7 @@ export function jsonRequestEffect<T>(
   const init: RequestInit = {
     method: opts.method,
     headers: opts.headers,
-    body: opts.body === undefined ? undefined : JSON.stringify(opts.body),
+    body: serializeRequestBody(opts.body, opts.headers),
   };
 
   const request = Effect.gen(function* () {

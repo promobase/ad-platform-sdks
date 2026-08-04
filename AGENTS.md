@@ -35,6 +35,7 @@ bun run format:check
 bun run typecheck
 bun run build
 bun run test
+bun run codegen:check
 bun run release:check
 ```
 
@@ -61,12 +62,15 @@ full root checks for cross-package, generated-code, build, or release changes.
 
 Generated files are outputs, not primary edit targets:
 
-| Package    | Source of truth                                        | Command                                            |
-| ---------- | ------------------------------------------------------ | -------------------------------------------------- |
-| Meta       | `packages/meta-business-sdk/api_specs/` submodule      | `cd packages/meta-business-sdk && bun run codegen` |
-| Google Ads | `packages/google-ads-sdk/vendor/googleapis/` submodule | `cd packages/google-ads-sdk && bun run codegen`    |
-| X          | `fern/` configuration and OpenAPI input                | `cd packages/x-sdk && bun run codegen`             |
-| YouTube    | `google-discovery/youtube-v3.json`                     | `cd packages/youtube-sdk && bun run codegen`       |
+| Package                 | Source of truth                                        | Command                                                       |
+| ----------------------- | ------------------------------------------------------ | ------------------------------------------------------------- |
+| Meta                    | `packages/meta-business-sdk/api_specs/` submodule      | `cd packages/meta-business-sdk && bun run codegen`            |
+| TikTok                  | Cached official documentation snapshot                 | `cd packages/tiktok-business-sdk && bun run codegen`          |
+| Google Ads              | `packages/google-ads-sdk/vendor/googleapis/` submodule | `cd packages/google-ads-sdk && bun run codegen`               |
+| Google Business Profile | Pinned Google discovery documents                      | `cd packages/google-business-profile-sdk && bun run codegen`  |
+| LinkedIn                | Pinned official Postman collection snapshot            | `cd packages/linkedin-sdk && bun run codegen`                 |
+| X                       | `fern/` configuration and OpenAPI input                | `cd packages/x-sdk && bun run codegen`                        |
+| YouTube                 | Pinned Data, Analytics, and Reporting discovery inputs | `cd packages/youtube-sdk && bun run codegen`                  |
 
 Do not hand-edit generated trees when the generator or its input owns the change. Do not update
 submodule pins incidentally. Review generated diffs for unrelated churn and run the owning package's

@@ -64,7 +64,7 @@ No fields are declared.
 | `id` | `id` | `string` | No | No | — |
 | `status` | `status` | `BillingSetupStatus` | No | No | — |
 | `payments_account` | `payments_account` | `string` | No | No | — |
-| `payments_account_info` | `payments_account_info` | `unknown` | No | No | — |
+| `payments_account_info` | `payments_account_info` | `PaymentsAccountInfo` | No | No | — |
 | `start_date_time` | `start_date_time` | `string` | No | No | — |
 | `start_time_type` | `start_time_type` | `TimeType` | No | No | — |
 | `end_date_time` | `end_date_time` | `string` | No | No | — |
@@ -109,7 +109,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `campaigns` | `campaigns` | `Array<unknown>` | No | No | — |
+| `campaigns` | `campaigns` | `Array<Campaign>` | No | No | — |
 | `quote_signature` | `quote_signature` | `string` | No | No | — |
 
 ## BookCampaignsOperation_Campaign
@@ -301,9 +301,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `breakdown_key` | `breakdown_key` | `unknown` | No | No | — |
-| `customer_metrics` | `customer_metrics` | `unknown` | No | No | — |
-| `average_benchmarks_metrics` | `average_benchmarks_metrics` | `unknown` | No | No | — |
+| `breakdown_key` | `breakdown_key` | `BreakdownKey` | No | No | — |
+| `customer_metrics` | `customer_metrics` | `CustomerMetrics` | No | No | — |
+| `average_benchmarks_metrics` | `average_benchmarks_metrics` | `Metrics` | No | No | — |
 
 ## BudgetCampaignAssociationStatus
 
@@ -353,7 +353,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `daily_amount_micros` | `daily_amount_micros` | `string` | No | No | — |
-| `metrics` | `metrics` | `unknown` | No | No | — |
+| `metrics` | `metrics` | `Metrics` | No | No | — |
 
 ## BudgetPerDayMinimumErrorDetails
 
@@ -402,7 +402,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `points` | `points` | `Array<unknown>` | No | No | — |
+| `points` | `points` | `Array<BudgetSimulationPoint>` | No | No | — |
 
 ## BudgetStatus
 
@@ -444,10 +444,10 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `message_provider` | `message_provider` | `BusinessMessageProvider` | No | No | — |
 | `starter_message` | `starter_message` | `string` | No | No | — |
-| `call_to_action` | `call_to_action` | `unknown` | No | No | — |
-| `whatsapp_info` | `whatsapp_info` | `unknown` | No | No | — |
-| `facebook_messenger_info` | `facebook_messenger_info` | `unknown` | No | No | — |
-| `zalo_info` | `zalo_info` | `unknown` | No | No | — |
+| `call_to_action` | `call_to_action` | `BusinessMessageCallToActionInfo` | No | No | — |
+| `whatsapp_info` | `whatsapp_info` | `WhatsappBusinessMessageInfo` | No | No | — |
+| `facebook_messenger_info` | `facebook_messenger_info` | `FacebookMessengerBusinessMessageInfo` | No | No | — |
+| `zalo_info` | `zalo_info` | `ZaloBusinessMessageInfo` | No | No | — |
 
 ## BusinessMessageCallToActionInfo
 
@@ -507,7 +507,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `dynamic_business_profile_location_group_filter` | `dynamic_business_profile_location_group_filter` | `unknown` | No | No | — |
+| `dynamic_business_profile_location_group_filter` | `dynamic_business_profile_location_group_filter` | `DynamicBusinessProfileLocationGroupFilter` | No | No | — |
 
 ## BusinessProfileLocationSet
 
@@ -531,8 +531,8 @@ No fields are declared.
 | `registration_type` | `registration_type` | `LocalServicesBusinessRegistrationType` | No | No | — |
 | `check_id` | `check_id` | `string` | No | No | — |
 | `rejection_reason` | `rejection_reason` | `LocalServicesBusinessRegistrationCheckRejectionReason` | No | No | — |
-| `registration_number` | `registration_number` | `unknown` | No | No | — |
-| `registration_document` | `registration_document` | `unknown` | No | No | — |
+| `registration_number` | `registration_number` | `BusinessRegistrationNumber` | No | No | — |
+| `registration_document` | `registration_document` | `BusinessRegistrationDocument` | No | No | — |
 
 ## BusinessRegistrationDocument
 
@@ -560,7 +560,7 @@ No fields are declared.
 | `phone_number` | `phone_number` | `string` | No | No | — |
 | `call_conversion_reporting_state` | `call_conversion_reporting_state` | `CallConversionReportingState` | No | No | — |
 | `call_conversion_action` | `call_conversion_action` | `string` | No | No | — |
-| `ad_schedule_targets` | `ad_schedule_targets` | `Array<unknown>` | No | No | — |
+| `ad_schedule_targets` | `ad_schedule_targets` | `Array<AdScheduleInfo>` | No | No | — |
 
 ## CallAssetParameters
 
@@ -568,7 +568,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `unknown` | No | No | — |
+| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `AdAssetApplyParameters` | No | No | — |
 
 ## CallAssetRecommendation
 
@@ -588,7 +588,7 @@ No fields are declared.
 | `conversion_date_time` | `conversion_date_time` | `string` | No | No | — |
 | `conversion_value` | `conversion_value` | `number` | No | No | — |
 | `currency_code` | `currency_code` | `string` | No | No | — |
-| `custom_variables` | `custom_variables` | `Array<unknown>` | No | No | — |
+| `custom_variables` | `custom_variables` | `Array<CustomVariable>` | No | No | — |
 | `consent` | `consent` | `Consent` | No | No | — |
 
 ## CallConversionReportingState
@@ -644,7 +644,7 @@ No fields are declared.
 | `callout_text` | `callout_text` | `string` | No | No | — |
 | `start_date` | `start_date` | `string` | No | No | — |
 | `end_date` | `end_date` | `string` | No | No | — |
-| `ad_schedule_targets` | `ad_schedule_targets` | `Array<unknown>` | No | No | — |
+| `ad_schedule_targets` | `ad_schedule_targets` | `Array<AdScheduleInfo>` | No | No | — |
 
 ## CalloutAssetParameters
 
@@ -652,7 +652,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `unknown` | No | No | — |
+| `ad_asset_apply_parameters` | `ad_asset_apply_parameters` | `AdAssetApplyParameters` | No | No | — |
 
 ## CalloutAssetRecommendation
 
@@ -660,8 +660,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `recommended_campaign_callout_assets` | `recommended_campaign_callout_assets` | `Array<unknown>` | No | No | — |
-| `recommended_customer_callout_assets` | `recommended_customer_callout_assets` | `Array<unknown>` | No | No | — |
+| `recommended_campaign_callout_assets` | `recommended_campaign_callout_assets` | `Array<Asset>` | No | No | — |
+| `recommended_customer_callout_assets` | `recommended_customer_callout_assets` | `Array<Asset>` | No | No | — |
 
 ## CalloutExtensionParameters
 
@@ -768,21 +768,21 @@ No fields are declared.
 | `advertising_channel_sub_type` | `advertising_channel_sub_type` | `AdvertisingChannelSubType` | No | No | — |
 | `tracking_url_template` | `tracking_url_template` | `string` | No | No | — |
 | `url_custom_parameters` | `url_custom_parameters` | `Array<CustomParameter>` | No | No | — |
-| `local_services_campaign_settings` | `local_services_campaign_settings` | `unknown` | No | No | — |
-| `travel_campaign_settings` | `travel_campaign_settings` | `unknown` | No | No | — |
-| `demand_gen_campaign_settings` | `demand_gen_campaign_settings` | `unknown` | No | No | — |
-| `video_campaign_settings` | `video_campaign_settings` | `unknown` | No | No | — |
-| `pmax_campaign_settings` | `pmax_campaign_settings` | `unknown` | No | No | — |
+| `local_services_campaign_settings` | `local_services_campaign_settings` | `LocalServicesCampaignSettings` | No | No | — |
+| `travel_campaign_settings` | `travel_campaign_settings` | `TravelCampaignSettings` | No | No | — |
+| `demand_gen_campaign_settings` | `demand_gen_campaign_settings` | `DemandGenCampaignSettings` | No | No | — |
+| `video_campaign_settings` | `video_campaign_settings` | `VideoCampaignSettings` | No | No | — |
+| `pmax_campaign_settings` | `pmax_campaign_settings` | `PmaxCampaignSettings` | No | No | — |
 | `real_time_bidding_setting` | `real_time_bidding_setting` | `RealTimeBiddingSetting` | No | No | — |
-| `network_settings` | `network_settings` | `unknown` | No | No | — |
-| `hotel_setting` | `hotel_setting` | `unknown` | No | No | — |
-| `dynamic_search_ads_setting` | `dynamic_search_ads_setting` | `unknown` | No | No | — |
-| `shopping_setting` | `shopping_setting` | `unknown` | No | No | — |
+| `network_settings` | `network_settings` | `NetworkSettings` | No | No | — |
+| `hotel_setting` | `hotel_setting` | `HotelSettingInfo` | No | No | — |
+| `dynamic_search_ads_setting` | `dynamic_search_ads_setting` | `DynamicSearchAdsSetting` | No | No | — |
+| `shopping_setting` | `shopping_setting` | `ShoppingSetting` | No | No | — |
 | `targeting_setting` | `targeting_setting` | `TargetingSetting` | No | No | — |
-| `audience_setting` | `audience_setting` | `unknown` | No | No | — |
-| `geo_target_type_setting` | `geo_target_type_setting` | `unknown` | No | No | — |
-| `local_campaign_setting` | `local_campaign_setting` | `unknown` | No | No | — |
-| `app_campaign_setting` | `app_campaign_setting` | `unknown` | No | No | — |
+| `audience_setting` | `audience_setting` | `AudienceSetting` | No | No | — |
+| `geo_target_type_setting` | `geo_target_type_setting` | `GeoTargetTypeSetting` | No | No | — |
+| `local_campaign_setting` | `local_campaign_setting` | `LocalCampaignSetting` | No | No | — |
+| `app_campaign_setting` | `app_campaign_setting` | `AppCampaignSetting` | No | No | — |
 | `labels` | `labels` | `Array<string>` | No | No | — |
 | `experiment_type` | `experiment_type` | `CampaignExperimentType` | No | No | — |
 | `base_campaign` | `base_campaign` | `string` | No | No | — |
@@ -794,24 +794,24 @@ No fields are declared.
 | `end_date_time` | `end_date_time` | `string` | No | No | — |
 | `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |
 | `frequency_caps` | `frequency_caps` | `Array<FrequencyCapEntry>` | No | No | — |
-| `vanity_pharma` | `vanity_pharma` | `unknown` | No | No | — |
-| `selective_optimization` | `selective_optimization` | `unknown` | No | No | — |
-| `optimization_goal_setting` | `optimization_goal_setting` | `unknown` | No | No | — |
-| `tracking_setting` | `tracking_setting` | `unknown` | No | No | — |
+| `vanity_pharma` | `vanity_pharma` | `VanityPharma` | No | No | — |
+| `selective_optimization` | `selective_optimization` | `SelectiveOptimization` | No | No | — |
+| `optimization_goal_setting` | `optimization_goal_setting` | `OptimizationGoalSetting` | No | No | — |
+| `tracking_setting` | `tracking_setting` | `TrackingSetting` | No | No | — |
 | `payment_mode` | `payment_mode` | `PaymentMode` | No | No | — |
 | `optimization_score` | `optimization_score` | `number` | No | No | — |
 | `excluded_parent_asset_field_types` | `excluded_parent_asset_field_types` | `Array<AssetFieldType>` | No | No | — |
 | `excluded_parent_asset_set_types` | `excluded_parent_asset_set_types` | `Array<AssetSetType>` | No | No | — |
-| `performance_max_upgrade` | `performance_max_upgrade` | `unknown` | No | No | — |
+| `performance_max_upgrade` | `performance_max_upgrade` | `PerformanceMaxUpgrade` | No | No | — |
 | `hotel_property_asset_set` | `hotel_property_asset_set` | `string` | No | No | — |
 | `listing_type` | `listing_type` | `ListingType` | No | No | — |
-| `asset_automation_settings` | `asset_automation_settings` | `Array<unknown>` | No | No | — |
+| `asset_automation_settings` | `asset_automation_settings` | `Array<AssetAutomationSetting>` | No | No | — |
 | `keyword_match_type` | `keyword_match_type` | `CampaignKeywordMatchType` | No | No | — |
 | `brand_guidelines_enabled` | `brand_guidelines_enabled` | `boolean` | No | No | — |
-| `brand_guidelines` | `brand_guidelines` | `unknown` | No | No | — |
-| `text_guidelines` | `text_guidelines` | `unknown` | No | No | — |
+| `brand_guidelines` | `brand_guidelines` | `BrandGuidelines` | No | No | — |
+| `text_guidelines` | `text_guidelines` | `TextGuidelines` | No | No | — |
 | `third_party_integration_partners` | `third_party_integration_partners` | `CampaignThirdPartyIntegrationPartners` | No | No | — |
-| `ai_max_setting` | `ai_max_setting` | `unknown` | No | No | — |
+| `ai_max_setting` | `ai_max_setting` | `AiMaxSetting` | No | No | — |
 | `contains_eu_political_advertising` | `contains_eu_political_advertising` | `EuPoliticalAdvertisingStatus` | No | No | — |
 | `feed_types` | `feed_types` | `Array<AssetSetType>` | No | No | — |
 | `view_through_conversion_optimization_enabled` | `view_through_conversion_optimization_enabled` | `boolean` | No | No | — |
@@ -876,7 +876,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `CampaignAsset` | No | No | — |
 | `update` | `update` | `CampaignAsset` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |

@@ -1,0 +1,174 @@
+---
+title: "X Account activity endpoints"
+description: "5 generated X endpoint contracts for Account activity."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 100
+  label: "Account activity"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.account-activity.createAccountActivitySubscription
+
+`POST` `/2/account_activity/webhooks/{webhook_id}/subscriptions/all`
+
+Creates an Account Activity subscription for the user and the given webhook.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `account-activity.manage` |
+| Required scopes | `dm.read`<br />`dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-account-activity` |
+| Output | `CreateAccountActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `WebhookConfigId` | Yes | No | — |
+| `body` | `body` | `CreateAccountActivitySubscriptionRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.account-activity.deleteAccountActivitySubscription
+
+`DELETE` `/2/account_activity/webhooks/{webhook_id}/subscriptions/{user_id}/all`
+
+Deletes an Account Activity subscription for the given webhook and user ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `account-activity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-account-activity` |
+| Output | `DeleteAccountActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `WebhookConfigId` | Yes | No | — |
+| `user_id` | `path` | `UserId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.account-activity.getAccountActivitySubscriptionCount
+
+`GET` `/2/account_activity/subscriptions/count`
+
+Get Account Activity Subscription Count
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account-activity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-account-activity` |
+| Output | `GetAccountActivitySubscriptionCountResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.account-activity.getAccountActivitySubscriptions
+
+`GET` `/2/account_activity/webhooks/{webhook_id}/subscriptions/all/list`
+
+Get Account Activity Subscriptions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account-activity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-account-activity` |
+| Output | `GetAccountActivitySubscriptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `WebhookConfigId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.account-activity.validateAccountActivitySubscription
+
+`GET` `/2/account_activity/webhooks/{webhook_id}/subscriptions/all`
+
+Validate Account Activity Subscription
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `account-activity.read` |
+| Required scopes | `dm.read`<br />`dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-account-activity` |
+| Output | `ValidateAccountActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `WebhookConfigId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

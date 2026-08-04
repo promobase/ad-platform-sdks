@@ -1,0 +1,288 @@
+---
+title: "YouTube Analytics endpoints"
+description: "8 generated YouTube endpoint contracts for Analytics."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 102
+  label: "Analytics"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.analytics.groupItems.delete
+
+`DELETE` `https://youtubeanalytics.googleapis.com/v2/groupItems`
+
+Removes an item from a group.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `analytics.groupItems.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsEmptyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `id` | `query` | `string` | No | No | The `id` parameter specifies the YouTube group item ID of the group item that is being deleted. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groupItems.insert
+
+`POST` `https://youtubeanalytics.googleapis.com/v2/groupItems`
+
+Creates a group item.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `analytics.groupItems.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsGroupItem` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `body` | `body` | `AnalyticsGroupItem` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groupItems.list
+
+`GET` `https://youtubeanalytics.googleapis.com/v2/groupItems`
+
+Returns a collection of group items that match the API request parameters.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `analytics.groupItems.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsListGroupItemsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `groupId` | `query` | `string` | No | No | The `groupId` parameter specifies the unique ID of the group for which you want to retrieve group items. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groups.delete
+
+`DELETE` `https://youtubeanalytics.googleapis.com/v2/groups`
+
+Deletes a group.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `analytics.groups.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsEmptyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `id` | `query` | `string` | No | No | The `id` parameter specifies the YouTube group ID of the group that is being deleted. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groups.insert
+
+`POST` `https://youtubeanalytics.googleapis.com/v2/groups`
+
+Creates a group.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `analytics.groups.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsGroup` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `body` | `body` | `AnalyticsGroup` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groups.list
+
+`GET` `https://youtubeanalytics.googleapis.com/v2/groups`
+
+Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `analytics.groups.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsListGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mine` | `query` | `boolean` | No | No | This parameter can only be used in a properly authorized request. Set this parameter's value to true to retrieve all groups owned by the authenticated user. |
+| `pageToken` | `query` | `string` | No | No | The `pageToken` parameter identifies a specific page in the result set that should be returned. In an API response, the `nextPageToken` property identifies the next page that can be retrieved. |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `id` | `query` | `string` | No | No | The `id` parameter specifies a comma-separated list of the YouTube group ID(s) for the resource(s) that are being retrieved. Each group must be owned by the authenticated user. In a `group` resource, the `id` property specifies the group's YouTube group ID. Note that if you do not specify a value for the `id` parameter, then you must set the `mine` parameter to `true`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.groups.update
+
+`PUT` `https://youtubeanalytics.googleapis.com/v2/groups`
+
+Modifies a group. For example, you could change a group's title.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `analytics.groups.manage` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsGroup` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onBehalfOfContentOwner` | `query` | `string` | No | No | This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner. |
+| `body` | `body` | `AnalyticsGroup` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## youtube.analytics.reports.query
+
+`GET` `https://youtubeanalytics.googleapis.com/v2/reports`
+
+Retrieve your YouTube Analytics reports.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `analytics.reports.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner`<br />`https://www.googleapis.com/auth/yt-analytics-monetary.readonly`<br />`https://www.googleapis.com/auth/yt-analytics.readonly` |
+| Rate-limit bucket | `youtube-analytics-api` |
+| Output | `AnalyticsQueryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filters` | `query` | `string` | No | No | A list of filters that should be applied when retrieving YouTube Analytics data. The Available Reports document identifies the dimensions that can be used to filter each report, and the Dimensions document defines those dimensions. If a request uses multiple filters, join them together with a semicolon (`;`), and the returned result table will satisfy both filters. For example, a filters parameter value of `video==dMH0bHeiRNg;country==IT` restricts the result set to include data for the given video in Italy.", |
+| `startDate` | `query` | `string` | No | No | The start date for fetching YouTube Analytics data. The value should be in `YYYY-MM-DD` format. required: true, pattern: "[0-9]&#123;4&#125;-[0-9]&#123;2&#125;-[0-9]&#123;2&#125; |
+| `maxResults` | `query` | `integer` | No | No | The maximum number of rows to include in the response.", minValue: 1 |
+| `ids` | `query` | `string` | No | No | Identifies the YouTube channel or content owner for which you are retrieving YouTube Analytics data. - To request data for a YouTube user, set the `ids` parameter value to `channel==CHANNEL_ID`, where `CHANNEL_ID` specifies the unique YouTube channel ID. - To request data for a YouTube CMS content owner, set the `ids` parameter value to `contentOwner==OWNER_NAME`, where `OWNER_NAME` is the CMS name of the content owner. required: true, pattern: [a-zA-Z]+==[a-zA-Z0-9_+-]+ |
+| `includeHistoricalChannelData` | `query` | `boolean` | No | No | If set to true historical data (i.e. channel data from before the linking of the channel to the content owner) will be retrieved.", |
+| `currency` | `query` | `string` | No | No | The currency to which financial metrics should be converted. The default is US Dollar (USD). If the result contains no financial metrics, this flag will be ignored. Responds with an error if the specified currency is not recognized.", pattern: [A-Z]&#123;3&#125; |
+| `startIndex` | `query` | `integer` | No | No | An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter (one-based, inclusive).", minValue: 1 |
+| `dimensions` | `query` | `string` | No | No | A comma-separated list of YouTube Analytics dimensions, such as `views` or `ageGroup,gender`. See the Available Reports document for a list of the reports that you can retrieve and the dimensions used for those reports. Also see the Dimensions document for definitions of those dimensions." pattern: [0-9a-zA-Z,]+ |
+| `sort` | `query` | `string` | No | No | A comma-separated list of dimensions or metrics that determine the sort order for YouTube Analytics data. By default the sort order is ascending. The '`-`' prefix causes descending sort order.", pattern: [-0-9a-zA-Z,]+ |
+| `endDate` | `query` | `string` | No | No | The end date for fetching YouTube Analytics data. The value should be in `YYYY-MM-DD` format. required: true, pattern: [0-9]&#123;4&#125;-[0-9]&#123;2&#125;-[0-9]&#123;2&#125; |
+| `metrics` | `query` | `string` | No | No | A comma-separated list of YouTube Analytics metrics, such as `views` or `likes,dislikes`. See the Available Reports document for a list of the reports that you can retrieve and the metrics available in each report, and see the Metrics document for definitions of those metrics. required: true, pattern: [0-9a-zA-Z,]+ |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

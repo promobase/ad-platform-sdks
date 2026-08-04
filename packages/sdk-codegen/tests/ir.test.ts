@@ -23,6 +23,12 @@ const fixture = {
     revision: "20260729",
   },
   version: "v3",
+  coverage: {
+    discoveredOperations: 1,
+    excludedOperations: [],
+    unresolvedSchemas: [],
+    protocols: ["json"],
+  },
   models: [
     {
       kind: "object",
@@ -106,6 +112,17 @@ test("IR semantic validation catches missing capabilities and models", () => {
   ]);
 });
 
+test("IR semantic validation requires every discovered operation to be accounted for", () => {
+  const invalid = {
+    ...fixture,
+    coverage: { ...fixture.coverage, discoveredOperations: 2 },
+  } as unknown as SdkIr;
+
+  expect(validateSdkIr(invalid)).toContain(
+    "Coverage mismatch: discovered 2, emitted 1, excluded 0",
+  );
+});
+
 test("Schema emitter generates decoded and encoded types from the same contract", async () => {
   const ir = await Effect.runPromise(decodeSdkIr(fixture));
   expect(emitEffectSchemaModule(ir)).toContain("export interface Video");
@@ -144,6 +161,11 @@ test("generated entrypoint exposes the unified Effect and Promise client", async
   await writeEffectArtifacts({ outputDir, ir });
   await writeEffectArtifacts({ outputDir: secondOutputDir, ir });
   const entrypoint = await readFile(join(outputDir, "index.ts"), "utf8");
+  const manifest = JSON.parse(await readFile(join(outputDir, "manifest.json"), "utf8"));
+  expect(manifest.coverage).toMatchObject({
+    discoveredOperations: 1,
+    excludedOperations: [],
+  });
   expect(entrypoint).toContain("createEffectClient(");
   expect(entrypoint).toContain("EndpointClient<typeof endpointDescriptors>");
   expect(entrypoint).toContain("createEndpointClient(endpointDescriptors, config)");

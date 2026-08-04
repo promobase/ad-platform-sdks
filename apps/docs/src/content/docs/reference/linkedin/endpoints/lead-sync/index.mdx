@@ -1,0 +1,445 @@
+---
+title: "LinkedIn Lead sync endpoints"
+description: "15 generated LinkedIn endpoint contracts for Lead sync."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 110
+  label: "Lead sync"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## lead-sync.leadSyncUseCasesOrganic3GetTheUserSOrganizationSCompanyPagesGetOrganizationAclsQRoleAssigneeStateApprovedCount10Start0
+
+`GET` `/organizationAcls?q=roleAssignee&state=APPROVED&count=10&start=0`
+
+In this step, you'll retrieve a list of all the organizations that the logged in user has an approved role for. The authenticated user must have one of the roles mentioned in our [permissions](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#permissions) table to successfully sync leads (note this may be different depending on the lead type chosen in the previous step). Additional information on this API is available on the [Organization Access Control page](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/organizations/organization-access-control-by-role?tabs=http#find-a-members-organization-access-control-information). **Step 3: Ask user to select the organization(s) for which they are interested in syncing leads for**
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganic5GetFormsForTheUserSOrganizationGetLeadFormsOwnerOrganizationUrn3Ali3Aorganization3AOrganizationI
+
+`GET` `/leadForms?owner=(organization:urn%3Ali%3Aorganization%3A{organization_id})&q=owner&count=10&start=0`
+
+At this point, the user has picked the organization (compnay page) they are trying to collect leads for and you've validated they have the proper company page role. This step will retrieve the form(s) associated with the selected organization. --- **5\. Map Lead Gen Form fields to destination fields** Using the API response data from the previous step, your application should ask the user to map questions, consents, and hidden fields to the appropriate fields in the destination system (e.g. a CRM). All questions, consents, and hidden fields from the form should be mappable. `predefinedField` fields may be mapped automatically for the user, but all others will require the user to map them manually. Optionally, allow the user to map the organization id, organization name, event id, event name, product page id, product page name, form id, and form name (this additional metadata can be pulled back via the `leadFormResponses` endpoint in the next step). This additional metadata helps your customers with lead attribution. **Quick tip:** When it comes to mapping the `predefinedField` fields that are auto populated from the member’s profile, it's important to understand that the localized language of the form could be a language other than English. Due to this, you should use the `predefinedField` field so the user doesn't have to map the same field in different form languages separately. For custom questions you will need to use the `question` field as there is no predefinedField for custom questions. | **Field** | **Language Information** | | --- | --- | | name | This value will be translated to the localized language of the user who created the form (which could be different than the localized language of the form) | | predefinedField | ENUM for the pre-populated field (e.g EMAIL) | | question | This value will be translated to the localized form language | **Step 6: Ask the user what lead types they would like to sync (allow multiple)** - **Events (EVENT)** - **Company/showcase pages (COMPANY)** - **Product pages (ORGANIZATION_PRODUCT)**
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganic7AllowTheUserToPullBackPastLeadsOneTimeToGetAnyMissedLeadsGetLeadFormResponsesQOwnerOwnerOrganiza
+
+`GET` `/leadFormResponses?q=owner&owner=(organization:urn%3Ali%3Aorganization%3A{organization_id})&leadType=(leadType:{leadtype_organic})&limitedToTestLeads=false&submittedAtTimeRange=(start:{timerange_start},end:{timerange_end})&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)&count=10&start=0`
+
+This example pulls back all form responses (leads) for the chosen organization for a given lead type. It also uses [field projection](https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts/projections?context=linkedin/marketing/context) to pull back specific fields in the response and the `submittedAtTimeRange` field to pull back leads up to 365 days in the past. To pull back leads for other lead types make an additional API call with the appropriate [lead type ](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#leadtype-sub-object) (note the environment by default is set to COMPANY however, other lead types that are not the SPONSORED leadType are considered organic). LinkedIn will store form response (lead) data for up to 365 days. It is a best practice to allow the user to do a one time pull upon integration setup to ensure no leads are missed. Refer to [Lead Form Responses](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) documentation for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leadtype_organic` | `path` | `string` | Yes | No | — |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `timerange_end` | `path` | `string` | Yes | No | — |
+| `timerange_start` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganic8PullSchedulePeriodicFormResponseLeadPullsGetLeadFormResponsesQOwnerOwnerOrganizationUrn3Ali3Aorg
+
+`GET` `/leadFormResponses?q=owner&owner=(organization:urn%3Ali%3Aorganization%3A{organization_id})&leadType=(leadType:{leadtype_organic})&limitedToTestLeads=false&submittedAtTimeRange=(start:{timerange_start},end:{timerange_end})&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)&count=10&start=0`
+
+This example pulls back all form responses (leads) for the chosen organization for a given lead type. It also uses [field projection](https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts/projections?context=linkedin/marketing/context) to pull back specific fields in the response and the `submittedAtTimeRange` field to pull back leads up to 365 days in the past. To pull back leads for other lead types make an additional API call with the appropriate [lead type ](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#leadtype-sub-object) (note the environment by default is set to COMPANY however, other lead types that are not the SPONSORED leadType are considered organic). LinkedIn will store form response (lead) data for up to 365 days. It is a best practice to allow the user to do a one time pull upon integration setup to ensure no leads are missed. Refer to [Lead Form Responses](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) documentation for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leadtype_organic` | `path` | `string` | Yes | No | — |
+| `organization_id` | `path` | `string` | Yes | No | — |
+| `timerange_end` | `path` | `string` | Yes | No | — |
+| `timerange_start` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganic8PushSubscribeForLeadNotificationWebhooksPostLeadNotifications
+
+`POST` `/leadNotifications`
+
+This is our recommended back practice (with a pull backup). [Register a lead notification webhook](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#lead-notification-subscriptions) to receive notifications for new leads. Lead notifications can also be subscribed at a more granular level and/or for a different lead type - see the linked documentation. This example registers the webhook url, [https://www.example.com](https://www.example.com/), at the organization level for leads of type COMPANY. For any new lead submitted on the company or showcase page, a webhook notification will be sent. **\--Listen for lead notifications--** As leads flow into the user's organization, LinkedIn will send your webhook endpoint a notification for each lead. The notification body will contain content as laid out in our documentation [here.](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#example-payload-for-when-a-member-registers-for-an-event)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganic9PushFetchFullLeadDataAfterALeadNotificationIsReceivedGetLeadFormResponsesLeadIdFieldsOwnerInfoAs
+
+`GET` `/leadFormResponses/{lead_id}?&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)`
+
+[Responses can be fetched](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) for a single form response, multiple form responses, or at the Organization level. When a lead notification event is received, the form response id exists in the lead notification [content](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#example-payload-for-when-a-member-registers-for-an-event). This example pulls back data for a single form response (lead) by ID and uses field projection to pull back specific fields in the request response.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesOrganicPushDeleteARegisteredWebhookByIdDeleteLeadnotificationsWebhook20id
+
+`DELETE` `/leadnotifications/<webhook%20id>`
+
+[Delete a lead notification subsription](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#delete-lead-notification-url) When an integration is deleted within your platform, the associated webhooks should also be deleted to ensure that lead notifications are not unnecessarily being sent.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored2GetTheUserSSponsoredAccountsAdAccountsGetAdAccountsQSearchSearchStatusValuesListActiveTestFals
+
+`GET` `/adAccounts?q=search&search=(status:(values:List(ACTIVE)),test:false)&fields=id,name,test,referenceInfo&count=10&start=0`
+
+View [Search for Accounts](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#search-for-accounts) documentation for more information. This API call pulls back Ad Accounts that the member has access to where the status = ACTIVE and test = false (NOT a test Ad Account). Learn more about Test Ad Accounts [here](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#working-with-test-ad-accounts). For testing purposes, if you wish to use this example api to pull back a Test Ad Account, simply remove `test:false` from the search parameter. --- **3\. Allow the user to select an Ad Account**
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored4ValidateTheUserSOrganizationRoleGetOrganizationAclsQRoleAssigneeStateApproved
+
+`GET` `/organizationAcls?q=roleAssignee&state=APPROVED`
+
+View the [Organization Access Control](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-access-control-by-role?tabs=http#organization-roles) documentation. Take note of the organization (company page) from the previous request (`referenceInfo.organization.id`). A member must have access to not only the Sponsored Account (step 2) but also have one of the roles mentioned in our [permissions](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#permissions) table for the associated company page to successfully sync leads. If the user's role is not one of the approved roles for pulling leads, or the ad account does not have a company page associated to it (empty `referenceInfo` object in previous request) you should display a helpful message to the user guiding them on next steps. Below are two resources to better understand Page Admin vs Paid Media Admin: - [Permissions for Lead Gen Forms](https://www.linkedin.com/help/lms/answer/a421620/permissions-for-lead-gen-forms?lang=en) - [LinkedIn Page Admiin Roles - Overview](https://www.linkedin.com/help/lms/answer/4783)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored5GetFormsForTheChosenSponsoredAccountGetLeadFormsQOwnerOwnerSponsoredAccountUrn3Ali3AsponsoredA
+
+`GET` `/leadForms?q=owner&owner=(sponsoredAccount:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&count=10&start=0`
+
+At this point, the user has picked the sponsored account they are trying to collect leads for and you have validated they have proper access to the ad account and associated company page. This step will retrieve the form(s) associated with the selected sponsored account. --- **6\. Map Lead Gen Form fields to destination fields** Using the API response data from the previous step, your application should ask the user to map questions, consents, and hidden fields to the appropriate fields in the destination system (e.g. a CRM). All questions, consents, and hidden fields from the form should be mappable. `predefinedField` fields may be mapped automatically for the user, but all others will require the user to map them manually. Optionally, allow the user to map the ad account id, ad account name, campaign id, campaign name, creative id, creative name, form id, and form name (this additional metadata can be pulled back via the `leadFormResponses` endpoint in the next step). This additional metadata helps your customers with lead attribution. **Quick tip:** When it comes to mapping the `predefinedField` fields that are auto populated from the member’s profile, it's important to understand that the localized language of the form could be a language other than English. Due to this, you should use the `predefinedField` field so the user doesn't have to map the same field in different form languages separately. For custom questions you will need to use the `question` field as there is no predefinedField for custom questions. | **Field** | **Language Information** | | --- | --- | | name | This value will be translated to the localized language of the user who created the form (which could be different than the localized language of the form) | | predefinedField | ENUM for the pre-populated field | | question | This value will be translated to the localized form language |
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored7AllowTheUserToPullBackPastLeadsOneTimeToGetAnyMissedLeadsGetLeadFormResponsesQOwnerOwnerSponso
+
+`GET` `/leadFormResponses?q=owner&owner=(sponsoredAccount:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&leadType=(leadType:{leadtype_sponsored})&limitedToTestLeads=false&submittedAtTimeRange=(start:{timerange_start},end:{timerange_end})&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,owner,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)&count=10&start=0`
+
+This example pulls back all form responses (leads) for the chosen sponsored account. It also uses [field projection](https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts/projections?context=linkedin/marketing/context) to pull back specific fields in the response and the `submittedAtTimeRange` field to pull back leads up to 365 days in the past. Currently the only sponsored leadType is `SPONSORED` LinkedIn will store form response (lead) data for up to 365 days. It is a best practice to allow the user to do a one time pull upon integration setup to ensure no leads are missed. Refer to [Lead Form Responses](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) documentation for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leadtype_sponsored` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+| `timerange_end` | `path` | `string` | Yes | No | — |
+| `timerange_start` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored8PullSchedulePeriodicFormResponseLeadPullsGetLeadFormResponsesQOwnerOwnerSponsoredAccountUrn3Al
+
+`GET` `/leadFormResponses?q=owner&owner=(sponsoredAccount:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})&leadType=(leadType:{leadtype_sponsored})&limitedToTestLeads=false&submittedAtTimeRange=(start:{timerange_start},end:{timerange_end})&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,owner,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)&count=10&start=0`
+
+This example pulls back all form responses (leads) for the chosen sponsored account. It also uses [field projection](https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts/projections?context=linkedin/marketing/context) to pull back specific fields in the response and the `submittedAtTimeRange` field to pull back leads up to 365 days in the past. Currently the only sponsored leadType is `SPONSORED` LinkedIn will store form response (lead) data for up to 365 days. It is a best practice to allow the user to do a one time pull upon integration setup to ensure no leads are missed. Refer to [Lead Form Responses](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) documentation for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leadtype_sponsored` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+| `timerange_end` | `path` | `string` | Yes | No | — |
+| `timerange_start` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored8PushSubscribeForLeadNotificationWebhooksPostLeadNotifications
+
+`POST` `/leadNotifications`
+
+[Register a lead notification webhook](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#lead-notification-subscriptions) to receive notifications for new leads. Lead notifications can also be subscribed at a more granular level - see the linked documentation. This example registers the webhook url, [https://www.example.com](https://www.example.com/), at the Ad Account level (sponsoredAccount). For any new lead submitted for campaigns that live within this Ad Account, a webhook notification will be sent. **Listen for lead notifications** As leads flow into the user's ad account, LinkedIn will send your webhook endpoint a notification for each lead. The notification body will contain content as laid out in our documentation [here.](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#example-payload-for-when-a-member-registers-for-an-event)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsored9PushFetchFullLeadDataAfterALeadNotificationIsReceivedGetLeadFormResponsesLeadIdFieldsOwnerInfo
+
+`GET` `/leadFormResponses/{lead_id}?&fields=ownerInfo,associatedEntityInfo,leadMetadataInfo,owner,leadType,versionedLeadGenFormUrn,id,submittedAt,testLead,formResponse,form:(hiddenFields,creationLocale,name,id,content)`
+
+[Responses can be fetched](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#get-lead-sync-form-responses) for a single form response, multiple form responses, or at the form or Ad Account level. When a lead notification event is received, the form response id exists in the lead notification [content](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#example-payload-for-when-a-member-registers-for-an-event). This example pulls back data for a single form response (lead) by ID and uses field projection to pull back specific fields in the request response.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## lead-sync.leadSyncUseCasesSponsoredPushDeleteARegisteredWebhookByIdDeleteLeadnotificationsWebhook20id
+
+`DELETE` `/leadnotifications/<webhook%20id>`
+
+[Delete a lead notification subsription](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/lead-sync/leadsync?tabs=http#delete-lead-notification-url) When an integration is deleted, the associated webhooks should also be deleted to ensure that lead notifications are not unnecessarily being sent.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.lead.sync` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.lead.sync` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

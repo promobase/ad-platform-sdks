@@ -3,6 +3,17 @@
 Type-safe SDK for Google Business Profile account discovery, locations, local posts, OAuth, post
 insights, and location performance metrics.
 
+The ergonomic client covers common OpenPromo workflows. The generated Effect and agent catalog
+accounts for 139 operations and 338 models across the eight current Google discovery services, the
+official legacy v4 discovery snapshot, and the documented Business Calls insights endpoint. This
+includes accounts, locations, performance, verification, notifications, lodging, place actions,
+Q&A, posts, reviews, media, menus, and related profile resources.
+
+```bash
+bun --filter='./packages/google-business-profile-sdk' run codegen
+bun --filter='./packages/google-business-profile-sdk' run codegen:refresh
+```
+
 ```ts
 import { GoogleBusinessProfile } from "@openpromo/google-business-profile";
 

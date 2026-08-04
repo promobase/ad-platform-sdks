@@ -19,7 +19,8 @@
     "release": "node scripts/release.mjs",
     "release:check": "node scripts/release.mjs --check",
     "effect:check": "bun scripts/check-effect-runtime.mjs",
-    "docs:check": "bun run --cwd apps/docs reference:check && bun run --cwd apps/docs lint"
+    "docs:check": "bun run --cwd apps/docs reference:check && bun run --cwd apps/docs lint",
+    "codegen:check": "bun scripts/check-codegen-coverage.mjs"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",

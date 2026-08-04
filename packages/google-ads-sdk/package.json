@@ -63,6 +63,7 @@
   ],
   "scripts": {
     "codegen": "bun run src/codegen/index.ts",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/google-ads-sdk/src/generated apps/docs/src/content/docs/reference/google-ads",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",

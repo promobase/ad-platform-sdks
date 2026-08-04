@@ -1,0 +1,1289 @@
+---
+title: "YouTube models: Live Chat Gift Membership Received Details – Video Abuse Report"
+description: "100 generated YouTube model contracts, from LiveChatGiftMembershipReceivedDetails through VideoAbuseReport."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 1001
+  label: "Live Chat Gift Membership Received Details – Video Abuse Report"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## LiveChatGiftMembershipReceivedDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedMembershipGiftingMessageId` | `associatedMembershipGiftingMessageId` | `string` | No | No | The ID of the membership gifting message that is related to this gift membership. This ID will always refer to a message whose type is 'membershipGiftingEvent'. |
+| `gifterChannelId` | `gifterChannelId` | `string` | No | No | The ID of the user that made the membership gifting purchase. This matches the `snippet.authorChannelId` of the associated membership gifting message. |
+| `memberLevelName` | `memberLevelName` | `string` | No | No | The name of the Level at which the viewer is a member. This matches the `snippet.membershipGiftingDetails.giftMembershipsLevelName` of the associated membership gifting message. The Level names are defined by the YouTube channel offering the Membership. In some situations this field isn't filled. |
+
+## LiveChatMemberMilestoneChatDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `memberLevelName` | `memberLevelName` | `string` | No | No | The name of the Level at which the viever is a member. The Level names are defined by the YouTube channel offering the Membership. In some situations this field isn't filled. |
+| `memberMonth` | `memberMonth` | `integer` | No | No | The total amount of months (rounded up) the viewer has been a member that granted them this Member Milestone Chat. This is the same number of months as is being displayed to YouTube users. |
+| `userComment` | `userComment` | `string` | No | No | The comment added by the member to this Member Milestone Chat. This field is empty for messages without a comment from the member. |
+
+## LiveChatMembershipGiftingDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `giftMembershipsCount` | `giftMembershipsCount` | `integer` | No | No | The number of gift memberships purchased by the user. |
+| `giftMembershipsLevelName` | `giftMembershipsLevelName` | `string` | No | No | The name of the level of the gift memberships purchased by the user. The Level names are defined by the YouTube channel offering the Membership. In some situations this field isn't filled. |
+
+## LiveChatMessage
+
+`object` model on the `json` wire format.
+
+A *liveChatMessage* resource represents a chat message in a YouTube Live Chat.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `authorDetails` | `authorDetails` | `LiveChatMessageAuthorDetails` | No | No | The authorDetails object contains basic details about the user that posted this message. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the message. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatMessage". |
+| `snippet` | `snippet` | `LiveChatMessageSnippet` | No | No | The snippet object contains basic details about the message. |
+
+## LiveChatMessageAuthorDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The YouTube channel ID. |
+| `channelUrl` | `channelUrl` | `string` | No | No | The channel's URL. |
+| `displayName` | `displayName` | `string` | No | No | The channel's display name. |
+| `isChatModerator` | `isChatModerator` | `boolean` | No | No | Whether the author is a moderator of the live chat. |
+| `isChatOwner` | `isChatOwner` | `boolean` | No | No | Whether the author is the owner of the live chat. |
+| `isChatSponsor` | `isChatSponsor` | `boolean` | No | No | Whether the author is a sponsor of the live chat. |
+| `isVerified` | `isVerified` | `boolean` | No | No | Whether the author's identity has been verified by YouTube. |
+| `profileImageUrl` | `profileImageUrl` | `string` | No | No | The channels's avatar URL. |
+
+## LiveChatMessageDeletedDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deletedMessageId` | `deletedMessageId` | `string` | No | No | — |
+
+## LiveChatMessageListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activePollItem` | `activePollItem` | `LiveChatMessage` | No | No | Set when there is an active poll. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<LiveChatMessage>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatMessageListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | — |
+| `offlineAt` | `offlineAt` | `string<date-time>` | No | No | The date and time when the underlying stream went offline. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `pollingIntervalMillis` | `pollingIntervalMillis` | `integer` | No | No | The amount of time the client should wait before polling again. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## LiveChatMessageRetractedDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `retractedMessageId` | `retractedMessageId` | `string` | No | No | — |
+
+## LiveChatMessageSnippet
+
+`object` model on the `json` wire format.
+
+Next ID: 35
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `authorChannelId` | `authorChannelId` | `string` | No | No | The ID of the user that authored this message, this field is not always filled. textMessageEvent - the user that wrote the message fanFundingEvent - the user that funded the broadcast newSponsorEvent - the user that just became a sponsor memberMilestoneChatEvent - the member that sent the message membershipGiftingEvent - the user that made the purchase giftMembershipReceivedEvent - the user that received the gift membership messageDeletedEvent - the moderator that took the action. Unused. messageRetractedEvent - the author that retracted their message. Unused. userBannedEvent - the moderator that took the action superChatEvent - the user that made the purchase superStickerEvent - the user that made the purchase pollEvent - the user that created the poll |
+| `displayMessage` | `displayMessage` | `string` | No | No | Contains a string that can be displayed to the user. If this field is not present the message is silent, at the moment only messages of type TOMBSTONE and CHAT_ENDED_EVENT are silent. |
+| `fanFundingEventDetails` | `fanFundingEventDetails` | `LiveChatFanFundingEventDetails` | No | No | Details about the funding event, this is only set if the type is 'fanFundingEvent'. |
+| `giftDetails` | `giftDetails` | `LiveChatGiftDetails` | No | No | Details about the gift event, this is only set if the type is 'giftEvent'. |
+| `giftMembershipReceivedDetails` | `giftMembershipReceivedDetails` | `LiveChatGiftMembershipReceivedDetails` | No | No | Details about the Gift Membership Received event, this is only set if the type is 'giftMembershipReceivedEvent'. |
+| `hasDisplayContent` | `hasDisplayContent` | `boolean` | No | No | Whether the message has display content that should be displayed to users. |
+| `liveChatId` | `liveChatId` | `string` | No | No | — |
+| `memberMilestoneChatDetails` | `memberMilestoneChatDetails` | `LiveChatMemberMilestoneChatDetails` | No | No | Details about the Member Milestone Chat event, this is only set if the type is 'memberMilestoneChatEvent'. |
+| `membershipGiftingDetails` | `membershipGiftingDetails` | `LiveChatMembershipGiftingDetails` | No | No | Details about the Membership Gifting event, this is only set if the type is 'membershipGiftingEvent'. |
+| `messageDeletedDetails` | `messageDeletedDetails` | `LiveChatMessageDeletedDetails` | No | No | — |
+| `messageRetractedDetails` | `messageRetractedDetails` | `LiveChatMessageRetractedDetails` | No | No | — |
+| `newSponsorDetails` | `newSponsorDetails` | `LiveChatNewSponsorDetails` | No | No | Details about the New Member Announcement event, this is only set if the type is 'newSponsorEvent'. Please note that "member" is the new term for "sponsor". |
+| `pollDetails` | `pollDetails` | `LiveChatPollDetails` | No | No | Details about the poll event, this is only set if the type is 'pollEvent'. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time when the message was orignally published. |
+| `superChatDetails` | `superChatDetails` | `LiveChatSuperChatDetails` | No | No | Details about the Super Chat event, this is only set if the type is 'superChatEvent'. |
+| `superStickerDetails` | `superStickerDetails` | `LiveChatSuperStickerDetails` | No | No | Details about the Super Sticker event, this is only set if the type is 'superStickerEvent'. |
+| `textMessageDetails` | `textMessageDetails` | `LiveChatTextMessageDetails` | No | No | Details about the text message, this is only set if the type is 'textMessageEvent'. |
+| `type` | `type` | `"invalidType" \| "textMessageEvent" \| "tombstone" \| "fanFundingEvent" \| "chatEndedEvent" \| "sponsorOnlyModeStartedEvent" \| "sponsorOnlyModeEndedEvent" \| "newSponsorEvent" \| "memberMilestoneChatEvent" \| "membershipGiftingEvent" \| "giftMembershipReceivedEvent" \| "messageDeletedEvent" \| "messageRetractedEvent" \| "userBannedEvent" \| "superChatEvent" \| "superStickerEvent" \| "pollEvent" \| "giftEvent"` | No | No | The type of message, this will always be present, it determines the contents of the message as well as which fields will be present. |
+| `userBannedDetails` | `userBannedDetails` | `LiveChatUserBannedMessageDetails` | No | No | — |
+
+## LiveChatModerator
+
+`object` model on the `json` wire format.
+
+A *liveChatModerator* resource represents a moderator for a YouTube live chat. A chat moderator has the ability to ban/unban users from a chat, remove message, etc.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the moderator. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatModerator". |
+| `snippet` | `snippet` | `LiveChatModeratorSnippet` | No | No | The snippet object contains basic details about the moderator. |
+
+## LiveChatModeratorListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<LiveChatModerator>` | No | No | A list of moderators that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveChatModeratorListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## LiveChatModeratorSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `liveChatId` | `liveChatId` | `string` | No | No | The ID of the live chat this moderator can act on. |
+| `moderatorDetails` | `moderatorDetails` | `ChannelProfileDetails` | No | No | Details about the moderator. |
+
+## LiveChatNewSponsorDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `isUpgrade` | `isUpgrade` | `boolean` | No | No | If the viewer just had upgraded from a lower level. For viewers that were not members at the time of purchase, this field is false. |
+| `memberLevelName` | `memberLevelName` | `string` | No | No | The name of the Level that the viewer just had joined. The Level names are defined by the YouTube channel offering the Membership. In some situations this field isn't filled. |
+
+## LiveChatPollDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metadata` | `metadata` | `LiveChatPollDetailsPollMetadata` | No | No | — |
+| `status` | `status` | `"unknown" \| "active" \| "closed"` | No | No | — |
+
+## LiveChatPollDetailsPollMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `options` | `options` | `Array<LiveChatPollDetailsPollMetadataPollOption>` | No | No | The options will be returned in the order that is displayed in 1P |
+| `questionText` | `questionText` | `string` | No | No | — |
+
+## LiveChatPollDetailsPollMetadataPollOption
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optionText` | `optionText` | `string` | No | No | — |
+| `tally` | `tally` | `string` | No | No | — |
+
+## LiveChatSuperChatDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amountDisplayString` | `amountDisplayString` | `string` | No | No | A rendered string that displays the fund amount and currency to the user. |
+| `amountMicros` | `amountMicros` | `string` | No | No | The amount purchased by the user, in micros (1,750,000 micros = 1.75). |
+| `currency` | `currency` | `string` | No | No | The currency in which the purchase was made. |
+| `tier` | `tier` | `integer` | No | No | The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1. |
+| `userComment` | `userComment` | `string` | No | No | The comment added by the user to this Super Chat event. |
+
+## LiveChatSuperStickerDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amountDisplayString` | `amountDisplayString` | `string` | No | No | A rendered string that displays the fund amount and currency to the user. |
+| `amountMicros` | `amountMicros` | `string` | No | No | The amount purchased by the user, in micros (1,750,000 micros = 1.75). |
+| `currency` | `currency` | `string` | No | No | The currency in which the purchase was made. |
+| `superStickerMetadata` | `superStickerMetadata` | `SuperStickerMetadata` | No | No | Information about the Super Sticker. |
+| `tier` | `tier` | `integer` | No | No | The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1. |
+
+## LiveChatTextMessageDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `messageText` | `messageText` | `string` | No | No | The user's message. |
+
+## LiveChatUserBannedMessageDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `banDurationSeconds` | `banDurationSeconds` | `string` | No | No | The duration of the ban. This property is only present if the banType is temporary. |
+| `bannedUserDetails` | `bannedUserDetails` | `ChannelProfileDetails` | No | No | The details of the user that was banned. |
+| `banType` | `banType` | `"permanent" \| "temporary"` | No | No | The type of ban. |
+
+## LiveStream
+
+`object` model on the `json` wire format.
+
+A live stream describes a live ingestion point.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cdn` | `cdn` | `CdnSettings` | No | No | The cdn object defines the live stream's content delivery network (CDN) settings. These settings provide details about the manner in which you stream your content to YouTube. |
+| `contentDetails` | `contentDetails` | `LiveStreamContentDetails` | No | No | The content_details object contains information about the stream, including the closed captions ingestion URL. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the stream. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveStream". |
+| `snippet` | `snippet` | `LiveStreamSnippet` | No | No | The snippet object contains basic details about the stream, including its channel, title, and description. |
+| `status` | `status` | `LiveStreamStatus` | No | No | The status object contains information about live stream's status. |
+
+## LiveStreamConfigurationIssue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | The long-form description of the issue and how to resolve it. |
+| `reason` | `reason` | `string` | No | No | The short-form reason for this issue. |
+| `severity` | `severity` | `"info" \| "warning" \| "error"` | No | No | How severe this issue is to the stream. |
+| `type` | `type` | `"gopSizeOver" \| "gopSizeLong" \| "gopSizeShort" \| "openGop" \| "badContainer" \| "audioBitrateHigh" \| "audioBitrateLow" \| "audioSampleRate" \| "bitrateHigh" \| "bitrateLow" \| "audioCodec" \| "videoCodec" \| "noAudioStream" \| "noVideoStream" \| "multipleVideoStreams" \| "multipleAudioStreams" \| "audioTooManyChannels" \| "interlacedVideo" \| "frameRateHigh" \| "resolutionMismatch" \| "videoCodecMismatch" \| "videoInterlaceMismatch" \| "videoProfileMismatch" \| "videoBitrateMismatch" \| "framerateMismatch" \| "gopMismatch" \| "audioSampleRateMismatch" \| "audioStereoMismatch" \| "audioCodecMismatch" \| "audioBitrateMismatch" \| "videoResolutionSuboptimal" \| "videoResolutionUnsupported" \| "videoIngestionStarved" \| "videoIngestionFasterThanRealtime"` | No | No | The kind of error happening. |
+
+## LiveStreamContentDetails
+
+`object` model on the `json` wire format.
+
+Detailed settings of a stream.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `closedCaptionsIngestionUrl` | `closedCaptionsIngestionUrl` | `string` | No | No | The ingestion URL where the closed captions of this stream are sent. |
+| `isReusable` | `isReusable` | `boolean` | No | No | Indicates whether the stream is reusable, which means that it can be bound to multiple broadcasts. It is common for broadcasters to reuse the same stream for many different broadcasts if those broadcasts occur at different times. If you set this value to false, then the stream will not be reusable, which means that it can only be bound to one broadcast. Non-reusable streams differ from reusable streams in the following ways: - A non-reusable stream can only be bound to one broadcast. - A non-reusable stream might be deleted by an automated process after the broadcast ends. - The liveStreams.list method does not list non-reusable streams if you call the method and set the mine parameter to true. The only way to use that method to retrieve the resource for a non-reusable stream is to use the id parameter to identify the stream. |
+
+## LiveStreamHealthStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `configurationIssues` | `configurationIssues` | `Array<LiveStreamConfigurationIssue>` | No | No | The configurations issues on this stream |
+| `lastUpdateTimeSeconds` | `lastUpdateTimeSeconds` | `string` | No | No | The last time this status was updated (in seconds) |
+| `status` | `status` | `"good" \| "ok" \| "bad" \| "noData" \| "revoked"` | No | No | The status code of this stream |
+
+## LiveStreamListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<LiveStream>` | No | No | A list of live streams that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#liveStreamListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | — |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## LiveStreamSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel that is transmitting the stream. |
+| `description` | `description` | `string` | No | No | The stream's description. The value cannot be longer than 10000 characters. |
+| `isDefaultStream` | `isDefaultStream` | `boolean` | No | No | — |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the stream was created. |
+| `title` | `title` | `string` | No | No | The stream's title. The value must be between 1 and 128 characters long. |
+
+## LiveStreamStatus
+
+`object` model on the `json` wire format.
+
+Brief description of the live stream status.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `healthStatus` | `healthStatus` | `LiveStreamHealthStatus` | No | No | The health status of the stream. |
+| `streamStatus` | `streamStatus` | `"created" \| "ready" \| "active" \| "inactive" \| "error"` | No | No | — |
+
+## LocalizedProperty
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `default` | `default` | `string` | No | No | — |
+| `defaultLanguage` | `defaultLanguage` | `LanguageTag` | No | No | The language of the default property. |
+| `localized` | `localized` | `Array<LocalizedString>` | No | No | — |
+
+## LocalizedString
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `language` | `language` | `string` | No | No | — |
+| `value` | `value` | `string` | No | No | — |
+
+## Member
+
+`object` model on the `json` wire format.
+
+A *member* resource represents a member for a YouTube channel. A member provides recurring monetary support to a creator and receives special benefits.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#member". |
+| `snippet` | `snippet` | `MemberSnippet` | No | No | The snippet object contains basic details about the member. |
+
+## MemberListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Member>` | No | No | A list of members that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#memberListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | — |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## MembershipsDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessibleLevels` | `accessibleLevels` | `Array<string>` | No | No | Ids of all levels that the user has access to. This includes the currently active level and all other levels that are included because of a higher purchase. |
+| `highestAccessibleLevel` | `highestAccessibleLevel` | `string` | No | No | Id of the highest level that the user has access to at the moment. |
+| `highestAccessibleLevelDisplayName` | `highestAccessibleLevelDisplayName` | `string` | No | No | Display name for the highest level that the user has access to at the moment. |
+| `membershipsDuration` | `membershipsDuration` | `MembershipsDuration` | No | No | Data about memberships duration without taking into consideration pricing levels. |
+| `membershipsDurationAtLevels` | `membershipsDurationAtLevels` | `Array<MembershipsDurationAtLevel>` | No | No | Data about memberships duration on particular pricing levels. |
+
+## MembershipsDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `memberSince` | `memberSince` | `string` | No | No | The date and time when the user became a continuous member across all levels. |
+| `memberTotalDurationMonths` | `memberTotalDurationMonths` | `integer` | No | No | The cumulative time the user has been a member across all levels in complete months (the time is rounded down to the nearest integer). |
+
+## MembershipsDurationAtLevel
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `level` | `level` | `string` | No | No | Pricing level ID. |
+| `memberSince` | `memberSince` | `string` | No | No | The date and time when the user became a continuous member for the given level. |
+| `memberTotalDurationMonths` | `memberTotalDurationMonths` | `integer` | No | No | The cumulative time the user has been a member for the given level in complete months (the time is rounded down to the nearest integer). |
+
+## MembershipsLevel
+
+`object` model on the `json` wire format.
+
+A *membershipsLevel* resource represents an offer made by YouTube creators for their fans. Users can become members of the channel by joining one of the available levels. They will provide recurring monetary support and receives special benefits.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the memberships level. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#membershipsLevelListResponse". |
+| `snippet` | `snippet` | `MembershipsLevelSnippet` | No | No | The snippet object contains basic details about the level. |
+
+## MembershipsLevelListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<MembershipsLevel>` | No | No | A list of pricing levels offered by a creator to the fans. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#membershipsLevelListResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## MembershipsLevelSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatorChannelId` | `creatorChannelId` | `string` | No | No | The id of the channel that's offering channel memberships. |
+| `levelDetails` | `levelDetails` | `LevelDetails` | No | No | Details about the pricing level. |
+
+## MemberSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatorChannelId` | `creatorChannelId` | `string` | No | No | The id of the channel that's offering memberships. |
+| `memberDetails` | `memberDetails` | `ChannelProfileDetails` | No | No | Details about the member. |
+| `membershipsDetails` | `membershipsDetails` | `MembershipsDetails` | No | No | Details about the user's membership. |
+
+## MonitorStreamInfo
+
+`object` model on the `json` wire format.
+
+Settings and Info of the monitor stream
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `broadcastStreamDelayMs` | `broadcastStreamDelayMs` | `integer` | No | No | If you have set the enableMonitorStream property to true, then this property determines the length of the live broadcast delay. |
+| `embedHtml` | `embedHtml` | `string` | No | No | HTML code that embeds a player that plays the monitor stream. |
+| `enableMonitorStream` | `enableMonitorStream` | `boolean` | No | No | This value determines whether the monitor stream is enabled for the broadcast. If the monitor stream is enabled, then YouTube will broadcast the event content on a special stream intended only for the broadcaster's consumption. The broadcaster can use the stream to review the event content and also to identify the optimal times to insert cuepoints. You need to set this value to true if you intend to have a broadcast delay for your event. *Note:* This property cannot be updated once the broadcast is in the testing or live state. |
+
+## PageInfo
+
+`object` model on the `json` wire format.
+
+Paging details for lists of resources, including total number of items available and number of resources returned in a single page.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `resultsPerPage` | `resultsPerPage` | `integer` | No | No | The number of results included in the API response. |
+| `totalResults` | `totalResults` | `integer` | No | No | The total number of results in the result set. |
+
+## Playlist
+
+`object` model on the `json` wire format.
+
+A *playlist* resource represents a YouTube playlist. A playlist is a collection of videos that can be viewed sequentially and shared with other users. A playlist can contain up to 200 videos, and YouTube does not limit the number of playlists that each user creates. By default, playlists are publicly visible to other users, but playlists can be public or private. YouTube also uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `PlaylistContentDetails` | No | No | The contentDetails object contains information like video count. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the playlist. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlist". |
+| `localizations` | `localizations` | `Record<string, PlaylistLocalization>` | No | No | Localizations for different languages |
+| `player` | `player` | `PlaylistPlayer` | No | No | The player object contains information that you would use to play the playlist in an embedded player. |
+| `snippet` | `snippet` | `PlaylistSnippet` | No | No | The snippet object contains basic details about the playlist, such as its title and description. |
+| `status` | `status` | `PlaylistStatus` | No | No | The status object contains status information for the playlist. |
+
+## PlaylistContentDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `itemCount` | `itemCount` | `integer` | No | No | The number of videos in the playlist. |
+
+## PlaylistImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Identifies this resource (playlist id and image type). |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlistImages". |
+| `snippet` | `snippet` | `PlaylistImageSnippet` | No | No | — |
+
+## PlaylistImageListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<PlaylistImage>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlistImageListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+
+## PlaylistImageSnippet
+
+`object` model on the `json` wire format.
+
+A *playlistImage* resource identifies another resource, such as a image, that is associated with a playlist. In addition, the playlistImage resource contains details about the included resource that pertain specifically to how that resource is used in that playlist. YouTube uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistImages.list method to retrieve image data for any of those playlists. You can also add or remove images from those lists by calling the playlistImages.insert and playlistImages.delete methods.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `integer` | No | No | The image height. |
+| `playlistId` | `playlistId` | `string` | No | No | The Playlist ID of the playlist this image is associated with. |
+| `type` | `type` | `"hero"` | No | No | The image type. |
+| `width` | `width` | `integer` | No | No | The image width. |
+
+## PlaylistItem
+
+`object` model on the `json` wire format.
+
+A *playlistItem* resource identifies another resource, such as a video, that is included in a playlist. In addition, the playlistItem resource contains details about the included resource that pertain specifically to how that resource is used in that playlist. YouTube uses playlists to identify special collections of videos for a channel, such as: - uploaded videos - favorite videos - positively rated (liked) videos - watch history - watch later To be more specific, these lists are associated with a channel, which is a collection of a person, group, or company's videos, playlists, and other YouTube information. You can retrieve the playlist IDs for each of these lists from the channel resource for a given channel. You can then use the playlistItems.list method to retrieve any of those lists. You can also add or remove items from those lists by calling the playlistItems.insert and playlistItems.delete methods. For example, if a user gives a positive rating to a video, you would insert that video into the liked videos playlist for that user's channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `PlaylistItemContentDetails` | No | No | The contentDetails object is included in the resource if the included item is a YouTube video. The object contains additional information about the video. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the playlist item. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlistItem". |
+| `snippet` | `snippet` | `PlaylistItemSnippet` | No | No | The snippet object contains basic details about the playlist item, such as its title and position in the playlist. |
+| `status` | `status` | `PlaylistItemStatus` | No | No | The status object contains information about the playlist item's privacy status. |
+
+## PlaylistItemContentDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endAt` | `endAt` | `string` | No | No | The time, measured in seconds from the start of the video, when the video should stop playing. (The playlist owner can specify the times when the video should start and stop playing when the video is played in the context of the playlist.) By default, assume that the video.endTime is the end of the video. |
+| `note` | `note` | `string` | No | No | A user-generated note for this item. |
+| `startAt` | `startAt` | `string` | No | No | The time, measured in seconds from the start of the video, when the video should start playing. (The playlist owner can specify the times when the video should start and stop playing when the video is played in the context of the playlist.) The default value is 0. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify a video. To retrieve the video resource, set the id query parameter to this value in your API request. |
+| `videoPublishedAt` | `videoPublishedAt` | `string<date-time>` | No | No | The date and time that the video was published to YouTube. |
+
+## PlaylistItemListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | — |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<PlaylistItem>` | No | No | A list of playlist items that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlistItemListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## PlaylistItemSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a playlist, including title, description and thumbnails. Basic details of a YouTube Playlist item provided by the author. Next ID: 15
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the user that added the item to the playlist. |
+| `channelTitle` | `channelTitle` | `string` | No | No | Channel title for the channel that the playlist item belongs to. |
+| `description` | `description` | `string` | No | No | The item's description. |
+| `playlistId` | `playlistId` | `string` | No | No | The ID that YouTube uses to uniquely identify thGe playlist that the playlist item is in. |
+| `position` | `position` | `integer` | No | No | The order in which the item appears in the playlist. The value uses a zero-based index, so the first item has a position of 0, the second item has a position of 1, and so forth. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the item was added to the playlist. |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The id object contains information that can be used to uniquely identify the resource that is included in the playlist as the playlist item. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the playlist item. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The item's title. |
+| `videoOwnerChannelId` | `videoOwnerChannelId` | `string` | No | No | Channel id for the channel this video belongs to. |
+| `videoOwnerChannelTitle` | `videoOwnerChannelTitle` | `string` | No | No | Channel title for the channel this video belongs to. |
+
+## PlaylistItemStatus
+
+`object` model on the `json` wire format.
+
+Information about the playlist item's privacy status.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacyStatus` | `privacyStatus` | `"public" \| "unlisted" \| "private"` | No | No | This resource's privacy status. |
+
+## PlaylistListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Playlist>` | No | No | A list of playlists that match the request criteria |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#playlistListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## PlaylistLocalization
+
+`object` model on the `json` wire format.
+
+Playlist localization setting
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | The localized strings for playlist's description. |
+| `title` | `title` | `string` | No | No | The localized strings for playlist's title. |
+
+## PlaylistPlayer
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `embedHtml` | `embedHtml` | `string` | No | No | An &lt;iframe&gt; tag that embeds a player that will play the playlist. |
+
+## PlaylistSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a playlist, including title, description and thumbnails.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the channel that published the playlist. |
+| `channelTitle` | `channelTitle` | `string` | No | No | The channel title of the channel that the video belongs to. |
+| `defaultLanguage` | `defaultLanguage` | `string` | No | No | The language of the playlist's default title and description. |
+| `description` | `description` | `string` | No | No | The playlist's description. |
+| `localized` | `localized` | `PlaylistLocalization` | No | No | Localized title and description, read-only. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the playlist was created. |
+| `tags` | `tags` | `Array<string>` | No | No | Keyword tags associated with the playlist. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the playlist. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `thumbnailVideoId` | `thumbnailVideoId` | `string` | No | No | Note: if the playlist has a custom thumbnail, this field will not be populated. The video id selected by the user that will be used as the thumbnail of this playlist. This field defaults to the first publicly viewable video in the playlist, if: 1. The user has never selected a video to be the thumbnail of the playlist. 2. The user selects a video to be the thumbnail, and then removes that video from the playlist. 3. The user selects a non-owned video to be the thumbnail, but that video becomes private, or gets deleted. |
+| `title` | `title` | `string` | No | No | The playlist's title. |
+
+## PlaylistStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `podcastStatus` | `podcastStatus` | `"enabled" \| "disabled"` | No | No | The playlist's podcast status. |
+| `privacyStatus` | `privacyStatus` | `"public" \| "unlisted" \| "private"` | No | No | The playlist's privacy status. |
+
+## PropertyValue
+
+`object` model on the `json` wire format.
+
+A pair Property / Value.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property` | `property` | `string` | No | No | A property. |
+| `value` | `value` | `string` | No | No | The property's value. |
+
+## RelatedEntity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entity` | `entity` | `Entity` | No | No | — |
+
+## ReportingEmpty
+
+`object` model on the `json` wire format.
+
+A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo &#123; rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); &#125;
+
+No fields are declared.
+
+## ReportingGdataBlobstore2Info
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blobGeneration` | `blobGeneration` | `string` | No | No | gdata |
+| `blobId` | `blobId` | `string` | No | No | gdata |
+| `downloadExternalReadToken` | `downloadExternalReadToken` | `string` | No | No | gdata |
+| `downloadReadHandle` | `downloadReadHandle` | `string` | No | No | gdata |
+| `readToken` | `readToken` | `string` | No | No | gdata |
+| `uploadFragmentListCreationInfo` | `uploadFragmentListCreationInfo` | `string` | No | No | gdata |
+| `uploadMetadataContainer` | `uploadMetadataContainer` | `string` | No | No | gdata |
+
+## ReportingGdataCompositeMedia
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blobRef` | `blobRef` | `string` | No | No | gdata |
+| `blobstore2Info` | `blobstore2Info` | `ReportingGdataBlobstore2Info` | No | No | gdata |
+| `cosmoBinaryReference` | `cosmoBinaryReference` | `string` | No | No | gdata |
+| `crc32cHash` | `crc32cHash` | `integer` | No | No | gdata |
+| `inline` | `inline` | `string` | No | No | gdata |
+| `length` | `length` | `string` | No | No | gdata |
+| `md5Hash` | `md5Hash` | `string` | No | No | gdata |
+| `objectId` | `objectId` | `ReportingGdataObjectId` | No | No | gdata |
+| `path` | `path` | `string` | No | No | gdata |
+| `referenceType` | `referenceType` | `"PATH" \| "BLOB_REF" \| "INLINE" \| "BIGSTORE_REF" \| "COSMO_BINARY_REFERENCE"` | No | No | gdata |
+| `sha1Hash` | `sha1Hash` | `string` | No | No | gdata |
+
+## ReportingGdataContentTypeInfo
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bestGuess` | `bestGuess` | `string` | No | No | gdata |
+| `fromBytes` | `fromBytes` | `string` | No | No | gdata |
+| `fromFileName` | `fromFileName` | `string` | No | No | gdata |
+| `fromFusionId` | `fromFusionId` | `string` | No | No | gdata |
+| `fromHeader` | `fromHeader` | `string` | No | No | gdata |
+| `fromUrlPath` | `fromUrlPath` | `string` | No | No | gdata |
+| `fusionIdDetectionMetadata` | `fusionIdDetectionMetadata` | `string` | No | No | gdata |
+
+## ReportingGdataDiffChecksumsResponse
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `checksumsLocation` | `checksumsLocation` | `ReportingGdataCompositeMedia` | No | No | gdata |
+| `chunkSizeBytes` | `chunkSizeBytes` | `string` | No | No | gdata |
+| `objectLocation` | `objectLocation` | `ReportingGdataCompositeMedia` | No | No | gdata |
+| `objectSizeBytes` | `objectSizeBytes` | `string` | No | No | gdata |
+| `objectVersion` | `objectVersion` | `string` | No | No | gdata |
+
+## ReportingGdataDiffDownloadResponse
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `objectLocation` | `objectLocation` | `ReportingGdataCompositeMedia` | No | No | gdata |
+
+## ReportingGdataDiffUploadRequest
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `checksumsInfo` | `checksumsInfo` | `ReportingGdataCompositeMedia` | No | No | gdata |
+| `objectInfo` | `objectInfo` | `ReportingGdataCompositeMedia` | No | No | gdata |
+| `objectVersion` | `objectVersion` | `string` | No | No | gdata |
+
+## ReportingGdataDiffUploadResponse
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `objectVersion` | `objectVersion` | `string` | No | No | gdata |
+| `originalObject` | `originalObject` | `ReportingGdataCompositeMedia` | No | No | gdata |
+
+## ReportingGdataDiffVersionResponse
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `objectSizeBytes` | `objectSizeBytes` | `string` | No | No | gdata |
+| `objectVersion` | `objectVersion` | `string` | No | No | gdata |
+
+## ReportingGdataDownloadParameters
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowGzipCompression` | `allowGzipCompression` | `boolean` | No | No | gdata |
+| `ignoreRange` | `ignoreRange` | `boolean` | No | No | gdata |
+
+## ReportingGdataMedia
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `algorithm` | `algorithm` | `string` | No | No | gdata |
+| `bigstoreObjectRef` | `bigstoreObjectRef` | `string` | No | No | gdata |
+| `blobRef` | `blobRef` | `string` | No | No | gdata |
+| `blobstore2Info` | `blobstore2Info` | `ReportingGdataBlobstore2Info` | No | No | gdata |
+| `compositeMedia` | `compositeMedia` | `Array<ReportingGdataCompositeMedia>` | No | No | gdata |
+| `contentType` | `contentType` | `string` | No | No | gdata |
+| `contentTypeInfo` | `contentTypeInfo` | `ReportingGdataContentTypeInfo` | No | No | gdata |
+| `cosmoBinaryReference` | `cosmoBinaryReference` | `string` | No | No | gdata |
+| `crc32cHash` | `crc32cHash` | `integer` | No | No | gdata |
+| `diffChecksumsResponse` | `diffChecksumsResponse` | `ReportingGdataDiffChecksumsResponse` | No | No | gdata |
+| `diffDownloadResponse` | `diffDownloadResponse` | `ReportingGdataDiffDownloadResponse` | No | No | gdata |
+| `diffUploadRequest` | `diffUploadRequest` | `ReportingGdataDiffUploadRequest` | No | No | gdata |
+| `diffUploadResponse` | `diffUploadResponse` | `ReportingGdataDiffUploadResponse` | No | No | gdata |
+| `diffVersionResponse` | `diffVersionResponse` | `ReportingGdataDiffVersionResponse` | No | No | gdata |
+| `downloadParameters` | `downloadParameters` | `ReportingGdataDownloadParameters` | No | No | gdata |
+| `filename` | `filename` | `string` | No | No | gdata |
+| `hash` | `hash` | `string` | No | No | gdata |
+| `hashVerified` | `hashVerified` | `boolean` | No | No | gdata |
+| `inline` | `inline` | `string` | No | No | gdata |
+| `isPotentialRetry` | `isPotentialRetry` | `boolean` | No | No | gdata |
+| `length` | `length` | `string` | No | No | gdata |
+| `md5Hash` | `md5Hash` | `string` | No | No | gdata |
+| `mediaId` | `mediaId` | `string` | No | No | gdata |
+| `objectId` | `objectId` | `ReportingGdataObjectId` | No | No | gdata |
+| `path` | `path` | `string` | No | No | gdata |
+| `referenceType` | `referenceType` | `"PATH" \| "BLOB_REF" \| "INLINE" \| "GET_MEDIA" \| "COMPOSITE_MEDIA" \| "BIGSTORE_REF" \| "DIFF_VERSION_RESPONSE" \| "DIFF_CHECKSUMS_RESPONSE" \| "DIFF_DOWNLOAD_RESPONSE" \| "DIFF_UPLOAD_REQUEST" \| "DIFF_UPLOAD_RESPONSE" \| "COSMO_BINARY_REFERENCE" \| "ARBITRARY_BYTES"` | No | No | gdata |
+| `sha1Hash` | `sha1Hash` | `string` | No | No | gdata |
+| `sha256Hash` | `sha256Hash` | `string` | No | No | gdata |
+| `sha512Hash` | `sha512Hash` | `string` | No | No | gdata |
+| `timestamp` | `timestamp` | `string` | No | No | gdata |
+| `token` | `token` | `string` | No | No | gdata |
+
+## ReportingGdataObjectId
+
+`object` model on the `json` wire format.
+
+gdata
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bucketName` | `bucketName` | `string` | No | No | gdata |
+| `generation` | `generation` | `string` | No | No | gdata |
+| `objectName` | `objectName` | `string` | No | No | gdata |
+
+## ReportingJob
+
+`object` model on the `json` wire format.
+
+A job creating reports of a specific type.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createTime` | `createTime` | `string` | No | No | The creation date/time of the job. |
+| `expireTime` | `expireTime` | `string` | No | No | The date/time when this job will expire/expired. After a job expired, no new reports are generated. |
+| `id` | `id` | `string` | No | No | The server-generated ID of the job (max. 40 characters). |
+| `name` | `name` | `string` | No | No | The name of the job (max. 100 characters). |
+| `reportTypeId` | `reportTypeId` | `string` | No | No | The type of reports this job creates. Corresponds to the ID of a ReportType. |
+| `systemManaged` | `systemManaged` | `boolean` | No | No | True if this a system-managed job that cannot be modified by the user; otherwise false. |
+
+## ReportingListJobsResponse
+
+`object` model on the `json` wire format.
+
+Response message for ReportingService.ListJobs.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobs` | `jobs` | `Array<ReportingJob>` | No | No | The list of jobs. |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | A token to retrieve next page of results. Pass this value in the ListJobsRequest.page_token field in the subsequent call to `ListJobs` method to retrieve the next page of results. |
+
+## ReportingListReportsResponse
+
+`object` model on the `json` wire format.
+
+Response message for ReportingService.ListReports.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | A token to retrieve next page of results. Pass this value in the ListReportsRequest.page_token field in the subsequent call to `ListReports` method to retrieve the next page of results. |
+| `reports` | `reports` | `Array<ReportingReport>` | No | No | The list of report types. |
+
+## ReportingListReportTypesResponse
+
+`object` model on the `json` wire format.
+
+Response message for ReportingService.ListReportTypes.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | A token to retrieve next page of results. Pass this value in the ListReportTypesRequest.page_token field in the subsequent call to `ListReportTypes` method to retrieve the next page of results. |
+| `reportTypes` | `reportTypes` | `Array<ReportingReportType>` | No | No | The list of report types. |
+
+## ReportingReport
+
+`object` model on the `json` wire format.
+
+A report's metadata including the URL from which the report itself can be downloaded.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createTime` | `createTime` | `string` | No | No | The date/time when this report was created. |
+| `downloadUrl` | `downloadUrl` | `string` | No | No | The URL from which the report can be downloaded (max. 1000 characters). |
+| `endTime` | `endTime` | `string` | No | No | The end of the time period that the report instance covers. The value is exclusive. |
+| `id` | `id` | `string` | No | No | The server-generated ID of the report. |
+| `jobExpireTime` | `jobExpireTime` | `string` | No | No | The date/time when the job this report belongs to will expire/expired. |
+| `jobId` | `jobId` | `string` | No | No | The ID of the job that created this report. |
+| `startTime` | `startTime` | `string` | No | No | The start of the time period that the report instance covers. The value is inclusive. |
+
+## ReportingReportType
+
+`object` model on the `json` wire format.
+
+A report type.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deprecateTime` | `deprecateTime` | `string` | No | No | The date/time when this report type was/will be deprecated. |
+| `id` | `id` | `string` | No | No | The ID of the report type (max. 100 characters). |
+| `name` | `name` | `string` | No | No | The name of the report type (max. 100 characters). |
+| `systemManaged` | `systemManaged` | `boolean` | No | No | True if this a system-managed report type; otherwise false. Reporting jobs for system-managed report types are created automatically and can thus not be used in the `CreateJob` method. |
+
+## ResourceId
+
+`object` model on the `json` wire format.
+
+A resource id is a generic reference that points to another YouTube resource.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the referred resource, if that resource is a channel. This property is only present if the resourceId.kind value is youtube#channel. |
+| `kind` | `kind` | `string` | No | No | The type of the API resource. |
+| `playlistId` | `playlistId` | `string` | No | No | The ID that YouTube uses to uniquely identify the referred resource, if that resource is a playlist. This property is only present if the resourceId.kind value is youtube#playlist. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the referred resource, if that resource is a video. This property is only present if the resourceId.kind value is youtube#video. |
+
+## SearchListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<SearchResult>` | No | No | Pagination information for token pagination. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#searchListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | General pagination information. |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `regionCode` | `regionCode` | `string` | No | No | — |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitor ID identifies the visitor. |
+
+## SearchResult
+
+`object` model on the `json` wire format.
+
+A search result contains information about a YouTube video, channel, or playlist that matches the search parameters specified in an API request. While a search result points to a uniquely identifiable resource, like a video, it does not have its own persistent data.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `ResourceId` | No | No | The id object contains information that can be used to uniquely identify the resource that matches the search request. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#searchResult". |
+| `snippet` | `snippet` | `SearchResultSnippet` | No | No | The snippet object contains basic details about a search result, such as its title or description. For example, if the search result is a video, then the title will be the video's title and the description will be the video's description. |
+
+## SearchResultSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a search result, including title, description and thumbnails of the item referenced by the search result.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The value that YouTube uses to uniquely identify the channel that published the resource that the search result identifies. |
+| `channelTitle` | `channelTitle` | `string` | No | No | The title of the channel that published the resource that the search result identifies. |
+| `description` | `description` | `string` | No | No | A description of the search result. |
+| `liveBroadcastContent` | `liveBroadcastContent` | `"none" \| "upcoming" \| "live" \| "completed"` | No | No | It indicates if the resource (video or channel) has upcoming/active live broadcast content. Or it's "none" if there is not any upcoming/active live broadcasts. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The creation date and time of the resource that the search result identifies. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the search result. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The title of the search result. |
+
+## Subscription
+
+`object` model on the `json` wire format.
+
+A *subscription* resource contains information about a YouTube user subscription. A subscription notifies a user when new videos are added to a channel or when another user takes one of several actions on YouTube, such as uploading a video, rating a video, or commenting on a video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentDetails` | `contentDetails` | `SubscriptionContentDetails` | No | No | The contentDetails object contains basic statistics about the subscription. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the subscription. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#subscription". |
+| `snippet` | `snippet` | `SubscriptionSnippet` | No | No | The snippet object contains basic details about the subscription, including its title and the channel that the user subscribed to. |
+| `subscriberSnippet` | `subscriberSnippet` | `SubscriptionSubscriberSnippet` | No | No | The subscriberSnippet object contains basic details about the subscriber. |
+
+## SubscriptionContentDetails
+
+`object` model on the `json` wire format.
+
+Details about the content to witch a subscription refers.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activityType` | `activityType` | `"subscriptionActivityTypeUnspecified" \| "all" \| "uploads"` | No | No | The type of activity this subscription is for (only uploads, everything). |
+| `newItemCount` | `newItemCount` | `integer` | No | No | The number of new items in the subscription since its content was last read. |
+| `totalItemCount` | `totalItemCount` | `integer` | No | No | The approximate number of items that the subscription points to. |
+
+## SubscriptionListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<Subscription>` | No | No | A list of subscriptions that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#subscriptionListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | — |
+| `prevPageToken` | `prevPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the previous page in the result set. |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## SubscriptionSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a subscription, including title, description and thumbnails of the subscribed item.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The ID that YouTube uses to uniquely identify the subscriber's channel. |
+| `description` | `description` | `string` | No | No | The subscription's details. |
+| `publishedAt` | `publishedAt` | `string<date-time>` | No | No | The date and time that the subscription was created. |
+| `resourceId` | `resourceId` | `ResourceId` | No | No | The id object contains information about the channel that the user subscribed to. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | A map of thumbnail images associated with the video. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail. |
+| `title` | `title` | `string` | No | No | The subscription's title. |
+
+## SubscriptionSubscriberSnippet
+
+`object` model on the `json` wire format.
+
+Basic details about a subscription's subscriber including title, description, channel ID and thumbnails.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `channelId` | `string` | No | No | The channel ID of the subscriber. |
+| `description` | `description` | `string` | No | No | The description of the subscriber. |
+| `thumbnails` | `thumbnails` | `ThumbnailDetails` | No | No | Thumbnails for this subscriber. |
+| `title` | `title` | `string` | No | No | The title of the subscriber. |
+
+## SuperChatEvent
+
+`object` model on the `json` wire format.
+
+A `__superChatEvent__` resource represents a Super Chat purchase on a YouTube channel.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `id` | `id` | `string` | No | No | The ID that YouTube assigns to uniquely identify the Super Chat event. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string `"youtube#superChatEvent"`. |
+| `snippet` | `snippet` | `SuperChatEventSnippet` | No | No | The `snippet` object contains basic details about the Super Chat event. |
+
+## SuperChatEventListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<SuperChatEvent>` | No | No | A list of Super Chat purchases that match the request criteria. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#superChatEventListResponse". |
+| `nextPageToken` | `nextPageToken` | `string` | No | No | The token that can be used as the value of the pageToken parameter to retrieve the next page in the result set. |
+| `pageInfo` | `pageInfo` | `PageInfo` | No | No | — |
+| `tokenPagination` | `tokenPagination` | `TokenPagination` | No | No | — |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## SuperChatEventSnippet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amountMicros` | `amountMicros` | `string` | No | No | The purchase amount, in micros of the purchase currency. e.g., 1 is represented as 1000000. |
+| `channelId` | `channelId` | `string` | No | No | Channel id where the event occurred. |
+| `commentText` | `commentText` | `string` | No | No | The text contents of the comment left by the user. |
+| `createdAt` | `createdAt` | `string<date-time>` | No | No | The date and time when the event occurred. |
+| `currency` | `currency` | `string` | No | No | The currency in which the purchase was made. ISO 4217. |
+| `displayString` | `displayString` | `string` | No | No | A rendered string that displays the purchase amount and currency (e.g., "$1.00"). The string is rendered for the given language. |
+| `isSuperStickerEvent` | `isSuperStickerEvent` | `boolean` | No | No | True if this event is a Super Sticker event. |
+| `messageType` | `messageType` | `integer` | No | No | The tier for the paid message, which is based on the amount of money spent to purchase the message. |
+| `superStickerMetadata` | `superStickerMetadata` | `SuperStickerMetadata` | No | No | If this event is a Super Sticker event, this field will contain metadata about the Super Sticker. |
+| `supporterDetails` | `supporterDetails` | `ChannelProfileDetails` | No | No | Details about the supporter. |
+
+## SuperStickerMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Internationalized alt text that describes the sticker image and any animation associated with it. |
+| `altTextLanguage` | `altTextLanguage` | `string` | No | No | Specifies the localization language in which the alt text is returned. |
+| `stickerId` | `stickerId` | `string` | No | No | Unique identifier of the Super Sticker. This is a shorter form of the alt_text that includes pack name and a recognizable characteristic of the sticker. |
+
+## TestItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag for the resource. See https://en.wikipedia.org/wiki/HTTP_ETag. |
+| `featuredPart` | `featuredPart` | `boolean` | No | No | — |
+| `gaia` | `gaia` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `snippet` | `snippet` | `TestItemTestItemSnippet` | No | No | — |
+
+## TestItemTestItemSnippet
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ThirdPartyLink
+
+`object` model on the `json` wire format.
+
+A *third party account link* resource represents a link between a YouTube account or a channel and an account on a third-party service.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#thirdPartyLink". |
+| `linkingToken` | `linkingToken` | `string` | No | No | The linking_token identifies a YouTube account and channel with which the third party account is linked. |
+| `snippet` | `snippet` | `ThirdPartyLinkSnippet` | No | No | The snippet object contains basic details about the third- party account link. |
+| `status` | `status` | `ThirdPartyLinkStatus` | No | No | The status object contains information about the status of the link. |
+
+## ThirdPartyLinkListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `items` | `items` | `Array<ThirdPartyLink>` | No | No | — |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#thirdPartyLinkListResponse". |
+
+## ThirdPartyLinkSnippet
+
+`object` model on the `json` wire format.
+
+Basic information about a third party account link, including its type and type-specific information.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelToAffiliateProgramLink` | `channelToAffiliateProgramLink` | `ChannelToAffiliateProgramLinkDetails` | No | No | Information specific to a link between a channel and an affiliate program of a partner. |
+| `channelToStoreLink` | `channelToStoreLink` | `ChannelToStoreLinkDetails` | No | No | Information specific to a link between a channel and a store on a merchandising platform. |
+| `type` | `type` | `"linkUnspecified" \| "channelToStoreLink" \| "channelToAffiliateProgramLink"` | No | No | Type of the link named after the entities that are being linked. |
+
+## ThirdPartyLinkStatus
+
+`object` model on the `json` wire format.
+
+The third-party link status object contains information about the status of the link.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `linkStatus` | `linkStatus` | `"unknown" \| "failed" \| "pending" \| "linked"` | No | No | — |
+
+## Thumbnail
+
+`object` model on the `json` wire format.
+
+A thumbnail is an image representing a YouTube resource.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `integer` | No | No | (Optional) Height of the thumbnail image. |
+| `url` | `url` | `string` | No | No | The thumbnail image's URL. |
+| `width` | `width` | `integer` | No | No | (Optional) Width of the thumbnail image. |
+
+## ThumbnailDetails
+
+`object` model on the `json` wire format.
+
+Internal representation of thumbnails for a YouTube resource.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `default` | `default` | `Thumbnail` | No | No | The default image for this resource. |
+| `high` | `high` | `Thumbnail` | No | No | The high quality image for this resource. |
+| `maxres` | `maxres` | `Thumbnail` | No | No | The maximum resolution quality image for this resource. |
+| `medium` | `medium` | `Thumbnail` | No | No | The medium quality image for this resource. |
+| `standard` | `standard` | `Thumbnail` | No | No | The standard quality image for this resource. |
+
+## ThumbnailSetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `eventId` | `eventId` | `string` | No | No | Serialized EventId of the request which produced this response. |
+| `items` | `items` | `Array<ThumbnailDetails>` | No | No | A list of thumbnails. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#thumbnailSetResponse". |
+| `visitorId` | `visitorId` | `string` | No | No | The visitorId identifies the visitor. |
+
+## TokenPagination
+
+`object` model on the `json` wire format.
+
+Stub token pagination template to suppress results.
+
+No fields are declared.
+
+## Video
+
+`object` model on the `json` wire format.
+
+A *video* resource represents a YouTube video.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageGating` | `ageGating` | `VideoAgeGating` | No | No | Age restriction details related to a video. This data can only be retrieved by the video owner. |
+| `brandPartner` | `brandPartner` | `BrandPartner` | No | No | — |
+| `contentDetails` | `contentDetails` | `VideoContentDetails` | No | No | The contentDetails object contains information about the video content, including the length of the video and its aspect ratio. |
+| `etag` | `etag` | `string` | No | No | Etag of this resource. |
+| `fileDetails` | `fileDetails` | `VideoFileDetails` | No | No | The fileDetails object encapsulates information about the video file that was uploaded to YouTube, including the file's resolution, duration, audio and video codecs, stream bitrates, and more. This data can only be retrieved by the video owner. |
+| `id` | `id` | `string` | No | No | The ID that YouTube uses to uniquely identify the video. |
+| `kind` | `kind` | `string` | No | No | Identifies what kind of resource this is. Value: the fixed string "youtube#video". |
+| `liveStreamingDetails` | `liveStreamingDetails` | `VideoLiveStreamingDetails` | No | No | The liveStreamingDetails object contains metadata about a live video broadcast. The object will only be present in a video resource if the video is an upcoming, live, or completed live broadcast. |
+| `localizations` | `localizations` | `Record<string, VideoLocalization>` | No | No | The localizations object contains localized versions of the basic details about the video, such as its title and description. |
+| `monetizationDetails` | `monetizationDetails` | `VideoMonetizationDetails` | No | No | The monetizationDetails object encapsulates information about the monetization status of the video. |
+| `paidProductPlacementDetails` | `paidProductPlacementDetails` | `VideoPaidProductPlacementDetails` | No | No | — |
+| `player` | `player` | `VideoPlayer` | No | No | The player object contains information that you would use to play the video in an embedded player. |
+| `processingDetails` | `processingDetails` | `VideoProcessingDetails` | No | No | The processingDetails object encapsulates information about YouTube's progress in processing the uploaded video file. The properties in the object identify the current processing status and an estimate of the time remaining until YouTube finishes processing the video. This part also indicates whether different types of data or content, such as file details or thumbnail images, are available for the video. The processingProgress object is designed to be polled so that the video uploaded can track the progress that YouTube has made in processing the uploaded video file. This data can only be retrieved by the video owner. |
+| `projectDetails` | `projectDetails` | `VideoProjectDetails` | No | No | The projectDetails object contains information about the project specific video metadata. b/157517979: This part was never populated after it was added. However, it sees non-zero traffic because there is generated client code in the wild that refers to it [1]. We keep this field and do NOT remove it because otherwise V3 would return an error when this part gets requested [2]. [1] https://developers.google.com/resources/api-libraries/documentation/youtube/v3/csharp/latest/classGoogle_1_1Apis_1_1YouTube_1_1v3_1_1Data_1_1VideoProjectDetails.html [2] http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677 |
+| `recordingDetails` | `recordingDetails` | `VideoRecordingDetails` | No | No | The recordingDetails object encapsulates information about the location, date and address where the video was recorded. |
+| `snippet` | `snippet` | `VideoSnippet` | No | No | The snippet object contains basic details about the video, such as its title, description, and category. |
+| `statistics` | `statistics` | `VideoStatistics` | No | No | The statistics object contains statistics about the video. |
+| `status` | `status` | `VideoStatus` | No | No | The status object contains information about the video's uploading, processing, and privacy statuses. |
+| `suggestions` | `suggestions` | `VideoSuggestions` | No | No | The suggestions object encapsulates suggestions that identify opportunities to improve the video quality or the metadata for the uploaded video. This data can only be retrieved by the video owner. |
+| `topicDetails` | `topicDetails` | `VideoTopicDetails` | No | No | The topicDetails object encapsulates information about Freebase topics associated with the video. |
+
+## VideoAbuseReport
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comments` | `comments` | `string` | No | No | Additional comments regarding the abuse report. |
+| `language` | `language` | `string` | No | No | The language that the content was viewed in. |
+| `reasonId` | `reasonId` | `string` | No | No | The high-level, or primary, reason that the content is abusive. The value is an abuse report reason ID. |
+| `secondaryReasonId` | `secondaryReasonId` | `string` | No | No | The specific, or secondary, reason that this content is abusive (if available). The value is an abuse report reason ID that is a valid secondary reason for the primary reason. |
+| `videoId` | `videoId` | `string` | No | No | The ID that YouTube uses to uniquely identify the video. |

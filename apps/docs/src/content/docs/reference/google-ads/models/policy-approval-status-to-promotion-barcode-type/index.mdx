@@ -62,7 +62,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `policy_topic_entries` | `policy_topic_entries` | `Array<unknown>` | No | No | — |
+| `policy_topic_entries` | `policy_topic_entries` | `Array<PolicyTopicEntry>` | No | No | — |
 | `review_status` | `review_status` | `PolicyReviewStatus` | No | No | — |
 | `approval_status` | `approval_status` | `PolicyApprovalStatus` | No | No | — |
 
@@ -72,10 +72,10 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `country_constraint_list` | `country_constraint_list` | `unknown` | No | No | — |
-| `reseller_constraint` | `reseller_constraint` | `unknown` | No | No | — |
-| `certificate_missing_in_country_list` | `certificate_missing_in_country_list` | `unknown` | No | No | — |
-| `certificate_domain_mismatch_in_country_list` | `certificate_domain_mismatch_in_country_list` | `unknown` | No | No | — |
+| `country_constraint_list` | `country_constraint_list` | `CountryConstraintList` | No | No | — |
+| `reseller_constraint` | `reseller_constraint` | `ResellerConstraint` | No | No | — |
+| `certificate_missing_in_country_list` | `certificate_missing_in_country_list` | `CountryConstraintList` | No | No | — |
+| `certificate_domain_mismatch_in_country_list` | `certificate_domain_mismatch_in_country_list` | `CountryConstraintList` | No | No | — |
 
 ## PolicyTopicEntry
 
@@ -85,8 +85,8 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `topic` | `topic` | `string` | No | No | — |
 | `type` | `type` | `PolicyTopicEntryType` | No | No | — |
-| `evidences` | `evidences` | `Array<unknown>` | No | No | — |
-| `constraints` | `constraints` | `Array<unknown>` | No | No | — |
+| `evidences` | `evidences` | `Array<PolicyTopicEvidence>` | No | No | — |
+| `constraints` | `constraints` | `Array<PolicyTopicConstraint>` | No | No | — |
 
 ## PolicyTopicEntryType
 
@@ -106,12 +106,12 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `website_list` | `website_list` | `unknown` | No | No | — |
-| `text_list` | `text_list` | `unknown` | No | No | — |
+| `website_list` | `website_list` | `WebsiteList` | No | No | — |
+| `text_list` | `text_list` | `TextList` | No | No | — |
 | `language_code` | `language_code` | `string` | No | No | — |
-| `destination_text_list` | `destination_text_list` | `unknown` | No | No | — |
-| `destination_mismatch` | `destination_mismatch` | `unknown` | No | No | — |
-| `destination_not_working` | `destination_not_working` | `unknown` | No | No | — |
+| `destination_text_list` | `destination_text_list` | `DestinationTextList` | No | No | — |
+| `destination_mismatch` | `destination_mismatch` | `DestinationMismatch` | No | No | — |
+| `destination_not_working` | `destination_not_working` | `DestinationNotWorking` | No | No | — |
 
 ## PolicyTopicEvidenceDestinationMismatchUrlType
 
@@ -156,7 +156,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `ignorable_policy_topics` | `ignorable_policy_topics` | `Array<string>` | No | No | — |
-| `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<unknown>` | No | No | — |
+| `exempt_policy_violation_keys` | `exempt_policy_violation_keys` | `Array<PolicyViolationKey>` | No | No | — |
 
 ## PolicyValidationParameterError
 
@@ -233,7 +233,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `postback_sequence_index` | `postback_sequence_index` | `integer` | No | No | — |
-| `coarse_grained_conversion_value_mappings` | `coarse_grained_conversion_value_mappings` | `unknown` | No | No | — |
+| `coarse_grained_conversion_value_mappings` | `coarse_grained_conversion_value_mappings` | `CoarseGrainedConversionValueMappings` | No | No | — |
 | `lock_window_coarse_conversion_value` | `lock_window_coarse_conversion_value` | `SkAdNetworkCoarseConversionValue` | No | No | — |
 | `lock_window_fine_conversion_value` | `lock_window_fine_conversion_value` | `integer` | No | No | — |
 | `lock_window_event` | `lock_window_event` | `string` | No | No | — |
@@ -259,7 +259,7 @@ No fields are declared.
 | `type` | `type` | `PriceExtensionType` | No | No | — |
 | `price_qualifier` | `price_qualifier` | `PriceExtensionPriceQualifier` | No | No | — |
 | `language_code` | `language_code` | `string` | No | No | — |
-| `price_offerings` | `price_offerings` | `Array<unknown>` | No | No | — |
+| `price_offerings` | `price_offerings` | `Array<PriceOffering>` | No | No | — |
 
 ## PriceExtensionPriceQualifier
 
@@ -305,7 +305,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `header` | `header` | `string` | No | No | — |
 | `description` | `description` | `string` | No | No | — |
-| `price` | `price` | `unknown` | No | No | — |
+| `price` | `price` | `Money` | No | No | — |
 | `unit` | `unit` | `PriceExtensionPriceUnit` | No | No | — |
 | `final_url` | `final_url` | `string` | No | No | — |
 | `final_mobile_url` | `final_mobile_url` | `string` | No | No | — |
@@ -358,7 +358,7 @@ No fields are declared.
 | `product_category_constant_parent` | `product_category_constant_parent` | `string` | No | No | — |
 | `level` | `level` | `ProductCategoryLevel` | No | No | — |
 | `state` | `state` | `ProductCategoryState` | No | No | — |
-| `localizations` | `localizations` | `Array<unknown>` | No | No | — |
+| `localizations` | `localizations` | `Array<ProductCategoryLocalization>` | No | No | — |
 
 ## ProductCategoryInfo
 
@@ -509,8 +509,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `product_list` | `product_list` | `unknown` | No | No | — |
-| `marketing_objective_list` | `marketing_objective_list` | `unknown` | No | No | — |
+| `product_list` | `product_list` | `ProductList` | No | No | — |
+| `marketing_objective_list` | `marketing_objective_list` | `MarketingObjectiveList` | No | No | — |
 
 ## ProductGroupingInfo
 
@@ -595,11 +595,11 @@ No fields are declared.
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `product_link_id` | `product_link_id` | `string` | No | No | — |
 | `type` | `type` | `LinkedProductType` | No | No | — |
-| `data_partner` | `data_partner` | `unknown` | No | No | — |
-| `google_ads` | `google_ads` | `unknown` | No | No | — |
-| `merchant_center` | `merchant_center` | `unknown` | No | No | — |
-| `advertising_partner` | `advertising_partner` | `unknown` | No | No | — |
-| `advertising_partner_properties` | `advertising_partner_properties` | `unknown` | No | No | — |
+| `data_partner` | `data_partner` | `DataPartnerIdentifier` | No | No | — |
+| `google_ads` | `google_ads` | `GoogleAdsIdentifier` | No | No | — |
+| `merchant_center` | `merchant_center` | `MerchantCenterIdentifier` | No | No | — |
+| `advertising_partner` | `advertising_partner` | `AdvertisingPartnerIdentifier` | No | No | — |
+| `advertising_partner_properties` | `advertising_partner_properties` | `AdvertisingPartnerProperties` | No | No | — |
 
 ## ProductLinkError
 
@@ -623,10 +623,10 @@ No fields are declared.
 | `product_link_invitation_id` | `product_link_invitation_id` | `string` | No | No | — |
 | `status` | `status` | `ProductLinkInvitationStatus` | No | No | — |
 | `type` | `type` | `LinkedProductType` | No | No | — |
-| `hotel_center` | `hotel_center` | `unknown` | No | No | — |
-| `merchant_center` | `merchant_center` | `unknown` | No | No | — |
-| `advertising_partner` | `advertising_partner` | `unknown` | No | No | — |
-| `advertising_partner_properties` | `advertising_partner_properties` | `unknown` | No | No | — |
+| `hotel_center` | `hotel_center` | `HotelCenterLinkInvitationIdentifier` | No | No | — |
+| `merchant_center` | `merchant_center` | `MerchantCenterLinkInvitationIdentifier` | No | No | — |
+| `advertising_partner` | `advertising_partner` | `AdvertisingPartnerLinkInvitationIdentifier` | No | No | — |
+| `advertising_partner_properties` | `advertising_partner_properties` | `AdvertisingPartnerLinkInvitationProperties` | No | No | — |
 
 ## ProductLinkInvitationError
 
@@ -669,8 +669,8 @@ No fields are declared.
 | `plannable_product_code` | `plannable_product_code` | `string` | No | No | — |
 | `plannable_product_name` | `plannable_product_name` | `string` | No | No | — |
 | `plannable_product_description` | `plannable_product_description` | `string` | No | No | — |
-| `plannable_product_core_attributes` | `plannable_product_core_attributes` | `unknown` | No | No | — |
-| `plannable_targeting` | `plannable_targeting` | `unknown` | No | No | — |
+| `plannable_product_core_attributes` | `plannable_product_core_attributes` | `ProductCoreAttributes` | No | No | — |
+| `plannable_targeting` | `plannable_targeting` | `PlannableTargeting` | No | No | — |
 
 ## ProductRecontextGenerationImageInput
 
@@ -679,7 +679,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `prompt` | `prompt` | `string` | No | No | — |
-| `source_images` | `source_images` | `Array<unknown>` | No | No | — |
+| `source_images` | `source_images` | `Array<SourceImage>` | No | No | — |
 
 ## ProductStatus
 
@@ -771,15 +771,15 @@ No fields are declared.
 | `language_code` | `language_code` | `string` | No | No | — |
 | `start_date` | `start_date` | `string` | No | No | — |
 | `end_date` | `end_date` | `string` | No | No | — |
-| `ad_schedule_targets` | `ad_schedule_targets` | `Array<unknown>` | No | No | — |
+| `ad_schedule_targets` | `ad_schedule_targets` | `Array<AdScheduleInfo>` | No | No | — |
 | `terms_and_conditions_text` | `terms_and_conditions_text` | `string` | No | No | — |
 | `terms_and_conditions_uri` | `terms_and_conditions_uri` | `string` | No | No | — |
 | `percent_off` | `percent_off` | `string` | No | No | — |
-| `money_amount_off` | `money_amount_off` | `unknown` | No | No | — |
+| `money_amount_off` | `money_amount_off` | `Money` | No | No | — |
 | `promotion_code` | `promotion_code` | `string` | No | No | — |
-| `orders_over_amount` | `orders_over_amount` | `unknown` | No | No | — |
-| `promotion_barcode_info` | `promotion_barcode_info` | `unknown` | No | No | — |
-| `promotion_qr_code_info` | `promotion_qr_code_info` | `unknown` | No | No | — |
+| `orders_over_amount` | `orders_over_amount` | `Money` | No | No | — |
+| `promotion_barcode_info` | `promotion_barcode_info` | `PromotionBarcodeInfo` | No | No | — |
+| `promotion_qr_code_info` | `promotion_qr_code_info` | `PromotionQrCodeInfo` | No | No | — |
 
 ## PromotionBarcodeInfo
 

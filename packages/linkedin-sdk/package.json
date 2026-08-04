@@ -27,7 +27,11 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun scripts/generate-effect.ts",
+    "codegen": "bun run codegen:rest && bun scripts/generate-effect.ts",
+    "codegen:refresh": "bun scripts/refresh-postman.ts && bun run codegen:rest",
+    "codegen:source-check": "bun scripts/refresh-postman.ts --check",
+    "codegen:rest": "bun scripts/generate-rest.ts",
+    "codegen:check": "bun run codegen && git diff --exit-code -- spec/linkedin-postman.snapshot.json src/generated",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
@@ -62,6 +66,12 @@
       "types": "./dist/generated/effect/index.d.ts",
       "import": "./dist/generated/effect/index.js",
       "default": "./dist/generated/effect/index.js"
+    },
+    "./rest": {
+      "bun": "./src/generated/rest/index.ts",
+      "types": "./dist/generated/rest/index.d.ts",
+      "import": "./dist/generated/rest/index.js",
+      "default": "./dist/generated/rest/index.js"
     }
   },
   "engines": {

@@ -2,24 +2,25 @@
 
 Type-safe TypeScript SDK for YouTube Data API v3 publishing, uploads, and channel workflows.
 
-This package is generated from Google's official Discovery document:
+This package is generated from Google's official Discovery documents:
 
-- Source URL: https://youtube.googleapis.com/$discovery/rest?version=v3
-- Snapshot: `../../google-discovery/youtube-v3.json`
-- Revision: `20260729`
+- Data API v3: `../../google-discovery/youtube-v3.json`
+- Analytics API v2: `../../google-discovery/youtube-analytics-v2.json`
+- Reporting API v1: `../../google-discovery/youtube-reporting-v1.json`
 
-The generated surface currently covers the OpenPromo migration path:
+The generated catalog accounts for all 98 operations in the pinned snapshots:
 
-- Videos: list, batch statistics, insert, update, delete, rate, rating, report abuse
-- Uploads: Web-standard resumable video upload helper
-- Channels, playlists, playlist items
-- Comments and comment threads
-- Captions, thumbnails, and search
+- All 32 Data API resource groups, including Live Streaming resources
+- Analytics targeted metric queries through `client.analytics`
+- Bulk report jobs and downloads through `client.reporting`
+- Discovery-driven generic resumable uploads for videos, captions, thumbnails, banners, and
+  playlist images
 
 ## Generate
 
 ```bash
 bun --filter='./packages/youtube-sdk' run codegen
+bun --filter='./packages/youtube-sdk' run codegen:refresh
 ```
 
 ## Use
@@ -46,4 +47,13 @@ const video = await youtube.uploads.uploadVideoResumable({
 });
 
 console.log(video.id);
+```
+
+```ts
+const metrics = await youtube.analytics.reportsQuery({
+  ids: "channel==MINE",
+  startDate: "2026-08-01",
+  endDate: "2026-08-03",
+  metrics: "views,likes,comments",
+});
 ```

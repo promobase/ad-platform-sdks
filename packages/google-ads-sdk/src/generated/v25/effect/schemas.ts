@@ -8,12 +8,12 @@ export interface AccessibleBiddingStrategy {
   readonly type?: BiddingStrategyType;
   readonly owner_customer_id?: string;
   readonly owner_descriptive_name?: string;
-  readonly maximize_conversion_value?: unknown;
-  readonly maximize_conversions?: unknown;
-  readonly target_cpa?: unknown;
-  readonly target_impression_share?: unknown;
-  readonly target_roas?: unknown;
-  readonly target_spend?: unknown;
+  readonly maximize_conversion_value?: MaximizeConversionValue;
+  readonly maximize_conversions?: MaximizeConversions;
+  readonly target_cpa?: TargetCpa;
+  readonly target_impression_share?: TargetImpressionShare;
+  readonly target_roas?: TargetRoas;
+  readonly target_spend?: TargetSpend;
 }
 export interface AccessibleBiddingStrategyEncoded {
   readonly resource_name?: string;
@@ -22,12 +22,12 @@ export interface AccessibleBiddingStrategyEncoded {
   readonly type?: BiddingStrategyTypeEncoded;
   readonly owner_customer_id?: string;
   readonly owner_descriptive_name?: string;
-  readonly maximize_conversion_value?: unknown;
-  readonly maximize_conversions?: unknown;
-  readonly target_cpa?: unknown;
-  readonly target_impression_share?: unknown;
-  readonly target_roas?: unknown;
-  readonly target_spend?: unknown;
+  readonly maximize_conversion_value?: MaximizeConversionValueEncoded;
+  readonly maximize_conversions?: MaximizeConversionsEncoded;
+  readonly target_cpa?: TargetCpaEncoded;
+  readonly target_impression_share?: TargetImpressionShareEncoded;
+  readonly target_roas?: TargetRoasEncoded;
+  readonly target_spend?: TargetSpendEncoded;
 }
 export const AccessibleBiddingStrategy: Schema.Schema<AccessibleBiddingStrategy, AccessibleBiddingStrategyEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -36,12 +36,12 @@ export const AccessibleBiddingStrategy: Schema.Schema<AccessibleBiddingStrategy,
   type: Schema.optional(Schema.suspend(() => BiddingStrategyType)),
   owner_customer_id: Schema.optional(Schema.String),
   owner_descriptive_name: Schema.optional(Schema.String),
-  maximize_conversion_value: Schema.optional(Schema.Unknown),
-  maximize_conversions: Schema.optional(Schema.Unknown),
-  target_cpa: Schema.optional(Schema.Unknown),
-  target_impression_share: Schema.optional(Schema.Unknown),
-  target_roas: Schema.optional(Schema.Unknown),
-  target_spend: Schema.optional(Schema.Unknown),
+  maximize_conversion_value: Schema.optional(Schema.suspend(() => MaximizeConversionValue)),
+  maximize_conversions: Schema.optional(Schema.suspend(() => MaximizeConversions)),
+  target_cpa: Schema.optional(Schema.suspend(() => TargetCpa)),
+  target_impression_share: Schema.optional(Schema.suspend(() => TargetImpressionShare)),
+  target_roas: Schema.optional(Schema.suspend(() => TargetRoas)),
+  target_spend: Schema.optional(Schema.suspend(() => TargetSpend)),
 });
 
 export interface AccessibleBiddingStrategy_MaximizeConversions {
@@ -181,7 +181,7 @@ export interface AccountBudget {
   readonly amount_served_micros?: string;
   readonly purchase_order_number?: string;
   readonly notes?: string;
-  readonly pending_proposal?: unknown;
+  readonly pending_proposal?: PendingAccountBudgetProposal;
   readonly proposed_end_date_time?: string;
   readonly proposed_end_time_type?: TimeType;
   readonly approved_end_date_time?: string;
@@ -205,7 +205,7 @@ export interface AccountBudgetEncoded {
   readonly amount_served_micros?: string;
   readonly purchase_order_number?: string;
   readonly notes?: string;
-  readonly pending_proposal?: unknown;
+  readonly pending_proposal?: PendingAccountBudgetProposalEncoded;
   readonly proposed_end_date_time?: string;
   readonly proposed_end_time_type?: TimeTypeEncoded;
   readonly approved_end_date_time?: string;
@@ -229,7 +229,7 @@ export const AccountBudget: Schema.Schema<AccountBudget, AccountBudgetEncoded, n
   amount_served_micros: Schema.optional(Schema.String),
   purchase_order_number: Schema.optional(Schema.String),
   notes: Schema.optional(Schema.String),
-  pending_proposal: Schema.optional(Schema.Unknown),
+  pending_proposal: Schema.optional(Schema.suspend(() => PendingAccountBudgetProposal)),
   proposed_end_date_time: Schema.optional(Schema.String),
   proposed_end_time_type: Schema.optional(Schema.suspend(() => TimeType)),
   approved_end_date_time: Schema.optional(Schema.String),
@@ -330,17 +330,17 @@ export const AccountBudgetProposalErrorEnum: Schema.Schema<AccountBudgetProposal
 });
 
 export interface AccountBudgetProposalOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AccountBudgetProposal;
   readonly remove?: string;
 }
 export interface AccountBudgetProposalOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AccountBudgetProposalEncoded;
   readonly remove?: string;
 }
 export const AccountBudgetProposalOperation: Schema.Schema<AccountBudgetProposalOperation, AccountBudgetProposalOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AccountBudgetProposal)),
   remove: Schema.optional(Schema.String),
 });
@@ -401,8 +401,8 @@ export interface AccountBudgetSummary {
   readonly billed_amount_micros?: string;
   readonly overdelivery_amount_micros?: string;
   readonly invalid_activity_amount_micros?: string;
-  readonly invalid_activity_summaries?: ReadonlyArray<unknown>;
-  readonly campaign_summaries?: ReadonlyArray<unknown>;
+  readonly invalid_activity_summaries?: ReadonlyArray<InvalidActivitySummary>;
+  readonly campaign_summaries?: ReadonlyArray<CampaignSummary>;
 }
 export interface AccountBudgetSummaryEncoded {
   readonly customer?: string;
@@ -418,8 +418,8 @@ export interface AccountBudgetSummaryEncoded {
   readonly billed_amount_micros?: string;
   readonly overdelivery_amount_micros?: string;
   readonly invalid_activity_amount_micros?: string;
-  readonly invalid_activity_summaries?: ReadonlyArray<unknown>;
-  readonly campaign_summaries?: ReadonlyArray<unknown>;
+  readonly invalid_activity_summaries?: ReadonlyArray<InvalidActivitySummaryEncoded>;
+  readonly campaign_summaries?: ReadonlyArray<CampaignSummaryEncoded>;
 }
 export const AccountBudgetSummary: Schema.Schema<AccountBudgetSummary, AccountBudgetSummaryEncoded, never> = Schema.Struct({
   customer: Schema.optional(Schema.String),
@@ -435,8 +435,8 @@ export const AccountBudgetSummary: Schema.Schema<AccountBudgetSummary, AccountBu
   billed_amount_micros: Schema.optional(Schema.String),
   overdelivery_amount_micros: Schema.optional(Schema.String),
   invalid_activity_amount_micros: Schema.optional(Schema.String),
-  invalid_activity_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  campaign_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
+  invalid_activity_summaries: Schema.optional(Schema.Array(Schema.suspend(() => InvalidActivitySummary))),
+  campaign_summaries: Schema.optional(Schema.Array(Schema.suspend(() => CampaignSummary))),
 });
 
 export interface AccountInfo {
@@ -457,21 +457,21 @@ export interface AccountLink {
   readonly account_link_id?: string;
   readonly status?: AccountLinkStatus;
   readonly type?: LinkedAccountType;
-  readonly third_party_app_analytics?: unknown;
+  readonly third_party_app_analytics?: ThirdPartyAppAnalyticsLinkIdentifier;
 }
 export interface AccountLinkEncoded {
   readonly resource_name?: string;
   readonly account_link_id?: string;
   readonly status?: AccountLinkStatusEncoded;
   readonly type?: LinkedAccountTypeEncoded;
-  readonly third_party_app_analytics?: unknown;
+  readonly third_party_app_analytics?: ThirdPartyAppAnalyticsLinkIdentifierEncoded;
 }
 export const AccountLink: Schema.Schema<AccountLink, AccountLinkEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   account_link_id: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => AccountLinkStatus)),
   type: Schema.optional(Schema.suspend(() => LinkedAccountType)),
-  third_party_app_analytics: Schema.optional(Schema.Unknown),
+  third_party_app_analytics: Schema.optional(Schema.suspend(() => ThirdPartyAppAnalyticsLinkIdentifier)),
 });
 
 export type AccountLinkError = "UNSPECIFIED" | "UNKNOWN" | "INVALID_STATUS" | "PERMISSION_DENIED";
@@ -489,17 +489,17 @@ export const AccountLinkErrorEnum: Schema.Schema<AccountLinkErrorEnum, AccountLi
 });
 
 export interface AccountLinkOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: AccountLink;
   readonly remove?: string;
 }
 export interface AccountLinkOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: AccountLinkEncoded;
   readonly remove?: string;
 }
 export const AccountLinkOperation: Schema.Schema<AccountLinkOperation, AccountLinkOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => AccountLink)),
   remove: Schema.optional(Schema.String),
 });
@@ -538,8 +538,8 @@ export interface AccountSummary {
   readonly subtotal_amount_micros?: string;
   readonly tax_amount_micros?: string;
   readonly total_amount_micros?: string;
-  readonly regulatory_cost_summaries?: ReadonlyArray<unknown>;
-  readonly adjustment_summaries?: ReadonlyArray<unknown>;
+  readonly regulatory_cost_summaries?: ReadonlyArray<RegulatoryCostSummary>;
+  readonly adjustment_summaries?: ReadonlyArray<AdjustmentSummary>;
 }
 export interface AccountSummaryEncoded {
   readonly customer?: string;
@@ -561,8 +561,8 @@ export interface AccountSummaryEncoded {
   readonly subtotal_amount_micros?: string;
   readonly tax_amount_micros?: string;
   readonly total_amount_micros?: string;
-  readonly regulatory_cost_summaries?: ReadonlyArray<unknown>;
-  readonly adjustment_summaries?: ReadonlyArray<unknown>;
+  readonly regulatory_cost_summaries?: ReadonlyArray<RegulatoryCostSummaryEncoded>;
+  readonly adjustment_summaries?: ReadonlyArray<AdjustmentSummaryEncoded>;
 }
 export const AccountSummary: Schema.Schema<AccountSummary, AccountSummaryEncoded, never> = Schema.Struct({
   customer: Schema.optional(Schema.String),
@@ -584,8 +584,8 @@ export const AccountSummary: Schema.Schema<AccountSummary, AccountSummaryEncoded
   subtotal_amount_micros: Schema.optional(Schema.String),
   tax_amount_micros: Schema.optional(Schema.String),
   total_amount_micros: Schema.optional(Schema.String),
-  regulatory_cost_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  adjustment_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
+  regulatory_cost_summaries: Schema.optional(Schema.Array(Schema.suspend(() => RegulatoryCostSummary))),
+  adjustment_summaries: Schema.optional(Schema.Array(Schema.suspend(() => AdjustmentSummary))),
 });
 
 export type ActionError = "UNSPECIFIED" | "UNKNOWN" | "REQUIRED_FIELD_MISSING" | "INVALID_ARGUMENT";
@@ -795,31 +795,31 @@ export const AdAppDeepLinkAsset: Schema.Schema<AdAppDeepLinkAsset, AdAppDeepLink
 export interface AdAssetApplyParameters {
   readonly new_assets?: ReadonlyArray<Asset>;
   readonly existing_assets?: ReadonlyArray<string>;
-  readonly scope?: unknown;
+  readonly scope?: ApplyScope;
 }
 export interface AdAssetApplyParametersEncoded {
   readonly new_assets?: ReadonlyArray<AssetEncoded>;
   readonly existing_assets?: ReadonlyArray<string>;
-  readonly scope?: unknown;
+  readonly scope?: ApplyScopeEncoded;
 }
 export const AdAssetApplyParameters: Schema.Schema<AdAssetApplyParameters, AdAssetApplyParametersEncoded, never> = Schema.Struct({
   new_assets: Schema.optional(Schema.Array(Schema.suspend(() => Asset))),
   existing_assets: Schema.optional(Schema.Array(Schema.String)),
-  scope: Schema.optional(Schema.Unknown),
+  scope: Schema.optional(Schema.suspend(() => ApplyScope)),
 });
 
 export interface AdAssetPolicySummary {
-  readonly policy_topic_entries?: ReadonlyArray<unknown>;
+  readonly policy_topic_entries?: ReadonlyArray<PolicyTopicEntry>;
   readonly review_status?: PolicyReviewStatus;
   readonly approval_status?: PolicyApprovalStatus;
 }
 export interface AdAssetPolicySummaryEncoded {
-  readonly policy_topic_entries?: ReadonlyArray<unknown>;
+  readonly policy_topic_entries?: ReadonlyArray<PolicyTopicEntryEncoded>;
   readonly review_status?: PolicyReviewStatusEncoded;
   readonly approval_status?: PolicyApprovalStatusEncoded;
 }
 export const AdAssetPolicySummary: Schema.Schema<AdAssetPolicySummary, AdAssetPolicySummaryEncoded, never> = Schema.Struct({
-  policy_topic_entries: Schema.optional(Schema.Array(Schema.Unknown)),
+  policy_topic_entries: Schema.optional(Schema.Array(Schema.suspend(() => PolicyTopicEntry))),
   review_status: Schema.optional(Schema.suspend(() => PolicyReviewStatus)),
   approval_status: Schema.optional(Schema.suspend(() => PolicyApprovalStatus)),
 });
@@ -867,17 +867,17 @@ export const AddAssetDetails: Schema.Schema<AddAssetDetails, AddAssetDetailsEnco
 export interface AddBatchJobOperationsRequest {
   readonly resource_name?: string;
   readonly sequence_token?: string;
-  readonly mutate_operations?: ReadonlyArray<unknown>;
+  readonly mutate_operations?: ReadonlyArray<MutateOperation>;
 }
 export interface AddBatchJobOperationsRequestEncoded {
   readonly resource_name?: string;
   readonly sequence_token?: string;
-  readonly mutate_operations?: ReadonlyArray<unknown>;
+  readonly mutate_operations?: ReadonlyArray<MutateOperationEncoded>;
 }
 export const AddBatchJobOperationsRequest: Schema.Schema<AddBatchJobOperationsRequest, AddBatchJobOperationsRequestEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   sequence_token: Schema.optional(Schema.String),
-  mutate_operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  mutate_operations: Schema.optional(Schema.Array(Schema.suspend(() => MutateOperation))),
 });
 
 export interface AddBatchJobOperationsResponse {
@@ -934,21 +934,21 @@ export interface AddOfflineUserDataJobOperationsRequest {
   readonly resource_name?: string;
   readonly enable_partial_failure?: boolean;
   readonly enable_warnings?: boolean;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<OfflineUserDataJobOperation>;
   readonly validate_only?: boolean;
 }
 export interface AddOfflineUserDataJobOperationsRequestEncoded {
   readonly resource_name?: string;
   readonly enable_partial_failure?: boolean;
   readonly enable_warnings?: boolean;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<OfflineUserDataJobOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const AddOfflineUserDataJobOperationsRequest: Schema.Schema<AddOfflineUserDataJobOperationsRequest, AddOfflineUserDataJobOperationsRequestEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   enable_partial_failure: Schema.optional(Schema.Boolean),
   enable_warnings: Schema.optional(Schema.Boolean),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => OfflineUserDataJobOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
@@ -1048,7 +1048,7 @@ export interface AdGroup {
   readonly display_custom_bid_dimension?: TargetingDimension;
   readonly final_url_suffix?: string;
   readonly targeting_setting?: TargetingSetting;
-  readonly audience_setting?: unknown;
+  readonly audience_setting?: AudienceSetting;
   readonly effective_target_cpa_micros?: string;
   readonly effective_target_cpa_source?: BiddingSource;
   readonly effective_target_roas?: number;
@@ -1060,10 +1060,10 @@ export interface AdGroup {
   readonly excluded_parent_asset_set_types?: ReadonlyArray<AssetSetType>;
   readonly primary_status?: AdGroupPrimaryStatus;
   readonly primary_status_reasons?: ReadonlyArray<AdGroupPrimaryStatusReason>;
-  readonly demand_gen_ad_group_settings?: unknown;
-  readonly video_ad_group_settings?: unknown;
-  readonly ai_max_ad_group_setting?: unknown;
-  readonly vertical_ads_format_setting?: unknown;
+  readonly demand_gen_ad_group_settings?: DemandGenAdGroupSettings;
+  readonly video_ad_group_settings?: VideoAdGroupSettings;
+  readonly ai_max_ad_group_setting?: AiMaxAdGroupSetting;
+  readonly vertical_ads_format_setting?: VerticalAdsFormatSetting;
 }
 export interface AdGroupEncoded {
   readonly resource_name?: string;
@@ -1092,7 +1092,7 @@ export interface AdGroupEncoded {
   readonly display_custom_bid_dimension?: TargetingDimensionEncoded;
   readonly final_url_suffix?: string;
   readonly targeting_setting?: TargetingSettingEncoded;
-  readonly audience_setting?: unknown;
+  readonly audience_setting?: AudienceSettingEncoded;
   readonly effective_target_cpa_micros?: string;
   readonly effective_target_cpa_source?: BiddingSourceEncoded;
   readonly effective_target_roas?: number;
@@ -1104,10 +1104,10 @@ export interface AdGroupEncoded {
   readonly excluded_parent_asset_set_types?: ReadonlyArray<AssetSetTypeEncoded>;
   readonly primary_status?: AdGroupPrimaryStatusEncoded;
   readonly primary_status_reasons?: ReadonlyArray<AdGroupPrimaryStatusReasonEncoded>;
-  readonly demand_gen_ad_group_settings?: unknown;
-  readonly video_ad_group_settings?: unknown;
-  readonly ai_max_ad_group_setting?: unknown;
-  readonly vertical_ads_format_setting?: unknown;
+  readonly demand_gen_ad_group_settings?: DemandGenAdGroupSettingsEncoded;
+  readonly video_ad_group_settings?: VideoAdGroupSettingsEncoded;
+  readonly ai_max_ad_group_setting?: AiMaxAdGroupSettingEncoded;
+  readonly vertical_ads_format_setting?: VerticalAdsFormatSettingEncoded;
 }
 export const AdGroup: Schema.Schema<AdGroup, AdGroupEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -1136,7 +1136,7 @@ export const AdGroup: Schema.Schema<AdGroup, AdGroupEncoded, never> = Schema.Str
   display_custom_bid_dimension: Schema.optional(Schema.suspend(() => TargetingDimension)),
   final_url_suffix: Schema.optional(Schema.String),
   targeting_setting: Schema.optional(Schema.suspend(() => TargetingSetting)),
-  audience_setting: Schema.optional(Schema.Unknown),
+  audience_setting: Schema.optional(Schema.suspend(() => AudienceSetting)),
   effective_target_cpa_micros: Schema.optional(Schema.String),
   effective_target_cpa_source: Schema.optional(Schema.suspend(() => BiddingSource)),
   effective_target_roas: Schema.optional(Schema.Number),
@@ -1148,56 +1148,56 @@ export const AdGroup: Schema.Schema<AdGroup, AdGroupEncoded, never> = Schema.Str
   excluded_parent_asset_set_types: Schema.optional(Schema.Array(Schema.suspend(() => AssetSetType))),
   primary_status: Schema.optional(Schema.suspend(() => AdGroupPrimaryStatus)),
   primary_status_reasons: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupPrimaryStatusReason))),
-  demand_gen_ad_group_settings: Schema.optional(Schema.Unknown),
-  video_ad_group_settings: Schema.optional(Schema.Unknown),
-  ai_max_ad_group_setting: Schema.optional(Schema.Unknown),
-  vertical_ads_format_setting: Schema.optional(Schema.Unknown),
+  demand_gen_ad_group_settings: Schema.optional(Schema.suspend(() => DemandGenAdGroupSettings)),
+  video_ad_group_settings: Schema.optional(Schema.suspend(() => VideoAdGroupSettings)),
+  ai_max_ad_group_setting: Schema.optional(Schema.suspend(() => AiMaxAdGroupSetting)),
+  vertical_ads_format_setting: Schema.optional(Schema.suspend(() => VerticalAdsFormatSetting)),
 });
 
 export interface AdGroupAd {
   readonly resource_name?: string;
   readonly status?: AdGroupAdStatus;
   readonly ad_group?: string;
-  readonly ad?: unknown;
+  readonly ad?: Ad;
   readonly start_date_time?: string;
   readonly end_date_time?: string;
-  readonly policy_summary?: unknown;
+  readonly policy_summary?: AdGroupAdPolicySummary;
   readonly ad_strength?: AdStrength;
   readonly action_items?: ReadonlyArray<string>;
   readonly labels?: ReadonlyArray<string>;
   readonly primary_status?: AdGroupAdPrimaryStatus;
   readonly primary_status_reasons?: ReadonlyArray<AdGroupAdPrimaryStatusReason>;
-  readonly ad_group_ad_asset_automation_settings?: ReadonlyArray<unknown>;
+  readonly ad_group_ad_asset_automation_settings?: ReadonlyArray<AdGroupAdAssetAutomationSetting>;
 }
 export interface AdGroupAdEncoded {
   readonly resource_name?: string;
   readonly status?: AdGroupAdStatusEncoded;
   readonly ad_group?: string;
-  readonly ad?: unknown;
+  readonly ad?: AdEncoded;
   readonly start_date_time?: string;
   readonly end_date_time?: string;
-  readonly policy_summary?: unknown;
+  readonly policy_summary?: AdGroupAdPolicySummaryEncoded;
   readonly ad_strength?: AdStrengthEncoded;
   readonly action_items?: ReadonlyArray<string>;
   readonly labels?: ReadonlyArray<string>;
   readonly primary_status?: AdGroupAdPrimaryStatusEncoded;
   readonly primary_status_reasons?: ReadonlyArray<AdGroupAdPrimaryStatusReasonEncoded>;
-  readonly ad_group_ad_asset_automation_settings?: ReadonlyArray<unknown>;
+  readonly ad_group_ad_asset_automation_settings?: ReadonlyArray<AdGroupAdAssetAutomationSettingEncoded>;
 }
 export const AdGroupAd: Schema.Schema<AdGroupAd, AdGroupAdEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => AdGroupAdStatus)),
   ad_group: Schema.optional(Schema.String),
-  ad: Schema.optional(Schema.Unknown),
+  ad: Schema.optional(Schema.suspend(() => Ad)),
   start_date_time: Schema.optional(Schema.String),
   end_date_time: Schema.optional(Schema.String),
-  policy_summary: Schema.optional(Schema.Unknown),
+  policy_summary: Schema.optional(Schema.suspend(() => AdGroupAdPolicySummary)),
   ad_strength: Schema.optional(Schema.suspend(() => AdStrength)),
   action_items: Schema.optional(Schema.Array(Schema.String)),
   labels: Schema.optional(Schema.Array(Schema.String)),
   primary_status: Schema.optional(Schema.suspend(() => AdGroupAdPrimaryStatus)),
   primary_status_reasons: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAdPrimaryStatusReason))),
-  ad_group_ad_asset_automation_settings: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_group_ad_asset_automation_settings: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAdAssetAutomationSetting))),
 });
 
 export interface AdGroupAdAssetAutomationSetting {
@@ -1251,7 +1251,7 @@ export interface AdGroupAdAssetView {
   readonly asset?: string;
   readonly field_type?: AssetFieldType;
   readonly enabled?: boolean;
-  readonly policy_summary?: unknown;
+  readonly policy_summary?: AdGroupAdAssetPolicySummary;
   readonly performance_label?: AssetPerformanceLabel;
   readonly pinned_field?: ServedAssetFieldType;
   readonly source?: AssetSource;
@@ -1262,7 +1262,7 @@ export interface AdGroupAdAssetViewEncoded {
   readonly asset?: string;
   readonly field_type?: AssetFieldTypeEncoded;
   readonly enabled?: boolean;
-  readonly policy_summary?: unknown;
+  readonly policy_summary?: AdGroupAdAssetPolicySummaryEncoded;
   readonly performance_label?: AssetPerformanceLabelEncoded;
   readonly pinned_field?: ServedAssetFieldTypeEncoded;
   readonly source?: AssetSourceEncoded;
@@ -1273,7 +1273,7 @@ export const AdGroupAdAssetView: Schema.Schema<AdGroupAdAssetView, AdGroupAdAsse
   asset: Schema.optional(Schema.String),
   field_type: Schema.optional(Schema.suspend(() => AssetFieldType)),
   enabled: Schema.optional(Schema.Boolean),
-  policy_summary: Schema.optional(Schema.Unknown),
+  policy_summary: Schema.optional(Schema.suspend(() => AdGroupAdAssetPolicySummary)),
   performance_label: Schema.optional(Schema.suspend(() => AssetPerformanceLabel)),
   pinned_field: Schema.optional(Schema.suspend(() => ServedAssetFieldType)),
   source: Schema.optional(Schema.suspend(() => AssetSource)),
@@ -1323,21 +1323,21 @@ export const AdGroupAdLabelOperation: Schema.Schema<AdGroupAdLabelOperation, AdG
 });
 
 export interface AdGroupAdOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly policy_validation_parameter?: PolicyValidationParameter;
   readonly create?: AdGroupAd;
   readonly update?: AdGroupAd;
   readonly remove?: string;
 }
 export interface AdGroupAdOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly policy_validation_parameter?: PolicyValidationParameterEncoded;
   readonly create?: AdGroupAdEncoded;
   readonly update?: AdGroupAdEncoded;
   readonly remove?: string;
 }
 export const AdGroupAdOperation: Schema.Schema<AdGroupAdOperation, AdGroupAdOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   policy_validation_parameter: Schema.optional(Schema.suspend(() => PolicyValidationParameter)),
   create: Schema.optional(Schema.suspend(() => AdGroupAd)),
   update: Schema.optional(Schema.suspend(() => AdGroupAd)),
@@ -1451,19 +1451,19 @@ export const AdGroupAsset: Schema.Schema<AdGroupAsset, AdGroupAssetEncoded, neve
 });
 
 export interface AdGroupAssetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroupAsset;
   readonly update?: AdGroupAsset;
   readonly remove?: string;
 }
 export interface AdGroupAssetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroupAssetEncoded;
   readonly update?: AdGroupAssetEncoded;
   readonly remove?: string;
 }
 export const AdGroupAssetOperation: Schema.Schema<AdGroupAssetOperation, AdGroupAssetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AdGroupAsset)),
   update: Schema.optional(Schema.suspend(() => AdGroupAsset)),
   remove: Schema.optional(Schema.String),
@@ -1569,19 +1569,19 @@ export const AdGroupBidModifierErrorEnum: Schema.Schema<AdGroupBidModifierErrorE
 });
 
 export interface AdGroupBidModifierOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroupBidModifier;
   readonly update?: AdGroupBidModifier;
   readonly remove?: string;
 }
 export interface AdGroupBidModifierOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroupBidModifierEncoded;
   readonly update?: AdGroupBidModifierEncoded;
   readonly remove?: string;
 }
 export const AdGroupBidModifierOperation: Schema.Schema<AdGroupBidModifierOperation, AdGroupBidModifierOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AdGroupBidModifier)),
   update: Schema.optional(Schema.suspend(() => AdGroupBidModifier)),
   remove: Schema.optional(Schema.String),
@@ -1602,7 +1602,7 @@ export interface AdGroupCriterion {
   readonly criterion_id?: string;
   readonly display_name?: string;
   readonly status?: AdGroupCriterionStatus;
-  readonly quality_info?: unknown;
+  readonly quality_info?: QualityInfo;
   readonly ad_group?: string;
   readonly type?: CriterionType;
   readonly negative?: boolean;
@@ -1623,7 +1623,7 @@ export interface AdGroupCriterion {
   readonly effective_cpm_bid_source?: BiddingSource;
   readonly effective_cpv_bid_source?: BiddingSource;
   readonly effective_percent_cpc_bid_source?: BiddingSource;
-  readonly position_estimates?: unknown;
+  readonly position_estimates?: PositionEstimates;
   readonly final_urls?: ReadonlyArray<string>;
   readonly final_mobile_urls?: ReadonlyArray<string>;
   readonly final_url_suffix?: string;
@@ -1666,7 +1666,7 @@ export interface AdGroupCriterionEncoded {
   readonly criterion_id?: string;
   readonly display_name?: string;
   readonly status?: AdGroupCriterionStatusEncoded;
-  readonly quality_info?: unknown;
+  readonly quality_info?: QualityInfoEncoded;
   readonly ad_group?: string;
   readonly type?: CriterionTypeEncoded;
   readonly negative?: boolean;
@@ -1687,7 +1687,7 @@ export interface AdGroupCriterionEncoded {
   readonly effective_cpm_bid_source?: BiddingSourceEncoded;
   readonly effective_cpv_bid_source?: BiddingSourceEncoded;
   readonly effective_percent_cpc_bid_source?: BiddingSourceEncoded;
-  readonly position_estimates?: unknown;
+  readonly position_estimates?: PositionEstimatesEncoded;
   readonly final_urls?: ReadonlyArray<string>;
   readonly final_mobile_urls?: ReadonlyArray<string>;
   readonly final_url_suffix?: string;
@@ -1730,7 +1730,7 @@ export const AdGroupCriterion: Schema.Schema<AdGroupCriterion, AdGroupCriterionE
   criterion_id: Schema.optional(Schema.String),
   display_name: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => AdGroupCriterionStatus)),
-  quality_info: Schema.optional(Schema.Unknown),
+  quality_info: Schema.optional(Schema.suspend(() => QualityInfo)),
   ad_group: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => CriterionType)),
   negative: Schema.optional(Schema.Boolean),
@@ -1751,7 +1751,7 @@ export const AdGroupCriterion: Schema.Schema<AdGroupCriterion, AdGroupCriterionE
   effective_cpm_bid_source: Schema.optional(Schema.suspend(() => BiddingSource)),
   effective_cpv_bid_source: Schema.optional(Schema.suspend(() => BiddingSource)),
   effective_percent_cpc_bid_source: Schema.optional(Schema.suspend(() => BiddingSource)),
-  position_estimates: Schema.optional(Schema.Unknown),
+  position_estimates: Schema.optional(Schema.suspend(() => PositionEstimates)),
   final_urls: Schema.optional(Schema.Array(Schema.String)),
   final_mobile_urls: Schema.optional(Schema.Array(Schema.String)),
   final_url_suffix: Schema.optional(Schema.String),
@@ -1897,21 +1897,21 @@ export const AdGroupCriterionLabelOperation: Schema.Schema<AdGroupCriterionLabel
 });
 
 export interface AdGroupCriterionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly exempt_policy_violation_keys?: ReadonlyArray<PolicyViolationKey>;
   readonly create?: AdGroupCriterion;
   readonly update?: AdGroupCriterion;
   readonly remove?: string;
 }
 export interface AdGroupCriterionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly exempt_policy_violation_keys?: ReadonlyArray<PolicyViolationKeyEncoded>;
   readonly create?: AdGroupCriterionEncoded;
   readonly update?: AdGroupCriterionEncoded;
   readonly remove?: string;
 }
 export const AdGroupCriterionOperation: Schema.Schema<AdGroupCriterionOperation, AdGroupCriterionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   exempt_policy_violation_keys: Schema.optional(Schema.Array(Schema.suspend(() => PolicyViolationKey))),
   create: Schema.optional(Schema.suspend(() => AdGroupCriterion)),
   update: Schema.optional(Schema.suspend(() => AdGroupCriterion)),
@@ -2136,19 +2136,19 @@ export const AdGroupLabelOperation: Schema.Schema<AdGroupLabelOperation, AdGroup
 });
 
 export interface AdGroupOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroup;
   readonly update?: AdGroup;
   readonly remove?: string;
 }
 export interface AdGroupOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdGroupEncoded;
   readonly update?: AdGroupEncoded;
   readonly remove?: string;
 }
 export const AdGroupOperation: Schema.Schema<AdGroupOperation, AdGroupOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AdGroup)),
   update: Schema.optional(Schema.suspend(() => AdGroup)),
   remove: Schema.optional(Schema.String),
@@ -2295,17 +2295,17 @@ export const AdNetworkTypeEnum: Schema.Schema<AdNetworkTypeEnum, AdNetworkTypeEn
 });
 
 export interface AdOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly policy_validation_parameter?: PolicyValidationParameter;
   readonly update?: Ad;
 }
 export interface AdOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly policy_validation_parameter?: PolicyValidationParameterEncoded;
   readonly update?: AdEncoded;
 }
 export const AdOperation: Schema.Schema<AdOperation, AdOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   policy_validation_parameter: Schema.optional(Schema.suspend(() => PolicyValidationParameter)),
   update: Schema.optional(Schema.suspend(() => Ad)),
 });
@@ -2354,19 +2354,19 @@ export const AdParameterErrorEnum: Schema.Schema<AdParameterErrorEnum, AdParamet
 });
 
 export interface AdParameterOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdParameter;
   readonly update?: AdParameter;
   readonly remove?: string;
 }
 export interface AdParameterOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AdParameterEncoded;
   readonly update?: AdParameterEncoded;
   readonly remove?: string;
 }
 export const AdParameterOperation: Schema.Schema<AdParameterOperation, AdParameterOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AdParameter)),
   update: Schema.optional(Schema.suspend(() => AdParameter)),
   remove: Schema.optional(Schema.String),
@@ -2438,15 +2438,15 @@ export const AdStrength: Schema.Schema<AdStrength, AdStrengthEncoded, never> = S
 
 export interface AdStrengthActionItem {
   readonly action_item_type?: AdStrengthActionItemType;
-  readonly add_asset_details?: unknown;
+  readonly add_asset_details?: AddAssetDetails;
 }
 export interface AdStrengthActionItemEncoded {
   readonly action_item_type?: AdStrengthActionItemTypeEncoded;
-  readonly add_asset_details?: unknown;
+  readonly add_asset_details?: AddAssetDetailsEncoded;
 }
 export const AdStrengthActionItem: Schema.Schema<AdStrengthActionItem, AdStrengthActionItemEncoded, never> = Schema.Struct({
   action_item_type: Schema.optional(Schema.suspend(() => AdStrengthActionItemType)),
-  add_asset_details: Schema.optional(Schema.Unknown),
+  add_asset_details: Schema.optional(Schema.suspend(() => AddAssetDetails)),
 });
 
 export type AdStrengthActionItemType = "UNSPECIFIED" | "UNKNOWN" | "ADD_ASSET";
@@ -2505,19 +2505,19 @@ export interface AdTextAsset {
   readonly text?: string;
   readonly pinned_field?: ServedAssetFieldType;
   readonly asset_performance_label?: AssetPerformanceLabel;
-  readonly policy_summary_info?: unknown;
+  readonly policy_summary_info?: AdAssetPolicySummary;
 }
 export interface AdTextAssetEncoded {
   readonly text?: string;
   readonly pinned_field?: ServedAssetFieldTypeEncoded;
   readonly asset_performance_label?: AssetPerformanceLabelEncoded;
-  readonly policy_summary_info?: unknown;
+  readonly policy_summary_info?: AdAssetPolicySummaryEncoded;
 }
 export const AdTextAsset: Schema.Schema<AdTextAsset, AdTextAssetEncoded, never> = Schema.Struct({
   text: Schema.optional(Schema.String),
   pinned_field: Schema.optional(Schema.suspend(() => ServedAssetFieldType)),
   asset_performance_label: Schema.optional(Schema.suspend(() => AssetPerformanceLabel)),
-  policy_summary_info: Schema.optional(Schema.Unknown),
+  policy_summary_info: Schema.optional(Schema.suspend(() => AdAssetPolicySummary)),
 });
 
 export type AdType = "UNSPECIFIED" | "UNKNOWN" | "TEXT_AD" | "EXPANDED_TEXT_AD" | "EXPANDED_DYNAMIC_SEARCH_AD" | "HOTEL_AD" | "SHOPPING_SMART_AD" | "SHOPPING_PRODUCT_AD" | "VIDEO_AD" | "IMAGE_AD" | "RESPONSIVE_SEARCH_AD" | "LEGACY_RESPONSIVE_DISPLAY_AD" | "APP_AD" | "LEGACY_APP_INSTALL_AD" | "RESPONSIVE_DISPLAY_AD" | "LOCAL_AD" | "HTML5_UPLOAD_AD" | "DYNAMIC_HTML5_AD" | "APP_ENGAGEMENT_AD" | "SHOPPING_COMPARISON_LISTING_AD" | "VIDEO_BUMPER_AD" | "VIDEO_NON_SKIPPABLE_IN_STREAM_AD" | "VIDEO_TRUEVIEW_IN_STREAM_AD" | "VIDEO_RESPONSIVE_AD" | "SMART_CAMPAIGN_AD" | "CALL_AD" | "APP_PRE_REGISTRATION_AD" | "IN_FEED_VIDEO_AD" | "DEMAND_GEN_MULTI_ASSET_AD" | "DEMAND_GEN_CAROUSEL_AD" | "TRAVEL_AD" | "DEMAND_GEN_VIDEO_RESPONSIVE_AD" | "DEMAND_GEN_PRODUCT_AD" | "YOUTUBE_AUDIO_AD";
@@ -2535,19 +2535,19 @@ export const AdTypeEnum: Schema.Schema<AdTypeEnum, AdTypeEnumEncoded, never> = S
 });
 
 export interface AdvancedProductTargeting {
-  readonly surface_targeting_settings?: unknown;
-  readonly target_frequency_settings?: unknown;
-  readonly youtube_select_settings?: unknown;
+  readonly surface_targeting_settings?: SurfaceTargeting;
+  readonly target_frequency_settings?: TargetFrequencySettings;
+  readonly youtube_select_settings?: YouTubeSelectSettings;
 }
 export interface AdvancedProductTargetingEncoded {
-  readonly surface_targeting_settings?: unknown;
-  readonly target_frequency_settings?: unknown;
-  readonly youtube_select_settings?: unknown;
+  readonly surface_targeting_settings?: SurfaceTargetingEncoded;
+  readonly target_frequency_settings?: TargetFrequencySettingsEncoded;
+  readonly youtube_select_settings?: YouTubeSelectSettingsEncoded;
 }
 export const AdvancedProductTargeting: Schema.Schema<AdvancedProductTargeting, AdvancedProductTargetingEncoded, never> = Schema.Struct({
-  surface_targeting_settings: Schema.optional(Schema.Unknown),
-  target_frequency_settings: Schema.optional(Schema.Unknown),
-  youtube_select_settings: Schema.optional(Schema.Unknown),
+  surface_targeting_settings: Schema.optional(Schema.suspend(() => SurfaceTargeting)),
+  target_frequency_settings: Schema.optional(Schema.suspend(() => TargetFrequencySettings)),
+  youtube_select_settings: Schema.optional(Schema.suspend(() => YouTubeSelectSettings)),
 });
 
 export type AdvertisingChannelSubType = "UNSPECIFIED" | "UNKNOWN" | "SEARCH_MOBILE_APP" | "DISPLAY_MOBILE_APP" | "SEARCH_EXPRESS" | "DISPLAY_EXPRESS" | "SHOPPING_SMART_ADS" | "DISPLAY_GMAIL_AD" | "DISPLAY_SMART_CAMPAIGN" | "VIDEO_ACTION" | "VIDEO_NON_SKIPPABLE" | "APP_CAMPAIGN" | "APP_CAMPAIGN_FOR_ENGAGEMENT" | "LOCAL_CAMPAIGN" | "SHOPPING_COMPARISON_LISTING_ADS" | "SMART_CAMPAIGN" | "VIDEO_SEQUENCE" | "APP_CAMPAIGN_FOR_PRE_REGISTRATION" | "VIDEO_REACH_TARGET_FREQUENCY" | "TRAVEL_ACTIVITIES" | "YOUTUBE_AUDIO";
@@ -2620,28 +2620,28 @@ export const AdvertisingPartnerProperties: Schema.Schema<AdvertisingPartnerPrope
 
 export interface AdVideoAsset {
   readonly asset?: string;
-  readonly ad_video_asset_info?: unknown;
+  readonly ad_video_asset_info?: AdVideoAssetInfo;
 }
 export interface AdVideoAssetEncoded {
   readonly asset?: string;
-  readonly ad_video_asset_info?: unknown;
+  readonly ad_video_asset_info?: AdVideoAssetInfoEncoded;
 }
 export const AdVideoAsset: Schema.Schema<AdVideoAsset, AdVideoAssetEncoded, never> = Schema.Struct({
   asset: Schema.optional(Schema.String),
-  ad_video_asset_info: Schema.optional(Schema.Unknown),
+  ad_video_asset_info: Schema.optional(Schema.suspend(() => AdVideoAssetInfo)),
 });
 
 export interface AdVideoAssetInfo {
-  readonly ad_video_asset_inventory_preferences?: unknown;
-  readonly ad_video_asset_feature_control?: unknown;
+  readonly ad_video_asset_inventory_preferences?: AdVideoAssetInventoryPreferences;
+  readonly ad_video_asset_feature_control?: AdVideoAssetLinkFeatureControl;
 }
 export interface AdVideoAssetInfoEncoded {
-  readonly ad_video_asset_inventory_preferences?: unknown;
-  readonly ad_video_asset_feature_control?: unknown;
+  readonly ad_video_asset_inventory_preferences?: AdVideoAssetInventoryPreferencesEncoded;
+  readonly ad_video_asset_feature_control?: AdVideoAssetLinkFeatureControlEncoded;
 }
 export const AdVideoAssetInfo: Schema.Schema<AdVideoAssetInfo, AdVideoAssetInfoEncoded, never> = Schema.Struct({
-  ad_video_asset_inventory_preferences: Schema.optional(Schema.Unknown),
-  ad_video_asset_feature_control: Schema.optional(Schema.Unknown),
+  ad_video_asset_inventory_preferences: Schema.optional(Schema.suspend(() => AdVideoAssetInventoryPreferences)),
+  ad_video_asset_feature_control: Schema.optional(Schema.suspend(() => AdVideoAssetLinkFeatureControl)),
 });
 
 export interface AdVideoAssetInventoryPreferences {
@@ -2685,15 +2685,15 @@ export const AdxErrorEnum: Schema.Schema<AdxErrorEnum, AdxErrorEnumEncoded, neve
 });
 
 export interface AgeDimension {
-  readonly age_ranges?: ReadonlyArray<unknown>;
+  readonly age_ranges?: ReadonlyArray<AgeSegment>;
   readonly include_undetermined?: boolean;
 }
 export interface AgeDimensionEncoded {
-  readonly age_ranges?: ReadonlyArray<unknown>;
+  readonly age_ranges?: ReadonlyArray<AgeSegmentEncoded>;
   readonly include_undetermined?: boolean;
 }
 export const AgeDimension: Schema.Schema<AgeDimension, AgeDimensionEncoded, never> = Schema.Struct({
-  age_ranges: Schema.optional(Schema.Array(Schema.Unknown)),
+  age_ranges: Schema.optional(Schema.Array(Schema.suspend(() => AgeSegment))),
   include_undetermined: Schema.optional(Schema.Boolean),
 });
 
@@ -2782,15 +2782,15 @@ export const AiMaxSearchTermAdCombinationView: Schema.Schema<AiMaxSearchTermAdCo
 
 export interface AiMaxSetting {
   readonly enable_ai_max?: boolean;
-  readonly bundling_required?: unknown;
+  readonly bundling_required?: AiMaxBundlingRequired;
 }
 export interface AiMaxSettingEncoded {
   readonly enable_ai_max?: boolean;
-  readonly bundling_required?: unknown;
+  readonly bundling_required?: AiMaxBundlingRequiredEncoded;
 }
 export const AiMaxSetting: Schema.Schema<AiMaxSetting, AiMaxSettingEncoded, never> = Schema.Struct({
   enable_ai_max: Schema.optional(Schema.Boolean),
-  bundling_required: Schema.optional(Schema.Unknown),
+  bundling_required: Schema.optional(Schema.suspend(() => AiMaxBundlingRequired)),
 });
 
 export type AndroidPrivacyInteractionType = "UNSPECIFIED" | "UNKNOWN" | "CLICK" | "ENGAGED_VIEW" | "VIEW";
@@ -2897,31 +2897,31 @@ export const AndroidPrivacySharedKeyGoogleNetworkType: Schema.Schema<AndroidPriv
 });
 
 export interface AppAdInfo {
-  readonly mandatory_ad_text?: unknown;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
-  readonly html5_media_bundles?: ReadonlyArray<unknown>;
-  readonly app_deep_link?: unknown;
+  readonly mandatory_ad_text?: AdTextAsset;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly images?: ReadonlyArray<AdImageAsset>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAsset>;
+  readonly html5_media_bundles?: ReadonlyArray<AdMediaBundleAsset>;
+  readonly app_deep_link?: AdAppDeepLinkAsset;
 }
 export interface AppAdInfoEncoded {
-  readonly mandatory_ad_text?: unknown;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
-  readonly html5_media_bundles?: ReadonlyArray<unknown>;
-  readonly app_deep_link?: unknown;
+  readonly mandatory_ad_text?: AdTextAssetEncoded;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAssetEncoded>;
+  readonly html5_media_bundles?: ReadonlyArray<AdMediaBundleAssetEncoded>;
+  readonly app_deep_link?: AdAppDeepLinkAssetEncoded;
 }
 export const AppAdInfo: Schema.Schema<AppAdInfo, AppAdInfoEncoded, never> = Schema.Struct({
-  mandatory_ad_text: Schema.optional(Schema.Unknown),
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  images: Schema.optional(Schema.Array(Schema.Unknown)),
-  youtube_videos: Schema.optional(Schema.Array(Schema.Unknown)),
-  html5_media_bundles: Schema.optional(Schema.Array(Schema.Unknown)),
-  app_deep_link: Schema.optional(Schema.Unknown),
+  mandatory_ad_text: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  youtube_videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
+  html5_media_bundles: Schema.optional(Schema.Array(Schema.suspend(() => AdMediaBundleAsset))),
+  app_deep_link: Schema.optional(Schema.suspend(() => AdAppDeepLinkAsset)),
 });
 
 export type AppBiddingGoal = "UNSPECIFIED" | "UNKNOWN" | "OPTIMIZE_FOR_INSTALL_CONVERSION_VOLUME" | "OPTIMIZE_FOR_IN_APP_CONVERSION_VOLUME" | "OPTIMIZE_FOR_TOTAL_CONVERSION_VALUE" | "OPTIMIZE_FOR_TARGET_IN_APP_CONVERSION" | "OPTIMIZE_FOR_RETURN_ON_ADVERTISING_SPEND" | "OPTIMIZE_FOR_INSTALL_CONVERSION_VOLUME_WITHOUT_TARGET_CPI" | "OPTIMIZE_FOR_PRE_REGISTRATION_CONVERSION_VOLUME";
@@ -2994,44 +2994,44 @@ export const AppDeepLinkAsset: Schema.Schema<AppDeepLinkAsset, AppDeepLinkAssetE
 
 export interface AppendLeadConversationRequest {
   readonly customer_id?: string;
-  readonly conversations?: ReadonlyArray<unknown>;
+  readonly conversations?: ReadonlyArray<Conversation>;
 }
 export interface AppendLeadConversationRequestEncoded {
   readonly customer_id?: string;
-  readonly conversations?: ReadonlyArray<unknown>;
+  readonly conversations?: ReadonlyArray<ConversationEncoded>;
 }
 export const AppendLeadConversationRequest: Schema.Schema<AppendLeadConversationRequest, AppendLeadConversationRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  conversations: Schema.optional(Schema.Array(Schema.Unknown)),
+  conversations: Schema.optional(Schema.Array(Schema.suspend(() => Conversation))),
 });
 
 export interface AppendLeadConversationResponse {
-  readonly responses?: ReadonlyArray<unknown>;
+  readonly responses?: ReadonlyArray<ConversationOrError>;
 }
 export interface AppendLeadConversationResponseEncoded {
-  readonly responses?: ReadonlyArray<unknown>;
+  readonly responses?: ReadonlyArray<ConversationOrErrorEncoded>;
 }
 export const AppendLeadConversationResponse: Schema.Schema<AppendLeadConversationResponse, AppendLeadConversationResponseEncoded, never> = Schema.Struct({
-  responses: Schema.optional(Schema.Array(Schema.Unknown)),
+  responses: Schema.optional(Schema.Array(Schema.suspend(() => ConversationOrError))),
 });
 
 export interface AppEngagementAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly images?: ReadonlyArray<AdImageAsset>;
+  readonly videos?: ReadonlyArray<AdVideoAsset>;
 }
 export interface AppEngagementAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly videos?: ReadonlyArray<AdVideoAssetEncoded>;
 }
 export const AppEngagementAdInfo: Schema.Schema<AppEngagementAdInfo, AppEngagementAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  images: Schema.optional(Schema.Array(Schema.Unknown)),
-  videos: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
 });
 
 export type ApplicationInstance = "UNSPECIFIED" | "UNKNOWN" | "DEVELOPMENT_AND_TESTING" | "PRODUCTION";
@@ -3125,112 +3125,112 @@ export const ApplyIncentiveResponse: Schema.Schema<ApplyIncentiveResponse, Apply
 
 export interface ApplyRecommendationOperation {
   readonly resource_name?: string;
-  readonly campaign_budget?: unknown;
-  readonly text_ad?: unknown;
-  readonly keyword?: unknown;
-  readonly target_cpa_opt_in?: unknown;
-  readonly target_roas_opt_in?: unknown;
-  readonly callout_extension?: unknown;
-  readonly call_extension?: unknown;
-  readonly sitelink_extension?: unknown;
-  readonly move_unused_budget?: unknown;
-  readonly responsive_search_ad?: unknown;
-  readonly use_broad_match_keyword?: unknown;
-  readonly responsive_search_ad_asset?: unknown;
-  readonly responsive_search_ad_improve_ad_strength?: unknown;
-  readonly raise_target_cpa_bid_too_low?: unknown;
-  readonly forecasting_set_target_roas?: unknown;
-  readonly callout_asset?: unknown;
-  readonly call_asset?: unknown;
-  readonly sitelink_asset?: unknown;
-  readonly raise_target_cpa?: unknown;
-  readonly lower_target_roas?: unknown;
-  readonly forecasting_set_target_cpa?: unknown;
-  readonly set_target_cpa?: unknown;
-  readonly set_target_roas?: unknown;
-  readonly lead_form_asset?: unknown;
+  readonly campaign_budget?: CampaignBudgetParameters;
+  readonly text_ad?: TextAdParameters;
+  readonly keyword?: KeywordParameters;
+  readonly target_cpa_opt_in?: TargetCpaOptInParameters;
+  readonly target_roas_opt_in?: TargetRoasOptInParameters;
+  readonly callout_extension?: CalloutExtensionParameters;
+  readonly call_extension?: CallExtensionParameters;
+  readonly sitelink_extension?: SitelinkExtensionParameters;
+  readonly move_unused_budget?: MoveUnusedBudgetParameters;
+  readonly responsive_search_ad?: ResponsiveSearchAdParameters;
+  readonly use_broad_match_keyword?: UseBroadMatchKeywordParameters;
+  readonly responsive_search_ad_asset?: ResponsiveSearchAdAssetParameters;
+  readonly responsive_search_ad_improve_ad_strength?: ResponsiveSearchAdImproveAdStrengthParameters;
+  readonly raise_target_cpa_bid_too_low?: RaiseTargetCpaBidTooLowParameters;
+  readonly forecasting_set_target_roas?: ForecastingSetTargetRoasParameters;
+  readonly callout_asset?: CalloutAssetParameters;
+  readonly call_asset?: CallAssetParameters;
+  readonly sitelink_asset?: SitelinkAssetParameters;
+  readonly raise_target_cpa?: RaiseTargetCpaParameters;
+  readonly lower_target_roas?: LowerTargetRoasParameters;
+  readonly forecasting_set_target_cpa?: ForecastingSetTargetCpaParameters;
+  readonly set_target_cpa?: ForecastingSetTargetCpaParameters;
+  readonly set_target_roas?: ForecastingSetTargetRoasParameters;
+  readonly lead_form_asset?: LeadFormAssetParameters;
 }
 export interface ApplyRecommendationOperationEncoded {
   readonly resource_name?: string;
-  readonly campaign_budget?: unknown;
-  readonly text_ad?: unknown;
-  readonly keyword?: unknown;
-  readonly target_cpa_opt_in?: unknown;
-  readonly target_roas_opt_in?: unknown;
-  readonly callout_extension?: unknown;
-  readonly call_extension?: unknown;
-  readonly sitelink_extension?: unknown;
-  readonly move_unused_budget?: unknown;
-  readonly responsive_search_ad?: unknown;
-  readonly use_broad_match_keyword?: unknown;
-  readonly responsive_search_ad_asset?: unknown;
-  readonly responsive_search_ad_improve_ad_strength?: unknown;
-  readonly raise_target_cpa_bid_too_low?: unknown;
-  readonly forecasting_set_target_roas?: unknown;
-  readonly callout_asset?: unknown;
-  readonly call_asset?: unknown;
-  readonly sitelink_asset?: unknown;
-  readonly raise_target_cpa?: unknown;
-  readonly lower_target_roas?: unknown;
-  readonly forecasting_set_target_cpa?: unknown;
-  readonly set_target_cpa?: unknown;
-  readonly set_target_roas?: unknown;
-  readonly lead_form_asset?: unknown;
+  readonly campaign_budget?: CampaignBudgetParametersEncoded;
+  readonly text_ad?: TextAdParametersEncoded;
+  readonly keyword?: KeywordParametersEncoded;
+  readonly target_cpa_opt_in?: TargetCpaOptInParametersEncoded;
+  readonly target_roas_opt_in?: TargetRoasOptInParametersEncoded;
+  readonly callout_extension?: CalloutExtensionParametersEncoded;
+  readonly call_extension?: CallExtensionParametersEncoded;
+  readonly sitelink_extension?: SitelinkExtensionParametersEncoded;
+  readonly move_unused_budget?: MoveUnusedBudgetParametersEncoded;
+  readonly responsive_search_ad?: ResponsiveSearchAdParametersEncoded;
+  readonly use_broad_match_keyword?: UseBroadMatchKeywordParametersEncoded;
+  readonly responsive_search_ad_asset?: ResponsiveSearchAdAssetParametersEncoded;
+  readonly responsive_search_ad_improve_ad_strength?: ResponsiveSearchAdImproveAdStrengthParametersEncoded;
+  readonly raise_target_cpa_bid_too_low?: RaiseTargetCpaBidTooLowParametersEncoded;
+  readonly forecasting_set_target_roas?: ForecastingSetTargetRoasParametersEncoded;
+  readonly callout_asset?: CalloutAssetParametersEncoded;
+  readonly call_asset?: CallAssetParametersEncoded;
+  readonly sitelink_asset?: SitelinkAssetParametersEncoded;
+  readonly raise_target_cpa?: RaiseTargetCpaParametersEncoded;
+  readonly lower_target_roas?: LowerTargetRoasParametersEncoded;
+  readonly forecasting_set_target_cpa?: ForecastingSetTargetCpaParametersEncoded;
+  readonly set_target_cpa?: ForecastingSetTargetCpaParametersEncoded;
+  readonly set_target_roas?: ForecastingSetTargetRoasParametersEncoded;
+  readonly lead_form_asset?: LeadFormAssetParametersEncoded;
 }
 export const ApplyRecommendationOperation: Schema.Schema<ApplyRecommendationOperation, ApplyRecommendationOperationEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
-  campaign_budget: Schema.optional(Schema.Unknown),
-  text_ad: Schema.optional(Schema.Unknown),
-  keyword: Schema.optional(Schema.Unknown),
-  target_cpa_opt_in: Schema.optional(Schema.Unknown),
-  target_roas_opt_in: Schema.optional(Schema.Unknown),
-  callout_extension: Schema.optional(Schema.Unknown),
-  call_extension: Schema.optional(Schema.Unknown),
-  sitelink_extension: Schema.optional(Schema.Unknown),
-  move_unused_budget: Schema.optional(Schema.Unknown),
-  responsive_search_ad: Schema.optional(Schema.Unknown),
-  use_broad_match_keyword: Schema.optional(Schema.Unknown),
-  responsive_search_ad_asset: Schema.optional(Schema.Unknown),
-  responsive_search_ad_improve_ad_strength: Schema.optional(Schema.Unknown),
-  raise_target_cpa_bid_too_low: Schema.optional(Schema.Unknown),
-  forecasting_set_target_roas: Schema.optional(Schema.Unknown),
-  callout_asset: Schema.optional(Schema.Unknown),
-  call_asset: Schema.optional(Schema.Unknown),
-  sitelink_asset: Schema.optional(Schema.Unknown),
-  raise_target_cpa: Schema.optional(Schema.Unknown),
-  lower_target_roas: Schema.optional(Schema.Unknown),
-  forecasting_set_target_cpa: Schema.optional(Schema.Unknown),
-  set_target_cpa: Schema.optional(Schema.Unknown),
-  set_target_roas: Schema.optional(Schema.Unknown),
-  lead_form_asset: Schema.optional(Schema.Unknown),
+  campaign_budget: Schema.optional(Schema.suspend(() => CampaignBudgetParameters)),
+  text_ad: Schema.optional(Schema.suspend(() => TextAdParameters)),
+  keyword: Schema.optional(Schema.suspend(() => KeywordParameters)),
+  target_cpa_opt_in: Schema.optional(Schema.suspend(() => TargetCpaOptInParameters)),
+  target_roas_opt_in: Schema.optional(Schema.suspend(() => TargetRoasOptInParameters)),
+  callout_extension: Schema.optional(Schema.suspend(() => CalloutExtensionParameters)),
+  call_extension: Schema.optional(Schema.suspend(() => CallExtensionParameters)),
+  sitelink_extension: Schema.optional(Schema.suspend(() => SitelinkExtensionParameters)),
+  move_unused_budget: Schema.optional(Schema.suspend(() => MoveUnusedBudgetParameters)),
+  responsive_search_ad: Schema.optional(Schema.suspend(() => ResponsiveSearchAdParameters)),
+  use_broad_match_keyword: Schema.optional(Schema.suspend(() => UseBroadMatchKeywordParameters)),
+  responsive_search_ad_asset: Schema.optional(Schema.suspend(() => ResponsiveSearchAdAssetParameters)),
+  responsive_search_ad_improve_ad_strength: Schema.optional(Schema.suspend(() => ResponsiveSearchAdImproveAdStrengthParameters)),
+  raise_target_cpa_bid_too_low: Schema.optional(Schema.suspend(() => RaiseTargetCpaBidTooLowParameters)),
+  forecasting_set_target_roas: Schema.optional(Schema.suspend(() => ForecastingSetTargetRoasParameters)),
+  callout_asset: Schema.optional(Schema.suspend(() => CalloutAssetParameters)),
+  call_asset: Schema.optional(Schema.suspend(() => CallAssetParameters)),
+  sitelink_asset: Schema.optional(Schema.suspend(() => SitelinkAssetParameters)),
+  raise_target_cpa: Schema.optional(Schema.suspend(() => RaiseTargetCpaParameters)),
+  lower_target_roas: Schema.optional(Schema.suspend(() => LowerTargetRoasParameters)),
+  forecasting_set_target_cpa: Schema.optional(Schema.suspend(() => ForecastingSetTargetCpaParameters)),
+  set_target_cpa: Schema.optional(Schema.suspend(() => ForecastingSetTargetCpaParameters)),
+  set_target_roas: Schema.optional(Schema.suspend(() => ForecastingSetTargetRoasParameters)),
+  lead_form_asset: Schema.optional(Schema.suspend(() => LeadFormAssetParameters)),
 });
 
 export interface ApplyRecommendationRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ApplyRecommendationOperation>;
   readonly partial_failure?: boolean;
 }
 export interface ApplyRecommendationRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ApplyRecommendationOperationEncoded>;
   readonly partial_failure?: boolean;
 }
 export const ApplyRecommendationRequest: Schema.Schema<ApplyRecommendationRequest, ApplyRecommendationRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ApplyRecommendationOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
 });
 
 export interface ApplyRecommendationResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ApplyRecommendationResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface ApplyRecommendationResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ApplyRecommendationResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const ApplyRecommendationResponse: Schema.Schema<ApplyRecommendationResponse, ApplyRecommendationResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => ApplyRecommendationResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -3273,35 +3273,35 @@ export const AppPaymentModelTypeEnum: Schema.Schema<AppPaymentModelTypeEnum, App
 });
 
 export interface AppPreRegistrationAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly images?: ReadonlyArray<AdImageAsset>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAsset>;
 }
 export interface AppPreRegistrationAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly images?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAssetEncoded>;
 }
 export const AppPreRegistrationAdInfo: Schema.Schema<AppPreRegistrationAdInfo, AppPreRegistrationAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  images: Schema.optional(Schema.Array(Schema.Unknown)),
-  youtube_videos: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  youtube_videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
 });
 
 export interface AppTopCombinationView {
   readonly resource_name?: string;
-  readonly ad_group_top_combinations?: ReadonlyArray<unknown>;
+  readonly ad_group_top_combinations?: ReadonlyArray<AdGroupCreativeAssetCombinationData>;
 }
 export interface AppTopCombinationViewEncoded {
   readonly resource_name?: string;
-  readonly ad_group_top_combinations?: ReadonlyArray<unknown>;
+  readonly ad_group_top_combinations?: ReadonlyArray<AdGroupCreativeAssetCombinationDataEncoded>;
 }
 export const AppTopCombinationView: Schema.Schema<AppTopCombinationView, AppTopCombinationViewEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
-  ad_group_top_combinations: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_group_top_combinations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupCreativeAssetCombinationData))),
 });
 
 export type AppUrlOperatingSystemType = "UNSPECIFIED" | "UNKNOWN" | "IOS" | "ANDROID";
@@ -3329,8 +3329,8 @@ export interface Asset {
   readonly url_custom_parameters?: ReadonlyArray<CustomParameter>;
   readonly final_url_suffix?: string;
   readonly source?: AssetSource;
-  readonly policy_summary?: unknown;
-  readonly field_type_policy_summaries?: ReadonlyArray<unknown>;
+  readonly policy_summary?: AssetPolicySummary;
+  readonly field_type_policy_summaries?: ReadonlyArray<AssetFieldTypePolicySummary>;
   readonly orientation?: AssetOrientation;
   readonly synthetic_content_info?: SyntheticContentInfo;
   readonly youtube_video_asset?: YoutubeVideoAsset;
@@ -3375,8 +3375,8 @@ export interface AssetEncoded {
   readonly url_custom_parameters?: ReadonlyArray<CustomParameterEncoded>;
   readonly final_url_suffix?: string;
   readonly source?: AssetSourceEncoded;
-  readonly policy_summary?: unknown;
-  readonly field_type_policy_summaries?: ReadonlyArray<unknown>;
+  readonly policy_summary?: AssetPolicySummaryEncoded;
+  readonly field_type_policy_summaries?: ReadonlyArray<AssetFieldTypePolicySummaryEncoded>;
   readonly orientation?: AssetOrientationEncoded;
   readonly synthetic_content_info?: SyntheticContentInfoEncoded;
   readonly youtube_video_asset?: YoutubeVideoAssetEncoded;
@@ -3421,8 +3421,8 @@ export const Asset: Schema.Schema<Asset, AssetEncoded, never> = Schema.Struct({
   url_custom_parameters: Schema.optional(Schema.Array(Schema.suspend(() => CustomParameter))),
   final_url_suffix: Schema.optional(Schema.String),
   source: Schema.optional(Schema.suspend(() => AssetSource)),
-  policy_summary: Schema.optional(Schema.Unknown),
-  field_type_policy_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
+  policy_summary: Schema.optional(Schema.suspend(() => AssetPolicySummary)),
+  field_type_policy_summaries: Schema.optional(Schema.Array(Schema.suspend(() => AssetFieldTypePolicySummary))),
   orientation: Schema.optional(Schema.suspend(() => AssetOrientation)),
   synthetic_content_info: Schema.optional(Schema.suspend(() => SyntheticContentInfo)),
   youtube_video_asset: Schema.optional(Schema.suspend(() => YoutubeVideoAsset)),
@@ -3499,13 +3499,13 @@ export const AssetAutomationTypeEnum: Schema.Schema<AssetAutomationTypeEnum, Ass
 });
 
 export interface AssetCoverage {
-  readonly ad_strength_action_items?: ReadonlyArray<unknown>;
+  readonly ad_strength_action_items?: ReadonlyArray<AdStrengthActionItem>;
 }
 export interface AssetCoverageEncoded {
-  readonly ad_strength_action_items?: ReadonlyArray<unknown>;
+  readonly ad_strength_action_items?: ReadonlyArray<AdStrengthActionItemEncoded>;
 }
 export const AssetCoverage: Schema.Schema<AssetCoverage, AssetCoverageEncoded, never> = Schema.Struct({
-  ad_strength_action_items: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_strength_action_items: Schema.optional(Schema.Array(Schema.suspend(() => AdStrengthActionItem))),
 });
 
 export type AssetCoverageVideoAspectRatioRequirement = "UNSPECIFIED" | "UNKNOWN" | "HORIZONTAL" | "SQUARE" | "VERTICAL";
@@ -3579,17 +3579,17 @@ export const AssetFieldTypeEnum: Schema.Schema<AssetFieldTypeEnum, AssetFieldTyp
 export interface AssetFieldTypePolicySummary {
   readonly asset_field_type?: AssetFieldType;
   readonly asset_source?: AssetSource;
-  readonly policy_summary_info?: unknown;
+  readonly policy_summary_info?: AssetPolicySummary;
 }
 export interface AssetFieldTypePolicySummaryEncoded {
   readonly asset_field_type?: AssetFieldTypeEncoded;
   readonly asset_source?: AssetSourceEncoded;
-  readonly policy_summary_info?: unknown;
+  readonly policy_summary_info?: AssetPolicySummaryEncoded;
 }
 export const AssetFieldTypePolicySummary: Schema.Schema<AssetFieldTypePolicySummary, AssetFieldTypePolicySummaryEncoded, never> = Schema.Struct({
   asset_field_type: Schema.optional(Schema.suspend(() => AssetFieldType)),
   asset_source: Schema.optional(Schema.suspend(() => AssetSource)),
-  policy_summary_info: Schema.optional(Schema.Unknown),
+  policy_summary_info: Schema.optional(Schema.suspend(() => AssetPolicySummary)),
 });
 
 export interface AssetFieldTypeView {
@@ -3645,8 +3645,8 @@ export interface AssetGroup {
   readonly path1?: string;
   readonly path2?: string;
   readonly ad_strength?: AdStrength;
-  readonly asset_coverage?: unknown;
-  readonly google_local_services_info?: unknown;
+  readonly asset_coverage?: AssetCoverage;
+  readonly google_local_services_info?: GoogleLocalServicesInfo;
 }
 export interface AssetGroupEncoded {
   readonly resource_name?: string;
@@ -3661,8 +3661,8 @@ export interface AssetGroupEncoded {
   readonly path1?: string;
   readonly path2?: string;
   readonly ad_strength?: AdStrengthEncoded;
-  readonly asset_coverage?: unknown;
-  readonly google_local_services_info?: unknown;
+  readonly asset_coverage?: AssetCoverageEncoded;
+  readonly google_local_services_info?: GoogleLocalServicesInfoEncoded;
 }
 export const AssetGroup: Schema.Schema<AssetGroup, AssetGroupEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -3677,8 +3677,8 @@ export const AssetGroup: Schema.Schema<AssetGroup, AssetGroupEncoded, never> = S
   path1: Schema.optional(Schema.String),
   path2: Schema.optional(Schema.String),
   ad_strength: Schema.optional(Schema.suspend(() => AdStrength)),
-  asset_coverage: Schema.optional(Schema.Unknown),
-  google_local_services_info: Schema.optional(Schema.Unknown),
+  asset_coverage: Schema.optional(Schema.suspend(() => AssetCoverage)),
+  google_local_services_info: Schema.optional(Schema.suspend(() => GoogleLocalServicesInfo)),
 });
 
 export interface AssetGroupAsset {
@@ -3756,19 +3756,19 @@ export const AssetGroupAssetInfo: Schema.Schema<AssetGroupAssetInfo, AssetGroupA
 });
 
 export interface AssetGroupAssetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroupAsset;
   readonly update?: AssetGroupAsset;
   readonly remove?: string;
 }
 export interface AssetGroupAssetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroupAssetEncoded;
   readonly update?: AssetGroupAssetEncoded;
   readonly remove?: string;
 }
 export const AssetGroupAssetOperation: Schema.Schema<AssetGroupAssetOperation, AssetGroupAssetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AssetGroupAsset)),
   update: Schema.optional(Schema.suspend(() => AssetGroupAsset)),
   remove: Schema.optional(Schema.String),
@@ -3790,15 +3790,15 @@ export const AssetGroupErrorEnum: Schema.Schema<AssetGroupErrorEnum, AssetGroupE
 
 export interface AssetGroupInfo {
   readonly asset_group?: string;
-  readonly asset_group_assets?: ReadonlyArray<unknown>;
+  readonly asset_group_assets?: ReadonlyArray<AssetGroupAssetInfo>;
 }
 export interface AssetGroupInfoEncoded {
   readonly asset_group?: string;
-  readonly asset_group_assets?: ReadonlyArray<unknown>;
+  readonly asset_group_assets?: ReadonlyArray<AssetGroupAssetInfoEncoded>;
 }
 export const AssetGroupInfo: Schema.Schema<AssetGroupInfo, AssetGroupInfoEncoded, never> = Schema.Struct({
   asset_group: Schema.optional(Schema.String),
-  asset_group_assets: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_group_assets: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupAssetInfo))),
 });
 
 export interface AssetGroupListingGroupFilter {
@@ -3807,9 +3807,9 @@ export interface AssetGroupListingGroupFilter {
   readonly id?: string;
   readonly type?: ListingGroupFilterType;
   readonly listing_source?: ListingGroupFilterListingSource;
-  readonly case_value?: unknown;
+  readonly case_value?: ListingGroupFilterDimension;
   readonly parent_listing_group_filter?: string;
-  readonly path?: unknown;
+  readonly path?: ListingGroupFilterDimensionPath;
 }
 export interface AssetGroupListingGroupFilterEncoded {
   readonly resource_name?: string;
@@ -3817,9 +3817,9 @@ export interface AssetGroupListingGroupFilterEncoded {
   readonly id?: string;
   readonly type?: ListingGroupFilterTypeEncoded;
   readonly listing_source?: ListingGroupFilterListingSourceEncoded;
-  readonly case_value?: unknown;
+  readonly case_value?: ListingGroupFilterDimensionEncoded;
   readonly parent_listing_group_filter?: string;
-  readonly path?: unknown;
+  readonly path?: ListingGroupFilterDimensionPathEncoded;
 }
 export const AssetGroupListingGroupFilter: Schema.Schema<AssetGroupListingGroupFilter, AssetGroupListingGroupFilterEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -3827,9 +3827,9 @@ export const AssetGroupListingGroupFilter: Schema.Schema<AssetGroupListingGroupF
   id: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => ListingGroupFilterType)),
   listing_source: Schema.optional(Schema.suspend(() => ListingGroupFilterListingSource)),
-  case_value: Schema.optional(Schema.Unknown),
+  case_value: Schema.optional(Schema.suspend(() => ListingGroupFilterDimension)),
   parent_listing_group_filter: Schema.optional(Schema.String),
-  path: Schema.optional(Schema.Unknown),
+  path: Schema.optional(Schema.suspend(() => ListingGroupFilterDimensionPath)),
 });
 
 export type AssetGroupListingGroupFilterError = "UNSPECIFIED" | "UNKNOWN" | "TREE_TOO_DEEP" | "UNIT_CANNOT_HAVE_CHILDREN" | "SUBDIVISION_MUST_HAVE_EVERYTHING_ELSE_CHILD" | "DIFFERENT_DIMENSION_TYPE_BETWEEN_SIBLINGS" | "SAME_DIMENSION_VALUE_BETWEEN_SIBLINGS" | "SAME_DIMENSION_TYPE_BETWEEN_ANCESTORS" | "MULTIPLE_ROOTS" | "INVALID_DIMENSION_VALUE" | "MUST_REFINE_HIERARCHICAL_PARENT_TYPE" | "INVALID_PRODUCT_BIDDING_CATEGORY" | "CHANGING_CASE_VALUE_WITH_CHILDREN" | "SUBDIVISION_HAS_CHILDREN" | "CANNOT_REFINE_HIERARCHICAL_EVERYTHING_ELSE" | "DIMENSION_TYPE_NOT_ALLOWED" | "DUPLICATE_WEBPAGE_FILTER_UNDER_ASSET_GROUP" | "LISTING_SOURCE_NOT_ALLOWED" | "FILTER_EXCLUSION_NOT_ALLOWED" | "MULTIPLE_LISTING_SOURCES" | "MULTIPLE_WEBPAGE_CONDITION_TYPES_NOT_ALLOWED" | "MULTIPLE_WEBPAGE_TYPES_PER_ASSET_GROUP" | "PAGE_FEED_FILTER_HAS_PARENT" | "MULTIPLE_OPERATIONS_ON_ONE_NODE" | "TREE_WAS_INVALID_BEFORE_MUTATION" | "RETAIL_INVALID_SHARED_SET_TYPE";
@@ -3847,38 +3847,38 @@ export const AssetGroupListingGroupFilterErrorEnum: Schema.Schema<AssetGroupList
 });
 
 export interface AssetGroupListingGroupFilterOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroupListingGroupFilter;
   readonly update?: AssetGroupListingGroupFilter;
   readonly remove?: string;
 }
 export interface AssetGroupListingGroupFilterOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroupListingGroupFilterEncoded;
   readonly update?: AssetGroupListingGroupFilterEncoded;
   readonly remove?: string;
 }
 export const AssetGroupListingGroupFilterOperation: Schema.Schema<AssetGroupListingGroupFilterOperation, AssetGroupListingGroupFilterOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AssetGroupListingGroupFilter)),
   update: Schema.optional(Schema.suspend(() => AssetGroupListingGroupFilter)),
   remove: Schema.optional(Schema.String),
 });
 
 export interface AssetGroupOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroup;
   readonly update?: AssetGroup;
   readonly remove?: string;
 }
 export interface AssetGroupOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetGroupEncoded;
   readonly update?: AssetGroupEncoded;
   readonly remove?: string;
 }
 export const AssetGroupOperation: Schema.Schema<AssetGroupOperation, AssetGroupOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AssetGroup)),
   update: Schema.optional(Schema.suspend(() => AssetGroup)),
   remove: Schema.optional(Schema.String),
@@ -4019,15 +4019,15 @@ export const AssetGroupStatusEnum: Schema.Schema<AssetGroupStatusEnum, AssetGrou
 
 export interface AssetGroupTopCombinationView {
   readonly resource_name?: string;
-  readonly asset_group_top_combinations?: ReadonlyArray<unknown>;
+  readonly asset_group_top_combinations?: ReadonlyArray<AssetGroupAssetCombinationData>;
 }
 export interface AssetGroupTopCombinationViewEncoded {
   readonly resource_name?: string;
-  readonly asset_group_top_combinations?: ReadonlyArray<unknown>;
+  readonly asset_group_top_combinations?: ReadonlyArray<AssetGroupAssetCombinationDataEncoded>;
 }
 export const AssetGroupTopCombinationView: Schema.Schema<AssetGroupTopCombinationView, AssetGroupTopCombinationViewEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
-  asset_group_top_combinations: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_group_top_combinations: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupAssetCombinationData))),
 });
 
 export interface AssetInteractionTarget {
@@ -4064,17 +4064,17 @@ export const AssetLinkPrimaryStatus: Schema.Schema<AssetLinkPrimaryStatus, Asset
 export interface AssetLinkPrimaryStatusDetails {
   readonly reason?: AssetLinkPrimaryStatusReason;
   readonly status?: AssetLinkPrimaryStatus;
-  readonly asset_disapproved?: unknown;
+  readonly asset_disapproved?: AssetDisapproved;
 }
 export interface AssetLinkPrimaryStatusDetailsEncoded {
   readonly reason?: AssetLinkPrimaryStatusReasonEncoded;
   readonly status?: AssetLinkPrimaryStatusEncoded;
-  readonly asset_disapproved?: unknown;
+  readonly asset_disapproved?: AssetDisapprovedEncoded;
 }
 export const AssetLinkPrimaryStatusDetails: Schema.Schema<AssetLinkPrimaryStatusDetails, AssetLinkPrimaryStatusDetailsEncoded, never> = Schema.Struct({
   reason: Schema.optional(Schema.suspend(() => AssetLinkPrimaryStatusReason)),
   status: Schema.optional(Schema.suspend(() => AssetLinkPrimaryStatus)),
-  asset_disapproved: Schema.optional(Schema.Unknown),
+  asset_disapproved: Schema.optional(Schema.suspend(() => AssetDisapproved)),
 });
 
 export interface AssetLinkPrimaryStatusEnum {
@@ -4130,17 +4130,17 @@ export const AssetOfflineEvaluationErrorReasonsEnum: Schema.Schema<AssetOfflineE
 });
 
 export interface AssetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Asset;
   readonly update?: Asset;
 }
 export interface AssetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetEncoded;
   readonly update?: AssetEncoded;
 }
 export const AssetOperation: Schema.Schema<AssetOperation, AssetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Asset)),
   update: Schema.optional(Schema.suspend(() => Asset)),
 });
@@ -4195,10 +4195,10 @@ export interface AssetSet {
   readonly name?: string;
   readonly type?: AssetSetType;
   readonly status?: AssetSetStatus;
-  readonly merchant_center_feed?: unknown;
+  readonly merchant_center_feed?: MerchantCenterFeed;
   readonly location_group_parent_asset_set_id?: string;
-  readonly hotel_property_data?: unknown;
-  readonly travel_feed_data?: unknown;
+  readonly hotel_property_data?: HotelPropertyData;
+  readonly travel_feed_data?: TravelFeedData;
   readonly location_set?: LocationSet;
   readonly business_profile_location_group?: BusinessProfileLocationGroup;
   readonly chain_location_group?: ChainLocationGroup;
@@ -4209,10 +4209,10 @@ export interface AssetSetEncoded {
   readonly name?: string;
   readonly type?: AssetSetTypeEncoded;
   readonly status?: AssetSetStatusEncoded;
-  readonly merchant_center_feed?: unknown;
+  readonly merchant_center_feed?: MerchantCenterFeedEncoded;
   readonly location_group_parent_asset_set_id?: string;
-  readonly hotel_property_data?: unknown;
-  readonly travel_feed_data?: unknown;
+  readonly hotel_property_data?: HotelPropertyDataEncoded;
+  readonly travel_feed_data?: TravelFeedDataEncoded;
   readonly location_set?: LocationSetEncoded;
   readonly business_profile_location_group?: BusinessProfileLocationGroupEncoded;
   readonly chain_location_group?: ChainLocationGroupEncoded;
@@ -4223,10 +4223,10 @@ export const AssetSet: Schema.Schema<AssetSet, AssetSetEncoded, never> = Schema.
   name: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => AssetSetType)),
   status: Schema.optional(Schema.suspend(() => AssetSetStatus)),
-  merchant_center_feed: Schema.optional(Schema.Unknown),
+  merchant_center_feed: Schema.optional(Schema.suspend(() => MerchantCenterFeed)),
   location_group_parent_asset_set_id: Schema.optional(Schema.String),
-  hotel_property_data: Schema.optional(Schema.Unknown),
-  travel_feed_data: Schema.optional(Schema.Unknown),
+  hotel_property_data: Schema.optional(Schema.suspend(() => HotelPropertyData)),
+  travel_feed_data: Schema.optional(Schema.suspend(() => TravelFeedData)),
   location_set: Schema.optional(Schema.suspend(() => LocationSet)),
   business_profile_location_group: Schema.optional(Schema.suspend(() => BusinessProfileLocationGroup)),
   chain_location_group: Schema.optional(Schema.suspend(() => ChainLocationGroup)),
@@ -4335,19 +4335,19 @@ export const AssetSetLinkStatusEnum: Schema.Schema<AssetSetLinkStatusEnum, Asset
 });
 
 export interface AssetSetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetSet;
   readonly update?: AssetSet;
   readonly remove?: string;
 }
 export interface AssetSetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AssetSetEncoded;
   readonly update?: AssetSetEncoded;
   readonly remove?: string;
 }
 export const AssetSetOperation: Schema.Schema<AssetSetOperation, AssetSetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => AssetSet)),
   update: Schema.optional(Schema.suspend(() => AssetSet)),
   remove: Schema.optional(Schema.String),
@@ -4422,13 +4422,13 @@ export const AssetsWithFieldType: Schema.Schema<AssetsWithFieldType, AssetsWithF
 });
 
 export interface AssetTestingInfo {
-  readonly asset_variation_infos?: ReadonlyArray<unknown>;
+  readonly asset_variation_infos?: ReadonlyArray<AssetVariationInfo>;
 }
 export interface AssetTestingInfoEncoded {
-  readonly asset_variation_infos?: ReadonlyArray<unknown>;
+  readonly asset_variation_infos?: ReadonlyArray<AssetVariationInfoEncoded>;
 }
 export const AssetTestingInfo: Schema.Schema<AssetTestingInfo, AssetTestingInfoEncoded, never> = Schema.Struct({
-  asset_variation_infos: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_variation_infos: Schema.optional(Schema.Array(Schema.suspend(() => AssetVariationInfo))),
 });
 
 export type AssetType = "UNSPECIFIED" | "UNKNOWN" | "YOUTUBE_VIDEO" | "MEDIA_BUNDLE" | "IMAGE" | "TEXT" | "LEAD_FORM" | "BOOK_ON_GOOGLE" | "PROMOTION" | "CALLOUT" | "STRUCTURED_SNIPPET" | "SITELINK" | "PAGE_FEED" | "DYNAMIC_EDUCATION" | "MOBILE_APP" | "HOTEL_CALLOUT" | "CALL" | "PRICE" | "CALL_TO_ACTION" | "DYNAMIC_REAL_ESTATE" | "DYNAMIC_CUSTOM" | "DYNAMIC_HOTELS_AND_RENTALS" | "DYNAMIC_FLIGHTS" | "DYNAMIC_TRAVEL" | "DYNAMIC_LOCAL" | "DYNAMIC_JOBS" | "LOCATION" | "HOTEL_PROPERTY" | "DEMAND_GEN_CAROUSEL_CARD" | "BUSINESS_MESSAGE" | "APP_DEEP_LINK" | "YOUTUBE_VIDEO_LIST";
@@ -4461,17 +4461,17 @@ export const AssetUsage: Schema.Schema<AssetUsage, AssetUsageEncoded, never> = S
 export interface AssetVariationInfo {
   readonly base_ad_group?: string;
   readonly base_ad?: string;
-  readonly asset_details?: ReadonlyArray<unknown>;
+  readonly asset_details?: ReadonlyArray<AssetDetail>;
 }
 export interface AssetVariationInfoEncoded {
   readonly base_ad_group?: string;
   readonly base_ad?: string;
-  readonly asset_details?: ReadonlyArray<unknown>;
+  readonly asset_details?: ReadonlyArray<AssetDetailEncoded>;
 }
 export const AssetVariationInfo: Schema.Schema<AssetVariationInfo, AssetVariationInfoEncoded, never> = Schema.Struct({
   base_ad_group: Schema.optional(Schema.String),
   base_ad: Schema.optional(Schema.String),
-  asset_details: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_details: Schema.optional(Schema.Array(Schema.suspend(() => AssetDetail))),
 });
 
 export type AsyncActionStatus = "UNSPECIFIED" | "UNKNOWN" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "FAILED" | "COMPLETED_WITH_WARNING";
@@ -4564,31 +4564,31 @@ export const Audience: Schema.Schema<Audience, AudienceEncoded, never> = Schema.
 
 export interface AudienceCompositionAttribute {
   readonly attribute_metadata?: AudienceInsightsAttributeMetadata;
-  readonly metrics?: unknown;
+  readonly metrics?: AudienceCompositionMetrics;
 }
 export interface AudienceCompositionAttributeEncoded {
   readonly attribute_metadata?: AudienceInsightsAttributeMetadataEncoded;
-  readonly metrics?: unknown;
+  readonly metrics?: AudienceCompositionMetricsEncoded;
 }
 export const AudienceCompositionAttribute: Schema.Schema<AudienceCompositionAttribute, AudienceCompositionAttributeEncoded, never> = Schema.Struct({
   attribute_metadata: Schema.optional(Schema.suspend(() => AudienceInsightsAttributeMetadata)),
-  metrics: Schema.optional(Schema.Unknown),
+  metrics: Schema.optional(Schema.suspend(() => AudienceCompositionMetrics)),
 });
 
 export interface AudienceCompositionAttributeCluster {
   readonly cluster_display_name?: string;
-  readonly cluster_metrics?: unknown;
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly cluster_metrics?: AudienceCompositionMetrics;
+  readonly attributes?: ReadonlyArray<AudienceCompositionAttribute>;
 }
 export interface AudienceCompositionAttributeClusterEncoded {
   readonly cluster_display_name?: string;
-  readonly cluster_metrics?: unknown;
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly cluster_metrics?: AudienceCompositionMetricsEncoded;
+  readonly attributes?: ReadonlyArray<AudienceCompositionAttributeEncoded>;
 }
 export const AudienceCompositionAttributeCluster: Schema.Schema<AudienceCompositionAttributeCluster, AudienceCompositionAttributeClusterEncoded, never> = Schema.Struct({
   cluster_display_name: Schema.optional(Schema.String),
-  cluster_metrics: Schema.optional(Schema.Unknown),
-  attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  cluster_metrics: Schema.optional(Schema.suspend(() => AudienceCompositionMetrics)),
+  attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceCompositionAttribute))),
 });
 
 export interface AudienceCompositionMetrics {
@@ -4612,40 +4612,40 @@ export const AudienceCompositionMetrics: Schema.Schema<AudienceCompositionMetric
 
 export interface AudienceCompositionSection {
   readonly dimension?: AudienceInsightsDimension;
-  readonly top_attributes?: ReadonlyArray<unknown>;
-  readonly clustered_attributes?: ReadonlyArray<unknown>;
+  readonly top_attributes?: ReadonlyArray<AudienceCompositionAttribute>;
+  readonly clustered_attributes?: ReadonlyArray<AudienceCompositionAttributeCluster>;
 }
 export interface AudienceCompositionSectionEncoded {
   readonly dimension?: AudienceInsightsDimensionEncoded;
-  readonly top_attributes?: ReadonlyArray<unknown>;
-  readonly clustered_attributes?: ReadonlyArray<unknown>;
+  readonly top_attributes?: ReadonlyArray<AudienceCompositionAttributeEncoded>;
+  readonly clustered_attributes?: ReadonlyArray<AudienceCompositionAttributeClusterEncoded>;
 }
 export const AudienceCompositionSection: Schema.Schema<AudienceCompositionSection, AudienceCompositionSectionEncoded, never> = Schema.Struct({
   dimension: Schema.optional(Schema.suspend(() => AudienceInsightsDimension)),
-  top_attributes: Schema.optional(Schema.Array(Schema.Unknown)),
-  clustered_attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  top_attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceCompositionAttribute))),
+  clustered_attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceCompositionAttributeCluster))),
 });
 
 export interface AudienceDimension {
-  readonly age?: unknown;
-  readonly gender?: unknown;
-  readonly household_income?: unknown;
-  readonly parental_status?: unknown;
-  readonly audience_segments?: unknown;
+  readonly age?: AgeDimension;
+  readonly gender?: GenderDimension;
+  readonly household_income?: HouseholdIncomeDimension;
+  readonly parental_status?: ParentalStatusDimension;
+  readonly audience_segments?: AudienceSegmentDimension;
 }
 export interface AudienceDimensionEncoded {
-  readonly age?: unknown;
-  readonly gender?: unknown;
-  readonly household_income?: unknown;
-  readonly parental_status?: unknown;
-  readonly audience_segments?: unknown;
+  readonly age?: AgeDimensionEncoded;
+  readonly gender?: GenderDimensionEncoded;
+  readonly household_income?: HouseholdIncomeDimensionEncoded;
+  readonly parental_status?: ParentalStatusDimensionEncoded;
+  readonly audience_segments?: AudienceSegmentDimensionEncoded;
 }
 export const AudienceDimension: Schema.Schema<AudienceDimension, AudienceDimensionEncoded, never> = Schema.Struct({
-  age: Schema.optional(Schema.Unknown),
-  gender: Schema.optional(Schema.Unknown),
-  household_income: Schema.optional(Schema.Unknown),
-  parental_status: Schema.optional(Schema.Unknown),
-  audience_segments: Schema.optional(Schema.Unknown),
+  age: Schema.optional(Schema.suspend(() => AgeDimension)),
+  gender: Schema.optional(Schema.suspend(() => GenderDimension)),
+  household_income: Schema.optional(Schema.suspend(() => HouseholdIncomeDimension)),
+  parental_status: Schema.optional(Schema.suspend(() => ParentalStatusDimension)),
+  audience_segments: Schema.optional(Schema.suspend(() => AudienceSegmentDimension)),
 });
 
 export type AudienceError = "UNSPECIFIED" | "UNKNOWN" | "NAME_ALREADY_IN_USE" | "DIMENSION_INVALID" | "AUDIENCE_SEGMENT_NOT_FOUND" | "AUDIENCE_SEGMENT_TYPE_NOT_SUPPORTED" | "DUPLICATE_AUDIENCE_SEGMENT" | "TOO_MANY_SEGMENTS" | "TOO_MANY_DIMENSIONS_OF_SAME_TYPE" | "IN_USE" | "MISSING_ASSET_GROUP_ID" | "CANNOT_CHANGE_FROM_CUSTOMER_TO_ASSET_GROUP_SCOPE";
@@ -4663,13 +4663,13 @@ export const AudienceErrorEnum: Schema.Schema<AudienceErrorEnum, AudienceErrorEn
 });
 
 export interface AudienceExclusionDimension {
-  readonly exclusions?: ReadonlyArray<unknown>;
+  readonly exclusions?: ReadonlyArray<ExclusionSegment>;
 }
 export interface AudienceExclusionDimensionEncoded {
-  readonly exclusions?: ReadonlyArray<unknown>;
+  readonly exclusions?: ReadonlyArray<ExclusionSegmentEncoded>;
 }
 export const AudienceExclusionDimension: Schema.Schema<AudienceExclusionDimension, AudienceExclusionDimensionEncoded, never> = Schema.Struct({
-  exclusions: Schema.optional(Schema.Array(Schema.Unknown)),
+  exclusions: Schema.optional(Schema.Array(Schema.suspend(() => ExclusionSegment))),
 });
 
 export interface AudienceInfo {
@@ -4683,108 +4683,108 @@ export const AudienceInfo: Schema.Schema<AudienceInfo, AudienceInfoEncoded, neve
 });
 
 export interface AudienceInsightsAttribute {
-  readonly age_range?: unknown;
-  readonly gender?: unknown;
-  readonly location?: unknown;
-  readonly user_interest?: unknown;
-  readonly entity?: unknown;
-  readonly category?: unknown;
-  readonly lineup?: unknown;
-  readonly parental_status?: unknown;
-  readonly income_range?: unknown;
-  readonly youtube_channel?: unknown;
-  readonly youtube_video?: unknown;
-  readonly device?: unknown;
-  readonly user_list?: unknown;
+  readonly age_range?: AgeRangeInfo;
+  readonly gender?: GenderInfo;
+  readonly location?: LocationInfo;
+  readonly user_interest?: UserInterestInfo;
+  readonly entity?: AudienceInsightsEntity;
+  readonly category?: AudienceInsightsCategory;
+  readonly lineup?: AudienceInsightsLineup;
+  readonly parental_status?: ParentalStatusInfo;
+  readonly income_range?: IncomeRangeInfo;
+  readonly youtube_channel?: YouTubeChannelInfo;
+  readonly youtube_video?: YouTubeVideoInfo;
+  readonly device?: DeviceInfo;
+  readonly user_list?: UserListInfo;
 }
 export interface AudienceInsightsAttributeEncoded {
-  readonly age_range?: unknown;
-  readonly gender?: unknown;
-  readonly location?: unknown;
-  readonly user_interest?: unknown;
-  readonly entity?: unknown;
-  readonly category?: unknown;
-  readonly lineup?: unknown;
-  readonly parental_status?: unknown;
-  readonly income_range?: unknown;
-  readonly youtube_channel?: unknown;
-  readonly youtube_video?: unknown;
-  readonly device?: unknown;
-  readonly user_list?: unknown;
+  readonly age_range?: AgeRangeInfoEncoded;
+  readonly gender?: GenderInfoEncoded;
+  readonly location?: LocationInfoEncoded;
+  readonly user_interest?: UserInterestInfoEncoded;
+  readonly entity?: AudienceInsightsEntityEncoded;
+  readonly category?: AudienceInsightsCategoryEncoded;
+  readonly lineup?: AudienceInsightsLineupEncoded;
+  readonly parental_status?: ParentalStatusInfoEncoded;
+  readonly income_range?: IncomeRangeInfoEncoded;
+  readonly youtube_channel?: YouTubeChannelInfoEncoded;
+  readonly youtube_video?: YouTubeVideoInfoEncoded;
+  readonly device?: DeviceInfoEncoded;
+  readonly user_list?: UserListInfoEncoded;
 }
 export const AudienceInsightsAttribute: Schema.Schema<AudienceInsightsAttribute, AudienceInsightsAttributeEncoded, never> = Schema.Struct({
-  age_range: Schema.optional(Schema.Unknown),
-  gender: Schema.optional(Schema.Unknown),
-  location: Schema.optional(Schema.Unknown),
-  user_interest: Schema.optional(Schema.Unknown),
-  entity: Schema.optional(Schema.Unknown),
-  category: Schema.optional(Schema.Unknown),
-  lineup: Schema.optional(Schema.Unknown),
-  parental_status: Schema.optional(Schema.Unknown),
-  income_range: Schema.optional(Schema.Unknown),
-  youtube_channel: Schema.optional(Schema.Unknown),
-  youtube_video: Schema.optional(Schema.Unknown),
-  device: Schema.optional(Schema.Unknown),
-  user_list: Schema.optional(Schema.Unknown),
+  age_range: Schema.optional(Schema.suspend(() => AgeRangeInfo)),
+  gender: Schema.optional(Schema.suspend(() => GenderInfo)),
+  location: Schema.optional(Schema.suspend(() => LocationInfo)),
+  user_interest: Schema.optional(Schema.suspend(() => UserInterestInfo)),
+  entity: Schema.optional(Schema.suspend(() => AudienceInsightsEntity)),
+  category: Schema.optional(Schema.suspend(() => AudienceInsightsCategory)),
+  lineup: Schema.optional(Schema.suspend(() => AudienceInsightsLineup)),
+  parental_status: Schema.optional(Schema.suspend(() => ParentalStatusInfo)),
+  income_range: Schema.optional(Schema.suspend(() => IncomeRangeInfo)),
+  youtube_channel: Schema.optional(Schema.suspend(() => YouTubeChannelInfo)),
+  youtube_video: Schema.optional(Schema.suspend(() => YouTubeVideoInfo)),
+  device: Schema.optional(Schema.suspend(() => DeviceInfo)),
+  user_list: Schema.optional(Schema.suspend(() => UserListInfo)),
 });
 
 export interface AudienceInsightsAttributeMetadata {
   readonly dimension?: AudienceInsightsDimension;
-  readonly attribute?: unknown;
+  readonly attribute?: AudienceInsightsAttribute;
   readonly display_name?: string;
   readonly display_info?: string;
   readonly potential_youtube_reach?: string;
   readonly subscriber_share?: number;
   readonly viewer_share?: number;
-  readonly youtube_channel_metadata?: unknown;
-  readonly youtube_video_metadata?: unknown;
-  readonly lineup_attribute_metadata?: unknown;
-  readonly location_attribute_metadata?: unknown;
-  readonly user_interest_attribute_metadata?: unknown;
-  readonly knowledge_graph_attribute_metadata?: unknown;
-  readonly user_list_attribute_metadata?: unknown;
+  readonly youtube_channel_metadata?: YouTubeChannelAttributeMetadata;
+  readonly youtube_video_metadata?: YouTubeVideoAttributeMetadata;
+  readonly lineup_attribute_metadata?: LineupAttributeMetadata;
+  readonly location_attribute_metadata?: LocationAttributeMetadata;
+  readonly user_interest_attribute_metadata?: UserInterestAttributeMetadata;
+  readonly knowledge_graph_attribute_metadata?: KnowledgeGraphAttributeMetadata;
+  readonly user_list_attribute_metadata?: UserListAttributeMetadata;
 }
 export interface AudienceInsightsAttributeMetadataEncoded {
   readonly dimension?: AudienceInsightsDimensionEncoded;
-  readonly attribute?: unknown;
+  readonly attribute?: AudienceInsightsAttributeEncoded;
   readonly display_name?: string;
   readonly display_info?: string;
   readonly potential_youtube_reach?: string;
   readonly subscriber_share?: number;
   readonly viewer_share?: number;
-  readonly youtube_channel_metadata?: unknown;
-  readonly youtube_video_metadata?: unknown;
-  readonly lineup_attribute_metadata?: unknown;
-  readonly location_attribute_metadata?: unknown;
-  readonly user_interest_attribute_metadata?: unknown;
-  readonly knowledge_graph_attribute_metadata?: unknown;
-  readonly user_list_attribute_metadata?: unknown;
+  readonly youtube_channel_metadata?: YouTubeChannelAttributeMetadataEncoded;
+  readonly youtube_video_metadata?: YouTubeVideoAttributeMetadataEncoded;
+  readonly lineup_attribute_metadata?: LineupAttributeMetadataEncoded;
+  readonly location_attribute_metadata?: LocationAttributeMetadataEncoded;
+  readonly user_interest_attribute_metadata?: UserInterestAttributeMetadataEncoded;
+  readonly knowledge_graph_attribute_metadata?: KnowledgeGraphAttributeMetadataEncoded;
+  readonly user_list_attribute_metadata?: UserListAttributeMetadataEncoded;
 }
 export const AudienceInsightsAttributeMetadata: Schema.Schema<AudienceInsightsAttributeMetadata, AudienceInsightsAttributeMetadataEncoded, never> = Schema.Struct({
   dimension: Schema.optional(Schema.suspend(() => AudienceInsightsDimension)),
-  attribute: Schema.optional(Schema.Unknown),
+  attribute: Schema.optional(Schema.suspend(() => AudienceInsightsAttribute)),
   display_name: Schema.optional(Schema.String),
   display_info: Schema.optional(Schema.String),
   potential_youtube_reach: Schema.optional(Schema.String),
   subscriber_share: Schema.optional(Schema.Number),
   viewer_share: Schema.optional(Schema.Number),
-  youtube_channel_metadata: Schema.optional(Schema.Unknown),
-  youtube_video_metadata: Schema.optional(Schema.Unknown),
-  lineup_attribute_metadata: Schema.optional(Schema.Unknown),
-  location_attribute_metadata: Schema.optional(Schema.Unknown),
-  user_interest_attribute_metadata: Schema.optional(Schema.Unknown),
-  knowledge_graph_attribute_metadata: Schema.optional(Schema.Unknown),
-  user_list_attribute_metadata: Schema.optional(Schema.Unknown),
+  youtube_channel_metadata: Schema.optional(Schema.suspend(() => YouTubeChannelAttributeMetadata)),
+  youtube_video_metadata: Schema.optional(Schema.suspend(() => YouTubeVideoAttributeMetadata)),
+  lineup_attribute_metadata: Schema.optional(Schema.suspend(() => LineupAttributeMetadata)),
+  location_attribute_metadata: Schema.optional(Schema.suspend(() => LocationAttributeMetadata)),
+  user_interest_attribute_metadata: Schema.optional(Schema.suspend(() => UserInterestAttributeMetadata)),
+  knowledge_graph_attribute_metadata: Schema.optional(Schema.suspend(() => KnowledgeGraphAttributeMetadata)),
+  user_list_attribute_metadata: Schema.optional(Schema.suspend(() => UserListAttributeMetadata)),
 });
 
 export interface AudienceInsightsAttributeMetadataGroup {
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
 }
 export interface AudienceInsightsAttributeMetadataGroupEncoded {
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
 }
 export const AudienceInsightsAttributeMetadataGroup: Schema.Schema<AudienceInsightsAttributeMetadataGroup, AudienceInsightsAttributeMetadataGroupEncoded, never> = Schema.Struct({
-  attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
 });
 
 export interface AudienceInsightsCategory {
@@ -4870,17 +4870,17 @@ export const AudienceInsightsMarketingObjectiveEnum: Schema.Schema<AudienceInsig
 });
 
 export interface AudienceOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Audience;
   readonly update?: Audience;
 }
 export interface AudienceOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: AudienceEncoded;
   readonly update?: AudienceEncoded;
 }
 export const AudienceOperation: Schema.Schema<AudienceOperation, AudienceOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Audience)),
   update: Schema.optional(Schema.suspend(() => Audience)),
 });
@@ -4913,35 +4913,35 @@ export const AudienceScopeEnum: Schema.Schema<AudienceScopeEnum, AudienceScopeEn
 });
 
 export interface AudienceSegment {
-  readonly user_list?: unknown;
-  readonly user_interest?: unknown;
-  readonly life_event?: unknown;
-  readonly detailed_demographic?: unknown;
-  readonly custom_audience?: unknown;
+  readonly user_list?: UserListSegment;
+  readonly user_interest?: UserInterestSegment;
+  readonly life_event?: LifeEventSegment;
+  readonly detailed_demographic?: DetailedDemographicSegment;
+  readonly custom_audience?: CustomAudienceSegment;
 }
 export interface AudienceSegmentEncoded {
-  readonly user_list?: unknown;
-  readonly user_interest?: unknown;
-  readonly life_event?: unknown;
-  readonly detailed_demographic?: unknown;
-  readonly custom_audience?: unknown;
+  readonly user_list?: UserListSegmentEncoded;
+  readonly user_interest?: UserInterestSegmentEncoded;
+  readonly life_event?: LifeEventSegmentEncoded;
+  readonly detailed_demographic?: DetailedDemographicSegmentEncoded;
+  readonly custom_audience?: CustomAudienceSegmentEncoded;
 }
 export const AudienceSegment: Schema.Schema<AudienceSegment, AudienceSegmentEncoded, never> = Schema.Struct({
-  user_list: Schema.optional(Schema.Unknown),
-  user_interest: Schema.optional(Schema.Unknown),
-  life_event: Schema.optional(Schema.Unknown),
-  detailed_demographic: Schema.optional(Schema.Unknown),
-  custom_audience: Schema.optional(Schema.Unknown),
+  user_list: Schema.optional(Schema.suspend(() => UserListSegment)),
+  user_interest: Schema.optional(Schema.suspend(() => UserInterestSegment)),
+  life_event: Schema.optional(Schema.suspend(() => LifeEventSegment)),
+  detailed_demographic: Schema.optional(Schema.suspend(() => DetailedDemographicSegment)),
+  custom_audience: Schema.optional(Schema.suspend(() => CustomAudienceSegment)),
 });
 
 export interface AudienceSegmentDimension {
-  readonly segments?: ReadonlyArray<unknown>;
+  readonly segments?: ReadonlyArray<AudienceSegment>;
 }
 export interface AudienceSegmentDimensionEncoded {
-  readonly segments?: ReadonlyArray<unknown>;
+  readonly segments?: ReadonlyArray<AudienceSegmentEncoded>;
 }
 export const AudienceSegmentDimension: Schema.Schema<AudienceSegmentDimension, AudienceSegmentDimensionEncoded, never> = Schema.Struct({
-  segments: Schema.optional(Schema.Array(Schema.Unknown)),
+  segments: Schema.optional(Schema.Array(Schema.suspend(() => AudienceSegment))),
 });
 
 export interface AudienceSetting {
@@ -5037,20 +5037,20 @@ export const BackgroundCheckVerificationArtifact: Schema.Schema<BackgroundCheckV
 });
 
 export interface BasicUserListInfo {
-  readonly actions?: ReadonlyArray<unknown>;
+  readonly actions?: ReadonlyArray<UserListActionInfo>;
 }
 export interface BasicUserListInfoEncoded {
-  readonly actions?: ReadonlyArray<unknown>;
+  readonly actions?: ReadonlyArray<UserListActionInfoEncoded>;
 }
 export const BasicUserListInfo: Schema.Schema<BasicUserListInfo, BasicUserListInfoEncoded, never> = Schema.Struct({
-  actions: Schema.optional(Schema.Array(Schema.Unknown)),
+  actions: Schema.optional(Schema.Array(Schema.suspend(() => UserListActionInfo))),
 });
 
 export interface BatchJob {
   readonly resource_name?: string;
   readonly id?: string;
   readonly next_add_sequence_token?: string;
-  readonly metadata?: unknown;
+  readonly metadata?: BatchJobMetadata;
   readonly status?: BatchJobStatus;
   readonly long_running_operation?: string;
 }
@@ -5058,7 +5058,7 @@ export interface BatchJobEncoded {
   readonly resource_name?: string;
   readonly id?: string;
   readonly next_add_sequence_token?: string;
-  readonly metadata?: unknown;
+  readonly metadata?: BatchJobMetadataEncoded;
   readonly status?: BatchJobStatusEncoded;
   readonly long_running_operation?: string;
 }
@@ -5066,7 +5066,7 @@ export const BatchJob: Schema.Schema<BatchJob, BatchJobEncoded, never> = Schema.
   resource_name: Schema.optional(Schema.String),
   id: Schema.optional(Schema.String),
   next_add_sequence_token: Schema.optional(Schema.String),
-  metadata: Schema.optional(Schema.Unknown),
+  metadata: Schema.optional(Schema.suspend(() => BatchJobMetadata)),
   status: Schema.optional(Schema.suspend(() => BatchJobStatus)),
   long_running_operation: Schema.optional(Schema.String),
 });
@@ -5128,17 +5128,17 @@ export const BatchJobOperation: Schema.Schema<BatchJobOperation, BatchJobOperati
 
 export interface BatchJobResult {
   readonly operation_index?: string;
-  readonly mutate_operation_response?: unknown;
+  readonly mutate_operation_response?: MutateOperationResponse;
   readonly status?: unknown;
 }
 export interface BatchJobResultEncoded {
   readonly operation_index?: string;
-  readonly mutate_operation_response?: unknown;
+  readonly mutate_operation_response?: MutateOperationResponseEncoded;
   readonly status?: unknown;
 }
 export const BatchJobResult: Schema.Schema<BatchJobResult, BatchJobResultEncoded, never> = Schema.Struct({
   operation_index: Schema.optional(Schema.String),
-  mutate_operation_response: Schema.optional(Schema.Unknown),
+  mutate_operation_response: Schema.optional(Schema.suspend(() => MutateOperationResponse)),
   status: Schema.optional(Schema.Unknown),
 });
 
@@ -5228,15 +5228,15 @@ export const BenchmarksSource: Schema.Schema<BenchmarksSource, BenchmarksSourceE
 
 export interface BenchmarksSourceMetadata {
   readonly benchmarks_source_type?: BenchmarksSourceType;
-  readonly industry_vertical_info?: unknown;
+  readonly industry_vertical_info?: IndustryVerticalInfo;
 }
 export interface BenchmarksSourceMetadataEncoded {
   readonly benchmarks_source_type?: BenchmarksSourceTypeEncoded;
-  readonly industry_vertical_info?: unknown;
+  readonly industry_vertical_info?: IndustryVerticalInfoEncoded;
 }
 export const BenchmarksSourceMetadata: Schema.Schema<BenchmarksSourceMetadata, BenchmarksSourceMetadataEncoded, never> = Schema.Struct({
   benchmarks_source_type: Schema.optional(Schema.suspend(() => BenchmarksSourceType)),
-  industry_vertical_info: Schema.optional(Schema.Unknown),
+  industry_vertical_info: Schema.optional(Schema.suspend(() => IndustryVerticalInfo)),
 });
 
 export type BenchmarksSourceType = "UNSPECIFIED" | "UNKNOWN" | "INDUSTRY_VERTICAL";
@@ -5308,19 +5308,19 @@ export const BiddingDataExclusion: Schema.Schema<BiddingDataExclusion, BiddingDa
 });
 
 export interface BiddingDataExclusionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingDataExclusion;
   readonly update?: BiddingDataExclusion;
   readonly remove?: string;
 }
 export interface BiddingDataExclusionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingDataExclusionEncoded;
   readonly update?: BiddingDataExclusionEncoded;
   readonly remove?: string;
 }
 export const BiddingDataExclusionOperation: Schema.Schema<BiddingDataExclusionOperation, BiddingDataExclusionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => BiddingDataExclusion)),
   update: Schema.optional(Schema.suspend(() => BiddingDataExclusion)),
   remove: Schema.optional(Schema.String),
@@ -5344,19 +5344,19 @@ export interface BiddingInfo {
   readonly bidding_strategy_type?: BiddingStrategyType;
   readonly target_cpa_micros?: string;
   readonly target_roas?: number;
-  readonly target_impression_share_info?: unknown;
+  readonly target_impression_share_info?: TargetImpressionShareInfo;
 }
 export interface BiddingInfoEncoded {
   readonly bidding_strategy_type?: BiddingStrategyTypeEncoded;
   readonly target_cpa_micros?: string;
   readonly target_roas?: number;
-  readonly target_impression_share_info?: unknown;
+  readonly target_impression_share_info?: TargetImpressionShareInfoEncoded;
 }
 export const BiddingInfo: Schema.Schema<BiddingInfo, BiddingInfoEncoded, never> = Schema.Struct({
   bidding_strategy_type: Schema.optional(Schema.suspend(() => BiddingStrategyType)),
   target_cpa_micros: Schema.optional(Schema.String),
   target_roas: Schema.optional(Schema.Number),
-  target_impression_share_info: Schema.optional(Schema.Unknown),
+  target_impression_share_info: Schema.optional(Schema.suspend(() => TargetImpressionShareInfo)),
 });
 
 export interface BiddingSeasonalityAdjustment {
@@ -5403,19 +5403,19 @@ export const BiddingSeasonalityAdjustment: Schema.Schema<BiddingSeasonalityAdjus
 });
 
 export interface BiddingSeasonalityAdjustmentOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingSeasonalityAdjustment;
   readonly update?: BiddingSeasonalityAdjustment;
   readonly remove?: string;
 }
 export interface BiddingSeasonalityAdjustmentOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingSeasonalityAdjustmentEncoded;
   readonly update?: BiddingSeasonalityAdjustmentEncoded;
   readonly remove?: string;
 }
 export const BiddingSeasonalityAdjustmentOperation: Schema.Schema<BiddingSeasonalityAdjustmentOperation, BiddingSeasonalityAdjustmentOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => BiddingSeasonalityAdjustment)),
   update: Schema.optional(Schema.suspend(() => BiddingSeasonalityAdjustment)),
   remove: Schema.optional(Schema.String),
@@ -5508,19 +5508,19 @@ export const BiddingStrategyErrorEnum: Schema.Schema<BiddingStrategyErrorEnum, B
 });
 
 export interface BiddingStrategyOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingStrategy;
   readonly update?: BiddingStrategy;
   readonly remove?: string;
 }
 export interface BiddingStrategyOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: BiddingStrategyEncoded;
   readonly update?: BiddingStrategyEncoded;
   readonly remove?: string;
 }
 export const BiddingStrategyOperation: Schema.Schema<BiddingStrategyOperation, BiddingStrategyOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => BiddingStrategy)),
   update: Schema.optional(Schema.suspend(() => BiddingStrategy)),
   remove: Schema.optional(Schema.String),
@@ -5618,7 +5618,7 @@ export interface BillingSetup {
   readonly id?: string;
   readonly status?: BillingSetupStatus;
   readonly payments_account?: string;
-  readonly payments_account_info?: unknown;
+  readonly payments_account_info?: PaymentsAccountInfo;
   readonly start_date_time?: string;
   readonly start_time_type?: TimeType;
   readonly end_date_time?: string;
@@ -5629,7 +5629,7 @@ export interface BillingSetupEncoded {
   readonly id?: string;
   readonly status?: BillingSetupStatusEncoded;
   readonly payments_account?: string;
-  readonly payments_account_info?: unknown;
+  readonly payments_account_info?: PaymentsAccountInfoEncoded;
   readonly start_date_time?: string;
   readonly start_time_type?: TimeTypeEncoded;
   readonly end_date_time?: string;
@@ -5640,7 +5640,7 @@ export const BillingSetup: Schema.Schema<BillingSetup, BillingSetupEncoded, neve
   id: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => BillingSetupStatus)),
   payments_account: Schema.optional(Schema.String),
-  payments_account_info: Schema.optional(Schema.Unknown),
+  payments_account_info: Schema.optional(Schema.suspend(() => PaymentsAccountInfo)),
   start_date_time: Schema.optional(Schema.String),
   start_time_type: Schema.optional(Schema.suspend(() => TimeType)),
   end_date_time: Schema.optional(Schema.String),
@@ -5689,15 +5689,15 @@ export const BillingSetupStatusEnum: Schema.Schema<BillingSetupStatusEnum, Billi
 });
 
 export interface BookCampaignsOperation {
-  readonly campaigns?: ReadonlyArray<unknown>;
+  readonly campaigns?: ReadonlyArray<Campaign>;
   readonly quote_signature?: string;
 }
 export interface BookCampaignsOperationEncoded {
-  readonly campaigns?: ReadonlyArray<unknown>;
+  readonly campaigns?: ReadonlyArray<CampaignEncoded>;
   readonly quote_signature?: string;
 }
 export const BookCampaignsOperation: Schema.Schema<BookCampaignsOperation, BookCampaignsOperationEncoded, never> = Schema.Struct({
-  campaigns: Schema.optional(Schema.Array(Schema.Unknown)),
+  campaigns: Schema.optional(Schema.Array(Schema.suspend(() => Campaign))),
   quote_signature: Schema.optional(Schema.String),
 });
 
@@ -5957,19 +5957,19 @@ export const BreakdownKey: Schema.Schema<BreakdownKey, BreakdownKeyEncoded, neve
 });
 
 export interface BreakdownMetrics {
-  readonly breakdown_key?: unknown;
-  readonly customer_metrics?: unknown;
-  readonly average_benchmarks_metrics?: unknown;
+  readonly breakdown_key?: BreakdownKey;
+  readonly customer_metrics?: CustomerMetrics;
+  readonly average_benchmarks_metrics?: Metrics;
 }
 export interface BreakdownMetricsEncoded {
-  readonly breakdown_key?: unknown;
-  readonly customer_metrics?: unknown;
-  readonly average_benchmarks_metrics?: unknown;
+  readonly breakdown_key?: BreakdownKeyEncoded;
+  readonly customer_metrics?: CustomerMetricsEncoded;
+  readonly average_benchmarks_metrics?: MetricsEncoded;
 }
 export const BreakdownMetrics: Schema.Schema<BreakdownMetrics, BreakdownMetricsEncoded, never> = Schema.Struct({
-  breakdown_key: Schema.optional(Schema.Unknown),
-  customer_metrics: Schema.optional(Schema.Unknown),
-  average_benchmarks_metrics: Schema.optional(Schema.Unknown),
+  breakdown_key: Schema.optional(Schema.suspend(() => BreakdownKey)),
+  customer_metrics: Schema.optional(Schema.suspend(() => CustomerMetrics)),
+  average_benchmarks_metrics: Schema.optional(Schema.suspend(() => Metrics)),
 });
 
 export interface BudgetCampaignAssociationStatus {
@@ -6025,15 +6025,15 @@ export const BudgetInfo: Schema.Schema<BudgetInfo, BudgetInfoEncoded, never> = S
 
 export interface BudgetOption {
   readonly daily_amount_micros?: string;
-  readonly metrics?: unknown;
+  readonly metrics?: Metrics;
 }
 export interface BudgetOptionEncoded {
   readonly daily_amount_micros?: string;
-  readonly metrics?: unknown;
+  readonly metrics?: MetricsEncoded;
 }
 export const BudgetOption: Schema.Schema<BudgetOption, BudgetOptionEncoded, never> = Schema.Struct({
   daily_amount_micros: Schema.optional(Schema.String),
-  metrics: Schema.optional(Schema.Unknown),
+  metrics: Schema.optional(Schema.suspend(() => Metrics)),
 });
 
 export interface BudgetPerDayMinimumErrorDetails {
@@ -6110,13 +6110,13 @@ export const BudgetSimulationPoint: Schema.Schema<BudgetSimulationPoint, BudgetS
 });
 
 export interface BudgetSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<BudgetSimulationPoint>;
 }
 export interface BudgetSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<BudgetSimulationPointEncoded>;
 }
 export const BudgetSimulationPointList: Schema.Schema<BudgetSimulationPointList, BudgetSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => BudgetSimulationPoint))),
 });
 
 export type BudgetStatus = "UNSPECIFIED" | "UNKNOWN" | "ENABLED" | "REMOVED";
@@ -6160,26 +6160,26 @@ export const BusinessContext: Schema.Schema<BusinessContext, BusinessContextEnco
 export interface BusinessMessageAsset {
   readonly message_provider?: BusinessMessageProvider;
   readonly starter_message?: string;
-  readonly call_to_action?: unknown;
-  readonly whatsapp_info?: unknown;
-  readonly facebook_messenger_info?: unknown;
-  readonly zalo_info?: unknown;
+  readonly call_to_action?: BusinessMessageCallToActionInfo;
+  readonly whatsapp_info?: WhatsappBusinessMessageInfo;
+  readonly facebook_messenger_info?: FacebookMessengerBusinessMessageInfo;
+  readonly zalo_info?: ZaloBusinessMessageInfo;
 }
 export interface BusinessMessageAssetEncoded {
   readonly message_provider?: BusinessMessageProviderEncoded;
   readonly starter_message?: string;
-  readonly call_to_action?: unknown;
-  readonly whatsapp_info?: unknown;
-  readonly facebook_messenger_info?: unknown;
-  readonly zalo_info?: unknown;
+  readonly call_to_action?: BusinessMessageCallToActionInfoEncoded;
+  readonly whatsapp_info?: WhatsappBusinessMessageInfoEncoded;
+  readonly facebook_messenger_info?: FacebookMessengerBusinessMessageInfoEncoded;
+  readonly zalo_info?: ZaloBusinessMessageInfoEncoded;
 }
 export const BusinessMessageAsset: Schema.Schema<BusinessMessageAsset, BusinessMessageAssetEncoded, never> = Schema.Struct({
   message_provider: Schema.optional(Schema.suspend(() => BusinessMessageProvider)),
   starter_message: Schema.optional(Schema.String),
-  call_to_action: Schema.optional(Schema.Unknown),
-  whatsapp_info: Schema.optional(Schema.Unknown),
-  facebook_messenger_info: Schema.optional(Schema.Unknown),
-  zalo_info: Schema.optional(Schema.Unknown),
+  call_to_action: Schema.optional(Schema.suspend(() => BusinessMessageCallToActionInfo)),
+  whatsapp_info: Schema.optional(Schema.suspend(() => WhatsappBusinessMessageInfo)),
+  facebook_messenger_info: Schema.optional(Schema.suspend(() => FacebookMessengerBusinessMessageInfo)),
+  zalo_info: Schema.optional(Schema.suspend(() => ZaloBusinessMessageInfo)),
 });
 
 export interface BusinessMessageCallToActionInfo {
@@ -6253,13 +6253,13 @@ export const BusinessProfileLocation: Schema.Schema<BusinessProfileLocation, Bus
 });
 
 export interface BusinessProfileLocationGroup {
-  readonly dynamic_business_profile_location_group_filter?: unknown;
+  readonly dynamic_business_profile_location_group_filter?: DynamicBusinessProfileLocationGroupFilter;
 }
 export interface BusinessProfileLocationGroupEncoded {
-  readonly dynamic_business_profile_location_group_filter?: unknown;
+  readonly dynamic_business_profile_location_group_filter?: DynamicBusinessProfileLocationGroupFilterEncoded;
 }
 export const BusinessProfileLocationGroup: Schema.Schema<BusinessProfileLocationGroup, BusinessProfileLocationGroupEncoded, never> = Schema.Struct({
-  dynamic_business_profile_location_group_filter: Schema.optional(Schema.Unknown),
+  dynamic_business_profile_location_group_filter: Schema.optional(Schema.suspend(() => DynamicBusinessProfileLocationGroupFilter)),
 });
 
 export interface BusinessProfileLocationSet {
@@ -6291,22 +6291,22 @@ export interface BusinessRegistrationCheckVerificationArtifact {
   readonly registration_type?: LocalServicesBusinessRegistrationType;
   readonly check_id?: string;
   readonly rejection_reason?: LocalServicesBusinessRegistrationCheckRejectionReason;
-  readonly registration_number?: unknown;
-  readonly registration_document?: unknown;
+  readonly registration_number?: BusinessRegistrationNumber;
+  readonly registration_document?: BusinessRegistrationDocument;
 }
 export interface BusinessRegistrationCheckVerificationArtifactEncoded {
   readonly registration_type?: LocalServicesBusinessRegistrationTypeEncoded;
   readonly check_id?: string;
   readonly rejection_reason?: LocalServicesBusinessRegistrationCheckRejectionReasonEncoded;
-  readonly registration_number?: unknown;
-  readonly registration_document?: unknown;
+  readonly registration_number?: BusinessRegistrationNumberEncoded;
+  readonly registration_document?: BusinessRegistrationDocumentEncoded;
 }
 export const BusinessRegistrationCheckVerificationArtifact: Schema.Schema<BusinessRegistrationCheckVerificationArtifact, BusinessRegistrationCheckVerificationArtifactEncoded, never> = Schema.Struct({
   registration_type: Schema.optional(Schema.suspend(() => LocalServicesBusinessRegistrationType)),
   check_id: Schema.optional(Schema.String),
   rejection_reason: Schema.optional(Schema.suspend(() => LocalServicesBusinessRegistrationCheckRejectionReason)),
-  registration_number: Schema.optional(Schema.Unknown),
-  registration_document: Schema.optional(Schema.Unknown),
+  registration_number: Schema.optional(Schema.suspend(() => BusinessRegistrationNumber)),
+  registration_document: Schema.optional(Schema.suspend(() => BusinessRegistrationDocument)),
 });
 
 export interface BusinessRegistrationDocument {
@@ -6334,31 +6334,31 @@ export interface CallAsset {
   readonly phone_number?: string;
   readonly call_conversion_reporting_state?: CallConversionReportingState;
   readonly call_conversion_action?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfo>;
 }
 export interface CallAssetEncoded {
   readonly country_code?: string;
   readonly phone_number?: string;
   readonly call_conversion_reporting_state?: CallConversionReportingStateEncoded;
   readonly call_conversion_action?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfoEncoded>;
 }
 export const CallAsset: Schema.Schema<CallAsset, CallAssetEncoded, never> = Schema.Struct({
   country_code: Schema.optional(Schema.String),
   phone_number: Schema.optional(Schema.String),
   call_conversion_reporting_state: Schema.optional(Schema.suspend(() => CallConversionReportingState)),
   call_conversion_action: Schema.optional(Schema.String),
-  ad_schedule_targets: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_schedule_targets: Schema.optional(Schema.Array(Schema.suspend(() => AdScheduleInfo))),
 });
 
 export interface CallAssetParameters {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParameters;
 }
 export interface CallAssetParametersEncoded {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParametersEncoded;
 }
 export const CallAssetParameters: Schema.Schema<CallAssetParameters, CallAssetParametersEncoded, never> = Schema.Struct({
-  ad_asset_apply_parameters: Schema.optional(Schema.Unknown),
+  ad_asset_apply_parameters: Schema.optional(Schema.suspend(() => AdAssetApplyParameters)),
 });
 
 export interface CallAssetRecommendation {
@@ -6378,7 +6378,7 @@ export interface CallConversion {
   readonly conversion_date_time?: string;
   readonly conversion_value?: number;
   readonly currency_code?: string;
-  readonly custom_variables?: ReadonlyArray<unknown>;
+  readonly custom_variables?: ReadonlyArray<CustomVariable>;
   readonly consent?: Consent;
 }
 export interface CallConversionEncoded {
@@ -6388,7 +6388,7 @@ export interface CallConversionEncoded {
   readonly conversion_date_time?: string;
   readonly conversion_value?: number;
   readonly currency_code?: string;
-  readonly custom_variables?: ReadonlyArray<unknown>;
+  readonly custom_variables?: ReadonlyArray<CustomVariableEncoded>;
   readonly consent?: ConsentEncoded;
 }
 export const CallConversion: Schema.Schema<CallConversion, CallConversionEncoded, never> = Schema.Struct({
@@ -6398,7 +6398,7 @@ export const CallConversion: Schema.Schema<CallConversion, CallConversionEncoded
   conversion_date_time: Schema.optional(Schema.String),
   conversion_value: Schema.optional(Schema.Number),
   currency_code: Schema.optional(Schema.String),
-  custom_variables: Schema.optional(Schema.Array(Schema.Unknown)),
+  custom_variables: Schema.optional(Schema.Array(Schema.suspend(() => CustomVariable))),
   consent: Schema.optional(Schema.suspend(() => Consent)),
 });
 
@@ -6474,42 +6474,42 @@ export interface CalloutAsset {
   readonly callout_text?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfo>;
 }
 export interface CalloutAssetEncoded {
   readonly callout_text?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfoEncoded>;
 }
 export const CalloutAsset: Schema.Schema<CalloutAsset, CalloutAssetEncoded, never> = Schema.Struct({
   callout_text: Schema.optional(Schema.String),
   start_date: Schema.optional(Schema.String),
   end_date: Schema.optional(Schema.String),
-  ad_schedule_targets: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_schedule_targets: Schema.optional(Schema.Array(Schema.suspend(() => AdScheduleInfo))),
 });
 
 export interface CalloutAssetParameters {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParameters;
 }
 export interface CalloutAssetParametersEncoded {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParametersEncoded;
 }
 export const CalloutAssetParameters: Schema.Schema<CalloutAssetParameters, CalloutAssetParametersEncoded, never> = Schema.Struct({
-  ad_asset_apply_parameters: Schema.optional(Schema.Unknown),
+  ad_asset_apply_parameters: Schema.optional(Schema.suspend(() => AdAssetApplyParameters)),
 });
 
 export interface CalloutAssetRecommendation {
-  readonly recommended_campaign_callout_assets?: ReadonlyArray<unknown>;
-  readonly recommended_customer_callout_assets?: ReadonlyArray<unknown>;
+  readonly recommended_campaign_callout_assets?: ReadonlyArray<Asset>;
+  readonly recommended_customer_callout_assets?: ReadonlyArray<Asset>;
 }
 export interface CalloutAssetRecommendationEncoded {
-  readonly recommended_campaign_callout_assets?: ReadonlyArray<unknown>;
-  readonly recommended_customer_callout_assets?: ReadonlyArray<unknown>;
+  readonly recommended_campaign_callout_assets?: ReadonlyArray<AssetEncoded>;
+  readonly recommended_customer_callout_assets?: ReadonlyArray<AssetEncoded>;
 }
 export const CalloutAssetRecommendation: Schema.Schema<CalloutAssetRecommendation, CalloutAssetRecommendationEncoded, never> = Schema.Struct({
-  recommended_campaign_callout_assets: Schema.optional(Schema.Array(Schema.Unknown)),
-  recommended_customer_callout_assets: Schema.optional(Schema.Array(Schema.Unknown)),
+  recommended_campaign_callout_assets: Schema.optional(Schema.Array(Schema.suspend(() => Asset))),
+  recommended_customer_callout_assets: Schema.optional(Schema.Array(Schema.suspend(() => Asset))),
 });
 
 export interface CalloutExtensionParameters {
@@ -6648,21 +6648,21 @@ export interface Campaign {
   readonly advertising_channel_sub_type?: AdvertisingChannelSubType;
   readonly tracking_url_template?: string;
   readonly url_custom_parameters?: ReadonlyArray<CustomParameter>;
-  readonly local_services_campaign_settings?: unknown;
-  readonly travel_campaign_settings?: unknown;
-  readonly demand_gen_campaign_settings?: unknown;
-  readonly video_campaign_settings?: unknown;
-  readonly pmax_campaign_settings?: unknown;
+  readonly local_services_campaign_settings?: LocalServicesCampaignSettings;
+  readonly travel_campaign_settings?: TravelCampaignSettings;
+  readonly demand_gen_campaign_settings?: DemandGenCampaignSettings;
+  readonly video_campaign_settings?: VideoCampaignSettings;
+  readonly pmax_campaign_settings?: PmaxCampaignSettings;
   readonly real_time_bidding_setting?: RealTimeBiddingSetting;
-  readonly network_settings?: unknown;
-  readonly hotel_setting?: unknown;
-  readonly dynamic_search_ads_setting?: unknown;
-  readonly shopping_setting?: unknown;
+  readonly network_settings?: NetworkSettings;
+  readonly hotel_setting?: HotelSettingInfo;
+  readonly dynamic_search_ads_setting?: DynamicSearchAdsSetting;
+  readonly shopping_setting?: ShoppingSetting;
   readonly targeting_setting?: TargetingSetting;
-  readonly audience_setting?: unknown;
-  readonly geo_target_type_setting?: unknown;
-  readonly local_campaign_setting?: unknown;
-  readonly app_campaign_setting?: unknown;
+  readonly audience_setting?: AudienceSetting;
+  readonly geo_target_type_setting?: GeoTargetTypeSetting;
+  readonly local_campaign_setting?: LocalCampaignSetting;
+  readonly app_campaign_setting?: AppCampaignSetting;
   readonly labels?: ReadonlyArray<string>;
   readonly experiment_type?: CampaignExperimentType;
   readonly base_campaign?: string;
@@ -6674,24 +6674,24 @@ export interface Campaign {
   readonly end_date_time?: string;
   readonly final_url_suffix?: string;
   readonly frequency_caps?: ReadonlyArray<FrequencyCapEntry>;
-  readonly vanity_pharma?: unknown;
-  readonly selective_optimization?: unknown;
-  readonly optimization_goal_setting?: unknown;
-  readonly tracking_setting?: unknown;
+  readonly vanity_pharma?: VanityPharma;
+  readonly selective_optimization?: SelectiveOptimization;
+  readonly optimization_goal_setting?: OptimizationGoalSetting;
+  readonly tracking_setting?: TrackingSetting;
   readonly payment_mode?: PaymentMode;
   readonly optimization_score?: number;
   readonly excluded_parent_asset_field_types?: ReadonlyArray<AssetFieldType>;
   readonly excluded_parent_asset_set_types?: ReadonlyArray<AssetSetType>;
-  readonly performance_max_upgrade?: unknown;
+  readonly performance_max_upgrade?: PerformanceMaxUpgrade;
   readonly hotel_property_asset_set?: string;
   readonly listing_type?: ListingType;
-  readonly asset_automation_settings?: ReadonlyArray<unknown>;
+  readonly asset_automation_settings?: ReadonlyArray<AssetAutomationSetting>;
   readonly keyword_match_type?: CampaignKeywordMatchType;
   readonly brand_guidelines_enabled?: boolean;
-  readonly brand_guidelines?: unknown;
-  readonly text_guidelines?: unknown;
+  readonly brand_guidelines?: BrandGuidelines;
+  readonly text_guidelines?: TextGuidelines;
   readonly third_party_integration_partners?: CampaignThirdPartyIntegrationPartners;
-  readonly ai_max_setting?: unknown;
+  readonly ai_max_setting?: AiMaxSetting;
   readonly contains_eu_political_advertising?: EuPoliticalAdvertisingStatus;
   readonly feed_types?: ReadonlyArray<AssetSetType>;
   readonly view_through_conversion_optimization_enabled?: boolean;
@@ -6728,21 +6728,21 @@ export interface CampaignEncoded {
   readonly advertising_channel_sub_type?: AdvertisingChannelSubTypeEncoded;
   readonly tracking_url_template?: string;
   readonly url_custom_parameters?: ReadonlyArray<CustomParameterEncoded>;
-  readonly local_services_campaign_settings?: unknown;
-  readonly travel_campaign_settings?: unknown;
-  readonly demand_gen_campaign_settings?: unknown;
-  readonly video_campaign_settings?: unknown;
-  readonly pmax_campaign_settings?: unknown;
+  readonly local_services_campaign_settings?: LocalServicesCampaignSettingsEncoded;
+  readonly travel_campaign_settings?: TravelCampaignSettingsEncoded;
+  readonly demand_gen_campaign_settings?: DemandGenCampaignSettingsEncoded;
+  readonly video_campaign_settings?: VideoCampaignSettingsEncoded;
+  readonly pmax_campaign_settings?: PmaxCampaignSettingsEncoded;
   readonly real_time_bidding_setting?: RealTimeBiddingSettingEncoded;
-  readonly network_settings?: unknown;
-  readonly hotel_setting?: unknown;
-  readonly dynamic_search_ads_setting?: unknown;
-  readonly shopping_setting?: unknown;
+  readonly network_settings?: NetworkSettingsEncoded;
+  readonly hotel_setting?: HotelSettingInfoEncoded;
+  readonly dynamic_search_ads_setting?: DynamicSearchAdsSettingEncoded;
+  readonly shopping_setting?: ShoppingSettingEncoded;
   readonly targeting_setting?: TargetingSettingEncoded;
-  readonly audience_setting?: unknown;
-  readonly geo_target_type_setting?: unknown;
-  readonly local_campaign_setting?: unknown;
-  readonly app_campaign_setting?: unknown;
+  readonly audience_setting?: AudienceSettingEncoded;
+  readonly geo_target_type_setting?: GeoTargetTypeSettingEncoded;
+  readonly local_campaign_setting?: LocalCampaignSettingEncoded;
+  readonly app_campaign_setting?: AppCampaignSettingEncoded;
   readonly labels?: ReadonlyArray<string>;
   readonly experiment_type?: CampaignExperimentTypeEncoded;
   readonly base_campaign?: string;
@@ -6754,24 +6754,24 @@ export interface CampaignEncoded {
   readonly end_date_time?: string;
   readonly final_url_suffix?: string;
   readonly frequency_caps?: ReadonlyArray<FrequencyCapEntryEncoded>;
-  readonly vanity_pharma?: unknown;
-  readonly selective_optimization?: unknown;
-  readonly optimization_goal_setting?: unknown;
-  readonly tracking_setting?: unknown;
+  readonly vanity_pharma?: VanityPharmaEncoded;
+  readonly selective_optimization?: SelectiveOptimizationEncoded;
+  readonly optimization_goal_setting?: OptimizationGoalSettingEncoded;
+  readonly tracking_setting?: TrackingSettingEncoded;
   readonly payment_mode?: PaymentModeEncoded;
   readonly optimization_score?: number;
   readonly excluded_parent_asset_field_types?: ReadonlyArray<AssetFieldTypeEncoded>;
   readonly excluded_parent_asset_set_types?: ReadonlyArray<AssetSetTypeEncoded>;
-  readonly performance_max_upgrade?: unknown;
+  readonly performance_max_upgrade?: PerformanceMaxUpgradeEncoded;
   readonly hotel_property_asset_set?: string;
   readonly listing_type?: ListingTypeEncoded;
-  readonly asset_automation_settings?: ReadonlyArray<unknown>;
+  readonly asset_automation_settings?: ReadonlyArray<AssetAutomationSettingEncoded>;
   readonly keyword_match_type?: CampaignKeywordMatchTypeEncoded;
   readonly brand_guidelines_enabled?: boolean;
-  readonly brand_guidelines?: unknown;
-  readonly text_guidelines?: unknown;
+  readonly brand_guidelines?: BrandGuidelinesEncoded;
+  readonly text_guidelines?: TextGuidelinesEncoded;
   readonly third_party_integration_partners?: CampaignThirdPartyIntegrationPartnersEncoded;
-  readonly ai_max_setting?: unknown;
+  readonly ai_max_setting?: AiMaxSettingEncoded;
   readonly contains_eu_political_advertising?: EuPoliticalAdvertisingStatusEncoded;
   readonly feed_types?: ReadonlyArray<AssetSetTypeEncoded>;
   readonly view_through_conversion_optimization_enabled?: boolean;
@@ -6808,21 +6808,21 @@ export const Campaign: Schema.Schema<Campaign, CampaignEncoded, never> = Schema.
   advertising_channel_sub_type: Schema.optional(Schema.suspend(() => AdvertisingChannelSubType)),
   tracking_url_template: Schema.optional(Schema.String),
   url_custom_parameters: Schema.optional(Schema.Array(Schema.suspend(() => CustomParameter))),
-  local_services_campaign_settings: Schema.optional(Schema.Unknown),
-  travel_campaign_settings: Schema.optional(Schema.Unknown),
-  demand_gen_campaign_settings: Schema.optional(Schema.Unknown),
-  video_campaign_settings: Schema.optional(Schema.Unknown),
-  pmax_campaign_settings: Schema.optional(Schema.Unknown),
+  local_services_campaign_settings: Schema.optional(Schema.suspend(() => LocalServicesCampaignSettings)),
+  travel_campaign_settings: Schema.optional(Schema.suspend(() => TravelCampaignSettings)),
+  demand_gen_campaign_settings: Schema.optional(Schema.suspend(() => DemandGenCampaignSettings)),
+  video_campaign_settings: Schema.optional(Schema.suspend(() => VideoCampaignSettings)),
+  pmax_campaign_settings: Schema.optional(Schema.suspend(() => PmaxCampaignSettings)),
   real_time_bidding_setting: Schema.optional(Schema.suspend(() => RealTimeBiddingSetting)),
-  network_settings: Schema.optional(Schema.Unknown),
-  hotel_setting: Schema.optional(Schema.Unknown),
-  dynamic_search_ads_setting: Schema.optional(Schema.Unknown),
-  shopping_setting: Schema.optional(Schema.Unknown),
+  network_settings: Schema.optional(Schema.suspend(() => NetworkSettings)),
+  hotel_setting: Schema.optional(Schema.suspend(() => HotelSettingInfo)),
+  dynamic_search_ads_setting: Schema.optional(Schema.suspend(() => DynamicSearchAdsSetting)),
+  shopping_setting: Schema.optional(Schema.suspend(() => ShoppingSetting)),
   targeting_setting: Schema.optional(Schema.suspend(() => TargetingSetting)),
-  audience_setting: Schema.optional(Schema.Unknown),
-  geo_target_type_setting: Schema.optional(Schema.Unknown),
-  local_campaign_setting: Schema.optional(Schema.Unknown),
-  app_campaign_setting: Schema.optional(Schema.Unknown),
+  audience_setting: Schema.optional(Schema.suspend(() => AudienceSetting)),
+  geo_target_type_setting: Schema.optional(Schema.suspend(() => GeoTargetTypeSetting)),
+  local_campaign_setting: Schema.optional(Schema.suspend(() => LocalCampaignSetting)),
+  app_campaign_setting: Schema.optional(Schema.suspend(() => AppCampaignSetting)),
   labels: Schema.optional(Schema.Array(Schema.String)),
   experiment_type: Schema.optional(Schema.suspend(() => CampaignExperimentType)),
   base_campaign: Schema.optional(Schema.String),
@@ -6834,24 +6834,24 @@ export const Campaign: Schema.Schema<Campaign, CampaignEncoded, never> = Schema.
   end_date_time: Schema.optional(Schema.String),
   final_url_suffix: Schema.optional(Schema.String),
   frequency_caps: Schema.optional(Schema.Array(Schema.suspend(() => FrequencyCapEntry))),
-  vanity_pharma: Schema.optional(Schema.Unknown),
-  selective_optimization: Schema.optional(Schema.Unknown),
-  optimization_goal_setting: Schema.optional(Schema.Unknown),
-  tracking_setting: Schema.optional(Schema.Unknown),
+  vanity_pharma: Schema.optional(Schema.suspend(() => VanityPharma)),
+  selective_optimization: Schema.optional(Schema.suspend(() => SelectiveOptimization)),
+  optimization_goal_setting: Schema.optional(Schema.suspend(() => OptimizationGoalSetting)),
+  tracking_setting: Schema.optional(Schema.suspend(() => TrackingSetting)),
   payment_mode: Schema.optional(Schema.suspend(() => PaymentMode)),
   optimization_score: Schema.optional(Schema.Number),
   excluded_parent_asset_field_types: Schema.optional(Schema.Array(Schema.suspend(() => AssetFieldType))),
   excluded_parent_asset_set_types: Schema.optional(Schema.Array(Schema.suspend(() => AssetSetType))),
-  performance_max_upgrade: Schema.optional(Schema.Unknown),
+  performance_max_upgrade: Schema.optional(Schema.suspend(() => PerformanceMaxUpgrade)),
   hotel_property_asset_set: Schema.optional(Schema.String),
   listing_type: Schema.optional(Schema.suspend(() => ListingType)),
-  asset_automation_settings: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_automation_settings: Schema.optional(Schema.Array(Schema.suspend(() => AssetAutomationSetting))),
   keyword_match_type: Schema.optional(Schema.suspend(() => CampaignKeywordMatchType)),
   brand_guidelines_enabled: Schema.optional(Schema.Boolean),
-  brand_guidelines: Schema.optional(Schema.Unknown),
-  text_guidelines: Schema.optional(Schema.Unknown),
+  brand_guidelines: Schema.optional(Schema.suspend(() => BrandGuidelines)),
+  text_guidelines: Schema.optional(Schema.suspend(() => TextGuidelines)),
   third_party_integration_partners: Schema.optional(Schema.suspend(() => CampaignThirdPartyIntegrationPartners)),
-  ai_max_setting: Schema.optional(Schema.Unknown),
+  ai_max_setting: Schema.optional(Schema.suspend(() => AiMaxSetting)),
   contains_eu_political_advertising: Schema.optional(Schema.suspend(() => EuPoliticalAdvertisingStatus)),
   feed_types: Schema.optional(Schema.Array(Schema.suspend(() => AssetSetType))),
   view_through_conversion_optimization_enabled: Schema.optional(Schema.Boolean),
@@ -6942,19 +6942,19 @@ export const CampaignAsset: Schema.Schema<CampaignAsset, CampaignAssetEncoded, n
 });
 
 export interface CampaignAssetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignAsset;
   readonly update?: CampaignAsset;
   readonly remove?: string;
 }
 export interface CampaignAssetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignAssetEncoded;
   readonly update?: CampaignAssetEncoded;
   readonly remove?: string;
 }
 export const CampaignAssetOperation: Schema.Schema<CampaignAssetOperation, CampaignAssetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignAsset)),
   update: Schema.optional(Schema.suspend(() => CampaignAsset)),
   remove: Schema.optional(Schema.String),
@@ -7003,19 +7003,19 @@ export const CampaignAudienceView: Schema.Schema<CampaignAudienceView, CampaignA
 });
 
 export interface CampaignBiddingStrategy {
-  readonly manual_cpc_bidding_strategy?: unknown;
-  readonly maximize_clicks_bidding_strategy?: unknown;
-  readonly maximize_conversions_bidding_strategy?: unknown;
+  readonly manual_cpc_bidding_strategy?: ManualCpcBiddingStrategy;
+  readonly maximize_clicks_bidding_strategy?: MaximizeClicksBiddingStrategy;
+  readonly maximize_conversions_bidding_strategy?: MaximizeConversionsBiddingStrategy;
 }
 export interface CampaignBiddingStrategyEncoded {
-  readonly manual_cpc_bidding_strategy?: unknown;
-  readonly maximize_clicks_bidding_strategy?: unknown;
-  readonly maximize_conversions_bidding_strategy?: unknown;
+  readonly manual_cpc_bidding_strategy?: ManualCpcBiddingStrategyEncoded;
+  readonly maximize_clicks_bidding_strategy?: MaximizeClicksBiddingStrategyEncoded;
+  readonly maximize_conversions_bidding_strategy?: MaximizeConversionsBiddingStrategyEncoded;
 }
 export const CampaignBiddingStrategy: Schema.Schema<CampaignBiddingStrategy, CampaignBiddingStrategyEncoded, never> = Schema.Struct({
-  manual_cpc_bidding_strategy: Schema.optional(Schema.Unknown),
-  maximize_clicks_bidding_strategy: Schema.optional(Schema.Unknown),
-  maximize_conversions_bidding_strategy: Schema.optional(Schema.Unknown),
+  manual_cpc_bidding_strategy: Schema.optional(Schema.suspend(() => ManualCpcBiddingStrategy)),
+  maximize_clicks_bidding_strategy: Schema.optional(Schema.suspend(() => MaximizeClicksBiddingStrategy)),
+  maximize_conversions_bidding_strategy: Schema.optional(Schema.suspend(() => MaximizeConversionsBiddingStrategy)),
 });
 
 export interface CampaignBidModifier {
@@ -7041,19 +7041,19 @@ export const CampaignBidModifier: Schema.Schema<CampaignBidModifier, CampaignBid
 });
 
 export interface CampaignBidModifierOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignBidModifier;
   readonly update?: CampaignBidModifier;
   readonly remove?: string;
 }
 export interface CampaignBidModifierOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignBidModifierEncoded;
   readonly update?: CampaignBidModifierEncoded;
   readonly remove?: string;
 }
 export const CampaignBidModifierOperation: Schema.Schema<CampaignBidModifierOperation, CampaignBidModifierOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignBidModifier)),
   update: Schema.optional(Schema.suspend(() => CampaignBidModifier)),
   remove: Schema.optional(Schema.String),
@@ -7148,19 +7148,19 @@ export const CampaignBudgetMapping: Schema.Schema<CampaignBudgetMapping, Campaig
 });
 
 export interface CampaignBudgetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignBudget;
   readonly update?: CampaignBudget;
   readonly remove?: string;
 }
 export interface CampaignBudgetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignBudgetEncoded;
   readonly update?: CampaignBudgetEncoded;
   readonly remove?: string;
 }
 export const CampaignBudgetOperation: Schema.Schema<CampaignBudgetOperation, CampaignBudgetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignBudget)),
   update: Schema.optional(Schema.suspend(() => CampaignBudget)),
   remove: Schema.optional(Schema.String),
@@ -7179,30 +7179,30 @@ export const CampaignBudgetParameters: Schema.Schema<CampaignBudgetParameters, C
 export interface CampaignBudgetRecommendation {
   readonly current_budget_amount_micros?: string;
   readonly recommended_budget_amount_micros?: string;
-  readonly budget_options?: ReadonlyArray<unknown>;
+  readonly budget_options?: ReadonlyArray<CampaignBudgetRecommendationOption>;
 }
 export interface CampaignBudgetRecommendationEncoded {
   readonly current_budget_amount_micros?: string;
   readonly recommended_budget_amount_micros?: string;
-  readonly budget_options?: ReadonlyArray<unknown>;
+  readonly budget_options?: ReadonlyArray<CampaignBudgetRecommendationOptionEncoded>;
 }
 export const CampaignBudgetRecommendation: Schema.Schema<CampaignBudgetRecommendation, CampaignBudgetRecommendationEncoded, never> = Schema.Struct({
   current_budget_amount_micros: Schema.optional(Schema.String),
   recommended_budget_amount_micros: Schema.optional(Schema.String),
-  budget_options: Schema.optional(Schema.Array(Schema.Unknown)),
+  budget_options: Schema.optional(Schema.Array(Schema.suspend(() => CampaignBudgetRecommendationOption))),
 });
 
 export interface CampaignBudgetRecommendationOption {
   readonly budget_amount_micros?: string;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpact;
 }
 export interface CampaignBudgetRecommendationOptionEncoded {
   readonly budget_amount_micros?: string;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpactEncoded;
 }
 export const CampaignBudgetRecommendationOption: Schema.Schema<CampaignBudgetRecommendationOption, CampaignBudgetRecommendationOptionEncoded, never> = Schema.Struct({
   budget_amount_micros: Schema.optional(Schema.String),
-  impact: Schema.optional(Schema.Unknown),
+  impact: Schema.optional(Schema.suspend(() => RecommendationImpact)),
 });
 
 export interface CampaignConversionGoal {
@@ -7242,15 +7242,15 @@ export const CampaignConversionGoalErrorEnum: Schema.Schema<CampaignConversionGo
 });
 
 export interface CampaignConversionGoalOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CampaignConversionGoal;
 }
 export interface CampaignConversionGoalOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CampaignConversionGoalEncoded;
 }
 export const CampaignConversionGoalOperation: Schema.Schema<CampaignConversionGoalOperation, CampaignConversionGoalOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => CampaignConversionGoal)),
 });
 
@@ -7408,19 +7408,19 @@ export const CampaignCriterionErrorEnum: Schema.Schema<CampaignCriterionErrorEnu
 });
 
 export interface CampaignCriterionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignCriterion;
   readonly update?: CampaignCriterion;
   readonly remove?: string;
 }
 export interface CampaignCriterionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignCriterionEncoded;
   readonly update?: CampaignCriterionEncoded;
   readonly remove?: string;
 }
 export const CampaignCriterionOperation: Schema.Schema<CampaignCriterionOperation, CampaignCriterionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignCriterion)),
   update: Schema.optional(Schema.suspend(() => CampaignCriterion)),
   remove: Schema.optional(Schema.String),
@@ -7535,19 +7535,19 @@ export const CampaignDraftErrorEnum: Schema.Schema<CampaignDraftErrorEnum, Campa
 });
 
 export interface CampaignDraftOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignDraft;
   readonly update?: CampaignDraft;
   readonly remove?: string;
 }
 export interface CampaignDraftOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignDraftEncoded;
   readonly update?: CampaignDraftEncoded;
   readonly remove?: string;
 }
 export const CampaignDraftOperation: Schema.Schema<CampaignDraftOperation, CampaignDraftOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignDraft)),
   update: Schema.optional(Schema.suspend(() => CampaignDraft)),
   remove: Schema.optional(Schema.String),
@@ -7679,19 +7679,19 @@ export const CampaignGoalConfigErrorEnum: Schema.Schema<CampaignGoalConfigErrorE
 });
 
 export interface CampaignGoalConfigOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignGoalConfig;
   readonly update?: CampaignGoalConfig;
   readonly remove?: string;
 }
 export interface CampaignGoalConfigOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignGoalConfigEncoded;
   readonly update?: CampaignGoalConfigEncoded;
   readonly remove?: string;
 }
 export const CampaignGoalConfigOperation: Schema.Schema<CampaignGoalConfigOperation, CampaignGoalConfigOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignGoalConfig)),
   update: Schema.optional(Schema.suspend(() => CampaignGoalConfig)),
   remove: Schema.optional(Schema.String),
@@ -7727,19 +7727,19 @@ export const CampaignGroup: Schema.Schema<CampaignGroup, CampaignGroupEncoded, n
 });
 
 export interface CampaignGroupOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignGroup;
   readonly update?: CampaignGroup;
   readonly remove?: string;
 }
 export interface CampaignGroupOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignGroupEncoded;
   readonly update?: CampaignGroupEncoded;
   readonly remove?: string;
 }
 export const CampaignGroupOperation: Schema.Schema<CampaignGroupOperation, CampaignGroupOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CampaignGroup)),
   update: Schema.optional(Schema.suspend(() => CampaignGroup)),
   remove: Schema.optional(Schema.String),
@@ -7803,48 +7803,48 @@ export const CampaignLabelOperation: Schema.Schema<CampaignLabelOperation, Campa
 });
 
 export interface CampaignLoyaltyRetentionGoalSettings {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettings;
   readonly enable_bid_adjustments_for_loyalty_members?: boolean;
   readonly show_targeted_loyalty_member_benefits_in_pla?: boolean;
 }
 export interface CampaignLoyaltyRetentionGoalSettingsEncoded {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettingsEncoded;
   readonly enable_bid_adjustments_for_loyalty_members?: boolean;
   readonly show_targeted_loyalty_member_benefits_in_pla?: boolean;
 }
 export const CampaignLoyaltyRetentionGoalSettings: Schema.Schema<CampaignLoyaltyRetentionGoalSettings, CampaignLoyaltyRetentionGoalSettingsEncoded, never> = Schema.Struct({
-  value_settings_override: Schema.optional(Schema.Unknown),
+  value_settings_override: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
   enable_bid_adjustments_for_loyalty_members: Schema.optional(Schema.Boolean),
   show_targeted_loyalty_member_benefits_in_pla: Schema.optional(Schema.Boolean),
 });
 
 export interface CampaignNewCustomerAcquisitionGoalSettings {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettings;
   readonly target_option?: CustomerLifecycleOptimizationMode;
 }
 export interface CampaignNewCustomerAcquisitionGoalSettingsEncoded {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettingsEncoded;
   readonly target_option?: CustomerLifecycleOptimizationModeEncoded;
 }
 export const CampaignNewCustomerAcquisitionGoalSettings: Schema.Schema<CampaignNewCustomerAcquisitionGoalSettings, CampaignNewCustomerAcquisitionGoalSettingsEncoded, never> = Schema.Struct({
-  value_settings_override: Schema.optional(Schema.Unknown),
+  value_settings_override: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
   target_option: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationMode)),
 });
 
 export interface CampaignOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Campaign;
   readonly update?: Campaign;
   readonly remove?: string;
 }
 export interface CampaignOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CampaignEncoded;
   readonly update?: CampaignEncoded;
   readonly remove?: string;
 }
 export const CampaignOperation: Schema.Schema<CampaignOperation, CampaignOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Campaign)),
   update: Schema.optional(Schema.suspend(() => Campaign)),
   remove: Schema.optional(Schema.String),
@@ -7898,15 +7898,15 @@ export const CampaignReservationQuote: Schema.Schema<CampaignReservationQuote, C
 });
 
 export interface CampaignRetentionGoalSettings {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettings;
   readonly target_option?: CustomerLifecycleOptimizationMode;
 }
 export interface CampaignRetentionGoalSettingsEncoded {
-  readonly value_settings_override?: unknown;
+  readonly value_settings_override?: CustomerLifecycleOptimizationValueSettingsEncoded;
   readonly target_option?: CustomerLifecycleOptimizationModeEncoded;
 }
 export const CampaignRetentionGoalSettings: Schema.Schema<CampaignRetentionGoalSettings, CampaignRetentionGoalSettingsEncoded, never> = Schema.Struct({
-  value_settings_override: Schema.optional(Schema.Unknown),
+  value_settings_override: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
   target_option: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationMode)),
 });
 
@@ -8094,117 +8094,117 @@ export const CampaignSummary: Schema.Schema<CampaignSummary, CampaignSummaryEnco
 
 export interface CampaignThirdPartyBrandLiftIntegrationPartner {
   readonly brand_lift_integration_partner?: ThirdPartyBrandLiftIntegrationPartner;
-  readonly brand_lift_integration_partner_data?: unknown;
+  readonly brand_lift_integration_partner_data?: ThirdPartyIntegrationPartnerData;
   readonly share_cost?: boolean;
 }
 export interface CampaignThirdPartyBrandLiftIntegrationPartnerEncoded {
   readonly brand_lift_integration_partner?: ThirdPartyBrandLiftIntegrationPartnerEncoded;
-  readonly brand_lift_integration_partner_data?: unknown;
+  readonly brand_lift_integration_partner_data?: ThirdPartyIntegrationPartnerDataEncoded;
   readonly share_cost?: boolean;
 }
 export const CampaignThirdPartyBrandLiftIntegrationPartner: Schema.Schema<CampaignThirdPartyBrandLiftIntegrationPartner, CampaignThirdPartyBrandLiftIntegrationPartnerEncoded, never> = Schema.Struct({
   brand_lift_integration_partner: Schema.optional(Schema.suspend(() => ThirdPartyBrandLiftIntegrationPartner)),
-  brand_lift_integration_partner_data: Schema.optional(Schema.Unknown),
+  brand_lift_integration_partner_data: Schema.optional(Schema.suspend(() => ThirdPartyIntegrationPartnerData)),
   share_cost: Schema.optional(Schema.Boolean),
 });
 
 export interface CampaignThirdPartyBrandSafetyIntegrationPartner {
   readonly brand_safety_integration_partner?: ThirdPartyBrandSafetyIntegrationPartner;
-  readonly brand_safety_integration_partner_data?: unknown;
+  readonly brand_safety_integration_partner_data?: ThirdPartyIntegrationPartnerData;
 }
 export interface CampaignThirdPartyBrandSafetyIntegrationPartnerEncoded {
   readonly brand_safety_integration_partner?: ThirdPartyBrandSafetyIntegrationPartnerEncoded;
-  readonly brand_safety_integration_partner_data?: unknown;
+  readonly brand_safety_integration_partner_data?: ThirdPartyIntegrationPartnerDataEncoded;
 }
 export const CampaignThirdPartyBrandSafetyIntegrationPartner: Schema.Schema<CampaignThirdPartyBrandSafetyIntegrationPartner, CampaignThirdPartyBrandSafetyIntegrationPartnerEncoded, never> = Schema.Struct({
   brand_safety_integration_partner: Schema.optional(Schema.suspend(() => ThirdPartyBrandSafetyIntegrationPartner)),
-  brand_safety_integration_partner_data: Schema.optional(Schema.Unknown),
+  brand_safety_integration_partner_data: Schema.optional(Schema.suspend(() => ThirdPartyIntegrationPartnerData)),
 });
 
 export interface CampaignThirdPartyConversionAttributionIntegrationPartner {
   readonly conversion_attribution_integration_partner?: ThirdPartyConversionAttributionIntegrationPartner;
-  readonly conversion_attribution_integration_partner_data?: unknown;
+  readonly conversion_attribution_integration_partner_data?: ThirdPartyIntegrationPartnerData;
 }
 export interface CampaignThirdPartyConversionAttributionIntegrationPartnerEncoded {
   readonly conversion_attribution_integration_partner?: ThirdPartyConversionAttributionIntegrationPartnerEncoded;
-  readonly conversion_attribution_integration_partner_data?: unknown;
+  readonly conversion_attribution_integration_partner_data?: ThirdPartyIntegrationPartnerDataEncoded;
 }
 export const CampaignThirdPartyConversionAttributionIntegrationPartner: Schema.Schema<CampaignThirdPartyConversionAttributionIntegrationPartner, CampaignThirdPartyConversionAttributionIntegrationPartnerEncoded, never> = Schema.Struct({
   conversion_attribution_integration_partner: Schema.optional(Schema.suspend(() => ThirdPartyConversionAttributionIntegrationPartner)),
-  conversion_attribution_integration_partner_data: Schema.optional(Schema.Unknown),
+  conversion_attribution_integration_partner_data: Schema.optional(Schema.suspend(() => ThirdPartyIntegrationPartnerData)),
 });
 
 export interface CampaignThirdPartyIntegrationPartners {
-  readonly viewability_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_lift_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_safety_integration_partners?: ReadonlyArray<unknown>;
-  readonly reach_integration_partners?: ReadonlyArray<unknown>;
-  readonly conversion_attribution_integration_partners?: ReadonlyArray<unknown>;
+  readonly viewability_integration_partners?: ReadonlyArray<CampaignThirdPartyViewabilityIntegrationPartner>;
+  readonly brand_lift_integration_partners?: ReadonlyArray<CampaignThirdPartyBrandLiftIntegrationPartner>;
+  readonly brand_safety_integration_partners?: ReadonlyArray<CampaignThirdPartyBrandSafetyIntegrationPartner>;
+  readonly reach_integration_partners?: ReadonlyArray<CampaignThirdPartyReachIntegrationPartner>;
+  readonly conversion_attribution_integration_partners?: ReadonlyArray<CampaignThirdPartyConversionAttributionIntegrationPartner>;
 }
 export interface CampaignThirdPartyIntegrationPartnersEncoded {
-  readonly viewability_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_lift_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_safety_integration_partners?: ReadonlyArray<unknown>;
-  readonly reach_integration_partners?: ReadonlyArray<unknown>;
-  readonly conversion_attribution_integration_partners?: ReadonlyArray<unknown>;
+  readonly viewability_integration_partners?: ReadonlyArray<CampaignThirdPartyViewabilityIntegrationPartnerEncoded>;
+  readonly brand_lift_integration_partners?: ReadonlyArray<CampaignThirdPartyBrandLiftIntegrationPartnerEncoded>;
+  readonly brand_safety_integration_partners?: ReadonlyArray<CampaignThirdPartyBrandSafetyIntegrationPartnerEncoded>;
+  readonly reach_integration_partners?: ReadonlyArray<CampaignThirdPartyReachIntegrationPartnerEncoded>;
+  readonly conversion_attribution_integration_partners?: ReadonlyArray<CampaignThirdPartyConversionAttributionIntegrationPartnerEncoded>;
 }
 export const CampaignThirdPartyIntegrationPartners: Schema.Schema<CampaignThirdPartyIntegrationPartners, CampaignThirdPartyIntegrationPartnersEncoded, never> = Schema.Struct({
-  viewability_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  brand_lift_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  brand_safety_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  reach_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  conversion_attribution_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
+  viewability_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CampaignThirdPartyViewabilityIntegrationPartner))),
+  brand_lift_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CampaignThirdPartyBrandLiftIntegrationPartner))),
+  brand_safety_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CampaignThirdPartyBrandSafetyIntegrationPartner))),
+  reach_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CampaignThirdPartyReachIntegrationPartner))),
+  conversion_attribution_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CampaignThirdPartyConversionAttributionIntegrationPartner))),
 });
 
 export interface CampaignThirdPartyReachIntegrationPartner {
   readonly reach_integration_partner?: ThirdPartyReachIntegrationPartner;
-  readonly reach_integration_partner_data?: unknown;
+  readonly reach_integration_partner_data?: ThirdPartyIntegrationPartnerData;
   readonly share_cost?: boolean;
 }
 export interface CampaignThirdPartyReachIntegrationPartnerEncoded {
   readonly reach_integration_partner?: ThirdPartyReachIntegrationPartnerEncoded;
-  readonly reach_integration_partner_data?: unknown;
+  readonly reach_integration_partner_data?: ThirdPartyIntegrationPartnerDataEncoded;
   readonly share_cost?: boolean;
 }
 export const CampaignThirdPartyReachIntegrationPartner: Schema.Schema<CampaignThirdPartyReachIntegrationPartner, CampaignThirdPartyReachIntegrationPartnerEncoded, never> = Schema.Struct({
   reach_integration_partner: Schema.optional(Schema.suspend(() => ThirdPartyReachIntegrationPartner)),
-  reach_integration_partner_data: Schema.optional(Schema.Unknown),
+  reach_integration_partner_data: Schema.optional(Schema.suspend(() => ThirdPartyIntegrationPartnerData)),
   share_cost: Schema.optional(Schema.Boolean),
 });
 
 export interface CampaignThirdPartyViewabilityIntegrationPartner {
   readonly viewability_integration_partner?: ThirdPartyViewabilityIntegrationPartner;
-  readonly viewability_integration_partner_data?: unknown;
+  readonly viewability_integration_partner_data?: ThirdPartyIntegrationPartnerData;
   readonly share_cost?: boolean;
 }
 export interface CampaignThirdPartyViewabilityIntegrationPartnerEncoded {
   readonly viewability_integration_partner?: ThirdPartyViewabilityIntegrationPartnerEncoded;
-  readonly viewability_integration_partner_data?: unknown;
+  readonly viewability_integration_partner_data?: ThirdPartyIntegrationPartnerDataEncoded;
   readonly share_cost?: boolean;
 }
 export const CampaignThirdPartyViewabilityIntegrationPartner: Schema.Schema<CampaignThirdPartyViewabilityIntegrationPartner, CampaignThirdPartyViewabilityIntegrationPartnerEncoded, never> = Schema.Struct({
   viewability_integration_partner: Schema.optional(Schema.suspend(() => ThirdPartyViewabilityIntegrationPartner)),
-  viewability_integration_partner_data: Schema.optional(Schema.Unknown),
+  viewability_integration_partner_data: Schema.optional(Schema.suspend(() => ThirdPartyIntegrationPartnerData)),
   share_cost: Schema.optional(Schema.Boolean),
 });
 
 export interface CampaignToForecast {
   readonly language_constants?: ReadonlyArray<string>;
   readonly geo_target_constants?: ReadonlyArray<string>;
-  readonly bidding_strategy?: unknown;
-  readonly ad_groups?: ReadonlyArray<unknown>;
+  readonly bidding_strategy?: CampaignBiddingStrategy;
+  readonly ad_groups?: ReadonlyArray<ForecastAdGroup>;
 }
 export interface CampaignToForecastEncoded {
   readonly language_constants?: ReadonlyArray<string>;
   readonly geo_target_constants?: ReadonlyArray<string>;
-  readonly bidding_strategy?: unknown;
-  readonly ad_groups?: ReadonlyArray<unknown>;
+  readonly bidding_strategy?: CampaignBiddingStrategyEncoded;
+  readonly ad_groups?: ReadonlyArray<ForecastAdGroupEncoded>;
 }
 export const CampaignToForecast: Schema.Schema<CampaignToForecast, CampaignToForecastEncoded, never> = Schema.Struct({
   language_constants: Schema.optional(Schema.Array(Schema.String)),
   geo_target_constants: Schema.optional(Schema.Array(Schema.String)),
-  bidding_strategy: Schema.optional(Schema.Unknown),
-  ad_groups: Schema.optional(Schema.Array(Schema.Unknown)),
+  bidding_strategy: Schema.optional(Schema.suspend(() => CampaignBiddingStrategy)),
+  ad_groups: Schema.optional(Schema.Array(Schema.suspend(() => ForecastAdGroup))),
 });
 
 export interface CarrierConstant {
@@ -8241,21 +8241,21 @@ export interface CartData {
   readonly feed_country_code?: string;
   readonly feed_language_code?: string;
   readonly local_transaction_cost?: number;
-  readonly items?: ReadonlyArray<unknown>;
+  readonly items?: ReadonlyArray<Item>;
 }
 export interface CartDataEncoded {
   readonly merchant_id?: string;
   readonly feed_country_code?: string;
   readonly feed_language_code?: string;
   readonly local_transaction_cost?: number;
-  readonly items?: ReadonlyArray<unknown>;
+  readonly items?: ReadonlyArray<ItemEncoded>;
 }
 export const CartData: Schema.Schema<CartData, CartDataEncoded, never> = Schema.Struct({
   merchant_id: Schema.optional(Schema.String),
   feed_country_code: Schema.optional(Schema.String),
   feed_language_code: Schema.optional(Schema.String),
   local_transaction_cost: Schema.optional(Schema.Number),
-  items: Schema.optional(Schema.Array(Schema.Unknown)),
+  items: Schema.optional(Schema.Array(Schema.suspend(() => Item))),
 });
 
 export interface CartDataSalesView {
@@ -8298,13 +8298,13 @@ export const ChainFilter: Schema.Schema<ChainFilter, ChainFilterEncoded, never> 
 });
 
 export interface ChainLocationGroup {
-  readonly dynamic_chain_location_group_filters?: ReadonlyArray<unknown>;
+  readonly dynamic_chain_location_group_filters?: ReadonlyArray<ChainFilter>;
 }
 export interface ChainLocationGroupEncoded {
-  readonly dynamic_chain_location_group_filters?: ReadonlyArray<unknown>;
+  readonly dynamic_chain_location_group_filters?: ReadonlyArray<ChainFilterEncoded>;
 }
 export const ChainLocationGroup: Schema.Schema<ChainLocationGroup, ChainLocationGroupEncoded, never> = Schema.Struct({
-  dynamic_chain_location_group_filters: Schema.optional(Schema.Array(Schema.Unknown)),
+  dynamic_chain_location_group_filters: Schema.optional(Schema.Array(Schema.suspend(() => ChainFilter))),
 });
 
 export type ChainRelationshipType = "UNSPECIFIED" | "UNKNOWN" | "AUTO_DEALERS" | "GENERAL_RETAILERS";
@@ -8323,15 +8323,15 @@ export const ChainRelationshipTypeEnum: Schema.Schema<ChainRelationshipTypeEnum,
 
 export interface ChainSet {
   readonly relationship_type?: ChainRelationshipType;
-  readonly chains?: ReadonlyArray<unknown>;
+  readonly chains?: ReadonlyArray<ChainFilter>;
 }
 export interface ChainSetEncoded {
   readonly relationship_type?: ChainRelationshipTypeEncoded;
-  readonly chains?: ReadonlyArray<unknown>;
+  readonly chains?: ReadonlyArray<ChainFilterEncoded>;
 }
 export const ChainSet: Schema.Schema<ChainSet, ChainSetEncoded, never> = Schema.Struct({
   relationship_type: Schema.optional(Schema.suspend(() => ChainRelationshipType)),
-  chains: Schema.optional(Schema.Array(Schema.Unknown)),
+  chains: Schema.optional(Schema.Array(Schema.suspend(() => ChainFilter))),
 });
 
 export type ChangeClientType = "UNSPECIFIED" | "UNKNOWN" | "GOOGLE_ADS_WEB_CLIENT" | "GOOGLE_ADS_AUTOMATED_RULE" | "GOOGLE_ADS_SCRIPTS" | "GOOGLE_ADS_BULK_UPLOAD" | "GOOGLE_ADS_API" | "GOOGLE_ADS_EDITOR" | "GOOGLE_ADS_MOBILE_APP" | "GOOGLE_ADS_RECOMMENDATIONS" | "SEARCH_ADS_360_SYNC" | "SEARCH_ADS_360_POST" | "INTERNAL_TOOL" | "OTHER" | "GOOGLE_ADS_RECOMMENDATIONS_SUBSCRIPTION";
@@ -8349,55 +8349,55 @@ export const ChangeClientTypeEnum: Schema.Schema<ChangeClientTypeEnum, ChangeCli
 });
 
 export interface ChangedResource {
-  readonly ad?: unknown;
-  readonly ad_group?: unknown;
-  readonly ad_group_criterion?: unknown;
-  readonly campaign?: unknown;
-  readonly campaign_budget?: unknown;
-  readonly ad_group_bid_modifier?: unknown;
-  readonly campaign_criterion?: unknown;
-  readonly ad_group_ad?: unknown;
-  readonly asset?: unknown;
-  readonly customer_asset?: unknown;
-  readonly campaign_asset?: unknown;
-  readonly ad_group_asset?: unknown;
-  readonly asset_set?: unknown;
-  readonly asset_set_asset?: unknown;
-  readonly campaign_asset_set?: unknown;
+  readonly ad?: Ad;
+  readonly ad_group?: AdGroup;
+  readonly ad_group_criterion?: AdGroupCriterion;
+  readonly campaign?: Campaign;
+  readonly campaign_budget?: CampaignBudget;
+  readonly ad_group_bid_modifier?: AdGroupBidModifier;
+  readonly campaign_criterion?: CampaignCriterion;
+  readonly ad_group_ad?: AdGroupAd;
+  readonly asset?: Asset;
+  readonly customer_asset?: CustomerAsset;
+  readonly campaign_asset?: CampaignAsset;
+  readonly ad_group_asset?: AdGroupAsset;
+  readonly asset_set?: AssetSet;
+  readonly asset_set_asset?: AssetSetAsset;
+  readonly campaign_asset_set?: CampaignAssetSet;
 }
 export interface ChangedResourceEncoded {
-  readonly ad?: unknown;
-  readonly ad_group?: unknown;
-  readonly ad_group_criterion?: unknown;
-  readonly campaign?: unknown;
-  readonly campaign_budget?: unknown;
-  readonly ad_group_bid_modifier?: unknown;
-  readonly campaign_criterion?: unknown;
-  readonly ad_group_ad?: unknown;
-  readonly asset?: unknown;
-  readonly customer_asset?: unknown;
-  readonly campaign_asset?: unknown;
-  readonly ad_group_asset?: unknown;
-  readonly asset_set?: unknown;
-  readonly asset_set_asset?: unknown;
-  readonly campaign_asset_set?: unknown;
+  readonly ad?: AdEncoded;
+  readonly ad_group?: AdGroupEncoded;
+  readonly ad_group_criterion?: AdGroupCriterionEncoded;
+  readonly campaign?: CampaignEncoded;
+  readonly campaign_budget?: CampaignBudgetEncoded;
+  readonly ad_group_bid_modifier?: AdGroupBidModifierEncoded;
+  readonly campaign_criterion?: CampaignCriterionEncoded;
+  readonly ad_group_ad?: AdGroupAdEncoded;
+  readonly asset?: AssetEncoded;
+  readonly customer_asset?: CustomerAssetEncoded;
+  readonly campaign_asset?: CampaignAssetEncoded;
+  readonly ad_group_asset?: AdGroupAssetEncoded;
+  readonly asset_set?: AssetSetEncoded;
+  readonly asset_set_asset?: AssetSetAssetEncoded;
+  readonly campaign_asset_set?: CampaignAssetSetEncoded;
 }
 export const ChangedResource: Schema.Schema<ChangedResource, ChangedResourceEncoded, never> = Schema.Struct({
-  ad: Schema.optional(Schema.Unknown),
-  ad_group: Schema.optional(Schema.Unknown),
-  ad_group_criterion: Schema.optional(Schema.Unknown),
-  campaign: Schema.optional(Schema.Unknown),
-  campaign_budget: Schema.optional(Schema.Unknown),
-  ad_group_bid_modifier: Schema.optional(Schema.Unknown),
-  campaign_criterion: Schema.optional(Schema.Unknown),
-  ad_group_ad: Schema.optional(Schema.Unknown),
-  asset: Schema.optional(Schema.Unknown),
-  customer_asset: Schema.optional(Schema.Unknown),
-  campaign_asset: Schema.optional(Schema.Unknown),
-  ad_group_asset: Schema.optional(Schema.Unknown),
-  asset_set: Schema.optional(Schema.Unknown),
-  asset_set_asset: Schema.optional(Schema.Unknown),
-  campaign_asset_set: Schema.optional(Schema.Unknown),
+  ad: Schema.optional(Schema.suspend(() => Ad)),
+  ad_group: Schema.optional(Schema.suspend(() => AdGroup)),
+  ad_group_criterion: Schema.optional(Schema.suspend(() => AdGroupCriterion)),
+  campaign: Schema.optional(Schema.suspend(() => Campaign)),
+  campaign_budget: Schema.optional(Schema.suspend(() => CampaignBudget)),
+  ad_group_bid_modifier: Schema.optional(Schema.suspend(() => AdGroupBidModifier)),
+  campaign_criterion: Schema.optional(Schema.suspend(() => CampaignCriterion)),
+  ad_group_ad: Schema.optional(Schema.suspend(() => AdGroupAd)),
+  asset: Schema.optional(Schema.suspend(() => Asset)),
+  customer_asset: Schema.optional(Schema.suspend(() => CustomerAsset)),
+  campaign_asset: Schema.optional(Schema.suspend(() => CampaignAsset)),
+  ad_group_asset: Schema.optional(Schema.suspend(() => AdGroupAsset)),
+  asset_set: Schema.optional(Schema.suspend(() => AssetSet)),
+  asset_set_asset: Schema.optional(Schema.suspend(() => AssetSetAsset)),
+  campaign_asset_set: Schema.optional(Schema.suspend(() => CampaignAssetSet)),
 });
 
 export interface ChangeEvent {
@@ -8407,10 +8407,10 @@ export interface ChangeEvent {
   readonly change_resource_name?: string;
   readonly client_type?: ChangeClientType;
   readonly user_email?: string;
-  readonly old_resource?: unknown;
-  readonly new_resource?: unknown;
+  readonly old_resource?: ChangedResource;
+  readonly new_resource?: ChangedResource;
   readonly resource_change_operation?: ResourceChangeOperation;
-  readonly changed_fields?: unknown;
+  readonly changed_fields?: string;
   readonly campaign?: string;
   readonly ad_group?: string;
   readonly asset?: string;
@@ -8422,10 +8422,10 @@ export interface ChangeEventEncoded {
   readonly change_resource_name?: string;
   readonly client_type?: ChangeClientTypeEncoded;
   readonly user_email?: string;
-  readonly old_resource?: unknown;
-  readonly new_resource?: unknown;
+  readonly old_resource?: ChangedResourceEncoded;
+  readonly new_resource?: ChangedResourceEncoded;
   readonly resource_change_operation?: ResourceChangeOperationEncoded;
-  readonly changed_fields?: unknown;
+  readonly changed_fields?: string;
   readonly campaign?: string;
   readonly ad_group?: string;
   readonly asset?: string;
@@ -8437,10 +8437,10 @@ export const ChangeEvent: Schema.Schema<ChangeEvent, ChangeEventEncoded, never> 
   change_resource_name: Schema.optional(Schema.String),
   client_type: Schema.optional(Schema.suspend(() => ChangeClientType)),
   user_email: Schema.optional(Schema.String),
-  old_resource: Schema.optional(Schema.Unknown),
-  new_resource: Schema.optional(Schema.Unknown),
+  old_resource: Schema.optional(Schema.suspend(() => ChangedResource)),
+  new_resource: Schema.optional(Schema.suspend(() => ChangedResource)),
   resource_change_operation: Schema.optional(Schema.suspend(() => ResourceChangeOperation)),
-  changed_fields: Schema.optional(Schema.Unknown),
+  changed_fields: Schema.optional(Schema.String),
   campaign: Schema.optional(Schema.String),
   ad_group: Schema.optional(Schema.String),
   asset: Schema.optional(Schema.String),
@@ -8617,16 +8617,16 @@ export interface ClickConversion {
   readonly conversion_value?: number;
   readonly currency_code?: string;
   readonly order_id?: string;
-  readonly external_attribution_data?: unknown;
-  readonly custom_variables?: ReadonlyArray<unknown>;
-  readonly cart_data?: unknown;
+  readonly external_attribution_data?: ExternalAttributionData;
+  readonly custom_variables?: ReadonlyArray<CustomVariable>;
+  readonly cart_data?: CartData;
   readonly user_identifiers?: ReadonlyArray<UserIdentifier>;
   readonly conversion_environment?: ConversionEnvironment;
   readonly consent?: Consent;
   readonly customer_type?: ConversionCustomerType;
   readonly user_ip_address?: string;
   readonly session_attributes_encoded?: string;
-  readonly session_attributes_key_value_pairs?: unknown;
+  readonly session_attributes_key_value_pairs?: SessionAttributesKeyValuePairs;
 }
 export interface ClickConversionEncoded {
   readonly gclid?: string;
@@ -8637,16 +8637,16 @@ export interface ClickConversionEncoded {
   readonly conversion_value?: number;
   readonly currency_code?: string;
   readonly order_id?: string;
-  readonly external_attribution_data?: unknown;
-  readonly custom_variables?: ReadonlyArray<unknown>;
-  readonly cart_data?: unknown;
+  readonly external_attribution_data?: ExternalAttributionDataEncoded;
+  readonly custom_variables?: ReadonlyArray<CustomVariableEncoded>;
+  readonly cart_data?: CartDataEncoded;
   readonly user_identifiers?: ReadonlyArray<UserIdentifierEncoded>;
   readonly conversion_environment?: ConversionEnvironmentEncoded;
   readonly consent?: ConsentEncoded;
   readonly customer_type?: ConversionCustomerTypeEncoded;
   readonly user_ip_address?: string;
   readonly session_attributes_encoded?: string;
-  readonly session_attributes_key_value_pairs?: unknown;
+  readonly session_attributes_key_value_pairs?: SessionAttributesKeyValuePairsEncoded;
 }
 export const ClickConversion: Schema.Schema<ClickConversion, ClickConversionEncoded, never> = Schema.Struct({
   gclid: Schema.optional(Schema.String),
@@ -8657,16 +8657,16 @@ export const ClickConversion: Schema.Schema<ClickConversion, ClickConversionEnco
   conversion_value: Schema.optional(Schema.Number),
   currency_code: Schema.optional(Schema.String),
   order_id: Schema.optional(Schema.String),
-  external_attribution_data: Schema.optional(Schema.Unknown),
-  custom_variables: Schema.optional(Schema.Array(Schema.Unknown)),
-  cart_data: Schema.optional(Schema.Unknown),
+  external_attribution_data: Schema.optional(Schema.suspend(() => ExternalAttributionData)),
+  custom_variables: Schema.optional(Schema.Array(Schema.suspend(() => CustomVariable))),
+  cart_data: Schema.optional(Schema.suspend(() => CartData)),
   user_identifiers: Schema.optional(Schema.Array(Schema.suspend(() => UserIdentifier))),
   conversion_environment: Schema.optional(Schema.suspend(() => ConversionEnvironment)),
   consent: Schema.optional(Schema.suspend(() => Consent)),
   customer_type: Schema.optional(Schema.suspend(() => ConversionCustomerType)),
   user_ip_address: Schema.optional(Schema.String),
   session_attributes_encoded: Schema.optional(Schema.String),
-  session_attributes_key_value_pairs: Schema.optional(Schema.Unknown),
+  session_attributes_key_value_pairs: Schema.optional(Schema.suspend(() => SessionAttributesKeyValuePairs)),
 });
 
 export interface ClickConversionResult {
@@ -8782,19 +8782,19 @@ export const ClickViewErrorEnum: Schema.Schema<ClickViewErrorEnum, ClickViewErro
 });
 
 export interface CoarseGrainedConversionValueMappings {
-  readonly low_conversion_value_mapping?: unknown;
-  readonly medium_conversion_value_mapping?: unknown;
-  readonly high_conversion_value_mapping?: unknown;
+  readonly low_conversion_value_mapping?: ConversionValueMapping;
+  readonly medium_conversion_value_mapping?: ConversionValueMapping;
+  readonly high_conversion_value_mapping?: ConversionValueMapping;
 }
 export interface CoarseGrainedConversionValueMappingsEncoded {
-  readonly low_conversion_value_mapping?: unknown;
-  readonly medium_conversion_value_mapping?: unknown;
-  readonly high_conversion_value_mapping?: unknown;
+  readonly low_conversion_value_mapping?: ConversionValueMappingEncoded;
+  readonly medium_conversion_value_mapping?: ConversionValueMappingEncoded;
+  readonly high_conversion_value_mapping?: ConversionValueMappingEncoded;
 }
 export const CoarseGrainedConversionValueMappings: Schema.Schema<CoarseGrainedConversionValueMappings, CoarseGrainedConversionValueMappingsEncoded, never> = Schema.Struct({
-  low_conversion_value_mapping: Schema.optional(Schema.Unknown),
-  medium_conversion_value_mapping: Schema.optional(Schema.Unknown),
-  high_conversion_value_mapping: Schema.optional(Schema.Unknown),
+  low_conversion_value_mapping: Schema.optional(Schema.suspend(() => ConversionValueMapping)),
+  medium_conversion_value_mapping: Schema.optional(Schema.suspend(() => ConversionValueMapping)),
+  high_conversion_value_mapping: Schema.optional(Schema.suspend(() => ConversionValueMapping)),
 });
 
 export type CollectionSizeError = "UNSPECIFIED" | "UNKNOWN" | "TOO_FEW" | "TOO_MANY";
@@ -9042,16 +9042,16 @@ export interface ConversionAction {
   readonly include_in_conversions_metric?: boolean;
   readonly click_through_lookback_window_days?: string;
   readonly view_through_lookback_window_days?: string;
-  readonly value_settings?: unknown;
+  readonly value_settings?: ValueSettings;
   readonly counting_type?: ConversionActionCountingType;
-  readonly attribution_model_settings?: unknown;
+  readonly attribution_model_settings?: AttributionModelSettings;
   readonly tag_snippets?: ReadonlyArray<TagSnippet>;
   readonly phone_call_duration_seconds?: string;
   readonly app_id?: string;
   readonly mobile_app_vendor?: MobileAppVendor;
-  readonly firebase_settings?: unknown;
-  readonly third_party_app_analytics_settings?: unknown;
-  readonly google_analytics_4_settings?: unknown;
+  readonly firebase_settings?: FirebaseSettings;
+  readonly third_party_app_analytics_settings?: ThirdPartyAppAnalyticsSettings;
+  readonly google_analytics_4_settings?: GoogleAnalytics4Settings;
 }
 export interface ConversionActionEncoded {
   readonly resource_name?: string;
@@ -9066,16 +9066,16 @@ export interface ConversionActionEncoded {
   readonly include_in_conversions_metric?: boolean;
   readonly click_through_lookback_window_days?: string;
   readonly view_through_lookback_window_days?: string;
-  readonly value_settings?: unknown;
+  readonly value_settings?: ValueSettingsEncoded;
   readonly counting_type?: ConversionActionCountingTypeEncoded;
-  readonly attribution_model_settings?: unknown;
+  readonly attribution_model_settings?: AttributionModelSettingsEncoded;
   readonly tag_snippets?: ReadonlyArray<TagSnippetEncoded>;
   readonly phone_call_duration_seconds?: string;
   readonly app_id?: string;
   readonly mobile_app_vendor?: MobileAppVendorEncoded;
-  readonly firebase_settings?: unknown;
-  readonly third_party_app_analytics_settings?: unknown;
-  readonly google_analytics_4_settings?: unknown;
+  readonly firebase_settings?: FirebaseSettingsEncoded;
+  readonly third_party_app_analytics_settings?: ThirdPartyAppAnalyticsSettingsEncoded;
+  readonly google_analytics_4_settings?: GoogleAnalytics4SettingsEncoded;
 }
 export const ConversionAction: Schema.Schema<ConversionAction, ConversionActionEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -9090,16 +9090,16 @@ export const ConversionAction: Schema.Schema<ConversionAction, ConversionActionE
   include_in_conversions_metric: Schema.optional(Schema.Boolean),
   click_through_lookback_window_days: Schema.optional(Schema.String),
   view_through_lookback_window_days: Schema.optional(Schema.String),
-  value_settings: Schema.optional(Schema.Unknown),
+  value_settings: Schema.optional(Schema.suspend(() => ValueSettings)),
   counting_type: Schema.optional(Schema.suspend(() => ConversionActionCountingType)),
-  attribution_model_settings: Schema.optional(Schema.Unknown),
+  attribution_model_settings: Schema.optional(Schema.suspend(() => AttributionModelSettings)),
   tag_snippets: Schema.optional(Schema.Array(Schema.suspend(() => TagSnippet))),
   phone_call_duration_seconds: Schema.optional(Schema.String),
   app_id: Schema.optional(Schema.String),
   mobile_app_vendor: Schema.optional(Schema.suspend(() => MobileAppVendor)),
-  firebase_settings: Schema.optional(Schema.Unknown),
-  third_party_app_analytics_settings: Schema.optional(Schema.Unknown),
-  google_analytics_4_settings: Schema.optional(Schema.Unknown),
+  firebase_settings: Schema.optional(Schema.suspend(() => FirebaseSettings)),
+  third_party_app_analytics_settings: Schema.optional(Schema.suspend(() => ThirdPartyAppAnalyticsSettings)),
+  google_analytics_4_settings: Schema.optional(Schema.suspend(() => GoogleAnalytics4Settings)),
 });
 
 export type ConversionActionCategory = "UNSPECIFIED" | "UNKNOWN" | "DEFAULT" | "PAGE_VIEW" | "PURCHASE" | "SIGNUP" | "DOWNLOAD" | "ADD_TO_CART" | "BEGIN_CHECKOUT" | "SUBSCRIBE_PAID" | "PHONE_CALL_LEAD" | "IMPORTED_LEAD" | "SUBMIT_LEAD_FORM" | "BOOK_APPOINTMENT" | "REQUEST_QUOTE" | "GET_DIRECTIONS" | "OUTBOUND_CLICK" | "CONTACT" | "ENGAGEMENT" | "STORE_VISIT" | "STORE_SALE" | "QUALIFIED_LEAD" | "CONVERTED_LEAD" | "YOUTUBE_FOLLOW_ON_VIEWS";
@@ -9145,19 +9145,19 @@ export const ConversionActionErrorEnum: Schema.Schema<ConversionActionErrorEnum,
 });
 
 export interface ConversionActionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionAction;
   readonly update?: ConversionAction;
   readonly remove?: string;
 }
 export interface ConversionActionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionActionEncoded;
   readonly update?: ConversionActionEncoded;
   readonly remove?: string;
 }
 export const ConversionActionOperation: Schema.Schema<ConversionActionOperation, ConversionActionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => ConversionAction)),
   update: Schema.optional(Schema.suspend(() => ConversionAction)),
   remove: Schema.optional(Schema.String),
@@ -9192,52 +9192,52 @@ export const ConversionActionTypeEnum: Schema.Schema<ConversionActionTypeEnum, C
 });
 
 export interface ConversionAdjustment {
-  readonly gclid_date_time_pair?: unknown;
+  readonly gclid_date_time_pair?: GclidDateTimePair;
   readonly order_id?: string;
   readonly conversion_action?: string;
   readonly adjustment_date_time?: string;
   readonly adjustment_type?: ConversionAdjustmentType;
-  readonly restatement_value?: unknown;
+  readonly restatement_value?: RestatementValue;
   readonly user_identifiers?: ReadonlyArray<UserIdentifier>;
   readonly user_agent?: string;
 }
 export interface ConversionAdjustmentEncoded {
-  readonly gclid_date_time_pair?: unknown;
+  readonly gclid_date_time_pair?: GclidDateTimePairEncoded;
   readonly order_id?: string;
   readonly conversion_action?: string;
   readonly adjustment_date_time?: string;
   readonly adjustment_type?: ConversionAdjustmentTypeEncoded;
-  readonly restatement_value?: unknown;
+  readonly restatement_value?: RestatementValueEncoded;
   readonly user_identifiers?: ReadonlyArray<UserIdentifierEncoded>;
   readonly user_agent?: string;
 }
 export const ConversionAdjustment: Schema.Schema<ConversionAdjustment, ConversionAdjustmentEncoded, never> = Schema.Struct({
-  gclid_date_time_pair: Schema.optional(Schema.Unknown),
+  gclid_date_time_pair: Schema.optional(Schema.suspend(() => GclidDateTimePair)),
   order_id: Schema.optional(Schema.String),
   conversion_action: Schema.optional(Schema.String),
   adjustment_date_time: Schema.optional(Schema.String),
   adjustment_type: Schema.optional(Schema.suspend(() => ConversionAdjustmentType)),
-  restatement_value: Schema.optional(Schema.Unknown),
+  restatement_value: Schema.optional(Schema.suspend(() => RestatementValue)),
   user_identifiers: Schema.optional(Schema.Array(Schema.suspend(() => UserIdentifier))),
   user_agent: Schema.optional(Schema.String),
 });
 
 export interface ConversionAdjustmentResult {
-  readonly gclid_date_time_pair?: unknown;
+  readonly gclid_date_time_pair?: GclidDateTimePair;
   readonly order_id?: string;
   readonly conversion_action?: string;
   readonly adjustment_date_time?: string;
   readonly adjustment_type?: ConversionAdjustmentType;
 }
 export interface ConversionAdjustmentResultEncoded {
-  readonly gclid_date_time_pair?: unknown;
+  readonly gclid_date_time_pair?: GclidDateTimePairEncoded;
   readonly order_id?: string;
   readonly conversion_action?: string;
   readonly adjustment_date_time?: string;
   readonly adjustment_type?: ConversionAdjustmentTypeEncoded;
 }
 export const ConversionAdjustmentResult: Schema.Schema<ConversionAdjustmentResult, ConversionAdjustmentResultEncoded, never> = Schema.Struct({
-  gclid_date_time_pair: Schema.optional(Schema.Unknown),
+  gclid_date_time_pair: Schema.optional(Schema.suspend(() => GclidDateTimePair)),
   order_id: Schema.optional(Schema.String),
   conversion_action: Schema.optional(Schema.String),
   adjustment_date_time: Schema.optional(Schema.String),
@@ -9340,17 +9340,17 @@ export const ConversionCustomVariableErrorEnum: Schema.Schema<ConversionCustomVa
 });
 
 export interface ConversionCustomVariableOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionCustomVariable;
   readonly update?: ConversionCustomVariable;
 }
 export interface ConversionCustomVariableOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionCustomVariableEncoded;
   readonly update?: ConversionCustomVariableEncoded;
 }
 export const ConversionCustomVariableOperation: Schema.Schema<ConversionCustomVariableOperation, ConversionCustomVariableOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => ConversionCustomVariable)),
   update: Schema.optional(Schema.suspend(() => ConversionCustomVariable)),
 });
@@ -9417,15 +9417,15 @@ export const ConversionGoalCampaignConfigErrorEnum: Schema.Schema<ConversionGoal
 });
 
 export interface ConversionGoalCampaignConfigOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: ConversionGoalCampaignConfig;
 }
 export interface ConversionGoalCampaignConfigOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: ConversionGoalCampaignConfigEncoded;
 }
 export const ConversionGoalCampaignConfigOperation: Schema.Schema<ConversionGoalCampaignConfigOperation, ConversionGoalCampaignConfigOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => ConversionGoalCampaignConfig)),
 });
 
@@ -9474,19 +9474,19 @@ export const ConversionOriginEnum: Schema.Schema<ConversionOriginEnum, Conversio
 export interface ConversionRateSuggestion {
   readonly conversion_rate_model?: ReachPlanConversionRateModel;
   readonly plannable_product_code?: string;
-  readonly surface_targeting?: unknown;
+  readonly surface_targeting?: SurfaceTargeting;
   readonly conversion_rate?: number;
 }
 export interface ConversionRateSuggestionEncoded {
   readonly conversion_rate_model?: ReachPlanConversionRateModelEncoded;
   readonly plannable_product_code?: string;
-  readonly surface_targeting?: unknown;
+  readonly surface_targeting?: SurfaceTargetingEncoded;
   readonly conversion_rate?: number;
 }
 export const ConversionRateSuggestion: Schema.Schema<ConversionRateSuggestion, ConversionRateSuggestionEncoded, never> = Schema.Struct({
   conversion_rate_model: Schema.optional(Schema.suspend(() => ReachPlanConversionRateModel)),
   plannable_product_code: Schema.optional(Schema.String),
-  surface_targeting: Schema.optional(Schema.Unknown),
+  surface_targeting: Schema.optional(Schema.suspend(() => SurfaceTargeting)),
   conversion_rate: Schema.optional(Schema.Number),
 });
 
@@ -9546,49 +9546,49 @@ export const ConversionUploadErrorEnum: Schema.Schema<ConversionUploadErrorEnum,
 export interface ConversionValueMapping {
   readonly min_time_post_install_hours?: string;
   readonly max_time_post_install_hours?: string;
-  readonly mapped_events?: ReadonlyArray<unknown>;
+  readonly mapped_events?: ReadonlyArray<Event>;
 }
 export interface ConversionValueMappingEncoded {
   readonly min_time_post_install_hours?: string;
   readonly max_time_post_install_hours?: string;
-  readonly mapped_events?: ReadonlyArray<unknown>;
+  readonly mapped_events?: ReadonlyArray<EventEncoded>;
 }
 export const ConversionValueMapping: Schema.Schema<ConversionValueMapping, ConversionValueMappingEncoded, never> = Schema.Struct({
   min_time_post_install_hours: Schema.optional(Schema.String),
   max_time_post_install_hours: Schema.optional(Schema.String),
-  mapped_events: Schema.optional(Schema.Array(Schema.Unknown)),
+  mapped_events: Schema.optional(Schema.Array(Schema.suspend(() => Event))),
 });
 
 export interface ConversionValueRule {
   readonly resource_name?: string;
   readonly id?: string;
-  readonly action?: unknown;
-  readonly geo_location_condition?: unknown;
-  readonly device_condition?: unknown;
-  readonly audience_condition?: unknown;
-  readonly itinerary_condition?: unknown;
+  readonly action?: ValueRuleAction;
+  readonly geo_location_condition?: ValueRuleGeoLocationCondition;
+  readonly device_condition?: ValueRuleDeviceCondition;
+  readonly audience_condition?: ValueRuleAudienceCondition;
+  readonly itinerary_condition?: ValueRuleItineraryCondition;
   readonly owner_customer?: string;
   readonly status?: ConversionValueRuleStatus;
 }
 export interface ConversionValueRuleEncoded {
   readonly resource_name?: string;
   readonly id?: string;
-  readonly action?: unknown;
-  readonly geo_location_condition?: unknown;
-  readonly device_condition?: unknown;
-  readonly audience_condition?: unknown;
-  readonly itinerary_condition?: unknown;
+  readonly action?: ValueRuleActionEncoded;
+  readonly geo_location_condition?: ValueRuleGeoLocationConditionEncoded;
+  readonly device_condition?: ValueRuleDeviceConditionEncoded;
+  readonly audience_condition?: ValueRuleAudienceConditionEncoded;
+  readonly itinerary_condition?: ValueRuleItineraryConditionEncoded;
   readonly owner_customer?: string;
   readonly status?: ConversionValueRuleStatusEncoded;
 }
 export const ConversionValueRule: Schema.Schema<ConversionValueRule, ConversionValueRuleEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   id: Schema.optional(Schema.String),
-  action: Schema.optional(Schema.Unknown),
-  geo_location_condition: Schema.optional(Schema.Unknown),
-  device_condition: Schema.optional(Schema.Unknown),
-  audience_condition: Schema.optional(Schema.Unknown),
-  itinerary_condition: Schema.optional(Schema.Unknown),
+  action: Schema.optional(Schema.suspend(() => ValueRuleAction)),
+  geo_location_condition: Schema.optional(Schema.suspend(() => ValueRuleGeoLocationCondition)),
+  device_condition: Schema.optional(Schema.suspend(() => ValueRuleDeviceCondition)),
+  audience_condition: Schema.optional(Schema.suspend(() => ValueRuleAudienceCondition)),
+  itinerary_condition: Schema.optional(Schema.suspend(() => ValueRuleItineraryCondition)),
   owner_customer: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => ConversionValueRuleStatus)),
 });
@@ -9608,19 +9608,19 @@ export const ConversionValueRuleErrorEnum: Schema.Schema<ConversionValueRuleErro
 });
 
 export interface ConversionValueRuleOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionValueRule;
   readonly update?: ConversionValueRule;
   readonly remove?: string;
 }
 export interface ConversionValueRuleOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionValueRuleEncoded;
   readonly update?: ConversionValueRuleEncoded;
   readonly remove?: string;
 }
 export const ConversionValueRuleOperation: Schema.Schema<ConversionValueRuleOperation, ConversionValueRuleOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => ConversionValueRule)),
   update: Schema.optional(Schema.suspend(() => ConversionValueRule)),
   remove: Schema.optional(Schema.String),
@@ -9689,19 +9689,19 @@ export const ConversionValueRuleSetErrorEnum: Schema.Schema<ConversionValueRuleS
 });
 
 export interface ConversionValueRuleSetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionValueRuleSet;
   readonly update?: ConversionValueRuleSet;
   readonly remove?: string;
 }
 export interface ConversionValueRuleSetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ConversionValueRuleSetEncoded;
   readonly update?: ConversionValueRuleSetEncoded;
   readonly remove?: string;
 }
 export const ConversionValueRuleSetOperation: Schema.Schema<ConversionValueRuleSetOperation, ConversionValueRuleSetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => ConversionValueRuleSet)),
   update: Schema.optional(Schema.suspend(() => ConversionValueRuleSet)),
   remove: Schema.optional(Schema.String),
@@ -9775,15 +9775,15 @@ export const CountryConstraint: Schema.Schema<CountryConstraint, CountryConstrai
 
 export interface CountryConstraintList {
   readonly total_targeted_countries?: number;
-  readonly countries?: ReadonlyArray<unknown>;
+  readonly countries?: ReadonlyArray<CountryConstraint>;
 }
 export interface CountryConstraintListEncoded {
   readonly total_targeted_countries?: number;
-  readonly countries?: ReadonlyArray<unknown>;
+  readonly countries?: ReadonlyArray<CountryConstraintEncoded>;
 }
 export const CountryConstraintList: Schema.Schema<CountryConstraintList, CountryConstraintListEncoded, never> = Schema.Struct({
   total_targeted_countries: Schema.optional(Schema.Int),
-  countries: Schema.optional(Schema.Array(Schema.Unknown)),
+  countries: Schema.optional(Schema.Array(Schema.suspend(() => CountryConstraint))),
 });
 
 export interface CpcBidSimulationPoint {
@@ -9821,13 +9821,13 @@ export const CpcBidSimulationPoint: Schema.Schema<CpcBidSimulationPoint, CpcBidS
 });
 
 export interface CpcBidSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<CpcBidSimulationPoint>;
 }
 export interface CpcBidSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<CpcBidSimulationPointEncoded>;
 }
 export const CpcBidSimulationPointList: Schema.Schema<CpcBidSimulationPointList, CpcBidSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => CpcBidSimulationPoint))),
 });
 
 export interface CpvBidSimulationPoint {
@@ -9850,13 +9850,13 @@ export const CpvBidSimulationPoint: Schema.Schema<CpvBidSimulationPoint, CpvBidS
 });
 
 export interface CpvBidSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<CpvBidSimulationPoint>;
 }
 export interface CpvBidSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<CpvBidSimulationPointEncoded>;
 }
 export const CpvBidSimulationPointList: Schema.Schema<CpvBidSimulationPointList, CpvBidSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => CpvBidSimulationPoint))),
 });
 
 export interface CreateAccountLinkRequest {
@@ -10060,16 +10060,16 @@ export type CreditStateEncoded = "UNSPECIFIED" | "UNKNOWN" | "PENDING" | "CREDIT
 export const CreditState: Schema.Schema<CreditState, CreditStateEncoded, never> = Schema.Literal("UNSPECIFIED", "UNKNOWN", "PENDING", "CREDITED");
 
 export interface CriterionCategoryAvailability {
-  readonly channel?: unknown;
-  readonly locale?: ReadonlyArray<unknown>;
+  readonly channel?: CriterionCategoryChannelAvailability;
+  readonly locale?: ReadonlyArray<CriterionCategoryLocaleAvailability>;
 }
 export interface CriterionCategoryAvailabilityEncoded {
-  readonly channel?: unknown;
-  readonly locale?: ReadonlyArray<unknown>;
+  readonly channel?: CriterionCategoryChannelAvailabilityEncoded;
+  readonly locale?: ReadonlyArray<CriterionCategoryLocaleAvailabilityEncoded>;
 }
 export const CriterionCategoryAvailability: Schema.Schema<CriterionCategoryAvailability, CriterionCategoryAvailabilityEncoded, never> = Schema.Struct({
-  channel: Schema.optional(Schema.Unknown),
-  locale: Schema.optional(Schema.Array(Schema.Unknown)),
+  channel: Schema.optional(Schema.suspend(() => CriterionCategoryChannelAvailability)),
+  locale: Schema.optional(Schema.Array(Schema.suspend(() => CriterionCategoryLocaleAvailability))),
 });
 
 export interface CriterionCategoryChannelAvailability {
@@ -10260,7 +10260,7 @@ export interface CustomAudience {
   readonly name?: string;
   readonly type?: CustomAudienceType;
   readonly description?: string;
-  readonly members?: ReadonlyArray<unknown>;
+  readonly members?: ReadonlyArray<CustomAudienceMember>;
 }
 export interface CustomAudienceEncoded {
   readonly resource_name?: string;
@@ -10269,7 +10269,7 @@ export interface CustomAudienceEncoded {
   readonly name?: string;
   readonly type?: CustomAudienceTypeEncoded;
   readonly description?: string;
-  readonly members?: ReadonlyArray<unknown>;
+  readonly members?: ReadonlyArray<CustomAudienceMemberEncoded>;
 }
 export const CustomAudience: Schema.Schema<CustomAudience, CustomAudienceEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -10278,7 +10278,7 @@ export const CustomAudience: Schema.Schema<CustomAudience, CustomAudienceEncoded
   name: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => CustomAudienceType)),
   description: Schema.optional(Schema.String),
-  members: Schema.optional(Schema.Array(Schema.Unknown)),
+  members: Schema.optional(Schema.Array(Schema.suspend(() => CustomAudienceMember))),
 });
 
 export type CustomAudienceError = "UNSPECIFIED" | "UNKNOWN" | "NAME_ALREADY_USED" | "CANNOT_REMOVE_WHILE_IN_USE" | "RESOURCE_ALREADY_REMOVED" | "MEMBER_TYPE_AND_PARAMETER_ALREADY_EXISTED" | "INVALID_MEMBER_TYPE" | "MEMBER_TYPE_AND_VALUE_DOES_NOT_MATCH" | "POLICY_VIOLATION" | "INVALID_TYPE_CHANGE";
@@ -10342,19 +10342,19 @@ export const CustomAudienceMemberTypeEnum: Schema.Schema<CustomAudienceMemberTyp
 });
 
 export interface CustomAudienceOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomAudience;
   readonly update?: CustomAudience;
   readonly remove?: string;
 }
 export interface CustomAudienceOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomAudienceEncoded;
   readonly update?: CustomAudienceEncoded;
   readonly remove?: string;
 }
 export const CustomAudienceOperation: Schema.Schema<CustomAudienceOperation, CustomAudienceOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomAudience)),
   update: Schema.optional(Schema.suspend(() => CustomAudience)),
   remove: Schema.optional(Schema.String),
@@ -10445,19 +10445,19 @@ export const CustomConversionGoalErrorEnum: Schema.Schema<CustomConversionGoalEr
 });
 
 export interface CustomConversionGoalOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomConversionGoal;
   readonly update?: CustomConversionGoal;
   readonly remove?: string;
 }
 export interface CustomConversionGoalOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomConversionGoalEncoded;
   readonly update?: CustomConversionGoalEncoded;
   readonly remove?: string;
 }
 export const CustomConversionGoalOperation: Schema.Schema<CustomConversionGoalOperation, CustomConversionGoalOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomConversionGoal)),
   update: Schema.optional(Schema.suspend(() => CustomConversionGoal)),
   remove: Schema.optional(Schema.String),
@@ -10489,9 +10489,9 @@ export interface Customer {
   readonly has_partners_badge?: boolean;
   readonly manager?: boolean;
   readonly test_account?: boolean;
-  readonly call_reporting_setting?: unknown;
-  readonly conversion_tracking_setting?: unknown;
-  readonly remarketing_setting?: unknown;
+  readonly call_reporting_setting?: CallReportingSetting;
+  readonly conversion_tracking_setting?: ConversionTrackingSetting;
+  readonly remarketing_setting?: RemarketingSetting;
   readonly pay_per_conversion_eligibility_failure_reasons?: ReadonlyArray<CustomerPayPerConversionEligibilityFailureReason>;
   readonly optimization_score?: number;
   readonly optimization_score_weight?: number;
@@ -10500,10 +10500,10 @@ export interface Customer {
   readonly image_asset_auto_migration_done?: boolean;
   readonly location_asset_auto_migration_done_date_time?: string;
   readonly image_asset_auto_migration_done_date_time?: string;
-  readonly customer_agreement_setting?: unknown;
-  readonly local_services_settings?: unknown;
+  readonly customer_agreement_setting?: CustomerAgreementSetting;
+  readonly local_services_settings?: LocalServicesSettings;
   readonly video_brand_safety_suitability?: BrandSafetySuitability;
-  readonly video_customer?: unknown;
+  readonly video_customer?: VideoCustomer;
   readonly contains_eu_political_advertising?: EuPoliticalAdvertisingStatus;
 }
 export interface CustomerEncoded {
@@ -10518,9 +10518,9 @@ export interface CustomerEncoded {
   readonly has_partners_badge?: boolean;
   readonly manager?: boolean;
   readonly test_account?: boolean;
-  readonly call_reporting_setting?: unknown;
-  readonly conversion_tracking_setting?: unknown;
-  readonly remarketing_setting?: unknown;
+  readonly call_reporting_setting?: CallReportingSettingEncoded;
+  readonly conversion_tracking_setting?: ConversionTrackingSettingEncoded;
+  readonly remarketing_setting?: RemarketingSettingEncoded;
   readonly pay_per_conversion_eligibility_failure_reasons?: ReadonlyArray<CustomerPayPerConversionEligibilityFailureReasonEncoded>;
   readonly optimization_score?: number;
   readonly optimization_score_weight?: number;
@@ -10529,10 +10529,10 @@ export interface CustomerEncoded {
   readonly image_asset_auto_migration_done?: boolean;
   readonly location_asset_auto_migration_done_date_time?: string;
   readonly image_asset_auto_migration_done_date_time?: string;
-  readonly customer_agreement_setting?: unknown;
-  readonly local_services_settings?: unknown;
+  readonly customer_agreement_setting?: CustomerAgreementSettingEncoded;
+  readonly local_services_settings?: LocalServicesSettingsEncoded;
   readonly video_brand_safety_suitability?: BrandSafetySuitabilityEncoded;
-  readonly video_customer?: unknown;
+  readonly video_customer?: VideoCustomerEncoded;
   readonly contains_eu_political_advertising?: EuPoliticalAdvertisingStatusEncoded;
 }
 export const Customer: Schema.Schema<Customer, CustomerEncoded, never> = Schema.Struct({
@@ -10547,9 +10547,9 @@ export const Customer: Schema.Schema<Customer, CustomerEncoded, never> = Schema.
   has_partners_badge: Schema.optional(Schema.Boolean),
   manager: Schema.optional(Schema.Boolean),
   test_account: Schema.optional(Schema.Boolean),
-  call_reporting_setting: Schema.optional(Schema.Unknown),
-  conversion_tracking_setting: Schema.optional(Schema.Unknown),
-  remarketing_setting: Schema.optional(Schema.Unknown),
+  call_reporting_setting: Schema.optional(Schema.suspend(() => CallReportingSetting)),
+  conversion_tracking_setting: Schema.optional(Schema.suspend(() => ConversionTrackingSetting)),
+  remarketing_setting: Schema.optional(Schema.suspend(() => RemarketingSetting)),
   pay_per_conversion_eligibility_failure_reasons: Schema.optional(Schema.Array(Schema.suspend(() => CustomerPayPerConversionEligibilityFailureReason))),
   optimization_score: Schema.optional(Schema.Number),
   optimization_score_weight: Schema.optional(Schema.Number),
@@ -10558,10 +10558,10 @@ export const Customer: Schema.Schema<Customer, CustomerEncoded, never> = Schema.
   image_asset_auto_migration_done: Schema.optional(Schema.Boolean),
   location_asset_auto_migration_done_date_time: Schema.optional(Schema.String),
   image_asset_auto_migration_done_date_time: Schema.optional(Schema.String),
-  customer_agreement_setting: Schema.optional(Schema.Unknown),
-  local_services_settings: Schema.optional(Schema.Unknown),
+  customer_agreement_setting: Schema.optional(Schema.suspend(() => CustomerAgreementSetting)),
+  local_services_settings: Schema.optional(Schema.suspend(() => LocalServicesSettings)),
   video_brand_safety_suitability: Schema.optional(Schema.suspend(() => BrandSafetySuitability)),
-  video_customer: Schema.optional(Schema.Unknown),
+  video_customer: Schema.optional(Schema.suspend(() => VideoCustomer)),
   contains_eu_political_advertising: Schema.optional(Schema.suspend(() => EuPoliticalAdvertisingStatus)),
 });
 
@@ -10607,19 +10607,19 @@ export const CustomerAsset: Schema.Schema<CustomerAsset, CustomerAssetEncoded, n
 });
 
 export interface CustomerAssetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomerAsset;
   readonly update?: CustomerAsset;
   readonly remove?: string;
 }
 export interface CustomerAssetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomerAssetEncoded;
   readonly update?: CustomerAssetEncoded;
   readonly remove?: string;
 }
 export const CustomerAssetOperation: Schema.Schema<CustomerAssetOperation, CustomerAssetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomerAsset)),
   update: Schema.optional(Schema.suspend(() => CustomerAsset)),
   remove: Schema.optional(Schema.String),
@@ -10737,17 +10737,17 @@ export const CustomerClientLinkErrorEnum: Schema.Schema<CustomerClientLinkErrorE
 });
 
 export interface CustomerClientLinkOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomerClientLink;
   readonly update?: CustomerClientLink;
 }
 export interface CustomerClientLinkOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomerClientLinkEncoded;
   readonly update?: CustomerClientLinkEncoded;
 }
 export const CustomerClientLinkOperation: Schema.Schema<CustomerClientLinkOperation, CustomerClientLinkOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomerClientLink)),
   update: Schema.optional(Schema.suspend(() => CustomerClientLink)),
 });
@@ -10772,15 +10772,15 @@ export const CustomerConversionGoal: Schema.Schema<CustomerConversionGoal, Custo
 });
 
 export interface CustomerConversionGoalOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerConversionGoal;
 }
 export interface CustomerConversionGoalOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerConversionGoalEncoded;
 }
 export const CustomerConversionGoalOperation: Schema.Schema<CustomerConversionGoalOperation, CustomerConversionGoalOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => CustomerConversionGoal)),
 });
 
@@ -10968,15 +10968,15 @@ export const CustomerManagerLinkErrorEnum: Schema.Schema<CustomerManagerLinkErro
 });
 
 export interface CustomerManagerLinkOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerManagerLink;
 }
 export interface CustomerManagerLinkOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerManagerLinkEncoded;
 }
 export const CustomerManagerLinkOperation: Schema.Schema<CustomerManagerLinkOperation, CustomerManagerLinkOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => CustomerManagerLink)),
 });
 
@@ -10996,25 +10996,25 @@ export const CustomerMatchUploadKeyTypeEnum: Schema.Schema<CustomerMatchUploadKe
 
 export interface CustomerMatchUserListMetadata {
   readonly user_list?: string;
-  readonly consent?: unknown;
+  readonly consent?: Consent;
 }
 export interface CustomerMatchUserListMetadataEncoded {
   readonly user_list?: string;
-  readonly consent?: unknown;
+  readonly consent?: ConsentEncoded;
 }
 export const CustomerMatchUserListMetadata: Schema.Schema<CustomerMatchUserListMetadata, CustomerMatchUserListMetadataEncoded, never> = Schema.Struct({
   user_list: Schema.optional(Schema.String),
-  consent: Schema.optional(Schema.Unknown),
+  consent: Schema.optional(Schema.suspend(() => Consent)),
 });
 
 export interface CustomerMetrics {
-  readonly average_rate_metrics?: unknown;
+  readonly average_rate_metrics?: RateMetrics;
 }
 export interface CustomerMetricsEncoded {
-  readonly average_rate_metrics?: unknown;
+  readonly average_rate_metrics?: RateMetricsEncoded;
 }
 export const CustomerMetrics: Schema.Schema<CustomerMetrics, CustomerMetricsEncoded, never> = Schema.Struct({
-  average_rate_metrics: Schema.optional(Schema.Unknown),
+  average_rate_metrics: Schema.optional(Schema.suspend(() => RateMetrics)),
 });
 
 export interface CustomerNegativeCriterion {
@@ -11075,15 +11075,15 @@ export const CustomerNegativeCriterionOperation: Schema.Schema<CustomerNegativeC
 
 export interface CustomerOperation {
   readonly update?: Customer;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export interface CustomerOperationEncoded {
   readonly update?: CustomerEncoded;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export const CustomerOperation: Schema.Schema<CustomerOperation, CustomerOperationEncoded, never> = Schema.Struct({
   update: Schema.optional(Schema.suspend(() => Customer)),
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
 });
 
 export type CustomerPayPerConversionEligibilityFailureReason = "UNSPECIFIED" | "UNKNOWN" | "NOT_ENOUGH_CONVERSIONS" | "CONVERSION_LAG_TOO_HIGH" | "HAS_CAMPAIGN_WITH_SHARED_BUDGET" | "HAS_UPLOAD_CLICKS_CONVERSION" | "AVERAGE_DAILY_SPEND_TOO_HIGH" | "ANALYSIS_NOT_COMPLETE" | "OTHER";
@@ -11118,15 +11118,15 @@ export const CustomerSearchTermInsight: Schema.Schema<CustomerSearchTermInsight,
 
 export interface CustomerSkAdNetworkConversionValueSchema {
   readonly resource_name?: string;
-  readonly schema?: unknown;
+  readonly schema?: SkAdNetworkConversionValueSchema;
 }
 export interface CustomerSkAdNetworkConversionValueSchemaEncoded {
   readonly resource_name?: string;
-  readonly schema?: unknown;
+  readonly schema?: SkAdNetworkConversionValueSchemaEncoded;
 }
 export const CustomerSkAdNetworkConversionValueSchema: Schema.Schema<CustomerSkAdNetworkConversionValueSchema, CustomerSkAdNetworkConversionValueSchemaEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
-  schema: Schema.optional(Schema.Unknown),
+  schema: Schema.optional(Schema.suspend(() => SkAdNetworkConversionValueSchema)),
 });
 
 export type CustomerSkAdNetworkConversionValueSchemaError = "UNSPECIFIED" | "UNKNOWN" | "INVALID_LINK_ID" | "INVALID_APP_ID" | "INVALID_SCHEMA" | "LINK_CODE_NOT_FOUND" | "INVALID_EVENT_COUNTER" | "INVALID_EVENT_NAME";
@@ -11201,25 +11201,25 @@ export const CustomerThirdPartyConversionAttributionIntegrationPartner: Schema.S
 });
 
 export interface CustomerThirdPartyIntegrationPartners {
-  readonly viewability_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_lift_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_safety_integration_partners?: ReadonlyArray<unknown>;
-  readonly reach_integration_partners?: ReadonlyArray<unknown>;
-  readonly conversion_attribution_integration_partners?: ReadonlyArray<unknown>;
+  readonly viewability_integration_partners?: ReadonlyArray<CustomerThirdPartyViewabilityIntegrationPartner>;
+  readonly brand_lift_integration_partners?: ReadonlyArray<CustomerThirdPartyBrandLiftIntegrationPartner>;
+  readonly brand_safety_integration_partners?: ReadonlyArray<CustomerThirdPartyBrandSafetyIntegrationPartner>;
+  readonly reach_integration_partners?: ReadonlyArray<CustomerThirdPartyReachIntegrationPartner>;
+  readonly conversion_attribution_integration_partners?: ReadonlyArray<CustomerThirdPartyConversionAttributionIntegrationPartner>;
 }
 export interface CustomerThirdPartyIntegrationPartnersEncoded {
-  readonly viewability_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_lift_integration_partners?: ReadonlyArray<unknown>;
-  readonly brand_safety_integration_partners?: ReadonlyArray<unknown>;
-  readonly reach_integration_partners?: ReadonlyArray<unknown>;
-  readonly conversion_attribution_integration_partners?: ReadonlyArray<unknown>;
+  readonly viewability_integration_partners?: ReadonlyArray<CustomerThirdPartyViewabilityIntegrationPartnerEncoded>;
+  readonly brand_lift_integration_partners?: ReadonlyArray<CustomerThirdPartyBrandLiftIntegrationPartnerEncoded>;
+  readonly brand_safety_integration_partners?: ReadonlyArray<CustomerThirdPartyBrandSafetyIntegrationPartnerEncoded>;
+  readonly reach_integration_partners?: ReadonlyArray<CustomerThirdPartyReachIntegrationPartnerEncoded>;
+  readonly conversion_attribution_integration_partners?: ReadonlyArray<CustomerThirdPartyConversionAttributionIntegrationPartnerEncoded>;
 }
 export const CustomerThirdPartyIntegrationPartners: Schema.Schema<CustomerThirdPartyIntegrationPartners, CustomerThirdPartyIntegrationPartnersEncoded, never> = Schema.Struct({
-  viewability_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  brand_lift_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  brand_safety_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  reach_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
-  conversion_attribution_integration_partners: Schema.optional(Schema.Array(Schema.Unknown)),
+  viewability_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CustomerThirdPartyViewabilityIntegrationPartner))),
+  brand_lift_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CustomerThirdPartyBrandLiftIntegrationPartner))),
+  brand_safety_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CustomerThirdPartyBrandSafetyIntegrationPartner))),
+  reach_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CustomerThirdPartyReachIntegrationPartner))),
+  conversion_attribution_integration_partners: Schema.optional(Schema.Array(Schema.suspend(() => CustomerThirdPartyConversionAttributionIntegrationPartner))),
 });
 
 export interface CustomerThirdPartyReachIntegrationPartner {
@@ -11332,42 +11332,42 @@ export const CustomerUserAccessInvitationOperation: Schema.Schema<CustomerUserAc
 });
 
 export interface CustomerUserAccessInvitationReview {
-  readonly new_customer_user_access_invitation?: unknown;
+  readonly new_customer_user_access_invitation?: CustomerUserAccessInvitation;
 }
 export interface CustomerUserAccessInvitationReviewEncoded {
-  readonly new_customer_user_access_invitation?: unknown;
+  readonly new_customer_user_access_invitation?: CustomerUserAccessInvitationEncoded;
 }
 export const CustomerUserAccessInvitationReview: Schema.Schema<CustomerUserAccessInvitationReview, CustomerUserAccessInvitationReviewEncoded, never> = Schema.Struct({
-  new_customer_user_access_invitation: Schema.optional(Schema.Unknown),
+  new_customer_user_access_invitation: Schema.optional(Schema.suspend(() => CustomerUserAccessInvitation)),
 });
 
 export interface CustomerUserAccessOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerUserAccess;
   readonly remove?: string;
 }
 export interface CustomerUserAccessOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly update?: CustomerUserAccessEncoded;
   readonly remove?: string;
 }
 export const CustomerUserAccessOperation: Schema.Schema<CustomerUserAccessOperation, CustomerUserAccessOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   update: Schema.optional(Schema.suspend(() => CustomerUserAccess)),
   remove: Schema.optional(Schema.String),
 });
 
 export interface CustomerUserAccessReview {
   readonly old_customer_user_access?: string;
-  readonly new_customer_user_access?: unknown;
+  readonly new_customer_user_access?: CustomerUserAccess;
 }
 export interface CustomerUserAccessReviewEncoded {
   readonly old_customer_user_access?: string;
-  readonly new_customer_user_access?: unknown;
+  readonly new_customer_user_access?: CustomerUserAccessEncoded;
 }
 export const CustomerUserAccessReview: Schema.Schema<CustomerUserAccessReview, CustomerUserAccessReviewEncoded, never> = Schema.Struct({
   old_customer_user_access: Schema.optional(Schema.String),
-  new_customer_user_access: Schema.optional(Schema.Unknown),
+  new_customer_user_access: Schema.optional(Schema.suspend(() => CustomerUserAccess)),
 });
 
 export interface CustomIntentInfo {
@@ -11387,7 +11387,7 @@ export interface CustomInterest {
   readonly name?: string;
   readonly type?: CustomInterestType;
   readonly description?: string;
-  readonly members?: ReadonlyArray<unknown>;
+  readonly members?: ReadonlyArray<CustomInterestMember>;
 }
 export interface CustomInterestEncoded {
   readonly resource_name?: string;
@@ -11396,7 +11396,7 @@ export interface CustomInterestEncoded {
   readonly name?: string;
   readonly type?: CustomInterestTypeEncoded;
   readonly description?: string;
-  readonly members?: ReadonlyArray<unknown>;
+  readonly members?: ReadonlyArray<CustomInterestMemberEncoded>;
 }
 export const CustomInterest: Schema.Schema<CustomInterest, CustomInterestEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -11405,7 +11405,7 @@ export const CustomInterest: Schema.Schema<CustomInterest, CustomInterestEncoded
   name: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => CustomInterestType)),
   description: Schema.optional(Schema.String),
-  members: Schema.optional(Schema.Array(Schema.Unknown)),
+  members: Schema.optional(Schema.Array(Schema.suspend(() => CustomInterestMember))),
 });
 
 export type CustomInterestError = "UNSPECIFIED" | "UNKNOWN" | "NAME_ALREADY_USED" | "CUSTOM_INTEREST_MEMBER_ID_AND_TYPE_PARAMETER_NOT_PRESENT_IN_REMOVE" | "TYPE_AND_PARAMETER_NOT_FOUND" | "TYPE_AND_PARAMETER_ALREADY_EXISTED" | "INVALID_CUSTOM_INTEREST_MEMBER_TYPE" | "CANNOT_REMOVE_WHILE_IN_USE" | "CANNOT_CHANGE_TYPE";
@@ -11450,17 +11450,17 @@ export const CustomInterestMemberTypeEnum: Schema.Schema<CustomInterestMemberTyp
 });
 
 export interface CustomInterestOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomInterest;
   readonly update?: CustomInterest;
 }
 export interface CustomInterestOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomInterestEncoded;
   readonly update?: CustomInterestEncoded;
 }
 export const CustomInterestOperation: Schema.Schema<CustomInterestOperation, CustomInterestOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomInterest)),
   update: Schema.optional(Schema.suspend(() => CustomInterest)),
 });
@@ -11530,17 +11530,17 @@ export const CustomizerAttributeErrorEnum: Schema.Schema<CustomizerAttributeErro
 });
 
 export interface CustomizerAttributeOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomizerAttribute;
   readonly remove?: string;
 }
 export interface CustomizerAttributeOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: CustomizerAttributeEncoded;
   readonly remove?: string;
 }
 export const CustomizerAttributeOperation: Schema.Schema<CustomizerAttributeOperation, CustomizerAttributeOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => CustomizerAttribute)),
   remove: Schema.optional(Schema.String),
 });
@@ -11640,19 +11640,19 @@ export const CustomVariable: Schema.Schema<CustomVariable, CustomVariableEncoded
 });
 
 export interface CyoIncentives {
-  readonly low_offer?: unknown;
-  readonly medium_offer?: unknown;
-  readonly high_offer?: unknown;
+  readonly low_offer?: Incentive;
+  readonly medium_offer?: Incentive;
+  readonly high_offer?: Incentive;
 }
 export interface CyoIncentivesEncoded {
-  readonly low_offer?: unknown;
-  readonly medium_offer?: unknown;
-  readonly high_offer?: unknown;
+  readonly low_offer?: IncentiveEncoded;
+  readonly medium_offer?: IncentiveEncoded;
+  readonly high_offer?: IncentiveEncoded;
 }
 export const CyoIncentives: Schema.Schema<CyoIncentives, CyoIncentivesEncoded, never> = Schema.Struct({
-  low_offer: Schema.optional(Schema.Unknown),
-  medium_offer: Schema.optional(Schema.Unknown),
-  high_offer: Schema.optional(Schema.Unknown),
+  low_offer: Schema.optional(Schema.suspend(() => Incentive)),
+  medium_offer: Schema.optional(Schema.suspend(() => Incentive)),
+  high_offer: Schema.optional(Schema.suspend(() => Incentive)),
 });
 
 export type DatabaseError = "UNSPECIFIED" | "UNKNOWN" | "CONCURRENT_MODIFICATION" | "DATA_CONSTRAINT_VIOLATION" | "REQUEST_TOO_LARGE";
@@ -11689,8 +11689,8 @@ export interface DataLink {
   readonly data_link_id?: string;
   readonly type?: DataLinkType;
   readonly status?: DataLinkStatus;
-  readonly youtube_video?: unknown;
-  readonly youtube_link_metadata?: unknown;
+  readonly youtube_video?: YoutubeVideoIdentifier;
+  readonly youtube_link_metadata?: YoutubeLinkMetadata;
 }
 export interface DataLinkEncoded {
   readonly resource_name?: string;
@@ -11698,8 +11698,8 @@ export interface DataLinkEncoded {
   readonly data_link_id?: string;
   readonly type?: DataLinkTypeEncoded;
   readonly status?: DataLinkStatusEncoded;
-  readonly youtube_video?: unknown;
-  readonly youtube_link_metadata?: unknown;
+  readonly youtube_video?: YoutubeVideoIdentifierEncoded;
+  readonly youtube_link_metadata?: YoutubeLinkMetadataEncoded;
 }
 export const DataLink: Schema.Schema<DataLink, DataLinkEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -11707,8 +11707,8 @@ export const DataLink: Schema.Schema<DataLink, DataLinkEncoded, never> = Schema.
   data_link_id: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => DataLinkType)),
   status: Schema.optional(Schema.suspend(() => DataLinkStatus)),
-  youtube_video: Schema.optional(Schema.Unknown),
-  youtube_link_metadata: Schema.optional(Schema.Unknown),
+  youtube_video: Schema.optional(Schema.suspend(() => YoutubeVideoIdentifier)),
+  youtube_link_metadata: Schema.optional(Schema.suspend(() => YoutubeLinkMetadata)),
 });
 
 export type DataLinkError = "UNSPECIFIED" | "UNKNOWN" | "YOUTUBE_CHANNEL_ID_INVALID" | "YOUTUBE_VIDEO_ID_INVALID" | "YOUTUBE_VIDEO_FROM_DIFFERENT_CHANNEL" | "PERMISSION_DENIED" | "INVALID_STATUS" | "INVALID_UPDATE_STATUS" | "INVALID_RESOURCE_NAME";
@@ -11819,13 +11819,13 @@ export const DayOfWeekEnum: Schema.Schema<DayOfWeekEnum, DayOfWeekEnumEncoded, n
 });
 
 export interface DemandGenAdGroupSettings {
-  readonly channel_controls?: unknown;
+  readonly channel_controls?: DemandGenChannelControls;
 }
 export interface DemandGenAdGroupSettingsEncoded {
-  readonly channel_controls?: unknown;
+  readonly channel_controls?: DemandGenChannelControlsEncoded;
 }
 export const DemandGenAdGroupSettings: Schema.Schema<DemandGenAdGroupSettings, DemandGenAdGroupSettingsEncoded, never> = Schema.Struct({
-  channel_controls: Schema.optional(Schema.Unknown),
+  channel_controls: Schema.optional(Schema.suspend(() => DemandGenChannelControls)),
 });
 
 export interface DemandGenCampaignSettings {
@@ -11840,27 +11840,27 @@ export const DemandGenCampaignSettings: Schema.Schema<DemandGenCampaignSettings,
 
 export interface DemandGenCarouselAdInfo {
   readonly business_name?: string;
-  readonly logo_image?: unknown;
-  readonly headline?: unknown;
-  readonly description?: unknown;
+  readonly logo_image?: AdImageAsset;
+  readonly headline?: AdTextAsset;
+  readonly description?: AdTextAsset;
   readonly call_to_action_text?: string;
-  readonly carousel_cards?: ReadonlyArray<unknown>;
+  readonly carousel_cards?: ReadonlyArray<AdDemandGenCarouselCardAsset>;
 }
 export interface DemandGenCarouselAdInfoEncoded {
   readonly business_name?: string;
-  readonly logo_image?: unknown;
-  readonly headline?: unknown;
-  readonly description?: unknown;
+  readonly logo_image?: AdImageAssetEncoded;
+  readonly headline?: AdTextAssetEncoded;
+  readonly description?: AdTextAssetEncoded;
   readonly call_to_action_text?: string;
-  readonly carousel_cards?: ReadonlyArray<unknown>;
+  readonly carousel_cards?: ReadonlyArray<AdDemandGenCarouselCardAssetEncoded>;
 }
 export const DemandGenCarouselAdInfo: Schema.Schema<DemandGenCarouselAdInfo, DemandGenCarouselAdInfoEncoded, never> = Schema.Struct({
   business_name: Schema.optional(Schema.String),
-  logo_image: Schema.optional(Schema.Unknown),
-  headline: Schema.optional(Schema.Unknown),
-  description: Schema.optional(Schema.Unknown),
+  logo_image: Schema.optional(Schema.suspend(() => AdImageAsset)),
+  headline: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  description: Schema.optional(Schema.suspend(() => AdTextAsset)),
   call_to_action_text: Schema.optional(Schema.String),
-  carousel_cards: Schema.optional(Schema.Array(Schema.Unknown)),
+  carousel_cards: Schema.optional(Schema.Array(Schema.suspend(() => AdDemandGenCarouselCardAsset))),
 });
 
 export interface DemandGenCarouselCardAsset {
@@ -11902,17 +11902,17 @@ export const DemandGenChannelConfigEnum: Schema.Schema<DemandGenChannelConfigEnu
 export interface DemandGenChannelControls {
   readonly channel_config?: DemandGenChannelConfig;
   readonly channel_strategy?: DemandGenChannelStrategy;
-  readonly selected_channels?: unknown;
+  readonly selected_channels?: DemandGenSelectedChannels;
 }
 export interface DemandGenChannelControlsEncoded {
   readonly channel_config?: DemandGenChannelConfigEncoded;
   readonly channel_strategy?: DemandGenChannelStrategyEncoded;
-  readonly selected_channels?: unknown;
+  readonly selected_channels?: DemandGenSelectedChannelsEncoded;
 }
 export const DemandGenChannelControls: Schema.Schema<DemandGenChannelControls, DemandGenChannelControlsEncoded, never> = Schema.Struct({
   channel_config: Schema.optional(Schema.suspend(() => DemandGenChannelConfig)),
   channel_strategy: Schema.optional(Schema.suspend(() => DemandGenChannelStrategy)),
-  selected_channels: Schema.optional(Schema.Unknown),
+  selected_channels: Schema.optional(Schema.suspend(() => DemandGenSelectedChannels)),
 });
 
 export type DemandGenChannelStrategy = "UNSPECIFIED" | "UNKNOWN" | "ALL_CHANNELS" | "ALL_OWNED_AND_OPERATED_CHANNELS";
@@ -11930,68 +11930,68 @@ export const DemandGenChannelStrategyEnum: Schema.Schema<DemandGenChannelStrateg
 });
 
 export interface DemandGenMultiAssetAdInfo {
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly square_marketing_images?: ReadonlyArray<unknown>;
-  readonly portrait_marketing_images?: ReadonlyArray<unknown>;
-  readonly tall_portrait_marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly classic_display_images?: ReadonlyArray<unknown>;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly square_marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly portrait_marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly tall_portrait_marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly classic_display_images?: ReadonlyArray<AdImageAsset>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
   readonly business_name?: string;
   readonly call_to_action_text?: string;
 }
 export interface DemandGenMultiAssetAdInfoEncoded {
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly square_marketing_images?: ReadonlyArray<unknown>;
-  readonly portrait_marketing_images?: ReadonlyArray<unknown>;
-  readonly tall_portrait_marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly classic_display_images?: ReadonlyArray<unknown>;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly square_marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly portrait_marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly tall_portrait_marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly classic_display_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
   readonly business_name?: string;
   readonly call_to_action_text?: string;
 }
 export const DemandGenMultiAssetAdInfo: Schema.Schema<DemandGenMultiAssetAdInfo, DemandGenMultiAssetAdInfoEncoded, never> = Schema.Struct({
-  marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  square_marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  portrait_marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  tall_portrait_marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  classic_display_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
+  marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  square_marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  portrait_marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  tall_portrait_marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  classic_display_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
   business_name: Schema.optional(Schema.String),
   call_to_action_text: Schema.optional(Schema.String),
 });
 
 export interface DemandGenProductAdInfo {
-  readonly headline?: unknown;
-  readonly description?: unknown;
-  readonly logo_image?: unknown;
+  readonly headline?: AdTextAsset;
+  readonly description?: AdTextAsset;
+  readonly logo_image?: AdImageAsset;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
-  readonly business_name?: unknown;
-  readonly call_to_action?: unknown;
+  readonly business_name?: AdTextAsset;
+  readonly call_to_action?: AdCallToActionAsset;
 }
 export interface DemandGenProductAdInfoEncoded {
-  readonly headline?: unknown;
-  readonly description?: unknown;
-  readonly logo_image?: unknown;
+  readonly headline?: AdTextAssetEncoded;
+  readonly description?: AdTextAssetEncoded;
+  readonly logo_image?: AdImageAssetEncoded;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
-  readonly business_name?: unknown;
-  readonly call_to_action?: unknown;
+  readonly business_name?: AdTextAssetEncoded;
+  readonly call_to_action?: AdCallToActionAssetEncoded;
 }
 export const DemandGenProductAdInfo: Schema.Schema<DemandGenProductAdInfo, DemandGenProductAdInfoEncoded, never> = Schema.Struct({
-  headline: Schema.optional(Schema.Unknown),
-  description: Schema.optional(Schema.Unknown),
-  logo_image: Schema.optional(Schema.Unknown),
+  headline: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  description: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  logo_image: Schema.optional(Schema.suspend(() => AdImageAsset)),
   breadcrumb1: Schema.optional(Schema.String),
   breadcrumb2: Schema.optional(Schema.String),
-  business_name: Schema.optional(Schema.Unknown),
-  call_to_action: Schema.optional(Schema.Unknown),
+  business_name: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  call_to_action: Schema.optional(Schema.suspend(() => AdCallToActionAsset)),
 });
 
 export interface DemandGenSelectedChannels {
@@ -12023,40 +12023,40 @@ export const DemandGenSelectedChannels: Schema.Schema<DemandGenSelectedChannels,
 });
 
 export interface DemandGenVideoResponsiveAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly companion_banners?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly long_headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly videos?: ReadonlyArray<AdVideoAsset>;
+  readonly logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly companion_banners?: ReadonlyArray<AdImageAsset>;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
-  readonly business_name?: unknown;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
+  readonly business_name?: AdTextAsset;
+  readonly call_to_actions?: ReadonlyArray<AdCallToActionAsset>;
 }
 export interface DemandGenVideoResponsiveAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly companion_banners?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly long_headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly videos?: ReadonlyArray<AdVideoAssetEncoded>;
+  readonly logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly companion_banners?: ReadonlyArray<AdImageAssetEncoded>;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
-  readonly business_name?: unknown;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
+  readonly business_name?: AdTextAssetEncoded;
+  readonly call_to_actions?: ReadonlyArray<AdCallToActionAssetEncoded>;
 }
 export const DemandGenVideoResponsiveAdInfo: Schema.Schema<DemandGenVideoResponsiveAdInfo, DemandGenVideoResponsiveAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  long_headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  videos: Schema.optional(Schema.Array(Schema.Unknown)),
-  logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  companion_banners: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  long_headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
+  logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  companion_banners: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
   breadcrumb1: Schema.optional(Schema.String),
   breadcrumb2: Schema.optional(Schema.String),
-  business_name: Schema.optional(Schema.Unknown),
-  call_to_actions: Schema.optional(Schema.Array(Schema.Unknown)),
+  business_name: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  call_to_actions: Schema.optional(Schema.Array(Schema.suspend(() => AdCallToActionAsset))),
 });
 
 export interface DestinationMismatch {
@@ -12209,15 +12209,15 @@ export const DeviceInfo: Schema.Schema<DeviceInfo, DeviceInfoEncoded, never> = S
 
 export interface DimensionOverlapResult {
   readonly dimension?: AudienceInsightsDimension;
-  readonly items?: ReadonlyArray<unknown>;
+  readonly items?: ReadonlyArray<AudienceOverlapItem>;
 }
 export interface DimensionOverlapResultEncoded {
   readonly dimension?: AudienceInsightsDimensionEncoded;
-  readonly items?: ReadonlyArray<unknown>;
+  readonly items?: ReadonlyArray<AudienceOverlapItemEncoded>;
 }
 export const DimensionOverlapResult: Schema.Schema<DimensionOverlapResult, DimensionOverlapResultEncoded, never> = Schema.Struct({
   dimension: Schema.optional(Schema.suspend(() => AudienceInsightsDimension)),
-  items: Schema.optional(Schema.Array(Schema.Unknown)),
+  items: Schema.optional(Schema.Array(Schema.suspend(() => AudienceOverlapItem))),
 });
 
 export interface DismissRecommendationOperation {
@@ -12232,30 +12232,30 @@ export const DismissRecommendationOperation: Schema.Schema<DismissRecommendation
 
 export interface DismissRecommendationRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<DismissRecommendationOperation>;
   readonly partial_failure?: boolean;
 }
 export interface DismissRecommendationRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<DismissRecommendationOperationEncoded>;
   readonly partial_failure?: boolean;
 }
 export const DismissRecommendationRequest: Schema.Schema<DismissRecommendationRequest, DismissRecommendationRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => DismissRecommendationOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
 });
 
 export interface DismissRecommendationResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<DismissRecommendationResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface DismissRecommendationResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<DismissRecommendationResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const DismissRecommendationResponse: Schema.Schema<DismissRecommendationResponse, DismissRecommendationResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => DismissRecommendationResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -12305,15 +12305,15 @@ export const DisplayKeywordView: Schema.Schema<DisplayKeywordView, DisplayKeywor
 
 export interface DisplayUploadAdInfo {
   readonly display_upload_product_type?: DisplayUploadProductType;
-  readonly media_bundle?: unknown;
+  readonly media_bundle?: AdMediaBundleAsset;
 }
 export interface DisplayUploadAdInfoEncoded {
   readonly display_upload_product_type?: DisplayUploadProductTypeEncoded;
-  readonly media_bundle?: unknown;
+  readonly media_bundle?: AdMediaBundleAssetEncoded;
 }
 export const DisplayUploadAdInfo: Schema.Schema<DisplayUploadAdInfo, DisplayUploadAdInfoEncoded, never> = Schema.Struct({
   display_upload_product_type: Schema.optional(Schema.suspend(() => DisplayUploadProductType)),
-  media_bundle: Schema.optional(Schema.Unknown),
+  media_bundle: Schema.optional(Schema.suspend(() => AdMediaBundleAsset)),
 });
 
 export type DisplayUploadProductType = "UNSPECIFIED" | "UNKNOWN" | "HTML5_UPLOAD_AD" | "DYNAMIC_HTML5_EDUCATION_AD" | "DYNAMIC_HTML5_FLIGHT_AD" | "DYNAMIC_HTML5_HOTEL_RENTAL_AD" | "DYNAMIC_HTML5_JOB_AD" | "DYNAMIC_HTML5_LOCAL_AD" | "DYNAMIC_HTML5_REAL_ESTATE_AD" | "DYNAMIC_HTML5_CUSTOM_AD" | "DYNAMIC_HTML5_TRAVEL_AD" | "DYNAMIC_HTML5_HOTEL_AD";
@@ -12410,17 +12410,17 @@ export const DomainCategory: Schema.Schema<DomainCategory, DomainCategoryEncoded
 
 export interface DynamicBusinessProfileLocationGroupFilter {
   readonly label_filters?: ReadonlyArray<string>;
-  readonly business_name_filter?: unknown;
+  readonly business_name_filter?: BusinessProfileBusinessNameFilter;
   readonly listing_id_filters?: ReadonlyArray<string>;
 }
 export interface DynamicBusinessProfileLocationGroupFilterEncoded {
   readonly label_filters?: ReadonlyArray<string>;
-  readonly business_name_filter?: unknown;
+  readonly business_name_filter?: BusinessProfileBusinessNameFilterEncoded;
   readonly listing_id_filters?: ReadonlyArray<string>;
 }
 export const DynamicBusinessProfileLocationGroupFilter: Schema.Schema<DynamicBusinessProfileLocationGroupFilter, DynamicBusinessProfileLocationGroupFilterEncoded, never> = Schema.Struct({
   label_filters: Schema.optional(Schema.Array(Schema.String)),
-  business_name_filter: Schema.optional(Schema.Unknown),
+  business_name_filter: Schema.optional(Schema.suspend(() => BusinessProfileBusinessNameFilter)),
   listing_id_filters: Schema.optional(Schema.Array(Schema.String)),
 });
 
@@ -12960,7 +12960,7 @@ export const EnablementResult: Schema.Schema<EnablementResult, EnablementResultE
 export interface EnableOperation {
   readonly campaign?: string;
   readonly auto_populate_brand_assets?: boolean;
-  readonly brand_assets?: unknown;
+  readonly brand_assets?: BrandCampaignAssets;
   readonly final_uri_domain?: string;
   readonly main_color?: string;
   readonly accent_color?: string;
@@ -12969,7 +12969,7 @@ export interface EnableOperation {
 export interface EnableOperationEncoded {
   readonly campaign?: string;
   readonly auto_populate_brand_assets?: boolean;
-  readonly brand_assets?: unknown;
+  readonly brand_assets?: BrandCampaignAssetsEncoded;
   readonly final_uri_domain?: string;
   readonly main_color?: string;
   readonly accent_color?: string;
@@ -12978,7 +12978,7 @@ export interface EnableOperationEncoded {
 export const EnableOperation: Schema.Schema<EnableOperation, EnableOperationEncoded, never> = Schema.Struct({
   campaign: Schema.optional(Schema.String),
   auto_populate_brand_assets: Schema.optional(Schema.Boolean),
-  brand_assets: Schema.optional(Schema.Unknown),
+  brand_assets: Schema.optional(Schema.suspend(() => BrandCampaignAssets)),
   final_uri_domain: Schema.optional(Schema.String),
   main_color: Schema.optional(Schema.String),
   accent_color: Schema.optional(Schema.String),
@@ -12987,25 +12987,25 @@ export const EnableOperation: Schema.Schema<EnableOperation, EnableOperationEnco
 
 export interface EnablePMaxBrandGuidelinesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<EnableOperation>;
 }
 export interface EnablePMaxBrandGuidelinesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<EnableOperationEncoded>;
 }
 export const EnablePMaxBrandGuidelinesRequest: Schema.Schema<EnablePMaxBrandGuidelinesRequest, EnablePMaxBrandGuidelinesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => EnableOperation))),
 });
 
 export interface EnablePMaxBrandGuidelinesResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<EnablementResult>;
 }
 export interface EnablePMaxBrandGuidelinesResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<EnablementResultEncoded>;
 }
 export const EnablePMaxBrandGuidelinesResponse: Schema.Schema<EnablePMaxBrandGuidelinesResponse, EnablePMaxBrandGuidelinesResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => EnablementResult))),
 });
 
 export interface EndExperimentRequest {
@@ -13056,552 +13056,552 @@ export const EnumErrorEnum: Schema.Schema<EnumErrorEnum, EnumErrorEnumEncoded, n
 });
 
 export interface ErrorCode {
-  readonly request_error?: unknown;
-  readonly bidding_strategy_error?: unknown;
-  readonly url_field_error?: unknown;
-  readonly list_operation_error?: unknown;
-  readonly query_error?: unknown;
-  readonly mutate_error?: unknown;
-  readonly field_mask_error?: unknown;
-  readonly authorization_error?: unknown;
-  readonly internal_error?: unknown;
-  readonly quota_error?: unknown;
-  readonly ad_error?: unknown;
-  readonly ad_group_error?: unknown;
-  readonly campaign_budget_error?: unknown;
-  readonly campaign_error?: unknown;
-  readonly video_campaign_error?: unknown;
-  readonly authentication_error?: unknown;
-  readonly action_error?: unknown;
-  readonly ad_group_criterion_customizer_error?: unknown;
-  readonly ad_group_criterion_error?: unknown;
-  readonly ad_group_customizer_error?: unknown;
-  readonly ad_customizer_error?: unknown;
-  readonly ad_group_ad_error?: unknown;
-  readonly ad_sharing_error?: unknown;
-  readonly adx_error?: unknown;
-  readonly asset_error?: unknown;
-  readonly asset_group_asset_error?: unknown;
-  readonly asset_group_listing_group_filter_error?: unknown;
-  readonly asset_group_error?: unknown;
-  readonly asset_set_asset_error?: unknown;
-  readonly asset_set_link_error?: unknown;
-  readonly asset_set_error?: unknown;
-  readonly bidding_error?: unknown;
-  readonly campaign_criterion_error?: unknown;
-  readonly campaign_conversion_goal_error?: unknown;
-  readonly campaign_customizer_error?: unknown;
-  readonly collection_size_error?: unknown;
-  readonly conversion_goal_campaign_config_error?: unknown;
-  readonly country_code_error?: unknown;
-  readonly criterion_error?: unknown;
-  readonly custom_conversion_goal_error?: unknown;
-  readonly customer_customizer_error?: unknown;
-  readonly customer_error?: unknown;
-  readonly customizer_attribute_error?: unknown;
-  readonly date_error?: unknown;
-  readonly date_range_error?: unknown;
-  readonly distinct_error?: unknown;
-  readonly feed_attribute_reference_error?: unknown;
-  readonly final_url_expansion_asset_view_error?: unknown;
-  readonly function_error?: unknown;
-  readonly function_parsing_error?: unknown;
-  readonly id_error?: unknown;
-  readonly image_error?: unknown;
-  readonly language_code_error?: unknown;
-  readonly media_bundle_error?: unknown;
-  readonly media_upload_error?: unknown;
-  readonly media_file_error?: unknown;
-  readonly merchant_center_error?: unknown;
-  readonly multiplier_error?: unknown;
-  readonly new_resource_creation_error?: unknown;
-  readonly not_empty_error?: unknown;
-  readonly null_error?: unknown;
-  readonly operator_error?: unknown;
-  readonly range_error?: unknown;
-  readonly recommendation_error?: unknown;
-  readonly recommendation_subscription_error?: unknown;
-  readonly region_code_error?: unknown;
-  readonly setting_error?: unknown;
-  readonly string_format_error?: unknown;
-  readonly string_length_error?: unknown;
-  readonly operation_access_denied_error?: unknown;
-  readonly resource_access_denied_error?: unknown;
-  readonly resource_count_limit_exceeded_error?: unknown;
-  readonly youtube_video_registration_error?: unknown;
-  readonly ad_group_bid_modifier_error?: unknown;
-  readonly context_error?: unknown;
-  readonly field_error?: unknown;
-  readonly shared_set_error?: unknown;
-  readonly shared_criterion_error?: unknown;
-  readonly campaign_shared_set_error?: unknown;
-  readonly conversion_action_error?: unknown;
-  readonly conversion_adjustment_upload_error?: unknown;
-  readonly conversion_custom_variable_error?: unknown;
-  readonly conversion_upload_error?: unknown;
-  readonly conversion_value_rule_error?: unknown;
-  readonly conversion_value_rule_set_error?: unknown;
-  readonly header_error?: unknown;
-  readonly database_error?: unknown;
-  readonly policy_finding_error?: unknown;
-  readonly enum_error?: unknown;
-  readonly keyword_plan_error?: unknown;
-  readonly keyword_plan_campaign_error?: unknown;
-  readonly keyword_plan_campaign_keyword_error?: unknown;
-  readonly keyword_plan_ad_group_error?: unknown;
-  readonly keyword_plan_ad_group_keyword_error?: unknown;
-  readonly keyword_plan_idea_error?: unknown;
-  readonly account_budget_proposal_error?: unknown;
-  readonly user_list_error?: unknown;
-  readonly change_event_error?: unknown;
-  readonly change_status_error?: unknown;
-  readonly feed_error?: unknown;
-  readonly geo_target_constant_suggestion_error?: unknown;
-  readonly campaign_draft_error?: unknown;
-  readonly feed_item_error?: unknown;
-  readonly label_error?: unknown;
-  readonly billing_setup_error?: unknown;
-  readonly customer_client_link_error?: unknown;
-  readonly customer_manager_link_error?: unknown;
-  readonly feed_mapping_error?: unknown;
-  readonly customer_feed_error?: unknown;
-  readonly ad_group_feed_error?: unknown;
-  readonly campaign_feed_error?: unknown;
-  readonly custom_interest_error?: unknown;
-  readonly campaign_experiment_error?: unknown;
-  readonly extension_feed_item_error?: unknown;
-  readonly ad_parameter_error?: unknown;
-  readonly feed_item_validation_error?: unknown;
-  readonly extension_setting_error?: unknown;
-  readonly feed_item_set_error?: unknown;
-  readonly feed_item_set_link_error?: unknown;
-  readonly feed_item_target_error?: unknown;
-  readonly policy_violation_error?: unknown;
-  readonly partial_failure_error?: unknown;
-  readonly click_view_error?: unknown;
-  readonly policy_validation_parameter_error?: unknown;
-  readonly size_limit_error?: unknown;
-  readonly offline_user_data_job_error?: unknown;
-  readonly not_allowlisted_error?: unknown;
-  readonly manager_link_error?: unknown;
-  readonly currency_code_error?: unknown;
-  readonly experiment_error?: unknown;
-  readonly access_invitation_error?: unknown;
-  readonly reach_plan_error?: unknown;
-  readonly invoice_error?: unknown;
-  readonly payments_account_error?: unknown;
-  readonly time_zone_error?: unknown;
-  readonly asset_link_error?: unknown;
-  readonly user_data_error?: unknown;
-  readonly batch_job_error?: unknown;
-  readonly account_link_error?: unknown;
-  readonly third_party_app_analytics_link_error?: unknown;
-  readonly customer_user_access_error?: unknown;
-  readonly custom_audience_error?: unknown;
-  readonly audience_error?: unknown;
-  readonly search_term_insight_error?: unknown;
-  readonly smart_campaign_error?: unknown;
-  readonly experiment_arm_error?: unknown;
-  readonly audience_insights_error?: unknown;
-  readonly product_link_error?: unknown;
-  readonly data_link_error?: unknown;
-  readonly customer_sk_ad_network_conversion_value_schema_error?: unknown;
-  readonly currency_error?: unknown;
-  readonly asset_group_signal_error?: unknown;
-  readonly product_link_invitation_error?: unknown;
-  readonly identity_verification_error?: unknown;
-  readonly user_list_customer_type_error?: unknown;
-  readonly shopping_product_error?: unknown;
-  readonly automatically_created_asset_removal_error?: unknown;
-  readonly shareable_preview_error?: unknown;
-  readonly campaign_goal_config_error?: unknown;
-  readonly goal_error?: unknown;
-  readonly brand_guidelines_migration_error?: unknown;
-  readonly asset_generation_error?: unknown;
-  readonly benchmarks_error?: unknown;
-  readonly incentive_error?: unknown;
-  readonly content_creator_insights_error?: unknown;
-  readonly video_reservation_error?: unknown;
-  readonly multi_party_auth_review_error?: unknown;
+  readonly request_error?: RequestError;
+  readonly bidding_strategy_error?: BiddingStrategyError;
+  readonly url_field_error?: UrlFieldError;
+  readonly list_operation_error?: ListOperationError;
+  readonly query_error?: QueryError;
+  readonly mutate_error?: MutateError;
+  readonly field_mask_error?: FieldMaskError;
+  readonly authorization_error?: AuthorizationError;
+  readonly internal_error?: InternalError;
+  readonly quota_error?: QuotaError;
+  readonly ad_error?: AdError;
+  readonly ad_group_error?: AdGroupError;
+  readonly campaign_budget_error?: CampaignBudgetError;
+  readonly campaign_error?: CampaignError;
+  readonly video_campaign_error?: VideoCampaignError;
+  readonly authentication_error?: AuthenticationError;
+  readonly action_error?: ActionError;
+  readonly ad_group_criterion_customizer_error?: AdGroupCriterionCustomizerError;
+  readonly ad_group_criterion_error?: AdGroupCriterionError;
+  readonly ad_group_customizer_error?: AdGroupCustomizerError;
+  readonly ad_customizer_error?: AdCustomizerError;
+  readonly ad_group_ad_error?: AdGroupAdError;
+  readonly ad_sharing_error?: AdSharingError;
+  readonly adx_error?: AdxError;
+  readonly asset_error?: AssetError;
+  readonly asset_group_asset_error?: AssetGroupAssetError;
+  readonly asset_group_listing_group_filter_error?: AssetGroupListingGroupFilterError;
+  readonly asset_group_error?: AssetGroupError;
+  readonly asset_set_asset_error?: AssetSetAssetError;
+  readonly asset_set_link_error?: AssetSetLinkError;
+  readonly asset_set_error?: AssetSetError;
+  readonly bidding_error?: BiddingError;
+  readonly campaign_criterion_error?: CampaignCriterionError;
+  readonly campaign_conversion_goal_error?: CampaignConversionGoalError;
+  readonly campaign_customizer_error?: CampaignCustomizerError;
+  readonly collection_size_error?: CollectionSizeError;
+  readonly conversion_goal_campaign_config_error?: ConversionGoalCampaignConfigError;
+  readonly country_code_error?: CountryCodeError;
+  readonly criterion_error?: CriterionError;
+  readonly custom_conversion_goal_error?: CustomConversionGoalError;
+  readonly customer_customizer_error?: CustomerCustomizerError;
+  readonly customer_error?: CustomerError;
+  readonly customizer_attribute_error?: CustomizerAttributeError;
+  readonly date_error?: DateError;
+  readonly date_range_error?: DateRangeError;
+  readonly distinct_error?: DistinctError;
+  readonly feed_attribute_reference_error?: FeedAttributeReferenceError;
+  readonly final_url_expansion_asset_view_error?: FinalUrlExpansionAssetViewError;
+  readonly function_error?: FunctionError;
+  readonly function_parsing_error?: FunctionParsingError;
+  readonly id_error?: IdError;
+  readonly image_error?: ImageError;
+  readonly language_code_error?: LanguageCodeError;
+  readonly media_bundle_error?: MediaBundleError;
+  readonly media_upload_error?: MediaUploadError;
+  readonly media_file_error?: MediaFileError;
+  readonly merchant_center_error?: MerchantCenterError;
+  readonly multiplier_error?: MultiplierError;
+  readonly new_resource_creation_error?: NewResourceCreationError;
+  readonly not_empty_error?: NotEmptyError;
+  readonly null_error?: NullError;
+  readonly operator_error?: OperatorError;
+  readonly range_error?: RangeError;
+  readonly recommendation_error?: RecommendationError;
+  readonly recommendation_subscription_error?: RecommendationSubscriptionError;
+  readonly region_code_error?: RegionCodeError;
+  readonly setting_error?: SettingError;
+  readonly string_format_error?: StringFormatError;
+  readonly string_length_error?: StringLengthError;
+  readonly operation_access_denied_error?: OperationAccessDeniedError;
+  readonly resource_access_denied_error?: ResourceAccessDeniedError;
+  readonly resource_count_limit_exceeded_error?: ResourceCountLimitExceededError;
+  readonly youtube_video_registration_error?: YoutubeVideoRegistrationError;
+  readonly ad_group_bid_modifier_error?: AdGroupBidModifierError;
+  readonly context_error?: ContextError;
+  readonly field_error?: FieldError;
+  readonly shared_set_error?: SharedSetError;
+  readonly shared_criterion_error?: SharedCriterionError;
+  readonly campaign_shared_set_error?: CampaignSharedSetError;
+  readonly conversion_action_error?: ConversionActionError;
+  readonly conversion_adjustment_upload_error?: ConversionAdjustmentUploadError;
+  readonly conversion_custom_variable_error?: ConversionCustomVariableError;
+  readonly conversion_upload_error?: ConversionUploadError;
+  readonly conversion_value_rule_error?: ConversionValueRuleError;
+  readonly conversion_value_rule_set_error?: ConversionValueRuleSetError;
+  readonly header_error?: HeaderError;
+  readonly database_error?: DatabaseError;
+  readonly policy_finding_error?: PolicyFindingError;
+  readonly enum_error?: EnumError;
+  readonly keyword_plan_error?: KeywordPlanError;
+  readonly keyword_plan_campaign_error?: KeywordPlanCampaignError;
+  readonly keyword_plan_campaign_keyword_error?: KeywordPlanCampaignKeywordError;
+  readonly keyword_plan_ad_group_error?: KeywordPlanAdGroupError;
+  readonly keyword_plan_ad_group_keyword_error?: KeywordPlanAdGroupKeywordError;
+  readonly keyword_plan_idea_error?: KeywordPlanIdeaError;
+  readonly account_budget_proposal_error?: AccountBudgetProposalError;
+  readonly user_list_error?: UserListError;
+  readonly change_event_error?: ChangeEventError;
+  readonly change_status_error?: ChangeStatusError;
+  readonly feed_error?: FeedError;
+  readonly geo_target_constant_suggestion_error?: GeoTargetConstantSuggestionError;
+  readonly campaign_draft_error?: CampaignDraftError;
+  readonly feed_item_error?: FeedItemError;
+  readonly label_error?: LabelError;
+  readonly billing_setup_error?: BillingSetupError;
+  readonly customer_client_link_error?: CustomerClientLinkError;
+  readonly customer_manager_link_error?: CustomerManagerLinkError;
+  readonly feed_mapping_error?: FeedMappingError;
+  readonly customer_feed_error?: CustomerFeedError;
+  readonly ad_group_feed_error?: AdGroupFeedError;
+  readonly campaign_feed_error?: CampaignFeedError;
+  readonly custom_interest_error?: CustomInterestError;
+  readonly campaign_experiment_error?: CampaignExperimentError;
+  readonly extension_feed_item_error?: ExtensionFeedItemError;
+  readonly ad_parameter_error?: AdParameterError;
+  readonly feed_item_validation_error?: FeedItemValidationError;
+  readonly extension_setting_error?: ExtensionSettingError;
+  readonly feed_item_set_error?: FeedItemSetError;
+  readonly feed_item_set_link_error?: FeedItemSetLinkError;
+  readonly feed_item_target_error?: FeedItemTargetError;
+  readonly policy_violation_error?: PolicyViolationError;
+  readonly partial_failure_error?: PartialFailureError;
+  readonly click_view_error?: ClickViewError;
+  readonly policy_validation_parameter_error?: PolicyValidationParameterError;
+  readonly size_limit_error?: SizeLimitError;
+  readonly offline_user_data_job_error?: OfflineUserDataJobError;
+  readonly not_allowlisted_error?: NotAllowlistedError;
+  readonly manager_link_error?: ManagerLinkError;
+  readonly currency_code_error?: CurrencyCodeError;
+  readonly experiment_error?: ExperimentError;
+  readonly access_invitation_error?: AccessInvitationError;
+  readonly reach_plan_error?: ReachPlanError;
+  readonly invoice_error?: InvoiceError;
+  readonly payments_account_error?: PaymentsAccountError;
+  readonly time_zone_error?: TimeZoneError;
+  readonly asset_link_error?: AssetLinkError;
+  readonly user_data_error?: UserDataError;
+  readonly batch_job_error?: BatchJobError;
+  readonly account_link_error?: AccountLinkError;
+  readonly third_party_app_analytics_link_error?: ThirdPartyAppAnalyticsLinkError;
+  readonly customer_user_access_error?: CustomerUserAccessError;
+  readonly custom_audience_error?: CustomAudienceError;
+  readonly audience_error?: AudienceError;
+  readonly search_term_insight_error?: SearchTermInsightError;
+  readonly smart_campaign_error?: SmartCampaignError;
+  readonly experiment_arm_error?: ExperimentArmError;
+  readonly audience_insights_error?: AudienceInsightsError;
+  readonly product_link_error?: ProductLinkError;
+  readonly data_link_error?: DataLinkError;
+  readonly customer_sk_ad_network_conversion_value_schema_error?: CustomerSkAdNetworkConversionValueSchemaError;
+  readonly currency_error?: CurrencyError;
+  readonly asset_group_signal_error?: AssetGroupSignalError;
+  readonly product_link_invitation_error?: ProductLinkInvitationError;
+  readonly identity_verification_error?: IdentityVerificationError;
+  readonly user_list_customer_type_error?: UserListCustomerTypeError;
+  readonly shopping_product_error?: ShoppingProductError;
+  readonly automatically_created_asset_removal_error?: AutomaticallyCreatedAssetRemovalError;
+  readonly shareable_preview_error?: ShareablePreviewError;
+  readonly campaign_goal_config_error?: CampaignGoalConfigError;
+  readonly goal_error?: GoalError;
+  readonly brand_guidelines_migration_error?: BrandGuidelinesMigrationError;
+  readonly asset_generation_error?: AssetGenerationError;
+  readonly benchmarks_error?: BenchmarksError;
+  readonly incentive_error?: IncentiveError;
+  readonly content_creator_insights_error?: ContentCreatorInsightsError;
+  readonly video_reservation_error?: VideoReservationError;
+  readonly multi_party_auth_review_error?: MultiPartyAuthReviewError;
 }
 export interface ErrorCodeEncoded {
-  readonly request_error?: unknown;
-  readonly bidding_strategy_error?: unknown;
-  readonly url_field_error?: unknown;
-  readonly list_operation_error?: unknown;
-  readonly query_error?: unknown;
-  readonly mutate_error?: unknown;
-  readonly field_mask_error?: unknown;
-  readonly authorization_error?: unknown;
-  readonly internal_error?: unknown;
-  readonly quota_error?: unknown;
-  readonly ad_error?: unknown;
-  readonly ad_group_error?: unknown;
-  readonly campaign_budget_error?: unknown;
-  readonly campaign_error?: unknown;
-  readonly video_campaign_error?: unknown;
-  readonly authentication_error?: unknown;
-  readonly action_error?: unknown;
-  readonly ad_group_criterion_customizer_error?: unknown;
-  readonly ad_group_criterion_error?: unknown;
-  readonly ad_group_customizer_error?: unknown;
-  readonly ad_customizer_error?: unknown;
-  readonly ad_group_ad_error?: unknown;
-  readonly ad_sharing_error?: unknown;
-  readonly adx_error?: unknown;
-  readonly asset_error?: unknown;
-  readonly asset_group_asset_error?: unknown;
-  readonly asset_group_listing_group_filter_error?: unknown;
-  readonly asset_group_error?: unknown;
-  readonly asset_set_asset_error?: unknown;
-  readonly asset_set_link_error?: unknown;
-  readonly asset_set_error?: unknown;
-  readonly bidding_error?: unknown;
-  readonly campaign_criterion_error?: unknown;
-  readonly campaign_conversion_goal_error?: unknown;
-  readonly campaign_customizer_error?: unknown;
-  readonly collection_size_error?: unknown;
-  readonly conversion_goal_campaign_config_error?: unknown;
-  readonly country_code_error?: unknown;
-  readonly criterion_error?: unknown;
-  readonly custom_conversion_goal_error?: unknown;
-  readonly customer_customizer_error?: unknown;
-  readonly customer_error?: unknown;
-  readonly customizer_attribute_error?: unknown;
-  readonly date_error?: unknown;
-  readonly date_range_error?: unknown;
-  readonly distinct_error?: unknown;
-  readonly feed_attribute_reference_error?: unknown;
-  readonly final_url_expansion_asset_view_error?: unknown;
-  readonly function_error?: unknown;
-  readonly function_parsing_error?: unknown;
-  readonly id_error?: unknown;
-  readonly image_error?: unknown;
-  readonly language_code_error?: unknown;
-  readonly media_bundle_error?: unknown;
-  readonly media_upload_error?: unknown;
-  readonly media_file_error?: unknown;
-  readonly merchant_center_error?: unknown;
-  readonly multiplier_error?: unknown;
-  readonly new_resource_creation_error?: unknown;
-  readonly not_empty_error?: unknown;
-  readonly null_error?: unknown;
-  readonly operator_error?: unknown;
-  readonly range_error?: unknown;
-  readonly recommendation_error?: unknown;
-  readonly recommendation_subscription_error?: unknown;
-  readonly region_code_error?: unknown;
-  readonly setting_error?: unknown;
-  readonly string_format_error?: unknown;
-  readonly string_length_error?: unknown;
-  readonly operation_access_denied_error?: unknown;
-  readonly resource_access_denied_error?: unknown;
-  readonly resource_count_limit_exceeded_error?: unknown;
-  readonly youtube_video_registration_error?: unknown;
-  readonly ad_group_bid_modifier_error?: unknown;
-  readonly context_error?: unknown;
-  readonly field_error?: unknown;
-  readonly shared_set_error?: unknown;
-  readonly shared_criterion_error?: unknown;
-  readonly campaign_shared_set_error?: unknown;
-  readonly conversion_action_error?: unknown;
-  readonly conversion_adjustment_upload_error?: unknown;
-  readonly conversion_custom_variable_error?: unknown;
-  readonly conversion_upload_error?: unknown;
-  readonly conversion_value_rule_error?: unknown;
-  readonly conversion_value_rule_set_error?: unknown;
-  readonly header_error?: unknown;
-  readonly database_error?: unknown;
-  readonly policy_finding_error?: unknown;
-  readonly enum_error?: unknown;
-  readonly keyword_plan_error?: unknown;
-  readonly keyword_plan_campaign_error?: unknown;
-  readonly keyword_plan_campaign_keyword_error?: unknown;
-  readonly keyword_plan_ad_group_error?: unknown;
-  readonly keyword_plan_ad_group_keyword_error?: unknown;
-  readonly keyword_plan_idea_error?: unknown;
-  readonly account_budget_proposal_error?: unknown;
-  readonly user_list_error?: unknown;
-  readonly change_event_error?: unknown;
-  readonly change_status_error?: unknown;
-  readonly feed_error?: unknown;
-  readonly geo_target_constant_suggestion_error?: unknown;
-  readonly campaign_draft_error?: unknown;
-  readonly feed_item_error?: unknown;
-  readonly label_error?: unknown;
-  readonly billing_setup_error?: unknown;
-  readonly customer_client_link_error?: unknown;
-  readonly customer_manager_link_error?: unknown;
-  readonly feed_mapping_error?: unknown;
-  readonly customer_feed_error?: unknown;
-  readonly ad_group_feed_error?: unknown;
-  readonly campaign_feed_error?: unknown;
-  readonly custom_interest_error?: unknown;
-  readonly campaign_experiment_error?: unknown;
-  readonly extension_feed_item_error?: unknown;
-  readonly ad_parameter_error?: unknown;
-  readonly feed_item_validation_error?: unknown;
-  readonly extension_setting_error?: unknown;
-  readonly feed_item_set_error?: unknown;
-  readonly feed_item_set_link_error?: unknown;
-  readonly feed_item_target_error?: unknown;
-  readonly policy_violation_error?: unknown;
-  readonly partial_failure_error?: unknown;
-  readonly click_view_error?: unknown;
-  readonly policy_validation_parameter_error?: unknown;
-  readonly size_limit_error?: unknown;
-  readonly offline_user_data_job_error?: unknown;
-  readonly not_allowlisted_error?: unknown;
-  readonly manager_link_error?: unknown;
-  readonly currency_code_error?: unknown;
-  readonly experiment_error?: unknown;
-  readonly access_invitation_error?: unknown;
-  readonly reach_plan_error?: unknown;
-  readonly invoice_error?: unknown;
-  readonly payments_account_error?: unknown;
-  readonly time_zone_error?: unknown;
-  readonly asset_link_error?: unknown;
-  readonly user_data_error?: unknown;
-  readonly batch_job_error?: unknown;
-  readonly account_link_error?: unknown;
-  readonly third_party_app_analytics_link_error?: unknown;
-  readonly customer_user_access_error?: unknown;
-  readonly custom_audience_error?: unknown;
-  readonly audience_error?: unknown;
-  readonly search_term_insight_error?: unknown;
-  readonly smart_campaign_error?: unknown;
-  readonly experiment_arm_error?: unknown;
-  readonly audience_insights_error?: unknown;
-  readonly product_link_error?: unknown;
-  readonly data_link_error?: unknown;
-  readonly customer_sk_ad_network_conversion_value_schema_error?: unknown;
-  readonly currency_error?: unknown;
-  readonly asset_group_signal_error?: unknown;
-  readonly product_link_invitation_error?: unknown;
-  readonly identity_verification_error?: unknown;
-  readonly user_list_customer_type_error?: unknown;
-  readonly shopping_product_error?: unknown;
-  readonly automatically_created_asset_removal_error?: unknown;
-  readonly shareable_preview_error?: unknown;
-  readonly campaign_goal_config_error?: unknown;
-  readonly goal_error?: unknown;
-  readonly brand_guidelines_migration_error?: unknown;
-  readonly asset_generation_error?: unknown;
-  readonly benchmarks_error?: unknown;
-  readonly incentive_error?: unknown;
-  readonly content_creator_insights_error?: unknown;
-  readonly video_reservation_error?: unknown;
-  readonly multi_party_auth_review_error?: unknown;
+  readonly request_error?: RequestErrorEncoded;
+  readonly bidding_strategy_error?: BiddingStrategyErrorEncoded;
+  readonly url_field_error?: UrlFieldErrorEncoded;
+  readonly list_operation_error?: ListOperationErrorEncoded;
+  readonly query_error?: QueryErrorEncoded;
+  readonly mutate_error?: MutateErrorEncoded;
+  readonly field_mask_error?: FieldMaskErrorEncoded;
+  readonly authorization_error?: AuthorizationErrorEncoded;
+  readonly internal_error?: InternalErrorEncoded;
+  readonly quota_error?: QuotaErrorEncoded;
+  readonly ad_error?: AdErrorEncoded;
+  readonly ad_group_error?: AdGroupErrorEncoded;
+  readonly campaign_budget_error?: CampaignBudgetErrorEncoded;
+  readonly campaign_error?: CampaignErrorEncoded;
+  readonly video_campaign_error?: VideoCampaignErrorEncoded;
+  readonly authentication_error?: AuthenticationErrorEncoded;
+  readonly action_error?: ActionErrorEncoded;
+  readonly ad_group_criterion_customizer_error?: AdGroupCriterionCustomizerErrorEncoded;
+  readonly ad_group_criterion_error?: AdGroupCriterionErrorEncoded;
+  readonly ad_group_customizer_error?: AdGroupCustomizerErrorEncoded;
+  readonly ad_customizer_error?: AdCustomizerErrorEncoded;
+  readonly ad_group_ad_error?: AdGroupAdErrorEncoded;
+  readonly ad_sharing_error?: AdSharingErrorEncoded;
+  readonly adx_error?: AdxErrorEncoded;
+  readonly asset_error?: AssetErrorEncoded;
+  readonly asset_group_asset_error?: AssetGroupAssetErrorEncoded;
+  readonly asset_group_listing_group_filter_error?: AssetGroupListingGroupFilterErrorEncoded;
+  readonly asset_group_error?: AssetGroupErrorEncoded;
+  readonly asset_set_asset_error?: AssetSetAssetErrorEncoded;
+  readonly asset_set_link_error?: AssetSetLinkErrorEncoded;
+  readonly asset_set_error?: AssetSetErrorEncoded;
+  readonly bidding_error?: BiddingErrorEncoded;
+  readonly campaign_criterion_error?: CampaignCriterionErrorEncoded;
+  readonly campaign_conversion_goal_error?: CampaignConversionGoalErrorEncoded;
+  readonly campaign_customizer_error?: CampaignCustomizerErrorEncoded;
+  readonly collection_size_error?: CollectionSizeErrorEncoded;
+  readonly conversion_goal_campaign_config_error?: ConversionGoalCampaignConfigErrorEncoded;
+  readonly country_code_error?: CountryCodeErrorEncoded;
+  readonly criterion_error?: CriterionErrorEncoded;
+  readonly custom_conversion_goal_error?: CustomConversionGoalErrorEncoded;
+  readonly customer_customizer_error?: CustomerCustomizerErrorEncoded;
+  readonly customer_error?: CustomerErrorEncoded;
+  readonly customizer_attribute_error?: CustomizerAttributeErrorEncoded;
+  readonly date_error?: DateErrorEncoded;
+  readonly date_range_error?: DateRangeErrorEncoded;
+  readonly distinct_error?: DistinctErrorEncoded;
+  readonly feed_attribute_reference_error?: FeedAttributeReferenceErrorEncoded;
+  readonly final_url_expansion_asset_view_error?: FinalUrlExpansionAssetViewErrorEncoded;
+  readonly function_error?: FunctionErrorEncoded;
+  readonly function_parsing_error?: FunctionParsingErrorEncoded;
+  readonly id_error?: IdErrorEncoded;
+  readonly image_error?: ImageErrorEncoded;
+  readonly language_code_error?: LanguageCodeErrorEncoded;
+  readonly media_bundle_error?: MediaBundleErrorEncoded;
+  readonly media_upload_error?: MediaUploadErrorEncoded;
+  readonly media_file_error?: MediaFileErrorEncoded;
+  readonly merchant_center_error?: MerchantCenterErrorEncoded;
+  readonly multiplier_error?: MultiplierErrorEncoded;
+  readonly new_resource_creation_error?: NewResourceCreationErrorEncoded;
+  readonly not_empty_error?: NotEmptyErrorEncoded;
+  readonly null_error?: NullErrorEncoded;
+  readonly operator_error?: OperatorErrorEncoded;
+  readonly range_error?: RangeErrorEncoded;
+  readonly recommendation_error?: RecommendationErrorEncoded;
+  readonly recommendation_subscription_error?: RecommendationSubscriptionErrorEncoded;
+  readonly region_code_error?: RegionCodeErrorEncoded;
+  readonly setting_error?: SettingErrorEncoded;
+  readonly string_format_error?: StringFormatErrorEncoded;
+  readonly string_length_error?: StringLengthErrorEncoded;
+  readonly operation_access_denied_error?: OperationAccessDeniedErrorEncoded;
+  readonly resource_access_denied_error?: ResourceAccessDeniedErrorEncoded;
+  readonly resource_count_limit_exceeded_error?: ResourceCountLimitExceededErrorEncoded;
+  readonly youtube_video_registration_error?: YoutubeVideoRegistrationErrorEncoded;
+  readonly ad_group_bid_modifier_error?: AdGroupBidModifierErrorEncoded;
+  readonly context_error?: ContextErrorEncoded;
+  readonly field_error?: FieldErrorEncoded;
+  readonly shared_set_error?: SharedSetErrorEncoded;
+  readonly shared_criterion_error?: SharedCriterionErrorEncoded;
+  readonly campaign_shared_set_error?: CampaignSharedSetErrorEncoded;
+  readonly conversion_action_error?: ConversionActionErrorEncoded;
+  readonly conversion_adjustment_upload_error?: ConversionAdjustmentUploadErrorEncoded;
+  readonly conversion_custom_variable_error?: ConversionCustomVariableErrorEncoded;
+  readonly conversion_upload_error?: ConversionUploadErrorEncoded;
+  readonly conversion_value_rule_error?: ConversionValueRuleErrorEncoded;
+  readonly conversion_value_rule_set_error?: ConversionValueRuleSetErrorEncoded;
+  readonly header_error?: HeaderErrorEncoded;
+  readonly database_error?: DatabaseErrorEncoded;
+  readonly policy_finding_error?: PolicyFindingErrorEncoded;
+  readonly enum_error?: EnumErrorEncoded;
+  readonly keyword_plan_error?: KeywordPlanErrorEncoded;
+  readonly keyword_plan_campaign_error?: KeywordPlanCampaignErrorEncoded;
+  readonly keyword_plan_campaign_keyword_error?: KeywordPlanCampaignKeywordErrorEncoded;
+  readonly keyword_plan_ad_group_error?: KeywordPlanAdGroupErrorEncoded;
+  readonly keyword_plan_ad_group_keyword_error?: KeywordPlanAdGroupKeywordErrorEncoded;
+  readonly keyword_plan_idea_error?: KeywordPlanIdeaErrorEncoded;
+  readonly account_budget_proposal_error?: AccountBudgetProposalErrorEncoded;
+  readonly user_list_error?: UserListErrorEncoded;
+  readonly change_event_error?: ChangeEventErrorEncoded;
+  readonly change_status_error?: ChangeStatusErrorEncoded;
+  readonly feed_error?: FeedErrorEncoded;
+  readonly geo_target_constant_suggestion_error?: GeoTargetConstantSuggestionErrorEncoded;
+  readonly campaign_draft_error?: CampaignDraftErrorEncoded;
+  readonly feed_item_error?: FeedItemErrorEncoded;
+  readonly label_error?: LabelErrorEncoded;
+  readonly billing_setup_error?: BillingSetupErrorEncoded;
+  readonly customer_client_link_error?: CustomerClientLinkErrorEncoded;
+  readonly customer_manager_link_error?: CustomerManagerLinkErrorEncoded;
+  readonly feed_mapping_error?: FeedMappingErrorEncoded;
+  readonly customer_feed_error?: CustomerFeedErrorEncoded;
+  readonly ad_group_feed_error?: AdGroupFeedErrorEncoded;
+  readonly campaign_feed_error?: CampaignFeedErrorEncoded;
+  readonly custom_interest_error?: CustomInterestErrorEncoded;
+  readonly campaign_experiment_error?: CampaignExperimentErrorEncoded;
+  readonly extension_feed_item_error?: ExtensionFeedItemErrorEncoded;
+  readonly ad_parameter_error?: AdParameterErrorEncoded;
+  readonly feed_item_validation_error?: FeedItemValidationErrorEncoded;
+  readonly extension_setting_error?: ExtensionSettingErrorEncoded;
+  readonly feed_item_set_error?: FeedItemSetErrorEncoded;
+  readonly feed_item_set_link_error?: FeedItemSetLinkErrorEncoded;
+  readonly feed_item_target_error?: FeedItemTargetErrorEncoded;
+  readonly policy_violation_error?: PolicyViolationErrorEncoded;
+  readonly partial_failure_error?: PartialFailureErrorEncoded;
+  readonly click_view_error?: ClickViewErrorEncoded;
+  readonly policy_validation_parameter_error?: PolicyValidationParameterErrorEncoded;
+  readonly size_limit_error?: SizeLimitErrorEncoded;
+  readonly offline_user_data_job_error?: OfflineUserDataJobErrorEncoded;
+  readonly not_allowlisted_error?: NotAllowlistedErrorEncoded;
+  readonly manager_link_error?: ManagerLinkErrorEncoded;
+  readonly currency_code_error?: CurrencyCodeErrorEncoded;
+  readonly experiment_error?: ExperimentErrorEncoded;
+  readonly access_invitation_error?: AccessInvitationErrorEncoded;
+  readonly reach_plan_error?: ReachPlanErrorEncoded;
+  readonly invoice_error?: InvoiceErrorEncoded;
+  readonly payments_account_error?: PaymentsAccountErrorEncoded;
+  readonly time_zone_error?: TimeZoneErrorEncoded;
+  readonly asset_link_error?: AssetLinkErrorEncoded;
+  readonly user_data_error?: UserDataErrorEncoded;
+  readonly batch_job_error?: BatchJobErrorEncoded;
+  readonly account_link_error?: AccountLinkErrorEncoded;
+  readonly third_party_app_analytics_link_error?: ThirdPartyAppAnalyticsLinkErrorEncoded;
+  readonly customer_user_access_error?: CustomerUserAccessErrorEncoded;
+  readonly custom_audience_error?: CustomAudienceErrorEncoded;
+  readonly audience_error?: AudienceErrorEncoded;
+  readonly search_term_insight_error?: SearchTermInsightErrorEncoded;
+  readonly smart_campaign_error?: SmartCampaignErrorEncoded;
+  readonly experiment_arm_error?: ExperimentArmErrorEncoded;
+  readonly audience_insights_error?: AudienceInsightsErrorEncoded;
+  readonly product_link_error?: ProductLinkErrorEncoded;
+  readonly data_link_error?: DataLinkErrorEncoded;
+  readonly customer_sk_ad_network_conversion_value_schema_error?: CustomerSkAdNetworkConversionValueSchemaErrorEncoded;
+  readonly currency_error?: CurrencyErrorEncoded;
+  readonly asset_group_signal_error?: AssetGroupSignalErrorEncoded;
+  readonly product_link_invitation_error?: ProductLinkInvitationErrorEncoded;
+  readonly identity_verification_error?: IdentityVerificationErrorEncoded;
+  readonly user_list_customer_type_error?: UserListCustomerTypeErrorEncoded;
+  readonly shopping_product_error?: ShoppingProductErrorEncoded;
+  readonly automatically_created_asset_removal_error?: AutomaticallyCreatedAssetRemovalErrorEncoded;
+  readonly shareable_preview_error?: ShareablePreviewErrorEncoded;
+  readonly campaign_goal_config_error?: CampaignGoalConfigErrorEncoded;
+  readonly goal_error?: GoalErrorEncoded;
+  readonly brand_guidelines_migration_error?: BrandGuidelinesMigrationErrorEncoded;
+  readonly asset_generation_error?: AssetGenerationErrorEncoded;
+  readonly benchmarks_error?: BenchmarksErrorEncoded;
+  readonly incentive_error?: IncentiveErrorEncoded;
+  readonly content_creator_insights_error?: ContentCreatorInsightsErrorEncoded;
+  readonly video_reservation_error?: VideoReservationErrorEncoded;
+  readonly multi_party_auth_review_error?: MultiPartyAuthReviewErrorEncoded;
 }
 export const ErrorCode: Schema.Schema<ErrorCode, ErrorCodeEncoded, never> = Schema.Struct({
-  request_error: Schema.optional(Schema.Unknown),
-  bidding_strategy_error: Schema.optional(Schema.Unknown),
-  url_field_error: Schema.optional(Schema.Unknown),
-  list_operation_error: Schema.optional(Schema.Unknown),
-  query_error: Schema.optional(Schema.Unknown),
-  mutate_error: Schema.optional(Schema.Unknown),
-  field_mask_error: Schema.optional(Schema.Unknown),
-  authorization_error: Schema.optional(Schema.Unknown),
-  internal_error: Schema.optional(Schema.Unknown),
-  quota_error: Schema.optional(Schema.Unknown),
-  ad_error: Schema.optional(Schema.Unknown),
-  ad_group_error: Schema.optional(Schema.Unknown),
-  campaign_budget_error: Schema.optional(Schema.Unknown),
-  campaign_error: Schema.optional(Schema.Unknown),
-  video_campaign_error: Schema.optional(Schema.Unknown),
-  authentication_error: Schema.optional(Schema.Unknown),
-  action_error: Schema.optional(Schema.Unknown),
-  ad_group_criterion_customizer_error: Schema.optional(Schema.Unknown),
-  ad_group_criterion_error: Schema.optional(Schema.Unknown),
-  ad_group_customizer_error: Schema.optional(Schema.Unknown),
-  ad_customizer_error: Schema.optional(Schema.Unknown),
-  ad_group_ad_error: Schema.optional(Schema.Unknown),
-  ad_sharing_error: Schema.optional(Schema.Unknown),
-  adx_error: Schema.optional(Schema.Unknown),
-  asset_error: Schema.optional(Schema.Unknown),
-  asset_group_asset_error: Schema.optional(Schema.Unknown),
-  asset_group_listing_group_filter_error: Schema.optional(Schema.Unknown),
-  asset_group_error: Schema.optional(Schema.Unknown),
-  asset_set_asset_error: Schema.optional(Schema.Unknown),
-  asset_set_link_error: Schema.optional(Schema.Unknown),
-  asset_set_error: Schema.optional(Schema.Unknown),
-  bidding_error: Schema.optional(Schema.Unknown),
-  campaign_criterion_error: Schema.optional(Schema.Unknown),
-  campaign_conversion_goal_error: Schema.optional(Schema.Unknown),
-  campaign_customizer_error: Schema.optional(Schema.Unknown),
-  collection_size_error: Schema.optional(Schema.Unknown),
-  conversion_goal_campaign_config_error: Schema.optional(Schema.Unknown),
-  country_code_error: Schema.optional(Schema.Unknown),
-  criterion_error: Schema.optional(Schema.Unknown),
-  custom_conversion_goal_error: Schema.optional(Schema.Unknown),
-  customer_customizer_error: Schema.optional(Schema.Unknown),
-  customer_error: Schema.optional(Schema.Unknown),
-  customizer_attribute_error: Schema.optional(Schema.Unknown),
-  date_error: Schema.optional(Schema.Unknown),
-  date_range_error: Schema.optional(Schema.Unknown),
-  distinct_error: Schema.optional(Schema.Unknown),
-  feed_attribute_reference_error: Schema.optional(Schema.Unknown),
-  final_url_expansion_asset_view_error: Schema.optional(Schema.Unknown),
-  function_error: Schema.optional(Schema.Unknown),
-  function_parsing_error: Schema.optional(Schema.Unknown),
-  id_error: Schema.optional(Schema.Unknown),
-  image_error: Schema.optional(Schema.Unknown),
-  language_code_error: Schema.optional(Schema.Unknown),
-  media_bundle_error: Schema.optional(Schema.Unknown),
-  media_upload_error: Schema.optional(Schema.Unknown),
-  media_file_error: Schema.optional(Schema.Unknown),
-  merchant_center_error: Schema.optional(Schema.Unknown),
-  multiplier_error: Schema.optional(Schema.Unknown),
-  new_resource_creation_error: Schema.optional(Schema.Unknown),
-  not_empty_error: Schema.optional(Schema.Unknown),
-  null_error: Schema.optional(Schema.Unknown),
-  operator_error: Schema.optional(Schema.Unknown),
-  range_error: Schema.optional(Schema.Unknown),
-  recommendation_error: Schema.optional(Schema.Unknown),
-  recommendation_subscription_error: Schema.optional(Schema.Unknown),
-  region_code_error: Schema.optional(Schema.Unknown),
-  setting_error: Schema.optional(Schema.Unknown),
-  string_format_error: Schema.optional(Schema.Unknown),
-  string_length_error: Schema.optional(Schema.Unknown),
-  operation_access_denied_error: Schema.optional(Schema.Unknown),
-  resource_access_denied_error: Schema.optional(Schema.Unknown),
-  resource_count_limit_exceeded_error: Schema.optional(Schema.Unknown),
-  youtube_video_registration_error: Schema.optional(Schema.Unknown),
-  ad_group_bid_modifier_error: Schema.optional(Schema.Unknown),
-  context_error: Schema.optional(Schema.Unknown),
-  field_error: Schema.optional(Schema.Unknown),
-  shared_set_error: Schema.optional(Schema.Unknown),
-  shared_criterion_error: Schema.optional(Schema.Unknown),
-  campaign_shared_set_error: Schema.optional(Schema.Unknown),
-  conversion_action_error: Schema.optional(Schema.Unknown),
-  conversion_adjustment_upload_error: Schema.optional(Schema.Unknown),
-  conversion_custom_variable_error: Schema.optional(Schema.Unknown),
-  conversion_upload_error: Schema.optional(Schema.Unknown),
-  conversion_value_rule_error: Schema.optional(Schema.Unknown),
-  conversion_value_rule_set_error: Schema.optional(Schema.Unknown),
-  header_error: Schema.optional(Schema.Unknown),
-  database_error: Schema.optional(Schema.Unknown),
-  policy_finding_error: Schema.optional(Schema.Unknown),
-  enum_error: Schema.optional(Schema.Unknown),
-  keyword_plan_error: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_error: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_keyword_error: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_error: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_keyword_error: Schema.optional(Schema.Unknown),
-  keyword_plan_idea_error: Schema.optional(Schema.Unknown),
-  account_budget_proposal_error: Schema.optional(Schema.Unknown),
-  user_list_error: Schema.optional(Schema.Unknown),
-  change_event_error: Schema.optional(Schema.Unknown),
-  change_status_error: Schema.optional(Schema.Unknown),
-  feed_error: Schema.optional(Schema.Unknown),
-  geo_target_constant_suggestion_error: Schema.optional(Schema.Unknown),
-  campaign_draft_error: Schema.optional(Schema.Unknown),
-  feed_item_error: Schema.optional(Schema.Unknown),
-  label_error: Schema.optional(Schema.Unknown),
-  billing_setup_error: Schema.optional(Schema.Unknown),
-  customer_client_link_error: Schema.optional(Schema.Unknown),
-  customer_manager_link_error: Schema.optional(Schema.Unknown),
-  feed_mapping_error: Schema.optional(Schema.Unknown),
-  customer_feed_error: Schema.optional(Schema.Unknown),
-  ad_group_feed_error: Schema.optional(Schema.Unknown),
-  campaign_feed_error: Schema.optional(Schema.Unknown),
-  custom_interest_error: Schema.optional(Schema.Unknown),
-  campaign_experiment_error: Schema.optional(Schema.Unknown),
-  extension_feed_item_error: Schema.optional(Schema.Unknown),
-  ad_parameter_error: Schema.optional(Schema.Unknown),
-  feed_item_validation_error: Schema.optional(Schema.Unknown),
-  extension_setting_error: Schema.optional(Schema.Unknown),
-  feed_item_set_error: Schema.optional(Schema.Unknown),
-  feed_item_set_link_error: Schema.optional(Schema.Unknown),
-  feed_item_target_error: Schema.optional(Schema.Unknown),
-  policy_violation_error: Schema.optional(Schema.Unknown),
-  partial_failure_error: Schema.optional(Schema.Unknown),
-  click_view_error: Schema.optional(Schema.Unknown),
-  policy_validation_parameter_error: Schema.optional(Schema.Unknown),
-  size_limit_error: Schema.optional(Schema.Unknown),
-  offline_user_data_job_error: Schema.optional(Schema.Unknown),
-  not_allowlisted_error: Schema.optional(Schema.Unknown),
-  manager_link_error: Schema.optional(Schema.Unknown),
-  currency_code_error: Schema.optional(Schema.Unknown),
-  experiment_error: Schema.optional(Schema.Unknown),
-  access_invitation_error: Schema.optional(Schema.Unknown),
-  reach_plan_error: Schema.optional(Schema.Unknown),
-  invoice_error: Schema.optional(Schema.Unknown),
-  payments_account_error: Schema.optional(Schema.Unknown),
-  time_zone_error: Schema.optional(Schema.Unknown),
-  asset_link_error: Schema.optional(Schema.Unknown),
-  user_data_error: Schema.optional(Schema.Unknown),
-  batch_job_error: Schema.optional(Schema.Unknown),
-  account_link_error: Schema.optional(Schema.Unknown),
-  third_party_app_analytics_link_error: Schema.optional(Schema.Unknown),
-  customer_user_access_error: Schema.optional(Schema.Unknown),
-  custom_audience_error: Schema.optional(Schema.Unknown),
-  audience_error: Schema.optional(Schema.Unknown),
-  search_term_insight_error: Schema.optional(Schema.Unknown),
-  smart_campaign_error: Schema.optional(Schema.Unknown),
-  experiment_arm_error: Schema.optional(Schema.Unknown),
-  audience_insights_error: Schema.optional(Schema.Unknown),
-  product_link_error: Schema.optional(Schema.Unknown),
-  data_link_error: Schema.optional(Schema.Unknown),
-  customer_sk_ad_network_conversion_value_schema_error: Schema.optional(Schema.Unknown),
-  currency_error: Schema.optional(Schema.Unknown),
-  asset_group_signal_error: Schema.optional(Schema.Unknown),
-  product_link_invitation_error: Schema.optional(Schema.Unknown),
-  identity_verification_error: Schema.optional(Schema.Unknown),
-  user_list_customer_type_error: Schema.optional(Schema.Unknown),
-  shopping_product_error: Schema.optional(Schema.Unknown),
-  automatically_created_asset_removal_error: Schema.optional(Schema.Unknown),
-  shareable_preview_error: Schema.optional(Schema.Unknown),
-  campaign_goal_config_error: Schema.optional(Schema.Unknown),
-  goal_error: Schema.optional(Schema.Unknown),
-  brand_guidelines_migration_error: Schema.optional(Schema.Unknown),
-  asset_generation_error: Schema.optional(Schema.Unknown),
-  benchmarks_error: Schema.optional(Schema.Unknown),
-  incentive_error: Schema.optional(Schema.Unknown),
-  content_creator_insights_error: Schema.optional(Schema.Unknown),
-  video_reservation_error: Schema.optional(Schema.Unknown),
-  multi_party_auth_review_error: Schema.optional(Schema.Unknown),
+  request_error: Schema.optional(Schema.suspend(() => RequestError)),
+  bidding_strategy_error: Schema.optional(Schema.suspend(() => BiddingStrategyError)),
+  url_field_error: Schema.optional(Schema.suspend(() => UrlFieldError)),
+  list_operation_error: Schema.optional(Schema.suspend(() => ListOperationError)),
+  query_error: Schema.optional(Schema.suspend(() => QueryError)),
+  mutate_error: Schema.optional(Schema.suspend(() => MutateError)),
+  field_mask_error: Schema.optional(Schema.suspend(() => FieldMaskError)),
+  authorization_error: Schema.optional(Schema.suspend(() => AuthorizationError)),
+  internal_error: Schema.optional(Schema.suspend(() => InternalError)),
+  quota_error: Schema.optional(Schema.suspend(() => QuotaError)),
+  ad_error: Schema.optional(Schema.suspend(() => AdError)),
+  ad_group_error: Schema.optional(Schema.suspend(() => AdGroupError)),
+  campaign_budget_error: Schema.optional(Schema.suspend(() => CampaignBudgetError)),
+  campaign_error: Schema.optional(Schema.suspend(() => CampaignError)),
+  video_campaign_error: Schema.optional(Schema.suspend(() => VideoCampaignError)),
+  authentication_error: Schema.optional(Schema.suspend(() => AuthenticationError)),
+  action_error: Schema.optional(Schema.suspend(() => ActionError)),
+  ad_group_criterion_customizer_error: Schema.optional(Schema.suspend(() => AdGroupCriterionCustomizerError)),
+  ad_group_criterion_error: Schema.optional(Schema.suspend(() => AdGroupCriterionError)),
+  ad_group_customizer_error: Schema.optional(Schema.suspend(() => AdGroupCustomizerError)),
+  ad_customizer_error: Schema.optional(Schema.suspend(() => AdCustomizerError)),
+  ad_group_ad_error: Schema.optional(Schema.suspend(() => AdGroupAdError)),
+  ad_sharing_error: Schema.optional(Schema.suspend(() => AdSharingError)),
+  adx_error: Schema.optional(Schema.suspend(() => AdxError)),
+  asset_error: Schema.optional(Schema.suspend(() => AssetError)),
+  asset_group_asset_error: Schema.optional(Schema.suspend(() => AssetGroupAssetError)),
+  asset_group_listing_group_filter_error: Schema.optional(Schema.suspend(() => AssetGroupListingGroupFilterError)),
+  asset_group_error: Schema.optional(Schema.suspend(() => AssetGroupError)),
+  asset_set_asset_error: Schema.optional(Schema.suspend(() => AssetSetAssetError)),
+  asset_set_link_error: Schema.optional(Schema.suspend(() => AssetSetLinkError)),
+  asset_set_error: Schema.optional(Schema.suspend(() => AssetSetError)),
+  bidding_error: Schema.optional(Schema.suspend(() => BiddingError)),
+  campaign_criterion_error: Schema.optional(Schema.suspend(() => CampaignCriterionError)),
+  campaign_conversion_goal_error: Schema.optional(Schema.suspend(() => CampaignConversionGoalError)),
+  campaign_customizer_error: Schema.optional(Schema.suspend(() => CampaignCustomizerError)),
+  collection_size_error: Schema.optional(Schema.suspend(() => CollectionSizeError)),
+  conversion_goal_campaign_config_error: Schema.optional(Schema.suspend(() => ConversionGoalCampaignConfigError)),
+  country_code_error: Schema.optional(Schema.suspend(() => CountryCodeError)),
+  criterion_error: Schema.optional(Schema.suspend(() => CriterionError)),
+  custom_conversion_goal_error: Schema.optional(Schema.suspend(() => CustomConversionGoalError)),
+  customer_customizer_error: Schema.optional(Schema.suspend(() => CustomerCustomizerError)),
+  customer_error: Schema.optional(Schema.suspend(() => CustomerError)),
+  customizer_attribute_error: Schema.optional(Schema.suspend(() => CustomizerAttributeError)),
+  date_error: Schema.optional(Schema.suspend(() => DateError)),
+  date_range_error: Schema.optional(Schema.suspend(() => DateRangeError)),
+  distinct_error: Schema.optional(Schema.suspend(() => DistinctError)),
+  feed_attribute_reference_error: Schema.optional(Schema.suspend(() => FeedAttributeReferenceError)),
+  final_url_expansion_asset_view_error: Schema.optional(Schema.suspend(() => FinalUrlExpansionAssetViewError)),
+  function_error: Schema.optional(Schema.suspend(() => FunctionError)),
+  function_parsing_error: Schema.optional(Schema.suspend(() => FunctionParsingError)),
+  id_error: Schema.optional(Schema.suspend(() => IdError)),
+  image_error: Schema.optional(Schema.suspend(() => ImageError)),
+  language_code_error: Schema.optional(Schema.suspend(() => LanguageCodeError)),
+  media_bundle_error: Schema.optional(Schema.suspend(() => MediaBundleError)),
+  media_upload_error: Schema.optional(Schema.suspend(() => MediaUploadError)),
+  media_file_error: Schema.optional(Schema.suspend(() => MediaFileError)),
+  merchant_center_error: Schema.optional(Schema.suspend(() => MerchantCenterError)),
+  multiplier_error: Schema.optional(Schema.suspend(() => MultiplierError)),
+  new_resource_creation_error: Schema.optional(Schema.suspend(() => NewResourceCreationError)),
+  not_empty_error: Schema.optional(Schema.suspend(() => NotEmptyError)),
+  null_error: Schema.optional(Schema.suspend(() => NullError)),
+  operator_error: Schema.optional(Schema.suspend(() => OperatorError)),
+  range_error: Schema.optional(Schema.suspend(() => RangeError)),
+  recommendation_error: Schema.optional(Schema.suspend(() => RecommendationError)),
+  recommendation_subscription_error: Schema.optional(Schema.suspend(() => RecommendationSubscriptionError)),
+  region_code_error: Schema.optional(Schema.suspend(() => RegionCodeError)),
+  setting_error: Schema.optional(Schema.suspend(() => SettingError)),
+  string_format_error: Schema.optional(Schema.suspend(() => StringFormatError)),
+  string_length_error: Schema.optional(Schema.suspend(() => StringLengthError)),
+  operation_access_denied_error: Schema.optional(Schema.suspend(() => OperationAccessDeniedError)),
+  resource_access_denied_error: Schema.optional(Schema.suspend(() => ResourceAccessDeniedError)),
+  resource_count_limit_exceeded_error: Schema.optional(Schema.suspend(() => ResourceCountLimitExceededError)),
+  youtube_video_registration_error: Schema.optional(Schema.suspend(() => YoutubeVideoRegistrationError)),
+  ad_group_bid_modifier_error: Schema.optional(Schema.suspend(() => AdGroupBidModifierError)),
+  context_error: Schema.optional(Schema.suspend(() => ContextError)),
+  field_error: Schema.optional(Schema.suspend(() => FieldError)),
+  shared_set_error: Schema.optional(Schema.suspend(() => SharedSetError)),
+  shared_criterion_error: Schema.optional(Schema.suspend(() => SharedCriterionError)),
+  campaign_shared_set_error: Schema.optional(Schema.suspend(() => CampaignSharedSetError)),
+  conversion_action_error: Schema.optional(Schema.suspend(() => ConversionActionError)),
+  conversion_adjustment_upload_error: Schema.optional(Schema.suspend(() => ConversionAdjustmentUploadError)),
+  conversion_custom_variable_error: Schema.optional(Schema.suspend(() => ConversionCustomVariableError)),
+  conversion_upload_error: Schema.optional(Schema.suspend(() => ConversionUploadError)),
+  conversion_value_rule_error: Schema.optional(Schema.suspend(() => ConversionValueRuleError)),
+  conversion_value_rule_set_error: Schema.optional(Schema.suspend(() => ConversionValueRuleSetError)),
+  header_error: Schema.optional(Schema.suspend(() => HeaderError)),
+  database_error: Schema.optional(Schema.suspend(() => DatabaseError)),
+  policy_finding_error: Schema.optional(Schema.suspend(() => PolicyFindingError)),
+  enum_error: Schema.optional(Schema.suspend(() => EnumError)),
+  keyword_plan_error: Schema.optional(Schema.suspend(() => KeywordPlanError)),
+  keyword_plan_campaign_error: Schema.optional(Schema.suspend(() => KeywordPlanCampaignError)),
+  keyword_plan_campaign_keyword_error: Schema.optional(Schema.suspend(() => KeywordPlanCampaignKeywordError)),
+  keyword_plan_ad_group_error: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupError)),
+  keyword_plan_ad_group_keyword_error: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupKeywordError)),
+  keyword_plan_idea_error: Schema.optional(Schema.suspend(() => KeywordPlanIdeaError)),
+  account_budget_proposal_error: Schema.optional(Schema.suspend(() => AccountBudgetProposalError)),
+  user_list_error: Schema.optional(Schema.suspend(() => UserListError)),
+  change_event_error: Schema.optional(Schema.suspend(() => ChangeEventError)),
+  change_status_error: Schema.optional(Schema.suspend(() => ChangeStatusError)),
+  feed_error: Schema.optional(Schema.suspend(() => FeedError)),
+  geo_target_constant_suggestion_error: Schema.optional(Schema.suspend(() => GeoTargetConstantSuggestionError)),
+  campaign_draft_error: Schema.optional(Schema.suspend(() => CampaignDraftError)),
+  feed_item_error: Schema.optional(Schema.suspend(() => FeedItemError)),
+  label_error: Schema.optional(Schema.suspend(() => LabelError)),
+  billing_setup_error: Schema.optional(Schema.suspend(() => BillingSetupError)),
+  customer_client_link_error: Schema.optional(Schema.suspend(() => CustomerClientLinkError)),
+  customer_manager_link_error: Schema.optional(Schema.suspend(() => CustomerManagerLinkError)),
+  feed_mapping_error: Schema.optional(Schema.suspend(() => FeedMappingError)),
+  customer_feed_error: Schema.optional(Schema.suspend(() => CustomerFeedError)),
+  ad_group_feed_error: Schema.optional(Schema.suspend(() => AdGroupFeedError)),
+  campaign_feed_error: Schema.optional(Schema.suspend(() => CampaignFeedError)),
+  custom_interest_error: Schema.optional(Schema.suspend(() => CustomInterestError)),
+  campaign_experiment_error: Schema.optional(Schema.suspend(() => CampaignExperimentError)),
+  extension_feed_item_error: Schema.optional(Schema.suspend(() => ExtensionFeedItemError)),
+  ad_parameter_error: Schema.optional(Schema.suspend(() => AdParameterError)),
+  feed_item_validation_error: Schema.optional(Schema.suspend(() => FeedItemValidationError)),
+  extension_setting_error: Schema.optional(Schema.suspend(() => ExtensionSettingError)),
+  feed_item_set_error: Schema.optional(Schema.suspend(() => FeedItemSetError)),
+  feed_item_set_link_error: Schema.optional(Schema.suspend(() => FeedItemSetLinkError)),
+  feed_item_target_error: Schema.optional(Schema.suspend(() => FeedItemTargetError)),
+  policy_violation_error: Schema.optional(Schema.suspend(() => PolicyViolationError)),
+  partial_failure_error: Schema.optional(Schema.suspend(() => PartialFailureError)),
+  click_view_error: Schema.optional(Schema.suspend(() => ClickViewError)),
+  policy_validation_parameter_error: Schema.optional(Schema.suspend(() => PolicyValidationParameterError)),
+  size_limit_error: Schema.optional(Schema.suspend(() => SizeLimitError)),
+  offline_user_data_job_error: Schema.optional(Schema.suspend(() => OfflineUserDataJobError)),
+  not_allowlisted_error: Schema.optional(Schema.suspend(() => NotAllowlistedError)),
+  manager_link_error: Schema.optional(Schema.suspend(() => ManagerLinkError)),
+  currency_code_error: Schema.optional(Schema.suspend(() => CurrencyCodeError)),
+  experiment_error: Schema.optional(Schema.suspend(() => ExperimentError)),
+  access_invitation_error: Schema.optional(Schema.suspend(() => AccessInvitationError)),
+  reach_plan_error: Schema.optional(Schema.suspend(() => ReachPlanError)),
+  invoice_error: Schema.optional(Schema.suspend(() => InvoiceError)),
+  payments_account_error: Schema.optional(Schema.suspend(() => PaymentsAccountError)),
+  time_zone_error: Schema.optional(Schema.suspend(() => TimeZoneError)),
+  asset_link_error: Schema.optional(Schema.suspend(() => AssetLinkError)),
+  user_data_error: Schema.optional(Schema.suspend(() => UserDataError)),
+  batch_job_error: Schema.optional(Schema.suspend(() => BatchJobError)),
+  account_link_error: Schema.optional(Schema.suspend(() => AccountLinkError)),
+  third_party_app_analytics_link_error: Schema.optional(Schema.suspend(() => ThirdPartyAppAnalyticsLinkError)),
+  customer_user_access_error: Schema.optional(Schema.suspend(() => CustomerUserAccessError)),
+  custom_audience_error: Schema.optional(Schema.suspend(() => CustomAudienceError)),
+  audience_error: Schema.optional(Schema.suspend(() => AudienceError)),
+  search_term_insight_error: Schema.optional(Schema.suspend(() => SearchTermInsightError)),
+  smart_campaign_error: Schema.optional(Schema.suspend(() => SmartCampaignError)),
+  experiment_arm_error: Schema.optional(Schema.suspend(() => ExperimentArmError)),
+  audience_insights_error: Schema.optional(Schema.suspend(() => AudienceInsightsError)),
+  product_link_error: Schema.optional(Schema.suspend(() => ProductLinkError)),
+  data_link_error: Schema.optional(Schema.suspend(() => DataLinkError)),
+  customer_sk_ad_network_conversion_value_schema_error: Schema.optional(Schema.suspend(() => CustomerSkAdNetworkConversionValueSchemaError)),
+  currency_error: Schema.optional(Schema.suspend(() => CurrencyError)),
+  asset_group_signal_error: Schema.optional(Schema.suspend(() => AssetGroupSignalError)),
+  product_link_invitation_error: Schema.optional(Schema.suspend(() => ProductLinkInvitationError)),
+  identity_verification_error: Schema.optional(Schema.suspend(() => IdentityVerificationError)),
+  user_list_customer_type_error: Schema.optional(Schema.suspend(() => UserListCustomerTypeError)),
+  shopping_product_error: Schema.optional(Schema.suspend(() => ShoppingProductError)),
+  automatically_created_asset_removal_error: Schema.optional(Schema.suspend(() => AutomaticallyCreatedAssetRemovalError)),
+  shareable_preview_error: Schema.optional(Schema.suspend(() => ShareablePreviewError)),
+  campaign_goal_config_error: Schema.optional(Schema.suspend(() => CampaignGoalConfigError)),
+  goal_error: Schema.optional(Schema.suspend(() => GoalError)),
+  brand_guidelines_migration_error: Schema.optional(Schema.suspend(() => BrandGuidelinesMigrationError)),
+  asset_generation_error: Schema.optional(Schema.suspend(() => AssetGenerationError)),
+  benchmarks_error: Schema.optional(Schema.suspend(() => BenchmarksError)),
+  incentive_error: Schema.optional(Schema.suspend(() => IncentiveError)),
+  content_creator_insights_error: Schema.optional(Schema.suspend(() => ContentCreatorInsightsError)),
+  video_reservation_error: Schema.optional(Schema.suspend(() => VideoReservationError)),
+  multi_party_auth_review_error: Schema.optional(Schema.suspend(() => MultiPartyAuthReviewError)),
 });
 
 export interface ErrorDetails {
   readonly unpublished_error_code?: string;
-  readonly policy_violation_details?: unknown;
-  readonly policy_finding_details?: unknown;
-  readonly quota_error_details?: unknown;
-  readonly resource_count_details?: unknown;
-  readonly budget_per_day_minimum_error_details?: unknown;
-  readonly reservation_error_details?: unknown;
-  readonly incompatible_clo_goal_error_details?: unknown;
+  readonly policy_violation_details?: PolicyViolationDetails;
+  readonly policy_finding_details?: PolicyFindingDetails;
+  readonly quota_error_details?: QuotaErrorDetails;
+  readonly resource_count_details?: ResourceCountDetails;
+  readonly budget_per_day_minimum_error_details?: BudgetPerDayMinimumErrorDetails;
+  readonly reservation_error_details?: ReservationErrorDetails;
+  readonly incompatible_clo_goal_error_details?: IncompatibleCloGoalsErrorDetails;
 }
 export interface ErrorDetailsEncoded {
   readonly unpublished_error_code?: string;
-  readonly policy_violation_details?: unknown;
-  readonly policy_finding_details?: unknown;
-  readonly quota_error_details?: unknown;
-  readonly resource_count_details?: unknown;
-  readonly budget_per_day_minimum_error_details?: unknown;
-  readonly reservation_error_details?: unknown;
-  readonly incompatible_clo_goal_error_details?: unknown;
+  readonly policy_violation_details?: PolicyViolationDetailsEncoded;
+  readonly policy_finding_details?: PolicyFindingDetailsEncoded;
+  readonly quota_error_details?: QuotaErrorDetailsEncoded;
+  readonly resource_count_details?: ResourceCountDetailsEncoded;
+  readonly budget_per_day_minimum_error_details?: BudgetPerDayMinimumErrorDetailsEncoded;
+  readonly reservation_error_details?: ReservationErrorDetailsEncoded;
+  readonly incompatible_clo_goal_error_details?: IncompatibleCloGoalsErrorDetailsEncoded;
 }
 export const ErrorDetails: Schema.Schema<ErrorDetails, ErrorDetailsEncoded, never> = Schema.Struct({
   unpublished_error_code: Schema.optional(Schema.String),
-  policy_violation_details: Schema.optional(Schema.Unknown),
-  policy_finding_details: Schema.optional(Schema.Unknown),
-  quota_error_details: Schema.optional(Schema.Unknown),
-  resource_count_details: Schema.optional(Schema.Unknown),
-  budget_per_day_minimum_error_details: Schema.optional(Schema.Unknown),
-  reservation_error_details: Schema.optional(Schema.Unknown),
-  incompatible_clo_goal_error_details: Schema.optional(Schema.Unknown),
+  policy_violation_details: Schema.optional(Schema.suspend(() => PolicyViolationDetails)),
+  policy_finding_details: Schema.optional(Schema.suspend(() => PolicyFindingDetails)),
+  quota_error_details: Schema.optional(Schema.suspend(() => QuotaErrorDetails)),
+  resource_count_details: Schema.optional(Schema.suspend(() => ResourceCountDetails)),
+  budget_per_day_minimum_error_details: Schema.optional(Schema.suspend(() => BudgetPerDayMinimumErrorDetails)),
+  reservation_error_details: Schema.optional(Schema.suspend(() => ReservationErrorDetails)),
+  incompatible_clo_goal_error_details: Schema.optional(Schema.suspend(() => IncompatibleCloGoalsErrorDetails)),
 });
 
 export interface ErrorLocation {
-  readonly field_path_elements?: ReadonlyArray<unknown>;
+  readonly field_path_elements?: ReadonlyArray<FieldPathElement>;
 }
 export interface ErrorLocationEncoded {
-  readonly field_path_elements?: ReadonlyArray<unknown>;
+  readonly field_path_elements?: ReadonlyArray<FieldPathElementEncoded>;
 }
 export const ErrorLocation: Schema.Schema<ErrorLocation, ErrorLocationEncoded, never> = Schema.Struct({
-  field_path_elements: Schema.optional(Schema.Array(Schema.Unknown)),
+  field_path_elements: Schema.optional(Schema.Array(Schema.suspend(() => FieldPathElement))),
 });
 
 export type EuPoliticalAdvertisingStatus = "UNSPECIFIED" | "UNKNOWN" | "CONTAINS_EU_POLITICAL_ADVERTISING" | "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
@@ -13621,42 +13621,42 @@ export const EuPoliticalAdvertisingStatusEnum: Schema.Schema<EuPoliticalAdvertis
 export interface Event {
   readonly mapped_event_name?: string;
   readonly currency_code?: string;
-  readonly event_revenue_range?: unknown;
+  readonly event_revenue_range?: RevenueRange;
   readonly event_revenue_value?: number;
-  readonly event_occurrence_range?: unknown;
+  readonly event_occurrence_range?: EventOccurrenceRange;
   readonly event_counter?: string;
 }
 export interface EventEncoded {
   readonly mapped_event_name?: string;
   readonly currency_code?: string;
-  readonly event_revenue_range?: unknown;
+  readonly event_revenue_range?: RevenueRangeEncoded;
   readonly event_revenue_value?: number;
-  readonly event_occurrence_range?: unknown;
+  readonly event_occurrence_range?: EventOccurrenceRangeEncoded;
   readonly event_counter?: string;
 }
 export const Event: Schema.Schema<Event, EventEncoded, never> = Schema.Struct({
   mapped_event_name: Schema.optional(Schema.String),
   currency_code: Schema.optional(Schema.String),
-  event_revenue_range: Schema.optional(Schema.Unknown),
+  event_revenue_range: Schema.optional(Schema.suspend(() => RevenueRange)),
   event_revenue_value: Schema.optional(Schema.Number),
-  event_occurrence_range: Schema.optional(Schema.Unknown),
+  event_occurrence_range: Schema.optional(Schema.suspend(() => EventOccurrenceRange)),
   event_counter: Schema.optional(Schema.String),
 });
 
 export interface EventAttribute {
   readonly event?: string;
   readonly event_date_time?: string;
-  readonly item_attribute?: ReadonlyArray<unknown>;
+  readonly item_attribute?: ReadonlyArray<EventItemAttribute>;
 }
 export interface EventAttributeEncoded {
   readonly event?: string;
   readonly event_date_time?: string;
-  readonly item_attribute?: ReadonlyArray<unknown>;
+  readonly item_attribute?: ReadonlyArray<EventItemAttributeEncoded>;
 }
 export const EventAttribute: Schema.Schema<EventAttribute, EventAttributeEncoded, never> = Schema.Struct({
   event: Schema.optional(Schema.String),
   event_date_time: Schema.optional(Schema.String),
-  item_attribute: Schema.optional(Schema.Array(Schema.Unknown)),
+  item_attribute: Schema.optional(Schema.Array(Schema.suspend(() => EventItemAttribute))),
 });
 
 export interface EventItemAttribute {
@@ -13683,13 +13683,13 @@ export const EventOccurrenceRange: Schema.Schema<EventOccurrenceRange, EventOccu
 });
 
 export interface ExclusionSegment {
-  readonly user_list?: unknown;
+  readonly user_list?: UserListSegment;
 }
 export interface ExclusionSegmentEncoded {
-  readonly user_list?: unknown;
+  readonly user_list?: UserListSegmentEncoded;
 }
 export const ExclusionSegment: Schema.Schema<ExclusionSegment, ExclusionSegmentEncoded, never> = Schema.Struct({
-  user_list: Schema.optional(Schema.Unknown),
+  user_list: Schema.optional(Schema.suspend(() => UserListSegment)),
 });
 
 export interface ExpandedDynamicSearchAdInfo {
@@ -13825,9 +13825,9 @@ export interface ExperimentArm {
   readonly traffic_split?: string;
   readonly campaigns?: ReadonlyArray<string>;
   readonly in_design_campaigns?: ReadonlyArray<string>;
-  readonly asset_testing_info?: unknown;
-  readonly asset_groups?: ReadonlyArray<unknown>;
-  readonly performance_max_experiment_arm_info?: unknown;
+  readonly asset_testing_info?: AssetTestingInfo;
+  readonly asset_groups?: ReadonlyArray<AssetGroupInfo>;
+  readonly performance_max_experiment_arm_info?: PerformanceMaxExperimentArmInfo;
 }
 export interface ExperimentArmEncoded {
   readonly resource_name?: string;
@@ -13837,9 +13837,9 @@ export interface ExperimentArmEncoded {
   readonly traffic_split?: string;
   readonly campaigns?: ReadonlyArray<string>;
   readonly in_design_campaigns?: ReadonlyArray<string>;
-  readonly asset_testing_info?: unknown;
-  readonly asset_groups?: ReadonlyArray<unknown>;
-  readonly performance_max_experiment_arm_info?: unknown;
+  readonly asset_testing_info?: AssetTestingInfoEncoded;
+  readonly asset_groups?: ReadonlyArray<AssetGroupInfoEncoded>;
+  readonly performance_max_experiment_arm_info?: PerformanceMaxExperimentArmInfoEncoded;
 }
 export const ExperimentArm: Schema.Schema<ExperimentArm, ExperimentArmEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -13849,9 +13849,9 @@ export const ExperimentArm: Schema.Schema<ExperimentArm, ExperimentArmEncoded, n
   traffic_split: Schema.optional(Schema.String),
   campaigns: Schema.optional(Schema.Array(Schema.String)),
   in_design_campaigns: Schema.optional(Schema.Array(Schema.String)),
-  asset_testing_info: Schema.optional(Schema.Unknown),
-  asset_groups: Schema.optional(Schema.Array(Schema.Unknown)),
-  performance_max_experiment_arm_info: Schema.optional(Schema.Unknown),
+  asset_testing_info: Schema.optional(Schema.suspend(() => AssetTestingInfo)),
+  asset_groups: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupInfo))),
+  performance_max_experiment_arm_info: Schema.optional(Schema.suspend(() => PerformanceMaxExperimentArmInfo)),
 });
 
 export type ExperimentArmError = "UNSPECIFIED" | "UNKNOWN" | "EXPERIMENT_ARM_COUNT_LIMIT_EXCEEDED" | "INVALID_CAMPAIGN_STATUS" | "DUPLICATE_EXPERIMENT_ARM_NAME" | "CANNOT_SET_TREATMENT_ARM_CAMPAIGN" | "CANNOT_MODIFY_CAMPAIGN_IDS" | "CANNOT_MODIFY_CAMPAIGN_WITHOUT_SUFFIX_SET" | "CANNOT_MUTATE_TRAFFIC_SPLIT_AFTER_START" | "CANNOT_ADD_CAMPAIGN_WITH_SHARED_BUDGET" | "CANNOT_ADD_CAMPAIGN_WITH_CUSTOM_BUDGET" | "CANNOT_ADD_CAMPAIGNS_WITH_DYNAMIC_ASSETS_ENABLED" | "UNSUPPORTED_CAMPAIGN_ADVERTISING_CHANNEL_SUB_TYPE" | "CANNOT_ADD_BASE_CAMPAIGN_WITH_DATE_RANGE" | "BIDDING_STRATEGY_NOT_SUPPORTED_IN_EXPERIMENTS" | "TRAFFIC_SPLIT_NOT_SUPPORTED_FOR_CHANNEL_TYPE" | "BUDGET_MUST_NOT_BE_SHARED" | "ADOPT_AI_MAX_CAMPAIGN_MISSING_PERFORMANCE_SEARCH_ENABLED" | "TOO_MANY_CAMPAIGNS_IN_EXPERIMENT_ARM" | "CANNOT_ADD_CAMPAIGN_WITH_TARGET_ROAS_TOLERANCE_PERCENT_MILLIS" | "CANNOT_HAVE_SAME_CAMPAIGN_CROSS_ARMS_IN_ONE_EXPERIMENT" | "SEARCH_PLUS_CAMPAIGN_NOT_ALLOWED" | "DUPLICATE_ASSET_GROUP_ASSETS_BETWEEN_ARMS" | "DUPLICATE_ASSET_GROUP_ASSETS_IN_ONE_ARM";
@@ -13869,19 +13869,19 @@ export const ExperimentArmErrorEnum: Schema.Schema<ExperimentArmErrorEnum, Exper
 });
 
 export interface ExperimentArmOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ExperimentArm;
   readonly update?: ExperimentArm;
   readonly remove?: string;
 }
 export interface ExperimentArmOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ExperimentArmEncoded;
   readonly update?: ExperimentArmEncoded;
   readonly remove?: string;
 }
 export const ExperimentArmOperation: Schema.Schema<ExperimentArmOperation, ExperimentArmOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => ExperimentArm)),
   update: Schema.optional(Schema.suspend(() => ExperimentArm)),
   remove: Schema.optional(Schema.String),
@@ -13944,19 +13944,19 @@ export const ExperimentMetricEnum: Schema.Schema<ExperimentMetricEnum, Experimen
 });
 
 export interface ExperimentOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Experiment;
   readonly update?: Experiment;
   readonly remove?: string;
 }
 export interface ExperimentOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: ExperimentEncoded;
   readonly update?: ExperimentEncoded;
   readonly remove?: string;
 }
 export const ExperimentOperation: Schema.Schema<ExperimentOperation, ExperimentOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Experiment)),
   update: Schema.optional(Schema.suspend(() => Experiment)),
   remove: Schema.optional(Schema.String),
@@ -14210,13 +14210,13 @@ export const FetchIncentiveRequest: Schema.Schema<FetchIncentiveRequest, FetchIn
 });
 
 export interface FetchIncentiveResponse {
-  readonly incentive_offer?: unknown;
+  readonly incentive_offer?: IncentiveOffer;
 }
 export interface FetchIncentiveResponseEncoded {
-  readonly incentive_offer?: unknown;
+  readonly incentive_offer?: IncentiveOfferEncoded;
 }
 export const FetchIncentiveResponse: Schema.Schema<FetchIncentiveResponse, FetchIncentiveResponseEncoded, never> = Schema.Struct({
-  incentive_offer: Schema.optional(Schema.Unknown),
+  incentive_offer: Schema.optional(Schema.suspend(() => IncentiveOffer)),
 });
 
 export type FieldError = "UNSPECIFIED" | "UNKNOWN" | "REQUIRED" | "IMMUTABLE_FIELD" | "INVALID_VALUE" | "VALUE_MUST_BE_UNSET" | "REQUIRED_NONEMPTY_LIST" | "FIELD_CANNOT_BE_CLEARED" | "BLOCKED_VALUE" | "FIELD_CAN_ONLY_BE_CLEARED";
@@ -14330,15 +14330,15 @@ export const FinalUrlImageGenerationInput: Schema.Schema<FinalUrlImageGeneration
 
 export interface FineGrainedConversionValueMappings {
   readonly fine_grained_conversion_value?: number;
-  readonly conversion_value_mapping?: unknown;
+  readonly conversion_value_mapping?: ConversionValueMapping;
 }
 export interface FineGrainedConversionValueMappingsEncoded {
   readonly fine_grained_conversion_value?: number;
-  readonly conversion_value_mapping?: unknown;
+  readonly conversion_value_mapping?: ConversionValueMappingEncoded;
 }
 export const FineGrainedConversionValueMappings: Schema.Schema<FineGrainedConversionValueMappings, FineGrainedConversionValueMappingsEncoded, never> = Schema.Struct({
   fine_grained_conversion_value: Schema.optional(Schema.Int),
-  conversion_value_mapping: Schema.optional(Schema.Unknown),
+  conversion_value_mapping: Schema.optional(Schema.suspend(() => ConversionValueMapping)),
 });
 
 export interface FirebaseSettings {
@@ -14362,15 +14362,15 @@ export const FirebaseSettings: Schema.Schema<FirebaseSettings, FirebaseSettingsE
 
 export interface FixedCpm {
   readonly goal?: FixedCpmGoal;
-  readonly target_frequency_info?: unknown;
+  readonly target_frequency_info?: FixedCpmTargetFrequencyGoalInfo;
 }
 export interface FixedCpmEncoded {
   readonly goal?: FixedCpmGoalEncoded;
-  readonly target_frequency_info?: unknown;
+  readonly target_frequency_info?: FixedCpmTargetFrequencyGoalInfoEncoded;
 }
 export const FixedCpm: Schema.Schema<FixedCpm, FixedCpmEncoded, never> = Schema.Struct({
   goal: Schema.optional(Schema.suspend(() => FixedCpmGoal)),
-  target_frequency_info: Schema.optional(Schema.Unknown),
+  target_frequency_info: Schema.optional(Schema.suspend(() => FixedCpmTargetFrequencyGoalInfo)),
 });
 
 export type FixedCpmGoal = "UNSPECIFIED" | "UNKNOWN" | "REACH" | "TARGET_FREQUENCY";
@@ -14415,32 +14415,32 @@ export const FixedCpmTargetFrequencyTimeUnitEnum: Schema.Schema<FixedCpmTargetFr
 });
 
 export interface FlexibleRuleOperandInfo {
-  readonly rule?: unknown;
+  readonly rule?: UserListRuleInfo;
   readonly lookback_window_days?: string;
 }
 export interface FlexibleRuleOperandInfoEncoded {
-  readonly rule?: unknown;
+  readonly rule?: UserListRuleInfoEncoded;
   readonly lookback_window_days?: string;
 }
 export const FlexibleRuleOperandInfo: Schema.Schema<FlexibleRuleOperandInfo, FlexibleRuleOperandInfoEncoded, never> = Schema.Struct({
-  rule: Schema.optional(Schema.Unknown),
+  rule: Schema.optional(Schema.suspend(() => UserListRuleInfo)),
   lookback_window_days: Schema.optional(Schema.String),
 });
 
 export interface FlexibleRuleUserListInfo {
   readonly inclusive_rule_operator?: UserListFlexibleRuleOperator;
-  readonly inclusive_operands?: ReadonlyArray<unknown>;
-  readonly exclusive_operands?: ReadonlyArray<unknown>;
+  readonly inclusive_operands?: ReadonlyArray<FlexibleRuleOperandInfo>;
+  readonly exclusive_operands?: ReadonlyArray<FlexibleRuleOperandInfo>;
 }
 export interface FlexibleRuleUserListInfoEncoded {
   readonly inclusive_rule_operator?: UserListFlexibleRuleOperatorEncoded;
-  readonly inclusive_operands?: ReadonlyArray<unknown>;
-  readonly exclusive_operands?: ReadonlyArray<unknown>;
+  readonly inclusive_operands?: ReadonlyArray<FlexibleRuleOperandInfoEncoded>;
+  readonly exclusive_operands?: ReadonlyArray<FlexibleRuleOperandInfoEncoded>;
 }
 export const FlexibleRuleUserListInfo: Schema.Schema<FlexibleRuleUserListInfo, FlexibleRuleUserListInfoEncoded, never> = Schema.Struct({
   inclusive_rule_operator: Schema.optional(Schema.suspend(() => UserListFlexibleRuleOperator)),
-  inclusive_operands: Schema.optional(Schema.Array(Schema.Unknown)),
-  exclusive_operands: Schema.optional(Schema.Array(Schema.Unknown)),
+  inclusive_operands: Schema.optional(Schema.Array(Schema.suspend(() => FlexibleRuleOperandInfo))),
+  exclusive_operands: Schema.optional(Schema.Array(Schema.suspend(() => FlexibleRuleOperandInfo))),
 });
 
 export interface Forecast {
@@ -14449,7 +14449,7 @@ export interface Forecast {
   readonly on_target_impressions?: string;
   readonly total_impressions?: string;
   readonly viewable_impressions?: string;
-  readonly effective_frequency_breakdowns?: ReadonlyArray<unknown>;
+  readonly effective_frequency_breakdowns?: ReadonlyArray<EffectiveFrequencyBreakdown>;
   readonly on_target_coview_reach?: string;
   readonly total_coview_reach?: string;
   readonly on_target_coview_impressions?: string;
@@ -14464,7 +14464,7 @@ export interface ForecastEncoded {
   readonly on_target_impressions?: string;
   readonly total_impressions?: string;
   readonly viewable_impressions?: string;
-  readonly effective_frequency_breakdowns?: ReadonlyArray<unknown>;
+  readonly effective_frequency_breakdowns?: ReadonlyArray<EffectiveFrequencyBreakdownEncoded>;
   readonly on_target_coview_reach?: string;
   readonly total_coview_reach?: string;
   readonly on_target_coview_impressions?: string;
@@ -14479,7 +14479,7 @@ export const Forecast: Schema.Schema<Forecast, ForecastEncoded, never> = Schema.
   on_target_impressions: Schema.optional(Schema.String),
   total_impressions: Schema.optional(Schema.String),
   viewable_impressions: Schema.optional(Schema.String),
-  effective_frequency_breakdowns: Schema.optional(Schema.Array(Schema.Unknown)),
+  effective_frequency_breakdowns: Schema.optional(Schema.Array(Schema.suspend(() => EffectiveFrequencyBreakdown))),
   on_target_coview_reach: Schema.optional(Schema.String),
   total_coview_reach: Schema.optional(Schema.String),
   on_target_coview_impressions: Schema.optional(Schema.String),
@@ -14514,15 +14514,15 @@ export const ForecastingSetTargetCpaParameters: Schema.Schema<ForecastingSetTarg
 
 export interface ForecastingSetTargetCpaRecommendation {
   readonly recommended_target_cpa_micros?: string;
-  readonly campaign_budget?: unknown;
+  readonly campaign_budget?: CampaignBudget;
 }
 export interface ForecastingSetTargetCpaRecommendationEncoded {
   readonly recommended_target_cpa_micros?: string;
-  readonly campaign_budget?: unknown;
+  readonly campaign_budget?: CampaignBudgetEncoded;
 }
 export const ForecastingSetTargetCpaRecommendation: Schema.Schema<ForecastingSetTargetCpaRecommendation, ForecastingSetTargetCpaRecommendationEncoded, never> = Schema.Struct({
   recommended_target_cpa_micros: Schema.optional(Schema.String),
-  campaign_budget: Schema.optional(Schema.Unknown),
+  campaign_budget: Schema.optional(Schema.suspend(() => CampaignBudget)),
 });
 
 export interface ForecastingSetTargetRoasParameters {
@@ -14540,15 +14540,15 @@ export const ForecastingSetTargetRoasParameters: Schema.Schema<ForecastingSetTar
 
 export interface ForecastingSetTargetRoasRecommendation {
   readonly recommended_target_roas?: number;
-  readonly campaign_budget?: unknown;
+  readonly campaign_budget?: CampaignBudget;
 }
 export interface ForecastingSetTargetRoasRecommendationEncoded {
   readonly recommended_target_roas?: number;
-  readonly campaign_budget?: unknown;
+  readonly campaign_budget?: CampaignBudgetEncoded;
 }
 export const ForecastingSetTargetRoasRecommendation: Schema.Schema<ForecastingSetTargetRoasRecommendation, ForecastingSetTargetRoasRecommendationEncoded, never> = Schema.Struct({
   recommended_target_roas: Schema.optional(Schema.Number),
-  campaign_budget: Schema.optional(Schema.Unknown),
+  campaign_budget: Schema.optional(Schema.suspend(() => CampaignBudget)),
 });
 
 export interface ForecastMetricOptions {
@@ -14585,15 +14585,15 @@ export const FrequencyCap: Schema.Schema<FrequencyCap, FrequencyCapEncoded, neve
 });
 
 export interface FrequencyCapEntry {
-  readonly key?: unknown;
+  readonly key?: FrequencyCapKey;
   readonly cap?: number;
 }
 export interface FrequencyCapEntryEncoded {
-  readonly key?: unknown;
+  readonly key?: FrequencyCapKeyEncoded;
   readonly cap?: number;
 }
 export const FrequencyCapEntry: Schema.Schema<FrequencyCapEntry, FrequencyCapEntryEncoded, never> = Schema.Struct({
-  key: Schema.optional(Schema.Unknown),
+  key: Schema.optional(Schema.suspend(() => FrequencyCapKey)),
   cap: Schema.optional(Schema.Int),
 });
 
@@ -14763,22 +14763,22 @@ export const GenerateAdGroupThemesRequest: Schema.Schema<GenerateAdGroupThemesRe
 });
 
 export interface GenerateAdGroupThemesResponse {
-  readonly ad_group_keyword_suggestions?: ReadonlyArray<unknown>;
-  readonly unusable_ad_groups?: ReadonlyArray<unknown>;
+  readonly ad_group_keyword_suggestions?: ReadonlyArray<AdGroupKeywordSuggestion>;
+  readonly unusable_ad_groups?: ReadonlyArray<UnusableAdGroup>;
 }
 export interface GenerateAdGroupThemesResponseEncoded {
-  readonly ad_group_keyword_suggestions?: ReadonlyArray<unknown>;
-  readonly unusable_ad_groups?: ReadonlyArray<unknown>;
+  readonly ad_group_keyword_suggestions?: ReadonlyArray<AdGroupKeywordSuggestionEncoded>;
+  readonly unusable_ad_groups?: ReadonlyArray<UnusableAdGroupEncoded>;
 }
 export const GenerateAdGroupThemesResponse: Schema.Schema<GenerateAdGroupThemesResponse, GenerateAdGroupThemesResponseEncoded, never> = Schema.Struct({
-  ad_group_keyword_suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
-  unusable_ad_groups: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_group_keyword_suggestions: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupKeywordSuggestion))),
+  unusable_ad_groups: Schema.optional(Schema.Array(Schema.suspend(() => UnusableAdGroup))),
 });
 
 export interface GenerateAudienceCompositionInsightsRequest {
   readonly customer_id?: string;
-  readonly audience?: unknown;
-  readonly baseline_audience?: unknown;
+  readonly audience?: InsightsAudience;
+  readonly baseline_audience?: InsightsAudience;
   readonly data_month?: string;
   readonly dimensions?: ReadonlyArray<AudienceInsightsDimension>;
   readonly customer_insights_group?: string;
@@ -14786,8 +14786,8 @@ export interface GenerateAudienceCompositionInsightsRequest {
 }
 export interface GenerateAudienceCompositionInsightsRequestEncoded {
   readonly customer_id?: string;
-  readonly audience?: unknown;
-  readonly baseline_audience?: unknown;
+  readonly audience?: InsightsAudienceEncoded;
+  readonly baseline_audience?: InsightsAudienceEncoded;
   readonly data_month?: string;
   readonly dimensions?: ReadonlyArray<AudienceInsightsDimensionEncoded>;
   readonly customer_insights_group?: string;
@@ -14795,8 +14795,8 @@ export interface GenerateAudienceCompositionInsightsRequestEncoded {
 }
 export const GenerateAudienceCompositionInsightsRequest: Schema.Schema<GenerateAudienceCompositionInsightsRequest, GenerateAudienceCompositionInsightsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  audience: Schema.optional(Schema.Unknown),
-  baseline_audience: Schema.optional(Schema.Unknown),
+  audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
+  baseline_audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
   data_month: Schema.optional(Schema.String),
   dimensions: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsDimension))),
   customer_insights_group: Schema.optional(Schema.String),
@@ -14804,30 +14804,30 @@ export const GenerateAudienceCompositionInsightsRequest: Schema.Schema<GenerateA
 });
 
 export interface GenerateAudienceCompositionInsightsResponse {
-  readonly sections?: ReadonlyArray<unknown>;
+  readonly sections?: ReadonlyArray<AudienceCompositionSection>;
 }
 export interface GenerateAudienceCompositionInsightsResponseEncoded {
-  readonly sections?: ReadonlyArray<unknown>;
+  readonly sections?: ReadonlyArray<AudienceCompositionSectionEncoded>;
 }
 export const GenerateAudienceCompositionInsightsResponse: Schema.Schema<GenerateAudienceCompositionInsightsResponse, GenerateAudienceCompositionInsightsResponseEncoded, never> = Schema.Struct({
-  sections: Schema.optional(Schema.Array(Schema.Unknown)),
+  sections: Schema.optional(Schema.Array(Schema.suspend(() => AudienceCompositionSection))),
 });
 
 export interface GenerateAudienceDefinitionRequest {
   readonly customer_id?: string;
-  readonly audience_description?: unknown;
+  readonly audience_description?: InsightsAudienceDescription;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfo;
 }
 export interface GenerateAudienceDefinitionRequestEncoded {
   readonly customer_id?: string;
-  readonly audience_description?: unknown;
+  readonly audience_description?: InsightsAudienceDescriptionEncoded;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfoEncoded;
 }
 export const GenerateAudienceDefinitionRequest: Schema.Schema<GenerateAudienceDefinitionRequest, GenerateAudienceDefinitionRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  audience_description: Schema.optional(Schema.Unknown),
+  audience_description: Schema.optional(Schema.suspend(() => InsightsAudienceDescription)),
   customer_insights_group: Schema.optional(Schema.String),
   insights_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
 });
@@ -14872,24 +14872,24 @@ export const GenerateAudienceOverlapInsightsRequest: Schema.Schema<GenerateAudie
 
 export interface GenerateAudienceOverlapInsightsResponse {
   readonly primary_attribute_metadata?: AudienceInsightsAttributeMetadata;
-  readonly dimension_results?: ReadonlyArray<unknown>;
+  readonly dimension_results?: ReadonlyArray<DimensionOverlapResult>;
 }
 export interface GenerateAudienceOverlapInsightsResponseEncoded {
   readonly primary_attribute_metadata?: AudienceInsightsAttributeMetadataEncoded;
-  readonly dimension_results?: ReadonlyArray<unknown>;
+  readonly dimension_results?: ReadonlyArray<DimensionOverlapResultEncoded>;
 }
 export const GenerateAudienceOverlapInsightsResponse: Schema.Schema<GenerateAudienceOverlapInsightsResponse, GenerateAudienceOverlapInsightsResponseEncoded, never> = Schema.Struct({
   primary_attribute_metadata: Schema.optional(Schema.suspend(() => AudienceInsightsAttributeMetadata)),
-  dimension_results: Schema.optional(Schema.Array(Schema.Unknown)),
+  dimension_results: Schema.optional(Schema.Array(Schema.suspend(() => DimensionOverlapResult))),
 });
 
 export interface GenerateBenchmarksMetricsRequest {
   readonly customer_id?: string;
   readonly date_range?: DateRange;
   readonly location?: LocationInfo;
-  readonly benchmarks_source?: unknown;
-  readonly product_filter?: unknown;
-  readonly breakdown_definition?: unknown;
+  readonly benchmarks_source?: BenchmarksSource;
+  readonly product_filter?: ProductFilter;
+  readonly breakdown_definition?: BreakdownDefinition;
   readonly currency_code?: string;
   readonly customer_benchmarks_group?: string;
   readonly application_info?: AdditionalApplicationInfo;
@@ -14898,9 +14898,9 @@ export interface GenerateBenchmarksMetricsRequestEncoded {
   readonly customer_id?: string;
   readonly date_range?: DateRangeEncoded;
   readonly location?: LocationInfoEncoded;
-  readonly benchmarks_source?: unknown;
-  readonly product_filter?: unknown;
-  readonly breakdown_definition?: unknown;
+  readonly benchmarks_source?: BenchmarksSourceEncoded;
+  readonly product_filter?: ProductFilterEncoded;
+  readonly breakdown_definition?: BreakdownDefinitionEncoded;
   readonly currency_code?: string;
   readonly customer_benchmarks_group?: string;
   readonly application_info?: AdditionalApplicationInfoEncoded;
@@ -14909,28 +14909,28 @@ export const GenerateBenchmarksMetricsRequest: Schema.Schema<GenerateBenchmarksM
   customer_id: Schema.optional(Schema.String),
   date_range: Schema.optional(Schema.suspend(() => DateRange)),
   location: Schema.optional(Schema.suspend(() => LocationInfo)),
-  benchmarks_source: Schema.optional(Schema.Unknown),
-  product_filter: Schema.optional(Schema.Unknown),
-  breakdown_definition: Schema.optional(Schema.Unknown),
+  benchmarks_source: Schema.optional(Schema.suspend(() => BenchmarksSource)),
+  product_filter: Schema.optional(Schema.suspend(() => ProductFilter)),
+  breakdown_definition: Schema.optional(Schema.suspend(() => BreakdownDefinition)),
   currency_code: Schema.optional(Schema.String),
   customer_benchmarks_group: Schema.optional(Schema.String),
   application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
 });
 
 export interface GenerateBenchmarksMetricsResponse {
-  readonly customer_metrics?: unknown;
-  readonly average_benchmarks_metrics?: unknown;
-  readonly breakdown_metrics?: ReadonlyArray<unknown>;
+  readonly customer_metrics?: CustomerMetrics;
+  readonly average_benchmarks_metrics?: Metrics;
+  readonly breakdown_metrics?: ReadonlyArray<BreakdownMetrics>;
 }
 export interface GenerateBenchmarksMetricsResponseEncoded {
-  readonly customer_metrics?: unknown;
-  readonly average_benchmarks_metrics?: unknown;
-  readonly breakdown_metrics?: ReadonlyArray<unknown>;
+  readonly customer_metrics?: CustomerMetricsEncoded;
+  readonly average_benchmarks_metrics?: MetricsEncoded;
+  readonly breakdown_metrics?: ReadonlyArray<BreakdownMetricsEncoded>;
 }
 export const GenerateBenchmarksMetricsResponse: Schema.Schema<GenerateBenchmarksMetricsResponse, GenerateBenchmarksMetricsResponseEncoded, never> = Schema.Struct({
-  customer_metrics: Schema.optional(Schema.Unknown),
-  average_benchmarks_metrics: Schema.optional(Schema.Unknown),
-  breakdown_metrics: Schema.optional(Schema.Array(Schema.Unknown)),
+  customer_metrics: Schema.optional(Schema.suspend(() => CustomerMetrics)),
+  average_benchmarks_metrics: Schema.optional(Schema.suspend(() => Metrics)),
+  breakdown_metrics: Schema.optional(Schema.Array(Schema.suspend(() => BreakdownMetrics))),
 });
 
 export interface GenerateConversionRatesRequest {
@@ -14950,13 +14950,13 @@ export const GenerateConversionRatesRequest: Schema.Schema<GenerateConversionRat
 });
 
 export interface GenerateConversionRatesResponse {
-  readonly conversion_rate_suggestions?: ReadonlyArray<unknown>;
+  readonly conversion_rate_suggestions?: ReadonlyArray<ConversionRateSuggestion>;
 }
 export interface GenerateConversionRatesResponseEncoded {
-  readonly conversion_rate_suggestions?: ReadonlyArray<unknown>;
+  readonly conversion_rate_suggestions?: ReadonlyArray<ConversionRateSuggestionEncoded>;
 }
 export const GenerateConversionRatesResponse: Schema.Schema<GenerateConversionRatesResponse, GenerateConversionRatesResponseEncoded, never> = Schema.Struct({
-  conversion_rate_suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
+  conversion_rate_suggestions: Schema.optional(Schema.Array(Schema.suspend(() => ConversionRateSuggestion))),
 });
 
 export interface GenerateCreatorInsightsRequest {
@@ -14966,9 +14966,9 @@ export interface GenerateCreatorInsightsRequest {
   readonly country_locations?: ReadonlyArray<LocationInfo>;
   readonly sub_country_locations?: ReadonlyArray<LocationInfo>;
   readonly supplemental_data?: ReadonlyArray<ContentCreatorInsightsSupplementalData>;
-  readonly search_attributes?: unknown;
-  readonly search_channels?: unknown;
-  readonly search_topics?: unknown;
+  readonly search_attributes?: SearchAttributes;
+  readonly search_channels?: YouTubeChannels;
+  readonly search_topics?: SearchTopics;
 }
 export interface GenerateCreatorInsightsRequestEncoded {
   readonly customer_id?: string;
@@ -14977,9 +14977,9 @@ export interface GenerateCreatorInsightsRequestEncoded {
   readonly country_locations?: ReadonlyArray<LocationInfoEncoded>;
   readonly sub_country_locations?: ReadonlyArray<LocationInfoEncoded>;
   readonly supplemental_data?: ReadonlyArray<ContentCreatorInsightsSupplementalDataEncoded>;
-  readonly search_attributes?: unknown;
-  readonly search_channels?: unknown;
-  readonly search_topics?: unknown;
+  readonly search_attributes?: SearchAttributesEncoded;
+  readonly search_channels?: YouTubeChannelsEncoded;
+  readonly search_topics?: SearchTopicsEncoded;
 }
 export const GenerateCreatorInsightsRequest: Schema.Schema<GenerateCreatorInsightsRequest, GenerateCreatorInsightsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
@@ -14988,22 +14988,22 @@ export const GenerateCreatorInsightsRequest: Schema.Schema<GenerateCreatorInsigh
   country_locations: Schema.optional(Schema.Array(Schema.suspend(() => LocationInfo))),
   sub_country_locations: Schema.optional(Schema.Array(Schema.suspend(() => LocationInfo))),
   supplemental_data: Schema.optional(Schema.Array(Schema.suspend(() => ContentCreatorInsightsSupplementalData))),
-  search_attributes: Schema.optional(Schema.Unknown),
-  search_channels: Schema.optional(Schema.Unknown),
-  search_topics: Schema.optional(Schema.Unknown),
+  search_attributes: Schema.optional(Schema.suspend(() => SearchAttributes)),
+  search_channels: Schema.optional(Schema.suspend(() => YouTubeChannels)),
+  search_topics: Schema.optional(Schema.suspend(() => SearchTopics)),
 });
 
 export interface GenerateCreatorInsightsResponse {
-  readonly creator_insights?: ReadonlyArray<unknown>;
-  readonly local_creator_insights?: ReadonlyArray<unknown>;
+  readonly creator_insights?: ReadonlyArray<YouTubeCreatorInsights>;
+  readonly local_creator_insights?: ReadonlyArray<YouTubeCreatorInsights>;
 }
 export interface GenerateCreatorInsightsResponseEncoded {
-  readonly creator_insights?: ReadonlyArray<unknown>;
-  readonly local_creator_insights?: ReadonlyArray<unknown>;
+  readonly creator_insights?: ReadonlyArray<YouTubeCreatorInsightsEncoded>;
+  readonly local_creator_insights?: ReadonlyArray<YouTubeCreatorInsightsEncoded>;
 }
 export const GenerateCreatorInsightsResponse: Schema.Schema<GenerateCreatorInsightsResponse, GenerateCreatorInsightsResponseEncoded, never> = Schema.Struct({
-  creator_insights: Schema.optional(Schema.Array(Schema.Unknown)),
-  local_creator_insights: Schema.optional(Schema.Array(Schema.Unknown)),
+  creator_insights: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeCreatorInsights))),
+  local_creator_insights: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeCreatorInsights))),
 });
 
 export interface GeneratedImage {
@@ -15036,55 +15036,55 @@ export interface GenerateImagesRequest {
   readonly customer_id?: string;
   readonly asset_field_types?: ReadonlyArray<AssetFieldType>;
   readonly advertising_channel_type?: AdvertisingChannelType;
-  readonly final_url_generation?: unknown;
-  readonly freeform_generation?: unknown;
-  readonly product_recontext_generation?: unknown;
+  readonly final_url_generation?: FinalUrlImageGenerationInput;
+  readonly freeform_generation?: FreeformImageGenerationInput;
+  readonly product_recontext_generation?: ProductRecontextGenerationImageInput;
 }
 export interface GenerateImagesRequestEncoded {
   readonly customer_id?: string;
   readonly asset_field_types?: ReadonlyArray<AssetFieldTypeEncoded>;
   readonly advertising_channel_type?: AdvertisingChannelTypeEncoded;
-  readonly final_url_generation?: unknown;
-  readonly freeform_generation?: unknown;
-  readonly product_recontext_generation?: unknown;
+  readonly final_url_generation?: FinalUrlImageGenerationInputEncoded;
+  readonly freeform_generation?: FreeformImageGenerationInputEncoded;
+  readonly product_recontext_generation?: ProductRecontextGenerationImageInputEncoded;
 }
 export const GenerateImagesRequest: Schema.Schema<GenerateImagesRequest, GenerateImagesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   asset_field_types: Schema.optional(Schema.Array(Schema.suspend(() => AssetFieldType))),
   advertising_channel_type: Schema.optional(Schema.suspend(() => AdvertisingChannelType)),
-  final_url_generation: Schema.optional(Schema.Unknown),
-  freeform_generation: Schema.optional(Schema.Unknown),
-  product_recontext_generation: Schema.optional(Schema.Unknown),
+  final_url_generation: Schema.optional(Schema.suspend(() => FinalUrlImageGenerationInput)),
+  freeform_generation: Schema.optional(Schema.suspend(() => FreeformImageGenerationInput)),
+  product_recontext_generation: Schema.optional(Schema.suspend(() => ProductRecontextGenerationImageInput)),
 });
 
 export interface GenerateImagesResponse {
-  readonly generated_images?: ReadonlyArray<unknown>;
+  readonly generated_images?: ReadonlyArray<GeneratedImage>;
 }
 export interface GenerateImagesResponseEncoded {
-  readonly generated_images?: ReadonlyArray<unknown>;
+  readonly generated_images?: ReadonlyArray<GeneratedImageEncoded>;
 }
 export const GenerateImagesResponse: Schema.Schema<GenerateImagesResponse, GenerateImagesResponseEncoded, never> = Schema.Struct({
-  generated_images: Schema.optional(Schema.Array(Schema.Unknown)),
+  generated_images: Schema.optional(Schema.Array(Schema.suspend(() => GeneratedImage))),
 });
 
 export interface GenerateInsightsFinderReportRequest {
   readonly customer_id?: string;
-  readonly baseline_audience?: unknown;
-  readonly specific_audience?: unknown;
+  readonly baseline_audience?: InsightsAudience;
+  readonly specific_audience?: InsightsAudience;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfo;
 }
 export interface GenerateInsightsFinderReportRequestEncoded {
   readonly customer_id?: string;
-  readonly baseline_audience?: unknown;
-  readonly specific_audience?: unknown;
+  readonly baseline_audience?: InsightsAudienceEncoded;
+  readonly specific_audience?: InsightsAudienceEncoded;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfoEncoded;
 }
 export const GenerateInsightsFinderReportRequest: Schema.Schema<GenerateInsightsFinderReportRequest, GenerateInsightsFinderReportRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  baseline_audience: Schema.optional(Schema.Unknown),
-  specific_audience: Schema.optional(Schema.Unknown),
+  baseline_audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
+  specific_audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
   customer_insights_group: Schema.optional(Schema.String),
   insights_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
 });
@@ -15103,29 +15103,29 @@ export interface GenerateKeywordForecastMetricsRequest {
   readonly customer_id?: string;
   readonly currency_code?: string;
   readonly forecast_period?: DateRange;
-  readonly campaign?: unknown;
+  readonly campaign?: CampaignToForecast;
 }
 export interface GenerateKeywordForecastMetricsRequestEncoded {
   readonly customer_id?: string;
   readonly currency_code?: string;
   readonly forecast_period?: DateRangeEncoded;
-  readonly campaign?: unknown;
+  readonly campaign?: CampaignToForecastEncoded;
 }
 export const GenerateKeywordForecastMetricsRequest: Schema.Schema<GenerateKeywordForecastMetricsRequest, GenerateKeywordForecastMetricsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   currency_code: Schema.optional(Schema.String),
   forecast_period: Schema.optional(Schema.suspend(() => DateRange)),
-  campaign: Schema.optional(Schema.Unknown),
+  campaign: Schema.optional(Schema.suspend(() => CampaignToForecast)),
 });
 
 export interface GenerateKeywordForecastMetricsResponse {
-  readonly campaign_forecast_metrics?: unknown;
+  readonly campaign_forecast_metrics?: KeywordForecastMetrics;
 }
 export interface GenerateKeywordForecastMetricsResponseEncoded {
-  readonly campaign_forecast_metrics?: unknown;
+  readonly campaign_forecast_metrics?: KeywordForecastMetricsEncoded;
 }
 export const GenerateKeywordForecastMetricsResponse: Schema.Schema<GenerateKeywordForecastMetricsResponse, GenerateKeywordForecastMetricsResponseEncoded, never> = Schema.Struct({
-  campaign_forecast_metrics: Schema.optional(Schema.Unknown),
+  campaign_forecast_metrics: Schema.optional(Schema.suspend(() => KeywordForecastMetrics)),
 });
 
 export interface GenerateKeywordHistoricalMetricsRequest {
@@ -15160,15 +15160,15 @@ export const GenerateKeywordHistoricalMetricsRequest: Schema.Schema<GenerateKeyw
 });
 
 export interface GenerateKeywordHistoricalMetricsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GenerateKeywordHistoricalMetricsResult>;
   readonly aggregate_metric_results?: KeywordPlanAggregateMetricResults;
 }
 export interface GenerateKeywordHistoricalMetricsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GenerateKeywordHistoricalMetricsResultEncoded>;
   readonly aggregate_metric_results?: KeywordPlanAggregateMetricResultsEncoded;
 }
 export const GenerateKeywordHistoricalMetricsResponse: Schema.Schema<GenerateKeywordHistoricalMetricsResponse, GenerateKeywordHistoricalMetricsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => GenerateKeywordHistoricalMetricsResult))),
   aggregate_metric_results: Schema.optional(Schema.suspend(() => KeywordPlanAggregateMetricResults)),
 });
 
@@ -15189,19 +15189,19 @@ export const GenerateKeywordHistoricalMetricsResult: Schema.Schema<GenerateKeywo
 });
 
 export interface GenerateKeywordIdeaResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GenerateKeywordIdeaResult>;
   readonly aggregate_metric_results?: KeywordPlanAggregateMetricResults;
   readonly next_page_token?: string;
   readonly total_size?: string;
 }
 export interface GenerateKeywordIdeaResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GenerateKeywordIdeaResultEncoded>;
   readonly aggregate_metric_results?: KeywordPlanAggregateMetricResultsEncoded;
   readonly next_page_token?: string;
   readonly total_size?: string;
 }
 export const GenerateKeywordIdeaResponse: Schema.Schema<GenerateKeywordIdeaResponse, GenerateKeywordIdeaResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => GenerateKeywordIdeaResult))),
   aggregate_metric_results: Schema.optional(Schema.suspend(() => KeywordPlanAggregateMetricResults)),
   next_page_token: Schema.optional(Schema.String),
   total_size: Schema.optional(Schema.String),
@@ -15237,10 +15237,10 @@ export interface GenerateKeywordIdeasRequest {
   readonly keyword_annotation?: ReadonlyArray<KeywordPlanKeywordAnnotation>;
   readonly aggregate_metrics?: KeywordPlanAggregateMetrics;
   readonly historical_metrics_options?: HistoricalMetricsOptions;
-  readonly keyword_and_url_seed?: unknown;
-  readonly keyword_seed?: unknown;
-  readonly url_seed?: unknown;
-  readonly site_seed?: unknown;
+  readonly keyword_and_url_seed?: KeywordAndUrlSeed;
+  readonly keyword_seed?: KeywordSeed;
+  readonly url_seed?: UrlSeed;
+  readonly site_seed?: SiteSeed;
 }
 export interface GenerateKeywordIdeasRequestEncoded {
   readonly customer_id?: string;
@@ -15253,10 +15253,10 @@ export interface GenerateKeywordIdeasRequestEncoded {
   readonly keyword_annotation?: ReadonlyArray<KeywordPlanKeywordAnnotationEncoded>;
   readonly aggregate_metrics?: KeywordPlanAggregateMetricsEncoded;
   readonly historical_metrics_options?: HistoricalMetricsOptionsEncoded;
-  readonly keyword_and_url_seed?: unknown;
-  readonly keyword_seed?: unknown;
-  readonly url_seed?: unknown;
-  readonly site_seed?: unknown;
+  readonly keyword_and_url_seed?: KeywordAndUrlSeedEncoded;
+  readonly keyword_seed?: KeywordSeedEncoded;
+  readonly url_seed?: UrlSeedEncoded;
+  readonly site_seed?: SiteSeedEncoded;
 }
 export const GenerateKeywordIdeasRequest: Schema.Schema<GenerateKeywordIdeasRequest, GenerateKeywordIdeasRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
@@ -15269,63 +15269,63 @@ export const GenerateKeywordIdeasRequest: Schema.Schema<GenerateKeywordIdeasRequ
   keyword_annotation: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanKeywordAnnotation))),
   aggregate_metrics: Schema.optional(Schema.suspend(() => KeywordPlanAggregateMetrics)),
   historical_metrics_options: Schema.optional(Schema.suspend(() => HistoricalMetricsOptions)),
-  keyword_and_url_seed: Schema.optional(Schema.Unknown),
-  keyword_seed: Schema.optional(Schema.Unknown),
-  url_seed: Schema.optional(Schema.Unknown),
-  site_seed: Schema.optional(Schema.Unknown),
+  keyword_and_url_seed: Schema.optional(Schema.suspend(() => KeywordAndUrlSeed)),
+  keyword_seed: Schema.optional(Schema.suspend(() => KeywordSeed)),
+  url_seed: Schema.optional(Schema.suspend(() => UrlSeed)),
+  site_seed: Schema.optional(Schema.suspend(() => SiteSeed)),
 });
 
 export interface GenerateReachForecastRequest {
   readonly customer_id?: string;
   readonly currency_code?: string;
-  readonly campaign_duration?: unknown;
-  readonly cookie_frequency_cap_setting?: unknown;
+  readonly campaign_duration?: CampaignDuration;
+  readonly cookie_frequency_cap_setting?: FrequencyCap;
   readonly min_effective_frequency?: number;
-  readonly effective_frequency_limit?: unknown;
-  readonly targeting?: unknown;
-  readonly planned_products?: ReadonlyArray<unknown>;
-  readonly forecast_metric_options?: unknown;
+  readonly effective_frequency_limit?: EffectiveFrequencyLimit;
+  readonly targeting?: Targeting;
+  readonly planned_products?: ReadonlyArray<PlannedProduct>;
+  readonly forecast_metric_options?: ForecastMetricOptions;
   readonly customer_reach_group?: string;
   readonly reach_application_info?: AdditionalApplicationInfo;
 }
 export interface GenerateReachForecastRequestEncoded {
   readonly customer_id?: string;
   readonly currency_code?: string;
-  readonly campaign_duration?: unknown;
-  readonly cookie_frequency_cap_setting?: unknown;
+  readonly campaign_duration?: CampaignDurationEncoded;
+  readonly cookie_frequency_cap_setting?: FrequencyCapEncoded;
   readonly min_effective_frequency?: number;
-  readonly effective_frequency_limit?: unknown;
-  readonly targeting?: unknown;
-  readonly planned_products?: ReadonlyArray<unknown>;
-  readonly forecast_metric_options?: unknown;
+  readonly effective_frequency_limit?: EffectiveFrequencyLimitEncoded;
+  readonly targeting?: TargetingEncoded;
+  readonly planned_products?: ReadonlyArray<PlannedProductEncoded>;
+  readonly forecast_metric_options?: ForecastMetricOptionsEncoded;
   readonly customer_reach_group?: string;
   readonly reach_application_info?: AdditionalApplicationInfoEncoded;
 }
 export const GenerateReachForecastRequest: Schema.Schema<GenerateReachForecastRequest, GenerateReachForecastRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   currency_code: Schema.optional(Schema.String),
-  campaign_duration: Schema.optional(Schema.Unknown),
-  cookie_frequency_cap_setting: Schema.optional(Schema.Unknown),
+  campaign_duration: Schema.optional(Schema.suspend(() => CampaignDuration)),
+  cookie_frequency_cap_setting: Schema.optional(Schema.suspend(() => FrequencyCap)),
   min_effective_frequency: Schema.optional(Schema.Int),
-  effective_frequency_limit: Schema.optional(Schema.Unknown),
-  targeting: Schema.optional(Schema.Unknown),
-  planned_products: Schema.optional(Schema.Array(Schema.Unknown)),
-  forecast_metric_options: Schema.optional(Schema.Unknown),
+  effective_frequency_limit: Schema.optional(Schema.suspend(() => EffectiveFrequencyLimit)),
+  targeting: Schema.optional(Schema.suspend(() => Targeting)),
+  planned_products: Schema.optional(Schema.Array(Schema.suspend(() => PlannedProduct))),
+  forecast_metric_options: Schema.optional(Schema.suspend(() => ForecastMetricOptions)),
   customer_reach_group: Schema.optional(Schema.String),
   reach_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
 });
 
 export interface GenerateReachForecastResponse {
-  readonly on_target_audience_metrics?: unknown;
-  readonly reach_curve?: unknown;
+  readonly on_target_audience_metrics?: OnTargetAudienceMetrics;
+  readonly reach_curve?: ReachCurve;
 }
 export interface GenerateReachForecastResponseEncoded {
-  readonly on_target_audience_metrics?: unknown;
-  readonly reach_curve?: unknown;
+  readonly on_target_audience_metrics?: OnTargetAudienceMetricsEncoded;
+  readonly reach_curve?: ReachCurveEncoded;
 }
 export const GenerateReachForecastResponse: Schema.Schema<GenerateReachForecastResponse, GenerateReachForecastResponseEncoded, never> = Schema.Struct({
-  on_target_audience_metrics: Schema.optional(Schema.Unknown),
-  reach_curve: Schema.optional(Schema.Unknown),
+  on_target_audience_metrics: Schema.optional(Schema.suspend(() => OnTargetAudienceMetrics)),
+  reach_curve: Schema.optional(Schema.suspend(() => ReachCurve)),
 });
 
 export interface GenerateRecommendationsRequest {
@@ -15334,17 +15334,17 @@ export interface GenerateRecommendationsRequest {
   readonly advertising_channel_type?: AdvertisingChannelType;
   readonly campaign_sitelink_count?: number;
   readonly conversion_tracking_status?: ConversionTrackingStatus;
-  readonly bidding_info?: unknown;
-  readonly ad_group_info?: ReadonlyArray<unknown>;
-  readonly seed_info?: unknown;
-  readonly budget_info?: unknown;
+  readonly bidding_info?: BiddingInfo;
+  readonly ad_group_info?: ReadonlyArray<AdGroupInfo>;
+  readonly seed_info?: SeedInfo;
+  readonly budget_info?: BudgetInfo;
   readonly campaign_image_asset_count?: number;
   readonly campaign_call_asset_count?: number;
   readonly country_codes?: ReadonlyArray<string>;
   readonly language_codes?: ReadonlyArray<string>;
   readonly positive_locations_ids?: ReadonlyArray<string>;
   readonly negative_locations_ids?: ReadonlyArray<string>;
-  readonly asset_group_info?: ReadonlyArray<unknown>;
+  readonly asset_group_info?: ReadonlyArray<AssetGroupInfo>;
   readonly target_partner_search_network?: boolean;
   readonly target_content_network?: boolean;
   readonly merchant_center_account_id?: string;
@@ -15356,17 +15356,17 @@ export interface GenerateRecommendationsRequestEncoded {
   readonly advertising_channel_type?: AdvertisingChannelTypeEncoded;
   readonly campaign_sitelink_count?: number;
   readonly conversion_tracking_status?: ConversionTrackingStatusEncoded;
-  readonly bidding_info?: unknown;
-  readonly ad_group_info?: ReadonlyArray<unknown>;
-  readonly seed_info?: unknown;
-  readonly budget_info?: unknown;
+  readonly bidding_info?: BiddingInfoEncoded;
+  readonly ad_group_info?: ReadonlyArray<AdGroupInfoEncoded>;
+  readonly seed_info?: SeedInfoEncoded;
+  readonly budget_info?: BudgetInfoEncoded;
   readonly campaign_image_asset_count?: number;
   readonly campaign_call_asset_count?: number;
   readonly country_codes?: ReadonlyArray<string>;
   readonly language_codes?: ReadonlyArray<string>;
   readonly positive_locations_ids?: ReadonlyArray<string>;
   readonly negative_locations_ids?: ReadonlyArray<string>;
-  readonly asset_group_info?: ReadonlyArray<unknown>;
+  readonly asset_group_info?: ReadonlyArray<AssetGroupInfoEncoded>;
   readonly target_partner_search_network?: boolean;
   readonly target_content_network?: boolean;
   readonly merchant_center_account_id?: string;
@@ -15378,17 +15378,17 @@ export const GenerateRecommendationsRequest: Schema.Schema<GenerateRecommendatio
   advertising_channel_type: Schema.optional(Schema.suspend(() => AdvertisingChannelType)),
   campaign_sitelink_count: Schema.optional(Schema.Int),
   conversion_tracking_status: Schema.optional(Schema.suspend(() => ConversionTrackingStatus)),
-  bidding_info: Schema.optional(Schema.Unknown),
-  ad_group_info: Schema.optional(Schema.Array(Schema.Unknown)),
-  seed_info: Schema.optional(Schema.Unknown),
-  budget_info: Schema.optional(Schema.Unknown),
+  bidding_info: Schema.optional(Schema.suspend(() => BiddingInfo)),
+  ad_group_info: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupInfo))),
+  seed_info: Schema.optional(Schema.suspend(() => SeedInfo)),
+  budget_info: Schema.optional(Schema.suspend(() => BudgetInfo)),
   campaign_image_asset_count: Schema.optional(Schema.Int),
   campaign_call_asset_count: Schema.optional(Schema.Int),
   country_codes: Schema.optional(Schema.Array(Schema.String)),
   language_codes: Schema.optional(Schema.Array(Schema.String)),
   positive_locations_ids: Schema.optional(Schema.Array(Schema.String)),
   negative_locations_ids: Schema.optional(Schema.Array(Schema.String)),
-  asset_group_info: Schema.optional(Schema.Array(Schema.Unknown)),
+  asset_group_info: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupInfo))),
   target_partner_search_network: Schema.optional(Schema.Boolean),
   target_content_network: Schema.optional(Schema.Boolean),
   merchant_center_account_id: Schema.optional(Schema.String),
@@ -15422,13 +15422,13 @@ export const GenerateRecommendationsResponse: Schema.Schema<GenerateRecommendati
 });
 
 export interface GenerateShareablePreviewsOperation {
-  readonly shareable_previews?: ReadonlyArray<unknown>;
+  readonly shareable_previews?: ReadonlyArray<ShareablePreview>;
 }
 export interface GenerateShareablePreviewsOperationEncoded {
-  readonly shareable_previews?: ReadonlyArray<unknown>;
+  readonly shareable_previews?: ReadonlyArray<ShareablePreviewEncoded>;
 }
 export const GenerateShareablePreviewsOperation: Schema.Schema<GenerateShareablePreviewsOperation, GenerateShareablePreviewsOperationEncoded, never> = Schema.Struct({
-  shareable_previews: Schema.optional(Schema.Array(Schema.Unknown)),
+  shareable_previews: Schema.optional(Schema.Array(Schema.suspend(() => ShareablePreview))),
 });
 
 export interface GenerateShareablePreviewsRequest {
@@ -15455,74 +15455,74 @@ export const GenerateShareablePreviewsResponse: Schema.Schema<GenerateShareableP
 });
 
 export interface GenerateShareablePreviewsResult {
-  readonly previews?: ReadonlyArray<unknown>;
+  readonly previews?: ReadonlyArray<ShareablePreviewResult>;
 }
 export interface GenerateShareablePreviewsResultEncoded {
-  readonly previews?: ReadonlyArray<unknown>;
+  readonly previews?: ReadonlyArray<ShareablePreviewResultEncoded>;
 }
 export const GenerateShareablePreviewsResult: Schema.Schema<GenerateShareablePreviewsResult, GenerateShareablePreviewsResultEncoded, never> = Schema.Struct({
-  previews: Schema.optional(Schema.Array(Schema.Unknown)),
+  previews: Schema.optional(Schema.Array(Schema.suspend(() => ShareablePreviewResult))),
 });
 
 export interface GenerateSuggestedTargetingInsightsRequest {
   readonly customer_id?: string;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfo;
-  readonly audience_definition?: unknown;
-  readonly audience_description?: unknown;
+  readonly audience_definition?: InsightsAudienceDefinition;
+  readonly audience_description?: InsightsAudienceDescription;
 }
 export interface GenerateSuggestedTargetingInsightsRequestEncoded {
   readonly customer_id?: string;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfoEncoded;
-  readonly audience_definition?: unknown;
-  readonly audience_description?: unknown;
+  readonly audience_definition?: InsightsAudienceDefinitionEncoded;
+  readonly audience_description?: InsightsAudienceDescriptionEncoded;
 }
 export const GenerateSuggestedTargetingInsightsRequest: Schema.Schema<GenerateSuggestedTargetingInsightsRequest, GenerateSuggestedTargetingInsightsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   customer_insights_group: Schema.optional(Schema.String),
   insights_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
-  audience_definition: Schema.optional(Schema.Unknown),
-  audience_description: Schema.optional(Schema.Unknown),
+  audience_definition: Schema.optional(Schema.suspend(() => InsightsAudienceDefinition)),
+  audience_description: Schema.optional(Schema.suspend(() => InsightsAudienceDescription)),
 });
 
 export interface GenerateSuggestedTargetingInsightsResponse {
-  readonly suggestions?: ReadonlyArray<unknown>;
+  readonly suggestions?: ReadonlyArray<TargetingSuggestionMetrics>;
 }
 export interface GenerateSuggestedTargetingInsightsResponseEncoded {
-  readonly suggestions?: ReadonlyArray<unknown>;
+  readonly suggestions?: ReadonlyArray<TargetingSuggestionMetricsEncoded>;
 }
 export const GenerateSuggestedTargetingInsightsResponse: Schema.Schema<GenerateSuggestedTargetingInsightsResponse, GenerateSuggestedTargetingInsightsResponseEncoded, never> = Schema.Struct({
-  suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
+  suggestions: Schema.optional(Schema.Array(Schema.suspend(() => TargetingSuggestionMetrics))),
 });
 
 export interface GenerateTargetingSuggestionMetricsRequest {
   readonly customer_id?: string;
-  readonly audiences?: ReadonlyArray<unknown>;
+  readonly audiences?: ReadonlyArray<InsightsAudience>;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfo;
 }
 export interface GenerateTargetingSuggestionMetricsRequestEncoded {
   readonly customer_id?: string;
-  readonly audiences?: ReadonlyArray<unknown>;
+  readonly audiences?: ReadonlyArray<InsightsAudienceEncoded>;
   readonly customer_insights_group?: string;
   readonly insights_application_info?: AdditionalApplicationInfoEncoded;
 }
 export const GenerateTargetingSuggestionMetricsRequest: Schema.Schema<GenerateTargetingSuggestionMetricsRequest, GenerateTargetingSuggestionMetricsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  audiences: Schema.optional(Schema.Array(Schema.Unknown)),
+  audiences: Schema.optional(Schema.Array(Schema.suspend(() => InsightsAudience))),
   customer_insights_group: Schema.optional(Schema.String),
   insights_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
 });
 
 export interface GenerateTargetingSuggestionMetricsResponse {
-  readonly suggestions?: ReadonlyArray<unknown>;
+  readonly suggestions?: ReadonlyArray<TargetingSuggestionMetrics>;
 }
 export interface GenerateTargetingSuggestionMetricsResponseEncoded {
-  readonly suggestions?: ReadonlyArray<unknown>;
+  readonly suggestions?: ReadonlyArray<TargetingSuggestionMetricsEncoded>;
 }
 export const GenerateTargetingSuggestionMetricsResponse: Schema.Schema<GenerateTargetingSuggestionMetricsResponse, GenerateTargetingSuggestionMetricsResponseEncoded, never> = Schema.Struct({
-  suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
+  suggestions: Schema.optional(Schema.Array(Schema.suspend(() => TargetingSuggestionMetrics))),
 });
 
 export interface GenerateTextRequest {
@@ -15531,7 +15531,7 @@ export interface GenerateTextRequest {
   readonly final_url?: string;
   readonly freeform_prompt?: string;
   readonly keywords?: ReadonlyArray<string>;
-  readonly existing_generation_context?: unknown;
+  readonly existing_generation_context?: AssetGenerationExistingContext;
   readonly advertising_channel_type?: AdvertisingChannelType;
 }
 export interface GenerateTextRequestEncoded {
@@ -15540,7 +15540,7 @@ export interface GenerateTextRequestEncoded {
   readonly final_url?: string;
   readonly freeform_prompt?: string;
   readonly keywords?: ReadonlyArray<string>;
-  readonly existing_generation_context?: unknown;
+  readonly existing_generation_context?: AssetGenerationExistingContextEncoded;
   readonly advertising_channel_type?: AdvertisingChannelTypeEncoded;
 }
 export const GenerateTextRequest: Schema.Schema<GenerateTextRequest, GenerateTextRequestEncoded, never> = Schema.Struct({
@@ -15549,18 +15549,18 @@ export const GenerateTextRequest: Schema.Schema<GenerateTextRequest, GenerateTex
   final_url: Schema.optional(Schema.String),
   freeform_prompt: Schema.optional(Schema.String),
   keywords: Schema.optional(Schema.Array(Schema.String)),
-  existing_generation_context: Schema.optional(Schema.Unknown),
+  existing_generation_context: Schema.optional(Schema.suspend(() => AssetGenerationExistingContext)),
   advertising_channel_type: Schema.optional(Schema.suspend(() => AdvertisingChannelType)),
 });
 
 export interface GenerateTextResponse {
-  readonly generated_text?: ReadonlyArray<unknown>;
+  readonly generated_text?: ReadonlyArray<GeneratedText>;
 }
 export interface GenerateTextResponseEncoded {
-  readonly generated_text?: ReadonlyArray<unknown>;
+  readonly generated_text?: ReadonlyArray<GeneratedTextEncoded>;
 }
 export const GenerateTextResponse: Schema.Schema<GenerateTextResponse, GenerateTextResponseEncoded, never> = Schema.Struct({
-  generated_text: Schema.optional(Schema.Array(Schema.Unknown)),
+  generated_text: Schema.optional(Schema.Array(Schema.suspend(() => GeneratedText))),
 });
 
 export interface GenerateTrendingInsightsRequest {
@@ -15570,8 +15570,8 @@ export interface GenerateTrendingInsightsRequest {
   readonly country_location?: LocationInfo;
   readonly sub_country_locations?: ReadonlyArray<LocationInfo>;
   readonly supplemental_data?: ReadonlyArray<ContentCreatorInsightsSupplementalData>;
-  readonly search_audience?: unknown;
-  readonly search_topics?: unknown;
+  readonly search_audience?: SearchAudience;
+  readonly search_topics?: SearchTopics;
 }
 export interface GenerateTrendingInsightsRequestEncoded {
   readonly customer_id?: string;
@@ -15580,8 +15580,8 @@ export interface GenerateTrendingInsightsRequestEncoded {
   readonly country_location?: LocationInfoEncoded;
   readonly sub_country_locations?: ReadonlyArray<LocationInfoEncoded>;
   readonly supplemental_data?: ReadonlyArray<ContentCreatorInsightsSupplementalDataEncoded>;
-  readonly search_audience?: unknown;
-  readonly search_topics?: unknown;
+  readonly search_audience?: SearchAudienceEncoded;
+  readonly search_topics?: SearchTopicsEncoded;
 }
 export const GenerateTrendingInsightsRequest: Schema.Schema<GenerateTrendingInsightsRequest, GenerateTrendingInsightsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
@@ -15590,18 +15590,18 @@ export const GenerateTrendingInsightsRequest: Schema.Schema<GenerateTrendingInsi
   country_location: Schema.optional(Schema.suspend(() => LocationInfo)),
   sub_country_locations: Schema.optional(Schema.Array(Schema.suspend(() => LocationInfo))),
   supplemental_data: Schema.optional(Schema.Array(Schema.suspend(() => ContentCreatorInsightsSupplementalData))),
-  search_audience: Schema.optional(Schema.Unknown),
-  search_topics: Schema.optional(Schema.Unknown),
+  search_audience: Schema.optional(Schema.suspend(() => SearchAudience)),
+  search_topics: Schema.optional(Schema.suspend(() => SearchTopics)),
 });
 
 export interface GenerateTrendingInsightsResponse {
-  readonly trend_insights?: ReadonlyArray<unknown>;
+  readonly trend_insights?: ReadonlyArray<TrendInsight>;
 }
 export interface GenerateTrendingInsightsResponseEncoded {
-  readonly trend_insights?: ReadonlyArray<unknown>;
+  readonly trend_insights?: ReadonlyArray<TrendInsightEncoded>;
 }
 export const GenerateTrendingInsightsResponse: Schema.Schema<GenerateTrendingInsightsResponse, GenerateTrendingInsightsResponseEncoded, never> = Schema.Struct({
-  trend_insights: Schema.optional(Schema.Array(Schema.Unknown)),
+  trend_insights: Schema.optional(Schema.Array(Schema.suspend(() => TrendInsight))),
 });
 
 export interface GeographicView {
@@ -15772,13 +15772,13 @@ export const GetIdentityVerificationRequest: Schema.Schema<GetIdentityVerificati
 });
 
 export interface GetIdentityVerificationResponse {
-  readonly identity_verification?: ReadonlyArray<unknown>;
+  readonly identity_verification?: ReadonlyArray<IdentityVerification>;
 }
 export interface GetIdentityVerificationResponseEncoded {
-  readonly identity_verification?: ReadonlyArray<unknown>;
+  readonly identity_verification?: ReadonlyArray<IdentityVerificationEncoded>;
 }
 export const GetIdentityVerificationResponse: Schema.Schema<GetIdentityVerificationResponse, GetIdentityVerificationResponseEncoded, never> = Schema.Struct({
-  identity_verification: Schema.optional(Schema.Array(Schema.Unknown)),
+  identity_verification: Schema.optional(Schema.Array(Schema.suspend(() => IdentityVerification))),
 });
 
 export interface GetSmartCampaignStatusRequest {
@@ -15793,27 +15793,27 @@ export const GetSmartCampaignStatusRequest: Schema.Schema<GetSmartCampaignStatus
 
 export interface GetSmartCampaignStatusResponse {
   readonly smart_campaign_status?: SmartCampaignStatus;
-  readonly not_eligible_details?: unknown;
-  readonly eligible_details?: unknown;
-  readonly paused_details?: unknown;
-  readonly removed_details?: unknown;
-  readonly ended_details?: unknown;
+  readonly not_eligible_details?: SmartCampaignNotEligibleDetails;
+  readonly eligible_details?: SmartCampaignEligibleDetails;
+  readonly paused_details?: SmartCampaignPausedDetails;
+  readonly removed_details?: SmartCampaignRemovedDetails;
+  readonly ended_details?: SmartCampaignEndedDetails;
 }
 export interface GetSmartCampaignStatusResponseEncoded {
   readonly smart_campaign_status?: SmartCampaignStatusEncoded;
-  readonly not_eligible_details?: unknown;
-  readonly eligible_details?: unknown;
-  readonly paused_details?: unknown;
-  readonly removed_details?: unknown;
-  readonly ended_details?: unknown;
+  readonly not_eligible_details?: SmartCampaignNotEligibleDetailsEncoded;
+  readonly eligible_details?: SmartCampaignEligibleDetailsEncoded;
+  readonly paused_details?: SmartCampaignPausedDetailsEncoded;
+  readonly removed_details?: SmartCampaignRemovedDetailsEncoded;
+  readonly ended_details?: SmartCampaignEndedDetailsEncoded;
 }
 export const GetSmartCampaignStatusResponse: Schema.Schema<GetSmartCampaignStatusResponse, GetSmartCampaignStatusResponseEncoded, never> = Schema.Struct({
   smart_campaign_status: Schema.optional(Schema.suspend(() => SmartCampaignStatus)),
-  not_eligible_details: Schema.optional(Schema.Unknown),
-  eligible_details: Schema.optional(Schema.Unknown),
-  paused_details: Schema.optional(Schema.Unknown),
-  removed_details: Schema.optional(Schema.Unknown),
-  ended_details: Schema.optional(Schema.Unknown),
+  not_eligible_details: Schema.optional(Schema.suspend(() => SmartCampaignNotEligibleDetails)),
+  eligible_details: Schema.optional(Schema.suspend(() => SmartCampaignEligibleDetails)),
+  paused_details: Schema.optional(Schema.suspend(() => SmartCampaignPausedDetails)),
+  removed_details: Schema.optional(Schema.suspend(() => SmartCampaignRemovedDetails)),
+  ended_details: Schema.optional(Schema.suspend(() => SmartCampaignEndedDetails)),
 });
 
 export type GlsPhoneNumberType = "UNSPECIFIED" | "UNKNOWN" | "DESTINATION_PHONE_NUMBER_FOR_ADS" | "DESTINATION_PHONE_NUMBER_FOR_SMS_ONLY" | "DESTINATION_PHONE_NUMBER_FOR_WHATSAPP_ONLY";
@@ -15890,17 +15890,17 @@ export const GoalErrorEnum: Schema.Schema<GoalErrorEnum, GoalErrorEnumEncoded, n
 });
 
 export interface GoalOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Goal;
   readonly update?: Goal;
 }
 export interface GoalOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: GoalEncoded;
   readonly update?: GoalEncoded;
 }
 export const GoalOperation: Schema.Schema<GoalOperation, GoalOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Goal)),
   update: Schema.optional(Schema.suspend(() => Goal)),
 });
@@ -15944,37 +15944,37 @@ export const GoalTypeEnum: Schema.Schema<GoalTypeEnum, GoalTypeEnumEncoded, neve
 });
 
 export interface GoogleAdsError {
-  readonly error_code?: unknown;
+  readonly error_code?: ErrorCode;
   readonly message?: string;
   readonly trigger?: Value;
-  readonly location?: unknown;
-  readonly details?: unknown;
+  readonly location?: ErrorLocation;
+  readonly details?: ErrorDetails;
 }
 export interface GoogleAdsErrorEncoded {
-  readonly error_code?: unknown;
+  readonly error_code?: ErrorCodeEncoded;
   readonly message?: string;
   readonly trigger?: ValueEncoded;
-  readonly location?: unknown;
-  readonly details?: unknown;
+  readonly location?: ErrorLocationEncoded;
+  readonly details?: ErrorDetailsEncoded;
 }
 export const GoogleAdsError: Schema.Schema<GoogleAdsError, GoogleAdsErrorEncoded, never> = Schema.Struct({
-  error_code: Schema.optional(Schema.Unknown),
+  error_code: Schema.optional(Schema.suspend(() => ErrorCode)),
   message: Schema.optional(Schema.String),
   trigger: Schema.optional(Schema.suspend(() => Value)),
-  location: Schema.optional(Schema.Unknown),
-  details: Schema.optional(Schema.Unknown),
+  location: Schema.optional(Schema.suspend(() => ErrorLocation)),
+  details: Schema.optional(Schema.suspend(() => ErrorDetails)),
 });
 
 export interface GoogleAdsFailure {
-  readonly errors?: ReadonlyArray<unknown>;
+  readonly errors?: ReadonlyArray<GoogleAdsError>;
   readonly request_id?: string;
 }
 export interface GoogleAdsFailureEncoded {
-  readonly errors?: ReadonlyArray<unknown>;
+  readonly errors?: ReadonlyArray<GoogleAdsErrorEncoded>;
   readonly request_id?: string;
 }
 export const GoogleAdsFailure: Schema.Schema<GoogleAdsFailure, GoogleAdsFailureEncoded, never> = Schema.Struct({
-  errors: Schema.optional(Schema.Array(Schema.Unknown)),
+  errors: Schema.optional(Schema.Array(Schema.suspend(() => GoogleAdsError))),
   request_id: Schema.optional(Schema.String),
 });
 
@@ -16639,15 +16639,15 @@ export const GoogleAnalytics4Settings: Schema.Schema<GoogleAnalytics4Settings, G
 
 export interface GoogleLocalServicesInfo {
   readonly category_id?: string;
-  readonly callouts?: ReadonlyArray<unknown>;
+  readonly callouts?: ReadonlyArray<LocalServicesCallout>;
 }
 export interface GoogleLocalServicesInfoEncoded {
   readonly category_id?: string;
-  readonly callouts?: ReadonlyArray<unknown>;
+  readonly callouts?: ReadonlyArray<LocalServicesCalloutEncoded>;
 }
 export const GoogleLocalServicesInfo: Schema.Schema<GoogleLocalServicesInfo, GoogleLocalServicesInfoEncoded, never> = Schema.Struct({
   category_id: Schema.optional(Schema.String),
-  callouts: Schema.optional(Schema.Array(Schema.Unknown)),
+  callouts: Schema.optional(Schema.Array(Schema.suspend(() => LocalServicesCallout))),
 });
 
 export type GoogleVoiceCallStatus = "UNSPECIFIED" | "UNKNOWN" | "MISSED" | "RECEIVED";
@@ -16666,17 +16666,17 @@ export const GoogleVoiceCallStatusEnum: Schema.Schema<GoogleVoiceCallStatusEnum,
 
 export interface GraduateExperimentRequest {
   readonly experiment?: string;
-  readonly campaign_budget_mappings?: ReadonlyArray<unknown>;
+  readonly campaign_budget_mappings?: ReadonlyArray<CampaignBudgetMapping>;
   readonly validate_only?: boolean;
 }
 export interface GraduateExperimentRequestEncoded {
   readonly experiment?: string;
-  readonly campaign_budget_mappings?: ReadonlyArray<unknown>;
+  readonly campaign_budget_mappings?: ReadonlyArray<CampaignBudgetMappingEncoded>;
   readonly validate_only?: boolean;
 }
 export const GraduateExperimentRequest: Schema.Schema<GraduateExperimentRequest, GraduateExperimentRequestEncoded, never> = Schema.Struct({
   experiment: Schema.optional(Schema.String),
-  campaign_budget_mappings: Schema.optional(Schema.Array(Schema.Unknown)),
+  campaign_budget_mappings: Schema.optional(Schema.Array(Schema.suspend(() => CampaignBudgetMapping))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
@@ -16771,15 +16771,15 @@ export const HeaderErrorEnum: Schema.Schema<HeaderErrorEnum, HeaderErrorEnumEnco
 });
 
 export interface HistoricalMetricsOptions {
-  readonly year_month_range?: unknown;
+  readonly year_month_range?: YearMonthRange;
   readonly include_average_cpc?: boolean;
 }
 export interface HistoricalMetricsOptionsEncoded {
-  readonly year_month_range?: unknown;
+  readonly year_month_range?: YearMonthRangeEncoded;
   readonly include_average_cpc?: boolean;
 }
 export const HistoricalMetricsOptions: Schema.Schema<HistoricalMetricsOptions, HistoricalMetricsOptionsEncoded, never> = Schema.Struct({
-  year_month_range: Schema.optional(Schema.Unknown),
+  year_month_range: Schema.optional(Schema.suspend(() => YearMonthRange)),
   include_average_cpc: Schema.optional(Schema.Boolean),
 });
 
@@ -16811,8 +16811,8 @@ export interface HotelAssetSuggestion {
   readonly final_url?: string;
   readonly hotel_name?: string;
   readonly call_to_action?: CallToActionType;
-  readonly text_assets?: ReadonlyArray<unknown>;
-  readonly image_assets?: ReadonlyArray<unknown>;
+  readonly text_assets?: ReadonlyArray<HotelTextAsset>;
+  readonly image_assets?: ReadonlyArray<HotelImageAsset>;
   readonly status?: HotelAssetSuggestionStatus;
 }
 export interface HotelAssetSuggestionEncoded {
@@ -16820,8 +16820,8 @@ export interface HotelAssetSuggestionEncoded {
   readonly final_url?: string;
   readonly hotel_name?: string;
   readonly call_to_action?: CallToActionTypeEncoded;
-  readonly text_assets?: ReadonlyArray<unknown>;
-  readonly image_assets?: ReadonlyArray<unknown>;
+  readonly text_assets?: ReadonlyArray<HotelTextAssetEncoded>;
+  readonly image_assets?: ReadonlyArray<HotelImageAssetEncoded>;
   readonly status?: HotelAssetSuggestionStatusEncoded;
 }
 export const HotelAssetSuggestion: Schema.Schema<HotelAssetSuggestion, HotelAssetSuggestionEncoded, never> = Schema.Struct({
@@ -16829,8 +16829,8 @@ export const HotelAssetSuggestion: Schema.Schema<HotelAssetSuggestion, HotelAsse
   final_url: Schema.optional(Schema.String),
   hotel_name: Schema.optional(Schema.String),
   call_to_action: Schema.optional(Schema.suspend(() => CallToActionType)),
-  text_assets: Schema.optional(Schema.Array(Schema.Unknown)),
-  image_assets: Schema.optional(Schema.Array(Schema.Unknown)),
+  text_assets: Schema.optional(Schema.Array(Schema.suspend(() => HotelTextAsset))),
+  image_assets: Schema.optional(Schema.Array(Schema.suspend(() => HotelImageAsset))),
   status: Schema.optional(Schema.suspend(() => HotelAssetSuggestionStatus)),
 });
 
@@ -17166,18 +17166,18 @@ export const HouseholdIncomeDimension: Schema.Schema<HouseholdIncomeDimension, H
 
 export interface IdentityVerification {
   readonly verification_program?: IdentityVerificationProgram;
-  readonly identity_verification_requirement?: unknown;
-  readonly verification_progress?: unknown;
+  readonly identity_verification_requirement?: IdentityVerificationRequirement;
+  readonly verification_progress?: IdentityVerificationProgress;
 }
 export interface IdentityVerificationEncoded {
   readonly verification_program?: IdentityVerificationProgramEncoded;
-  readonly identity_verification_requirement?: unknown;
-  readonly verification_progress?: unknown;
+  readonly identity_verification_requirement?: IdentityVerificationRequirementEncoded;
+  readonly verification_progress?: IdentityVerificationProgressEncoded;
 }
 export const IdentityVerification: Schema.Schema<IdentityVerification, IdentityVerificationEncoded, never> = Schema.Struct({
   verification_program: Schema.optional(Schema.suspend(() => IdentityVerificationProgram)),
-  identity_verification_requirement: Schema.optional(Schema.Unknown),
-  verification_progress: Schema.optional(Schema.Unknown),
+  identity_verification_requirement: Schema.optional(Schema.suspend(() => IdentityVerificationRequirement)),
+  verification_progress: Schema.optional(Schema.suspend(() => IdentityVerificationProgress)),
 });
 
 export type IdentityVerificationError = "UNSPECIFIED" | "UNKNOWN" | "NO_EFFECTIVE_BILLING" | "BILLING_NOT_ON_MONTHLY_INVOICING" | "VERIFICATION_ALREADY_STARTED";
@@ -17274,7 +17274,7 @@ export interface ImageAdInfo {
   readonly preview_image_url?: string;
   readonly mime_type?: MimeType;
   readonly name?: string;
-  readonly image_asset?: unknown;
+  readonly image_asset?: AdImageAsset;
   readonly data?: string;
   readonly ad_id_to_copy_image_from?: string;
 }
@@ -17287,7 +17287,7 @@ export interface ImageAdInfoEncoded {
   readonly preview_image_url?: string;
   readonly mime_type?: MimeTypeEncoded;
   readonly name?: string;
-  readonly image_asset?: unknown;
+  readonly image_asset?: AdImageAssetEncoded;
   readonly data?: string;
   readonly ad_id_to_copy_image_from?: string;
 }
@@ -17300,7 +17300,7 @@ export const ImageAdInfo: Schema.Schema<ImageAdInfo, ImageAdInfoEncoded, never> 
   preview_image_url: Schema.optional(Schema.String),
   mime_type: Schema.optional(Schema.suspend(() => MimeType)),
   name: Schema.optional(Schema.String),
-  image_asset: Schema.optional(Schema.Unknown),
+  image_asset: Schema.optional(Schema.suspend(() => AdImageAsset)),
   data: Schema.optional(Schema.String),
   ad_id_to_copy_image_from: Schema.optional(Schema.String),
 });
@@ -17309,19 +17309,19 @@ export interface ImageAsset {
   readonly data?: string;
   readonly file_size?: string;
   readonly mime_type?: MimeType;
-  readonly full_size?: unknown;
+  readonly full_size?: ImageDimension;
 }
 export interface ImageAssetEncoded {
   readonly data?: string;
   readonly file_size?: string;
   readonly mime_type?: MimeTypeEncoded;
-  readonly full_size?: unknown;
+  readonly full_size?: ImageDimensionEncoded;
 }
 export const ImageAsset: Schema.Schema<ImageAsset, ImageAssetEncoded, never> = Schema.Struct({
   data: Schema.optional(Schema.String),
   file_size: Schema.optional(Schema.String),
   mime_type: Schema.optional(Schema.suspend(() => MimeType)),
-  full_size: Schema.optional(Schema.Unknown),
+  full_size: Schema.optional(Schema.suspend(() => ImageDimension)),
 });
 
 export interface ImageDimension {
@@ -17395,19 +17395,19 @@ export const ImprovePerformanceMaxAdStrengthRecommendation: Schema.Schema<Improv
 
 export interface Incentive {
   readonly incentive_id?: string;
-  readonly requirement?: unknown;
+  readonly requirement?: Requirement;
   readonly incentive_terms_and_conditions_url?: string;
   readonly incentive_type?: IncentiveType;
 }
 export interface IncentiveEncoded {
   readonly incentive_id?: string;
-  readonly requirement?: unknown;
+  readonly requirement?: RequirementEncoded;
   readonly incentive_terms_and_conditions_url?: string;
   readonly incentive_type?: IncentiveTypeEncoded;
 }
 export const Incentive: Schema.Schema<Incentive, IncentiveEncoded, never> = Schema.Struct({
   incentive_id: Schema.optional(Schema.String),
-  requirement: Schema.optional(Schema.Unknown),
+  requirement: Schema.optional(Schema.suspend(() => Requirement)),
   incentive_terms_and_conditions_url: Schema.optional(Schema.String),
   incentive_type: Schema.optional(Schema.suspend(() => IncentiveType)),
 });
@@ -17429,17 +17429,17 @@ export const IncentiveErrorEnum: Schema.Schema<IncentiveErrorEnum, IncentiveErro
 export interface IncentiveOffer {
   readonly consolidated_terms_and_conditions_url?: string;
   readonly offer_type?: OfferType;
-  readonly cyo_incentives?: unknown;
+  readonly cyo_incentives?: CyoIncentives;
 }
 export interface IncentiveOfferEncoded {
   readonly consolidated_terms_and_conditions_url?: string;
   readonly offer_type?: OfferTypeEncoded;
-  readonly cyo_incentives?: unknown;
+  readonly cyo_incentives?: CyoIncentivesEncoded;
 }
 export const IncentiveOffer: Schema.Schema<IncentiveOffer, IncentiveOfferEncoded, never> = Schema.Struct({
   consolidated_terms_and_conditions_url: Schema.optional(Schema.String),
   offer_type: Schema.optional(Schema.suspend(() => OfferType)),
-  cyo_incentives: Schema.optional(Schema.Unknown),
+  cyo_incentives: Schema.optional(Schema.suspend(() => CyoIncentives)),
 });
 
 export interface IncentiveOfferTypeEnum {
@@ -17597,28 +17597,28 @@ export const InsightsAudience: Schema.Schema<InsightsAudience, InsightsAudienceE
 });
 
 export interface InsightsAudienceAttributeGroup {
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<AudienceInsightsAttribute>;
 }
 export interface InsightsAudienceAttributeGroupEncoded {
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<AudienceInsightsAttributeEncoded>;
 }
 export const InsightsAudienceAttributeGroup: Schema.Schema<InsightsAudienceAttributeGroup, InsightsAudienceAttributeGroupEncoded, never> = Schema.Struct({
-  attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttribute))),
 });
 
 export interface InsightsAudienceDefinition {
-  readonly audience?: unknown;
-  readonly baseline_audience?: unknown;
+  readonly audience?: InsightsAudience;
+  readonly baseline_audience?: InsightsAudience;
   readonly data_month?: string;
 }
 export interface InsightsAudienceDefinitionEncoded {
-  readonly audience?: unknown;
-  readonly baseline_audience?: unknown;
+  readonly audience?: InsightsAudienceEncoded;
+  readonly baseline_audience?: InsightsAudienceEncoded;
   readonly data_month?: string;
 }
 export const InsightsAudienceDefinition: Schema.Schema<InsightsAudienceDefinition, InsightsAudienceDefinitionEncoded, never> = Schema.Struct({
-  audience: Schema.optional(Schema.Unknown),
-  baseline_audience: Schema.optional(Schema.Unknown),
+  audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
+  baseline_audience: Schema.optional(Schema.suspend(() => InsightsAudience)),
   data_month: Schema.optional(Schema.String),
 });
 
@@ -17626,19 +17626,19 @@ export interface InsightsAudienceDescription {
   readonly country_locations?: ReadonlyArray<LocationInfo>;
   readonly audience_description?: string;
   readonly marketing_objective?: AudienceInsightsMarketingObjective;
-  readonly audience_dimensions?: unknown;
+  readonly audience_dimensions?: AudienceInsightsDimensions;
 }
 export interface InsightsAudienceDescriptionEncoded {
   readonly country_locations?: ReadonlyArray<LocationInfoEncoded>;
   readonly audience_description?: string;
   readonly marketing_objective?: AudienceInsightsMarketingObjectiveEncoded;
-  readonly audience_dimensions?: unknown;
+  readonly audience_dimensions?: AudienceInsightsDimensionsEncoded;
 }
 export const InsightsAudienceDescription: Schema.Schema<InsightsAudienceDescription, InsightsAudienceDescriptionEncoded, never> = Schema.Struct({
   country_locations: Schema.optional(Schema.Array(Schema.suspend(() => LocationInfo))),
   audience_description: Schema.optional(Schema.String),
   marketing_objective: Schema.optional(Schema.suspend(() => AudienceInsightsMarketingObjective)),
-  audience_dimensions: Schema.optional(Schema.Unknown),
+  audience_dimensions: Schema.optional(Schema.suspend(() => AudienceInsightsDimensions)),
 });
 
 export type InsightsKnowledgeGraphEntityCapabilities = "UNSPECIFIED" | "UNKNOWN" | "CONTENT_TRENDING_INSIGHTS" | "CREATOR_ATTRIBUTE" | "CREATOR_TOPIC_INSIGHTS";
@@ -17791,8 +17791,8 @@ export interface Invoice {
   readonly corrected_invoice?: string;
   readonly replaced_invoices?: ReadonlyArray<string>;
   readonly pdf_url?: string;
-  readonly account_budget_summaries?: ReadonlyArray<unknown>;
-  readonly account_summaries?: ReadonlyArray<unknown>;
+  readonly account_budget_summaries?: ReadonlyArray<AccountBudgetSummary>;
+  readonly account_summaries?: ReadonlyArray<AccountSummary>;
 }
 export interface InvoiceEncoded {
   readonly resource_name?: string;
@@ -17820,8 +17820,8 @@ export interface InvoiceEncoded {
   readonly corrected_invoice?: string;
   readonly replaced_invoices?: ReadonlyArray<string>;
   readonly pdf_url?: string;
-  readonly account_budget_summaries?: ReadonlyArray<unknown>;
-  readonly account_summaries?: ReadonlyArray<unknown>;
+  readonly account_budget_summaries?: ReadonlyArray<AccountBudgetSummaryEncoded>;
+  readonly account_summaries?: ReadonlyArray<AccountSummaryEncoded>;
 }
 export const Invoice: Schema.Schema<Invoice, InvoiceEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -17849,8 +17849,8 @@ export const Invoice: Schema.Schema<Invoice, InvoiceEncoded, never> = Schema.Str
   corrected_invoice: Schema.optional(Schema.String),
   replaced_invoices: Schema.optional(Schema.Array(Schema.String)),
   pdf_url: Schema.optional(Schema.String),
-  account_budget_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  account_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
+  account_budget_summaries: Schema.optional(Schema.Array(Schema.suspend(() => AccountBudgetSummary))),
+  account_summaries: Schema.optional(Schema.Array(Schema.suspend(() => AccountSummary))),
 });
 
 export type InvoiceError = "UNSPECIFIED" | "UNKNOWN" | "YEAR_MONTH_TOO_OLD" | "NOT_INVOICED_CUSTOMER" | "BILLING_SETUP_NOT_APPROVED" | "BILLING_SETUP_NOT_ON_MONTHLY_INVOICING" | "NON_SERVING_CUSTOMER";
@@ -17931,15 +17931,15 @@ export const ItemAttribute: Schema.Schema<ItemAttribute, ItemAttributeEncoded, n
 
 export interface Keyword {
   readonly ad_group_criterion?: string;
-  readonly info?: unknown;
+  readonly info?: KeywordInfo;
 }
 export interface KeywordEncoded {
   readonly ad_group_criterion?: string;
-  readonly info?: unknown;
+  readonly info?: KeywordInfoEncoded;
 }
 export const Keyword: Schema.Schema<Keyword, KeywordEncoded, never> = Schema.Struct({
   ad_group_criterion: Schema.optional(Schema.String),
-  info: Schema.optional(Schema.Unknown),
+  info: Schema.optional(Schema.suspend(() => KeywordInfo)),
 });
 
 export interface KeywordAndUrlSeed {
@@ -17956,26 +17956,26 @@ export const KeywordAndUrlSeed: Schema.Schema<KeywordAndUrlSeed, KeywordAndUrlSe
 });
 
 export interface KeywordAnnotations {
-  readonly concepts?: ReadonlyArray<unknown>;
+  readonly concepts?: ReadonlyArray<KeywordConcept>;
 }
 export interface KeywordAnnotationsEncoded {
-  readonly concepts?: ReadonlyArray<unknown>;
+  readonly concepts?: ReadonlyArray<KeywordConceptEncoded>;
 }
 export const KeywordAnnotations: Schema.Schema<KeywordAnnotations, KeywordAnnotationsEncoded, never> = Schema.Struct({
-  concepts: Schema.optional(Schema.Array(Schema.Unknown)),
+  concepts: Schema.optional(Schema.Array(Schema.suspend(() => KeywordConcept))),
 });
 
 export interface KeywordConcept {
   readonly name?: string;
-  readonly concept_group?: unknown;
+  readonly concept_group?: ConceptGroup;
 }
 export interface KeywordConceptEncoded {
   readonly name?: string;
-  readonly concept_group?: unknown;
+  readonly concept_group?: ConceptGroupEncoded;
 }
 export const KeywordConcept: Schema.Schema<KeywordConcept, KeywordConceptEncoded, never> = Schema.Struct({
   name: Schema.optional(Schema.String),
-  concept_group: Schema.optional(Schema.Unknown),
+  concept_group: Schema.optional(Schema.suspend(() => ConceptGroup)),
 });
 
 export interface KeywordForecastMetrics {
@@ -18060,19 +18060,19 @@ export interface KeywordPlan {
   readonly resource_name?: string;
   readonly id?: string;
   readonly name?: string;
-  readonly forecast_period?: unknown;
+  readonly forecast_period?: KeywordPlanForecastPeriod;
 }
 export interface KeywordPlanEncoded {
   readonly resource_name?: string;
   readonly id?: string;
   readonly name?: string;
-  readonly forecast_period?: unknown;
+  readonly forecast_period?: KeywordPlanForecastPeriodEncoded;
 }
 export const KeywordPlan: Schema.Schema<KeywordPlan, KeywordPlanEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   id: Schema.optional(Schema.String),
   name: Schema.optional(Schema.String),
-  forecast_period: Schema.optional(Schema.Unknown),
+  forecast_period: Schema.optional(Schema.suspend(() => KeywordPlanForecastPeriod)),
 });
 
 export interface KeywordPlanAdGroup {
@@ -18154,51 +18154,51 @@ export const KeywordPlanAdGroupKeywordErrorEnum: Schema.Schema<KeywordPlanAdGrou
 });
 
 export interface KeywordPlanAdGroupKeywordOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanAdGroupKeyword;
   readonly update?: KeywordPlanAdGroupKeyword;
   readonly remove?: string;
 }
 export interface KeywordPlanAdGroupKeywordOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanAdGroupKeywordEncoded;
   readonly update?: KeywordPlanAdGroupKeywordEncoded;
   readonly remove?: string;
 }
 export const KeywordPlanAdGroupKeywordOperation: Schema.Schema<KeywordPlanAdGroupKeywordOperation, KeywordPlanAdGroupKeywordOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupKeyword)),
   update: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupKeyword)),
   remove: Schema.optional(Schema.String),
 });
 
 export interface KeywordPlanAdGroupOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanAdGroup;
   readonly update?: KeywordPlanAdGroup;
   readonly remove?: string;
 }
 export interface KeywordPlanAdGroupOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanAdGroupEncoded;
   readonly update?: KeywordPlanAdGroupEncoded;
   readonly remove?: string;
 }
 export const KeywordPlanAdGroupOperation: Schema.Schema<KeywordPlanAdGroupOperation, KeywordPlanAdGroupOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => KeywordPlanAdGroup)),
   update: Schema.optional(Schema.suspend(() => KeywordPlanAdGroup)),
   remove: Schema.optional(Schema.String),
 });
 
 export interface KeywordPlanAggregateMetricResults {
-  readonly device_searches?: ReadonlyArray<unknown>;
+  readonly device_searches?: ReadonlyArray<KeywordPlanDeviceSearches>;
 }
 export interface KeywordPlanAggregateMetricResultsEncoded {
-  readonly device_searches?: ReadonlyArray<unknown>;
+  readonly device_searches?: ReadonlyArray<KeywordPlanDeviceSearchesEncoded>;
 }
 export const KeywordPlanAggregateMetricResults: Schema.Schema<KeywordPlanAggregateMetricResults, KeywordPlanAggregateMetricResultsEncoded, never> = Schema.Struct({
-  device_searches: Schema.optional(Schema.Array(Schema.Unknown)),
+  device_searches: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanDeviceSearches))),
 });
 
 export interface KeywordPlanAggregateMetrics {
@@ -18233,7 +18233,7 @@ export interface KeywordPlanCampaign {
   readonly language_constants?: ReadonlyArray<string>;
   readonly keyword_plan_network?: KeywordPlanNetwork;
   readonly cpc_bid_micros?: string;
-  readonly geo_targets?: ReadonlyArray<unknown>;
+  readonly geo_targets?: ReadonlyArray<KeywordPlanGeoTarget>;
 }
 export interface KeywordPlanCampaignEncoded {
   readonly resource_name?: string;
@@ -18243,7 +18243,7 @@ export interface KeywordPlanCampaignEncoded {
   readonly language_constants?: ReadonlyArray<string>;
   readonly keyword_plan_network?: KeywordPlanNetworkEncoded;
   readonly cpc_bid_micros?: string;
-  readonly geo_targets?: ReadonlyArray<unknown>;
+  readonly geo_targets?: ReadonlyArray<KeywordPlanGeoTargetEncoded>;
 }
 export const KeywordPlanCampaign: Schema.Schema<KeywordPlanCampaign, KeywordPlanCampaignEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -18253,7 +18253,7 @@ export const KeywordPlanCampaign: Schema.Schema<KeywordPlanCampaign, KeywordPlan
   language_constants: Schema.optional(Schema.Array(Schema.String)),
   keyword_plan_network: Schema.optional(Schema.suspend(() => KeywordPlanNetwork)),
   cpc_bid_micros: Schema.optional(Schema.String),
-  geo_targets: Schema.optional(Schema.Array(Schema.Unknown)),
+  geo_targets: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanGeoTarget))),
 });
 
 export type KeywordPlanCampaignError = "UNSPECIFIED" | "UNKNOWN" | "INVALID_NAME" | "INVALID_LANGUAGES" | "INVALID_GEOS" | "DUPLICATE_NAME" | "MAX_GEOS_EXCEEDED" | "MAX_LANGUAGES_EXCEEDED";
@@ -18310,38 +18310,38 @@ export const KeywordPlanCampaignKeywordErrorEnum: Schema.Schema<KeywordPlanCampa
 });
 
 export interface KeywordPlanCampaignKeywordOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanCampaignKeyword;
   readonly update?: KeywordPlanCampaignKeyword;
   readonly remove?: string;
 }
 export interface KeywordPlanCampaignKeywordOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanCampaignKeywordEncoded;
   readonly update?: KeywordPlanCampaignKeywordEncoded;
   readonly remove?: string;
 }
 export const KeywordPlanCampaignKeywordOperation: Schema.Schema<KeywordPlanCampaignKeywordOperation, KeywordPlanCampaignKeywordOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => KeywordPlanCampaignKeyword)),
   update: Schema.optional(Schema.suspend(() => KeywordPlanCampaignKeyword)),
   remove: Schema.optional(Schema.String),
 });
 
 export interface KeywordPlanCampaignOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanCampaign;
   readonly update?: KeywordPlanCampaign;
   readonly remove?: string;
 }
 export interface KeywordPlanCampaignOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanCampaignEncoded;
   readonly update?: KeywordPlanCampaignEncoded;
   readonly remove?: string;
 }
 export const KeywordPlanCampaignOperation: Schema.Schema<KeywordPlanCampaignOperation, KeywordPlanCampaignOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => KeywordPlanCampaign)),
   update: Schema.optional(Schema.suspend(() => KeywordPlanCampaign)),
   remove: Schema.optional(Schema.String),
@@ -18441,7 +18441,7 @@ export const KeywordPlanGeoTarget: Schema.Schema<KeywordPlanGeoTarget, KeywordPl
 
 export interface KeywordPlanHistoricalMetrics {
   readonly avg_monthly_searches?: string;
-  readonly monthly_search_volumes?: ReadonlyArray<unknown>;
+  readonly monthly_search_volumes?: ReadonlyArray<MonthlySearchVolume>;
   readonly competition?: KeywordPlanCompetitionLevel;
   readonly competition_index?: string;
   readonly low_top_of_page_bid_micros?: string;
@@ -18450,7 +18450,7 @@ export interface KeywordPlanHistoricalMetrics {
 }
 export interface KeywordPlanHistoricalMetricsEncoded {
   readonly avg_monthly_searches?: string;
-  readonly monthly_search_volumes?: ReadonlyArray<unknown>;
+  readonly monthly_search_volumes?: ReadonlyArray<MonthlySearchVolumeEncoded>;
   readonly competition?: KeywordPlanCompetitionLevelEncoded;
   readonly competition_index?: string;
   readonly low_top_of_page_bid_micros?: string;
@@ -18459,7 +18459,7 @@ export interface KeywordPlanHistoricalMetricsEncoded {
 }
 export const KeywordPlanHistoricalMetrics: Schema.Schema<KeywordPlanHistoricalMetrics, KeywordPlanHistoricalMetricsEncoded, never> = Schema.Struct({
   avg_monthly_searches: Schema.optional(Schema.String),
-  monthly_search_volumes: Schema.optional(Schema.Array(Schema.Unknown)),
+  monthly_search_volumes: Schema.optional(Schema.Array(Schema.suspend(() => MonthlySearchVolume))),
   competition: Schema.optional(Schema.suspend(() => KeywordPlanCompetitionLevel)),
   competition_index: Schema.optional(Schema.String),
   low_top_of_page_bid_micros: Schema.optional(Schema.String),
@@ -18510,19 +18510,19 @@ export const KeywordPlanNetworkEnum: Schema.Schema<KeywordPlanNetworkEnum, Keywo
 });
 
 export interface KeywordPlanOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlan;
   readonly update?: KeywordPlan;
   readonly remove?: string;
 }
 export interface KeywordPlanOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: KeywordPlanEncoded;
   readonly update?: KeywordPlanEncoded;
   readonly remove?: string;
 }
 export const KeywordPlanOperation: Schema.Schema<KeywordPlanOperation, KeywordPlanOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => KeywordPlan)),
   update: Schema.optional(Schema.suspend(() => KeywordPlan)),
   remove: Schema.optional(Schema.String),
@@ -18530,17 +18530,17 @@ export const KeywordPlanOperation: Schema.Schema<KeywordPlanOperation, KeywordPl
 
 export interface KeywordRecommendation {
   readonly keyword?: KeywordInfo;
-  readonly search_terms?: ReadonlyArray<unknown>;
+  readonly search_terms?: ReadonlyArray<SearchTerm>;
   readonly recommended_cpc_bid_micros?: string;
 }
 export interface KeywordRecommendationEncoded {
   readonly keyword?: KeywordInfoEncoded;
-  readonly search_terms?: ReadonlyArray<unknown>;
+  readonly search_terms?: ReadonlyArray<SearchTermEncoded>;
   readonly recommended_cpc_bid_micros?: string;
 }
 export const KeywordRecommendation: Schema.Schema<KeywordRecommendation, KeywordRecommendationEncoded, never> = Schema.Struct({
   keyword: Schema.optional(Schema.suspend(() => KeywordInfo)),
-  search_terms: Schema.optional(Schema.Array(Schema.Unknown)),
+  search_terms: Schema.optional(Schema.Array(Schema.suspend(() => SearchTerm))),
   recommended_cpc_bid_micros: Schema.optional(Schema.String),
 });
 
@@ -18611,28 +18611,28 @@ export const KeywordView: Schema.Schema<KeywordView, KeywordViewEncoded, never> 
 
 export interface KnowledgeGraphAttributeMetadata {
   readonly entity_capabilities?: ReadonlyArray<InsightsKnowledgeGraphEntityCapabilities>;
-  readonly related_categories?: ReadonlyArray<unknown>;
+  readonly related_categories?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
 }
 export interface KnowledgeGraphAttributeMetadataEncoded {
   readonly entity_capabilities?: ReadonlyArray<InsightsKnowledgeGraphEntityCapabilitiesEncoded>;
-  readonly related_categories?: ReadonlyArray<unknown>;
+  readonly related_categories?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
 }
 export const KnowledgeGraphAttributeMetadata: Schema.Schema<KnowledgeGraphAttributeMetadata, KnowledgeGraphAttributeMetadataEncoded, never> = Schema.Struct({
   entity_capabilities: Schema.optional(Schema.Array(Schema.suspend(() => InsightsKnowledgeGraphEntityCapabilities))),
-  related_categories: Schema.optional(Schema.Array(Schema.Unknown)),
+  related_categories: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
 });
 
 export interface KnowledgeGraphEntitySearchOptions {
   readonly get_all_creator_attributes?: boolean;
-  readonly search_filter?: unknown;
+  readonly search_filter?: SearchFilter;
 }
 export interface KnowledgeGraphEntitySearchOptionsEncoded {
   readonly get_all_creator_attributes?: boolean;
-  readonly search_filter?: unknown;
+  readonly search_filter?: SearchFilterEncoded;
 }
 export const KnowledgeGraphEntitySearchOptions: Schema.Schema<KnowledgeGraphEntitySearchOptions, KnowledgeGraphEntitySearchOptionsEncoded, never> = Schema.Struct({
   get_all_creator_attributes: Schema.optional(Schema.Boolean),
-  search_filter: Schema.optional(Schema.Unknown),
+  search_filter: Schema.optional(Schema.suspend(() => SearchFilter)),
 });
 
 export interface Label {
@@ -18672,19 +18672,19 @@ export const LabelErrorEnum: Schema.Schema<LabelErrorEnum, LabelErrorEnumEncoded
 });
 
 export interface LabelOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: Label;
   readonly update?: Label;
   readonly remove?: string;
 }
 export interface LabelOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: LabelEncoded;
   readonly update?: LabelEncoded;
   readonly remove?: string;
 }
 export const LabelOperation: Schema.Schema<LabelOperation, LabelOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => Label)),
   update: Schema.optional(Schema.suspend(() => Label)),
   remove: Schema.optional(Schema.String),
@@ -18799,9 +18799,9 @@ export interface LeadFormAsset {
   readonly privacy_policy_url?: string;
   readonly post_submit_headline?: string;
   readonly post_submit_description?: string;
-  readonly fields?: ReadonlyArray<unknown>;
-  readonly custom_question_fields?: ReadonlyArray<unknown>;
-  readonly delivery_methods?: ReadonlyArray<unknown>;
+  readonly fields?: ReadonlyArray<LeadFormField>;
+  readonly custom_question_fields?: ReadonlyArray<LeadFormCustomQuestionField>;
+  readonly delivery_methods?: ReadonlyArray<LeadFormDeliveryMethod>;
   readonly post_submit_call_to_action_type?: LeadFormPostSubmitCallToActionType;
   readonly background_image_asset?: string;
   readonly desired_intent?: LeadFormDesiredIntent;
@@ -18816,9 +18816,9 @@ export interface LeadFormAssetEncoded {
   readonly privacy_policy_url?: string;
   readonly post_submit_headline?: string;
   readonly post_submit_description?: string;
-  readonly fields?: ReadonlyArray<unknown>;
-  readonly custom_question_fields?: ReadonlyArray<unknown>;
-  readonly delivery_methods?: ReadonlyArray<unknown>;
+  readonly fields?: ReadonlyArray<LeadFormFieldEncoded>;
+  readonly custom_question_fields?: ReadonlyArray<LeadFormCustomQuestionFieldEncoded>;
+  readonly delivery_methods?: ReadonlyArray<LeadFormDeliveryMethodEncoded>;
   readonly post_submit_call_to_action_type?: LeadFormPostSubmitCallToActionTypeEncoded;
   readonly background_image_asset?: string;
   readonly desired_intent?: LeadFormDesiredIntentEncoded;
@@ -18833,9 +18833,9 @@ export const LeadFormAsset: Schema.Schema<LeadFormAsset, LeadFormAssetEncoded, n
   privacy_policy_url: Schema.optional(Schema.String),
   post_submit_headline: Schema.optional(Schema.String),
   post_submit_description: Schema.optional(Schema.String),
-  fields: Schema.optional(Schema.Array(Schema.Unknown)),
-  custom_question_fields: Schema.optional(Schema.Array(Schema.Unknown)),
-  delivery_methods: Schema.optional(Schema.Array(Schema.Unknown)),
+  fields: Schema.optional(Schema.Array(Schema.suspend(() => LeadFormField))),
+  custom_question_fields: Schema.optional(Schema.Array(Schema.suspend(() => LeadFormCustomQuestionField))),
+  delivery_methods: Schema.optional(Schema.Array(Schema.suspend(() => LeadFormDeliveryMethod))),
   post_submit_call_to_action_type: Schema.optional(Schema.suspend(() => LeadFormPostSubmitCallToActionType)),
   background_image_asset: Schema.optional(Schema.String),
   desired_intent: Schema.optional(Schema.suspend(() => LeadFormDesiredIntent)),
@@ -18843,15 +18843,15 @@ export const LeadFormAsset: Schema.Schema<LeadFormAsset, LeadFormAssetEncoded, n
 });
 
 export interface LeadFormAssetParameters {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParameters;
   readonly set_submit_lead_form_asset_campaign_goal?: boolean;
 }
 export interface LeadFormAssetParametersEncoded {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParametersEncoded;
   readonly set_submit_lead_form_asset_campaign_goal?: boolean;
 }
 export const LeadFormAssetParameters: Schema.Schema<LeadFormAssetParameters, LeadFormAssetParametersEncoded, never> = Schema.Struct({
-  ad_asset_apply_parameters: Schema.optional(Schema.Unknown),
+  ad_asset_apply_parameters: Schema.optional(Schema.suspend(() => AdAssetApplyParameters)),
   set_submit_lead_form_asset_campaign_goal: Schema.optional(Schema.Boolean),
 });
 
@@ -18881,28 +18881,28 @@ export const LeadFormCallToActionTypeEnum: Schema.Schema<LeadFormCallToActionTyp
 
 export interface LeadFormCustomQuestionField {
   readonly custom_question_text?: string;
-  readonly single_choice_answers?: unknown;
+  readonly single_choice_answers?: LeadFormSingleChoiceAnswers;
   readonly has_location_answer?: boolean;
 }
 export interface LeadFormCustomQuestionFieldEncoded {
   readonly custom_question_text?: string;
-  readonly single_choice_answers?: unknown;
+  readonly single_choice_answers?: LeadFormSingleChoiceAnswersEncoded;
   readonly has_location_answer?: boolean;
 }
 export const LeadFormCustomQuestionField: Schema.Schema<LeadFormCustomQuestionField, LeadFormCustomQuestionFieldEncoded, never> = Schema.Struct({
   custom_question_text: Schema.optional(Schema.String),
-  single_choice_answers: Schema.optional(Schema.Unknown),
+  single_choice_answers: Schema.optional(Schema.suspend(() => LeadFormSingleChoiceAnswers)),
   has_location_answer: Schema.optional(Schema.Boolean),
 });
 
 export interface LeadFormDeliveryMethod {
-  readonly webhook?: unknown;
+  readonly webhook?: WebhookDelivery;
 }
 export interface LeadFormDeliveryMethodEncoded {
-  readonly webhook?: unknown;
+  readonly webhook?: WebhookDeliveryEncoded;
 }
 export const LeadFormDeliveryMethod: Schema.Schema<LeadFormDeliveryMethod, LeadFormDeliveryMethodEncoded, never> = Schema.Struct({
-  webhook: Schema.optional(Schema.Unknown),
+  webhook: Schema.optional(Schema.suspend(() => WebhookDelivery)),
 });
 
 export type LeadFormDesiredIntent = "UNSPECIFIED" | "UNKNOWN" | "LOW_INTENT" | "HIGH_INTENT";
@@ -18921,17 +18921,17 @@ export const LeadFormDesiredIntentEnum: Schema.Schema<LeadFormDesiredIntentEnum,
 
 export interface LeadFormField {
   readonly input_type?: LeadFormFieldUserInputType;
-  readonly single_choice_answers?: unknown;
+  readonly single_choice_answers?: LeadFormSingleChoiceAnswers;
   readonly has_location_answer?: boolean;
 }
 export interface LeadFormFieldEncoded {
   readonly input_type?: LeadFormFieldUserInputTypeEncoded;
-  readonly single_choice_answers?: unknown;
+  readonly single_choice_answers?: LeadFormSingleChoiceAnswersEncoded;
   readonly has_location_answer?: boolean;
 }
 export const LeadFormField: Schema.Schema<LeadFormField, LeadFormFieldEncoded, never> = Schema.Struct({
   input_type: Schema.optional(Schema.suspend(() => LeadFormFieldUserInputType)),
-  single_choice_answers: Schema.optional(Schema.Unknown),
+  single_choice_answers: Schema.optional(Schema.suspend(() => LeadFormSingleChoiceAnswers)),
   has_location_answer: Schema.optional(Schema.Boolean),
 });
 
@@ -18978,8 +18978,8 @@ export interface LeadFormSubmissionData {
   readonly id?: string;
   readonly asset?: string;
   readonly campaign?: string;
-  readonly lead_form_submission_fields?: ReadonlyArray<unknown>;
-  readonly custom_lead_form_submission_fields?: ReadonlyArray<unknown>;
+  readonly lead_form_submission_fields?: ReadonlyArray<LeadFormSubmissionField>;
+  readonly custom_lead_form_submission_fields?: ReadonlyArray<CustomLeadFormSubmissionField>;
   readonly ad_group?: string;
   readonly ad_group_ad?: string;
   readonly gclid?: string;
@@ -18990,8 +18990,8 @@ export interface LeadFormSubmissionDataEncoded {
   readonly id?: string;
   readonly asset?: string;
   readonly campaign?: string;
-  readonly lead_form_submission_fields?: ReadonlyArray<unknown>;
-  readonly custom_lead_form_submission_fields?: ReadonlyArray<unknown>;
+  readonly lead_form_submission_fields?: ReadonlyArray<LeadFormSubmissionFieldEncoded>;
+  readonly custom_lead_form_submission_fields?: ReadonlyArray<CustomLeadFormSubmissionFieldEncoded>;
   readonly ad_group?: string;
   readonly ad_group_ad?: string;
   readonly gclid?: string;
@@ -19002,8 +19002,8 @@ export const LeadFormSubmissionData: Schema.Schema<LeadFormSubmissionData, LeadF
   id: Schema.optional(Schema.String),
   asset: Schema.optional(Schema.String),
   campaign: Schema.optional(Schema.String),
-  lead_form_submission_fields: Schema.optional(Schema.Array(Schema.Unknown)),
-  custom_lead_form_submission_fields: Schema.optional(Schema.Array(Schema.Unknown)),
+  lead_form_submission_fields: Schema.optional(Schema.Array(Schema.suspend(() => LeadFormSubmissionField))),
+  custom_lead_form_submission_fields: Schema.optional(Schema.Array(Schema.suspend(() => CustomLeadFormSubmissionField))),
   ad_group: Schema.optional(Schema.String),
   ad_group_ad: Schema.optional(Schema.String),
   gclid: Schema.optional(Schema.String),
@@ -19193,25 +19193,25 @@ export const LifeEventSegment: Schema.Schema<LifeEventSegment, LifeEventSegmentE
 });
 
 export interface LineupAttributeMetadata {
-  readonly inventory_country?: unknown;
+  readonly inventory_country?: LocationInfo;
   readonly median_monthly_inventory?: string;
   readonly channel_count_lower_bound?: string;
   readonly channel_count_upper_bound?: string;
-  readonly sample_channels?: ReadonlyArray<unknown>;
+  readonly sample_channels?: ReadonlyArray<SampleChannel>;
 }
 export interface LineupAttributeMetadataEncoded {
-  readonly inventory_country?: unknown;
+  readonly inventory_country?: LocationInfoEncoded;
   readonly median_monthly_inventory?: string;
   readonly channel_count_lower_bound?: string;
   readonly channel_count_upper_bound?: string;
-  readonly sample_channels?: ReadonlyArray<unknown>;
+  readonly sample_channels?: ReadonlyArray<SampleChannelEncoded>;
 }
 export const LineupAttributeMetadata: Schema.Schema<LineupAttributeMetadata, LineupAttributeMetadataEncoded, never> = Schema.Struct({
-  inventory_country: Schema.optional(Schema.Unknown),
+  inventory_country: Schema.optional(Schema.suspend(() => LocationInfo)),
   median_monthly_inventory: Schema.optional(Schema.String),
   channel_count_lower_bound: Schema.optional(Schema.String),
   channel_count_upper_bound: Schema.optional(Schema.String),
-  sample_channels: Schema.optional(Schema.Array(Schema.Unknown)),
+  sample_channels: Schema.optional(Schema.Array(Schema.suspend(() => SampleChannel))),
 });
 
 export type LinkedAccountType = "UNSPECIFIED" | "UNKNOWN" | "THIRD_PARTY_APP_ANALYTICS";
@@ -19270,7 +19270,7 @@ export interface ListAudienceInsightsAttributesRequest {
   readonly insights_application_info?: AdditionalApplicationInfo;
   readonly location_country_filters?: ReadonlyArray<LocationInfo>;
   readonly youtube_reach_location?: LocationInfo;
-  readonly knowledge_graph_entity_search_options?: unknown;
+  readonly knowledge_graph_entity_search_options?: KnowledgeGraphEntitySearchOptions;
 }
 export interface ListAudienceInsightsAttributesRequestEncoded {
   readonly customer_id?: string;
@@ -19280,7 +19280,7 @@ export interface ListAudienceInsightsAttributesRequestEncoded {
   readonly insights_application_info?: AdditionalApplicationInfoEncoded;
   readonly location_country_filters?: ReadonlyArray<LocationInfoEncoded>;
   readonly youtube_reach_location?: LocationInfoEncoded;
-  readonly knowledge_graph_entity_search_options?: unknown;
+  readonly knowledge_graph_entity_search_options?: KnowledgeGraphEntitySearchOptionsEncoded;
 }
 export const ListAudienceInsightsAttributesRequest: Schema.Schema<ListAudienceInsightsAttributesRequest, ListAudienceInsightsAttributesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
@@ -19290,7 +19290,7 @@ export const ListAudienceInsightsAttributesRequest: Schema.Schema<ListAudienceIn
   insights_application_info: Schema.optional(Schema.suspend(() => AdditionalApplicationInfo)),
   location_country_filters: Schema.optional(Schema.Array(Schema.suspend(() => LocationInfo))),
   youtube_reach_location: Schema.optional(Schema.suspend(() => LocationInfo)),
-  knowledge_graph_entity_search_options: Schema.optional(Schema.Unknown),
+  knowledge_graph_entity_search_options: Schema.optional(Schema.suspend(() => KnowledgeGraphEntitySearchOptions)),
 });
 
 export interface ListAudienceInsightsAttributesResponse {
@@ -19323,15 +19323,15 @@ export const ListBatchJobResultsRequest: Schema.Schema<ListBatchJobResultsReques
 });
 
 export interface ListBatchJobResultsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<BatchJobResult>;
   readonly next_page_token?: string;
 }
 export interface ListBatchJobResultsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<BatchJobResultEncoded>;
   readonly next_page_token?: string;
 }
 export const ListBatchJobResultsResponse: Schema.Schema<ListBatchJobResultsResponse, ListBatchJobResultsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => BatchJobResult))),
   next_page_token: Schema.optional(Schema.String),
 });
 
@@ -19366,13 +19366,13 @@ export const ListBenchmarksLocationsRequest: Schema.Schema<ListBenchmarksLocatio
 });
 
 export interface ListBenchmarksLocationsResponse {
-  readonly benchmarks_locations?: ReadonlyArray<unknown>;
+  readonly benchmarks_locations?: ReadonlyArray<BenchmarksLocation>;
 }
 export interface ListBenchmarksLocationsResponseEncoded {
-  readonly benchmarks_locations?: ReadonlyArray<unknown>;
+  readonly benchmarks_locations?: ReadonlyArray<BenchmarksLocationEncoded>;
 }
 export const ListBenchmarksLocationsResponse: Schema.Schema<ListBenchmarksLocationsResponse, ListBenchmarksLocationsResponseEncoded, never> = Schema.Struct({
-  benchmarks_locations: Schema.optional(Schema.Array(Schema.Unknown)),
+  benchmarks_locations: Schema.optional(Schema.Array(Schema.suspend(() => BenchmarksLocation))),
 });
 
 export interface ListBenchmarksProductsRequest {
@@ -19386,13 +19386,13 @@ export const ListBenchmarksProductsRequest: Schema.Schema<ListBenchmarksProducts
 });
 
 export interface ListBenchmarksProductsResponse {
-  readonly benchmarks_products?: ReadonlyArray<unknown>;
+  readonly benchmarks_products?: ReadonlyArray<BenchmarksProductMetadata>;
 }
 export interface ListBenchmarksProductsResponseEncoded {
-  readonly benchmarks_products?: ReadonlyArray<unknown>;
+  readonly benchmarks_products?: ReadonlyArray<BenchmarksProductMetadataEncoded>;
 }
 export const ListBenchmarksProductsResponse: Schema.Schema<ListBenchmarksProductsResponse, ListBenchmarksProductsResponseEncoded, never> = Schema.Struct({
-  benchmarks_products: Schema.optional(Schema.Array(Schema.Unknown)),
+  benchmarks_products: Schema.optional(Schema.Array(Schema.suspend(() => BenchmarksProductMetadata))),
 });
 
 export interface ListBenchmarksSourcesRequest {
@@ -19409,13 +19409,13 @@ export const ListBenchmarksSourcesRequest: Schema.Schema<ListBenchmarksSourcesRe
 });
 
 export interface ListBenchmarksSourcesResponse {
-  readonly benchmarks_sources?: ReadonlyArray<unknown>;
+  readonly benchmarks_sources?: ReadonlyArray<BenchmarksSourceMetadata>;
 }
 export interface ListBenchmarksSourcesResponseEncoded {
-  readonly benchmarks_sources?: ReadonlyArray<unknown>;
+  readonly benchmarks_sources?: ReadonlyArray<BenchmarksSourceMetadataEncoded>;
 }
 export const ListBenchmarksSourcesResponse: Schema.Schema<ListBenchmarksSourcesResponse, ListBenchmarksSourcesResponseEncoded, never> = Schema.Struct({
-  benchmarks_sources: Schema.optional(Schema.Array(Schema.Unknown)),
+  benchmarks_sources: Schema.optional(Schema.Array(Schema.suspend(() => BenchmarksSourceMetadata))),
 });
 
 export interface ListCampaignDraftAsyncErrorsRequest {
@@ -19477,89 +19477,89 @@ export const ListExperimentAsyncErrorsResponse: Schema.Schema<ListExperimentAsyn
 });
 
 export interface ListingDimensionInfo {
-  readonly hotel_id?: unknown;
-  readonly hotel_class?: unknown;
-  readonly hotel_country_region?: unknown;
-  readonly hotel_state?: unknown;
-  readonly hotel_city?: unknown;
-  readonly product_category?: unknown;
-  readonly product_brand?: unknown;
-  readonly product_channel?: unknown;
-  readonly product_channel_exclusivity?: unknown;
-  readonly product_condition?: unknown;
-  readonly product_custom_attribute?: unknown;
-  readonly product_item_id?: unknown;
-  readonly product_type?: unknown;
-  readonly product_grouping?: unknown;
-  readonly product_labels?: unknown;
-  readonly product_legacy_condition?: unknown;
-  readonly product_type_full?: unknown;
-  readonly activity_id?: unknown;
-  readonly activity_rating?: unknown;
-  readonly activity_country?: unknown;
-  readonly activity_state?: unknown;
-  readonly activity_city?: unknown;
-  readonly unknown_listing_dimension?: unknown;
+  readonly hotel_id?: HotelIdInfo;
+  readonly hotel_class?: HotelClassInfo;
+  readonly hotel_country_region?: HotelCountryRegionInfo;
+  readonly hotel_state?: HotelStateInfo;
+  readonly hotel_city?: HotelCityInfo;
+  readonly product_category?: ProductCategoryInfo;
+  readonly product_brand?: ProductBrandInfo;
+  readonly product_channel?: ProductChannelInfo;
+  readonly product_channel_exclusivity?: ProductChannelExclusivityInfo;
+  readonly product_condition?: ProductConditionInfo;
+  readonly product_custom_attribute?: ProductCustomAttributeInfo;
+  readonly product_item_id?: ProductItemIdInfo;
+  readonly product_type?: ProductTypeInfo;
+  readonly product_grouping?: ProductGroupingInfo;
+  readonly product_labels?: ProductLabelsInfo;
+  readonly product_legacy_condition?: ProductLegacyConditionInfo;
+  readonly product_type_full?: ProductTypeFullInfo;
+  readonly activity_id?: ActivityIdInfo;
+  readonly activity_rating?: ActivityRatingInfo;
+  readonly activity_country?: ActivityCountryInfo;
+  readonly activity_state?: ActivityStateInfo;
+  readonly activity_city?: ActivityCityInfo;
+  readonly unknown_listing_dimension?: UnknownListingDimensionInfo;
 }
 export interface ListingDimensionInfoEncoded {
-  readonly hotel_id?: unknown;
-  readonly hotel_class?: unknown;
-  readonly hotel_country_region?: unknown;
-  readonly hotel_state?: unknown;
-  readonly hotel_city?: unknown;
-  readonly product_category?: unknown;
-  readonly product_brand?: unknown;
-  readonly product_channel?: unknown;
-  readonly product_channel_exclusivity?: unknown;
-  readonly product_condition?: unknown;
-  readonly product_custom_attribute?: unknown;
-  readonly product_item_id?: unknown;
-  readonly product_type?: unknown;
-  readonly product_grouping?: unknown;
-  readonly product_labels?: unknown;
-  readonly product_legacy_condition?: unknown;
-  readonly product_type_full?: unknown;
-  readonly activity_id?: unknown;
-  readonly activity_rating?: unknown;
-  readonly activity_country?: unknown;
-  readonly activity_state?: unknown;
-  readonly activity_city?: unknown;
-  readonly unknown_listing_dimension?: unknown;
+  readonly hotel_id?: HotelIdInfoEncoded;
+  readonly hotel_class?: HotelClassInfoEncoded;
+  readonly hotel_country_region?: HotelCountryRegionInfoEncoded;
+  readonly hotel_state?: HotelStateInfoEncoded;
+  readonly hotel_city?: HotelCityInfoEncoded;
+  readonly product_category?: ProductCategoryInfoEncoded;
+  readonly product_brand?: ProductBrandInfoEncoded;
+  readonly product_channel?: ProductChannelInfoEncoded;
+  readonly product_channel_exclusivity?: ProductChannelExclusivityInfoEncoded;
+  readonly product_condition?: ProductConditionInfoEncoded;
+  readonly product_custom_attribute?: ProductCustomAttributeInfoEncoded;
+  readonly product_item_id?: ProductItemIdInfoEncoded;
+  readonly product_type?: ProductTypeInfoEncoded;
+  readonly product_grouping?: ProductGroupingInfoEncoded;
+  readonly product_labels?: ProductLabelsInfoEncoded;
+  readonly product_legacy_condition?: ProductLegacyConditionInfoEncoded;
+  readonly product_type_full?: ProductTypeFullInfoEncoded;
+  readonly activity_id?: ActivityIdInfoEncoded;
+  readonly activity_rating?: ActivityRatingInfoEncoded;
+  readonly activity_country?: ActivityCountryInfoEncoded;
+  readonly activity_state?: ActivityStateInfoEncoded;
+  readonly activity_city?: ActivityCityInfoEncoded;
+  readonly unknown_listing_dimension?: UnknownListingDimensionInfoEncoded;
 }
 export const ListingDimensionInfo: Schema.Schema<ListingDimensionInfo, ListingDimensionInfoEncoded, never> = Schema.Struct({
-  hotel_id: Schema.optional(Schema.Unknown),
-  hotel_class: Schema.optional(Schema.Unknown),
-  hotel_country_region: Schema.optional(Schema.Unknown),
-  hotel_state: Schema.optional(Schema.Unknown),
-  hotel_city: Schema.optional(Schema.Unknown),
-  product_category: Schema.optional(Schema.Unknown),
-  product_brand: Schema.optional(Schema.Unknown),
-  product_channel: Schema.optional(Schema.Unknown),
-  product_channel_exclusivity: Schema.optional(Schema.Unknown),
-  product_condition: Schema.optional(Schema.Unknown),
-  product_custom_attribute: Schema.optional(Schema.Unknown),
-  product_item_id: Schema.optional(Schema.Unknown),
-  product_type: Schema.optional(Schema.Unknown),
-  product_grouping: Schema.optional(Schema.Unknown),
-  product_labels: Schema.optional(Schema.Unknown),
-  product_legacy_condition: Schema.optional(Schema.Unknown),
-  product_type_full: Schema.optional(Schema.Unknown),
-  activity_id: Schema.optional(Schema.Unknown),
-  activity_rating: Schema.optional(Schema.Unknown),
-  activity_country: Schema.optional(Schema.Unknown),
-  activity_state: Schema.optional(Schema.Unknown),
-  activity_city: Schema.optional(Schema.Unknown),
-  unknown_listing_dimension: Schema.optional(Schema.Unknown),
+  hotel_id: Schema.optional(Schema.suspend(() => HotelIdInfo)),
+  hotel_class: Schema.optional(Schema.suspend(() => HotelClassInfo)),
+  hotel_country_region: Schema.optional(Schema.suspend(() => HotelCountryRegionInfo)),
+  hotel_state: Schema.optional(Schema.suspend(() => HotelStateInfo)),
+  hotel_city: Schema.optional(Schema.suspend(() => HotelCityInfo)),
+  product_category: Schema.optional(Schema.suspend(() => ProductCategoryInfo)),
+  product_brand: Schema.optional(Schema.suspend(() => ProductBrandInfo)),
+  product_channel: Schema.optional(Schema.suspend(() => ProductChannelInfo)),
+  product_channel_exclusivity: Schema.optional(Schema.suspend(() => ProductChannelExclusivityInfo)),
+  product_condition: Schema.optional(Schema.suspend(() => ProductConditionInfo)),
+  product_custom_attribute: Schema.optional(Schema.suspend(() => ProductCustomAttributeInfo)),
+  product_item_id: Schema.optional(Schema.suspend(() => ProductItemIdInfo)),
+  product_type: Schema.optional(Schema.suspend(() => ProductTypeInfo)),
+  product_grouping: Schema.optional(Schema.suspend(() => ProductGroupingInfo)),
+  product_labels: Schema.optional(Schema.suspend(() => ProductLabelsInfo)),
+  product_legacy_condition: Schema.optional(Schema.suspend(() => ProductLegacyConditionInfo)),
+  product_type_full: Schema.optional(Schema.suspend(() => ProductTypeFullInfo)),
+  activity_id: Schema.optional(Schema.suspend(() => ActivityIdInfo)),
+  activity_rating: Schema.optional(Schema.suspend(() => ActivityRatingInfo)),
+  activity_country: Schema.optional(Schema.suspend(() => ActivityCountryInfo)),
+  activity_state: Schema.optional(Schema.suspend(() => ActivityStateInfo)),
+  activity_city: Schema.optional(Schema.suspend(() => ActivityCityInfo)),
+  unknown_listing_dimension: Schema.optional(Schema.suspend(() => UnknownListingDimensionInfo)),
 });
 
 export interface ListingDimensionPath {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingDimensionInfo>;
 }
 export interface ListingDimensionPathEncoded {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingDimensionInfoEncoded>;
 }
 export const ListingDimensionPath: Schema.Schema<ListingDimensionPath, ListingDimensionPathEncoded, never> = Schema.Struct({
-  dimensions: Schema.optional(Schema.Array(Schema.Unknown)),
+  dimensions: Schema.optional(Schema.Array(Schema.suspend(() => ListingDimensionInfo))),
 });
 
 export type ListingGroupFilterCustomAttributeIndex = "UNSPECIFIED" | "UNKNOWN" | "INDEX0" | "INDEX1" | "INDEX2" | "INDEX3" | "INDEX4";
@@ -19577,37 +19577,37 @@ export const ListingGroupFilterCustomAttributeIndexEnum: Schema.Schema<ListingGr
 });
 
 export interface ListingGroupFilterDimension {
-  readonly product_category?: unknown;
-  readonly product_brand?: unknown;
-  readonly product_channel?: unknown;
-  readonly product_condition?: unknown;
-  readonly product_custom_attribute?: unknown;
-  readonly product_item_id?: unknown;
-  readonly product_type?: unknown;
-  readonly webpage?: unknown;
-  readonly retail_filter_bundle?: unknown;
+  readonly product_category?: ProductCategory;
+  readonly product_brand?: ProductBrand;
+  readonly product_channel?: ProductChannel;
+  readonly product_condition?: ProductCondition;
+  readonly product_custom_attribute?: ProductCustomAttribute;
+  readonly product_item_id?: ProductItemId;
+  readonly product_type?: ProductType;
+  readonly webpage?: Webpage;
+  readonly retail_filter_bundle?: RetailFilterBundle;
 }
 export interface ListingGroupFilterDimensionEncoded {
-  readonly product_category?: unknown;
-  readonly product_brand?: unknown;
-  readonly product_channel?: unknown;
-  readonly product_condition?: unknown;
-  readonly product_custom_attribute?: unknown;
-  readonly product_item_id?: unknown;
-  readonly product_type?: unknown;
-  readonly webpage?: unknown;
-  readonly retail_filter_bundle?: unknown;
+  readonly product_category?: ProductCategoryEncoded;
+  readonly product_brand?: ProductBrandEncoded;
+  readonly product_channel?: ProductChannelEncoded;
+  readonly product_condition?: ProductConditionEncoded;
+  readonly product_custom_attribute?: ProductCustomAttributeEncoded;
+  readonly product_item_id?: ProductItemIdEncoded;
+  readonly product_type?: ProductTypeEncoded;
+  readonly webpage?: WebpageEncoded;
+  readonly retail_filter_bundle?: RetailFilterBundleEncoded;
 }
 export const ListingGroupFilterDimension: Schema.Schema<ListingGroupFilterDimension, ListingGroupFilterDimensionEncoded, never> = Schema.Struct({
-  product_category: Schema.optional(Schema.Unknown),
-  product_brand: Schema.optional(Schema.Unknown),
-  product_channel: Schema.optional(Schema.Unknown),
-  product_condition: Schema.optional(Schema.Unknown),
-  product_custom_attribute: Schema.optional(Schema.Unknown),
-  product_item_id: Schema.optional(Schema.Unknown),
-  product_type: Schema.optional(Schema.Unknown),
-  webpage: Schema.optional(Schema.Unknown),
-  retail_filter_bundle: Schema.optional(Schema.Unknown),
+  product_category: Schema.optional(Schema.suspend(() => ProductCategory)),
+  product_brand: Schema.optional(Schema.suspend(() => ProductBrand)),
+  product_channel: Schema.optional(Schema.suspend(() => ProductChannel)),
+  product_condition: Schema.optional(Schema.suspend(() => ProductCondition)),
+  product_custom_attribute: Schema.optional(Schema.suspend(() => ProductCustomAttribute)),
+  product_item_id: Schema.optional(Schema.suspend(() => ProductItemId)),
+  product_type: Schema.optional(Schema.suspend(() => ProductType)),
+  webpage: Schema.optional(Schema.suspend(() => Webpage)),
+  retail_filter_bundle: Schema.optional(Schema.suspend(() => RetailFilterBundle)),
 });
 
 export interface ListingGroupFilterDimension_ProductChannel {
@@ -19641,13 +19641,13 @@ export const ListingGroupFilterDimension_RetailFilterBundle: Schema.Schema<Listi
 });
 
 export interface ListingGroupFilterDimensionPath {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingGroupFilterDimension>;
 }
 export interface ListingGroupFilterDimensionPathEncoded {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingGroupFilterDimensionEncoded>;
 }
 export const ListingGroupFilterDimensionPath: Schema.Schema<ListingGroupFilterDimensionPath, ListingGroupFilterDimensionPathEncoded, never> = Schema.Struct({
-  dimensions: Schema.optional(Schema.Array(Schema.Unknown)),
+  dimensions: Schema.optional(Schema.Array(Schema.suspend(() => ListingGroupFilterDimension))),
 });
 
 export type ListingGroupFilterListingSource = "UNSPECIFIED" | "UNKNOWN" | "SHOPPING" | "WEBPAGE" | "RETAIL";
@@ -19736,21 +19736,21 @@ export const ListingGroupFilterTypeEnum: Schema.Schema<ListingGroupFilterTypeEnu
 
 export interface ListingGroupInfo {
   readonly type?: ListingGroupType;
-  readonly case_value?: unknown;
+  readonly case_value?: ListingDimensionInfo;
   readonly parent_ad_group_criterion?: string;
-  readonly path?: unknown;
+  readonly path?: ListingDimensionPath;
 }
 export interface ListingGroupInfoEncoded {
   readonly type?: ListingGroupTypeEncoded;
-  readonly case_value?: unknown;
+  readonly case_value?: ListingDimensionInfoEncoded;
   readonly parent_ad_group_criterion?: string;
-  readonly path?: unknown;
+  readonly path?: ListingDimensionPathEncoded;
 }
 export const ListingGroupInfo: Schema.Schema<ListingGroupInfo, ListingGroupInfoEncoded, never> = Schema.Struct({
   type: Schema.optional(Schema.suspend(() => ListingGroupType)),
-  case_value: Schema.optional(Schema.Unknown),
+  case_value: Schema.optional(Schema.suspend(() => ListingDimensionInfo)),
   parent_ad_group_criterion: Schema.optional(Schema.String),
-  path: Schema.optional(Schema.Unknown),
+  path: Schema.optional(Schema.suspend(() => ListingDimensionPath)),
 });
 
 export type ListingGroupType = "UNSPECIFIED" | "UNKNOWN" | "SUBDIVISION" | "UNIT";
@@ -19768,13 +19768,13 @@ export const ListingGroupTypeEnum: Schema.Schema<ListingGroupTypeEnum, ListingGr
 });
 
 export interface ListingScopeInfo {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingDimensionInfo>;
 }
 export interface ListingScopeInfoEncoded {
-  readonly dimensions?: ReadonlyArray<unknown>;
+  readonly dimensions?: ReadonlyArray<ListingDimensionInfoEncoded>;
 }
 export const ListingScopeInfo: Schema.Schema<ListingScopeInfo, ListingScopeInfoEncoded, never> = Schema.Struct({
-  dimensions: Schema.optional(Schema.Array(Schema.Unknown)),
+  dimensions: Schema.optional(Schema.Array(Schema.suspend(() => ListingDimensionInfo))),
 });
 
 export type ListingType = "UNSPECIFIED" | "UNKNOWN" | "VEHICLES";
@@ -19891,13 +19891,13 @@ export const ListPlannableLocationsRequest: Schema.Schema<ListPlannableLocations
 });
 
 export interface ListPlannableLocationsResponse {
-  readonly plannable_locations?: ReadonlyArray<unknown>;
+  readonly plannable_locations?: ReadonlyArray<PlannableLocation>;
 }
 export interface ListPlannableLocationsResponseEncoded {
-  readonly plannable_locations?: ReadonlyArray<unknown>;
+  readonly plannable_locations?: ReadonlyArray<PlannableLocationEncoded>;
 }
 export const ListPlannableLocationsResponse: Schema.Schema<ListPlannableLocationsResponse, ListPlannableLocationsResponseEncoded, never> = Schema.Struct({
-  plannable_locations: Schema.optional(Schema.Array(Schema.Unknown)),
+  plannable_locations: Schema.optional(Schema.Array(Schema.suspend(() => PlannableLocation))),
 });
 
 export interface ListPlannableProductsRequest {
@@ -19914,13 +19914,13 @@ export const ListPlannableProductsRequest: Schema.Schema<ListPlannableProductsRe
 });
 
 export interface ListPlannableProductsResponse {
-  readonly product_metadata?: ReadonlyArray<unknown>;
+  readonly product_metadata?: ReadonlyArray<ProductMetadata>;
 }
 export interface ListPlannableProductsResponseEncoded {
-  readonly product_metadata?: ReadonlyArray<unknown>;
+  readonly product_metadata?: ReadonlyArray<ProductMetadataEncoded>;
 }
 export const ListPlannableProductsResponse: Schema.Schema<ListPlannableProductsResponse, ListPlannableProductsResponseEncoded, never> = Schema.Struct({
-  product_metadata: Schema.optional(Schema.Array(Schema.Unknown)),
+  product_metadata: Schema.optional(Schema.Array(Schema.suspend(() => ProductMetadata))),
 });
 
 export interface ListPlannableUserInterestsRequest {
@@ -19946,13 +19946,13 @@ export const ListPlannableUserInterestsRequest: Schema.Schema<ListPlannableUserI
 });
 
 export interface ListPlannableUserInterestsResponse {
-  readonly plannable_user_interests?: ReadonlyArray<unknown>;
+  readonly plannable_user_interests?: ReadonlyArray<PlannableUserInterest>;
 }
 export interface ListPlannableUserInterestsResponseEncoded {
-  readonly plannable_user_interests?: ReadonlyArray<unknown>;
+  readonly plannable_user_interests?: ReadonlyArray<PlannableUserInterestEncoded>;
 }
 export const ListPlannableUserInterestsResponse: Schema.Schema<ListPlannableUserInterestsResponse, ListPlannableUserInterestsResponseEncoded, never> = Schema.Struct({
-  plannable_user_interests: Schema.optional(Schema.Array(Schema.Unknown)),
+  plannable_user_interests: Schema.optional(Schema.Array(Schema.suspend(() => PlannableUserInterest))),
 });
 
 export interface ListPlannableUserListsRequest {
@@ -19972,42 +19972,42 @@ export const ListPlannableUserListsRequest: Schema.Schema<ListPlannableUserLists
 });
 
 export interface ListPlannableUserListsResponse {
-  readonly plannable_user_lists?: ReadonlyArray<unknown>;
+  readonly plannable_user_lists?: ReadonlyArray<PlannableUserList>;
 }
 export interface ListPlannableUserListsResponseEncoded {
-  readonly plannable_user_lists?: ReadonlyArray<unknown>;
+  readonly plannable_user_lists?: ReadonlyArray<PlannableUserListEncoded>;
 }
 export const ListPlannableUserListsResponse: Schema.Schema<ListPlannableUserListsResponse, ListPlannableUserListsResponseEncoded, never> = Schema.Struct({
-  plannable_user_lists: Schema.optional(Schema.Array(Schema.Unknown)),
+  plannable_user_lists: Schema.optional(Schema.Array(Schema.suspend(() => PlannableUserList))),
 });
 
 export interface LocalAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly call_to_actions?: ReadonlyArray<AdTextAsset>;
+  readonly marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly videos?: ReadonlyArray<AdVideoAsset>;
   readonly path1?: string;
   readonly path2?: string;
 }
 export interface LocalAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly call_to_actions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly videos?: ReadonlyArray<AdVideoAssetEncoded>;
   readonly path1?: string;
   readonly path2?: string;
 }
 export const LocalAdInfo: Schema.Schema<LocalAdInfo, LocalAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  call_to_actions: Schema.optional(Schema.Array(Schema.Unknown)),
-  marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  videos: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  call_to_actions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
   path1: Schema.optional(Schema.String),
   path2: Schema.optional(Schema.String),
 });
@@ -20071,13 +20071,13 @@ export const LocalServicesCallout: Schema.Schema<LocalServicesCallout, LocalServ
 });
 
 export interface LocalServicesCampaignSettings {
-  readonly category_bids?: ReadonlyArray<unknown>;
+  readonly category_bids?: ReadonlyArray<CategoryBid>;
 }
 export interface LocalServicesCampaignSettingsEncoded {
-  readonly category_bids?: ReadonlyArray<unknown>;
+  readonly category_bids?: ReadonlyArray<CategoryBidEncoded>;
 }
 export const LocalServicesCampaignSettings: Schema.Schema<LocalServicesCampaignSettings, LocalServicesCampaignSettingsEncoded, never> = Schema.Struct({
-  category_bids: Schema.optional(Schema.Array(Schema.Unknown)),
+  category_bids: Schema.optional(Schema.Array(Schema.suspend(() => CategoryBid))),
 });
 
 export interface LocalServicesCreditStateEnum {
@@ -20106,9 +20106,9 @@ export interface LocalServicesEmployee {
   readonly creation_date_time?: string;
   readonly status?: LocalServicesEmployeeStatus;
   readonly type?: LocalServicesEmployeeType;
-  readonly university_degrees?: ReadonlyArray<unknown>;
-  readonly residencies?: ReadonlyArray<unknown>;
-  readonly fellowships?: ReadonlyArray<unknown>;
+  readonly university_degrees?: ReadonlyArray<UniversityDegree>;
+  readonly residencies?: ReadonlyArray<Residency>;
+  readonly fellowships?: ReadonlyArray<Fellowship>;
   readonly job_title?: string;
   readonly year_started_practicing?: number;
   readonly languages_spoken?: ReadonlyArray<string>;
@@ -20125,9 +20125,9 @@ export interface LocalServicesEmployeeEncoded {
   readonly creation_date_time?: string;
   readonly status?: LocalServicesEmployeeStatusEncoded;
   readonly type?: LocalServicesEmployeeTypeEncoded;
-  readonly university_degrees?: ReadonlyArray<unknown>;
-  readonly residencies?: ReadonlyArray<unknown>;
-  readonly fellowships?: ReadonlyArray<unknown>;
+  readonly university_degrees?: ReadonlyArray<UniversityDegreeEncoded>;
+  readonly residencies?: ReadonlyArray<ResidencyEncoded>;
+  readonly fellowships?: ReadonlyArray<FellowshipEncoded>;
   readonly job_title?: string;
   readonly year_started_practicing?: number;
   readonly languages_spoken?: ReadonlyArray<string>;
@@ -20144,9 +20144,9 @@ export const LocalServicesEmployee: Schema.Schema<LocalServicesEmployee, LocalSe
   creation_date_time: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => LocalServicesEmployeeStatus)),
   type: Schema.optional(Schema.suspend(() => LocalServicesEmployeeType)),
-  university_degrees: Schema.optional(Schema.Array(Schema.Unknown)),
-  residencies: Schema.optional(Schema.Array(Schema.Unknown)),
-  fellowships: Schema.optional(Schema.Array(Schema.Unknown)),
+  university_degrees: Schema.optional(Schema.Array(Schema.suspend(() => UniversityDegree))),
+  residencies: Schema.optional(Schema.Array(Schema.suspend(() => Residency))),
+  fellowships: Schema.optional(Schema.Array(Schema.suspend(() => Fellowship))),
   job_title: Schema.optional(Schema.String),
   year_started_practicing: Schema.optional(Schema.Int),
   languages_spoken: Schema.optional(Schema.Array(Schema.String)),
@@ -20205,14 +20205,14 @@ export interface LocalServicesLead {
   readonly id?: string;
   readonly category_id?: string;
   readonly service_id?: string;
-  readonly contact_details?: unknown;
+  readonly contact_details?: ContactDetails;
   readonly lead_type?: LeadType;
   readonly lead_status?: LeadStatus;
   readonly creation_date_time?: string;
   readonly locale?: string;
-  readonly note?: unknown;
+  readonly note?: Note;
   readonly lead_charged?: boolean;
-  readonly credit_details?: unknown;
+  readonly credit_details?: CreditDetails;
   readonly lead_feedback_submitted?: boolean;
 }
 export interface LocalServicesLeadEncoded {
@@ -20220,14 +20220,14 @@ export interface LocalServicesLeadEncoded {
   readonly id?: string;
   readonly category_id?: string;
   readonly service_id?: string;
-  readonly contact_details?: unknown;
+  readonly contact_details?: ContactDetailsEncoded;
   readonly lead_type?: LeadTypeEncoded;
   readonly lead_status?: LeadStatusEncoded;
   readonly creation_date_time?: string;
   readonly locale?: string;
-  readonly note?: unknown;
+  readonly note?: NoteEncoded;
   readonly lead_charged?: boolean;
-  readonly credit_details?: unknown;
+  readonly credit_details?: CreditDetailsEncoded;
   readonly lead_feedback_submitted?: boolean;
 }
 export const LocalServicesLead: Schema.Schema<LocalServicesLead, LocalServicesLeadEncoded, never> = Schema.Struct({
@@ -20235,14 +20235,14 @@ export const LocalServicesLead: Schema.Schema<LocalServicesLead, LocalServicesLe
   id: Schema.optional(Schema.String),
   category_id: Schema.optional(Schema.String),
   service_id: Schema.optional(Schema.String),
-  contact_details: Schema.optional(Schema.Unknown),
+  contact_details: Schema.optional(Schema.suspend(() => ContactDetails)),
   lead_type: Schema.optional(Schema.suspend(() => LeadType)),
   lead_status: Schema.optional(Schema.suspend(() => LeadStatus)),
   creation_date_time: Schema.optional(Schema.String),
   locale: Schema.optional(Schema.String),
-  note: Schema.optional(Schema.Unknown),
+  note: Schema.optional(Schema.suspend(() => Note)),
   lead_charged: Schema.optional(Schema.Boolean),
-  credit_details: Schema.optional(Schema.Unknown),
+  credit_details: Schema.optional(Schema.suspend(() => CreditDetails)),
   lead_feedback_submitted: Schema.optional(Schema.Boolean),
 });
 
@@ -20253,8 +20253,8 @@ export interface LocalServicesLeadConversation {
   readonly participant_type?: ParticipantType;
   readonly lead?: string;
   readonly event_date_time?: string;
-  readonly phone_call_details?: unknown;
-  readonly message_details?: unknown;
+  readonly phone_call_details?: PhoneCallDetails;
+  readonly message_details?: MessageDetails;
 }
 export interface LocalServicesLeadConversationEncoded {
   readonly resource_name?: string;
@@ -20263,8 +20263,8 @@ export interface LocalServicesLeadConversationEncoded {
   readonly participant_type?: ParticipantTypeEncoded;
   readonly lead?: string;
   readonly event_date_time?: string;
-  readonly phone_call_details?: unknown;
-  readonly message_details?: unknown;
+  readonly phone_call_details?: PhoneCallDetailsEncoded;
+  readonly message_details?: MessageDetailsEncoded;
 }
 export const LocalServicesLeadConversation: Schema.Schema<LocalServicesLeadConversation, LocalServicesLeadConversationEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -20273,8 +20273,8 @@ export const LocalServicesLeadConversation: Schema.Schema<LocalServicesLeadConve
   participant_type: Schema.optional(Schema.suspend(() => ParticipantType)),
   lead: Schema.optional(Schema.String),
   event_date_time: Schema.optional(Schema.String),
-  phone_call_details: Schema.optional(Schema.Unknown),
-  message_details: Schema.optional(Schema.Unknown),
+  phone_call_details: Schema.optional(Schema.suspend(() => PhoneCallDetails)),
+  message_details: Schema.optional(Schema.suspend(() => MessageDetails)),
 });
 
 export interface LocalServicesLeadConversationTypeEnum {
@@ -20407,16 +20407,16 @@ export const LocalServicesPmaxCampaignSettings: Schema.Schema<LocalServicesPmaxC
 });
 
 export interface LocalServicesSettings {
-  readonly granular_license_statuses?: ReadonlyArray<unknown>;
-  readonly granular_insurance_statuses?: ReadonlyArray<unknown>;
+  readonly granular_license_statuses?: ReadonlyArray<GranularLicenseStatus>;
+  readonly granular_insurance_statuses?: ReadonlyArray<GranularInsuranceStatus>;
 }
 export interface LocalServicesSettingsEncoded {
-  readonly granular_license_statuses?: ReadonlyArray<unknown>;
-  readonly granular_insurance_statuses?: ReadonlyArray<unknown>;
+  readonly granular_license_statuses?: ReadonlyArray<GranularLicenseStatusEncoded>;
+  readonly granular_insurance_statuses?: ReadonlyArray<GranularInsuranceStatusEncoded>;
 }
 export const LocalServicesSettings: Schema.Schema<LocalServicesSettings, LocalServicesSettingsEncoded, never> = Schema.Struct({
-  granular_license_statuses: Schema.optional(Schema.Array(Schema.Unknown)),
-  granular_insurance_statuses: Schema.optional(Schema.Array(Schema.Unknown)),
+  granular_license_statuses: Schema.optional(Schema.Array(Schema.suspend(() => GranularLicenseStatus))),
+  granular_insurance_statuses: Schema.optional(Schema.Array(Schema.suspend(() => GranularInsuranceStatus))),
 });
 
 export interface LocalServicesVerificationArtifact {
@@ -20425,10 +20425,10 @@ export interface LocalServicesVerificationArtifact {
   readonly creation_date_time?: string;
   readonly status?: LocalServicesVerificationArtifactStatus;
   readonly artifact_type?: LocalServicesVerificationArtifactType;
-  readonly background_check_verification_artifact?: unknown;
-  readonly insurance_verification_artifact?: unknown;
-  readonly license_verification_artifact?: unknown;
-  readonly business_registration_check_verification_artifact?: unknown;
+  readonly background_check_verification_artifact?: BackgroundCheckVerificationArtifact;
+  readonly insurance_verification_artifact?: InsuranceVerificationArtifact;
+  readonly license_verification_artifact?: LicenseVerificationArtifact;
+  readonly business_registration_check_verification_artifact?: BusinessRegistrationCheckVerificationArtifact;
 }
 export interface LocalServicesVerificationArtifactEncoded {
   readonly resource_name?: string;
@@ -20436,10 +20436,10 @@ export interface LocalServicesVerificationArtifactEncoded {
   readonly creation_date_time?: string;
   readonly status?: LocalServicesVerificationArtifactStatusEncoded;
   readonly artifact_type?: LocalServicesVerificationArtifactTypeEncoded;
-  readonly background_check_verification_artifact?: unknown;
-  readonly insurance_verification_artifact?: unknown;
-  readonly license_verification_artifact?: unknown;
-  readonly business_registration_check_verification_artifact?: unknown;
+  readonly background_check_verification_artifact?: BackgroundCheckVerificationArtifactEncoded;
+  readonly insurance_verification_artifact?: InsuranceVerificationArtifactEncoded;
+  readonly license_verification_artifact?: LicenseVerificationArtifactEncoded;
+  readonly business_registration_check_verification_artifact?: BusinessRegistrationCheckVerificationArtifactEncoded;
 }
 export const LocalServicesVerificationArtifact: Schema.Schema<LocalServicesVerificationArtifact, LocalServicesVerificationArtifactEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -20447,10 +20447,10 @@ export const LocalServicesVerificationArtifact: Schema.Schema<LocalServicesVerif
   creation_date_time: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => LocalServicesVerificationArtifactStatus)),
   artifact_type: Schema.optional(Schema.suspend(() => LocalServicesVerificationArtifactType)),
-  background_check_verification_artifact: Schema.optional(Schema.Unknown),
-  insurance_verification_artifact: Schema.optional(Schema.Unknown),
-  license_verification_artifact: Schema.optional(Schema.Unknown),
-  business_registration_check_verification_artifact: Schema.optional(Schema.Unknown),
+  background_check_verification_artifact: Schema.optional(Schema.suspend(() => BackgroundCheckVerificationArtifact)),
+  insurance_verification_artifact: Schema.optional(Schema.suspend(() => InsuranceVerificationArtifact)),
+  license_verification_artifact: Schema.optional(Schema.suspend(() => LicenseVerificationArtifact)),
+  business_registration_check_verification_artifact: Schema.optional(Schema.suspend(() => BusinessRegistrationCheckVerificationArtifact)),
 });
 
 export type LocalServicesVerificationArtifactStatus = "UNSPECIFIED" | "UNKNOWN" | "PASSED" | "FAILED" | "PENDING" | "NO_SUBMISSION" | "CANCELLED";
@@ -20497,28 +20497,28 @@ export const LocalServicesVerificationStatusEnum: Schema.Schema<LocalServicesVer
 
 export interface LocationAsset {
   readonly place_id?: string;
-  readonly business_profile_locations?: ReadonlyArray<unknown>;
+  readonly business_profile_locations?: ReadonlyArray<BusinessProfileLocation>;
   readonly location_ownership_type?: LocationOwnershipType;
 }
 export interface LocationAssetEncoded {
   readonly place_id?: string;
-  readonly business_profile_locations?: ReadonlyArray<unknown>;
+  readonly business_profile_locations?: ReadonlyArray<BusinessProfileLocationEncoded>;
   readonly location_ownership_type?: LocationOwnershipTypeEncoded;
 }
 export const LocationAsset: Schema.Schema<LocationAsset, LocationAssetEncoded, never> = Schema.Struct({
   place_id: Schema.optional(Schema.String),
-  business_profile_locations: Schema.optional(Schema.Array(Schema.Unknown)),
+  business_profile_locations: Schema.optional(Schema.Array(Schema.suspend(() => BusinessProfileLocation))),
   location_ownership_type: Schema.optional(Schema.suspend(() => LocationOwnershipType)),
 });
 
 export interface LocationAttributeMetadata {
-  readonly country_location?: unknown;
+  readonly country_location?: LocationInfo;
 }
 export interface LocationAttributeMetadataEncoded {
-  readonly country_location?: unknown;
+  readonly country_location?: LocationInfoEncoded;
 }
 export const LocationAttributeMetadata: Schema.Schema<LocationAttributeMetadata, LocationAttributeMetadataEncoded, never> = Schema.Struct({
-  country_location: Schema.optional(Schema.Unknown),
+  country_location: Schema.optional(Schema.suspend(() => LocationInfo)),
 });
 
 export interface LocationGroupInfo {
@@ -20616,21 +20616,21 @@ export const LocationOwnershipTypeEnum: Schema.Schema<LocationOwnershipTypeEnum,
 
 export interface LocationSet {
   readonly location_ownership_type?: LocationOwnershipType;
-  readonly business_profile_location_set?: unknown;
-  readonly chain_location_set?: unknown;
-  readonly maps_location_set?: unknown;
+  readonly business_profile_location_set?: BusinessProfileLocationSet;
+  readonly chain_location_set?: ChainSet;
+  readonly maps_location_set?: MapsLocationSet;
 }
 export interface LocationSetEncoded {
   readonly location_ownership_type?: LocationOwnershipTypeEncoded;
-  readonly business_profile_location_set?: unknown;
-  readonly chain_location_set?: unknown;
-  readonly maps_location_set?: unknown;
+  readonly business_profile_location_set?: BusinessProfileLocationSetEncoded;
+  readonly chain_location_set?: ChainSetEncoded;
+  readonly maps_location_set?: MapsLocationSetEncoded;
 }
 export const LocationSet: Schema.Schema<LocationSet, LocationSetEncoded, never> = Schema.Struct({
   location_ownership_type: Schema.optional(Schema.suspend(() => LocationOwnershipType)),
-  business_profile_location_set: Schema.optional(Schema.Unknown),
-  chain_location_set: Schema.optional(Schema.Unknown),
-  maps_location_set: Schema.optional(Schema.Unknown),
+  business_profile_location_set: Schema.optional(Schema.suspend(() => BusinessProfileLocationSet)),
+  chain_location_set: Schema.optional(Schema.suspend(() => ChainSet)),
+  maps_location_set: Schema.optional(Schema.suspend(() => MapsLocationSet)),
 });
 
 export type LocationSourceType = "UNSPECIFIED" | "UNKNOWN" | "GOOGLE_MY_BUSINESS" | "AFFILIATE";
@@ -20672,13 +20672,13 @@ export const LocationView: Schema.Schema<LocationView, LocationViewEncoded, neve
 });
 
 export interface LogicalUserListInfo {
-  readonly rules?: ReadonlyArray<unknown>;
+  readonly rules?: ReadonlyArray<UserListLogicalRuleInfo>;
 }
 export interface LogicalUserListInfoEncoded {
-  readonly rules?: ReadonlyArray<unknown>;
+  readonly rules?: ReadonlyArray<UserListLogicalRuleInfoEncoded>;
 }
 export const LogicalUserListInfo: Schema.Schema<LogicalUserListInfo, LogicalUserListInfoEncoded, never> = Schema.Struct({
-  rules: Schema.optional(Schema.Array(Schema.Unknown)),
+  rules: Schema.optional(Schema.Array(Schema.suspend(() => UserListLogicalRuleInfo))),
 });
 
 export interface LogicalUserListOperandInfo {
@@ -20732,23 +20732,23 @@ export const LowerTargetRoasParameters: Schema.Schema<LowerTargetRoasParameters,
 });
 
 export interface LowerTargetRoasRecommendation {
-  readonly target_adjustment?: unknown;
+  readonly target_adjustment?: TargetAdjustmentInfo;
 }
 export interface LowerTargetRoasRecommendationEncoded {
-  readonly target_adjustment?: unknown;
+  readonly target_adjustment?: TargetAdjustmentInfoEncoded;
 }
 export const LowerTargetRoasRecommendation: Schema.Schema<LowerTargetRoasRecommendation, LowerTargetRoasRecommendationEncoded, never> = Schema.Struct({
-  target_adjustment: Schema.optional(Schema.Unknown),
+  target_adjustment: Schema.optional(Schema.suspend(() => TargetAdjustmentInfo)),
 });
 
 export interface LoyaltyRetentionGoal {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettings;
 }
 export interface LoyaltyRetentionGoalEncoded {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettingsEncoded;
 }
 export const LoyaltyRetentionGoal: Schema.Schema<LoyaltyRetentionGoal, LoyaltyRetentionGoalEncoded, never> = Schema.Struct({
-  value_settings: Schema.optional(Schema.Unknown),
+  value_settings: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
 });
 
 export interface ManagedPlacementView {
@@ -20853,13 +20853,13 @@ export const MapsLocationInfo: Schema.Schema<MapsLocationInfo, MapsLocationInfoE
 });
 
 export interface MapsLocationSet {
-  readonly maps_locations?: ReadonlyArray<unknown>;
+  readonly maps_locations?: ReadonlyArray<MapsLocationInfo>;
 }
 export interface MapsLocationSetEncoded {
-  readonly maps_locations?: ReadonlyArray<unknown>;
+  readonly maps_locations?: ReadonlyArray<MapsLocationInfoEncoded>;
 }
 export const MapsLocationSet: Schema.Schema<MapsLocationSet, MapsLocationSetEncoded, never> = Schema.Struct({
-  maps_locations: Schema.optional(Schema.Array(Schema.Unknown)),
+  maps_locations: Schema.optional(Schema.Array(Schema.suspend(() => MapsLocationInfo))),
 });
 
 export interface MarketingObjectiveList {
@@ -21039,10 +21039,10 @@ export interface MediaFile {
   readonly source_url?: string;
   readonly name?: string;
   readonly file_size?: string;
-  readonly image?: unknown;
-  readonly media_bundle?: unknown;
-  readonly audio?: unknown;
-  readonly video?: unknown;
+  readonly image?: MediaImage;
+  readonly media_bundle?: MediaBundle;
+  readonly audio?: MediaAudio;
+  readonly video?: MediaVideo;
 }
 export interface MediaFileEncoded {
   readonly resource_name?: string;
@@ -21052,10 +21052,10 @@ export interface MediaFileEncoded {
   readonly source_url?: string;
   readonly name?: string;
   readonly file_size?: string;
-  readonly image?: unknown;
-  readonly media_bundle?: unknown;
-  readonly audio?: unknown;
-  readonly video?: unknown;
+  readonly image?: MediaImageEncoded;
+  readonly media_bundle?: MediaBundleEncoded;
+  readonly audio?: MediaAudioEncoded;
+  readonly video?: MediaVideoEncoded;
 }
 export const MediaFile: Schema.Schema<MediaFile, MediaFileEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -21065,10 +21065,10 @@ export const MediaFile: Schema.Schema<MediaFile, MediaFileEncoded, never> = Sche
   source_url: Schema.optional(Schema.String),
   name: Schema.optional(Schema.String),
   file_size: Schema.optional(Schema.String),
-  image: Schema.optional(Schema.Unknown),
-  media_bundle: Schema.optional(Schema.Unknown),
-  audio: Schema.optional(Schema.Unknown),
-  video: Schema.optional(Schema.Unknown),
+  image: Schema.optional(Schema.suspend(() => MediaImage)),
+  media_bundle: Schema.optional(Schema.suspend(() => MediaBundle)),
+  audio: Schema.optional(Schema.suspend(() => MediaAudio)),
+  video: Schema.optional(Schema.suspend(() => MediaVideo)),
 });
 
 export type MediaFileError = "UNSPECIFIED" | "UNKNOWN" | "CANNOT_CREATE_STANDARD_ICON" | "CANNOT_SELECT_STANDARD_ICON_WITH_OTHER_TYPES" | "CANNOT_SPECIFY_MEDIA_FILE_ID_AND_DATA" | "DUPLICATE_MEDIA" | "EMPTY_FIELD" | "RESOURCE_REFERENCED_IN_MULTIPLE_OPS" | "FIELD_NOT_SUPPORTED_FOR_MEDIA_SUB_TYPE" | "INVALID_MEDIA_FILE_ID" | "INVALID_MEDIA_SUB_TYPE" | "INVALID_MEDIA_FILE_TYPE" | "INVALID_MIME_TYPE" | "INVALID_REFERENCE_ID" | "INVALID_YOU_TUBE_ID" | "MEDIA_FILE_FAILED_TRANSCODING" | "MEDIA_NOT_TRANSCODED" | "MEDIA_TYPE_DOES_NOT_MATCH_MEDIA_FILE_TYPE" | "NO_FIELDS_SPECIFIED" | "NULL_REFERENCE_ID_AND_MEDIA_ID" | "TOO_LONG" | "UNSUPPORTED_TYPE" | "YOU_TUBE_SERVICE_UNAVAILABLE" | "YOU_TUBE_VIDEO_HAS_NON_POSITIVE_DURATION" | "YOU_TUBE_VIDEO_NOT_FOUND";
@@ -21253,15 +21253,15 @@ export const MessagingRestrictionTypeEnum: Schema.Schema<MessagingRestrictionTyp
 
 export interface MetricAttributes {
   readonly name?: string;
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<Attribute>;
 }
 export interface MetricAttributesEncoded {
   readonly name?: string;
-  readonly attributes?: ReadonlyArray<unknown>;
+  readonly attributes?: ReadonlyArray<AttributeEncoded>;
 }
 export const MetricAttributes: Schema.Schema<MetricAttributes, MetricAttributesEncoded, never> = Schema.Struct({
   name: Schema.optional(Schema.String),
-  attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  attributes: Schema.optional(Schema.Array(Schema.suspend(() => Attribute))),
 });
 
 export interface MetricGoal {
@@ -21403,7 +21403,7 @@ export interface Metrics {
   readonly search_rank_lost_impression_share?: number;
   readonly search_rank_lost_top_impression_share?: number;
   readonly search_top_impression_share?: number;
-  readonly search_volume?: unknown;
+  readonly search_volume?: SearchVolumeRange;
   readonly speed_score?: string;
   readonly average_target_cpa_micros?: string;
   readonly average_target_roas?: number;
@@ -21686,7 +21686,7 @@ export interface MetricsEncoded {
   readonly search_rank_lost_impression_share?: number;
   readonly search_rank_lost_top_impression_share?: number;
   readonly search_top_impression_share?: number;
-  readonly search_volume?: unknown;
+  readonly search_volume?: SearchVolumeRangeEncoded;
   readonly speed_score?: string;
   readonly average_target_cpa_micros?: string;
   readonly average_target_roas?: number;
@@ -21969,7 +21969,7 @@ export const Metrics: Schema.Schema<Metrics, MetricsEncoded, never> = Schema.Str
   search_rank_lost_impression_share: Schema.optional(Schema.Number),
   search_rank_lost_top_impression_share: Schema.optional(Schema.Number),
   search_top_impression_share: Schema.optional(Schema.Number),
-  search_volume: Schema.optional(Schema.Unknown),
+  search_volume: Schema.optional(Schema.suspend(() => SearchVolumeRange)),
   speed_score: Schema.optional(Schema.String),
   average_target_cpa_micros: Schema.optional(Schema.String),
   average_target_roas: Schema.optional(Schema.Number),
@@ -22387,15 +22387,15 @@ export const MoveUnusedBudgetParameters: Schema.Schema<MoveUnusedBudgetParameter
 
 export interface MoveUnusedBudgetRecommendation {
   readonly excess_campaign_budget?: string;
-  readonly budget_recommendation?: unknown;
+  readonly budget_recommendation?: CampaignBudgetRecommendation;
 }
 export interface MoveUnusedBudgetRecommendationEncoded {
   readonly excess_campaign_budget?: string;
-  readonly budget_recommendation?: unknown;
+  readonly budget_recommendation?: CampaignBudgetRecommendationEncoded;
 }
 export const MoveUnusedBudgetRecommendation: Schema.Schema<MoveUnusedBudgetRecommendation, MoveUnusedBudgetRecommendationEncoded, never> = Schema.Struct({
   excess_campaign_budget: Schema.optional(Schema.String),
-  budget_recommendation: Schema.optional(Schema.Unknown),
+  budget_recommendation: Schema.optional(Schema.suspend(() => CampaignBudgetRecommendation)),
 });
 
 export type MultiPartyAuthOperationType = "UNSPECIFIED" | "UNKNOWN" | "CREATE" | "UPDATE" | "REMOVE";
@@ -22422,8 +22422,8 @@ export interface MultiPartyAuthReview {
   readonly request_user_email?: string;
   readonly operation_type?: MultiPartyAuthOperationType;
   readonly target_resource?: MultiPartyAuthReviewTargetResource;
-  readonly customer_user_access_review?: unknown;
-  readonly customer_user_access_invitation_review?: unknown;
+  readonly customer_user_access_review?: CustomerUserAccessReview;
+  readonly customer_user_access_invitation_review?: CustomerUserAccessInvitationReview;
 }
 export interface MultiPartyAuthReviewEncoded {
   readonly resource_name?: string;
@@ -22435,8 +22435,8 @@ export interface MultiPartyAuthReviewEncoded {
   readonly request_user_email?: string;
   readonly operation_type?: MultiPartyAuthOperationTypeEncoded;
   readonly target_resource?: MultiPartyAuthReviewTargetResourceEncoded;
-  readonly customer_user_access_review?: unknown;
-  readonly customer_user_access_invitation_review?: unknown;
+  readonly customer_user_access_review?: CustomerUserAccessReviewEncoded;
+  readonly customer_user_access_invitation_review?: CustomerUserAccessInvitationReviewEncoded;
 }
 export const MultiPartyAuthReview: Schema.Schema<MultiPartyAuthReview, MultiPartyAuthReviewEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -22448,8 +22448,8 @@ export const MultiPartyAuthReview: Schema.Schema<MultiPartyAuthReview, MultiPart
   request_user_email: Schema.optional(Schema.String),
   operation_type: Schema.optional(Schema.suspend(() => MultiPartyAuthOperationType)),
   target_resource: Schema.optional(Schema.suspend(() => MultiPartyAuthReviewTargetResource)),
-  customer_user_access_review: Schema.optional(Schema.Unknown),
-  customer_user_access_invitation_review: Schema.optional(Schema.Unknown),
+  customer_user_access_review: Schema.optional(Schema.suspend(() => CustomerUserAccessReview)),
+  customer_user_access_invitation_review: Schema.optional(Schema.suspend(() => CustomerUserAccessInvitationReview)),
 });
 
 export type MultiPartyAuthReviewError = "UNSPECIFIED" | "UNKNOWN" | "ACCESS_INVITATION_NOT_FOUND" | "ACCESS_INVITATION_INVALID_STATUS" | "INVALID_STATUS_TRANSITION" | "PERMISSION_DENIED";
@@ -22510,28 +22510,28 @@ export const MultiplierErrorEnum: Schema.Schema<MultiplierErrorEnum, MultiplierE
 
 export interface MutateAccountBudgetProposalRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: AccountBudgetProposalOperation;
   readonly validate_only?: boolean;
 }
 export interface MutateAccountBudgetProposalRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: AccountBudgetProposalOperationEncoded;
   readonly validate_only?: boolean;
 }
 export const MutateAccountBudgetProposalRequest: Schema.Schema<MutateAccountBudgetProposalRequest, MutateAccountBudgetProposalRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => AccountBudgetProposalOperation)),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAccountBudgetProposalResponse {
-  readonly result?: unknown;
+  readonly result?: MutateAccountBudgetProposalResult;
 }
 export interface MutateAccountBudgetProposalResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateAccountBudgetProposalResultEncoded;
 }
 export const MutateAccountBudgetProposalResponse: Schema.Schema<MutateAccountBudgetProposalResponse, MutateAccountBudgetProposalResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateAccountBudgetProposalResult)),
 });
 
 export interface MutateAccountBudgetProposalResult {
@@ -22546,33 +22546,33 @@ export const MutateAccountBudgetProposalResult: Schema.Schema<MutateAccountBudge
 
 export interface MutateAccountLinkRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: AccountLinkOperation;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateAccountLinkRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: AccountLinkOperationEncoded;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateAccountLinkRequest: Schema.Schema<MutateAccountLinkRequest, MutateAccountLinkRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => AccountLinkOperation)),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAccountLinkResponse {
-  readonly result?: unknown;
+  readonly result?: MutateAccountLinkResult;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAccountLinkResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateAccountLinkResultEncoded;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAccountLinkResponse: Schema.Schema<MutateAccountLinkResponse, MutateAccountLinkResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateAccountLinkResult)),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -22598,34 +22598,34 @@ export const MutateAdGroupAdLabelResult: Schema.Schema<MutateAdGroupAdLabelResul
 
 export interface MutateAdGroupAdLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAdLabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateAdGroupAdLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAdLabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateAdGroupAdLabelsRequest: Schema.Schema<MutateAdGroupAdLabelsRequest, MutateAdGroupAdLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAdLabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAdGroupAdLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAdLabelResult>;
 }
 export interface MutateAdGroupAdLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAdLabelResultEncoded>;
 }
 export const MutateAdGroupAdLabelsResponse: Schema.Schema<MutateAdGroupAdLabelsResponse, MutateAdGroupAdLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupAdLabelResult))),
 });
 
 export interface MutateAdGroupAdResult {
@@ -22643,21 +22643,21 @@ export const MutateAdGroupAdResult: Schema.Schema<MutateAdGroupAdResult, MutateA
 
 export interface MutateAdGroupAdsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAdOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupAdsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAdOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupAdsRequest: Schema.Schema<MutateAdGroupAdsRequest, MutateAdGroupAdsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAdOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -22665,15 +22665,15 @@ export const MutateAdGroupAdsRequest: Schema.Schema<MutateAdGroupAdsRequest, Mut
 
 export interface MutateAdGroupAdsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAdResult>;
 }
 export interface MutateAdGroupAdsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAdResultEncoded>;
 }
 export const MutateAdGroupAdsResponse: Schema.Schema<MutateAdGroupAdsResponse, MutateAdGroupAdsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupAdResult))),
 });
 
 export interface MutateAdGroupAssetResult {
@@ -22704,56 +22704,56 @@ export const MutateAdGroupAssetSetResult: Schema.Schema<MutateAdGroupAssetSetRes
 
 export interface MutateAdGroupAssetSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAssetSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupAssetSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAssetSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupAssetSetsRequest: Schema.Schema<MutateAdGroupAssetSetsRequest, MutateAdGroupAssetSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAssetSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAdGroupAssetSetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAssetSetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAdGroupAssetSetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAssetSetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAdGroupAssetSetsResponse: Schema.Schema<MutateAdGroupAssetSetsResponse, MutateAdGroupAssetSetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupAssetSetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateAdGroupAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAssetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupAssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupAssetsRequest: Schema.Schema<MutateAdGroupAssetsRequest, MutateAdGroupAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -22761,15 +22761,15 @@ export const MutateAdGroupAssetsRequest: Schema.Schema<MutateAdGroupAssetsReques
 
 export interface MutateAdGroupAssetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAssetResult>;
 }
 export interface MutateAdGroupAssetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupAssetResultEncoded>;
 }
 export const MutateAdGroupAssetsResponse: Schema.Schema<MutateAdGroupAssetsResponse, MutateAdGroupAssetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupAssetResult))),
 });
 
 export interface MutateAdGroupBidModifierResult {
@@ -22787,21 +22787,21 @@ export const MutateAdGroupBidModifierResult: Schema.Schema<MutateAdGroupBidModif
 
 export interface MutateAdGroupBidModifiersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupBidModifierOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupBidModifiersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupBidModifierOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupBidModifiersRequest: Schema.Schema<MutateAdGroupBidModifiersRequest, MutateAdGroupBidModifiersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupBidModifierOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -22809,34 +22809,34 @@ export const MutateAdGroupBidModifiersRequest: Schema.Schema<MutateAdGroupBidMod
 
 export interface MutateAdGroupBidModifiersResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupBidModifierResult>;
 }
 export interface MutateAdGroupBidModifiersResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupBidModifierResultEncoded>;
 }
 export const MutateAdGroupBidModifiersResponse: Schema.Schema<MutateAdGroupBidModifiersResponse, MutateAdGroupBidModifiersResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupBidModifierResult))),
 });
 
 export interface MutateAdGroupCriteriaRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupCriteriaRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupCriteriaRequest: Schema.Schema<MutateAdGroupCriteriaRequest, MutateAdGroupCriteriaRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupCriterionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -22844,15 +22844,15 @@ export const MutateAdGroupCriteriaRequest: Schema.Schema<MutateAdGroupCriteriaRe
 
 export interface MutateAdGroupCriteriaResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionResult>;
 }
 export interface MutateAdGroupCriteriaResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionResultEncoded>;
 }
 export const MutateAdGroupCriteriaResponse: Schema.Schema<MutateAdGroupCriteriaResponse, MutateAdGroupCriteriaResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupCriterionResult))),
 });
 
 export interface MutateAdGroupCriterionCustomizerResult {
@@ -22870,36 +22870,36 @@ export const MutateAdGroupCriterionCustomizerResult: Schema.Schema<MutateAdGroup
 
 export interface MutateAdGroupCriterionCustomizersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionCustomizerOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupCriterionCustomizersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionCustomizerOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupCriterionCustomizersRequest: Schema.Schema<MutateAdGroupCriterionCustomizersRequest, MutateAdGroupCriterionCustomizersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupCriterionCustomizerOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAdGroupCriterionCustomizersResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionCustomizerResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAdGroupCriterionCustomizersResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionCustomizerResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAdGroupCriterionCustomizersResponse: Schema.Schema<MutateAdGroupCriterionCustomizersResponse, MutateAdGroupCriterionCustomizersResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupCriterionCustomizerResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -22915,34 +22915,34 @@ export const MutateAdGroupCriterionLabelResult: Schema.Schema<MutateAdGroupCrite
 
 export interface MutateAdGroupCriterionLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionLabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateAdGroupCriterionLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCriterionLabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateAdGroupCriterionLabelsRequest: Schema.Schema<MutateAdGroupCriterionLabelsRequest, MutateAdGroupCriterionLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupCriterionLabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAdGroupCriterionLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionLabelResult>;
 }
 export interface MutateAdGroupCriterionLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCriterionLabelResultEncoded>;
 }
 export const MutateAdGroupCriterionLabelsResponse: Schema.Schema<MutateAdGroupCriterionLabelsResponse, MutateAdGroupCriterionLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupCriterionLabelResult))),
 });
 
 export interface MutateAdGroupCriterionResult {
@@ -22973,36 +22973,36 @@ export const MutateAdGroupCustomizerResult: Schema.Schema<MutateAdGroupCustomize
 
 export interface MutateAdGroupCustomizersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCustomizerOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupCustomizersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupCustomizerOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupCustomizersRequest: Schema.Schema<MutateAdGroupCustomizersRequest, MutateAdGroupCustomizersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupCustomizerOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAdGroupCustomizersResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCustomizerResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAdGroupCustomizersResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupCustomizerResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAdGroupCustomizersResponse: Schema.Schema<MutateAdGroupCustomizersResponse, MutateAdGroupCustomizersResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupCustomizerResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -23018,34 +23018,34 @@ export const MutateAdGroupLabelResult: Schema.Schema<MutateAdGroupLabelResult, M
 
 export interface MutateAdGroupLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupLabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateAdGroupLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupLabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateAdGroupLabelsRequest: Schema.Schema<MutateAdGroupLabelsRequest, MutateAdGroupLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupLabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAdGroupLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupLabelResult>;
 }
 export interface MutateAdGroupLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupLabelResultEncoded>;
 }
 export const MutateAdGroupLabelsResponse: Schema.Schema<MutateAdGroupLabelsResponse, MutateAdGroupLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupLabelResult))),
 });
 
 export interface MutateAdGroupResult {
@@ -23063,21 +23063,21 @@ export const MutateAdGroupResult: Schema.Schema<MutateAdGroupResult, MutateAdGro
 
 export interface MutateAdGroupsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdGroupsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdGroupOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdGroupsRequest: Schema.Schema<MutateAdGroupsRequest, MutateAdGroupsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdGroupOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23085,15 +23085,15 @@ export const MutateAdGroupsRequest: Schema.Schema<MutateAdGroupsRequest, MutateA
 
 export interface MutateAdGroupsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupResult>;
 }
 export interface MutateAdGroupsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdGroupResultEncoded>;
 }
 export const MutateAdGroupsResponse: Schema.Schema<MutateAdGroupsResponse, MutateAdGroupsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdGroupResult))),
 });
 
 export interface MutateAdParameterResult {
@@ -23111,21 +23111,21 @@ export const MutateAdParameterResult: Schema.Schema<MutateAdParameterResult, Mut
 
 export interface MutateAdParametersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdParameterOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAdParametersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdParameterOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAdParametersRequest: Schema.Schema<MutateAdParametersRequest, MutateAdParametersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdParameterOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23133,15 +23133,15 @@ export const MutateAdParametersRequest: Schema.Schema<MutateAdParametersRequest,
 
 export interface MutateAdParametersResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdParameterResult>;
 }
 export interface MutateAdParametersResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdParameterResultEncoded>;
 }
 export const MutateAdParametersResponse: Schema.Schema<MutateAdParametersResponse, MutateAdParametersResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdParameterResult))),
 });
 
 export interface MutateAdResult {
@@ -23159,21 +23159,21 @@ export const MutateAdResult: Schema.Schema<MutateAdResult, MutateAdResultEncoded
 
 export interface MutateAdsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdOperation>;
   readonly partial_failure?: boolean;
   readonly response_content_type?: ResponseContentType;
   readonly validate_only?: boolean;
 }
 export interface MutateAdsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AdOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
   readonly validate_only?: boolean;
 }
 export const MutateAdsRequest: Schema.Schema<MutateAdsRequest, MutateAdsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AdOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
   validate_only: Schema.optional(Schema.Boolean),
@@ -23181,15 +23181,15 @@ export const MutateAdsRequest: Schema.Schema<MutateAdsRequest, MutateAdsRequestE
 
 export interface MutateAdsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdResult>;
 }
 export interface MutateAdsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAdResultEncoded>;
 }
 export const MutateAdsResponse: Schema.Schema<MutateAdsResponse, MutateAdsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAdResult))),
 });
 
 export interface MutateAssetGroupAssetResult {
@@ -23204,33 +23204,33 @@ export const MutateAssetGroupAssetResult: Schema.Schema<MutateAssetGroupAssetRes
 
 export interface MutateAssetGroupAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupAssetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateAssetGroupAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupAssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateAssetGroupAssetsRequest: Schema.Schema<MutateAssetGroupAssetsRequest, MutateAssetGroupAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAssetGroupAssetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupAssetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAssetGroupAssetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupAssetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAssetGroupAssetsResponse: Schema.Schema<MutateAssetGroupAssetsResponse, MutateAssetGroupAssetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetGroupAssetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -23249,31 +23249,31 @@ export const MutateAssetGroupListingGroupFilterResult: Schema.Schema<MutateAsset
 
 export interface MutateAssetGroupListingGroupFiltersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupListingGroupFilterOperation>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAssetGroupListingGroupFiltersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupListingGroupFilterOperationEncoded>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAssetGroupListingGroupFiltersRequest: Schema.Schema<MutateAssetGroupListingGroupFiltersRequest, MutateAssetGroupListingGroupFiltersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupListingGroupFilterOperation))),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAssetGroupListingGroupFiltersResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupListingGroupFilterResult>;
 }
 export interface MutateAssetGroupListingGroupFiltersResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupListingGroupFilterResultEncoded>;
 }
 export const MutateAssetGroupListingGroupFiltersResponse: Schema.Schema<MutateAssetGroupListingGroupFiltersResponse, MutateAssetGroupListingGroupFiltersResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetGroupListingGroupFilterResult))),
 });
 
 export interface MutateAssetGroupResult {
@@ -23301,65 +23301,65 @@ export const MutateAssetGroupSignalResult: Schema.Schema<MutateAssetGroupSignalR
 
 export interface MutateAssetGroupSignalsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupSignalOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAssetGroupSignalsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupSignalOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAssetGroupSignalsRequest: Schema.Schema<MutateAssetGroupSignalsRequest, MutateAssetGroupSignalsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupSignalOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAssetGroupSignalsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupSignalResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAssetGroupSignalsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupSignalResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAssetGroupSignalsResponse: Schema.Schema<MutateAssetGroupSignalsResponse, MutateAssetGroupSignalsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetGroupSignalResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateAssetGroupsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateAssetGroupsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetGroupOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateAssetGroupsRequest: Schema.Schema<MutateAssetGroupsRequest, MutateAssetGroupsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetGroupOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateAssetGroupsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAssetGroupsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetGroupResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAssetGroupsResponse: Schema.Schema<MutateAssetGroupsResponse, MutateAssetGroupsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetGroupResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -23391,36 +23391,36 @@ export const MutateAssetSetAssetResult: Schema.Schema<MutateAssetSetAssetResult,
 
 export interface MutateAssetSetAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetSetAssetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAssetSetAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetSetAssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAssetSetAssetsRequest: Schema.Schema<MutateAssetSetAssetsRequest, MutateAssetSetAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetSetAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAssetSetAssetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetSetAssetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAssetSetAssetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetSetAssetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAssetSetAssetsResponse: Schema.Schema<MutateAssetSetAssetsResponse, MutateAssetSetAssetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetSetAssetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -23439,56 +23439,56 @@ export const MutateAssetSetResult: Schema.Schema<MutateAssetSetResult, MutateAss
 
 export interface MutateAssetSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAssetSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAssetSetsRequest: Schema.Schema<MutateAssetSetsRequest, MutateAssetSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAssetSetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetSetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAssetSetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetSetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAssetSetsResponse: Schema.Schema<MutateAssetSetsResponse, MutateAssetSetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetSetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetOperation>;
   readonly partial_failure?: boolean;
   readonly response_content_type?: ResponseContentType;
   readonly validate_only?: boolean;
 }
 export interface MutateAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
   readonly validate_only?: boolean;
 }
 export const MutateAssetsRequest: Schema.Schema<MutateAssetsRequest, MutateAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
   validate_only: Schema.optional(Schema.Boolean),
@@ -23496,15 +23496,15 @@ export const MutateAssetsRequest: Schema.Schema<MutateAssetsRequest, MutateAsset
 
 export interface MutateAssetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetResult>;
 }
 export interface MutateAssetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAssetResultEncoded>;
 }
 export const MutateAssetsResponse: Schema.Schema<MutateAssetsResponse, MutateAssetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAssetResult))),
 });
 
 export interface MutateAudienceResult {
@@ -23522,60 +23522,60 @@ export const MutateAudienceResult: Schema.Schema<MutateAudienceResult, MutateAud
 
 export interface MutateAudiencesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AudienceOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateAudiencesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<AudienceOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateAudiencesRequest: Schema.Schema<MutateAudiencesRequest, MutateAudiencesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => AudienceOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateAudiencesResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAudienceResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateAudiencesResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateAudienceResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateAudiencesResponse: Schema.Schema<MutateAudiencesResponse, MutateAudiencesResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateAudienceResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateBatchJobRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: BatchJobOperation;
 }
 export interface MutateBatchJobRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: BatchJobOperationEncoded;
 }
 export const MutateBatchJobRequest: Schema.Schema<MutateBatchJobRequest, MutateBatchJobRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => BatchJobOperation)),
 });
 
 export interface MutateBatchJobResponse {
-  readonly result?: unknown;
+  readonly result?: MutateBatchJobResult;
 }
 export interface MutateBatchJobResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateBatchJobResultEncoded;
 }
 export const MutateBatchJobResponse: Schema.Schema<MutateBatchJobResponse, MutateBatchJobResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateBatchJobResult)),
 });
 
 export interface MutateBatchJobResult {
@@ -23590,21 +23590,21 @@ export const MutateBatchJobResult: Schema.Schema<MutateBatchJobResult, MutateBat
 
 export interface MutateBiddingDataExclusionsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingDataExclusionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateBiddingDataExclusionsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingDataExclusionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateBiddingDataExclusionsRequest: Schema.Schema<MutateBiddingDataExclusionsRequest, MutateBiddingDataExclusionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => BiddingDataExclusionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23612,15 +23612,15 @@ export const MutateBiddingDataExclusionsRequest: Schema.Schema<MutateBiddingData
 
 export interface MutateBiddingDataExclusionsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingDataExclusionsResult>;
 }
 export interface MutateBiddingDataExclusionsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingDataExclusionsResultEncoded>;
 }
 export const MutateBiddingDataExclusionsResponse: Schema.Schema<MutateBiddingDataExclusionsResponse, MutateBiddingDataExclusionsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateBiddingDataExclusionsResult))),
 });
 
 export interface MutateBiddingDataExclusionsResult {
@@ -23638,21 +23638,21 @@ export const MutateBiddingDataExclusionsResult: Schema.Schema<MutateBiddingDataE
 
 export interface MutateBiddingSeasonalityAdjustmentsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingSeasonalityAdjustmentOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateBiddingSeasonalityAdjustmentsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingSeasonalityAdjustmentOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateBiddingSeasonalityAdjustmentsRequest: Schema.Schema<MutateBiddingSeasonalityAdjustmentsRequest, MutateBiddingSeasonalityAdjustmentsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => BiddingSeasonalityAdjustmentOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23660,15 +23660,15 @@ export const MutateBiddingSeasonalityAdjustmentsRequest: Schema.Schema<MutateBid
 
 export interface MutateBiddingSeasonalityAdjustmentsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingSeasonalityAdjustmentsResult>;
 }
 export interface MutateBiddingSeasonalityAdjustmentsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingSeasonalityAdjustmentsResultEncoded>;
 }
 export const MutateBiddingSeasonalityAdjustmentsResponse: Schema.Schema<MutateBiddingSeasonalityAdjustmentsResponse, MutateBiddingSeasonalityAdjustmentsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateBiddingSeasonalityAdjustmentsResult))),
 });
 
 export interface MutateBiddingSeasonalityAdjustmentsResult {
@@ -23686,21 +23686,21 @@ export const MutateBiddingSeasonalityAdjustmentsResult: Schema.Schema<MutateBidd
 
 export interface MutateBiddingStrategiesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingStrategyOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateBiddingStrategiesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<BiddingStrategyOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateBiddingStrategiesRequest: Schema.Schema<MutateBiddingStrategiesRequest, MutateBiddingStrategiesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => BiddingStrategyOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23708,15 +23708,15 @@ export const MutateBiddingStrategiesRequest: Schema.Schema<MutateBiddingStrategi
 
 export interface MutateBiddingStrategiesResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingStrategyResult>;
 }
 export interface MutateBiddingStrategiesResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateBiddingStrategyResultEncoded>;
 }
 export const MutateBiddingStrategiesResponse: Schema.Schema<MutateBiddingStrategiesResponse, MutateBiddingStrategiesResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateBiddingStrategyResult))),
 });
 
 export interface MutateBiddingStrategyResult {
@@ -23734,25 +23734,25 @@ export const MutateBiddingStrategyResult: Schema.Schema<MutateBiddingStrategyRes
 
 export interface MutateBillingSetupRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: BillingSetupOperation;
 }
 export interface MutateBillingSetupRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: BillingSetupOperationEncoded;
 }
 export const MutateBillingSetupRequest: Schema.Schema<MutateBillingSetupRequest, MutateBillingSetupRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => BillingSetupOperation)),
 });
 
 export interface MutateBillingSetupResponse {
-  readonly result?: unknown;
+  readonly result?: MutateBillingSetupResult;
 }
 export interface MutateBillingSetupResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateBillingSetupResultEncoded;
 }
 export const MutateBillingSetupResponse: Schema.Schema<MutateBillingSetupResponse, MutateBillingSetupResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateBillingSetupResult)),
 });
 
 export interface MutateBillingSetupResult {
@@ -23793,56 +23793,56 @@ export const MutateCampaignAssetSetResult: Schema.Schema<MutateCampaignAssetSetR
 
 export interface MutateCampaignAssetSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignAssetSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignAssetSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignAssetSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignAssetSetsRequest: Schema.Schema<MutateCampaignAssetSetsRequest, MutateCampaignAssetSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignAssetSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCampaignAssetSetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignAssetSetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCampaignAssetSetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignAssetSetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCampaignAssetSetsResponse: Schema.Schema<MutateCampaignAssetSetsResponse, MutateCampaignAssetSetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignAssetSetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateCampaignAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignAssetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignAssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignAssetsRequest: Schema.Schema<MutateCampaignAssetsRequest, MutateCampaignAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23850,15 +23850,15 @@ export const MutateCampaignAssetsRequest: Schema.Schema<MutateCampaignAssetsRequ
 
 export interface MutateCampaignAssetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignAssetResult>;
 }
 export interface MutateCampaignAssetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignAssetResultEncoded>;
 }
 export const MutateCampaignAssetsResponse: Schema.Schema<MutateCampaignAssetsResponse, MutateCampaignAssetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignAssetResult))),
 });
 
 export interface MutateCampaignBidModifierResult {
@@ -23876,21 +23876,21 @@ export const MutateCampaignBidModifierResult: Schema.Schema<MutateCampaignBidMod
 
 export interface MutateCampaignBidModifiersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignBidModifierOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignBidModifiersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignBidModifierOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignBidModifiersRequest: Schema.Schema<MutateCampaignBidModifiersRequest, MutateCampaignBidModifiersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignBidModifierOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23898,15 +23898,15 @@ export const MutateCampaignBidModifiersRequest: Schema.Schema<MutateCampaignBidM
 
 export interface MutateCampaignBidModifiersResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignBidModifierResult>;
 }
 export interface MutateCampaignBidModifiersResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignBidModifierResultEncoded>;
 }
 export const MutateCampaignBidModifiersResponse: Schema.Schema<MutateCampaignBidModifiersResponse, MutateCampaignBidModifiersResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignBidModifierResult))),
 });
 
 export interface MutateCampaignBudgetResult {
@@ -23924,21 +23924,21 @@ export const MutateCampaignBudgetResult: Schema.Schema<MutateCampaignBudgetResul
 
 export interface MutateCampaignBudgetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignBudgetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignBudgetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignBudgetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignBudgetsRequest: Schema.Schema<MutateCampaignBudgetsRequest, MutateCampaignBudgetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignBudgetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -23946,15 +23946,15 @@ export const MutateCampaignBudgetsRequest: Schema.Schema<MutateCampaignBudgetsRe
 
 export interface MutateCampaignBudgetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignBudgetResult>;
 }
 export interface MutateCampaignBudgetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignBudgetResultEncoded>;
 }
 export const MutateCampaignBudgetsResponse: Schema.Schema<MutateCampaignBudgetsResponse, MutateCampaignBudgetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignBudgetResult))),
 });
 
 export interface MutateCampaignConversionGoalResult {
@@ -23969,47 +23969,47 @@ export const MutateCampaignConversionGoalResult: Schema.Schema<MutateCampaignCon
 
 export interface MutateCampaignConversionGoalsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignConversionGoalOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateCampaignConversionGoalsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignConversionGoalOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateCampaignConversionGoalsRequest: Schema.Schema<MutateCampaignConversionGoalsRequest, MutateCampaignConversionGoalsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignConversionGoalOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCampaignConversionGoalsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignConversionGoalResult>;
 }
 export interface MutateCampaignConversionGoalsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignConversionGoalResultEncoded>;
 }
 export const MutateCampaignConversionGoalsResponse: Schema.Schema<MutateCampaignConversionGoalsResponse, MutateCampaignConversionGoalsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignConversionGoalResult))),
 });
 
 export interface MutateCampaignCriteriaRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignCriterionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignCriteriaRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignCriterionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignCriteriaRequest: Schema.Schema<MutateCampaignCriteriaRequest, MutateCampaignCriteriaRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignCriterionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24017,15 +24017,15 @@ export const MutateCampaignCriteriaRequest: Schema.Schema<MutateCampaignCriteria
 
 export interface MutateCampaignCriteriaResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignCriterionResult>;
 }
 export interface MutateCampaignCriteriaResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignCriterionResultEncoded>;
 }
 export const MutateCampaignCriteriaResponse: Schema.Schema<MutateCampaignCriteriaResponse, MutateCampaignCriteriaResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignCriterionResult))),
 });
 
 export interface MutateCampaignCriterionResult {
@@ -24056,36 +24056,36 @@ export const MutateCampaignCustomizerResult: Schema.Schema<MutateCampaignCustomi
 
 export interface MutateCampaignCustomizersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignCustomizerOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignCustomizersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignCustomizerOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignCustomizersRequest: Schema.Schema<MutateCampaignCustomizersRequest, MutateCampaignCustomizersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignCustomizerOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCampaignCustomizersResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignCustomizerResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCampaignCustomizersResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignCustomizerResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCampaignCustomizersResponse: Schema.Schema<MutateCampaignCustomizersResponse, MutateCampaignCustomizersResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignCustomizerResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -24104,21 +24104,21 @@ export const MutateCampaignDraftResult: Schema.Schema<MutateCampaignDraftResult,
 
 export interface MutateCampaignDraftsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignDraftOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignDraftsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignDraftOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignDraftsRequest: Schema.Schema<MutateCampaignDraftsRequest, MutateCampaignDraftsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignDraftOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24126,15 +24126,15 @@ export const MutateCampaignDraftsRequest: Schema.Schema<MutateCampaignDraftsRequ
 
 export interface MutateCampaignDraftsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignDraftResult>;
 }
 export interface MutateCampaignDraftsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignDraftResultEncoded>;
 }
 export const MutateCampaignDraftsResponse: Schema.Schema<MutateCampaignDraftsResponse, MutateCampaignDraftsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignDraftResult))),
 });
 
 export interface MutateCampaignGoalConfigResult {
@@ -24149,34 +24149,34 @@ export const MutateCampaignGoalConfigResult: Schema.Schema<MutateCampaignGoalCon
 
 export interface MutateCampaignGoalConfigsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignGoalConfigOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateCampaignGoalConfigsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignGoalConfigOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateCampaignGoalConfigsRequest: Schema.Schema<MutateCampaignGoalConfigsRequest, MutateCampaignGoalConfigsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignGoalConfigOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCampaignGoalConfigsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignGoalConfigResult>;
 }
 export interface MutateCampaignGoalConfigsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignGoalConfigResultEncoded>;
 }
 export const MutateCampaignGoalConfigsResponse: Schema.Schema<MutateCampaignGoalConfigsResponse, MutateCampaignGoalConfigsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignGoalConfigResult))),
 });
 
 export interface MutateCampaignGroupResult {
@@ -24194,36 +24194,36 @@ export const MutateCampaignGroupResult: Schema.Schema<MutateCampaignGroupResult,
 
 export interface MutateCampaignGroupsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignGroupOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignGroupsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignGroupOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignGroupsRequest: Schema.Schema<MutateCampaignGroupsRequest, MutateCampaignGroupsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignGroupOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCampaignGroupsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignGroupResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCampaignGroupsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignGroupResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCampaignGroupsResponse: Schema.Schema<MutateCampaignGroupsResponse, MutateCampaignGroupsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignGroupResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -24239,34 +24239,34 @@ export const MutateCampaignLabelResult: Schema.Schema<MutateCampaignLabelResult,
 
 export interface MutateCampaignLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignLabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateCampaignLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignLabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateCampaignLabelsRequest: Schema.Schema<MutateCampaignLabelsRequest, MutateCampaignLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignLabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCampaignLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignLabelResult>;
 }
 export interface MutateCampaignLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignLabelResultEncoded>;
 }
 export const MutateCampaignLabelsResponse: Schema.Schema<MutateCampaignLabelsResponse, MutateCampaignLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignLabelResult))),
 });
 
 export interface MutateCampaignResult {
@@ -24297,21 +24297,21 @@ export const MutateCampaignSharedSetResult: Schema.Schema<MutateCampaignSharedSe
 
 export interface MutateCampaignSharedSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignSharedSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignSharedSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignSharedSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignSharedSetsRequest: Schema.Schema<MutateCampaignSharedSetsRequest, MutateCampaignSharedSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignSharedSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24319,34 +24319,34 @@ export const MutateCampaignSharedSetsRequest: Schema.Schema<MutateCampaignShared
 
 export interface MutateCampaignSharedSetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignSharedSetResult>;
 }
 export interface MutateCampaignSharedSetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignSharedSetResultEncoded>;
 }
 export const MutateCampaignSharedSetsResponse: Schema.Schema<MutateCampaignSharedSetsResponse, MutateCampaignSharedSetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignSharedSetResult))),
 });
 
 export interface MutateCampaignsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCampaignsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CampaignOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCampaignsRequest: Schema.Schema<MutateCampaignsRequest, MutateCampaignsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CampaignOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24354,15 +24354,15 @@ export const MutateCampaignsRequest: Schema.Schema<MutateCampaignsRequest, Mutat
 
 export interface MutateCampaignsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignResult>;
 }
 export interface MutateCampaignsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCampaignResultEncoded>;
 }
 export const MutateCampaignsResponse: Schema.Schema<MutateCampaignsResponse, MutateCampaignsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCampaignResult))),
 });
 
 export interface MutateConversionActionResult {
@@ -24380,21 +24380,21 @@ export const MutateConversionActionResult: Schema.Schema<MutateConversionActionR
 
 export interface MutateConversionActionsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionActionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateConversionActionsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionActionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateConversionActionsRequest: Schema.Schema<MutateConversionActionsRequest, MutateConversionActionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ConversionActionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24402,15 +24402,15 @@ export const MutateConversionActionsRequest: Schema.Schema<MutateConversionActio
 
 export interface MutateConversionActionsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionActionResult>;
 }
 export interface MutateConversionActionsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionActionResultEncoded>;
 }
 export const MutateConversionActionsResponse: Schema.Schema<MutateConversionActionsResponse, MutateConversionActionsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateConversionActionResult))),
 });
 
 export interface MutateConversionCustomVariableResult {
@@ -24428,21 +24428,21 @@ export const MutateConversionCustomVariableResult: Schema.Schema<MutateConversio
 
 export interface MutateConversionCustomVariablesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionCustomVariableOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateConversionCustomVariablesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionCustomVariableOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateConversionCustomVariablesRequest: Schema.Schema<MutateConversionCustomVariablesRequest, MutateConversionCustomVariablesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ConversionCustomVariableOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24450,15 +24450,15 @@ export const MutateConversionCustomVariablesRequest: Schema.Schema<MutateConvers
 
 export interface MutateConversionCustomVariablesResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionCustomVariableResult>;
 }
 export interface MutateConversionCustomVariablesResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionCustomVariableResultEncoded>;
 }
 export const MutateConversionCustomVariablesResponse: Schema.Schema<MutateConversionCustomVariablesResponse, MutateConversionCustomVariablesResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateConversionCustomVariableResult))),
 });
 
 export interface MutateConversionGoalCampaignConfigResult {
@@ -24476,31 +24476,31 @@ export const MutateConversionGoalCampaignConfigResult: Schema.Schema<MutateConve
 
 export interface MutateConversionGoalCampaignConfigsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionGoalCampaignConfigOperation>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateConversionGoalCampaignConfigsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionGoalCampaignConfigOperationEncoded>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateConversionGoalCampaignConfigsRequest: Schema.Schema<MutateConversionGoalCampaignConfigsRequest, MutateConversionGoalCampaignConfigsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ConversionGoalCampaignConfigOperation))),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateConversionGoalCampaignConfigsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionGoalCampaignConfigResult>;
 }
 export interface MutateConversionGoalCampaignConfigsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionGoalCampaignConfigResultEncoded>;
 }
 export const MutateConversionGoalCampaignConfigsResponse: Schema.Schema<MutateConversionGoalCampaignConfigsResponse, MutateConversionGoalCampaignConfigsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateConversionGoalCampaignConfigResult))),
 });
 
 export interface MutateConversionValueRuleResult {
@@ -24531,71 +24531,71 @@ export const MutateConversionValueRuleSetResult: Schema.Schema<MutateConversionV
 
 export interface MutateConversionValueRuleSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionValueRuleSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateConversionValueRuleSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionValueRuleSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateConversionValueRuleSetsRequest: Schema.Schema<MutateConversionValueRuleSetsRequest, MutateConversionValueRuleSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ConversionValueRuleSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateConversionValueRuleSetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionValueRuleSetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateConversionValueRuleSetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionValueRuleSetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateConversionValueRuleSetsResponse: Schema.Schema<MutateConversionValueRuleSetsResponse, MutateConversionValueRuleSetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateConversionValueRuleSetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateConversionValueRulesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionValueRuleOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateConversionValueRulesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ConversionValueRuleOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateConversionValueRulesRequest: Schema.Schema<MutateConversionValueRulesRequest, MutateConversionValueRulesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ConversionValueRuleOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateConversionValueRulesResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionValueRuleResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateConversionValueRulesResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateConversionValueRuleResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateConversionValueRulesResponse: Schema.Schema<MutateConversionValueRulesResponse, MutateConversionValueRulesResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateConversionValueRuleResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -24611,28 +24611,28 @@ export const MutateCustomAudienceResult: Schema.Schema<MutateCustomAudienceResul
 
 export interface MutateCustomAudiencesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomAudienceOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomAudiencesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomAudienceOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateCustomAudiencesRequest: Schema.Schema<MutateCustomAudiencesRequest, MutateCustomAudiencesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomAudienceOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomAudiencesResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomAudienceResult>;
 }
 export interface MutateCustomAudiencesResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomAudienceResultEncoded>;
 }
 export const MutateCustomAudiencesResponse: Schema.Schema<MutateCustomAudiencesResponse, MutateCustomAudiencesResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomAudienceResult))),
 });
 
 export interface MutateCustomConversionGoalResult {
@@ -24650,31 +24650,31 @@ export const MutateCustomConversionGoalResult: Schema.Schema<MutateCustomConvers
 
 export interface MutateCustomConversionGoalsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomConversionGoalOperation>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomConversionGoalsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomConversionGoalOperationEncoded>;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomConversionGoalsRequest: Schema.Schema<MutateCustomConversionGoalsRequest, MutateCustomConversionGoalsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomConversionGoalOperation))),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCustomConversionGoalsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomConversionGoalResult>;
 }
 export interface MutateCustomConversionGoalsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomConversionGoalResultEncoded>;
 }
 export const MutateCustomConversionGoalsResponse: Schema.Schema<MutateCustomConversionGoalsResponse, MutateCustomConversionGoalsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomConversionGoalResult))),
 });
 
 export interface MutateCustomerAssetResult {
@@ -24705,56 +24705,56 @@ export const MutateCustomerAssetSetResult: Schema.Schema<MutateCustomerAssetSetR
 
 export interface MutateCustomerAssetSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerAssetSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomerAssetSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerAssetSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomerAssetSetsRequest: Schema.Schema<MutateCustomerAssetSetsRequest, MutateCustomerAssetSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerAssetSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCustomerAssetSetsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerAssetSetResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCustomerAssetSetsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerAssetSetResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCustomerAssetSetsResponse: Schema.Schema<MutateCustomerAssetSetsResponse, MutateCustomerAssetSetsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerAssetSetResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
 export interface MutateCustomerAssetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerAssetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomerAssetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerAssetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomerAssetsRequest: Schema.Schema<MutateCustomerAssetsRequest, MutateCustomerAssetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24762,41 +24762,41 @@ export const MutateCustomerAssetsRequest: Schema.Schema<MutateCustomerAssetsRequ
 
 export interface MutateCustomerAssetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerAssetResult>;
 }
 export interface MutateCustomerAssetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerAssetResultEncoded>;
 }
 export const MutateCustomerAssetsResponse: Schema.Schema<MutateCustomerAssetsResponse, MutateCustomerAssetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerAssetResult))),
 });
 
 export interface MutateCustomerClientLinkRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerClientLinkOperation;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomerClientLinkRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerClientLinkOperationEncoded;
   readonly validate_only?: boolean;
 }
 export const MutateCustomerClientLinkRequest: Schema.Schema<MutateCustomerClientLinkRequest, MutateCustomerClientLinkRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => CustomerClientLinkOperation)),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomerClientLinkResponse {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerClientLinkResult;
 }
 export interface MutateCustomerClientLinkResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerClientLinkResultEncoded;
 }
 export const MutateCustomerClientLinkResponse: Schema.Schema<MutateCustomerClientLinkResponse, MutateCustomerClientLinkResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateCustomerClientLinkResult)),
 });
 
 export interface MutateCustomerClientLinkResult {
@@ -24821,28 +24821,28 @@ export const MutateCustomerConversionGoalResult: Schema.Schema<MutateCustomerCon
 
 export interface MutateCustomerConversionGoalsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerConversionGoalOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomerConversionGoalsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerConversionGoalOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateCustomerConversionGoalsRequest: Schema.Schema<MutateCustomerConversionGoalsRequest, MutateCustomerConversionGoalsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerConversionGoalOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomerConversionGoalsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerConversionGoalResult>;
 }
 export interface MutateCustomerConversionGoalsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerConversionGoalResultEncoded>;
 }
 export const MutateCustomerConversionGoalsResponse: Schema.Schema<MutateCustomerConversionGoalsResponse, MutateCustomerConversionGoalsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerConversionGoalResult))),
 });
 
 export interface MutateCustomerCustomizerResult {
@@ -24860,36 +24860,36 @@ export const MutateCustomerCustomizerResult: Schema.Schema<MutateCustomerCustomi
 
 export interface MutateCustomerCustomizersRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerCustomizerOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomerCustomizersRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerCustomizerOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomerCustomizersRequest: Schema.Schema<MutateCustomerCustomizersRequest, MutateCustomerCustomizersRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerCustomizerOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCustomerCustomizersResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerCustomizerResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCustomerCustomizersResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerCustomizerResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCustomerCustomizersResponse: Schema.Schema<MutateCustomerCustomizersResponse, MutateCustomerCustomizersResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerCustomizerResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -24905,60 +24905,60 @@ export const MutateCustomerLabelResult: Schema.Schema<MutateCustomerLabelResult,
 
 export interface MutateCustomerLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerLabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomerLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerLabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateCustomerLabelsRequest: Schema.Schema<MutateCustomerLabelsRequest, MutateCustomerLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerLabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomerLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerLabelResult>;
 }
 export interface MutateCustomerLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerLabelResultEncoded>;
 }
 export const MutateCustomerLabelsResponse: Schema.Schema<MutateCustomerLabelsResponse, MutateCustomerLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerLabelResult))),
 });
 
 export interface MutateCustomerManagerLinkRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerManagerLinkOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomerManagerLinkRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerManagerLinkOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateCustomerManagerLinkRequest: Schema.Schema<MutateCustomerManagerLinkRequest, MutateCustomerManagerLinkRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerManagerLinkOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomerManagerLinkResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerManagerLinkResult>;
 }
 export interface MutateCustomerManagerLinkResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerManagerLinkResultEncoded>;
 }
 export const MutateCustomerManagerLinkResponse: Schema.Schema<MutateCustomerManagerLinkResponse, MutateCustomerManagerLinkResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerManagerLinkResult))),
 });
 
 export interface MutateCustomerManagerLinkResult {
@@ -24973,21 +24973,21 @@ export const MutateCustomerManagerLinkResult: Schema.Schema<MutateCustomerManage
 
 export interface MutateCustomerNegativeCriteriaRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerNegativeCriterionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomerNegativeCriteriaRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomerNegativeCriterionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomerNegativeCriteriaRequest: Schema.Schema<MutateCustomerNegativeCriteriaRequest, MutateCustomerNegativeCriteriaRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomerNegativeCriterionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -24995,15 +24995,15 @@ export const MutateCustomerNegativeCriteriaRequest: Schema.Schema<MutateCustomer
 
 export interface MutateCustomerNegativeCriteriaResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerNegativeCriteriaResult>;
 }
 export interface MutateCustomerNegativeCriteriaResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomerNegativeCriteriaResultEncoded>;
 }
 export const MutateCustomerNegativeCriteriaResponse: Schema.Schema<MutateCustomerNegativeCriteriaResponse, MutateCustomerNegativeCriteriaResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomerNegativeCriteriaResult))),
 });
 
 export interface MutateCustomerNegativeCriteriaResult {
@@ -25021,31 +25021,31 @@ export const MutateCustomerNegativeCriteriaResult: Schema.Schema<MutateCustomerN
 
 export interface MutateCustomerRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerOperation;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomerRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerOperationEncoded;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomerRequest: Schema.Schema<MutateCustomerRequest, MutateCustomerRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => CustomerOperation)),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCustomerResponse {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerResult;
 }
 export interface MutateCustomerResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerResultEncoded;
 }
 export const MutateCustomerResponse: Schema.Schema<MutateCustomerResponse, MutateCustomerResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateCustomerResult)),
 });
 
 export interface MutateCustomerResult {
@@ -25063,33 +25063,33 @@ export const MutateCustomerResult: Schema.Schema<MutateCustomerResult, MutateCus
 
 export interface MutateCustomerSkAdNetworkConversionValueSchemaRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerSkAdNetworkConversionValueSchemaOperation;
   readonly validate_only?: boolean;
   readonly enable_warnings?: boolean;
 }
 export interface MutateCustomerSkAdNetworkConversionValueSchemaRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerSkAdNetworkConversionValueSchemaOperationEncoded;
   readonly validate_only?: boolean;
   readonly enable_warnings?: boolean;
 }
 export const MutateCustomerSkAdNetworkConversionValueSchemaRequest: Schema.Schema<MutateCustomerSkAdNetworkConversionValueSchemaRequest, MutateCustomerSkAdNetworkConversionValueSchemaRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => CustomerSkAdNetworkConversionValueSchemaOperation)),
   validate_only: Schema.optional(Schema.Boolean),
   enable_warnings: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomerSkAdNetworkConversionValueSchemaResponse {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerSkAdNetworkConversionValueSchemaResult;
   readonly warning?: unknown;
 }
 export interface MutateCustomerSkAdNetworkConversionValueSchemaResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerSkAdNetworkConversionValueSchemaResultEncoded;
   readonly warning?: unknown;
 }
 export const MutateCustomerSkAdNetworkConversionValueSchemaResponse: Schema.Schema<MutateCustomerSkAdNetworkConversionValueSchemaResponse, MutateCustomerSkAdNetworkConversionValueSchemaResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateCustomerSkAdNetworkConversionValueSchemaResult)),
   warning: Schema.optional(Schema.Unknown),
 });
 
@@ -25108,25 +25108,25 @@ export const MutateCustomerSkAdNetworkConversionValueSchemaResult: Schema.Schema
 
 export interface MutateCustomerUserAccessInvitationRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerUserAccessInvitationOperation;
 }
 export interface MutateCustomerUserAccessInvitationRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerUserAccessInvitationOperationEncoded;
 }
 export const MutateCustomerUserAccessInvitationRequest: Schema.Schema<MutateCustomerUserAccessInvitationRequest, MutateCustomerUserAccessInvitationRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => CustomerUserAccessInvitationOperation)),
 });
 
 export interface MutateCustomerUserAccessInvitationResponse {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerUserAccessInvitationResult;
 }
 export interface MutateCustomerUserAccessInvitationResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerUserAccessInvitationResultEncoded;
 }
 export const MutateCustomerUserAccessInvitationResponse: Schema.Schema<MutateCustomerUserAccessInvitationResponse, MutateCustomerUserAccessInvitationResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateCustomerUserAccessInvitationResult)),
 });
 
 export interface MutateCustomerUserAccessInvitationResult {
@@ -25144,25 +25144,25 @@ export const MutateCustomerUserAccessInvitationResult: Schema.Schema<MutateCusto
 
 export interface MutateCustomerUserAccessRequest {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerUserAccessOperation;
 }
 export interface MutateCustomerUserAccessRequestEncoded {
   readonly customer_id?: string;
-  readonly operation?: unknown;
+  readonly operation?: CustomerUserAccessOperationEncoded;
 }
 export const MutateCustomerUserAccessRequest: Schema.Schema<MutateCustomerUserAccessRequest, MutateCustomerUserAccessRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operation: Schema.optional(Schema.Unknown),
+  operation: Schema.optional(Schema.suspend(() => CustomerUserAccessOperation)),
 });
 
 export interface MutateCustomerUserAccessResponse {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerUserAccessResult;
 }
 export interface MutateCustomerUserAccessResponseEncoded {
-  readonly result?: unknown;
+  readonly result?: MutateCustomerUserAccessResultEncoded;
 }
 export const MutateCustomerUserAccessResponse: Schema.Schema<MutateCustomerUserAccessResponse, MutateCustomerUserAccessResponseEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => MutateCustomerUserAccessResult)),
 });
 
 export interface MutateCustomerUserAccessResult {
@@ -25190,28 +25190,28 @@ export const MutateCustomInterestResult: Schema.Schema<MutateCustomInterestResul
 
 export interface MutateCustomInterestsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomInterestOperation>;
   readonly validate_only?: boolean;
 }
 export interface MutateCustomInterestsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomInterestOperationEncoded>;
   readonly validate_only?: boolean;
 }
 export const MutateCustomInterestsRequest: Schema.Schema<MutateCustomInterestsRequest, MutateCustomInterestsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomInterestOperation))),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateCustomInterestsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomInterestResult>;
 }
 export interface MutateCustomInterestsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomInterestResultEncoded>;
 }
 export const MutateCustomInterestsResponse: Schema.Schema<MutateCustomInterestsResponse, MutateCustomInterestsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomInterestResult))),
 });
 
 export interface MutateCustomizerAttributeResult {
@@ -25229,36 +25229,36 @@ export const MutateCustomizerAttributeResult: Schema.Schema<MutateCustomizerAttr
 
 export interface MutateCustomizerAttributesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomizerAttributeOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateCustomizerAttributesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<CustomizerAttributeOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateCustomizerAttributesRequest: Schema.Schema<MutateCustomizerAttributesRequest, MutateCustomizerAttributesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => CustomizerAttributeOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateCustomizerAttributesResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomizerAttributeResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateCustomizerAttributesResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateCustomizerAttributeResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateCustomizerAttributesResponse: Schema.Schema<MutateCustomizerAttributesResponse, MutateCustomizerAttributesResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateCustomizerAttributeResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -25291,21 +25291,21 @@ export const MutateExperimentArmResult: Schema.Schema<MutateExperimentArmResult,
 
 export interface MutateExperimentArmsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ExperimentArmOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateExperimentArmsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ExperimentArmOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateExperimentArmsRequest: Schema.Schema<MutateExperimentArmsRequest, MutateExperimentArmsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ExperimentArmOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -25313,15 +25313,15 @@ export const MutateExperimentArmsRequest: Schema.Schema<MutateExperimentArmsRequ
 
 export interface MutateExperimentArmsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateExperimentArmResult>;
 }
 export interface MutateExperimentArmsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateExperimentArmResultEncoded>;
 }
 export const MutateExperimentArmsResponse: Schema.Schema<MutateExperimentArmsResponse, MutateExperimentArmsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateExperimentArmResult))),
 });
 
 export interface MutateExperimentResult {
@@ -25336,34 +25336,34 @@ export const MutateExperimentResult: Schema.Schema<MutateExperimentResult, Mutat
 
 export interface MutateExperimentsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ExperimentOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateExperimentsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ExperimentOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateExperimentsRequest: Schema.Schema<MutateExperimentsRequest, MutateExperimentsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ExperimentOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateExperimentsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateExperimentResult>;
 }
 export interface MutateExperimentsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateExperimentResultEncoded>;
 }
 export const MutateExperimentsResponse: Schema.Schema<MutateExperimentsResponse, MutateExperimentsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateExperimentResult))),
 });
 
 export interface MutateGoalResult {
@@ -25378,53 +25378,53 @@ export const MutateGoalResult: Schema.Schema<MutateGoalResult, MutateGoalResultE
 
 export interface MutateGoalsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<GoalOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateGoalsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<GoalOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateGoalsRequest: Schema.Schema<MutateGoalsRequest, MutateGoalsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => GoalOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateGoalsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateGoalResult>;
 }
 export interface MutateGoalsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateGoalResultEncoded>;
 }
 export const MutateGoalsResponse: Schema.Schema<MutateGoalsResponse, MutateGoalsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateGoalResult))),
 });
 
 export interface MutateGoogleAdsRequest {
   readonly customer_id?: string;
-  readonly mutate_operations?: ReadonlyArray<unknown>;
+  readonly mutate_operations?: ReadonlyArray<MutateOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateGoogleAdsRequestEncoded {
   readonly customer_id?: string;
-  readonly mutate_operations?: ReadonlyArray<unknown>;
+  readonly mutate_operations?: ReadonlyArray<MutateOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateGoogleAdsRequest: Schema.Schema<MutateGoogleAdsRequest, MutateGoogleAdsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  mutate_operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  mutate_operations: Schema.optional(Schema.Array(Schema.suspend(() => MutateOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -25432,15 +25432,15 @@ export const MutateGoogleAdsRequest: Schema.Schema<MutateGoogleAdsRequest, Mutat
 
 export interface MutateGoogleAdsResponse {
   readonly partial_failure_error?: unknown;
-  readonly mutate_operation_responses?: ReadonlyArray<unknown>;
+  readonly mutate_operation_responses?: ReadonlyArray<MutateOperationResponse>;
 }
 export interface MutateGoogleAdsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly mutate_operation_responses?: ReadonlyArray<unknown>;
+  readonly mutate_operation_responses?: ReadonlyArray<MutateOperationResponseEncoded>;
 }
 export const MutateGoogleAdsResponse: Schema.Schema<MutateGoogleAdsResponse, MutateGoogleAdsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  mutate_operation_responses: Schema.optional(Schema.Array(Schema.Unknown)),
+  mutate_operation_responses: Schema.optional(Schema.Array(Schema.suspend(() => MutateOperationResponse))),
 });
 
 export interface MutateKeywordPlanAdGroupKeywordResult {
@@ -25455,34 +25455,34 @@ export const MutateKeywordPlanAdGroupKeywordResult: Schema.Schema<MutateKeywordP
 
 export interface MutateKeywordPlanAdGroupKeywordsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanAdGroupKeywordOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateKeywordPlanAdGroupKeywordsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanAdGroupKeywordOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateKeywordPlanAdGroupKeywordsRequest: Schema.Schema<MutateKeywordPlanAdGroupKeywordsRequest, MutateKeywordPlanAdGroupKeywordsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanAdGroupKeywordOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateKeywordPlanAdGroupKeywordsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanAdGroupKeywordResult>;
 }
 export interface MutateKeywordPlanAdGroupKeywordsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanAdGroupKeywordResultEncoded>;
 }
 export const MutateKeywordPlanAdGroupKeywordsResponse: Schema.Schema<MutateKeywordPlanAdGroupKeywordsResponse, MutateKeywordPlanAdGroupKeywordsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateKeywordPlanAdGroupKeywordResult))),
 });
 
 export interface MutateKeywordPlanAdGroupResult {
@@ -25497,34 +25497,34 @@ export const MutateKeywordPlanAdGroupResult: Schema.Schema<MutateKeywordPlanAdGr
 
 export interface MutateKeywordPlanAdGroupsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanAdGroupOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateKeywordPlanAdGroupsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanAdGroupOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateKeywordPlanAdGroupsRequest: Schema.Schema<MutateKeywordPlanAdGroupsRequest, MutateKeywordPlanAdGroupsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanAdGroupOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateKeywordPlanAdGroupsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanAdGroupResult>;
 }
 export interface MutateKeywordPlanAdGroupsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanAdGroupResultEncoded>;
 }
 export const MutateKeywordPlanAdGroupsResponse: Schema.Schema<MutateKeywordPlanAdGroupsResponse, MutateKeywordPlanAdGroupsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateKeywordPlanAdGroupResult))),
 });
 
 export interface MutateKeywordPlanCampaignKeywordResult {
@@ -25539,34 +25539,34 @@ export const MutateKeywordPlanCampaignKeywordResult: Schema.Schema<MutateKeyword
 
 export interface MutateKeywordPlanCampaignKeywordsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanCampaignKeywordOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateKeywordPlanCampaignKeywordsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanCampaignKeywordOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateKeywordPlanCampaignKeywordsRequest: Schema.Schema<MutateKeywordPlanCampaignKeywordsRequest, MutateKeywordPlanCampaignKeywordsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanCampaignKeywordOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateKeywordPlanCampaignKeywordsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanCampaignKeywordResult>;
 }
 export interface MutateKeywordPlanCampaignKeywordsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanCampaignKeywordResultEncoded>;
 }
 export const MutateKeywordPlanCampaignKeywordsResponse: Schema.Schema<MutateKeywordPlanCampaignKeywordsResponse, MutateKeywordPlanCampaignKeywordsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateKeywordPlanCampaignKeywordResult))),
 });
 
 export interface MutateKeywordPlanCampaignResult {
@@ -25581,66 +25581,66 @@ export const MutateKeywordPlanCampaignResult: Schema.Schema<MutateKeywordPlanCam
 
 export interface MutateKeywordPlanCampaignsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanCampaignOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateKeywordPlanCampaignsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanCampaignOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateKeywordPlanCampaignsRequest: Schema.Schema<MutateKeywordPlanCampaignsRequest, MutateKeywordPlanCampaignsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanCampaignOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateKeywordPlanCampaignsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanCampaignResult>;
 }
 export interface MutateKeywordPlanCampaignsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlanCampaignResultEncoded>;
 }
 export const MutateKeywordPlanCampaignsResponse: Schema.Schema<MutateKeywordPlanCampaignsResponse, MutateKeywordPlanCampaignsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateKeywordPlanCampaignResult))),
 });
 
 export interface MutateKeywordPlansRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateKeywordPlansRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<KeywordPlanOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateKeywordPlansRequest: Schema.Schema<MutateKeywordPlansRequest, MutateKeywordPlansRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => KeywordPlanOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateKeywordPlansResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlansResult>;
 }
 export interface MutateKeywordPlansResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateKeywordPlansResultEncoded>;
 }
 export const MutateKeywordPlansResponse: Schema.Schema<MutateKeywordPlansResponse, MutateKeywordPlansResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateKeywordPlansResult))),
 });
 
 export interface MutateKeywordPlansResult {
@@ -25668,21 +25668,21 @@ export const MutateLabelResult: Schema.Schema<MutateLabelResult, MutateLabelResu
 
 export interface MutateLabelsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<LabelOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateLabelsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<LabelOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateLabelsRequest: Schema.Schema<MutateLabelsRequest, MutateLabelsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => LabelOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -25690,447 +25690,447 @@ export const MutateLabelsRequest: Schema.Schema<MutateLabelsRequest, MutateLabel
 
 export interface MutateLabelsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateLabelResult>;
 }
 export interface MutateLabelsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateLabelResultEncoded>;
 }
 export const MutateLabelsResponse: Schema.Schema<MutateLabelsResponse, MutateLabelsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateLabelResult))),
 });
 
 export interface MutateOperation {
-  readonly ad_group_ad_label_operation?: unknown;
-  readonly ad_group_ad_operation?: unknown;
-  readonly ad_group_asset_operation?: unknown;
-  readonly ad_group_bid_modifier_operation?: unknown;
-  readonly ad_group_criterion_customizer_operation?: unknown;
-  readonly ad_group_criterion_label_operation?: unknown;
-  readonly ad_group_criterion_operation?: unknown;
-  readonly ad_group_customizer_operation?: unknown;
-  readonly ad_group_label_operation?: unknown;
-  readonly ad_group_operation?: unknown;
-  readonly ad_operation?: unknown;
-  readonly ad_parameter_operation?: unknown;
-  readonly asset_operation?: unknown;
-  readonly asset_group_asset_operation?: unknown;
-  readonly asset_group_listing_group_filter_operation?: unknown;
-  readonly asset_group_signal_operation?: unknown;
-  readonly asset_group_operation?: unknown;
-  readonly asset_set_asset_operation?: unknown;
-  readonly asset_set_operation?: unknown;
-  readonly audience_operation?: unknown;
-  readonly bidding_data_exclusion_operation?: unknown;
-  readonly bidding_seasonality_adjustment_operation?: unknown;
-  readonly bidding_strategy_operation?: unknown;
+  readonly ad_group_ad_label_operation?: AdGroupAdLabelOperation;
+  readonly ad_group_ad_operation?: AdGroupAdOperation;
+  readonly ad_group_asset_operation?: AdGroupAssetOperation;
+  readonly ad_group_bid_modifier_operation?: AdGroupBidModifierOperation;
+  readonly ad_group_criterion_customizer_operation?: AdGroupCriterionCustomizerOperation;
+  readonly ad_group_criterion_label_operation?: AdGroupCriterionLabelOperation;
+  readonly ad_group_criterion_operation?: AdGroupCriterionOperation;
+  readonly ad_group_customizer_operation?: AdGroupCustomizerOperation;
+  readonly ad_group_label_operation?: AdGroupLabelOperation;
+  readonly ad_group_operation?: AdGroupOperation;
+  readonly ad_operation?: AdOperation;
+  readonly ad_parameter_operation?: AdParameterOperation;
+  readonly asset_operation?: AssetOperation;
+  readonly asset_group_asset_operation?: AssetGroupAssetOperation;
+  readonly asset_group_listing_group_filter_operation?: AssetGroupListingGroupFilterOperation;
+  readonly asset_group_signal_operation?: AssetGroupSignalOperation;
+  readonly asset_group_operation?: AssetGroupOperation;
+  readonly asset_set_asset_operation?: AssetSetAssetOperation;
+  readonly asset_set_operation?: AssetSetOperation;
+  readonly audience_operation?: AudienceOperation;
+  readonly bidding_data_exclusion_operation?: BiddingDataExclusionOperation;
+  readonly bidding_seasonality_adjustment_operation?: BiddingSeasonalityAdjustmentOperation;
+  readonly bidding_strategy_operation?: BiddingStrategyOperation;
   readonly book_campaigns_operation?: BookCampaignsOperation;
-  readonly campaign_asset_operation?: unknown;
-  readonly campaign_asset_set_operation?: unknown;
-  readonly campaign_bid_modifier_operation?: unknown;
-  readonly campaign_budget_operation?: unknown;
-  readonly campaign_conversion_goal_operation?: unknown;
-  readonly campaign_criterion_operation?: unknown;
-  readonly campaign_customizer_operation?: unknown;
-  readonly campaign_draft_operation?: unknown;
-  readonly campaign_group_operation?: unknown;
-  readonly campaign_label_operation?: unknown;
-  readonly campaign_operation?: unknown;
-  readonly campaign_shared_set_operation?: unknown;
-  readonly conversion_action_operation?: unknown;
-  readonly conversion_custom_variable_operation?: unknown;
-  readonly conversion_goal_campaign_config_operation?: unknown;
-  readonly conversion_value_rule_operation?: unknown;
-  readonly conversion_value_rule_set_operation?: unknown;
-  readonly custom_conversion_goal_operation?: unknown;
-  readonly customer_asset_operation?: unknown;
-  readonly customer_conversion_goal_operation?: unknown;
-  readonly customer_customizer_operation?: unknown;
-  readonly customer_label_operation?: unknown;
-  readonly customer_negative_criterion_operation?: unknown;
-  readonly customer_operation?: unknown;
-  readonly customizer_attribute_operation?: unknown;
-  readonly experiment_operation?: unknown;
-  readonly experiment_arm_operation?: unknown;
-  readonly keyword_plan_ad_group_operation?: unknown;
-  readonly keyword_plan_ad_group_keyword_operation?: unknown;
-  readonly keyword_plan_campaign_keyword_operation?: unknown;
-  readonly keyword_plan_campaign_operation?: unknown;
-  readonly keyword_plan_operation?: unknown;
-  readonly label_operation?: unknown;
+  readonly campaign_asset_operation?: CampaignAssetOperation;
+  readonly campaign_asset_set_operation?: CampaignAssetSetOperation;
+  readonly campaign_bid_modifier_operation?: CampaignBidModifierOperation;
+  readonly campaign_budget_operation?: CampaignBudgetOperation;
+  readonly campaign_conversion_goal_operation?: CampaignConversionGoalOperation;
+  readonly campaign_criterion_operation?: CampaignCriterionOperation;
+  readonly campaign_customizer_operation?: CampaignCustomizerOperation;
+  readonly campaign_draft_operation?: CampaignDraftOperation;
+  readonly campaign_group_operation?: CampaignGroupOperation;
+  readonly campaign_label_operation?: CampaignLabelOperation;
+  readonly campaign_operation?: CampaignOperation;
+  readonly campaign_shared_set_operation?: CampaignSharedSetOperation;
+  readonly conversion_action_operation?: ConversionActionOperation;
+  readonly conversion_custom_variable_operation?: ConversionCustomVariableOperation;
+  readonly conversion_goal_campaign_config_operation?: ConversionGoalCampaignConfigOperation;
+  readonly conversion_value_rule_operation?: ConversionValueRuleOperation;
+  readonly conversion_value_rule_set_operation?: ConversionValueRuleSetOperation;
+  readonly custom_conversion_goal_operation?: CustomConversionGoalOperation;
+  readonly customer_asset_operation?: CustomerAssetOperation;
+  readonly customer_conversion_goal_operation?: CustomerConversionGoalOperation;
+  readonly customer_customizer_operation?: CustomerCustomizerOperation;
+  readonly customer_label_operation?: CustomerLabelOperation;
+  readonly customer_negative_criterion_operation?: CustomerNegativeCriterionOperation;
+  readonly customer_operation?: CustomerOperation;
+  readonly customizer_attribute_operation?: CustomizerAttributeOperation;
+  readonly experiment_operation?: ExperimentOperation;
+  readonly experiment_arm_operation?: ExperimentArmOperation;
+  readonly keyword_plan_ad_group_operation?: KeywordPlanAdGroupOperation;
+  readonly keyword_plan_ad_group_keyword_operation?: KeywordPlanAdGroupKeywordOperation;
+  readonly keyword_plan_campaign_keyword_operation?: KeywordPlanCampaignKeywordOperation;
+  readonly keyword_plan_campaign_operation?: KeywordPlanCampaignOperation;
+  readonly keyword_plan_operation?: KeywordPlanOperation;
+  readonly label_operation?: LabelOperation;
   readonly quote_campaigns_operation?: QuoteCampaignsOperation;
-  readonly recommendation_subscription_operation?: unknown;
-  readonly remarketing_action_operation?: unknown;
-  readonly shared_criterion_operation?: unknown;
-  readonly shared_set_operation?: unknown;
-  readonly smart_campaign_setting_operation?: unknown;
-  readonly user_list_operation?: unknown;
+  readonly recommendation_subscription_operation?: RecommendationSubscriptionOperation;
+  readonly remarketing_action_operation?: RemarketingActionOperation;
+  readonly shared_criterion_operation?: SharedCriterionOperation;
+  readonly shared_set_operation?: SharedSetOperation;
+  readonly smart_campaign_setting_operation?: SmartCampaignSettingOperation;
+  readonly user_list_operation?: UserListOperation;
 }
 export interface MutateOperationEncoded {
-  readonly ad_group_ad_label_operation?: unknown;
-  readonly ad_group_ad_operation?: unknown;
-  readonly ad_group_asset_operation?: unknown;
-  readonly ad_group_bid_modifier_operation?: unknown;
-  readonly ad_group_criterion_customizer_operation?: unknown;
-  readonly ad_group_criterion_label_operation?: unknown;
-  readonly ad_group_criterion_operation?: unknown;
-  readonly ad_group_customizer_operation?: unknown;
-  readonly ad_group_label_operation?: unknown;
-  readonly ad_group_operation?: unknown;
-  readonly ad_operation?: unknown;
-  readonly ad_parameter_operation?: unknown;
-  readonly asset_operation?: unknown;
-  readonly asset_group_asset_operation?: unknown;
-  readonly asset_group_listing_group_filter_operation?: unknown;
-  readonly asset_group_signal_operation?: unknown;
-  readonly asset_group_operation?: unknown;
-  readonly asset_set_asset_operation?: unknown;
-  readonly asset_set_operation?: unknown;
-  readonly audience_operation?: unknown;
-  readonly bidding_data_exclusion_operation?: unknown;
-  readonly bidding_seasonality_adjustment_operation?: unknown;
-  readonly bidding_strategy_operation?: unknown;
+  readonly ad_group_ad_label_operation?: AdGroupAdLabelOperationEncoded;
+  readonly ad_group_ad_operation?: AdGroupAdOperationEncoded;
+  readonly ad_group_asset_operation?: AdGroupAssetOperationEncoded;
+  readonly ad_group_bid_modifier_operation?: AdGroupBidModifierOperationEncoded;
+  readonly ad_group_criterion_customizer_operation?: AdGroupCriterionCustomizerOperationEncoded;
+  readonly ad_group_criterion_label_operation?: AdGroupCriterionLabelOperationEncoded;
+  readonly ad_group_criterion_operation?: AdGroupCriterionOperationEncoded;
+  readonly ad_group_customizer_operation?: AdGroupCustomizerOperationEncoded;
+  readonly ad_group_label_operation?: AdGroupLabelOperationEncoded;
+  readonly ad_group_operation?: AdGroupOperationEncoded;
+  readonly ad_operation?: AdOperationEncoded;
+  readonly ad_parameter_operation?: AdParameterOperationEncoded;
+  readonly asset_operation?: AssetOperationEncoded;
+  readonly asset_group_asset_operation?: AssetGroupAssetOperationEncoded;
+  readonly asset_group_listing_group_filter_operation?: AssetGroupListingGroupFilterOperationEncoded;
+  readonly asset_group_signal_operation?: AssetGroupSignalOperationEncoded;
+  readonly asset_group_operation?: AssetGroupOperationEncoded;
+  readonly asset_set_asset_operation?: AssetSetAssetOperationEncoded;
+  readonly asset_set_operation?: AssetSetOperationEncoded;
+  readonly audience_operation?: AudienceOperationEncoded;
+  readonly bidding_data_exclusion_operation?: BiddingDataExclusionOperationEncoded;
+  readonly bidding_seasonality_adjustment_operation?: BiddingSeasonalityAdjustmentOperationEncoded;
+  readonly bidding_strategy_operation?: BiddingStrategyOperationEncoded;
   readonly book_campaigns_operation?: BookCampaignsOperationEncoded;
-  readonly campaign_asset_operation?: unknown;
-  readonly campaign_asset_set_operation?: unknown;
-  readonly campaign_bid_modifier_operation?: unknown;
-  readonly campaign_budget_operation?: unknown;
-  readonly campaign_conversion_goal_operation?: unknown;
-  readonly campaign_criterion_operation?: unknown;
-  readonly campaign_customizer_operation?: unknown;
-  readonly campaign_draft_operation?: unknown;
-  readonly campaign_group_operation?: unknown;
-  readonly campaign_label_operation?: unknown;
-  readonly campaign_operation?: unknown;
-  readonly campaign_shared_set_operation?: unknown;
-  readonly conversion_action_operation?: unknown;
-  readonly conversion_custom_variable_operation?: unknown;
-  readonly conversion_goal_campaign_config_operation?: unknown;
-  readonly conversion_value_rule_operation?: unknown;
-  readonly conversion_value_rule_set_operation?: unknown;
-  readonly custom_conversion_goal_operation?: unknown;
-  readonly customer_asset_operation?: unknown;
-  readonly customer_conversion_goal_operation?: unknown;
-  readonly customer_customizer_operation?: unknown;
-  readonly customer_label_operation?: unknown;
-  readonly customer_negative_criterion_operation?: unknown;
-  readonly customer_operation?: unknown;
-  readonly customizer_attribute_operation?: unknown;
-  readonly experiment_operation?: unknown;
-  readonly experiment_arm_operation?: unknown;
-  readonly keyword_plan_ad_group_operation?: unknown;
-  readonly keyword_plan_ad_group_keyword_operation?: unknown;
-  readonly keyword_plan_campaign_keyword_operation?: unknown;
-  readonly keyword_plan_campaign_operation?: unknown;
-  readonly keyword_plan_operation?: unknown;
-  readonly label_operation?: unknown;
+  readonly campaign_asset_operation?: CampaignAssetOperationEncoded;
+  readonly campaign_asset_set_operation?: CampaignAssetSetOperationEncoded;
+  readonly campaign_bid_modifier_operation?: CampaignBidModifierOperationEncoded;
+  readonly campaign_budget_operation?: CampaignBudgetOperationEncoded;
+  readonly campaign_conversion_goal_operation?: CampaignConversionGoalOperationEncoded;
+  readonly campaign_criterion_operation?: CampaignCriterionOperationEncoded;
+  readonly campaign_customizer_operation?: CampaignCustomizerOperationEncoded;
+  readonly campaign_draft_operation?: CampaignDraftOperationEncoded;
+  readonly campaign_group_operation?: CampaignGroupOperationEncoded;
+  readonly campaign_label_operation?: CampaignLabelOperationEncoded;
+  readonly campaign_operation?: CampaignOperationEncoded;
+  readonly campaign_shared_set_operation?: CampaignSharedSetOperationEncoded;
+  readonly conversion_action_operation?: ConversionActionOperationEncoded;
+  readonly conversion_custom_variable_operation?: ConversionCustomVariableOperationEncoded;
+  readonly conversion_goal_campaign_config_operation?: ConversionGoalCampaignConfigOperationEncoded;
+  readonly conversion_value_rule_operation?: ConversionValueRuleOperationEncoded;
+  readonly conversion_value_rule_set_operation?: ConversionValueRuleSetOperationEncoded;
+  readonly custom_conversion_goal_operation?: CustomConversionGoalOperationEncoded;
+  readonly customer_asset_operation?: CustomerAssetOperationEncoded;
+  readonly customer_conversion_goal_operation?: CustomerConversionGoalOperationEncoded;
+  readonly customer_customizer_operation?: CustomerCustomizerOperationEncoded;
+  readonly customer_label_operation?: CustomerLabelOperationEncoded;
+  readonly customer_negative_criterion_operation?: CustomerNegativeCriterionOperationEncoded;
+  readonly customer_operation?: CustomerOperationEncoded;
+  readonly customizer_attribute_operation?: CustomizerAttributeOperationEncoded;
+  readonly experiment_operation?: ExperimentOperationEncoded;
+  readonly experiment_arm_operation?: ExperimentArmOperationEncoded;
+  readonly keyword_plan_ad_group_operation?: KeywordPlanAdGroupOperationEncoded;
+  readonly keyword_plan_ad_group_keyword_operation?: KeywordPlanAdGroupKeywordOperationEncoded;
+  readonly keyword_plan_campaign_keyword_operation?: KeywordPlanCampaignKeywordOperationEncoded;
+  readonly keyword_plan_campaign_operation?: KeywordPlanCampaignOperationEncoded;
+  readonly keyword_plan_operation?: KeywordPlanOperationEncoded;
+  readonly label_operation?: LabelOperationEncoded;
   readonly quote_campaigns_operation?: QuoteCampaignsOperationEncoded;
-  readonly recommendation_subscription_operation?: unknown;
-  readonly remarketing_action_operation?: unknown;
-  readonly shared_criterion_operation?: unknown;
-  readonly shared_set_operation?: unknown;
-  readonly smart_campaign_setting_operation?: unknown;
-  readonly user_list_operation?: unknown;
+  readonly recommendation_subscription_operation?: RecommendationSubscriptionOperationEncoded;
+  readonly remarketing_action_operation?: RemarketingActionOperationEncoded;
+  readonly shared_criterion_operation?: SharedCriterionOperationEncoded;
+  readonly shared_set_operation?: SharedSetOperationEncoded;
+  readonly smart_campaign_setting_operation?: SmartCampaignSettingOperationEncoded;
+  readonly user_list_operation?: UserListOperationEncoded;
 }
 export const MutateOperation: Schema.Schema<MutateOperation, MutateOperationEncoded, never> = Schema.Struct({
-  ad_group_ad_label_operation: Schema.optional(Schema.Unknown),
-  ad_group_ad_operation: Schema.optional(Schema.Unknown),
-  ad_group_asset_operation: Schema.optional(Schema.Unknown),
-  ad_group_bid_modifier_operation: Schema.optional(Schema.Unknown),
-  ad_group_criterion_customizer_operation: Schema.optional(Schema.Unknown),
-  ad_group_criterion_label_operation: Schema.optional(Schema.Unknown),
-  ad_group_criterion_operation: Schema.optional(Schema.Unknown),
-  ad_group_customizer_operation: Schema.optional(Schema.Unknown),
-  ad_group_label_operation: Schema.optional(Schema.Unknown),
-  ad_group_operation: Schema.optional(Schema.Unknown),
-  ad_operation: Schema.optional(Schema.Unknown),
-  ad_parameter_operation: Schema.optional(Schema.Unknown),
-  asset_operation: Schema.optional(Schema.Unknown),
-  asset_group_asset_operation: Schema.optional(Schema.Unknown),
-  asset_group_listing_group_filter_operation: Schema.optional(Schema.Unknown),
-  asset_group_signal_operation: Schema.optional(Schema.Unknown),
-  asset_group_operation: Schema.optional(Schema.Unknown),
-  asset_set_asset_operation: Schema.optional(Schema.Unknown),
-  asset_set_operation: Schema.optional(Schema.Unknown),
-  audience_operation: Schema.optional(Schema.Unknown),
-  bidding_data_exclusion_operation: Schema.optional(Schema.Unknown),
-  bidding_seasonality_adjustment_operation: Schema.optional(Schema.Unknown),
-  bidding_strategy_operation: Schema.optional(Schema.Unknown),
+  ad_group_ad_label_operation: Schema.optional(Schema.suspend(() => AdGroupAdLabelOperation)),
+  ad_group_ad_operation: Schema.optional(Schema.suspend(() => AdGroupAdOperation)),
+  ad_group_asset_operation: Schema.optional(Schema.suspend(() => AdGroupAssetOperation)),
+  ad_group_bid_modifier_operation: Schema.optional(Schema.suspend(() => AdGroupBidModifierOperation)),
+  ad_group_criterion_customizer_operation: Schema.optional(Schema.suspend(() => AdGroupCriterionCustomizerOperation)),
+  ad_group_criterion_label_operation: Schema.optional(Schema.suspend(() => AdGroupCriterionLabelOperation)),
+  ad_group_criterion_operation: Schema.optional(Schema.suspend(() => AdGroupCriterionOperation)),
+  ad_group_customizer_operation: Schema.optional(Schema.suspend(() => AdGroupCustomizerOperation)),
+  ad_group_label_operation: Schema.optional(Schema.suspend(() => AdGroupLabelOperation)),
+  ad_group_operation: Schema.optional(Schema.suspend(() => AdGroupOperation)),
+  ad_operation: Schema.optional(Schema.suspend(() => AdOperation)),
+  ad_parameter_operation: Schema.optional(Schema.suspend(() => AdParameterOperation)),
+  asset_operation: Schema.optional(Schema.suspend(() => AssetOperation)),
+  asset_group_asset_operation: Schema.optional(Schema.suspend(() => AssetGroupAssetOperation)),
+  asset_group_listing_group_filter_operation: Schema.optional(Schema.suspend(() => AssetGroupListingGroupFilterOperation)),
+  asset_group_signal_operation: Schema.optional(Schema.suspend(() => AssetGroupSignalOperation)),
+  asset_group_operation: Schema.optional(Schema.suspend(() => AssetGroupOperation)),
+  asset_set_asset_operation: Schema.optional(Schema.suspend(() => AssetSetAssetOperation)),
+  asset_set_operation: Schema.optional(Schema.suspend(() => AssetSetOperation)),
+  audience_operation: Schema.optional(Schema.suspend(() => AudienceOperation)),
+  bidding_data_exclusion_operation: Schema.optional(Schema.suspend(() => BiddingDataExclusionOperation)),
+  bidding_seasonality_adjustment_operation: Schema.optional(Schema.suspend(() => BiddingSeasonalityAdjustmentOperation)),
+  bidding_strategy_operation: Schema.optional(Schema.suspend(() => BiddingStrategyOperation)),
   book_campaigns_operation: Schema.optional(Schema.suspend(() => BookCampaignsOperation)),
-  campaign_asset_operation: Schema.optional(Schema.Unknown),
-  campaign_asset_set_operation: Schema.optional(Schema.Unknown),
-  campaign_bid_modifier_operation: Schema.optional(Schema.Unknown),
-  campaign_budget_operation: Schema.optional(Schema.Unknown),
-  campaign_conversion_goal_operation: Schema.optional(Schema.Unknown),
-  campaign_criterion_operation: Schema.optional(Schema.Unknown),
-  campaign_customizer_operation: Schema.optional(Schema.Unknown),
-  campaign_draft_operation: Schema.optional(Schema.Unknown),
-  campaign_group_operation: Schema.optional(Schema.Unknown),
-  campaign_label_operation: Schema.optional(Schema.Unknown),
-  campaign_operation: Schema.optional(Schema.Unknown),
-  campaign_shared_set_operation: Schema.optional(Schema.Unknown),
-  conversion_action_operation: Schema.optional(Schema.Unknown),
-  conversion_custom_variable_operation: Schema.optional(Schema.Unknown),
-  conversion_goal_campaign_config_operation: Schema.optional(Schema.Unknown),
-  conversion_value_rule_operation: Schema.optional(Schema.Unknown),
-  conversion_value_rule_set_operation: Schema.optional(Schema.Unknown),
-  custom_conversion_goal_operation: Schema.optional(Schema.Unknown),
-  customer_asset_operation: Schema.optional(Schema.Unknown),
-  customer_conversion_goal_operation: Schema.optional(Schema.Unknown),
-  customer_customizer_operation: Schema.optional(Schema.Unknown),
-  customer_label_operation: Schema.optional(Schema.Unknown),
-  customer_negative_criterion_operation: Schema.optional(Schema.Unknown),
-  customer_operation: Schema.optional(Schema.Unknown),
-  customizer_attribute_operation: Schema.optional(Schema.Unknown),
-  experiment_operation: Schema.optional(Schema.Unknown),
-  experiment_arm_operation: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_operation: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_keyword_operation: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_keyword_operation: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_operation: Schema.optional(Schema.Unknown),
-  keyword_plan_operation: Schema.optional(Schema.Unknown),
-  label_operation: Schema.optional(Schema.Unknown),
+  campaign_asset_operation: Schema.optional(Schema.suspend(() => CampaignAssetOperation)),
+  campaign_asset_set_operation: Schema.optional(Schema.suspend(() => CampaignAssetSetOperation)),
+  campaign_bid_modifier_operation: Schema.optional(Schema.suspend(() => CampaignBidModifierOperation)),
+  campaign_budget_operation: Schema.optional(Schema.suspend(() => CampaignBudgetOperation)),
+  campaign_conversion_goal_operation: Schema.optional(Schema.suspend(() => CampaignConversionGoalOperation)),
+  campaign_criterion_operation: Schema.optional(Schema.suspend(() => CampaignCriterionOperation)),
+  campaign_customizer_operation: Schema.optional(Schema.suspend(() => CampaignCustomizerOperation)),
+  campaign_draft_operation: Schema.optional(Schema.suspend(() => CampaignDraftOperation)),
+  campaign_group_operation: Schema.optional(Schema.suspend(() => CampaignGroupOperation)),
+  campaign_label_operation: Schema.optional(Schema.suspend(() => CampaignLabelOperation)),
+  campaign_operation: Schema.optional(Schema.suspend(() => CampaignOperation)),
+  campaign_shared_set_operation: Schema.optional(Schema.suspend(() => CampaignSharedSetOperation)),
+  conversion_action_operation: Schema.optional(Schema.suspend(() => ConversionActionOperation)),
+  conversion_custom_variable_operation: Schema.optional(Schema.suspend(() => ConversionCustomVariableOperation)),
+  conversion_goal_campaign_config_operation: Schema.optional(Schema.suspend(() => ConversionGoalCampaignConfigOperation)),
+  conversion_value_rule_operation: Schema.optional(Schema.suspend(() => ConversionValueRuleOperation)),
+  conversion_value_rule_set_operation: Schema.optional(Schema.suspend(() => ConversionValueRuleSetOperation)),
+  custom_conversion_goal_operation: Schema.optional(Schema.suspend(() => CustomConversionGoalOperation)),
+  customer_asset_operation: Schema.optional(Schema.suspend(() => CustomerAssetOperation)),
+  customer_conversion_goal_operation: Schema.optional(Schema.suspend(() => CustomerConversionGoalOperation)),
+  customer_customizer_operation: Schema.optional(Schema.suspend(() => CustomerCustomizerOperation)),
+  customer_label_operation: Schema.optional(Schema.suspend(() => CustomerLabelOperation)),
+  customer_negative_criterion_operation: Schema.optional(Schema.suspend(() => CustomerNegativeCriterionOperation)),
+  customer_operation: Schema.optional(Schema.suspend(() => CustomerOperation)),
+  customizer_attribute_operation: Schema.optional(Schema.suspend(() => CustomizerAttributeOperation)),
+  experiment_operation: Schema.optional(Schema.suspend(() => ExperimentOperation)),
+  experiment_arm_operation: Schema.optional(Schema.suspend(() => ExperimentArmOperation)),
+  keyword_plan_ad_group_operation: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupOperation)),
+  keyword_plan_ad_group_keyword_operation: Schema.optional(Schema.suspend(() => KeywordPlanAdGroupKeywordOperation)),
+  keyword_plan_campaign_keyword_operation: Schema.optional(Schema.suspend(() => KeywordPlanCampaignKeywordOperation)),
+  keyword_plan_campaign_operation: Schema.optional(Schema.suspend(() => KeywordPlanCampaignOperation)),
+  keyword_plan_operation: Schema.optional(Schema.suspend(() => KeywordPlanOperation)),
+  label_operation: Schema.optional(Schema.suspend(() => LabelOperation)),
   quote_campaigns_operation: Schema.optional(Schema.suspend(() => QuoteCampaignsOperation)),
-  recommendation_subscription_operation: Schema.optional(Schema.Unknown),
-  remarketing_action_operation: Schema.optional(Schema.Unknown),
-  shared_criterion_operation: Schema.optional(Schema.Unknown),
-  shared_set_operation: Schema.optional(Schema.Unknown),
-  smart_campaign_setting_operation: Schema.optional(Schema.Unknown),
-  user_list_operation: Schema.optional(Schema.Unknown),
+  recommendation_subscription_operation: Schema.optional(Schema.suspend(() => RecommendationSubscriptionOperation)),
+  remarketing_action_operation: Schema.optional(Schema.suspend(() => RemarketingActionOperation)),
+  shared_criterion_operation: Schema.optional(Schema.suspend(() => SharedCriterionOperation)),
+  shared_set_operation: Schema.optional(Schema.suspend(() => SharedSetOperation)),
+  smart_campaign_setting_operation: Schema.optional(Schema.suspend(() => SmartCampaignSettingOperation)),
+  user_list_operation: Schema.optional(Schema.suspend(() => UserListOperation)),
 });
 
 export interface MutateOperationResponse {
-  readonly ad_group_ad_label_result?: unknown;
-  readonly ad_group_ad_result?: unknown;
-  readonly ad_group_asset_result?: unknown;
-  readonly ad_group_bid_modifier_result?: unknown;
-  readonly ad_group_criterion_customizer_result?: unknown;
-  readonly ad_group_criterion_label_result?: unknown;
-  readonly ad_group_criterion_result?: unknown;
-  readonly ad_group_customizer_result?: unknown;
-  readonly ad_group_label_result?: unknown;
-  readonly ad_group_result?: unknown;
-  readonly ad_parameter_result?: unknown;
-  readonly ad_result?: unknown;
-  readonly asset_result?: unknown;
-  readonly asset_group_asset_result?: unknown;
-  readonly asset_group_listing_group_filter_result?: unknown;
-  readonly asset_group_signal_result?: unknown;
-  readonly asset_group_result?: unknown;
-  readonly asset_set_asset_result?: unknown;
-  readonly asset_set_result?: unknown;
-  readonly audience_result?: unknown;
-  readonly bidding_data_exclusion_result?: unknown;
-  readonly bidding_seasonality_adjustment_result?: unknown;
-  readonly bidding_strategy_result?: unknown;
+  readonly ad_group_ad_label_result?: MutateAdGroupAdLabelResult;
+  readonly ad_group_ad_result?: MutateAdGroupAdResult;
+  readonly ad_group_asset_result?: MutateAdGroupAssetResult;
+  readonly ad_group_bid_modifier_result?: MutateAdGroupBidModifierResult;
+  readonly ad_group_criterion_customizer_result?: MutateAdGroupCriterionCustomizerResult;
+  readonly ad_group_criterion_label_result?: MutateAdGroupCriterionLabelResult;
+  readonly ad_group_criterion_result?: MutateAdGroupCriterionResult;
+  readonly ad_group_customizer_result?: MutateAdGroupCustomizerResult;
+  readonly ad_group_label_result?: MutateAdGroupLabelResult;
+  readonly ad_group_result?: MutateAdGroupResult;
+  readonly ad_parameter_result?: MutateAdParameterResult;
+  readonly ad_result?: MutateAdResult;
+  readonly asset_result?: MutateAssetResult;
+  readonly asset_group_asset_result?: MutateAssetGroupAssetResult;
+  readonly asset_group_listing_group_filter_result?: MutateAssetGroupListingGroupFilterResult;
+  readonly asset_group_signal_result?: MutateAssetGroupSignalResult;
+  readonly asset_group_result?: MutateAssetGroupResult;
+  readonly asset_set_asset_result?: MutateAssetSetAssetResult;
+  readonly asset_set_result?: MutateAssetSetResult;
+  readonly audience_result?: MutateAudienceResult;
+  readonly bidding_data_exclusion_result?: MutateBiddingDataExclusionsResult;
+  readonly bidding_seasonality_adjustment_result?: MutateBiddingSeasonalityAdjustmentsResult;
+  readonly bidding_strategy_result?: MutateBiddingStrategyResult;
   readonly book_campaigns_result?: BookCampaignsResult;
-  readonly campaign_asset_result?: unknown;
-  readonly campaign_asset_set_result?: unknown;
-  readonly campaign_bid_modifier_result?: unknown;
-  readonly campaign_budget_result?: unknown;
-  readonly campaign_conversion_goal_result?: unknown;
-  readonly campaign_criterion_result?: unknown;
-  readonly campaign_customizer_result?: unknown;
-  readonly campaign_draft_result?: unknown;
-  readonly campaign_group_result?: unknown;
-  readonly campaign_label_result?: unknown;
-  readonly campaign_result?: unknown;
-  readonly campaign_shared_set_result?: unknown;
-  readonly conversion_action_result?: unknown;
-  readonly conversion_custom_variable_result?: unknown;
-  readonly conversion_goal_campaign_config_result?: unknown;
-  readonly conversion_value_rule_result?: unknown;
-  readonly conversion_value_rule_set_result?: unknown;
-  readonly custom_conversion_goal_result?: unknown;
-  readonly customer_asset_result?: unknown;
-  readonly customer_conversion_goal_result?: unknown;
-  readonly customer_customizer_result?: unknown;
-  readonly customer_label_result?: unknown;
-  readonly customer_negative_criterion_result?: unknown;
-  readonly customer_result?: unknown;
-  readonly customizer_attribute_result?: unknown;
-  readonly experiment_result?: unknown;
-  readonly experiment_arm_result?: unknown;
-  readonly keyword_plan_ad_group_result?: unknown;
-  readonly keyword_plan_campaign_result?: unknown;
-  readonly keyword_plan_ad_group_keyword_result?: unknown;
-  readonly keyword_plan_campaign_keyword_result?: unknown;
-  readonly keyword_plan_result?: unknown;
-  readonly label_result?: unknown;
+  readonly campaign_asset_result?: MutateCampaignAssetResult;
+  readonly campaign_asset_set_result?: MutateCampaignAssetSetResult;
+  readonly campaign_bid_modifier_result?: MutateCampaignBidModifierResult;
+  readonly campaign_budget_result?: MutateCampaignBudgetResult;
+  readonly campaign_conversion_goal_result?: MutateCampaignConversionGoalResult;
+  readonly campaign_criterion_result?: MutateCampaignCriterionResult;
+  readonly campaign_customizer_result?: MutateCampaignCustomizerResult;
+  readonly campaign_draft_result?: MutateCampaignDraftResult;
+  readonly campaign_group_result?: MutateCampaignGroupResult;
+  readonly campaign_label_result?: MutateCampaignLabelResult;
+  readonly campaign_result?: MutateCampaignResult;
+  readonly campaign_shared_set_result?: MutateCampaignSharedSetResult;
+  readonly conversion_action_result?: MutateConversionActionResult;
+  readonly conversion_custom_variable_result?: MutateConversionCustomVariableResult;
+  readonly conversion_goal_campaign_config_result?: MutateConversionGoalCampaignConfigResult;
+  readonly conversion_value_rule_result?: MutateConversionValueRuleResult;
+  readonly conversion_value_rule_set_result?: MutateConversionValueRuleSetResult;
+  readonly custom_conversion_goal_result?: MutateCustomConversionGoalResult;
+  readonly customer_asset_result?: MutateCustomerAssetResult;
+  readonly customer_conversion_goal_result?: MutateCustomerConversionGoalResult;
+  readonly customer_customizer_result?: MutateCustomerCustomizerResult;
+  readonly customer_label_result?: MutateCustomerLabelResult;
+  readonly customer_negative_criterion_result?: MutateCustomerNegativeCriteriaResult;
+  readonly customer_result?: MutateCustomerResult;
+  readonly customizer_attribute_result?: MutateCustomizerAttributeResult;
+  readonly experiment_result?: MutateExperimentResult;
+  readonly experiment_arm_result?: MutateExperimentArmResult;
+  readonly keyword_plan_ad_group_result?: MutateKeywordPlanAdGroupResult;
+  readonly keyword_plan_campaign_result?: MutateKeywordPlanCampaignResult;
+  readonly keyword_plan_ad_group_keyword_result?: MutateKeywordPlanAdGroupKeywordResult;
+  readonly keyword_plan_campaign_keyword_result?: MutateKeywordPlanCampaignKeywordResult;
+  readonly keyword_plan_result?: MutateKeywordPlansResult;
+  readonly label_result?: MutateLabelResult;
   readonly quote_campaigns_result?: QuoteCampaignsResult;
-  readonly recommendation_subscription_result?: unknown;
-  readonly remarketing_action_result?: unknown;
-  readonly shared_criterion_result?: unknown;
-  readonly shared_set_result?: unknown;
-  readonly smart_campaign_setting_result?: unknown;
-  readonly user_list_result?: unknown;
+  readonly recommendation_subscription_result?: MutateRecommendationSubscriptionResult;
+  readonly remarketing_action_result?: MutateRemarketingActionResult;
+  readonly shared_criterion_result?: MutateSharedCriterionResult;
+  readonly shared_set_result?: MutateSharedSetResult;
+  readonly smart_campaign_setting_result?: MutateSmartCampaignSettingResult;
+  readonly user_list_result?: MutateUserListResult;
 }
 export interface MutateOperationResponseEncoded {
-  readonly ad_group_ad_label_result?: unknown;
-  readonly ad_group_ad_result?: unknown;
-  readonly ad_group_asset_result?: unknown;
-  readonly ad_group_bid_modifier_result?: unknown;
-  readonly ad_group_criterion_customizer_result?: unknown;
-  readonly ad_group_criterion_label_result?: unknown;
-  readonly ad_group_criterion_result?: unknown;
-  readonly ad_group_customizer_result?: unknown;
-  readonly ad_group_label_result?: unknown;
-  readonly ad_group_result?: unknown;
-  readonly ad_parameter_result?: unknown;
-  readonly ad_result?: unknown;
-  readonly asset_result?: unknown;
-  readonly asset_group_asset_result?: unknown;
-  readonly asset_group_listing_group_filter_result?: unknown;
-  readonly asset_group_signal_result?: unknown;
-  readonly asset_group_result?: unknown;
-  readonly asset_set_asset_result?: unknown;
-  readonly asset_set_result?: unknown;
-  readonly audience_result?: unknown;
-  readonly bidding_data_exclusion_result?: unknown;
-  readonly bidding_seasonality_adjustment_result?: unknown;
-  readonly bidding_strategy_result?: unknown;
+  readonly ad_group_ad_label_result?: MutateAdGroupAdLabelResultEncoded;
+  readonly ad_group_ad_result?: MutateAdGroupAdResultEncoded;
+  readonly ad_group_asset_result?: MutateAdGroupAssetResultEncoded;
+  readonly ad_group_bid_modifier_result?: MutateAdGroupBidModifierResultEncoded;
+  readonly ad_group_criterion_customizer_result?: MutateAdGroupCriterionCustomizerResultEncoded;
+  readonly ad_group_criterion_label_result?: MutateAdGroupCriterionLabelResultEncoded;
+  readonly ad_group_criterion_result?: MutateAdGroupCriterionResultEncoded;
+  readonly ad_group_customizer_result?: MutateAdGroupCustomizerResultEncoded;
+  readonly ad_group_label_result?: MutateAdGroupLabelResultEncoded;
+  readonly ad_group_result?: MutateAdGroupResultEncoded;
+  readonly ad_parameter_result?: MutateAdParameterResultEncoded;
+  readonly ad_result?: MutateAdResultEncoded;
+  readonly asset_result?: MutateAssetResultEncoded;
+  readonly asset_group_asset_result?: MutateAssetGroupAssetResultEncoded;
+  readonly asset_group_listing_group_filter_result?: MutateAssetGroupListingGroupFilterResultEncoded;
+  readonly asset_group_signal_result?: MutateAssetGroupSignalResultEncoded;
+  readonly asset_group_result?: MutateAssetGroupResultEncoded;
+  readonly asset_set_asset_result?: MutateAssetSetAssetResultEncoded;
+  readonly asset_set_result?: MutateAssetSetResultEncoded;
+  readonly audience_result?: MutateAudienceResultEncoded;
+  readonly bidding_data_exclusion_result?: MutateBiddingDataExclusionsResultEncoded;
+  readonly bidding_seasonality_adjustment_result?: MutateBiddingSeasonalityAdjustmentsResultEncoded;
+  readonly bidding_strategy_result?: MutateBiddingStrategyResultEncoded;
   readonly book_campaigns_result?: BookCampaignsResultEncoded;
-  readonly campaign_asset_result?: unknown;
-  readonly campaign_asset_set_result?: unknown;
-  readonly campaign_bid_modifier_result?: unknown;
-  readonly campaign_budget_result?: unknown;
-  readonly campaign_conversion_goal_result?: unknown;
-  readonly campaign_criterion_result?: unknown;
-  readonly campaign_customizer_result?: unknown;
-  readonly campaign_draft_result?: unknown;
-  readonly campaign_group_result?: unknown;
-  readonly campaign_label_result?: unknown;
-  readonly campaign_result?: unknown;
-  readonly campaign_shared_set_result?: unknown;
-  readonly conversion_action_result?: unknown;
-  readonly conversion_custom_variable_result?: unknown;
-  readonly conversion_goal_campaign_config_result?: unknown;
-  readonly conversion_value_rule_result?: unknown;
-  readonly conversion_value_rule_set_result?: unknown;
-  readonly custom_conversion_goal_result?: unknown;
-  readonly customer_asset_result?: unknown;
-  readonly customer_conversion_goal_result?: unknown;
-  readonly customer_customizer_result?: unknown;
-  readonly customer_label_result?: unknown;
-  readonly customer_negative_criterion_result?: unknown;
-  readonly customer_result?: unknown;
-  readonly customizer_attribute_result?: unknown;
-  readonly experiment_result?: unknown;
-  readonly experiment_arm_result?: unknown;
-  readonly keyword_plan_ad_group_result?: unknown;
-  readonly keyword_plan_campaign_result?: unknown;
-  readonly keyword_plan_ad_group_keyword_result?: unknown;
-  readonly keyword_plan_campaign_keyword_result?: unknown;
-  readonly keyword_plan_result?: unknown;
-  readonly label_result?: unknown;
+  readonly campaign_asset_result?: MutateCampaignAssetResultEncoded;
+  readonly campaign_asset_set_result?: MutateCampaignAssetSetResultEncoded;
+  readonly campaign_bid_modifier_result?: MutateCampaignBidModifierResultEncoded;
+  readonly campaign_budget_result?: MutateCampaignBudgetResultEncoded;
+  readonly campaign_conversion_goal_result?: MutateCampaignConversionGoalResultEncoded;
+  readonly campaign_criterion_result?: MutateCampaignCriterionResultEncoded;
+  readonly campaign_customizer_result?: MutateCampaignCustomizerResultEncoded;
+  readonly campaign_draft_result?: MutateCampaignDraftResultEncoded;
+  readonly campaign_group_result?: MutateCampaignGroupResultEncoded;
+  readonly campaign_label_result?: MutateCampaignLabelResultEncoded;
+  readonly campaign_result?: MutateCampaignResultEncoded;
+  readonly campaign_shared_set_result?: MutateCampaignSharedSetResultEncoded;
+  readonly conversion_action_result?: MutateConversionActionResultEncoded;
+  readonly conversion_custom_variable_result?: MutateConversionCustomVariableResultEncoded;
+  readonly conversion_goal_campaign_config_result?: MutateConversionGoalCampaignConfigResultEncoded;
+  readonly conversion_value_rule_result?: MutateConversionValueRuleResultEncoded;
+  readonly conversion_value_rule_set_result?: MutateConversionValueRuleSetResultEncoded;
+  readonly custom_conversion_goal_result?: MutateCustomConversionGoalResultEncoded;
+  readonly customer_asset_result?: MutateCustomerAssetResultEncoded;
+  readonly customer_conversion_goal_result?: MutateCustomerConversionGoalResultEncoded;
+  readonly customer_customizer_result?: MutateCustomerCustomizerResultEncoded;
+  readonly customer_label_result?: MutateCustomerLabelResultEncoded;
+  readonly customer_negative_criterion_result?: MutateCustomerNegativeCriteriaResultEncoded;
+  readonly customer_result?: MutateCustomerResultEncoded;
+  readonly customizer_attribute_result?: MutateCustomizerAttributeResultEncoded;
+  readonly experiment_result?: MutateExperimentResultEncoded;
+  readonly experiment_arm_result?: MutateExperimentArmResultEncoded;
+  readonly keyword_plan_ad_group_result?: MutateKeywordPlanAdGroupResultEncoded;
+  readonly keyword_plan_campaign_result?: MutateKeywordPlanCampaignResultEncoded;
+  readonly keyword_plan_ad_group_keyword_result?: MutateKeywordPlanAdGroupKeywordResultEncoded;
+  readonly keyword_plan_campaign_keyword_result?: MutateKeywordPlanCampaignKeywordResultEncoded;
+  readonly keyword_plan_result?: MutateKeywordPlansResultEncoded;
+  readonly label_result?: MutateLabelResultEncoded;
   readonly quote_campaigns_result?: QuoteCampaignsResultEncoded;
-  readonly recommendation_subscription_result?: unknown;
-  readonly remarketing_action_result?: unknown;
-  readonly shared_criterion_result?: unknown;
-  readonly shared_set_result?: unknown;
-  readonly smart_campaign_setting_result?: unknown;
-  readonly user_list_result?: unknown;
+  readonly recommendation_subscription_result?: MutateRecommendationSubscriptionResultEncoded;
+  readonly remarketing_action_result?: MutateRemarketingActionResultEncoded;
+  readonly shared_criterion_result?: MutateSharedCriterionResultEncoded;
+  readonly shared_set_result?: MutateSharedSetResultEncoded;
+  readonly smart_campaign_setting_result?: MutateSmartCampaignSettingResultEncoded;
+  readonly user_list_result?: MutateUserListResultEncoded;
 }
 export const MutateOperationResponse: Schema.Schema<MutateOperationResponse, MutateOperationResponseEncoded, never> = Schema.Struct({
-  ad_group_ad_label_result: Schema.optional(Schema.Unknown),
-  ad_group_ad_result: Schema.optional(Schema.Unknown),
-  ad_group_asset_result: Schema.optional(Schema.Unknown),
-  ad_group_bid_modifier_result: Schema.optional(Schema.Unknown),
-  ad_group_criterion_customizer_result: Schema.optional(Schema.Unknown),
-  ad_group_criterion_label_result: Schema.optional(Schema.Unknown),
-  ad_group_criterion_result: Schema.optional(Schema.Unknown),
-  ad_group_customizer_result: Schema.optional(Schema.Unknown),
-  ad_group_label_result: Schema.optional(Schema.Unknown),
-  ad_group_result: Schema.optional(Schema.Unknown),
-  ad_parameter_result: Schema.optional(Schema.Unknown),
-  ad_result: Schema.optional(Schema.Unknown),
-  asset_result: Schema.optional(Schema.Unknown),
-  asset_group_asset_result: Schema.optional(Schema.Unknown),
-  asset_group_listing_group_filter_result: Schema.optional(Schema.Unknown),
-  asset_group_signal_result: Schema.optional(Schema.Unknown),
-  asset_group_result: Schema.optional(Schema.Unknown),
-  asset_set_asset_result: Schema.optional(Schema.Unknown),
-  asset_set_result: Schema.optional(Schema.Unknown),
-  audience_result: Schema.optional(Schema.Unknown),
-  bidding_data_exclusion_result: Schema.optional(Schema.Unknown),
-  bidding_seasonality_adjustment_result: Schema.optional(Schema.Unknown),
-  bidding_strategy_result: Schema.optional(Schema.Unknown),
+  ad_group_ad_label_result: Schema.optional(Schema.suspend(() => MutateAdGroupAdLabelResult)),
+  ad_group_ad_result: Schema.optional(Schema.suspend(() => MutateAdGroupAdResult)),
+  ad_group_asset_result: Schema.optional(Schema.suspend(() => MutateAdGroupAssetResult)),
+  ad_group_bid_modifier_result: Schema.optional(Schema.suspend(() => MutateAdGroupBidModifierResult)),
+  ad_group_criterion_customizer_result: Schema.optional(Schema.suspend(() => MutateAdGroupCriterionCustomizerResult)),
+  ad_group_criterion_label_result: Schema.optional(Schema.suspend(() => MutateAdGroupCriterionLabelResult)),
+  ad_group_criterion_result: Schema.optional(Schema.suspend(() => MutateAdGroupCriterionResult)),
+  ad_group_customizer_result: Schema.optional(Schema.suspend(() => MutateAdGroupCustomizerResult)),
+  ad_group_label_result: Schema.optional(Schema.suspend(() => MutateAdGroupLabelResult)),
+  ad_group_result: Schema.optional(Schema.suspend(() => MutateAdGroupResult)),
+  ad_parameter_result: Schema.optional(Schema.suspend(() => MutateAdParameterResult)),
+  ad_result: Schema.optional(Schema.suspend(() => MutateAdResult)),
+  asset_result: Schema.optional(Schema.suspend(() => MutateAssetResult)),
+  asset_group_asset_result: Schema.optional(Schema.suspend(() => MutateAssetGroupAssetResult)),
+  asset_group_listing_group_filter_result: Schema.optional(Schema.suspend(() => MutateAssetGroupListingGroupFilterResult)),
+  asset_group_signal_result: Schema.optional(Schema.suspend(() => MutateAssetGroupSignalResult)),
+  asset_group_result: Schema.optional(Schema.suspend(() => MutateAssetGroupResult)),
+  asset_set_asset_result: Schema.optional(Schema.suspend(() => MutateAssetSetAssetResult)),
+  asset_set_result: Schema.optional(Schema.suspend(() => MutateAssetSetResult)),
+  audience_result: Schema.optional(Schema.suspend(() => MutateAudienceResult)),
+  bidding_data_exclusion_result: Schema.optional(Schema.suspend(() => MutateBiddingDataExclusionsResult)),
+  bidding_seasonality_adjustment_result: Schema.optional(Schema.suspend(() => MutateBiddingSeasonalityAdjustmentsResult)),
+  bidding_strategy_result: Schema.optional(Schema.suspend(() => MutateBiddingStrategyResult)),
   book_campaigns_result: Schema.optional(Schema.suspend(() => BookCampaignsResult)),
-  campaign_asset_result: Schema.optional(Schema.Unknown),
-  campaign_asset_set_result: Schema.optional(Schema.Unknown),
-  campaign_bid_modifier_result: Schema.optional(Schema.Unknown),
-  campaign_budget_result: Schema.optional(Schema.Unknown),
-  campaign_conversion_goal_result: Schema.optional(Schema.Unknown),
-  campaign_criterion_result: Schema.optional(Schema.Unknown),
-  campaign_customizer_result: Schema.optional(Schema.Unknown),
-  campaign_draft_result: Schema.optional(Schema.Unknown),
-  campaign_group_result: Schema.optional(Schema.Unknown),
-  campaign_label_result: Schema.optional(Schema.Unknown),
-  campaign_result: Schema.optional(Schema.Unknown),
-  campaign_shared_set_result: Schema.optional(Schema.Unknown),
-  conversion_action_result: Schema.optional(Schema.Unknown),
-  conversion_custom_variable_result: Schema.optional(Schema.Unknown),
-  conversion_goal_campaign_config_result: Schema.optional(Schema.Unknown),
-  conversion_value_rule_result: Schema.optional(Schema.Unknown),
-  conversion_value_rule_set_result: Schema.optional(Schema.Unknown),
-  custom_conversion_goal_result: Schema.optional(Schema.Unknown),
-  customer_asset_result: Schema.optional(Schema.Unknown),
-  customer_conversion_goal_result: Schema.optional(Schema.Unknown),
-  customer_customizer_result: Schema.optional(Schema.Unknown),
-  customer_label_result: Schema.optional(Schema.Unknown),
-  customer_negative_criterion_result: Schema.optional(Schema.Unknown),
-  customer_result: Schema.optional(Schema.Unknown),
-  customizer_attribute_result: Schema.optional(Schema.Unknown),
-  experiment_result: Schema.optional(Schema.Unknown),
-  experiment_arm_result: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_result: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_result: Schema.optional(Schema.Unknown),
-  keyword_plan_ad_group_keyword_result: Schema.optional(Schema.Unknown),
-  keyword_plan_campaign_keyword_result: Schema.optional(Schema.Unknown),
-  keyword_plan_result: Schema.optional(Schema.Unknown),
-  label_result: Schema.optional(Schema.Unknown),
+  campaign_asset_result: Schema.optional(Schema.suspend(() => MutateCampaignAssetResult)),
+  campaign_asset_set_result: Schema.optional(Schema.suspend(() => MutateCampaignAssetSetResult)),
+  campaign_bid_modifier_result: Schema.optional(Schema.suspend(() => MutateCampaignBidModifierResult)),
+  campaign_budget_result: Schema.optional(Schema.suspend(() => MutateCampaignBudgetResult)),
+  campaign_conversion_goal_result: Schema.optional(Schema.suspend(() => MutateCampaignConversionGoalResult)),
+  campaign_criterion_result: Schema.optional(Schema.suspend(() => MutateCampaignCriterionResult)),
+  campaign_customizer_result: Schema.optional(Schema.suspend(() => MutateCampaignCustomizerResult)),
+  campaign_draft_result: Schema.optional(Schema.suspend(() => MutateCampaignDraftResult)),
+  campaign_group_result: Schema.optional(Schema.suspend(() => MutateCampaignGroupResult)),
+  campaign_label_result: Schema.optional(Schema.suspend(() => MutateCampaignLabelResult)),
+  campaign_result: Schema.optional(Schema.suspend(() => MutateCampaignResult)),
+  campaign_shared_set_result: Schema.optional(Schema.suspend(() => MutateCampaignSharedSetResult)),
+  conversion_action_result: Schema.optional(Schema.suspend(() => MutateConversionActionResult)),
+  conversion_custom_variable_result: Schema.optional(Schema.suspend(() => MutateConversionCustomVariableResult)),
+  conversion_goal_campaign_config_result: Schema.optional(Schema.suspend(() => MutateConversionGoalCampaignConfigResult)),
+  conversion_value_rule_result: Schema.optional(Schema.suspend(() => MutateConversionValueRuleResult)),
+  conversion_value_rule_set_result: Schema.optional(Schema.suspend(() => MutateConversionValueRuleSetResult)),
+  custom_conversion_goal_result: Schema.optional(Schema.suspend(() => MutateCustomConversionGoalResult)),
+  customer_asset_result: Schema.optional(Schema.suspend(() => MutateCustomerAssetResult)),
+  customer_conversion_goal_result: Schema.optional(Schema.suspend(() => MutateCustomerConversionGoalResult)),
+  customer_customizer_result: Schema.optional(Schema.suspend(() => MutateCustomerCustomizerResult)),
+  customer_label_result: Schema.optional(Schema.suspend(() => MutateCustomerLabelResult)),
+  customer_negative_criterion_result: Schema.optional(Schema.suspend(() => MutateCustomerNegativeCriteriaResult)),
+  customer_result: Schema.optional(Schema.suspend(() => MutateCustomerResult)),
+  customizer_attribute_result: Schema.optional(Schema.suspend(() => MutateCustomizerAttributeResult)),
+  experiment_result: Schema.optional(Schema.suspend(() => MutateExperimentResult)),
+  experiment_arm_result: Schema.optional(Schema.suspend(() => MutateExperimentArmResult)),
+  keyword_plan_ad_group_result: Schema.optional(Schema.suspend(() => MutateKeywordPlanAdGroupResult)),
+  keyword_plan_campaign_result: Schema.optional(Schema.suspend(() => MutateKeywordPlanCampaignResult)),
+  keyword_plan_ad_group_keyword_result: Schema.optional(Schema.suspend(() => MutateKeywordPlanAdGroupKeywordResult)),
+  keyword_plan_campaign_keyword_result: Schema.optional(Schema.suspend(() => MutateKeywordPlanCampaignKeywordResult)),
+  keyword_plan_result: Schema.optional(Schema.suspend(() => MutateKeywordPlansResult)),
+  label_result: Schema.optional(Schema.suspend(() => MutateLabelResult)),
   quote_campaigns_result: Schema.optional(Schema.suspend(() => QuoteCampaignsResult)),
-  recommendation_subscription_result: Schema.optional(Schema.Unknown),
-  remarketing_action_result: Schema.optional(Schema.Unknown),
-  shared_criterion_result: Schema.optional(Schema.Unknown),
-  shared_set_result: Schema.optional(Schema.Unknown),
-  smart_campaign_setting_result: Schema.optional(Schema.Unknown),
-  user_list_result: Schema.optional(Schema.Unknown),
+  recommendation_subscription_result: Schema.optional(Schema.suspend(() => MutateRecommendationSubscriptionResult)),
+  remarketing_action_result: Schema.optional(Schema.suspend(() => MutateRemarketingActionResult)),
+  shared_criterion_result: Schema.optional(Schema.suspend(() => MutateSharedCriterionResult)),
+  shared_set_result: Schema.optional(Schema.suspend(() => MutateSharedSetResult)),
+  smart_campaign_setting_result: Schema.optional(Schema.suspend(() => MutateSmartCampaignSettingResult)),
+  user_list_result: Schema.optional(Schema.suspend(() => MutateUserListResult)),
 });
 
 export interface MutateRecommendationSubscriptionRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RecommendationSubscriptionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateRecommendationSubscriptionRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RecommendationSubscriptionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateRecommendationSubscriptionRequest: Schema.Schema<MutateRecommendationSubscriptionRequest, MutateRecommendationSubscriptionRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => RecommendationSubscriptionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
 });
 
 export interface MutateRecommendationSubscriptionResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateRecommendationSubscriptionResult>;
   readonly partial_failure_error?: unknown;
 }
 export interface MutateRecommendationSubscriptionResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateRecommendationSubscriptionResultEncoded>;
   readonly partial_failure_error?: unknown;
 }
 export const MutateRecommendationSubscriptionResponse: Schema.Schema<MutateRecommendationSubscriptionResponse, MutateRecommendationSubscriptionResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateRecommendationSubscriptionResult))),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -26159,53 +26159,53 @@ export const MutateRemarketingActionResult: Schema.Schema<MutateRemarketingActio
 
 export interface MutateRemarketingActionsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RemarketingActionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateRemarketingActionsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RemarketingActionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateRemarketingActionsRequest: Schema.Schema<MutateRemarketingActionsRequest, MutateRemarketingActionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => RemarketingActionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateRemarketingActionsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateRemarketingActionResult>;
 }
 export interface MutateRemarketingActionsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateRemarketingActionResultEncoded>;
 }
 export const MutateRemarketingActionsResponse: Schema.Schema<MutateRemarketingActionsResponse, MutateRemarketingActionsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateRemarketingActionResult))),
 });
 
 export interface MutateSharedCriteriaRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SharedCriterionOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateSharedCriteriaRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SharedCriterionOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateSharedCriteriaRequest: Schema.Schema<MutateSharedCriteriaRequest, MutateSharedCriteriaRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => SharedCriterionOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -26213,15 +26213,15 @@ export const MutateSharedCriteriaRequest: Schema.Schema<MutateSharedCriteriaRequ
 
 export interface MutateSharedCriteriaResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSharedCriterionResult>;
 }
 export interface MutateSharedCriteriaResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSharedCriterionResultEncoded>;
 }
 export const MutateSharedCriteriaResponse: Schema.Schema<MutateSharedCriteriaResponse, MutateSharedCriteriaResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateSharedCriterionResult))),
 });
 
 export interface MutateSharedCriterionResult {
@@ -26252,21 +26252,21 @@ export const MutateSharedSetResult: Schema.Schema<MutateSharedSetResult, MutateS
 
 export interface MutateSharedSetsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SharedSetOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateSharedSetsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SharedSetOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateSharedSetsRequest: Schema.Schema<MutateSharedSetsRequest, MutateSharedSetsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => SharedSetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -26274,15 +26274,15 @@ export const MutateSharedSetsRequest: Schema.Schema<MutateSharedSetsRequest, Mut
 
 export interface MutateSharedSetsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSharedSetResult>;
 }
 export interface MutateSharedSetsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSharedSetResultEncoded>;
 }
 export const MutateSharedSetsResponse: Schema.Schema<MutateSharedSetsResponse, MutateSharedSetsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateSharedSetResult))),
 });
 
 export interface MutateSmartCampaignSettingResult {
@@ -26300,21 +26300,21 @@ export const MutateSmartCampaignSettingResult: Schema.Schema<MutateSmartCampaign
 
 export interface MutateSmartCampaignSettingsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SmartCampaignSettingOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentType;
 }
 export interface MutateSmartCampaignSettingsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<SmartCampaignSettingOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly response_content_type?: ResponseContentTypeEncoded;
 }
 export const MutateSmartCampaignSettingsRequest: Schema.Schema<MutateSmartCampaignSettingsRequest, MutateSmartCampaignSettingsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => SmartCampaignSettingOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   response_content_type: Schema.optional(Schema.suspend(() => ResponseContentType)),
@@ -26322,15 +26322,15 @@ export const MutateSmartCampaignSettingsRequest: Schema.Schema<MutateSmartCampai
 
 export interface MutateSmartCampaignSettingsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSmartCampaignSettingResult>;
 }
 export interface MutateSmartCampaignSettingsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateSmartCampaignSettingResultEncoded>;
 }
 export const MutateSmartCampaignSettingsResponse: Schema.Schema<MutateSmartCampaignSettingsResponse, MutateSmartCampaignSettingsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateSmartCampaignSettingResult))),
 });
 
 export interface MutateUserListCustomerTypeResult {
@@ -26345,34 +26345,34 @@ export const MutateUserListCustomerTypeResult: Schema.Schema<MutateUserListCusto
 
 export interface MutateUserListCustomerTypesRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserListCustomerTypeOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateUserListCustomerTypesRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserListCustomerTypeOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateUserListCustomerTypesRequest: Schema.Schema<MutateUserListCustomerTypesRequest, MutateUserListCustomerTypesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => UserListCustomerTypeOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateUserListCustomerTypesResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateUserListCustomerTypeResult>;
 }
 export interface MutateUserListCustomerTypesResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateUserListCustomerTypeResultEncoded>;
 }
 export const MutateUserListCustomerTypesResponse: Schema.Schema<MutateUserListCustomerTypesResponse, MutateUserListCustomerTypesResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateUserListCustomerTypeResult))),
 });
 
 export interface MutateUserListResult {
@@ -26387,34 +26387,34 @@ export const MutateUserListResult: Schema.Schema<MutateUserListResult, MutateUse
 
 export interface MutateUserListsRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserListOperation>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface MutateUserListsRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserListOperationEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const MutateUserListsRequest: Schema.Schema<MutateUserListsRequest, MutateUserListsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => UserListOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface MutateUserListsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateUserListResult>;
 }
 export interface MutateUserListsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<MutateUserListResultEncoded>;
 }
 export const MutateUserListsResponse: Schema.Schema<MutateUserListsResponse, MutateUserListsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => MutateUserListResult))),
 });
 
 export type NegativeGeoTargetType = "UNSPECIFIED" | "UNKNOWN" | "PRESENCE_OR_INTEREST" | "PRESENCE";
@@ -26467,13 +26467,13 @@ export const NetworkSettings: Schema.Schema<NetworkSettings, NetworkSettingsEnco
 });
 
 export interface NewCustomerAcquisitionGoal {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettings;
 }
 export interface NewCustomerAcquisitionGoalEncoded {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettingsEncoded;
 }
 export const NewCustomerAcquisitionGoal: Schema.Schema<NewCustomerAcquisitionGoal, NewCustomerAcquisitionGoalEncoded, never> = Schema.Struct({
-  value_settings: Schema.optional(Schema.Unknown),
+  value_settings: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
 });
 
 export type NewResourceCreationError = "UNSPECIFIED" | "UNKNOWN" | "CANNOT_SET_ID_FOR_CREATE" | "DUPLICATE_TEMP_IDS" | "TEMP_ID_RESOURCE_HAD_ERRORS";
@@ -26591,15 +26591,15 @@ export type OfferTypeEncoded = "UNSPECIFIED" | "UNKNOWN" | "NO_INCENTIVE" | "CYO
 export const OfferType: Schema.Schema<OfferType, OfferTypeEncoded, never> = Schema.Literal("UNSPECIFIED", "UNKNOWN", "NO_INCENTIVE", "CYO_INCENTIVE");
 
 export interface OfflineConversionAlert {
-  readonly error?: unknown;
+  readonly error?: OfflineConversionError;
   readonly error_percentage?: number;
 }
 export interface OfflineConversionAlertEncoded {
-  readonly error?: unknown;
+  readonly error?: OfflineConversionErrorEncoded;
   readonly error_percentage?: number;
 }
 export const OfflineConversionAlert: Schema.Schema<OfflineConversionAlert, OfflineConversionAlertEncoded, never> = Schema.Struct({
-  error: Schema.optional(Schema.Unknown),
+  error: Schema.optional(Schema.suspend(() => OfflineConversionError)),
   error_percentage: Schema.optional(Schema.Number),
 });
 
@@ -26686,9 +26686,9 @@ export interface OfflineConversionUploadClientSummary {
   readonly pending_event_count?: string;
   readonly pending_rate?: number;
   readonly last_upload_date_time?: string;
-  readonly daily_summaries?: ReadonlyArray<unknown>;
-  readonly job_summaries?: ReadonlyArray<unknown>;
-  readonly alerts?: ReadonlyArray<unknown>;
+  readonly daily_summaries?: ReadonlyArray<OfflineConversionSummary>;
+  readonly job_summaries?: ReadonlyArray<OfflineConversionSummary>;
+  readonly alerts?: ReadonlyArray<OfflineConversionAlert>;
 }
 export interface OfflineConversionUploadClientSummaryEncoded {
   readonly resource_name?: string;
@@ -26700,9 +26700,9 @@ export interface OfflineConversionUploadClientSummaryEncoded {
   readonly pending_event_count?: string;
   readonly pending_rate?: number;
   readonly last_upload_date_time?: string;
-  readonly daily_summaries?: ReadonlyArray<unknown>;
-  readonly job_summaries?: ReadonlyArray<unknown>;
-  readonly alerts?: ReadonlyArray<unknown>;
+  readonly daily_summaries?: ReadonlyArray<OfflineConversionSummaryEncoded>;
+  readonly job_summaries?: ReadonlyArray<OfflineConversionSummaryEncoded>;
+  readonly alerts?: ReadonlyArray<OfflineConversionAlertEncoded>;
 }
 export const OfflineConversionUploadClientSummary: Schema.Schema<OfflineConversionUploadClientSummary, OfflineConversionUploadClientSummaryEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -26714,9 +26714,9 @@ export const OfflineConversionUploadClientSummary: Schema.Schema<OfflineConversi
   pending_event_count: Schema.optional(Schema.String),
   pending_rate: Schema.optional(Schema.Number),
   last_upload_date_time: Schema.optional(Schema.String),
-  daily_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  job_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  alerts: Schema.optional(Schema.Array(Schema.Unknown)),
+  daily_summaries: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionSummary))),
+  job_summaries: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionSummary))),
+  alerts: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionAlert))),
 });
 
 export interface OfflineConversionUploadConversionActionSummary {
@@ -26729,9 +26729,9 @@ export interface OfflineConversionUploadConversionActionSummary {
   readonly successful_event_count?: string;
   readonly pending_event_count?: string;
   readonly last_upload_date_time?: string;
-  readonly daily_summaries?: ReadonlyArray<unknown>;
-  readonly job_summaries?: ReadonlyArray<unknown>;
-  readonly alerts?: ReadonlyArray<unknown>;
+  readonly daily_summaries?: ReadonlyArray<OfflineConversionSummary>;
+  readonly job_summaries?: ReadonlyArray<OfflineConversionSummary>;
+  readonly alerts?: ReadonlyArray<OfflineConversionAlert>;
 }
 export interface OfflineConversionUploadConversionActionSummaryEncoded {
   readonly resource_name?: string;
@@ -26743,9 +26743,9 @@ export interface OfflineConversionUploadConversionActionSummaryEncoded {
   readonly successful_event_count?: string;
   readonly pending_event_count?: string;
   readonly last_upload_date_time?: string;
-  readonly daily_summaries?: ReadonlyArray<unknown>;
-  readonly job_summaries?: ReadonlyArray<unknown>;
-  readonly alerts?: ReadonlyArray<unknown>;
+  readonly daily_summaries?: ReadonlyArray<OfflineConversionSummaryEncoded>;
+  readonly job_summaries?: ReadonlyArray<OfflineConversionSummaryEncoded>;
+  readonly alerts?: ReadonlyArray<OfflineConversionAlertEncoded>;
 }
 export const OfflineConversionUploadConversionActionSummary: Schema.Schema<OfflineConversionUploadConversionActionSummary, OfflineConversionUploadConversionActionSummaryEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -26757,9 +26757,9 @@ export const OfflineConversionUploadConversionActionSummary: Schema.Schema<Offli
   successful_event_count: Schema.optional(Schema.String),
   pending_event_count: Schema.optional(Schema.String),
   last_upload_date_time: Schema.optional(Schema.String),
-  daily_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  job_summaries: Schema.optional(Schema.Array(Schema.Unknown)),
-  alerts: Schema.optional(Schema.Array(Schema.Unknown)),
+  daily_summaries: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionSummary))),
+  job_summaries: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionSummary))),
+  alerts: Schema.optional(Schema.Array(Schema.suspend(() => OfflineConversionAlert))),
 });
 
 export type OfflineEventUploadClient = "UNSPECIFIED" | "UNKNOWN" | "GOOGLE_ADS_API" | "GOOGLE_ADS_WEB_CLIENT" | "ADS_DATA_CONNECTOR";
@@ -26811,7 +26811,7 @@ export interface OfflineUserDataJob {
   readonly type?: OfflineUserDataJobType;
   readonly status?: OfflineUserDataJobStatus;
   readonly failure_reason?: OfflineUserDataJobFailureReason;
-  readonly operation_metadata?: unknown;
+  readonly operation_metadata?: OfflineUserDataJobMetadata;
   readonly customer_match_user_list_metadata?: CustomerMatchUserListMetadata;
   readonly store_sales_metadata?: StoreSalesMetadata;
 }
@@ -26822,7 +26822,7 @@ export interface OfflineUserDataJobEncoded {
   readonly type?: OfflineUserDataJobTypeEncoded;
   readonly status?: OfflineUserDataJobStatusEncoded;
   readonly failure_reason?: OfflineUserDataJobFailureReasonEncoded;
-  readonly operation_metadata?: unknown;
+  readonly operation_metadata?: OfflineUserDataJobMetadataEncoded;
   readonly customer_match_user_list_metadata?: CustomerMatchUserListMetadataEncoded;
   readonly store_sales_metadata?: StoreSalesMetadataEncoded;
 }
@@ -26833,7 +26833,7 @@ export const OfflineUserDataJob: Schema.Schema<OfflineUserDataJob, OfflineUserDa
   type: Schema.optional(Schema.suspend(() => OfflineUserDataJobType)),
   status: Schema.optional(Schema.suspend(() => OfflineUserDataJobStatus)),
   failure_reason: Schema.optional(Schema.suspend(() => OfflineUserDataJobFailureReason)),
-  operation_metadata: Schema.optional(Schema.Unknown),
+  operation_metadata: Schema.optional(Schema.suspend(() => OfflineUserDataJobMetadata)),
   customer_match_user_list_metadata: Schema.optional(Schema.suspend(() => CustomerMatchUserListMetadata)),
   store_sales_metadata: Schema.optional(Schema.suspend(() => StoreSalesMetadata)),
 });
@@ -27351,23 +27351,23 @@ export const PercentCpcBidSimulationPoint: Schema.Schema<PercentCpcBidSimulation
 });
 
 export interface PercentCpcBidSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<PercentCpcBidSimulationPoint>;
 }
 export interface PercentCpcBidSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<PercentCpcBidSimulationPointEncoded>;
 }
 export const PercentCpcBidSimulationPointList: Schema.Schema<PercentCpcBidSimulationPointList, PercentCpcBidSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => PercentCpcBidSimulationPoint))),
 });
 
 export interface PerformanceMaxExperimentArmInfo {
-  readonly experimental_performance_max_campaign_settings?: unknown;
+  readonly experimental_performance_max_campaign_settings?: ExperimentalPerformanceMaxCampaignSettings;
 }
 export interface PerformanceMaxExperimentArmInfoEncoded {
-  readonly experimental_performance_max_campaign_settings?: unknown;
+  readonly experimental_performance_max_campaign_settings?: ExperimentalPerformanceMaxCampaignSettingsEncoded;
 }
 export const PerformanceMaxExperimentArmInfo: Schema.Schema<PerformanceMaxExperimentArmInfo, PerformanceMaxExperimentArmInfoEncoded, never> = Schema.Struct({
-  experimental_performance_max_campaign_settings: Schema.optional(Schema.Unknown),
+  experimental_performance_max_campaign_settings: Schema.optional(Schema.suspend(() => ExperimentalPerformanceMaxCampaignSettings)),
 });
 
 export interface PerformanceMaxFinalUrlOptInRecommendation {
@@ -27566,24 +27566,24 @@ export interface PlannableTargeting {
   readonly genders?: ReadonlyArray<GenderInfo>;
   readonly devices?: ReadonlyArray<DeviceInfo>;
   readonly networks?: ReadonlyArray<ReachPlanNetwork>;
-  readonly youtube_select_lineup_targeting?: unknown;
-  readonly surface_targeting?: unknown;
+  readonly youtube_select_lineup_targeting?: YouTubeSelectLineUpTargeting;
+  readonly surface_targeting?: SurfaceTargetingCombinations;
 }
 export interface PlannableTargetingEncoded {
   readonly age_ranges?: ReadonlyArray<ReachPlanAgeRangeEncoded>;
   readonly genders?: ReadonlyArray<GenderInfoEncoded>;
   readonly devices?: ReadonlyArray<DeviceInfoEncoded>;
   readonly networks?: ReadonlyArray<ReachPlanNetworkEncoded>;
-  readonly youtube_select_lineup_targeting?: unknown;
-  readonly surface_targeting?: unknown;
+  readonly youtube_select_lineup_targeting?: YouTubeSelectLineUpTargetingEncoded;
+  readonly surface_targeting?: SurfaceTargetingCombinationsEncoded;
 }
 export const PlannableTargeting: Schema.Schema<PlannableTargeting, PlannableTargetingEncoded, never> = Schema.Struct({
   age_ranges: Schema.optional(Schema.Array(Schema.suspend(() => ReachPlanAgeRange))),
   genders: Schema.optional(Schema.Array(Schema.suspend(() => GenderInfo))),
   devices: Schema.optional(Schema.Array(Schema.suspend(() => DeviceInfo))),
   networks: Schema.optional(Schema.Array(Schema.suspend(() => ReachPlanNetwork))),
-  youtube_select_lineup_targeting: Schema.optional(Schema.Unknown),
-  surface_targeting: Schema.optional(Schema.Unknown),
+  youtube_select_lineup_targeting: Schema.optional(Schema.suspend(() => YouTubeSelectLineUpTargeting)),
+  surface_targeting: Schema.optional(Schema.suspend(() => SurfaceTargetingCombinations)),
 });
 
 export interface PlannableUserInterest {
@@ -27610,21 +27610,21 @@ export interface PlannableUserList {
   readonly display_name?: string;
   readonly user_list_type?: UserListType;
   readonly plannable_status?: ReachPlanPlannableUserListStatus;
-  readonly plannable_user_list_metadata?: unknown;
+  readonly plannable_user_list_metadata?: PlannableUserListMetadata;
 }
 export interface PlannableUserListEncoded {
   readonly user_list_info?: UserListInfoEncoded;
   readonly display_name?: string;
   readonly user_list_type?: UserListTypeEncoded;
   readonly plannable_status?: ReachPlanPlannableUserListStatusEncoded;
-  readonly plannable_user_list_metadata?: unknown;
+  readonly plannable_user_list_metadata?: PlannableUserListMetadataEncoded;
 }
 export const PlannableUserList: Schema.Schema<PlannableUserList, PlannableUserListEncoded, never> = Schema.Struct({
   user_list_info: Schema.optional(Schema.suspend(() => UserListInfo)),
   display_name: Schema.optional(Schema.String),
   user_list_type: Schema.optional(Schema.suspend(() => UserListType)),
   plannable_status: Schema.optional(Schema.suspend(() => ReachPlanPlannableUserListStatus)),
-  plannable_user_list_metadata: Schema.optional(Schema.Unknown),
+  plannable_user_list_metadata: Schema.optional(Schema.suspend(() => PlannableUserListMetadata)),
 });
 
 export interface PlannableUserListMetadata {
@@ -27641,19 +27641,19 @@ export interface PlannedProduct {
   readonly plannable_product_code?: string;
   readonly budget_micros?: string;
   readonly conversion_rate?: number;
-  readonly advanced_product_targeting?: unknown;
+  readonly advanced_product_targeting?: AdvancedProductTargeting;
 }
 export interface PlannedProductEncoded {
   readonly plannable_product_code?: string;
   readonly budget_micros?: string;
   readonly conversion_rate?: number;
-  readonly advanced_product_targeting?: unknown;
+  readonly advanced_product_targeting?: AdvancedProductTargetingEncoded;
 }
 export const PlannedProduct: Schema.Schema<PlannedProduct, PlannedProductEncoded, never> = Schema.Struct({
   plannable_product_code: Schema.optional(Schema.String),
   budget_micros: Schema.optional(Schema.String),
   conversion_rate: Schema.optional(Schema.Number),
-  advanced_product_targeting: Schema.optional(Schema.Unknown),
+  advanced_product_targeting: Schema.optional(Schema.suspend(() => AdvancedProductTargeting)),
 });
 
 export interface PlannedProductForecast {
@@ -27705,32 +27705,32 @@ export const PlannedProductForecast: Schema.Schema<PlannedProductForecast, Plann
 export interface PlannedProductReachForecast {
   readonly plannable_product_code?: string;
   readonly cost_micros?: string;
-  readonly planned_product_forecast?: unknown;
+  readonly planned_product_forecast?: PlannedProductForecast;
 }
 export interface PlannedProductReachForecastEncoded {
   readonly plannable_product_code?: string;
   readonly cost_micros?: string;
-  readonly planned_product_forecast?: unknown;
+  readonly planned_product_forecast?: PlannedProductForecastEncoded;
 }
 export const PlannedProductReachForecast: Schema.Schema<PlannedProductReachForecast, PlannedProductReachForecastEncoded, never> = Schema.Struct({
   plannable_product_code: Schema.optional(Schema.String),
   cost_micros: Schema.optional(Schema.String),
-  planned_product_forecast: Schema.optional(Schema.Unknown),
+  planned_product_forecast: Schema.optional(Schema.suspend(() => PlannedProductForecast)),
 });
 
 export interface PmaxCampaignSettings {
-  readonly brand_targeting_overrides?: unknown;
-  readonly local_services_pmax_campaign_settings?: unknown;
+  readonly brand_targeting_overrides?: BrandTargetingOverrides;
+  readonly local_services_pmax_campaign_settings?: LocalServicesPmaxCampaignSettings;
   readonly local_services_enabled?: boolean;
 }
 export interface PmaxCampaignSettingsEncoded {
-  readonly brand_targeting_overrides?: unknown;
-  readonly local_services_pmax_campaign_settings?: unknown;
+  readonly brand_targeting_overrides?: BrandTargetingOverridesEncoded;
+  readonly local_services_pmax_campaign_settings?: LocalServicesPmaxCampaignSettingsEncoded;
   readonly local_services_enabled?: boolean;
 }
 export const PmaxCampaignSettings: Schema.Schema<PmaxCampaignSettings, PmaxCampaignSettingsEncoded, never> = Schema.Struct({
-  brand_targeting_overrides: Schema.optional(Schema.Unknown),
-  local_services_pmax_campaign_settings: Schema.optional(Schema.Unknown),
+  brand_targeting_overrides: Schema.optional(Schema.suspend(() => BrandTargetingOverrides)),
+  local_services_pmax_campaign_settings: Schema.optional(Schema.suspend(() => LocalServicesPmaxCampaignSettings)),
   local_services_enabled: Schema.optional(Schema.Boolean),
 });
 
@@ -27787,57 +27787,57 @@ export const PolicyReviewStatusEnum: Schema.Schema<PolicyReviewStatusEnum, Polic
 });
 
 export interface PolicySummary {
-  readonly policy_topic_entries?: ReadonlyArray<unknown>;
+  readonly policy_topic_entries?: ReadonlyArray<PolicyTopicEntry>;
   readonly review_status?: PolicyReviewStatus;
   readonly approval_status?: PolicyApprovalStatus;
 }
 export interface PolicySummaryEncoded {
-  readonly policy_topic_entries?: ReadonlyArray<unknown>;
+  readonly policy_topic_entries?: ReadonlyArray<PolicyTopicEntryEncoded>;
   readonly review_status?: PolicyReviewStatusEncoded;
   readonly approval_status?: PolicyApprovalStatusEncoded;
 }
 export const PolicySummary: Schema.Schema<PolicySummary, PolicySummaryEncoded, never> = Schema.Struct({
-  policy_topic_entries: Schema.optional(Schema.Array(Schema.Unknown)),
+  policy_topic_entries: Schema.optional(Schema.Array(Schema.suspend(() => PolicyTopicEntry))),
   review_status: Schema.optional(Schema.suspend(() => PolicyReviewStatus)),
   approval_status: Schema.optional(Schema.suspend(() => PolicyApprovalStatus)),
 });
 
 export interface PolicyTopicConstraint {
-  readonly country_constraint_list?: unknown;
-  readonly reseller_constraint?: unknown;
-  readonly certificate_missing_in_country_list?: unknown;
-  readonly certificate_domain_mismatch_in_country_list?: unknown;
+  readonly country_constraint_list?: CountryConstraintList;
+  readonly reseller_constraint?: ResellerConstraint;
+  readonly certificate_missing_in_country_list?: CountryConstraintList;
+  readonly certificate_domain_mismatch_in_country_list?: CountryConstraintList;
 }
 export interface PolicyTopicConstraintEncoded {
-  readonly country_constraint_list?: unknown;
-  readonly reseller_constraint?: unknown;
-  readonly certificate_missing_in_country_list?: unknown;
-  readonly certificate_domain_mismatch_in_country_list?: unknown;
+  readonly country_constraint_list?: CountryConstraintListEncoded;
+  readonly reseller_constraint?: ResellerConstraintEncoded;
+  readonly certificate_missing_in_country_list?: CountryConstraintListEncoded;
+  readonly certificate_domain_mismatch_in_country_list?: CountryConstraintListEncoded;
 }
 export const PolicyTopicConstraint: Schema.Schema<PolicyTopicConstraint, PolicyTopicConstraintEncoded, never> = Schema.Struct({
-  country_constraint_list: Schema.optional(Schema.Unknown),
-  reseller_constraint: Schema.optional(Schema.Unknown),
-  certificate_missing_in_country_list: Schema.optional(Schema.Unknown),
-  certificate_domain_mismatch_in_country_list: Schema.optional(Schema.Unknown),
+  country_constraint_list: Schema.optional(Schema.suspend(() => CountryConstraintList)),
+  reseller_constraint: Schema.optional(Schema.suspend(() => ResellerConstraint)),
+  certificate_missing_in_country_list: Schema.optional(Schema.suspend(() => CountryConstraintList)),
+  certificate_domain_mismatch_in_country_list: Schema.optional(Schema.suspend(() => CountryConstraintList)),
 });
 
 export interface PolicyTopicEntry {
   readonly topic?: string;
   readonly type?: PolicyTopicEntryType;
-  readonly evidences?: ReadonlyArray<unknown>;
-  readonly constraints?: ReadonlyArray<unknown>;
+  readonly evidences?: ReadonlyArray<PolicyTopicEvidence>;
+  readonly constraints?: ReadonlyArray<PolicyTopicConstraint>;
 }
 export interface PolicyTopicEntryEncoded {
   readonly topic?: string;
   readonly type?: PolicyTopicEntryTypeEncoded;
-  readonly evidences?: ReadonlyArray<unknown>;
-  readonly constraints?: ReadonlyArray<unknown>;
+  readonly evidences?: ReadonlyArray<PolicyTopicEvidenceEncoded>;
+  readonly constraints?: ReadonlyArray<PolicyTopicConstraintEncoded>;
 }
 export const PolicyTopicEntry: Schema.Schema<PolicyTopicEntry, PolicyTopicEntryEncoded, never> = Schema.Struct({
   topic: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => PolicyTopicEntryType)),
-  evidences: Schema.optional(Schema.Array(Schema.Unknown)),
-  constraints: Schema.optional(Schema.Array(Schema.Unknown)),
+  evidences: Schema.optional(Schema.Array(Schema.suspend(() => PolicyTopicEvidence))),
+  constraints: Schema.optional(Schema.Array(Schema.suspend(() => PolicyTopicConstraint))),
 });
 
 export type PolicyTopicEntryType = "UNSPECIFIED" | "UNKNOWN" | "PROHIBITED" | "LIMITED" | "FULLY_LIMITED" | "DESCRIPTIVE" | "BROADENING" | "AREA_OF_INTEREST_ONLY";
@@ -27855,28 +27855,28 @@ export const PolicyTopicEntryTypeEnum: Schema.Schema<PolicyTopicEntryTypeEnum, P
 });
 
 export interface PolicyTopicEvidence {
-  readonly website_list?: unknown;
-  readonly text_list?: unknown;
+  readonly website_list?: WebsiteList;
+  readonly text_list?: TextList;
   readonly language_code?: string;
-  readonly destination_text_list?: unknown;
-  readonly destination_mismatch?: unknown;
-  readonly destination_not_working?: unknown;
+  readonly destination_text_list?: DestinationTextList;
+  readonly destination_mismatch?: DestinationMismatch;
+  readonly destination_not_working?: DestinationNotWorking;
 }
 export interface PolicyTopicEvidenceEncoded {
-  readonly website_list?: unknown;
-  readonly text_list?: unknown;
+  readonly website_list?: WebsiteListEncoded;
+  readonly text_list?: TextListEncoded;
   readonly language_code?: string;
-  readonly destination_text_list?: unknown;
-  readonly destination_mismatch?: unknown;
-  readonly destination_not_working?: unknown;
+  readonly destination_text_list?: DestinationTextListEncoded;
+  readonly destination_mismatch?: DestinationMismatchEncoded;
+  readonly destination_not_working?: DestinationNotWorkingEncoded;
 }
 export const PolicyTopicEvidence: Schema.Schema<PolicyTopicEvidence, PolicyTopicEvidenceEncoded, never> = Schema.Struct({
-  website_list: Schema.optional(Schema.Unknown),
-  text_list: Schema.optional(Schema.Unknown),
+  website_list: Schema.optional(Schema.suspend(() => WebsiteList)),
+  text_list: Schema.optional(Schema.suspend(() => TextList)),
   language_code: Schema.optional(Schema.String),
-  destination_text_list: Schema.optional(Schema.Unknown),
-  destination_mismatch: Schema.optional(Schema.Unknown),
-  destination_not_working: Schema.optional(Schema.Unknown),
+  destination_text_list: Schema.optional(Schema.suspend(() => DestinationTextList)),
+  destination_mismatch: Schema.optional(Schema.suspend(() => DestinationMismatch)),
+  destination_not_working: Schema.optional(Schema.suspend(() => DestinationNotWorking)),
 });
 
 export type PolicyTopicEvidenceDestinationMismatchUrlType = "UNSPECIFIED" | "UNKNOWN" | "DISPLAY_URL" | "FINAL_URL" | "FINAL_MOBILE_URL" | "TRACKING_URL" | "MOBILE_TRACKING_URL";
@@ -27923,15 +27923,15 @@ export const PolicyTopicEvidenceDestinationNotWorkingDnsErrorTypeEnum: Schema.Sc
 
 export interface PolicyValidationParameter {
   readonly ignorable_policy_topics?: ReadonlyArray<string>;
-  readonly exempt_policy_violation_keys?: ReadonlyArray<unknown>;
+  readonly exempt_policy_violation_keys?: ReadonlyArray<PolicyViolationKey>;
 }
 export interface PolicyValidationParameterEncoded {
   readonly ignorable_policy_topics?: ReadonlyArray<string>;
-  readonly exempt_policy_violation_keys?: ReadonlyArray<unknown>;
+  readonly exempt_policy_violation_keys?: ReadonlyArray<PolicyViolationKeyEncoded>;
 }
 export const PolicyValidationParameter: Schema.Schema<PolicyValidationParameter, PolicyValidationParameterEncoded, never> = Schema.Struct({
   ignorable_policy_topics: Schema.optional(Schema.Array(Schema.String)),
-  exempt_policy_violation_keys: Schema.optional(Schema.Array(Schema.Unknown)),
+  exempt_policy_violation_keys: Schema.optional(Schema.Array(Schema.suspend(() => PolicyViolationKey))),
 });
 
 export type PolicyValidationParameterError = "UNSPECIFIED" | "UNKNOWN" | "UNSUPPORTED_AD_TYPE_FOR_IGNORABLE_POLICY_TOPICS" | "UNSUPPORTED_AD_TYPE_FOR_EXEMPT_POLICY_VIOLATION_KEYS" | "CANNOT_SET_BOTH_IGNORABLE_POLICY_TOPICS_AND_EXEMPT_POLICY_VIOLATION_KEYS";
@@ -28032,21 +28032,21 @@ export const PositiveGeoTargetTypeEnum: Schema.Schema<PositiveGeoTargetTypeEnum,
 
 export interface PostbackMapping {
   readonly postback_sequence_index?: number;
-  readonly coarse_grained_conversion_value_mappings?: unknown;
+  readonly coarse_grained_conversion_value_mappings?: CoarseGrainedConversionValueMappings;
   readonly lock_window_coarse_conversion_value?: SkAdNetworkCoarseConversionValue;
   readonly lock_window_fine_conversion_value?: number;
   readonly lock_window_event?: string;
 }
 export interface PostbackMappingEncoded {
   readonly postback_sequence_index?: number;
-  readonly coarse_grained_conversion_value_mappings?: unknown;
+  readonly coarse_grained_conversion_value_mappings?: CoarseGrainedConversionValueMappingsEncoded;
   readonly lock_window_coarse_conversion_value?: SkAdNetworkCoarseConversionValueEncoded;
   readonly lock_window_fine_conversion_value?: number;
   readonly lock_window_event?: string;
 }
 export const PostbackMapping: Schema.Schema<PostbackMapping, PostbackMappingEncoded, never> = Schema.Struct({
   postback_sequence_index: Schema.optional(Schema.Int),
-  coarse_grained_conversion_value_mappings: Schema.optional(Schema.Unknown),
+  coarse_grained_conversion_value_mappings: Schema.optional(Schema.suspend(() => CoarseGrainedConversionValueMappings)),
   lock_window_coarse_conversion_value: Schema.optional(Schema.suspend(() => SkAdNetworkCoarseConversionValue)),
   lock_window_fine_conversion_value: Schema.optional(Schema.Int),
   lock_window_event: Schema.optional(Schema.String),
@@ -28070,19 +28070,19 @@ export interface PriceAsset {
   readonly type?: PriceExtensionType;
   readonly price_qualifier?: PriceExtensionPriceQualifier;
   readonly language_code?: string;
-  readonly price_offerings?: ReadonlyArray<unknown>;
+  readonly price_offerings?: ReadonlyArray<PriceOffering>;
 }
 export interface PriceAssetEncoded {
   readonly type?: PriceExtensionTypeEncoded;
   readonly price_qualifier?: PriceExtensionPriceQualifierEncoded;
   readonly language_code?: string;
-  readonly price_offerings?: ReadonlyArray<unknown>;
+  readonly price_offerings?: ReadonlyArray<PriceOfferingEncoded>;
 }
 export const PriceAsset: Schema.Schema<PriceAsset, PriceAssetEncoded, never> = Schema.Struct({
   type: Schema.optional(Schema.suspend(() => PriceExtensionType)),
   price_qualifier: Schema.optional(Schema.suspend(() => PriceExtensionPriceQualifier)),
   language_code: Schema.optional(Schema.String),
-  price_offerings: Schema.optional(Schema.Array(Schema.Unknown)),
+  price_offerings: Schema.optional(Schema.Array(Schema.suspend(() => PriceOffering))),
 });
 
 export type PriceExtensionPriceQualifier = "UNSPECIFIED" | "UNKNOWN" | "FROM" | "UP_TO" | "AVERAGE";
@@ -28130,7 +28130,7 @@ export const PriceExtensionTypeEnum: Schema.Schema<PriceExtensionTypeEnum, Price
 export interface PriceOffering {
   readonly header?: string;
   readonly description?: string;
-  readonly price?: unknown;
+  readonly price?: Money;
   readonly unit?: PriceExtensionPriceUnit;
   readonly final_url?: string;
   readonly final_mobile_url?: string;
@@ -28138,7 +28138,7 @@ export interface PriceOffering {
 export interface PriceOfferingEncoded {
   readonly header?: string;
   readonly description?: string;
-  readonly price?: unknown;
+  readonly price?: MoneyEncoded;
   readonly unit?: PriceExtensionPriceUnitEncoded;
   readonly final_url?: string;
   readonly final_mobile_url?: string;
@@ -28146,7 +28146,7 @@ export interface PriceOfferingEncoded {
 export const PriceOffering: Schema.Schema<PriceOffering, PriceOfferingEncoded, never> = Schema.Struct({
   header: Schema.optional(Schema.String),
   description: Schema.optional(Schema.String),
-  price: Schema.optional(Schema.Unknown),
+  price: Schema.optional(Schema.suspend(() => Money)),
   unit: Schema.optional(Schema.suspend(() => PriceExtensionPriceUnit)),
   final_url: Schema.optional(Schema.String),
   final_mobile_url: Schema.optional(Schema.String),
@@ -28205,7 +28205,7 @@ export interface ProductCategoryConstant {
   readonly product_category_constant_parent?: string;
   readonly level?: ProductCategoryLevel;
   readonly state?: ProductCategoryState;
-  readonly localizations?: ReadonlyArray<unknown>;
+  readonly localizations?: ReadonlyArray<ProductCategoryLocalization>;
 }
 export interface ProductCategoryConstantEncoded {
   readonly resource_name?: string;
@@ -28213,7 +28213,7 @@ export interface ProductCategoryConstantEncoded {
   readonly product_category_constant_parent?: string;
   readonly level?: ProductCategoryLevelEncoded;
   readonly state?: ProductCategoryStateEncoded;
-  readonly localizations?: ReadonlyArray<unknown>;
+  readonly localizations?: ReadonlyArray<ProductCategoryLocalizationEncoded>;
 }
 export const ProductCategoryConstant: Schema.Schema<ProductCategoryConstant, ProductCategoryConstantEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
@@ -28221,7 +28221,7 @@ export const ProductCategoryConstant: Schema.Schema<ProductCategoryConstant, Pro
   product_category_constant_parent: Schema.optional(Schema.String),
   level: Schema.optional(Schema.suspend(() => ProductCategoryLevel)),
   state: Schema.optional(Schema.suspend(() => ProductCategoryState)),
-  localizations: Schema.optional(Schema.Array(Schema.Unknown)),
+  localizations: Schema.optional(Schema.Array(Schema.suspend(() => ProductCategoryLocalization))),
 });
 
 export interface ProductCategoryInfo {
@@ -28410,16 +28410,16 @@ export const ProductCustomAttributeInfo: Schema.Schema<ProductCustomAttributeInf
 });
 
 export interface ProductFilter {
-  readonly product_list?: unknown;
-  readonly marketing_objective_list?: unknown;
+  readonly product_list?: ProductList;
+  readonly marketing_objective_list?: MarketingObjectiveList;
 }
 export interface ProductFilterEncoded {
-  readonly product_list?: unknown;
-  readonly marketing_objective_list?: unknown;
+  readonly product_list?: ProductListEncoded;
+  readonly marketing_objective_list?: MarketingObjectiveListEncoded;
 }
 export const ProductFilter: Schema.Schema<ProductFilter, ProductFilterEncoded, never> = Schema.Struct({
-  product_list: Schema.optional(Schema.Unknown),
-  marketing_objective_list: Schema.optional(Schema.Unknown),
+  product_list: Schema.optional(Schema.suspend(() => ProductList)),
+  marketing_objective_list: Schema.optional(Schema.suspend(() => MarketingObjectiveList)),
 });
 
 export interface ProductGroupingInfo {
@@ -28528,31 +28528,31 @@ export interface ProductLink {
   readonly resource_name?: string;
   readonly product_link_id?: string;
   readonly type?: LinkedProductType;
-  readonly data_partner?: unknown;
-  readonly google_ads?: unknown;
-  readonly merchant_center?: unknown;
-  readonly advertising_partner?: unknown;
-  readonly advertising_partner_properties?: unknown;
+  readonly data_partner?: DataPartnerIdentifier;
+  readonly google_ads?: GoogleAdsIdentifier;
+  readonly merchant_center?: MerchantCenterIdentifier;
+  readonly advertising_partner?: AdvertisingPartnerIdentifier;
+  readonly advertising_partner_properties?: AdvertisingPartnerProperties;
 }
 export interface ProductLinkEncoded {
   readonly resource_name?: string;
   readonly product_link_id?: string;
   readonly type?: LinkedProductTypeEncoded;
-  readonly data_partner?: unknown;
-  readonly google_ads?: unknown;
-  readonly merchant_center?: unknown;
-  readonly advertising_partner?: unknown;
-  readonly advertising_partner_properties?: unknown;
+  readonly data_partner?: DataPartnerIdentifierEncoded;
+  readonly google_ads?: GoogleAdsIdentifierEncoded;
+  readonly merchant_center?: MerchantCenterIdentifierEncoded;
+  readonly advertising_partner?: AdvertisingPartnerIdentifierEncoded;
+  readonly advertising_partner_properties?: AdvertisingPartnerPropertiesEncoded;
 }
 export const ProductLink: Schema.Schema<ProductLink, ProductLinkEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   product_link_id: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => LinkedProductType)),
-  data_partner: Schema.optional(Schema.Unknown),
-  google_ads: Schema.optional(Schema.Unknown),
-  merchant_center: Schema.optional(Schema.Unknown),
-  advertising_partner: Schema.optional(Schema.Unknown),
-  advertising_partner_properties: Schema.optional(Schema.Unknown),
+  data_partner: Schema.optional(Schema.suspend(() => DataPartnerIdentifier)),
+  google_ads: Schema.optional(Schema.suspend(() => GoogleAdsIdentifier)),
+  merchant_center: Schema.optional(Schema.suspend(() => MerchantCenterIdentifier)),
+  advertising_partner: Schema.optional(Schema.suspend(() => AdvertisingPartnerIdentifier)),
+  advertising_partner_properties: Schema.optional(Schema.suspend(() => AdvertisingPartnerProperties)),
 });
 
 export type ProductLinkError = "UNSPECIFIED" | "UNKNOWN" | "INVALID_OPERATION" | "CREATION_NOT_PERMITTED" | "INVITATION_EXISTS" | "LINK_EXISTS";
@@ -28574,30 +28574,30 @@ export interface ProductLinkInvitation {
   readonly product_link_invitation_id?: string;
   readonly status?: ProductLinkInvitationStatus;
   readonly type?: LinkedProductType;
-  readonly hotel_center?: unknown;
-  readonly merchant_center?: unknown;
-  readonly advertising_partner?: unknown;
-  readonly advertising_partner_properties?: unknown;
+  readonly hotel_center?: HotelCenterLinkInvitationIdentifier;
+  readonly merchant_center?: MerchantCenterLinkInvitationIdentifier;
+  readonly advertising_partner?: AdvertisingPartnerLinkInvitationIdentifier;
+  readonly advertising_partner_properties?: AdvertisingPartnerLinkInvitationProperties;
 }
 export interface ProductLinkInvitationEncoded {
   readonly resource_name?: string;
   readonly product_link_invitation_id?: string;
   readonly status?: ProductLinkInvitationStatusEncoded;
   readonly type?: LinkedProductTypeEncoded;
-  readonly hotel_center?: unknown;
-  readonly merchant_center?: unknown;
-  readonly advertising_partner?: unknown;
-  readonly advertising_partner_properties?: unknown;
+  readonly hotel_center?: HotelCenterLinkInvitationIdentifierEncoded;
+  readonly merchant_center?: MerchantCenterLinkInvitationIdentifierEncoded;
+  readonly advertising_partner?: AdvertisingPartnerLinkInvitationIdentifierEncoded;
+  readonly advertising_partner_properties?: AdvertisingPartnerLinkInvitationPropertiesEncoded;
 }
 export const ProductLinkInvitation: Schema.Schema<ProductLinkInvitation, ProductLinkInvitationEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   product_link_invitation_id: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => ProductLinkInvitationStatus)),
   type: Schema.optional(Schema.suspend(() => LinkedProductType)),
-  hotel_center: Schema.optional(Schema.Unknown),
-  merchant_center: Schema.optional(Schema.Unknown),
-  advertising_partner: Schema.optional(Schema.Unknown),
-  advertising_partner_properties: Schema.optional(Schema.Unknown),
+  hotel_center: Schema.optional(Schema.suspend(() => HotelCenterLinkInvitationIdentifier)),
+  merchant_center: Schema.optional(Schema.suspend(() => MerchantCenterLinkInvitationIdentifier)),
+  advertising_partner: Schema.optional(Schema.suspend(() => AdvertisingPartnerLinkInvitationIdentifier)),
+  advertising_partner_properties: Schema.optional(Schema.suspend(() => AdvertisingPartnerLinkInvitationProperties)),
 });
 
 export type ProductLinkInvitationError = "UNSPECIFIED" | "UNKNOWN" | "INVALID_STATUS" | "PERMISSION_DENIED" | "NO_INVITATION_REQUIRED" | "CUSTOMER_NOT_PERMITTED_TO_CREATE_INVITATION" | "INVALID_ADVERTISING_PARTNER_ALLOWED_DOMAIN";
@@ -28642,35 +28642,35 @@ export interface ProductMetadata {
   readonly plannable_product_code?: string;
   readonly plannable_product_name?: string;
   readonly plannable_product_description?: string;
-  readonly plannable_product_core_attributes?: unknown;
-  readonly plannable_targeting?: unknown;
+  readonly plannable_product_core_attributes?: ProductCoreAttributes;
+  readonly plannable_targeting?: PlannableTargeting;
 }
 export interface ProductMetadataEncoded {
   readonly plannable_product_code?: string;
   readonly plannable_product_name?: string;
   readonly plannable_product_description?: string;
-  readonly plannable_product_core_attributes?: unknown;
-  readonly plannable_targeting?: unknown;
+  readonly plannable_product_core_attributes?: ProductCoreAttributesEncoded;
+  readonly plannable_targeting?: PlannableTargetingEncoded;
 }
 export const ProductMetadata: Schema.Schema<ProductMetadata, ProductMetadataEncoded, never> = Schema.Struct({
   plannable_product_code: Schema.optional(Schema.String),
   plannable_product_name: Schema.optional(Schema.String),
   plannable_product_description: Schema.optional(Schema.String),
-  plannable_product_core_attributes: Schema.optional(Schema.Unknown),
-  plannable_targeting: Schema.optional(Schema.Unknown),
+  plannable_product_core_attributes: Schema.optional(Schema.suspend(() => ProductCoreAttributes)),
+  plannable_targeting: Schema.optional(Schema.suspend(() => PlannableTargeting)),
 });
 
 export interface ProductRecontextGenerationImageInput {
   readonly prompt?: string;
-  readonly source_images?: ReadonlyArray<unknown>;
+  readonly source_images?: ReadonlyArray<SourceImage>;
 }
 export interface ProductRecontextGenerationImageInputEncoded {
   readonly prompt?: string;
-  readonly source_images?: ReadonlyArray<unknown>;
+  readonly source_images?: ReadonlyArray<SourceImageEncoded>;
 }
 export const ProductRecontextGenerationImageInput: Schema.Schema<ProductRecontextGenerationImageInput, ProductRecontextGenerationImageInputEncoded, never> = Schema.Struct({
   prompt: Schema.optional(Schema.String),
-  source_images: Schema.optional(Schema.Array(Schema.Unknown)),
+  source_images: Schema.optional(Schema.Array(Schema.suspend(() => SourceImage))),
 });
 
 export type ProductStatus = "UNSPECIFIED" | "UNKNOWN" | "NOT_ELIGIBLE" | "ELIGIBLE_LIMITED" | "ELIGIBLE";
@@ -28782,15 +28782,15 @@ export interface PromotionAsset {
   readonly language_code?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfo>;
   readonly terms_and_conditions_text?: string;
   readonly terms_and_conditions_uri?: string;
   readonly percent_off?: string;
-  readonly money_amount_off?: unknown;
+  readonly money_amount_off?: Money;
   readonly promotion_code?: string;
-  readonly orders_over_amount?: unknown;
-  readonly promotion_barcode_info?: unknown;
-  readonly promotion_qr_code_info?: unknown;
+  readonly orders_over_amount?: Money;
+  readonly promotion_barcode_info?: PromotionBarcodeInfo;
+  readonly promotion_qr_code_info?: PromotionQrCodeInfo;
 }
 export interface PromotionAssetEncoded {
   readonly promotion_target?: string;
@@ -28801,15 +28801,15 @@ export interface PromotionAssetEncoded {
   readonly language_code?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfoEncoded>;
   readonly terms_and_conditions_text?: string;
   readonly terms_and_conditions_uri?: string;
   readonly percent_off?: string;
-  readonly money_amount_off?: unknown;
+  readonly money_amount_off?: MoneyEncoded;
   readonly promotion_code?: string;
-  readonly orders_over_amount?: unknown;
-  readonly promotion_barcode_info?: unknown;
-  readonly promotion_qr_code_info?: unknown;
+  readonly orders_over_amount?: MoneyEncoded;
+  readonly promotion_barcode_info?: PromotionBarcodeInfoEncoded;
+  readonly promotion_qr_code_info?: PromotionQrCodeInfoEncoded;
 }
 export const PromotionAsset: Schema.Schema<PromotionAsset, PromotionAssetEncoded, never> = Schema.Struct({
   promotion_target: Schema.optional(Schema.String),
@@ -28820,15 +28820,15 @@ export const PromotionAsset: Schema.Schema<PromotionAsset, PromotionAssetEncoded
   language_code: Schema.optional(Schema.String),
   start_date: Schema.optional(Schema.String),
   end_date: Schema.optional(Schema.String),
-  ad_schedule_targets: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_schedule_targets: Schema.optional(Schema.Array(Schema.suspend(() => AdScheduleInfo))),
   terms_and_conditions_text: Schema.optional(Schema.String),
   terms_and_conditions_uri: Schema.optional(Schema.String),
   percent_off: Schema.optional(Schema.String),
-  money_amount_off: Schema.optional(Schema.Unknown),
+  money_amount_off: Schema.optional(Schema.suspend(() => Money)),
   promotion_code: Schema.optional(Schema.String),
-  orders_over_amount: Schema.optional(Schema.Unknown),
-  promotion_barcode_info: Schema.optional(Schema.Unknown),
-  promotion_qr_code_info: Schema.optional(Schema.Unknown),
+  orders_over_amount: Schema.optional(Schema.suspend(() => Money)),
+  promotion_barcode_info: Schema.optional(Schema.suspend(() => PromotionBarcodeInfo)),
+  promotion_qr_code_info: Schema.optional(Schema.suspend(() => PromotionQrCodeInfo)),
 });
 
 export interface PromotionBarcodeInfo {
@@ -28899,20 +28899,20 @@ export const PromotionQrCodeInfo: Schema.Schema<PromotionQrCodeInfo, PromotionQr
 export interface ProvideLeadFeedbackRequest {
   readonly resource_name?: string;
   readonly survey_answer?: SurveyAnswer;
-  readonly survey_satisfied?: unknown;
-  readonly survey_dissatisfied?: unknown;
+  readonly survey_satisfied?: SurveySatisfied;
+  readonly survey_dissatisfied?: SurveyDissatisfied;
 }
 export interface ProvideLeadFeedbackRequestEncoded {
   readonly resource_name?: string;
   readonly survey_answer?: SurveyAnswerEncoded;
-  readonly survey_satisfied?: unknown;
-  readonly survey_dissatisfied?: unknown;
+  readonly survey_satisfied?: SurveySatisfiedEncoded;
+  readonly survey_dissatisfied?: SurveyDissatisfiedEncoded;
 }
 export const ProvideLeadFeedbackRequest: Schema.Schema<ProvideLeadFeedbackRequest, ProvideLeadFeedbackRequestEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   survey_answer: Schema.optional(Schema.suspend(() => SurveyAnswer)),
-  survey_satisfied: Schema.optional(Schema.Unknown),
-  survey_dissatisfied: Schema.optional(Schema.Unknown),
+  survey_satisfied: Schema.optional(Schema.suspend(() => SurveySatisfied)),
+  survey_dissatisfied: Schema.optional(Schema.suspend(() => SurveyDissatisfied)),
 });
 
 export interface ProvideLeadFeedbackResponse {
@@ -28926,22 +28926,22 @@ export const ProvideLeadFeedbackResponse: Schema.Schema<ProvideLeadFeedbackRespo
 });
 
 export interface ProximityInfo {
-  readonly geo_point?: unknown;
+  readonly geo_point?: GeoPointInfo;
   readonly radius?: number;
   readonly radius_units?: ProximityRadiusUnits;
-  readonly address?: unknown;
+  readonly address?: AddressInfo;
 }
 export interface ProximityInfoEncoded {
-  readonly geo_point?: unknown;
+  readonly geo_point?: GeoPointInfoEncoded;
   readonly radius?: number;
   readonly radius_units?: ProximityRadiusUnitsEncoded;
-  readonly address?: unknown;
+  readonly address?: AddressInfoEncoded;
 }
 export const ProximityInfo: Schema.Schema<ProximityInfo, ProximityInfoEncoded, never> = Schema.Struct({
-  geo_point: Schema.optional(Schema.Unknown),
+  geo_point: Schema.optional(Schema.suspend(() => GeoPointInfo)),
   radius: Schema.optional(Schema.Number),
   radius_units: Schema.optional(Schema.suspend(() => ProximityRadiusUnits)),
-  address: Schema.optional(Schema.Unknown),
+  address: Schema.optional(Schema.suspend(() => AddressInfo)),
 });
 
 export type ProximityRadiusUnits = "UNSPECIFIED" | "UNKNOWN" | "MILES" | "KILOMETERS";
@@ -29029,19 +29029,19 @@ export type QuotaErrorEncoded = "UNSPECIFIED" | "UNKNOWN" | "RESOURCE_EXHAUSTED"
 export const QuotaError: Schema.Schema<QuotaError, QuotaErrorEncoded, never> = Schema.Literal("UNSPECIFIED", "UNKNOWN", "RESOURCE_EXHAUSTED", "ACCESS_PROHIBITED", "RESOURCE_TEMPORARILY_EXHAUSTED", "EXCESSIVE_SHORT_TERM_QUERY_RESOURCE_CONSUMPTION", "EXCESSIVE_LONG_TERM_QUERY_RESOURCE_CONSUMPTION", "PAYMENTS_PROFILE_ACTIVATION_RATE_LIMIT_EXCEEDED");
 
 export interface QuotaErrorDetails {
-  readonly rate_scope?: unknown;
+  readonly rate_scope?: QuotaRateScope;
   readonly rate_name?: string;
-  readonly retry_delay?: unknown;
+  readonly retry_delay?: string;
 }
 export interface QuotaErrorDetailsEncoded {
-  readonly rate_scope?: unknown;
+  readonly rate_scope?: QuotaRateScopeEncoded;
   readonly rate_name?: string;
-  readonly retry_delay?: unknown;
+  readonly retry_delay?: string;
 }
 export const QuotaErrorDetails: Schema.Schema<QuotaErrorDetails, QuotaErrorDetailsEncoded, never> = Schema.Struct({
-  rate_scope: Schema.optional(Schema.Unknown),
+  rate_scope: Schema.optional(Schema.suspend(() => QuotaRateScope)),
   rate_name: Schema.optional(Schema.String),
-  retry_delay: Schema.optional(Schema.Unknown),
+  retry_delay: Schema.optional(Schema.String),
 });
 
 export interface QuotaErrorEnum {
@@ -29059,15 +29059,15 @@ export type QuotaRateScopeEncoded = "UNSPECIFIED" | "UNKNOWN" | "ACCOUNT" | "DEV
 export const QuotaRateScope: Schema.Schema<QuotaRateScope, QuotaRateScopeEncoded, never> = Schema.Literal("UNSPECIFIED", "UNKNOWN", "ACCOUNT", "DEVELOPER");
 
 export interface QuoteCampaignsOperation {
-  readonly campaigns?: ReadonlyArray<unknown>;
+  readonly campaigns?: ReadonlyArray<Campaign>;
   readonly quote_signature?: string;
 }
 export interface QuoteCampaignsOperationEncoded {
-  readonly campaigns?: ReadonlyArray<unknown>;
+  readonly campaigns?: ReadonlyArray<CampaignEncoded>;
   readonly quote_signature?: string;
 }
 export const QuoteCampaignsOperation: Schema.Schema<QuoteCampaignsOperation, QuoteCampaignsOperationEncoded, never> = Schema.Struct({
-  campaigns: Schema.optional(Schema.Array(Schema.Unknown)),
+  campaigns: Schema.optional(Schema.Array(Schema.suspend(() => Campaign))),
   quote_signature: Schema.optional(Schema.String),
 });
 
@@ -29151,15 +29151,15 @@ export const RaiseTargetCpaParameters: Schema.Schema<RaiseTargetCpaParameters, R
 });
 
 export interface RaiseTargetCpaRecommendation {
-  readonly target_adjustment?: unknown;
+  readonly target_adjustment?: TargetAdjustmentInfo;
   readonly app_bidding_goal?: AppBiddingGoal;
 }
 export interface RaiseTargetCpaRecommendationEncoded {
-  readonly target_adjustment?: unknown;
+  readonly target_adjustment?: TargetAdjustmentInfoEncoded;
   readonly app_bidding_goal?: AppBiddingGoalEncoded;
 }
 export const RaiseTargetCpaRecommendation: Schema.Schema<RaiseTargetCpaRecommendation, RaiseTargetCpaRecommendationEncoded, never> = Schema.Struct({
-  target_adjustment: Schema.optional(Schema.Unknown),
+  target_adjustment: Schema.optional(Schema.suspend(() => TargetAdjustmentInfo)),
   app_bidding_goal: Schema.optional(Schema.suspend(() => AppBiddingGoal)),
 });
 
@@ -29230,29 +29230,29 @@ export const RateMetrics: Schema.Schema<RateMetrics, RateMetricsEncoded, never> 
 });
 
 export interface ReachCurve {
-  readonly reach_forecasts?: ReadonlyArray<unknown>;
+  readonly reach_forecasts?: ReadonlyArray<ReachForecast>;
 }
 export interface ReachCurveEncoded {
-  readonly reach_forecasts?: ReadonlyArray<unknown>;
+  readonly reach_forecasts?: ReadonlyArray<ReachForecastEncoded>;
 }
 export const ReachCurve: Schema.Schema<ReachCurve, ReachCurveEncoded, never> = Schema.Struct({
-  reach_forecasts: Schema.optional(Schema.Array(Schema.Unknown)),
+  reach_forecasts: Schema.optional(Schema.Array(Schema.suspend(() => ReachForecast))),
 });
 
 export interface ReachForecast {
   readonly cost_micros?: string;
-  readonly forecast?: unknown;
-  readonly planned_product_reach_forecasts?: ReadonlyArray<unknown>;
+  readonly forecast?: Forecast;
+  readonly planned_product_reach_forecasts?: ReadonlyArray<PlannedProductReachForecast>;
 }
 export interface ReachForecastEncoded {
   readonly cost_micros?: string;
-  readonly forecast?: unknown;
-  readonly planned_product_reach_forecasts?: ReadonlyArray<unknown>;
+  readonly forecast?: ForecastEncoded;
+  readonly planned_product_reach_forecasts?: ReadonlyArray<PlannedProductReachForecastEncoded>;
 }
 export const ReachForecast: Schema.Schema<ReachForecast, ReachForecastEncoded, never> = Schema.Struct({
   cost_micros: Schema.optional(Schema.String),
-  forecast: Schema.optional(Schema.Unknown),
-  planned_product_reach_forecasts: Schema.optional(Schema.Array(Schema.Unknown)),
+  forecast: Schema.optional(Schema.suspend(() => Forecast)),
+  planned_product_reach_forecasts: Schema.optional(Schema.Array(Schema.suspend(() => PlannedProductReachForecast))),
 });
 
 export type ReachPlanAgeRange = "UNSPECIFIED" | "UNKNOWN" | "AGE_RANGE_18_24" | "AGE_RANGE_18_34" | "AGE_RANGE_18_44" | "AGE_RANGE_18_49" | "AGE_RANGE_18_54" | "AGE_RANGE_18_64" | "AGE_RANGE_18_65_UP" | "AGE_RANGE_21_34" | "AGE_RANGE_21_44" | "AGE_RANGE_21_49" | "AGE_RANGE_21_54" | "AGE_RANGE_21_64" | "AGE_RANGE_21_65_UP" | "AGE_RANGE_25_34" | "AGE_RANGE_25_44" | "AGE_RANGE_25_49" | "AGE_RANGE_25_54" | "AGE_RANGE_25_64" | "AGE_RANGE_25_65_UP" | "AGE_RANGE_35_44" | "AGE_RANGE_35_49" | "AGE_RANGE_35_54" | "AGE_RANGE_35_64" | "AGE_RANGE_35_65_UP" | "AGE_RANGE_45_54" | "AGE_RANGE_45_64" | "AGE_RANGE_45_65_UP" | "AGE_RANGE_50_65_UP" | "AGE_RANGE_55_64" | "AGE_RANGE_55_65_UP" | "AGE_RANGE_65_UP";
@@ -29398,194 +29398,194 @@ export const Reason: Schema.Schema<Reason, ReasonEncoded, never> = Schema.Litera
 export interface Recommendation {
   readonly resource_name?: string;
   readonly type?: RecommendationType;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpact;
   readonly campaign_budget?: string;
   readonly campaign?: string;
   readonly ad_group?: string;
   readonly dismissed?: boolean;
   readonly campaigns?: ReadonlyArray<string>;
-  readonly campaign_budget_recommendation?: unknown;
-  readonly forecasting_campaign_budget_recommendation?: unknown;
-  readonly keyword_recommendation?: unknown;
-  readonly text_ad_recommendation?: unknown;
-  readonly target_cpa_opt_in_recommendation?: unknown;
-  readonly maximize_conversions_opt_in_recommendation?: unknown;
-  readonly enhanced_cpc_opt_in_recommendation?: unknown;
-  readonly search_partners_opt_in_recommendation?: unknown;
-  readonly maximize_clicks_opt_in_recommendation?: unknown;
-  readonly optimize_ad_rotation_recommendation?: unknown;
-  readonly keyword_match_type_recommendation?: unknown;
-  readonly move_unused_budget_recommendation?: unknown;
-  readonly target_roas_opt_in_recommendation?: unknown;
-  readonly responsive_search_ad_recommendation?: unknown;
-  readonly marginal_roi_campaign_budget_recommendation?: unknown;
-  readonly use_broad_match_keyword_recommendation?: unknown;
-  readonly responsive_search_ad_asset_recommendation?: unknown;
-  readonly upgrade_smart_shopping_campaign_to_performance_max_recommendation?: unknown;
-  readonly responsive_search_ad_improve_ad_strength_recommendation?: unknown;
-  readonly display_expansion_opt_in_recommendation?: unknown;
-  readonly upgrade_local_campaign_to_performance_max_recommendation?: unknown;
-  readonly raise_target_cpa_bid_too_low_recommendation?: unknown;
-  readonly forecasting_set_target_roas_recommendation?: unknown;
-  readonly callout_asset_recommendation?: unknown;
-  readonly sitelink_asset_recommendation?: unknown;
-  readonly call_asset_recommendation?: unknown;
-  readonly shopping_add_age_group_recommendation?: unknown;
-  readonly shopping_add_color_recommendation?: unknown;
-  readonly shopping_add_gender_recommendation?: unknown;
-  readonly shopping_add_gtin_recommendation?: unknown;
-  readonly shopping_add_more_identifiers_recommendation?: unknown;
-  readonly shopping_add_size_recommendation?: unknown;
-  readonly shopping_add_products_to_campaign_recommendation?: unknown;
-  readonly shopping_fix_disapproved_products_recommendation?: unknown;
-  readonly shopping_target_all_offers_recommendation?: unknown;
-  readonly shopping_fix_suspended_merchant_center_account_recommendation?: unknown;
-  readonly shopping_fix_merchant_center_account_suspension_warning_recommendation?: unknown;
-  readonly shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation?: unknown;
-  readonly dynamic_image_extension_opt_in_recommendation?: unknown;
-  readonly raise_target_cpa_recommendation?: unknown;
-  readonly lower_target_roas_recommendation?: unknown;
-  readonly performance_max_opt_in_recommendation?: unknown;
-  readonly improve_performance_max_ad_strength_recommendation?: unknown;
-  readonly migrate_dynamic_search_ads_campaign_to_performance_max_recommendation?: unknown;
-  readonly forecasting_set_target_cpa_recommendation?: unknown;
-  readonly set_target_cpa_recommendation?: unknown;
-  readonly set_target_roas_recommendation?: unknown;
-  readonly maximize_conversion_value_opt_in_recommendation?: unknown;
-  readonly improve_google_tag_coverage_recommendation?: unknown;
-  readonly performance_max_final_url_opt_in_recommendation?: unknown;
-  readonly refresh_customer_match_list_recommendation?: unknown;
-  readonly custom_audience_opt_in_recommendation?: unknown;
-  readonly lead_form_asset_recommendation?: unknown;
-  readonly improve_demand_gen_ad_strength_recommendation?: unknown;
+  readonly campaign_budget_recommendation?: CampaignBudgetRecommendation;
+  readonly forecasting_campaign_budget_recommendation?: CampaignBudgetRecommendation;
+  readonly keyword_recommendation?: KeywordRecommendation;
+  readonly text_ad_recommendation?: TextAdRecommendation;
+  readonly target_cpa_opt_in_recommendation?: TargetCpaOptInRecommendation;
+  readonly maximize_conversions_opt_in_recommendation?: MaximizeConversionsOptInRecommendation;
+  readonly enhanced_cpc_opt_in_recommendation?: EnhancedCpcOptInRecommendation;
+  readonly search_partners_opt_in_recommendation?: SearchPartnersOptInRecommendation;
+  readonly maximize_clicks_opt_in_recommendation?: MaximizeClicksOptInRecommendation;
+  readonly optimize_ad_rotation_recommendation?: OptimizeAdRotationRecommendation;
+  readonly keyword_match_type_recommendation?: KeywordMatchTypeRecommendation;
+  readonly move_unused_budget_recommendation?: MoveUnusedBudgetRecommendation;
+  readonly target_roas_opt_in_recommendation?: TargetRoasOptInRecommendation;
+  readonly responsive_search_ad_recommendation?: ResponsiveSearchAdRecommendation;
+  readonly marginal_roi_campaign_budget_recommendation?: CampaignBudgetRecommendation;
+  readonly use_broad_match_keyword_recommendation?: UseBroadMatchKeywordRecommendation;
+  readonly responsive_search_ad_asset_recommendation?: ResponsiveSearchAdAssetRecommendation;
+  readonly upgrade_smart_shopping_campaign_to_performance_max_recommendation?: UpgradeSmartShoppingCampaignToPerformanceMaxRecommendation;
+  readonly responsive_search_ad_improve_ad_strength_recommendation?: ResponsiveSearchAdImproveAdStrengthRecommendation;
+  readonly display_expansion_opt_in_recommendation?: DisplayExpansionOptInRecommendation;
+  readonly upgrade_local_campaign_to_performance_max_recommendation?: UpgradeLocalCampaignToPerformanceMaxRecommendation;
+  readonly raise_target_cpa_bid_too_low_recommendation?: RaiseTargetCpaBidTooLowRecommendation;
+  readonly forecasting_set_target_roas_recommendation?: ForecastingSetTargetRoasRecommendation;
+  readonly callout_asset_recommendation?: CalloutAssetRecommendation;
+  readonly sitelink_asset_recommendation?: SitelinkAssetRecommendation;
+  readonly call_asset_recommendation?: CallAssetRecommendation;
+  readonly shopping_add_age_group_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_color_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_gender_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_gtin_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_more_identifiers_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_size_recommendation?: ShoppingOfferAttributeRecommendation;
+  readonly shopping_add_products_to_campaign_recommendation?: ShoppingAddProductsToCampaignRecommendation;
+  readonly shopping_fix_disapproved_products_recommendation?: ShoppingFixDisapprovedProductsRecommendation;
+  readonly shopping_target_all_offers_recommendation?: ShoppingTargetAllOffersRecommendation;
+  readonly shopping_fix_suspended_merchant_center_account_recommendation?: ShoppingMerchantCenterAccountSuspensionRecommendation;
+  readonly shopping_fix_merchant_center_account_suspension_warning_recommendation?: ShoppingMerchantCenterAccountSuspensionRecommendation;
+  readonly shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation?: ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation;
+  readonly dynamic_image_extension_opt_in_recommendation?: DynamicImageExtensionOptInRecommendation;
+  readonly raise_target_cpa_recommendation?: RaiseTargetCpaRecommendation;
+  readonly lower_target_roas_recommendation?: LowerTargetRoasRecommendation;
+  readonly performance_max_opt_in_recommendation?: PerformanceMaxOptInRecommendation;
+  readonly improve_performance_max_ad_strength_recommendation?: ImprovePerformanceMaxAdStrengthRecommendation;
+  readonly migrate_dynamic_search_ads_campaign_to_performance_max_recommendation?: MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation;
+  readonly forecasting_set_target_cpa_recommendation?: ForecastingSetTargetCpaRecommendation;
+  readonly set_target_cpa_recommendation?: ForecastingSetTargetCpaRecommendation;
+  readonly set_target_roas_recommendation?: ForecastingSetTargetRoasRecommendation;
+  readonly maximize_conversion_value_opt_in_recommendation?: MaximizeConversionValueOptInRecommendation;
+  readonly improve_google_tag_coverage_recommendation?: ImproveGoogleTagCoverageRecommendation;
+  readonly performance_max_final_url_opt_in_recommendation?: PerformanceMaxFinalUrlOptInRecommendation;
+  readonly refresh_customer_match_list_recommendation?: RefreshCustomerMatchListRecommendation;
+  readonly custom_audience_opt_in_recommendation?: CustomAudienceOptInRecommendation;
+  readonly lead_form_asset_recommendation?: LeadFormAssetRecommendation;
+  readonly improve_demand_gen_ad_strength_recommendation?: ImproveDemandGenAdStrengthRecommendation;
 }
 export interface RecommendationEncoded {
   readonly resource_name?: string;
   readonly type?: RecommendationTypeEncoded;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpactEncoded;
   readonly campaign_budget?: string;
   readonly campaign?: string;
   readonly ad_group?: string;
   readonly dismissed?: boolean;
   readonly campaigns?: ReadonlyArray<string>;
-  readonly campaign_budget_recommendation?: unknown;
-  readonly forecasting_campaign_budget_recommendation?: unknown;
-  readonly keyword_recommendation?: unknown;
-  readonly text_ad_recommendation?: unknown;
-  readonly target_cpa_opt_in_recommendation?: unknown;
-  readonly maximize_conversions_opt_in_recommendation?: unknown;
-  readonly enhanced_cpc_opt_in_recommendation?: unknown;
-  readonly search_partners_opt_in_recommendation?: unknown;
-  readonly maximize_clicks_opt_in_recommendation?: unknown;
-  readonly optimize_ad_rotation_recommendation?: unknown;
-  readonly keyword_match_type_recommendation?: unknown;
-  readonly move_unused_budget_recommendation?: unknown;
-  readonly target_roas_opt_in_recommendation?: unknown;
-  readonly responsive_search_ad_recommendation?: unknown;
-  readonly marginal_roi_campaign_budget_recommendation?: unknown;
-  readonly use_broad_match_keyword_recommendation?: unknown;
-  readonly responsive_search_ad_asset_recommendation?: unknown;
-  readonly upgrade_smart_shopping_campaign_to_performance_max_recommendation?: unknown;
-  readonly responsive_search_ad_improve_ad_strength_recommendation?: unknown;
-  readonly display_expansion_opt_in_recommendation?: unknown;
-  readonly upgrade_local_campaign_to_performance_max_recommendation?: unknown;
-  readonly raise_target_cpa_bid_too_low_recommendation?: unknown;
-  readonly forecasting_set_target_roas_recommendation?: unknown;
-  readonly callout_asset_recommendation?: unknown;
-  readonly sitelink_asset_recommendation?: unknown;
-  readonly call_asset_recommendation?: unknown;
-  readonly shopping_add_age_group_recommendation?: unknown;
-  readonly shopping_add_color_recommendation?: unknown;
-  readonly shopping_add_gender_recommendation?: unknown;
-  readonly shopping_add_gtin_recommendation?: unknown;
-  readonly shopping_add_more_identifiers_recommendation?: unknown;
-  readonly shopping_add_size_recommendation?: unknown;
-  readonly shopping_add_products_to_campaign_recommendation?: unknown;
-  readonly shopping_fix_disapproved_products_recommendation?: unknown;
-  readonly shopping_target_all_offers_recommendation?: unknown;
-  readonly shopping_fix_suspended_merchant_center_account_recommendation?: unknown;
-  readonly shopping_fix_merchant_center_account_suspension_warning_recommendation?: unknown;
-  readonly shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation?: unknown;
-  readonly dynamic_image_extension_opt_in_recommendation?: unknown;
-  readonly raise_target_cpa_recommendation?: unknown;
-  readonly lower_target_roas_recommendation?: unknown;
-  readonly performance_max_opt_in_recommendation?: unknown;
-  readonly improve_performance_max_ad_strength_recommendation?: unknown;
-  readonly migrate_dynamic_search_ads_campaign_to_performance_max_recommendation?: unknown;
-  readonly forecasting_set_target_cpa_recommendation?: unknown;
-  readonly set_target_cpa_recommendation?: unknown;
-  readonly set_target_roas_recommendation?: unknown;
-  readonly maximize_conversion_value_opt_in_recommendation?: unknown;
-  readonly improve_google_tag_coverage_recommendation?: unknown;
-  readonly performance_max_final_url_opt_in_recommendation?: unknown;
-  readonly refresh_customer_match_list_recommendation?: unknown;
-  readonly custom_audience_opt_in_recommendation?: unknown;
-  readonly lead_form_asset_recommendation?: unknown;
-  readonly improve_demand_gen_ad_strength_recommendation?: unknown;
+  readonly campaign_budget_recommendation?: CampaignBudgetRecommendationEncoded;
+  readonly forecasting_campaign_budget_recommendation?: CampaignBudgetRecommendationEncoded;
+  readonly keyword_recommendation?: KeywordRecommendationEncoded;
+  readonly text_ad_recommendation?: TextAdRecommendationEncoded;
+  readonly target_cpa_opt_in_recommendation?: TargetCpaOptInRecommendationEncoded;
+  readonly maximize_conversions_opt_in_recommendation?: MaximizeConversionsOptInRecommendationEncoded;
+  readonly enhanced_cpc_opt_in_recommendation?: EnhancedCpcOptInRecommendationEncoded;
+  readonly search_partners_opt_in_recommendation?: SearchPartnersOptInRecommendationEncoded;
+  readonly maximize_clicks_opt_in_recommendation?: MaximizeClicksOptInRecommendationEncoded;
+  readonly optimize_ad_rotation_recommendation?: OptimizeAdRotationRecommendationEncoded;
+  readonly keyword_match_type_recommendation?: KeywordMatchTypeRecommendationEncoded;
+  readonly move_unused_budget_recommendation?: MoveUnusedBudgetRecommendationEncoded;
+  readonly target_roas_opt_in_recommendation?: TargetRoasOptInRecommendationEncoded;
+  readonly responsive_search_ad_recommendation?: ResponsiveSearchAdRecommendationEncoded;
+  readonly marginal_roi_campaign_budget_recommendation?: CampaignBudgetRecommendationEncoded;
+  readonly use_broad_match_keyword_recommendation?: UseBroadMatchKeywordRecommendationEncoded;
+  readonly responsive_search_ad_asset_recommendation?: ResponsiveSearchAdAssetRecommendationEncoded;
+  readonly upgrade_smart_shopping_campaign_to_performance_max_recommendation?: UpgradeSmartShoppingCampaignToPerformanceMaxRecommendationEncoded;
+  readonly responsive_search_ad_improve_ad_strength_recommendation?: ResponsiveSearchAdImproveAdStrengthRecommendationEncoded;
+  readonly display_expansion_opt_in_recommendation?: DisplayExpansionOptInRecommendationEncoded;
+  readonly upgrade_local_campaign_to_performance_max_recommendation?: UpgradeLocalCampaignToPerformanceMaxRecommendationEncoded;
+  readonly raise_target_cpa_bid_too_low_recommendation?: RaiseTargetCpaBidTooLowRecommendationEncoded;
+  readonly forecasting_set_target_roas_recommendation?: ForecastingSetTargetRoasRecommendationEncoded;
+  readonly callout_asset_recommendation?: CalloutAssetRecommendationEncoded;
+  readonly sitelink_asset_recommendation?: SitelinkAssetRecommendationEncoded;
+  readonly call_asset_recommendation?: CallAssetRecommendationEncoded;
+  readonly shopping_add_age_group_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_color_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_gender_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_gtin_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_more_identifiers_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_size_recommendation?: ShoppingOfferAttributeRecommendationEncoded;
+  readonly shopping_add_products_to_campaign_recommendation?: ShoppingAddProductsToCampaignRecommendationEncoded;
+  readonly shopping_fix_disapproved_products_recommendation?: ShoppingFixDisapprovedProductsRecommendationEncoded;
+  readonly shopping_target_all_offers_recommendation?: ShoppingTargetAllOffersRecommendationEncoded;
+  readonly shopping_fix_suspended_merchant_center_account_recommendation?: ShoppingMerchantCenterAccountSuspensionRecommendationEncoded;
+  readonly shopping_fix_merchant_center_account_suspension_warning_recommendation?: ShoppingMerchantCenterAccountSuspensionRecommendationEncoded;
+  readonly shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation?: ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendationEncoded;
+  readonly dynamic_image_extension_opt_in_recommendation?: DynamicImageExtensionOptInRecommendationEncoded;
+  readonly raise_target_cpa_recommendation?: RaiseTargetCpaRecommendationEncoded;
+  readonly lower_target_roas_recommendation?: LowerTargetRoasRecommendationEncoded;
+  readonly performance_max_opt_in_recommendation?: PerformanceMaxOptInRecommendationEncoded;
+  readonly improve_performance_max_ad_strength_recommendation?: ImprovePerformanceMaxAdStrengthRecommendationEncoded;
+  readonly migrate_dynamic_search_ads_campaign_to_performance_max_recommendation?: MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendationEncoded;
+  readonly forecasting_set_target_cpa_recommendation?: ForecastingSetTargetCpaRecommendationEncoded;
+  readonly set_target_cpa_recommendation?: ForecastingSetTargetCpaRecommendationEncoded;
+  readonly set_target_roas_recommendation?: ForecastingSetTargetRoasRecommendationEncoded;
+  readonly maximize_conversion_value_opt_in_recommendation?: MaximizeConversionValueOptInRecommendationEncoded;
+  readonly improve_google_tag_coverage_recommendation?: ImproveGoogleTagCoverageRecommendationEncoded;
+  readonly performance_max_final_url_opt_in_recommendation?: PerformanceMaxFinalUrlOptInRecommendationEncoded;
+  readonly refresh_customer_match_list_recommendation?: RefreshCustomerMatchListRecommendationEncoded;
+  readonly custom_audience_opt_in_recommendation?: CustomAudienceOptInRecommendationEncoded;
+  readonly lead_form_asset_recommendation?: LeadFormAssetRecommendationEncoded;
+  readonly improve_demand_gen_ad_strength_recommendation?: ImproveDemandGenAdStrengthRecommendationEncoded;
 }
 export const Recommendation: Schema.Schema<Recommendation, RecommendationEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   type: Schema.optional(Schema.suspend(() => RecommendationType)),
-  impact: Schema.optional(Schema.Unknown),
+  impact: Schema.optional(Schema.suspend(() => RecommendationImpact)),
   campaign_budget: Schema.optional(Schema.String),
   campaign: Schema.optional(Schema.String),
   ad_group: Schema.optional(Schema.String),
   dismissed: Schema.optional(Schema.Boolean),
   campaigns: Schema.optional(Schema.Array(Schema.String)),
-  campaign_budget_recommendation: Schema.optional(Schema.Unknown),
-  forecasting_campaign_budget_recommendation: Schema.optional(Schema.Unknown),
-  keyword_recommendation: Schema.optional(Schema.Unknown),
-  text_ad_recommendation: Schema.optional(Schema.Unknown),
-  target_cpa_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  maximize_conversions_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  enhanced_cpc_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  search_partners_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  maximize_clicks_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  optimize_ad_rotation_recommendation: Schema.optional(Schema.Unknown),
-  keyword_match_type_recommendation: Schema.optional(Schema.Unknown),
-  move_unused_budget_recommendation: Schema.optional(Schema.Unknown),
-  target_roas_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  responsive_search_ad_recommendation: Schema.optional(Schema.Unknown),
-  marginal_roi_campaign_budget_recommendation: Schema.optional(Schema.Unknown),
-  use_broad_match_keyword_recommendation: Schema.optional(Schema.Unknown),
-  responsive_search_ad_asset_recommendation: Schema.optional(Schema.Unknown),
-  upgrade_smart_shopping_campaign_to_performance_max_recommendation: Schema.optional(Schema.Unknown),
-  responsive_search_ad_improve_ad_strength_recommendation: Schema.optional(Schema.Unknown),
-  display_expansion_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  upgrade_local_campaign_to_performance_max_recommendation: Schema.optional(Schema.Unknown),
-  raise_target_cpa_bid_too_low_recommendation: Schema.optional(Schema.Unknown),
-  forecasting_set_target_roas_recommendation: Schema.optional(Schema.Unknown),
-  callout_asset_recommendation: Schema.optional(Schema.Unknown),
-  sitelink_asset_recommendation: Schema.optional(Schema.Unknown),
-  call_asset_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_age_group_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_color_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_gender_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_gtin_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_more_identifiers_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_size_recommendation: Schema.optional(Schema.Unknown),
-  shopping_add_products_to_campaign_recommendation: Schema.optional(Schema.Unknown),
-  shopping_fix_disapproved_products_recommendation: Schema.optional(Schema.Unknown),
-  shopping_target_all_offers_recommendation: Schema.optional(Schema.Unknown),
-  shopping_fix_suspended_merchant_center_account_recommendation: Schema.optional(Schema.Unknown),
-  shopping_fix_merchant_center_account_suspension_warning_recommendation: Schema.optional(Schema.Unknown),
-  shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation: Schema.optional(Schema.Unknown),
-  dynamic_image_extension_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  raise_target_cpa_recommendation: Schema.optional(Schema.Unknown),
-  lower_target_roas_recommendation: Schema.optional(Schema.Unknown),
-  performance_max_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  improve_performance_max_ad_strength_recommendation: Schema.optional(Schema.Unknown),
-  migrate_dynamic_search_ads_campaign_to_performance_max_recommendation: Schema.optional(Schema.Unknown),
-  forecasting_set_target_cpa_recommendation: Schema.optional(Schema.Unknown),
-  set_target_cpa_recommendation: Schema.optional(Schema.Unknown),
-  set_target_roas_recommendation: Schema.optional(Schema.Unknown),
-  maximize_conversion_value_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  improve_google_tag_coverage_recommendation: Schema.optional(Schema.Unknown),
-  performance_max_final_url_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  refresh_customer_match_list_recommendation: Schema.optional(Schema.Unknown),
-  custom_audience_opt_in_recommendation: Schema.optional(Schema.Unknown),
-  lead_form_asset_recommendation: Schema.optional(Schema.Unknown),
-  improve_demand_gen_ad_strength_recommendation: Schema.optional(Schema.Unknown),
+  campaign_budget_recommendation: Schema.optional(Schema.suspend(() => CampaignBudgetRecommendation)),
+  forecasting_campaign_budget_recommendation: Schema.optional(Schema.suspend(() => CampaignBudgetRecommendation)),
+  keyword_recommendation: Schema.optional(Schema.suspend(() => KeywordRecommendation)),
+  text_ad_recommendation: Schema.optional(Schema.suspend(() => TextAdRecommendation)),
+  target_cpa_opt_in_recommendation: Schema.optional(Schema.suspend(() => TargetCpaOptInRecommendation)),
+  maximize_conversions_opt_in_recommendation: Schema.optional(Schema.suspend(() => MaximizeConversionsOptInRecommendation)),
+  enhanced_cpc_opt_in_recommendation: Schema.optional(Schema.suspend(() => EnhancedCpcOptInRecommendation)),
+  search_partners_opt_in_recommendation: Schema.optional(Schema.suspend(() => SearchPartnersOptInRecommendation)),
+  maximize_clicks_opt_in_recommendation: Schema.optional(Schema.suspend(() => MaximizeClicksOptInRecommendation)),
+  optimize_ad_rotation_recommendation: Schema.optional(Schema.suspend(() => OptimizeAdRotationRecommendation)),
+  keyword_match_type_recommendation: Schema.optional(Schema.suspend(() => KeywordMatchTypeRecommendation)),
+  move_unused_budget_recommendation: Schema.optional(Schema.suspend(() => MoveUnusedBudgetRecommendation)),
+  target_roas_opt_in_recommendation: Schema.optional(Schema.suspend(() => TargetRoasOptInRecommendation)),
+  responsive_search_ad_recommendation: Schema.optional(Schema.suspend(() => ResponsiveSearchAdRecommendation)),
+  marginal_roi_campaign_budget_recommendation: Schema.optional(Schema.suspend(() => CampaignBudgetRecommendation)),
+  use_broad_match_keyword_recommendation: Schema.optional(Schema.suspend(() => UseBroadMatchKeywordRecommendation)),
+  responsive_search_ad_asset_recommendation: Schema.optional(Schema.suspend(() => ResponsiveSearchAdAssetRecommendation)),
+  upgrade_smart_shopping_campaign_to_performance_max_recommendation: Schema.optional(Schema.suspend(() => UpgradeSmartShoppingCampaignToPerformanceMaxRecommendation)),
+  responsive_search_ad_improve_ad_strength_recommendation: Schema.optional(Schema.suspend(() => ResponsiveSearchAdImproveAdStrengthRecommendation)),
+  display_expansion_opt_in_recommendation: Schema.optional(Schema.suspend(() => DisplayExpansionOptInRecommendation)),
+  upgrade_local_campaign_to_performance_max_recommendation: Schema.optional(Schema.suspend(() => UpgradeLocalCampaignToPerformanceMaxRecommendation)),
+  raise_target_cpa_bid_too_low_recommendation: Schema.optional(Schema.suspend(() => RaiseTargetCpaBidTooLowRecommendation)),
+  forecasting_set_target_roas_recommendation: Schema.optional(Schema.suspend(() => ForecastingSetTargetRoasRecommendation)),
+  callout_asset_recommendation: Schema.optional(Schema.suspend(() => CalloutAssetRecommendation)),
+  sitelink_asset_recommendation: Schema.optional(Schema.suspend(() => SitelinkAssetRecommendation)),
+  call_asset_recommendation: Schema.optional(Schema.suspend(() => CallAssetRecommendation)),
+  shopping_add_age_group_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_color_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_gender_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_gtin_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_more_identifiers_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_size_recommendation: Schema.optional(Schema.suspend(() => ShoppingOfferAttributeRecommendation)),
+  shopping_add_products_to_campaign_recommendation: Schema.optional(Schema.suspend(() => ShoppingAddProductsToCampaignRecommendation)),
+  shopping_fix_disapproved_products_recommendation: Schema.optional(Schema.suspend(() => ShoppingFixDisapprovedProductsRecommendation)),
+  shopping_target_all_offers_recommendation: Schema.optional(Schema.suspend(() => ShoppingTargetAllOffersRecommendation)),
+  shopping_fix_suspended_merchant_center_account_recommendation: Schema.optional(Schema.suspend(() => ShoppingMerchantCenterAccountSuspensionRecommendation)),
+  shopping_fix_merchant_center_account_suspension_warning_recommendation: Schema.optional(Schema.suspend(() => ShoppingMerchantCenterAccountSuspensionRecommendation)),
+  shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation: Schema.optional(Schema.suspend(() => ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation)),
+  dynamic_image_extension_opt_in_recommendation: Schema.optional(Schema.suspend(() => DynamicImageExtensionOptInRecommendation)),
+  raise_target_cpa_recommendation: Schema.optional(Schema.suspend(() => RaiseTargetCpaRecommendation)),
+  lower_target_roas_recommendation: Schema.optional(Schema.suspend(() => LowerTargetRoasRecommendation)),
+  performance_max_opt_in_recommendation: Schema.optional(Schema.suspend(() => PerformanceMaxOptInRecommendation)),
+  improve_performance_max_ad_strength_recommendation: Schema.optional(Schema.suspend(() => ImprovePerformanceMaxAdStrengthRecommendation)),
+  migrate_dynamic_search_ads_campaign_to_performance_max_recommendation: Schema.optional(Schema.suspend(() => MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation)),
+  forecasting_set_target_cpa_recommendation: Schema.optional(Schema.suspend(() => ForecastingSetTargetCpaRecommendation)),
+  set_target_cpa_recommendation: Schema.optional(Schema.suspend(() => ForecastingSetTargetCpaRecommendation)),
+  set_target_roas_recommendation: Schema.optional(Schema.suspend(() => ForecastingSetTargetRoasRecommendation)),
+  maximize_conversion_value_opt_in_recommendation: Schema.optional(Schema.suspend(() => MaximizeConversionValueOptInRecommendation)),
+  improve_google_tag_coverage_recommendation: Schema.optional(Schema.suspend(() => ImproveGoogleTagCoverageRecommendation)),
+  performance_max_final_url_opt_in_recommendation: Schema.optional(Schema.suspend(() => PerformanceMaxFinalUrlOptInRecommendation)),
+  refresh_customer_match_list_recommendation: Schema.optional(Schema.suspend(() => RefreshCustomerMatchListRecommendation)),
+  custom_audience_opt_in_recommendation: Schema.optional(Schema.suspend(() => CustomAudienceOptInRecommendation)),
+  lead_form_asset_recommendation: Schema.optional(Schema.suspend(() => LeadFormAssetRecommendation)),
+  improve_demand_gen_ad_strength_recommendation: Schema.optional(Schema.suspend(() => ImproveDemandGenAdStrengthRecommendation)),
 });
 
 export interface Recommendation_CampaignBudget {
@@ -29619,16 +29619,16 @@ export const RecommendationErrorEnum: Schema.Schema<RecommendationErrorEnum, Rec
 });
 
 export interface RecommendationImpact {
-  readonly base_metrics?: unknown;
-  readonly potential_metrics?: unknown;
+  readonly base_metrics?: RecommendationMetrics;
+  readonly potential_metrics?: RecommendationMetrics;
 }
 export interface RecommendationImpactEncoded {
-  readonly base_metrics?: unknown;
-  readonly potential_metrics?: unknown;
+  readonly base_metrics?: RecommendationMetricsEncoded;
+  readonly potential_metrics?: RecommendationMetricsEncoded;
 }
 export const RecommendationImpact: Schema.Schema<RecommendationImpact, RecommendationImpactEncoded, never> = Schema.Struct({
-  base_metrics: Schema.optional(Schema.Unknown),
-  potential_metrics: Schema.optional(Schema.Unknown),
+  base_metrics: Schema.optional(Schema.suspend(() => RecommendationMetrics)),
+  potential_metrics: Schema.optional(Schema.suspend(() => RecommendationMetrics)),
 });
 
 export interface RecommendationMetrics {
@@ -29693,17 +29693,17 @@ export const RecommendationSubscriptionErrorEnum: Schema.Schema<RecommendationSu
 });
 
 export interface RecommendationSubscriptionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: RecommendationSubscription;
   readonly update?: RecommendationSubscription;
 }
 export interface RecommendationSubscriptionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: RecommendationSubscriptionEncoded;
   readonly update?: RecommendationSubscriptionEncoded;
 }
 export const RecommendationSubscriptionOperation: Schema.Schema<RecommendationSubscriptionOperation, RecommendationSubscriptionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => RecommendationSubscription)),
   update: Schema.optional(Schema.suspend(() => RecommendationSubscription)),
 });
@@ -29740,25 +29740,25 @@ export interface RefreshCustomerMatchListRecommendation {
   readonly user_list_id?: string;
   readonly user_list_name?: string;
   readonly days_since_last_refresh?: string;
-  readonly top_spending_account?: ReadonlyArray<unknown>;
+  readonly top_spending_account?: ReadonlyArray<AccountInfo>;
   readonly targeting_accounts_count?: string;
-  readonly owner_account?: unknown;
+  readonly owner_account?: AccountInfo;
 }
 export interface RefreshCustomerMatchListRecommendationEncoded {
   readonly user_list_id?: string;
   readonly user_list_name?: string;
   readonly days_since_last_refresh?: string;
-  readonly top_spending_account?: ReadonlyArray<unknown>;
+  readonly top_spending_account?: ReadonlyArray<AccountInfoEncoded>;
   readonly targeting_accounts_count?: string;
-  readonly owner_account?: unknown;
+  readonly owner_account?: AccountInfoEncoded;
 }
 export const RefreshCustomerMatchListRecommendation: Schema.Schema<RefreshCustomerMatchListRecommendation, RefreshCustomerMatchListRecommendationEncoded, never> = Schema.Struct({
   user_list_id: Schema.optional(Schema.String),
   user_list_name: Schema.optional(Schema.String),
   days_since_last_refresh: Schema.optional(Schema.String),
-  top_spending_account: Schema.optional(Schema.Array(Schema.Unknown)),
+  top_spending_account: Schema.optional(Schema.Array(Schema.suspend(() => AccountInfo))),
   targeting_accounts_count: Schema.optional(Schema.String),
-  owner_account: Schema.optional(Schema.Unknown),
+  owner_account: Schema.optional(Schema.suspend(() => AccountInfo)),
 });
 
 export interface RegenerateShareableLinkIdRequest {
@@ -29842,17 +29842,17 @@ export const RemarketingAction: Schema.Schema<RemarketingAction, RemarketingActi
 });
 
 export interface RemarketingActionOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: RemarketingAction;
   readonly update?: RemarketingAction;
 }
 export interface RemarketingActionOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: RemarketingActionEncoded;
   readonly update?: RemarketingActionEncoded;
 }
 export const RemarketingActionOperation: Schema.Schema<RemarketingActionOperation, RemarketingActionOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => RemarketingAction)),
   update: Schema.optional(Schema.suspend(() => RemarketingAction)),
 });
@@ -29869,15 +29869,15 @@ export const RemarketingSetting: Schema.Schema<RemarketingSetting, RemarketingSe
 
 export interface RemoveAutomaticallyCreatedAssetsRequest {
   readonly ad_group_ad?: string;
-  readonly assets_with_field_type?: ReadonlyArray<unknown>;
+  readonly assets_with_field_type?: ReadonlyArray<AssetsWithFieldType>;
 }
 export interface RemoveAutomaticallyCreatedAssetsRequestEncoded {
   readonly ad_group_ad?: string;
-  readonly assets_with_field_type?: ReadonlyArray<unknown>;
+  readonly assets_with_field_type?: ReadonlyArray<AssetsWithFieldTypeEncoded>;
 }
 export const RemoveAutomaticallyCreatedAssetsRequest: Schema.Schema<RemoveAutomaticallyCreatedAssetsRequest, RemoveAutomaticallyCreatedAssetsRequestEncoded, never> = Schema.Struct({
   ad_group_ad: Schema.optional(Schema.String),
-  assets_with_field_type: Schema.optional(Schema.Array(Schema.Unknown)),
+  assets_with_field_type: Schema.optional(Schema.Array(Schema.suspend(() => AssetsWithFieldType))),
 });
 
 export interface RemoveCampaignAutomaticallyCreatedAssetOperation {
@@ -29898,17 +29898,17 @@ export const RemoveCampaignAutomaticallyCreatedAssetOperation: Schema.Schema<Rem
 
 export interface RemoveCampaignAutomaticallyCreatedAssetRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RemoveCampaignAutomaticallyCreatedAssetOperation>;
   readonly partial_failure?: boolean;
 }
 export interface RemoveCampaignAutomaticallyCreatedAssetRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<RemoveCampaignAutomaticallyCreatedAssetOperationEncoded>;
   readonly partial_failure?: boolean;
 }
 export const RemoveCampaignAutomaticallyCreatedAssetRequest: Schema.Schema<RemoveCampaignAutomaticallyCreatedAssetRequest, RemoveCampaignAutomaticallyCreatedAssetRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => RemoveCampaignAutomaticallyCreatedAssetOperation))),
   partial_failure: Schema.optional(Schema.Boolean),
 });
 
@@ -30032,13 +30032,13 @@ export const RequestErrorEnum: Schema.Schema<RequestErrorEnum, RequestErrorEnumE
 });
 
 export interface Requirement {
-  readonly spend?: unknown;
+  readonly spend?: Spend;
 }
 export interface RequirementEncoded {
-  readonly spend?: unknown;
+  readonly spend?: SpendEncoded;
 }
 export const Requirement: Schema.Schema<Requirement, RequirementEncoded, never> = Schema.Struct({
-  spend: Schema.optional(Schema.Unknown),
+  spend: Schema.optional(Schema.suspend(() => Spend)),
 });
 
 export interface ResellerConstraint {
@@ -30125,25 +30125,25 @@ export const ResolveMultiPartyAuthReviewOperation: Schema.Schema<ResolveMultiPar
 
 export interface ResolveMultiPartyAuthReviewRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ResolveMultiPartyAuthReviewOperation>;
 }
 export interface ResolveMultiPartyAuthReviewRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<ResolveMultiPartyAuthReviewOperationEncoded>;
 }
 export const ResolveMultiPartyAuthReviewRequest: Schema.Schema<ResolveMultiPartyAuthReviewRequest, ResolveMultiPartyAuthReviewRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => ResolveMultiPartyAuthReviewOperation))),
 });
 
 export interface ResolveMultiPartyAuthReviewResponse {
-  readonly result_or_error?: ReadonlyArray<unknown>;
+  readonly result_or_error?: ReadonlyArray<ResolveMultiPartyAuthReviewResultOrError>;
 }
 export interface ResolveMultiPartyAuthReviewResponseEncoded {
-  readonly result_or_error?: ReadonlyArray<unknown>;
+  readonly result_or_error?: ReadonlyArray<ResolveMultiPartyAuthReviewResultOrErrorEncoded>;
 }
 export const ResolveMultiPartyAuthReviewResponse: Schema.Schema<ResolveMultiPartyAuthReviewResponse, ResolveMultiPartyAuthReviewResponseEncoded, never> = Schema.Struct({
-  result_or_error: Schema.optional(Schema.Array(Schema.Unknown)),
+  result_or_error: Schema.optional(Schema.Array(Schema.suspend(() => ResolveMultiPartyAuthReviewResultOrError))),
 });
 
 export interface ResolveMultiPartyAuthReviewResult {
@@ -30163,15 +30163,15 @@ export const ResolveMultiPartyAuthReviewResult: Schema.Schema<ResolveMultiPartyA
 });
 
 export interface ResolveMultiPartyAuthReviewResultOrError {
-  readonly result?: unknown;
+  readonly result?: ResolveMultiPartyAuthReviewResult;
   readonly partial_failure_error?: unknown;
 }
 export interface ResolveMultiPartyAuthReviewResultOrErrorEncoded {
-  readonly result?: unknown;
+  readonly result?: ResolveMultiPartyAuthReviewResultEncoded;
   readonly partial_failure_error?: unknown;
 }
 export const ResolveMultiPartyAuthReviewResultOrError: Schema.Schema<ResolveMultiPartyAuthReviewResultOrError, ResolveMultiPartyAuthReviewResultOrErrorEncoded, never> = Schema.Struct({
-  result: Schema.optional(Schema.Unknown),
+  result: Schema.optional(Schema.suspend(() => ResolveMultiPartyAuthReviewResult)),
   partial_failure_error: Schema.optional(Schema.Unknown),
 });
 
@@ -30281,14 +30281,14 @@ export const ResponsiveDisplayAdControlSpec: Schema.Schema<ResponsiveDisplayAdCo
 });
 
 export interface ResponsiveDisplayAdInfo {
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly square_marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly square_logo_images?: ReadonlyArray<unknown>;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headline?: unknown;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly square_marketing_images?: ReadonlyArray<AdImageAsset>;
+  readonly logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly square_logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly long_headline?: AdTextAsset;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAsset>;
   readonly business_name?: string;
   readonly main_color?: string;
   readonly accent_color?: string;
@@ -30297,17 +30297,17 @@ export interface ResponsiveDisplayAdInfo {
   readonly price_prefix?: string;
   readonly promo_text?: string;
   readonly format_setting?: DisplayAdFormatSetting;
-  readonly control_spec?: unknown;
+  readonly control_spec?: ResponsiveDisplayAdControlSpec;
 }
 export interface ResponsiveDisplayAdInfoEncoded {
-  readonly marketing_images?: ReadonlyArray<unknown>;
-  readonly square_marketing_images?: ReadonlyArray<unknown>;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly square_logo_images?: ReadonlyArray<unknown>;
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headline?: unknown;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly square_marketing_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly square_logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly long_headline?: AdTextAssetEncoded;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAssetEncoded>;
   readonly business_name?: string;
   readonly main_color?: string;
   readonly accent_color?: string;
@@ -30316,17 +30316,17 @@ export interface ResponsiveDisplayAdInfoEncoded {
   readonly price_prefix?: string;
   readonly promo_text?: string;
   readonly format_setting?: DisplayAdFormatSettingEncoded;
-  readonly control_spec?: unknown;
+  readonly control_spec?: ResponsiveDisplayAdControlSpecEncoded;
 }
 export const ResponsiveDisplayAdInfo: Schema.Schema<ResponsiveDisplayAdInfo, ResponsiveDisplayAdInfoEncoded, never> = Schema.Struct({
-  marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  square_marketing_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  square_logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  long_headline: Schema.optional(Schema.Unknown),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  youtube_videos: Schema.optional(Schema.Array(Schema.Unknown)),
+  marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  square_marketing_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  square_logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  long_headline: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  youtube_videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
   business_name: Schema.optional(Schema.String),
   main_color: Schema.optional(Schema.String),
   accent_color: Schema.optional(Schema.String),
@@ -30335,7 +30335,7 @@ export const ResponsiveDisplayAdInfo: Schema.Schema<ResponsiveDisplayAdInfo, Res
   price_prefix: Schema.optional(Schema.String),
   promo_text: Schema.optional(Schema.String),
   format_setting: Schema.optional(Schema.suspend(() => DisplayAdFormatSetting)),
-  control_spec: Schema.optional(Schema.Unknown),
+  control_spec: Schema.optional(Schema.suspend(() => ResponsiveDisplayAdControlSpec)),
 });
 
 export interface ResponsiveSearchAdAssetParameters {
@@ -30349,16 +30349,16 @@ export const ResponsiveSearchAdAssetParameters: Schema.Schema<ResponsiveSearchAd
 });
 
 export interface ResponsiveSearchAdAssetRecommendation {
-  readonly current_ad?: unknown;
-  readonly recommended_assets?: unknown;
+  readonly current_ad?: Ad;
+  readonly recommended_assets?: Ad;
 }
 export interface ResponsiveSearchAdAssetRecommendationEncoded {
-  readonly current_ad?: unknown;
-  readonly recommended_assets?: unknown;
+  readonly current_ad?: AdEncoded;
+  readonly recommended_assets?: AdEncoded;
 }
 export const ResponsiveSearchAdAssetRecommendation: Schema.Schema<ResponsiveSearchAdAssetRecommendation, ResponsiveSearchAdAssetRecommendationEncoded, never> = Schema.Struct({
-  current_ad: Schema.optional(Schema.Unknown),
-  recommended_assets: Schema.optional(Schema.Unknown),
+  current_ad: Schema.optional(Schema.suspend(() => Ad)),
+  recommended_assets: Schema.optional(Schema.suspend(() => Ad)),
 });
 
 export interface ResponsiveSearchAdImproveAdStrengthParameters {
@@ -30372,33 +30372,33 @@ export const ResponsiveSearchAdImproveAdStrengthParameters: Schema.Schema<Respon
 });
 
 export interface ResponsiveSearchAdImproveAdStrengthRecommendation {
-  readonly current_ad?: unknown;
-  readonly recommended_ad?: unknown;
+  readonly current_ad?: Ad;
+  readonly recommended_ad?: Ad;
 }
 export interface ResponsiveSearchAdImproveAdStrengthRecommendationEncoded {
-  readonly current_ad?: unknown;
-  readonly recommended_ad?: unknown;
+  readonly current_ad?: AdEncoded;
+  readonly recommended_ad?: AdEncoded;
 }
 export const ResponsiveSearchAdImproveAdStrengthRecommendation: Schema.Schema<ResponsiveSearchAdImproveAdStrengthRecommendation, ResponsiveSearchAdImproveAdStrengthRecommendationEncoded, never> = Schema.Struct({
-  current_ad: Schema.optional(Schema.Unknown),
-  recommended_ad: Schema.optional(Schema.Unknown),
+  current_ad: Schema.optional(Schema.suspend(() => Ad)),
+  recommended_ad: Schema.optional(Schema.suspend(() => Ad)),
 });
 
 export interface ResponsiveSearchAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
   readonly path1?: string;
   readonly path2?: string;
 }
 export interface ResponsiveSearchAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
   readonly path1?: string;
   readonly path2?: string;
 }
 export const ResponsiveSearchAdInfo: Schema.Schema<ResponsiveSearchAdInfo, ResponsiveSearchAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
   path1: Schema.optional(Schema.String),
   path2: Schema.optional(Schema.String),
 });
@@ -30414,13 +30414,13 @@ export const ResponsiveSearchAdParameters: Schema.Schema<ResponsiveSearchAdParam
 });
 
 export interface ResponsiveSearchAdRecommendation {
-  readonly ad?: unknown;
+  readonly ad?: Ad;
 }
 export interface ResponsiveSearchAdRecommendationEncoded {
-  readonly ad?: unknown;
+  readonly ad?: AdEncoded;
 }
 export const ResponsiveSearchAdRecommendation: Schema.Schema<ResponsiveSearchAdRecommendation, ResponsiveSearchAdRecommendationEncoded, never> = Schema.Struct({
-  ad: Schema.optional(Schema.Unknown),
+  ad: Schema.optional(Schema.suspend(() => Ad)),
 });
 
 export interface RestatementValue {
@@ -30437,16 +30437,16 @@ export const RestatementValue: Schema.Schema<RestatementValue, RestatementValueE
 });
 
 export interface RetailFilter {
-  readonly expression?: unknown;
-  readonly tag?: unknown;
+  readonly expression?: RetailFilterExpression;
+  readonly tag?: RetailTag;
 }
 export interface RetailFilterEncoded {
-  readonly expression?: unknown;
-  readonly tag?: unknown;
+  readonly expression?: RetailFilterExpressionEncoded;
+  readonly tag?: RetailTagEncoded;
 }
 export const RetailFilter: Schema.Schema<RetailFilter, RetailFilterEncoded, never> = Schema.Struct({
-  expression: Schema.optional(Schema.Unknown),
-  tag: Schema.optional(Schema.Unknown),
+  expression: Schema.optional(Schema.suspend(() => RetailFilterExpression)),
+  tag: Schema.optional(Schema.suspend(() => RetailTag)),
 });
 
 export interface RetailFilterBundle {
@@ -30483,13 +30483,13 @@ export const RetailTag: Schema.Schema<RetailTag, RetailTagEncoded, never> = Sche
 });
 
 export interface RetentionGoal {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettings;
 }
 export interface RetentionGoalEncoded {
-  readonly value_settings?: unknown;
+  readonly value_settings?: CustomerLifecycleOptimizationValueSettingsEncoded;
 }
 export const RetentionGoal: Schema.Schema<RetentionGoal, RetentionGoalEncoded, never> = Schema.Struct({
-  value_settings: Schema.optional(Schema.Unknown),
+  value_settings: Schema.optional(Schema.suspend(() => CustomerLifecycleOptimizationValueSettings)),
 });
 
 export interface RevenueRange {
@@ -30507,15 +30507,15 @@ export const RevenueRange: Schema.Schema<RevenueRange, RevenueRangeEncoded, neve
 
 export interface RuleBasedUserListInfo {
   readonly prepopulation_status?: UserListPrepopulationStatus;
-  readonly flexible_rule_user_list?: unknown;
+  readonly flexible_rule_user_list?: FlexibleRuleUserListInfo;
 }
 export interface RuleBasedUserListInfoEncoded {
   readonly prepopulation_status?: UserListPrepopulationStatusEncoded;
-  readonly flexible_rule_user_list?: unknown;
+  readonly flexible_rule_user_list?: FlexibleRuleUserListInfoEncoded;
 }
 export const RuleBasedUserListInfo: Schema.Schema<RuleBasedUserListInfo, RuleBasedUserListInfoEncoded, never> = Schema.Struct({
   prepopulation_status: Schema.optional(Schema.suspend(() => UserListPrepopulationStatus)),
-  flexible_rule_user_list: Schema.optional(Schema.Unknown),
+  flexible_rule_user_list: Schema.optional(Schema.suspend(() => FlexibleRuleUserListInfo)),
 });
 
 export interface RunBatchJobRequest {
@@ -30542,19 +30542,19 @@ export const RunOfflineUserDataJobRequest: Schema.Schema<RunOfflineUserDataJobRe
 });
 
 export interface SampleChannel {
-  readonly youtube_channel?: unknown;
+  readonly youtube_channel?: YouTubeChannelInfo;
   readonly display_name?: string;
-  readonly youtube_channel_metadata?: unknown;
+  readonly youtube_channel_metadata?: YouTubeChannelAttributeMetadata;
 }
 export interface SampleChannelEncoded {
-  readonly youtube_channel?: unknown;
+  readonly youtube_channel?: YouTubeChannelInfoEncoded;
   readonly display_name?: string;
-  readonly youtube_channel_metadata?: unknown;
+  readonly youtube_channel_metadata?: YouTubeChannelAttributeMetadataEncoded;
 }
 export const SampleChannel: Schema.Schema<SampleChannel, SampleChannelEncoded, never> = Schema.Struct({
-  youtube_channel: Schema.optional(Schema.Unknown),
+  youtube_channel: Schema.optional(Schema.suspend(() => YouTubeChannelInfo)),
   display_name: Schema.optional(Schema.String),
-  youtube_channel_metadata: Schema.optional(Schema.Unknown),
+  youtube_channel_metadata: Schema.optional(Schema.suspend(() => YouTubeChannelAttributeMetadata)),
 });
 
 export interface ScheduleExperimentMetadata {
@@ -30671,7 +30671,7 @@ export interface SearchGoogleAdsRequest {
   readonly page_token?: string;
   readonly page_size?: number;
   readonly validate_only?: boolean;
-  readonly search_settings?: unknown;
+  readonly search_settings?: SearchSettings;
 }
 export interface SearchGoogleAdsRequestEncoded {
   readonly customer_id?: string;
@@ -30679,7 +30679,7 @@ export interface SearchGoogleAdsRequestEncoded {
   readonly page_token?: string;
   readonly page_size?: number;
   readonly validate_only?: boolean;
-  readonly search_settings?: unknown;
+  readonly search_settings?: SearchSettingsEncoded;
 }
 export const SearchGoogleAdsRequest: Schema.Schema<SearchGoogleAdsRequest, SearchGoogleAdsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
@@ -30687,35 +30687,35 @@ export const SearchGoogleAdsRequest: Schema.Schema<SearchGoogleAdsRequest, Searc
   page_token: Schema.optional(Schema.String),
   page_size: Schema.optional(Schema.Int),
   validate_only: Schema.optional(Schema.Boolean),
-  search_settings: Schema.optional(Schema.Unknown),
+  search_settings: Schema.optional(Schema.suspend(() => SearchSettings)),
 });
 
 export interface SearchGoogleAdsResponse {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GoogleAdsRow>;
   readonly next_page_token?: string;
   readonly total_results_count?: string;
-  readonly field_mask?: unknown;
-  readonly summary_row?: unknown;
+  readonly field_mask?: string;
+  readonly summary_row?: GoogleAdsRow;
   readonly query_resource_consumption?: string;
-  readonly metric_attributes?: ReadonlyArray<unknown>;
+  readonly metric_attributes?: ReadonlyArray<MetricAttributes>;
 }
 export interface SearchGoogleAdsResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<GoogleAdsRowEncoded>;
   readonly next_page_token?: string;
   readonly total_results_count?: string;
-  readonly field_mask?: unknown;
-  readonly summary_row?: unknown;
+  readonly field_mask?: string;
+  readonly summary_row?: GoogleAdsRowEncoded;
   readonly query_resource_consumption?: string;
-  readonly metric_attributes?: ReadonlyArray<unknown>;
+  readonly metric_attributes?: ReadonlyArray<MetricAttributesEncoded>;
 }
 export const SearchGoogleAdsResponse: Schema.Schema<SearchGoogleAdsResponse, SearchGoogleAdsResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => GoogleAdsRow))),
   next_page_token: Schema.optional(Schema.String),
   total_results_count: Schema.optional(Schema.String),
-  field_mask: Schema.optional(Schema.Unknown),
-  summary_row: Schema.optional(Schema.Unknown),
+  field_mask: Schema.optional(Schema.String),
+  summary_row: Schema.optional(Schema.suspend(() => GoogleAdsRow)),
   query_resource_consumption: Schema.optional(Schema.String),
-  metric_attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  metric_attributes: Schema.optional(Schema.Array(Schema.suspend(() => MetricAttributes))),
 });
 
 export interface SearchGoogleAdsStreamRequest {
@@ -30735,28 +30735,28 @@ export const SearchGoogleAdsStreamRequest: Schema.Schema<SearchGoogleAdsStreamRe
 });
 
 export interface SearchGoogleAdsStreamResponse {
-  readonly results?: ReadonlyArray<unknown>;
-  readonly field_mask?: unknown;
-  readonly summary_row?: unknown;
+  readonly results?: ReadonlyArray<GoogleAdsRow>;
+  readonly field_mask?: string;
+  readonly summary_row?: GoogleAdsRow;
   readonly request_id?: string;
   readonly query_resource_consumption?: string;
-  readonly metric_attributes?: ReadonlyArray<unknown>;
+  readonly metric_attributes?: ReadonlyArray<MetricAttributes>;
 }
 export interface SearchGoogleAdsStreamResponseEncoded {
-  readonly results?: ReadonlyArray<unknown>;
-  readonly field_mask?: unknown;
-  readonly summary_row?: unknown;
+  readonly results?: ReadonlyArray<GoogleAdsRowEncoded>;
+  readonly field_mask?: string;
+  readonly summary_row?: GoogleAdsRowEncoded;
   readonly request_id?: string;
   readonly query_resource_consumption?: string;
-  readonly metric_attributes?: ReadonlyArray<unknown>;
+  readonly metric_attributes?: ReadonlyArray<MetricAttributesEncoded>;
 }
 export const SearchGoogleAdsStreamResponse: Schema.Schema<SearchGoogleAdsStreamResponse, SearchGoogleAdsStreamResponseEncoded, never> = Schema.Struct({
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
-  field_mask: Schema.optional(Schema.Unknown),
-  summary_row: Schema.optional(Schema.Unknown),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => GoogleAdsRow))),
+  field_mask: Schema.optional(Schema.String),
+  summary_row: Schema.optional(Schema.suspend(() => GoogleAdsRow)),
   request_id: Schema.optional(Schema.String),
   query_resource_consumption: Schema.optional(Schema.String),
-  metric_attributes: Schema.optional(Schema.Array(Schema.Unknown)),
+  metric_attributes: Schema.optional(Schema.Array(Schema.suspend(() => MetricAttributes))),
 });
 
 export interface SearchPartnersOptInRecommendation {
@@ -30962,7 +30962,7 @@ export interface Segments {
   readonly ad_sub_network_type?: AdSubNetworkType;
   readonly asset_group?: string;
   readonly auction_insight_domain?: string;
-  readonly budget_campaign_association_status?: unknown;
+  readonly budget_campaign_association_status?: BudgetCampaignAssociationStatus;
   readonly campaign?: string;
   readonly click_type?: ClickType;
   readonly conversion_action?: string;
@@ -31004,7 +31004,7 @@ export interface Segments {
   readonly hotel_state?: string;
   readonly hour?: number;
   readonly interaction_on_this_extension?: boolean;
-  readonly keyword?: unknown;
+  readonly keyword?: Keyword;
   readonly landing_page_source?: LandingPageSource;
   readonly month?: string;
   readonly month_of_year?: MonthOfYear;
@@ -31085,14 +31085,14 @@ export interface Segments {
   readonly sk_ad_network_redistributed_fine_conversion_value?: string;
   readonly sk_ad_network_user_type?: SkAdNetworkUserType;
   readonly sk_ad_network_ad_event_type?: SkAdNetworkAdEventType;
-  readonly sk_ad_network_source_app?: unknown;
+  readonly sk_ad_network_source_app?: SkAdNetworkSourceApp;
   readonly sk_ad_network_attribution_credit?: SkAdNetworkAttributionCredit;
   readonly sk_ad_network_coarse_conversion_value?: SkAdNetworkCoarseConversionValue;
   readonly sk_ad_network_source_domain?: string;
   readonly sk_ad_network_source_type?: SkAdNetworkSourceType;
   readonly sk_ad_network_postback_sequence_index?: string;
   readonly sk_ad_network_version?: string;
-  readonly asset_interaction_target?: unknown;
+  readonly asset_interaction_target?: AssetInteractionTarget;
   readonly new_versus_returning_customers?: ConvertingUserPriorEngagementTypeAndLtvBucket;
   readonly adjusted_age_range?: AgeRangeType;
   readonly adjusted_gender?: GenderType;
@@ -31116,7 +31116,7 @@ export interface SegmentsEncoded {
   readonly ad_sub_network_type?: AdSubNetworkTypeEncoded;
   readonly asset_group?: string;
   readonly auction_insight_domain?: string;
-  readonly budget_campaign_association_status?: unknown;
+  readonly budget_campaign_association_status?: BudgetCampaignAssociationStatusEncoded;
   readonly campaign?: string;
   readonly click_type?: ClickTypeEncoded;
   readonly conversion_action?: string;
@@ -31158,7 +31158,7 @@ export interface SegmentsEncoded {
   readonly hotel_state?: string;
   readonly hour?: number;
   readonly interaction_on_this_extension?: boolean;
-  readonly keyword?: unknown;
+  readonly keyword?: KeywordEncoded;
   readonly landing_page_source?: LandingPageSourceEncoded;
   readonly month?: string;
   readonly month_of_year?: MonthOfYearEncoded;
@@ -31239,14 +31239,14 @@ export interface SegmentsEncoded {
   readonly sk_ad_network_redistributed_fine_conversion_value?: string;
   readonly sk_ad_network_user_type?: SkAdNetworkUserTypeEncoded;
   readonly sk_ad_network_ad_event_type?: SkAdNetworkAdEventTypeEncoded;
-  readonly sk_ad_network_source_app?: unknown;
+  readonly sk_ad_network_source_app?: SkAdNetworkSourceAppEncoded;
   readonly sk_ad_network_attribution_credit?: SkAdNetworkAttributionCreditEncoded;
   readonly sk_ad_network_coarse_conversion_value?: SkAdNetworkCoarseConversionValueEncoded;
   readonly sk_ad_network_source_domain?: string;
   readonly sk_ad_network_source_type?: SkAdNetworkSourceTypeEncoded;
   readonly sk_ad_network_postback_sequence_index?: string;
   readonly sk_ad_network_version?: string;
-  readonly asset_interaction_target?: unknown;
+  readonly asset_interaction_target?: AssetInteractionTargetEncoded;
   readonly new_versus_returning_customers?: ConvertingUserPriorEngagementTypeAndLtvBucketEncoded;
   readonly adjusted_age_range?: AgeRangeTypeEncoded;
   readonly adjusted_gender?: GenderTypeEncoded;
@@ -31270,7 +31270,7 @@ export const Segments: Schema.Schema<Segments, SegmentsEncoded, never> = Schema.
   ad_sub_network_type: Schema.optional(Schema.suspend(() => AdSubNetworkType)),
   asset_group: Schema.optional(Schema.String),
   auction_insight_domain: Schema.optional(Schema.String),
-  budget_campaign_association_status: Schema.optional(Schema.Unknown),
+  budget_campaign_association_status: Schema.optional(Schema.suspend(() => BudgetCampaignAssociationStatus)),
   campaign: Schema.optional(Schema.String),
   click_type: Schema.optional(Schema.suspend(() => ClickType)),
   conversion_action: Schema.optional(Schema.String),
@@ -31312,7 +31312,7 @@ export const Segments: Schema.Schema<Segments, SegmentsEncoded, never> = Schema.
   hotel_state: Schema.optional(Schema.String),
   hour: Schema.optional(Schema.Int),
   interaction_on_this_extension: Schema.optional(Schema.Boolean),
-  keyword: Schema.optional(Schema.Unknown),
+  keyword: Schema.optional(Schema.suspend(() => Keyword)),
   landing_page_source: Schema.optional(Schema.suspend(() => LandingPageSource)),
   month: Schema.optional(Schema.String),
   month_of_year: Schema.optional(Schema.suspend(() => MonthOfYear)),
@@ -31393,14 +31393,14 @@ export const Segments: Schema.Schema<Segments, SegmentsEncoded, never> = Schema.
   sk_ad_network_redistributed_fine_conversion_value: Schema.optional(Schema.String),
   sk_ad_network_user_type: Schema.optional(Schema.suspend(() => SkAdNetworkUserType)),
   sk_ad_network_ad_event_type: Schema.optional(Schema.suspend(() => SkAdNetworkAdEventType)),
-  sk_ad_network_source_app: Schema.optional(Schema.Unknown),
+  sk_ad_network_source_app: Schema.optional(Schema.suspend(() => SkAdNetworkSourceApp)),
   sk_ad_network_attribution_credit: Schema.optional(Schema.suspend(() => SkAdNetworkAttributionCredit)),
   sk_ad_network_coarse_conversion_value: Schema.optional(Schema.suspend(() => SkAdNetworkCoarseConversionValue)),
   sk_ad_network_source_domain: Schema.optional(Schema.String),
   sk_ad_network_source_type: Schema.optional(Schema.suspend(() => SkAdNetworkSourceType)),
   sk_ad_network_postback_sequence_index: Schema.optional(Schema.String),
   sk_ad_network_version: Schema.optional(Schema.String),
-  asset_interaction_target: Schema.optional(Schema.Unknown),
+  asset_interaction_target: Schema.optional(Schema.suspend(() => AssetInteractionTarget)),
   new_versus_returning_customers: Schema.optional(Schema.suspend(() => ConvertingUserPriorEngagementTypeAndLtvBucket)),
   adjusted_age_range: Schema.optional(Schema.suspend(() => AgeRangeType)),
   adjusted_gender: Schema.optional(Schema.suspend(() => GenderType)),
@@ -31435,13 +31435,13 @@ export const ServedAssetFieldTypeEnum: Schema.Schema<ServedAssetFieldTypeEnum, S
 });
 
 export interface services_Metrics {
-  readonly average_rate_metrics?: unknown;
+  readonly average_rate_metrics?: RateMetrics;
 }
 export interface services_MetricsEncoded {
-  readonly average_rate_metrics?: unknown;
+  readonly average_rate_metrics?: RateMetricsEncoded;
 }
 export const services_Metrics: Schema.Schema<services_Metrics, services_MetricsEncoded, never> = Schema.Struct({
-  average_rate_metrics: Schema.optional(Schema.Unknown),
+  average_rate_metrics: Schema.optional(Schema.suspend(() => RateMetrics)),
 });
 
 export interface SessionAttributeKeyValuePair {
@@ -31458,13 +31458,13 @@ export const SessionAttributeKeyValuePair: Schema.Schema<SessionAttributeKeyValu
 });
 
 export interface SessionAttributesKeyValuePairs {
-  readonly key_value_pairs?: ReadonlyArray<unknown>;
+  readonly key_value_pairs?: ReadonlyArray<SessionAttributeKeyValuePair>;
 }
 export interface SessionAttributesKeyValuePairsEncoded {
-  readonly key_value_pairs?: ReadonlyArray<unknown>;
+  readonly key_value_pairs?: ReadonlyArray<SessionAttributeKeyValuePairEncoded>;
 }
 export const SessionAttributesKeyValuePairs: Schema.Schema<SessionAttributesKeyValuePairs, SessionAttributesKeyValuePairsEncoded, never> = Schema.Struct({
-  key_value_pairs: Schema.optional(Schema.Array(Schema.Unknown)),
+  key_value_pairs: Schema.optional(Schema.Array(Schema.suspend(() => SessionAttributeKeyValuePair))),
 });
 
 export type SettingError = "UNSPECIFIED" | "UNKNOWN" | "SETTING_TYPE_IS_NOT_AVAILABLE" | "SETTING_TYPE_IS_NOT_COMPATIBLE_WITH_CAMPAIGN" | "TARGETING_SETTING_CONTAINS_INVALID_CRITERION_TYPE_GROUP" | "TARGETING_SETTING_DEMOGRAPHIC_CRITERION_TYPE_GROUPS_MUST_BE_SET_TO_TARGET_ALL" | "TARGETING_SETTING_CANNOT_CHANGE_TARGET_ALL_TO_FALSE_FOR_DEMOGRAPHIC_CRITERION_TYPE_GROUP" | "DYNAMIC_SEARCH_ADS_SETTING_AT_LEAST_ONE_FEED_ID_MUST_BE_PRESENT" | "DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_DOMAIN_NAME" | "DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_SUBDOMAIN_NAME" | "DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_LANGUAGE_CODE" | "TARGET_ALL_IS_NOT_ALLOWED_FOR_PLACEMENT_IN_SEARCH_CAMPAIGN" | "SETTING_VALUE_NOT_COMPATIBLE_WITH_CAMPAIGN" | "BID_ONLY_IS_NOT_ALLOWED_TO_BE_MODIFIED_WITH_CUSTOMER_MATCH_TARGETING";
@@ -31513,22 +31513,22 @@ export const ShareablePreviewErrorEnum: Schema.Schema<ShareablePreviewErrorEnum,
 
 export interface ShareablePreviewResult {
   readonly expiration_date_time?: string;
-  readonly ui_preview_result?: unknown;
-  readonly youtube_live_preview_result?: unknown;
+  readonly ui_preview_result?: UiPreviewResult;
+  readonly youtube_live_preview_result?: YouTubeLivePreviewResult;
   readonly ad_group_ad?: string;
   readonly asset_group?: string;
 }
 export interface ShareablePreviewResultEncoded {
   readonly expiration_date_time?: string;
-  readonly ui_preview_result?: unknown;
-  readonly youtube_live_preview_result?: unknown;
+  readonly ui_preview_result?: UiPreviewResultEncoded;
+  readonly youtube_live_preview_result?: YouTubeLivePreviewResultEncoded;
   readonly ad_group_ad?: string;
   readonly asset_group?: string;
 }
 export const ShareablePreviewResult: Schema.Schema<ShareablePreviewResult, ShareablePreviewResultEncoded, never> = Schema.Struct({
   expiration_date_time: Schema.optional(Schema.String),
-  ui_preview_result: Schema.optional(Schema.Unknown),
-  youtube_live_preview_result: Schema.optional(Schema.Unknown),
+  ui_preview_result: Schema.optional(Schema.suspend(() => UiPreviewResult)),
+  youtube_live_preview_result: Schema.optional(Schema.suspend(() => YouTubeLivePreviewResult)),
   ad_group_ad: Schema.optional(Schema.String),
   asset_group: Schema.optional(Schema.String),
 });
@@ -31658,19 +31658,19 @@ export const SharedSetErrorEnum: Schema.Schema<SharedSetErrorEnum, SharedSetErro
 });
 
 export interface SharedSetOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: SharedSet;
   readonly update?: SharedSet;
   readonly remove?: string;
 }
 export interface SharedSetOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: SharedSetEncoded;
   readonly update?: SharedSetEncoded;
   readonly remove?: string;
 }
 export const SharedSetOperation: Schema.Schema<SharedSetOperation, SharedSetOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => SharedSet)),
   update: Schema.optional(Schema.suspend(() => SharedSet)),
   remove: Schema.optional(Schema.String),
@@ -31705,17 +31705,17 @@ export const SharedSetTypeEnum: Schema.Schema<SharedSetTypeEnum, SharedSetTypeEn
 });
 
 export interface ShoppingAddProductsToCampaignRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly feed_label?: string;
   readonly reason?: Reason;
 }
 export interface ShoppingAddProductsToCampaignRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly feed_label?: string;
   readonly reason?: ReasonEncoded;
 }
 export const ShoppingAddProductsToCampaignRecommendation: Schema.Schema<ShoppingAddProductsToCampaignRecommendation, ShoppingAddProductsToCampaignRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   feed_label: Schema.optional(Schema.String),
   reason: Schema.optional(Schema.suspend(() => Reason)),
 });
@@ -31741,19 +31741,19 @@ export const ShoppingComparisonListingAdInfo: Schema.Schema<ShoppingComparisonLi
 });
 
 export interface ShoppingFixDisapprovedProductsRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly feed_label?: string;
   readonly products_count?: string;
   readonly disapproved_products_count?: string;
 }
 export interface ShoppingFixDisapprovedProductsRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly feed_label?: string;
   readonly products_count?: string;
   readonly disapproved_products_count?: string;
 }
 export const ShoppingFixDisapprovedProductsRecommendation: Schema.Schema<ShoppingFixDisapprovedProductsRecommendation, ShoppingFixDisapprovedProductsRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   feed_label: Schema.optional(Schema.String),
   products_count: Schema.optional(Schema.String),
   disapproved_products_count: Schema.optional(Schema.String),
@@ -31770,45 +31770,45 @@ export const ShoppingLoyalty: Schema.Schema<ShoppingLoyalty, ShoppingLoyaltyEnco
 });
 
 export interface ShoppingMerchantCenterAccountSuspensionRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly feed_label?: string;
 }
 export interface ShoppingMerchantCenterAccountSuspensionRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly feed_label?: string;
 }
 export const ShoppingMerchantCenterAccountSuspensionRecommendation: Schema.Schema<ShoppingMerchantCenterAccountSuspensionRecommendation, ShoppingMerchantCenterAccountSuspensionRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   feed_label: Schema.optional(Schema.String),
 });
 
 export interface ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly feed_label?: string;
 }
 export interface ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly feed_label?: string;
 }
 export const ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation: Schema.Schema<ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation, ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   feed_label: Schema.optional(Schema.String),
 });
 
 export interface ShoppingOfferAttributeRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly feed_label?: string;
   readonly offers_count?: string;
   readonly demoted_offers_count?: string;
 }
 export interface ShoppingOfferAttributeRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly feed_label?: string;
   readonly offers_count?: string;
   readonly demoted_offers_count?: string;
 }
 export const ShoppingOfferAttributeRecommendation: Schema.Schema<ShoppingOfferAttributeRecommendation, ShoppingOfferAttributeRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   feed_label: Schema.optional(Schema.String),
   offers_count: Schema.optional(Schema.String),
   demoted_offers_count: Schema.optional(Schema.String),
@@ -31858,7 +31858,7 @@ export interface ShoppingProduct {
   readonly product_type_level5?: string;
   readonly effective_max_cpc_micros?: string;
   readonly status?: ProductStatus;
-  readonly issues?: ReadonlyArray<unknown>;
+  readonly issues?: ReadonlyArray<ProductIssue>;
   readonly campaign?: string;
   readonly ad_group?: string;
 }
@@ -31896,7 +31896,7 @@ export interface ShoppingProductEncoded {
   readonly product_type_level5?: string;
   readonly effective_max_cpc_micros?: string;
   readonly status?: ProductStatusEncoded;
-  readonly issues?: ReadonlyArray<unknown>;
+  readonly issues?: ReadonlyArray<ProductIssueEncoded>;
   readonly campaign?: string;
   readonly ad_group?: string;
 }
@@ -31934,7 +31934,7 @@ export const ShoppingProduct: Schema.Schema<ShoppingProduct, ShoppingProductEnco
   product_type_level5: Schema.optional(Schema.String),
   effective_max_cpc_micros: Schema.optional(Schema.String),
   status: Schema.optional(Schema.suspend(() => ProductStatus)),
-  issues: Schema.optional(Schema.Array(Schema.Unknown)),
+  issues: Schema.optional(Schema.Array(Schema.suspend(() => ProductIssue))),
   campaign: Schema.optional(Schema.String),
   ad_group: Schema.optional(Schema.String),
 });
@@ -32005,17 +32005,17 @@ export const ShoppingSmartAdInfo: Schema.Schema<ShoppingSmartAdInfo, ShoppingSma
 });
 
 export interface ShoppingTargetAllOffersRecommendation {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfo;
   readonly untargeted_offers_count?: string;
   readonly feed_label?: string;
 }
 export interface ShoppingTargetAllOffersRecommendationEncoded {
-  readonly merchant?: unknown;
+  readonly merchant?: MerchantInfoEncoded;
   readonly untargeted_offers_count?: string;
   readonly feed_label?: string;
 }
 export const ShoppingTargetAllOffersRecommendation: Schema.Schema<ShoppingTargetAllOffersRecommendation, ShoppingTargetAllOffersRecommendationEncoded, never> = Schema.Struct({
-  merchant: Schema.optional(Schema.Unknown),
+  merchant: Schema.optional(Schema.suspend(() => MerchantInfo)),
   untargeted_offers_count: Schema.optional(Schema.String),
   feed_label: Schema.optional(Schema.String),
 });
@@ -32064,7 +32064,7 @@ export interface SitelinkAsset {
   readonly description2?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfo>;
 }
 export interface SitelinkAssetEncoded {
   readonly link_text?: string;
@@ -32072,7 +32072,7 @@ export interface SitelinkAssetEncoded {
   readonly description2?: string;
   readonly start_date?: string;
   readonly end_date?: string;
-  readonly ad_schedule_targets?: ReadonlyArray<unknown>;
+  readonly ad_schedule_targets?: ReadonlyArray<AdScheduleInfoEncoded>;
 }
 export const SitelinkAsset: Schema.Schema<SitelinkAsset, SitelinkAssetEncoded, never> = Schema.Struct({
   link_text: Schema.optional(Schema.String),
@@ -32080,30 +32080,30 @@ export const SitelinkAsset: Schema.Schema<SitelinkAsset, SitelinkAssetEncoded, n
   description2: Schema.optional(Schema.String),
   start_date: Schema.optional(Schema.String),
   end_date: Schema.optional(Schema.String),
-  ad_schedule_targets: Schema.optional(Schema.Array(Schema.Unknown)),
+  ad_schedule_targets: Schema.optional(Schema.Array(Schema.suspend(() => AdScheduleInfo))),
 });
 
 export interface SitelinkAssetParameters {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParameters;
 }
 export interface SitelinkAssetParametersEncoded {
-  readonly ad_asset_apply_parameters?: unknown;
+  readonly ad_asset_apply_parameters?: AdAssetApplyParametersEncoded;
 }
 export const SitelinkAssetParameters: Schema.Schema<SitelinkAssetParameters, SitelinkAssetParametersEncoded, never> = Schema.Struct({
-  ad_asset_apply_parameters: Schema.optional(Schema.Unknown),
+  ad_asset_apply_parameters: Schema.optional(Schema.suspend(() => AdAssetApplyParameters)),
 });
 
 export interface SitelinkAssetRecommendation {
-  readonly recommended_campaign_sitelink_assets?: ReadonlyArray<unknown>;
-  readonly recommended_customer_sitelink_assets?: ReadonlyArray<unknown>;
+  readonly recommended_campaign_sitelink_assets?: ReadonlyArray<Asset>;
+  readonly recommended_customer_sitelink_assets?: ReadonlyArray<Asset>;
 }
 export interface SitelinkAssetRecommendationEncoded {
-  readonly recommended_campaign_sitelink_assets?: ReadonlyArray<unknown>;
-  readonly recommended_customer_sitelink_assets?: ReadonlyArray<unknown>;
+  readonly recommended_campaign_sitelink_assets?: ReadonlyArray<AssetEncoded>;
+  readonly recommended_customer_sitelink_assets?: ReadonlyArray<AssetEncoded>;
 }
 export const SitelinkAssetRecommendation: Schema.Schema<SitelinkAssetRecommendation, SitelinkAssetRecommendationEncoded, never> = Schema.Struct({
-  recommended_campaign_sitelink_assets: Schema.optional(Schema.Array(Schema.Unknown)),
-  recommended_customer_sitelink_assets: Schema.optional(Schema.Array(Schema.Unknown)),
+  recommended_campaign_sitelink_assets: Schema.optional(Schema.Array(Schema.suspend(() => Asset))),
+  recommended_customer_sitelink_assets: Schema.optional(Schema.Array(Schema.suspend(() => Asset))),
 });
 
 export interface SitelinkExtensionParameters {
@@ -32123,7 +32123,7 @@ export interface SitelinkFeedItem {
   readonly final_urls?: ReadonlyArray<string>;
   readonly final_mobile_urls?: ReadonlyArray<string>;
   readonly tracking_url_template?: string;
-  readonly url_custom_parameters?: ReadonlyArray<unknown>;
+  readonly url_custom_parameters?: ReadonlyArray<CustomParameter>;
   readonly final_url_suffix?: string;
 }
 export interface SitelinkFeedItemEncoded {
@@ -32133,7 +32133,7 @@ export interface SitelinkFeedItemEncoded {
   readonly final_urls?: ReadonlyArray<string>;
   readonly final_mobile_urls?: ReadonlyArray<string>;
   readonly tracking_url_template?: string;
-  readonly url_custom_parameters?: ReadonlyArray<unknown>;
+  readonly url_custom_parameters?: ReadonlyArray<CustomParameterEncoded>;
   readonly final_url_suffix?: string;
 }
 export const SitelinkFeedItem: Schema.Schema<SitelinkFeedItem, SitelinkFeedItemEncoded, never> = Schema.Struct({
@@ -32143,7 +32143,7 @@ export const SitelinkFeedItem: Schema.Schema<SitelinkFeedItem, SitelinkFeedItemE
   final_urls: Schema.optional(Schema.Array(Schema.String)),
   final_mobile_urls: Schema.optional(Schema.Array(Schema.String)),
   tracking_url_template: Schema.optional(Schema.String),
-  url_custom_parameters: Schema.optional(Schema.Array(Schema.Unknown)),
+  url_custom_parameters: Schema.optional(Schema.Array(Schema.suspend(() => CustomParameter))),
   final_url_suffix: Schema.optional(Schema.String),
 });
 
@@ -32216,20 +32216,20 @@ export const SkAdNetworkCoarseConversionValueEnum: Schema.Schema<SkAdNetworkCoar
 export interface SkAdNetworkConversionValueSchema {
   readonly app_id?: string;
   readonly measurement_window_hours?: number;
-  readonly fine_grained_conversion_value_mappings?: ReadonlyArray<unknown>;
-  readonly postback_mappings?: ReadonlyArray<unknown>;
+  readonly fine_grained_conversion_value_mappings?: ReadonlyArray<FineGrainedConversionValueMappings>;
+  readonly postback_mappings?: ReadonlyArray<PostbackMapping>;
 }
 export interface SkAdNetworkConversionValueSchemaEncoded {
   readonly app_id?: string;
   readonly measurement_window_hours?: number;
-  readonly fine_grained_conversion_value_mappings?: ReadonlyArray<unknown>;
-  readonly postback_mappings?: ReadonlyArray<unknown>;
+  readonly fine_grained_conversion_value_mappings?: ReadonlyArray<FineGrainedConversionValueMappingsEncoded>;
+  readonly postback_mappings?: ReadonlyArray<PostbackMappingEncoded>;
 }
 export const SkAdNetworkConversionValueSchema: Schema.Schema<SkAdNetworkConversionValueSchema, SkAdNetworkConversionValueSchemaEncoded, never> = Schema.Struct({
   app_id: Schema.optional(Schema.String),
   measurement_window_hours: Schema.optional(Schema.Int),
-  fine_grained_conversion_value_mappings: Schema.optional(Schema.Array(Schema.Unknown)),
-  postback_mappings: Schema.optional(Schema.Array(Schema.Unknown)),
+  fine_grained_conversion_value_mappings: Schema.optional(Schema.Array(Schema.suspend(() => FineGrainedConversionValueMappings))),
+  postback_mappings: Schema.optional(Schema.Array(Schema.suspend(() => PostbackMapping))),
 });
 
 export interface SkAdNetworkSourceApp {
@@ -32285,16 +32285,16 @@ export const SlotEnum: Schema.Schema<SlotEnum, SlotEnumEncoded, never> = Schema.
 });
 
 export interface SmartCampaignAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
 }
 export interface SmartCampaignAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
 }
 export const SmartCampaignAdInfo: Schema.Schema<SmartCampaignAdInfo, SmartCampaignAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
 });
 
 export interface SmartCampaignEligibleDetails {
@@ -32397,45 +32397,45 @@ export const SmartCampaignSearchTermView: Schema.Schema<SmartCampaignSearchTermV
 export interface SmartCampaignSetting {
   readonly resource_name?: string;
   readonly campaign?: string;
-  readonly phone_number?: unknown;
+  readonly phone_number?: PhoneNumber;
   readonly advertising_language_code?: string;
   readonly final_url?: string;
-  readonly ad_optimized_business_profile_setting?: unknown;
+  readonly ad_optimized_business_profile_setting?: AdOptimizedBusinessProfileSetting;
   readonly business_name?: string;
   readonly business_profile_location?: string;
 }
 export interface SmartCampaignSettingEncoded {
   readonly resource_name?: string;
   readonly campaign?: string;
-  readonly phone_number?: unknown;
+  readonly phone_number?: PhoneNumberEncoded;
   readonly advertising_language_code?: string;
   readonly final_url?: string;
-  readonly ad_optimized_business_profile_setting?: unknown;
+  readonly ad_optimized_business_profile_setting?: AdOptimizedBusinessProfileSettingEncoded;
   readonly business_name?: string;
   readonly business_profile_location?: string;
 }
 export const SmartCampaignSetting: Schema.Schema<SmartCampaignSetting, SmartCampaignSettingEncoded, never> = Schema.Struct({
   resource_name: Schema.optional(Schema.String),
   campaign: Schema.optional(Schema.String),
-  phone_number: Schema.optional(Schema.Unknown),
+  phone_number: Schema.optional(Schema.suspend(() => PhoneNumber)),
   advertising_language_code: Schema.optional(Schema.String),
   final_url: Schema.optional(Schema.String),
-  ad_optimized_business_profile_setting: Schema.optional(Schema.Unknown),
+  ad_optimized_business_profile_setting: Schema.optional(Schema.suspend(() => AdOptimizedBusinessProfileSetting)),
   business_name: Schema.optional(Schema.String),
   business_profile_location: Schema.optional(Schema.String),
 });
 
 export interface SmartCampaignSettingOperation {
   readonly update?: SmartCampaignSetting;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export interface SmartCampaignSettingOperationEncoded {
   readonly update?: SmartCampaignSettingEncoded;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export const SmartCampaignSettingOperation: Schema.Schema<SmartCampaignSettingOperation, SmartCampaignSettingOperationEncoded, never> = Schema.Struct({
   update: Schema.optional(Schema.suspend(() => SmartCampaignSetting)),
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
 });
 
 export type SmartCampaignStatus = "UNSPECIFIED" | "UNKNOWN" | "PAUSED" | "NOT_ELIGIBLE" | "PENDING" | "ELIGIBLE" | "REMOVED" | "ENDED";
@@ -32457,9 +32457,9 @@ export interface SmartCampaignSuggestionInfo {
   readonly language_code?: string;
   readonly ad_schedules?: ReadonlyArray<AdScheduleInfo>;
   readonly keyword_themes?: ReadonlyArray<KeywordThemeInfo>;
-  readonly business_context?: unknown;
+  readonly business_context?: BusinessContext;
   readonly business_profile_location?: string;
-  readonly location_list?: unknown;
+  readonly location_list?: LocationList;
   readonly proximity?: ProximityInfo;
 }
 export interface SmartCampaignSuggestionInfoEncoded {
@@ -32467,9 +32467,9 @@ export interface SmartCampaignSuggestionInfoEncoded {
   readonly language_code?: string;
   readonly ad_schedules?: ReadonlyArray<AdScheduleInfoEncoded>;
   readonly keyword_themes?: ReadonlyArray<KeywordThemeInfoEncoded>;
-  readonly business_context?: unknown;
+  readonly business_context?: BusinessContextEncoded;
   readonly business_profile_location?: string;
-  readonly location_list?: unknown;
+  readonly location_list?: LocationListEncoded;
   readonly proximity?: ProximityInfoEncoded;
 }
 export const SmartCampaignSuggestionInfo: Schema.Schema<SmartCampaignSuggestionInfo, SmartCampaignSuggestionInfoEncoded, never> = Schema.Struct({
@@ -32477,9 +32477,9 @@ export const SmartCampaignSuggestionInfo: Schema.Schema<SmartCampaignSuggestionI
   language_code: Schema.optional(Schema.String),
   ad_schedules: Schema.optional(Schema.Array(Schema.suspend(() => AdScheduleInfo))),
   keyword_themes: Schema.optional(Schema.Array(Schema.suspend(() => KeywordThemeInfo))),
-  business_context: Schema.optional(Schema.Unknown),
+  business_context: Schema.optional(Schema.suspend(() => BusinessContext)),
   business_profile_location: Schema.optional(Schema.String),
-  location_list: Schema.optional(Schema.Unknown),
+  location_list: Schema.optional(Schema.suspend(() => LocationList)),
   proximity: Schema.optional(Schema.suspend(() => ProximityInfo)),
 });
 
@@ -32547,19 +32547,19 @@ export interface StoreSalesMetadata {
   readonly loyalty_fraction?: number;
   readonly transaction_upload_fraction?: number;
   readonly custom_key?: string;
-  readonly third_party_metadata?: unknown;
+  readonly third_party_metadata?: StoreSalesThirdPartyMetadata;
 }
 export interface StoreSalesMetadataEncoded {
   readonly loyalty_fraction?: number;
   readonly transaction_upload_fraction?: number;
   readonly custom_key?: string;
-  readonly third_party_metadata?: unknown;
+  readonly third_party_metadata?: StoreSalesThirdPartyMetadataEncoded;
 }
 export const StoreSalesMetadata: Schema.Schema<StoreSalesMetadata, StoreSalesMetadataEncoded, never> = Schema.Struct({
   loyalty_fraction: Schema.optional(Schema.Number),
   transaction_upload_fraction: Schema.optional(Schema.Number),
   custom_key: Schema.optional(Schema.String),
-  third_party_metadata: Schema.optional(Schema.Unknown),
+  third_party_metadata: Schema.optional(Schema.suspend(() => StoreSalesThirdPartyMetadata)),
 });
 
 export interface StoreSalesThirdPartyMetadata {
@@ -32645,42 +32645,42 @@ export const SuggestBrandsRequest: Schema.Schema<SuggestBrandsRequest, SuggestBr
 });
 
 export interface SuggestBrandsResponse {
-  readonly brands?: ReadonlyArray<unknown>;
+  readonly brands?: ReadonlyArray<BrandSuggestion>;
 }
 export interface SuggestBrandsResponseEncoded {
-  readonly brands?: ReadonlyArray<unknown>;
+  readonly brands?: ReadonlyArray<BrandSuggestionEncoded>;
 }
 export const SuggestBrandsResponse: Schema.Schema<SuggestBrandsResponse, SuggestBrandsResponseEncoded, never> = Schema.Struct({
-  brands: Schema.optional(Schema.Array(Schema.Unknown)),
+  brands: Schema.optional(Schema.Array(Schema.suspend(() => BrandSuggestion))),
 });
 
 export interface SuggestGeoTargetConstantsRequest {
   readonly locale?: string;
   readonly country_code?: string;
-  readonly location_names?: unknown;
-  readonly geo_targets?: unknown;
+  readonly location_names?: LocationNames;
+  readonly geo_targets?: GeoTargets;
 }
 export interface SuggestGeoTargetConstantsRequestEncoded {
   readonly locale?: string;
   readonly country_code?: string;
-  readonly location_names?: unknown;
-  readonly geo_targets?: unknown;
+  readonly location_names?: LocationNamesEncoded;
+  readonly geo_targets?: GeoTargetsEncoded;
 }
 export const SuggestGeoTargetConstantsRequest: Schema.Schema<SuggestGeoTargetConstantsRequest, SuggestGeoTargetConstantsRequestEncoded, never> = Schema.Struct({
   locale: Schema.optional(Schema.String),
   country_code: Schema.optional(Schema.String),
-  location_names: Schema.optional(Schema.Unknown),
-  geo_targets: Schema.optional(Schema.Unknown),
+  location_names: Schema.optional(Schema.suspend(() => LocationNames)),
+  geo_targets: Schema.optional(Schema.suspend(() => GeoTargets)),
 });
 
 export interface SuggestGeoTargetConstantsResponse {
-  readonly geo_target_constant_suggestions?: ReadonlyArray<unknown>;
+  readonly geo_target_constant_suggestions?: ReadonlyArray<GeoTargetConstantSuggestion>;
 }
 export interface SuggestGeoTargetConstantsResponseEncoded {
-  readonly geo_target_constant_suggestions?: ReadonlyArray<unknown>;
+  readonly geo_target_constant_suggestions?: ReadonlyArray<GeoTargetConstantSuggestionEncoded>;
 }
 export const SuggestGeoTargetConstantsResponse: Schema.Schema<SuggestGeoTargetConstantsResponse, SuggestGeoTargetConstantsResponseEncoded, never> = Schema.Struct({
-  geo_target_constant_suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
+  geo_target_constant_suggestions: Schema.optional(Schema.Array(Schema.suspend(() => GeoTargetConstantSuggestion))),
 });
 
 export interface SuggestKeywordThemeConstantsRequest {
@@ -32711,38 +32711,38 @@ export const SuggestKeywordThemeConstantsResponse: Schema.Schema<SuggestKeywordT
 
 export interface SuggestKeywordThemesRequest {
   readonly customer_id?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfo;
 }
 export interface SuggestKeywordThemesRequestEncoded {
   readonly customer_id?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfoEncoded;
 }
 export const SuggestKeywordThemesRequest: Schema.Schema<SuggestKeywordThemesRequest, SuggestKeywordThemesRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  suggestion_info: Schema.optional(Schema.Unknown),
+  suggestion_info: Schema.optional(Schema.suspend(() => SmartCampaignSuggestionInfo)),
 });
 
 export interface SuggestKeywordThemesResponse {
-  readonly keyword_themes?: ReadonlyArray<unknown>;
+  readonly keyword_themes?: ReadonlyArray<KeywordTheme>;
 }
 export interface SuggestKeywordThemesResponseEncoded {
-  readonly keyword_themes?: ReadonlyArray<unknown>;
+  readonly keyword_themes?: ReadonlyArray<KeywordThemeEncoded>;
 }
 export const SuggestKeywordThemesResponse: Schema.Schema<SuggestKeywordThemesResponse, SuggestKeywordThemesResponseEncoded, never> = Schema.Struct({
-  keyword_themes: Schema.optional(Schema.Array(Schema.Unknown)),
+  keyword_themes: Schema.optional(Schema.Array(Schema.suspend(() => KeywordTheme))),
 });
 
 export interface SuggestSmartCampaignAdRequest {
   readonly customer_id?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfo;
 }
 export interface SuggestSmartCampaignAdRequestEncoded {
   readonly customer_id?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfoEncoded;
 }
 export const SuggestSmartCampaignAdRequest: Schema.Schema<SuggestSmartCampaignAdRequest, SuggestSmartCampaignAdRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  suggestion_info: Schema.optional(Schema.Unknown),
+  suggestion_info: Schema.optional(Schema.suspend(() => SmartCampaignSuggestionInfo)),
 });
 
 export interface SuggestSmartCampaignAdResponse {
@@ -32758,33 +32758,33 @@ export const SuggestSmartCampaignAdResponse: Schema.Schema<SuggestSmartCampaignA
 export interface SuggestSmartCampaignBudgetOptionsRequest {
   readonly customer_id?: string;
   readonly campaign?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfo;
 }
 export interface SuggestSmartCampaignBudgetOptionsRequestEncoded {
   readonly customer_id?: string;
   readonly campaign?: string;
-  readonly suggestion_info?: unknown;
+  readonly suggestion_info?: SmartCampaignSuggestionInfoEncoded;
 }
 export const SuggestSmartCampaignBudgetOptionsRequest: Schema.Schema<SuggestSmartCampaignBudgetOptionsRequest, SuggestSmartCampaignBudgetOptionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   campaign: Schema.optional(Schema.String),
-  suggestion_info: Schema.optional(Schema.Unknown),
+  suggestion_info: Schema.optional(Schema.suspend(() => SmartCampaignSuggestionInfo)),
 });
 
 export interface SuggestSmartCampaignBudgetOptionsResponse {
-  readonly low?: unknown;
-  readonly recommended?: unknown;
-  readonly high?: unknown;
+  readonly low?: BudgetOption;
+  readonly recommended?: BudgetOption;
+  readonly high?: BudgetOption;
 }
 export interface SuggestSmartCampaignBudgetOptionsResponseEncoded {
-  readonly low?: unknown;
-  readonly recommended?: unknown;
-  readonly high?: unknown;
+  readonly low?: BudgetOptionEncoded;
+  readonly recommended?: BudgetOptionEncoded;
+  readonly high?: BudgetOptionEncoded;
 }
 export const SuggestSmartCampaignBudgetOptionsResponse: Schema.Schema<SuggestSmartCampaignBudgetOptionsResponse, SuggestSmartCampaignBudgetOptionsResponseEncoded, never> = Schema.Struct({
-  low: Schema.optional(Schema.Unknown),
-  recommended: Schema.optional(Schema.Unknown),
-  high: Schema.optional(Schema.Unknown),
+  low: Schema.optional(Schema.suspend(() => BudgetOption)),
+  recommended: Schema.optional(Schema.suspend(() => BudgetOption)),
+  high: Schema.optional(Schema.suspend(() => BudgetOption)),
 });
 
 export interface SuggestSmartCampaignBudgetOptionsResponse_Metrics {
@@ -32817,13 +32817,13 @@ export const SuggestTravelAssetsRequest: Schema.Schema<SuggestTravelAssetsReques
 });
 
 export interface SuggestTravelAssetsResponse {
-  readonly hotel_asset_suggestions?: ReadonlyArray<unknown>;
+  readonly hotel_asset_suggestions?: ReadonlyArray<HotelAssetSuggestion>;
 }
 export interface SuggestTravelAssetsResponseEncoded {
-  readonly hotel_asset_suggestions?: ReadonlyArray<unknown>;
+  readonly hotel_asset_suggestions?: ReadonlyArray<HotelAssetSuggestionEncoded>;
 }
 export const SuggestTravelAssetsResponse: Schema.Schema<SuggestTravelAssetsResponse, SuggestTravelAssetsResponseEncoded, never> = Schema.Struct({
-  hotel_asset_suggestions: Schema.optional(Schema.Array(Schema.Unknown)),
+  hotel_asset_suggestions: Schema.optional(Schema.Array(Schema.suspend(() => HotelAssetSuggestion))),
 });
 
 export type SummaryRowSetting = "UNSPECIFIED" | "UNKNOWN" | "NO_SUMMARY_ROW" | "SUMMARY_ROW_WITH_RESULTS" | "SUMMARY_ROW_ONLY";
@@ -32851,16 +32851,16 @@ export const SurfaceTargeting: Schema.Schema<SurfaceTargeting, SurfaceTargetingE
 });
 
 export interface SurfaceTargetingCombinations {
-  readonly default_targeting?: unknown;
-  readonly available_targeting_combinations?: ReadonlyArray<unknown>;
+  readonly default_targeting?: SurfaceTargeting;
+  readonly available_targeting_combinations?: ReadonlyArray<SurfaceTargeting>;
 }
 export interface SurfaceTargetingCombinationsEncoded {
-  readonly default_targeting?: unknown;
-  readonly available_targeting_combinations?: ReadonlyArray<unknown>;
+  readonly default_targeting?: SurfaceTargetingEncoded;
+  readonly available_targeting_combinations?: ReadonlyArray<SurfaceTargetingEncoded>;
 }
 export const SurfaceTargetingCombinations: Schema.Schema<SurfaceTargetingCombinations, SurfaceTargetingCombinationsEncoded, never> = Schema.Struct({
-  default_targeting: Schema.optional(Schema.Unknown),
-  available_targeting_combinations: Schema.optional(Schema.Array(Schema.Unknown)),
+  default_targeting: Schema.optional(Schema.suspend(() => SurfaceTargeting)),
+  available_targeting_combinations: Schema.optional(Schema.Array(Schema.suspend(() => SurfaceTargeting))),
 });
 
 export type SurveyAnswer = "UNSPECIFIED" | "UNKNOWN" | "VERY_SATISFIED" | "SATISFIED" | "NEUTRAL" | "DISSATISFIED" | "VERY_DISSATISFIED";
@@ -32929,16 +32929,16 @@ export const SyntheticContentAttestationStatusEnum: Schema.Schema<SyntheticConte
 });
 
 export interface SyntheticContentInfo {
-  readonly advertiser_attestation?: unknown;
-  readonly system_attestation?: unknown;
+  readonly advertiser_attestation?: SyntheticContentAttestation;
+  readonly system_attestation?: SyntheticContentAttestation;
 }
 export interface SyntheticContentInfoEncoded {
-  readonly advertiser_attestation?: unknown;
-  readonly system_attestation?: unknown;
+  readonly advertiser_attestation?: SyntheticContentAttestationEncoded;
+  readonly system_attestation?: SyntheticContentAttestationEncoded;
 }
 export const SyntheticContentInfo: Schema.Schema<SyntheticContentInfo, SyntheticContentInfoEncoded, never> = Schema.Struct({
-  advertiser_attestation: Schema.optional(Schema.Unknown),
-  system_attestation: Schema.optional(Schema.Unknown),
+  advertiser_attestation: Schema.optional(Schema.suspend(() => SyntheticContentAttestation)),
+  system_attestation: Schema.optional(Schema.suspend(() => SyntheticContentAttestation)),
 });
 
 export type SyntheticContentSource = "UNSPECIFIED" | "UNKNOWN" | "ADVERTISER_ATTESTED" | "GOOGLE_GENERATED_ADVERTISER_REVIEWED" | "GOOGLE_GENERATED_FULLY_AUTOMATED";
@@ -33034,15 +33034,15 @@ export const TargetCpaOptInParameters: Schema.Schema<TargetCpaOptInParameters, T
 });
 
 export interface TargetCpaOptInRecommendation {
-  readonly options?: ReadonlyArray<unknown>;
+  readonly options?: ReadonlyArray<TargetCpaOptInRecommendationOption>;
   readonly recommended_target_cpa_micros?: string;
 }
 export interface TargetCpaOptInRecommendationEncoded {
-  readonly options?: ReadonlyArray<unknown>;
+  readonly options?: ReadonlyArray<TargetCpaOptInRecommendationOptionEncoded>;
   readonly recommended_target_cpa_micros?: string;
 }
 export const TargetCpaOptInRecommendation: Schema.Schema<TargetCpaOptInRecommendation, TargetCpaOptInRecommendationEncoded, never> = Schema.Struct({
-  options: Schema.optional(Schema.Array(Schema.Unknown)),
+  options: Schema.optional(Schema.Array(Schema.suspend(() => TargetCpaOptInRecommendationOption))),
   recommended_target_cpa_micros: Schema.optional(Schema.String),
 });
 
@@ -33064,19 +33064,19 @@ export interface TargetCpaOptInRecommendationOption {
   readonly goal?: TargetCpaOptInRecommendationGoal;
   readonly target_cpa_micros?: string;
   readonly required_campaign_budget_amount_micros?: string;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpact;
 }
 export interface TargetCpaOptInRecommendationOptionEncoded {
   readonly goal?: TargetCpaOptInRecommendationGoalEncoded;
   readonly target_cpa_micros?: string;
   readonly required_campaign_budget_amount_micros?: string;
-  readonly impact?: unknown;
+  readonly impact?: RecommendationImpactEncoded;
 }
 export const TargetCpaOptInRecommendationOption: Schema.Schema<TargetCpaOptInRecommendationOption, TargetCpaOptInRecommendationOptionEncoded, never> = Schema.Struct({
   goal: Schema.optional(Schema.suspend(() => TargetCpaOptInRecommendationGoal)),
   target_cpa_micros: Schema.optional(Schema.String),
   required_campaign_budget_amount_micros: Schema.optional(Schema.String),
-  impact: Schema.optional(Schema.Unknown),
+  impact: Schema.optional(Schema.suspend(() => RecommendationImpact)),
 });
 
 export interface TargetCpaSimulationPoint {
@@ -33123,13 +33123,13 @@ export const TargetCpaSimulationPoint: Schema.Schema<TargetCpaSimulationPoint, T
 });
 
 export interface TargetCpaSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetCpaSimulationPoint>;
 }
 export interface TargetCpaSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetCpaSimulationPointEncoded>;
 }
 export const TargetCpaSimulationPointList: Schema.Schema<TargetCpaSimulationPointList, TargetCpaSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => TargetCpaSimulationPoint))),
 });
 
 export interface TargetCpc {
@@ -33143,13 +33143,13 @@ export const TargetCpc: Schema.Schema<TargetCpc, TargetCpcEncoded, never> = Sche
 });
 
 export interface TargetCpm {
-  readonly target_frequency_goal?: unknown;
+  readonly target_frequency_goal?: TargetCpmTargetFrequencyGoal;
 }
 export interface TargetCpmEncoded {
-  readonly target_frequency_goal?: unknown;
+  readonly target_frequency_goal?: TargetCpmTargetFrequencyGoalEncoded;
 }
 export const TargetCpm: Schema.Schema<TargetCpm, TargetCpmEncoded, never> = Schema.Struct({
-  target_frequency_goal: Schema.optional(Schema.Unknown),
+  target_frequency_goal: Schema.optional(Schema.suspend(() => TargetCpmTargetFrequencyGoal)),
 });
 
 export interface TargetCpmTargetFrequencyGoal {
@@ -33286,13 +33286,13 @@ export const TargetImpressionShareSimulationPoint: Schema.Schema<TargetImpressio
 });
 
 export interface TargetImpressionShareSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetImpressionShareSimulationPoint>;
 }
 export interface TargetImpressionShareSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetImpressionShareSimulationPointEncoded>;
 }
 export const TargetImpressionShareSimulationPointList: Schema.Schema<TargetImpressionShareSimulationPointList, TargetImpressionShareSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => TargetImpressionShareSimulationPoint))),
 });
 
 export interface Targeting {
@@ -33301,7 +33301,7 @@ export interface Targeting {
   readonly genders?: ReadonlyArray<GenderInfo>;
   readonly devices?: ReadonlyArray<DeviceInfo>;
   readonly network?: ReachPlanNetwork;
-  readonly audience_targeting?: unknown;
+  readonly audience_targeting?: AudienceTargeting;
 }
 export interface TargetingEncoded {
   readonly plannable_location_ids?: ReadonlyArray<string>;
@@ -33309,7 +33309,7 @@ export interface TargetingEncoded {
   readonly genders?: ReadonlyArray<GenderInfoEncoded>;
   readonly devices?: ReadonlyArray<DeviceInfoEncoded>;
   readonly network?: ReachPlanNetworkEncoded;
-  readonly audience_targeting?: unknown;
+  readonly audience_targeting?: AudienceTargetingEncoded;
 }
 export const Targeting: Schema.Schema<Targeting, TargetingEncoded, never> = Schema.Struct({
   plannable_location_ids: Schema.optional(Schema.Array(Schema.String)),
@@ -33317,7 +33317,7 @@ export const Targeting: Schema.Schema<Targeting, TargetingEncoded, never> = Sche
   genders: Schema.optional(Schema.Array(Schema.suspend(() => GenderInfo))),
   devices: Schema.optional(Schema.Array(Schema.suspend(() => DeviceInfo))),
   network: Schema.optional(Schema.suspend(() => ReachPlanNetwork)),
-  audience_targeting: Schema.optional(Schema.Unknown),
+  audience_targeting: Schema.optional(Schema.suspend(() => AudienceTargeting)),
 });
 
 export type TargetingDimension = "UNSPECIFIED" | "UNKNOWN" | "KEYWORD" | "AUDIENCE" | "TOPIC" | "GENDER" | "AGE_RANGE" | "PLACEMENT" | "PARENTAL_STATUS" | "INCOME_RANGE";
@@ -33345,16 +33345,16 @@ export const TargetingExpansionView: Schema.Schema<TargetingExpansionView, Targe
 });
 
 export interface TargetingSetting {
-  readonly target_restrictions?: ReadonlyArray<unknown>;
-  readonly target_restriction_operations?: ReadonlyArray<unknown>;
+  readonly target_restrictions?: ReadonlyArray<TargetRestriction>;
+  readonly target_restriction_operations?: ReadonlyArray<TargetRestrictionOperation>;
 }
 export interface TargetingSettingEncoded {
-  readonly target_restrictions?: ReadonlyArray<unknown>;
-  readonly target_restriction_operations?: ReadonlyArray<unknown>;
+  readonly target_restrictions?: ReadonlyArray<TargetRestrictionEncoded>;
+  readonly target_restriction_operations?: ReadonlyArray<TargetRestrictionOperationEncoded>;
 }
 export const TargetingSetting: Schema.Schema<TargetingSetting, TargetingSettingEncoded, never> = Schema.Struct({
-  target_restrictions: Schema.optional(Schema.Array(Schema.Unknown)),
-  target_restriction_operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  target_restrictions: Schema.optional(Schema.Array(Schema.suspend(() => TargetRestriction))),
+  target_restriction_operations: Schema.optional(Schema.Array(Schema.suspend(() => TargetRestrictionOperation))),
 });
 
 export interface TargetingSuggestionMetrics {
@@ -33402,16 +33402,16 @@ export const TargetRestriction: Schema.Schema<TargetRestriction, TargetRestricti
 });
 
 export interface TargetRestrictionOperation {
-  readonly operator?: unknown;
-  readonly value?: unknown;
+  readonly operator?: Operator;
+  readonly value?: TargetRestriction;
 }
 export interface TargetRestrictionOperationEncoded {
-  readonly operator?: unknown;
-  readonly value?: unknown;
+  readonly operator?: OperatorEncoded;
+  readonly value?: TargetRestrictionEncoded;
 }
 export const TargetRestrictionOperation: Schema.Schema<TargetRestrictionOperation, TargetRestrictionOperationEncoded, never> = Schema.Struct({
-  operator: Schema.optional(Schema.Unknown),
-  value: Schema.optional(Schema.Unknown),
+  operator: Schema.optional(Schema.suspend(() => Operator)),
+  value: Schema.optional(Schema.suspend(() => TargetRestriction)),
 });
 
 export interface TargetRoas {
@@ -33491,13 +33491,13 @@ export const TargetRoasSimulationPoint: Schema.Schema<TargetRoasSimulationPoint,
 });
 
 export interface TargetRoasSimulationPointList {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetRoasSimulationPoint>;
 }
 export interface TargetRoasSimulationPointListEncoded {
-  readonly points?: ReadonlyArray<unknown>;
+  readonly points?: ReadonlyArray<TargetRoasSimulationPointEncoded>;
 }
 export const TargetRoasSimulationPointList: Schema.Schema<TargetRoasSimulationPointList, TargetRoasSimulationPointListEncoded, never> = Schema.Struct({
-  points: Schema.optional(Schema.Array(Schema.Unknown)),
+  points: Schema.optional(Schema.Array(Schema.suspend(() => TargetRoasSimulationPoint))),
 });
 
 export interface TargetSpend {
@@ -33540,17 +33540,17 @@ export const TextAdParameters: Schema.Schema<TextAdParameters, TextAdParametersE
 });
 
 export interface TextAdRecommendation {
-  readonly ad?: unknown;
+  readonly ad?: Ad;
   readonly creation_date?: string;
   readonly auto_apply_date?: string;
 }
 export interface TextAdRecommendationEncoded {
-  readonly ad?: unknown;
+  readonly ad?: AdEncoded;
   readonly creation_date?: string;
   readonly auto_apply_date?: string;
 }
 export const TextAdRecommendation: Schema.Schema<TextAdRecommendation, TextAdRecommendationEncoded, never> = Schema.Struct({
-  ad: Schema.optional(Schema.Unknown),
+  ad: Schema.optional(Schema.suspend(() => Ad)),
   creation_date: Schema.optional(Schema.String),
   auto_apply_date: Schema.optional(Schema.String),
 });
@@ -33567,15 +33567,15 @@ export const TextAsset: Schema.Schema<TextAsset, TextAssetEncoded, never> = Sche
 
 export interface TextGuidelines {
   readonly term_exclusions?: ReadonlyArray<string>;
-  readonly messaging_restrictions?: ReadonlyArray<unknown>;
+  readonly messaging_restrictions?: ReadonlyArray<MessagingRestriction>;
 }
 export interface TextGuidelinesEncoded {
   readonly term_exclusions?: ReadonlyArray<string>;
-  readonly messaging_restrictions?: ReadonlyArray<unknown>;
+  readonly messaging_restrictions?: ReadonlyArray<MessagingRestrictionEncoded>;
 }
 export const TextGuidelines: Schema.Schema<TextGuidelines, TextGuidelinesEncoded, never> = Schema.Struct({
   term_exclusions: Schema.optional(Schema.Array(Schema.String)),
-  messaging_restrictions: Schema.optional(Schema.Array(Schema.Unknown)),
+  messaging_restrictions: Schema.optional(Schema.Array(Schema.suspend(() => MessagingRestriction))),
 });
 
 export interface TextLabel {
@@ -33854,9 +33854,9 @@ export interface TransactionAttribute {
   readonly currency_code?: string;
   readonly conversion_action?: string;
   readonly order_id?: string;
-  readonly store_attribute?: unknown;
+  readonly store_attribute?: StoreAttribute;
   readonly custom_value?: string;
-  readonly item_attribute?: unknown;
+  readonly item_attribute?: ItemAttribute;
 }
 export interface TransactionAttributeEncoded {
   readonly transaction_date_time?: string;
@@ -33864,9 +33864,9 @@ export interface TransactionAttributeEncoded {
   readonly currency_code?: string;
   readonly conversion_action?: string;
   readonly order_id?: string;
-  readonly store_attribute?: unknown;
+  readonly store_attribute?: StoreAttributeEncoded;
   readonly custom_value?: string;
-  readonly item_attribute?: unknown;
+  readonly item_attribute?: ItemAttributeEncoded;
 }
 export const TransactionAttribute: Schema.Schema<TransactionAttribute, TransactionAttributeEncoded, never> = Schema.Struct({
   transaction_date_time: Schema.optional(Schema.String),
@@ -33874,9 +33874,9 @@ export const TransactionAttribute: Schema.Schema<TransactionAttribute, Transacti
   currency_code: Schema.optional(Schema.String),
   conversion_action: Schema.optional(Schema.String),
   order_id: Schema.optional(Schema.String),
-  store_attribute: Schema.optional(Schema.Unknown),
+  store_attribute: Schema.optional(Schema.suspend(() => StoreAttribute)),
   custom_value: Schema.optional(Schema.String),
-  item_attribute: Schema.optional(Schema.Unknown),
+  item_attribute: Schema.optional(Schema.suspend(() => ItemAttribute)),
 });
 
 export interface TravelActivityGroupView {
@@ -33943,43 +33943,43 @@ export const TravelFeedData: Schema.Schema<TravelFeedData, TravelFeedDataEncoded
 
 export interface TrendInsight {
   readonly trend_attribute?: AudienceInsightsAttributeMetadata;
-  readonly trend_metrics?: unknown;
+  readonly trend_metrics?: TrendInsightMetrics;
   readonly trend?: InsightsTrend;
-  readonly trend_data_points?: ReadonlyArray<unknown>;
+  readonly trend_data_points?: ReadonlyArray<TrendInsightDataPoint>;
   readonly related_videos?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
-  readonly related_creators?: ReadonlyArray<unknown>;
-  readonly related_local_creators?: ReadonlyArray<unknown>;
+  readonly related_creators?: ReadonlyArray<YouTubeCreatorInsights>;
+  readonly related_local_creators?: ReadonlyArray<YouTubeCreatorInsights>;
 }
 export interface TrendInsightEncoded {
   readonly trend_attribute?: AudienceInsightsAttributeMetadataEncoded;
-  readonly trend_metrics?: unknown;
+  readonly trend_metrics?: TrendInsightMetricsEncoded;
   readonly trend?: InsightsTrendEncoded;
-  readonly trend_data_points?: ReadonlyArray<unknown>;
+  readonly trend_data_points?: ReadonlyArray<TrendInsightDataPointEncoded>;
   readonly related_videos?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
-  readonly related_creators?: ReadonlyArray<unknown>;
-  readonly related_local_creators?: ReadonlyArray<unknown>;
+  readonly related_creators?: ReadonlyArray<YouTubeCreatorInsightsEncoded>;
+  readonly related_local_creators?: ReadonlyArray<YouTubeCreatorInsightsEncoded>;
 }
 export const TrendInsight: Schema.Schema<TrendInsight, TrendInsightEncoded, never> = Schema.Struct({
   trend_attribute: Schema.optional(Schema.suspend(() => AudienceInsightsAttributeMetadata)),
-  trend_metrics: Schema.optional(Schema.Unknown),
+  trend_metrics: Schema.optional(Schema.suspend(() => TrendInsightMetrics)),
   trend: Schema.optional(Schema.suspend(() => InsightsTrend)),
-  trend_data_points: Schema.optional(Schema.Array(Schema.Unknown)),
+  trend_data_points: Schema.optional(Schema.Array(Schema.suspend(() => TrendInsightDataPoint))),
   related_videos: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
-  related_creators: Schema.optional(Schema.Array(Schema.Unknown)),
-  related_local_creators: Schema.optional(Schema.Array(Schema.Unknown)),
+  related_creators: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeCreatorInsights))),
+  related_local_creators: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeCreatorInsights))),
 });
 
 export interface TrendInsightDataPoint {
   readonly month?: string;
-  readonly trend_metrics?: unknown;
+  readonly trend_metrics?: TrendInsightMetrics;
 }
 export interface TrendInsightDataPointEncoded {
   readonly month?: string;
-  readonly trend_metrics?: unknown;
+  readonly trend_metrics?: TrendInsightMetricsEncoded;
 }
 export const TrendInsightDataPoint: Schema.Schema<TrendInsightDataPoint, TrendInsightDataPointEncoded, never> = Schema.Struct({
   month: Schema.optional(Schema.String),
-  trend_metrics: Schema.optional(Schema.Unknown),
+  trend_metrics: Schema.optional(Schema.suspend(() => TrendInsightMetrics)),
 });
 
 export interface TrendInsightMetrics {
@@ -34119,17 +34119,17 @@ export const UpdateProductLinkInvitationResponse: Schema.Schema<UpdateProductLin
 export interface UpdateYouTubeVideoUploadRequest {
   readonly customer_id?: string;
   readonly you_tube_video_upload?: YouTubeVideoUpload;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export interface UpdateYouTubeVideoUploadRequestEncoded {
   readonly customer_id?: string;
   readonly you_tube_video_upload?: YouTubeVideoUploadEncoded;
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
 }
 export const UpdateYouTubeVideoUploadRequest: Schema.Schema<UpdateYouTubeVideoUploadRequest, UpdateYouTubeVideoUploadRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
   you_tube_video_upload: Schema.optional(Schema.suspend(() => YouTubeVideoUpload)),
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
 });
 
 export interface UpdateYouTubeVideoUploadResponse {
@@ -34167,53 +34167,53 @@ export const UpgradeSmartShoppingCampaignToPerformanceMaxRecommendation: Schema.
 
 export interface UploadCallConversionsRequest {
   readonly customer_id?: string;
-  readonly conversions?: ReadonlyArray<unknown>;
+  readonly conversions?: ReadonlyArray<CallConversion>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export interface UploadCallConversionsRequestEncoded {
   readonly customer_id?: string;
-  readonly conversions?: ReadonlyArray<unknown>;
+  readonly conversions?: ReadonlyArray<CallConversionEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
 }
 export const UploadCallConversionsRequest: Schema.Schema<UploadCallConversionsRequest, UploadCallConversionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  conversions: Schema.optional(Schema.Array(Schema.Unknown)),
+  conversions: Schema.optional(Schema.Array(Schema.suspend(() => CallConversion))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
 });
 
 export interface UploadCallConversionsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<CallConversionResult>;
 }
 export interface UploadCallConversionsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<CallConversionResultEncoded>;
 }
 export const UploadCallConversionsResponse: Schema.Schema<UploadCallConversionsResponse, UploadCallConversionsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => CallConversionResult))),
 });
 
 export interface UploadClickConversionsRequest {
   readonly customer_id?: string;
-  readonly conversions?: ReadonlyArray<unknown>;
+  readonly conversions?: ReadonlyArray<ClickConversion>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly job_id?: number;
 }
 export interface UploadClickConversionsRequestEncoded {
   readonly customer_id?: string;
-  readonly conversions?: ReadonlyArray<unknown>;
+  readonly conversions?: ReadonlyArray<ClickConversionEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly job_id?: number;
 }
 export const UploadClickConversionsRequest: Schema.Schema<UploadClickConversionsRequest, UploadClickConversionsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  conversions: Schema.optional(Schema.Array(Schema.Unknown)),
+  conversions: Schema.optional(Schema.Array(Schema.suspend(() => ClickConversion))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   job_id: Schema.optional(Schema.Int),
@@ -34221,37 +34221,37 @@ export const UploadClickConversionsRequest: Schema.Schema<UploadClickConversions
 
 export interface UploadClickConversionsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ClickConversionResult>;
   readonly job_id?: string;
 }
 export interface UploadClickConversionsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ClickConversionResultEncoded>;
   readonly job_id?: string;
 }
 export const UploadClickConversionsResponse: Schema.Schema<UploadClickConversionsResponse, UploadClickConversionsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => ClickConversionResult))),
   job_id: Schema.optional(Schema.String),
 });
 
 export interface UploadConversionAdjustmentsRequest {
   readonly customer_id?: string;
-  readonly conversion_adjustments?: ReadonlyArray<unknown>;
+  readonly conversion_adjustments?: ReadonlyArray<ConversionAdjustment>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly job_id?: number;
 }
 export interface UploadConversionAdjustmentsRequestEncoded {
   readonly customer_id?: string;
-  readonly conversion_adjustments?: ReadonlyArray<unknown>;
+  readonly conversion_adjustments?: ReadonlyArray<ConversionAdjustmentEncoded>;
   readonly partial_failure?: boolean;
   readonly validate_only?: boolean;
   readonly job_id?: number;
 }
 export const UploadConversionAdjustmentsRequest: Schema.Schema<UploadConversionAdjustmentsRequest, UploadConversionAdjustmentsRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  conversion_adjustments: Schema.optional(Schema.Array(Schema.Unknown)),
+  conversion_adjustments: Schema.optional(Schema.Array(Schema.suspend(() => ConversionAdjustment))),
   partial_failure: Schema.optional(Schema.Boolean),
   validate_only: Schema.optional(Schema.Boolean),
   job_id: Schema.optional(Schema.Int),
@@ -34259,33 +34259,33 @@ export const UploadConversionAdjustmentsRequest: Schema.Schema<UploadConversionA
 
 export interface UploadConversionAdjustmentsResponse {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ConversionAdjustmentResult>;
   readonly job_id?: string;
 }
 export interface UploadConversionAdjustmentsResponseEncoded {
   readonly partial_failure_error?: unknown;
-  readonly results?: ReadonlyArray<unknown>;
+  readonly results?: ReadonlyArray<ConversionAdjustmentResultEncoded>;
   readonly job_id?: string;
 }
 export const UploadConversionAdjustmentsResponse: Schema.Schema<UploadConversionAdjustmentsResponse, UploadConversionAdjustmentsResponseEncoded, never> = Schema.Struct({
   partial_failure_error: Schema.optional(Schema.Unknown),
-  results: Schema.optional(Schema.Array(Schema.Unknown)),
+  results: Schema.optional(Schema.Array(Schema.suspend(() => ConversionAdjustmentResult))),
   job_id: Schema.optional(Schema.String),
 });
 
 export interface UploadUserDataRequest {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserDataOperation>;
   readonly customer_match_user_list_metadata?: CustomerMatchUserListMetadata;
 }
 export interface UploadUserDataRequestEncoded {
   readonly customer_id?: string;
-  readonly operations?: ReadonlyArray<unknown>;
+  readonly operations?: ReadonlyArray<UserDataOperationEncoded>;
   readonly customer_match_user_list_metadata?: CustomerMatchUserListMetadataEncoded;
 }
 export const UploadUserDataRequest: Schema.Schema<UploadUserDataRequest, UploadUserDataRequestEncoded, never> = Schema.Struct({
   customer_id: Schema.optional(Schema.String),
-  operations: Schema.optional(Schema.Array(Schema.Unknown)),
+  operations: Schema.optional(Schema.Array(Schema.suspend(() => UserDataOperation))),
   customer_match_user_list_metadata: Schema.optional(Schema.suspend(() => CustomerMatchUserListMetadata)),
 });
 
@@ -34384,10 +34384,10 @@ export interface UserAttribute {
   readonly average_purchase_count?: number;
   readonly average_purchase_value_micros?: string;
   readonly acquisition_date_time?: string;
-  readonly shopping_loyalty?: unknown;
+  readonly shopping_loyalty?: ShoppingLoyalty;
   readonly lifecycle_stage?: string;
   readonly first_purchase_date_time?: string;
-  readonly event_attribute?: ReadonlyArray<unknown>;
+  readonly event_attribute?: ReadonlyArray<EventAttribute>;
 }
 export interface UserAttributeEncoded {
   readonly lifetime_value_micros?: string;
@@ -34396,10 +34396,10 @@ export interface UserAttributeEncoded {
   readonly average_purchase_count?: number;
   readonly average_purchase_value_micros?: string;
   readonly acquisition_date_time?: string;
-  readonly shopping_loyalty?: unknown;
+  readonly shopping_loyalty?: ShoppingLoyaltyEncoded;
   readonly lifecycle_stage?: string;
   readonly first_purchase_date_time?: string;
-  readonly event_attribute?: ReadonlyArray<unknown>;
+  readonly event_attribute?: ReadonlyArray<EventAttributeEncoded>;
 }
 export const UserAttribute: Schema.Schema<UserAttribute, UserAttributeEncoded, never> = Schema.Struct({
   lifetime_value_micros: Schema.optional(Schema.String),
@@ -34408,29 +34408,29 @@ export const UserAttribute: Schema.Schema<UserAttribute, UserAttributeEncoded, n
   average_purchase_count: Schema.optional(Schema.Int),
   average_purchase_value_micros: Schema.optional(Schema.String),
   acquisition_date_time: Schema.optional(Schema.String),
-  shopping_loyalty: Schema.optional(Schema.Unknown),
+  shopping_loyalty: Schema.optional(Schema.suspend(() => ShoppingLoyalty)),
   lifecycle_stage: Schema.optional(Schema.String),
   first_purchase_date_time: Schema.optional(Schema.String),
-  event_attribute: Schema.optional(Schema.Array(Schema.Unknown)),
+  event_attribute: Schema.optional(Schema.Array(Schema.suspend(() => EventAttribute))),
 });
 
 export interface UserData {
-  readonly user_identifiers?: ReadonlyArray<unknown>;
-  readonly transaction_attribute?: unknown;
-  readonly user_attribute?: unknown;
-  readonly consent?: unknown;
+  readonly user_identifiers?: ReadonlyArray<UserIdentifier>;
+  readonly transaction_attribute?: TransactionAttribute;
+  readonly user_attribute?: UserAttribute;
+  readonly consent?: Consent;
 }
 export interface UserDataEncoded {
-  readonly user_identifiers?: ReadonlyArray<unknown>;
-  readonly transaction_attribute?: unknown;
-  readonly user_attribute?: unknown;
-  readonly consent?: unknown;
+  readonly user_identifiers?: ReadonlyArray<UserIdentifierEncoded>;
+  readonly transaction_attribute?: TransactionAttributeEncoded;
+  readonly user_attribute?: UserAttributeEncoded;
+  readonly consent?: ConsentEncoded;
 }
 export const UserData: Schema.Schema<UserData, UserDataEncoded, never> = Schema.Struct({
-  user_identifiers: Schema.optional(Schema.Array(Schema.Unknown)),
-  transaction_attribute: Schema.optional(Schema.Unknown),
-  user_attribute: Schema.optional(Schema.Unknown),
-  consent: Schema.optional(Schema.Unknown),
+  user_identifiers: Schema.optional(Schema.Array(Schema.suspend(() => UserIdentifier))),
+  transaction_attribute: Schema.optional(Schema.suspend(() => TransactionAttribute)),
+  user_attribute: Schema.optional(Schema.suspend(() => UserAttribute)),
+  consent: Schema.optional(Schema.suspend(() => Consent)),
 });
 
 export type UserDataError = "UNSPECIFIED" | "UNKNOWN" | "OPERATIONS_FOR_CUSTOMER_MATCH_NOT_ALLOWED" | "TOO_MANY_USER_IDENTIFIERS" | "USER_LIST_NOT_APPLICABLE";
@@ -34466,7 +34466,7 @@ export interface UserIdentifier {
   readonly hashed_phone_number?: string;
   readonly mobile_id?: string;
   readonly third_party_user_id?: string;
-  readonly address_info?: unknown;
+  readonly address_info?: OfflineUserAddressInfo;
 }
 export interface UserIdentifierEncoded {
   readonly user_identifier_source?: UserIdentifierSourceEncoded;
@@ -34474,7 +34474,7 @@ export interface UserIdentifierEncoded {
   readonly hashed_phone_number?: string;
   readonly mobile_id?: string;
   readonly third_party_user_id?: string;
-  readonly address_info?: unknown;
+  readonly address_info?: OfflineUserAddressInfoEncoded;
 }
 export const UserIdentifier: Schema.Schema<UserIdentifier, UserIdentifierEncoded, never> = Schema.Struct({
   user_identifier_source: Schema.optional(Schema.suspend(() => UserIdentifierSource)),
@@ -34482,7 +34482,7 @@ export const UserIdentifier: Schema.Schema<UserIdentifier, UserIdentifierEncoded
   hashed_phone_number: Schema.optional(Schema.String),
   mobile_id: Schema.optional(Schema.String),
   third_party_user_id: Schema.optional(Schema.String),
-  address_info: Schema.optional(Schema.Unknown),
+  address_info: Schema.optional(Schema.suspend(() => OfflineUserAddressInfo)),
 });
 
 export type UserIdentifierSource = "UNSPECIFIED" | "UNKNOWN" | "FIRST_PARTY" | "THIRD_PARTY";
@@ -34845,15 +34845,15 @@ export const UserListInfo: Schema.Schema<UserListInfo, UserListInfoEncoded, neve
 
 export interface UserListLogicalRuleInfo {
   readonly operator?: UserListLogicalRuleOperator;
-  readonly rule_operands?: ReadonlyArray<unknown>;
+  readonly rule_operands?: ReadonlyArray<LogicalUserListOperandInfo>;
 }
 export interface UserListLogicalRuleInfoEncoded {
   readonly operator?: UserListLogicalRuleOperatorEncoded;
-  readonly rule_operands?: ReadonlyArray<unknown>;
+  readonly rule_operands?: ReadonlyArray<LogicalUserListOperandInfoEncoded>;
 }
 export const UserListLogicalRuleInfo: Schema.Schema<UserListLogicalRuleInfo, UserListLogicalRuleInfoEncoded, never> = Schema.Struct({
   operator: Schema.optional(Schema.suspend(() => UserListLogicalRuleOperator)),
-  rule_operands: Schema.optional(Schema.Array(Schema.Unknown)),
+  rule_operands: Schema.optional(Schema.Array(Schema.suspend(() => LogicalUserListOperandInfo))),
 });
 
 export type UserListLogicalRuleOperator = "UNSPECIFIED" | "UNKNOWN" | "ALL" | "ANY" | "NONE";
@@ -34912,19 +34912,19 @@ export const UserListNumberRuleItemOperatorEnum: Schema.Schema<UserListNumberRul
 });
 
 export interface UserListOperation {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: UserList;
   readonly update?: UserList;
   readonly remove?: string;
 }
 export interface UserListOperationEncoded {
-  readonly update_mask?: unknown;
+  readonly update_mask?: string;
   readonly create?: UserListEncoded;
   readonly update?: UserListEncoded;
   readonly remove?: string;
 }
 export const UserListOperation: Schema.Schema<UserListOperation, UserListOperationEncoded, never> = Schema.Struct({
-  update_mask: Schema.optional(Schema.Unknown),
+  update_mask: Schema.optional(Schema.String),
   create: Schema.optional(Schema.suspend(() => UserList)),
   update: Schema.optional(Schema.suspend(() => UserList)),
   remove: Schema.optional(Schema.String),
@@ -34946,44 +34946,44 @@ export const UserListPrepopulationStatusEnum: Schema.Schema<UserListPrepopulatio
 
 export interface UserListRuleInfo {
   readonly rule_type?: UserListRuleType;
-  readonly rule_item_groups?: ReadonlyArray<unknown>;
+  readonly rule_item_groups?: ReadonlyArray<UserListRuleItemGroupInfo>;
 }
 export interface UserListRuleInfoEncoded {
   readonly rule_type?: UserListRuleTypeEncoded;
-  readonly rule_item_groups?: ReadonlyArray<unknown>;
+  readonly rule_item_groups?: ReadonlyArray<UserListRuleItemGroupInfoEncoded>;
 }
 export const UserListRuleInfo: Schema.Schema<UserListRuleInfo, UserListRuleInfoEncoded, never> = Schema.Struct({
   rule_type: Schema.optional(Schema.suspend(() => UserListRuleType)),
-  rule_item_groups: Schema.optional(Schema.Array(Schema.Unknown)),
+  rule_item_groups: Schema.optional(Schema.Array(Schema.suspend(() => UserListRuleItemGroupInfo))),
 });
 
 export interface UserListRuleItemGroupInfo {
-  readonly rule_items?: ReadonlyArray<unknown>;
+  readonly rule_items?: ReadonlyArray<UserListRuleItemInfo>;
 }
 export interface UserListRuleItemGroupInfoEncoded {
-  readonly rule_items?: ReadonlyArray<unknown>;
+  readonly rule_items?: ReadonlyArray<UserListRuleItemInfoEncoded>;
 }
 export const UserListRuleItemGroupInfo: Schema.Schema<UserListRuleItemGroupInfo, UserListRuleItemGroupInfoEncoded, never> = Schema.Struct({
-  rule_items: Schema.optional(Schema.Array(Schema.Unknown)),
+  rule_items: Schema.optional(Schema.Array(Schema.suspend(() => UserListRuleItemInfo))),
 });
 
 export interface UserListRuleItemInfo {
   readonly name?: string;
-  readonly number_rule_item?: unknown;
-  readonly string_rule_item?: unknown;
-  readonly date_rule_item?: unknown;
+  readonly number_rule_item?: UserListNumberRuleItemInfo;
+  readonly string_rule_item?: UserListStringRuleItemInfo;
+  readonly date_rule_item?: UserListDateRuleItemInfo;
 }
 export interface UserListRuleItemInfoEncoded {
   readonly name?: string;
-  readonly number_rule_item?: unknown;
-  readonly string_rule_item?: unknown;
-  readonly date_rule_item?: unknown;
+  readonly number_rule_item?: UserListNumberRuleItemInfoEncoded;
+  readonly string_rule_item?: UserListStringRuleItemInfoEncoded;
+  readonly date_rule_item?: UserListDateRuleItemInfoEncoded;
 }
 export const UserListRuleItemInfo: Schema.Schema<UserListRuleItemInfo, UserListRuleItemInfoEncoded, never> = Schema.Struct({
   name: Schema.optional(Schema.String),
-  number_rule_item: Schema.optional(Schema.Unknown),
-  string_rule_item: Schema.optional(Schema.Unknown),
-  date_rule_item: Schema.optional(Schema.Unknown),
+  number_rule_item: Schema.optional(Schema.suspend(() => UserListNumberRuleItemInfo)),
+  string_rule_item: Schema.optional(Schema.suspend(() => UserListStringRuleItemInfo)),
+  date_rule_item: Schema.optional(Schema.suspend(() => UserListDateRuleItemInfo)),
 });
 
 export type UserListRuleType = "UNSPECIFIED" | "UNKNOWN" | "AND_OF_ORS" | "OR_OF_ANDS";
@@ -35200,19 +35200,19 @@ export const ValueRuleItineraryAdvanceBookingWindow: Schema.Schema<ValueRuleItin
 });
 
 export interface ValueRuleItineraryCondition {
-  readonly advance_booking_window?: unknown;
-  readonly travel_length?: unknown;
-  readonly travel_start_day?: unknown;
+  readonly advance_booking_window?: ValueRuleItineraryAdvanceBookingWindow;
+  readonly travel_length?: ValueRuleItineraryTravelLength;
+  readonly travel_start_day?: ValueRuleItineraryTravelStartDay;
 }
 export interface ValueRuleItineraryConditionEncoded {
-  readonly advance_booking_window?: unknown;
-  readonly travel_length?: unknown;
-  readonly travel_start_day?: unknown;
+  readonly advance_booking_window?: ValueRuleItineraryAdvanceBookingWindowEncoded;
+  readonly travel_length?: ValueRuleItineraryTravelLengthEncoded;
+  readonly travel_start_day?: ValueRuleItineraryTravelStartDayEncoded;
 }
 export const ValueRuleItineraryCondition: Schema.Schema<ValueRuleItineraryCondition, ValueRuleItineraryConditionEncoded, never> = Schema.Struct({
-  advance_booking_window: Schema.optional(Schema.Unknown),
-  travel_length: Schema.optional(Schema.Unknown),
-  travel_start_day: Schema.optional(Schema.Unknown),
+  advance_booking_window: Schema.optional(Schema.suspend(() => ValueRuleItineraryAdvanceBookingWindow)),
+  travel_length: Schema.optional(Schema.suspend(() => ValueRuleItineraryTravelLength)),
+  travel_start_day: Schema.optional(Schema.suspend(() => ValueRuleItineraryTravelStartDay)),
 });
 
 export interface ValueRuleItineraryTravelLength {
@@ -35450,15 +35450,15 @@ export const Video: Schema.Schema<Video, VideoEncoded, never> = Schema.Struct({
 
 export interface VideoAdFormatControl {
   readonly format_restriction?: VideoAdFormatRestriction;
-  readonly non_skippable_in_stream_restrictions?: unknown;
+  readonly non_skippable_in_stream_restrictions?: NonSkippableInStreamRestrictions;
 }
 export interface VideoAdFormatControlEncoded {
   readonly format_restriction?: VideoAdFormatRestrictionEncoded;
-  readonly non_skippable_in_stream_restrictions?: unknown;
+  readonly non_skippable_in_stream_restrictions?: NonSkippableInStreamRestrictionsEncoded;
 }
 export const VideoAdFormatControl: Schema.Schema<VideoAdFormatControl, VideoAdFormatControlEncoded, never> = Schema.Struct({
   format_restriction: Schema.optional(Schema.suspend(() => VideoAdFormatRestriction)),
-  non_skippable_in_stream_restrictions: Schema.optional(Schema.Unknown),
+  non_skippable_in_stream_restrictions: Schema.optional(Schema.suspend(() => NonSkippableInStreamRestrictions)),
 });
 
 export type VideoAdFormatRestriction = "UNSPECIFIED" | "UNKNOWN" | "NON_SKIPPABLE_IN_STREAM";
@@ -35476,41 +35476,41 @@ export const VideoAdFormatRestrictionEnum: Schema.Schema<VideoAdFormatRestrictio
 });
 
 export interface VideoAdGroupSettings {
-  readonly video_ad_sequence?: unknown;
+  readonly video_ad_sequence?: VideoAdSequenceStepSetting;
 }
 export interface VideoAdGroupSettingsEncoded {
-  readonly video_ad_sequence?: unknown;
+  readonly video_ad_sequence?: VideoAdSequenceStepSettingEncoded;
 }
 export const VideoAdGroupSettings: Schema.Schema<VideoAdGroupSettings, VideoAdGroupSettingsEncoded, never> = Schema.Struct({
-  video_ad_sequence: Schema.optional(Schema.Unknown),
+  video_ad_sequence: Schema.optional(Schema.suspend(() => VideoAdSequenceStepSetting)),
 });
 
 export interface VideoAdInfo {
-  readonly video?: unknown;
-  readonly in_stream?: unknown;
-  readonly bumper?: unknown;
-  readonly out_stream?: unknown;
-  readonly non_skippable?: unknown;
-  readonly in_feed?: unknown;
-  readonly audio?: unknown;
+  readonly video?: AdVideoAsset;
+  readonly in_stream?: VideoTrueViewInStreamAdInfo;
+  readonly bumper?: VideoBumperInStreamAdInfo;
+  readonly out_stream?: VideoOutstreamAdInfo;
+  readonly non_skippable?: VideoNonSkippableInStreamAdInfo;
+  readonly in_feed?: InFeedVideoAdInfo;
+  readonly audio?: YouTubeAudioAdInfo;
 }
 export interface VideoAdInfoEncoded {
-  readonly video?: unknown;
-  readonly in_stream?: unknown;
-  readonly bumper?: unknown;
-  readonly out_stream?: unknown;
-  readonly non_skippable?: unknown;
-  readonly in_feed?: unknown;
-  readonly audio?: unknown;
+  readonly video?: AdVideoAssetEncoded;
+  readonly in_stream?: VideoTrueViewInStreamAdInfoEncoded;
+  readonly bumper?: VideoBumperInStreamAdInfoEncoded;
+  readonly out_stream?: VideoOutstreamAdInfoEncoded;
+  readonly non_skippable?: VideoNonSkippableInStreamAdInfoEncoded;
+  readonly in_feed?: InFeedVideoAdInfoEncoded;
+  readonly audio?: YouTubeAudioAdInfoEncoded;
 }
 export const VideoAdInfo: Schema.Schema<VideoAdInfo, VideoAdInfoEncoded, never> = Schema.Struct({
-  video: Schema.optional(Schema.Unknown),
-  in_stream: Schema.optional(Schema.Unknown),
-  bumper: Schema.optional(Schema.Unknown),
-  out_stream: Schema.optional(Schema.Unknown),
-  non_skippable: Schema.optional(Schema.Unknown),
-  in_feed: Schema.optional(Schema.Unknown),
-  audio: Schema.optional(Schema.Unknown),
+  video: Schema.optional(Schema.suspend(() => AdVideoAsset)),
+  in_stream: Schema.optional(Schema.suspend(() => VideoTrueViewInStreamAdInfo)),
+  bumper: Schema.optional(Schema.suspend(() => VideoBumperInStreamAdInfo)),
+  out_stream: Schema.optional(Schema.suspend(() => VideoOutstreamAdInfo)),
+  non_skippable: Schema.optional(Schema.suspend(() => VideoNonSkippableInStreamAdInfo)),
+  in_feed: Schema.optional(Schema.suspend(() => InFeedVideoAdInfo)),
+  audio: Schema.optional(Schema.suspend(() => YouTubeAudioAdInfo)),
 });
 
 export interface VideoAdInventoryControl {
@@ -35533,15 +35533,15 @@ export const VideoAdInventoryControl: Schema.Schema<VideoAdInventoryControl, Vid
 });
 
 export interface VideoAdSequence {
-  readonly steps?: ReadonlyArray<unknown>;
+  readonly steps?: ReadonlyArray<VideoAdSequenceStep>;
   readonly minimum_duration?: VideoAdSequenceMinimumDuration;
 }
 export interface VideoAdSequenceEncoded {
-  readonly steps?: ReadonlyArray<unknown>;
+  readonly steps?: ReadonlyArray<VideoAdSequenceStepEncoded>;
   readonly minimum_duration?: VideoAdSequenceMinimumDurationEncoded;
 }
 export const VideoAdSequence: Schema.Schema<VideoAdSequence, VideoAdSequenceEncoded, never> = Schema.Struct({
-  steps: Schema.optional(Schema.Array(Schema.Unknown)),
+  steps: Schema.optional(Schema.Array(Schema.suspend(() => VideoAdSequenceStep))),
   minimum_duration: Schema.optional(Schema.suspend(() => VideoAdSequenceMinimumDuration)),
 });
 
@@ -35606,17 +35606,17 @@ export const VideoAdSequenceStepSetting: Schema.Schema<VideoAdSequenceStepSettin
 });
 
 export interface VideoBumperInStreamAdInfo {
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAsset;
   readonly action_button_label?: string;
   readonly action_headline?: string;
 }
 export interface VideoBumperInStreamAdInfoEncoded {
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAssetEncoded;
   readonly action_button_label?: string;
   readonly action_headline?: string;
 }
 export const VideoBumperInStreamAdInfo: Schema.Schema<VideoBumperInStreamAdInfo, VideoBumperInStreamAdInfoEncoded, never> = Schema.Struct({
-  companion_banner: Schema.optional(Schema.Unknown),
+  companion_banner: Schema.optional(Schema.suspend(() => AdImageAsset)),
   action_button_label: Schema.optional(Schema.String),
   action_headline: Schema.optional(Schema.String),
 });
@@ -35636,25 +35636,25 @@ export const VideoCampaignErrorEnum: Schema.Schema<VideoCampaignErrorEnum, Video
 });
 
 export interface VideoCampaignSettings {
-  readonly video_ad_sequence?: unknown;
-  readonly reservation_ad_category_self_disclosure?: unknown;
-  readonly booking_details?: unknown;
-  readonly video_ad_inventory_control?: unknown;
-  readonly video_ad_format_control?: unknown;
+  readonly video_ad_sequence?: VideoAdSequence;
+  readonly reservation_ad_category_self_disclosure?: ReservationAdCategorySelfDisclosure;
+  readonly booking_details?: BookingDetails;
+  readonly video_ad_inventory_control?: VideoAdInventoryControl;
+  readonly video_ad_format_control?: VideoAdFormatControl;
 }
 export interface VideoCampaignSettingsEncoded {
-  readonly video_ad_sequence?: unknown;
-  readonly reservation_ad_category_self_disclosure?: unknown;
-  readonly booking_details?: unknown;
-  readonly video_ad_inventory_control?: unknown;
-  readonly video_ad_format_control?: unknown;
+  readonly video_ad_sequence?: VideoAdSequenceEncoded;
+  readonly reservation_ad_category_self_disclosure?: ReservationAdCategorySelfDisclosureEncoded;
+  readonly booking_details?: BookingDetailsEncoded;
+  readonly video_ad_inventory_control?: VideoAdInventoryControlEncoded;
+  readonly video_ad_format_control?: VideoAdFormatControlEncoded;
 }
 export const VideoCampaignSettings: Schema.Schema<VideoCampaignSettings, VideoCampaignSettingsEncoded, never> = Schema.Struct({
-  video_ad_sequence: Schema.optional(Schema.Unknown),
-  reservation_ad_category_self_disclosure: Schema.optional(Schema.Unknown),
-  booking_details: Schema.optional(Schema.Unknown),
-  video_ad_inventory_control: Schema.optional(Schema.Unknown),
-  video_ad_format_control: Schema.optional(Schema.Unknown),
+  video_ad_sequence: Schema.optional(Schema.suspend(() => VideoAdSequence)),
+  reservation_ad_category_self_disclosure: Schema.optional(Schema.suspend(() => ReservationAdCategorySelfDisclosure)),
+  booking_details: Schema.optional(Schema.suspend(() => BookingDetails)),
+  video_ad_inventory_control: Schema.optional(Schema.suspend(() => VideoAdInventoryControl)),
+  video_ad_format_control: Schema.optional(Schema.suspend(() => VideoAdFormatControl)),
 });
 
 export interface VideoCustomer {
@@ -35735,17 +35735,17 @@ export const VideoLineupInfo: Schema.Schema<VideoLineupInfo, VideoLineupInfoEnco
 });
 
 export interface VideoNonSkippableInStreamAdInfo {
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAsset;
   readonly action_button_label?: string;
   readonly action_headline?: string;
 }
 export interface VideoNonSkippableInStreamAdInfoEncoded {
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAssetEncoded;
   readonly action_button_label?: string;
   readonly action_headline?: string;
 }
 export const VideoNonSkippableInStreamAdInfo: Schema.Schema<VideoNonSkippableInStreamAdInfo, VideoNonSkippableInStreamAdInfoEncoded, never> = Schema.Struct({
-  companion_banner: Schema.optional(Schema.Unknown),
+  companion_banner: Schema.optional(Schema.suspend(() => AdImageAsset)),
   action_button_label: Schema.optional(Schema.String),
   action_headline: Schema.optional(Schema.String),
 });
@@ -35778,38 +35778,38 @@ export const VideoReservationErrorEnum: Schema.Schema<VideoReservationErrorEnum,
 });
 
 export interface VideoResponsiveAdInfo {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
-  readonly business_name?: unknown;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly companion_banners?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAsset>;
+  readonly long_headlines?: ReadonlyArray<AdTextAsset>;
+  readonly descriptions?: ReadonlyArray<AdTextAsset>;
+  readonly call_to_actions?: ReadonlyArray<AdTextAsset>;
+  readonly videos?: ReadonlyArray<AdVideoAsset>;
+  readonly business_name?: AdTextAsset;
+  readonly logo_images?: ReadonlyArray<AdImageAsset>;
+  readonly companion_banners?: ReadonlyArray<AdImageAsset>;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
 }
 export interface VideoResponsiveAdInfoEncoded {
-  readonly headlines?: ReadonlyArray<unknown>;
-  readonly long_headlines?: ReadonlyArray<unknown>;
-  readonly descriptions?: ReadonlyArray<unknown>;
-  readonly call_to_actions?: ReadonlyArray<unknown>;
-  readonly videos?: ReadonlyArray<unknown>;
-  readonly business_name?: unknown;
-  readonly logo_images?: ReadonlyArray<unknown>;
-  readonly companion_banners?: ReadonlyArray<unknown>;
+  readonly headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly long_headlines?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly descriptions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly call_to_actions?: ReadonlyArray<AdTextAssetEncoded>;
+  readonly videos?: ReadonlyArray<AdVideoAssetEncoded>;
+  readonly business_name?: AdTextAssetEncoded;
+  readonly logo_images?: ReadonlyArray<AdImageAssetEncoded>;
+  readonly companion_banners?: ReadonlyArray<AdImageAssetEncoded>;
   readonly breadcrumb1?: string;
   readonly breadcrumb2?: string;
 }
 export const VideoResponsiveAdInfo: Schema.Schema<VideoResponsiveAdInfo, VideoResponsiveAdInfoEncoded, never> = Schema.Struct({
-  headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  long_headlines: Schema.optional(Schema.Array(Schema.Unknown)),
-  descriptions: Schema.optional(Schema.Array(Schema.Unknown)),
-  call_to_actions: Schema.optional(Schema.Array(Schema.Unknown)),
-  videos: Schema.optional(Schema.Array(Schema.Unknown)),
-  business_name: Schema.optional(Schema.Unknown),
-  logo_images: Schema.optional(Schema.Array(Schema.Unknown)),
-  companion_banners: Schema.optional(Schema.Array(Schema.Unknown)),
+  headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  long_headlines: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  descriptions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  call_to_actions: Schema.optional(Schema.Array(Schema.suspend(() => AdTextAsset))),
+  videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
+  business_name: Schema.optional(Schema.suspend(() => AdTextAsset)),
+  logo_images: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
+  companion_banners: Schema.optional(Schema.Array(Schema.suspend(() => AdImageAsset))),
   breadcrumb1: Schema.optional(Schema.String),
   breadcrumb2: Schema.optional(Schema.String),
 });
@@ -35831,17 +35831,17 @@ export const VideoThumbnailEnum: Schema.Schema<VideoThumbnailEnum, VideoThumbnai
 export interface VideoTrueViewInStreamAdInfo {
   readonly action_button_label?: string;
   readonly action_headline?: string;
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAsset;
 }
 export interface VideoTrueViewInStreamAdInfoEncoded {
   readonly action_button_label?: string;
   readonly action_headline?: string;
-  readonly companion_banner?: unknown;
+  readonly companion_banner?: AdImageAssetEncoded;
 }
 export const VideoTrueViewInStreamAdInfo: Schema.Schema<VideoTrueViewInStreamAdInfo, VideoTrueViewInStreamAdInfoEncoded, never> = Schema.Struct({
   action_button_label: Schema.optional(Schema.String),
   action_headline: Schema.optional(Schema.String),
-  companion_banner: Schema.optional(Schema.Unknown),
+  companion_banner: Schema.optional(Schema.suspend(() => AdImageAsset)),
 });
 
 export interface WebhookDelivery {
@@ -35861,13 +35861,13 @@ export const WebhookDelivery: Schema.Schema<WebhookDelivery, WebhookDeliveryEnco
 });
 
 export interface Webpage {
-  readonly conditions?: ReadonlyArray<unknown>;
+  readonly conditions?: ReadonlyArray<WebpageCondition>;
 }
 export interface WebpageEncoded {
-  readonly conditions?: ReadonlyArray<unknown>;
+  readonly conditions?: ReadonlyArray<WebpageConditionEncoded>;
 }
 export const Webpage: Schema.Schema<Webpage, WebpageEncoded, never> = Schema.Struct({
-  conditions: Schema.optional(Schema.Array(Schema.Unknown)),
+  conditions: Schema.optional(Schema.Array(Schema.suspend(() => WebpageCondition))),
 });
 
 export interface WebpageCondition {
@@ -35929,21 +35929,21 @@ export const WebpageConditionOperatorEnum: Schema.Schema<WebpageConditionOperato
 
 export interface WebpageInfo {
   readonly criterion_name?: string;
-  readonly conditions?: ReadonlyArray<unknown>;
+  readonly conditions?: ReadonlyArray<WebpageConditionInfo>;
   readonly coverage_percentage?: number;
-  readonly sample?: unknown;
+  readonly sample?: WebpageSampleInfo;
 }
 export interface WebpageInfoEncoded {
   readonly criterion_name?: string;
-  readonly conditions?: ReadonlyArray<unknown>;
+  readonly conditions?: ReadonlyArray<WebpageConditionInfoEncoded>;
   readonly coverage_percentage?: number;
-  readonly sample?: unknown;
+  readonly sample?: WebpageSampleInfoEncoded;
 }
 export const WebpageInfo: Schema.Schema<WebpageInfo, WebpageInfoEncoded, never> = Schema.Struct({
   criterion_name: Schema.optional(Schema.String),
-  conditions: Schema.optional(Schema.Array(Schema.Unknown)),
+  conditions: Schema.optional(Schema.Array(Schema.suspend(() => WebpageConditionInfo))),
   coverage_percentage: Schema.optional(Schema.Number),
-  sample: Schema.optional(Schema.Unknown),
+  sample: Schema.optional(Schema.suspend(() => WebpageSampleInfo)),
 });
 
 export interface WebpageListInfo {
@@ -36013,16 +36013,16 @@ export const YearMonth: Schema.Schema<YearMonth, YearMonthEncoded, never> = Sche
 });
 
 export interface YearMonthRange {
-  readonly start?: unknown;
-  readonly end?: unknown;
+  readonly start?: YearMonth;
+  readonly end?: YearMonth;
 }
 export interface YearMonthRangeEncoded {
-  readonly start?: unknown;
-  readonly end?: unknown;
+  readonly start?: YearMonthEncoded;
+  readonly end?: YearMonthEncoded;
 }
 export const YearMonthRange: Schema.Schema<YearMonthRange, YearMonthRangeEncoded, never> = Schema.Struct({
-  start: Schema.optional(Schema.Unknown),
-  end: Schema.optional(Schema.Unknown),
+  start: Schema.optional(Schema.suspend(() => YearMonth)),
+  end: Schema.optional(Schema.suspend(() => YearMonth)),
 });
 
 export interface YouTubeAudioAdInfo {
@@ -36064,12 +36064,12 @@ export interface YouTubeChannelInsights {
   readonly thumbnail_url?: string;
   readonly publish_date?: string;
   readonly country_location?: LocationInfo;
-  readonly channel_metrics?: unknown;
+  readonly channel_metrics?: YouTubeMetrics;
   readonly data_sharing_consent_given?: boolean;
   readonly channel_audience_attributes?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
   readonly channel_attributes?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
   readonly top_videos?: ReadonlyArray<AudienceInsightsAttributeMetadata>;
-  readonly language_distributions?: ReadonlyArray<unknown>;
+  readonly language_distributions?: ReadonlyArray<LanguageDistribution>;
   readonly channel_type?: string;
   readonly relevance_score?: number;
 }
@@ -36082,12 +36082,12 @@ export interface YouTubeChannelInsightsEncoded {
   readonly thumbnail_url?: string;
   readonly publish_date?: string;
   readonly country_location?: LocationInfoEncoded;
-  readonly channel_metrics?: unknown;
+  readonly channel_metrics?: YouTubeMetricsEncoded;
   readonly data_sharing_consent_given?: boolean;
   readonly channel_audience_attributes?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
   readonly channel_attributes?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
   readonly top_videos?: ReadonlyArray<AudienceInsightsAttributeMetadataEncoded>;
-  readonly language_distributions?: ReadonlyArray<unknown>;
+  readonly language_distributions?: ReadonlyArray<LanguageDistributionEncoded>;
   readonly channel_type?: string;
   readonly relevance_score?: number;
 }
@@ -36100,12 +36100,12 @@ export const YouTubeChannelInsights: Schema.Schema<YouTubeChannelInsights, YouTu
   thumbnail_url: Schema.optional(Schema.String),
   publish_date: Schema.optional(Schema.String),
   country_location: Schema.optional(Schema.suspend(() => LocationInfo)),
-  channel_metrics: Schema.optional(Schema.Unknown),
+  channel_metrics: Schema.optional(Schema.suspend(() => YouTubeMetrics)),
   data_sharing_consent_given: Schema.optional(Schema.Boolean),
   channel_audience_attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
   channel_attributes: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
   top_videos: Schema.optional(Schema.Array(Schema.suspend(() => AudienceInsightsAttributeMetadata))),
-  language_distributions: Schema.optional(Schema.Array(Schema.Unknown)),
+  language_distributions: Schema.optional(Schema.Array(Schema.suspend(() => LanguageDistribution))),
   channel_type: Schema.optional(Schema.String),
   relevance_score: Schema.optional(Schema.Number),
 });
@@ -36122,15 +36122,15 @@ export const YouTubeChannels: Schema.Schema<YouTubeChannels, YouTubeChannelsEnco
 
 export interface YouTubeCreatorInsights {
   readonly creator_name?: string;
-  readonly creator_channels?: ReadonlyArray<unknown>;
+  readonly creator_channels?: ReadonlyArray<YouTubeChannelInsights>;
 }
 export interface YouTubeCreatorInsightsEncoded {
   readonly creator_name?: string;
-  readonly creator_channels?: ReadonlyArray<unknown>;
+  readonly creator_channels?: ReadonlyArray<YouTubeChannelInsightsEncoded>;
 }
 export const YouTubeCreatorInsights: Schema.Schema<YouTubeCreatorInsights, YouTubeCreatorInsightsEncoded, never> = Schema.Struct({
   creator_name: Schema.optional(Schema.String),
-  creator_channels: Schema.optional(Schema.Array(Schema.Unknown)),
+  creator_channels: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeChannelInsights))),
 });
 
 export interface YoutubeLinkMetadata {
@@ -36225,16 +36225,16 @@ export const YouTubeSelectLineUp: Schema.Schema<YouTubeSelectLineUp, YouTubeSele
 });
 
 export interface YouTubeSelectLineUpTargeting {
-  readonly youtube_select_lineups?: ReadonlyArray<unknown>;
-  readonly default_youtube_select_lineup?: unknown;
+  readonly youtube_select_lineups?: ReadonlyArray<YouTubeSelectLineUp>;
+  readonly default_youtube_select_lineup?: YouTubeSelectLineUp;
 }
 export interface YouTubeSelectLineUpTargetingEncoded {
-  readonly youtube_select_lineups?: ReadonlyArray<unknown>;
-  readonly default_youtube_select_lineup?: unknown;
+  readonly youtube_select_lineups?: ReadonlyArray<YouTubeSelectLineUpEncoded>;
+  readonly default_youtube_select_lineup?: YouTubeSelectLineUpEncoded;
 }
 export const YouTubeSelectLineUpTargeting: Schema.Schema<YouTubeSelectLineUpTargeting, YouTubeSelectLineUpTargetingEncoded, never> = Schema.Struct({
-  youtube_select_lineups: Schema.optional(Schema.Array(Schema.Unknown)),
-  default_youtube_select_lineup: Schema.optional(Schema.Unknown),
+  youtube_select_lineups: Schema.optional(Schema.Array(Schema.suspend(() => YouTubeSelectLineUp))),
+  default_youtube_select_lineup: Schema.optional(Schema.suspend(() => YouTubeSelectLineUp)),
 });
 
 export interface YouTubeSelectSettings {
@@ -36321,13 +36321,13 @@ export const YouTubeVideoInfo: Schema.Schema<YouTubeVideoInfo, YouTubeVideoInfoE
 });
 
 export interface YouTubeVideoListAsset {
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAsset>;
 }
 export interface YouTubeVideoListAssetEncoded {
-  readonly youtube_videos?: ReadonlyArray<unknown>;
+  readonly youtube_videos?: ReadonlyArray<AdVideoAssetEncoded>;
 }
 export const YouTubeVideoListAsset: Schema.Schema<YouTubeVideoListAsset, YouTubeVideoListAssetEncoded, never> = Schema.Struct({
-  youtube_videos: Schema.optional(Schema.Array(Schema.Unknown)),
+  youtube_videos: Schema.optional(Schema.Array(Schema.suspend(() => AdVideoAsset))),
 });
 
 export type YouTubeVideoPrivacy = "UNSPECIFIED" | "UNKNOWN" | "PUBLIC" | "UNLISTED";

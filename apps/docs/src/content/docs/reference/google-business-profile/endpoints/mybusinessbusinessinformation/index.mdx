@@ -1,0 +1,523 @@
+---
+title: "Google Business Profile Mybusinessbusinessinformation endpoints"
+description: "15 generated Google Business Profile endpoint contracts for Mybusinessbusinessinformation."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 105
+  label: "Mybusinessbusinessinformation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinessbusinessinformation.accounts.locations.create
+
+`POST` `https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations`
+
+Creates a new Location that will be owned by the logged in user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business-information.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationLocation` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the account in which to create this location. |
+| `requestId` | `query` | `string` | No | No | Optional. A unique request ID for the server to detect duplicated requests. We recommend using UUIDs. Max length is 50 characters. |
+| `validateOnly` | `query` | `boolean` | No | No | Optional. If true, the request is validated without actually creating the location. |
+| `body` | `body` | `BusinessInformationLocation` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.accounts.locations.list
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations`
+
+Lists the locations for the specified account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationListLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | Optional. A filter constraining the locations to return. The response includes only entries that match the filter. If `filter` is empty, then constraints are applied and all locations (paginated) are retrieved for the requested account. For more information about valid fields and example usage, see [Work with Location Data Guide](https://developers.google.com/my-business/content/location-data#filter_results_when_you_list_locations). |
+| `orderBy` | `query` | `string` | No | No | Optional. Sorting order for the request. Multiple fields should be comma-separated, following SQL syntax. The default sorting order is ascending. To specify descending order, a suffix " desc" should be added. Valid fields to order_by are title and store_code. For example: "title, store_code desc" or "title" or "store_code desc" |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many locations to fetch per page. Default value is 10 if not set. Minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, it fetches the next `page` of locations. The page token is returned by previous calls to `ListLocations` when there were more locations than could fit in the requested page size. |
+| `parent` | `path` | `string` | Yes | No | Required. The name of the account to fetch locations from. * **Specific Account ID**: If the account is of type `AccountType.PERSONAL`, the response returns only locations directly owned by that account. For all other types (e.g., `AccountType.LOCATION_GROUP`), it returns all accessible locations. * **Wildcard (`-`)**: Using `accounts/-` identifies the authenticated user. This scope defaults to `AccountType.PERSONAL` but includes both directly and indirectly owned locations (e.g., those accessible via member groups). |
+| `readMask` | `query` | `string` | No | No | Required. Read mask to specify what fields will be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.attributes.list
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/attributes`
+
+Returns the list of attributes that would be available for a location with the given primary category and country.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationListAttributeMetadataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryName` | `query` | `string` | No | No | Optional. The primary category stable ID to find available attributes. Must be of the format `categories/&#123;category_id&#125;` (e.g., `categories/gcid:restaurant`). Required if `parent` is not set and `show_all` is false. |
+| `languageCode` | `query` | `string` | No | No | Optional. The BCP 47 code of language to get attribute display names in. If this language is not available, they will be provided in English. |
+| `pageSize` | `query` | `integer` | No | No | How many attributes to include per page. Default is 200, minimum is 1. |
+| `pageToken` | `query` | `string` | No | No | If specified, the next page of attribute metadata is retrieved. |
+| `parent` | `query` | `string` | No | No | Optional. Resource name of the location to look up available attributes. If this field is set, `category_name`, `region_code`, `language_code` and `show_all` are not required and must not be set. Format: `locations/&#123;location_id&#125;` (e.g., `locations/1234567890`). |
+| `regionCode` | `query` | `string` | No | No | Optional. The ISO 3166-1 alpha-2 country code to find available attributes. Required if `parent` is not set. |
+| `showAll` | `query` | `boolean` | No | No | Optional. If set to true, metadata for all available attributes are returned, disregarding `parent` and `category_name` fields. `language_code` and `region_code` are required when `show_all` is set to true. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.categories.batchGet
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/categories:batchGet`
+
+Returns a list of business categories for the provided language and GConcept ids.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationBatchGetCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languageCode` | `query` | `string` | No | No | Required. The BCP 47 code of language that the category names should be returned in. |
+| `names` | `query` | `Array<string>` | No | No | Required. At least one name must be set. The GConcept ids the localized category names should be returned for. To return details for more than one category, repeat this parameter in the request. |
+| `regionCode` | `query` | `string` | No | No | Optional. The ISO 3166-1 alpha-2 country code used to infer non-standard language. |
+| `view` | `query` | `"CATEGORY_VIEW_UNSPECIFIED" \| "BASIC" \| "FULL"` | No | No | Required. Specifies which parts to the Category resource should be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.categories.list
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/categories`
+
+Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant').
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationListCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filter` | `query` | `string` | No | No | Optional. Filter string from user. The only field that supported is `displayName`. Eg: `filter=displayName=foo`. |
+| `languageCode` | `query` | `string` | No | No | Required. The BCP 47 code of language. |
+| `pageSize` | `query` | `integer` | No | No | Optional. How many categories to fetch per page. Default is 100, minimum is 1, and maximum page size is 100. |
+| `pageToken` | `query` | `string` | No | No | Optional. If specified, the next page of categories will be fetched. |
+| `regionCode` | `query` | `string` | No | No | Required. The ISO 3166-1 alpha-2 country code. |
+| `view` | `query` | `"CATEGORY_VIEW_UNSPECIFIED" \| "BASIC" \| "FULL"` | No | No | Required. Specifies which parts to the Category resource should be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.chains.get
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationChain` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The chain's resource name, in the format `chains/&#123;chain_place_id&#125;`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.chains.search
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/chains:search`
+
+Searches the chain based on chain name.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationSearchChainsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chainName` | `query` | `string` | No | No | Required. Search for a chain by its name. Exact/partial/fuzzy/related queries are supported. Examples: "walmart", "wal-mart", "walmmmart", "沃尔玛" |
+| `pageSize` | `query` | `integer` | No | No | The maximum number of matched chains to return from this query. The default is 10. The maximum possible value is 500. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.googleLocations.search
+
+`POST` `https://mybusinessbusinessinformation.googleapis.com/v1/googleLocations:search`
+
+Search all of the possible locations that are a match to the specified request.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business-information.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationSearchGoogleLocationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `BusinessInformationSearchGoogleLocationsRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.attributes.getGoogleUpdated
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated`
+
+Retrieves attributes for a location as they appear live on Google Maps and Search. This consumer-facing view may have been updated by Google or user-generated content and may differ from the merchant's version.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationAttributes` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form of `locations/&#123;location_id&#125;/attributes`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.delete
+
+`DELETE` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business-information.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationEmpty` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the location to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.get
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Returns the specified location as last set by the merchant. It may not reflect updates from Google or user-generated content that are live on Google Maps.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationLocation` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the location to fetch. |
+| `readMask` | `query` | `string` | No | No | Required. Read mask to specify what fields will be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.getAttributes
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Retrieves attributes for a location as last set by the merchant. It may not reflect updates from Google or user-generated content that are live on Google Maps.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationAttributes` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form of `locations/&#123;location_id&#125;/attributes`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.getGoogleUpdated
+
+`GET` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated`
+
+Returns the specified location as it appears live on Google Maps and Search. This consumer-facing view may have been updated by Google or user-generated content and may differ from the merchant's version. The returned GoogleUpdatedLocation contains masks that indicate which fields differ from the merchant's information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `business-information.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationGoogleUpdatedLocation` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The name of the location to fetch. |
+| `readMask` | `query` | `string` | No | No | Required. Read mask to specify what fields will be returned in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.patch
+
+`PATCH` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Updates the specified location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business-information.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationLocation` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Google identifier for this location in the form: `locations/&#123;location_id&#125;`. |
+| `updateMask` | `query` | `string` | No | No | Required. The specific fields to update. |
+| `validateOnly` | `query` | `boolean` | No | No | Optional. If true, the request is validated without actually updating the location. When this field is set, we will only return validation errors if there were any. The response will be empty if no errors were found. |
+| `body` | `body` | `BusinessInformationLocation` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessbusinessinformation.locations.updateAttributes
+
+`PATCH` `https://mybusinessbusinessinformation.googleapis.com/v1/{+name}`
+
+Update attributes for a given location.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `business-information.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-business-information` |
+| Output | `BusinessInformationAttributes` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeMask` | `query` | `string` | No | No | Required. Attribute name of attributes that you'd like to update. Represented by `attributes/&#123;attribute&#125;`. Updates: All attributes provided in the attributes field that you would like to update must be set in the `attribute_mask`. Attributes set in the above list but not in the `attribute_mask` will be ignored. Deletes: If you'd like to delete certain attributes, they must be specified in the `attribute_mask` with no matching entry in the attributes list. If you'd like to delete all attributes set on a location, you should look up all the applicable attributes for the location and then add them to the `attribute_mask` with an empty attributes field. |
+| `name` | `path` | `string` | Yes | No | Required. Google identifier for this location in the form of `locations/&#123;location_id&#125;/attributes`. |
+| `body` | `body` | `BusinessInformationAttributes` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

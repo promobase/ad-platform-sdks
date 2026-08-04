@@ -1,0 +1,55 @@
+---
+title: "YouTube Activities endpoints"
+description: "1 generated YouTube endpoint contract for Activities."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 101
+  label: "Activities"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.activities.list
+
+`GET` `youtube/v3/activities`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `activities.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `ActivityListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channelId` | `query` | `string` | No | No | — |
+| `home` | `query` | `boolean` | No | No | — |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `mine` | `query` | `boolean` | No | No | — |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. If the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set *part=snippet*, the API response will also contain all of those nested properties. |
+| `publishedAfter` | `query` | `string` | No | No | — |
+| `publishedBefore` | `query` | `string` | No | No | — |
+| `regionCode` | `query` | `string` | No | No | — |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -2,7 +2,10 @@ import type { SdkIr, TypeRefIr } from "@openpromo/sdk-codegen";
 
 import type { EndpointSpec, ParamSpec } from "./parser.ts";
 
-export function tiktokCanonicalIr(endpoints: readonly EndpointSpec[]): SdkIr {
+export function tiktokCanonicalIr(
+  endpoints: readonly EndpointSpec[],
+  sourceRevision?: string,
+): SdkIr {
   const models = new Map<string, SdkIr["models"][number]>();
   const capabilities = new Map<string, SdkIr["capabilities"][number]>();
   const irEndpoints: SdkIr["endpoints"][number][] = [];
@@ -60,6 +63,10 @@ export function tiktokCanonicalIr(endpoints: readonly EndpointSpec[]): SdkIr {
       requiredScopes: [],
       capabilities: [capabilityId],
       rateLimitBucket: "tiktok-business-api",
+      authSchemes: [endpoint.auth],
+      protocols: endpoint.requestParams.some((parameter) => /file|binary/i.test(parameter.type))
+        ? ["json", "multipart"]
+        : ["json"],
       summary: endpoint.title,
       description: `Generated from TikTok documentation ${endpoint.docId}`,
     });
@@ -70,12 +77,41 @@ export function tiktokCanonicalIr(endpoints: readonly EndpointSpec[]): SdkIr {
     source: {
       kind: "documentation",
       location: "https://business-api.tiktok.com/gateway/api/doc/client",
+      revision: sourceRevision,
     },
     version: "business-api",
     models: [...models.values()].sort((a, b) => a.name.localeCompare(b.name)),
     endpoints: irEndpoints,
     capabilities: [...capabilities.values()].sort((a, b) => a.id.localeCompare(b.id)),
+    coverage: {
+      discoveredOperations: irEndpoints.length,
+      excludedOperations: [],
+      unresolvedSchemas: collectUnresolvedTypes(endpoints),
+      protocols: ["json", "multipart"],
+    },
   };
+}
+
+function collectUnresolvedTypes(endpoints: readonly EndpointSpec[]): string[] {
+  const unresolved = new Set<string>();
+  const visit = (parameter: ParamSpec) => {
+    if (parameter.children.length > 0) {
+      parameter.children.forEach(visit);
+      return;
+    }
+    const raw = parameter.type.replace(/\[\]$/, "");
+    if (
+      !parameter.enumValues?.length &&
+      !/boolean|number|int|float|double|string|record|object/i.test(raw)
+    ) {
+      unresolved.add(raw || "<empty>");
+    }
+  };
+  for (const endpoint of endpoints) {
+    endpoint.requestParams.forEach(visit);
+    endpoint.responseFields.forEach(visit);
+  }
+  return [...unresolved].sort();
 }
 
 function addParamModel(

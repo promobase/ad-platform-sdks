@@ -4,6 +4,7 @@ import { Effect, Schema } from "effect";
 
 import { createEndpointClient, resolveEndpointRequest } from "../src/effect-client.ts";
 import { defineEndpointDescriptor } from "../src/effect-endpoint.ts";
+import { serializeRequestBody } from "../src/request-body.ts";
 
 const descriptor = defineEndpointDescriptor({
   id: "test.posts.get",
@@ -71,4 +72,37 @@ test("default resolver projects path, query, headers, and body", () => {
     body: undefined,
     idempotencyKey: undefined,
   });
+});
+
+test("default resolver preserves a base URL path prefix", () => {
+  const request = resolveEndpointRequest(
+    descriptor,
+    { postId: "123" },
+    { baseUrl: "https://api.example.test/rest" },
+  );
+
+  expect(request.url).toStartWith("https://api.example.test/rest/");
+});
+
+test("request serialization preserves native upload bodies", () => {
+  const form = new FormData();
+  form.set("media", new Blob(["image"]), "image.png");
+  expect(serializeRequestBody(form)).toBe(form);
+  expect(serializeRequestBody({ title: "post" }, { "content-type": "application/json" })).toBe(
+    '{"title":"post"}',
+  );
+});
+
+test("default resolver expands Google reserved path templates", () => {
+  const googleDescriptor = defineEndpointDescriptor({
+    ...descriptor,
+    path: "https://example.test/v1/{+name}",
+    parameters: [
+      { name: "name", wireName: "name", location: "path", required: true, nullable: false },
+    ],
+    inputSchema: Schema.Struct({ name: Schema.String }),
+  });
+  expect(resolveEndpointRequest(googleDescriptor, { name: "locations/123" }).url).toBe(
+    "https://example.test/v1/locations/123",
+  );
 });

@@ -1,0 +1,271 @@
+---
+title: "X Webhooks endpoints"
+description: "8 generated X endpoint contracts for Webhooks."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 120
+  label: "Webhooks"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.webhooks.createWebhookReplayJob
+
+`POST` `/2/webhooks/replay`
+
+Creates a replay job to retrieve events from up to the past 24 hours for all events delivered or attempted to be delivered to the webhook.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `CreateWebhookReplayJobResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateWebhookReplayJobRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.createWebhooks
+
+`POST` `/2/webhooks`
+
+Creates a new webhook configuration.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `CreateWebhooksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateWebhooksRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.createWebhooksStreamLink
+
+`POST` `/2/tweets/search/webhooks/{webhook_id}`
+
+Creates a link to deliver FilteredStream events to the given webhook.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `CreateWebhooksStreamLinkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.deleteWebhooks
+
+`DELETE` `/2/webhooks/{webhook_id}`
+
+Deletes an existing webhook configuration.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `DeleteWebhooksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.deleteWebhooksStreamLink
+
+`DELETE` `/2/tweets/search/webhooks/{webhook_id}`
+
+Deletes the link delivering FilteredStream events to the given webhook.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `DeleteWebhooksStreamLinkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.getWebhooks
+
+`GET` `/2/webhooks`
+
+Get a list of webhook configs associated with a client app.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `webhooks.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `GetWebhooksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_config.fields` | `query` | `Array<"created_at" \| "id" \| "url" \| "valid">` | No | No | A comma separated list of WebhookConfig fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.getWebhooksStreamLinks
+
+`GET` `/2/tweets/search/webhooks`
+
+Get a list of webhook links associated with a filtered stream ruleset.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `webhooks.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `GetWebhooksStreamLinksResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.webhooks.validateWebhooks
+
+`PUT` `/2/webhooks/{webhook_id}`
+
+Triggers a CRC check for a given webhook.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `webhooks.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `x-webhooks` |
+| Output | `ValidateWebhooksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `webhook_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

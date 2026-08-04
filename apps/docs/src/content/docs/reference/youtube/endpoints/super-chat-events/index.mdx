@@ -1,0 +1,50 @@
+---
+title: "YouTube Super Chat Events endpoints"
+description: "1 generated YouTube endpoint contract for Super Chat Events."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 124
+  label: "Super Chat Events"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.superChatEvents.list
+
+`GET` `youtube/v3/superChatEvents`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `superChatEvents.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `SuperChatEventListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `query` | `string` | No | No | Return rendered funding amounts in specified language. |
+| `maxResults` | `query` | `integer` | No | No | The *maxResults* parameter specifies the maximum number of items that should be returned in the result set. |
+| `pageToken` | `query` | `string` | No | No | The *pageToken* parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the superChatEvent resource parts that the API response will include. This parameter is currently not supported. |
+
+**Pagination:** `page-token` using request field `pageToken`, response field `nextPageToken`, and items field `items`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

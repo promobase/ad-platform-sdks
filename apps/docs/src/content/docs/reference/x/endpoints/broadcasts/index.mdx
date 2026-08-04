@@ -1,0 +1,386 @@
+---
+title: "X Broadcasts endpoints"
+description: "11 generated X endpoint contracts for Broadcasts."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 103
+  label: "Broadcasts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.broadcasts.createScheduledBroadcast
+
+`POST` `/2/broadcasts/scheduled`
+
+Schedules a one-off or recurring broadcast for the authenticated user. A `source_id` (ingest) is required at create time.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `CreateScheduledBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `CreateScheduledBroadcastRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.deleteBroadcastChatMessage
+
+`DELETE` `/2/broadcasts/{id}/chat/{message_id}`
+
+Removes a specific chat message from a running broadcast owned by the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `DeleteBroadcastChatMessageResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `message_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.deleteScheduledBroadcast
+
+`DELETE` `/2/broadcasts/scheduled/{id}`
+
+Deletes a scheduled broadcast by its alphanumeric UBS broadcast id.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `DeleteScheduledBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `roll_forward` | `query` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.getBroadcast
+
+`GET` `/2/broadcasts/{id}`
+
+Returns a broadcast owned by the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `broadcasts.read` |
+| Required scopes | `broadcast.read` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `GetBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `broadcast.fields` | `query` | `Array<"available_for_replay" \| "broadcast_id" \| "chat_option" \| "created_at_ms" \| "end_ms" \| "height" \| "id" \| "image_url" \| "image_url_medium" \| "image_url_small" \| "is_high_latency" \| "language" \| "media_key" \| "scheduled_end_ms" \| "scheduled_start_ms" \| "share_url" \| "source_id" \| "start_ms" \| "state" \| "title" \| "total_watched" \| "total_watching" \| "tweet_id" \| "twitter_user_id" \| "updated_at_ms" \| "width">` | No | No | A comma separated list of Broadcast fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.getScheduledBroadcast
+
+`GET` `/2/broadcasts/scheduled/{id}`
+
+Returns a single scheduled broadcast by its alphanumeric UBS broadcast id.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `broadcasts.read` |
+| Required scopes | `broadcast.read` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `GetScheduledBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.goLiveScheduledBroadcast
+
+`POST` `/2/broadcasts/scheduled/{id}/live`
+
+Publishes a schedule that was created or updated with `manual_publish: true`. Without that flag the coordinator auto-publishes at start and this call is rejected.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `GoLiveScheduledBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.listScheduledBroadcasts
+
+`GET` `/2/broadcasts/scheduled`
+
+Returns scheduled broadcasts owned by the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `broadcasts.read` |
+| Required scopes | `broadcast.read` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `ListScheduledBroadcastsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_results` | `query` | `integer` | No | No | — |
+| `oldest_start_time` | `query` | `string` | No | No | — |
+| `newest_start_time` | `query` | `string` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.muteBroadcastChatUser
+
+`POST` `/2/broadcasts/{id}/chat/mutes`
+
+Prevents a user from posting further messages in a running broadcast chat. The authenticated user must own the broadcast.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `MuteBroadcastChatUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `MuteBroadcastChatUserRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.sendBroadcastChat
+
+`POST` `/2/broadcasts/{id}/chat`
+
+Posts a chat message to a running broadcast, attributed to the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `SendBroadcastChatResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `SendBroadcastChatRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.unmuteBroadcastChatUser
+
+`DELETE` `/2/broadcasts/{id}/chat/mutes/{user_id}`
+
+Allows a muted user to post messages in a running broadcast chat again. The authenticated user must own the broadcast.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `UnmuteBroadcastChatUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `user_id` | `path` | `string` | Yes | No | A 64-bit signed integer. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.broadcasts.updateScheduledBroadcast
+
+`PUT` `/2/broadcasts/scheduled/{id}`
+
+Fully replaces schedule fields for a broadcast. Path `:id` is the UBS broadcast id; the body must include `scheduled_broadcast_id` and re-send any fields that should be kept.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `broadcasts.manage` |
+| Required scopes | `broadcast.read`<br />`broadcast.write` |
+| Rate-limit bucket | `x-broadcasts` |
+| Output | `UpdateScheduledBroadcastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `UpdateScheduledBroadcastRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

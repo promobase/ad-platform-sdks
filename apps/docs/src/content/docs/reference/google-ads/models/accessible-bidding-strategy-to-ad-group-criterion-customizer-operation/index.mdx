@@ -24,12 +24,12 @@ tableOfContents: false
 | `type` | `type` | `BiddingStrategyType` | No | No | — |
 | `owner_customer_id` | `owner_customer_id` | `string` | No | No | — |
 | `owner_descriptive_name` | `owner_descriptive_name` | `string` | No | No | — |
-| `maximize_conversion_value` | `maximize_conversion_value` | `unknown` | No | No | — |
-| `maximize_conversions` | `maximize_conversions` | `unknown` | No | No | — |
-| `target_cpa` | `target_cpa` | `unknown` | No | No | — |
-| `target_impression_share` | `target_impression_share` | `unknown` | No | No | — |
-| `target_roas` | `target_roas` | `unknown` | No | No | — |
-| `target_spend` | `target_spend` | `unknown` | No | No | — |
+| `maximize_conversion_value` | `maximize_conversion_value` | `MaximizeConversionValue` | No | No | — |
+| `maximize_conversions` | `maximize_conversions` | `MaximizeConversions` | No | No | — |
+| `target_cpa` | `target_cpa` | `TargetCpa` | No | No | — |
+| `target_impression_share` | `target_impression_share` | `TargetImpressionShare` | No | No | — |
+| `target_roas` | `target_roas` | `TargetRoas` | No | No | — |
+| `target_spend` | `target_spend` | `TargetSpend` | No | No | — |
 
 ## AccessibleBiddingStrategy_MaximizeConversions
 
@@ -147,7 +147,7 @@ No fields are declared.
 | `amount_served_micros` | `amount_served_micros` | `string` | No | No | — |
 | `purchase_order_number` | `purchase_order_number` | `string` | No | No | — |
 | `notes` | `notes` | `string` | No | No | — |
-| `pending_proposal` | `pending_proposal` | `unknown` | No | No | — |
+| `pending_proposal` | `pending_proposal` | `PendingAccountBudgetProposal` | No | No | — |
 | `proposed_end_date_time` | `proposed_end_date_time` | `string` | No | No | — |
 | `proposed_end_time_type` | `proposed_end_time_type` | `TimeType` | No | No | — |
 | `approved_end_date_time` | `approved_end_date_time` | `string` | No | No | — |
@@ -206,7 +206,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AccountBudgetProposal` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
 
@@ -265,8 +265,8 @@ No fields are declared.
 | `billed_amount_micros` | `billed_amount_micros` | `string` | No | No | — |
 | `overdelivery_amount_micros` | `overdelivery_amount_micros` | `string` | No | No | — |
 | `invalid_activity_amount_micros` | `invalid_activity_amount_micros` | `string` | No | No | — |
-| `invalid_activity_summaries` | `invalid_activity_summaries` | `Array<unknown>` | No | No | — |
-| `campaign_summaries` | `campaign_summaries` | `Array<unknown>` | No | No | — |
+| `invalid_activity_summaries` | `invalid_activity_summaries` | `Array<InvalidActivitySummary>` | No | No | — |
+| `campaign_summaries` | `campaign_summaries` | `Array<CampaignSummary>` | No | No | — |
 
 ## AccountInfo
 
@@ -287,7 +287,7 @@ No fields are declared.
 | `account_link_id` | `account_link_id` | `string` | No | No | — |
 | `status` | `status` | `AccountLinkStatus` | No | No | — |
 | `type` | `type` | `LinkedAccountType` | No | No | — |
-| `third_party_app_analytics` | `third_party_app_analytics` | `unknown` | No | No | — |
+| `third_party_app_analytics` | `third_party_app_analytics` | `ThirdPartyAppAnalyticsLinkIdentifier` | No | No | — |
 
 ## AccountLinkError
 
@@ -307,7 +307,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `update` | `update` | `AccountLink` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
 
@@ -348,8 +348,8 @@ No fields are declared.
 | `subtotal_amount_micros` | `subtotal_amount_micros` | `string` | No | No | — |
 | `tax_amount_micros` | `tax_amount_micros` | `string` | No | No | — |
 | `total_amount_micros` | `total_amount_micros` | `string` | No | No | — |
-| `regulatory_cost_summaries` | `regulatory_cost_summaries` | `Array<unknown>` | No | No | — |
-| `adjustment_summaries` | `adjustment_summaries` | `Array<unknown>` | No | No | — |
+| `regulatory_cost_summaries` | `regulatory_cost_summaries` | `Array<RegulatoryCostSummary>` | No | No | — |
+| `adjustment_summaries` | `adjustment_summaries` | `Array<AdjustmentSummary>` | No | No | — |
 
 ## ActionError
 
@@ -467,7 +467,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `new_assets` | `new_assets` | `Array<Asset>` | No | No | — |
 | `existing_assets` | `existing_assets` | `Array<string>` | No | No | — |
-| `scope` | `scope` | `unknown` | No | No | — |
+| `scope` | `scope` | `ApplyScope` | No | No | — |
 
 ## AdAssetPolicySummary
 
@@ -475,7 +475,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `policy_topic_entries` | `policy_topic_entries` | `Array<unknown>` | No | No | — |
+| `policy_topic_entries` | `policy_topic_entries` | `Array<PolicyTopicEntry>` | No | No | — |
 | `review_status` | `review_status` | `PolicyReviewStatus` | No | No | — |
 | `approval_status` | `approval_status` | `PolicyApprovalStatus` | No | No | — |
 
@@ -517,7 +517,7 @@ No fields are declared.
 | --- | --- | --- | --- | --- | --- |
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `sequence_token` | `sequence_token` | `string` | No | No | — |
-| `mutate_operations` | `mutate_operations` | `Array<unknown>` | No | No | — |
+| `mutate_operations` | `mutate_operations` | `Array<MutateOperation>` | No | No | — |
 
 ## AddBatchJobOperationsResponse
 
@@ -566,7 +566,7 @@ No fields are declared.
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `enable_partial_failure` | `enable_partial_failure` | `boolean` | No | No | — |
 | `enable_warnings` | `enable_warnings` | `boolean` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<OfflineUserDataJobOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## AddOfflineUserDataJobOperationsResponse
@@ -575,8 +575,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `warning` | `warning` | `unknown` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `warning` | `warning` | `json` | No | No | — |
 
 ## AddressInfo
 
@@ -648,7 +648,7 @@ No fields are declared.
 | `display_custom_bid_dimension` | `display_custom_bid_dimension` | `TargetingDimension` | No | No | — |
 | `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |
 | `targeting_setting` | `targeting_setting` | `TargetingSetting` | No | No | — |
-| `audience_setting` | `audience_setting` | `unknown` | No | No | — |
+| `audience_setting` | `audience_setting` | `AudienceSetting` | No | No | — |
 | `effective_target_cpa_micros` | `effective_target_cpa_micros` | `string` | No | No | — |
 | `effective_target_cpa_source` | `effective_target_cpa_source` | `BiddingSource` | No | No | — |
 | `effective_target_roas` | `effective_target_roas` | `number` | No | No | — |
@@ -660,10 +660,10 @@ No fields are declared.
 | `excluded_parent_asset_set_types` | `excluded_parent_asset_set_types` | `Array<AssetSetType>` | No | No | — |
 | `primary_status` | `primary_status` | `AdGroupPrimaryStatus` | No | No | — |
 | `primary_status_reasons` | `primary_status_reasons` | `Array<AdGroupPrimaryStatusReason>` | No | No | — |
-| `demand_gen_ad_group_settings` | `demand_gen_ad_group_settings` | `unknown` | No | No | — |
-| `video_ad_group_settings` | `video_ad_group_settings` | `unknown` | No | No | — |
-| `ai_max_ad_group_setting` | `ai_max_ad_group_setting` | `unknown` | No | No | — |
-| `vertical_ads_format_setting` | `vertical_ads_format_setting` | `unknown` | No | No | — |
+| `demand_gen_ad_group_settings` | `demand_gen_ad_group_settings` | `DemandGenAdGroupSettings` | No | No | — |
+| `video_ad_group_settings` | `video_ad_group_settings` | `VideoAdGroupSettings` | No | No | — |
+| `ai_max_ad_group_setting` | `ai_max_ad_group_setting` | `AiMaxAdGroupSetting` | No | No | — |
+| `vertical_ads_format_setting` | `vertical_ads_format_setting` | `VerticalAdsFormatSetting` | No | No | — |
 
 ## AdGroupAd
 
@@ -674,16 +674,16 @@ No fields are declared.
 | `resource_name` | `resource_name` | `string` | No | No | — |
 | `status` | `status` | `AdGroupAdStatus` | No | No | — |
 | `ad_group` | `ad_group` | `string` | No | No | — |
-| `ad` | `ad` | `unknown` | No | No | — |
+| `ad` | `ad` | `Ad` | No | No | — |
 | `start_date_time` | `start_date_time` | `string` | No | No | — |
 | `end_date_time` | `end_date_time` | `string` | No | No | — |
-| `policy_summary` | `policy_summary` | `unknown` | No | No | — |
+| `policy_summary` | `policy_summary` | `AdGroupAdPolicySummary` | No | No | — |
 | `ad_strength` | `ad_strength` | `AdStrength` | No | No | — |
 | `action_items` | `action_items` | `Array<string>` | No | No | — |
 | `labels` | `labels` | `Array<string>` | No | No | — |
 | `primary_status` | `primary_status` | `AdGroupAdPrimaryStatus` | No | No | — |
 | `primary_status_reasons` | `primary_status_reasons` | `Array<AdGroupAdPrimaryStatusReason>` | No | No | — |
-| `ad_group_ad_asset_automation_settings` | `ad_group_ad_asset_automation_settings` | `Array<unknown>` | No | No | — |
+| `ad_group_ad_asset_automation_settings` | `ad_group_ad_asset_automation_settings` | `Array<AdGroupAdAssetAutomationSetting>` | No | No | — |
 
 ## AdGroupAdAssetAutomationSetting
 
@@ -725,7 +725,7 @@ No fields are declared.
 | `asset` | `asset` | `string` | No | No | — |
 | `field_type` | `field_type` | `AssetFieldType` | No | No | — |
 | `enabled` | `enabled` | `boolean` | No | No | — |
-| `policy_summary` | `policy_summary` | `unknown` | No | No | — |
+| `policy_summary` | `policy_summary` | `AdGroupAdAssetPolicySummary` | No | No | — |
 | `performance_label` | `performance_label` | `AssetPerformanceLabel` | No | No | — |
 | `pinned_field` | `pinned_field` | `ServedAssetFieldType` | No | No | — |
 | `source` | `source` | `AssetSource` | No | No | — |
@@ -767,7 +767,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `policy_validation_parameter` | `policy_validation_parameter` | `PolicyValidationParameter` | No | No | — |
 | `create` | `create` | `AdGroupAd` | No | No | — |
 | `update` | `update` | `AdGroupAd` | No | No | — |
@@ -853,7 +853,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AdGroupAsset` | No | No | — |
 | `update` | `update` | `AdGroupAsset` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -923,7 +923,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `AdGroupBidModifier` | No | No | — |
 | `update` | `update` | `AdGroupBidModifier` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -946,7 +946,7 @@ No fields are declared.
 | `criterion_id` | `criterion_id` | `string` | No | No | — |
 | `display_name` | `display_name` | `string` | No | No | — |
 | `status` | `status` | `AdGroupCriterionStatus` | No | No | — |
-| `quality_info` | `quality_info` | `unknown` | No | No | — |
+| `quality_info` | `quality_info` | `QualityInfo` | No | No | — |
 | `ad_group` | `ad_group` | `string` | No | No | — |
 | `type` | `type` | `CriterionType` | No | No | — |
 | `negative` | `negative` | `boolean` | No | No | — |
@@ -967,7 +967,7 @@ No fields are declared.
 | `effective_cpm_bid_source` | `effective_cpm_bid_source` | `BiddingSource` | No | No | — |
 | `effective_cpv_bid_source` | `effective_cpv_bid_source` | `BiddingSource` | No | No | — |
 | `effective_percent_cpc_bid_source` | `effective_percent_cpc_bid_source` | `BiddingSource` | No | No | — |
-| `position_estimates` | `position_estimates` | `unknown` | No | No | — |
+| `position_estimates` | `position_estimates` | `PositionEstimates` | No | No | — |
 | `final_urls` | `final_urls` | `Array<string>` | No | No | — |
 | `final_mobile_urls` | `final_mobile_urls` | `Array<string>` | No | No | — |
 | `final_url_suffix` | `final_url_suffix` | `string` | No | No | — |

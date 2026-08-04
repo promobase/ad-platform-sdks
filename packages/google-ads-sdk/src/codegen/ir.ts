@@ -11,8 +11,9 @@ export function googleAdsCanonicalIr(options: {
   shortNames: ReadonlyMap<string, string>;
   packagePrefix: string;
   version: string;
+  sourceRevision?: string;
 }): SdkIr {
-  const { root, messages, enums, shortNames, packagePrefix, version } = options;
+  const { root, messages, enums, shortNames, packagePrefix, version, sourceRevision } = options;
   const models: SdkIr["models"][number][] = [];
   for (const [fullName, message] of [...messages].sort(([a], [b]) => a.localeCompare(b))) {
     const name = shortNames.get(fullName)!;
@@ -93,6 +94,11 @@ export function googleAdsCanonicalIr(options: {
         requiredScopes: [GOOGLE_ADS_SCOPE],
         capabilities: [capabilityId],
         rateLimitBucket: "google-ads-api",
+        authSchemes: ["OAuth2", "DeveloperToken"],
+        protocols:
+          method.responseStream || method.requestStream
+            ? ["protobuf-json", "stream"]
+            : ["protobuf-json"],
         summary: `${service.name}.${method.name}`,
       });
     }
@@ -103,12 +109,73 @@ export function googleAdsCanonicalIr(options: {
     source: {
       kind: "protobuf",
       location: `packages/google-ads-sdk/vendor/googleapis/google/ads/googleads/${version}`,
+      revision: sourceRevision,
     },
     version,
     models,
     endpoints,
     capabilities: [...capabilities.values()].sort((a, b) => a.id.localeCompare(b.id)),
+    coverage: {
+      discoveredOperations: endpoints.length,
+      excludedOperations: [],
+      unresolvedSchemas: collectUnresolvedSchemas(root, messages, shortNames, packagePrefix),
+      protocols: ["protobuf-json", "stream"],
+    },
   };
+}
+
+function collectUnresolvedSchemas(
+  root: ProtoRoot,
+  messages: ReadonlyMap<string, MessageAst>,
+  shortNames: ReadonlyMap<string, string>,
+  packagePrefix: string,
+): string[] {
+  const unresolved = new Set<string>();
+  const inspect = (raw: string) => {
+    if (resolveReference(raw, shortNames)) return;
+    if (isKnownScalar(raw)) return;
+    unresolved.add(raw.replace(/^\./, ""));
+  };
+  for (const message of messages.values()) {
+    for (const field of message.fields) {
+      inspect(field.map?.valueType ?? field.type);
+    }
+  }
+  for (const service of root.services.filter((candidate) =>
+    candidate.fullName.startsWith(`${packagePrefix}.`),
+  )) {
+    for (const method of service.methods) {
+      inspect(method.requestType);
+      inspect(method.responseType);
+    }
+  }
+  return [...unresolved].sort();
+}
+
+function isKnownScalar(raw: string): boolean {
+  return new Set([
+    "string",
+    "bytes",
+    "bool",
+    "double",
+    "float",
+    "int32",
+    "sint32",
+    "sfixed32",
+    "uint32",
+    "fixed32",
+    "int64",
+    "sint64",
+    "sfixed64",
+    "uint64",
+    "fixed64",
+    "google.longrunning.Operation",
+    "google.protobuf.Duration",
+    "google.protobuf.Empty",
+    "google.protobuf.FieldMask",
+    "google.rpc.Status",
+    "google.type.Money",
+  ]).has(raw.replace(/^\./, ""));
 }
 
 function protobufFieldType(
@@ -130,6 +197,8 @@ function protobufType(raw: string, shortNames: ReadonlyMap<string, string>): Typ
   switch (raw.replace(/^\./, "")) {
     case "string":
     case "bytes":
+    case "google.protobuf.Duration":
+    case "google.protobuf.FieldMask":
       return { kind: "primitive", name: "string" };
     case "bool":
       return { kind: "primitive", name: "boolean" };
@@ -148,6 +217,11 @@ function protobufType(raw: string, shortNames: ReadonlyMap<string, string>): Typ
     case "uint64":
     case "fixed64":
       return { kind: "primitive", name: "string" };
+    case "google.longrunning.Operation":
+    case "google.protobuf.Empty":
+    case "google.rpc.Status":
+    case "google.type.Money":
+      return { kind: "primitive", name: "json" };
     default:
       return { kind: "primitive", name: "unknown" };
   }
@@ -157,7 +231,15 @@ function resolveReference(
   raw: string,
   shortNames: ReadonlyMap<string, string>,
 ): TypeRefIr | undefined {
-  const name = shortNames.get(raw) ?? shortNames.get(raw.replace(/^\./, ""));
+  const normalized = raw.replace(/^\./, "");
+  const direct = shortNames.get(raw) ?? shortNames.get(normalized);
+  if (direct) return { kind: "reference", target: direct };
+  const shortMatch = [...shortNames.values()].find((candidate) => candidate === normalized);
+  if (shortMatch) return { kind: "reference", target: shortMatch };
+  const suffixMatches = [...shortNames]
+    .filter(([fullName]) => fullName.endsWith(`.${normalized}`))
+    .map(([, shortName]) => shortName);
+  const name = suffixMatches.length === 1 ? suffixMatches[0] : undefined;
   return name ? { kind: "reference", target: name } : undefined;
 }
 

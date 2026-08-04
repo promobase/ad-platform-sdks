@@ -2,13 +2,25 @@
   "platform": "youtube",
   "source": {
     "kind": "discovery",
-    "location": "google-discovery/youtube-v3.json",
-    "revision": "20260729"
+    "location": "google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json",
+    "revision": "20260729,20260803,20260803",
+    "checksum": "8473dd922a6ad1032cdebb06af02b33b059f35578ea04926879fbce63eba82da"
   },
-  "version": "v3",
+  "version": "data-v3+analytics-v2+reporting-v1",
   "counts": {
-    "models": 207,
-    "endpoints": 33,
-    "capabilities": 16
+    "models": 237,
+    "endpoints": 98,
+    "capabilities": 56
+  },
+  "coverage": {
+    "discoveredOperations": 98,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json",
+      "multipart",
+      "resumable"
+    ],
+    "emittedOperations": 98
   }
 }

@@ -1,0 +1,48 @@
+---
+title: "YouTube Video Categories endpoints"
+description: "1 generated YouTube endpoint contract for Video Categories."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 129
+  label: "Video Categories"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.videoCategories.list
+
+`GET` `youtube/v3/videoCategories`
+
+Retrieves a list of resources, possibly filtered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoCategories.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube`<br />`https://www.googleapis.com/auth/youtube.force-ssl`<br />`https://www.googleapis.com/auth/youtube.readonly`<br />`https://www.googleapis.com/auth/youtubepartner` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `VideoCategoryListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hl` | `query` | `string` | No | No | — |
+| `id` | `query` | `string` | No | No | Returns the video categories with the given IDs for Stubby or Apiary. |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet. |
+| `regionCode` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

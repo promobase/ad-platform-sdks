@@ -1,0 +1,538 @@
+---
+title: "LinkedIn Audiences endpoints"
+description: "18 generated LinkedIn endpoint contracts for Audiences."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 102
+  label: "Audiences"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## audiences.audiencesUseCasesCsvListUploadAccountContactTargeting2RetrieveTheUserSAdAccountsSponsoredAccountGetAdAccountsQSearchSear
+
+`GET` `/adAccounts?q=search&search=(type:(values:List(BUSINESS)),status:(values:List(ACTIVE)),test:false)&fields=id,name,test,reference`
+
+View [Search for Accounts](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#search-for-accounts) documentation for more information. This API call pulls back Ad Accounts that the member has access to where the status = ACTIVE, type = BUSINESS, and test = false (NOT a test Ad Account). Learn more about Test Ad Accounts [here](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#working-with-test-ad-accounts). For testing purposes, if you wish to use this example api to pull back a Test Ad Account, simply remove `test:false` from the search parameter. **3\. Ask the user to select the Ad Account where the audience should be created** **4\. Create a CSV file to upload** **5\. Upload the CSV file using the below curl command** curl --form "fileupload=@filename.csv;type=text/csv" -H 'Authorization: Bearer ' [https://api.linkedin.com/media/upload?media_type=ad_segments](https://api.linkedin.com/media/upload?media_type=ad_segments) See our online documentation for [example CSV file templates](https://desktop.postman.com/?desktopVersion=10.13.0&userId=16069442&teamId=1986404). See [Upload List File](https://desktop.postman.com/?desktopVersion=10.13.0&userId=16069442&teamId=1986404) in our online documentation for details on this API.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesCsvListUploadAccountContactTargeting6CreateListUploadDmpSegmentPostDmpSegments
+
+`POST` `/dmpSegments`
+
+Here we create the CSV List Upload DMP segment. See our [online documentation](https://learn.microsoft.com/en-us/linkedin/marketing/integrations/matched-audiences/create-and-manage-list-uploads?tabs=http#sample-request-1) for more information. **NOTE:** there must be at least a 5 second delay between step 6 (creating the segment) and step 7 (attaching the uploaded list file) or the segment may not be populated.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesCsvListUploadAccountContactTargeting7AttachTheUploadedListToTheListUploadDmpSegmentPostDmpSegmentsListu
+
+`POST` `/dmpSegments/{listupload_segment_id}/listUploads`
+
+This call attaches the uploaded CSV list file (using the media URN returned in step 5) to the DMP segment created in step 6. For more detail on [attaching an uploaded list to a DMP segment](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-list-uploads?tabs=http#attach-list-to-dmp-segment), see our online documentation.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `listupload_segment_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesCsvListUploadAccountContactTargeting8MonitorStatusOfTheListUploadDmpSegmentsGetDmpSegmentsQAccountAccou
+
+`GET` `/dmpSegments?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&sourcePlatform=LIST_UPLOAD`
+
+The api call [fetches all DMP segments for a specific ad account](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#find-dmp-segments-by-account) that are List Upload segments. Initial processing can take up to 48 hours. The API should be periodically polled to fetch the latest match rate, audience size, and segment status. Match Rate is calculated by rounding matchedCount / inputCount. Review our online documentation for more information on [audienceSize vs matchedCount](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-destinations?tabs=http#differences-between-audience-size-and-matched-count-fields).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesPredictiveAudiences1RetrieveTheUserSAdAccountsSponsoredAccountGetAdAccountsQSearchSearchTypeValuesListB
+
+`GET` `/adAccounts?q=search&search=(type:(values:List(BUSINESS)),status:(values:List(ACTIVE)),test:false)&fields=id,name,test,reference`
+
+1. Retrieve the user's Ad Accounts (sponsoredAccount)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesPredictiveAudiences2CreateAPredictiveAudienceDmpSegmentPostDmpSegments
+
+`POST` `/dmpSegments`
+
+This call [creates a DMP segment](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#create-dmp-segment) named "DMP Segment 1" tied to the sponsored account the user chose in step 2.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesPredictiveAudiences3CreatePredictiveAudiencePostDmpSegmentsPaDmpSegmentIdBusinessObjectiveBasedAudience
+
+`POST` `/dmpSegments/{pa_dmp_segment_id}/businessObjectiveBasedAudiences`
+
+This example created a predictive audience within the DMP segment created in step 2.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pa_dmp_segment_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesPredictiveAudiences4RetrieveThePredictiveAudienceGetDmpSegmentsPaDmpSegmentIdBusinessObjectiveBasedAudi
+
+`GET` `/dmpSegments/{pa_dmp_segment_id}/businessObjectiveBasedAudiences/{predictive_audience_id}`
+
+4. Retrieve the Predictive Audience
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pa_dmp_segment_id` | `path` | `string` | Yes | No | — |
+| `predictive_audience_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingCompaniesAccountTargeting2RetrieveTheUserSAdAccountsSponsoredAccountGetAdAccountsQSearchSearch
+
+`GET` `/adAccounts?q=search&search=(type:(values:List(BUSINESS)),status:(values:List(ACTIVE)),test:false)&fields=id,name,test,reference`
+
+2. Retrieve the user's Ad Accounts (sponsoredAccount)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingCompaniesAccountTargeting4FetchExistingAudiencesForChosenAdAccountsGetDmpSegmentsQAccountAccou
+
+`GET` `/dmpSegments?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&sourcePlatform={dmp_partner_platform_enum}`
+
+The api call [fetches all DMP segments for a specific ad account](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#find-dmp-segments-by-account) and your designated sourcePlatform ENUM. Display match rate, audience size, and segment status to the user. Match Rate is calculated by rounding matchedCount / inputCount. Review our online documentation for more information on [audienceSize vs matchedCount](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-destinations?tabs=http#differences-between-audience-size-and-matched-count-fields).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dmp_partner_platform_enum` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingCompaniesAccountTargeting6CreateACompanyDmpSegmentPostDmpSegments
+
+`POST` `/dmpSegments`
+
+This call [creates a DMP segment](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#create-dmp-segment) named "DMP Segment 1" tied to the sponsored account the user chose in step 2. The sourcePlatform is an ENUM value that is provided by your LinkedIn contact after you have been granted access to the Audience APIs. **NOTE:** there must be at least a 5 second delay between step 2 (creating the segment) and step 3 (streaming company data) or the segment may not be populated.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingCompaniesAccountTargeting7StreamCompanyDataAddOrRemoveMultipleCompaniesPostDmpSegmentsCompanyS
+
+`POST` `/dmpSegments/{company_segment_id}/companies`
+
+This example adds multiple companies to the DMP segment created in step 2. To see what other fields can also be added/removed, review the [schema section](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-companies?tabs=http#add-or-remove-a-company) of our online documentation. The more information on a company that is provided, the better chance of a higher match rate.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `company_segment_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingCompaniesAccountTargeting8MonitorStatusOfTheCompanyDmpSegmentsGetDmpSegmentsQAccountAccountUrn
+
+`GET` `/dmpSegments?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&sourcePlatform={dmp_partner_platform_enum}`
+
+The api call [fetches all DMP segments for a specific ad account](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#find-dmp-segments-by-account) and your designated sourcePlatform ENUM. After the initial processing, which could take up to 48 hours, any subsequent addition or removal of companies happen in near real-time. The API should be periodically polled to fetch the latest match rate, audience size, and segment status. Match Rate is calculated by rounding matchedCount / inputCount. Review our online documentation for more information on [audienceSize vs matchedCount](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-destinations?tabs=http#differences-between-audience-size-and-matched-count-fields).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dmp_partner_platform_enum` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingUsersContactTargeting2RetrieveTheUserSAdAccountsSponsoredAccountGetAdAccountsQSearchSearchType
+
+`GET` `/adAccounts?q=search&search=(type:(values:List(BUSINESS)),status:(values:List(ACTIVE)),test:false)&fields=id,name,test,reference`
+
+View [Search for Accounts](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#search-for-accounts) documentation for more information. This API call pulls back Ad Accounts that the member has access to where the status = ACTIVE, type = BUSINESS, and test = false (NOT a test Ad Account). Learn more about Test Ad Accounts [here](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#working-with-test-ad-accounts). For testing purposes, if you wish to use this example api to pull back a Test Ad Account, simply remove `test:false` from the search parameter. **3\. Ask the user to select the Ad Account where the audience should be created or dynamically updated**
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingUsersContactTargeting4FetchExistingAudiencesForTheChosenAdAccountGetDmpSegmentsQAccountAccount
+
+`GET` `/dmpSegments?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&sourcePlatform={dmp_partner_platform_enum}`
+
+The api call [fetches all DMP segments for a specific ad account](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#find-dmp-segments-by-account) and your designated sourcePlatform ENUM. Display match rate, audience size, and segment status to the user. Match Rate is calculated by rounding matchedCount / inputCount. Review our online documentation for more information on [audienceSize vs matchedCount](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-destinations?tabs=http#differences-between-audience-size-and-matched-count-fields). **5\. Allow the user to choose if they want to create a new Audience or update an existing one**
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dmp_partner_platform_enum` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingUsersContactTargeting6CreateAUserDmpSegmentSkipThisStepIfTheUserChoseToUpdateAnExistingAudienc
+
+`POST` `/dmpSegments`
+
+This call [creates a DMP segment](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#create-dmp-segment) named "DMP Segment 2" for users to be streamed to. The sourcePlatform is an ENUM value that is provided by your LinkedIn contact after you have been granted access to the Audience APIs. **NOTE:** there must be at least a 5 second delay between step 2 (creating the segment) and step 3 (streaming user data) or the segment may not be populated.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingUsersContactTargeting7StreamUserDataAddOrRemoveMultipleUsersPostDmpSegmentsUserSegmentIdUsers
+
+`POST` `/dmpSegments/{user_segment_id}/users`
+
+This example adds multiple users to the DMP segment created in step 2. To see what other fields can also be added/removed, review the [schema section](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-users?tabs=http#add-or-remove-a-user) of our online documentation. The more information on a user that is provided, the better chance of a higher match rate.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_segment_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## audiences.audiencesUseCasesStreamingUsersContactTargeting8MonitorStatusOfTheUserDmpSegmentsGetDmpSegmentsQAccountAccountUrn3Ali3As
+
+`GET` `/dmpSegments?q=account&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&sourcePlatform={dmp_partner_platform_enum}`
+
+The api call [fetches all DMP segments for a specific ad account](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segments?tabs=http#find-dmp-segments-by-account) and your designated sourcePlatform ENUM. After the initial processing, which could take up to 48 hours, any subsequent addition or removal of users happen in near real-time. The API should be periodically polled to fetch the latest match rate, audience size, and segment status. Match Rate is calculated by rounding matchedCount / inputCount. Review our online documentation for more information on [audienceSize vs matchedCount](https://docs.microsoft.com/linkedin/marketing/integrations/matched-audiences/create-and-manage-segment-destinations?tabs=http#differences-between-audience-size-and-matched-count-fields).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.audiences` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.audiences` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dmp_partner_platform_enum` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

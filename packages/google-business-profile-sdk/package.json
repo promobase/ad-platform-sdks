@@ -24,7 +24,9 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun scripts/generate-effect.ts",
+    "codegen": "bun ../../scripts/generate-google-business-profile-sdk.mjs",
+    "codegen:refresh": "bun ../../scripts/generate-google-business-profile-sdk.mjs --refresh",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/google-business-profile-sdk/src/generated apps/docs/src/content/docs/reference/google-business-profile",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",

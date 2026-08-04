@@ -1,13 +1,32 @@
 {
   "platform": "linkedin",
   "source": {
-    "kind": "handwritten",
-    "location": "src/{account,analytics,assets,comments,oauth,posts}.ts"
+    "kind": "vendor-json",
+    "location": "spec/linkedin-postman.snapshot.json",
+    "revision": "2026-08-04T17:44:43.279Z",
+    "checksum": "001d3759f9e22ef5d15b102ae720418b353dca3c2977f35097413b0d3bb5e8a2"
   },
-  "version": "202602",
+  "version": "202607",
   "counts": {
     "models": 0,
-    "endpoints": 18,
-    "capabilities": 8
+    "endpoints": 303,
+    "capabilities": 19
+  },
+  "coverage": {
+    "discoveredOperations": 304,
+    "excludedOperations": [
+      {
+        "operationId": "Content APIs: Get document content",
+        "reason": "The official Postman request is a placeholder with no URL."
+      }
+    ],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json",
+      "multipart",
+      "raw",
+      "restli"
+    ],
+    "emittedOperations": 303
   }
 }

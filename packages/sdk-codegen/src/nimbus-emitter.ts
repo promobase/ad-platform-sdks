@@ -627,5 +627,8 @@ function code(value: string): string {
 }
 
 function normalize(value: string): string {
-  return value.replaceAll(/\s+/g, " ").trim();
+  return value
+    .replaceAll(/\[([^\]]+)]\(\/[^)]+\)/g, "$1")
+    .replaceAll(/\s+/g, " ")
+    .trim();
 }

@@ -1,0 +1,83 @@
+---
+title: "X News endpoints"
+description: "2 generated X endpoint contracts for News."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 113
+  label: "News"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.news.getNews
+
+`GET` `/2/news/{id}`
+
+Retrieves news story by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `news.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-news` |
+| Output | `GetNewsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `news.fields` | `query` | `Array<"category" \| "cluster_posts_results" \| "contexts" \| "contexts" \| "contexts" \| "contexts" \| "disclaimer" \| "hook" \| "id" \| "keywords" \| "name" \| "summary" \| "updated_at">` | No | No | A comma separated list of News fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.news.searchNews
+
+`GET` `/2/news/search`
+
+Search News
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `news.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-news` |
+| Output | `SearchNewsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `max_age_hours` | `query` | `integer` | No | No | — |
+| `news.fields` | `query` | `Array<"category" \| "cluster_posts_results" \| "contexts" \| "contexts" \| "contexts" \| "contexts" \| "disclaimer" \| "hook" \| "id" \| "keywords" \| "name" \| "summary" \| "updated_at">` | No | No | A comma separated list of News fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

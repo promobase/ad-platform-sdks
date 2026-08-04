@@ -1,0 +1,45 @@
+---
+title: "YouTube Memberships Levels endpoints"
+description: "1 generated YouTube endpoint contract for Memberships Levels."
+generated: true
+platform: "youtube"
+sourceVersion: "data-v3+analytics-v2+reporting-v1"
+sidebar:
+  order: 117
+  label: "Memberships Levels"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: google-discovery/youtube-{v3,analytics-v2,reporting-v1}.json). Do not edit by hand. */}
+
+## youtube.membershipsLevels.list
+
+`GET` `youtube/v3/membershipsLevels`
+
+Retrieves a list of all pricing levels offered by a creator to the fans.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `membershipsLevels.read` |
+| Required scopes | `https://www.googleapis.com/auth/youtube.channel-memberships.creator` |
+| Rate-limit bucket | `youtube-data-api` |
+| Output | `MembershipsLevelListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `part` | `query` | `string` | Yes | No | The *part* parameter specifies the membershipsLevel resource parts that the API response will include. Supported values are id and snippet. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

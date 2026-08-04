@@ -1,0 +1,242 @@
+---
+title: "X Spaces endpoints"
+description: "6 generated X endpoint contracts for Spaces."
+generated: true
+platform: "x"
+sourceVersion: "2.167"
+sidebar:
+  order: 115
+  label: "Spaces"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.spaces.getSpacesBuyers
+
+`GET` `/2/spaces/{id}/buyers`
+
+Retrieves a list of Users who purchased tickets to a specific Space by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `GetSpacesBuyersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.spaces.getSpacesByCreatorIds
+
+`GET` `/2/spaces/by/creator_ids`
+
+Get Spaces by Creator IDs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `GetSpacesByCreatorIdsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_ids` | `query` | `Array<string>` | Yes | No | — |
+| `space.fields` | `query` | `Array<"created_at" \| "ended_at" \| "id" \| "is_ticketed" \| "lang" \| "participant_count" \| "scheduled_start" \| "started_at" \| "state" \| "subscriber_count" \| "title" \| "updated_at">` | No | No | A comma separated list of Space fields to display. |
+| `expansions` | `query` | `Array<"creator_id" \| "host_ids" \| "invited_user_ids" \| "speaker_ids" \| "topic_ids">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `topic.fields` | `query` | `Array<"description" \| "id" \| "name">` | No | No | A comma separated list of Topic fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.spaces.getSpacesById
+
+`GET` `/2/spaces/{id}`
+
+Get Spaces by ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `GetSpacesByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `space.fields` | `query` | `Array<"created_at" \| "ended_at" \| "id" \| "is_ticketed" \| "lang" \| "participant_count" \| "scheduled_start" \| "started_at" \| "state" \| "subscriber_count" \| "title" \| "updated_at">` | No | No | A comma separated list of Space fields to display. |
+| `expansions` | `query` | `Array<"creator_id" \| "host_ids" \| "invited_user_ids" \| "speaker_ids" \| "topic_ids">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `topic.fields` | `query` | `Array<"description" \| "id" \| "name">` | No | No | A comma separated list of Topic fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.spaces.getSpacesByIds
+
+`GET` `/2/spaces`
+
+Get Spaces by IDs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `GetSpacesByIdsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<string>` | Yes | No | — |
+| `space.fields` | `query` | `Array<"created_at" \| "ended_at" \| "id" \| "is_ticketed" \| "lang" \| "participant_count" \| "scheduled_start" \| "started_at" \| "state" \| "subscriber_count" \| "title" \| "updated_at">` | No | No | A comma separated list of Space fields to display. |
+| `expansions` | `query` | `Array<"creator_id" \| "host_ids" \| "invited_user_ids" \| "speaker_ids" \| "topic_ids">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `topic.fields` | `query` | `Array<"description" \| "id" \| "name">` | No | No | A comma separated list of Topic fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.spaces.getSpacesPosts
+
+`GET` `/2/spaces/{id}/tweets`
+
+Retrieves a list of Posts shared in a specific Space by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `GetSpacesPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.spaces.searchSpaces
+
+`GET` `/2/spaces/search`
+
+Retrieves a list of Spaces matching the specified search query.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `spaces.read` |
+| Required scopes | `space.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-spaces` |
+| Output | `SearchSpacesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `state` | `query` | `"live" \| "scheduled" \| "all"` | No | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `space.fields` | `query` | `Array<"created_at" \| "ended_at" \| "id" \| "is_ticketed" \| "lang" \| "participant_count" \| "scheduled_start" \| "started_at" \| "state" \| "subscriber_count" \| "title" \| "updated_at">` | No | No | A comma separated list of Space fields to display. |
+| `expansions` | `query` | `Array<"creator_id" \| "host_ids" \| "invited_user_ids" \| "speaker_ids" \| "topic_ids">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `topic.fields` | `query` | `Array<"description" \| "id" \| "name">` | No | No | A comma separated list of Topic fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

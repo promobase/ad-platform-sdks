@@ -1,0 +1,2148 @@
+---
+title: "LinkedIn Campaign management endpoints"
+description: "72 generated LinkedIn endpoint contracts for Campaign management."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 103
+  label: "Campaign management"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementCreateAnAdAccountPostAdAccounts
+
+`POST` `/adAccounts`
+
+This example API [creates an Ad Account](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#create-ad-account)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementCreateATestAdAccountPostAdAccounts
+
+`POST` `/adAccounts`
+
+This API example [creates a "test" ad account](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#creating-a-test-ad-account) by including an additional boolean `test` flag to `true` on the payload.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementFetchTheAdAccountByIdGetAdAccountsSponsoredaccountId
+
+`GET` `/adAccounts/{sponsoredaccount_id}`
+
+[Fetch an ad Account](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#fetch-ad-account) by sponsored account ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementSearchAccountByTypeGetAdAccountsQSearchSearchTypeValuesListBu
+
+`GET` `/adAccounts?q=search&search=(type:(values:List(BUSINESS)))`
+
+Use the `q=search` parameter with the adAccountsV2 API to [search for accounts](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#search-for-accounts) by ID, name, reference, type, and status fields. Search criteria can be chained together for increased granularity. If a search query is omitted, all accounts the caller has access to are returned in the response. This example searches for accounts by the type(BUSINESS).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementSearchAccountsByStatusGetAdAccountsQSearchSearchStatusValuesL
+
+`GET` `/adAccounts?q=search&search=(status:(values:List(ACTIVE)))`
+
+Use the `q=search` parameter with the adAccountsV2 API to [search for ad accounts](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#search-for-accounts) by ID, name, reference, type, and status fields. Search criteria can be chained together for increased granularity. If a search query is omitted, all accounts the caller has access to are returned in the response. This example searches for accounts by the Status(DRAFT).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureAccountManagementUpdateAdAccountNamePostAdAccountsSponsoredaccountId
+
+`POST` `/adAccounts/{sponsoredaccount_id}`
+
+Ad Accounts can be updated through a partial update by patching the fields you want to change. The following example changes the name field only. See our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?tabs=http#update-ad-account) for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementCreateACampaignGroupPostAdAccountsAdAccountsIdAdCampaig
+
+`POST` `/adAccounts/{adAccountsId}/adCampaignGroups`
+
+Campaign groups can be created in ACTIVE or DRAFT state. You can change ACTIVE to ARCHIVED or PAUSED. This example [creates a Campaign Group](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#create-a-campaign-group) in the state DRAFT.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementCreateMultipleCampaignGroupsPostAdAccountsAdAccountsIdA
+
+`POST` `/adAccounts/{adAccountsId}/adCampaignGroups`
+
+Campaign groups can be created in ACTIVE or DRAFT state. You can change ACTIVE to ARCHIVED or PAUSED. This example [creates multiple Campaign Groups](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#batch-create-campaign-groups) using the RestLi method BATCH_CREATE.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementDeleteACampaignGroupDeleteAdAccountsAdAccountsIdAdCampa
+
+`DELETE` `/adAccounts/{adAccountsId}/adCampaignGroups/{campaigngroup_id1}`
+
+This example call [deletes a Campaign Group](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#delete-a-campaign-group). Only campaign groups which are in DRAFT status are allowed to be deleted. Once deleted, a campaign group can't be retrieved or recovered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementDeleteMultipleCampaignGroupsDeleteAdAccountsAdAccountsI
+
+`DELETE` `/adAccounts/{adAccountsId}/adCampaignGroups?ids=List({campaigngroup_id1},{campaigngroup_id2})`
+
+Multiple Campaign Group can be deleted as shown in this example call. View our online documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#batch-delete-campaign-groups) to learn more. Only campaign groups which are in DRAFT status are allowed to be deleted. Once deleted, a campaign group can't be retrieved or recovered.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementFetchACampaignGroupByIdGetAdAccountsAdAccountsIdAdCampa
+
+`GET` `/adAccounts/{adAccountsId}/adCampaignGroups/{campaigngroup_id1}`
+
+A Campaign Group can be fetched by the campaign group id as shown in this example call. See our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#get-a-campaign-group) for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementFetchMultipleCampaignGroupsByIdGetAdAccountsAdAccountsI
+
+`GET` `/adAccounts/{adAccountsId}/adCampaignGroups?ids=List({campaigngroup_id1},{campaigngroup_id2})`
+
+Multiple Campaign Groups can be fetched by the campaign group ids a shown in this example call. View our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#batch-get-campaign-groups) for more information.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementSearchForCampaignGroupsGetAdAccountsAdAccountsIdAdCampa
+
+`GET` `/adAccounts/{adAccountsId}/adCampaignGroups?q=search&search=(status:(values:List(ACTIVE,DRAFT)))&sort=(field:ID,order:DESCENDING)`
+
+Use the `q=search` parameter to [search for campaign groups](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#search-for-campaign-groups) by ID, account, name, and status fields. Search criteria can be chained together for increased granularity. If a search query is omitted, all campaign groups the caller has access to is returned in a paginated response. this example fetches campaign groups by the status values DRAFT or ACTIVE and orders it by ID descending.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementUpdateCampaignGroupPostAdAccountsAdAccountsIdAdCampaign
+
+`POST` `/adAccounts/{adAccountsId}/adCampaignGroups/{campaigngroup_id1}`
+
+Campaign groups can be updated with a partial update. This example updates the amount and currencyCode for a Campaign Group. View our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#update-a-campaign-group) to learn more.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignGroupManagementUpdateMultipleCampaignGroupsPostAdAccountsAdAccountsIdA
+
+`POST` `/adAccounts/{adAccountsId}/adCampaignGroups?ids=List({campaigngroup_id1},{campaigngroup_id2})`
+
+Multiple campaign groups can be updated with a partial update. This example updates the amount and currencyCode for one Campaign Group and status for another Campaign Group using the RestLi method BATCH_PARTIAL_UPDATE. View our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?tabs=http#batch-update-campaign-groups) to learn more.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id2` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementArchiveACampaignPostAdAccountsAdAccountsIdAdCampaignsCampaign
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns/{campaign_id1}`
+
+Archive a Campaign
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementCreateCampaignSponsoredUpdatesPostAdAccountsAdAccountsIdAdCam
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns`
+
+Create Campaign (SPONSORED_UPDATES)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementCreateMultipleCampaignUsingBatchPostAdAccountsAdAccountsIdAdC
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns`
+
+Create multiple campaign using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementDeleteCampaignUsingCampaignIdDeleteAdAccountsAdAccountsIdAdCa
+
+`DELETE` `/adAccounts/{adAccountsId}/adCampaigns/{campaign_id1}`
+
+Delete campaign Using campaign Id
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementDeleteMultipleCampaignsUsingBatchDeleteAdAccountsAdAccountsId
+
+`DELETE` `/adAccounts/{adAccountsId}/adCampaigns?ids=List({campaign_id1},{campaign_id2})`
+
+Delete multiple campaigns using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+| `campaign_id2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementFetchACampaignUsingCampaignIdGetAdAccountsAdAccountsIdAdCampa
+
+`GET` `/adAccounts/{adAccountsId}/adCampaigns/{campaignId1}`
+
+Fetch a Campaign using Campaign ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaignId1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementReactivateACampaignPostAdAccountsAdAccountsIdAdCampaignsCampa
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns/{campaign_id1}`
+
+Reactivate a Campaign
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementSearchForCampaignUsingCriteriaGetAdAccountsAdAccountsIdAdCamp
+
+`GET` `/adAccounts/{adAccountsId}/adCampaigns?q=search&search.campaignGroup.values[0]=urn:li:sponsoredCampaignGroup:{campaigngroup_id1}`
+
+Search for Campaign using criteria
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaigngroup_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementUpdateCampaignUsingCampaignIdPostAdAccountsAdAccountsIdAdCamp
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns/{campaignId1}`
+
+Update Campaign Using campaignId
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaignId1` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCampaignMangementUpdateMultipleCampaignsUsingBatchPostAdAccountsAdAccountsIdAd
+
+`POST` `/adAccounts/{adAccountsId}/adCampaigns?ids[0]={campaign_id1}&ids[1]={campaign_id2}`
+
+Update multiple campaigns using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+| `campaign_id2` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementCreateACreativePostAdAccountsAdAccountsIdCreatives
+
+`POST` `/adAccounts/{adAccountsId}/creatives`
+
+Create a Creative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementCreateMultipleCreativesUsingBatchPostAdAccountsAdAccountsIdC
+
+`POST` `/adAccounts/{adAccountsId}/creatives`
+
+Create multiple Creatives using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementDeleteCreativeUsingCreativeIdDeleteAdAccountsAdAccountsIdCre
+
+`DELETE` `/adAccounts/{adAccountsId}/creatives/{creative_Id1}`
+
+Delete Creative Using Creative Id
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementDeleteMultipleCreativesUsingBatchDeleteAdAccountsAdAccountsI
+
+`DELETE` `/adAccounts/{adAccountsId}/creatives?ids=List({creative_Id1})`
+
+Delete multiple Creatives using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementFetchACreativeUsingCreativeIdGetAdAccountsAdAccountsIdCreati
+
+`GET` `/adAccounts/{adAccountsId}/creatives/{creative_Id1}`
+
+Fetch a Creative using Creative ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementFetchMultipleCreativesUsingBatchGetAdAccountsAdAccountsIdCre
+
+`GET` `/adAccounts/{adAccountsId}/creatives?ids=List({creative_Id1})`
+
+Fetch multiple Creatives using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementSearchCreativeUsingCriteriaGetAdAccountsAdAccountsIdCreative
+
+`GET` `/adAccounts/{adAccountsId}/creatives?q=search&search.campaign.values[0]=urn:li:sponsoredCampaign:{campaign_id1}`
+
+Search Creative using Criteria
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `campaign_id1` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementUpdateCreativeUsingCreativeIdPostAdAccountsAdAccountsIdCreat
+
+`POST` `/adAccounts/{adAccountsId}/creatives/{creative_Id1}`
+
+Update Creative Using Creative Id
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureCreativeManagementUpdateMultipleCreativeUsingBatchPostAdAccountsAdAccountsIdCr
+
+`POST` `/adAccounts/{adAccountsId}/creatives?ids=List({creative_Id1},{creative_Id2})`
+
+Update multiple Creative using BATCH
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountsId` | `path` | `string` | Yes | No | — |
+| `creative_Id1` | `path` | `string` | Yes | No | — |
+| `creative_Id2` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessCreateAdAccountUserPutAdAccountUsersAccountUrn3Ali3AsponsoredAccount
+
+`PUT` `/adAccountUsers/(account:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id},user:urn%3Ali%3Aperson%3A{person_id})`
+
+This API example [creates an Ad Account User](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#create-ad-account-user). Creating Ad Account Users grants a member access to an Ad Account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `person_id` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessDeleteAnAdAccountUserDeleteAdAccountUsersAccountUrn3Ali3AsponsoredAc
+
+`DELETE` `/adAccountUsers/(account:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id},user:urn%3Ali%3Aperson%3A{person_id})`
+
+This API example [deletes an Ad Account User](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#delete-an-ad-account-user). Members can be removed from Ad Account access by using the delete Ad Account User endpoint. Deletion requires both account and user parameters to look up the appropriate Ad Account User.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `person_id` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessFetchAnAdAccountUserGetAdAccountUsersAccountUrn3Ali3AsponsoredAccoun
+
+`GET` `/adAccountUsers/(account:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id},user:urn%3Ali%3Aperson%3A{person_id})`
+
+This API example [fetches an Ad Account User](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#get-ad-account-user). Fetching an existing Ad Account User requires both account and user parameters. The person id can also be retrieved from the [/me](https://docs.microsoft.com/linkedin/shared/integrations/people/profile-api#retrieve-current-members-profile) endpoint.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `person_id` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessFetchTheAuthenticatedUserSAdAccountsGetAdAccountUsersQAuthenticatedU
+
+`GET` `/adAccountUsers?q=authenticatedUser`
+
+This API example retrieves all Ad Accounts that an authenticated user has access to. Specifically, this api call will return the Ad Accounts associated with the member whose access token is being used! The only required parameter is q=authenticatedUser. To understand more about verifying Ad Account Access visit our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#find-ad-accounts-by-authenticated-user).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessFetchTheAuthenticatedUserSOrganizationRolesGetOrganizationAclsQRoleA
+
+`GET` `/organizationAcls?q=roleAssignee`
+
+To understand more about verifying Company Page Access visit our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/organizations/organization-access-control-by-role?tabs=http#find-a-members-organization-access-control-information). A role defines the privileges that a member has within the organization. You must be an authenticated member with role type **ADMINISTRATOR** of an organization to use many of the Organization APIs.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessFindAdAccountUsersByAccountsGetAdAccountUsersQAccountsAccountsListUr
+
+`GET` `/adAccountUsers?q=accounts&accounts=List(urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id})`
+
+This API example searches for all Ad Account Users by sponsored ad account or multiple sponsored ad accounts. Learn more in our public documentation [here](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#find-ad-account-users-by-accounts).
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAccountStructureUserAccessUpdateExistingAdAccountUserPostAdAccountUsersAccountUrn3Ali3Asponsor
+
+`POST` `/adAccountUsers/(account:urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id},user:urn%3Ali%3Aperson%3A{person_id})`
+
+This API example [updates an Ad Account User](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?tabs=http#update-existing-ad-account-user). An Ad Account User's role can be updated by using this endpoint.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `person_id` | `path` | `string` | Yes | No | — |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation2RegisterDocumentUploadPostDocumentsActionI
+
+`POST` `/documents?action=initializeUpload`
+
+2. Register Document Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation3UploadTheDocumentFileSelectADocumentFileIn
+
+`PUT` `/{document_uploadurl}`
+
+3. Upload the Document file (select a document file in the Body for postman to use)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_uploadurl` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation4CheckTheStatusOfTheUploadGetAssetsDocument
+
+`GET` `/assets/{document_asset_id}`
+
+4. Check the status of the upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `document_asset_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation5CreatePostPostPosts
+
+`POST` `/posts`
+
+5. Create Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation6CreateACampaignForTheDocumentAdPostAdCampa
+
+`POST` `/adCampaigns`
+
+6. Create a Campaign for the Document Ad
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationDocumentAdCreation7CreateACreativeForTheDocumentAdPostCreativ
+
+`POST` `/creatives`
+
+7. Create a Creative for the Document Ad
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares2RegisterUploa
+
+`POST` `/assets?action=registerUpload`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#register-an-upload-for-images) to understand more on this API. This API example covers registering an upload for an Image File. The returned `uploadUrl` URL in the response can then subsequently be used to perform the actual upload in step 3.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares3UploadTheImag
+
+`PUT` `/{upload_url}`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#upload-the-image) to understand more on this API. This API example uses the `upLoadUrl` URL from the previous Step's response for an actual upload of an Image File.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_url` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares4CheckTheStatu
+
+`GET` `/assets/{asset_id}`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#check-status-of-upload) to understand more on this API. This API examples retrieves the status of the Image File uploaded in the previous step by using the asset ID. The recipe upload status must be **'AVAILABLE'** in order to move on to the next step!
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares5CreateADarkSh
+
+`POST` `/shares`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/share-api?tabs=http&view=li-lms-unversioned#direct-sponsored-content-share) to understand more on creating a direct sponsored content share (dark share). This API example creates a dark image share on the Company Page (organization) referencing referencing the Image file that was uploaded in Step 3. A Direct Sponsored Content Share allows an advertiser to sponsor content without first publishing the content on the Organization page. It is very similar to a Sponsored Content Share except the share is not organic. This is otherwise known as a "dark" share and can only be viewed by the administrators of the organization's page.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares6CreateACampai
+
+`POST` `/adCampaigns`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns?tabs=http&view=li-lms-unversioned#create-a-campaign) to understand more on creating a Single Image Sponsored Content Campaign. This API example creates a Sponsored Content Campaign to be used in the next step.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationDirectSponsoredContentDarkShares7CreateACreati
+
+`POST` `/adCampaigns`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives?tabs=http&view=li-lms-unversioned#create-a-direct-sponsored-content-share) to understand more on creating a Sponsored Content Ad Creative. This API example creates a Sponsored Content Ad Creative referencing the previously created image dark share in step 5. This Creative will be created under the Campaign created in the previous step.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent2RegisterUploadPostAssetsActio
+
+`POST` `/assets?action=registerUpload`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#register-an-upload-for-images) to understand more on this API. This API example covers Registering an upload for an Image File. The returned uploadUrl in the response can then subsequently be used to perform the actual upload in Step 3.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent3UploadTheImageFileSelectAnIma
+
+`PUT` `/{upload_url}`
+
+Select an image file on your local machine in the Body for postman to use in this example call. View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#upload-the-image) to understand more on this API. This API example uses `upLoadUrl` URL from the previous response (step 1) for an actual upload of an Image File.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `upload_url` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent4CheckTheStatusOfTheUploadGetA
+
+`GET` `/assets/{asset_id}`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/community-management/shares/vector-asset-api?tabs=http&view=li-lms-unversioned#check-status-of-upload) to understand more on this API. This API examples retrieves the status of the Image File uploaded in the previous step by using the digital media asset ID (returned in step 1). The recipe upload status must be **'AVAILABLE'** in order to move on to the next step!
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent5CreateASharePostShares
+
+`POST` `/shares`
+
+View our [Public Documentation](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/share-api?tabs=http&view=li-lms-unversioned#post-shares) to understand more on creating shares. This API example creates an organic image share on the Company Page (organization) referencing the Image file that was uploaded in Step 3.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent6CreateACampaignForTheImageAdP
+
+`POST` `/adCampaigns`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns?tabs=http&view=li-lms-unversioned#create-a-campaign) to understand more on creating a Single Image Sponsored Content Campaign. This API example creates a Sponsored Content Campaign to be used in the next step.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationImageAdCreationSponsoredContent7CreateACreativeForTheImageAdP
+
+`POST` `/adCreatives`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives?tabs=http&view=li-lms-unversioned#create-a-sponsored-content-share) to understand more on creating a Sponsored Content Ad Creative. This API example creates a Sponsored Content Ad Creative referencing the previously created image share in step 5. This Creative will be created under the Campaign created in the previous step.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent2RegisterVideoUploadPostAssets
+
+`POST` `/assets?action=registerUpload`
+
+2. Register Video Upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent3UploadTheVideoFileSelectAVide
+
+`PUT` `/{video_uploadurl}`
+
+3. Upload the video file (select a video file in the Body for postman to use)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_uploadurl` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent4CheckTheStatusOfTheUploadGetA
+
+`GET` `/assets/{video_asset_id}`
+
+4. Check the status of the upload
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_asset_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent5CreatePostPostPosts
+
+`POST` `/posts`
+
+5. Create Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent6CreateACampaignForTheVideoAdP
+
+`POST` `/adCampaigns`
+
+6. Create a Campaign for the Video Ad
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdCreationVideoAdCreationSponsoredContent7CreateACreativeForTheVideoAdP
+
+`POST` `/creatives`
+
+7. Create a Creative for the Video Ad
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `publish` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `json` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsForecastingAdSupplyForecastApiGetAdSupplyForecastsQCriteriaV2Account
+
+`GET` `/adSupplyForecasts?q=criteriaV2&account=urn%3Ali%3AsponsoredAccount%3A{sponsoredaccount_id}&timeRange=(start:1631790775000,end:1632136375000)&campaignType=SPONSORED_UPDATES&totalBudget=(amount:100.00,currencyCode:USD)&competingBid=(bidType:CPM,bidPrice:(currencyCode:USD,amount:10))&targetingCriteria=(include:(and:List((or:(urn%3Ali%3AadTargetingFacet%3Alocations:List(urn%3Ali%3Ageo%3A101165590))))),exclude:(or:(urn%3Ali%3AadTargetingFacet%3AstaffCountRanges:List(urn%3Ali%3AstaffCountRange%3A%2810001%2C2147483647%29))))`
+
+The Ad Supply Forecasts API enables you to forecast impressions, spending, and other metrics based on: \* Targeting criteria \* Campaign settings such as campaign type and objective type \* Bid and spending settings \* Time period
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sponsoredaccount_id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsTargetingFetchTheAdTargetingFacetsGetAdTargetingFacets
+
+`GET` `/adTargetingFacets`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/advertising-targeting/ads-targeting?tabs=http&view=li-lms-unversioned) to understand more on Ads Targeting APIs. Facets are high-level categories of the types of targeting available to you. Use facets to narrow down your intended audience. The adTargetingFacets API returns available targeting facets.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsTargetingFindEntitiesByFacetSenioritiesGetAdTargetingEntitiesQAdTarg
+
+`GET` `/adTargetingEntities?q=adTargetingFacet&queryVersion=QUERY_USES_URNS&facet=List(urn%3Ali%3AadTargetingFacet%3Aseniorities)&locale=(language:en,country:US)`
+
+To understand more about the Ad Targeting Entities refer to our public documentation [here](https://docs.microsoft.com/linkedin/shared/references/v2/ads/adtargetingentities?context=linkedin/marketing/contex&view=li-lms-unversioned). Once you've identified the facet type(s) you'd like to target, you can fetch their entity values. This API example fetches the Entities by facet Seniorities.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsTargetingFindEntitiesBySimilarEntitiesGetAdTargetingEntitiesQSimilar
+
+`GET` `/adTargetingEntities?q=similarEntities&facet=urn%3Ali%3AadTargetingFacet%3Aemployers&queryVersion=QUERY_USES_URNS&entities=List(urn%3Ali%3Aorganization%3A1003)&locale=(language:en,country:US)`
+
+To understand more about the Ad Targeting Entities refer to our public documentation [here](https://docs.microsoft.com/linkedin/shared/references/v2/ads/adtargetingentities?context=linkedin/marketing/contex&view=li-lms-unversioned). Once you've identified the facet type(s) you'd like to target, you can fetch their entity values. This API fetches the Entities by a similar entity.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsTargetingFindEntitiesByTypeaheadSuggestionsGetAdTargetingEntitiesQTy
+
+`GET` `/adTargetingEntities?q=TYPEAHEAD&facet=List(urn%3Ali%3AadTargetingFacet%3Alocations)&query=afric`
+
+To understand more about the Ad Targeting Entities refer to our public documentation [here](https://docs.microsoft.com/linkedin/shared/references/v2/ads/adtargetingentities?context=linkedin/marketing/contex&view=li-lms-unversioned). Once you've identified the facet type(s) you'd like to target, you can fetch their entity values. This API example fetches the Entities using the typeahead suggestions.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAdsTargetingFindEntitiesByUrnsGetAdTargetingEntitiesQUrnsQueryVersionQu
+
+`GET` `/adTargetingEntities?q=urns&queryVersion=QUERY_USES_URNS&urns=List(urn%3Ali%3Ageo%3A102095887)`
+
+To understand more about the Ad Targeting Entities refer to our public documentation [here](https://docs.microsoft.com/linkedin/shared/references/v2/ads/adtargetingentities?context=linkedin/marketing/contex&view=li-lms-unversioned). Once you've identified the facet type(s) you'd like to target, you can fetch their entity values. This API example fetches the Entities by URNs.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## campaign-management.campaignManagementUseCasesAdvertisingAndTargetingAudienceCountsFindAudienceCountByTargetingCriteriaGetAudienceCountsQTar
+
+`GET` `/audienceCounts?q=targetingCriteriaV2&targetingCriteria=(include:(and:List((or:({encoded%20facet_URN_1}:List({encoded%20facet_URN_1_value_1},%20{encoded%20facet_URN_1_value_2}))),(or:({encoded%20facet_URN_2}:List({encoded%20facet_URN_2_value_1},{encoded%20facet_URN_2_value_2}))))))`
+
+View our [Public Documentation](https://docs.microsoft.com/linkedin/marketing/integrations/ads/advertising-targeting/ads-targeting?tabs=http&view=li-lms-unversioned) to understand more on Ads Targeting APIs. Facets are high-level categories of the types of targeting available to you. Use facets to narrow down your intended audience. The adTargetingFacets API returns available targeting facets.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `api.campaign.management` |
+| Required scopes | None declared |
+| Rate-limit bucket | `api.campaign.management` |
+| Output | `json` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

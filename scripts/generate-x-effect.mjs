@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,23 +8,9 @@ import { writeEffectArtifacts } from "../packages/sdk-codegen/src/index.ts";
 const root = dirname(fileURLToPath(new URL("../package.json", import.meta.url)));
 const sourcePath = join(root, "fern/openapi/x-openapi.json");
 const outputDir = join(root, "packages/x-sdk/src/generated/effect");
-const document = JSON.parse(await readFile(sourcePath, "utf8"));
-const selected = new Set([
-  "GET /2/tweets",
-  "POST /2/tweets",
-  "GET /2/tweets/{id}",
-  "DELETE /2/tweets/{id}",
-  "GET /2/users/me",
-  "GET /2/users/{id}",
-  "GET /2/users/by/username/{username}",
-  "GET /2/media",
-  "GET /2/media/{media_key}",
-  "GET /2/media/upload",
-  "POST /2/media/upload",
-  "POST /2/media/upload/initialize",
-  "POST /2/media/upload/{id}/append",
-  "POST /2/media/upload/{id}/finalize",
-]);
+const source = await readFile(sourcePath, "utf8");
+const document = JSON.parse(source);
+const sourceChecksum = createHash("sha256").update(source).digest("hex");
 
 await writeEffectArtifacts({
   outputDir,
@@ -38,29 +25,35 @@ function buildIr(openapi) {
   const endpoints = [];
   const capabilities = new Map();
   const usedIds = new Map();
+  const protocols = new Set(["json"]);
   for (const [path, pathItem] of Object.entries(openapi.paths ?? {}).sort(([a], [b]) =>
     a.localeCompare(b),
   )) {
     for (const method of ["get", "post", "put", "patch", "delete"]) {
       const operation = pathItem[method];
-      if (!operation || !selected.has(`${method.toUpperCase()} ${path}`)) continue;
+      if (!operation) continue;
       const operationName = operation.operationId || `${method}-${path}`;
       const baseId = pascal(operationName);
       const count = (usedIds.get(baseId) ?? 0) + 1;
       usedIds.set(baseId, count);
-      const resource = path.startsWith("/2/users")
-        ? "users"
-        : path.startsWith("/2/media")
-          ? "media"
-          : "posts";
+      const resource = slug(operation.tags?.[0] ?? inferResource(path));
       const effect = method === "get" ? "read" : method === "delete" ? "delete" : "write";
       const capabilityId = `${resource}.${effect === "read" ? "read" : "manage"}`;
+      const requiredScopes = operationScopes(operation, openapi);
+      const authSchemes = operationAuthSchemes(operation, openapi);
+      const operationProtocols = detectProtocols(operation);
+      for (const protocol of operationProtocols) protocols.add(protocol);
       if (!capabilities.has(capabilityId)) {
         capabilities.set(capabilityId, {
           id: capabilityId,
           summary: `${effect === "read" ? "Read" : "Manage"} X ${resource}`,
-          requiredScopes: [],
+          requiredScopes,
         });
+      } else {
+        const capability = capabilities.get(capabilityId);
+        capability.requiredScopes = [
+          ...new Set([...capability.requiredScopes, ...requiredScopes]),
+        ].sort();
       }
       const seenParameters = new Set();
       const parameters = [...(pathItem.parameters ?? []), ...(operation.parameters ?? [])]
@@ -80,13 +73,14 @@ function buildIr(openapi) {
           nullable: Boolean(parameter.schema?.nullable),
           ...(parameter.description ? { documentation: parameter.description } : {}),
         }));
-      const bodySchema = mediaSchema(operation.requestBody?.content);
+      const requestBody = resolveRequestBody(operation.requestBody, openapi);
+      const bodySchema = mediaSchema(requestBody?.content);
       if (bodySchema) {
         parameters.push({
           name: "body",
           location: "body",
           type: openApiType(bodySchema),
-          required: Boolean(operation.requestBody?.required),
+          required: Boolean(requestBody?.required),
           nullable: Boolean(bodySchema.nullable),
         });
       }
@@ -109,9 +103,11 @@ function buildIr(openapi) {
         effect,
         execution: effect === "read" ? "inline" : "durable",
         idempotency: method === "get" ? "safe" : "unsafe",
-        requiredScopes: [],
+        requiredScopes,
         capabilities: [capabilityId],
         rateLimitBucket: `x-${resource}`,
+        authSchemes,
+        protocols: operationProtocols,
         summary: operation.summary || operationName,
         ...(operation.description ? { description: operation.description } : {}),
       });
@@ -123,12 +119,76 @@ function buildIr(openapi) {
       kind: "openapi",
       location: "fern/openapi/x-openapi.json",
       revision: String(openapi.info?.version ?? "unknown"),
+      checksum: sourceChecksum,
     },
     version: String(openapi.info?.version ?? "2"),
     models,
     endpoints,
     capabilities: [...capabilities.values()].sort((a, b) => a.id.localeCompare(b.id)),
+    coverage: {
+      discoveredOperations: endpoints.length,
+      excludedOperations: [],
+      unresolvedSchemas: [],
+      protocols: [...protocols].sort(),
+    },
   };
+}
+
+function operationSecurity(operation, openapi) {
+  return operation.security ?? openapi.security ?? [];
+}
+
+function operationScopes(operation, openapi) {
+  return [
+    ...new Set(
+      operationSecurity(operation, openapi).flatMap((entry) => Object.values(entry).flat()),
+    ),
+  ].sort();
+}
+
+function operationAuthSchemes(operation, openapi) {
+  return [
+    ...new Set(operationSecurity(operation, openapi).flatMap((entry) => Object.keys(entry))),
+  ].sort();
+}
+
+function resolveRequestBody(requestBody, openapi) {
+  if (!requestBody?.$ref) return requestBody;
+  return openapi.components?.requestBodies?.[requestBody.$ref.split("/").at(-1)];
+}
+
+function detectProtocols(operation) {
+  const mediaTypes = [
+    ...Object.keys(operation.requestBody?.content ?? {}),
+    ...Object.values(operation.responses ?? {}).flatMap((response) =>
+      Object.keys(response?.content ?? {}),
+    ),
+  ];
+  const detected = new Set();
+  if (mediaTypes.some((type) => type.includes("multipart"))) detected.add("multipart");
+  if (mediaTypes.some((type) => type.includes("form-urlencoded"))) detected.add("form");
+  if (mediaTypes.some((type) => type.includes("event-stream") || type.includes("ndjson")))
+    detected.add("stream");
+  if (detected.size === 0) detected.add("json");
+  return [...detected].sort();
+}
+
+function inferResource(path) {
+  return (
+    path
+      .split("/")
+      .filter(Boolean)
+      .find((segment) => segment !== "2" && !segment.startsWith("{")) ?? "general"
+  );
+}
+
+function slug(value) {
+  return (
+    String(value)
+      .toLowerCase()
+      .replaceAll(/[^a-z0-9]+/g, "-")
+      .replaceAll(/^-|-$/g, "") || "general"
+  );
 }
 
 function resolveParameter(parameter) {
@@ -217,7 +277,9 @@ function mediaSchema(content) {
   return (
     content["application/json"]?.schema ??
     content["multipart/form-data"]?.schema ??
-    content["application/x-www-form-urlencoded"]?.schema
+    content["application/x-www-form-urlencoded"]?.schema ??
+    content["application/octet-stream"]?.schema ??
+    content["text/event-stream"]?.schema
   );
 }
 

@@ -1,16 +1,407 @@
 ---
 title: "X Users endpoints"
-description: "3 generated X endpoint contracts for Users."
+description: "42 generated X endpoint contracts for Users."
 generated: true
 platform: "x"
 sourceVersion: "2.167"
 sidebar:
-  order: 102
+  order: 119
   label: "Users"
 tableOfContents: false
 ---
 
 {/* Generated from canonical SdkIr (openapi: fern/openapi/x-openapi.json). Do not edit by hand. */}
+
+## x.users.blockUsersDms
+
+`POST` `/2/users/{id}/dm/block`
+
+Block Users Dms
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `BlockUsersDmsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.createUsersBookmark
+
+`POST` `/2/users/{id}/bookmarks`
+
+Create Users Bookmark
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `bookmark.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `CreateUsersBookmarkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `CreateUsersBookmarkRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.createUsersBookmarkFolder
+
+`POST` `/2/users/{id}/bookmarks/folders`
+
+Creates a new Bookmark folder for the authenticated user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `bookmark.write`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `CreateUsersBookmarkFolderResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `CreateUsersBookmarkFolderRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.deleteUsersBookmark
+
+`DELETE` `/2/users/{id}/bookmarks/{tweet_id}`
+
+Removes a Post from the authenticated user's Bookmarks by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `bookmark.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `DeleteUsersBookmarkResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `tweet_id` | `path` | `PostId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.followList
+
+`POST` `/2/users/{id}/followed_lists`
+
+Follow List
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `list.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `FollowListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `FollowListRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.followUser
+
+`POST` `/2/users/{id}/following`
+
+Follow User
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `follows.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `FollowUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `FollowUserRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersAffiliates
+
+`GET` `/2/users/{id}/affiliates`
+
+Get Users Affiliates
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersAffiliatesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A 64-bit signed integer. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersBlocking
+
+`GET` `/2/users/{id}/blocking`
+
+Get Users Blocking
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `block.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersBlockingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersBookmarkFolders
+
+`GET` `/2/users/{id}/bookmarks/folders`
+
+Get Users Bookmark Folders
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `bookmark.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersBookmarkFoldersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersBookmarks
+
+`GET` `/2/users/{id}/bookmarks`
+
+Get Users Bookmarks
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `bookmark.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersBookmarksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersBookmarksByFolderId
+
+`GET` `/2/users/{id}/bookmarks/folders/{folder_id}`
+
+Get Users Bookmarks by Folder ID
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `bookmark.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersBookmarksByFolderIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `folder_id` | `path` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
 
 ## x.users.getUsersById
 
@@ -24,7 +415,7 @@ Get Users by ID
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `users.read` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`users.read` |
 | Rate-limit bucket | `x-users` |
 | Output | `GetUsersByIdResponse` |
 
@@ -33,6 +424,42 @@ Get Users by ID
 | Name | Location | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `id` | `path` | `UserId` | Yes | No | — |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersByIds
+
+`GET` `/2/users`
+
+Get Users by IDs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersByIdsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<UserId>` | Yes | No | — |
 | `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
 | `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
 | `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
@@ -60,7 +487,7 @@ Get Users by Username
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `users.read` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`users.read` |
 | Rate-limit bucket | `x-users` |
 | Output | `GetUsersByUsernameResponse` |
 
@@ -72,6 +499,235 @@ Get Users by Username
 | `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
 | `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
 | `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersByUsernames
+
+`GET` `/2/users/by`
+
+Get Users by Usernames
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersByUsernamesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `usernames` | `query` | `Array<string>` | Yes | No | — |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersFollowedLists
+
+`GET` `/2/users/{id}/followed_lists`
+
+Get Users Followed Lists
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `list.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersFollowedListsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A 64-bit signed integer. |
+| `list.fields` | `query` | `Array<"created_at" \| "description" \| "follower_count" \| "id" \| "member_count" \| "name" \| "private">` | No | No | A comma separated list of List fields to display. |
+| `expansions` | `query` | `Array<"owner_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersFollowers
+
+`GET` `/2/users/{id}/followers`
+
+Get Users Followers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `follows.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersFollowersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersFollowing
+
+`GET` `/2/users/{id}/following`
+
+Get Users Following
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `follows.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersFollowingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersLikedPosts
+
+`GET` `/2/users/{id}/liked_tweets`
+
+Get Users Liked Posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `like.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersLikedPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersListMemberships
+
+`GET` `/2/users/{id}/list_memberships`
+
+Get Users List Memberships
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `list.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersListMembershipsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `list.fields` | `query` | `Array<"created_at" \| "description" \| "follower_count" \| "id" \| "member_count" \| "name" \| "private">` | No | No | A comma separated list of List fields to display. |
+| `expansions` | `query` | `Array<"owner_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
 
 **Declared errors**
 
@@ -96,7 +752,7 @@ Get Users Me
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `users.read` |
-| Required scopes | None declared |
+| Required scopes | `tweet.read`<br />`users.read` |
 | Rate-limit bucket | `x-users` |
 | Output | `GetUsersMeResponse` |
 
@@ -107,6 +763,774 @@ Get Users Me
 | `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
 | `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
 | `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersMentions
+
+`GET` `/2/users/{id}/mentions`
+
+When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersMentionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `start_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `end_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersMuting
+
+`GET` `/2/users/{id}/muting`
+
+Get Users Muting
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `mute.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersMutingResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | — |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersOwnedLists
+
+`GET` `/2/users/{id}/owned_lists`
+
+Get Users Owned Lists
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `list.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersOwnedListsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A 64-bit signed integer. |
+| `list.fields` | `query` | `Array<"created_at" \| "description" \| "follower_count" \| "id" \| "member_count" \| "name" \| "private">` | No | No | A comma separated list of List fields to display. |
+| `expansions` | `query` | `Array<"owner_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersPinnedLists
+
+`GET` `/2/users/{id}/pinned_lists`
+
+Get Users Pinned Lists
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `list.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersPinnedListsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `list.fields` | `query` | `Array<"created_at" \| "description" \| "follower_count" \| "id" \| "member_count" \| "name" \| "private">` | No | No | A comma separated list of List fields to display. |
+| `expansions` | `query` | `Array<"owner_id">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersPosts
+
+`GET` `/2/users/{id}/tweets`
+
+When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `start_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `end_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `exclude` | `query` | `Array<"replies" \| "retweets">` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersPublicKey
+
+`GET` `/2/users/{id}/public_keys`
+
+Returns a user's registered public keys for X Chat encryption.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersPublicKeyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `public_key.fields` | `query` | `Array<"identity_public_key_signature" \| "juicebox_config" \| "public_key" \| "public_key_version" \| "signing_public_key">` | No | No | A comma separated list of PublicKey fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersPublicKeys
+
+`GET` `/2/users/public_keys`
+
+Returns registered public keys for X Chat encryption for the specified users.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `dm.read`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersPublicKeysResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ids` | `query` | `Array<PublicKeyId>` | Yes | No | — |
+| `public_key.fields` | `query` | `Array<"identity_public_key_signature" \| "juicebox_config" \| "public_key" \| "public_key_version" \| "signing_public_key">` | No | No | A comma separated list of PublicKey fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersRepostsOfMe
+
+`GET` `/2/users/reposts_of_me`
+
+Get Users Reposts of Me
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `timeline.read`<br />`tweet.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersRepostsOfMeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.getUsersTimeline
+
+`GET` `/2/users/{id}/timelines/reverse_chronological`
+
+When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `GetUsersTimelineResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `pagination_token` | `query` | `string` | No | No | A base32hex-encoded pagination token. |
+| `start_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `end_time` | `query` | `string<date-time>` | No | No | Must be on or after 2010-11-06. |
+| `since_id` | `query` | `string` | No | No | — |
+| `until_id` | `query` | `string` | No | No | — |
+| `exclude` | `query` | `Array<"replies" \| "retweets">` | No | No | — |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+| `expansions` | `query` | `Array<"article.cover_media" \| "article.media_entities" \| "attachments.media_keys" \| "attachments.media_source_tweet" \| "attachments.poll_ids" \| "author_id" \| "edit_history_post_ids" \| "entities.mentions.username" \| "geo.place_id" \| "in_reply_to_user_id" \| "referenced_posts" \| "username">` | No | No | A comma separated list of fields to expand. |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `media.fields` | `query` | `Array<"alt_text" \| "duration_ms" \| "height" \| "media_key" \| "non_public_metrics" \| "organic_metrics" \| "preview_image_url" \| "promoted_metrics" \| "public_metrics" \| "type" \| "url" \| "variants" \| "width">` | No | No | A comma separated list of Media fields to display. |
+| `poll.fields` | `query` | `Array<"duration_minutes" \| "end_datetime" \| "id" \| "options" \| "voting_status">` | No | No | A comma separated list of Poll fields to display. |
+| `place.fields` | `query` | `Array<"contained_within" \| "country" \| "country_code" \| "full_name" \| "geo" \| "id" \| "name" \| "place_type">` | No | No | A comma separated list of Place fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.likePost
+
+`POST` `/2/users/{id}/likes`
+
+Like Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `like.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `LikePostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `LikePostRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.muteUser
+
+`POST` `/2/users/{id}/muting`
+
+Mute User
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `mute.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `MuteUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `MuteUserRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.pinList
+
+`POST` `/2/users/{id}/pinned_lists`
+
+Causes the authenticated user to pin a specific List by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `list.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `PinListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `PinListRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.repostPost
+
+`POST` `/2/users/{id}/retweets`
+
+Causes the authenticated user to repost a specific Post by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `tweet.read`<br />`tweet.write`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `RepostPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `body` | `body` | `RepostPostRequest` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.searchUsers
+
+`GET` `/2/users/search`
+
+Search Users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `users.read` |
+| Required scopes | `tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `SearchUsersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `query` | `query` | `string` | Yes | No | — |
+| `max_results` | `query` | `integer` | No | No | — |
+| `next_token` | `query` | `string` | No | No | — |
+| `user.fields` | `query` | `Array<"confirmed_email" \| "connection_status" \| "created_at" \| "description" \| "entities" \| "id" \| "is_identity_verified" \| "location" \| "name" \| "parody" \| "profile_banner_url" \| "profile_image_url" \| "protected" \| "public_metrics" \| "receives_your_dm" \| "subscribes_to_you" \| "subscription" \| "subscription_type" \| "url" \| "username" \| "verified" \| "verified_followers_count" \| "verified_type" \| "withheld">` | No | No | A comma separated list of User fields to display. |
+| `expansions` | `query` | `Array<"affiliation" \| "most_recent_post_id" \| "pinned_post_id">` | No | No | A comma separated list of fields to expand. |
+| `post.fields` | `query` | `Array<"article" \| "article_title" \| "attachments" \| "card_uri" \| "community_id" \| "context_annotations" \| "conversation_id" \| "created_at" \| "display_text_range" \| "edit_controls" \| "entities" \| "geo" \| "id" \| "lang" \| "matched_media_notes" \| "media_metadata" \| "non_public_metrics" \| "note_post" \| "note_request_suggestions" \| "organic_metrics" \| "paid_partnership" \| "possibly_sensitive" \| "promoted_metrics" \| "public_metrics" \| "reply_settings" \| "scopes" \| "source" \| "suggested_source_links" \| "suggested_source_links_with_counts" \| "text" \| "withheld">` | No | No | A comma separated list of Post fields to display. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unblockUsersDms
+
+`POST` `/2/users/{id}/dm/unblock`
+
+Unblock Users Dms
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `dm.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnblockUsersDmsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unfollowList
+
+`DELETE` `/2/users/{id}/followed_lists/{list_id}`
+
+Causes the authenticated user to unfollow a List by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `list.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnfollowListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `list_id` | `path` | `ListId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unfollowUser
+
+`DELETE` `/2/users/{source_user_id}/following/{target_user_id}`
+
+Causes the authenticated user to unfollow a specific user by their ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `follows.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnfollowUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source_user_id` | `path` | `UserId` | Yes | No | — |
+| `target_user_id` | `path` | `UserId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unlikePost
+
+`DELETE` `/2/users/{id}/likes/{tweet_id}`
+
+Unlike Post
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `like.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnlikePostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `tweet_id` | `path` | `PostId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unmuteUser
+
+`DELETE` `/2/users/{source_user_id}/muting/{target_user_id}`
+
+Causes the authenticated user to unmute the target user.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `mute.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnmuteUserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `source_user_id` | `path` | `UserId` | Yes | No | — |
+| `target_user_id` | `path` | `UserId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unpinList
+
+`DELETE` `/2/users/{id}/pinned_lists/{list_id}`
+
+Causes the authenticated user to unpin a List by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `list.write`<br />`tweet.read`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnpinListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `list_id` | `path` | `ListId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## x.users.unrepostPost
+
+`DELETE` `/2/users/{id}/retweets/{source_tweet_id}`
+
+Causes the authenticated user to unrepost a specific Post by its ID.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `users.manage` |
+| Required scopes | `tweet.read`<br />`tweet.write`<br />`users.read` |
+| Rate-limit bucket | `x-users` |
+| Output | `UnrepostPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `UserId` | Yes | No | — |
+| `source_tweet_id` | `path` | `string` | Yes | No | — |
 
 **Declared errors**
 

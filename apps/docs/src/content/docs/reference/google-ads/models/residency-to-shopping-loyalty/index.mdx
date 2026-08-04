@@ -37,7 +37,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ResolveMultiPartyAuthReviewOperation>` | No | No | — |
 
 ## ResolveMultiPartyAuthReviewResponse
 
@@ -45,7 +45,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result_or_error` | `result_or_error` | `Array<unknown>` | No | No | — |
+| `result_or_error` | `result_or_error` | `Array<ResolveMultiPartyAuthReviewResultOrError>` | No | No | — |
 
 ## ResolveMultiPartyAuthReviewResult
 
@@ -63,8 +63,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result` | `result` | `unknown` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `result` | `result` | `ResolveMultiPartyAuthReviewResult` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## ResourceAccessDeniedError
 
@@ -153,14 +153,14 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `marketing_images` | `marketing_images` | `Array<unknown>` | No | No | — |
-| `square_marketing_images` | `square_marketing_images` | `Array<unknown>` | No | No | — |
-| `logo_images` | `logo_images` | `Array<unknown>` | No | No | — |
-| `square_logo_images` | `square_logo_images` | `Array<unknown>` | No | No | — |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `long_headline` | `long_headline` | `unknown` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
-| `youtube_videos` | `youtube_videos` | `Array<unknown>` | No | No | — |
+| `marketing_images` | `marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `square_marketing_images` | `square_marketing_images` | `Array<AdImageAsset>` | No | No | — |
+| `logo_images` | `logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `square_logo_images` | `square_logo_images` | `Array<AdImageAsset>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `long_headline` | `long_headline` | `AdTextAsset` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
+| `youtube_videos` | `youtube_videos` | `Array<AdVideoAsset>` | No | No | — |
 | `business_name` | `business_name` | `string` | No | No | — |
 | `main_color` | `main_color` | `string` | No | No | — |
 | `accent_color` | `accent_color` | `string` | No | No | — |
@@ -169,7 +169,7 @@ No fields are declared.
 | `price_prefix` | `price_prefix` | `string` | No | No | — |
 | `promo_text` | `promo_text` | `string` | No | No | — |
 | `format_setting` | `format_setting` | `DisplayAdFormatSetting` | No | No | — |
-| `control_spec` | `control_spec` | `unknown` | No | No | — |
+| `control_spec` | `control_spec` | `ResponsiveDisplayAdControlSpec` | No | No | — |
 
 ## ResponsiveSearchAdAssetParameters
 
@@ -185,8 +185,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `current_ad` | `current_ad` | `unknown` | No | No | — |
-| `recommended_assets` | `recommended_assets` | `unknown` | No | No | — |
+| `current_ad` | `current_ad` | `Ad` | No | No | — |
+| `recommended_assets` | `recommended_assets` | `Ad` | No | No | — |
 
 ## ResponsiveSearchAdImproveAdStrengthParameters
 
@@ -202,8 +202,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `current_ad` | `current_ad` | `unknown` | No | No | — |
-| `recommended_ad` | `recommended_ad` | `unknown` | No | No | — |
+| `current_ad` | `current_ad` | `Ad` | No | No | — |
+| `recommended_ad` | `recommended_ad` | `Ad` | No | No | — |
 
 ## ResponsiveSearchAdInfo
 
@@ -211,8 +211,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `headlines` | `headlines` | `Array<unknown>` | No | No | — |
-| `descriptions` | `descriptions` | `Array<unknown>` | No | No | — |
+| `headlines` | `headlines` | `Array<AdTextAsset>` | No | No | — |
+| `descriptions` | `descriptions` | `Array<AdTextAsset>` | No | No | — |
 | `path1` | `path1` | `string` | No | No | — |
 | `path2` | `path2` | `string` | No | No | — |
 
@@ -230,7 +230,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `ad` | `ad` | `unknown` | No | No | — |
+| `ad` | `ad` | `Ad` | No | No | — |
 
 ## RestatementValue
 
@@ -247,8 +247,8 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `expression` | `expression` | `unknown` | No | No | — |
-| `tag` | `tag` | `unknown` | No | No | — |
+| `expression` | `expression` | `RetailFilterExpression` | No | No | — |
+| `tag` | `tag` | `RetailTag` | No | No | — |
 
 ## RetailFilterBundle
 
@@ -281,7 +281,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `value_settings` | `value_settings` | `unknown` | No | No | — |
+| `value_settings` | `value_settings` | `CustomerLifecycleOptimizationValueSettings` | No | No | — |
 
 ## RevenueRange
 
@@ -299,7 +299,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `prepopulation_status` | `prepopulation_status` | `UserListPrepopulationStatus` | No | No | — |
-| `flexible_rule_user_list` | `flexible_rule_user_list` | `unknown` | No | No | — |
+| `flexible_rule_user_list` | `flexible_rule_user_list` | `FlexibleRuleUserListInfo` | No | No | — |
 
 ## RunBatchJobRequest
 
@@ -324,9 +324,9 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `youtube_channel` | `youtube_channel` | `unknown` | No | No | — |
+| `youtube_channel` | `youtube_channel` | `YouTubeChannelInfo` | No | No | — |
 | `display_name` | `display_name` | `string` | No | No | — |
-| `youtube_channel_metadata` | `youtube_channel_metadata` | `unknown` | No | No | — |
+| `youtube_channel_metadata` | `youtube_channel_metadata` | `YouTubeChannelAttributeMetadata` | No | No | — |
 
 ## ScheduleExperimentMetadata
 
@@ -415,7 +415,7 @@ No fields are declared.
 | `page_token` | `page_token` | `string` | No | No | — |
 | `page_size` | `page_size` | `integer` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
-| `search_settings` | `search_settings` | `unknown` | No | No | — |
+| `search_settings` | `search_settings` | `SearchSettings` | No | No | — |
 
 ## SearchGoogleAdsResponse
 
@@ -423,13 +423,13 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<GoogleAdsRow>` | No | No | — |
 | `next_page_token` | `next_page_token` | `string` | No | No | — |
 | `total_results_count` | `total_results_count` | `string` | No | No | — |
-| `field_mask` | `field_mask` | `unknown` | No | No | — |
-| `summary_row` | `summary_row` | `unknown` | No | No | — |
+| `field_mask` | `field_mask` | `string` | No | No | — |
+| `summary_row` | `summary_row` | `GoogleAdsRow` | No | No | — |
 | `query_resource_consumption` | `query_resource_consumption` | `string` | No | No | — |
-| `metric_attributes` | `metric_attributes` | `Array<unknown>` | No | No | — |
+| `metric_attributes` | `metric_attributes` | `Array<MetricAttributes>` | No | No | — |
 
 ## SearchGoogleAdsStreamRequest
 
@@ -447,12 +447,12 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `field_mask` | `field_mask` | `unknown` | No | No | — |
-| `summary_row` | `summary_row` | `unknown` | No | No | — |
+| `results` | `results` | `Array<GoogleAdsRow>` | No | No | — |
+| `field_mask` | `field_mask` | `string` | No | No | — |
+| `summary_row` | `summary_row` | `GoogleAdsRow` | No | No | — |
 | `request_id` | `request_id` | `string` | No | No | — |
 | `query_resource_consumption` | `query_resource_consumption` | `string` | No | No | — |
-| `metric_attributes` | `metric_attributes` | `Array<unknown>` | No | No | — |
+| `metric_attributes` | `metric_attributes` | `Array<MetricAttributes>` | No | No | — |
 
 ## SearchPartnersOptInRecommendation
 
@@ -616,7 +616,7 @@ No fields are declared.
 | `ad_sub_network_type` | `ad_sub_network_type` | `AdSubNetworkType` | No | No | — |
 | `asset_group` | `asset_group` | `string` | No | No | — |
 | `auction_insight_domain` | `auction_insight_domain` | `string` | No | No | — |
-| `budget_campaign_association_status` | `budget_campaign_association_status` | `unknown` | No | No | — |
+| `budget_campaign_association_status` | `budget_campaign_association_status` | `BudgetCampaignAssociationStatus` | No | No | — |
 | `campaign` | `campaign` | `string` | No | No | — |
 | `click_type` | `click_type` | `ClickType` | No | No | — |
 | `conversion_action` | `conversion_action` | `string` | No | No | — |
@@ -658,7 +658,7 @@ No fields are declared.
 | `hotel_state` | `hotel_state` | `string` | No | No | — |
 | `hour` | `hour` | `integer` | No | No | — |
 | `interaction_on_this_extension` | `interaction_on_this_extension` | `boolean` | No | No | — |
-| `keyword` | `keyword` | `unknown` | No | No | — |
+| `keyword` | `keyword` | `Keyword` | No | No | — |
 | `landing_page_source` | `landing_page_source` | `LandingPageSource` | No | No | — |
 | `month` | `month` | `string` | No | No | — |
 | `month_of_year` | `month_of_year` | `MonthOfYear` | No | No | — |
@@ -739,14 +739,14 @@ No fields are declared.
 | `sk_ad_network_redistributed_fine_conversion_value` | `sk_ad_network_redistributed_fine_conversion_value` | `string` | No | No | — |
 | `sk_ad_network_user_type` | `sk_ad_network_user_type` | `SkAdNetworkUserType` | No | No | — |
 | `sk_ad_network_ad_event_type` | `sk_ad_network_ad_event_type` | `SkAdNetworkAdEventType` | No | No | — |
-| `sk_ad_network_source_app` | `sk_ad_network_source_app` | `unknown` | No | No | — |
+| `sk_ad_network_source_app` | `sk_ad_network_source_app` | `SkAdNetworkSourceApp` | No | No | — |
 | `sk_ad_network_attribution_credit` | `sk_ad_network_attribution_credit` | `SkAdNetworkAttributionCredit` | No | No | — |
 | `sk_ad_network_coarse_conversion_value` | `sk_ad_network_coarse_conversion_value` | `SkAdNetworkCoarseConversionValue` | No | No | — |
 | `sk_ad_network_source_domain` | `sk_ad_network_source_domain` | `string` | No | No | — |
 | `sk_ad_network_source_type` | `sk_ad_network_source_type` | `SkAdNetworkSourceType` | No | No | — |
 | `sk_ad_network_postback_sequence_index` | `sk_ad_network_postback_sequence_index` | `string` | No | No | — |
 | `sk_ad_network_version` | `sk_ad_network_version` | `string` | No | No | — |
-| `asset_interaction_target` | `asset_interaction_target` | `unknown` | No | No | — |
+| `asset_interaction_target` | `asset_interaction_target` | `AssetInteractionTarget` | No | No | — |
 | `new_versus_returning_customers` | `new_versus_returning_customers` | `ConvertingUserPriorEngagementTypeAndLtvBucket` | No | No | — |
 | `adjusted_age_range` | `adjusted_age_range` | `AgeRangeType` | No | No | — |
 | `adjusted_gender` | `adjusted_gender` | `GenderType` | No | No | — |
@@ -781,7 +781,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `average_rate_metrics` | `average_rate_metrics` | `unknown` | No | No | — |
+| `average_rate_metrics` | `average_rate_metrics` | `RateMetrics` | No | No | — |
 
 ## SessionAttributeKeyValuePair
 
@@ -798,7 +798,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `key_value_pairs` | `key_value_pairs` | `Array<unknown>` | No | No | — |
+| `key_value_pairs` | `key_value_pairs` | `Array<SessionAttributeKeyValuePair>` | No | No | — |
 
 ## SettingError
 
@@ -841,8 +841,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `expiration_date_time` | `expiration_date_time` | `string` | No | No | — |
-| `ui_preview_result` | `ui_preview_result` | `unknown` | No | No | — |
-| `youtube_live_preview_result` | `youtube_live_preview_result` | `unknown` | No | No | — |
+| `ui_preview_result` | `ui_preview_result` | `UiPreviewResult` | No | No | — |
+| `youtube_live_preview_result` | `youtube_live_preview_result` | `YouTubeLivePreviewResult` | No | No | — |
 | `ad_group_ad` | `ad_group_ad` | `string` | No | No | — |
 | `asset_group` | `asset_group` | `string` | No | No | — |
 
@@ -922,7 +922,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `SharedSet` | No | No | — |
 | `update` | `update` | `SharedSet` | No | No | — |
 | `remove` | `remove` | `string` | No | No | — |
@@ -957,7 +957,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 | `reason` | `reason` | `Reason` | No | No | — |
 
@@ -981,7 +981,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `merchant` | `merchant` | `unknown` | No | No | — |
+| `merchant` | `merchant` | `MerchantInfo` | No | No | — |
 | `feed_label` | `feed_label` | `string` | No | No | — |
 | `products_count` | `products_count` | `string` | No | No | — |
 | `disapproved_products_count` | `disapproved_products_count` | `string` | No | No | — |

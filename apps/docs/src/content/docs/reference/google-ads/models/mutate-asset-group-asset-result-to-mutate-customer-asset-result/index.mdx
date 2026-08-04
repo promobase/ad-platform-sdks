@@ -27,7 +27,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetGroupAssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -37,8 +37,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAssetGroupAssetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAssetGroupListingGroupFilterResult
 
@@ -56,7 +56,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetGroupListingGroupFilterOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
 
@@ -66,7 +66,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<MutateAssetGroupListingGroupFilterResult>` | No | No | — |
 
 ## MutateAssetGroupResult
 
@@ -92,7 +92,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetGroupSignalOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -103,8 +103,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAssetGroupSignalResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAssetGroupsRequest
 
@@ -113,7 +113,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetGroupOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## MutateAssetGroupsResponse
@@ -122,8 +122,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAssetGroupResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAssetResult
 
@@ -150,7 +150,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetSetAssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -161,8 +161,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAssetSetAssetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAssetSetResult
 
@@ -180,7 +180,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetSetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -191,8 +191,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAssetSetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateAssetsRequest
 
@@ -201,7 +201,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
@@ -212,8 +212,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateAssetResult>` | No | No | — |
 
 ## MutateAudienceResult
 
@@ -231,7 +231,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<AudienceOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -242,8 +242,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateAudienceResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateBatchJobRequest
 
@@ -252,7 +252,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operation` | `operation` | `unknown` | No | No | — |
+| `operation` | `operation` | `BatchJobOperation` | No | No | — |
 
 ## MutateBatchJobResponse
 
@@ -260,7 +260,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result` | `result` | `unknown` | No | No | — |
+| `result` | `result` | `MutateBatchJobResult` | No | No | — |
 
 ## MutateBatchJobResult
 
@@ -277,7 +277,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<BiddingDataExclusionOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -288,8 +288,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateBiddingDataExclusionsResult>` | No | No | — |
 
 ## MutateBiddingDataExclusionsResult
 
@@ -307,7 +307,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<BiddingSeasonalityAdjustmentOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -318,8 +318,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateBiddingSeasonalityAdjustmentsResult>` | No | No | — |
 
 ## MutateBiddingSeasonalityAdjustmentsResult
 
@@ -337,7 +337,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<BiddingStrategyOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -348,8 +348,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateBiddingStrategyResult>` | No | No | — |
 
 ## MutateBiddingStrategyResult
 
@@ -367,7 +367,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operation` | `operation` | `unknown` | No | No | — |
+| `operation` | `operation` | `BillingSetupOperation` | No | No | — |
 
 ## MutateBillingSetupResponse
 
@@ -375,7 +375,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `result` | `result` | `unknown` | No | No | — |
+| `result` | `result` | `MutateBillingSetupResult` | No | No | — |
 
 ## MutateBillingSetupResult
 
@@ -410,7 +410,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignAssetSetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -421,8 +421,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignAssetSetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateCampaignAssetsRequest
 
@@ -431,7 +431,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignAssetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -442,8 +442,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignAssetResult>` | No | No | — |
 
 ## MutateCampaignBidModifierResult
 
@@ -461,7 +461,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignBidModifierOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -472,8 +472,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignBidModifierResult>` | No | No | — |
 
 ## MutateCampaignBudgetResult
 
@@ -491,7 +491,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignBudgetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -502,8 +502,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignBudgetResult>` | No | No | — |
 
 ## MutateCampaignConversionGoalResult
 
@@ -520,7 +520,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignConversionGoalOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## MutateCampaignConversionGoalsResponse
@@ -529,7 +529,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignConversionGoalResult>` | No | No | — |
 
 ## MutateCampaignCriteriaRequest
 
@@ -538,7 +538,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignCriterionOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -549,8 +549,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignCriterionResult>` | No | No | — |
 
 ## MutateCampaignCriterionResult
 
@@ -577,7 +577,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignCustomizerOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -588,8 +588,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignCustomizerResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateCampaignDraftResult
 
@@ -607,7 +607,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignDraftOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -618,8 +618,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignDraftResult>` | No | No | — |
 
 ## MutateCampaignGoalConfigResult
 
@@ -636,7 +636,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignGoalConfigOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -646,8 +646,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignGoalConfigResult>` | No | No | — |
 
 ## MutateCampaignGroupResult
 
@@ -665,7 +665,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignGroupOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -676,8 +676,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignGroupResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateCampaignLabelResult
 
@@ -694,7 +694,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignLabelOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
@@ -704,8 +704,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignLabelResult>` | No | No | — |
 
 ## MutateCampaignResult
 
@@ -732,7 +732,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignSharedSetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -743,8 +743,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignSharedSetResult>` | No | No | — |
 
 ## MutateCampaignsRequest
 
@@ -753,7 +753,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CampaignOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -764,8 +764,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateCampaignResult>` | No | No | — |
 
 ## MutateConversionActionResult
 
@@ -783,7 +783,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ConversionActionOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -794,8 +794,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateConversionActionResult>` | No | No | — |
 
 ## MutateConversionCustomVariableResult
 
@@ -813,7 +813,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ConversionCustomVariableOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -824,8 +824,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
+| `results` | `results` | `Array<MutateConversionCustomVariableResult>` | No | No | — |
 
 ## MutateConversionGoalCampaignConfigResult
 
@@ -843,7 +843,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ConversionGoalCampaignConfigOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
 
@@ -853,7 +853,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<MutateConversionGoalCampaignConfigResult>` | No | No | — |
 
 ## MutateConversionValueRuleResult
 
@@ -880,7 +880,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ConversionValueRuleSetOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -891,8 +891,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateConversionValueRuleSetResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateConversionValueRulesRequest
 
@@ -901,7 +901,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<ConversionValueRuleOperation>` | No | No | — |
 | `partial_failure` | `partial_failure` | `boolean` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
@@ -912,8 +912,8 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
-| `partial_failure_error` | `partial_failure_error` | `unknown` | No | No | — |
+| `results` | `results` | `Array<MutateConversionValueRuleResult>` | No | No | — |
+| `partial_failure_error` | `partial_failure_error` | `json` | No | No | — |
 
 ## MutateCustomAudienceResult
 
@@ -930,7 +930,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CustomAudienceOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## MutateCustomAudiencesResponse
@@ -939,7 +939,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<MutateCustomAudienceResult>` | No | No | — |
 
 ## MutateCustomConversionGoalResult
 
@@ -957,7 +957,7 @@ tableOfContents: false
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `customer_id` | `customer_id` | `string` | No | No | — |
-| `operations` | `operations` | `Array<unknown>` | No | No | — |
+| `operations` | `operations` | `Array<CustomConversionGoalOperation>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 | `response_content_type` | `response_content_type` | `ResponseContentType` | No | No | — |
 
@@ -967,7 +967,7 @@ tableOfContents: false
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `results` | `results` | `Array<unknown>` | No | No | — |
+| `results` | `results` | `Array<MutateCustomConversionGoalResult>` | No | No | — |
 
 ## MutateCustomerAssetResult
 

@@ -14,6 +14,7 @@ import {
   type RuntimeRateLimiterService,
   type RuntimeTelemetryService,
 } from "./effect-services.ts";
+import { serializeRequestBody } from "./request-body.ts";
 
 export type EndpointIdempotency = "safe" | "keyed" | "unsafe";
 
@@ -87,7 +88,7 @@ export function executeJsonRequest<A = unknown>(
           init: {
             method: request.method,
             headers: request.headers,
-            body: request.body === undefined ? undefined : JSON.stringify(request.body),
+            body: serializeRequestBody(request.body, request.headers),
           },
         });
 

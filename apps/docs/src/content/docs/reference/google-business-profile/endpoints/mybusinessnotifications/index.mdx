@@ -1,0 +1,79 @@
+---
+title: "Google Business Profile Mybusinessnotifications endpoints"
+description: "2 generated Google Business Profile endpoint contracts for Mybusinessnotifications."
+generated: true
+platform: "google-business-profile"
+sourceVersion: "v1+legacy-v4"
+sidebar:
+  order: 107
+  label: "Mybusinessnotifications"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (discovery: packages/google-business-profile-sdk/spec/discovery). Do not edit by hand. */}
+
+## google-business-profile.mybusinessnotifications.accounts.getNotificationSetting
+
+`GET` `https://mybusinessnotifications.googleapis.com/v1/{+name}`
+
+Returns the pubsub notification settings for the account.
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `notifications.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-notifications` |
+| Output | `NotificationsNotificationSetting` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The resource name of the notification setting we are trying to fetch. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## google-business-profile.mybusinessnotifications.accounts.updateNotificationSetting
+
+`PATCH` `https://mybusinessnotifications.googleapis.com/v1/{+name}`
+
+Sets the pubsub notification setting for the account informing Google which topic to send pubsub notifications for. Use the notification_types field within notification_setting to manipulate the events an account wants to subscribe to. An account will only have one notification setting resource, and only one pubsub topic can be set. To delete the setting, update with an empty notification_types
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `notifications.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `google-business-profile-notifications` |
+| Output | `NotificationsNotificationSetting` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `path` | `string` | Yes | No | Required. The resource name this setting is for. This is of the form `accounts/&#123;account_id&#125;/notificationSetting`. |
+| `updateMask` | `query` | `string` | No | No | Required. The specific fields that should be updated. The only editable field is notification_setting. |
+| `body` | `body` | `NotificationsNotificationSetting` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

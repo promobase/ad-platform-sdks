@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "workspace": "https://www.postman.com/linkedin-developer-apis/linkedin-marketing-solutions-versioned-apis/overview",
+  "apiVersion": "202607",
+  "collections": [
+    {
+      "name": "Audience Insights",
+      "uid": "15771290-dc7fa7c9-cb40-471e-bfcc-7378ce2bf55e",
+      "access": "restricted"
+    },
+    {
+      "name": "Audiences",
+      "uid": "17563548-434db00b-d792-4a89-8939-050a01b58b94",
+      "access": "partner"
+    },
+    {
+      "name": "Campaign Management",
+      "uid": "17563548-fab92f95-bfc5-4949-a52b-e760cc56e195",
+      "access": "marketing"
+    },
+    {
+      "name": "Community Management",
+      "uid": "17563548-ac814861-61ba-4313-9bb4-1c298b12e4ad",
+      "access": "community"
+    },
+    {
+      "name": "Company Intelligence API",
+      "uid": "33183470-6b610c40-26f5-4907-b654-72af0cf014d1",
+      "access": "restricted"
+    },
+    {
+      "name": "Content APIs",
+      "uid": "17563548-d647a145-ed20-464a-b414-fa596f6ed06e",
+      "access": "marketing",
+      "excludedRequests": [
+        {
+          "name": "Get document content",
+          "reason": "The official Postman request is a placeholder with no URL."
+        }
+      ]
+    },
+    {
+      "name": "Conversions API",
+      "uid": "15771290-cff35009-91ec-4af6-bf8e-20cf6d358f99",
+      "access": "marketing"
+    },
+    {
+      "name": "Events Management API",
+      "uid": "1914235-6251ed29-f202-417a-9c83-196e49aa5739",
+      "access": "community"
+    },
+    {
+      "name": "Lead Sync",
+      "uid": "16069442-e93b4fb4-9170-486c-bd33-18c67f1ec3e8",
+      "access": "partner"
+    },
+    {
+      "name": "Media Planning",
+      "uid": "33183470-a0c83529-1220-4a11-a370-85246841e008",
+      "access": "restricted"
+    },
+    {
+      "name": "Reporting & ROI",
+      "uid": "17563548-4621ff80-8cda-4470-b0c6-4b8d8172e2e7",
+      "access": "marketing"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "LMS API SiteUp",
+      "reason": "The workspace does not expose this as a public collection."
+    },
+    { "name": "Utilities", "reason": "Workspace helpers are not an API collection." }
+  ]
+}

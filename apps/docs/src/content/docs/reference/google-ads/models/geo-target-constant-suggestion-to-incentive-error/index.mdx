@@ -87,7 +87,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `identity_verification` | `identity_verification` | `Array<unknown>` | No | No | — |
+| `identity_verification` | `identity_verification` | `Array<IdentityVerification>` | No | No | — |
 
 ## GetSmartCampaignStatusRequest
 
@@ -104,11 +104,11 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `smart_campaign_status` | `smart_campaign_status` | `SmartCampaignStatus` | No | No | — |
-| `not_eligible_details` | `not_eligible_details` | `unknown` | No | No | — |
-| `eligible_details` | `eligible_details` | `unknown` | No | No | — |
-| `paused_details` | `paused_details` | `unknown` | No | No | — |
-| `removed_details` | `removed_details` | `unknown` | No | No | — |
-| `ended_details` | `ended_details` | `unknown` | No | No | — |
+| `not_eligible_details` | `not_eligible_details` | `SmartCampaignNotEligibleDetails` | No | No | — |
+| `eligible_details` | `eligible_details` | `SmartCampaignEligibleDetails` | No | No | — |
+| `paused_details` | `paused_details` | `SmartCampaignPausedDetails` | No | No | — |
+| `removed_details` | `removed_details` | `SmartCampaignRemovedDetails` | No | No | — |
+| `ended_details` | `ended_details` | `SmartCampaignEndedDetails` | No | No | — |
 
 ## GlsPhoneNumberType
 
@@ -167,7 +167,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `update_mask` | `update_mask` | `unknown` | No | No | — |
+| `update_mask` | `update_mask` | `string` | No | No | — |
 | `create` | `create` | `Goal` | No | No | — |
 | `update` | `update` | `Goal` | No | No | — |
 
@@ -207,11 +207,11 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `error_code` | `error_code` | `unknown` | No | No | — |
+| `error_code` | `error_code` | `ErrorCode` | No | No | — |
 | `message` | `message` | `string` | No | No | — |
 | `trigger` | `trigger` | `Value` | No | No | — |
-| `location` | `location` | `unknown` | No | No | — |
-| `details` | `details` | `unknown` | No | No | — |
+| `location` | `location` | `ErrorLocation` | No | No | — |
+| `details` | `details` | `ErrorDetails` | No | No | — |
 
 ## GoogleAdsFailure
 
@@ -219,7 +219,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `errors` | `errors` | `Array<unknown>` | No | No | — |
+| `errors` | `errors` | `Array<GoogleAdsError>` | No | No | — |
 | `request_id` | `request_id` | `string` | No | No | — |
 
 ## GoogleAdsField
@@ -482,7 +482,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `category_id` | `category_id` | `string` | No | No | — |
-| `callouts` | `callouts` | `Array<unknown>` | No | No | — |
+| `callouts` | `callouts` | `Array<LocalServicesCallout>` | No | No | — |
 
 ## GoogleVoiceCallStatus
 
@@ -503,7 +503,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `experiment` | `experiment` | `string` | No | No | — |
-| `campaign_budget_mappings` | `campaign_budget_mappings` | `Array<unknown>` | No | No | — |
+| `campaign_budget_mappings` | `campaign_budget_mappings` | `Array<CampaignBudgetMapping>` | No | No | — |
 | `validate_only` | `validate_only` | `boolean` | No | No | — |
 
 ## GranularInsuranceStatus
@@ -568,7 +568,7 @@ No fields are declared.
 
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
-| `year_month_range` | `year_month_range` | `unknown` | No | No | — |
+| `year_month_range` | `year_month_range` | `YearMonthRange` | No | No | — |
 | `include_average_cpc` | `include_average_cpc` | `boolean` | No | No | — |
 
 ## HotelAdInfo
@@ -596,8 +596,8 @@ No fields are declared.
 | `final_url` | `final_url` | `string` | No | No | — |
 | `hotel_name` | `hotel_name` | `string` | No | No | — |
 | `call_to_action` | `call_to_action` | `CallToActionType` | No | No | — |
-| `text_assets` | `text_assets` | `Array<unknown>` | No | No | — |
-| `image_assets` | `image_assets` | `Array<unknown>` | No | No | — |
+| `text_assets` | `text_assets` | `Array<HotelTextAsset>` | No | No | — |
+| `image_assets` | `image_assets` | `Array<HotelImageAsset>` | No | No | — |
 | `status` | `status` | `HotelAssetSuggestionStatus` | No | No | — |
 
 ## HotelAssetSuggestionStatus
@@ -847,8 +847,8 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `verification_program` | `verification_program` | `IdentityVerificationProgram` | No | No | — |
-| `identity_verification_requirement` | `identity_verification_requirement` | `unknown` | No | No | — |
-| `verification_progress` | `verification_progress` | `unknown` | No | No | — |
+| `identity_verification_requirement` | `identity_verification_requirement` | `IdentityVerificationRequirement` | No | No | — |
+| `verification_progress` | `verification_progress` | `IdentityVerificationProgress` | No | No | — |
 
 ## IdentityVerificationError
 
@@ -931,7 +931,7 @@ No fields are declared.
 | `preview_image_url` | `preview_image_url` | `string` | No | No | — |
 | `mime_type` | `mime_type` | `MimeType` | No | No | — |
 | `name` | `name` | `string` | No | No | — |
-| `image_asset` | `image_asset` | `unknown` | No | No | — |
+| `image_asset` | `image_asset` | `AdImageAsset` | No | No | — |
 | `data` | `data` | `string` | No | No | — |
 | `ad_id_to_copy_image_from` | `ad_id_to_copy_image_from` | `string` | No | No | — |
 
@@ -944,7 +944,7 @@ No fields are declared.
 | `data` | `data` | `string` | No | No | — |
 | `file_size` | `file_size` | `string` | No | No | — |
 | `mime_type` | `mime_type` | `MimeType` | No | No | — |
-| `full_size` | `full_size` | `unknown` | No | No | — |
+| `full_size` | `full_size` | `ImageDimension` | No | No | — |
 
 ## ImageDimension
 
@@ -1000,7 +1000,7 @@ No fields are declared.
 | Field | Wire name | Type | Required | Nullable | Description |
 | --- | --- | --- | --- | --- | --- |
 | `incentive_id` | `incentive_id` | `string` | No | No | — |
-| `requirement` | `requirement` | `unknown` | No | No | — |
+| `requirement` | `requirement` | `Requirement` | No | No | — |
 | `incentive_terms_and_conditions_url` | `incentive_terms_and_conditions_url` | `string` | No | No | — |
 | `incentive_type` | `incentive_type` | `IncentiveType` | No | No | — |
 

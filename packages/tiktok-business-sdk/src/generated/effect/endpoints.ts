@@ -15,6 +15,8 @@ export const tiktok_verification_accountVerificationFiletype = defineEndpointDes
   requiredScopes: [],
   capabilities: ["verification.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_type","wireName":"business_type","location":"query","required":true,"nullable":false},
     {"name":"region_iso_code","wireName":"region_iso_code","location":"query","required":true,"nullable":false}
@@ -38,6 +40,8 @@ export const tiktok_verification_accountVerificationStatus = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["verification.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"query","required":false,"nullable":false}
@@ -61,6 +65,8 @@ export const tiktok_verification_accountVerificationSubmit = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["verification.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"body","required":false,"nullable":false},
@@ -88,6 +94,8 @@ export const tiktok_verification_accountVerificationUpload = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["verification.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"image_file1","wireName":"image_file1","location":"body","required":true,"nullable":false},
     {"name":"image_file2","wireName":"image_file2","location":"body","required":false,"nullable":false}
@@ -111,6 +119,8 @@ export const tiktok_smartCreative_adAcoCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["smartCreative.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -152,6 +162,8 @@ export const tiktok_smartCreative_adAcoGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["smartCreative.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
@@ -177,6 +189,8 @@ export const tiktok_smartCreative_adAcoMaterialStatusUpdate = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["smartCreative.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"ad_group_id","wireName":"ad_group_id","location":"body","required":true,"nullable":false},
@@ -204,6 +218,8 @@ export const tiktok_smartCreative_adAcoUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["smartCreative.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -247,6 +263,8 @@ export const tiktok_adGroups_adAudienceSizeEstimate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"placement_type","wireName":"placement_type","location":"body","required":false,"nullable":false},
@@ -358,6 +376,8 @@ export const tiktok_ads_adCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -383,6 +403,8 @@ export const tiktok_ads_adGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -414,6 +436,8 @@ export const tiktok_adReview_adgroupAppeal = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adReview.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -443,6 +467,8 @@ export const tiktok_adGroups_adgroupBudgetUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
@@ -468,6 +494,8 @@ export const tiktok_adGroups_adgroupCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -713,6 +741,8 @@ export const tiktok_adGroups_adgroupGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -744,6 +774,8 @@ export const tiktok_adGroups_adgroupQuota = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -765,6 +797,8 @@ export const tiktok_adReview_adgroupReviewInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adReview.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false},
@@ -790,6 +824,8 @@ export const tiktok_reachFrequency_adgroupRfCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reachFrequency.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
@@ -889,6 +925,8 @@ export const tiktok_reachFrequency_adgroupRfEstimatedInfo = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["reachFrequency.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
@@ -912,6 +950,8 @@ export const tiktok_reachFrequency_adgroupRfUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reachFrequency.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -995,6 +1035,8 @@ export const tiktok_adGroups_adgroupStatusUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false},
@@ -1022,6 +1064,8 @@ export const tiktok_adGroups_adgroupUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
@@ -1187,6 +1231,8 @@ export const tiktok_adReview_adReviewInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adReview.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"ad_ids","wireName":"ad_ids","location":"query","required":true,"nullable":false},
@@ -1212,6 +1258,8 @@ export const tiktok_ads_adStatusUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"ad_ids","wireName":"ad_ids","location":"body","required":false,"nullable":false},
     {"name":"aco_ad_ids","wireName":"aco_ad_ids","location":"body","required":false,"nullable":false},
@@ -1239,6 +1287,8 @@ export const tiktok_ads_adUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["ads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -1266,6 +1316,8 @@ export const tiktok_bCPayments_advertiserBalanceGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -1295,6 +1347,8 @@ export const tiktok_adAccounts_advertiserInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
@@ -1318,6 +1372,8 @@ export const tiktok_bCPayments_advertiserTransactionGet = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -1345,6 +1401,8 @@ export const tiktok_bCAssets_advertiserUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
     {"name":"advertiser_name","wireName":"advertiser_name","location":"body","required":false,"nullable":false},
@@ -1398,6 +1456,8 @@ export const tiktok_events10_appBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tiktok_app_id","wireName":"tiktok_app_id","location":"body","required":true,"nullable":false},
     {"name":"batch","wireName":"batch","location":"body","required":true,"nullable":false}
@@ -1421,6 +1481,8 @@ export const tiktok_events10_appCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"download_url","wireName":"download_url","location":"body","required":true,"nullable":false},
@@ -1448,6 +1510,8 @@ export const tiktok_events10_appInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false}
@@ -1471,6 +1535,8 @@ export const tiktok_events10_appList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_platform_ids","wireName":"app_platform_ids","location":"query","required":false,"nullable":false}
@@ -1494,6 +1560,8 @@ export const tiktok_events10_appOptimizationEvent = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
@@ -1531,6 +1599,8 @@ export const tiktok_events10_appOptimizationEventRetargeting = defineEndpointDes
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false}
@@ -1554,6 +1624,8 @@ export const tiktok_events10_appTrack = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tiktok_app_id","wireName":"tiktok_app_id","location":"body","required":true,"nullable":false},
     {"name":"event","wireName":"event","location":"body","required":false,"nullable":false},
@@ -1583,6 +1655,8 @@ export const tiktok_events10_appUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"download_url","wireName":"download_url","location":"body","required":false,"nullable":false},
@@ -1616,6 +1690,8 @@ export const tiktok_bCAssets_assetBindQuota = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
@@ -1641,6 +1717,8 @@ export const tiktok_audience_audienceInsightInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":false,"nullable":false},
@@ -1670,6 +1748,8 @@ export const tiktok_audience_audienceInsightOverlap = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"benchmark_custom_audience_id","wireName":"benchmark_custom_audience_id","location":"query","required":true,"nullable":false},
@@ -1695,6 +1775,8 @@ export const tiktok_bCPayments_bcAccountBudgetChangelogGetN = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
@@ -1724,6 +1806,8 @@ export const tiktok_bCPayments_bcAccountCostGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -1751,6 +1835,8 @@ export const tiktok_bCPayments_bcAccountTransactionGet = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"transaction_level","wireName":"transaction_level","location":"query","required":false,"nullable":false},
@@ -1780,6 +1866,8 @@ export const tiktok_bCReporting_bcAdvertiserAttribute = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["bCReporting.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false}
   ],
@@ -1801,6 +1889,8 @@ export const tiktok_bCAssets_bcAdvertiserCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"tied_to_billing_group","wireName":"tied_to_billing_group","location":"body","required":false,"nullable":false},
@@ -1838,6 +1928,8 @@ export const tiktok_bCAssets_bcAdvertiserDisable = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false}
@@ -1861,6 +1953,8 @@ export const tiktok_bCAssets_bcAdvertiserQualificationGet = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -1888,6 +1982,8 @@ export const tiktok_bCAssets_bcAdvertiserUnionpayInfoCheck = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"license_no","wireName":"license_no","location":"query","required":true,"nullable":false}
   ],
@@ -1909,6 +2005,8 @@ export const tiktok_bCAssets_bcAdvertiserUnionpayInfoSubmit = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
@@ -1942,6 +2040,8 @@ export const tiktok_bCAssets_bcAssetAccountAuthorization = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"is_ads_only_mode","wireName":"is_ads_only_mode","location":"body","required":false,"nullable":false}
@@ -1965,6 +2065,8 @@ export const tiktok_bCAssets_bcAssetAdminDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"asset_ids","wireName":"asset_ids","location":"body","required":true,"nullable":false},
@@ -1990,6 +2092,8 @@ export const tiktok_bCAssets_bcAssetAdminGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
@@ -2019,6 +2123,8 @@ export const tiktok_bCAssets_bcAssetAdvertiserAssign = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"body","required":false,"nullable":false},
@@ -2046,6 +2152,8 @@ export const tiktok_bCAssets_bcAssetAdvertiserAssigned = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"query","required":true,"nullable":false},
@@ -2075,6 +2183,8 @@ export const tiktok_bCAssets_bcAssetAdvertiserUnassign = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"asset_id","wireName":"asset_id","location":"body","required":true,"nullable":false},
@@ -2102,6 +2212,8 @@ export const tiktok_bCAssets_bcAssetAssign = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
@@ -2141,6 +2253,8 @@ export const tiktok_bCAssets_bcAssetGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
@@ -2170,6 +2284,8 @@ export const tiktok_bCAssetGroups_bcAssetGroupCreate = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["bCAssetGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -2189,6 +2305,8 @@ export const tiktok_bCAssetGroups_bcAssetGroupDelete = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["bCAssetGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -2208,6 +2326,8 @@ export const tiktok_bCAssetGroups_bcAssetGroupGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssetGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -2227,6 +2347,8 @@ export const tiktok_bCAssetGroups_bcAssetGroupList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssetGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -2246,6 +2368,8 @@ export const tiktok_bCAssetGroups_bcAssetGroupUpdate = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["bCAssetGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -2265,6 +2389,8 @@ export const tiktok_bCAssets_bcAssetMemberGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
@@ -2296,6 +2422,8 @@ export const tiktok_bCAssets_bcAssetPartnerGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"query","required":true,"nullable":false},
@@ -2327,6 +2455,8 @@ export const tiktok_bCAssets_bcAssetUnassign = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
@@ -2354,6 +2484,8 @@ export const tiktok_bCPayments_bcBalanceGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":false,"nullable":false}
@@ -2377,6 +2509,8 @@ export const tiktok_bCBillingGroups_bcBillingGroupAdvertiserList = defineEndpoin
   requiredScopes: [],
   capabilities: ["bCBillingGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"billing_group_id","wireName":"billing_group_id","location":"query","required":true,"nullable":false},
@@ -2404,6 +2538,8 @@ export const tiktok_bCBillingGroups_bcBillingGroupCreate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["bCBillingGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"billing_group_name","wireName":"billing_group_name","location":"body","required":true,"nullable":false},
@@ -2435,6 +2571,8 @@ export const tiktok_bCBillingGroups_bcBillingGroupGet = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["bCBillingGroups.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -2462,6 +2600,8 @@ export const tiktok_bCBillingGroups_bcBillingGroupUpdate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["bCBillingGroups.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"billing_group_id","wireName":"billing_group_id","location":"body","required":true,"nullable":false},
@@ -2495,6 +2635,8 @@ export const tiktok_bCManagement_bcGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":false,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -2520,6 +2662,8 @@ export const tiktok_bCAssets_bcImageUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"image_file","wireName":"image_file","location":"body","required":true,"nullable":false}
@@ -2543,6 +2687,8 @@ export const tiktok_bCInvoices_bcInvoiceDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"invoice_id","wireName":"invoice_id","location":"query","required":true,"nullable":false}
@@ -2566,6 +2712,8 @@ export const tiktok_bCInvoices_bcInvoiceGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"invoice_id","wireName":"invoice_id","location":"query","required":false,"nullable":false},
@@ -2603,6 +2751,8 @@ export const tiktok_bCInvoices_bcInvoiceTaskCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"download_type","wireName":"download_type","location":"body","required":true,"nullable":false},
@@ -2630,6 +2780,8 @@ export const tiktok_bCInvoices_bcInvoiceTaskGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -2653,6 +2805,8 @@ export const tiktok_bCInvoices_bcInvoiceTaskList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -2678,6 +2832,8 @@ export const tiktok_bCInvoices_bcInvoiceUnpaidGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCInvoices.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"invoice_type","wireName":"invoice_type","location":"query","required":true,"nullable":false}
@@ -2701,6 +2857,8 @@ export const tiktok_bCMembers_bcMemberDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCMembers.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"body","required":false,"nullable":false},
@@ -2726,6 +2884,8 @@ export const tiktok_bCMembers_bcMemberGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCMembers.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -2753,6 +2913,8 @@ export const tiktok_bCMembers_bcMemberInvite = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCMembers.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"emails","wireName":"emails","location":"body","required":true,"nullable":false},
@@ -2784,6 +2946,8 @@ export const tiktok_bCMembers_bcMemberUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCMembers.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"user_id","wireName":"user_id","location":"body","required":true,"nullable":false},
@@ -2813,6 +2977,8 @@ export const tiktok_bCAssets_bcOaCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"display_name","wireName":"display_name","location":"body","required":true,"nullable":false},
@@ -2844,6 +3010,8 @@ export const tiktok_bCPartners_bcPartnerAdd = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPartners.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false},
@@ -2873,6 +3041,8 @@ export const tiktok_bCPartners_bcPartnerAssetDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPartners.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false},
@@ -2900,6 +3070,8 @@ export const tiktok_bCPartners_bcPartnerAssetGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPartners.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"partner_id","wireName":"partner_id","location":"query","required":true,"nullable":false},
@@ -2933,6 +3105,8 @@ export const tiktok_bCPartners_bcPartnerDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPartners.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"partner_id","wireName":"partner_id","location":"body","required":true,"nullable":false}
@@ -2956,6 +3130,8 @@ export const tiktok_bCPartners_bcPartnerGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPartners.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -2983,6 +3159,8 @@ export const tiktok_bCAssets_bcPixelLinkGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"pixel_code","wireName":"pixel_code","location":"query","required":true,"nullable":false}
@@ -3006,6 +3184,8 @@ export const tiktok_bCAssets_bcPixelLinkUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
@@ -3033,6 +3213,8 @@ export const tiktok_bCAssets_bcPixelTransfer = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCAssets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false}
@@ -3056,6 +3238,8 @@ export const tiktok_bCPayments_bcTransactionGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPayments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -3087,6 +3271,8 @@ export const tiktok_bCPayments_bcTransfer = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCPayments.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"transfer_level","wireName":"transfer_level","location":"body","required":false,"nullable":false},
@@ -3124,6 +3310,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordCheck = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"blocked_words","wireName":"blocked_words","location":"query","required":true,"nullable":false}
@@ -3147,6 +3335,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordCreate = defineEndpointDes
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"blocked_words","wireName":"blocked_words","location":"body","required":true,"nullable":false}
@@ -3170,6 +3360,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordDelete = defineEndpointDes
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"blocked_words","wireName":"blocked_words","location":"body","required":true,"nullable":false}
@@ -3193,6 +3385,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"page_info","wireName":"page_info","location":"query","required":false,"nullable":false}
@@ -3216,6 +3410,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordTaskCheck = defineEndpoint
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -3239,6 +3435,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordTaskCreate = defineEndpoin
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"blocked_words","wireName":"blocked_words","location":"body","required":false,"nullable":false},
@@ -3264,6 +3462,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordTaskDownload = defineEndpo
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -3287,6 +3487,8 @@ export const tiktok_adCommentsBlockedWords_blockedwordUpdate = defineEndpointDes
   requiredScopes: [],
   capabilities: ["adCommentsBlockedWords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"old_word","wireName":"old_word","location":"body","required":true,"nullable":false},
@@ -3312,6 +3514,8 @@ export const tiktok_accounts_businessBenchmark = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"business_category","wireName":"business_category","location":"query","required":true,"nullable":false}
@@ -3335,6 +3539,8 @@ export const tiktok_accounts_businessCommentCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
@@ -3366,6 +3572,8 @@ export const tiktok_accounts_businessCommentDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false}
@@ -3389,6 +3597,8 @@ export const tiktok_accounts_businessCommentHide = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
@@ -3416,6 +3626,8 @@ export const tiktok_accounts_businessCommentImageUpload = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"image_file","wireName":"image_file","location":"body","required":true,"nullable":false}
   ],
@@ -3437,6 +3649,8 @@ export const tiktok_accounts_businessCommentLike = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"body","required":true,"nullable":false},
@@ -3462,6 +3676,8 @@ export const tiktok_accounts_businessCommentList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
@@ -3499,6 +3715,8 @@ export const tiktok_accounts_businessCommentReplyCreate = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
@@ -3534,6 +3752,8 @@ export const tiktok_mentions_businessCommentReplyCreate2 = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
@@ -3561,6 +3781,8 @@ export const tiktok_accounts_businessCommentReplyList = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
@@ -3596,6 +3818,8 @@ export const tiktok_accounts_businessGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"start_date","wireName":"start_date","location":"query","required":false,"nullable":false},
@@ -3623,6 +3847,8 @@ export const tiktok_accounts_businessHashtagSuggestion = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"keyword","wireName":"keyword","location":"query","required":true,"nullable":false},
@@ -3648,6 +3874,8 @@ export const tiktok_mentions_businessMentionCommentGet = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"query","required":true,"nullable":false},
@@ -3675,6 +3903,8 @@ export const tiktok_mentions_businessMentionCommentList = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -3710,6 +3940,8 @@ export const tiktok_mentions_businessMentionHashtagAdd = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"username","wireName":"username","location":"body","required":true,"nullable":false},
@@ -3735,6 +3967,8 @@ export const tiktok_mentions_businessMentionHashtagManageList = defineEndpointDe
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"username","wireName":"username","location":"query","required":true,"nullable":false}
@@ -3758,6 +3992,8 @@ export const tiktok_mentions_businessMentionHashtagRemove = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"username","wireName":"username","location":"body","required":true,"nullable":false},
@@ -3783,6 +4019,8 @@ export const tiktok_mentions_businessMentionHashtagVerifyList = defineEndpointDe
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"username","wireName":"username","location":"query","required":true,"nullable":false}
@@ -3806,6 +4044,8 @@ export const tiktok_mentions_businessMentionHashtagVideoList = defineEndpointDes
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"hashtag","wireName":"hashtag","location":"query","required":false,"nullable":false},
@@ -3843,6 +4083,8 @@ export const tiktok_mentions_businessMentionTopHashtagList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false}
@@ -3866,6 +4108,8 @@ export const tiktok_mentions_businessMentionTopWordList = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"regions","wireName":"regions","location":"query","required":false,"nullable":false}
@@ -3889,6 +4133,8 @@ export const tiktok_mentions_businessMentionVideoGet = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false},
@@ -3914,6 +4160,8 @@ export const tiktok_mentions_businessMentionVideoList = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -3949,6 +4197,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageCreate = defineE
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -3978,6 +4228,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageDelete = defineE
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -4003,6 +4255,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageGet = defineEndp
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -4028,6 +4282,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageSort = defineEnd
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -4053,6 +4309,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageStatusUpdate = d
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -4078,6 +4336,8 @@ export const tiktok_businessMessaging_businessMessageAutoMessageUpdate = defineE
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_id","wireName":"auto_message_id","location":"body","required":true,"nullable":false},
@@ -4109,6 +4369,8 @@ export const tiktok_businessMessaging_businessMessageCapabilitiesGet = defineEnd
   requiredScopes: [],
   capabilities: ["businessMessaging.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"capability_types","wireName":"capability_types","location":"query","required":true,"nullable":false},
@@ -4136,6 +4398,8 @@ export const tiktok_businessMessaging_businessMessageContentList = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessMessaging.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"conversation_id","wireName":"conversation_id","location":"query","required":true,"nullable":false}
@@ -4159,6 +4423,8 @@ export const tiktok_businessMessaging_businessMessageConversationList = defineEn
   requiredScopes: [],
   capabilities: ["businessMessaging.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"conversation_type","wireName":"conversation_type","location":"query","required":true,"nullable":false},
@@ -4186,6 +4452,8 @@ export const tiktok_businessMessaging_businessMessageDirectReplyGet = defineEndp
   requiredScopes: [],
   capabilities: ["businessMessaging.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"direct_reply_type","wireName":"direct_reply_type","location":"query","required":true,"nullable":false}
@@ -4209,6 +4477,8 @@ export const tiktok_businessMessaging_businessMessageDirectReplyUpdate = defineE
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"direct_reply_type","wireName":"direct_reply_type","location":"body","required":true,"nullable":false},
@@ -4234,6 +4504,8 @@ export const tiktok_businessMessaging_businessMessageMediaDownload = defineEndpo
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"conversation_id","wireName":"conversation_id","location":"body","required":true,"nullable":false},
@@ -4263,6 +4535,8 @@ export const tiktok_businessMessaging_businessMessageMediaUpload = defineEndpoin
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"file","wireName":"file","location":"body","required":true,"nullable":false},
@@ -4288,6 +4562,8 @@ export const tiktok_businessMessaging_businessMessageSend = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"recipient_type","wireName":"recipient_type","location":"body","required":false,"nullable":false},
@@ -4329,6 +4605,8 @@ export const tiktok_accounts_businessPhotoPublish = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"photo_images","wireName":"photo_images","location":"body","required":true,"nullable":false},
@@ -4356,6 +4634,8 @@ export const tiktok_accounts_businessPostAuthorize = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false},
@@ -4381,6 +4661,8 @@ export const tiktok_accounts_businessPostAuthorizeDelete = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false}
@@ -4404,6 +4686,8 @@ export const tiktok_accounts_businessPostAuthorizeSetting = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false},
@@ -4431,6 +4715,8 @@ export const tiktok_accounts_businessPostAuthorizeStatus = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false}
@@ -4454,6 +4740,8 @@ export const tiktok_accounts_businessPropertyAdd = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4479,6 +4767,8 @@ export const tiktok_accounts_businessPropertyDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4504,6 +4794,8 @@ export const tiktok_accounts_businessPropertyList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
@@ -4527,6 +4819,8 @@ export const tiktok_accounts_businessPropertyVerify = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4552,6 +4846,8 @@ export const tiktok_accounts_businessPublishLocation = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"search_query","wireName":"search_query","location":"query","required":true,"nullable":false}
@@ -4575,6 +4871,8 @@ export const tiktok_accounts_businessPublishStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"publish_id","wireName":"publish_id","location":"query","required":true,"nullable":false}
@@ -4598,6 +4896,8 @@ export const tiktok_accounts_businessVideoList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -4627,6 +4927,8 @@ export const tiktok_accounts_businessVideoPublish = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"body","required":true,"nullable":false},
     {"name":"video_url","wireName":"video_url","location":"body","required":true,"nullable":false},
@@ -4654,6 +4956,8 @@ export const tiktok_sparkAdsRecommendation_businessVideoRecommend = defineEndpoi
   requiredScopes: [],
   capabilities: ["sparkAdsRecommendation.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
@@ -4683,6 +4987,8 @@ export const tiktok_accounts_businessVideoSettings = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false}
   ],
@@ -4704,6 +5010,8 @@ export const tiktok_accounts_businessWebhookDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4731,6 +5039,8 @@ export const tiktok_businessMessaging_businessWebhookDelete2 = defineEndpointDes
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4756,6 +5066,8 @@ export const tiktok_mentions_businessWebhookDelete3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4781,6 +5093,8 @@ export const tiktok_accounts_businessWebhookList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
@@ -4806,6 +5120,8 @@ export const tiktok_businessMessaging_businessWebhookList2 = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["businessMessaging.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
@@ -4831,6 +5147,8 @@ export const tiktok_mentions_businessWebhookList3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
@@ -4856,6 +5174,8 @@ export const tiktok_accounts_businessWebhookUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4885,6 +5205,8 @@ export const tiktok_businessMessaging_businessWebhookUpdate2 = defineEndpointDes
   requiredScopes: [],
   capabilities: ["businessMessaging.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4912,6 +5234,8 @@ export const tiktok_mentions_businessWebhookUpdate3 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -4939,6 +5263,8 @@ export const tiktok_campaign_campaignCopyTaskCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -4962,6 +5288,8 @@ export const tiktok_campaign_campaignCopyTaskCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5013,6 +5341,8 @@ export const tiktok_campaign_campaignCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
@@ -5084,6 +5414,8 @@ export const tiktok_campaign_campaignGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -5115,6 +5447,8 @@ export const tiktok_gMVMax_campaignGmvMaxCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
@@ -5180,6 +5514,8 @@ export const tiktok_gMVMax_campaignGmvMaxCreativeUpdate = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5207,6 +5543,8 @@ export const tiktok_gMVMax_campaignGmvMaxInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false}
@@ -5230,6 +5568,8 @@ export const tiktok_gMVMax_campaignGmvMaxSessionCreate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5257,6 +5597,8 @@ export const tiktok_gMVMax_campaignGmvMaxSessionDelete = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"session_id","wireName":"session_id","location":"body","required":true,"nullable":false}
@@ -5280,6 +5622,8 @@ export const tiktok_gMVMax_campaignGmvMaxSessionGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"session_ids","wireName":"session_ids","location":"query","required":true,"nullable":false}
@@ -5303,6 +5647,8 @@ export const tiktok_gMVMax_campaignGmvMaxSessionList = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false}
@@ -5326,6 +5672,8 @@ export const tiktok_gMVMax_campaignGmvMaxSessionUpdate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5355,6 +5703,8 @@ export const tiktok_gMVMax_campaignGmvMaxUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5402,6 +5752,8 @@ export const tiktok_tools_campaignLabelGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_label_ids","wireName":"campaign_label_ids","location":"query","required":false,"nullable":false},
@@ -5433,6 +5785,8 @@ export const tiktok_campaign_campaignQuotaGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
@@ -5458,6 +5812,8 @@ export const tiktok_campaign_campaignQuotaInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
@@ -5487,6 +5843,8 @@ export const tiktok_toBeDeprecatedLegacySmart_campaignSpcCreate = defineEndpoint
   requiredScopes: [],
   capabilities: ["toBeDeprecatedLegacySmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"operation_status","wireName":"operation_status","location":"body","required":false,"nullable":false},
@@ -5672,6 +6030,8 @@ export const tiktok_toBeDeprecatedLegacySmart_campaignSpcGet = defineEndpointDes
   requiredScopes: [],
   capabilities: ["toBeDeprecatedLegacySmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":true,"nullable":false}
@@ -5695,6 +6055,8 @@ export const tiktok_toBeDeprecatedLegacySmart_campaignSpcMaterialStatusUpdate = 
   requiredScopes: [],
   capabilities: ["toBeDeprecatedLegacySmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5722,6 +6084,8 @@ export const tiktok_toBeDeprecatedLegacySmart_campaignSpcQuotaGet = defineEndpoi
   requiredScopes: [],
   capabilities: ["toBeDeprecatedLegacySmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -5743,6 +6107,8 @@ export const tiktok_toBeDeprecatedLegacySmart_campaignSpcUpdate = defineEndpoint
   requiredScopes: [],
   capabilities: ["toBeDeprecatedLegacySmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5848,6 +6214,8 @@ export const tiktok_campaign_campaignStatusUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_ids","wireName":"campaign_ids","location":"body","required":true,"nullable":false},
@@ -5875,6 +6243,8 @@ export const tiktok_campaign_campaignUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["campaign.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -5906,6 +6276,8 @@ export const tiktok_catalogManagement_catalogAvailableCountryGet = defineEndpoin
   requiredScopes: [],
   capabilities: ["catalogManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false}
   ],
@@ -5927,6 +6299,8 @@ export const tiktok_catalogManagement_catalogCapitalize = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogManagement.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
@@ -5952,6 +6326,8 @@ export const tiktok_catalogManagement_catalogCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogManagement.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
@@ -5979,6 +6355,8 @@ export const tiktok_catalogManagement_catalogDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogManagement.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false}
@@ -6002,6 +6380,8 @@ export const tiktok_catalogEventSources_catalogEventsourceBind = defineEndpointD
   requiredScopes: [],
   capabilities: ["catalogEventSources.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
@@ -6031,6 +6411,8 @@ export const tiktok_catalogEventSources_catalogEventsourceBindGet = defineEndpoi
   requiredScopes: [],
   capabilities: ["catalogEventSources.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
@@ -6054,6 +6436,8 @@ export const tiktok_catalogEventSources_catalogEventsourceUnbind = defineEndpoin
   requiredScopes: [],
   capabilities: ["catalogEventSources.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
@@ -6083,6 +6467,8 @@ export const tiktok_catalogFeeds_catalogFeedCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6112,6 +6498,8 @@ export const tiktok_catalogFeeds_catalogFeedDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6137,6 +6525,8 @@ export const tiktok_catalogFeeds_catalogFeedGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6162,6 +6552,8 @@ export const tiktok_catalogFeeds_catalogFeedLog = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6187,6 +6579,8 @@ export const tiktok_catalogFeeds_catalogFeedSwitch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6214,6 +6608,8 @@ export const tiktok_catalogFeeds_catalogFeedUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogFeeds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6243,6 +6639,8 @@ export const tiktok_catalogManagement_catalogGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":false,"nullable":false},
@@ -6270,6 +6668,8 @@ export const tiktok_catalogInsights_catalogInsightCategoryGet = defineEndpointDe
   requiredScopes: [],
   capabilities: ["catalogInsights.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6295,6 +6695,8 @@ export const tiktok_catalogInsights_catalogInsightFilterGet = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["catalogInsights.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6324,6 +6726,8 @@ export const tiktok_catalogInsights_catalogInsightProductGet = defineEndpointDes
   requiredScopes: [],
   capabilities: ["catalogInsights.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6349,6 +6753,8 @@ export const tiktok_catalogManagement_catalogLexiconGet = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
@@ -6372,6 +6778,8 @@ export const tiktok_catalogManagement_catalogLocationCurrencyGet = defineEndpoin
   requiredScopes: [],
   capabilities: ["catalogManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [],
   inputSchema: Schema.Struct({
 
@@ -6391,6 +6799,8 @@ export const tiktok_catalogManagement_catalogOverview = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["catalogManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false}
@@ -6414,6 +6824,8 @@ export const tiktok_catalogProducts_catalogProductDelete = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["catalogProducts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6451,6 +6863,8 @@ export const tiktok_catalogProducts_catalogProductFile = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["catalogProducts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6480,6 +6894,8 @@ export const tiktok_catalogProducts_catalogProductGet = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["catalogProducts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6517,6 +6933,8 @@ export const tiktok_catalogProducts_catalogProductLog = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["catalogProducts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6544,6 +6962,8 @@ export const tiktok_catalogProducts_catalogProductUpdate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["catalogProducts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6571,6 +6991,8 @@ export const tiktok_catalogProducts_catalogProductUpload = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["catalogProducts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6598,6 +7020,8 @@ export const tiktok_catalogProductSets_catalogSetCreate = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogProductSets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6625,6 +7049,8 @@ export const tiktok_catalogProductSets_catalogSetDelete = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogProductSets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6650,6 +7076,8 @@ export const tiktok_catalogProductSets_catalogSetGet = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["catalogProductSets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6677,6 +7105,8 @@ export const tiktok_catalogProductSets_catalogSetProductGet = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["catalogProductSets.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6706,6 +7136,8 @@ export const tiktok_catalogProductSets_catalogSetUpdate = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogProductSets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6735,6 +7167,8 @@ export const tiktok_catalogProductSets_catalogSetUpload = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["catalogProductSets.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6764,6 +7198,8 @@ export const tiktok_catalogVideoTemplates_catalogTemplatePreviewCreate = defineE
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_ids","wireName":"catalog_ids","location":"body","required":true,"nullable":false}
@@ -6787,6 +7223,8 @@ export const tiktok_catalogVideoTemplates_catalogTemplateUpload = defineEndpoint
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_ids","wireName":"catalog_ids","location":"body","required":true,"nullable":false},
@@ -6812,6 +7250,8 @@ export const tiktok_catalogManagement_catalogUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogManagement.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6837,6 +7277,8 @@ export const tiktok_catalogVideos_catalogVideoDelete = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["catalogVideos.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6862,6 +7304,8 @@ export const tiktok_catalogVideos_catalogVideoFile = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogVideos.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6889,6 +7333,8 @@ export const tiktok_catalogVideos_catalogVideoGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogVideos.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6918,6 +7364,8 @@ export const tiktok_catalogVideos_catalogVideoLog = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["catalogVideos.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -6945,6 +7393,8 @@ export const tiktok_catalogVideoTemplates_catalogVideoPackageCreate = defineEndp
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -6978,6 +7428,8 @@ export const tiktok_catalogVideoTemplates_catalogVideoPackageDelete = defineEndp
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -7003,6 +7455,8 @@ export const tiktok_catalogVideoTemplates_catalogVideoPackageGet = defineEndpoin
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -7028,6 +7482,8 @@ export const tiktok_catalogVideoTemplates_catalogVideoPackageUpdate = defineEndp
   requiredScopes: [],
   capabilities: ["catalogVideoTemplates.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
@@ -7055,6 +7511,8 @@ export const tiktok_bCManagement_changelogGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["bCManagement.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -7088,6 +7546,8 @@ export const tiktok_changeLog_changelogTaskCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["changeLog.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -7111,6 +7571,8 @@ export const tiktok_changeLog_changelogTaskCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["changeLog.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"start_time","wireName":"start_time","location":"body","required":false,"nullable":false},
@@ -7148,6 +7610,8 @@ export const tiktok_changeLog_changelogTaskDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["changeLog.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -7171,6 +7635,8 @@ export const tiktok_adComments_commentDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"body","required":true,"nullable":false},
@@ -7202,6 +7668,8 @@ export const tiktok_adComments_commentList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"comment_type","wireName":"comment_type","location":"query","required":false,"nullable":false},
@@ -7241,6 +7709,8 @@ export const tiktok_adComments_commentPost = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"body","required":true,"nullable":false},
@@ -7276,6 +7746,8 @@ export const tiktok_adComments_commentReference = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"comment_id","wireName":"comment_id","location":"query","required":true,"nullable":false},
@@ -7307,6 +7779,8 @@ export const tiktok_adComments_commentStatusUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"comment_ids","wireName":"comment_ids","location":"body","required":true,"nullable":false},
@@ -7332,6 +7806,8 @@ export const tiktok_adComments_commentTaskCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -7355,6 +7831,8 @@ export const tiktok_adComments_commentTaskCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"comment_status","wireName":"comment_status","location":"body","required":false,"nullable":false},
@@ -7396,6 +7874,8 @@ export const tiktok_adComments_commentTaskDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adComments.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -7419,6 +7899,8 @@ export const tiktok_creativeTools_creativeAdsPreviewCreate = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"preview_type","wireName":"preview_type","location":"body","required":true,"nullable":false},
@@ -7530,6 +8012,8 @@ export const tiktok_creativeTools_creativeAssetDelete = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"video_ids","wireName":"video_ids","location":"body","required":false,"nullable":false},
@@ -7555,6 +8039,8 @@ export const tiktok_creativeTools_creativeAssetShare = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"asset_type","wireName":"asset_type","location":"body","required":false,"nullable":false},
@@ -7582,6 +8068,8 @@ export const tiktok_welcomeMessages_creativeAutoMessageCreate = defineEndpointDe
   requiredScopes: [],
   capabilities: ["welcomeMessages.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"body","required":true,"nullable":false},
@@ -7607,6 +8095,8 @@ export const tiktok_welcomeMessages_creativeAutoMessageGet = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["welcomeMessages.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"auto_message_type","wireName":"auto_message_type","location":"query","required":true,"nullable":false},
@@ -7636,6 +8126,8 @@ export const tiktok_creativeTools_creativeCtaRecommend = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["creativeTools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"new_version","wireName":"new_version","location":"query","required":false,"nullable":false},
@@ -7681,6 +8173,8 @@ export const tiktok_creativeTools_creativeFatigueGet = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["creativeTools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"ad_id","wireName":"ad_id","location":"query","required":true,"nullable":false},
@@ -7710,6 +8204,8 @@ export const tiktok_creativeTools_creativeImageEdit = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"image_id","wireName":"image_id","location":"body","required":true,"nullable":false},
@@ -7741,6 +8237,8 @@ export const tiktok_creativePortfolios_creativePortfolioCreate = defineEndpointD
   requiredScopes: [],
   capabilities: ["creativePortfolios.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"creative_portfolio_type","wireName":"creative_portfolio_type","location":"body","required":false,"nullable":false},
@@ -7766,6 +8264,8 @@ export const tiktok_creativePortfolios_creativePortfolioDelete = defineEndpointD
   requiredScopes: [],
   capabilities: ["creativePortfolios.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"creative_portfolio_ids","wireName":"creative_portfolio_ids","location":"body","required":true,"nullable":false}
@@ -7789,6 +8289,8 @@ export const tiktok_creativePortfolios_creativePortfolioGet = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["creativePortfolios.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"creative_portfolio_id","wireName":"creative_portfolio_id","location":"query","required":true,"nullable":false}
@@ -7812,6 +8314,8 @@ export const tiktok_creativePortfolios_creativePortfolioList = defineEndpointDes
   requiredScopes: [],
   capabilities: ["creativePortfolios.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -7839,6 +8343,8 @@ export const tiktok_creativeTools_creativeQuickOptimizationCreate = defineEndpoi
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
@@ -7870,6 +8376,8 @@ export const tiktok_creativeTools_creativeSmartTextGenerate = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -7903,6 +8411,8 @@ export const tiktok_creativeTools_creativeSmartVideoCreate = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"videos","wireName":"videos","location":"body","required":true,"nullable":false},
@@ -7942,6 +8452,8 @@ export const tiktok_creativeTools_creativeStatusGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["creativeTools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -7965,6 +8477,8 @@ export const tiktok_creativeTools_creativeVideoSoundtrackCreate = defineEndpoint
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
@@ -7998,6 +8512,8 @@ export const tiktok_events10_crmCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false}
@@ -8021,6 +8537,8 @@ export const tiktok_events10_crmList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"query","required":false,"nullable":false},
@@ -8046,6 +8564,8 @@ export const tiktok_events10_ctmMessageEventSetGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"messaging_app_type","wireName":"messaging_app_type","location":"query","required":true,"nullable":false},
@@ -8075,6 +8595,8 @@ export const tiktok_customConversions_customConversionCreate = defineEndpointDes
   requiredScopes: [],
   capabilities: ["customConversions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
@@ -8110,6 +8632,8 @@ export const tiktok_customConversions_customConversionDelete = defineEndpointDes
   requiredScopes: [],
   capabilities: ["customConversions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":true,"nullable":false}
@@ -8133,6 +8657,8 @@ export const tiktok_customConversions_customConversionGet = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["customConversions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"query","required":true,"nullable":false},
@@ -8160,6 +8686,8 @@ export const tiktok_customConversions_customConversionList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["customConversions.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"event_source_type","wireName":"event_source_type","location":"query","required":true,"nullable":false},
@@ -8195,6 +8723,8 @@ export const tiktok_customConversions_customConversionUpdate = defineEndpointDes
   requiredScopes: [],
   capabilities: ["customConversions.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_conversion_id","wireName":"custom_conversion_id","location":"body","required":true,"nullable":false},
@@ -8222,6 +8752,8 @@ export const tiktok_tools_deliveryBidRecommend = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
@@ -8245,6 +8777,8 @@ export const tiktok_tools_deliveryBudgetRecommend = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"query","required":true,"nullable":false}
@@ -8268,6 +8802,8 @@ export const tiktok_catalogDiagnostics_diagnosticCatalog = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["catalogDiagnostics.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
@@ -8301,6 +8837,8 @@ export const tiktok_catalogDiagnostics_diagnosticCatalogEventsourceIssue = defin
   requiredScopes: [],
   capabilities: ["catalogDiagnostics.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -8334,6 +8872,8 @@ export const tiktok_catalogDiagnostics_diagnosticCatalogEventsourceMetric = defi
   requiredScopes: [],
   capabilities: ["catalogDiagnostics.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
@@ -8367,6 +8907,8 @@ export const tiktok_catalogDiagnostics_diagnosticCatalogProductTaskCreate = defi
   requiredScopes: [],
   capabilities: ["catalogDiagnostics.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"catalog_id","wireName":"catalog_id","location":"body","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false},
@@ -8396,6 +8938,8 @@ export const tiktok_catalogDiagnostics_diagnosticCatalogProductTaskGet = defineE
   requiredScopes: [],
   capabilities: ["catalogDiagnostics.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"catalog_id","wireName":"catalog_id","location":"query","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
@@ -8421,6 +8965,8 @@ export const tiktok_discovery_discoveryCmlTrendingList = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"genre","wireName":"genre","location":"query","required":false,"nullable":false},
@@ -8448,6 +8994,8 @@ export const tiktok_discovery_discoveryCmlVideoList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"commercial_music_id","wireName":"commercial_music_id","location":"query","required":true,"nullable":false},
@@ -8473,6 +9021,8 @@ export const tiktok_discovery_discoveryDetail = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
@@ -8502,6 +9052,8 @@ export const tiktok_discovery_discoveryTrendingList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
@@ -8531,6 +9083,8 @@ export const tiktok_discovery_discoveryTrendingSearch = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"is_personalized","wireName":"is_personalized","location":"query","required":false,"nullable":false}
@@ -8554,6 +9108,8 @@ export const tiktok_discovery_discoveryTrendingSearchKeyword = defineEndpointDes
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"business_id","wireName":"business_id","location":"query","required":true,"nullable":false},
     {"name":"query","wireName":"query","location":"query","required":true,"nullable":false},
@@ -8579,6 +9135,8 @@ export const tiktok_discovery_discoveryVideoList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["discovery.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"discovery_type","wireName":"discovery_type","location":"query","required":true,"nullable":false},
@@ -8608,6 +9166,8 @@ export const tiktok_audience_dmpCustomAudienceApply = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
@@ -8637,6 +9197,8 @@ export const tiktok_audience_dmpCustomAudienceApplyLog = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":true,"nullable":false},
@@ -8666,6 +9228,8 @@ export const tiktok_audience_dmpCustomAudienceCreate = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
@@ -8697,6 +9261,8 @@ export const tiktok_audience_dmpCustomAudienceDelete = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false}
@@ -8720,6 +9286,8 @@ export const tiktok_audience_dmpCustomAudienceFileUpload = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"file","wireName":"file","location":"body","required":true,"nullable":false},
@@ -8747,6 +9315,8 @@ export const tiktok_audience_dmpCustomAudienceGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":true,"nullable":false},
@@ -8772,6 +9342,8 @@ export const tiktok_audience_dmpCustomAudienceList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"query","required":false,"nullable":false},
@@ -8799,6 +9371,8 @@ export const tiktok_audience_dmpCustomAudienceLookalikeCreate = defineEndpointDe
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
@@ -8826,6 +9400,8 @@ export const tiktok_audience_dmpCustomAudienceLookalikeUpdate = defineEndpointDe
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false}
@@ -8849,6 +9425,8 @@ export const tiktok_audience_dmpCustomAudienceRuleCreate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_name","wireName":"custom_audience_name","location":"body","required":true,"nullable":false},
@@ -8888,6 +9466,8 @@ export const tiktok_audience_dmpCustomAudienceShare = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"custom_audience_ids","wireName":"custom_audience_ids","location":"body","required":true,"nullable":false},
     {"name":"shared_advertiser_ids","wireName":"shared_advertiser_ids","location":"body","required":true,"nullable":false},
@@ -8913,6 +9493,8 @@ export const tiktok_audience_dmpCustomAudienceShareCancel = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
     {"name":"shared_advertiser_id","wireName":"shared_advertiser_id","location":"body","required":true,"nullable":false},
@@ -8938,6 +9520,8 @@ export const tiktok_audience_dmpCustomAudienceShareLog = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
@@ -8961,6 +9545,8 @@ export const tiktok_audience_dmpCustomAudienceUpdate = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"custom_audience_id","wireName":"custom_audience_id","location":"body","required":true,"nullable":false},
@@ -8992,6 +9578,8 @@ export const tiktok_audience_dmpSavedAudienceCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"saved_audience_name","wireName":"saved_audience_name","location":"body","required":true,"nullable":false},
@@ -9047,6 +9635,8 @@ export const tiktok_audience_dmpSavedAudienceDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"saved_audience_ids","wireName":"saved_audience_ids","location":"body","required":true,"nullable":false}
@@ -9070,6 +9660,8 @@ export const tiktok_audience_dmpSavedAudienceList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"saved_audience_ids","wireName":"saved_audience_ids","location":"query","required":false,"nullable":false}
@@ -9093,6 +9685,8 @@ export const tiktok_deprecatedDynamicScene_dynamicSceneGet = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["deprecatedDynamicScene.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"material_package_id","wireName":"material_package_id","location":"query","required":true,"nullable":false},
@@ -9120,6 +9714,8 @@ export const tiktok_deprecatedDynamicScene_dynamicSceneMaterialSubmit = defineEn
   requiredScopes: [],
   capabilities: ["deprecatedDynamicScene.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"slots","wireName":"slots","location":"body","required":true,"nullable":false},
@@ -9147,6 +9743,8 @@ export const tiktok_deprecatedDynamicScene_dynamicSceneReportGet = defineEndpoin
   requiredScopes: [],
   capabilities: ["deprecatedDynamicScene.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"data_level","wireName":"data_level","location":"query","required":true,"nullable":false},
@@ -9190,6 +9788,8 @@ export const tiktok_deprecatedDynamicScene_dynamicSceneTaskCreate = defineEndpoi
   requiredScopes: [],
   capabilities: ["deprecatedDynamicScene.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"material_package_id","wireName":"material_package_id","location":"body","required":true,"nullable":false}
@@ -9213,6 +9813,8 @@ export const tiktok_deprecatedDynamicScene_dynamicSceneTaskGet = defineEndpointD
   requiredScopes: [],
   capabilities: ["deprecatedDynamicScene.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":false,"nullable":false}
@@ -9236,6 +9838,8 @@ export const tiktok_events20_eventTrack = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events20.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"event_source","wireName":"event_source","location":"body","required":true,"nullable":false},
     {"name":"event_source_id","wireName":"event_source_id","location":"body","required":true,"nullable":false},
@@ -9261,6 +9865,8 @@ export const tiktok_files_fileFinishUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["files.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"upload_id","wireName":"upload_id","location":"body","required":true,"nullable":false}
@@ -9284,6 +9890,8 @@ export const tiktok_images_fileImageAdInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["images.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"image_ids","wireName":"image_ids","location":"query","required":true,"nullable":false}
@@ -9307,6 +9915,8 @@ export const tiktok_images_fileImageAdSearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["images.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -9334,6 +9944,8 @@ export const tiktok_images_fileImageAdUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["images.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"file_name","wireName":"file_name","location":"body","required":true,"nullable":false},
@@ -9359,6 +9971,8 @@ export const tiktok_images_fileImageAdUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["images.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
@@ -9392,6 +10006,8 @@ export const tiktok_music_fileMusicGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["music.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"music_scene","wireName":"music_scene","location":"query","required":false,"nullable":false},
@@ -9423,6 +10039,8 @@ export const tiktok_music_fileMusicUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["music.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"music_scene","wireName":"music_scene","location":"body","required":false,"nullable":false},
@@ -9460,6 +10078,8 @@ export const tiktok_files_fileNameCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["files.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"files","wireName":"files","location":"query","required":false,"nullable":false},
@@ -9487,6 +10107,8 @@ export const tiktok_files_fileStartUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["files.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"size","wireName":"size","location":"body","required":true,"nullable":false},
@@ -9514,6 +10136,8 @@ export const tiktok_files_fileTemporarilyUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["files.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"upload_type","wireName":"upload_type","location":"body","required":true,"nullable":false},
@@ -9547,6 +10171,8 @@ export const tiktok_files_fileTransferUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["files.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"upload_id","wireName":"upload_id","location":"body","required":true,"nullable":false},
@@ -9576,6 +10202,8 @@ export const tiktok_video_fileVideoAdInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["video.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"video_ids","wireName":"video_ids","location":"query","required":true,"nullable":false}
@@ -9599,6 +10227,8 @@ export const tiktok_video_fileVideoAdSearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["video.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -9628,6 +10258,8 @@ export const tiktok_video_fileVideoAdUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["video.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"file_name","wireName":"file_name","location":"body","required":true,"nullable":false},
@@ -9653,6 +10285,8 @@ export const tiktok_video_fileVideoAdUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["video.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"file_name","wireName":"file_name","location":"body","required":false,"nullable":false},
@@ -9696,6 +10330,8 @@ export const tiktok_video_fileVideoSuggestcover = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["video.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
@@ -9721,6 +10357,8 @@ export const tiktok_gMVMax_gmvMaxBidRecommend = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
@@ -9752,6 +10390,8 @@ export const tiktok_gMVMax_gmvMaxCampaignGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -9781,6 +10421,8 @@ export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListCreate = defineEnd
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
@@ -9808,6 +10450,8 @@ export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListDelete = defineEnd
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
@@ -9837,6 +10481,8 @@ export const tiktok_gMVMax_gmvMaxCreationCustomAnchorVideoListGet = defineEndpoi
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
@@ -9882,6 +10528,8 @@ export const tiktok_gMVMax_gmvMaxCreationShopVideoVideoAnchors = defineEndpointD
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
@@ -9911,6 +10559,8 @@ export const tiktok_gMVMax_gmvMaxCustomAnchorVideoListGet = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false},
@@ -9938,6 +10588,8 @@ export const tiktok_gMVMax_gmvMaxExclusiveAuthorizationCreate = defineEndpointDe
   requiredScopes: [],
   capabilities: ["gMVMax.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"store_id","wireName":"store_id","location":"body","required":true,"nullable":false},
     {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"body","required":true,"nullable":false},
@@ -9963,6 +10615,8 @@ export const tiktok_gMVMax_gmvMaxExclusiveAuthorizationGet = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
     {"name":"store_authorized_bc_id","wireName":"store_authorized_bc_id","location":"query","required":true,"nullable":false},
@@ -9988,6 +10642,8 @@ export const tiktok_gMVMax_gmvMaxIdentityGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
@@ -10013,6 +10669,8 @@ export const tiktok_gMVMax_gmvMaxOccupiedCustomShopAdsList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
@@ -10040,6 +10698,8 @@ export const tiktok_gMVMax_gmvMaxStoreList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -10061,6 +10721,8 @@ export const tiktok_gMVMax_gmvMaxStoreShopAdUsageCheck = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false}
@@ -10084,6 +10746,8 @@ export const tiktok_gMVMax_gmvMaxVideoGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["gMVMax.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
@@ -10127,6 +10791,8 @@ export const tiktok_identity_identityCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"display_name","wireName":"display_name","location":"body","required":true,"nullable":false},
@@ -10152,6 +10818,8 @@ export const tiktok_identity_identityDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"body","required":true,"nullable":false},
@@ -10177,6 +10845,8 @@ export const tiktok_identity_identityGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_type","wireName":"identity_type","location":"query","required":false,"nullable":false},
@@ -10208,6 +10878,8 @@ export const tiktok_identity_identityInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -10235,6 +10907,8 @@ export const tiktok_identity_identityLiveGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -10264,6 +10938,8 @@ export const tiktok_identity_identityMusicAuthorization = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"query","required":true,"nullable":false},
@@ -10299,6 +10975,8 @@ export const tiktok_tools_identityNativeSeriesGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -10330,6 +11008,8 @@ export const tiktok_identity_identityVideoGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -10367,6 +11047,8 @@ export const tiktok_identity_identityVideoInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["identity.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_type","wireName":"identity_type","location":"query","required":true,"nullable":false},
@@ -10398,6 +11080,8 @@ export const tiktok_leads_leadFieldGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"lead_source","wireName":"lead_source","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
@@ -10425,6 +11109,8 @@ export const tiktok_leads_leadGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"lead_source","wireName":"lead_source","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
@@ -10452,6 +11138,8 @@ export const tiktok_tools_minisGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -10477,6 +11165,8 @@ export const tiktok_mediaMixModeling_mmmApiCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaMixModeling.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"mmm_request_id","wireName":"mmm_request_id","location":"query","required":true,"nullable":false}
   ],
@@ -10498,6 +11188,8 @@ export const tiktok_mediaMixModeling_mmmApiCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaMixModeling.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
     {"name":"request_info","wireName":"request_info","location":"body","required":true,"nullable":false},
@@ -10523,6 +11215,8 @@ export const tiktok_mediaMixModeling_mmmApiDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaMixModeling.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"mmm_request_id","wireName":"mmm_request_id","location":"query","required":true,"nullable":false}
   ],
@@ -10544,6 +11238,8 @@ export const tiktok_mediaMixModeling_mmmApiHistory = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["mediaMixModeling.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"from_date","wireName":"from_date","location":"query","required":true,"nullable":false},
     {"name":"end_date","wireName":"end_date","location":"query","required":true,"nullable":false}
@@ -10567,6 +11263,8 @@ export const tiktok_authentication_oauth2AccessToken = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["authentication.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -10594,6 +11292,8 @@ export const tiktok_page_oauth2AccessTokenTipSdkCreate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false}
   ],
@@ -10615,6 +11315,8 @@ export const tiktok_page_oauth2AccessTokenTipSdkRenew = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"tip_sdk_access_token","wireName":"tip_sdk_access_token","location":"body","required":true,"nullable":false}
@@ -10638,6 +11340,8 @@ export const tiktok_page_oauth2AccessTokenTipSdkValidate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["page.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"tip_sdk_access_token","wireName":"tip_sdk_access_token","location":"body","required":true,"nullable":false}
@@ -10661,6 +11365,8 @@ export const tiktok_adAccounts_oauth2AdvertiserGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adAccounts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
@@ -10684,6 +11390,8 @@ export const tiktok_authentication_oauth2RevokeToken = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["authentication.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -10709,6 +11417,8 @@ export const tiktok_events10_offlineBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
     {"name":"batch","wireName":"batch","location":"body","required":false,"nullable":false}
@@ -10732,6 +11442,8 @@ export const tiktok_events10_offlineCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"name","wireName":"name","location":"body","required":true,"nullable":false},
@@ -10759,6 +11471,8 @@ export const tiktok_events10_offlineDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false}
@@ -10782,6 +11496,8 @@ export const tiktok_events10_offlineGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"event_set_ids","wireName":"event_set_ids","location":"query","required":false,"nullable":false},
@@ -10807,6 +11523,8 @@ export const tiktok_events10_offlineTrack = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"event","wireName":"event","location":"body","required":true,"nullable":false},
     {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
@@ -10838,6 +11556,8 @@ export const tiktok_events10_offlineUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"event_set_id","wireName":"event_set_id","location":"body","required":true,"nullable":false},
@@ -10865,6 +11585,8 @@ export const tiktok_automatedRules_optimizerRuleBatchBind = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["automatedRules.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"bind_info","wireName":"bind_info","location":"body","required":true,"nullable":false},
@@ -10890,6 +11612,8 @@ export const tiktok_automatedRules_optimizerRuleCreate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["automatedRules.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"rules","wireName":"rules","location":"body","required":false,"nullable":false},
@@ -10915,6 +11639,8 @@ export const tiktok_automatedRules_optimizerRuleGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["automatedRules.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"rule_ids","wireName":"rule_ids","location":"query","required":true,"nullable":false}
@@ -10938,6 +11664,8 @@ export const tiktok_automatedRules_optimizerRuleList = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["automatedRules.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -10967,6 +11695,8 @@ export const tiktok_automatedRules_optimizerRuleResultGet = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["automatedRules.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"result_detail","wireName":"result_detail","location":"query","required":true,"nullable":false},
@@ -10992,6 +11722,8 @@ export const tiktok_automatedRules_optimizerRuleResultList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["automatedRules.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -11021,6 +11753,8 @@ export const tiktok_automatedRules_optimizerRuleUpdate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["automatedRules.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"rules","wireName":"rules","location":"body","required":false,"nullable":false},
@@ -11046,6 +11780,8 @@ export const tiktok_automatedRules_optimizerRuleUpdateStatus = defineEndpointDes
   requiredScopes: [],
   capabilities: ["automatedRules.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"rule_ids","wireName":"rule_ids","location":"body","required":true,"nullable":false},
@@ -11073,6 +11809,8 @@ export const tiktok_leads_pageFieldGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"page_id","wireName":"page_id","location":"query","required":true,"nullable":false}
@@ -11096,6 +11834,8 @@ export const tiktok_page_pageGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["page.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
     {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
@@ -11133,6 +11873,8 @@ export const tiktok_leads_pageLeadMockCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"lead_source","wireName":"lead_source","location":"body","required":false,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
@@ -11160,6 +11902,8 @@ export const tiktok_leads_pageLeadMockDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
     {"name":"library_id","wireName":"library_id","location":"body","required":false,"nullable":false},
@@ -11185,6 +11929,8 @@ export const tiktok_leads_pageLeadMockGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"lead_source","wireName":"lead_source","location":"query","required":false,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
@@ -11212,6 +11958,8 @@ export const tiktok_leads_pageLeadTask = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
     {"name":"library_id","wireName":"library_id","location":"body","required":false,"nullable":false},
@@ -11241,6 +11989,8 @@ export const tiktok_leads_pageLeadTaskDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
     {"name":"library_id","wireName":"library_id","location":"query","required":false,"nullable":false},
@@ -11266,6 +12016,8 @@ export const tiktok_leads_pageLibraryGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
     {"name":"page_size","wireName":"page_size","location":"query","required":false,"nullable":false}
@@ -11289,6 +12041,8 @@ export const tiktok_leads_pageLibraryTransfer = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["leads.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"bc_id","wireName":"bc_id","location":"body","required":true,"nullable":false}
@@ -11312,6 +12066,8 @@ export const tiktok_pangle_pangleAudiencePackageGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pangle.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -11333,6 +12089,8 @@ export const tiktok_pangle_pangleBlockListGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pangle.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -11354,6 +12112,8 @@ export const tiktok_pangle_pangleBlockListUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["pangle.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"add_app_list","wireName":"add_app_list","location":"body","required":false,"nullable":false},
@@ -11381,6 +12141,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserGet = defineEn
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -11406,6 +12168,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioAdvertiserUpdate = defin
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"body","required":true,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false}
@@ -11429,6 +12193,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioCreate = defineEndpointD
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"payment_portfolio_name","wireName":"payment_portfolio_name","location":"body","required":true,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
@@ -11454,6 +12220,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioCreditLineUpdate = defin
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"allocation_details","wireName":"allocation_details","location":"body","required":true,"nullable":false}
   ],
@@ -11475,6 +12243,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioGet = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false},
@@ -11502,6 +12272,8 @@ export const tiktok_bCPaymentPortfolios_paymentPortfolioUserGet = defineEndpoint
   requiredScopes: [],
   capabilities: ["bCPaymentPortfolios.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"payment_portfolio_id","wireName":"payment_portfolio_id","location":"query","required":true,"nullable":false},
     {"name":"page","wireName":"page","location":"query","required":false,"nullable":false},
@@ -11527,6 +12299,8 @@ export const tiktok_events10_pixelBatch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
     {"name":"batch","wireName":"batch","location":"body","required":false,"nullable":false}
@@ -11550,6 +12324,8 @@ export const tiktok_events10_pixelCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"pixel_name","wireName":"pixel_name","location":"body","required":true,"nullable":false},
@@ -11575,6 +12351,8 @@ export const tiktok_events10_pixelEventCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"pixel_events","wireName":"pixel_events","location":"body","required":true,"nullable":false},
@@ -11600,6 +12378,8 @@ export const tiktok_events10_pixelEventDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"event_id","wireName":"event_id","location":"body","required":true,"nullable":false}
@@ -11623,6 +12403,8 @@ export const tiktok_events10_pixelEventStats = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"date_range","wireName":"date_range","location":"query","required":true,"nullable":false},
@@ -11648,6 +12430,8 @@ export const tiktok_events10_pixelEventUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"currency_value","wireName":"currency_value","location":"body","required":false,"nullable":false},
@@ -11677,6 +12461,8 @@ export const tiktok_events10_pixelInstantPageEvent = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
@@ -11704,6 +12490,8 @@ export const tiktok_events10_pixelList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"code","wireName":"code","location":"query","required":false,"nullable":false},
@@ -11739,6 +12527,8 @@ export const tiktok_events10_pixelTrack = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"pixel_code","wireName":"pixel_code","location":"body","required":true,"nullable":false},
     {"name":"event","wireName":"event","location":"body","required":true,"nullable":false},
@@ -11770,6 +12560,8 @@ export const tiktok_events10_pixelUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["events10.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"pixel_name","wireName":"pixel_name","location":"body","required":true,"nullable":false},
@@ -11803,6 +12595,8 @@ export const tiktok_playableAds_playableDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableAds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"playable_id","wireName":"playable_id","location":"body","required":true,"nullable":false}
@@ -11826,6 +12620,8 @@ export const tiktok_playableAds_playableGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableAds.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"playable_id","wireName":"playable_id","location":"query","required":false,"nullable":false},
@@ -11861,6 +12657,8 @@ export const tiktok_playableAds_playableSave = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableAds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"playable_id","wireName":"playable_id","location":"body","required":true,"nullable":false},
@@ -11886,6 +12684,8 @@ export const tiktok_playableAds_playableUpload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableAds.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"upload_type","wireName":"upload_type","location":"body","required":false,"nullable":false},
@@ -11913,6 +12713,8 @@ export const tiktok_playableAds_playableValidate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["playableAds.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"playable_id","wireName":"playable_id","location":"query","required":true,"nullable":false}
@@ -11936,6 +12738,8 @@ export const tiktok_creativeReports_reportAdBenchmarkGet = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["creativeReports.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"compare_time_window","wireName":"compare_time_window","location":"query","required":false,"nullable":false},
@@ -11973,6 +12777,8 @@ export const tiktok_reporting_reportIntegratedGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reporting.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":false,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"query","required":false,"nullable":false},
@@ -12030,6 +12836,8 @@ export const tiktok_reporting_reportTaskCancel = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reporting.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"body","required":true,"nullable":false}
@@ -12053,6 +12861,8 @@ export const tiktok_reporting_reportTaskCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reporting.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -12076,6 +12886,8 @@ export const tiktok_reporting_reportTaskCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reporting.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":false,"nullable":false},
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":false,"nullable":false},
@@ -12127,6 +12939,8 @@ export const tiktok_reporting_reportTaskDownload = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reporting.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -12150,6 +12964,8 @@ export const tiktok_creativeReports_reportVideoPerformanceGet = defineEndpointDe
   requiredScopes: [],
   capabilities: ["creativeReports.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"report_type","wireName":"report_type","location":"query","required":false,"nullable":false},
@@ -12185,6 +13001,8 @@ export const tiktok_reachFrequency_rfContractQuery = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reachFrequency.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"included_date","wireName":"included_date","location":"query","required":true,"nullable":false},
@@ -12210,6 +13028,8 @@ export const tiktok_reachFrequency_rfDeliveryTimezone = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["reachFrequency.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"region_codes","wireName":"region_codes","location":"query","required":true,"nullable":false}
@@ -12233,6 +13053,8 @@ export const tiktok_reachFrequency_rfInventoryEstimate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["reachFrequency.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"audience_info","wireName":"audience_info","location":"query","required":true,"nullable":false},
@@ -12280,6 +13102,8 @@ export const tiktok_reachFrequency_rfOrderCancel = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["reachFrequency.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false}
@@ -12303,6 +13127,8 @@ export const tiktok_negativeKeywords_searchAdNegativeKeywordAdd = defineEndpoint
   requiredScopes: [],
   capabilities: ["negativeKeywords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
@@ -12332,6 +13158,8 @@ export const tiktok_negativeKeywords_searchAdNegativeKeywordDelete = defineEndpo
   requiredScopes: [],
   capabilities: ["negativeKeywords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
@@ -12359,6 +13187,8 @@ export const tiktok_negativeKeywords_searchAdNegativeKeywordDownload = defineEnd
   requiredScopes: [],
   capabilities: ["negativeKeywords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"object_type","wireName":"object_type","location":"query","required":true,"nullable":false},
@@ -12384,6 +13214,8 @@ export const tiktok_negativeKeywords_searchAdNegativeKeywordGet = defineEndpoint
   requiredScopes: [],
   capabilities: ["negativeKeywords.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"object_type","wireName":"object_type","location":"query","required":true,"nullable":false},
@@ -12413,6 +13245,8 @@ export const tiktok_negativeKeywords_searchAdNegativeKeywordUpdate = defineEndpo
   requiredScopes: [],
   capabilities: ["negativeKeywords.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"object_type","wireName":"object_type","location":"body","required":true,"nullable":false},
@@ -12442,6 +13276,8 @@ export const tiktok_tools_searchRegion = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"language","wireName":"language","location":"query","required":false,"nullable":false}
@@ -12465,6 +13301,8 @@ export const tiktok_audience_segmentAudience = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":true,"nullable":false},
@@ -12492,6 +13330,8 @@ export const tiktok_audience_segmentMapping = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["audience.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_ids","wireName":"advertiser_ids","location":"body","required":true,"nullable":false},
     {"name":"action","wireName":"action","location":"body","required":false,"nullable":false},
@@ -12523,6 +13363,8 @@ export const tiktok_showcase_showcaseIdentityGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["showcase.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -12544,6 +13386,8 @@ export const tiktok_showcase_showcaseProductGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["showcase.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -12579,6 +13423,8 @@ export const tiktok_showcase_showcaseRegionGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["showcase.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"identity_id","wireName":"identity_id","location":"query","required":true,"nullable":false},
@@ -12606,6 +13452,8 @@ export const tiktok_upgradedSmart_smartPlusAdAppeal = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
@@ -12633,6 +13481,8 @@ export const tiktok_upgradedSmart_smartPlusAdCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -12684,6 +13534,8 @@ export const tiktok_upgradedSmart_smartPlusAdGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -12713,6 +13565,8 @@ export const tiktok_upgradedSmart_smartPlusAdgroupBudgetUpdate = defineEndpointD
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"budget","wireName":"budget","location":"body","required":false,"nullable":false},
@@ -12738,6 +13592,8 @@ export const tiktok_upgradedSmart_smartPlusAdgroupCreate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
@@ -12883,6 +13739,8 @@ export const tiktok_upgradedSmart_smartPlusAdgroupGet = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -12912,6 +13770,8 @@ export const tiktok_upgradedSmart_smartPlusAdgroupStatusUpdate = defineEndpointD
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_ids","wireName":"adgroup_ids","location":"body","required":true,"nullable":false},
@@ -12937,6 +13797,8 @@ export const tiktok_upgradedSmart_smartPlusAdgroupUpdate = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"body","required":true,"nullable":false},
@@ -12994,6 +13856,8 @@ export const tiktok_upgradedSmart_smartPlusAdMaterialStatusUpdate = defineEndpoi
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
@@ -13021,6 +13885,8 @@ export const tiktok_upgradedSmart_smartPlusAdPreview = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"preview_type","wireName":"preview_type","location":"body","required":true,"nullable":false},
@@ -13058,6 +13924,8 @@ export const tiktok_upgradedSmart_smartPlusAdReviewInfo = defineEndpointDescript
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"smart_plus_ad_ids","wireName":"smart_plus_ad_ids","location":"query","required":true,"nullable":false},
@@ -13085,6 +13953,8 @@ export const tiktok_upgradedSmart_smartPlusAdStatusUpdate = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"smart_plus_ad_ids","wireName":"smart_plus_ad_ids","location":"body","required":true,"nullable":false},
@@ -13110,6 +13980,8 @@ export const tiktok_upgradedSmart_smartPlusAdUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"smart_plus_ad_id","wireName":"smart_plus_ad_id","location":"body","required":true,"nullable":false},
@@ -13157,6 +14029,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignCopyTaskCheck = defineEndpoin
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false}
@@ -13180,6 +14054,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignCopyTaskCreate = defineEndpoi
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
@@ -13223,6 +14099,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignCreate = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"request_id","wireName":"request_id","location":"body","required":true,"nullable":false},
@@ -13292,6 +14170,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignGet = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false},
@@ -13321,6 +14201,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignStatusUpdate = defineEndpoint
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_ids","wireName":"campaign_ids","location":"body","required":true,"nullable":false},
@@ -13348,6 +14230,8 @@ export const tiktok_upgradedSmart_smartPlusCampaignUpdate = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["upgradedSmart.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -13379,6 +14263,8 @@ export const tiktok_upgradedSmart_smartPlusMaterialReviewInfo = defineEndpointDe
   requiredScopes: [],
   capabilities: ["upgradedSmart.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"ad_material_ids","wireName":"ad_material_ids","location":"query","required":true,"nullable":false},
@@ -13406,6 +14292,8 @@ export const tiktok_sparkAdsRecommendation_sparkAdRecommend = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["sparkAdsRecommendation.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tcm_account_id","wireName":"tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
@@ -13435,6 +14323,8 @@ export const tiktok_superSplitTest_splitTestCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["superSplitTest.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"split_test_level","wireName":"split_test_level","location":"body","required":false,"nullable":false},
@@ -13472,6 +14362,8 @@ export const tiktok_superSplitTest_splitTestEnd = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["superSplitTest.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false}
@@ -13495,6 +14387,8 @@ export const tiktok_superSplitTest_splitTestPromote = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["superSplitTest.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false},
@@ -13520,6 +14414,8 @@ export const tiktok_superSplitTest_splitTestResultGet = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["superSplitTest.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"split_test_group_id","wireName":"split_test_group_id","location":"query","required":true,"nullable":false}
@@ -13543,6 +14439,8 @@ export const tiktok_superSplitTest_splitTestUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["superSplitTest.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"split_test_group_id","wireName":"split_test_group_id","location":"body","required":true,"nullable":false},
@@ -13570,6 +14468,8 @@ export const tiktok_tikTokStore_storeList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokStore.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":false,"nullable":false},
@@ -13595,6 +14495,8 @@ export const tiktok_tikTokStore_storeProductGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokStore.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"bc_id","wireName":"bc_id","location":"query","required":true,"nullable":false},
     {"name":"store_id","wireName":"store_id","location":"query","required":true,"nullable":false},
@@ -13630,6 +14532,8 @@ export const tiktok_subscription_subscriptionGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["subscription.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false},
@@ -13659,6 +14563,8 @@ export const tiktok_subscription_subscriptionSubscribe = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["subscription.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -13688,6 +14594,8 @@ export const tiktok_subscription_subscriptionUnsubscribe = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["subscription.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["app_credentials"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"body","required":true,"nullable":false},
@@ -13713,6 +14621,8 @@ export const tiktok_tools_targetingSearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"targeting_type","wireName":"targeting_type","location":"query","required":true,"nullable":false},
@@ -13744,6 +14654,8 @@ export const tiktok_tikTokOne_tcmTtVideoApply = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"video_id","wireName":"video_id","location":"body","required":true,"nullable":false},
     {"name":"tcm_account_id","wireName":"tcm_account_id","location":"body","required":true,"nullable":false},
@@ -13771,6 +14683,8 @@ export const tiktok_tikTokOne_tcmTtVideoStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"video_id","wireName":"video_id","location":"query","required":true,"nullable":false},
     {"name":"tcm_account_id","wireName":"tcm_account_id","location":"query","required":true,"nullable":false}
@@ -13794,6 +14708,8 @@ export const tiktok_terms_termCheck = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["terms.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"term_type","wireName":"term_type","location":"query","required":true,"nullable":false}
@@ -13817,6 +14733,8 @@ export const tiktok_terms_termConfirm = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["terms.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"term_type","wireName":"term_type","location":"body","required":true,"nullable":false}
@@ -13840,6 +14758,8 @@ export const tiktok_terms_termGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["terms.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"lang","wireName":"lang","location":"query","required":false,"nullable":false},
@@ -13865,6 +14785,8 @@ export const tiktok_brandSafety_tiktokInventoryFiltersGet = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["brandSafety.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -13886,6 +14808,8 @@ export const tiktok_brandSafety_tiktokInventoryFiltersUpdate = defineEndpointDes
   requiredScopes: [],
   capabilities: ["brandSafety.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"cover_all_ad_objectives","wireName":"cover_all_ad_objectives","location":"body","required":true,"nullable":false},
@@ -13915,6 +14839,8 @@ export const tiktok_tools_toolActionCategory = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"special_industries","wireName":"special_industries","location":"query","required":false,"nullable":false},
@@ -13940,6 +14866,8 @@ export const tiktok_tools_toolAvailableAttributionSource = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
@@ -13967,6 +14895,8 @@ export const tiktok_tools_toolBidRecommend = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":false,"nullable":false},
@@ -13996,6 +14926,8 @@ export const tiktok_tools_toolBrandSafetyPartnerAuthorizeStatus = defineEndpoint
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"partner","wireName":"partner","location":"query","required":true,"nullable":false}
@@ -14019,6 +14951,8 @@ export const tiktok_tools_toolCarrier = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -14040,6 +14974,8 @@ export const tiktok_tools_toolContentExclusionGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
@@ -14065,6 +15001,8 @@ export const tiktok_tools_toolContentExclusionInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"category_ids","wireName":"category_ids","location":"query","required":true,"nullable":false}
@@ -14088,6 +15026,8 @@ export const tiktok_tools_toolContextualTagGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
@@ -14117,6 +15057,8 @@ export const tiktok_tools_toolContextualTagInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"contextual_tag_ids","wireName":"contextual_tag_ids","location":"query","required":true,"nullable":false}
@@ -14140,6 +15082,8 @@ export const tiktok_tools_toolDeviceModel = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -14161,6 +15105,8 @@ export const tiktok_adDiagnosis_toolDiagnosisGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["adDiagnosis.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"filtering","wireName":"filtering","location":"query","required":false,"nullable":false}
@@ -14184,6 +15130,8 @@ export const tiktok_tools_toolDiagnosisSearchHealth = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"adgroup_id","wireName":"adgroup_id","location":"query","required":false,"nullable":false},
@@ -14209,6 +15157,8 @@ export const tiktok_tools_toolHashtagGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"keyword_ids","wireName":"keyword_ids","location":"query","required":true,"nullable":false}
@@ -14232,6 +15182,8 @@ export const tiktok_tools_toolHashtagRecommend = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"keywords","wireName":"keywords","location":"query","required":true,"nullable":false},
@@ -14257,6 +15209,8 @@ export const tiktok_tools_toolInterestCategory = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"version","wireName":"version","location":"query","required":false,"nullable":false},
@@ -14286,6 +15240,8 @@ export const tiktok_tools_toolInterestKeywordGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"keyword_query","wireName":"keyword_query","location":"query","required":false,"nullable":false},
@@ -14311,6 +15267,8 @@ export const tiktok_tools_toolInterestKeywordRecommend = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"keywords","wireName":"keywords","location":"query","required":false,"nullable":false},
@@ -14344,6 +15302,8 @@ export const tiktok_tools_toolLanguage = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -14365,6 +15325,8 @@ export const tiktok_tools_toolOpenUrl = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"url","wireName":"url","location":"query","required":true,"nullable":false},
@@ -14390,6 +15352,8 @@ export const tiktok_tools_toolOsVersion = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"os_type","wireName":"os_type","location":"query","required":true,"nullable":false}
@@ -14413,6 +15377,8 @@ export const tiktok_tools_toolPhoneRegionCode = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -14434,6 +15400,8 @@ export const tiktok_tools_toolRegion = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"placements","wireName":"placements","location":"query","required":true,"nullable":false},
@@ -14479,6 +15447,8 @@ export const tiktok_tools_toolSearchKeywordKeywordIdea = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"keywords","wireName":"keywords","location":"query","required":true,"nullable":false},
@@ -14510,6 +15480,8 @@ export const tiktok_tools_toolSearchKeywordRecommend = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"search_queries","wireName":"search_queries","location":"query","required":false,"nullable":false},
@@ -14549,6 +15521,8 @@ export const tiktok_tools_toolTargetingCategoryRecommend = defineEndpointDescrip
   requiredScopes: [],
   capabilities: ["tools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"region_codes","wireName":"region_codes","location":"body","required":true,"nullable":false},
@@ -14574,6 +15548,8 @@ export const tiktok_tools_toolTargetingInfo = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"scene","wireName":"scene","location":"body","required":false,"nullable":false},
@@ -14611,6 +15587,8 @@ export const tiktok_tools_toolTargetingList = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"location_ids","wireName":"location_ids","location":"query","required":true,"nullable":false},
@@ -14636,6 +15614,8 @@ export const tiktok_tools_toolTargetingSearch = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"body","required":true,"nullable":false},
@@ -14677,6 +15657,8 @@ export const tiktok_tools_toolTimezone = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
   ],
@@ -14698,6 +15680,8 @@ export const tiktok_tools_toolUrlValidate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"url","wireName":"url","location":"query","required":true,"nullable":false}
@@ -14721,6 +15705,8 @@ export const tiktok_tools_toolVastOption = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
@@ -14748,6 +15734,8 @@ export const tiktok_tools_toolVboStatus = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"objective_type","wireName":"objective_type","location":"query","required":true,"nullable":false},
@@ -14803,6 +15791,8 @@ export const tiktok_tikTokOne_ttoCreatorAuthorized = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
     {"name":"fields","wireName":"fields","location":"query","required":false,"nullable":false}
@@ -14826,6 +15816,8 @@ export const tiktok_tikTokOne_ttoCreatorAuthorizedVideoList = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
     {"name":"video_ids","wireName":"video_ids","location":"query","required":false,"nullable":false},
@@ -14853,6 +15845,8 @@ export const tiktok_tikTokOne_ttoCreatorCampaignJoin = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
     {"name":"tto_invite_link","wireName":"tto_invite_link","location":"body","required":true,"nullable":false}
@@ -14876,6 +15870,8 @@ export const tiktok_tikTokOne_ttoCreatorCampaignVideoLink = defineEndpointDescri
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
     {"name":"tto_invite_link","wireName":"tto_invite_link","location":"body","required":true,"nullable":false},
@@ -14901,6 +15897,8 @@ export const tiktok_tikTokOne_ttoCreatorLinkRequestConfirm = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"body","required":true,"nullable":false},
     {"name":"link_request_id","wireName":"link_request_id","location":"body","required":true,"nullable":false},
@@ -14926,6 +15924,8 @@ export const tiktok_tikTokOne_ttoCreatorLinkRequestGet = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"creator_id","wireName":"creator_id","location":"query","required":true,"nullable":false},
     {"name":"tto_invite_link","wireName":"tto_invite_link","location":"query","required":true,"nullable":false}
@@ -14949,6 +15949,8 @@ export const tiktok_tikTokOne_ttoOauth2Info = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false}
   ],
@@ -14970,6 +15972,8 @@ export const tiktok_tikTokOne_ttoOauth2Tcm = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"query","required":true,"nullable":false},
     {"name":"secret","wireName":"secret","location":"query","required":true,"nullable":false}
@@ -14993,6 +15997,8 @@ export const tiktok_tikTokOne_ttoTcmAnchorCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json","multipart"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"anchor_type","wireName":"anchor_type","location":"query","required":true,"nullable":false},
@@ -15034,6 +16040,8 @@ export const tiktok_tikTokOne_ttoTcmAnchorDelete = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
     {"name":"anchor_id","wireName":"anchor_id","location":"body","required":true,"nullable":false}
@@ -15057,6 +16065,8 @@ export const tiktok_tikTokOne_ttoTcmAnchorGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"anchor_ids","wireName":"anchor_ids","location":"query","required":false,"nullable":false},
@@ -15084,6 +16094,8 @@ export const tiktok_tikTokOne_ttoTcmBrandProfileCreate = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
     {"name":"brand_name","wireName":"brand_name","location":"body","required":true,"nullable":false},
@@ -15115,6 +16127,8 @@ export const tiktok_tikTokOne_ttoTcmBrandProfileGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"brand_profile_ids","wireName":"brand_profile_ids","location":"query","required":false,"nullable":false},
@@ -15142,6 +16156,8 @@ export const tiktok_tikTokOne_ttoTcmCampaign = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":false,"nullable":false},
@@ -15171,6 +16187,8 @@ export const tiktok_tikTokOne_ttoTcmCampaignCreate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_type","wireName":"campaign_type","location":"body","required":false,"nullable":false},
@@ -15216,6 +16234,8 @@ export const tiktok_tikTokOne_ttoTcmCampaignLink = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -15243,6 +16263,8 @@ export const tiktok_tikTokOne_ttoTcmCampaignLinkStatus = defineEndpointDescripto
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_ids","wireName":"campaign_ids","location":"query","required":false,"nullable":false},
@@ -15274,6 +16296,8 @@ export const tiktok_tikTokOne_ttoTcmCampaignUpdate = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"body","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"body","required":true,"nullable":false},
@@ -15305,6 +16329,8 @@ export const tiktok_tikTokOne_ttoTcmCategoryLabel = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"label_type","wireName":"label_type","location":"query","required":true,"nullable":false}
@@ -15328,6 +16354,8 @@ export const tiktok_tikTokOne_ttoTcmCreatorDiscover = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"country_codes","wireName":"country_codes","location":"query","required":true,"nullable":false},
@@ -15397,6 +16425,8 @@ export const tiktok_tikTokOne_ttoTcmCreatorPublic = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"handle_name","wireName":"handle_name","location":"query","required":true,"nullable":false}
@@ -15420,6 +16450,8 @@ export const tiktok_tikTokOne_ttoTcmCreatorPublicVideoList = defineEndpointDescr
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"handle_name","wireName":"handle_name","location":"query","required":true,"nullable":false},
@@ -15449,6 +16481,8 @@ export const tiktok_tikTokOne_ttoTcmCreatorStatusGet = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"handle_names","wireName":"handle_names","location":"query","required":true,"nullable":false}
@@ -15472,6 +16506,8 @@ export const tiktok_tikTokOne_ttoTcmRank = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"ranking_type","wireName":"ranking_type","location":"query","required":true,"nullable":false},
@@ -15507,6 +16543,8 @@ export const tiktok_tikTokOne_ttoTcmReport = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"tto_tcm_account_id","wireName":"tto_tcm_account_id","location":"query","required":true,"nullable":false},
     {"name":"campaign_id","wireName":"campaign_id","location":"query","required":true,"nullable":false},
@@ -15538,6 +16576,8 @@ export const tiktok_authentication_ttUserOauth2RefreshToken = defineEndpointDesc
   requiredScopes: [],
   capabilities: ["authentication.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
     {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
@@ -15565,6 +16605,8 @@ export const tiktok_authentication_ttUserOauth2Revoke = defineEndpointDescriptor
   requiredScopes: [],
   capabilities: ["authentication.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
     {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
@@ -15590,6 +16632,8 @@ export const tiktok_authentication_ttUserOauth2Token = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["authentication.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
     {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
@@ -15619,6 +16663,8 @@ export const tiktok_tikTokOne_ttUserOauth2Token2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"client_id","wireName":"client_id","location":"body","required":true,"nullable":false},
     {"name":"client_secret","wireName":"client_secret","location":"body","required":true,"nullable":false},
@@ -15648,6 +16694,8 @@ export const tiktok_accounts_ttUserTokenInfoGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["accounts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
@@ -15671,6 +16719,8 @@ export const tiktok_tikTokOne_ttUserTokenInfoGet2 = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["tikTokOne.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"app_id","wireName":"app_id","location":"body","required":true,"nullable":false},
     {"name":"access_token","wireName":"access_token","location":"body","required":true,"nullable":false}
@@ -15694,6 +16744,8 @@ export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoAuthorize = defineEndpoi
   requiredScopes: [],
   capabilities: ["sparkAdsUsingAuthorizedPosts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"auth_code","wireName":"auth_code","location":"body","required":true,"nullable":false},
@@ -15719,6 +16771,8 @@ export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoInfo = defineEndpointDes
   requiredScopes: [],
   capabilities: ["sparkAdsUsingAuthorizedPosts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"auth_code","wireName":"auth_code","location":"query","required":true,"nullable":false}
@@ -15742,6 +16796,8 @@ export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoList = defineEndpointDes
   requiredScopes: [],
   capabilities: ["sparkAdsUsingAuthorizedPosts.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false},
     {"name":"item_types","wireName":"item_types","location":"query","required":false,"nullable":false},
@@ -15771,6 +16827,8 @@ export const tiktok_sparkAdsUsingAuthorizedPosts_ttVideoUnbind = defineEndpointD
   requiredScopes: [],
   capabilities: ["sparkAdsUsingAuthorizedPosts.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"item_id","wireName":"item_id","location":"body","required":true,"nullable":false}
@@ -15794,6 +16852,8 @@ export const tiktok_creativeTools_videoFixTaskCreate = defineEndpointDescriptor(
   requiredScopes: [],
   capabilities: ["creativeTools.manage"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"advertiser_id","wireName":"advertiser_id","location":"body","required":true,"nullable":false},
     {"name":"tasks","wireName":"tasks","location":"body","required":false,"nullable":false}
@@ -15817,6 +16877,8 @@ export const tiktok_creativeTools_videoFixTaskGet = defineEndpointDescriptor({
   requiredScopes: [],
   capabilities: ["creativeTools.read"],
   rateLimitBucket: "tiktok-business-api",
+  authSchemes: ["access_token"],
+  protocols: ["json"],
   parameters: [
     {"name":"task_id","wireName":"task_id","location":"query","required":true,"nullable":false},
     {"name":"advertiser_id","wireName":"advertiser_id","location":"query","required":true,"nullable":false}
