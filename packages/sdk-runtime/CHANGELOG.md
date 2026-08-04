@@ -1,5 +1,13 @@
 # @openpromo/sdk-runtime
 
+## 0.5.0
+
+### Minor Changes
+
+- [#34](https://github.com/promobase/ad-platform-sdks/pull/34) [`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484) Thanks [@rayli09](https://github.com/rayli09)! - Generate a searchable LinkedIn Marketing API operation catalog from all public official Postman
+  collections and add Rest.li nested query values, batch method headers, static descriptor headers,
+  and query tunneling support.
+
 ## 0.4.0
 
 ### Minor Changes
